@@ -1,0 +1,558 @@
+(function () {
+  'use strict';
+
+  var L = window.LIBRARY;
+  var app = document.getElementById('main');
+  var nav = document.getElementById('nav');
+  var q = document.getElementById('q');
+  var skip = document.getElementById('skip');
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+  var token = '';
+  var query = '';
+  var filters = {};
+  var focusKey = null;
+  var firstRender = true;
+  var ignoreHash = false;
+  var saved = loadSaved();
+
+  /* ---------- storage ---------- */
+  function loadSaved() {
+    try {
+      var v = JSON.parse(localStorage.getItem('mrk-saved') || '[]');
+      return Array.isArray(v) ? v : [];
+    } catch (e) { return []; }
+  }
+  function storeSaved() {
+    try { localStorage.setItem('mrk-saved', JSON.stringify(saved)); } catch (e) {}
+  }
+  function isSaved(path) { return saved.indexOf(path) >= 0; }
+  function toggleSaved(path) {
+    var i = saved.indexOf(path);
+    if (i >= 0) saved.splice(i, 1); else saved.push(path);
+    storeSaved();
+  }
+
+  /* ---------- helpers ---------- */
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function toArr(v) { return v == null ? [] : (Array.isArray(v) ? v : [v]); }
+  function acts(n) { return n === 1 ? '1 activity' : n + ' activities'; }
+  function units(n) { return n === 1 ? '1 unit' : n + ' units'; }
+  function courseToken(c) { return c.id; }
+  function unitToken(c, u) { return c.id + '.' + u.id; }
+  function href(t) { return '#' + encodeURIComponent(t).replace(/%2E/g, '.'); }
+  function courseCount(c) {
+    return c.units.reduce(function (n, u) { return n + u.artifacts.length; }, 0);
+  }
+  function unitsWithActivities(c) {
+    return c.units.filter(function (u) { return u.artifacts.length; }).length;
+  }
+  function everything() {
+    var out = [];
+    L.courses.forEach(function (c) {
+      c.units.forEach(function (u) {
+        u.artifacts.forEach(function (a) { out.push({ a: a, c: c, u: u }); });
+      });
+    });
+    return out;
+  }
+  function isNew(a) {
+    var t = a.added ? Date.parse(a.added) : NaN;
+    if (isNaN(t)) return false;
+    return (Date.now() - t) < (L.newDays || 30) * 86400000;
+  }
+  function byNewest(a, b) {
+    return (Date.parse(b.a.added) || 0) - (Date.parse(a.a.added) || 0);
+  }
+
+  /* ---------- decorative art ---------- */
+  var ART = {
+    curve:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="100" y="20" width="80" height="110" rx="6"/>' +
+      '<line class="s-thin" x1="20" y1="130" x2="190" y2="130"/>' +
+      '<line class="s-thin" x1="100" y1="10" x2="100" y2="150"/>' +
+      '<path class="s" d="M 30 20 Q 100 200 170 20"/>' +
+      '<circle class="f" cx="65" cy="87.5" r="7"/><circle class="f" cx="135" cy="87.5" r="7"/><circle class="f" cx="100" cy="110" r="7"/>' +
+      '</svg>',
+    triangle:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<polygon class="f-soft" points="100,20 30,130 170,130"/>' +
+      '<circle class="s-thin" cx="100" cy="91.6" r="38.4"/>' +
+      '<polygon class="s" points="100,20 30,130 170,130"/>' +
+      '<path class="s" d="M 52 130 A 22 22 0 0 0 44 114"/>' +
+      '<circle class="f" cx="100" cy="20" r="7"/><circle class="f" cx="30" cy="130" r="7"/><circle class="f" cx="170" cy="130" r="7"/>' +
+      '</svg>'
+  };
+  function artFor(c) { return ART[c.art] || ''; }
+
+  var STAR =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2 6.3 20.3l1.2-6.4L2.8 9.5l6.4-.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+  var STAR_ON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2 6.3 20.3l1.2-6.4L2.8 9.5l6.4-.8z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
+
+  /* ---------- pieces ---------- */
+  function crumbs(list) {
+    return '<nav class="crumbs" aria-label="Breadcrumb"><ol>' + list.map(function (item, i) {
+      var last = i === list.length - 1;
+      return '<li>' + (last ? '<span aria-current="page">' + esc(item[0]) + '</span>'
+                            : '<a href="' + item[1] + '">' + esc(item[0]) + '</a>') + '</li>';
+    }).join('') + '</ol></nav>';
+  }
+
+  function saveBtnHtml(path) {
+    var on = isSaved(path);
+    return '<button type="button" class="btn btn-ghost save" data-path="' + esc(path) + '" aria-pressed="' + on + '">' +
+      (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
+  }
+
+  function cardHtml(it, showWhere) {
+    var a = it.a;
+    var tags = [];
+    if (isNew(a)) tags.push('<li class="tag tag-new">New</li>');
+    toArr(a.type).concat(toArr(a.level)).forEach(function (t) { tags.push('<li class="tag">' + esc(t) + '</li>'); });
+    var topics = toArr(a.topics);
+    return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-path="' + esc(a.path) + '">' +
+      '<a class="thumb" href="' + esc(a.path) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">' +
+        (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') + '</a>' +
+      '<div class="card-body">' +
+        (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(it.u.name) + '</p>' : '') +
+        (tags.length ? '<ul class="tags">' + tags.join('') + '</ul>' : '') +
+        '<h3><a href="' + esc(a.path) + '" target="_blank" rel="noopener">' + esc(a.title) +
+          '<span class="sr"> (opens in a new tab)</span></a></h3>' +
+        '<p class="desc">' + esc(a.description || '') + '</p>' +
+        (topics.length ? '<p class="topics">' + esc(topics.join(', ')) + '</p>' : '') +
+        '<div class="actions"><a class="btn btn-open" href="' + esc(a.path) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open activity</a>' +
+          saveBtnHtml(a.path) + '</div>' +
+      '</div></li>';
+  }
+
+  function chip(field, val, label) {
+    var on = (filters[field] || '') === val;
+    return '<button type="button" class="chip" data-field="' + field + '" data-val="' + esc(val) +
+           '" aria-pressed="' + on + '">' + esc(label) + '</button>';
+  }
+  function chipsHtml(items) {
+    var out = '';
+    [['type', 'Type'], ['level', 'Level']].forEach(function (f) {
+      var seen = [];
+      items.forEach(function (it) {
+        toArr(it.a[f[0]]).forEach(function (v) { if (seen.indexOf(v) < 0) seen.push(v); });
+      });
+      if (seen.length < 2) return;
+      out += '<div class="chips" role="group" aria-label="Filter by ' + f[1].toLowerCase() + '">' +
+             '<span class="chips-label">' + f[1] + '</span>' + chip(f[0], '', 'All');
+      seen.forEach(function (v) { out += chip(f[0], v, v); });
+      out += '</div>';
+    });
+    return out ? '<div class="filters">' + out + '</div>' : '';
+  }
+  function applyFilters(items) {
+    return items.filter(function (it) {
+      return Object.keys(filters).every(function (k) {
+        return !filters[k] || toArr(it.a[k]).indexOf(filters[k]) >= 0;
+      });
+    });
+  }
+  function cardsHtml(items, showWhere) {
+    var shown = applyFilters(items);
+    if (!shown.length) {
+      return '<div class="empty"><h2>No matches</h2><p>No activities fit these filters. Choose All to see everything here.</p></div>';
+    }
+    return '<ul class="cards">' + shown.map(function (it) { return cardHtml(it, showWhere); }).join('') + '</ul>';
+  }
+
+  /* ---------- hero graph ---------- */
+  var SLOPES = [[-3, 1], [-2, 1], [-1, 1], [-1, 2], [0, 1], [1, 2], [1, 1], [3, 2], [2, 1], [3, 1]];
+  var POINTS = [[-4, 3], [-1, -3], [1, 4], [3, -1], [4, 3], [-5, 4]];
+  var plot = { si: 5, b: 1, incl: false };
+  var U = 26, O = 180;
+  function px(x) { return O + x * U; }
+  function py(y) { return O - y * U; }
+
+  function frac(n, d) {
+    return '<span class="frac"><span class="fn">' + n + '</span><span class="fd">' + d + '</span></span>';
+  }
+  function slopeLabel(n, d) {
+    var s = n < 0 ? '−' : '';
+    var a = Math.abs(n);
+    return d === 1 ? s + a : s + frac(a, d);
+  }
+  function slopeWords(n, d) {
+    var s = n < 0 ? 'negative ' : '';
+    var a = Math.abs(n);
+    if (d === 1) return s + a;
+    var den = d === 2 ? 'half' : 'halves';
+    var num = ['zero', 'one', 'two', 'three'][a];
+    if (a === 1) return s + 'one half';
+    return s + num + ' ' + den;
+  }
+  function equationHtml() {
+    var m = SLOPES[plot.si], n = m[0], d = m[1], b = plot.b;
+    var sym = plot.incl ? '≥' : '>';
+    var t = '<i>y</i> ' + sym + ' ';
+    var hasX = n !== 0;
+    if (hasX) {
+      var a = Math.abs(n), neg = n < 0 ? '−' : '';
+      if (d === 1) t += neg + (a === 1 ? '' : a) + '<i>x</i>';
+      else t += neg + frac(a, d) + '<i>x</i>';
+    }
+    if (b > 0) t += hasX ? ' + ' + b : String(b);
+    else if (b < 0) t += hasX ? ' − ' + Math.abs(b) : '−' + Math.abs(b);
+    else if (!hasX) t += '0';
+    return t;
+  }
+  function insidePoint(p) {
+    var m = SLOPES[plot.si], n = m[0], d = m[1];
+    var lhs = p[1] * d, rhs = n * p[0] + plot.b * d;
+    return plot.incl ? lhs >= rhs : lhs > rhs;
+  }
+
+  function plotHtml() {
+    var g = '';
+    for (var i = -6; i <= 6; i++) {
+      if (i === 0) continue;
+      g += '<line class="g-grid" x1="' + px(i) + '" y1="' + py(-6) + '" x2="' + px(i) + '" y2="' + py(6) + '"/>' +
+           '<line class="g-grid" x1="' + px(-6) + '" y1="' + py(i) + '" x2="' + px(6) + '" y2="' + py(i) + '"/>';
+    }
+    var ticks = '';
+    [-4, -2, 2, 4, 6].forEach(function (v) {
+      ticks += '<text class="g-tick" x="' + px(v) + '" y="' + (py(0) + 14) + '" text-anchor="middle">' + (v < 0 ? '−' + (-v) : v) + '</text>';
+      if (v !== 6) ticks += '<text class="g-tick" x="' + (px(0) - 6) + '" y="' + (py(v) + 3.5) + '" text-anchor="end">' + (v < 0 ? '−' + (-v) : v) + '</text>';
+    });
+    var pts = POINTS.map(function (p, i) {
+      return '<circle id="pt' + i + '" cx="' + px(p[0]) + '" cy="' + py(p[1]) + '" r="6.5" class="g-pt-out"/>';
+    }).join('');
+    return '<div class="plot-card" id="plot">' +
+      '<div class="plot-top"><div class="plot-eq" id="plotEq" aria-hidden="true"></div>' +
+      '<label class="check" for="incl"><input type="checkbox" id="incl"> Include the line</label></div>' +
+      '<svg class="plot-svg" viewBox="0 0 360 360" role="img" aria-label="Coordinate grid showing the shaded solution region of an inequality and six points">' +
+        '<defs><clipPath id="plotClip"><rect x="' + px(-6.4) + '" y="' + py(6.4) + '" width="' + (12.8 * U) + '" height="' + (12.8 * U) + '"/></clipPath></defs>' +
+        '<rect class="g-bg" x="' + px(-6.4) + '" y="' + py(6.4) + '" width="' + (12.8 * U) + '" height="' + (12.8 * U) + '"/>' +
+        g +
+        '<g clip-path="url(#plotClip)"><polygon class="g-region" id="plotRegion" points="0,0"/>' +
+        '<line class="g-line" id="plotLine" x1="0" y1="0" x2="0" y2="0"/></g>' +
+        '<line class="g-axis" x1="' + px(-6.4) + '" y1="' + py(0) + '" x2="' + px(6.4) + '" y2="' + py(0) + '"/>' +
+        '<line class="g-axis" x1="' + px(0) + '" y1="' + py(-6.4) + '" x2="' + px(0) + '" y2="' + py(6.4) + '"/>' +
+        ticks + pts +
+      '</svg>' +
+      '<div class="sliders">' +
+        '<div class="slider"><div class="slider-head"><label for="slope">Slope</label><output id="slopeOut" for="slope"></output></div>' +
+          '<input type="range" id="slope" min="0" max="' + (SLOPES.length - 1) + '" step="1" value="' + plot.si + '"></div>' +
+        '<div class="slider"><div class="slider-head"><label for="icpt">y-intercept</label><output id="icptOut" for="icpt"></output></div>' +
+          '<input type="range" id="icpt" min="-4" max="4" step="1" value="' + plot.b + '"></div>' +
+      '</div>' +
+      '<p class="readout" id="plotRead" role="status" aria-live="polite"></p>' +
+    '</div>';
+  }
+
+  function updatePlot() {
+    var root = document.getElementById('plot');
+    if (!root) return;
+    var m = SLOPES[plot.si], slope = m[0] / m[1], b = plot.b;
+    document.getElementById('plotEq').innerHTML = equationHtml();
+    document.getElementById('slopeOut').innerHTML = slopeLabel(m[0], m[1]);
+    document.getElementById('icptOut').textContent = (b < 0 ? '−' + Math.abs(b) : String(b));
+    var sl = document.getElementById('slope'), ic = document.getElementById('icpt');
+    sl.setAttribute('aria-valuetext', 'slope ' + slopeWords(m[0], m[1]));
+    ic.setAttribute('aria-valuetext', 'y-intercept ' + (b < 0 ? 'negative ' + Math.abs(b) : b));
+    document.getElementById('incl').checked = plot.incl;
+    var x0 = -12, x1 = 12;
+    var y0 = slope * x0 + b, y1 = slope * x1 + b;
+    document.getElementById('plotRegion').setAttribute('points',
+      px(x0) + ',' + py(y0) + ' ' + px(x1) + ',' + py(y1) + ' ' + px(x1) + ',' + py(40) + ' ' + px(x0) + ',' + py(40));
+    var ln = document.getElementById('plotLine');
+    ln.setAttribute('x1', px(x0)); ln.setAttribute('y1', py(y0));
+    ln.setAttribute('x2', px(x1)); ln.setAttribute('y2', py(y1));
+    ln.setAttribute('stroke-dasharray', plot.incl ? '' : '9 7');
+    var inside = 0;
+    POINTS.forEach(function (p, i) {
+      var on = insidePoint(p);
+      if (on) inside++;
+      document.getElementById('pt' + i).setAttribute('class', on ? 'g-pt-in' : 'g-pt-out');
+    });
+    var read = '<b>' + inside + ' of ' + POINTS.length + ' points</b> are in the shaded region. ' +
+      (plot.incl ? 'Points on the solid line count.' : 'Points on the dashed line do not count.');
+    document.getElementById('plotRead').innerHTML = read;
+  }
+
+  function bindPlot() {
+    var sl = document.getElementById('slope');
+    if (!sl) return;
+    sl.addEventListener('input', function () { plot.si = +sl.value; updatePlot(); });
+    document.getElementById('icpt').addEventListener('input', function (e) { plot.b = +e.target.value; updatePlot(); });
+    document.getElementById('incl').addEventListener('change', function (e) { plot.incl = e.target.checked; updatePlot(); });
+    updatePlot();
+  }
+
+  /* ---------- views ---------- */
+  function homeView() {
+    var all = everything().sort(byNewest);
+    var anyNew = all.some(function (it) { return isNew(it.a); });
+    var courseLinks = L.courses.map(function (c) {
+      return '<a class="btn btn-course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">Browse ' + esc(c.name) + '</a>';
+    }).join('');
+    return {
+      title: L.title,
+      html:
+        '<section class="hero"><div class="wrap hero-grid">' +
+          '<div class="hero-copy"><h1 tabindex="-1">' + esc(L.title).replace(/&#39;/g, '’') + '</h1>' +
+          '<p class="lede">' + esc(L.tagline) + '</p><div class="hero-actions">' + courseLinks + '</div></div>' +
+          plotHtml() +
+        '</div></section>' +
+        '<section class="section"><div class="wrap"><h2 class="sr">Courses</h2><ul class="courses">' +
+          L.courses.map(function (c) {
+            var n = courseCount(c);
+            return '<li><a class="course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
+              '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
+              '<p class="count">' + (n ? acts(n) + ' in ' + units(unitsWithActivities(c)) : 'First activities coming soon') + '</p>' +
+              artFor(c) + '</a></li>';
+          }).join('') + '</ul></div></section>' +
+        (all.length ?
+          '<section class="section"><div class="wrap"><div class="section-head"><h2>' + (anyNew ? 'New activities' : 'All activities') + '</h2>' +
+          '<button type="button" class="btn btn-ghost" id="surprise">Surprise me</button></div>' +
+          '<ul class="cards" id="homeCards">' + all.map(function (it) { return cardHtml(it, true); }).join('') + '</ul></div></section>' : '')
+    };
+  }
+
+  function bandHtml(c, inner, extra) {
+    return '<section class="band"' + (c ? ' data-color="' + esc(c.color || '') + '"' : '') + '><div class="wrap">' + inner + '</div></section>';
+  }
+
+  function courseView(c) {
+    var n = courseCount(c);
+    var inner =
+      '<div class="band-grid"><div>' +
+        crumbs([['Home', '#'], [c.name, null]]) +
+        '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
+        (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
+        '<p class="band-meta">' + (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon') + '</p>' +
+      '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
+    return {
+      title: c.name,
+      html: bandHtml(c, inner) +
+        '<section class="section"><div class="wrap"><h2 class="sr">Units</h2><ul class="units">' +
+        c.units.map(function (u) {
+          var k = u.artifacts.length;
+          if (!k) {
+            return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + esc(u.name) + '</h3>' +
+              '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
+          }
+          var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
+            return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
+          }).join('');
+          return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + esc(u.name) + '</h3>' +
+            '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
+        }).join('') + '</ul></div></section>'
+    };
+  }
+
+  function unitView(c, u) {
+    var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
+    var inner =
+      crumbs([['Home', '#'], [c.name, href(courseToken(c))], [u.name, null]]) +
+      '<h1 tabindex="-1">' + esc(u.name) + '</h1>' +
+      '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>';
+    return {
+      title: u.name + ', ' + c.name,
+      html: bandHtml(c, inner) +
+        '<section class="section"><div class="wrap">' +
+        (items.length ? chipsHtml(items) + cardsHtml(items, false)
+                      : '<div class="empty"><h2>Coming soon</h2><p>No activities in this unit yet. <a href="' + href(courseToken(c)) + '">Back to ' + esc(c.name) + '</a></p></div>') +
+        '</div></section>'
+    };
+  }
+
+  function savedView() {
+    var items = everything().filter(function (it) { return isSaved(it.a.path); });
+    var inner = crumbs([['Home', '#'], ['Saved', null]]) + '<h1 tabindex="-1">Saved activities</h1>' +
+      '<p class="band-meta">' + acts(items.length) + '</p>';
+    return {
+      title: 'Saved activities',
+      html: bandHtml(null, inner) +
+        '<section class="section"><div class="wrap">' +
+        (items.length ? chipsHtml(items) + cardsHtml(items, true)
+                      : '<div class="empty"><h2>Nothing saved yet</h2><p>Choose Save on any activity and it will be listed here. Saved activities stay in this browser.</p></div>') +
+        '</div></section>'
+    };
+  }
+
+  function searchView(text) {
+    var terms = text.toLowerCase().split(/\s+/).filter(Boolean);
+    var items = everything().filter(function (it) {
+      var hay = [it.a.title, it.a.description, it.u.name, it.c.name]
+        .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' ').toLowerCase();
+      return terms.every(function (t) { return hay.indexOf(t) >= 0; });
+    });
+    var inner = '<h1 tabindex="-1">Results for “' + esc(text) + '”</h1><p class="band-meta">' + acts(items.length) + '</p>';
+    return {
+      title: 'Search: ' + text,
+      html: bandHtml(null, inner) +
+        '<section class="section"><div class="wrap">' +
+        (items.length ? chipsHtml(items) + cardsHtml(items, true)
+                      : '<div class="empty"><h2>No matches</h2><p>Nothing matches “' + esc(text) + '”. Try a topic such as slope or inequalities, or <a href="#">browse by course</a>.</p></div>') +
+        '</div></section>'
+    };
+  }
+
+  function notFoundView() {
+    return {
+      title: 'Page not found',
+      html: bandHtml(null, '<h1 tabindex="-1">Page not found</h1>') +
+        '<section class="section"><div class="wrap"><div class="empty"><h2>That page does not exist</h2><p><a href="#">Go to the home page</a> and choose a course.</p></div></div></section>'
+    };
+  }
+
+  function resolve(t) {
+    if (!t) return { name: 'home' };
+    if (t === 'saved') return { name: 'saved' };
+    var parts = t.split('.');
+    var c = L.courses.filter(function (x) { return x.id === parts[0]; })[0];
+    if (!c) return { name: 'nf' };
+    if (!parts[1]) return { name: 'course', c: c };
+    var u = c.units.filter(function (x) { return x.id === parts[1]; })[0];
+    return u ? { name: 'unit', c: c, u: u } : { name: 'nf' };
+  }
+
+  /* ---------- render ---------- */
+  function updateNav(r) {
+    var html = L.courses.map(function (c) {
+      var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
+      return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
+    }).join('');
+    var curSaved = r && r.name === 'saved' ? ' aria-current="page"' : '';
+    html += '<a href="#saved"' + curSaved + '>Saved' +
+      (saved.length ? ' <span class="badge" aria-label="' + saved.length + ' saved">' + saved.length + '</span>' : '') + '</a>';
+    nav.innerHTML = html;
+  }
+
+  function render(keepFocus) {
+    var r = resolve(token);
+    var view;
+    if (query) view = searchView(query);
+    else if (r.name === 'home') view = homeView();
+    else if (r.name === 'course') view = courseView(r.c);
+    else if (r.name === 'unit') view = unitView(r.c, r.u);
+    else if (r.name === 'saved') view = savedView();
+    else view = notFoundView();
+
+    app.innerHTML = view.html;
+    try { document.title = view.title === L.title ? L.title : view.title + ' | ' + L.title; } catch (e) {}
+    updateNav(query ? null : r);
+    if (!query && r.name === 'home') bindPlot();
+
+    if (focusKey) {
+      Array.prototype.forEach.call(app.querySelectorAll('.chip'), function (b) {
+        if (b.getAttribute('data-field') + '|' + b.getAttribute('data-val') === focusKey) b.focus();
+      });
+      focusKey = null;
+    } else if (!keepFocus && !firstRender) {
+      var h = app.querySelector('h1');
+      if (h) h.focus({ preventScroll: true });
+      window.scrollTo(0, 0);
+    }
+    firstRender = false;
+  }
+
+  function go(t) {
+    token = t;
+    query = '';
+    q.value = '';
+    filters = {};
+    try {
+      if (location.hash.replace(/^#/, '') !== t) { ignoreHash = true; location.hash = t; }
+    } catch (e) { ignoreHash = false; }
+    render(false);
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (a && !e.metaKey && !e.ctrlKey && !e.shiftKey && a.getAttribute('target') !== '_blank') {
+      e.preventDefault();
+      var h = a.getAttribute('href').replace(/^#/, '');
+      var t = h; try { t = decodeURIComponent(h); } catch (err) {}
+      go(t);
+      return;
+    }
+
+    var s = e.target.closest ? e.target.closest('.save') : null;
+    if (s) {
+      var path = s.getAttribute('data-path');
+      toggleSaved(path);
+      var r = resolve(token);
+      if (!query && r.name === 'saved') {
+        render(true);
+        var first = app.querySelector('.save');
+        if (first) first.focus(); else { var h1 = app.querySelector('h1'); if (h1) h1.focus({ preventScroll: true }); }
+        return;
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('.save'), function (b) {
+        if (b.getAttribute('data-path') !== path) return;
+        var on = isSaved(path);
+        b.setAttribute('aria-pressed', on);
+        b.innerHTML = (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span>';
+      });
+      updateNav(query ? null : r);
+      return;
+    }
+
+    var c = e.target.closest ? e.target.closest('.chip') : null;
+    if (c) {
+      var field = c.getAttribute('data-field'), val = c.getAttribute('data-val');
+      if (val) filters[field] = val; else delete filters[field];
+      focusKey = field + '|' + val;
+      render(true);
+      return;
+    }
+
+    if (e.target.closest && e.target.closest('#surprise')) {
+      var cards = app.querySelectorAll('#homeCards .card');
+      if (!cards.length) return;
+      var pick = cards[Math.floor(Math.random() * cards.length)];
+      Array.prototype.forEach.call(cards, function (x) { x.classList.remove('flash'); });
+      pick.classList.add('flash');
+      pick.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      var link = pick.querySelector('h3 a');
+      if (link) link.focus({ preventScroll: true });
+      setTimeout(function () { pick.classList.remove('flash'); }, 2200);
+    }
+  });
+
+  document.getElementById('searchForm').addEventListener('submit', function (e) { e.preventDefault(); });
+  q.addEventListener('input', function () {
+    query = q.value.trim();
+    filters = {};
+    render(true);
+  });
+  q.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && q.value) { q.value = ''; query = ''; filters = {}; render(true); }
+  });
+  skip.addEventListener('click', function () { app.focus(); });
+
+  window.addEventListener('hashchange', function () {
+    if (ignoreHash) { ignoreHash = false; return; }
+    var t = location.hash.replace(/^#/, '');
+    try { t = decodeURIComponent(t); } catch (e) {}
+    if (t === token && !query) return;
+    token = t; query = ''; q.value = ''; filters = {};
+    render(false);
+  });
+
+  /* ---------- start ---------- */
+  (function init() {
+    var foot = document.getElementById('foot');
+    if (foot) foot.textContent = L.footer || '';
+    var bn = document.getElementById('brandName');
+    if (bn) bn.textContent = L.title.replace(/'/g, '’');
+    var t = '';
+    try { t = decodeURIComponent(location.hash.replace(/^#/, '')); } catch (e) {}
+    token = t;
+    render(true);
+  })();
+})();

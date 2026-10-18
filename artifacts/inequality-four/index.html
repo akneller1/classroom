@@ -1,0 +1,522 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Inequality Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#e2e8f4; --ink:#12203f; --muted:#52608a; --line:#c6cfe3;
+  --board:#2848c7; --board-2:#1c3597; --hole:#dce4f6;
+  --t0:#e5484d; --t0-ink:#ffffff; --t1:#f4b400; --t1-ink:#2b2100;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Inequality Four</h1><span>Solve a compound inequality to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">L</div><div class="cardbody">
+      <input class="name" id="name0" value="Left side" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">R</div><div class="cardbody">
+      <input class="name" id="name1" value="Right side" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: one-step</option>
+        <option value="2">Level 2: two-step and fractions</option>
+        <option value="3">Level 3: negatives and fractions</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*GEN-START*/
+const MINUS='−', INF=Infinity;
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const N=n=>n<0?MINUS+Math.abs(n):String(n);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const Vr=v=>`<i class="var">${v}</i>`;
+const sym=(dir,inc)=>dir==='<'?(inc?'≤':'<'):(inc?'≥':'>');
+const flipDir=d=>d==='<'?'>':'<';
+const cmp=(a,dir,inc,b)=>dir==='<'?(inc?a<=b:a<b):(inc?a>=b:a>b);
+const bTxt=b=>b>0?` + ${b}`:b<0?` ${MINUS} ${-b}`:'';
+
+/* ---- interval sets ---- */
+function ivText(iv,v){
+  const V=Vr(v);
+  if(iv.lo===-INF) return `${V} ${iv.hiInc?'≤':'<'} ${N(iv.hi)}`;
+  if(iv.hi===INF) return `${V} ${iv.loInc?'≥':'>'} ${N(iv.lo)}`;
+  return `${N(iv.lo)} ${iv.loInc?'≤':'<'} ${V} ${iv.hiInc?'≤':'<'} ${N(iv.hi)}`;
+}
+const setText=(S,v)=>S.map(iv=>ivText(iv,v)).join(' <span class="or">or</span> ');
+const inIv=(iv,x)=>(x>iv.lo||(iv.loInc&&x===iv.lo))&&(x<iv.hi||(iv.hiInc&&x===iv.hi));
+const inSet=(S,x)=>S.some(iv=>inIv(iv,x));
+const cp=S=>S.map(iv=>({...iv}));
+const keyOf=S=>setText(S,'x');
+function rayIv(r){return r.dir==='<'?{lo:-INF,hi:r.val,loInc:false,hiInc:r.inc}:{lo:r.val,hi:INF,loInc:r.inc,hiInc:false};}
+
+/* ---- linear / fractional expressions ---- */
+const incr=F=>F.kind==='frac'||F.a>0;
+const fval=(F,x)=>F.kind==='frac'?(x+F.b)/F.d:F.a*x+F.b;
+const genX=F=>F.kind==='frac'?F.d*rnd(-3,4)-F.b:rnd(-8,9);
+const axTerm=(F,v)=>F.a===1?Vr(v):F.a===-1?MINUS+Vr(v):N(F.a)+Vr(v);
+function fHtml(F,v){
+  if(F.kind==='frac') return `<span class="frac"><span class="n">${Vr(v)}${bTxt(F.b)}</span><span class="d">${F.d}</span></span>`;
+  return axTerm(F,v)+bTxt(F.b);
+}
+function makeF(level){
+  const r=Math.random();
+  if(level===1) return r<0.6?{kind:'lin',a:1,b:nz(-8,8)}:{kind:'lin',a:pick([2,3,4,5]),b:0};
+  if(level===2){ if(r<0.2) return {kind:'frac',d:pick([2,3,4]),b:pick([0,nz(-6,6)])}; return {kind:'lin',a:pick([2,3,4,5]),b:nz(-9,9)}; }
+  if(r<0.42) return {kind:'lin',a:pick([-1,-2,-3,-4,-5]),b:nz(-9,9)};
+  if(r<0.75) return {kind:'frac',d:pick([2,3,4,5]),b:pick([0,nz(-6,6)])};
+  return {kind:'lin',a:pick([2,3,4,5]),b:nz(-9,9)};
+}
+
+/* ---- builders: each returns {statement,S,steps,flip,holds} ---- */
+function threePart(level,v){
+  for(let t=0;t<80;t++){
+    const F=makeF(level); let x1=genX(F),x2=genX(F);
+    if(x1>x2)[x1,x2]=[x2,x1];
+    if(x2-x1<2||x2-x1>14) continue;
+    const i1=Math.random()<.5,i2=Math.random()<.5, up=incr(F);
+    const lo=up?fval(F,x1):fval(F,x2), hi=up?fval(F,x2):fval(F,x1);
+    const loInc=up?i1:i2, hiInc=up?i2:i1;
+    const sL=loInc?'≤':'<', sR=hiInc?'≤':'<';
+    const S=[{lo:x1,hi:x2,loInc:i1,hiInc:i2}];
+    const statement=`${N(lo)} ${sL} ${fHtml(F,v)} ${sR} ${N(hi)}`;
+    const fin=setText(S,v), steps=[];
+    if(F.kind==='frac'){
+      steps.push([`Multiply all three parts by ${F.d}.`,`${N(lo*F.d)} ${sL} ${Vr(v)}${bTxt(F.b)} ${sR} ${N(hi*F.d)}`]);
+      if(F.b!==0) steps.push([`${F.b>0?'Subtract':'Add'} ${Math.abs(F.b)} ${F.b>0?'from':'to'} all three parts.`,fin]);
+    } else {
+      if(F.b!==0) steps.push([`${F.b>0?'Subtract':'Add'} ${Math.abs(F.b)} ${F.b>0?'from':'to'} all three parts.`,`${N(lo-F.b)} ${sL} ${axTerm(F,v)} ${sR} ${N(hi-F.b)}`]);
+      if(F.a!==1) steps.push([`Divide all three parts by ${N(F.a)}.${F.a<0?' Dividing by a negative flips both signs and the two numbers swap places.':''}`,fin]);
+    }
+    if(!steps.length||steps[steps.length-1][1]!==fin) steps.push(['Solution',fin]);
+    const holds=x=>{const y=fval(F,x);return cmp(lo,'<',loInc,y)&&cmp(y,'<',hiInc,hi);};
+    return {statement,S,steps,flip:!up,holds};
+  }
+  return null;
+}
+function rayPiece(F,ray,v){
+  const up=incr(F), relF=up?ray.dir:flipDir(ray.dir), c=fval(F,ray.val);
+  const sX=sym(ray.dir,ray.inc), sF=sym(relF,ray.inc), V=Vr(v), steps=[];
+  if(F.kind==='frac'){
+    steps.push([`Multiply both sides by ${F.d}.`,`${V}${bTxt(F.b)} ${sF} ${N(c*F.d)}`]);
+    if(F.b!==0) steps.push([`${F.b>0?'Subtract':'Add'} ${Math.abs(F.b)} ${F.b>0?'from':'to'} both sides.`,`${V} ${sX} ${N(ray.val)}`]);
+  } else {
+    if(F.b!==0) steps.push([`${F.b>0?'Subtract':'Add'} ${Math.abs(F.b)} ${F.b>0?'from':'to'} both sides.`,`${axTerm(F,v)} ${sF} ${N(c-F.b)}`]);
+    if(F.a!==1) steps.push([`Divide both sides by ${N(F.a)}${F.a<0?' and flip the inequality sign':''}.`,`${V} ${sX} ${N(ray.val)}`]);
+  }
+  return {html:`${fHtml(F,v)} ${sF} ${N(c)}`,steps,holds:x=>cmp(fval(F,x),relF,ray.inc,c),flip:!up};
+}
+function twoPiece(kind,level,v){
+  for(let t=0;t<80;t++){
+    const FL=makeF(level),FR=makeF(level), p=genX(FL), q=genX(FR);
+    const gap=kind==='and'?p-q:q-p;
+    if(gap<2||gap>12) continue;
+    const incL=Math.random()<.5,incR=Math.random()<.5;
+    const left=rayPiece(FL,{dir:'<',val:p,inc:incL},v), right=rayPiece(FR,{dir:'>',val:q,inc:incR},v);
+    const ord=Math.random()<.5?[left,right]:[right,left];
+    const S=kind==='and'?[{lo:q,hi:p,loInc:incR,hiInc:incL}]:[rayIv({dir:'<',val:p,inc:incL}),rayIv({dir:'>',val:q,inc:incR})];
+    const statement=`${ord[0].html} <span class="conj">${kind}</span> ${ord[1].html}`;
+    const steps=[];
+    ord.forEach((pc,i)=>{steps.push([i?'Second inequality':'First inequality',pc.html]);pc.steps.forEach(s=>steps.push(s));});
+    steps.push([kind==='and'?'"And" means both must be true, so keep the overlap.':'"Or" means either one can be true, so keep both pieces.',setText(S,v)]);
+    const holds=x=>kind==='and'?(left.holds(x)&&right.holds(x)):(left.holds(x)||right.holds(x));
+    return {statement,S,steps,flip:left.flip||right.flip,holds};
+  }
+  return null;
+}
+function buildBase(key,level,v){
+  const f=key==='three'?threePart:(l,vv)=>twoPiece(key==='and2'?'and':'or',l,vv);
+  return f(level,v)||f(2,v)||f(1,v);
+}
+
+/* ---- wrong answers ---- */
+function fin(S){const r=[];S.forEach((iv,i)=>{if(iv.lo!==-INF)r.push([i,'lo']);if(iv.hi!==INF)r.push([i,'hi']);});return r;}
+const toggles=S=>fin(S).map(([i,k])=>{const T=cp(S);T[i][k+'Inc']=!T[i][k+'Inc'];return T;});
+function shifts(S){const out=[];fin(S).forEach(([i,k])=>[-1,1,2,-2].forEach(d=>{const T=cp(S);T[i][k]+=d;const iv=T[i];
+  if(iv.lo!==-INF&&iv.hi!==INF&&iv.lo>=iv.hi)return; if(T.length===2&&T[0].hi>=T[1].lo)return; out.push(T);}));return out;}
+function complement(S){
+  if(S.length===2) return [{lo:S[0].hi,hi:S[1].lo,loInc:!S[0].hiInc,hiInc:!S[1].loInc}];
+  const iv=S[0];
+  if(iv.lo===-INF) return [{lo:iv.hi,hi:INF,loInc:!iv.hiInc,hiInc:false}];
+  if(iv.hi===INF) return [{lo:-INF,hi:iv.lo,loInc:false,hiInc:!iv.loInc}];
+  return [{lo:-INF,hi:iv.lo,loInc:false,hiInc:!iv.loInc},{lo:iv.hi,hi:INF,loInc:!iv.hiInc,hiInc:false}];
+}
+function dirFlip(S){
+  if(S.length!==1) return null; const iv=S[0];
+  if(iv.lo===-INF) return [{lo:iv.hi,hi:INF,loInc:iv.hiInc,hiInc:false}];
+  if(iv.hi===INF) return [{lo:-INF,hi:iv.lo,loInc:false,hiInc:iv.loInc}];
+  if(iv.loInc!==iv.hiInc) return [{...iv,loInc:iv.hiInc,hiInc:iv.loInc}];
+  return null;
+}
+function mirror(S){
+  const T=S.map(iv=>({lo:-iv.hi,hi:-iv.lo,loInc:iv.hiInc,hiInc:iv.loInc}));
+  T.sort((a,b)=>a.lo===-INF?-1:b.lo===-INF?1:0); return T;
+}
+function distract(S,prio){
+  const tg=shuffle(toggles(S)), sh=shuffle(shifts(S)), d=dirFlip(S);
+  let order=shuffle([complement(S),tg[0],d,sh[0],mirror(S)]);
+  if(prio&&d) order=[d,...order];
+  const seq=[...order,...tg.slice(1),...sh.slice(1)], used=new Set([keyOf(S)]), out=[];
+  for(const T of seq){ if(!T)continue; const k=keyOf(T); if(used.has(k))continue; used.add(k); out.push(T); if(out.length===3)break; }
+  return out;
+}
+
+/* ---- number line ---- */
+function numberLine(S,w0,w1){
+  const W=320,H=66,pl=20,pr=20,y=26, X=n=>pl+(n-w0)/(w1-w0)*(W-pl-pr);
+  const span=w1-w0, step=span<=14?1:span<=28?2:5;
+  const label=setText(S,'x').replace(/<[^>]+>/g,'');
+  let s=`<svg class="nl" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}"><line class="ax" x1="6" y1="${y}" x2="${W-6}" y2="${y}"/>`;
+  for(let n=w0;n<=w1;n++){ s+=`<line class="tk" x1="${X(n)}" y1="${y-5}" x2="${X(n)}" y2="${y+5}"/>`;
+    if(n%step===0) s+=`<text x="${X(n)}" y="${y+25}" text-anchor="middle">${n<0?MINUS+(-n):n}</text>`; }
+  S.forEach(iv=>{
+    const xa=iv.lo===-INF?10:X(iv.lo), xb=iv.hi===INF?W-10:X(iv.hi);
+    s+=`<line class="seg" x1="${xa}" y1="${y}" x2="${xb}" y2="${y}"/>`;
+    if(iv.lo===-INF) s+=`<polygon class="arrow" points="${xa-6},${y} ${xa+8},${y-9} ${xa+8},${y+9}"/>`;
+    if(iv.hi===INF) s+=`<polygon class="arrow" points="${xb+6},${y} ${xb-8},${y-9} ${xb-8},${y+9}"/>`;
+  });
+  S.forEach(iv=>{
+    if(iv.lo!==-INF) s+=`<circle class="${iv.loInc?'pt-c':'pt-o'}" cx="${X(iv.lo)}" cy="${y}" r="7"/>`;
+    if(iv.hi!==INF) s+=`<circle class="${iv.hiInc?'pt-c':'pt-o'}" cx="${X(iv.hi)}" cy="${y}" r="7"/>`;
+  });
+  return s+'</svg>';
+}
+
+/* ---- problem makers ---- */
+const LEVEL_NAME={1:'Level 1',2:'Level 2',3:'Level 3'};
+const TYPE_NAME={three:'Solve',and2:'Solve',or2:'Solve',graph:'Graph it',member:'Test a value',translate:'Translate'};
+function textChoices(S,v,prio){
+  return shuffle([{html:setText(S,v),correct:true},...distract(S,prio).map(T=>({html:setText(T,v),correct:false}))]);
+}
+const BUILD={
+  three:(l,v)=>solveProb('three',l,v), and2:(l,v)=>solveProb('and2',l,v), or2:(l,v)=>solveProb('or2',l,v),
+  graph(l,v){
+    const b=buildBase(pick(['three','and2','or2']),l,v); if(!b) return null;
+    const wrong=distract(b.S,b.flip), all=[b.S,...wrong];
+    const ends=[]; all.forEach(T=>T.forEach(iv=>{if(iv.lo!==-INF)ends.push(iv.lo);if(iv.hi!==INF)ends.push(iv.hi);}));
+    let w0=Math.min(...ends)-2,w1=Math.max(...ends)+2; while(w1-w0<10){w0--;if(w1-w0<10)w1++;}
+    if(w1-w0>24) return null;
+    const choices=shuffle(all.map((T,i)=>({svg:numberLine(T,w0,w1),correct:i===0})));
+    return {prompt:'Which graph shows the solution?',statement:b.statement,choices,steps:b.steps};
+  },
+  member(l,v){
+    const b=buildBase(pick(['three','and2','or2']),l,v); if(!b) return null;
+    const ends=[]; b.S.forEach(iv=>{if(iv.lo!==-INF)ends.push(iv.lo);if(iv.hi!==INF)ends.push(iv.hi);});
+    const lo=Math.min(...ends)-3, hi=Math.max(...ends)+3, ins=[], outs=[];
+    for(let n=lo;n<=hi;n++) (b.holds(n)?ins:outs).push(n);
+    if(!ins.length||outs.length<3) return null;
+    const dist=n=>Math.min(...ends.map(e=>Math.abs(n-e)));
+    outs.sort((a,c)=>dist(a)-dist(c));
+    const correct=pick(ins), wrong=shuffle(outs.slice(0,6)).slice(0,3);
+    const choices=[{n:correct,correct:true},...wrong.map(n=>({n,correct:false}))].sort((a,c)=>a.n-c.n).map(c=>({html:N(c.n),correct:c.correct}));
+    const steps=[...b.steps,['Check each choice against the solution.',`${N(correct)} is in the solution set, and the others are not.`]];
+    return {prompt:'Which value is a solution?',statement:b.statement,choices,steps};
+  },
+  translate(l,v){
+    const bounded=Math.random()<.6; let S,words;
+    const lowW=inc=>inc?'at least':'greater than', highW=inc=>inc?'at most':'less than';
+    if(bounded){
+      const lo=rnd(-9,6), hi=lo+rnd(2,9), a=Math.random()<.5, b=Math.random()<.5;
+      S=[{lo,hi,loInc:a,hiInc:b}];
+      words=`${Vr(v)} is ${lowW(a)} ${N(lo)} and ${highW(b)} ${N(hi)}`;
+    } else {
+      const p=rnd(-9,5), q=p+rnd(2,9), a=Math.random()<.5, b=Math.random()<.5;
+      S=[rayIv({dir:'<',val:p,inc:a}),rayIv({dir:'>',val:q,inc:b})];
+      words=`${Vr(v)} is ${highW(a)} ${N(p)} or ${lowW(b)} ${N(q)}`;
+    }
+    return {prompt:'Which inequality matches the words?',statement:words,choices:textChoices(S,v,false),
+      steps:[['"At least" and "at most" include the endpoint, so they use ≥ and ≤. "Greater than" and "less than" do not.',setText(S,v)],
+             [bounded?'"And" with a lower and an upper bound becomes one three-part inequality.':'"Or" with two directions becomes two separate pieces.',setText(S,v)]]};
+  }
+};
+function solveProb(key,l,v){
+  const b=buildBase(key,l,v); if(!b) return null;
+  return {prompt:'Solve the compound inequality.',statement:b.statement,choices:textChoices(b.S,v,b.flip),steps:b.steps};
+}
+const POOLS={1:['translate','member','and2','or2','three','graph'],2:['three','and2','or2','graph','member','translate','three','and2'],3:['three','and2','or2','graph','member','three','and2','or2']};
+function makeProblem(levelSel,lastType){
+  for(let t=0;t<60;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel, pool=POOLS[level];
+    let type=pick(pool); if(type===lastType) type=pick(pool);
+    const v=Math.random()<.7?'x':pick(['n','y','t','m']);
+    const p=BUILD[type](level,v);
+    if(p&&p.choices.length>=3){p.type=type;p.level=level;p.v=v;return p;}
+  }
+  const p=BUILD.three(1,'x');p.type='three';p.level=1;p.v='x';return p;
+}
+/*GEN-END*/
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Left side','Right side'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const nm=t=>esc(G.names[t]||(t?'Right side':'Left side'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'R':'L'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${nm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div><div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${nm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${nm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${nm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${nm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${nm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${nm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>

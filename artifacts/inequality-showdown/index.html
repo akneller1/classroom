@@ -1,0 +1,363 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Inequality Showdown</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+/* Layout: a single-screen game-show board — scoreboard strip on top, 3×5 tile grid, full-screen clue card on click.
+   Deliberately one dark look (stage lighting), so no light theme. */
+:root{
+  --stage:#0b1626;      /* page ground */
+  --tile:#173a63;       /* clue tile */
+  --tile-hi:#215089;    /* tile hover */
+  --tile-used:#101f33;  /* answered tile */
+  --gold:#f3c24f;       /* point values, highlights */
+  --chalk:#eef3f9;      /* main text */
+  --muted:#93a8c0;      /* secondary text */
+  --line:#2a4466;       /* borders */
+  --shade:#62d3bf;      /* number-line solution */
+  --shade2:#f08a6c;     /* second ray (for "no solution" picture) */
+  --good:#4fcf8a; --bad:#ef6b6b;
+  --f-display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--stage);color:var(--chalk);font-family:var(--f-body);font-size:16px;line-height:1.45;
+  background-image:radial-gradient(ellipse 80% 50% at 50% 0%, #17304f 0%, transparent 70%);}
+.wrap{max-width:1100px;margin:0 auto;padding-block:18px 32px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
+  display:flex;flex-direction:column;gap:18px}
+
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+h1{margin:0;font-family:var(--f-display);font-weight:900;font-size:clamp(34px,6vw,58px);line-height:.9;letter-spacing:.01em;text-transform:uppercase}
+h1 .sym{color:var(--gold)}
+.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:transparent;padding:6px 12px}
+.seg button[aria-pressed="true"]{background:var(--gold);color:#1a1405}
+.label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+button{font:inherit;color:var(--chalk);background:#12263f;border:1px solid var(--line);border-radius:8px;padding:7px 14px;cursor:pointer}
+button:hover{border-color:var(--gold)}
+button:focus-visible,input:focus-visible,.tile:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Board */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cat{background:var(--tile);border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:var(--f-display);font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(17px,2.6vw,28px);line-height:1;
+  padding:14px 8px;min-height:78px;border-bottom:3px solid var(--gold)}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--tile);border-radius:6px;display:flex;align-items:center;justify-content:center;
+  height:clamp(64px,11vh,104px);font-family:var(--f-display);font-weight:900;color:var(--gold);font-size:clamp(32px,5.5vw,60px);
+  text-shadow:0 3px 0 rgba(0,0,0,.45);transition:background .15s, transform .15s;font-variant-numeric:tabular-nums}
+.tile:hover{background:var(--tile-hi);transform:translateY(-2px)}
+.tile.used{background:var(--tile-used);color:#3a5579;text-shadow:none;font-size:clamp(16px,2vw,20px);font-family:var(--f-body);font-weight:400}
+.tile.used:hover{color:var(--muted)}
+.foot{color:var(--muted);font-size:13px;text-align:center}
+
+/* Clue card */
+.overlay{position:fixed;inset:0;background:rgba(5,10,18,.86);display:flex;align-items:flex-start;justify-content:center;z-index:20;overflow-y:auto;
+  padding:max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px))}
+.card{background:linear-gradient(180deg,#1b4171,#132f53);border:1px solid #2f5b8f;border-radius:14px;width:min(900px,100%);margin:auto 0;
+  padding:22px clamp(16px,4vw,40px) 26px;display:flex;flex-direction:column;gap:18px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.card-cat{font-family:var(--f-display);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:20px;color:var(--muted)}
+.card-cat b{color:var(--gold);margin-left:8px}
+.prompt{color:var(--muted);font-size:clamp(16px,2vw,20px);text-align:center;margin:0}
+.problem{font-size:clamp(30px,6vw,56px);text-align:center;line-height:1.3;padding:8px 0 4px;overflow-x:auto}
+.reveal-btn{align-self:center;background:var(--gold);color:#1a1405;border:0;font-weight:700;font-size:18px;padding:12px 28px;border-radius:10px}
+.reveal-btn:hover{filter:brightness(1.08)}
+.solution{display:flex;flex-direction:column;gap:16px;border-top:1px solid #2f5b8f;padding-top:18px;animation:rise .3s ease}
+@keyframes rise{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
+.answer{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:6px 14px;text-align:center}
+.answer .label{color:var(--gold)}
+.answer .m{font-size:clamp(26px,4.5vw,40px);font-weight:700}
+.nl{overflow-x:auto;background:#0e223a;border-radius:10px;padding:8px 6px}
+.nl svg{display:block;width:100%;min-width:420px;height:auto}
+.nl-note{color:var(--muted);font-size:14px;text-align:center;margin:4px 0 2px}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:10px}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px 10px;align-items:baseline}
+ol.steps li::before{content:counter(s);grid-row:span 2;font-family:var(--f-display);font-weight:800;font-size:22px;color:var(--gold);text-align:right}
+.say{color:#cfdbe8;font-size:17px}
+.step-m{font-size:clamp(20px,3vw,26px);overflow-x:auto;padding:2px 0}
+.tip{background:rgba(243,194,79,.1);border:1px solid rgba(243,194,79,.35);border-radius:8px;padding:10px 14px;font-size:16px}
+.tip b{color:var(--gold)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--gold);color:#1a1405;font-weight:700;padding:8px 16px;border-radius:999px;z-index:30}
+
+/* Math typesetting */
+.m{font-family:var(--f-body);white-space:nowrap}
+.m i{font-style:italic;font-family:Georgia,"Times New Roman",serif;font-size:1.08em}
+.m .w{font-style:normal;font-weight:700;color:var(--gold);font-size:.7em;letter-spacing:.06em;text-transform:uppercase;margin:0 .45em}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.82em;margin:0 .12em;line-height:1.15}
+.fr .fn{padding:0 .2em .06em;border-bottom:.08em solid currentColor}
+.fr .fd{padding:.06em .2em 0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:520px){.board{gap:5px}.cat{min-height:64px;padding:8px 4px}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Inequality <span class="sym">≤</span> Showdown</h1>
+      <div class="sub">Algebra 1 review · pick a category and a value</div>
+    </div>
+    <div class="controls">
+      <button id="resetBtn" type="button">Reset board</button>
+    </div>
+  </header>
+
+  <section class="board" id="board" aria-label="Game board"></section>
+  <p class="foot">Click a value to open the problem. Press <b>Space</b> to show the solution, <b>Esc</b> to return to the board.</p>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="card" role="dialog" aria-modal="true" aria-labelledby="cardCat">
+    <div class="card-top">
+      <div class="card-cat" id="cardCat"></div>
+      <button type="button" id="closeBtn">Back to board</button>
+    </div>
+    <p class="prompt" id="prompt"></p>
+    <div class="problem m" id="problem"></div>
+    <button class="reveal-btn" id="revealBtn" type="button">Show solution</button>
+    <div class="solution" id="solution" hidden></div>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ---------- Problem set ----------
+   Math mini-syntax: <= >= < >, "-" becomes a minus sign, standalone x is italic,
+   [[top ; bottom]] is a stacked fraction, "or"/"and" are styled as connector words. */
+const NEG = -Infinity, POS = Infinity;
+const CATS = [
+ { name:"Simple Inequalities", qs:[
+  { p:"Solve and graph.", q:"x + 7 > 12", a:"x > 5",
+    steps:[
+      {say:"Subtract 7 from both sides to undo the +7.", m:"x + 7 - 7 > 12 - 7"},
+      {say:"Simplify.", m:"x > 5"},
+      {say:"Graph: open circle at 5 (the sign is >, not ≥), shade to the right."}],
+    nl:{min:0,max:10,segs:[{a:5,b:POS,ac:false}]} },
+  { p:"Solve and graph.", q:"-4x <= 20", a:"x >= -5",
+    steps:[
+      {say:"Divide both sides by −4. Dividing by a negative number flips the inequality sign.", m:"[[-4x ; -4]] >= [[20 ; -4]]"},
+      {say:"Simplify.", m:"x >= -5"},
+      {say:"Graph: closed circle at −5 (≥ includes −5), shade to the right."}],
+    tip:"Watch the sign flip! ≤ became ≥ because we divided by a negative.",
+    nl:{min:-10,max:0,segs:[{a:-5,b:POS,ac:true}]} },
+  { p:"Solve and graph.", q:"5 - 2x < 11", a:"x > -3",
+    steps:[
+      {say:"Subtract 5 from both sides.", m:"-2x < 6"},
+      {say:"Divide both sides by −2 and flip the sign.", m:"[[-2x ; -2]] > [[6 ; -2]]"},
+      {say:"Simplify.", m:"x > -3"}],
+    tip:"Common mistake: writing x < −3. The negative coefficient means the sign must flip.",
+    nl:{min:-8,max:2,segs:[{a:-3,b:POS,ac:false}]} },
+  { p:"Solve and graph.", q:"3(x - 2) >= 5x + 4", a:"x <= -5",
+    steps:[
+      {say:"Distribute the 3.", m:"3x - 6 >= 5x + 4"},
+      {say:"Subtract 5x from both sides to get the variable on one side.", m:"-2x - 6 >= 4"},
+      {say:"Add 6 to both sides.", m:"-2x >= 10"},
+      {say:"Divide both sides by −2 and flip the sign.", m:"[[-2x ; -2]] <= [[10 ; -2]]"},
+      {say:"Simplify.", m:"x <= -5"}],
+    nl:{min:-10,max:0,segs:[{a:NEG,b:-5,bc:true}]} },
+  { p:"Solve and graph.", q:"[[x ; 2]] + 3 <= [[2x - 1 ; 3]]", a:"x >= 20",
+    steps:[
+      {say:"Multiply every term by 6 (the least common denominator) to clear the fractions.", m:"6 · [[x ; 2]] + 6 · 3 <= 6 · [[2x - 1 ; 3]]"},
+      {say:"Simplify each term.", m:"3x + 18 <= 2(2x - 1)"},
+      {say:"Distribute the 2.", m:"3x + 18 <= 4x - 2"},
+      {say:"Subtract 3x from both sides.", m:"18 <= x - 2"},
+      {say:"Add 2 to both sides.", m:"20 <= x"},
+      {say:"Rewrite with x first. The sign points the same way at the number: 20 ≤ x means x ≥ 20.", m:"x >= 20"}],
+    nl:{min:14,max:26,segs:[{a:20,b:POS,ac:true}]} }
+ ]},
+ { name:"Compound Inequalities", qs:[
+  { p:"Solve and graph.", q:"-3 < x + 2 <= 5", a:"-5 < x <= 3",
+    steps:[
+      {say:"Subtract 2 from all three parts.", m:"-3 - 2 < x + 2 - 2 <= 5 - 2"},
+      {say:"Simplify.", m:"-5 < x <= 3"},
+      {say:"Graph: open circle at −5, closed circle at 3, shade between them."}],
+    nl:{min:-7,max:5,segs:[{a:-5,b:3,ac:false,bc:true}]} },
+  { p:"Solve and graph.", q:"x - 4 < -6 or x + 1 > 5", a:"x < -2 or x > 4",
+    steps:[
+      {say:"Solve each inequality separately. First, add 4 to both sides.", m:"x < -2"},
+      {say:"Second, subtract 1 from both sides.", m:"x > 4"},
+      {say:"\"Or\" means a number works if it makes either inequality true, so shade both rays.", m:"x < -2 or x > 4"}],
+    nl:{min:-5,max:7,segs:[{a:NEG,b:-2,bc:false},{a:4,b:POS,ac:false}]} },
+  { p:"Solve and graph.", q:"-7 <= 2x - 1 < 9", a:"-3 <= x < 5",
+    steps:[
+      {say:"Add 1 to all three parts.", m:"-6 <= 2x < 10"},
+      {say:"Divide all three parts by 2. It's positive, so no flip.", m:"[[-6 ; 2]] <= [[2x ; 2]] < [[10 ; 2]]"},
+      {say:"Simplify.", m:"-3 <= x < 5"}],
+    nl:{min:-5,max:7,segs:[{a:-3,b:5,ac:true,bc:false}]} },
+  { p:"Solve and graph.", q:"-5 < 1 - 3x <= 13", a:"-4 <= x < 2",
+    steps:[
+      {say:"Subtract 1 from all three parts.", m:"-6 < -3x <= 12"},
+      {say:"Divide all three parts by −3 and flip both signs.", m:"[[-6 ; -3]] > [[-3x ; -3]] >= [[12 ; -3]]"},
+      {say:"Simplify.", m:"2 > x >= -4"},
+      {say:"Rewrite from smallest to largest.", m:"-4 <= x < 2"}],
+    tip:"When you divide a three-part inequality by a negative, flip both signs.",
+    nl:{min:-6,max:4,segs:[{a:-4,b:2,ac:true,bc:false}]} },
+  { p:"Solve and graph.", q:"2x + 5 >= 11 and 4 - x > 3", a:"No solution",
+    steps:[
+      {say:"Solve the first inequality: subtract 5, then divide by 2.", m:"2x >= 6  →  x >= 3"},
+      {say:"Solve the second: subtract 4, then divide by −1 and flip the sign.", m:"-x > -1  →  x < 1"},
+      {say:"\"And\" means a number must make both inequalities true at once.", m:"x >= 3 and x < 1"},
+      {say:"No number is at least 3 and also less than 1. The two rays never overlap, so there is no solution."}],
+    note:"The two rays (x ≥ 3 and x < 1) never overlap.",
+    nl:{min:-3,max:7,segs:[{a:NEG,b:1,bc:false,alt:true},{a:3,b:POS,ac:true}]} }
+ ]},
+ { name:"Absolute Value Inequalities", qs:[
+  { p:"Solve and graph.", q:"|x| < 4", a:"-4 < x < 4",
+    steps:[
+      {say:"|x| < 4 means x is less than 4 units from 0. \"Less than\" becomes an and (sandwich) inequality.", m:"-4 < x < 4"},
+      {say:"Graph: open circles at −4 and 4, shade between."}],
+    tip:"Less thAND → sandwich. GreatOR → two rays.",
+    nl:{min:-6,max:6,segs:[{a:-4,b:4,ac:false,bc:false}]} },
+  { p:"Solve and graph.", q:"|x - 3| >= 5", a:"x <= -2 or x >= 8",
+    steps:[
+      {say:"\"Greater than\" splits into two inequalities joined by or.", m:"x - 3 <= -5 or x - 3 >= 5"},
+      {say:"Add 3 to both sides of each.", m:"x <= -2 or x >= 8"},
+      {say:"Graph: closed circles at −2 and 8, shade outward."}],
+    nl:{min:-4,max:10,segs:[{a:NEG,b:-2,bc:true},{a:8,b:POS,ac:true}]} },
+  { p:"Solve and graph.", q:"|2x + 1| <= 7", a:"-4 <= x <= 3",
+    steps:[
+      {say:"\"Less than or equal\" becomes a sandwich.", m:"-7 <= 2x + 1 <= 7"},
+      {say:"Subtract 1 from all three parts.", m:"-8 <= 2x <= 6"},
+      {say:"Divide all three parts by 2.", m:"[[-8 ; 2]] <= [[2x ; 2]] <= [[6 ; 2]]"},
+      {say:"Simplify.", m:"-4 <= x <= 3"}],
+    nl:{min:-6,max:5,segs:[{a:-4,b:3,ac:true,bc:true}]} },
+  { p:"Solve and graph.", q:"3|x + 2| - 4 > 8", a:"x < -6 or x > 2",
+    steps:[
+      {say:"Isolate the absolute value first. Add 4 to both sides.", m:"3|x + 2| > 12"},
+      {say:"Divide both sides by 3.", m:"[[3|x + 2| ; 3]] > [[12 ; 3]]"},
+      {say:"Simplify.", m:"|x + 2| > 4"},
+      {say:"\"Greater than\" splits into an or.", m:"x + 2 < -4 or x + 2 > 4"},
+      {say:"Subtract 2 from both sides of each.", m:"x < -6 or x > 2"}],
+    tip:"Always isolate the absolute value before you split it.",
+    nl:{min:-9,max:5,segs:[{a:NEG,b:-6,bc:false},{a:2,b:POS,ac:false}]} },
+  { p:"Solve and graph.", q:"-2|3x - 6| + 5 >= -7", a:"0 <= x <= 4",
+    steps:[
+      {say:"Subtract 5 from both sides.", m:"-2|3x - 6| >= -12"},
+      {say:"Divide both sides by −2 and flip the sign.", m:"[[-2|3x - 6| ; -2]] <= [[-12 ; -2]]"},
+      {say:"Simplify. Now it's a \"less than\", so it becomes a sandwich.", m:"|3x - 6| <= 6"},
+      {say:"Write the sandwich.", m:"-6 <= 3x - 6 <= 6"},
+      {say:"Add 6 to all three parts.", m:"0 <= 3x <= 12"},
+      {say:"Divide all three parts by 3.", m:"[[0 ; 3]] <= [[3x ; 3]] <= [[12 ; 3]]"},
+      {say:"Simplify.", m:"0 <= x <= 4"}],
+    tip:"The flip happened before splitting, which turned ≥ into ≤ and made this a sandwich, not two rays.",
+    nl:{min:-2,max:6,segs:[{a:0,b:4,ac:true,bc:true}]} }
+ ]}
+];
+const VALUES = [100,200,300,400,500];
+
+/* ---------- Math formatter ---------- */
+function fm(s){
+  s = s.replace(/<=/g,"≤").replace(/>=/g,"≥").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/-/g,"−");
+  s = s.replace(/(?<![A-Za-z])x(?![A-Za-z])/g,"<i>x</i>");
+  s = s.replace(/\b(or|and)\b/g,'<span class="w">$1</span>');
+  s = s.replace(/\[\[(.+?);(.+?)\]\]/g,(_,n,d)=>'<span class="fr"><span class="fn">'+n.trim()+'</span><span class="fd">'+d.trim()+'</span></span>');
+  return s.replace(/ {2}/g,"&ensp;");
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+/* ---------- Number line ---------- */
+function numberLine(nl){
+  const W=680,H=96,P=40,Y=44,{min,max}=nl,span=max-min;
+  const X=v=>P+(v-min)/span*(W-2*P);
+  const step = span>14?2:1;
+  let g=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Number line graph of the solution">`;
+  g+=`<line x1="${P-26}" y1="${Y}" x2="${W-P+26}" y2="${Y}" stroke="#93a8c0" stroke-width="2"/>`;
+  g+=`<polygon points="${P-30},${Y} ${P-20},${Y-6} ${P-20},${Y+6}" fill="#93a8c0"/>`;
+  g+=`<polygon points="${W-P+30},${Y} ${W-P+20},${Y-6} ${W-P+20},${Y+6}" fill="#93a8c0"/>`;
+  for(let v=min; v<=max; v++){
+    const x=X(v), lab=(v-min)%step===0;
+    g+=`<line x1="${x}" y1="${Y-7}" x2="${x}" y2="${Y+7}" stroke="#93a8c0" stroke-width="${lab?2:1}"/>`;
+    if(lab) g+=`<text x="${x}" y="${Y+30}" fill="#eef3f9" font-size="16" text-anchor="middle" font-family="Atkinson Hyperlegible, sans-serif">${v<0?"−"+(-v):v}</text>`;
+  }
+  const circles=[];
+  nl.segs.forEach(s=>{
+    const c = s.alt?"#f08a6c":"#62d3bf", y = s.alt?Y-0:Y;
+    const x1 = s.a===NEG? P-22 : X(s.a), x2 = s.b===POS? W-P+22 : X(s.b);
+    g+=`<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="${c}" stroke-width="7" stroke-linecap="butt"/>`;
+    if(s.a===NEG) g+=`<polygon points="${x1-14},${y} ${x1+2},${y-10} ${x1+2},${y+10}" fill="${c}"/>`;
+    else circles.push({x:X(s.a),y,c,closed:!!s.ac});
+    if(s.b===POS) g+=`<polygon points="${x2+14},${y} ${x2-2},${y-10} ${x2-2},${y+10}" fill="${c}"/>`;
+    else circles.push({x:X(s.b),y,c,closed:!!s.bc});
+  });
+  circles.forEach(k=>{ g+=`<circle cx="${k.x}" cy="${k.y}" r="8" fill="${k.closed?k.c:"#0e223a"}" stroke="${k.c}" stroke-width="3.5"/>`; });
+  return g+"</svg>";
+}
+
+/* ---------- State ---------- */
+const KEY="ineq-showdown-v2";
+let state = load() || fresh();
+function fresh(){ return { used:{} }; }
+function load(){ try{ const s=JSON.parse(localStorage.getItem(KEY)); return s&&s.used?s:null; }catch(e){ return null; } }
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
+
+/* ---------- Render: controls, scores, board ---------- */
+const $=id=>document.getElementById(id);
+function renderBoard(){
+  let h=CATS.map(c=>`<div class="cat">${c.name}</div>`).join("");
+  VALUES.forEach((v,r)=>{
+    CATS.forEach((c,ci)=>{
+      const k=ci+"-"+r, used=state.used[k];
+      h+=`<button class="tile ${used?"used":""}" data-k="${k}" aria-label="${c.name} for ${v}${used?", already played":""}">${used?"review":v}</button>`;
+    });
+  });
+  $("board").innerHTML=h;
+}
+$("board").addEventListener("click",e=>{ const t=e.target.closest(".tile"); if(t) openClue(t.dataset.k); });
+
+/* ---------- Clue card ---------- */
+let current=null, lastFocus=null;
+function openClue(k){
+  const [ci,r]=k.split("-").map(Number), c=CATS[ci], q=c.qs[r];
+  current={k,ci,r,q,v:VALUES[r]}; lastFocus=document.activeElement;
+  $("cardCat").innerHTML=`${c.name}<b>${VALUES[r]}</b>`;
+  $("prompt").textContent=q.p;
+  $("problem").innerHTML=fm(q.q);
+  $("solution").hidden=true; $("revealBtn").hidden=false;
+  $("overlay").hidden=false; $("overlay").scrollTop=0;
+  $("revealBtn").focus();
+}
+function reveal(){
+  if(!current||!$("solution").hidden) return;
+  const q=current.q;
+  let h=`<div class="answer"><span class="label">Answer</span><span class="m">${fm(q.a)}</span></div>`;
+  h+=`<div class="nl">${numberLine(q.nl)}${q.note?`<p class="nl-note">${q.note}</p>`:""}</div>`;
+  h+=`<div><div class="label" style="margin-bottom:8px">How to solve it</div><ol class="steps">`+q.steps.map(s=>
+    `<li><div class="say">${s.say}</div>${s.m?`<div class="step-m m">${fm(s.m)}</div>`:"<div></div>"}</li>`).join("")+`</ol></div>`;
+  if(q.tip) h+=`<div class="tip"><b>Tip:</b> ${q.tip}</div>`;
+  $("solution").innerHTML=h; $("solution").hidden=false; $("revealBtn").hidden=true;
+}
+$("revealBtn").addEventListener("click",reveal);
+function closeClue(){
+  if(!current) return;
+  state.used[current.k]=true; save();
+  $("overlay").hidden=true; current=null; renderBoard();
+  if(lastFocus&&document.body.contains(lastFocus)) lastFocus.focus();
+}
+$("closeBtn").addEventListener("click",closeClue);
+$("overlay").addEventListener("click",e=>{ if(e.target===$("overlay")) closeClue(); });
+document.addEventListener("keydown",e=>{
+  if($("overlay").hidden) return;
+  if(e.key==="Escape") closeClue();
+  else if((e.key===" "||e.key==="Enter") && $("solution").hidden && document.activeElement.tagName!=="INPUT"){ e.preventDefault(); reveal(); }
+});
+
+/* ---------- Reset (two-tap confirm) ---------- */
+let armed=null;
+$("resetBtn").addEventListener("click",()=>{
+  if(!armed){ $("resetBtn").textContent="Tap again to reset"; armed=setTimeout(()=>{armed=null;$("resetBtn").textContent="Reset board";},3000); return; }
+  clearTimeout(armed); armed=null; $("resetBtn").textContent="Reset board";
+  state=fresh(); save(); renderBoard(); toast("Board reset: all tiles are open again");
+});
+
+let tt=null;
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.hidden=false; clearTimeout(tt); tt=setTimeout(()=>t.hidden=true,1600); }
+
+renderBoard();
+</script>
+
+</body></html>
