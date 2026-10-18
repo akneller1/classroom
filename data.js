@@ -112,6 +112,20 @@ window.LIBRARY = {
           "name": "Inequalities",
           "artifacts": [
             {
+              "title": "Inequalities Error Analysis",
+              "path": "artifacts/inequalities-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/inequalities-error-analysis.svg",
+              "description": "Printable 10-problem error analysis worksheet. Examine incorrect student work, explain each mistake in writing, and show the correct solution in a two-column layout. Includes a separate teacher answer key.",
+              "type": "Printable",
+              "topics": [
+                "Solving inequalities",
+                "Compound inequalities",
+                "Error analysis",
+                "Written reasoning"
+              ],
+              "added": "2026-10-18"
+            },
+            {
               "title": "Compound Inequalities Picture Reveal",
               "path": "artifacts/compound-inequalities-picture-reveal/index.html",
               "thumb": "thumbs/compound-inequalities-picture-reveal.svg",
