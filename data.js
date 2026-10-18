@@ -104,6 +104,20 @@ window.LIBRARY = {
                 "Variables on both sides"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Error Analysis",
+              "path": "artifacts/expressions-equations-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Distributive property",
+                "Combining like terms",
+                "Multi-step equations",
+                "Literal equations"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -111,20 +125,6 @@ window.LIBRARY = {
           "id": "inequalities",
           "name": "Inequalities",
           "artifacts": [
-            {
-              "title": "Inequalities Error Analysis",
-              "path": "artifacts/inequalities-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/inequalities-error-analysis.svg",
-              "description": "Printable 10-problem error analysis worksheet. Examine incorrect student work, explain each mistake in writing, and show the correct solution in a two-column layout. Includes a separate teacher answer key.",
-              "type": "Printable",
-              "topics": [
-                "Solving inequalities",
-                "Compound inequalities",
-                "Error analysis",
-                "Written reasoning"
-              ],
-              "added": "2026-10-18"
-            },
             {
               "title": "Compound Inequalities Picture Reveal",
               "path": "artifacts/compound-inequalities-picture-reveal/index.html",
@@ -188,6 +188,20 @@ window.LIBRARY = {
                 "Absolute value inequalities"
               ],
               "added": "2026-10-16"
+            },
+            {
+              "title": "Inequalities Error Analysis",
+              "path": "artifacts/inequalities-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/inequalities-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Dividing by a negative",
+                "Compound inequalities",
+                "AND and OR",
+                "Number-line graphs"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -276,6 +290,20 @@ window.LIBRARY = {
                 "Writing y = mx + b"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Linear Equations & Slope Error Analysis",
+              "path": "artifacts/linear-equations-slope-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/linear-equations-slope-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Slope",
+                "Slope-intercept form",
+                "Parallel and perpendicular lines",
+                "Intercepts"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -349,6 +377,19 @@ window.LIBRARY = {
                 "Rewriting in slope-intercept form",
                 "Test points and shading",
                 "Systems of inequalities"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Graphing Inequalities Error Analysis",
+              "path": "artifacts/graphing-inequalities-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 incorrect graphs and solutions. Students find the error, explain it, and graph the correct answer.",
+              "type": "Printable",
+              "topics": [
+                "Solid vs. dashed boundary",
+                "Shading and test points",
+                "Graphing linear inequalities"
               ],
               "added": "2026-10-18"
             }
@@ -427,6 +468,20 @@ window.LIBRARY = {
                 "No solution and infinitely many solutions"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Systems of Equations Error Analysis",
+              "path": "artifacts/systems-of-equations-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/systems-of-equations-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Substitution",
+                "Elimination",
+                "No solution and infinite solutions",
+                "Writing systems"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -500,6 +555,19 @@ window.LIBRARY = {
                 "Product, quotient and power rules",
                 "Zero and negative exponents",
                 "Evaluating powers"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Error Analysis",
+              "path": "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Negative and zero exponents",
+                "Exponential growth and decay"
               ],
               "added": "2026-10-18"
             }
@@ -577,6 +645,20 @@ window.LIBRARY = {
                 "Factoring out the GCF first"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Error Analysis",
+              "path": "artifacts/polynomials-factoring-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Factoring",
+                "Zero product property"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -584,15 +666,6 @@ window.LIBRARY = {
           "id": "quadratics",
           "name": "Quadratics",
           "artifacts": [
-            {
-              "title": "Parabola Basketball",
-              "path": "artifacts/parabola-basketball/index.html",
-              "thumb": "thumbs/parabola-basketball.svg",
-              "description": "Shoot basketballs by adjusting a, h and k in vertex form. Six progressively harder levels include long shots, blockers, hints, and saved progress.",
-              "type": "Game",
-              "topics": ["Quadratic functions", "Vertex form", "Graph transformations", "Projectile paths"],
-              "added": "2026-10-18"
-            },
             {
               "title": "Quadratics Four",
               "path": "artifacts/quadratics-connect-four/index.html",
@@ -659,6 +732,20 @@ window.LIBRARY = {
                 "Solving by factoring",
                 "Solving with square roots",
                 "The quadratic formula"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Quadratics Error Analysis",
+              "path": "artifacts/quadratics-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/quadratics-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Quadratic formula",
+                "Completing the square",
+                "Vertex and graph",
+                "Projectile problems"
               ],
               "added": "2026-10-18"
             }
@@ -745,6 +832,20 @@ window.LIBRARY = {
                 "Complementary and supplementary angles"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Basics & Reasoning Error Analysis",
+              "path": "artifacts/basics-reasoning-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/basics-reasoning-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Segment addition and midpoints",
+                "Complementary and supplementary angles",
+                "Conditional statements",
+                "Logical reasoning"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -818,6 +919,20 @@ window.LIBRARY = {
                 "Vertical angles & linear pairs",
                 "Parallel lines cut by a transversal",
                 "Solving for x and angle measures"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Angles & Parallel Lines Error Analysis",
+              "path": "artifacts/angles-parallel-lines-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/angles-parallel-lines-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Vertical angles and linear pairs",
+                "Parallel lines and transversals",
+                "Angle bisectors",
+                "Angles around a point"
               ],
               "added": "2026-10-18"
             }
@@ -895,6 +1010,20 @@ window.LIBRARY = {
                 "Isosceles & equilateral triangles"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Triangles & Congruence Error Analysis",
+              "path": "artifacts/triangles-congruence-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Angle sum and exterior angles",
+                "Triangle inequality",
+                "Congruence shortcuts",
+                "CPCTC proofs"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -968,6 +1097,20 @@ window.LIBRARY = {
                 "Solving proportions",
                 "Scale factor & similar triangles",
                 "Side-splitter & shadow problems"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Similarity Error Analysis",
+              "path": "artifacts/similarity-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/similarity-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Proportions",
+                "Scale factors",
+                "AA similarity",
+                "Area and volume ratios"
               ],
               "added": "2026-10-18"
             }
@@ -1045,6 +1188,20 @@ window.LIBRARY = {
                 "Trig ratios (SOH CAH TOA)"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Right Triangles & Trigonometry Error Analysis",
+              "path": "artifacts/right-triangles-trigonometry-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/right-triangles-trigonometry-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Pythagorean theorem",
+                "Sine, cosine and tangent",
+                "Special right triangles",
+                "Angles of depression"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -1118,6 +1275,20 @@ window.LIBRARY = {
                 "Arc length and sector area",
                 "Central and inscribed angles",
                 "Equation of a circle"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Circles Error Analysis",
+              "path": "artifacts/circles-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/circles-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Arc length and sectors",
+                "Inscribed angles",
+                "Tangents",
+                "Intersecting chords"
               ],
               "added": "2026-10-18"
             }
@@ -1194,6 +1365,20 @@ window.LIBRARY = {
                 "Surface area of solids"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Area, Surface Area & Volume Error Analysis",
+              "path": "artifacts/area-surface-area-volume-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/area-surface-area-volume-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Area of polygons",
+                "Surface area",
+                "Volumes of prisms, cylinders, cones and spheres",
+                "Unit conversion"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -1267,6 +1452,20 @@ window.LIBRARY = {
                 "Midpoint and distance",
                 "Parallel and perpendicular slopes",
                 "Transformations of points"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Error Analysis",
+              "path": "artifacts/coordinate-geometry-transformations-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Distance and midpoint",
+                "Reflections and rotations",
+                "Translations and dilations",
+                "Equation of a circle"
               ],
               "added": "2026-10-18"
             }
