@@ -571,6 +571,15 @@ window.LIBRARY = {
           "name": "Quadratics",
           "artifacts": [
             {
+              "title": "Parabola Basketball",
+              "path": "artifacts/parabola-basketball/index.html",
+              "thumb": "thumbs/parabola-basketball.svg",
+              "description": "Shoot basketballs by adjusting a, h and k in vertex form. Six progressively harder levels include long shots, blockers, hints, and saved progress.",
+              "type": "Game",
+              "topics": ["Quadratic functions", "Vertex form", "Graph transformations", "Projectile paths"],
+              "added": "2026-10-18"
+            },
+            {
               "title": "Quadratics Four",
               "path": "artifacts/quadratics-connect-four/index.html",
               "thumb": "thumbs/quadratics-connect-four.jpg",
