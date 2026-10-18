@@ -1,19 +1,17 @@
-MR. K'S CLASSROOM - ERROR ANALYSIS UPDATE
-=========================================
-16 new "Error Analysis" printable worksheets (one per unit), added to the library.
+MR. K'S CLASSROOM - COMPOUND INEQUALITIES PICTURE REVEAL UPDATE
+================================================================
+Replaces the dog photo with an original illustrated scene ("Tropical Island Lagoon"),
+rebuilt in the same format as the other Picture Reveals (5 x 2 grid of covers, typed answers
+with smart checking, narrated worked solutions).
 
-WHAT IS IN THIS ZIP (49 files, all new or replaced):
-  data.js                                     <- REPLACES the existing data.js (adds 16 activities; nothing removed)
-  artifacts/<unit>-error-analysis/worksheet.pdf    student worksheet (5 pages, no answers)
-  artifacts/<unit>-error-analysis/teacher-key.pdf  teacher key (NOT linked from the site)
-  thumbs/<unit>-error-analysis.jpg            card preview images
+FILES (3):
+  artifacts/compound-inequalities-picture-reveal/index.html   REPLACES the existing file
+  thumbs/compound-inequalities-picture-reveal.jpg             NEW card image
+  data.js                                                     REPLACES the existing data.js
 
-Inequalities uses your own ChatGPT worksheet (worksheet.pdf only, no key).
+IMPORTANT: this data.js also contains the 16 Error Analysis worksheet entries from the previous
+zip. If you have NOT uploaded that zip yet, upload it too (its files are referenced by this data.js).
 
-HOW TO UPLOAD (github.com/akneller1/classroom -> Add file -> Upload files):
-  Batch 1: data.js + the artifacts folder   (32 files)
-  Batch 2: the thumbs folder                (16 files)
-  Commit to main; GitHub Pages refreshes in about a minute.
+OPTIONAL CLEAN-UP: thumbs/compound-inequalities-picture-reveal.svg is no longer used. You can delete it on github.com.
 
-NOTE: teacher-key.pdf files are not linked on the site, but GitHub Pages is public, so anyone
-who guesses the address can open them. Leave them out of the upload if you would rather keep them private.
+Upload at github.com/akneller1/classroom -> Add file -> Upload files, then commit.

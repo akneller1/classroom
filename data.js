@@ -128,8 +128,8 @@ window.LIBRARY = {
             {
               "title": "Compound Inequalities Picture Reveal",
               "path": "artifacts/compound-inequalities-picture-reveal/index.html",
-              "thumb": "thumbs/compound-inequalities-picture-reveal.svg",
-              "description": "Solve 10 compound inequalities to uncover a mystery photo. Includes instant answer feedback, step-by-step solutions, and saved progress.",
+              "thumb": "thumbs/compound-inequalities-picture-reveal.jpg",
+              "description": "Solve 10 compound inequalities to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
               "type": "Game",
               "topics": [
                 "Compound inequalities",
