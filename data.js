@@ -38,6 +38,14 @@ window.LIBRARY = {
           name: "Inequalities",
           artifacts: [
             {
+              title: "Inequalities Flashcards",
+              path: "artifacts/inequalities-flashcards/index.html",
+              description: "Practice 25 essential inequality problems with student-style worked solutions and number-line graphs, including compound inequalities. Review missed cards and track progress.",
+              type: "Practice",
+              topics: ["Solving inequalities", "Number line graphs", "Compound inequalities"],
+              added: "2026-10-17"
+            },
+            {
               title: "Inequality Four",
               path: "artifacts/inequality-four/index.html",
               thumb: "thumbs/inequality-four.jpg",
