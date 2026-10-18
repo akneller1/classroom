@@ -32,11 +32,39 @@ window.LIBRARY = {
       art: "curve",
       blurb: "Equations, inequalities, functions, and polynomials.",
       units: [
-        { id: "expressions-equations", name: "Expressions & Equations", artifacts: [] },
+        { id: "expressions-equations", name: "Expressions & Equations", artifacts: [
+          {
+            title: "Expressions & Equations Flashcards",
+            path: "artifacts/expressions-equations-flashcards/index.html",
+            thumb: "thumbs/expressions-equations-flashcards.svg",
+            description: "25 interactive flashcards covering expressions, equations, and proportions, with step-by-step worked solutions.",
+            type: "Practice",
+            topics: ["Expressions", "Equations", "Proportions"],
+            added: "2026-10-17"
+          }
+        ] },
         {
           id: "inequalities",
           name: "Inequalities",
           artifacts: [
+            {
+              title: "Compound Inequalities Maze",
+              path: "artifacts/compound-inequalities-maze/worksheet.pdf",
+              thumb: "thumbs/compound-inequalities-maze.svg",
+              description: "Printable 4-page worksheet: solve compound inequalities to navigate a maze, then graph solutions on number lines. Includes teacher answer keys.",
+              type: "Printable",
+              topics: ["Compound inequalities", "Number line graphs", "Maze worksheet"],
+              added: "2026-10-18"
+            },
+            {
+              title: "Inequalities Flashcards",
+              path: "artifacts/inequalities-flashcards/index.html",
+              thumb: "thumbs/inequalities-flashcards.svg",
+              description: "25 interactive cards with step-by-step solutions and number-line graphs.",
+              type: "Practice",
+              topics: ["Solving inequalities", "Number line graphs", "Compound inequalities"],
+              added: "2026-10-17"
+            },
             {
               title: "Inequality Four",
               path: "artifacts/inequality-four/index.html",
