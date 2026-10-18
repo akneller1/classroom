@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Inequalities — Visual Study Flashcards</title>
+<style>
+:root{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color-scheme:light;
+  --ink:#14213d;
+  --muted:#52627a;
+  --accent:#3658d4;
+  --accent-2:#eef3ff;
+  --bg:#f3f6fd;
+  --paper:#fffef9;
+  --line:#d9e2f2;
+  --good:#1f7a4d;
+  --bad:#9e2a2b;
+  --shadow:#1d346517;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+main{max-width:980px;margin:30px auto;padding:18px}
+h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.5rem)}
+.sub{color:var(--muted);margin:0 0 22px}
+.toolbar,.actions,.stats{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.toolbar{margin-bottom:14px}
+.stats{justify-content:space-between;color:var(--muted);font-size:.93rem;margin-bottom:12px}
+select,button{font:inherit;border-radius:10px;padding:10px 14px}
+select{border:1px solid #c9d3e8;background:white}
+button{border:1px solid #bdcae8;background:white;color:var(--ink);cursor:pointer}
+button:hover{background:#e7ecfb}
+button:focus-visible,select:focus-visible,.card:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.primary:hover{background:#2846b2}
+.correct{background:#e1f7e8;border-color:#6ebc84}
+.missed{background:#ffe8e8;border-color:#e19a9a}
+.progress{height:9px;border-radius:9px;background:#dce4f4;overflow:hidden;margin:0 0 14px}
+.bar{background:var(--accent);height:100%;width:0;transition:width .2s}
+.card{
+  min-height:490px;background:white;border:2px solid #d2dcf0;border-radius:22px;padding:28px 24px;
+  box-shadow:0 9px 24px var(--shadow);display:flex;flex-direction:column;gap:18px;cursor:pointer
+}
+.card-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.tag{font-size:.82rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.mode-pill{font-size:.8rem;background:var(--accent-2);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:650}
+.prompt-wrap{display:grid;gap:10px}
+.prompt-label{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.question{font-size:clamp(1.25rem,3vw,1.8rem);font-weight:650;line-height:1.5;white-space:pre-line}
+.answer-box{background:#f6f8fe;border:1px solid #d8e2f5;border-radius:14px;padding:14px 16px}
+.answer-title,.panel-title{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.answer{font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:700;white-space:pre-line}
+.reveal-area{display:grid;grid-template-columns:1.15fr .95fr;gap:18px;align-items:start}
+.notebook{
+  background:linear-gradient(to bottom,var(--paper),var(--paper)) padding-box,
+             linear-gradient(to bottom,#f3d57f,#e9bf4f) border-box;
+  border:2px solid transparent;border-radius:18px;padding:16px 16px 12px;position:relative;overflow:hidden
+}
+.notebook::before{
+  content:"";position:absolute;inset:0;background:repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    #dbe7fb 31px,
+    #dbe7fb 32px
+  );opacity:.85;pointer-events:none
+}
+.notebook-inner{position:relative;z-index:1}
+.problem-copy{font-size:1.04rem;font-weight:700;margin:0 0 10px}
+.steps{display:grid;gap:8px}
+.step{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start;padding:2px 0}
+.step-num{width:28px;height:28px;border-radius:50%;background:#e8eefc;color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem;margin-top:2px}
+.step-main{display:grid;gap:2px}
+.step-expr{font-size:1.02rem;font-family:"Trebuchet MS",system-ui,sans-serif;white-space:pre-line}
+.step-note{font-size:.92rem;color:var(--muted);line-height:1.4}
+.visual-panel,.explanation-panel{background:#fbfcff;border:1px solid #d9e3f6;border-radius:18px;padding:16px}
+.explanation-panel{margin-top:12px}
+.explanation{color:var(--muted);line-height:1.55;white-space:pre-line}
+.graph-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin-bottom:8px}
+.graph-summary{font-weight:650;color:var(--ink)}
+.graph-holder{background:white;border:1px solid #e2e8f6;border-radius:14px;padding:10px}
+.graph-empty{color:var(--muted);font-size:.95rem;line-height:1.5}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.86rem;margin-top:10px}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--accent);background:white}
+.legend-dot.closed{background:var(--accent)}
+.hint{color:var(--muted);font-size:.9rem;text-align:center;margin-top:auto}
+.notice{padding:13px 15px;background:white;border-radius:10px;border:1px solid #d2dcf0;margin-top:20px;color:var(--muted)}
+.actions{justify-content:center;margin-top:18px}
+[hidden]{display:none!important}
+@media (max-width:860px){
+  .reveal-area{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .card{padding:20px 16px}
+  .question{font-size:1.22rem}
+  .step{grid-template-columns:26px 1fr;gap:8px}
+  .step-num{width:24px;height:24px;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>Inequalities Flashcards</h1>
+  <p class="sub">Algebra 1 • Worked solutions and number-line graphs, including AND/OR compound inequalities</p>
+
+  <div class="toolbar">
+    <label for="skill">Skill:</label>
+    <select id="skill"><option value="All">All skills</option></select>
+    <button id="shuffle">Shuffle</button>
+    <button id="missedOnly">Practice missed</button>
+    <button id="reset">Reset progress</button>
+  </div>
+
+  <div class="stats"><span id="counter" aria-live="polite"></span><span id="score" aria-live="polite"></span></div>
+  <div class="progress" aria-label="Card position"><div class="bar" id="bar"></div></div>
+
+  <div class="card" id="card" role="button" tabindex="0" aria-label="Flashcard: click or press Enter to flip">
+    <div class="card-top">
+      <div class="tag" id="tag"></div>
+      <div class="mode-pill" id="modePill">Question side</div>
+    </div>
+
+    <div class="prompt-wrap">
+      <div class="prompt-label">Problem</div>
+      <div class="question" id="question"></div>
+    </div>
+
+    <div id="revealArea" hidden>
+      <div class="answer-box">
+        <div class="answer-title">Answer</div>
+        <div class="answer" id="answer"></div>
+      </div>
+
+      <div class="reveal-area">
+        <div>
+          <div class="notebook">
+            <div class="notebook-inner">
+              <div class="panel-title">Show your work</div>
+              <p class="problem-copy" id="problemCopy"></p>
+              <div class="steps" id="steps"></div>
+            </div>
+          </div>
+          <div class="explanation-panel">
+            <div class="panel-title">Why this works</div>
+            <div class="explanation" id="explanation"></div>
+          </div>
+        </div>
+        <div class="visual-panel">
+          <div class="panel-title">Visual</div>
+          <div class="graph-meta">
+            <span class="graph-summary" id="graphSummary"></span>
+            <span id="graphTypeLabel"></span>
+          </div>
+          <div class="graph-holder" id="graphHolder"></div>
+          <div class="legend" id="legend" hidden>
+            <div class="legend-item"><span class="legend-dot"></span><span>Open circle: endpoint not included</span></div>
+            <div class="legend-item"><span class="legend-dot closed"></span><span>Closed circle: endpoint included</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint" id="hint">Click the card or press Space to reveal the answer, work, and graph.</div>
+  </div>
+
+  <div class="actions">
+    <button id="prev">← Previous</button>
+    <button id="flip" class="primary">Reveal answer</button>
+    <button id="again" class="missed" hidden>Need practice</button>
+    <button id="known" class="correct" hidden>Got it!</button>
+    <button id="next">Next →</button>
+  </div>
+
+  <p class="notice">Your progress is stored in this browser only. Keyboard: ←/→ to navigate, Space to flip, 1 = need practice, 2 = got it.</p>
+</main>
+
+<script>
+const CARDS = [
+  {
+    id:2, skill:'Basics',
+    q:'Translate: “at most 12” into an inequality using n.',
+    a:'n ≤ 12',
+    why:'“At most” means the value cannot be greater than 12, so it may equal 12 or be less than 12.',
+    work:[
+      {expr:'“At most 12”', note:'Think: not more than 12.'},
+      {expr:'n ≤ 12', note:'Use ≤ because 12 is allowed.'},
+      {expr:'Solution set: all numbers 12 or less', note:'On a number line, include 12 and shade left.'}
+    ],
+    graph:{type:'numberline', min:0, max:16, regions:[{from:null, to:12, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:4, skill:'Basics',
+    q:'Is x = 4 a solution to 2x + 1 < 10?',
+    a:'Yes',
+    why:'A number is a solution if it makes the inequality true when substituted in.',
+    work:[
+      {expr:'2x + 1 < 10', note:'Substitute x = 4.'},
+      {expr:'2(4) + 1 < 10', note:'Replace x with 4.'},
+      {expr:'8 + 1 < 10', note:'Simplify.'},
+      {expr:'9 < 10', note:'This is true, so x = 4 is a solution.'}
+    ],
+    graph:null
+  },
+  {
+    id:5, skill:'One-step',
+    q:'Solve: x + 7 > 15',
+    a:'x > 8',
+    why:'Undo the +7 by subtracting 7 from both sides. The direction of the inequality does not change because you are subtracting the same number from each side.',
+    work:[
+      {expr:'x + 7 > 15', note:'Start with the original inequality.'},
+      {expr:'x + 7 − 7 > 15 − 7', note:'Subtract 7 from both sides.'},
+      {expr:'x > 8', note:'Simplify. This is the solution.'}
+    ],
+    graph:{type:'numberline', min:0, max:12, regions:[{from:8, to:null, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:6, skill:'One-step',
+    q:'Solve: x − 9 ≤ −2',
+    a:'x ≤ 7',
+    why:'Undo the −9 by adding 9 to both sides. Adding does not reverse the sign.',
+    work:[
+      {expr:'x − 9 ≤ −2', note:'Original inequality.'},
+      {expr:'x − 9 + 9 ≤ −2 + 9', note:'Add 9 to both sides.'},
+      {expr:'x ≤ 7', note:'Simplify.'}
+    ],
+    graph:{type:'numberline', min:0, max:12, regions:[{from:null, to:7, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:7, skill:'One-step',
+    q:'Solve: 4x ≥ 28',
+    a:'x ≥ 7',
+    why:'Divide both sides by 4. Since 4 is positive, the inequality keeps the same direction.',
+    work:[
+      {expr:'4x ≥ 28', note:'Original inequality.'},
+      {expr:'4x/4 ≥ 28/4', note:'Divide both sides by 4.'},
+      {expr:'x ≥ 7', note:'Simplify.'}
+    ],
+    graph:{type:'numberline', min:0, max:12, regions:[{from:7, to:null, includeFrom:true, includeTo:false}]}
+  },
+  {
+    id:8, skill:'One-step',
+    q:'Solve: −3x < 18',
+    a:'x > −6',
+    why:'When you divide by a negative number, you must reverse the inequality sign.',
+    work:[
+      {expr:'−3x < 18', note:'Original inequality.'},
+      {expr:'(−3x)/(−3) > 18/(−3)', note:'Divide both sides by −3 and reverse the sign.'},
+      {expr:'x > −6', note:'Simplify.'}
+    ],
+    graph:{type:'numberline', min:-10, max:6, regions:[{from:-6, to:null, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:9, skill:'Multi-step',
+    q:'Solve: 2x + 5 ≤ 17',
+    a:'x ≤ 6',
+    why:'First isolate the term with x by subtracting 5, then divide by 2.',
+    work:[
+      {expr:'2x + 5 ≤ 17', note:'Original inequality.'},
+      {expr:'2x + 5 − 5 ≤ 17 − 5', note:'Subtract 5 from both sides.'},
+      {expr:'2x ≤ 12', note:'Simplify.'},
+      {expr:'2x/2 ≤ 12/2', note:'Divide both sides by 2.'},
+      {expr:'x ≤ 6', note:'Solution.'}
+    ],
+    graph:{type:'numberline', min:0, max:10, regions:[{from:null, to:6, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:10, skill:'Multi-step',
+    q:'Solve: 7 − 3x > 16',
+    a:'x < −3',
+    why:'Subtract 7 first. Then divide by −3 and reverse the inequality sign.',
+    work:[
+      {expr:'7 − 3x > 16', note:'Original inequality.'},
+      {expr:'7 − 7 − 3x > 16 − 7', note:'Subtract 7 from both sides.'},
+      {expr:'−3x > 9', note:'Simplify.'},
+      {expr:'(−3x)/(−3) < 9/(−3)', note:'Divide by −3 and reverse the sign.'},
+      {expr:'x < −3', note:'Solution.'}
+    ],
+    graph:{type:'numberline', min:-8, max:4, regions:[{from:null, to:-3, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:11, skill:'Multi-step',
+    q:'Solve: 3(x − 2) ≥ 12',
+    a:'x ≥ 6',
+    why:'You can divide by 3 first or distribute first. Either way, isolate x.',
+    work:[
+      {expr:'3(x − 2) ≥ 12', note:'Original inequality.'},
+      {expr:'x − 2 ≥ 4', note:'Divide both sides by 3.'},
+      {expr:'x − 2 + 2 ≥ 4 + 2', note:'Add 2 to both sides.'},
+      {expr:'x ≥ 6', note:'Solution.'}
+    ],
+    graph:{type:'numberline', min:0, max:10, regions:[{from:6, to:null, includeFrom:true, includeTo:false}]}
+  },
+  {
+    id:12, skill:'Multi-step',
+    q:'Solve: 5x + 2 < 2x + 17',
+    a:'x < 5',
+    why:'Get all x-terms on one side and constants on the other side before dividing.',
+    work:[
+      {expr:'5x + 2 < 2x + 17', note:'Original inequality.'},
+      {expr:'5x − 2x + 2 < 17', note:'Subtract 2x from both sides.'},
+      {expr:'3x + 2 < 17', note:'Simplify.'},
+      {expr:'3x + 2 − 2 < 17 − 2', note:'Subtract 2 from both sides.'},
+      {expr:'3x < 15', note:'Simplify.'},
+      {expr:'x < 5', note:'Divide by 3.'}
+    ],
+    graph:{type:'numberline', min:0, max:10, regions:[{from:null, to:5, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:13, skill:'Graphing',
+    q:'Graph x > 2 on a number line. Describe the endpoint and shading.',
+    a:'Open circle at 2; shade to the right',
+    why:'A strict inequality uses an open circle. Values greater than 2 are located to the right on the number line.',
+    work:[
+      {expr:'x > 2', note:'This means all values larger than 2.'},
+      {expr:'Open circle at 2', note:'Use an open circle because 2 is not included.'},
+      {expr:'Shade to the right', note:'Greater numbers are to the right on the number line.'}
+    ],
+    graph:{type:'numberline', min:-2, max:8, regions:[{from:2, to:null, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:14, skill:'Graphing',
+    q:'Graph x ≤ −4 on a number line. Describe the endpoint and shading.',
+    a:'Closed circle at −4; shade to the left',
+    why:'Because the symbol includes equality, the endpoint belongs in the solution. Values less than −4 are to the left.',
+    work:[
+      {expr:'x ≤ −4', note:'This means all values less than or equal to −4.'},
+      {expr:'Closed circle at −4', note:'Use a closed circle because −4 is included.'},
+      {expr:'Shade to the left', note:'Smaller numbers are to the left.'}
+    ],
+    graph:{type:'numberline', min:-10, max:2, regions:[{from:null, to:-4, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:15, skill:'Graphing',
+    q:'Graph x ≥ −1 on a number line. Describe the endpoint and shading.',
+    a:'Closed circle at −1; shade right',
+    why:'The endpoint is included because of ≥. Values greater than −1 lie to the right.',
+    work:[
+      {expr:'x ≥ −1', note:'Read: greater than or equal to −1.'},
+      {expr:'Closed circle at −1', note:'Equality means −1 is part of the solution.'},
+      {expr:'Shade right', note:'Greater values appear to the right.'}
+    ],
+    graph:{type:'numberline', min:-6, max:5, regions:[{from:-1, to:null, includeFrom:true, includeTo:false}]}
+  },
+  {
+    id:16, skill:'Graphing',
+    q:'Graph x < 4 on a number line. Describe the endpoint and shading.',
+    a:'Open circle at 4; shade left',
+    why:'The endpoint is excluded because of <. Values below 4 lie to the left.',
+    work:[
+      {expr:'x < 4', note:'Read: strictly less than 4.'},
+      {expr:'Open circle at 4', note:'The value 4 is not a solution.'},
+      {expr:'Shade left', note:'Smaller values appear to the left.'}
+    ],
+    graph:{type:'numberline', min:-3, max:8, regions:[{from:null, to:4, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:17, skill:'Compound',
+    q:'Solve: 1 < x + 4 ≤ 7',
+    a:'−3 < x ≤ 3',
+    why:'Treat all three parts together and subtract 4 from each part.',
+    work:[
+      {expr:'1 < x + 4 ≤ 7', note:'Original compound inequality.'},
+      {expr:'1 − 4 < x + 4 − 4 ≤ 7 − 4', note:'Subtract 4 from all three parts.'},
+      {expr:'−3 < x ≤ 3', note:'Simplify.'}
+    ],
+    graph:{type:'numberline', min:-6, max:6, regions:[{from:-3, to:3, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:18, skill:'Compound',
+    q:'Solve: x < −2 OR x ≥ 5. Describe the graph.',
+    a:'Open circle at −2, shade left; closed circle at 5, shade right',
+    why:'OR means either condition can be true, so the graph is a union of two separate rays.',
+    work:[
+      {expr:'x < −2 OR x ≥ 5', note:'There are two separate solution pieces.'},
+      {expr:'x < −2', note:'Open circle at −2 and shade left.'},
+      {expr:'x ≥ 5', note:'Closed circle at 5 and shade right.'},
+      {expr:'Union: (−∞, −2) ∪ [5, ∞)', note:'Combine both regions because of OR.'}
+    ],
+    graph:{type:'numberline', min:-8, max:10, regions:[{from:null, to:-2, includeFrom:false, includeTo:false},{from:5, to:null, includeFrom:true, includeTo:false}]}
+  },
+  {
+    id:19, skill:'Compound',
+    q:'Solve: x > 1 AND x ≤ 6',
+    a:'1 < x ≤ 6',
+    why:'AND means the overlap of the two conditions—the values that satisfy both inequalities at the same time.',
+    work:[
+      {expr:'x > 1 AND x ≤ 6', note:'Look for the overlap.'},
+      {expr:'Greater than 1', note:'Open circle at 1 and move right.'},
+      {expr:'Less than or equal to 6', note:'Closed circle at 6 and move left.'},
+      {expr:'Overlap: 1 < x ≤ 6', note:'The shared region is between 1 and 6.'}
+    ],
+    graph:{type:'numberline', min:-1, max:8, regions:[{from:1, to:6, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:20, skill:'Challenge',
+    q:'Solve: −2(3x − 1) ≥ 14',
+    a:'x ≤ −2',
+    why:'Distribute first, then isolate x. Watch carefully for the sign reversal when dividing by a negative.',
+    work:[
+      {expr:'−2(3x − 1) ≥ 14', note:'Original inequality.'},
+      {expr:'−6x + 2 ≥ 14', note:'Distribute −2.'},
+      {expr:'−6x + 2 − 2 ≥ 14 − 2', note:'Subtract 2 from both sides.'},
+      {expr:'−6x ≥ 12', note:'Simplify.'},
+      {expr:'(−6x)/(−6) ≤ 12/(−6)', note:'Divide by −6 and reverse the sign.'},
+      {expr:'x ≤ −2', note:'Solution.'}
+    ],
+    graph:{type:'numberline', min:-8, max:4, regions:[{from:null, to:-2, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:21, skill:'Challenge',
+    q:'Solve: 4(x + 1) > 4x − 2',
+    a:'All real numbers',
+    why:'After simplifying, the variable disappears and you are left with a true statement. That means every real number works.',
+    work:[
+      {expr:'4(x + 1) > 4x − 2', note:'Original inequality.'},
+      {expr:'4x + 4 > 4x − 2', note:'Distribute 4.'},
+      {expr:'4 > −2', note:'Subtract 4x from both sides.'},
+      {expr:'This is always true', note:'So every real number is a solution.'}
+    ],
+    graph:{type:'numberline', min:-6, max:6, regions:[{from:null, to:null, includeFrom:false, includeTo:false}], allReal:true}
+  },
+  {
+    id:22, skill:'Challenge',
+    q:'Solve: 3x + 7 < 3x − 1',
+    a:'No solution',
+    why:'After simplifying, the variable disappears and you are left with a false statement. That means there is no value of x that works.',
+    work:[
+      {expr:'3x + 7 < 3x − 1', note:'Original inequality.'},
+      {expr:'7 < −1', note:'Subtract 3x from both sides.'},
+      {expr:'This is false', note:'So there is no solution.'}
+    ],
+    graph:{type:'numberline', min:-6, max:6, regions:[], none:true}
+  },
+  {
+    id:23, skill:'Challenge',
+    q:'A taxi costs $4 plus $2 per mile. You have at most $20. How many miles m can you travel?',
+    a:'0 ≤ m ≤ 8',
+    why:'Write the inequality 4 + 2m ≤ 20, solve for m, and remember that miles cannot be negative.',
+    work:[
+      {expr:'4 + 2m ≤ 20', note:'Start with the cost model.'},
+      {expr:'4 + 2m − 4 ≤ 20 − 4', note:'Subtract 4 from both sides.'},
+      {expr:'2m ≤ 16', note:'Simplify.'},
+      {expr:'m ≤ 8', note:'Divide by 2.'},
+      {expr:'0 ≤ m ≤ 8', note:'Mileage cannot be negative, so include the real-world restriction.'}
+    ],
+    graph:{type:'numberline', min:-2, max:10, regions:[{from:0, to:8, includeFrom:true, includeTo:true}]}
+  },
+  {
+    id:24, skill:'Challenge',
+    q:'Solve and graph: 2(x + 3) ≤ 14',
+    a:'x ≤ 4',
+    why:'Divide by 2, subtract 3, then graph with a closed circle at 4 and shade left.',
+    work:[
+      {expr:'2(x + 3) ≤ 14', note:'Start with the inequality.'},
+      {expr:'x + 3 ≤ 7', note:'Divide both sides by positive 2.'},
+      {expr:'x ≤ 4', note:'Subtract 3 from both sides.'},
+      {expr:'Closed circle at 4, shade left', note:'The endpoint is included.'}
+    ],
+    graph:{type:'numberline', min:-3, max:9, regions:[{from:null, to:4, includeFrom:false, includeTo:true}]}
+  }
+  ,{
+    id:25, skill:'Graphing',
+    q:'Graph −2 < x ≤ 4 on a number line.',
+    a:'Open circle at −2, closed circle at 4; shade between',
+    why:'This is an AND interval: both inequalities must hold. The solution is the region between the endpoints.',
+    work:[
+      {expr:'−2 < x ≤ 4', note:'x is greater than −2 AND at most 4.'},
+      {expr:'Open circle at −2', note:'−2 is not included.'},
+      {expr:'Closed circle at 4', note:'4 is included.'},
+      {expr:'Shade between −2 and 4', note:'Only values in the overlap work.'}
+    ],
+    graph:{type:'numberline', min:-6, max:8, regions:[{from:-2, to:4, includeFrom:false, includeTo:true}]}
+  },
+  {
+    id:26, skill:'Graphing',
+    q:'Graph x ≤ −3 OR x > 2 on a number line.',
+    a:'Closed circle at −3, shade left; open circle at 2, shade right',
+    why:'With OR, graph both separate regions. Values in either ray are solutions.',
+    work:[
+      {expr:'x ≤ −3 OR x > 2', note:'OR means either condition may be true.'},
+      {expr:'x ≤ −3', note:'Closed circle at −3; shade left.'},
+      {expr:'x > 2', note:'Open circle at 2; shade right.'},
+      {expr:'Two disjoint rays', note:'Leave the interval between −3 and 2 unshaded.'}
+    ],
+    graph:{type:'numberline', min:-8, max:7, regions:[{from:null, to:-3, includeFrom:false, includeTo:true},{from:2, to:null, includeFrom:false, includeTo:false}]}
+  },
+  {
+    id:27, skill:'Graphing',
+    q:'Graph x > −1 AND x < 3 on a number line.',
+    a:'Open circles at −1 and 3; shade between',
+    why:'AND requires both conditions at once, so use only the overlapping interval.',
+    work:[
+      {expr:'x > −1 AND x < 3', note:'Find numbers satisfying both.'},
+      {expr:'−1 < x < 3', note:'Write the overlap as one compound inequality.'},
+      {expr:'Open circles at −1 and 3', note:'Neither endpoint is included.'},
+      {expr:'Shade between', note:'Every number in the open interval is a solution.'}
+    ],
+    graph:{type:'numberline', min:-5, max:7, regions:[{from:-1, to:3, includeFrom:false, includeTo:false}]}
+  },
+
+];
+
+const STORAGE_KEY='math-missions-inequalities-flashcards-visual-v1';
+let ratings={};
+try{ratings=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{}}catch{ratings={}}
+const byId=id=>document.getElementById(id);
+let deck=[],position=0,revealed=false,missedMode=false;
+const skills=[...new Set(CARDS.map(c=>c.skill))];
+skills.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;byId('skill').append(o)});
+
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings))}catch{}}
+function escapeHtml(str=''){return str.replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
+function selectDeck(shuffle=false){
+  const skill=byId('skill').value;
+  deck=CARDS.filter(c=>(skill==='All'||c.skill===skill)&&(!missedMode||ratings[c.id]==='missed'));
+  if(shuffle){for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}}
+  position=0;
+  render();
+}
+function render(){
+  const c=deck[position];
+  revealed=false;
+  byId('counter').textContent=c?`Card ${position+1} of ${deck.length}`:'No matching cards';
+  byId('score').textContent=`Known: ${Object.values(ratings).filter(v=>v==='known').length} • Need practice: ${Object.values(ratings).filter(v=>v==='missed').length}`;
+  byId('bar').style.width=deck.length?`${(position+1)/deck.length*100}%`:'0%';
+  byId('tag').textContent=c?.skill||'';
+  byId('question').textContent=c?.q||'No cards match this filter. Choose another skill or leave missed-only mode.';
+  byId('answer').textContent=c?.a||'';
+  byId('problemCopy').textContent=c?`Problem: ${c.q}`:'';
+  const steps = byId('steps');
+  steps.innerHTML='';
+  (c?.work||[]).forEach((step,idx)=>{
+    const div=document.createElement('div');
+    div.className='step';
+    div.innerHTML=`<div class="step-num">${idx+1}</div><div class="step-main"><div class="step-expr">${escapeHtml(step.expr)}</div><div class="step-note">${escapeHtml(step.note||'')}</div></div>`;
+    steps.append(div);
+  });
+  byId('explanation').textContent=c?.why||'';
+  renderVisual(c);
+  updateVisibility();
+}
+function renderVisual(card){
+  const holder=byId('graphHolder');
+  const summary=byId('graphSummary');
+  const typeLabel=byId('graphTypeLabel');
+  const legend=byId('legend');
+  holder.innerHTML='';
+  if(!card){ summary.textContent=''; typeLabel.textContent=''; legend.hidden=true; return; }
+  if(card.graph?.type==='numberline'){
+    summary.textContent='Inequality graph';
+    typeLabel.textContent='Number line';
+    legend.hidden=false;
+    holder.innerHTML=createNumberLineSvg(card.graph);
+  } else {
+    summary.textContent='Visual note';
+    typeLabel.textContent=card.skill==='Graphing' || card.q.includes('y ') ? 'Coordinate-plane idea' : 'Reasoning note';
+    legend.hidden=true;
+    const p=document.createElement('div');
+    p.className='graph-empty';
+    p.textContent=card.visualText || 'This card focuses on algebraic reasoning rather than a one-variable number-line graph.';
+    holder.append(p);
+  }
+}
+function updateVisibility(){
+  const active=Boolean(deck[position]);
+  byId('revealArea').hidden=!revealed;
+  byId('hint').hidden=revealed||!active;
+  byId('flip').hidden=revealed||!active;
+  byId('again').hidden=!revealed;
+  byId('known').hidden=!revealed;
+  byId('prev').disabled=!active||position===0;
+  byId('next').disabled=!active||position===deck.length-1;
+  byId('modePill').textContent=revealed?'Answer side':'Question side';
+}
+function flip(){ if(!deck.length) return; revealed=!revealed; updateVisibility(); }
+function move(delta){ if(position+delta<0||position+delta>=deck.length) return; position+=delta; render(); }
+function rate(value){
+  const c=deck[position];
+  if(!c||!revealed) return;
+  ratings[c.id]=value; save();
+  if(missedMode&&value==='known'){
+    deck.splice(position,1);
+    position=Math.min(position,deck.length-1);
+    render();
+  } else if(position<deck.length-1){
+    position++; render();
+  } else {
+    render();
+  }
+}
+function createNumberLineSvg(graph){
+  const width=520, height=150, pad=32, lineY=74;
+  const min = graph.min ?? -10;
+  const max = graph.max ?? 10;
+  const ticks = [];
+  for(let i=min;i<=max;i++) ticks.push(i);
+  const xScale = value => pad + ((value - min) / (max - min)) * (width - 2*pad);
+  const segY=lineY;
+  const regionY=lineY;
+  let svg='';
+  svg += `<svg viewBox="0 0 ${width} ${height}" width="100%" height="auto" aria-label="Inequality graph on a number line" role="img">`;
+  svg += `<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3658d4"></path></marker></defs>`;
+  svg += `<rect x="0" y="0" width="${width}" height="${height}" fill="#ffffff"></rect>`;
+  svg += `<line x1="${pad}" y1="${lineY}" x2="${width-pad}" y2="${lineY}" stroke="#23395d" stroke-width="3"></line>`;
+  svg += `<line x1="${pad}" y1="${lineY}" x2="${pad-16}" y2="${lineY}" stroke="#23395d" stroke-width="2" marker-end="url(#arrow)"></line>`;
+  svg += `<line x1="${width-pad}" y1="${lineY}" x2="${width-pad+16}" y2="${lineY}" stroke="#23395d" stroke-width="2" marker-end="url(#arrow)"></line>`;
+  ticks.forEach(t=>{
+    const x=xScale(t);
+    svg += `<line x1="${x}" y1="${lineY-9}" x2="${x}" y2="${lineY+9}" stroke="#23395d" stroke-width="1.4"></line>`;
+    svg += `<text x="${x}" y="${lineY+26}" text-anchor="middle" font-size="12" fill="#52627a">${t}</text>`;
+  });
+  if(graph.none){
+    svg += `<text x="${width/2}" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#9e2a2b">No solution</text>`;
+    svg += `</svg>`;
+    return svg;
+  }
+  if(graph.allReal){
+    svg += `<line x1="${pad}" y1="${regionY}" x2="${width-pad}" y2="${regionY}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"></line>`;
+    svg += `<text x="${width/2}" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#1f7a4d">All real numbers</text>`;
+    svg += `</svg>`;
+    return svg;
+  }
+  (graph.regions||[]).forEach(region=>{
+    let fromX, toX;
+    if(region.from==null){
+      const endX=xScale(region.to);
+      svg += `<line x1="${endX-1}" y1="${regionY}" x2="${pad}" y2="${regionY}" stroke="#3658d4" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"></line>`;
+    } else if(region.to==null){
+      const startX=xScale(region.from);
+      svg += `<line x1="${startX+1}" y1="${regionY}" x2="${width-pad}" y2="${regionY}" stroke="#3658d4" stroke-width="7" stroke-linecap="round" marker-end="url(#arrow)"></line>`;
+    } else {
+      fromX=xScale(region.from);
+      toX=xScale(region.to);
+      svg += `<line x1="${fromX}" y1="${regionY}" x2="${toX}" y2="${regionY}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"></line>`;
+    }
+    if(region.from!=null){
+      const x=xScale(region.from);
+      svg += `<circle cx="${x}" cy="${regionY}" r="7" fill="${region.includeFrom?'#3658d4':'#ffffff'}" stroke="#3658d4" stroke-width="3"></circle>`;
+    }
+    if(region.to!=null){
+      const x=xScale(region.to);
+      svg += `<circle cx="${x}" cy="${regionY}" r="7" fill="${region.includeTo?'#3658d4':'#ffffff'}" stroke="#3658d4" stroke-width="3"></circle>`;
+    }
+  });
+  svg += `</svg>`;
+  return svg;
+}
+
+byId('card').addEventListener('click',e=>{
+  const tag=e.target.tagName;
+  if(['BUTTON','SELECT','OPTION'].includes(tag)) return;
+  flip();
+});
+byId('card').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
+byId('flip').onclick=flip;
+byId('prev').onclick=()=>move(-1);
+byId('next').onclick=()=>move(1);
+byId('again').onclick=()=>rate('missed');
+byId('known').onclick=()=>rate('known');
+byId('skill').onchange=()=>selectDeck();
+byId('shuffle').onclick=()=>selectDeck(true);
+byId('missedOnly').onclick=()=>{missedMode=!missedMode;byId('missedOnly').textContent=missedMode?'Show all cards':'Practice missed';selectDeck()};
+byId('reset').onclick=()=>{if(confirm('Clear all saved flashcard progress?')){ratings={};save();selectDeck()}};
+document.addEventListener('keydown',e=>{
+  if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(document.activeElement?.tagName)) return;
+  if(e.key==='ArrowLeft') move(-1);
+  else if(e.key==='ArrowRight') move(1);
+  else if(e.key===' '){e.preventDefault();flip()}
+  else if(e.key==='1') rate('missed');
+  else if(e.key==='2') rate('known');
+});
+selectDeck();
+</script>
+</body>
+</html>
