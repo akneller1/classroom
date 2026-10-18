@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Graphing Inequalities Flashcards</title>
+<style>
+:root{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color-scheme:light;
+  --ink:#14213d; --muted:#52627a; --accent:#3658d4; --accent-2:#eef3ff; --bg:#f3f6fd; --paper:#fffef9;
+  --line:#d9e2f2; --good:#1f7a4d; --bad:#9e2a2b; --shadow:#1d346517;
+  --fg:#14213d; --acc:#3658d4; --acc2:#d9780f; --fillc:rgba(54,88,212,.16); --fillc2:rgba(217,120,15,.16); --gridc:rgba(20,33,61,.14); --bgc:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+main{max-width:980px;margin:30px auto;padding:18px}
+h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.5rem)}
+.sub{color:var(--muted);margin:0 0 22px}
+.toolbar,.actions,.stats{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.toolbar{margin-bottom:14px}
+.stats{justify-content:space-between;color:var(--muted);font-size:.93rem;margin-bottom:12px}
+select,button{font:inherit;border-radius:10px;padding:10px 14px}
+select{border:1px solid #c9d3e8;background:white;color:var(--ink)}
+button{border:1px solid #bdcae8;background:white;color:var(--ink);cursor:pointer}
+button:hover{background:#e7ecfb}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,select:focus-visible,.card:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.primary:hover{background:#2846b2}
+.correct{background:#e1f7e8;border-color:#6ebc84}
+.missed{background:#ffe8e8;border-color:#e19a9a}
+.progress{height:9px;border-radius:9px;background:#dce4f4;overflow:hidden;margin:0 0 14px}
+.bar{background:var(--accent);height:100%;width:0;transition:width .2s}
+.card{min-height:430px;background:white;border:2px solid #d2dcf0;border-radius:22px;padding:28px 24px;box-shadow:0 9px 24px var(--shadow);display:flex;flex-direction:column;gap:18px;cursor:pointer}
+.card-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.tag{font-size:.82rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.mode-pill{font-size:.8rem;background:var(--accent-2);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:650}
+.prompt-wrap{display:grid;gap:10px}
+.prompt-label{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.instr{font-size:clamp(1.1rem,2.6vw,1.45rem);font-weight:600;line-height:1.5}
+.story{font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.5;color:var(--ink)}
+.display{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:600;line-height:1.5;padding:4px 0}
+.figbox{display:flex;justify-content:center;padding:6px 0}
+.figbox svg{max-width:100%;height:auto}
+.answer-box{background:#f6f8fe;border:1px solid #d8e2f5;border-radius:14px;padding:14px 16px}
+.answer-title,.panel-title{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.answer{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700}
+.reveal-area{display:grid;grid-template-columns:1.15fr .95fr;gap:18px;align-items:start;margin-top:18px}
+.reveal-area.single{grid-template-columns:1fr}
+.notebook{background:linear-gradient(to bottom,var(--paper),var(--paper)) padding-box,linear-gradient(to bottom,#f3d57f,#e9bf4f) border-box;border:2px solid transparent;border-radius:18px;padding:16px 16px 12px}
+.problem-copy{font-weight:700;margin:0 0 10px;font-size:1.05rem}
+.steps{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.step{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}
+.step-num{width:28px;height:28px;border-radius:50%;background:#e8eefc;color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem;margin-top:2px}
+.step-main{display:grid;gap:4px}
+.step-say{font-size:.98rem;color:var(--muted);line-height:1.45}
+.step-m{font-size:1.25rem;font-weight:600;color:var(--ink)}
+.visual-panel,.explanation-panel{background:#fbfcff;border:1px solid #d9e3f6;border-radius:18px;padding:16px}
+.explanation-panel{margin-top:12px}
+.explanation{color:var(--muted);line-height:1.55}
+.graph-holder{background:white;border:1px solid #e2e8f6;border-radius:14px;padding:10px;text-align:center}
+.graph-holder svg{max-width:100%;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.86rem;margin-top:10px}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--accent);background:white}
+.legend-dot.closed{background:var(--accent)}
+.tip{margin-top:12px;background:#fff6e0;border:1px solid #efd28a;border-radius:12px;padding:10px 14px;color:#5a4410;line-height:1.5}
+.hint{color:var(--muted);font-size:.9rem;text-align:center;margin-top:auto}
+.notice{padding:13px 15px;background:white;border-radius:10px;border:1px solid #d2dcf0;margin-top:20px;color:var(--muted)}
+.actions{justify-content:center;margin-top:18px}
+[hidden]{display:none!important}
+@media (max-width:860px){.reveal-area{grid-template-columns:1fr}}
+@media (max-width:560px){.card{padding:20px 16px}.step{grid-template-columns:26px 1fr;gap:8px}.step-num{width:24px;height:24px;font-size:.8rem}}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style>
+</head>
+<body>
+<main>
+  <h1>Graphing Inequalities Flashcards</h1>
+  <p class="sub">Algebra 1 · Flip each card for the answer, the worked steps, and why it works</p>
+
+  <div class="toolbar">
+    <label for="skill">Skill:</label>
+    <select id="skill"><option value="All">All skills</option></select>
+    <button id="shuffle">Shuffle</button>
+    <button id="missedOnly">Practice missed</button>
+    <button id="reset">Reset progress</button>
+  </div>
+
+  <div class="stats"><span id="counter" aria-live="polite"></span><span id="score" aria-live="polite"></span></div>
+  <div class="progress" aria-label="Card position"><div class="bar" id="bar"></div></div>
+
+  <div class="card" id="card" role="button" tabindex="0" aria-label="Flashcard: click or press Space to flip">
+    <div class="card-top">
+      <div class="tag" id="tag"></div>
+      <div class="mode-pill" id="modePill">Question side</div>
+    </div>
+
+    <div class="prompt-wrap">
+      <div class="prompt-label">Problem</div>
+      <div class="instr" id="instr"></div>
+      <div class="story" id="story" hidden></div>
+      <div class="display m" id="display" hidden></div>
+      <div class="figbox" id="figbox" hidden></div>
+    </div>
+
+    <div id="revealArea" hidden>
+      <div class="answer-box">
+        <div class="answer-title">Answer</div>
+        <div class="answer m" id="answer"></div>
+      </div>
+      <div class="reveal-area" id="revealGrid">
+        <div>
+          <div class="notebook">
+            <div class="panel-title">Show your work</div>
+            <ol class="steps" id="steps"></ol>
+          </div>
+          <div class="explanation-panel">
+            <div class="panel-title">Why this works</div>
+            <div class="explanation" id="explanation"></div>
+          </div>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <div class="visual-panel" id="visualPanel" hidden>
+          <div class="panel-title" id="visualTitle">Visual</div>
+          <div class="graph-holder" id="graphHolder"></div>
+          <div class="legend" id="legend" hidden>
+            <div class="legend-item"><span class="legend-dot"></span><span>Open circle: endpoint not included</span></div>
+            <div class="legend-item"><span class="legend-dot closed"></span><span>Closed circle: endpoint included</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint" id="hint">Click the card or press Space to reveal the answer and the worked solution.</div>
+  </div>
+
+  <div class="actions">
+    <button id="prev">← Previous</button>
+    <button id="flip" class="primary">Reveal answer</button>
+    <button id="again" class="missed" hidden>Need practice</button>
+    <button id="known" class="correct" hidden>Got it!</button>
+    <button id="next">Next →</button>
+  </div>
+
+  <p class="notice">Your progress is stored in this browser only. Keyboard: ←/→ to navigate, Space to flip, 1 = need practice, 2 = got it.</p>
+</main>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+const CARDS = [{"skill": "Boundary lines", "p": "Is the boundary line solid or dashed?", "q": "y > -3x + 2", "a": "Dashed", "steps": [{"say": "Look at the inequality symbol. The symbol {{>}} has no equals bar, so points ON the line do not make it true."}, {"say": "When the line itself is not part of the solution, draw it dashed. (For {{≤}} or {{≥}}, draw it solid.)"}], "why": "A dashed line is a fence you cannot stand on. A solid line is part of the solution.", "tip": "Check a point on the line: {{(0, 2)}} gives {{2 > 2}}, which is false. So the line is not included.", "id": 1}, {"skill": "Boundary lines", "p": "Give the equation of the boundary line, say whether it is solid or dashed, and name its slope and {{y}}-intercept.", "q": "y ≤ [[1 ; 2]]x - 3", "a": "y = [[1 ; 2]]x - 3;  solid;  m = [[1 ; 2]],  b = -3", "steps": [{"say": "The boundary line replaces the inequality symbol with an equals sign.", "m": "y = [[1 ; 2]]x - 3"}, {"say": "The symbol {{≤}} includes equality, so the line is solid."}, {"say": "The equation is already in {{y = mx + b}} form, so read off the slope and intercept.", "m": "m = [[1 ; 2]],  b = -3"}], "why": "The boundary is the line where the two sides are exactly equal. The inequality tells you which side to shade.", "id": 2}, {"skill": "Boundary lines", "p": "Rewrite the inequality in slope-intercept form.", "q": "2y ≥ 6x - 8", "a": "y ≥ 3x - 4", "steps": [{"say": "{{y}} is multiplied by 2. Divide every term by 2. Dividing by a positive number keeps the sign the same.", "m": "[[2y ; 2]] ≥ [[6x ; 2]] - [[8 ; 2]]"}, {"say": "Simplify each term.", "m": "y ≥ 3x - 4"}], "why": "Slope-intercept form puts {{y}} alone so you can see the slope and intercept of the boundary line.", "tip": "Check a test point: {{(0, 0)}} gives {{0 ≥ -8}} and {{0 ≥ -4}}. Both are true.", "id": 3}, {"skill": "Boundary lines", "p": "Rewrite the inequality in slope-intercept form.", "q": "-3y > 6x + 9", "a": "y < -2x - 3", "steps": [{"say": "Divide every term by {{-3}}. Dividing by a NEGATIVE number reverses the inequality, so {{>}} becomes {{<}}.", "m": "y < [[6x ; -3]] + [[9 ; -3]]"}, {"say": "Simplify each fraction.", "m": "y < -2x - 3"}], "why": "Multiplying or dividing both sides by a negative flips the order of the numbers, so the sign must flip too.", "tip": "Check: {{(0, -5)}} makes {{-3y > 6x + 9}} true ({{15 > 9}}) and also {{y < -2x - 3}} true ({{-5 < -3}}).", "id": 4}, {"skill": "Is it a solution?", "p": "Is the point {{(3, 4)}} a solution of the inequality?", "q": "y ≤ 2x - 1", "a": "Yes", "steps": [{"say": "A solution makes the inequality true. Substitute {{x = 3}} and {{y = 4}}.", "m": "4 ≤ 2(3) - 1"}, {"say": "Simplify the right side.", "m": "4 ≤ 5"}, {"say": "{{4 ≤ 5}} is true, so {{(3, 4)}} is a solution. It lies in the shaded region."}], "why": "Every point in the shaded region, and on a solid boundary, makes the inequality true.", "id": 5}, {"skill": "Is it a solution?", "p": "Is the point {{(1, -2)}} a solution of the inequality?", "q": "y > x - 4", "a": "Yes", "steps": [{"say": "Substitute {{x = 1}} and {{y = -2}}.", "m": "-2 > 1 - 4"}, {"say": "Simplify the right side.", "m": "-2 > -3"}, {"say": "{{-2}} is to the right of {{-3}} on a number line, so {{-2 > -3}} is true. The point is a solution."}], "why": "With negative numbers, the larger number is the one closer to the right on a number line.", "id": 6}, {"skill": "Is it a solution?", "p": "Is the point {{(2, 2)}} a solution of the inequality?", "q": "x + y ≥ 5", "a": "No", "steps": [{"say": "Substitute {{x = 2}} and {{y = 2}}.", "m": "2 + 2 ≥ 5"}, {"say": "Add on the left.", "m": "4 ≥ 5"}, {"say": "{{4 ≥ 5}} is false, so {{(2, 2)}} is not a solution. It is on the unshaded side of the line."}], "why": "One false statement is enough: the point is not in the solution set.", "id": 7}, {"skill": "Is it a solution?", "p": "Is the point {{(-2, 3)}} a solution of the inequality?", "q": "3x - 2y > -12", "a": "No", "steps": [{"say": "Substitute {{x = -2}} and {{y = 3}}.", "m": "3(-2) - 2(3) > -12"}, {"say": "Simplify the left side.", "m": "-6 - 6 > -12"}, {"say": "{{-12 > -12}} is false. The point lies exactly ON the boundary line, and a strict symbol ({{>}}) means the line is dashed and not included.", "m": "-12 > -12"}], "why": "On a dashed boundary, points on the line are not solutions. On a solid one, they are.", "tip": "If the symbol were {{≥}}, the statement {{-12 ≥ -12}} would be true.", "id": 8}, {"skill": "Graphing & shading", "p": "Graph the inequality. Which side do you shade?", "q": "y ≥ 2x - 3", "a": "Solid line; shade above", "afig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Solid line y = 2x - 3 with the region above it shaded", "items": [{"t": "half", "A": -2, "B": 1, "C": 3, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": 2, "b": -3}, {"t": "d", "p": [0, 0], "k": "acc2"}]}, "steps": [{"say": "The symbol {{≥}} includes the line, so draw the boundary {{y = 2x - 3}} solid. Plot {{(0, -3)}} and go up 2, right 1."}, {"say": "Pick a test point that is not on the line. The origin is easy.", "m": "0 ≥ 2(0) - 3"}, {"say": "{{0 ≥ -3}} is true, so shade the side that contains {{(0, 0)}}. That is above the line."}], "why": "The line splits the plane in two. All points on one side give the same true-or-false answer, so one test point decides the whole side.", "tip": "Because the symbol is {{≥}} and {{y}} is by itself, shading above matches \"greater than\".", "id": 9}, {"skill": "Graphing & shading", "p": "Graph the inequality. Is the line solid or dashed, and which side do you shade?", "q": "y < -x + 2", "a": "Dashed line; shade below", "afig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Dashed line y = -x + 2 with the region below it shaded", "items": [{"t": "half", "A": -1, "B": -1, "C": 2, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": -1, "b": 2, "dash": true}, {"t": "d", "p": [0, 0], "k": "acc2"}]}, "steps": [{"say": "The symbol {{<}} does not include the line, so draw {{y = -x + 2}} dashed. It has {{y}}-intercept 2 and slope {{-1}}: down 1, right 1."}, {"say": "Test the origin.", "m": "0 < -0 + 2"}, {"say": "{{0 < 2}} is true, so shade the side with {{(0, 0)}}. That is below the line."}], "why": "Dashed means the boundary points are not solutions. The shading shows all the points that are.", "id": 10}, {"skill": "Graphing & shading", "p": "Graph the inequality. The origin is on the boundary line, so pick a different test point.", "q": "y > 2x", "a": "Dashed line; shade above", "afig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Dashed line y = 2x with the region above it shaded", "items": [{"t": "half", "A": -2, "B": 1, "C": 0, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": 2, "b": 0, "dash": true}, {"t": "d", "p": [1, 0], "k": "acc2"}]}, "steps": [{"say": "The symbol {{>}} makes the boundary dashed. The line {{y = 2x}} passes through the origin with slope 2."}, {"say": "{{(0, 0)}} is ON the line, so it cannot be used. Test {{(1, 0)}} instead.", "m": "0 > 2(1)"}, {"say": "{{0 > 2}} is false, so {{(1, 0)}} is NOT in the solution. It is below the line, so shade the other side: above the line."}], "why": "A test point must be off the line. A false result means shade the opposite side.", "tip": "Check the shaded side: {{(0, 3)}} gives {{3 > 0}}, which is true.", "id": 11}, {"skill": "Graphing & shading", "p": "Graph the inequality on the coordinate plane.", "q": "x > 1", "a": "Dashed vertical line at x = 1; shade to the right", "afig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Dashed vertical line x = 1 with the region to its right shaded", "items": [{"t": "half", "A": 1, "B": 0, "C": -1, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "x": 1, "dash": true}, {"t": "d", "p": [3, 2], "k": "acc2"}, {"t": "tx", "p": [3, 2], "s": "(3, 2)", "dx": 8, "dy": -6, "a": "start"}]}, "steps": [{"say": "The boundary is {{x = 1}}, a vertical line through {{(1, 0)}}. The symbol {{>}} makes it dashed."}, {"say": "The inequality only involves {{x}}, so every point whose {{x}}-coordinate is more than 1 works, whatever {{y}} is."}, {"say": "Shade to the right of the line. Test {{(3, 2)}}: {{3 > 1}} is true."}], "why": "A vertical boundary splits the plane into a left side and a right side. Greater {{x}} means farther right.", "id": 12}, {"skill": "Graphing & shading", "p": "Graph the inequality. Rewrite it in slope-intercept form first.", "q": "3x - 2y ≤ 6", "a": "y ≥ [[3 ; 2]]x - 3; solid line, shade above", "afig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Solid line y = 3/2 x - 3 with the region above it shaded", "items": [{"t": "half", "A": -3, "B": 2, "C": 6, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": 1.5, "b": -3}, {"t": "d", "p": [0, 0], "k": "acc2"}]}, "steps": [{"say": "Subtract {{3x}} from both sides.", "m": "-2y ≤ -3x + 6"}, {"say": "Divide every term by {{-2}} and reverse the sign.", "m": "y ≥ [[3 ; 2]]x - 3"}, {"say": "The symbol {{≥}} gives a solid line with {{y}}-intercept {{-3}} and slope {{[[3 ; 2]]}}. Test {{(0, 0)}} in the original: {{0 ≤ 6}} is true."}, {"say": "Shade the side that contains the origin. That is above the line."}], "why": "Dividing by a negative flips the sign. A test point in the ORIGINAL inequality catches a forgotten flip.", "id": 13}, {"skill": "Writing from a graph", "p": "Write the inequality for the graph in slope-intercept form.", "s": "The boundary is a dashed line through {{(0, -2)}} and {{(2, 0)}}. The region above the line is shaded.", "fig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Dashed line through (0, -2) and (2, 0), shaded above", "items": [{"t": "half", "A": -1, "B": 1, "C": 2, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": 1, "b": -2, "dash": true}, {"t": "d", "p": [0, -2], "k": "acc2"}, {"t": "d", "p": [2, 0], "k": "acc2"}]}, "a": "y > x - 2", "steps": [{"say": "Find the slope from the two points.", "m": "m = [[0 - (-2) ; 2 - 0]] = 1"}, {"say": "The {{y}}-intercept is {{-2}}, so the boundary line is {{y = x - 2}}."}, {"say": "The line is dashed, so use {{>}} or {{<}}. The shading is above the line, so use {{>}}.", "m": "y > x - 2"}], "why": "Dashed or solid picks the symbol type. Shading above means {{y}} is greater; below means {{y}} is less.", "tip": "Check with a point in the shaded region, {{(0, 3)}}: {{3 > -2}} is true.", "id": 14}, {"skill": "Writing from a graph", "p": "Write the inequality for the graph in slope-intercept form.", "s": "The boundary is a solid line through {{(0, 4)}} and {{(3, 2)}}. The region below the line is shaded.", "fig": {"vb": [-5, -3, 6, 6], "px": 270, "alt": "Solid line through (0, 4) and (3, 2), shaded below", "items": [{"t": "half", "A": 0.6666666666666666, "B": 1, "C": -4, "sgn": -1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": -0.6666666666666666, "b": 4}, {"t": "d", "p": [0, 4], "k": "acc2"}, {"t": "d", "p": [3, 2], "k": "acc2"}]}, "a": "y ≤ -[[2 ; 3]]x + 4", "steps": [{"say": "Find the slope.", "m": "m = [[2 - 4 ; 3 - 0]] = -[[2 ; 3]]"}, {"say": "The {{y}}-intercept is 4, so the boundary is {{y = -[[2 ; 3]]x + 4}}."}, {"say": "The line is solid, so the symbol includes equality. The shading is below the line, so use {{≤}}.", "m": "y ≤ -[[2 ; 3]]x + 4"}], "why": "Solid line means {{≤}} or {{≥}}. Shading below means {{≤}} or {{<}}.", "tip": "Check {{(0, 0)}}, which is in the shaded region: {{0 ≤ 4}} is true.", "id": 15}, {"skill": "Writing from a graph", "p": "Write the inequality for the graph.", "s": "The boundary is a dashed vertical line through {{(-2, 0)}}. The region to the left of the line is shaded.", "fig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Dashed vertical line at x = -2, shaded to the left", "items": [{"t": "half", "A": -1, "B": 0, "C": -2, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "x": -2, "dash": true}]}, "a": "x < -2", "steps": [{"say": "A vertical line through {{x = -2}} has the equation {{x = -2}}."}, {"say": "The line is dashed, so the symbol is strict ({{<}} or {{>}})."}, {"say": "The shaded points are left of the line, where {{x}} is smaller than {{-2}}.", "m": "x < -2"}], "why": "Left means smaller {{x}}. The inequality only involves {{x}} because {{y}} can be anything.", "tip": "Check {{(-4, 1)}} in the shaded region: {{-4 < -2}} is true.", "id": 16}, {"skill": "Writing from a graph", "p": "Write the inequality for the graph in slope-intercept form.", "s": "The boundary is a solid line through {{(0, 1)}} and {{(2, 5)}}. The region below the line is shaded.", "fig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Solid line through (0, 1) and (2, 5), shaded below", "items": [{"t": "half", "A": 2, "B": -1, "C": 1, "sgn": 1, "k": "f fill"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": 2, "b": 1}, {"t": "d", "p": [0, 1], "k": "acc2"}, {"t": "d", "p": [2, 5], "k": "acc2"}]}, "a": "y ≤ 2x + 1", "steps": [{"say": "Find the slope.", "m": "m = [[5 - 1 ; 2 - 0]] = 2"}, {"say": "The {{y}}-intercept is 1, so the boundary is {{y = 2x + 1}}."}, {"say": "The line is solid and the shading is below, so use {{≤}}.", "m": "y ≤ 2x + 1"}], "why": "Read the graph in three questions: what is the line, solid or dashed, and which side is shaded?", "tip": "Check {{(0, 0)}}, which is below the line: {{0 ≤ 1}} is true.", "id": 17}, {"skill": "Systems of inequalities", "p": "Is the point {{(2, 3)}} a solution of the system?", "q": "sys{y > x ;; y < 5}", "a": "Yes", "steps": [{"say": "A solution must make BOTH inequalities true. Test the first one.", "m": "3 > 2   true"}, {"say": "Test the second one.", "m": "3 < 5   true"}, {"say": "Both are true, so {{(2, 3)}} is in the overlap of the two shaded regions."}], "why": "The solution set of a system is where all the shaded regions overlap.", "id": 18}, {"skill": "Systems of inequalities", "p": "Which point is a solution of the system? {{(1, 2), (2, 4), (4, 2), (0, -3)}}", "q": "sys{y > x - 1 ;; y ≤ -2x + 6}", "a": "(1, 2)", "steps": [{"say": "Test {{(1, 2)}}: {{2 > 0}} is true and {{2 ≤ 4}} is true. Both work."}, {"say": "Test {{(2, 4)}}: {{4 > 1}} is true, but {{4 ≤ 2}} is false."}, {"say": "Test {{(4, 2)}}: {{2 > 3}} is false, so stop."}, {"say": "Test {{(0, -3)}}: {{-3 > -1}} is false."}, {"say": "Only {{(1, 2)}} satisfies both inequalities."}], "why": "A point must pass every inequality in the system. One failure rules it out.", "id": 19}, {"skill": "Systems of inequalities", "p": "Graph the system and name a point in the solution region.", "q": "sys{y ≥ -x + 4 ;; y < 2x + 1}", "a": "The overlap is the wedge to the right of (1, 3). Example: (3, 4)", "afig": {"vb": [-5, -5, 5, 5], "px": 250, "alt": "Solid line y = -x + 4 shaded above and dashed line y = 2x + 1 shaded below; the overlap is the wedge to the right of (1, 3)", "items": [{"t": "half", "A": 1, "B": 1, "C": -4, "sgn": 1, "k": "f fill"}, {"t": "half", "A": 2, "B": -1, "C": 1, "sgn": 1, "k": "f fill2"}, {"t": "grid", "step": 1}, {"t": "L", "k": "acc", "m": -1, "b": 4}, {"t": "L", "k": "acc2", "m": 2, "b": 1, "dash": true}, {"t": "d", "p": [1, 3], "k": "acc2", "open": true}, {"t": "d", "p": [3, 4], "k": "acc2"}, {"t": "tx", "p": [3, 4], "s": "(3, 4)", "dx": 8, "dy": 16, "a": "start"}]}, "steps": [{"say": "Graph the first inequality: solid line {{y = -x + 4}}. Test {{(0, 5)}}: {{5 ≥ 4}} is true, so shade above (blue)."}, {"say": "Graph the second: dashed line {{y = 2x + 1}}. Test {{(0, 0)}}: {{0 < 1}} is true, so shade below (orange)."}, {"say": "The solution is the region where both shadings overlap, the wedge to the right of the corner at {{(1, 3)}}."}, {"say": "Test a point inside it, {{(3, 4)}}: {{4 ≥ 1}} and {{4 < 7}} are both true."}], "why": "Each inequality shades a half-plane. Points in the overlap satisfy both at once.", "id": 20}, {"skill": "Systems of inequalities", "p": "The boundary lines of a system cross at one point, a corner of the solution region. Find that corner.", "q": "sys{y ≥ x + 1 ;; y ≤ -2x + 7}", "a": "(2, 3)", "steps": [{"say": "At the corner both boundary lines are true at once, so set the two expressions for {{y}} equal.", "m": "x + 1 = -2x + 7"}, {"say": "Add {{2x}} to both sides, then subtract 1.", "m": "3x = 6"}, {"say": "Divide by 3.", "m": "x = 2"}, {"say": "Put {{x = 2}} into {{y = x + 1}} to find {{y}}. The corner is {{(2, 3)}}.", "m": "y = 2 + 1 = 3"}], "why": "A corner is where two boundary lines meet, so it solves the pair of equations.", "tip": "Check in the other line: {{-2(2) + 7 = 3}}.", "id": 21}, {"skill": "Real-world constraints", "p": "Pens cost $2 and notebooks cost $3. Write an inequality for buying {{x}} pens and {{y}} notebooks with at most $18.", "a": "2x + 3y ≤ 18", "steps": [{"say": "The cost of the pens is $2 times {{x}}, and the cost of the notebooks is $3 times {{y}}.", "m": "2x + 3y"}, {"say": "\"At most $18\" means the total is less than or equal to 18.", "m": "2x + 3y ≤ 18"}], "why": "\"At most\" means {{≤}}. Add up the pieces of cost, then compare the total with the limit.", "tip": "Because items are counted, only whole-number points are actual solutions, and {{x ≥ 0}} and {{y ≥ 0}}.", "id": 22}, {"skill": "Real-world constraints", "p": "Pens cost $2 and notebooks cost $3, with at most $18 to spend: {{2x + 3y ≤ 18}}. Can you buy 6 pens and 2 notebooks?", "a": "Yes", "steps": [{"say": "Substitute {{x = 6}} pens and {{y = 2}} notebooks.", "m": "2(6) + 3(2) ≤ 18"}, {"say": "Multiply, then add.", "m": "12 + 6 ≤ 18"}, {"say": "{{18 ≤ 18}} is true, so the purchase is allowed. It costs exactly $18.", "m": "18 ≤ 18"}], "why": "The symbol {{≤}} includes the boundary, so spending exactly $18 is allowed.", "id": 23}, {"skill": "Real-world constraints", "p": "Graph all the purchases allowed by {{2x + 3y ≤ 18}}, {{x ≥ 0}}, {{y ≥ 0}}. What are the corners of the region?", "a": "(0, 0), (9, 0), (0, 6)", "afig": {"vb": [-1, -1, 10, 7], "px": 300, "alt": "Triangle with corners (0, 0), (9, 0) and (0, 6) shaded", "items": [{"t": "p", "pts": [[0, 0], [9, 0], [0, 6]], "k": "fill"}, {"t": "grid", "step": 1}, {"t": "l", "a": [0, 6], "b": [9, 0], "k": "acc"}, {"t": "d", "p": [0, 6], "k": "acc2"}, {"t": "d", "p": [9, 0], "k": "acc2"}, {"t": "d", "p": [0, 0], "k": "acc2"}, {"t": "tx", "p": [0, 6], "s": "(0, 6)", "dx": 8, "dy": 4, "a": "start"}, {"t": "tx", "p": [9, 0], "s": "(9, 0)", "dx": 0, "dy": -10, "a": "middle"}]}, "steps": [{"say": "{{x ≥ 0}} and {{y ≥ 0}} keep us in the first quadrant, because you cannot buy a negative number of items."}, {"say": "Find where {{2x + 3y = 18}} crosses the axes. If {{x = 0}}: {{3y = 18}}, so {{y = 6}}. If {{y = 0}}: {{2x = 18}}, so {{x = 9}}.", "m": "(0, 6) and (9, 0)"}, {"say": "Draw a solid line through them. Test {{(0, 0)}}: {{0 ≤ 18}} is true, so shade toward the origin."}, {"say": "The shaded region is a triangle with corners {{(0, 0)}}, {{(9, 0)}} and {{(0, 6)}}."}], "why": "Real-world limits become inequalities. The region shows every combination that fits all the limits.", "id": 24}, {"skill": "Real-world constraints", "p": "A school sells student tickets for $5 and adult tickets for $8. It needs at least $200, and the room holds at most 40 people. Write a system for {{x}} student and {{y}} adult tickets, then test {{(20, 15)}}.", "a": "sys{5x + 8y ≥ 200 ;; x + y ≤ 40};  (20, 15) works", "steps": [{"say": "Money: $5 times {{x}} plus $8 times {{y}} must be at least 200.", "m": "5x + 8y ≥ 200"}, {"say": "People: the tickets sold cannot be more than 40.", "m": "x + y ≤ 40"}, {"say": "Test {{(20, 15)}} in the first: {{5(20) + 8(15) = 100 + 120 = 220}}, and {{220 ≥ 200}} is true."}, {"say": "Test it in the second: {{20 + 15 = 35}}, and {{35 ≤ 40}} is true. Both work, so {{(20, 15)}} is a solution of the system."}], "why": "Each condition in a word problem becomes its own inequality. A solution has to satisfy all of them.", "id": 25}];
+const STORAGE_KEY='mrk-cards-graphing-inequalities';
+let ratings={};
+try{ratings=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{}}catch(e){ratings={}}
+const byId=id=>document.getElementById(id);
+let deck=[],position=0,revealed=false,missedMode=false;
+const skills=[...new Set(CARDS.map(c=>c.skill))];
+skills.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;byId('skill').append(o)});
+
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings))}catch(e){}}
+function selectDeck(shuffle){
+  const skill=byId('skill').value;
+  deck=CARDS.filter(c=>(skill==='All'||c.skill===skill)&&(!missedMode||ratings[c.id]==='missed'));
+  if(shuffle){for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}}
+  position=0;
+  render();
+}
+function render(){
+  const c=deck[position];
+  revealed=false;
+  byId('counter').textContent=c?`Card ${position+1} of ${deck.length}`:'No matching cards';
+  byId('score').textContent=`Got it: ${Object.values(ratings).filter(v=>v==='known').length} • Need practice: ${Object.values(ratings).filter(v=>v==='missed').length}`;
+  byId('bar').style.width=deck.length?`${(position+1)/deck.length*100}%`:'0%';
+  byId('tag').textContent=c?c.skill:'';
+  const ins=byId('instr'), st=byId('story'), dq=byId('display'), fg=byId('figbox');
+  if(!c){ins.textContent='No cards match this filter. Choose another skill or leave missed-only mode.';st.hidden=dq.hidden=fg.hidden=true;}
+  else{
+    ins.innerHTML=inl(c.p||''); ins.hidden=!c.p;
+    st.hidden=!c.s; st.innerHTML=c.s?inl(c.s):'';
+    dq.hidden=!c.q; dq.innerHTML=c.q?fm(c.q):'';
+    fg.hidden=!c.fig; fg.innerHTML=c.fig?figSvg(c.fig):'';
+  }
+  byId('answer').innerHTML=c?fm(c.a):'';
+  const steps=byId('steps'); steps.innerHTML='';
+  (c&&c.steps||[]).forEach((s,idx)=>{
+    const li=document.createElement('li'); li.className='step';
+    li.innerHTML=`<div class="step-num">${idx+1}</div><div class="step-main"><div class="step-say">${inl(s.say)}</div>${s.m?`<div class="step-m m">${fm(s.m)}</div>`:''}</div>`;
+    steps.append(li);
+  });
+  byId('explanation').innerHTML=c&&c.why?inl(c.why):'';
+  const tp=byId('tip'); tp.hidden=!(c&&c.tip); tp.innerHTML=c&&c.tip?'<b>Tip:</b> '+inl(c.tip):'';
+  renderVisual(c);
+  updateVisibility();
+}
+function renderVisual(c){
+  const panel=byId('visualPanel'), holder=byId('graphHolder'), legend=byId('legend'), grid=byId('revealGrid');
+  holder.innerHTML=''; legend.hidden=true;
+  let has=false;
+  if(c&&c.nl){ has=true; holder.innerHTML=numberLineSvg(c.nl); legend.hidden=!!(c.nl.none||c.nl.allReal)||!c.nl.regions||!c.nl.regions.length; byId('visualTitle').textContent='Number line'; }
+  else if(c&&c.afig){ has=true; holder.innerHTML=figSvg(c.afig); byId('visualTitle').textContent='Picture'; }
+  panel.hidden=!has; grid.classList.toggle('single',!has);
+}
+function updateVisibility(){
+  const active=Boolean(deck[position]);
+  byId('revealArea').hidden=!revealed;
+  byId('hint').hidden=revealed||!active;
+  byId('flip').hidden=revealed||!active;
+  byId('again').hidden=!revealed;
+  byId('known').hidden=!revealed;
+  byId('prev').disabled=!active||position===0;
+  byId('next').disabled=!active||position===deck.length-1;
+  byId('modePill').textContent=revealed?'Answer side':'Question side';
+}
+function flip(){ if(!deck.length) return; revealed=!revealed; updateVisibility(); }
+function move(d){ if(position+d<0||position+d>=deck.length) return; position+=d; render(); }
+function rate(v){
+  const c=deck[position];
+  if(!c||!revealed) return;
+  ratings[c.id]=v; save();
+  if(missedMode&&v==='known'){ deck.splice(position,1); position=Math.max(0,Math.min(position,deck.length-1)); render(); }
+  else if(position<deck.length-1){ position++; render(); }
+  else { render(); }
+}
+function numberLineSvg(g){
+  const W=520,H=130,pad=32,Y=70,min=g.min,max=g.max,step=g.step||1;
+  const X=v=>pad+((v-min)/(max-min))*(W-2*pad);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${g.alt||'Number line graph'}">`;
+  s+=`<defs><marker id="arw" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3658d4"/></marker></defs>`;
+  s+=`<line x1="${pad-14}" y1="${Y}" x2="${W-pad+14}" y2="${Y}" stroke="#23395d" stroke-width="3"/>`;
+  s+=`<path d="M${pad-20},${Y} l9,-5 v10 z" fill="#23395d"/><path d="M${W-pad+20},${Y} l-9,-5 v10 z" fill="#23395d"/>`;
+  for(let t=min;t<=max+1e-9;t+=step){const x=X(t);s+=`<line x1="${x}" y1="${Y-8}" x2="${x}" y2="${Y+8}" stroke="#23395d" stroke-width="1.4"/><text x="${x}" y="${Y+26}" text-anchor="middle" font-size="12" fill="#52627a">${String(t).replace('-','−')}</text>`;}
+  if(g.none){ s+=`<text x="${W/2}" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#9e2a2b">No solution (nothing is shaded)</text></svg>`; return s; }
+  if(g.allReal){ s+=`<line x1="${pad-14}" y1="${Y}" x2="${W-pad+14}" y2="${Y}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"/><text x="${W/2}" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1f7a4d">Every real number works</text></svg>`; return s; }
+  (g.regions||[]).forEach(r=>{
+    const x1=r.from==null?pad-14:X(r.from), x2=r.to==null?W-pad+14:X(r.to);
+    s+=`<line x1="${x1}" y1="${Y}" x2="${x2}" y2="${Y}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"/>`;
+    if(r.from!=null) s+=`<circle cx="${X(r.from)}" cy="${Y}" r="7" fill="${r.includeFrom?'#3658d4':'#fff'}" stroke="#3658d4" stroke-width="3"/>`;
+    if(r.to!=null) s+=`<circle cx="${X(r.to)}" cy="${Y}" r="7" fill="${r.includeTo?'#3658d4':'#fff'}" stroke="#3658d4" stroke-width="3"/>`;
+  });
+  return s+`</svg>`;
+}
+byId('card').addEventListener('click',e=>{ if(['BUTTON','SELECT','OPTION'].includes(e.target.tagName)) return; flip(); });
+byId('card').addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } });
+byId('flip').onclick=flip;
+byId('prev').onclick=()=>move(-1);
+byId('next').onclick=()=>move(1);
+byId('again').onclick=()=>rate('missed');
+byId('known').onclick=()=>rate('known');
+byId('skill').onchange=()=>selectDeck();
+byId('shuffle').onclick=()=>selectDeck(true);
+byId('missedOnly').onclick=()=>{ missedMode=!missedMode; byId('missedOnly').textContent=missedMode?'Show all cards':'Practice missed'; selectDeck(); };
+byId('reset').onclick=()=>{ if(confirm('Clear all saved flashcard progress?')){ ratings={}; save(); selectDeck(); } };
+document.addEventListener('keydown',e=>{
+  const t=document.activeElement&&document.activeElement.tagName;
+  if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(t)) return;
+  if(e.key==='ArrowLeft') move(-1);
+  else if(e.key==='ArrowRight') move(1);
+  else if(e.key===' '){ e.preventDefault(); flip(); }
+  else if(e.key==='1') rate('missed');
+  else if(e.key==='2') rate('known');
+});
+selectDeck();
+</script>
+</body>
+</html>

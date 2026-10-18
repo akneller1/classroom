@@ -117,7 +117,7 @@ td.cur { background: var(--chip); font-weight: 700; }
       <div class="legend">
         <span><i style="background:var(--wood)"></i>Wall: ball stops</span>
         <span><i style="background:var(--sand)"></i>Sand: ball slows down</span>
-        <span><i style="background:var(--water)"></i>Water: +1 stroke, replay</span>
+        <span><i style="background:var(--water)"></i>Water: don't land in it (+1 stroke)</span>
         <span><i style="background:#fff;border:1px solid var(--line)"></i>Ball</span>
         <span><i style="background:var(--flag)"></i>Cup</span>
       </div>
@@ -170,7 +170,7 @@ td.cur { background: var(--chip); font-weight: 700; }
           <li>Pick left or right, then a club. A club's number is how far the ball moves <b>across</b> (change in x). The ball rises or falls by the slope times that distance.</li>
           <li>You won't see the path until you hit. Use rise over run between the ball and the cup to plan your slope.</li>
           <li>The ball drops in if it reaches the cup with no more than 1 unit left to roll. Hit it too hard and it rolls right over.</li>
-          <li>Walls stop the ball. Sand slows it down: while the ball is in sand it only travels 40% as far. Water costs a penalty stroke and puts the ball back.</li>
+          <li>Walls stop the ball. Sand slows it down: while the ball is in sand it only travels 40% as far. The ball can fly over water if the club is long enough, but if it lands in the water it costs a penalty stroke and goes back.</li>
           <li>After every shot, the ball settles on the nearest grid point. Adjust the slope and hit again.</li>
         </ul>
       </details>
@@ -196,15 +196,15 @@ const HOLES = [
   { name: "Opening Drive", par: 2, ball: [-6, -3], cup: [6, 3], clubs: [2, 4, 6, 8],
     walls: [], water: [], sand: [] },
   { name: "Downhill Pond", par: 2, ball: [-7, 6], cup: [5, -3], clubs: [3, 4, 6, 8],
-    walls: [], water: [[-3.5, -9.5, 0.5, -1.5]], sand: [[5.5, 0.5, 9.5, 4.5]] },
+    walls: [], water: [[-4.5, -9.5, 1.5, 0.5]], sand: [[5.5, 0.5, 9.5, 4.5]] },
   { name: "The Wall", par: 3, ball: [-8, -2], cup: [8, -2], clubs: [2, 4, 6, 10],
     walls: [[0.5, -10, 0.5, 4.5]], water: [], sand: [[3.5, -7.5, 6.5, -4.5]] },
   { name: "Sand Box", par: 3, ball: [-8, -8], cup: [8, 8], clubs: [3, 5, 8, 10],
-    walls: [[3.5, 5.5, 10, 5.5]], water: [[-9.5, 2.5, -4.5, 9.5]], sand: [[-2.5, -2.5, 2.5, 2.5]] },
+    walls: [[3.5, 5.5, 10, 5.5]], water: [[-9.5, 0.5, -3.5, 9.5]], sand: [[-2.5, -2.5, 2.5, 2.5]] },
   { name: "River Crossing", par: 4, ball: [-8, -6], cup: [7, -5], clubs: [2, 3, 6, 9],
-    walls: [[4.5, -10, 4.5, -7.5]], water: [[-1.5, -10, 1.5, 2.5], [-1.5, 5.5, 1.5, 10]], sand: [] },
+    walls: [[4.5, -10, 4.5, -7.5]], water: [[-2.5, -10, 2.5, 2.5], [-2.5, 5.5, 2.5, 10]], sand: [] },
   { name: "Zig-Zag", par: 4, ball: [-9, -9], cup: [9, 9], clubs: [3, 5, 7, 9],
-    walls: [[-4.5, -10, -4.5, 3.5], [3.5, -3.5, 3.5, 10]], water: [[-2.5, 6.5, 1.5, 10]], sand: [[6.5, -6.5, 9.5, -2.5]] },
+    walls: [[-4.5, -10, -4.5, 3.5], [3.5, -3.5, 3.5, 10]], water: [[-3.5, 4.5, 2.5, 10]], sand: [[6.5, -6.5, 9.5, -2.5]] },
 ];
 
 function inRect(x, y, r) { return x > r[0] && x < r[2] && y > r[1] && y < r[3]; }
@@ -255,11 +255,12 @@ function simulate(h, ball, m, dir, d) {
       if (left <= 1.0001) return { path, outcome: "sink", end: [hx, hy], sand };
       lipped = true;
     }
-    if (h.water.some(r => inRect(x, y, r))) return { path, outcome: "water", end: [bx, by], lipped, sand };
   }
   return finish("stop", px, py);
 
   function finish(reason, ex, ey) {
+    // The ball can fly over water, but if it comes to rest in water it splashes.
+    if (h.water.some(r => inRect(ex, ey, r))) return { path, outcome: "water", end: [bx, by], lipped, sand };
     const s = snap(h, ex, ey);
     if (s[0] === hx && s[1] === hy) return { path, outcome: "sink", end: s, trickle: true, sand };
     return { path, outcome: "stop", reason, end: s, raw: [ex, ey], lipped, sand };
@@ -372,7 +373,7 @@ function finishShot(r, start, a, d, dir) {
   if (r.outcome === "water") {
     S.strokes++;
     res = "splash (+1)";
-    msg = `Splash! That's a 1-stroke penalty. The ball goes back to ${pt(start)}.`; kind = "bad";
+    msg = `Splash! The ball landed in the water. That's a 1-stroke penalty. The ball goes back to ${pt(start)}.`; kind = "bad";
     S.fx = { type: "splash", at: r.path[r.path.length - 1], t0: performance.now() };
     S.ball = start;
   } else if (r.outcome === "sink") {
@@ -500,14 +501,24 @@ function draw() {
   c.fillStyle = C.flag; c.beginPath(); c.moveTo(X(hx), Y(hy) - U * 1.6); c.lineTo(X(hx) + U * 0.9, Y(hy) - U * 1.35); c.lineTo(X(hx), Y(hy) - U * 1.1); c.fill();
 
   // ball
-  let bxp = S.ball[0], byp = S.ball[1], br = U * 0.26;
+  let bxp = S.ball[0], byp = S.ball[1], br = U * 0.26; let lift = 0;
   const P = S.anim ? S.anim.r.path : S.lastPath;
   if (P && P.length) {
     const k = S.anim ? Math.min(P.length - 1, Math.floor(S.anim.p * (P.length - 1))) : P.length - 1;
     // trail
     c.strokeStyle = "rgba(255,255,255,.35)"; c.lineWidth = 2; c.setLineDash([]); c.beginPath();
     c.moveTo(X(P[0][0]), Y(P[0][1])); for (let i = 1; i <= k; i += 3) c.lineTo(X(P[i][0]), Y(P[i][1])); c.lineTo(X(P[k][0]), Y(P[k][1])); c.stroke();
-    if (S.anim) [bxp, byp] = P[k];
+    if (S.anim) {
+      [bxp, byp] = P[k];
+      // Hop: while the ball crosses water it lifts off the ground and lands again (the shadow stays on the grass).
+      const hh = HOLES[S.hole], PAD = 12;
+      let a = -1, z = -1;
+      for (let i = 0; i < P.length; i++) if (hh.water.some(r => inRect(P[i][0], P[i][1], r))) { if (a < 0) a = i; z = i; }
+      if (a >= 0) {
+        const s0 = Math.max(0, a - PAD), e0 = Math.min(P.length - 1, z + PAD);
+        if (k > s0 && k < e0) lift = Math.sin(Math.PI * (k - s0) / (e0 - s0)) * U * 1.1;
+      }
+    }
   }
   if (S.fx && S.fx.type === "sink") { const q = Math.min(1, (performance.now() - S.fx.t0) / 700); br *= (1 - q); }
   if (S.fx && S.fx.type === "splash") {
@@ -517,7 +528,7 @@ function draw() {
   }
   if (br > 0.5 && !(S.done && !S.fx && S.scores[S.hole] != null && S.ball[0] === hx && S.ball[1] === hy)) {
     c.fillStyle = "rgba(0,0,0,.25)"; c.beginPath(); c.arc(X(bxp) + 2, Y(byp) + 2, br, 0, 7); c.fill();
-    c.fillStyle = "#fbfbf7"; c.beginPath(); c.arc(X(bxp), Y(byp), br, 0, 7); c.fill();
+    c.fillStyle = "#fbfbf7"; c.beginPath(); c.arc(X(bxp), Y(byp) - lift, br * (1 + lift / (U * 6)), 0, 7); c.fill();
     c.strokeStyle = "rgba(0,0,0,.35)"; c.lineWidth = 1; c.stroke();
   }
   // labels

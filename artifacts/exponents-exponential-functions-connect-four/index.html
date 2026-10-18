@@ -1,0 +1,1136 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Exponents Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#e2e8f4; --ink:#12203f; --muted:#52608a; --line:#c6cfe3;
+  --board:#2848c7; --board-2:#1c3597; --hole:#dce4f6;
+  --t0:#e5484d; --t0-ink:#ffffff; --t1:#f4b400; --t1-ink:#2b2100;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Exponents Four</h1><span>Simplify, convert, evaluate, or model with exponents to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">L</div><div class="cardbody">
+      <input class="name" id="name0" value="Left side" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">R</div><div class="cardbody">
+      <input class="name" id="name1" value="Right side" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: one rule at a time</option>
+        <option value="2">Level 2: coefficients and two variables</option>
+        <option value="3">Level 3: combined rules and multi-step models</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Exponents Four: problem generators. Monomials are {n,d,x,y} = (n/d) x^x y^y and are compared by evaluating at sample points. */
+const M=(n,d,x,y)=>({n,d,x:x||0,y:y||0});
+const vtxt=(v,e)=>e===1?v:`${v}^${e}`;
+function monoTxt(m){
+  const g=gcd(m.n,m.d)||1;let n=m.n/g,d=m.d/g;
+  if(n===0)return '0';
+  const sgn=n<0?'-':'';n=Math.abs(n);
+  const num=[],den=[];
+  for(const [v,e] of [['x',m.x],['y',m.y]]){if(e>0)num.push(vtxt(v,e));else if(e<0)den.push(vtxt(v,-e));}
+  const nt=num.length===0?String(n):(n===1?num.join(''):n+num.join(''));
+  const dt=den.length===0?(d===1?'':String(d)):(d===1?den.join(''):d+den.join(''));
+  return sgn+(dt?`[[${nt} ; ${dt}]]`:nt);
+}
+const monoVal=(m,X,Y)=>m.n/m.d*Math.pow(X,m.x)*Math.pow(Y,m.y);
+const relEq=(a,b)=>Math.abs(a-b)<=1e-9*Math.max(1,Math.abs(a),Math.abs(b));
+const PTS=[[2,3],[3,2],[5,4],[7,2]];
+const monoOracle=f=>m=>m&&typeof m.n==='number'&&PTS.every(([X,Y])=>relEq(f(X,Y),monoVal(m,X,Y)));
+const cf=c=>c===1?'':String(c);
+const rawTerm=(c,a,b)=>`${cf(c)}${a?vtxt('x',a):''}${b?(b<0?`y^-${-b}`:vtxt('y',b)):''}`;
+const monoChoices=list=>list.filter(m=>m&&Number.isFinite(m.n)).map(m=>({t:monoTxt(m),v:m}));
+const sciT=(m,e)=>`${m} × 10^${e}`;
+function sciNorm(mant,k){while(mant%10===0){mant/=10;k++;}const s=String(mant),e=k+s.length-1;return {m:s.length===1?s:s[0]+'.'+s.slice(1),e};}
+function stdStr(mant,k){
+  if(k>=0)return (String(mant)+'0'.repeat(k)).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  const s=String(mant),p=-k;
+  if(p>=s.length)return '0.'+'0'.repeat(p-s.length)+s;
+  return s.slice(0,s.length-p)+'.'+s.slice(s.length-p);
+}
+const opTxt=mant=>mant<10?String(mant):(mant/10).toFixed(1);
+const RP=(r,k)=>{let out=R(1);for(let i=0;i<Math.abs(k);i++)out=Rmul(out,r);return k<0?Rdiv(R(1),out):out;};
+const okR=r=>r&&Number.isFinite(r.n)&&Math.abs(r.n)<=20000&&r.d<=20000;
+const rChoices=list=>list.filter(okR).map(r=>({t:Rstr(r),v:r}));
+const fnTxt=(a,b)=>typeof b==='object'?`${cf(a)}([[${b.n} ; ${b.d}]])^x`:`${cf(a)}${a===1?'':' * '}${b}^x`;
+
+const UNIT={
+types:{simplify:'Simplify',zeroneg:'Zero & negative',sciConv:'Scientific notation',sciOp:'Sci. notation math',evalExp:'Evaluate f(x)',growthDecay:'Growth or decay',growthFn:'Model a situation',table:'Read a table',solveExp:'Solve for x',rational:'Rational exponents'},
+pools:{
+  1:['simplify','zeroneg','sciConv','evalExp','growthDecay','growthFn','solveExp','rational','simplify'],
+  2:['simplify','zeroneg','sciConv','sciOp','evalExp','growthDecay','growthFn','table','solveExp','rational'],
+  3:['simplify','zeroneg','sciOp','evalExp','growthDecay','growthFn','table','solveExp','rational','simplify']},
+gens:{
+
+/* ---------- simplify with the exponent rules ---------- */
+simplify(level){
+  const f=pick(level===1?['P1','Q1','W1']:level===2?['P2','Q2','W2']:['P3','Q3','X','Y','W3']);
+  let stmt,fn,ans,bad,steps;
+  if(f==='P1'){
+    const a=rnd(2,8),b=rnd(2,8);
+    stmt=`x^${a} * x^${b}`;fn=X=>Math.pow(X,a)*Math.pow(X,b);ans=M(1,1,a+b);
+    bad=[M(1,1,a*b),M(2,1,a+b),M(1,1,a+b+1),M(1,1,a+b-1)];
+    steps=[['Same base, so add the exponents.',`x^{${a}+${b}}`],['Add.',monoTxt(ans)]];
+  } else if(f==='Q1'){
+    const a=rnd(5,12),b=rnd(2,a-2);
+    stmt=`[[x^${a} ; x^${b}]]`;fn=X=>Math.pow(X,a)/Math.pow(X,b);ans=M(1,1,a-b);
+    bad=[M(1,1,b-a),M(1,1,a+b),M(1,1,a-b+1),M(1,1,a-b-1),M(1,1,Math.floor(a/b))];
+    steps=[['Same base, so subtract the exponents.',`x^{${a}-${b}}`],['Subtract.',monoTxt(ans)]];
+  } else if(f==='W1'){
+    const a=rnd(2,5),n=rnd(2,4);
+    stmt=`(x^${a})^${n}`;fn=X=>Math.pow(Math.pow(X,a),n);ans=M(1,1,a*n);
+    bad=[M(1,1,a+n),M(1,1,a*n+1),M(1,1,a*n-1),M(1,1,Math.pow(a,n))];
+    steps=[['Power of a power: multiply the exponents.',`x^{${a} * ${n}}`],['Multiply.',monoTxt(ans)]];
+  } else if(f==='P2'){
+    const c1=rnd(2,6),c2=rnd(2,6),a=rnd(1,6),b=rnd(1,6);
+    stmt=`(${rawTerm(c1,a,0)})(${rawTerm(c2,b,0)})`;fn=X=>c1*Math.pow(X,a)*c2*Math.pow(X,b);ans=M(c1*c2,1,a+b);
+    bad=[M(c1*c2,1,a*b),M(c1+c2,1,a+b),M(c1*c2,1,a+b+1),M(c1+c2,1,a*b),M(c1*c2,1,Math.max(a,b))];
+    steps=[['Multiply the coefficients and add the exponents of {{x}}.',`${c1*c2}x^{${a}+${b}}`],['Simplify.',monoTxt(ans)]];
+  } else if(f==='Q2'){
+    const c2=rnd(2,4),k=rnd(2,5),c1=k*c2,a=rnd(4,9),b=rnd(1,a-2);
+    stmt=`[[${rawTerm(c1,a,0)} ; ${rawTerm(c2,b,0)}]]`;fn=X=>c1*Math.pow(X,a)/(c2*Math.pow(X,b));ans=M(k,1,a-b);
+    bad=[M(c1,1,a-b),M(c1-c2,1,a-b),M(k,1,a+b),M(k,1,b-a),M(c1,1,Math.floor(a/b))];
+    steps=[['Divide the coefficients and subtract the exponents of {{x}}.',`${k}x^{${a}-${b}}`],['Simplify.',monoTxt(ans)]];
+  } else if(f==='W2'){
+    const c=rnd(2,4),a=rnd(2,4),n=rnd(2,3);
+    stmt=`(${rawTerm(c,a,0)})^${n}`;fn=X=>Math.pow(c*Math.pow(X,a),n);ans=M(Math.pow(c,n),1,a*n);
+    bad=[M(c,1,a*n),M(c*n,1,a*n),M(Math.pow(c,n),1,a+n),M(c*n,1,a+n)];
+    steps=[['Raise the coefficient to the power and multiply the exponent of {{x}}.',`${rawTerm(Math.pow(c,n),a*n,0)}`],['Simplify.',monoTxt(ans)]];
+  } else if(f==='P3'){
+    const c1=rnd(1,4),c2=rnd(2,4),a=rnd(1,4),b=rnd(1,4),e=rnd(1,4),g=rnd(1,4);
+    stmt=`(${rawTerm(c1,a,b)})(${rawTerm(c2,e,g)})`;fn=(X,Y)=>c1*Math.pow(X,a)*Math.pow(Y,b)*c2*Math.pow(X,e)*Math.pow(Y,g);ans=M(c1*c2,1,a+e,b+g);
+    bad=[M(c1*c2,1,a*e,b*g),M(c1+c2,1,a+e,b+g),M(c1*c2,1,a+e,b*g),M(c1*c2,1,a+e+1,b+g),M(c1*c2,1,a+e,b)];
+    steps=[['Multiply the coefficients and add the exponents of each variable.',`${cf(c1*c2)}x^{${a}+${e}}y^{${b}+${g}}`],['Simplify.',monoTxt(ans)]];
+  } else if(f==='Q3'){
+    const c2=rnd(1,3),k=rnd(2,4),c1=k*c2,a=rnd(1,6),e=rnd(1,6),b=rnd(1,6),g=rnd(1,6);
+    if(a===e&&b===g)return null;
+    stmt=`[[${rawTerm(c1,a,b)} ; ${rawTerm(c2,e,g)}]]`;fn=(X,Y)=>c1*Math.pow(X,a)*Math.pow(Y,b)/(c2*Math.pow(X,e)*Math.pow(Y,g));ans=M(k,1,a-e,b-g);
+    bad=[M(k,1,e-a,g-b),M(c1,1,a-e,b-g),M(k,1,a-e,g-b),M(k,1,a+e,b+g),M(k,1,a-e,b+g)];
+    steps=[['Divide the coefficients and subtract the exponents of each variable.',`${cf(k)}x^{${a}-${e}}y^{${b}-${g}}`],['Move any negative exponent to the denominator.',monoTxt(ans)]];
+  } else if(f==='X'){
+    const c1=rnd(1,3),n=rnd(2,3),a=rnd(1,3),b=rnd(1,3),c2=rnd(2,4),e=rnd(1,4),g=rnd(1,4);
+    stmt=`(${rawTerm(c1,a,b)})^${n} * ${rawTerm(c2,e,g)}`;fn=(X,Y)=>Math.pow(c1*Math.pow(X,a)*Math.pow(Y,b),n)*c2*Math.pow(X,e)*Math.pow(Y,g);
+    ans=M(Math.pow(c1,n)*c2,1,n*a+e,n*b+g);
+    bad=[M(c1*c2,1,n*a+e,n*b+g),M(Math.pow(c1,n)*c2,1,a+n+e,b+n+g),M(Math.pow(c1,n)*c2,1,n*a+e,b+g),M(c1*n*c2,1,n*a+e,n*b+g),M(Math.pow(c1,n)*c2,1,n*a+e,n*b*g)];
+    steps=[['First raise the parenthesis to the power.',`${rawTerm(Math.pow(c1,n),n*a,n*b)} * ${rawTerm(c2,e,g)}`],['Then multiply: coefficients multiply, exponents add.',monoTxt(ans)]];
+  } else if(f==='Y'){
+    const c1=pick([2,3]),n=pick([2,3]),top=Math.pow(c1,n),divs=[2,3,4,8,9,27].filter(d=>top%d===0&&d>1);
+    const c2=pick(divs),a=rnd(1,3),b=rnd(1,3),e=rnd(1,n*a+1),g=rnd(1,n*b+1);
+    stmt=`[[(${rawTerm(c1,a,b)})^${n} ; ${rawTerm(c2,e,g)}]]`;fn=(X,Y)=>Math.pow(c1*Math.pow(X,a)*Math.pow(Y,b),n)/(c2*Math.pow(X,e)*Math.pow(Y,g));
+    ans=M(top/c2,1,n*a-e,n*b-g);
+    bad=[M(c1,c2,n*a-e,n*b-g),M(top/c2,1,a+n-e,b+n-g),M(top/c2,1,e-n*a,g-n*b),M(top/c2,1,n*a+e,n*b+g),M(c1*n/c2,1,n*a-e,n*b-g)];
+    steps=[['Expand the power in the numerator.',`[[${rawTerm(top,n*a,n*b)} ; ${rawTerm(c2,e,g)}]]`],['Divide coefficients, subtract exponents, and move negative exponents down.',monoTxt(ans)]];
+  } else { /* W3 */
+    const c=rnd(2,3),n=rnd(2,3),a=rnd(1,3),b=rnd(1,3);
+    stmt=`(${rawTerm(c,a,-b)})^${n}`;fn=(X,Y)=>Math.pow(c*Math.pow(X,a)*Math.pow(Y,-b),n);ans=M(Math.pow(c,n),1,n*a,-n*b);
+    bad=[M(Math.pow(c,n),1,n*a,n*b),M(c,1,n*a,-n*b),M(Math.pow(c,n),1,a+n,-b-n),M(c*n,1,n*a,-n*b),M(Math.pow(c,n),1,-n*a,-n*b)];
+    steps=[['Raise every factor to the power: multiply the exponents and cube or square the coefficient.',`${rawTerm(Math.pow(c,n),a*n,-b*n)}`],['Write with positive exponents.',monoTxt(ans)]];
+  }
+  return mc({prompt:'Which expression is equivalent? Choose the fully simplified form with positive exponents.',stmt,ok:{t:monoTxt(ans),v:ans},bad:monoChoices(bad),steps,oracle:monoOracle(fn)});
+},
+
+/* ---------- zero and negative exponents ---------- */
+zeroneg(level){
+  const f=pick(level===1?['N1','N1','Z1']:level===2?['N2','V1','V2','V3','V1']:['V3','V4','V5','V6','V4']);
+  let stmt,fn,ans,bad,steps;
+  if(f==='N1'){
+    const b=pick([2,3,4,5,10]),k=pick([1,2,3]);
+    stmt=`${b}^-${k}`;fn=()=>Math.pow(b,-k);ans=M(1,Math.pow(b,k));
+    bad=[M(-Math.pow(b,k),1),M(-b*k,1),M(1,b*k),M(Math.pow(b,k),1),M(-1,Math.pow(b,k))];
+    steps=[['A negative exponent means reciprocal.',`[[1 ; ${b}^${k}]]`],['Evaluate the power.',monoTxt(ans)]];
+  } else if(f==='Z1'){
+    const b=pick([2,3,5,7,10,-3,-2]);
+    stmt=b<0?`(${b})^0`:`${b}^0`;fn=()=>1;ans=M(1,1);
+    bad=[M(0,1),M(b,1),M(-1,1),M(Math.abs(b),1)];
+    steps=[['Any nonzero number to the power 0 equals 1.',monoTxt(ans)]];
+  } else if(f==='N2'){
+    const pr=pick([[2,3],[3,2],[1,2],[3,4],[2,5],[5,2]]),k=pick([1,2]);
+    stmt=`([[${pr[0]} ; ${pr[1]}]])^-${k}`;fn=()=>Math.pow(pr[0]/pr[1],-k);ans=M(Math.pow(pr[1],k),Math.pow(pr[0],k));
+    bad=[M(Math.pow(pr[0],k),Math.pow(pr[1],k)),M(-Math.pow(pr[1],k),Math.pow(pr[0],k)),M(pr[1]*k,pr[0]),M(Math.pow(pr[1],k),pr[0])];
+    steps=[['A negative exponent flips the fraction.',`([[${pr[1]} ; ${pr[0]}]])^${k}`],['Raise the top and bottom to the power.',monoTxt(ans)]];
+  } else if(f==='V1'){
+    const c=rnd(2,6),k=rnd(2,4);
+    stmt=`${c}x^-${k}`;fn=X=>c*Math.pow(X,-k);ans=M(c,1,-k);
+    bad=[M(1,c,-k),M(c,1,k),M(-c,1,-k),M(c,1,-k+1)];
+    steps=[['Only {{x}} has the negative exponent, so only {{x}} moves.',`${c} * [[1 ; x^${k}]]`],['Multiply.',monoTxt(ans)]];
+  } else if(f==='V2'){
+    const c=rnd(2,6),k=rnd(2,4);
+    stmt=`[[${c} ; x^-${k}]]`;fn=X=>c/Math.pow(X,-k);ans=M(c,1,k);
+    bad=[M(c,1,-k),M(1,c,k),M(-c,1,k),M(c,1,k-1)];
+    steps=[['A negative exponent in the denominator moves up to the numerator.',`${c}x^${k}`],['Simplify.',monoTxt(ans)]];
+  } else if(f==='V3'){
+    const a=rnd(2,5),b=rnd(2,5);
+    stmt=`x^${a}y^-${b}`;fn=(X,Y)=>Math.pow(X,a)*Math.pow(Y,-b);ans=M(1,1,a,-b);
+    bad=[M(1,1,-a,b),M(1,1,a,b),M(1,1,-a,-b),M(1,1,a,-b+1)];
+    steps=[['Move {{y^-'+b+'}} to the denominator and make the exponent positive.',`x^${a} * [[1 ; y^${b}]]`],['Multiply.',monoTxt(ans)]];
+  } else if(f==='V4'){
+    const c=rnd(2,5);
+    stmt=`(${c}x)^-2`;fn=X=>Math.pow(c*X,-2);ans=M(1,c*c,-2);
+    bad=[M(1,c,-2),M(c*c,1,-2),M(1,c*c,2),M(-1,c*c,-2),M(1,2*c,-2)];
+    steps=[['Flip, then square everything in the parentheses, including the coefficient.',`[[1 ; (${c}x)^2]]`],['Square.',monoTxt(ans)]];
+  } else if(f==='V5'){
+    const c=rnd(2,5),a=rnd(2,4),b=rnd(2,4);
+    stmt=`[[${c}x^-${a} ; y^-${b}]]`;fn=(X,Y)=>c*Math.pow(X,-a)/Math.pow(Y,-b);ans=M(c,1,-a,b);
+    bad=[M(c,1,a,-b),M(c,1,-a,-b),M(c,1,a,b),M(1,c,-a,b)];
+    steps=[['Each factor with a negative exponent moves to the other side of the fraction bar.',`${c} * [[1 ; x^${a}]] * y^${b}`],['Multiply.',monoTxt(ans)]];
+  } else { /* V6 */
+    const c=rnd(2,6),a=rnd(2,4);
+    stmt=`(${c}x^${a}y)^0`;fn=()=>1;ans=M(1,1);
+    bad=[M(0,1),M(c,1),M(c,1,a,1),M(1,1,a,1)];
+    steps=[['Any nonzero expression to the power 0 equals 1.',monoTxt(ans)]];
+  }
+  const numeric=['N1','Z1','N2','V6'].includes(f);
+  return mc({prompt:numeric?'Evaluate.':'Simplify. Write the answer with positive exponents only.',stmt,ok:{t:monoTxt(ans),v:ans},bad:monoChoices(bad),steps,oracle:monoOracle(fn)});
+},
+
+/* ---------- scientific notation conversions ---------- */
+sciConv(level){
+  const len=level===1?pick([1,2]):pick([1,2,2,3]);
+  let mant;do{mant=rnd(Math.pow(10,len-1),Math.pow(10,len)-1);}while(mant%10===0);
+  const e=level===1?rnd(2,7):pick([-6,-5,-4,-3,-2,2,3,4,5,6,7,8]);
+  const ms=String(mant),m=ms.length===1?ms:ms[0]+'.'+ms.slice(1),k=e-(len-1);
+  const toStd=level>1&&Math.random()<.5;
+  if(!toStd){
+    const std=stdStr(mant,k),target=Number(std.replace(/,/g,''));
+    const shift=sh=>String(+(Number(m)*sh).toFixed(6));
+    const bad=[{t:sciT(m,-e),v:{m:Number(m),e:-e}},{t:sciT(m,e+1),v:{m:Number(m),e:e+1}},{t:sciT(m,e-1),v:{m:Number(m),e:e-1}},
+      {t:sciT(shift(10),e-1),v:{m:Number(m)*10,e:e-1}},{t:sciT(shift(0.1),e+1),v:{m:Number(m)/10,e:e+1}},{t:sciT(m,-e-1),v:{m:Number(m),e:-e-1}}];
+    const dir=e>0?'right':'left';
+    return mc({prompt:'Write the number in scientific notation (the first factor is at least 1 and less than 10).',stmt:std,ok:{t:sciT(m,e),v:{m:Number(m),e}},bad:shuffle(bad),
+      steps:[['Place the decimal point after the first nonzero digit.',m],[`The decimal point moved ${Math.abs(e)} place${Math.abs(e)>1?'s':''} ${e>0?'left':'right'}, so the exponent of 10 is ${e}. ${e>0?'A large number has a positive exponent.':'A small number has a negative exponent.'}`,sciT(m,e)]],
+      oracle:v=>v.m>=1&&v.m<10&&relEq(v.m*Math.pow(10,v.e),target)});
+  }
+  const target=Number(m)*Math.pow(10,e);
+  const mk=kk=>({t:stdStr(mant,kk),v:mant*Math.pow(10,kk)});
+  return mc({prompt:'Write the number in standard form.',stmt:sciT(m,e),ok:mk(k),bad:shuffle([mk(k-1),mk(k+1),mk(-k),mk(-k-(len-1)*2),mk(k+2)]),
+    steps:[[`A ${e>0?'positive':'negative'} exponent means ${e>0?'a large':'a small'} number, so move the decimal point ${Math.abs(e)} place${Math.abs(e)>1?'s':''} ${e>0?'right':'left'}.`,''],['Fill in zeros as needed.',stdStr(mant,k)]],
+    oracle:v=>relEq(v,target)});
+},
+
+/* ---------- multiply or divide in scientific notation ---------- */
+sciOp(level){
+  let A,B,p,q,div=false;
+  if(level===1){A=pick([[1,2,3,4],[2,3]].flat());B=rnd(1,4);if(A*B>9)return null;p=rnd(2,7);q=rnd(2,7);}
+  else if(level===2){A=pick([2,3,4,5,6,7,8,9,15,25,35,45]);B=rnd(2,9);if(A*B<10)return null;p=nz(-5,7);q=nz(-5,7);}
+  else {div=true;A=rnd(1,9);B=rnd(2,9);if(A===B)return null;p=nz(-4,9);q=nz(-6,6);}
+  const dA=A>=10?1:0,Af=A>=10?A/10:A,Bf=B;
+  let res,midTxt;
+  if(!div){
+    res=sciNorm(A*B,(p-dA)+q);midTxt=String(+(Af*Bf).toFixed(4));
+  } else {
+    let d=0,qn=A/B;while(Math.abs(qn*Math.pow(10,d)-Math.round(qn*Math.pow(10,d)))>1e-9&&d<4)d++;
+    if(d>3)return null;
+    res=sciNorm(Math.round(qn*Math.pow(10,d)),p-q-d);midTxt=String(+(A/B).toFixed(4));
+  }
+  if(res.e===0)return null;
+  const stmt=div?`[[${opTxt(A)} × 10^${p} ; ${B} × 10^${q}]]`:`(${opTxt(A)} × 10^${p})(${B} × 10^${q})`;
+  const target=div?(Af*Math.pow(10,p))/(Bf*Math.pow(10,q)):(Af*Math.pow(10,p))*(Bf*Math.pow(10,q));
+  const num=Number(res.m),shift=sh=>+(num*sh).toFixed(6);
+  const bad=[{t:sciT(String(shift(10)),res.e-1),v:{m:shift(10),e:res.e-1}},{t:sciT(res.m,res.e-1),v:{m:num,e:res.e-1}},{t:sciT(res.m,res.e+1),v:{m:num,e:res.e+1}},
+    div?{t:sciT(res.m,p+q),v:{m:num,e:p+q}}:{t:sciT(res.m,p*q),v:{m:num,e:p*q}},
+    div?{t:sciT(res.m,q-p),v:{m:num,e:q-p}}:{t:sciT(String(shift(0.1)),res.e+1),v:{m:shift(0.1),e:res.e+1}}];
+  const qp=q<0?`(${q})`:`${q}`;
+  const steps=[[div?'Divide the numbers and subtract the exponents of 10.':'Multiply the numbers and add the exponents of 10.',div?`(${opTxt(A)} ÷ ${B}) × 10^{${p}-${qp}}`.replace(/\(([\d.]+) ÷ ([\d.]+)\)/,'[[$1 ; $2]]'):`(${opTxt(A)} * ${B}) × 10^{${p}+${qp}}`]];
+  const normalized=Number(midTxt)>=1&&Number(midTxt)<10;
+  if(!normalized)steps.push(['The first number must be at least 1 and less than 10, so adjust it and the exponent.',`${midTxt} × 10^${div?p-q:p+q}`]);
+  steps.push(['Scientific notation:',sciT(res.m,res.e)]);
+  return mc({prompt:(div?'Divide':'Multiply')+'. Write the answer in scientific notation (the first factor is at least 1 and less than 10).',stmt,ok:{t:sciT(res.m,res.e),v:{m:num,e:res.e}},bad,steps,
+    oracle:v=>v.m>=1&&v.m<10&&relEq(v.m*Math.pow(10,v.e),target)});
+},
+
+/* ---------- evaluate a*b^x ---------- */
+evalExp(level){
+  let a,b,x0;
+  if(level===1){a=rnd(2,6);b=pick([2,3]);x0=rnd(0,4);b=R(b,1);}
+  else if(level===2){a=rnd(2,7);if(Math.random()<.5){b=R(pick([2,3,5]),1);x0=pick([-1,-2,-2,2,3]);}else{const dn=pick([2,3]);b=R(1,dn);x0=rnd(2,3);a=a*Math.pow(dn,x0);}}
+  else {const dn=pick([2,3]);a=rnd(2,9);b=R(1,dn);x0=pick([-3,-2,-2,-1,3,4]);}
+  const val=Rmul(R(a,1),RP(b,x0));
+  const bn=Rnum(b);
+  const stmt=b.d===1?`f(x) = ${a} * ${b.n}^x`:`f(x) = ${a}([[${b.n} ; ${b.d}]])^x`;
+  const bt=b.d===1?`${b.n}`:`([[${b.n} ; ${b.d}]])`;
+  const xs=x0<0?`(${x0})`:`${x0}`;
+  const bx=RP(b,x0);
+  const bad=[RP(Rmul(R(a,1),b),x0),R(a*b.n*x0,b.d),bx,
+    x0!==0?Rmul(R(a,1),RP(b,-x0)):null,Radd(R(a,1),bx),Rmul(R(a,1),R(x0*1,1)),Radd(val,R(1,1)),Rsub(val,R(1,1))];
+  return mc({prompt:'Evaluate the function when {{x = '+x0+'}}.',stmt,ok:{t:Rstr(val),v:val},bad:rChoices(bad).map(c=>c),
+    steps:[['Substitute the value for {{x}}.',`${a} * ${bt}^${x0<0?x0:x0}`],['Evaluate the power first.',`${a} * ${Rstr(bx)}`],['Multiply.',Rstr(val)]],
+    oracle:v=>v&&relEq(a*Math.pow(bn,x0),Rnum(v))});
+},
+
+/* ---------- growth or decay from f(x) = a*b^x ---------- */
+growthDecay(level){
+  let b100,bt;
+  const a=pick([5,10,50,100,200,500]);
+  if(level===1){b100=pick([110,120,130,150,90,80,70,50]);bt=String(b100/100);}
+  else if(level===2){b100=pick([105,115,125,108,107,95,85,75,92,96]);bt=String(b100/100);}
+  else {const fr=pick([[3,2],[5,4],[3,4],[4,5],[1,4],[9,10],[7,5],[2,5]]);b100=fr[0]/fr[1]*100;bt=`[[${fr[0]} ; ${fr[1]}]]`;}
+  b100=Math.round(b100);
+  const kind=b100>100?'Growth':'Decay',opp=kind==='Growth'?'Decay':'Growth',pct=Math.abs(b100-100);
+  const mk=(k,p)=>({t:`${k}, ${p}%`,v:{kind:k,pct:p}});
+  return mc({prompt:'Does the function model growth or decay, and at what percent rate per period?',stmt:`f(x) = ${a}(${bt})^x`,ok:mk(kind,pct),
+    bad:shuffle([mk(opp,pct),mk(kind,b100),mk(opp,b100),mk(kind,100-pct>0?100-pct:pct+10),mk(opp,200-b100>0?200-b100:pct+5)]),
+    steps:[['Look at the base {{b}}. If {{b}} is greater than 1 it is growth; if it is between 0 and 1 it is decay.',`b = ${bt}`],
+           [`The base is ${b100>100?'greater':'less'} than 1, so it is ${kind.toLowerCase()}. The rate is the distance from 1: ${b100>100?`${b100}% - 100% = ${pct}%`:`100% - ${b100}% = ${pct}%`}.`,`${kind}, ${pct}%`]],
+    oracle:v=>v&&v.kind===(b100>100?'Growth':'Decay')&&v.pct===Math.abs(b100-100)});
+},
+
+/* ---------- model a growth or decay story ---------- */
+growthFn(level){
+  const grow=Math.random()<.5;
+  const r=level===1?pick([10,20,25,50]):level===2?pick([5,8,12,15,30,40]):pick([2,4,6,7,9,15,35]);
+  const fmtA=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+  const sc=grow?pick([[pick([2000,5000,12000]),a_=>`A town has ${fmtA(a_)} people. Its population grows by ${r}% each year.`],[pick([200,500,800,1200]),a_=>`A video has ${fmtA(a_)} views today. The number of views increases by ${r}% each day.`]])
+               :pick([[pick([8000,12000,15000,20000]),a_=>`A car is worth $${fmtA(a_)}. Its value drops by ${r}% each year.`],[pick([200,400,800,1200]),a_=>`A dose of medicine is ${fmtA(a_)} mg. The amount in the blood decreases by ${r}% each hour.`]]);
+  const a=sc[0],story=sc[1](a);
+  const b100=grow?100+r:100-r,b=b100/100,bt=String(b);
+  if(level<=2&&Math.random()<.5){
+    const bad=grow?[r/100,1-r/100,b100,1+r/1000,r]:[r/100,1+r/100,b100,1-r/1000,r];
+    return mc({prompt:`What is the ${grow?'growth':'decay'} factor {{b}} in {{f(x) = a * b^x}}?`,story,ok:{t:bt,v:b},bad:bad.map(v=>({t:String(+v.toFixed(4)),v})),
+      steps:[[grow?'Growth by '+r+'% means the quantity keeps 100% and adds '+r+'%: {{100% + '+r+'% = '+b100+'%}}.':'A decrease of '+r+'% means the quantity keeps {{100% - '+r+'% = '+b100+'%}}.',''],['Write the percent as a decimal.',`b = ${bt}`]],
+      oracle:v=>relEq(v,b100/100)});
+  }
+  const fn=(A,B)=>x=>A*Math.pow(B,x);
+  const mkf=(A,B,t)=>({t:t||`f(x) = ${A}(${B})^x`,v:fn(A,B)});
+  const wrongB=grow?+(1-r/100).toFixed(4):+(1+r/100).toFixed(4);
+  const bad=[mkf(a,wrongB),mkf(a,+(r/100).toFixed(4)),{t:`f(x) = ${a}${grow?' + ':' - '}${r}x`,v:x=>a+(grow?1:-1)*r*x},mkf(a,b100)];
+  return mc({prompt:'Which function models the situation, where {{x}} is the number of time periods?',story,ok:mkf(a,b),bad,
+    steps:[['The starting value is '+a+'. Each period multiplies by the same factor, so the model is exponential, {{f(x) = a * b^x}}.',''],
+           [grow?'Growth factor: {{b = 1 + '+(r/100)+' = '+bt+'}}.':'Decay factor: {{b = 1 - '+(r/100)+' = '+bt+'}}.',`f(x) = ${a}(${bt})^x`]],
+    oracle:v=>typeof v==='function'&&[0,1,2,3].every(x=>relEq(v(x),a*Math.pow(b,x)))});
+},
+
+/* ---------- identify the function from a table ---------- */
+table(level){
+  let a,b,x0;
+  if(level===2){
+    if(Math.random()<.5){a=rnd(1,5);b=pick([2,3,4]);x0=0;}else{const dn=pick([2,3]);b=R(1,dn);a=rnd(1,2)*Math.pow(dn,3);x0=0;}
+  } else {
+    if(Math.random()<.5){a=pick([2,3,5]);b=pick([2,3,4]);x0=pick([1,2]);}else{b=R(1,2);a=pick([16,32,24]);x0=pick([1,2]);}
+  }
+  const bR=typeof b==='object'?b:R(b,1),bn=Rnum(bR);
+  const xs=[x0,x0+1,x0+2,x0+3];
+  const ys=xs.map(x=>Rmul(R(a,1),RP(bR,x)));
+  if(ys.some(r=>r.d!==1))return null;
+  const yv=ys.map(r=>r.n);
+  const stmt=`tbl{x&&${xs.join('&&')} ;; y&&${yv.join('&&')}}`;
+  const bText=bR.d===1?bR.n:bR;
+  const mkf=(A,B,t)=>({t,v:x=>A*Math.pow(B,x)});
+  const txt=(A,B)=>`y = ${fnTxt(A,B)}`;
+  const d=yv[1]-yv[0];
+  const bad=[];
+  if(bR.d===1){
+    bad.push(mkf(b,a,txt(b,a)));
+    bad.push({t:`y = ${lin(d,yv[0]-d*xs[0])}`,v:x=>d*x+yv[0]-d*xs[0]});
+    bad.push(mkf(a,b+1,txt(a,b+1)));
+    bad.push(mkf(a*b,1,`y = ${a*b}^x`));
+    if(x0!==0){bad.push(mkf(yv[0],b,txt(yv[0],b)));}
+    bad.push(mkf(a,b-1>0?b-1:b+2,txt(a,b-1>0?b-1:b+2)));
+  } else {
+    bad.push(mkf(a,bR.d,txt(a,bR.d)));
+    bad.push({t:`y = ${lin(d,yv[0]-d*xs[0])}`,v:x=>d*x+yv[0]-d*xs[0]});
+    bad.push(mkf(a,1/(bR.d+1),txt(a,R(1,bR.d+1))));
+    if(x0!==0)bad.push(mkf(yv[0],1/bR.d,txt(yv[0],bR)));
+    bad.push(mkf(a*bR.d,1/bR.d,txt(a*bR.d,bR)));
+    bad.push(mkf(1,1/bR.d,`y = ${bR.n}^x`.replace(/.*/,`y = ([[1 ; ${bR.d}]])^x`)));
+  }
+  const ratio=bR.d===1?bR.n:`[[${bR.n} ; ${bR.d}]]`;
+  const aVal=ys[0];
+  const steps=[['Each y-value is the previous one times the same number. Divide to find it.',`[[${yv[1]} ; ${yv[0]}]] = ${ratio}`],
+    x0===0?['The value at {{x = 0}} is the starting value {{a}}.',`a = ${a}`]:[`Work back to {{x = 0}} (divide by {{b}}), or solve {{a * b^${x0}}} = ${yv[0]}.`,`a = ${a}`],
+    ['Write the function.',txt(a,bText)]];
+  return mc({prompt:'Which exponential function matches the table?',stmt,ok:{t:txt(a,bText),v:x=>a*Math.pow(bn,x)},bad,steps,
+    oracle:v=>typeof v==='function'&&xs.every((x,i)=>relEq(v(x),yv[i]))});
+},
+
+/* ---------- solve an exponential equation ---------- */
+solveExp(level){
+  const f=pick(level===1?['E1']:level===2?['E2','E6','E3','E2','E6']:['E4','E3','E5','E5','E4']);
+  let lhs,rhs,fn,rt,ans,bad,steps,B,k;
+  if(f==='E1'){
+    B=pick([2,3,5,10]);k=B===2?rnd(3,6):B===3?rnd(2,4):B===5?rnd(2,3):rnd(2,4);
+    lhs=`${B}^x`;rhs=String(Math.pow(B,k));rt=Math.pow(B,k);fn=v=>Math.pow(B,v);ans=R(k);
+    bad=[R(k+1),R(k-1),R(Math.pow(B,k)/B),R(B*k),R(Math.pow(B,k)-B)];
+    steps=[[`Write ${rt} as a power of ${B}.`,`${B}^x = ${B}^${k}`],['The bases match, so the exponents are equal.',`x = ${k}`]];
+  } else if(f==='E2'){
+    {
+      B=pick([2,3,5]);k=B===5?rnd(2,3):rnd(2,4);
+      lhs=`${B}^x`;rhs=`[[1 ; ${Math.pow(B,k)}]]`;rt=1/Math.pow(B,k);fn=v=>Math.pow(B,v);ans=R(-k);
+      bad=[R(k),R(-k-1),R(-k+1),R(-Math.pow(B,k)),R(1,k)];
+      steps=[[`Write the fraction as a power of ${B} using a negative exponent.`,`${B}^x = ${B}^-${k}`],['The bases match, so the exponents are equal.',`x = -${k}`]];
+    }
+  } else if(f==='E6'){
+    {
+      B=pick([2,3]);k=rnd(3,5);const q=pick([1,2,3,-1,-2]);
+      lhs=`${B}^{x ${q>0?'+':'-'} ${Math.abs(q)}}`;rhs=String(Math.pow(B,k));rt=Math.pow(B,k);fn=v=>Math.pow(B,v+q);ans=R(k-q);
+      bad=[R(k+q),R(k),R(Math.pow(B,k)-q),R(k*q),R(k-q+1)];
+      steps=[[`Write ${rt} as a power of ${B}.`,`${B}^{x ${q>0?'+':'-'} ${Math.abs(q)}} = ${B}^${k}`],['The bases match, so set the exponents equal.',`x ${q>0?'+':'-'} ${Math.abs(q)} = ${k}`],['Solve.',`x = ${k-q}`]];
+    }
+  } else if(f==='E3'){
+    B=pick([2,3]);k=level===2?pick([4,6]):pick([4,5,6,7]);
+    if(B===3&&k>4)return null;
+    lhs=`${B}^{2x}`;rhs=String(Math.pow(B,k));rt=Math.pow(B,k);fn=v=>Math.pow(B,2*v);ans=R(k,2);
+    bad=[R(k),R(2*k),R(k-2),R(2,k),R(k+2,2)];
+    steps=[[`Write ${rt} as a power of ${B}.`,`${B}^{2x} = ${B}^${k}`],['The bases match, so set the exponents equal.',`2x = ${k}`],['Divide by 2.',`x = ${Rstr(ans)}`]];
+  } else if(f==='E4'){
+    const T_=pick([[4,2,32,5],[4,2,8,3],[8,2,16,4],[8,2,4,2],[9,3,27,3],[27,3,9,2],[16,2,8,3],[16,2,32,5],[9,3,3,1],[25,5,5,1],[27,3,81,4],[8,2,32,5]]);
+    const [base,root,rv,j]=T_;const i=Math.round(Math.log(base)/Math.log(root));
+    B=base;lhs=`${base}^x`;rhs=String(rv);rt=rv;fn=v=>Math.pow(base,v);ans=R(j,i);
+    bad=[R(i,j),R(j-i),R(rv,base),R(j*i),R(j,1)];
+    steps=[[`Write both sides as powers of ${root}.`,`${root}^{${i}x} = ${root}^${j}`],['Set the exponents equal.',`${i}x = ${j}`],['Divide.',`x = ${Rstr(ans)}`]];
+  } else { /* E5: 2^{2x} style with a shift or a different base conversion */
+    const T_=pick([[4,2,16,4,-1],[4,2,32,5,1],[8,2,16,4,2],[9,3,27,3,-1],[4,2,8,3,-2]]);
+    const [base,root,rv,j,q]=T_;const i=Math.round(Math.log(base)/Math.log(root));
+    B=base;lhs=`${base}^{x ${q>0?'+':'-'} ${Math.abs(q)}}`;rhs=String(rv);rt=rv;fn=v=>Math.pow(base,v+q);
+    ans=Rsub(R(j,i),R(q,1));
+    bad=[Radd(R(j,i),R(q,1)),R(j,i),Rsub(R(j-q,1),R(0,1)),R(i,j)];
+    steps=[[`Write both sides as powers of ${root}.`,`${root}^{${i}(x ${q>0?'+':'-'} ${Math.abs(q)})} = ${root}^${j}`],['Set the exponents equal and solve.',`${i}(x ${q>0?'+':'-'} ${Math.abs(q)}) = ${j}`],['Finish.',`x = ${Rstr(ans)}`]];
+  }
+  return mc({prompt:'Solve for {{x}}.',stmt:`${lhs} = ${rhs}`,ok:{t:'x = '+Rstr(ans),v:Rnum(ans)},bad:bad.filter(okR).map(r=>({t:'x = '+Rstr(r),v:Rnum(r)})),steps,
+    oracle:v=>typeof v==='number'&&relEq(fn(v),rt)});
+},
+
+/* ---------- rational exponents of perfect powers ---------- */
+rational(level){
+  let r,p,q;
+  if(level===1){q=pick([2,2,3]);p=1;r=q===2?rnd(2,10):rnd(2,5);}
+  else if(level===2){const t=pick([[2,3,2],[3,3,2],[4,2,3],[2,4,3],[3,2,3]]);const [rr,qq,pp]=t;r=rr;q=qq;p=pp;
+    if(q===2&&r>4)r=4;}
+  else {const t=pick([[5,2,-1],[2,2,-1],[2,3,-2],[3,3,-2],[2,4,-3],[2,2,-3],[3,2,-3],[2,4,-1],[3,4,-1]]);[r,q,p]=t;}
+  const base=Math.pow(r,q);
+  const val=p>0?R(Math.pow(r,p),1):R(1,Math.pow(r,-p));
+  const stmt=`${base}^{[[${p} ; ${q}]]}`;
+  const ap=Math.abs(p);
+  const bad=[R(base*p,q),p>0?R(Math.pow(base,p),1):R(1,Math.pow(base,-p)),p<0?R(Math.pow(r,ap),1):R(-Math.pow(r,ap),1),R(r*p,1),R(Math.pow(r,q),1),p<0?R(-1,Math.pow(r,ap)):R(Math.pow(r,ap)+1,1),R(Math.pow(r,ap)+(p>0?-1:0),p>0?1:1)];
+  return mc({prompt:'Evaluate.',stmt,ok:{t:Rstr(val),v:val},bad:rChoices(bad),
+    steps:p===1?[[`An exponent of {{[[1 ; ${q}]]}} means take the ${q===2?'square':'cube'} root.`,q===2?`rt{${base}}`:`cbrt{${base}}`],['Evaluate.',Rstr(val)]]:[[`The denominator ${q} is the root and the numerator ${p} is the power. Take the root first.`,`(${base}^{[[1 ; ${q}]]})^${p}`],[`The ${q===2?'square':q===3?'cube':'fourth'} root of ${base} is ${r}.`,`${r}^${p}`],[p<0?'A negative exponent means reciprocal.':'Evaluate the power.',Rstr(val)]],
+    oracle:v=>v&&relEq(Math.pow(base,p/q),Rnum(v))});
+}
+}};
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Left side','Right side'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Right side':'Left side'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'R':'L'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>
