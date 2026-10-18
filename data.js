@@ -48,6 +48,15 @@ window.LIBRARY = {
           name: "Inequalities",
           artifacts: [
             {
+              title: "Compound Inequalities Picture Reveal",
+              path: "artifacts/compound-inequalities-picture-reveal/index.html",
+              thumb: "thumbs/compound-inequalities-picture-reveal.svg",
+              description: "Solve 10 compound inequalities to uncover a mystery photo. Includes instant answer feedback, step-by-step solutions, and saved progress.",
+              type: "Game",
+              topics: ["Compound inequalities", "AND and OR", "Solving inequalities"],
+              added: "2026-10-18"
+            },
+            {
               title: "Compound Inequalities Maze",
               path: "artifacts/compound-inequalities-maze/worksheet.pdf",
               thumb: "thumbs/compound-inequalities-maze.svg",
