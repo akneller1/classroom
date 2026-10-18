@@ -40,6 +40,7 @@ window.LIBRARY = {
             {
               title: "Inequalities Flashcards",
               path: "artifacts/inequalities-flashcards/index.html",
+              thumb: "thumbs/inequalities-flashcards.svg",
               description: "Practice 25 essential inequality problems with student-style worked solutions and number-line graphs, including compound inequalities. Review missed cards and track progress.",
               type: "Practice",
               topics: ["Solving inequalities", "Number line graphs", "Compound inequalities"],
