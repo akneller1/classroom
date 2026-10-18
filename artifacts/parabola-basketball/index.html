@@ -141,7 +141,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
         <small>The vertex is at y = k.</small>
       </div>
 
-      <div class="check"><label><input type="checkbox" id="show" checked> Show predicted trajectory</label></div>
+      <div class="check"><label><input type="checkbox" id="show" checked> Show partial trajectory hint</label></div>
 
       <div class="buttons">
         <button class="primary" id="shoot">🏀 Shoot!</button>
@@ -345,11 +345,8 @@ function drawCourtLines() {
 
   ctx.fillStyle = '#c77a41';
   ctx.fillRect(0, py(0) + 3, SW, 30);
-  ctx.strokeStyle = '#e7bf9b';
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.arc(px(3), py(0) + 18, 56, -Math.PI / 2, Math.PI / 5);
-  ctx.stroke();
+  ctx.fillStyle = 'rgba(255,255,255,.14)';
+  ctx.fillRect(px(0.8), py(0) + 8, SW - px(0.8), 6);
 }
 
 function drawShooter() {
@@ -385,32 +382,54 @@ function drawDefender(o) {
 
 function drawHoop(L) {
   const hx = px(L.x), hy = py(L.y);
-  const boardX = hx + 34;
-  ctx.strokeStyle = '#6a7b91';
-  ctx.lineWidth = 5;
+  const poleX = hx + 34;
+  const boardW = 16, boardH = 82;
+  const boardTop = hy - 50;
+  const rimLeft = hx - 18, rimRight = hx + 18;
+
+  ctx.strokeStyle = '#7b8798';
+  ctx.lineWidth = 6;
   ctx.beginPath();
-  ctx.moveTo(boardX, hy - 48);
-  ctx.lineTo(boardX, hy + 40);
+  ctx.moveTo(poleX + 18, hy + 120);
+  ctx.lineTo(poleX + 18, boardTop - 10);
   ctx.stroke();
-  ctx.fillStyle = 'rgba(255,255,255,.85)';
-  ctx.fillRect(boardX - 10, hy - 50, 20, 92);
-  ctx.strokeStyle = '#344e6c';
+
+  ctx.fillStyle = 'rgba(255,255,255,.96)';
+  ctx.fillRect(poleX - boardW / 2, boardTop, boardW, boardH);
+  ctx.strokeStyle = '#2f4d73';
   ctx.lineWidth = 3;
-  ctx.strokeRect(boardX - 10, hy - 50, 20, 92);
+  ctx.strokeRect(poleX - boardW / 2, boardTop, boardW, boardH);
+  ctx.strokeRect(poleX - 3, hy - 14, 6, 10);
+
+  ctx.strokeStyle = '#7b8798';
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(poleX + 10, hy - 2);
+  ctx.lineTo(rimRight - 2, hy - 2);
+  ctx.stroke();
+
   ctx.strokeStyle = '#ef7f29';
   ctx.lineWidth = 6;
   ctx.beginPath();
-  ctx.moveTo(hx - 18, hy);
-  ctx.lineTo(hx + 18, hy);
+  ctx.moveTo(rimLeft, hy);
+  ctx.lineTo(rimRight, hy);
   ctx.stroke();
+
   ctx.strokeStyle = '#ffffff';
   ctx.lineWidth = 2;
-  for (let i = -2; i <= 2; i++) {
+  for (let i = 0; i <= 4; i++) {
+    const x1 = rimLeft + i * 9;
+    const x2 = hx - 12 + i * 6;
     ctx.beginPath();
-    ctx.moveTo(hx - 16 + i * 8, hy + 2);
-    ctx.lineTo(hx - 10 + i * 4, hy + 20);
+    ctx.moveTo(x1, hy + 2);
+    ctx.lineTo(x2, hy + 20);
     ctx.stroke();
   }
+  ctx.beginPath();
+  ctx.moveTo(rimLeft + 3, hy + 8);
+  ctx.quadraticCurveTo(hx, hy + 26, rimRight - 3, hy + 8);
+  ctx.stroke();
+
   ctx.fillStyle = '#173457';
   ctx.font = 'bold 15px system-ui';
   ctx.textAlign = 'center';
@@ -418,9 +437,12 @@ function drawHoop(L) {
 }
 
 function drawPredicted(a, h, k) {
+  const L = levels[level];
+  const startX = 0;
+  const endX = Math.max(2.4, 0.35 + (L.x - 0.35) / 3);
   ctx.beginPath();
   let started = false;
-  for (let x = 0; x <= XMAX; x += 0.03) {
+  for (let x = startX; x <= endX; x += 0.03) {
     const y = calc(x, a, h, k);
     if (y < 0 || y > YMAX) continue;
     if (!started) { ctx.moveTo(px(x), py(y)); started = true; }
@@ -431,10 +453,15 @@ function drawPredicted(a, h, k) {
   ctx.setLineDash([10, 7]);
   ctx.stroke();
   ctx.setLineDash([]);
-  ctx.beginPath();
-  ctx.arc(px(h), py(k), 7, 0, Math.PI * 2);
-  ctx.fillStyle = '#365dc7';
-  ctx.fill();
+
+  const tipX = endX;
+  const tipY = calc(tipX, a, h, k);
+  if (tipY >= 0 && tipY <= YMAX) {
+    ctx.beginPath();
+    ctx.arc(px(tipX), py(tipY), 5, 0, Math.PI * 2);
+    ctx.fillStyle = '#365dc7';
+    ctx.fill();
+  }
 }
 
 function drawBall() {
