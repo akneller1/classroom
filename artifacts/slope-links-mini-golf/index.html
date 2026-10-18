@@ -116,7 +116,7 @@ td.cur { background: var(--chip); font-weight: 700; }
       <div class="course"><canvas id="cv" aria-label="Mini golf course on a coordinate grid"></canvas></div>
       <div class="legend">
         <span><i style="background:var(--wood)"></i>Wall: ball stops</span>
-        <span><i style="background:var(--sand)"></i>Sand: ball stops</span>
+        <span><i style="background:var(--sand)"></i>Sand: ball slows down</span>
         <span><i style="background:var(--water)"></i>Water: +1 stroke, replay</span>
         <span><i style="background:#fff;border:1px solid var(--line)"></i>Ball</span>
         <span><i style="background:var(--flag)"></i>Cup</span>
@@ -170,7 +170,7 @@ td.cur { background: var(--chip); font-weight: 700; }
           <li>Pick left or right, then a club. A club's number is how far the ball moves <b>across</b> (change in x). The ball rises or falls by the slope times that distance.</li>
           <li>You won't see the path until you hit. Use rise over run between the ball and the cup to plan your slope.</li>
           <li>The ball drops in if it reaches the cup with no more than 1 unit left to roll. Hit it too hard and it rolls right over.</li>
-          <li>Walls and sand stop the ball. Water costs a penalty stroke and puts the ball back.</li>
+          <li>Walls stop the ball. Sand slows it down: while the ball is in sand it only travels 40% as far. Water costs a penalty stroke and puts the ball back.</li>
           <li>After every shot, the ball settles on the nearest grid point. Adjust the slope and hit again.</li>
         </ul>
       </details>
@@ -230,31 +230,39 @@ function snap(h, ex, ey) {
   return [Math.round(ex), Math.round(ey)];
 }
 
-// Simulate a shot. Ball travels along y = m x + b, `d` horizontal units, dir = +1 (right) / -1 (left).
+// Sand slows the ball: while it is in sand, each unit it rolls uses up 2.5 units of the club's distance,
+// so it only travels 40% as far there.
+const SAND_DRAG = 2.5;
+
+// Simulate a shot. The ball travels along the line through `ball` with slope m, using up `d` horizontal units
+// of distance, dir = +1 (right) / -1 (left).
 function simulate(h, ball, m, dir, d) {
   const [bx, by] = ball, [hx, hy] = h.cup;
   const ds = 0.03 / Math.sqrt(1 + m * m);
   const path = [[bx, by]];
-  let px = bx, py = by, lipped = false, t = 0;
-  while (t < d - 1e-9) {
-    t = Math.min(d, t + ds);
+  let px = bx, py = by, lipped = false, t = 0, left = d, sand = false;
+  while (left > 1e-9) {
+    const step = Math.min(ds, left);
+    t += step;
     const x = bx + dir * t, y = by + m * dir * t;
     if (Math.abs(x) > N || Math.abs(y) > N) return finish("edge", px, py);
     if (hitsWall(h, px, py, x, y)) return finish("wall", px, py);
     path.push([x, y]); px = x; py = y;
+    const slow = h.sand.some(r => inRect(x, y, r));
+    if (slow) sand = true;
+    left -= step * (slow ? SAND_DRAG : 1);
     if (Math.hypot(x - hx, y - hy) < 0.3) {
-      if (d - t <= 1.0001) return { path, outcome: "sink", end: [hx, hy] };
+      if (left <= 1.0001) return { path, outcome: "sink", end: [hx, hy], sand };
       lipped = true;
     }
-    if (h.water.some(r => inRect(x, y, r))) return { path, outcome: "water", end: [bx, by], lipped };
-    if (h.sand.some(r => inRect(x, y, r))) return finish("sand", x, y);
+    if (h.water.some(r => inRect(x, y, r))) return { path, outcome: "water", end: [bx, by], lipped, sand };
   }
   return finish("stop", px, py);
 
   function finish(reason, ex, ey) {
     const s = snap(h, ex, ey);
-    if (s[0] === hx && s[1] === hy) return { path, outcome: "sink", end: s, trickle: true };
-    return { path, outcome: "stop", reason, end: s, raw: [ex, ey], lipped };
+    if (s[0] === hx && s[1] === hy) return { path, outcome: "sink", end: s, trickle: true, sand };
+    return { path, outcome: "stop", reason, end: s, raw: [ex, ey], lipped, sand };
   }
 }
 
@@ -375,9 +383,9 @@ function finishShot(r, start, a, d, dir) {
     S.fx = { type: "sink", t0: performance.now() };
   } else {
     S.ball = r.end;
-    const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", sand: "The ball rolled into the sand and stopped.", stop: "" }[r.reason];
+    const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", stop: "" }[r.reason];
     const snapped = Math.abs(r.raw[0] - r.end[0]) > 1e-6 || Math.abs(r.raw[1] - r.end[1]) > 1e-6;
-    msg = (why ? why + " " : "") + (r.lipped ? "Too hard! It rolled right over the cup. " : "") +
+    msg = (why ? why + " " : "") + (r.sand ? "The sand slowed the ball down. " : "") + (r.lipped ? "Too hard! It rolled right over the cup. " : "") +
       (snapped ? `It stopped near ${pt(r.raw)} and settled on the nearest grid point, ${pt(r.end)}.` : `The ball is now at ${pt(r.end)}.`);
     res = pt(r.end);
     if (r.lipped) kind = "bad";

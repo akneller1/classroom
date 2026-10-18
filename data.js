@@ -32,30 +32,11 @@ window.LIBRARY = {
       art: "curve",
       blurb: "Equations, inequalities, functions, and polynomials.",
       units: [
-        { id: "expressions-equations", name: "Expressions & Equations", artifacts: [
-          {
-            title: "Expressions & Equations Flashcards",
-            path: "artifacts/expressions-equations-flashcards/index.html",
-            thumb: "thumbs/expressions-equations-flashcards.svg",
-            description: "25 interactive flashcards with worked solutions for evaluating expressions, combining like terms, distributing, equations and applications.",
-            type: "Practice",
-            topics: ["Evaluating expressions", "Simplifying", "Solving equations"],
-            added: "2026-10-17"
-          }
-        ] },
+        { id: "expressions-equations", name: "Expressions & Equations", artifacts: [] },
         {
           id: "inequalities",
           name: "Inequalities",
           artifacts: [
-            {
-              title: "Inequalities Flashcards",
-              path: "artifacts/inequalities-flashcards/index.html",
-              thumb: "thumbs/inequalities-flashcards.svg",
-              description: "Practice 25 essential inequality problems with student-style worked solutions and number-line graphs, including compound inequalities. Review missed cards and track progress.",
-              type: "Practice",
-              topics: ["Solving inequalities", "Number line graphs", "Compound inequalities"],
-              added: "2026-10-17"
-            },
             {
               title: "Inequality Four",
               path: "artifacts/inequality-four/index.html",
