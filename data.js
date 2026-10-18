@@ -91,6 +91,19 @@ window.LIBRARY = {
                 "Literal equations"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Solving Equations Maze",
+              "path": "artifacts/expressions-equations-maze/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-maze.jpg",
+              "description": "Printable 4-page worksheet: solve multi-step equations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Multi-step equations",
+                "Distributive property",
+                "Variables on both sides"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -236,6 +249,19 @@ window.LIBRARY = {
                 "Linear models"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Slope & Linear Equations Maze",
+              "path": "artifacts/linear-equations-slope-maze/worksheet.pdf",
+              "thumb": "thumbs/linear-equations-slope-maze.jpg",
+              "description": "Printable 4-page worksheet: find slopes and write equations in slope-intercept form to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Slope from two points",
+                "Slope from an equation",
+                "Writing y = mx + b"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -374,6 +400,19 @@ window.LIBRARY = {
                 "Special cases and word problems"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Systems of Equations Maze",
+              "path": "artifacts/systems-of-equations-maze/worksheet.pdf",
+              "thumb": "thumbs/systems-of-equations-maze.jpg",
+              "description": "Printable 4-page worksheet: solve systems of linear equations by substitution or elimination to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Solving by substitution",
+                "Solving by elimination",
+                "No solution and infinitely many solutions"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -434,6 +473,19 @@ window.LIBRARY = {
                 "Zero and negative exponents",
                 "Scientific notation",
                 "Exponential growth and decay"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponent Rules Maze",
+              "path": "artifacts/exponents-exponential-functions-maze/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-maze.jpg",
+              "description": "Printable 4-page worksheet: simplify and evaluate expressions with the exponent rules to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Product, quotient and power rules",
+                "Zero and negative exponents",
+                "Evaluating powers"
               ],
               "added": "2026-10-18"
             }
@@ -498,6 +550,19 @@ window.LIBRARY = {
                 "Zero-product property"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Factoring Maze",
+              "path": "artifacts/polynomials-factoring-maze/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-maze.jpg",
+              "description": "Printable 4-page worksheet: factor trinomials, differences of squares, and GCF problems completely to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Factoring x^2 + bx + c and ax^2 + bx + c",
+                "Difference of squares",
+                "Factoring out the GCF first"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -558,6 +623,19 @@ window.LIBRARY = {
                 "Vertex and axis of symmetry",
                 "The discriminant",
                 "Projectile motion"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Solving Quadratics Maze",
+              "path": "artifacts/quadratics-maze/worksheet.pdf",
+              "thumb": "thumbs/quadratics-maze.jpg",
+              "description": "Printable 4-page worksheet: solve quadratic equations by factoring, square roots, and the quadratic formula to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Solving by factoring",
+                "Solving with square roots",
+                "The quadratic formula"
               ],
               "added": "2026-10-18"
             }
@@ -631,6 +709,19 @@ window.LIBRARY = {
                 "Properties used in proofs"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Segments & Angles Maze",
+              "path": "artifacts/basics-reasoning-maze/worksheet.pdf",
+              "thumb": "thumbs/basics-reasoning-maze.jpg",
+              "description": "Printable 4-page worksheet: use segment addition, midpoints, angle addition, complementary and supplementary angles, and angle bisectors to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Segment addition and midpoints",
+                "Angle addition and angle bisectors",
+                "Complementary and supplementary angles"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -691,6 +782,19 @@ window.LIBRARY = {
                 "Parallel lines and transversals",
                 "Triangle and exterior angles",
                 "Interior and exterior angles of polygons"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Angles & Parallel Lines Maze",
+              "path": "artifacts/angles-parallel-lines-maze/worksheet.pdf",
+              "thumb": "thumbs/angles-parallel-lines-maze.jpg",
+              "description": "Printable 4-page worksheet: use vertical angles, linear pairs, and parallel-line angle pairs to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Vertical angles & linear pairs",
+                "Parallel lines cut by a transversal",
+                "Solving for x and angle measures"
               ],
               "added": "2026-10-18"
             }
@@ -755,6 +859,19 @@ window.LIBRARY = {
                 "Solving for x with congruent parts"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Triangle Angles Maze",
+              "path": "artifacts/triangles-congruence-maze/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-maze.jpg",
+              "description": "Printable 4-page worksheet: use the triangle angle sum, the exterior angle theorem, and isosceles and equilateral triangle facts to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Triangle angle sum",
+                "Exterior angle theorem",
+                "Isosceles & equilateral triangles"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -815,6 +932,19 @@ window.LIBRARY = {
                 "Scale factor and area ratio",
                 "AA, SSS∼ and SAS∼",
                 "Side-splitter and indirect measurement"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Similarity & Proportions Maze",
+              "path": "artifacts/similarity-maze/worksheet.pdf",
+              "thumb": "thumbs/similarity-maze.jpg",
+              "description": "Printable 4-page worksheet: solve proportions, find scale factors and missing sides of similar figures, and use the side-splitter theorem and shadows to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Solving proportions",
+                "Scale factor & similar triangles",
+                "Side-splitter & shadow problems"
               ],
               "added": "2026-10-18"
             }
@@ -879,6 +1009,19 @@ window.LIBRARY = {
                 "Angles of elevation and depression"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Right Triangles Maze",
+              "path": "artifacts/right-triangles-trigonometry-maze/worksheet.pdf",
+              "thumb": "thumbs/right-triangles-trigonometry-maze.jpg",
+              "description": "Printable 4-page worksheet: use the Pythagorean theorem, special right triangles, and trig ratios to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Pythagorean theorem",
+                "45°-45°-90° and 30°-60°-90° triangles",
+                "Trig ratios (SOH CAH TOA)"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -939,6 +1082,19 @@ window.LIBRARY = {
                 "Central and inscribed angles",
                 "Tangents and chords",
                 "Equations of circles"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Circles Maze",
+              "path": "artifacts/circles-maze/worksheet.pdf",
+              "thumb": "thumbs/circles-maze.jpg",
+              "description": "Printable 4-page worksheet: find circumference, area, arc length, sector area, angle measures, and the center and radius of a circle to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Arc length and sector area",
+                "Central and inscribed angles",
+                "Equation of a circle"
               ],
               "added": "2026-10-18"
             }
@@ -1002,6 +1158,19 @@ window.LIBRARY = {
                 "Scaling dimensions"
               ],
               "added": "2026-10-18"
+            },
+            {
+              "title": "Area & Volume Maze",
+              "path": "artifacts/area-surface-area-volume-maze/worksheet.pdf",
+              "thumb": "thumbs/area-surface-area-volume-maze.jpg",
+              "description": "Printable 4-page worksheet: find areas of polygons and the volume and surface area of prisms, cylinders, cones, pyramids, and spheres to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Area of polygons",
+                "Volume of solids",
+                "Surface area of solids"
+              ],
+              "added": "2026-10-18"
             }
           ]
         },
@@ -1062,6 +1231,19 @@ window.LIBRARY = {
                 "Reflections, rotations, translations and dilations",
                 "Classifying figures from coordinates",
                 "Parallel and perpendicular lines"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry Maze",
+              "path": "artifacts/coordinate-geometry-transformations-maze/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-maze.jpg",
+              "description": "Printable 4-page worksheet: find midpoints, distances, parallel and perpendicular slopes, and images of points under transformations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Midpoint and distance",
+                "Parallel and perpendicular slopes",
+                "Transformations of points"
               ],
               "added": "2026-10-18"
             }
