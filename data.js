@@ -126,6 +126,19 @@ window.LIBRARY = {
           "name": "Inequalities",
           "artifacts": [
             {
+              "title": "Inequalities Cheat Sheet",
+              "path": "Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf",
+              "description": "Colorful, two-page printable reference sheet covering inequality vocabulary and symbols, number-line graphs, solving and checking inequalities, compound inequalities, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Inequality symbols and vocabulary",
+                "Number-line graphs",
+                "Solving inequalities",
+                "Compound inequalities"
+              ],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Compound Inequalities Picture Reveal",
               "path": "artifacts/compound-inequalities-picture-reveal/index.html",
               "thumb": "thumbs/compound-inequalities-picture-reveal.jpg",
