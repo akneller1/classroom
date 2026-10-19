@@ -1,7 +1,7 @@
 /*
   Layout concept: flat color blocks with thick ink outlines and hard offset shadows, like a
   bold printed worksheet. Each course owns one color. A full-width introduction anchors the homepage,
-  with four of the latest activities below.
+  with an activity-format directory below.
 
   Palette (light / dark):
     paper   #f4f5fb / #0e1024   page ground, a cool white with a violet bias
@@ -160,9 +160,6 @@ h1:focus, main:focus { outline: none; box-shadow: none; }
 .hero { padding-block: 1.25rem 1.5rem; }
 .hero h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
 .lede { margin-top: 0.85rem; max-width: none; font-size: 1.2rem; color: var(--ink-soft); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.1rem; }
-.hero-actions .btn { padding: 0.7rem 1.3rem; font-size: 1.1rem; box-shadow: 4px 4px 0 var(--shadow); }
-.hero-actions .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow); }
 
 
 /* ---------- Sections ---------- */
@@ -275,4 +272,22 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .card:hover, .unit:hover, .course:hover, .btn:hover { transform: none; }
+}
+
+/* Activity directory: names in the first column, descriptions in the second. */
+.activity-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; background: var(--card); border: 2px solid var(--edge); border-radius: 14px; overflow: hidden; }
+.activity-table th, .activity-table td { text-align: left; vertical-align: top; padding: 1.1rem 1.25rem; overflow-wrap: break-word; }
+.activity-table thead th { background: var(--wash); font-family: var(--display); font-size: 1.05rem; }
+.activity-table th:first-child { width: 30%; }
+.activity-table tbody th, .activity-table tbody td { border-top: 1px solid var(--line); }
+.activity-table tbody th { font-family: var(--display); font-size: 1.15rem; }
+.activity-table td { color: var(--ink-soft); }
+.activity-table a { color: var(--blue-text); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+.activity-table a:hover { text-decoration-thickness: 2px; }
+.activity-count { display: block; margin-top: 0.3rem; font: 400 0.9rem var(--body); color: var(--ink-soft); }
+@media (max-width: 640px) {
+  .activity-table th:first-child { width: 38%; }
+  .activity-table th, .activity-table td { padding: 0.85rem 0.7rem; }
+  .activity-table tbody th { font-size: 1rem; }
+  .activity-table td { font-size: 0.95rem; }
 }

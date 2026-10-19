@@ -6,8 +6,6 @@
   var nav = document.getElementById('nav');
   var q = document.getElementById('q');
   var skip = document.getElementById('skip');
-  var reduce = false;
-  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
 
   var token = '';
   var query = '';
@@ -66,8 +64,39 @@
     if (isNaN(t)) return false;
     return (Date.now() - t) < (L.newDays || 30) * 86400000;
   }
-  function byNewest(a, b) {
-    return (Date.parse(b.a.added) || 0) - (Date.parse(a.a.added) || 0);
+  var ACTIVITY_FORMATS = [
+    { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
+    { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
+    { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
+    { id: 'flashcards', name: 'Flashcards', description: 'Practice at your own pace, reveal worked solutions, and mark cards to revisit. Useful for independent study and quick review.' },
+    { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
+    { id: 'error-analysis', name: 'Error Analysis', description: 'Examine a worked example, identify the mistake, and explain how to fix it. Printable practice that builds mathematical reasoning.' },
+    { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
+    { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra and Geometry.' }
+  ];
+  function activityFormat(a) {
+    var path = a.path || '';
+    if (/jeopardy|showdown/i.test(path)) return 'showdown';
+    if (/connect-four|inequality-four/i.test(path)) return 'connect-four';
+    if (/maze/i.test(path)) return 'mazes';
+    if (/flashcards/i.test(path)) return 'flashcards';
+    if (/picture-reveal/i.test(path)) return 'picture-reveal';
+    if (/error-analysis/i.test(path)) return 'error-analysis';
+    if (toArr(a.type).indexOf('Game') >= 0) return 'topic-games';
+    return 'other';
+  }
+  function formatItems(format) {
+    return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
+  }
+  function activityTableHtml() {
+    return '<table class="activity-table"><caption class="sr">Browse resources by activity format</caption>' +
+      '<thead><tr><th scope="col">Activity type</th><th scope="col">Description</th></tr></thead><tbody>' +
+      ACTIVITY_FORMATS.map(function (format) {
+        var n = formatItems(format).length;
+        if (!n) return '';
+        return '<tr><th scope="row"><a href="' + href('activity.' + format.id) + '">' + esc(format.name) + '</a>' +
+          '<span class="activity-count">' + acts(n) + '</span></th><td>' + esc(format.description) + '</td></tr>';
+      }).join('') + '</tbody></table>';
   }
 
   /* ---------- decorative art ---------- */
@@ -169,16 +198,12 @@
 
   /* ---------- views ---------- */
   function homeView() {
-    var all = everything().sort(byNewest).slice(0, 4);
-    var courseLinks = L.courses.map(function (c) {
-      return '<a class="btn btn-course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">Browse ' + esc(c.name) + '</a>';
-    }).join('');
     return {
       title: L.title,
       html:
         '<section class="hero"><div class="wrap">' +
           '<div class="hero-copy"><h1 tabindex="-1">' + esc(L.title).replace(/&#39;/g, '’') + '</h1>' +
-          '<p class="lede">' + esc(L.tagline) + '</p><div class="hero-actions">' + courseLinks + '</div></div>' +
+          '<p class="lede">' + esc(L.tagline) + '</p></div>' +
         '</div></section>' +
         '<section class="section"><div class="wrap"><h2 class="sr">Courses</h2><ul class="courses">' +
           L.courses.map(function (c) {
@@ -188,10 +213,8 @@
               '<p class="count">' + (n ? acts(n) + ' in ' + units(unitsWithActivities(c)) : 'First activities coming soon') + '</p>' +
               artFor(c) + '</a></li>';
           }).join('') + '</ul></div></section>' +
-        (all.length ?
-          '<section class="section"><div class="wrap"><div class="section-head"><h2>Latest activities</h2>' +
-          '<button type="button" class="btn btn-ghost" id="surprise">Surprise me</button></div>' +
-          '<ul class="cards" id="homeCards">' + all.map(function (it) { return cardHtml(it, true); }).join('') + '</ul></div></section>' : '')
+        '<section class="section"><div class="wrap"><div class="section-head"><h2>Browse by activity</h2></div>' +
+          activityTableHtml() + '</div></section>'
     };
   }
 
@@ -243,6 +266,26 @@
     };
   }
 
+  function activityIndexView() {
+    return {
+      title: 'Browse by activity',
+      html: bandHtml(null, crumbs([['Home', '#'], ['Browse by activity', null]]) + '<h1 tabindex="-1">Browse by activity</h1>') +
+        '<section class="section"><div class="wrap">' + activityTableHtml() + '</div></section>'
+    };
+  }
+
+  function activityView(format) {
+    var items = formatItems(format);
+    var inner = crumbs([['Home', '#'], ['Browse by activity', '#activities'], [format.name, null]]) +
+      '<h1 tabindex="-1">' + esc(format.name) + '</h1>' +
+      '<p class="band-blurb">' + esc(format.description) + '</p><p class="band-meta">' + acts(items.length) + ' across Algebra and Geometry</p>';
+    return {
+      title: format.name,
+      html: bandHtml(null, inner) + '<section class="section"><div class="wrap">' +
+        (items.length ? chipsHtml(items) + cardsHtml(items, true) : '<div class="empty"><h2>Coming soon</h2><p>No activities in this format yet.</p></div>') + '</div></section>'
+    };
+  }
+
   function savedView() {
     var items = everything().filter(function (it) { return isSaved(it.a.path); });
     var inner = crumbs([['Home', '#'], ['Saved', null]]) + '<h1 tabindex="-1">Saved activities</h1>' +
@@ -286,6 +329,11 @@
   function resolve(t) {
     if (!t) return { name: 'home' };
     if (t === 'saved') return { name: 'saved' };
+    if (t === 'activities') return { name: 'activities' };
+    if (t.indexOf('activity.') === 0) {
+      var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === t.slice(9); })[0];
+      return format ? { name: 'activity', format: format } : { name: 'nf' };
+    }
     var parts = t.split('.');
     var c = L.courses.filter(function (x) { return x.id === parts[0]; })[0];
     if (!c) return { name: 'nf' };
@@ -300,6 +348,7 @@
       var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
     }).join('');
+    html += '<a href="#activities"' + (r && (r.name === 'activities' || r.name === 'activity') ? ' aria-current="page"' : '') + '>Activities</a>';
     var curSaved = r && r.name === 'saved' ? ' aria-current="page"' : '';
     html += '<a href="#saved"' + curSaved + '>Saved' +
       (saved.length ? ' <span class="badge" aria-label="' + saved.length + ' saved">' + saved.length + '</span>' : '') + '</a>';
@@ -314,6 +363,8 @@
     else if (r.name === 'course') view = courseView(r.c);
     else if (r.name === 'unit') view = unitView(r.c, r.u);
     else if (r.name === 'saved') view = savedView();
+    else if (r.name === 'activities') view = activityIndexView();
+    else if (r.name === 'activity') view = activityView(r.format);
     else view = notFoundView();
 
     app.innerHTML = view.html;
@@ -385,17 +436,7 @@
       return;
     }
 
-    if (e.target.closest && e.target.closest('#surprise')) {
-      var cards = app.querySelectorAll('#homeCards .card');
-      if (!cards.length) return;
-      var pick = cards[Math.floor(Math.random() * cards.length)];
-      Array.prototype.forEach.call(cards, function (x) { x.classList.remove('flash'); });
-      pick.classList.add('flash');
-      pick.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-      var link = pick.querySelector('h3 a');
-      if (link) link.focus({ preventScroll: true });
-      setTimeout(function () { pick.classList.remove('flash'); }, 2200);
-    }
+
   });
 
   document.getElementById('searchForm').addEventListener('submit', function (e) { e.preventDefault(); });
