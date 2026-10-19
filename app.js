@@ -144,6 +144,8 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
+  function activityUrl(a) { return 'activity.html?path=' + encodeURIComponent(a.path); }
+
   function cardHtml(it, showWhere) {
     var a = it.a;
     var tags = [];
@@ -151,16 +153,16 @@
     toArr(a.type).concat(toArr(a.level)).forEach(function (t) { tags.push('<li class="tag">' + esc(t) + '</li>'); });
     var topics = toArr(a.topics);
     return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-path="' + esc(a.path) + '">' +
-      '<a class="thumb" href="' + esc(a.path) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">' +
+      '<a class="thumb" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">' +
         (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') + '</a>' +
       '<div class="card-body">' +
         (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(it.u.name) + '</p>' : '') +
         (tags.length ? '<ul class="tags">' + tags.join('') + '</ul>' : '') +
-        '<h3><a href="' + esc(a.path) + '" target="_blank" rel="noopener">' + esc(a.title) +
+        '<h3><a href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener">' + esc(a.title) +
           '<span class="sr"> (opens in a new tab)</span></a></h3>' +
         '<p class="desc">' + esc(a.description || '') + '</p>' +
         (topics.length ? '<p class="topics">' + esc(topics.join(', ')) + '</p>' : '') +
-        '<div class="actions"><a class="btn btn-open" href="' + esc(a.path) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open activity</a>' +
+        '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open activity</a>' +
           saveBtnHtml(a.path) + '</div>' +
       '</div></li>';
   }

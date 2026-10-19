@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; }
+body { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; color: #14173a; background: #f4f5fb; font-family: system-ui, sans-serif; }
+.activity-bar { flex: 0 0 auto; display: flex; align-items: center; gap: 1rem; padding: 0.6rem max(0.8rem, env(safe-area-inset-right)) 0.6rem max(0.8rem, env(safe-area-inset-left)); background: #fff; border-bottom: 1px solid #cfd3ea; }
+.home-button { flex: none; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.9rem; border-radius: 8px; background: #3547f5; color: #fff; font-weight: 700; text-decoration: none; min-height: 44px; }
+.home-button:hover { background: #2330c8; }
+h1 { flex: 1; min-width: 0; margin: 0; font-size: 1rem; line-height: 1.3; overflow-wrap: anywhere; }
+.original-link { flex: none; color: #2330c8; font-size: 0.9rem; padding: 0.5rem 0; text-underline-offset: 0.15em; }
+a:focus-visible { outline: 3px solid #14173a; outline-offset: 3px; }
+#activity-content { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.activity-frame { display: block; flex: 1; width: 100%; min-height: 0; border: 0; background: #fff; }
+.activity-message { padding: 1rem; margin: 0; }
+[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  .activity-bar { gap: 0.6rem; flex-wrap: wrap; }
+  h1 { font-size: 0.9rem; }
+  .original-link { font-size: 0.8rem; }
+}
