@@ -842,6 +842,15 @@ window.LIBRARY = {
           "name": "Basics & Reasoning",
           "artifacts": [
             {
+              "title": "Geometry Basics Cheat Sheet",
+              "path": "artifacts/geometry-basics-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-basics-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Points, lines, rays, segments, angles, midpoints, coordinate distance, and angle relationships.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Reasoning Four",
               "path": "artifacts/basics-reasoning-connect-four/index.html",
               "thumb": "thumbs/basics-reasoning-connect-four.jpg",
@@ -930,6 +939,15 @@ window.LIBRARY = {
           "id": "angles-parallel-lines",
           "name": "Angles & Parallel Lines",
           "artifacts": [
+            {
+              "title": "Angles & Parallel Lines Cheat Sheet",
+              "path": "artifacts/geometry-angles-parallel-lines-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-angles-parallel-lines-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Transversals, corresponding and alternate angles, linear pairs, and parallel-line relationships.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
             {
               "title": "Angles Four",
               "path": "artifacts/angles-parallel-lines-connect-four/index.html",
@@ -1020,6 +1038,15 @@ window.LIBRARY = {
           "name": "Triangles & Congruence",
           "artifacts": [
             {
+              "title": "Triangles & Congruence Cheat Sheet",
+              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Triangle angle facts, triangle classifications, and triangle congruence criteria.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Congruence Four",
               "path": "artifacts/triangles-congruence-connect-four/index.html",
               "thumb": "thumbs/triangles-congruence-connect-four.jpg",
@@ -1109,6 +1136,15 @@ window.LIBRARY = {
           "name": "Similarity",
           "artifacts": [
             {
+              "title": "Similarity Cheat Sheet",
+              "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-similarity-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Similar figures, proportional side lengths, scale factor, dilations, and similar triangles.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Similarity Four",
               "path": "artifacts/similarity-connect-four/index.html",
               "thumb": "thumbs/similarity-connect-four.jpg",
@@ -1197,6 +1233,15 @@ window.LIBRARY = {
           "id": "right-triangles-trigonometry",
           "name": "Right Triangles & Trigonometry",
           "artifacts": [
+            {
+              "title": "Right Triangles & Trigonometry Cheat Sheet",
+              "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Pythagorean theorem, special right triangles, SOH-CAH-TOA, and inverse trigonometry.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
             {
               "title": "Trig Four",
               "path": "artifacts/right-triangles-trigonometry-connect-four/index.html",
