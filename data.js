@@ -37,6 +37,14 @@ window.LIBRARY = {
           "name": "Expressions & Equations",
           "artifacts": [
             {
+              "title": "Expressions & Equations Cheat Sheet",
+              "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
+              "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Expressions & Equations"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Equations Four",
               "path": "artifacts/expressions-equations-connect-four/index.html",
               "thumb": "thumbs/expressions-equations-connect-four.jpg",
@@ -223,6 +231,14 @@ window.LIBRARY = {
           "name": "Linear Equations & Slope",
           "artifacts": [
             {
+              "title": "Linear Equations & Slope Cheat Sheet",
+              "path": "artifacts/linear-equations-slope-cheat-sheet/worksheet.pdf",
+              "description": "Colorful two-page printable study guide: Slope, rate of change, linear equation forms, intercepts, graphing, and parallel and perpendicular lines.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Linear Equations & Slope"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Slope Four",
               "path": "artifacts/linear-equations-slope-connect-four/index.html",
               "thumb": "thumbs/linear-equations-slope-connect-four.jpg",
@@ -325,6 +341,14 @@ window.LIBRARY = {
           "name": "Graphing Inequalities on the Coordinate Plane",
           "artifacts": [
             {
+              "title": "Graphing Inequalities Cheat Sheet",
+              "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
+              "description": "Colorful two-page printable study guide: Graphing linear inequalities on the coordinate plane, boundary lines, shading, and systems.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Graphing Inequalities"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Inequality Graphs Four",
               "path": "artifacts/graphing-inequalities-connect-four/index.html",
               "thumb": "thumbs/graphing-inequalities-connect-four.jpg",
@@ -412,6 +436,14 @@ window.LIBRARY = {
           "id": "systems-of-equations",
           "name": "Systems of Equations",
           "artifacts": [
+            {
+              "title": "Systems of Equations Cheat Sheet",
+              "path": "artifacts/systems-of-equations-cheat-sheet/worksheet.pdf",
+              "description": "Colorful two-page printable study guide: Solving systems by graphing, substitution and elimination, with corrected graphs and applications.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Systems of Equations"],
+              "added": "2026-10-19"
+            },
             {
               "title": "Systems Four",
               "path": "artifacts/systems-of-equations-connect-four/index.html",
@@ -679,6 +711,14 @@ window.LIBRARY = {
           "id": "quadratics",
           "name": "Quadratics",
           "artifacts": [
+            {
+              "title": "Quadratics Cheat Sheet",
+              "path": "artifacts/quadratics-cheat-sheet/worksheet.pdf",
+              "description": "Colorful two-page printable study guide: Parabolas, vertex and intercepts, factoring, quadratic formula, and discriminant.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Quadratics"],
+              "added": "2026-10-19"
+            },
             {
               "title": "Quadratics Four",
               "path": "artifacts/quadratics-connect-four/index.html",
