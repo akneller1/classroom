@@ -169,17 +169,16 @@
 
   /* ---------- views ---------- */
   function homeView() {
-    var all = everything().sort(byNewest).slice(0, 5);
+    var all = everything().sort(byNewest).slice(0, 4);
     var courseLinks = L.courses.map(function (c) {
       return '<a class="btn btn-course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">Browse ' + esc(c.name) + '</a>';
     }).join('');
     return {
       title: L.title,
       html:
-        '<section class="hero"><div class="wrap hero-grid">' +
+        '<section class="hero"><div class="wrap">' +
           '<div class="hero-copy"><h1 tabindex="-1">' + esc(L.title).replace(/&#39;/g, '’') + '</h1>' +
           '<p class="lede">' + esc(L.tagline) + '</p><div class="hero-actions">' + courseLinks + '</div></div>' +
-          '<div class="hero-logo"><img src="assets/mr-ks-classroom-logo.png" alt="Mr. K’s Classroom — a teacher reading on the letter s" width="1774" height="887" fetchpriority="high"></div>' +
         '</div></section>' +
         '<section class="section"><div class="wrap"><h2 class="sr">Courses</h2><ul class="courses">' +
           L.courses.map(function (c) {
