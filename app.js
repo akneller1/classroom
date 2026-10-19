@@ -92,10 +92,14 @@
     return '<table class="activity-table"><caption class="sr">Browse resources by activity format</caption>' +
       '<thead><tr><th scope="col">Activity type</th><th scope="col">Description</th></tr></thead><tbody>' +
       ACTIVITY_FORMATS.map(function (format) {
-        var n = formatItems(format).length;
+        var items = formatItems(format);
+        var n = items.length;
         if (!n) return '';
-        return '<tr><th scope="row"><a href="' + href('activity.' + format.id) + '">' + esc(format.name) + '</a>' +
-          '<span class="activity-count">' + acts(n) + '</span></th><td>' + esc(format.description) + '</td></tr>';
+        var preview = items.filter(function (it) { return !!it.a.thumb; })[0];
+        return '<tr><th scope="row"><a class="activity-category" href="' + href('activity.' + format.id) + '">' +
+          (preview ? '<img class="activity-preview" src="' + esc(preview.a.thumb) + '" alt="" width="72" height="48" loading="lazy">' : '') +
+          '<span class="activity-label"><span class="activity-name">' + esc(format.name) + '</span>' +
+          '<span class="activity-count">' + acts(n) + '</span></span></a></th><td>' + esc(format.description) + '</td></tr>';
       }).join('') + '</tbody></table>';
   }
 

@@ -278,7 +278,7 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 .activity-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; background: var(--card); border: 2px solid var(--edge); border-radius: 14px; overflow: hidden; }
 .activity-table th, .activity-table td { text-align: left; vertical-align: top; padding: 1.1rem 1.25rem; overflow-wrap: break-word; }
 .activity-table thead th { background: var(--wash); font-family: var(--display); font-size: 1.05rem; }
-.activity-table th:first-child { width: 30%; }
+.activity-table th:first-child { width: 34%; }
 .activity-table tbody th, .activity-table tbody td { border-top: 1px solid var(--line); }
 .activity-table tbody th { font-family: var(--display); font-size: 1.15rem; }
 .activity-table td { color: var(--ink-soft); }
@@ -286,8 +286,25 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 .activity-table a:hover { text-decoration-thickness: 2px; }
 .activity-count { display: block; margin-top: 0.3rem; font: 400 0.9rem var(--body); color: var(--ink-soft); }
 @media (max-width: 640px) {
-  .activity-table th:first-child { width: 38%; }
+  .activity-table th:first-child { width: 46%; }
   .activity-table th, .activity-table td { padding: 0.85rem 0.7rem; }
   .activity-table tbody th { font-size: 1rem; }
   .activity-table td { font-size: 0.95rem; }
+}
+
+.activity-category { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.activity-preview { flex: 0 0 auto; width: 72px; height: 48px; object-fit: cover; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.activity-label { min-width: 0; }
+.activity-name { text-decoration: underline; text-underline-offset: 0.2em; }
+.activity-category:hover .activity-name { text-decoration-thickness: 2px; }
+@media (max-width: 640px) {
+  .activity-category { gap: 0.45rem; }
+  .activity-preview { width: 40px; height: 30px; }
+}
+@media (max-width: 420px) {
+  .activity-table th:first-child { width: 48%; }
+  .activity-preview { width: 28px; height: 24px; }
+  .activity-category { gap: 0.35rem; }
+  .activity-table tbody th { font-size: 0.9rem; }
+  .activity-count { font-size: 0.8rem; }
 }
