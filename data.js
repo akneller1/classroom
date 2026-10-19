@@ -540,6 +540,15 @@ window.LIBRARY = {
           "name": "Exponents & Exponential Functions",
           "artifacts": [
             {
+              "title": "Exponents & Exponential Functions Cheat Sheet",
+              "path": "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to exponent rules, scientific notation, exponential growth and decay, and worked examples.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Exponents & Exponential Functions"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Exponents Four",
               "path": "artifacts/exponents-exponential-functions-connect-four/index.html",
               "thumb": "thumbs/exponents-exponential-functions-connect-four.jpg",
@@ -627,6 +636,15 @@ window.LIBRARY = {
           "id": "polynomials-factoring",
           "name": "Polynomials & Factoring",
           "artifacts": [
+            {
+              "title": "Polynomials & Factoring Cheat Sheet",
+              "path": "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to polynomial operations, multiplication, special products, factoring methods, and solving by factoring.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Reference", "Polynomials & Factoring"],
+              "added": "2026-10-19"
+            },
             {
               "title": "Factoring Four",
               "path": "artifacts/polynomials-factoring-connect-four/index.html",
