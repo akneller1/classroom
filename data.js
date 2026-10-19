@@ -1332,6 +1332,15 @@ window.LIBRARY = {
           "name": "Circles",
           "artifacts": [
             {
+              "title": "Circles Cheat Sheet",
+              "path": "artifacts/geometry-circles-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-circles-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Circle parts, circumference, area, arcs, sectors, inscribed angles, chords and tangents.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Circles Four",
               "path": "artifacts/circles-connect-four/index.html",
               "thumb": "thumbs/circles-connect-four.jpg",
@@ -1421,6 +1430,15 @@ window.LIBRARY = {
           "name": "Area, Surface Area & Volume",
           "artifacts": [
             {
+              "title": "Area, Surface Area & Volume Cheat Sheet",
+              "path": "artifacts/geometry-area-surface-area-volume-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-area-surface-area-volume-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Area of plane figures, nets, surface area, and volume of solids.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Volume Four",
               "path": "artifacts/area-surface-area-volume-connect-four/index.html",
               "thumb": "thumbs/area-surface-area-volume-connect-four.jpg",
@@ -1508,6 +1526,15 @@ window.LIBRARY = {
           "id": "coordinate-geometry-transformations",
           "name": "Coordinate Geometry & Transformations",
           "artifacts": [
+            {
+              "title": "Coordinate Geometry & Transformations Cheat Sheet",
+              "path": "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Coordinate formulas, translations, reflections, rotations, dilations and transformation sequences.",
+              "type": "Printable",
+              "topics": ["Cheat sheet", "Geometry", "Reference"],
+              "added": "2026-10-19"
+            },
             {
               "title": "Transformations Four",
               "path": "artifacts/coordinate-geometry-transformations-connect-four/index.html",
