@@ -1,7 +1,7 @@
 /*
   Layout concept: flat color blocks with thick ink outlines and hard offset shadows, like a
-  bold printed worksheet. Each course owns one color. The one memorable element is the live
-  inequality graph in the hero; everything around it stays quiet.
+  bold printed worksheet. Each course owns one color. A compact teacher logo anchors the homepage,
+  with a short selection of the latest activities below.
 
   Palette (light / dark):
     paper   #f4f5fb / #0e1024   page ground, a cool white with a violet bias
@@ -157,48 +157,16 @@ h1:focus, main:focus { outline: none; box-shadow: none; }
 .dark-border { border-color: var(--edge); }
 
 /* ---------- Home hero ---------- */
-.hero { padding-block: 1.75rem 2.75rem; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 2.5rem; align-items: center; }
-.hero h1 { font-size: clamp(2.9rem, 8vw, 5.5rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
-.lede { margin-top: 1.25rem; max-width: 32rem; font-size: 1.2rem; color: var(--ink-soft); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+.hero { padding-block: 1.25rem 1.5rem; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: 2rem; align-items: center; }
+.hero h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
+.lede { margin-top: 0.85rem; max-width: 32rem; font-size: 1.2rem; color: var(--ink-soft); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.1rem; }
 .hero-actions .btn { padding: 0.7rem 1.3rem; font-size: 1.1rem; box-shadow: 4px 4px 0 var(--shadow); }
 .hero-actions .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--shadow); }
 
-/* Live inequality graph */
-.plot-card {
-  min-width: 0;
-  background: var(--card); border: 2px solid var(--edge); border-radius: 20px;
-  box-shadow: 6px 6px 0 var(--shadow); padding: 1rem 1.1rem 1.2rem;
-  display: flex; flex-direction: column; gap: 0.75rem;
-}
-.plot-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; }
-.plot-eq {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 0.3rem; min-height: 3rem;
-  font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.2rem); letter-spacing: -0.01em;
-}
-.plot-eq i { font-family: var(--body); font-weight: 400; }
-.frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-size: 0.72em; line-height: 1.1; margin: 0 0.1em; }
-.frac .fn { padding: 0 0.22em 0.05em; border-bottom: 0.09em solid currentColor; }
-.frac .fd { padding: 0.05em 0.22em 0; }
-.check { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; cursor: pointer; }
-.check input { width: 1.2rem; height: 1.2rem; accent-color: var(--blue-bg); margin: 0; }
-.plot-svg { display: block; width: 100%; height: auto; max-height: 24rem; }
-.g-bg { fill: var(--card); }
-.g-grid { stroke: var(--line); stroke-width: 1; }
-.g-axis { stroke: var(--ink); stroke-width: 2; }
-.g-tick { fill: var(--ink-soft); font: 700 10px var(--body); }
-.g-region { fill: var(--blue-tint); }
-.g-line { stroke: var(--blue-bg); stroke-width: 3.5; fill: none; stroke-linecap: round; }
-.g-pt-in { fill: var(--blue-bg); stroke: var(--card); stroke-width: 2.5; }
-.g-pt-out { fill: var(--card); stroke: var(--ink); stroke-width: 2.5; }
-.sliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem 1.25rem; }
-.slider { display: flex; flex-direction: column; gap: 0.2rem; }
-.slider-head { display: flex; align-items: center; justify-content: space-between; font-weight: 700; }
-.slider-head output { font-family: var(--display); font-size: 1.15rem; min-width: 2rem; text-align: right; }
-.slider input[type="range"] { width: 100%; margin: 0.2rem 0; accent-color: var(--blue-bg); }
-.readout { font-size: 0.95rem; color: var(--ink-soft); }
-.readout b { color: var(--ink); }
+.hero-logo { width: 100%; max-width: 26rem; justify-self: end; background: #fff; border-radius: 14px; overflow: hidden; }
+.hero-logo img { display: block; width: 100%; height: auto; }
 
 /* ---------- Sections ---------- */
 .section { padding-block: 2rem 2.5rem; }
@@ -297,7 +265,8 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 
 /* ---------- Narrow screens ---------- */
 @media (max-width: 860px) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .hero-logo { grid-row: 1; justify-self: center; max-width: 22rem; }
 }
 @media (max-width: 640px) {
   .course { min-height: 14rem; }

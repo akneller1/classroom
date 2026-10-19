@@ -167,133 +167,9 @@
     return '<ul class="cards">' + shown.map(function (it) { return cardHtml(it, showWhere); }).join('') + '</ul>';
   }
 
-  /* ---------- hero graph ---------- */
-  var SLOPES = [[-3, 1], [-2, 1], [-1, 1], [-1, 2], [0, 1], [1, 2], [1, 1], [3, 2], [2, 1], [3, 1]];
-  var POINTS = [[-4, 3], [-1, -3], [1, 4], [3, -1], [4, 3], [-5, 4]];
-  var plot = { si: 5, b: 1, incl: false };
-  var U = 26, O = 180;
-  function px(x) { return O + x * U; }
-  function py(y) { return O - y * U; }
-
-  function frac(n, d) {
-    return '<span class="frac"><span class="fn">' + n + '</span><span class="fd">' + d + '</span></span>';
-  }
-  function slopeLabel(n, d) {
-    var s = n < 0 ? '−' : '';
-    var a = Math.abs(n);
-    return d === 1 ? s + a : s + frac(a, d);
-  }
-  function slopeWords(n, d) {
-    var s = n < 0 ? 'negative ' : '';
-    var a = Math.abs(n);
-    if (d === 1) return s + a;
-    var den = d === 2 ? 'half' : 'halves';
-    var num = ['zero', 'one', 'two', 'three'][a];
-    if (a === 1) return s + 'one half';
-    return s + num + ' ' + den;
-  }
-  function equationHtml() {
-    var m = SLOPES[plot.si], n = m[0], d = m[1], b = plot.b;
-    var sym = plot.incl ? '≥' : '>';
-    var t = '<i>y</i> ' + sym + ' ';
-    var hasX = n !== 0;
-    if (hasX) {
-      var a = Math.abs(n), neg = n < 0 ? '−' : '';
-      if (d === 1) t += neg + (a === 1 ? '' : a) + '<i>x</i>';
-      else t += neg + frac(a, d) + '<i>x</i>';
-    }
-    if (b > 0) t += hasX ? ' + ' + b : String(b);
-    else if (b < 0) t += hasX ? ' − ' + Math.abs(b) : '−' + Math.abs(b);
-    else if (!hasX) t += '0';
-    return t;
-  }
-  function insidePoint(p) {
-    var m = SLOPES[plot.si], n = m[0], d = m[1];
-    var lhs = p[1] * d, rhs = n * p[0] + plot.b * d;
-    return plot.incl ? lhs >= rhs : lhs > rhs;
-  }
-
-  function plotHtml() {
-    var g = '';
-    for (var i = -6; i <= 6; i++) {
-      if (i === 0) continue;
-      g += '<line class="g-grid" x1="' + px(i) + '" y1="' + py(-6) + '" x2="' + px(i) + '" y2="' + py(6) + '"/>' +
-           '<line class="g-grid" x1="' + px(-6) + '" y1="' + py(i) + '" x2="' + px(6) + '" y2="' + py(i) + '"/>';
-    }
-    var ticks = '';
-    [-4, -2, 2, 4, 6].forEach(function (v) {
-      ticks += '<text class="g-tick" x="' + px(v) + '" y="' + (py(0) + 14) + '" text-anchor="middle">' + (v < 0 ? '−' + (-v) : v) + '</text>';
-      if (v !== 6) ticks += '<text class="g-tick" x="' + (px(0) - 6) + '" y="' + (py(v) + 3.5) + '" text-anchor="end">' + (v < 0 ? '−' + (-v) : v) + '</text>';
-    });
-    var pts = POINTS.map(function (p, i) {
-      return '<circle id="pt' + i + '" cx="' + px(p[0]) + '" cy="' + py(p[1]) + '" r="6.5" class="g-pt-out"/>';
-    }).join('');
-    return '<div class="plot-card" id="plot">' +
-      '<div class="plot-top"><div class="plot-eq" id="plotEq" aria-hidden="true"></div>' +
-      '<label class="check" for="incl"><input type="checkbox" id="incl"> Include the line</label></div>' +
-      '<svg class="plot-svg" viewBox="0 0 360 360" role="img" aria-label="Coordinate grid showing the shaded solution region of an inequality and six points">' +
-        '<defs><clipPath id="plotClip"><rect x="' + px(-6.4) + '" y="' + py(6.4) + '" width="' + (12.8 * U) + '" height="' + (12.8 * U) + '"/></clipPath></defs>' +
-        '<rect class="g-bg" x="' + px(-6.4) + '" y="' + py(6.4) + '" width="' + (12.8 * U) + '" height="' + (12.8 * U) + '"/>' +
-        g +
-        '<g clip-path="url(#plotClip)"><polygon class="g-region" id="plotRegion" points="0,0"/>' +
-        '<line class="g-line" id="plotLine" x1="0" y1="0" x2="0" y2="0"/></g>' +
-        '<line class="g-axis" x1="' + px(-6.4) + '" y1="' + py(0) + '" x2="' + px(6.4) + '" y2="' + py(0) + '"/>' +
-        '<line class="g-axis" x1="' + px(0) + '" y1="' + py(-6.4) + '" x2="' + px(0) + '" y2="' + py(6.4) + '"/>' +
-        ticks + pts +
-      '</svg>' +
-      '<div class="sliders">' +
-        '<div class="slider"><div class="slider-head"><label for="slope">Slope</label><output id="slopeOut" for="slope"></output></div>' +
-          '<input type="range" id="slope" min="0" max="' + (SLOPES.length - 1) + '" step="1" value="' + plot.si + '"></div>' +
-        '<div class="slider"><div class="slider-head"><label for="icpt">y-intercept</label><output id="icptOut" for="icpt"></output></div>' +
-          '<input type="range" id="icpt" min="-4" max="4" step="1" value="' + plot.b + '"></div>' +
-      '</div>' +
-      '<p class="readout" id="plotRead" role="status" aria-live="polite"></p>' +
-    '</div>';
-  }
-
-  function updatePlot() {
-    var root = document.getElementById('plot');
-    if (!root) return;
-    var m = SLOPES[plot.si], slope = m[0] / m[1], b = plot.b;
-    document.getElementById('plotEq').innerHTML = equationHtml();
-    document.getElementById('slopeOut').innerHTML = slopeLabel(m[0], m[1]);
-    document.getElementById('icptOut').textContent = (b < 0 ? '−' + Math.abs(b) : String(b));
-    var sl = document.getElementById('slope'), ic = document.getElementById('icpt');
-    sl.setAttribute('aria-valuetext', 'slope ' + slopeWords(m[0], m[1]));
-    ic.setAttribute('aria-valuetext', 'y-intercept ' + (b < 0 ? 'negative ' + Math.abs(b) : b));
-    document.getElementById('incl').checked = plot.incl;
-    var x0 = -12, x1 = 12;
-    var y0 = slope * x0 + b, y1 = slope * x1 + b;
-    document.getElementById('plotRegion').setAttribute('points',
-      px(x0) + ',' + py(y0) + ' ' + px(x1) + ',' + py(y1) + ' ' + px(x1) + ',' + py(40) + ' ' + px(x0) + ',' + py(40));
-    var ln = document.getElementById('plotLine');
-    ln.setAttribute('x1', px(x0)); ln.setAttribute('y1', py(y0));
-    ln.setAttribute('x2', px(x1)); ln.setAttribute('y2', py(y1));
-    ln.setAttribute('stroke-dasharray', plot.incl ? '' : '9 7');
-    var inside = 0;
-    POINTS.forEach(function (p, i) {
-      var on = insidePoint(p);
-      if (on) inside++;
-      document.getElementById('pt' + i).setAttribute('class', on ? 'g-pt-in' : 'g-pt-out');
-    });
-    var read = '<b>' + inside + ' of ' + POINTS.length + ' points</b> are in the shaded region. ' +
-      (plot.incl ? 'Points on the solid line count.' : 'Points on the dashed line do not count.');
-    document.getElementById('plotRead').innerHTML = read;
-  }
-
-  function bindPlot() {
-    var sl = document.getElementById('slope');
-    if (!sl) return;
-    sl.addEventListener('input', function () { plot.si = +sl.value; updatePlot(); });
-    document.getElementById('icpt').addEventListener('input', function (e) { plot.b = +e.target.value; updatePlot(); });
-    document.getElementById('incl').addEventListener('change', function (e) { plot.incl = e.target.checked; updatePlot(); });
-    updatePlot();
-  }
-
   /* ---------- views ---------- */
   function homeView() {
-    var all = everything().sort(byNewest);
-    var anyNew = all.some(function (it) { return isNew(it.a); });
+    var all = everything().sort(byNewest).slice(0, 5);
     var courseLinks = L.courses.map(function (c) {
       return '<a class="btn btn-course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">Browse ' + esc(c.name) + '</a>';
     }).join('');
@@ -303,7 +179,7 @@
         '<section class="hero"><div class="wrap hero-grid">' +
           '<div class="hero-copy"><h1 tabindex="-1">' + esc(L.title).replace(/&#39;/g, '’') + '</h1>' +
           '<p class="lede">' + esc(L.tagline) + '</p><div class="hero-actions">' + courseLinks + '</div></div>' +
-          plotHtml() +
+          '<div class="hero-logo"><img src="assets/mr-ks-classroom-logo.png" alt="Mr. K’s Classroom — a teacher reading on the letter s" width="1774" height="887" fetchpriority="high"></div>' +
         '</div></section>' +
         '<section class="section"><div class="wrap"><h2 class="sr">Courses</h2><ul class="courses">' +
           L.courses.map(function (c) {
@@ -314,7 +190,7 @@
               artFor(c) + '</a></li>';
           }).join('') + '</ul></div></section>' +
         (all.length ?
-          '<section class="section"><div class="wrap"><div class="section-head"><h2>' + (anyNew ? 'New activities' : 'All activities') + '</h2>' +
+          '<section class="section"><div class="wrap"><div class="section-head"><h2>Latest activities</h2>' +
           '<button type="button" class="btn btn-ghost" id="surprise">Surprise me</button></div>' +
           '<ul class="cards" id="homeCards">' + all.map(function (it) { return cardHtml(it, true); }).join('') + '</ul></div></section>' : '')
     };
@@ -444,7 +320,6 @@
     app.innerHTML = view.html;
     try { document.title = view.title === L.title ? L.title : view.title + ' | ' + L.title; } catch (e) {}
     updateNav(query ? null : r);
-    if (!query && r.name === 'home') bindPlot();
 
     if (focusKey) {
       Array.prototype.forEach.call(app.querySelectorAll('.chip'), function (b) {
