@@ -39,6 +39,7 @@ window.LIBRARY = {
             {
               "title": "Expressions & Equations Cheat Sheet",
               "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-cheat-sheet.svg",
               "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
               "type": "Printable",
               "topics": ["Cheat sheet", "Reference", "Expressions & Equations"],
@@ -136,6 +137,7 @@ window.LIBRARY = {
             {
               "title": "Inequalities Cheat Sheet",
               "path": "Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf",
+              "thumb": "thumbs/inequalities-cheat-sheet.svg",
               "description": "Colorful, two-page printable reference sheet covering inequality vocabulary and symbols, number-line graphs, solving and checking inequalities, compound inequalities, and common mistakes.",
               "type": "Printable",
               "topics": [
@@ -233,6 +235,7 @@ window.LIBRARY = {
             {
               "title": "Linear Equations & Slope Cheat Sheet",
               "path": "artifacts/linear-equations-slope-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/linear-equations-slope-cheat-sheet.svg",
               "description": "Colorful two-page printable study guide: Slope, rate of change, linear equation forms, intercepts, graphing, and parallel and perpendicular lines.",
               "type": "Printable",
               "topics": ["Cheat sheet", "Reference", "Linear Equations & Slope"],
@@ -343,6 +346,7 @@ window.LIBRARY = {
             {
               "title": "Graphing Inequalities Cheat Sheet",
               "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-cheat-sheet.svg",
               "description": "Colorful two-page printable study guide: Graphing linear inequalities on the coordinate plane, boundary lines, shading, and systems.",
               "type": "Printable",
               "topics": ["Cheat sheet", "Reference", "Graphing Inequalities"],
@@ -439,6 +443,7 @@ window.LIBRARY = {
             {
               "title": "Systems of Equations Cheat Sheet",
               "path": "artifacts/systems-of-equations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/systems-of-equations-cheat-sheet.svg",
               "description": "Colorful two-page printable study guide: Solving systems by graphing, substitution and elimination, with corrected graphs and applications.",
               "type": "Printable",
               "topics": ["Cheat sheet", "Reference", "Systems of Equations"],
@@ -714,6 +719,7 @@ window.LIBRARY = {
             {
               "title": "Quadratics Cheat Sheet",
               "path": "artifacts/quadratics-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/quadratics-cheat-sheet.svg",
               "description": "Colorful two-page printable study guide: Parabolas, vertex and intercepts, factoring, quadratic formula, and discriminant.",
               "type": "Printable",
               "topics": ["Cheat sheet", "Reference", "Quadratics"],

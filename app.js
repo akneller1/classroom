@@ -72,6 +72,7 @@
     { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
     { id: 'error-analysis', name: 'Error Analysis', description: 'Examine a worked example, identify the mistake, and explain how to fix it. Printable practice that builds mathematical reasoning.' },
     { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
+    { id: 'cheat-sheets', name: 'Cheat Sheets', description: 'Colorful, printable front-and-back study guides with key vocabulary, formulas, worked examples, graphs, and reminders.' },
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra and Geometry.' }
   ];
   function activityFormat(a) {
@@ -81,6 +82,7 @@
     if (/maze/i.test(path)) return 'mazes';
     if (/flashcards/i.test(path)) return 'flashcards';
     if (/picture-reveal/i.test(path)) return 'picture-reveal';
+    if (/cheat.sheet/i.test(path) || /cheat.sheet/i.test(a.title || '')) return 'cheat-sheets';
     if (/error-analysis/i.test(path)) return 'error-analysis';
     if (toArr(a.type).indexOf('Game') >= 0) return 'topic-games';
     return 'other';
