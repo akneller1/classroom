@@ -274,16 +274,16 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
   .card:hover, .unit:hover, .course:hover, .btn:hover { transform: none; }
 }
 
-/* Activity directory grouped into three columns. */
-.resource-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; align-items: start; }
+/* Stacked categories, each containing a three-column activity grid. */
+.resource-columns { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 .resource-column { min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
 .resource-column > h3 { padding: 1rem 1.25rem; font-family: var(--display); font-size: 1.6rem; background: var(--wash); border-bottom: 1px solid var(--line); }
 .resource-column:nth-child(1) > h3 { background: #e8efff; color: #183b75; }
 .resource-column:nth-child(2) > h3 { background: #e7f3ec; color: #24553d; }
 .resource-column:nth-child(3) > h3 { background: #fff1d9; color: #704a12; }
-.resource-types { list-style: none; margin: 0; padding: 0; }
-.resource-types li + li { border-top: 1px solid var(--line); }
-.resource-type { display: flex; flex-direction: column; align-items: flex-start; padding: 1.25rem; gap: 0.5rem; text-decoration: none; color: var(--ink); }
+.resource-types { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; list-style: none; margin: 0; padding: 1rem; }
+.resource-types li { min-width: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.resource-type { height: 100%; display: flex; flex-direction: column; align-items: flex-start; padding: 1.25rem; gap: 0.5rem; text-decoration: none; color: var(--ink); }
 .resource-type:hover { background: var(--wash); }
 .resource-type:focus-visible { outline: 3px solid var(--blue-text); outline-offset: -4px; border-radius: 6px; }
 .resource-type img { width: 144px; max-width: 100%; height: 90px; object-fit: cover; border: 1px solid var(--line); border-radius: 7px; background: white; }
@@ -292,5 +292,8 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 .resource-type p { font-size: 0.95rem; line-height: 1.5; color: var(--ink-soft); margin: 0; }
 .resource-count { color: var(--ink-soft); font-size: 0.8rem; }
 @media (max-width: 700px) {
-  .resource-columns { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .resource-types { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 460px) {
+  .resource-types { grid-template-columns: minmax(0, 1fr); }
 }
