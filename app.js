@@ -69,6 +69,7 @@
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
     { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
     { id: 'flashcards', name: 'Flashcards', description: 'Practice at your own pace, reveal worked solutions, and mark cards to revisit. Useful for independent study and quick review.' },
+    { id: 'color-by-number', name: 'Color by Number', description: 'Solve math problems, match each answer to a color, and complete a themed picture. Printable activities for practice and review.' },
     { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
     { id: 'error-analysis', name: 'Error Analysis', description: 'Examine a worked example, identify the mistake, and explain how to fix it. Printable practice that builds mathematical reasoning.' },
     { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
@@ -82,6 +83,7 @@
     if (/connect-four|inequality-four/i.test(path)) return 'connect-four';
     if (/maze/i.test(path)) return 'mazes';
     if (/flashcards/i.test(path)) return 'flashcards';
+    if (/color-by-number/i.test(path)) return 'color-by-number';
     if (/picture-reveal/i.test(path)) return 'picture-reveal';
     if (/stations/i.test(path) || /stations/i.test(a.title || '')) return 'stations';
     if (/cheat.sheet/i.test(path) || /cheat.sheet/i.test(a.title || '')) return 'cheat-sheets';
