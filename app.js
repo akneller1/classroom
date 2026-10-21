@@ -74,6 +74,7 @@
     { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
     { id: 'error-analysis', name: 'Error Analysis', description: 'Examine a worked example, identify the mistake, and explain how to fix it. Printable practice that builds mathematical reasoning.' },
     { id: 'detective-games', name: 'Detective Games', description: 'Solve math problems to unlock clues, eliminate suspects, and crack a themed mystery. Type your answers and use the case board to identify the culprit.' },
+    { id: 'escape-rooms', name: 'Escape Rooms', description: 'Work together to solve math puzzles, decode clues, and unlock five rooms before the timer runs out. Includes hints and a final challenge.' },
     { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
     { id: 'cheat-sheets', name: 'Cheat Sheets', description: 'Colorful, printable front-and-back study guides with key vocabulary, formulas, worked examples, graphs, and reminders.' },
     { id: 'whodunnit', name: 'Whodunnit', description: 'Solve problems on printable clue cards, eliminate suspects on a case board, and solve the mystery. Includes space to show your work.' },
@@ -90,6 +91,7 @@
     if (/whodunnit/i.test(path)) return 'whodunnit';
     if (/tarsia/i.test(path)) return 'tarsia';
     if (/assessment-menu/i.test(path)) return 'assessment-menus';
+    if (/escape-room/i.test(path)) return 'escape-rooms';
     if (/maze/i.test(path)) return 'mazes';
     if (/flashcards/i.test(path)) return 'flashcards';
     if (/color-by-number/i.test(path)) return 'color-by-number';
@@ -105,7 +107,7 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'topic-games'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
     { id: 'worksheets', name: 'Worksheets', formats: ['mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
@@ -115,6 +117,7 @@
     'tic-tac-toe': 'Answer correctly to claim a square and make three in a row.',
     'picture-reveal': 'Solve problems to uncover a hidden picture.',
     'detective-games': 'Unlock clues, eliminate suspects, and solve the mystery.',
+    'escape-rooms': 'Solve math puzzles and unlock rooms before time runs out.',
     'topic-games': 'Explore focused challenges, from mini golf to Zombie Fence.',
     'cheat-sheets': 'Review key vocabulary, formulas, and worked examples.',
     'flashcards': 'Practice at your own pace and reveal worked solutions.',
