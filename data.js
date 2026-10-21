@@ -144,6 +144,19 @@ window.LIBRARY = {
           "name": "Inequalities",
           "artifacts": [
             {
+              "title": "Absolute Value Maze",
+              "path": "artifacts/absolute-value-maze/worksheet.pdf",
+              "thumb": "thumbs/absolute-value-maze.jpg",
+              "description": "Evaluate absolute value expressions and solve absolute value equations to find your way from start to finish in this printable maze.",
+              "type": "Printable",
+              "topics": [
+                "Absolute value",
+                "Absolute value equations",
+                "Maze worksheet"
+              ],
+              "added": "2026-10-21"
+            },
+            {
               "title": "Inequalities Stations",
               "path": "artifacts/algebra-inequalities-stations/worksheet.pdf",
               "thumb": "thumbs/algebra-inequalities-stations.svg",
