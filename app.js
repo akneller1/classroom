@@ -67,6 +67,7 @@
   var ACTIVITY_FORMATS = [
     { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
+    { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', description: 'Two teams solve multiple-choice math problems to claim squares and make three in a row. A wrong answer gives the other team a chance to steal. Includes an optional timer.' },
     { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
     { id: 'flashcards', name: 'Flashcards', description: 'Practice at your own pace, reveal worked solutions, and mark cards to revisit. Useful for independent study and quick review.' },
     { id: 'color-by-number', name: 'Color by Number', description: 'Solve math problems, match each answer to a color, and complete a themed picture. Printable activities for practice and review.' },
@@ -82,6 +83,7 @@
     var path = a.path || '';
     if (/jeopardy|showdown/i.test(path)) return 'showdown';
     if (/connect-four|inequality-four/i.test(path)) return 'connect-four';
+    if (/tic-tac-toe/i.test(path)) return 'tic-tac-toe';
     if (/maze/i.test(path)) return 'mazes';
     if (/flashcards/i.test(path)) return 'flashcards';
     if (/color-by-number/i.test(path)) return 'color-by-number';
