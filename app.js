@@ -77,6 +77,7 @@
     { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
     { id: 'cheat-sheets', name: 'Cheat Sheets', description: 'Colorful, printable front-and-back study guides with key vocabulary, formulas, worked examples, graphs, and reminders.' },
     { id: 'whodunnit', name: 'Whodunnit', description: 'Solve problems on printable clue cards, eliminate suspects on a case board, and solve the mystery. Includes space to show your work.' },
+    { id: 'tarsia', name: 'Tarsia Puzzles', description: 'Cut out triangles and match math problems to their answers to build a hexagon. Printable puzzles with space to show your work.' },
     { id: 'stations', name: 'Stations', description: 'Printable station-work activities with sets of problems for small-group rotation, review, and independent practice.' },
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra and Geometry.' }
   ];
@@ -86,6 +87,7 @@
     if (/connect-four|inequality-four/i.test(path)) return 'connect-four';
     if (/tic-tac-toe/i.test(path)) return 'tic-tac-toe';
     if (/whodunnit/i.test(path)) return 'whodunnit';
+    if (/tarsia/i.test(path)) return 'tarsia';
     if (/maze/i.test(path)) return 'mazes';
     if (/flashcards/i.test(path)) return 'flashcards';
     if (/color-by-number/i.test(path)) return 'color-by-number';
@@ -103,7 +105,7 @@
   var RESOURCE_GROUPS = [
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
-    { id: 'worksheets', name: 'Worksheets', formats: ['mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'other'] }
+    { id: 'worksheets', name: 'Worksheets', formats: ['mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
     'showdown': 'Choose a question and point value for team review.',
@@ -118,6 +120,7 @@
     'color-by-number': 'Match answers to colors to complete a themed picture.',
     'error-analysis': 'Find the mistake and explain how to correct it.',
     'whodunnit': 'Solve clue cards, clear suspects, and crack a printable mystery.',
+    'tarsia': 'Match problems and answers on triangle pieces to build a hexagon.',
     'stations': 'Rotate through problem sets for practice and review.',
     'other': 'Explore more practice resources.'
   };
