@@ -98,19 +98,43 @@
   function formatItems(format) {
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
-  function activityTableHtml() {
-    return '<table class="activity-table"><caption class="sr">Browse resources by activity format</caption>' +
-      '<thead><tr><th scope="col">Activity type</th><th scope="col">Description</th></tr></thead><tbody>' +
-      ACTIVITY_FORMATS.map(function (format) {
-        var items = formatItems(format);
-        var n = items.length;
-        if (!n) return '';
-        var preview = items.filter(function (it) { return !!it.a.thumb; })[0];
-        return '<tr><th scope="row"><a class="activity-category" href="' + href('activity.' + format.id) + '">' +
-          (preview ? '<img class="activity-preview" src="' + esc(preview.a.thumb) + '" alt="" width="72" height="48" loading="lazy">' : '') +
-          '<span class="activity-label"><span class="activity-name">' + esc(format.name) + '</span>' +
-          '<span class="activity-count">' + acts(n) + '</span></span></a></th><td>' + esc(format.description) + '</td></tr>';
-      }).join('') + '</tbody></table>';
+  var RESOURCE_GROUPS = [
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'topic-games'] },
+    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
+    { id: 'worksheets', name: 'Worksheets', formats: ['mazes', 'color-by-number', 'error-analysis', 'stations', 'other'] }
+  ];
+  var FORMAT_SUMMARIES = {
+    'showdown': 'Choose a question and point value for team review.',
+    'connect-four': 'Solve problems to earn discs and connect four.',
+    'tic-tac-toe': 'Answer correctly to claim a square and make three in a row.',
+    'picture-reveal': 'Solve problems to uncover a hidden picture.',
+    'detective-games': 'Unlock clues, eliminate suspects, and solve the mystery.',
+    'topic-games': 'Explore focused challenges, from mini golf to Zombie Fence.',
+    'cheat-sheets': 'Review key vocabulary, formulas, and worked examples.',
+    'flashcards': 'Practice at your own pace and reveal worked solutions.',
+    'mazes': 'Follow correct answers to find a path through the maze.',
+    'color-by-number': 'Match answers to colors to complete a themed picture.',
+    'error-analysis': 'Find the mistake and explain how to correct it.',
+    'stations': 'Rotate through problem sets for practice and review.',
+    'other': 'Explore more practice resources.'
+  };
+  function activityDirectoryHtml() {
+    return '<div class="resource-columns">' + RESOURCE_GROUPS.map(function (group) {
+      var formats = group.formats.map(function (id) {
+        return ACTIVITY_FORMATS.filter(function (format) { return format.id === id; })[0];
+      });
+      return '<section class="resource-column" aria-labelledby="resource-' + group.id + '">' +
+        '<h3 id="resource-' + group.id + '">' + esc(group.name) + '</h3><ul class="resource-types">' +
+        formats.map(function (format) {
+          var items = formatItems(format);
+          if (!items.length) return '';
+          var preview = items.filter(function (it) { return !!it.a.thumb; })[0];
+          return '<li><a class="resource-type" href="' + href('activity.' + format.id) + '">' +
+            (preview ? '<img src="' + esc(preview.a.thumb) + '" alt="" width="144" height="90" loading="lazy">' : '') +
+            '<h4>' + esc(format.name) + '</h4><p>' + esc(FORMAT_SUMMARIES[format.id]) + '</p>' +
+            '<span class="resource-count">' + acts(items.length) + '</span></a></li>';
+        }).join('') + '</ul></section>';
+    }).join('') + '</div>';
   }
 
   /* ---------- decorative art ---------- */
@@ -230,7 +254,7 @@
               artFor(c) + '</a></li>';
           }).join('') + '</ul></div></section>' +
         '<section class="section"><div class="wrap"><div class="section-head"><h2>Browse by activity</h2></div>' +
-          activityTableHtml() + '</div></section>'
+          activityDirectoryHtml() + '</div></section>'
     };
   }
 
@@ -286,7 +310,7 @@
     return {
       title: 'Browse by activity',
       html: bandHtml(null, crumbs([['Home', '#'], ['Browse by activity', null]]) + '<h1 tabindex="-1">Browse by activity</h1>') +
-        '<section class="section"><div class="wrap">' + activityTableHtml() + '</div></section>'
+        '<section class="section"><div class="wrap">' + activityDirectoryHtml() + '</div></section>'
     };
   }
 
