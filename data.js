@@ -146,30 +146,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Expressions & Equations Stations",
-              "path": "artifacts/algebra-expressions-equations-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-expressions-equations-stations.svg",
-              "description": "Printable Algebra station work for Expressions & Equations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Expressions & Equations Tic-Tac-Toe",
+              "path": "artifacts/expressions-equations-tic-tac-toe/index.html",
+              "thumb": "thumbs/expressions-equations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Expressions & Equations"
+                "Solving equations",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Expressions & Equations Cheat Sheet",
-              "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Expressions & Equations"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -282,44 +269,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Absolute Value Maze",
-              "path": "artifacts/absolute-value-maze/worksheet.pdf",
-              "thumb": "thumbs/absolute-value-maze.jpg",
-              "description": "Evaluate absolute value expressions and solve absolute value equations to find your way from start to finish in this printable maze.",
-              "type": "Printable",
+              "title": "Inequalities Tic-Tac-Toe",
+              "path": "artifacts/inequalities-tic-tac-toe/index.html",
+              "thumb": "thumbs/inequalities-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Absolute value",
-                "Absolute value equations",
-                "Maze worksheet"
+                "Inequalities",
+                "Team game",
+                "Multiple choice"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Inequalities Stations",
-              "path": "artifacts/algebra-inequalities-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-inequalities-stations.svg",
-              "description": "Printable Algebra station work for Inequalities. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Inequalities"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Inequalities Cheat Sheet",
-              "path": "Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf",
-              "thumb": "thumbs/inequalities-cheat-sheet.svg",
-              "description": "Colorful, two-page printable reference sheet covering inequality vocabulary and symbols, number-line graphs, solving and checking inequalities, compound inequalities, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Inequality symbols and vocabulary",
-                "Number-line graphs",
-                "Solving inequalities",
-                "Compound inequalities"
-              ],
-              "added": "2026-10-19"
             }
           ]
         },
@@ -450,30 +410,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Linear Equations & Slope Stations",
-              "path": "artifacts/algebra-linear-equations-slope-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-linear-equations-slope-stations.svg",
-              "description": "Printable Algebra station work for Linear Equations & Slope. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Linear Equations & Slope Tic-Tac-Toe",
+              "path": "artifacts/linear-equations-slope-tic-tac-toe/index.html",
+              "thumb": "thumbs/linear-equations-slope-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Linear Equations & Slope"
+                "Writing linear equations",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Linear Equations & Slope Cheat Sheet",
-              "path": "artifacts/linear-equations-slope-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Slope, rate of change, linear equation forms, intercepts, graphing, and parallel and perpendicular lines.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Linear Equations & Slope"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -590,30 +537,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Graphing Inequalities Stations",
-              "path": "artifacts/algebra-graphing-inequalities-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-graphing-inequalities-stations.svg",
-              "description": "Printable Algebra station work for Graphing Inequalities. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Graphing Inequalities Tic-Tac-Toe",
+              "path": "artifacts/graphing-inequalities-tic-tac-toe/index.html",
+              "thumb": "thumbs/graphing-inequalities-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Graphing Inequalities"
+                "Graphing linear inequalities",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Graphing Inequalities Cheat Sheet",
-              "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Graphing linear inequalities on the coordinate plane, boundary lines, shading, and systems.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Graphing Inequalities"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -732,30 +666,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Systems of Equations Stations",
-              "path": "artifacts/algebra-systems-of-equations-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-systems-of-equations-stations.svg",
-              "description": "Printable Algebra station work for Systems of Equations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Systems of Equations Tic-Tac-Toe",
+              "path": "artifacts/systems-of-equations-tic-tac-toe/index.html",
+              "thumb": "thumbs/systems-of-equations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Systems of Equations"
+                "Solving systems",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Systems of Equations Cheat Sheet",
-              "path": "artifacts/systems-of-equations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Solving systems by graphing, substitution and elimination, with corrected graphs and applications.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Systems of Equations"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -872,30 +793,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Exponents & Exponential Functions Stations",
-              "path": "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-exponents-exponential-functions-stations.svg",
-              "description": "Printable Algebra station work for Exponents & Exponential Functions. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Exponents Tic-Tac-Toe",
+              "path": "artifacts/exponents-exponential-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Exponents & Exponential Functions"
+                "Exponent rules",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Exponents & Exponential Functions Cheat Sheet",
-              "path": "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to exponent rules, scientific notation, exponential growth and decay, and worked examples.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Exponents & Exponential Functions"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -1013,30 +921,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Polynomials & Factoring Stations",
-              "path": "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-polynomials-factoring-stations.svg",
-              "description": "Printable Algebra station work for Polynomials & Factoring. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Polynomials & Factoring Tic-Tac-Toe",
+              "path": "artifacts/polynomials-factoring-tic-tac-toe/index.html",
+              "thumb": "thumbs/polynomials-factoring-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Polynomials & Factoring"
+                "Factoring",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Polynomials & Factoring Cheat Sheet",
-              "path": "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to polynomial operations, multiplication, special products, factoring methods, and solving by factoring.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Polynomials & Factoring"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -1154,30 +1049,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Quadratics Stations",
-              "path": "artifacts/algebra-quadratics-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-quadratics-stations.svg",
-              "description": "Printable Algebra station work for Quadratics. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Quadratics Tic-Tac-Toe",
+              "path": "artifacts/quadratics-tic-tac-toe/index.html",
+              "thumb": "thumbs/quadratics-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Quadratics"
+                "Solving quadratics",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Quadratics Cheat Sheet",
-              "path": "artifacts/quadratics-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/quadratics-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Parabolas, vertex and intercepts, factoring, quadratic formula, and discriminant.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Quadratics"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         }
@@ -1304,30 +1186,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Basics & Reasoning Stations",
-              "path": "artifacts/geometry-basics-reasoning-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-reasoning-stations.svg",
-              "description": "Printable Geometry station work for Basics & Reasoning. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Basics & Reasoning Tic-Tac-Toe",
+              "path": "artifacts/basics-reasoning-tic-tac-toe/index.html",
+              "thumb": "thumbs/basics-reasoning-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Basics & Reasoning"
+                "Segments and angles",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Geometry Basics Cheat Sheet",
-              "path": "artifacts/geometry-basics-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Points, lines, rays, segments, angles, midpoints, coordinate distance, and angle relationships.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -1445,30 +1314,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Angles & Parallel Lines Stations",
-              "path": "artifacts/geometry-angles-parallel-lines-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-stations.svg",
-              "description": "Printable Geometry station work for Angles & Parallel Lines. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Angles & Parallel Lines Tic-Tac-Toe",
+              "path": "artifacts/angles-parallel-lines-tic-tac-toe/index.html",
+              "thumb": "thumbs/angles-parallel-lines-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Angles & Parallel Lines"
+                "Parallel lines and triangles",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Angles & Parallel Lines Cheat Sheet",
-              "path": "artifacts/geometry-angles-parallel-lines-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Transversals, corresponding and alternate angles, linear pairs, and parallel-line relationships.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -1586,30 +1442,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Triangles & Congruence Stations",
-              "path": "artifacts/geometry-triangles-congruence-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-stations.svg",
-              "description": "Printable Geometry station work for Triangles & Congruence. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Triangles & Congruence Tic-Tac-Toe",
+              "path": "artifacts/triangles-congruence-tic-tac-toe/index.html",
+              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Triangles & Congruence"
+                "Congruence rules",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Triangles & Congruence Cheat Sheet",
-              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Triangle angle facts, triangle classifications, and triangle congruence criteria.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -1727,30 +1570,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Similarity Stations",
-              "path": "artifacts/geometry-similarity-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-stations.svg",
-              "description": "Printable Geometry station work for Similarity. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Similarity Tic-Tac-Toe",
+              "path": "artifacts/similarity-tic-tac-toe/index.html",
+              "thumb": "thumbs/similarity-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Similarity"
+                "Similar figures",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Similarity Cheat Sheet",
-              "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Similar figures, proportional side lengths, scale factor, dilations, and similar triangles.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -1868,30 +1698,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Right Triangles & Trigonometry Stations",
-              "path": "artifacts/geometry-right-triangles-trigonometry-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-stations.svg",
-              "description": "Printable Geometry station work for Right Triangles & Trigonometry. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Right Triangles & Trig Tic-Tac-Toe",
+              "path": "artifacts/right-triangles-trigonometry-tic-tac-toe/index.html",
+              "thumb": "thumbs/right-triangles-trigonometry-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Right Triangles & Trigonometry"
+                "Right triangle trig",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Cheat Sheet",
-              "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Pythagorean theorem, special right triangles, SOH-CAH-TOA, and inverse trigonometry.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -2009,30 +1826,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Circles Stations",
-              "path": "artifacts/geometry-circles-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-stations.svg",
-              "description": "Printable Geometry station work for Circles. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Circles Tic-Tac-Toe",
+              "path": "artifacts/circles-tic-tac-toe/index.html",
+              "thumb": "thumbs/circles-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Circles"
+                "Circle measures",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Circles Cheat Sheet",
-              "path": "artifacts/geometry-circles-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Circle parts, circumference, area, arcs, sectors, inscribed angles, chords and tangents.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -2149,30 +1953,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Area, Surface Area & Volume Stations",
-              "path": "artifacts/geometry-area-surface-area-volume-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-stations.svg",
-              "description": "Printable Geometry station work for Area, Surface Area & Volume. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Area, Surface Area & Volume Tic-Tac-Toe",
+              "path": "artifacts/area-surface-area-volume-tic-tac-toe/index.html",
+              "thumb": "thumbs/area-surface-area-volume-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Area, Surface Area & Volume"
+                "Area, surface area, volume",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Area, Surface Area & Volume Cheat Sheet",
-              "path": "artifacts/geometry-area-surface-area-volume-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Area of plane figures, nets, surface area, and volume of solids.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         },
@@ -2290,30 +2081,17 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Coordinate Geometry & Transformations Stations",
-              "path": "artifacts/geometry-coordinate-geometry-transformations-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-geometry-transformations-stations.svg",
-              "description": "Printable Geometry station work for Coordinate Geometry & Transformations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
+              "title": "Transformations Tic-Tac-Toe",
+              "path": "artifacts/coordinate-geometry-transformations-tic-tac-toe/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
               "topics": [
-                "Stations",
-                "Station work",
-                "Coordinate Geometry & Transformations"
+                "Transformations",
+                "Team game",
+                "Multiple choice"
               ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Coordinate Geometry & Transformations Cheat Sheet",
-              "path": "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Coordinate formulas, translations, reflections, rotations, dilations and transformation sequences.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
+              "added": "2026-10-21"
             }
           ]
         }
