@@ -1,20 +1,17 @@
-MR. K'S CLASSROOM: PRINTABLE WHODUNNIT UPDATE
-=============================================
-Printable (multiple-choice) versions of the 16 detective games. 161 activities total after this update.
+MR. K'S CLASSROOM: TARSIA PUZZLES UPDATE
+========================================
+Printable hexagon tarsia puzzles (24 triangles, 30 problem/answer matches) for 9 units. 170 activities total after this update.
 
-IN THE ZIP (49 files to upload)
-  artifacts/<unit>-whodunnit/worksheet.pdf     7 pages: story + case board, show-your-work page, 5 pages of clue cards (2 per page)
-  artifacts/<unit>-whodunnit/teacher-key.pdf   4 pages: procedures + solution, answer key with worked solutions, wrong-answer map
-  thumbs/<unit>-whodunnit.jpg                  16 card images
-  data.js                                      replaces the one on the site (adds 16 cards)
-UPLOAD: github.com/akneller1/classroom > Add file > Upload files; drag in "artifacts", "thumbs" and data.js. (49 files, under the 100 limit.)
-data.js already includes all earlier updates (error analysis, picture reveal, Color By Number, detective games, Tic-Tac-Toe). Upload any earlier zip you haven't yet first.
+IN THE ZIP (28 files to upload)
+  artifacts/<unit>-tarsia/worksheet.pdf     3 pages: scrambled triangles to cut out (page 1) + 2 show-your-work pages (15 problems each)
+  artifacts/<unit>-tarsia/teacher-key.pdf   2 pages: solved hexagon + list of all 30 problems and answers
+  thumbs/<unit>-tarsia.jpg                  9 card images
+  data.js                                   replaces the one on the site (adds 9 cards)
+UNITS: Expressions & Equations, Inequalities, Linear Equations & Slope, Exponents, Polynomials & Factoring, Quadratics,
+       Right Triangles, Circles, Area/Surface Area/Volume.
+UPLOAD: github.com/akneller1/classroom > Add file > Upload files; drag in "artifacts", "thumbs" and data.js.
+data.js already includes every earlier update (Whodunnit printables, Tic-Tac-Toe, detective games, Color By Number, etc.).
 
-HOW IT RUNS
-  Print the student packet (pages 1-2 per student; cut the clue cards on pages 3-7 apart, laminate if you like) and post the cards around the room.
-  Students solve each card's problem, find their answer among 4 choices, and read the clue beside it, then cross things off the case board.
-  Every wrong choice carries a FALSE clue that clears the real culprit's suspect, place or method, so a miscalculation shows up when the board
-  doesn't narrow to one suspect, one place and one method. Same cases, characters and problems as the digital detective games.
-CHECKS
-  Real clues isolate exactly one suspect, place and method in all 16 cases. All 480 wrong-answer clues were machine-tested: none leaves the true
-  answer intact. All 480 wrong answers were machine-checked against the key. Every clue and choice was confirmed present on the printed cards.
+HOW IT RUNS: cut out the 24 triangles, match each problem to its answer so touching edges fit, build the hexagon, glue it down.
+Each problem has a number printed before it; the work pages use the same numbers. Every answer is different, so a wrong match leaves pieces over.
+CHECKS: all 270 problems were solved two independent ways (sympy and a separate blind re-solve) and agreed. All 30 answers in a puzzle are distinct.
