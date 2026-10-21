@@ -1,3 +1,8 @@
-MR. K'S CLASSROOM: ASSESSMENT MENU (INEQUALITIES PROTOTYPE)
-Upload: artifacts/inequalities-assessment-menu (worksheet.pdf, teacher-key.pdf), thumbs/inequalities-assessment-menu.jpg, and data.js (replaces the site's; 171 activities, includes all earlier updates).
-Student packet 4 pages (menu + order form, Appetizers, Entrées, Chef's Specials). Teacher key 4 pages (design notes, grading sheet, answer key and rubrics).
+MR. K'S CLASSROOM: ESCAPE ROOMS FOR ALL 16 UNITS
+
+Drag the contents of this folder (artifacts, thumbs, data.js) into the classroom repo and
+choose "Replace" for data.js. 34 files, so one upload works.
+
+data.js includes every earlier update (202 activities). The assessment-menu entries in it
+point to the earlier assessment-menus zip, so upload that one too if you haven't.
+Add #key to any escape room's address (e.g. .../index.html#key) to see the teacher answer key.

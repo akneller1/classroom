@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carnival After Dark: Locked In the Midway</title>
+<style>
+:root{--bg:#0f1226;--card:#1a1f3d;--ink:#f3efe2;--dim:#9aa0c3;--gold:#ffc857;--red:#ff5d6c;--green:#5de0a0;--blue:#6ec1ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% 0,#232859,#0f1226 60%);color:var(--ink);font-family:"Trebuchet MS",Verdana,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;background:#0a0c1c;border-bottom:2px solid #2b3166;flex-wrap:wrap}
+h1{font-size:1.15rem;margin:0;color:var(--gold);letter-spacing:.5px}
+#clock{font:700 1.6rem "Courier New",monospace;color:var(--green)}#clock.low{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.45}}
+#dots{display:flex;gap:8px}.dot{width:14px;height:14px;border-radius:50%;background:#2b3166;border:2px solid #4a529a}.dot.done{background:var(--gold);border-color:var(--gold)}.dot.now{border-color:var(--ink)}
+main{max-width:1050px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){main{grid-template-columns:1fr}}
+.panel{background:var(--card);border:2px solid #323a7a;border-radius:14px;padding:14px}
+.panel h2{margin:0 0 6px;color:var(--gold);font-size:1.1rem}
+.story{color:var(--dim);font-style:italic;margin:0 0 10px;line-height:1.4}
+svg.scene{width:100%;height:auto;background:#0b0e20;border-radius:10px;display:block}
+.hot{cursor:pointer}.hot:hover{filter:brightness(1.4)}
+.eq{font:700 1.1rem "Courier New",monospace;background:#0b0e20;border-radius:8px;padding:8px 12px;margin:6px 0;display:inline-block;line-height:1.5}
+input[type=number],input[type=text]{background:#0b0e20;color:var(--ink);border:2px solid #4a529a;border-radius:8px;padding:8px;font:700 1.1rem "Courier New",monospace;width:100px;text-align:center}
+input[type=text]{width:200px;letter-spacing:2px;text-transform:uppercase}
+button{background:var(--gold);color:#1a1530;border:0;border-radius:9px;padding:9px 16px;font:700 1rem inherit;cursor:pointer}
+button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}button:hover{filter:brightness(1.12)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.msg{min-height:1.4em;font-weight:700}.bad{color:var(--red)}.good{color:var(--green)}
+.shake{animation:shake .4s}@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.hint{background:#0b0e20;border-left:4px solid var(--blue);padding:7px 10px;margin:6px 0;border-radius:4px;color:#cfe8ff}
+.note{background:#fff3a8;color:#3a2f00;padding:12px;border-radius:4px;transform:rotate(-1.5deg);font:600 1.05rem "Comic Sans MS",cursive;box-shadow:3px 4px 8px #0008;margin:8px 0;line-height:1.5}
+.wheel{font:700 .9rem "Courier New",monospace;background:#0b0e20;padding:8px;border-radius:8px;overflow-x:auto;white-space:pre}
+.cipher{font:700 1.4rem "Courier New",monospace;letter-spacing:3px;word-break:break-word;margin:8px 0}
+.sw{display:flex;gap:6px;margin:5px 0 12px;align-items:center;flex-wrap:wrap}.sw button{background:#2b3166;color:var(--ink);padding:7px 12px}.sw button.on{background:var(--gold);color:#1a1530}
+.card{display:inline-block;background:var(--gold);color:#1a1530;border-radius:8px;padding:8px 12px;margin:4px;text-align:center;font-weight:700;box-shadow:2px 3px 6px #0008}.card b{display:block;font:700 1.7rem "Courier New",monospace}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.1}.frac span:first-child{border-bottom:2px solid currentColor;padding:0 3px}
+.big{text-align:center;padding:30px}.big h2{font-size:2rem}
+#intro,#end{max-width:700px;margin:40px auto}
+.dialbox{display:flex;flex-direction:column;align-items:center;gap:4px}.dialbox button{padding:3px 14px}.dialbox .num{font:700 2rem "Courier New",monospace;background:#0b0e20;border:2px solid var(--gold);border-radius:8px;width:56px;text-align:center}
+.ord{display:flex;align-items:center;gap:8px;background:#0b0e20;border-radius:8px;padding:7px 10px;margin:5px 0}.ord span.t{flex:1}.ord button{padding:2px 10px;background:#2b3166;color:var(--ink)}
+.q{margin:8px 0 2px}
+#key{display:none;max-width:1050px;margin:0 auto 30px;padding:0 16px}
+</style></head><body>
+<header><h1>🎡 Carnival After Dark: Locked In the Midway</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">30:00</span></div></header>
+<div id="app"></div>
+<div id="key" class="panel"></div>
+<script>
+const fr=(a,b)=>`<span class="frac"><span>${a}</span><span>${b}</span></span>`;
+const sup=e=>`<sup>${e}</sup>`;
+const sub=e=>`<sub>${e}</sub>`;
+const ROOM={
+ id:'circles', title:'Carnival After Dark: Locked In the Midway', emoji:'🎡', endEmoji:'🤡🎈',
+ intro:'The carnival closed an hour ago, but your team is still on the midway. The gate chain just clicked shut, the lights are flickering, and the night security cart returns in <b>30 minutes</b>. Crack the puzzle at each attraction, collect the key cards, and get out through the gate.',
+ finalStory:'The gate lock has a brass plate: “Put your key cards in order from the smallest stamp to the largest. The letters name the performer who has the key.”',
+ finalAsk:'Who has the key?', word:'CLOWN',
+ outro:'A very sleepy clown honks a horn, hands over the gate key, and waves as you stroll out under the Ferris wheel lights. Free corn dogs next time.',
+ stages:[
+ {name:'The Ticket Booth',type:'fields',stamp:38,letter:'O',ui:'dial',
+  story:'The booth lock has two dials. A sign on the window describes the Ferris wheel and one gondola’s ride. Set the dials to the answers.',
+  scene:{kind:'emoji',bg:'#150a2e',floor:'#3a1a4a',items:[{e:'🎡',x:130,y:180,s:110,msg:'The big wheel, dark and quiet.'},{e:'🎟️',x:290,y:190,s:60,msg:'Tickets, but you need the booth open first.'},{e:'🎠',x:350,y:130,s:36,msg:'A carousel horse winks at you. Probably the wind.'}],caption:'dial A, then dial B'},
+  title:'The Booth Sign',prompt:`<div class="note">The rim of the Ferris wheel has circumference 16π m.</div><p>Dial A: the wheel’s radius in meters.<br>Dial B: a gondola rides a 90° arc of the rim. Its arc length is B·π meters. Find B.</p>`,
+  fields:[{label:'A (radius)',answer:8},{label:'B (arc, in π)',answer:4}],button:'Open booth',
+  hints:['Circumference C = 2πr. Set 2πr = 16π.',`A = 8. A 90° arc is ${fr('90','360')} = ${fr('1','4')} of the whole circle.`,`Arc length = ${fr('1','4')} × 16π.`],
+  key:'C = 2πr = 16π, so r = 8. A 90° arc is one quarter of the rim: 4π m. A = 8, B = 4.'},
+ {name:'The Carousel',type:'cipher',stamp:12,letter:'C',
+  story:'The carousel music box plays one note over and over. A cipher is carved on its base, and somebody left a sticky note with the shift. Click things to find it.',
+  scene:{kind:'emoji',bg:'#1c0a33',floor:'#4a2150',items:[{e:'🎠',x:130,y:190,s:100,msg:'A carousel pony stares at you. It seems judgmental.'},{e:'🎪',x:330,y:140,s:60,msg:'The big top is dark.'},{e:'🎟️',x:240,y:210,s:44,clue:'Stuck under the ticket:<br>A central angle measures 8x°.<br>An inscribed angle on the same arc measures (3x + 5)°.<br>Shift = x',msg:'You found a sticky note!'},{e:'🎵',x:215,y:110,s:36,msg:'The music box wheezes the same four notes.'}],caption:'click things to inspect them'},
+  plain:'THE TOP PRIZE IS A TEDDY',shift:5,answer:'TEDDY',askLabel:'Top prize',
+  hints:['Click the ticket stub.',`An inscribed angle is half of the central angle on the same arc. Solve 3x + 5 = ${fr('1','2')} · 8x.`,'3x + 5 = 4x, so x = 5. Set the shift to 5.'],
+  key:'Inscribed = half of central: 3x + 5 = 4x, so x = 5. Shift 5. Prize: TEDDY.'},
+ {name:'The Ring-Toss Booth',type:'classify',stamp:64,letter:'N',
+  story:'The ring-toss prizes are locked behind a panel. It wants the correct name for each marked segment or line in the diagram of the big wheel. O is the center.',
+  scene:{kind:'svg',viewBox:'0 0 400 300',svg:`<circle cx="170" cy="140" r="75" fill="none" stroke="#6ec1ff" stroke-width="3"/>
+<g stroke="#ffc857" stroke-width="3" stroke-linecap="round">
+<line x1="170" y1="140" x2="223" y2="87"/><line x1="95" y1="140" x2="245" y2="140"/><line x1="117" y1="87" x2="117" y2="193"/><line x1="110" y1="215" x2="215" y2="215"/><line x1="242" y1="45" x2="232" y2="200"/></g>
+<g fill="#fff"><circle cx="170" cy="140" r="3.5"/><circle cx="223" cy="87" r="3.5"/><circle cx="95" cy="140" r="3.5"/><circle cx="245" cy="140" r="3.5"/><circle cx="117" cy="87" r="3.5"/><circle cx="117" cy="193" r="3.5"/><circle cx="170" cy="215" r="3.5"/></g>
+<g fill="#fff" font-size="15" font-weight="700"><text x="172" y="158">O</text><text x="228" y="80">A</text><text x="76" y="145">B</text><text x="250" y="132">C</text><text x="98" y="82">D</text><text x="98" y="205">E</text><text x="96" y="225">F</text><text x="218" y="232">G</text><text x="164" y="236">T</text><text x="248" y="45">H</text><text x="238" y="208">K</text></g>`},
+  title:'The Name Panel',prompt:'<p style="color:var(--dim)">Choose the name for each one. T is a point on the circle, and line FG meets the circle only there.</p>',
+  items:['Segment <b>OA</b>','Segment <b>BC</b> (passes through O)','Segment <b>DE</b>','Line <b>FG</b>','Line <b>HK</b>'],
+  options:['Radius','Diameter','Chord','Tangent','Secant'],answer:[0,1,2,3,4],
+  hints:['A radius goes from the center to the circle. A diameter is a chord through the center.','A chord has both endpoints ON the circle. A tangent touches the circle at exactly one point.','A secant is a line that cuts through the circle at two points and keeps going.'],
+  key:'OA radius, BC diameter, DE chord, FG tangent (at T), HK secant.'},
+ {name:'The Haunted Funhouse Wire',type:'order',stamp:51,letter:'W',
+  story:`A tent pole rod PA is tangent to a round mirror at A. The mirror’s center is O, with OA = 5 m and PA = 12 m. A wire runs from O to P. Rebuild the solution that finds OP.`,
+  scene:{kind:'svg',viewBox:'0 0 400 300',svg:`<circle cx="110" cy="190" r="50" fill="none" stroke="#6ec1ff" stroke-width="3"/>
+<line x1="40" y1="140" x2="270" y2="140" stroke="#ffc857" stroke-width="3"/>
+<line x1="110" y1="190" x2="110" y2="140" stroke="#fff" stroke-width="3"/>
+<line x1="110" y1="190" x2="230" y2="140" stroke="#ff7ab8" stroke-width="3" stroke-dasharray="7 5"/>
+<polyline points="110,150 120,150 120,140" fill="none" stroke="#fff" stroke-width="2"/>
+<circle cx="110" cy="190" r="3.5" fill="#fff"/><circle cx="110" cy="140" r="3.5" fill="#fff"/><circle cx="230" cy="140" r="3.5" fill="#fff"/>
+<g fill="#fff" font-size="15" font-weight="700"><text x="94" y="206">O</text><text x="98" y="130">A</text><text x="236" y="134">P</text></g>
+<g fill="#ffc857" font-size="14" font-weight="700"><text x="70" y="170">5 m</text><text x="160" y="130">12 m</text></g><text x="178" y="188" fill="#ff7ab8" font-size="16" font-weight="700">OP = ?</text>`},
+  title:'The Wire Proof',prompt:'<p style="color:var(--dim)">Put the reasoning steps in the correct order, top to bottom.</p>',
+  steps:['A tangent is perpendicular to the radius at the point of tangency, so ∠OAP = 90°.',`Triangle OAP is a right triangle with legs 5 and 12 and hypotenuse OP.`,`Use the Pythagorean Theorem: 5${sup('2')} + 12${sup('2')} = OP${sup('2')}.`,`25 + 144 = 169, so OP${sup('2')} = 169.`,'Take the positive square root: OP = 13 m.'],
+  hints:['What do you know about a tangent line and the radius drawn to the point where it touches?','First justify the right angle, then name the triangle, then use a formula.','The last step is the square root.'],
+  key:'Tangent ⟂ radius gives a right angle at A. Then 5² + 12² = 169, so OP = 13 m.'},
+ {name:'The Top of the Ferris Wheel',type:'fields',stamp:25,letter:'L',
+  story:'The control box is at the very top of the wheel. Its panel shows the diagram below. Points A, B, C sit on the rim, and the wheel’s radius is 18 m. Three readings are needed.',
+  scene:{kind:'svg',viewBox:'0 0 400 300',svg:`<circle cx="170" cy="140" r="85" fill="none" stroke="#6ec1ff" stroke-width="3"/>
+<polyline points="121,70 170,225 219,70" fill="none" stroke="#ffc857" stroke-width="3"/>
+<line x1="170" y1="140" x2="121" y2="70" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/><line x1="170" y1="140" x2="219" y2="70" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/>
+<g fill="#fff"><circle cx="170" cy="140" r="3.5"/><circle cx="121" cy="70" r="3.5"/><circle cx="219" cy="70" r="3.5"/><circle cx="170" cy="225" r="3.5"/></g>
+<g fill="#fff" font-size="15" font-weight="700"><text x="172" y="158">O</text><text x="100" y="66">A</text><text x="225" y="66">C</text><text x="164" y="246">B</text></g>
+<text x="262" y="150" fill="#ffc857" font-size="16" font-weight="700">∠ABC = 35°</text><text x="262" y="176" fill="#fff" font-size="14">radius = 18 m</text>`},
+  title:'The Control Box',prompt:`<p>∠ABC is inscribed in the circle, and O is the center. Find the measure of arc AC, then the length of arc AC and the area of sector AOC. Give lengths and areas as a number times π.</p>`,
+  fields:[{label:'arc AC (°)',answer:70},{label:'arc length (… π m)',answer:7},{label:`sector area (… π m${sup('2')})`,answer:63}],button:'Start the wheel',
+  hints:['An inscribed angle is half of its intercepted arc. So arc AC = 2 × 35°.',`Arc length = ${fr('70','360')} × 2π(18). Simplify: 2π(18) = 36π.`,`Sector area = ${fr('70','360')} × π(18)${sup('2')} = ${fr('70','360')} × 324π.`],
+  key:`Arc AC = 2(35°) = 70°. Arc length = ${fr('70','360')}·36π = 7π m. Sector area = ${fr('70','360')}·324π = 63π m².`}
+ ]};
+
+const TOTAL=30*60, HINT_COST=90, STAGES=ROOM.stages;
+let t=TOTAL, used=0, stage=-1, timer=null, cards=[], hintsShown={}, st={};
+const $=s=>document.querySelector(s);
+const ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const caesar=(s,k)=>s.replace(/[A-Z]/g,c=>ALPHA[(ALPHA.indexOf(c)+k+26)%26]);
+const fmt=s=>{s=Math.max(0,s);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+function tick(){t--;$('#clock').textContent=fmt(t);$('#clock').classList.toggle('low',t<300);if(t<=0){clearInterval(timer);timeUp()}}
+function dots(){$('#dots').innerHTML=STAGES.map((_,i)=>`<div class="dot ${i<stage?'done':''} ${i==stage?'now':''}"></div>`).join('')}
+function timeUp(){const el=document.createElement('div');el.className='panel';el.style.cssText='position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:9;border-color:var(--red)';el.innerHTML='⏰ Time is up! Keep going, but note how long your team takes.<br><button onclick="this.parentNode.remove()">Keep going</button>';document.body.appendChild(el)}
+function say(txt,ok){const m=$('#m');m.textContent=txt;m.className='msg '+(ok?'good':'bad');if(!ok){const p=m.closest('.panel');p.classList.remove('shake');void p.offsetWidth;p.classList.add('shake')}}
+function getHint(){const s=STAGES[stage];hintsShown[stage]=hintsShown[stage]||0;if(hintsShown[stage]>=s.hints.length)return;t-=HINT_COST;used++;$('#hu').textContent=used;$('#clock').textContent=fmt(t);hintsShown[stage]++;$('#hints').innerHTML=s.hints.slice(0,hintsShown[stage]).map(h=>`<div class="hint">💡 ${h}</div>`).join('')}
+function pass(){cards.push({stamp:STAGES[stage].stamp,letter:STAGES[stage].letter});stage++;dots();show()}
+/* ---- scenes ---- */
+function sceneEmoji(sc){
+ const items=(sc.items||[]).map((it,i)=>`<g class="hot" data-i="${i}" onclick="hot(${i})"><text x="${it.x}" y="${it.y}" font-size="${it.s||44}" text-anchor="middle">${it.e}</text></g>`).join('');
+ return `<svg class="scene" viewBox="0 0 400 300"><rect width="400" height="300" fill="${sc.bg||'#0b0e20'}"/><rect y="230" width="400" height="70" fill="${sc.floor||'#1b1f3f'}"/>${items}<text x="200" y="292" fill="#9aa0c3" font-size="12" text-anchor="middle">${sc.caption||'(click things to inspect them)'}</text></svg>`}
+function hot(i){const it=STAGES[stage].scene.items[i];if(it.clue){const n=$('#note');if(n)n.innerHTML=`<div class="note">${it.clue}</div>`;say(it.msg||'You found something!',true)}else say(it.msg||'Nothing useful here.',true)}
+function sceneGrid(sc){
+ const W=400,H=sc.h||400,pad=26,ux=(W-2*pad)/(sc.xmax-sc.xmin),uy=(H-2*pad)/(sc.ymax-sc.ymin),u=Math.min(ux,uy);
+ const X=x=>pad+(x-sc.xmin)*u,Y=y=>H-pad-(y-sc.ymin)*u,step=(sc.xmax-sc.xmin)>14?2:1;
+ let g='';
+ for(let x=sc.xmin;x<=sc.xmax;x++){g+=`<line x1="${X(x)}" y1="${Y(sc.ymin)}" x2="${X(x)}" y2="${Y(sc.ymax)}" stroke="#222a55"/>`;if(x%step==0&&x!=0)g+=`<text x="${X(x)}" y="${Y(Math.max(sc.ymin,Math.min(0,sc.ymax)))+13}" fill="#9aa0c3" font-size="10" text-anchor="middle">${x}</text>`}
+ for(let y=sc.ymin;y<=sc.ymax;y++){g+=`<line x1="${X(sc.xmin)}" y1="${Y(y)}" x2="${X(sc.xmax)}" y2="${Y(y)}" stroke="#222a55"/>`;if(y%step==0&&y!=0)g+=`<text x="${X(Math.max(sc.xmin,Math.min(0,sc.xmax)))-4}" y="${Y(y)+4}" fill="#9aa0c3" font-size="10" text-anchor="end">${y}</text>`}
+ const ax=Math.max(sc.xmin,Math.min(0,sc.xmax)),ay=Math.max(sc.ymin,Math.min(0,sc.ymax));
+ g+=`<line x1="${X(ax)}" y1="${Y(sc.ymin)}" x2="${X(ax)}" y2="${Y(sc.ymax)}" stroke="#6a72c0" stroke-width="2"/><line x1="${X(sc.xmin)}" y1="${Y(ay)}" x2="${X(sc.xmax)}" y2="${Y(ay)}" stroke="#6a72c0" stroke-width="2"/>`;
+ (sc.polys||[]).forEach(p=>{g+=`<polygon points="${p.pts.map(q=>X(q[0])+','+Y(q[1])).join(' ')}" fill="${p.fill||'none'}" fill-opacity=".25" stroke="${p.color||'#ffc857'}" stroke-width="3"/>`;if(p.label)g+=`<text x="${X(p.lx)}" y="${Y(p.ly)}" fill="${p.color||'#ffc857'}" font-size="13" font-weight="700">${p.label}</text>`});
+ (sc.lines||[]).forEach(l=>{g+=`<line x1="${X(l.a[0])}" y1="${Y(l.a[1])}" x2="${X(l.b[0])}" y2="${Y(l.b[1])}" stroke="${l.color||'#ff3d5a'}" stroke-width="4"/>`;if(l.label)g+=`<text x="${X(l.lx)}" y="${Y(l.ly)}" fill="${l.color||'#ff3d5a'}" font-size="13" font-weight="700">${l.label}</text>`});
+ (sc.points||[]).forEach(p=>{g+=`<circle cx="${X(p.x)}" cy="${Y(p.y)}" r="5" fill="${p.color||'#fff'}"/>`;if(p.label)g+=`<text x="${X(p.x)+7}" y="${Y(p.y)-7}" fill="#fff" font-size="13" font-weight="700">${p.label}</text>`});
+ return `<svg class="scene" viewBox="0 0 ${W} ${H}">${g}</svg>`}
+function scene(s){const sc=s.scene||{kind:'emoji',items:[]};return sc.kind=='grid'?sceneGrid(sc):sc.kind=='svg'?`<svg class="scene" viewBox="${sc.viewBox||'0 0 400 300'}"><rect width="100%" height="100%" fill="#0b0e20"/>${sc.svg}</svg>`:sceneEmoji(sc)}
+/* ---- puzzles ---- */
+const P={
+fields(s){return `<h2>${s.title||'Lock'}</h2><div>${s.prompt}</div><div class="row">${s.fields.map((f,i)=>s.ui=='dial'?`<div class="dialbox"><button onclick="dl(${i},1)">▲</button><div class="num" id="d${i}">0</div><button onclick="dl(${i},-1)">▼</button><small>${f.label}</small></div>`:`<span>${f.label}</span><input id="f${i}" type="number" step="any">`).join('')}<button id="go" onclick="chkFields()">${s.button||'Unlock'}</button></div>`},
+classify(s){return `<h2>${s.title||'Panels'}</h2><div>${s.prompt||''}</div>${s.items.map((it,i)=>`<div class="q">${it}</div><div class="sw" id="sw${i}">${s.options.map((o,j)=>`<button onclick="pv(${i},${j})">${o}</button>`).join('')}</div>`).join('')}<button id="go" onclick="chkClass()">${s.button||'Test the code'}</button>`},
+order(s){return `<h2>${s.title||'Put in order'}</h2><div>${s.prompt||''}</div><div id="ol"></div><button id="go" onclick="chkOrder()">${s.button||'Lock it in'}</button>`},
+cipher(s){return `<h2>${s.title||'The Cipher'}</h2><div id="note"></div><div class="cipher">${caesar(s.plain,s.shift)}</div><div>${s.prompt||'Each letter was moved FORWARD in the alphabet by the shift. Set the decoder to undo it.'}</div><div class="row"><button class="ghost" onclick="sh(-1)">−</button><b id="kk">shift 0</b><button class="ghost" onclick="sh(1)">+</button></div><div class="wheel" id="wheel"></div><div class="cipher" id="dec" style="color:var(--blue)"></div><div class="row">${s.askLabel||'Answer word'}: <input type="text" id="w" maxlength="14"> <button id="go" onclick="chkCipher()">Open</button></div>`}};
+function show(){
+ if(stage>=STAGES.length){finalStage();return}
+ const s=STAGES[stage];st={};
+ $('#app').innerHTML=`<main><div class="panel"><h2>Room ${stage+1}: ${s.name}</h2><p class="story">${s.story}</p>${scene(s)}</div><div class="panel">${P[s.type](s)}<div class="msg" id="m"></div><div id="hints"></div><button class="ghost" onclick="getHint()">💡 Hint (−1:30)</button>${stage?`<div style="margin-top:8px">Key cards: ${cards.map(c=>`<span class="card">${c.stamp}</span>`).join('')}</div>`:''}</div></main>`;
+ if(s.type=='fields')st.dv=s.fields.map(()=>0);
+ if(s.type=='classify')st.pick=s.items.map(()=>-1);
+ if(s.type=='order'){let a=s.steps.map((_,i)=>i);do{a.sort(()=>Math.random()-.5)}while(a.every((v,i)=>v==i));st.ord=a;ordDraw()}
+ if(s.type=='cipher'){st.k=0;sh(0)}
+}
+function dl(i,d){st.dv[i]=(st.dv[i]+d+10)%10;$('#d'+i).textContent=st.dv[i]}
+function chkFields(){const s=STAGES[stage];const ok=s.fields.every((f,i)=>{const v=s.ui=='dial'?st.dv[i]:parseFloat($('#f'+i).value);const alts=[f.answer].concat(f.alts||[]);return alts.some(a=>Math.abs(v-a)<=(f.tol||1e-9))});ok?pass():say(s.fail||'Locked. Check your work and try again.',false)}
+function pv(i,j){st.pick[i]=j;[...$('#sw'+i).children].forEach((b,x)=>b.classList.toggle('on',x==j))}
+function chkClass(){const s=STAGES[stage];s.answer.every((a,i)=>st.pick[i]==a)?pass():say(s.fail||'Alarm! At least one answer is wrong.',false)}
+function ordDraw(){const s=STAGES[stage];$('#ol').innerHTML=st.ord.map((v,p)=>`<div class="ord"><span class="t">${s.steps[v]}</span><button onclick="mv(${p},-1)">▲</button><button onclick="mv(${p},1)">▼</button></div>`).join('')}
+function mv(p,d){const q=p+d;if(q<0||q>=st.ord.length)return;[st.ord[p],st.ord[q]]=[st.ord[q],st.ord[p]];ordDraw()}
+function chkOrder(){const s=STAGES[stage];st.ord.every((v,i)=>v==i)?pass():say(s.fail||'Not quite in order. Re-read the logic.',false)}
+function sh(d){const s=STAGES[stage];st.k=(st.k+d+26)%26;$('#kk').textContent='shift '+st.k;$('#wheel').textContent='written: '+ALPHA.split('').join(' ')+'\nreal   : '+ALPHA.split('').map(c=>caesar(c,-st.k)).join(' ');$('#dec').textContent=caesar(caesar(s.plain,s.shift),-st.k)}
+function chkCipher(){const s=STAGES[stage];$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():say('Still locked. Check your shift.',false)}
+function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.random()-.5);
+ $('#app').innerHTML=`<main style="grid-template-columns:1fr"><div class="panel"><h2>The Final Door</h2><p class="story">${ROOM.finalStory}</p><div>${sh.map(c=>`<span class="card">${c.stamp}<b>${c.letter}</b></span>`).join('')}</div><div class="row">${ROOM.finalAsk} <input type="text" id="w" maxlength="12"> <button id="go" onclick="fin()">Open</button></div><div class="msg" id="m"></div></div></main>`}
+function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():say('Nothing happens. Re-check the order of the cards.',false)}
+function victory(){$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
+function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
+function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>30 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
+if(location.hash=='#key'){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
+intro();
+</script></body></html>
