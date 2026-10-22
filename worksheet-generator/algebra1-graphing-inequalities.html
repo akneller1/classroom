@@ -95,7 +95,7 @@ case 'formula':v=a+b;w=a*b;prompt='Solve '+latex('x^2'+(v>=0?'+':'')+v+'x'+(w>=0
 default:throw new Error('Unknown generator '+kind);
 }
 steps=['Answer: '+answer];
-return {prompt:prompt,answer:answer,steps:steps,key:kind+'|'+prompt,equiv:kind+'|'+prompt};
+var result={prompt:prompt,answer:answer,steps:steps,key:kind+'|'+prompt,equiv:kind+'|'+prompt}; if(kind==='graphInequality'){result.fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};result.figWhere='below';} return result;
 };}
 var categories=def[2].map(function(item,i){var id='a1-'+def[0]+'-'+item[1];NS.registerLesson({id:id,unit:unitId,category:'skills',num:i+1,title:item[0],instruction:item[0],layout:'half',space:[.6,1.05,1.65],generate:lesson(item[1])});return id;});
 NS.registerUnit({id:unitId,course:'Algebra 1',name:def[1],color:'blue',defaultTitle:def[1]+' Practice',categories:[{id:'skills',letter:'A',name:'Skills',lessons:categories}]});
