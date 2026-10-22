@@ -86,6 +86,12 @@
     o.push('<text x="' + (ax - 5) + '" y="' + (ay + 12.5) + '" text-anchor="end" ' + F + halo + '>0</text>');
     o.push('<text x="' + (PAD.l + W + 4) + '" y="' + (ay + 15) + '" ' + F.replace('font-size="12"', 'font-size="13" font-style="italic"') + '>x</text>');
     o.push('<text x="' + (ax + 6) + '" y="' + (PAD.t - 4) + '" ' + F.replace('font-size="12"', 'font-size="13" font-style="italic"') + '>y</text>');
+    // Subtle hatch fill for solutions; SVG remains legible when printed in grayscale.
+    if (spec.shade && spec.shade.m !== undefined) {
+      var sh = spec.shade, mm = Number(sh.m), bb = Number(sh.b), yy1 = Math.max(ymin, Math.min(ymax, mm * xmin + bb)), yy2 = Math.max(ymin, Math.min(ymax, mm * xmax + bb));
+      var fillY = sh.above ? PAD.t : PAD.t + H;
+      o.push('<polygon points="' + X(xmin) + ',' + Y(yy1) + ' ' + X(xmax) + ',' + Y(yy2) + ' ' + X(xmax) + ',' + fillY + ' ' + X(xmin) + ',' + fillY + '" fill="#b2b9c2" fill-opacity="0.24"/>');
+    }
     // lines
     (spec.lines || []).forEach(function (ln) {
       var seg = clipLine(ln, { xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax });
@@ -98,7 +104,7 @@
         return '<polygon fill="#111" points="' + r2(tip[0]) + ',' + r2(tip[1]) + ' ' + r2(bx - uy * Wd) + ',' + r2(by + ux * Wd) + ' ' + r2(bx + uy * Wd) + ',' + r2(by - ux * Wd) + '"/>';
       }
       o.push('<path class="gline" d="M' + r2(a[0]) + ' ' + r2(a[1]) + ' L' + r2(b[0]) + ' ' + r2(b[1]) + '" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/>');
-      o.push(head(b, 1)); o.push(head(a, -1));
+      if (!ln.dashed) { o.push(head(b, 1)); o.push(head(a, -1)); }
     });
     // points
     (spec.points || []).forEach(function (p) {
