@@ -2,6 +2,11 @@
   'use strict';
 
   var L = window.LIBRARY;
+  var courseOrder = { algebra: 0, geometry: 1, algebra2: 2 };
+  L.courses.sort(function (a, b) {
+    return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
+      (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
+  });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
   var q = document.getElementById('q');

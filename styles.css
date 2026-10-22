@@ -172,17 +172,17 @@ h1:focus, main:focus { outline: none; box-shadow: none; }
 .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: 1.5rem; }
 .course {
   position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.6rem;
-  min-height: 15rem; padding: 1.5rem;
+  min-height: 11rem; padding: 1.25rem;
   background: var(--c-bg); color: var(--c-fg);
   border: 2px solid var(--edge); border-radius: 22px; box-shadow: 6px 6px 0 var(--shadow);
   text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
 }
 .course:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--shadow); }
-.course h3 { font-size: clamp(2.3rem, 4.4vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; }
+.course h3 { font-size: clamp(1.8rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.03em; }
 .course p { max-width: 17rem; position: relative; z-index: 1; }
-.course .count { margin-top: auto; padding-top: 1rem; font-weight: 700; font-size: 1.05rem; }
+.course .count { margin-top: auto; padding-top: 0.5rem; padding-right: 4.5rem; font-weight: 700; font-size: 0.95rem; }
 .course h3, .course .count { position: relative; z-index: 1; }
-.course .art { position: absolute; right: -0.5rem; bottom: -0.5rem; width: 62%; max-width: 15rem; height: auto; }
+.course .art { position: absolute; right: 0.75rem; bottom: 0.75rem; width: 28%; max-width: 6rem; height: auto; }
 
 /* Art strokes and fills use the tile's foreground color */
 .art .s { stroke: currentColor; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
