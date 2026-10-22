@@ -39,6 +39,7 @@ window.LIBRARY = {
             {
               "title": "Expressions & Equations Worksheet Generator",
               "path": "worksheet-generator/algebra1-expressions-equations.html",
+              "thumb": "thumbs/algebra1-expressions-equations-generator.svg",
               "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
               "topics": ["Worksheet generator", "Expressions & Equations"],
@@ -254,6 +255,7 @@ window.LIBRARY = {
             {
               "title": "Inequalities Worksheet Generator",
               "path": "worksheet-generator/algebra1-inequalities.html",
+              "thumb": "thumbs/algebra1-inequalities-generator.svg",
               "description": "Create custom Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
               "topics": ["Worksheet generator", "Inequalities"],
@@ -708,6 +710,7 @@ window.LIBRARY = {
             {
               "title": "Graphing Inequalities Worksheet Generator",
               "path": "worksheet-generator/algebra1-graphing-inequalities.html",
+              "thumb": "thumbs/algebra1-graphing-inequalities-generator.svg",
               "description": "Create custom Graphing Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
               "topics": ["Worksheet generator", "Graphing Inequalities"],
@@ -1113,6 +1116,7 @@ window.LIBRARY = {
             {
               "title": "Exponents & Exponential Functions Worksheet Generator",
               "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
+              "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
               "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
               "topics": ["Worksheet generator", "Exponents & Exponential Functions"],
@@ -1327,6 +1331,7 @@ window.LIBRARY = {
             {
               "title": "Polynomials & Factoring Worksheet Generator",
               "path": "worksheet-generator/algebra1-polynomials-factoring.html",
+              "thumb": "thumbs/algebra1-polynomials-factoring-generator.svg",
               "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
               "topics": ["Worksheet generator", "Polynomials & Factoring"],
@@ -1542,6 +1547,7 @@ window.LIBRARY = {
             {
               "title": "Quadratics Worksheet Generator",
               "path": "worksheet-generator/algebra1-quadratics.html",
+              "thumb": "thumbs/algebra1-quadratics-generator.svg",
               "description": "Create custom Quadratics worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
               "topics": ["Worksheet generator", "Quadratics"],
