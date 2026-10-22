@@ -297,3 +297,10 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 @media (max-width: 460px) {
   .resource-types { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Optional support link */
+.support-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-bottom: 1.25rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
+.support-heading { color: var(--ink); font-weight: 700; margin-bottom: 0.25rem; }
+.support-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.1rem; min-height: 44px; background: #ffdd00; color: #25200b; border: 2px solid #25200b; border-radius: 10px; font-weight: 700; text-decoration: none; }
+.support-button:hover { background: #ffe959; text-decoration: underline; text-underline-offset: 0.2em; }
+.support-button:focus-visible { outline: 3px solid var(--blue-text); outline-offset: 4px; }
