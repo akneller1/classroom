@@ -109,7 +109,7 @@
   var RESOURCE_GROUPS = [
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
-    { id: 'worksheets', name: 'Worksheets', formats: ['mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
+    { id: 'worksheets', name: 'Printable Worksheets', formats: ['mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
     'showdown': 'Choose a question and point value for team review.',
