@@ -203,7 +203,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { return 'activity.html?path=' + encodeURIComponent(a.path); }
+  function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
 
   function cardHtml(it, showWhere, compact) {
     var a = it.a;
