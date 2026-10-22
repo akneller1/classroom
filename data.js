@@ -462,7 +462,7 @@ window.LIBRARY = {
           "artifacts": [
             {
               "title": "Linear Functions Worksheet Generator",
-              "path": "worksheet-generator/algebra1-linear-functions.html",
+              "path": "artifacts/worksheet-generator/index.html",
               "description": "Create custom Algebra 1 linear functions worksheets by sub-lesson, with slope, graphing, equation forms, applications, answer keys and multiple versions.",
               "type": "Practice",
               "topics": ["Slope", "Linear equations", "Graphing", "Worksheet generator"],
