@@ -461,6 +461,14 @@ window.LIBRARY = {
           "name": "Linear Equations & Slope",
           "artifacts": [
             {
+              "title": "Linear Functions Worksheet Generator",
+              "path": "worksheet-generator/algebra1-linear-functions.html",
+              "description": "Create custom Algebra 1 linear functions worksheets by sub-lesson, with slope, graphing, equation forms, applications, answer keys and multiple versions.",
+              "type": "Practice",
+              "topics": ["Slope", "Linear equations", "Graphing", "Worksheet generator"],
+              "added": "2026-10-22"
+            },
+            {
               "title": "Slope Four",
               "path": "artifacts/linear-equations-slope-connect-four/index.html",
               "thumb": "thumbs/linear-equations-slope-connect-four.jpg",
