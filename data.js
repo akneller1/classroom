@@ -884,7 +884,7 @@ window.LIBRARY = {
           "artifacts": [
             {
               "title": "Systems of Equations Worksheet Generator",
-              "path": "artifacts/systems-of-equations-worksheet-generator/index.html",
+              "path": "worksheet-generator/algebra1-systems-of-equations.html",
               "thumb": "thumbs/systems-of-equations-worksheet-generator.svg",
               "description": "Create customizable Systems of Equations worksheets on substitution, elimination, graphing and solution classification with matching answer keys and printable versions.",
               "type": "Practice",
