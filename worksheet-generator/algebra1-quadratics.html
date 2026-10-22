@@ -98,6 +98,24 @@ steps=['Answer: '+answer];
 return {prompt:prompt,answer:answer,steps:steps,key:kind+'|'+prompt,equiv:kind+'|'+prompt};
 };}
 var categories=def[2].map(function(item,i){var id='a1-'+def[0]+'-'+item[1];NS.registerLesson({id:id,unit:unitId,category:'skills',num:i+1,title:item[0],instruction:item[0],layout:'half',space:[.6,1.05,1.65],generate:lesson(item[1])});return id;});
+function expanded(type){return function(ctx){var r=ctx.rng,a=r.int(2,8),b=r.int(1,7),x=r.int(-6,6),p,q,ans,steps,fig=null;
+switch(type){
+case 'paren':p=M(a+'(x+'+b+')='+a*(x+b));ans=M('x='+x);steps=['Divide both sides by '+a+', then subtract '+b+'.'];break;
+case 'verbal':p='Write an expression for '+b+' less than '+a+' times x.';ans=M(a+'x-'+b);steps=['Multiply x by '+a+' and subtract '+b+'.'];break;
+case 'negative':p=M('-'+a+'x+'+b+'>'+(-a*x+b));ans=M('x<'+x);steps=['Subtract '+b+' and divide by -'+a+'. Reverse the inequality.'];break;
+case 'absGreater':p=M('|x-'+x+'|>'+a);ans=M('x<'+(x-a)+'\\text{ or }x>'+(x+a));steps=['The distance from '+x+' is greater than '+a+'.'];break;
+case 'shading':p='For '+M('y>'+a+'x-'+b)+', should the region above or below the line be shaded?';ans='Above';steps=['The greater-than sign selects points above the line.'];break;
+case 'boundary':p='Write the boundary-line equation for '+M('y\\le '+a+'x+'+b)+'.';ans=M('y='+a+'x+'+b);steps=['Replace the inequality sign with an equals sign.'];break;
+case 'negExp':p='Rewrite using positive exponents: '+M('x^{-'+a+'}');ans=M('\\frac{1}{x^{'+a+'}}');steps=['Use the reciprocal of the base raised to the positive exponent.'];break;
+case 'zeroExp':p='Evaluate '+M('('+a+'x)^0')+' given '+M('x\\ne 0')+'.';ans=M('1');steps=['Every nonzero expression to the zeroth power equals 1.'];break;
+case 'gcf':p='Factor '+M((a*b)+'x^2+'+a+'x')+'.';ans=M(a+'x('+b+'x+1)');steps=['Take out the common factor '+M(a+'x')+'.'];break;
+case 'group':p='Factor '+M(a+'x^2+'+(a*b)+'x+'+b+'x+'+(b*b))+'.';ans=M('(x+'+b+')('+a+'x+'+b+')');steps=['Group the first two terms and the last two terms.'];break;
+case 'axis':p='Find the axis of symmetry of '+M('y='+a+'(x-'+x+')^2+'+b)+'.';ans=M('x='+x);steps=['The x-coordinate of the vertex gives the axis.'];break;
+case 'sqrt':p='Solve '+M('x^2='+a*a)+'.';ans=M('x=\\pm '+a);steps=['Include both positive and negative square roots.'];break;
+default:throw Error('Unknown type '+type);}
+return {prompt:p,answer:ans,steps:steps,fig:fig,key:type+'|'+p,equiv:type+'|'+p};};}
+
+var newTypes=[["Find the axis of symmetry","axis"],["Solve using square roots","sqrt"]];newTypes.forEach(function(item,i){var id='a1-'+def[0]+'-'+item[1];NS.registerLesson({id:id,unit:unitId,category:'skills',num:def[2].length+i+1,title:item[0],instruction:item[0],layout:'half',space:[.6,1.05,1.65],generate:expanded(item[1])});categories.push(id);});
 NS.registerUnit({id:unitId,course:'Algebra 1',name:def[1],color:'blue',defaultTitle:def[1]+' Practice',categories:[{id:'skills',letter:'A',name:'Skills',lessons:categories}]});
 })(typeof window!=='undefined'?window:globalThis);
 </script>
