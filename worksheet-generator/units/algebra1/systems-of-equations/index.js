@@ -38,7 +38,107 @@ reg('sys-substitution-standard',2,'Substitution: solve for a variable','substitu
 reg('sys-elimination-add',3,'Elimination by adding or subtracting','elimination','unique');
 reg('sys-elimination-multiply',4,'Elimination with multiplication','elimination','unique');
 reg('sys-classify',5,'One, none, or infinitely many solutions','classification',null);
-reg('sys-word',6,'Solve a contextual system','applications','unique');
+NS.registerLesson({id:'sys-word',unit:U,category:'applications',num:6,title:'Write and solve a system from a word problem',instruction:'Define variables, write two equations, and solve.',layout:'full',space:[1.1,2,2.7],generate:function(ctx){
+ var r=ctx.rng,adult=r.int(5,20),student=r.int(4,16),ap=r.int(8,15),sp=r.int(3,7),total=adult+student,rev=adult*ap+student*sp;
+ NS.gen.need(ap!==sp);
+ return {prompt:'At a school event, adult tickets cost 
+/* Graphing tasks: construct two distinct lines through a lattice-point solution. */
+NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
+ var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
+ var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
+ var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
+ if(ctx.grids)fig.lines=[];else fig=null;
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ }});
+NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
+{id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
+{id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
+{id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
+]});
+})(typeof window!=='undefined'?window:globalThis);+ap+' and student tickets cost 
+/* Graphing tasks: construct two distinct lines through a lattice-point solution. */
+NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
+ var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
+ var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
+ var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
+ if(ctx.grids)fig.lines=[];else fig=null;
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ }});
+NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
+{id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
+{id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
+{id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
+]});
+})(typeof window!=='undefined'?window:globalThis);+sp+'. A total of '+total+' tickets were sold for 
+/* Graphing tasks: construct two distinct lines through a lattice-point solution. */
+NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
+ var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
+ var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
+ var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
+ if(ctx.grids)fig.lines=[];else fig=null;
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ }});
+NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
+{id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
+{id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
+{id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
+]});
+})(typeof window!=='undefined'?window:globalThis);+rev+'. How many of each ticket were sold?',answer:'Adult: '+adult+'; student: '+student,steps:['Let a be adult tickets and s be student tickets.',M('a+s='+total),M(ap+'a+'+sp+'s='+rev),'Solving gives '+M('a='+adult+',\\quad s='+student)+'.','Check: '+adult+' + '+student+' = '+total+' and 
+/* Graphing tasks: construct two distinct lines through a lattice-point solution. */
+NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
+ var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
+ var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
+ var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
+ if(ctx.grids)fig.lines=[];else fig=null;
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ }});
+NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
+{id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
+{id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
+{id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
+]});
+})(typeof window!=='undefined'?window:globalThis);+(adult*ap)+' + 
+/* Graphing tasks: construct two distinct lines through a lattice-point solution. */
+NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
+ var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
+ var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
+ var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
+ if(ctx.grids)fig.lines=[];else fig=null;
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ }});
+NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
+{id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
+{id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
+{id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
+]});
+})(typeof window!=='undefined'?window:globalThis);+(student*sp)+' = 
+/* Graphing tasks: construct two distinct lines through a lattice-point solution. */
+NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
+ var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
+ var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
+ var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
+ if(ctx.grids)fig.lines=[];else fig=null;
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ }});
+NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
+{id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
+{id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
+{id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
+]});
+})(typeof window!=='undefined'?window:globalThis);+rev+'.'],key:'word|'+total+'|'+rev+'|'+ap+'|'+sp,equiv:'word|'+adult+'|'+student+'|'+ap+'|'+sp};
+ }});
 /* Graphing tasks: construct two distinct lines through a lattice-point solution. */
 NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
  var r=ctx.rng,x=r.int(-4,4),y=r.int(-4,4),m1=pick(r,[-3,-2,-1,0,1,2,3]),m2=pick(r,[-3,-2,-1,0,1,2,3]);NS.gen.need(m1!==m2);
