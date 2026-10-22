@@ -2122,7 +2122,215 @@ window.LIBRARY = {
         {
           "id": "quadratic-functions-complex-numbers",
           "name": "Quadratic Functions & Complex Numbers",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "The Rising Soufflé Bistro: Assessment Menu",
+              "path": "artifacts/quadratic-functions-complex-numbers-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups, with printed coordinate grids for graphing dishes. 100 points total. Includes a teacher guide, rubrics and answer key with graphs computed from the equations.",
+              "type": "Printable",
+              "topics": [
+                "Quadratic functions",
+                "Complex numbers",
+                "Quadratic formula",
+                "Choice menu"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Color By Number",
+              "path": "artifacts/quadratic-functions-complex-numbers-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems on vertex form, factoring, completing the square, the discriminant, the quadratic formula, complex number multiplication and division, a projectile model and a quadratic inequality, match each answer to the color code, then color the windmill among the tulip fields. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Quadratic functions",
+                "Complex numbers",
+                "Quadratic formula & discriminant",
+                "Color by number"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Cheat Sheet",
+              "path": "artifacts/quadratic-functions-complex-numbers-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to vertex, standard and factored forms of parabolas, transformations of y = x², completing the square, the quadratic formula and discriminant, imaginary numbers and the powers of i cycle, complex number operations and complex roots, quadratic inequalities, linear-quadratic systems, quadratic modeling, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Quadratic functions",
+                "Complex numbers"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Parabola Four",
+              "path": "artifacts/quadratic-functions-complex-numbers-connect-four/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-connect-four.jpg",
+              "description": "Connect Four for two teams. Match parabola graphs to equations, read vertices and shaded regions, solve quadratics, use the discriminant, and simplify complex numbers. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Parabolas: vertex form, graphs, transformations",
+                "Solving quadratics and the discriminant",
+                "Imaginary and complex numbers",
+                "Quadratic models and inequalities"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Error Analysis",
+              "path": "artifacts/quadratic-functions-complex-numbers-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-error-analysis.jpg",
+              "description": "Find the mistake in 10 worked solutions on vertex form, completing the square, square roots, the quadratic formula, the discriminant, powers of i, dividing complex numbers and quadratic inequalities. Seven items include computed student-versus-correct graphs. Explain the error and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Quadratics",
+                "Complex numbers",
+                "Discriminant",
+                "Quadratic inequalities"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Picture Reveal",
+              "path": "artifacts/quadratic-functions-complex-numbers-picture-reveal/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-picture-reveal.jpg",
+              "description": "Solve by square roots, write a parabola from its graph, optimize area, find when a projectile lands, use the discriminant, multiply and divide complex numbers and solve quadratic inequalities and systems to uncover a hidden skate park scene. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Quadratics",
+                "Complex numbers",
+                "Quadratic modeling",
+                "Inequalities"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Lockdown at Fountain Park",
+              "path": "artifacts/quadratic-functions-complex-numbers-escape-room/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, a parabola graph to write in vertex form, a graphs-and-discriminants true/false panel, a valve-vault dial puzzle (discriminant, vertex, powers of i), a complex-solutions order lock, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Quadratic functions",
+                "Discriminant and vertex form",
+                "Complex numbers",
+                "Escape room"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Flashcards",
+              "path": "artifacts/quadratic-functions-complex-numbers-flashcards/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-flashcards.jpg",
+              "description": "25 flashcards with worked solutions and computed parabola graphs for vertex form, graphing and converting between forms, solving by factoring, square roots, completing the square and the quadratic formula, imaginary and complex numbers (conjugates and division), the discriminant, quadratic modeling, and quadratic inequalities and systems. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Vertex form and graphing parabolas",
+                "Solving quadratics",
+                "Complex numbers",
+                "Quadratic modeling and inequalities"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Showdown",
+              "path": "artifacts/quadratic-functions-complex-numbers-jeopardy/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-jeopardy.jpg",
+              "description": "A game board for Quadratic Functions & Complex Numbers. Write and model with parabolas, simplify, divide and solve with complex numbers, then finish with the discriminant, quadratic inequalities and line-parabola systems, many with computed graphs.",
+              "type": "Game",
+              "topics": [
+                "Parabolas and models",
+                "Complex numbers and equations",
+                "Discriminant and inequalities",
+                "Systems with a parabola"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Maze",
+              "path": "artifacts/quadratic-functions-complex-numbers-maze/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-maze.jpg",
+              "description": "Printable 4-page worksheet: find vertices, complete the square, use the quadratic formula, simplify powers of i, multiply and divide complex numbers, solve for complex roots, and model with quadratics to find the right door through a maze, recording each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Vertex form and graphing parabolas",
+                "Solving quadratics: completing the square and the quadratic formula",
+                "Complex numbers and complex roots",
+                "Quadratic modeling and inequalities"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Stations",
+              "path": "artifacts/algebra2-quadratic-functions-complex-numbers-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-stations.svg",
+              "description": "Printable Algebra 2 station work for Quadratic Functions & Complex Numbers. Students rotate through four problem sets covering parabolas and forms, solving quadratics and the discriminant, complex numbers, and quadratic models, inequalities and systems, with a one-page teacher answer key.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Quadratic Functions & Complex Numbers"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Tarsia Puzzle",
+              "path": "artifacts/quadratic-functions-complex-numbers-tarsia/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Covers vertex and standard form, solving quadratics four ways, the discriminant, complex number arithmetic and complex roots, quadratic models, and quadratic inequalities. Includes a show-your-work page (with one graph) and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Parabolas and quadratic forms",
+                "Quadratic formula and discriminant",
+                "Complex numbers",
+                "Tarsia puzzle"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Backlot Blackout",
+              "path": "artifacts/quadratic-functions-complex-numbers-backlot-blackout/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-backlot-blackout.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type vertex-form equations, vertex pairs, exact roots with ±, complex numbers in a + bi form, lists of points and interval answers.",
+              "type": "Game",
+              "topics": [
+                "Quadratic functions & complex numbers",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Quadratic Functions & Complex Numbers Tic-Tac-Toe",
+              "path": "artifacts/quadratic-functions-complex-numbers-tic-tac-toe/index.html",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Quadratic functions & complex numbers",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Backlot Blackout (Printable)",
+              "path": "artifacts/quadratic-functions-complex-numbers-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Quadratic functions & complex numbers",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-22"
+            }
+          ]
         },
         {
           "id": "polynomial-functions",
