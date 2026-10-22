@@ -81,7 +81,7 @@
     { id: 'tarsia', name: 'Tarsia Puzzles', description: 'Cut out triangles and match math problems to their answers to build a hexagon. Printable puzzles with space to show your work.' },
     { id: 'assessment-menus', name: 'Assessment Menus', description: 'Choose problems from a menu of point values to demonstrate your understanding. Printable assessments with student choice, scoring guidance, and teacher keys.' },
     { id: 'stations', name: 'Stations', description: 'Printable station-work activities with sets of problems for small-group rotation, review, and independent practice.' },
-    { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra and Geometry.' }
+    { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra 1, Algebra 2, and Geometry.' }
   ];
   function activityFormat(a) {
     var path = a.path || '';
@@ -330,7 +330,7 @@
     var items = formatItems(format);
     var inner = crumbs([['Home', '#'], ['Browse by activity', '#activities'], [format.name, null]]) +
       '<h1 tabindex="-1">' + esc(format.name) + '</h1>' +
-      '<p class="band-blurb">' + esc(format.description) + '</p><p class="band-meta">' + acts(items.length) + ' across Algebra and Geometry</p>';
+      '<p class="band-blurb">' + esc(format.description) + '</p><p class="band-meta">' + acts(items.length) + ' across Algebra 1, Algebra 2, and Geometry</p>';
     return {
       title: format.name,
       html: bandHtml(null, inner) + '<section class="section"><div class="wrap">' +
