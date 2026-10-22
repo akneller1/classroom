@@ -26,7 +26,7 @@
 
   function load() {
     var s = NS.defaultSettings();
-    s.lessons = JSON.parse(JSON.stringify(DEFAULT_LESSONS));
+    s.lessons = unit.id === 'algebra1-linear-functions' ? JSON.parse(JSON.stringify(DEFAULT_LESSONS)) : { 'sys-substitution-easy': 3, 'sys-elimination-add': 3, 'sys-classify': 2 };
     try {
       var raw = G.localStorage.getItem(STORE);
       if (raw) {
