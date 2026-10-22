@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Time Capsule Switcheroo</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light;
+  --bg:#eef3fc;--ink:#162640;--blue:#345bd5;--muted:#536782;--line:#d3def2;--navy:#16233f;--amber:#f2a33a;--amberd:#b36b08;--red:#b83a31;--green:#1f7a4d;--amber2:#e4752a;--glow:rgba(242,163,58,.25)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+main{max-width:1180px;margin:0 auto;padding:22px}
+header.top{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:20px;padding:18px 24px;background-image:radial-gradient(circle at 92% 20%,var(--glow),transparent 40%)}
+.eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+h1{font-size:clamp(1.5rem,3.2vw,2.3rem);margin:4px 0 2px;font-family:"Courier New",ui-monospace,monospace;letter-spacing:.02em}
+.sub{color:#c8d3ea;margin:0;line-height:1.45}
+.pill{display:inline-flex;background:rgba(255,255,255,.12);color:#fff;padding:9px 15px;border-radius:30px;font-weight:700;font-size:.92rem;white-space:nowrap}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 6px 25px #1c366014;padding:22px}
+.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:20px;align-items:start}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.sectionhead h2{font-size:1.15rem;margin:0}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.col h3{font-family:"Courier New",monospace;font-size:.95rem;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em;color:var(--amberd)}
+.card{position:relative;display:flex;align-items:center;gap:9px;border:2px solid #d6e0f3;background:#f8faff;border-radius:12px;padding:7px 9px;margin-bottom:7px;font-size:.88rem;line-height:1.25;min-height:50px;transition:all .3s;text-align:left;font:inherit;font-size:.88rem;width:100%;color:var(--ink)}
+.card .nm{font-weight:750}.card .rl{font-size:.74rem;color:var(--muted)}
+.card svg.av{width:38px;height:38px;flex:none;border-radius:50%}
+.card .ic{width:34px;height:34px;flex:none;border-radius:9px;background:#e8eefc;display:grid;place-items:center;font-weight:800;color:var(--blue);font-family:"Courier New",monospace}
+.card.cleared{opacity:.5;background:#eceff5;border-style:dashed}
+.card.cleared .nm{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:#b83a31}
+.card.cleared::after{content:"✕";position:absolute;right:9px;top:50%;transform:translateY(-50%);font-weight:900;font-size:.95rem;color:#b83a31}
+.card.new{animation:pop .9s ease}
+@keyframes pop{0%{transform:scale(1);background:#fff3c9}35%{transform:scale(1.05);background:#fff3c9;border-color:var(--amber)}100%{transform:scale(1)}}
+.card.pick{border-color:var(--blue);background:#e7eeff;box-shadow:0 0 0 3px #cfdcff}
+button.card{cursor:pointer}
+button.card:disabled{cursor:default}
+.progress{height:10px;background:#e8eef9;border-radius:20px;overflow:hidden;margin-bottom:14px}
+.bar{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber2));width:0;transition:width .4s}
+.skill{font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.problem{border-radius:15px;background:#f6f9ff;padding:18px 16px;display:grid;gap:10px}
+.instr{font-size:1.05rem;font-weight:650;line-height:1.5}
+.display{font-size:clamp(1.35rem,3vw,1.9rem);font-weight:600;text-align:center;padding:4px 0;line-height:1.5}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.15}
+.fr>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.fr>span:last-child{padding:0 .2em}
+.inputlabel{font-size:.9rem;font-weight:750;margin:16px 0 8px;display:block}
+input.ans{display:block;width:100%;font:inherit;font-size:1.2rem;padding:13px 12px;border:2px solid #d0dcee;border-radius:10px;color:var(--ink)}
+input.ans:focus{outline:3px solid #d7e3ff;border-color:var(--blue)}
+.syms{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap}
+.sym{font:inherit;font-size:1.05rem;font-weight:700;min-width:44px;height:38px;border:1px solid #cedbf1;background:#fff;border-radius:9px;cursor:pointer;color:var(--ink)}
+.sym:hover{background:#eef3ff}
+.pv{min-height:1.9em;margin-top:8px;font-size:1.2rem;color:var(--ink);background:#f4f8ff;border:1px dashed #c3d3ee;border-radius:9px;padding:6px 12px;line-height:1.7}.pv:empty{display:none}.pv small{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:8px}sub,sup{line-height:0}
+.hint{color:var(--muted);font-size:.86rem;margin:8px 0 0;line-height:1.45}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+button.action{font:inherit;padding:11px 16px;border:1px solid #cedbf1;background:#fff;color:var(--ink);border-radius:10px;font-weight:700;cursor:pointer}
+button.action:hover:not(:disabled){background:#eef3ff}
+button.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+button.primary:hover:not(:disabled){background:#2846b2}
+button.amber{background:var(--amber);border-color:var(--amber);color:#2b1a02}
+button.amber:hover:not(:disabled){background:#e6932a}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.feedback{min-height:24px;margin-top:12px;font-weight:700;line-height:1.4}
+.feedback.bad{color:#ac3d34}
+.solution{margin-top:14px;padding:14px;background:#fffdf5;border:1px solid #ecdda4;border-radius:13px}
+.solution h3{margin:0 0 8px;font-size:1rem}
+.solution .st{padding:5px 0;border-top:1px dashed #ecdda4}.solution .st:first-of-type{border-top:0}
+.clue{background:#fffbea;border:2px solid var(--amber);border-radius:15px;padding:16px;animation:slide .5s ease}
+@keyframes slide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.clue .tag{font-family:"Courier New",monospace;font-weight:900;color:var(--amberd);letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
+.clue p{margin:8px 0;font-size:1.08rem;line-height:1.5}
+.clue .eff{font-size:.88rem;color:var(--muted)}
+.log{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.log li{display:flex;gap:10px;font-size:.9rem;line-height:1.4;background:#f8faff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.log li b{font-family:"Courier New",monospace;color:var(--amberd);min-width:1.8em}
+.story p{line-height:1.6;font-size:1.04rem;margin:0 0 12px}
+.rules{background:#f2f6ff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:14px 0}
+.rules ol{margin:6px 0 0;padding-left:20px;line-height:1.6}
+.win{text-align:center}
+.win h2{font-family:"Courier New",monospace;font-size:1.8rem;margin:0 0 6px;color:var(--green)}
+.stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.stat{background:#f2f6ff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}.stat b{display:block;font-size:1.4rem}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.confetti i{position:absolute;top:-20px;width:10px;height:14px;opacity:.9;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.layout>#side{order:-1}.cols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const CASE={"unit": "exponential-logarithmic-functions", "eyebrow": "Case file No. 17", "title": "The Time Capsule Switcheroo", "tagline": "The Founders’ Pocket Watch vanished at Millbrook’s centennial. Solve each problem to earn a clue.", "palette": {"navy": "#1d2c36", "accent": "#e0a93b"}, "labels": {"p": "The Suspects", "l": "The Places", "m": "The Methods"}, "placeholder": "Your answer", "inputHint": "Type numbers or exact fractions (use the slash key for a fraction). Logs: ln(5), log(5), or log_2(8) for log base 2 of 8 (the underscore makes the subscript). Exponents: 3^(x+1). Round only when the problem says to. The shaded line under the buttons shows how your answer is read.", "symbols": [{"l": "^", "i": "^"}, {"l": "√", "i": "√"}, {"l": "e", "i": "e"}, {"l": "ln", "i": "ln()", "b": 1}, {"l": "log", "i": "log()", "b": 1}, {"l": "log<sub>b</sub>", "i": "log_", "t": "type log underscore, then the base"}], "preview": true, "intro": ["Millbrook waited 100 years for this moment. The whole town crowded into the square as the old time capsule was pried open at the centennial. Inside: letters, photographs, a rusty harmonica, and an empty velvet box. The <b>Founders’ Pocket Watch</b>, the capsule’s priceless centerpiece, was gone!", "Six people had special access to the capsule that morning, each was seen in a different spot, and there are six sneaky ways to carry a pocket watch out of a crowded square. You are the lead detective. Find out <b>who</b> took it, <b>where</b> they were, and <b>how</b> they got it away."], "rules": ["Solve each problem correctly to unlock a clue. A wrong answer just means try again; hints appear if you get stuck.", "Every clue rules out something on the case board: a suspect and the place they were seen, or a method.", "The thief acted alone in a spot nobody else was in, so anyone with an alibi is cleared, and so is the place they were seen.", "After all 10 clues, exactly one suspect, one place and one method are left. Make your accusation!"], "suspects": [{"id": "s0", "name": "Dr. Imani Okoye", "role": "Town Historian", "skin": "#e7b88f", "hair": "bald", "hairColor": "#d9d9df", "color": "#8a5a2b", "bg": "#f1e4c9", "acc": "glasses"}, {"id": "s1", "name": "Mayor Renata Voss", "role": "Town Mayor", "skin": "#f1c9a5", "hair": "bun", "hairColor": "#8c8c96", "color": "#7a3fb0", "bg": "#e8d9f5", "acc": "none"}, {"id": "s2", "name": "Ezra Lindgren", "role": "Museum Curator", "skin": "#d9a074", "hair": "short", "hairColor": "#2a1a12", "color": "#f4f4f4", "bg": "#ffe3c9", "acc": "bowtie"}, {"id": "s3", "name": "Priya Nambiar", "role": "Gazette Reporter", "skin": "#c68a5b", "hair": "long", "hairColor": "#2a1a12", "color": "#2a7f6f", "bg": "#d3f1ea", "acc": "cap"}, {"id": "s4", "name": "Tobias Quill", "role": "Clockmaker", "skin": "#f0c7a0", "hair": "short", "hairColor": "#5a3a22", "color": "#24406e", "bg": "#d6e2f7", "acc": "none"}, {"id": "s5", "name": "Dottie Marsh", "role": "Bank Manager", "skin": "#f4d3b5", "hair": "long", "hairColor": "#15151a", "color": "#c0392b", "bg": "#fbdada", "acc": "glasses"}], "places": [{"id": "p0", "name": "Town Hall Steps"}, {"id": "p1", "name": "Clock Tower"}, {"id": "p2", "name": "Bank Vault"}, {"id": "p3", "name": "Museum Annex"}, {"id": "p4", "name": "Gazette Office"}, {"id": "p5", "name": "Bandstand"}], "methods": [{"id": "m0", "name": "Hidden in a top hat"}, {"id": "m1", "name": "Swapped for a replica"}, {"id": "m2", "name": "Tucked in a hollow book"}, {"id": "m3", "name": "Sewn into the banner"}, {"id": "m4", "name": "Stashed in the scissors case"}, {"id": "m5", "name": "Buried in a flower bouquet"}], "clues": [{"p": "s0", "l": "p3", "text": "Dr. Okoye was cataloguing donated letters in the Museum Annex. The sign-in sheet has her handwriting on every page."}, {"m": "m0", "text": "Every top hat in the parade was checked at the gate. The only thing under them was hair."}, {"p": "s1", "l": "p0", "text": "Mayor Voss was cutting the ribbon on the Town Hall Steps in front of two hundred cameras."}, {"m": "m1", "text": "The velvet box held its original tag. The Watch was not swapped for a replica; the box was simply empty."}, {"p": "s3", "l": "p4", "text": "Priya Nambiar was filing her story from the Gazette Office. The server stamped her upload at the exact minute of the theft."}, {"m": "m3", "text": "The centennial banner was unstitched and shaken out. Nothing was sewn inside."}, {"p": "s4", "l": "p1", "text": "Tobias Quill was repairing the big clock in the Clock Tower. The gears were still oily when the police arrived."}, {"m": "m4", "text": "The ribbon-cutting scissors case was opened by the mayor’s aide. It held only scissors."}, {"p": "s5", "l": "p2", "text": "Dottie Marsh was counting centennial coins in the Bank Vault. The vault door log shows she never stepped out."}, {"m": "m5", "text": "Every bouquet was sniffed, shaken and pulled apart. Not a single watch chain in the roses."}], "culprit": {"p": "s2", "l": "p5", "m": "m2"}, "accuseTemplate": "Suspect: {p} · Place: {l} · Method: {m}", "ending": "While the crowd cheered the ribbon-cutting, <b>Ezra Lindgren</b> strolled over to the <b>Bandstand</b>, slipped the Founders’ Pocket Watch inside a <b>hollow book</b> from the museum’s gift table, and tucked it under his arm. Every alibi and method you cleared pointed straight at him. Time well spent, detective!", "questions": [{"skill": "Clue 1", "instr": "Find the horizontal asymptote:", "html": "&nbsp;y = 2(<span class=\"fr\"><span>1</span><span>2</span></span>)<sup>x + 1</sup> − 3", "answer": {"t": "num", "v": "-3", "lhs": "y"}, "hint": "Start here: The base is <span class=\"fr\"><span>1</span><span>2</span></span>, so this is exponential decay. As x grows, the power (<span class=\"fr\"><span>1</span><span>2</span></span>)<sup>x + 1</sup> gets closer and closer to 0.", "steps": ["The base is <span class=\"fr\"><span>1</span><span>2</span></span>, so this is exponential decay. As x grows, the power (<span class=\"fr\"><span>1</span><span>2</span></span>)<sup>x + 1</sup> gets closer and closer to 0.", "So y gets closer and closer to 2(0) − 3 = −3.", "<b>y = −3</b>"]}, {"skill": "Clue 2", "instr": "Evaluate without a calculator:", "html": "&nbsp;log<sub>8</sub> 4", "answer": {"t": "num", "v": "2/3", "fracOnly": 1}, "hint": "Start here: Let log<sub>8</sub> 4 = y. In exponential form, 8<sup>y</sup> = 4.", "steps": ["Let log<sub>8</sub> 4 = y. In exponential form, 8<sup>y</sup> = 4.", "Write both sides as powers of 2: (2<sup>3</sup>)<sup>y</sup> = 2<sup>2</sup>, so 2<sup>3y</sup> = 2<sup>2</sup>.", "<b><span class=\"fr\"><span>2</span><span>3</span></span></b>"]}, {"skill": "Clue 3", "instr": "Solve for <i>x</i>:", "html": "&nbsp;log<sub>3</sub> x = −2", "answer": {"t": "num", "v": "1/9", "fracOnly": 1}, "hint": "Start here: Rewrite in exponential form: x = 3<sup>−2</sup>", "steps": ["Rewrite in exponential form: x = 3<sup>−2</sup>", "A negative exponent means reciprocal: 3<sup>−2</sup> = <span class=\"fr\"><span>1</span><span>3<sup>2</sup></span></span>", "<b>x = <span class=\"fr\"><span>1</span><span>9</span></span></b>"]}, {"skill": "Clue 4", "instr": "A deposit of $2,000 earns 4% interest compounded quarterly. Using <span style=\"white-space:nowrap\">A = P(1 + <span class=\"fr\"><span>r</span><span>n</span></span>)<sup>nt</sup></span>, find the balance after 5 years, to the nearest cent.", "html": "", "answer": {"t": "num", "v": "2440.38", "tol": 0.005001}, "hint": "Start here: P = 2000, r = 0.04, n = 4, t = 5", "steps": ["P = 2000, r = 0.04, n = 4, t = 5", "A = 2000(1 + <span class=\"fr\"><span>0.04</span><span>4</span></span>)<sup>4·5</sup> = 2000(1.01)<sup>20</sup>", "<b>$2,440.38</b>"]}, {"skill": "Clue 5", "instr": "Evaluate:", "html": "&nbsp;log<sub>3</sub> 6 + log<sub>3</sub> 9 − log<sub>3</sub> 2", "answer": {"t": "num", "v": "3"}, "hint": "Start here: Product and quotient properties: add the logs of the numerators, subtract the log of the denominator.", "steps": ["Product and quotient properties: add the logs of the numerators, subtract the log of the denominator.", "log<sub>3</sub> <span class=\"fr\"><span>6 · 9</span><span>2</span></span> = log<sub>3</sub> 27", "<b>3</b>"]}, {"skill": "Clue 6", "instr": "Evaluate to the nearest thousandth:", "html": "&nbsp;log<sub>3</sub> 20", "answer": {"t": "num", "v": "2.727", "tol": 0.000501}, "hint": "Start here: Change of base: log<sub>3</sub> 20 = <span class=\"fr\"><span>ln 20</span><span>ln 3</span></span>", "steps": ["Change of base: log<sub>3</sub> 20 = <span class=\"fr\"><span>ln 20</span><span>ln 3</span></span>", "≈ <span class=\"fr\"><span>2.9957</span><span>1.0986</span></span>", "<b>2.727</b>"]}, {"skill": "Clue 7", "instr": "Solve for <i>x</i>:", "html": "&nbsp;4<sup>x + 1</sup> = 8<sup>x − 1</sup>", "answer": {"t": "num", "v": "5", "single": 1}, "hint": "Start here: Write both sides with base 2: (2<sup>2</sup>)<sup>x + 1</sup> = (2<sup>3</sup>)<sup>x − 1</sup>", "steps": ["Write both sides with base 2: (2<sup>2</sup>)<sup>x + 1</sup> = (2<sup>3</sup>)<sup>x − 1</sup>", "2<sup>2x + 2</sup> = 2<sup>3x − 3</sup>, so the exponents are equal: 2x + 2 = 3x − 3", "<b>x = 5</b>"]}, {"skill": "Clue 8", "instr": "Solve for <i>x</i> to the nearest thousandth:", "html": "&nbsp;6 · 2<sup>x</sup> = 150", "answer": {"t": "num", "v": "4.644", "tol": 0.000501}, "hint": "Start here: Isolate the power first: divide both sides by 6, so 2<sup>x</sup> = 25", "steps": ["Isolate the power first: divide both sides by 6, so 2<sup>x</sup> = 25", "Take the natural log of both sides: x · ln 2 = ln 25", "<b>x ≈ 4.644</b>"]}, {"skill": "Clue 9", "instr": "Solve for <i>x</i> and check for extraneous solutions:", "html": "&nbsp;log<sub>2</sub> x + log<sub>2</sub>(x − 2) = 3", "answer": {"t": "num", "v": "4", "single": 1}, "hint": "Start here: Product property: log<sub>2</sub>[x(x − 2)] = 3, so x(x − 2) = 2<sup>3</sup> = 8", "steps": ["Product property: log<sub>2</sub>[x(x − 2)] = 3, so x(x − 2) = 2<sup>3</sup> = 8", "x<sup>2</sup> − 2x − 8 = 0, so (x − 4)(x + 2) = 0, giving x = 4 or x = −2", "Check x = −2: log<sub>2</sub>(−2) is undefined, so −2 is extraneous. Check x = 4: log<sub>2</sub> 4 + log<sub>2</sub> 2 = 2 + 1 = 3 ✓", "<b>x = 4</b>"]}, {"skill": "Clue 10", "instr": "$5,000 is invested at 6% interest compounded continuously, using A = Pe<sup>rt</sup>. How many years will it take to double, to the nearest tenth of a year?", "html": "", "answer": {"t": "num", "v": "11.6", "tol": 0.050001}, "hint": "Start here: Set A = 10,000: 10,000 = 5000e<sup>0.06t</sup>, so e<sup>0.06t</sup> = 2", "steps": ["Set A = 10,000: 10,000 = 5000e<sup>0.06t</sup>, so e<sup>0.06t</sup> = 2", "Take the natural log of both sides: 0.06t = ln 2", "<b>11.6 years</b>"]}]};
+
+/* compound inequality answers: parsed into a true/false test for any x, then compared with the key */
+function ineqPred(raw){
+  const s=String(raw==null?'':raw).toLowerCase().replace(/[−–—]/g,'-').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/=</g,'<=').replace(/=>/g,'>=').replace(/\s+/g,'');
+  if(!s) return null;
+  const num=t=>{ if(/^[-+]?\d+(\.\d+)?$/.test(t)) return parseFloat(t); const m=t.match(/^([-+]?\d+)\/(\d+)$/); return m&&+m[2]?parseInt(m[1],10)/parseInt(m[2],10):NaN; };
+  const clauses=[];
+  for(const c of s.split('or')){
+    const atoms=[];
+    for(const a of c.split('and')){
+      const parts=a.split(/(<=|>=|<|>)/);
+      if(parts.length<3||parts.length%2===0) return null;
+      const ops=[], opd=[];
+      for(let i=0;i<parts.length;i++){
+        if(i%2){ ops.push(parts[i]); continue; }
+        if(parts[i]==='x') opd.push('x'); else { const v=num(parts[i]); if(isNaN(v)) return null; opd.push(v); }
+      }
+      if(!opd.includes('x')) return null;
+      atoms.push({ops,opd});
+    }
+    clauses.push(atoms);
+  }
+  return xv=>clauses.some(atoms=>atoms.every(a=>{
+    for(let i=0;i<a.ops.length;i++){
+      const L=a.opd[i]==='x'?xv:a.opd[i], R=a.opd[i+1]==='x'?xv:a.opd[i+1], o=a.ops[i];
+      if(!(o==='<'?L<R:o==='<='?L<=R:o==='>'?L>R:L>=R)) return false;
+    }
+    return true;
+  }));
+}
+function ineqCheck(raw,A){
+  const f=ineqPred(raw);
+  if(!f) return {ok:false,parse:true,msg:"I couldn't read that. Write it like 0 < x ≤ 9, or x < -1 or x ≥ 8. You can use the symbol buttons."};
+  const g=ineqPred(A.v), bad=[];
+  for(let k=-80;k<=80;k++){ const p=k/2; if(f(p)!==g(p)) bad.push(p); }
+  if(!bad.length) return {ok:true};
+  if(bad.every(Number.isInteger)) return {ok:false,msg:'Close! Check each endpoint: use < or > when the number is NOT included, and <= or >= when it IS included.'};
+  const wantOr=A.v.indexOf('or')>=0, gotOr=String(raw).toLowerCase().indexOf('or')>=0;
+  if(wantOr&&!gotOr) return {ok:false,msg:'This problem has two separate pieces. Join them with OR.'};
+  if(!wantOr&&gotOr) return {ok:false,msg:'Both conditions must be true at the same time. Write one inequality like a < x < b.'};
+  if(A.flip) return {ok:false,msg:'Not quite. Remember: multiplying or dividing by a negative number reverses the inequality symbol.'};
+  return {ok:false,msg:'Not quite. Check your work and try again.'};
+}
+
+/* ---------- general typed-answer engine ---------- */
+const SUB={'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9'};
+const SUP={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁻':'-'};
+function nrm(s){
+  s=String(s==null?'':s).toLowerCase();
+  s=s.replace(/[−–—]/g,'-').replace(/[×·⋅]/g,'*').replace(/÷/g,'/').replace(/[ ]/g,' ');
+  s=s.replace(/([⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g,m=>'^'+m.split('').map(c=>SUP[c]).join(''));
+  s=s.replace(/([₀₁₂₃₄₅₆₇₈₉]+)/g,m=>'_'+m.split('').map(c=>SUB[c]).join(''));
+  s=s.replace(/[≈≅]/g,'=').replace(/(log_?\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)/g,'$1($2)');
+  s=s.replace(/π/g,'pi').replace(/√/g,'sqrt').replace(/°/g,'').replace(/\s+/g,'');
+  s=s.replace(/degrees?|deg/g,'');
+  return s;
+}
+function tokenize(s){
+  const t=[];let i=0;
+  while(i<s.length){
+    const c=s[i];
+    if(/[0-9.]/.test(c)){let j=i;while(j<s.length&&/[0-9.]/.test(s[j]))j++;const n=parseFloat(s.slice(i,j));if(isNaN(n))throw 0;t.push({k:'n',v:n});i=j;}
+    else if(c==='p'&&s.startsWith('pi',i)){t.push({k:'n',v:Math.PI,pi:1});i+=2;}
+    else if(c==='s'&&s.startsWith('sqrt',i)){t.push({k:'f',fn:'sqrt'});i+=4;}
+    else if(c==='l'&&s.startsWith('ln',i)){t.push({k:'f',fn:'ln'});i+=2;}
+    else if(c==='l'&&s.startsWith('log',i)){
+      i+=3;let base=10;
+      if(s[i]==='_'){i++;const m=/^(\d+(?:\.\d+)?|e)/.exec(s.slice(i));if(!m)throw 0;base=m[1]==='e'?Math.E:parseFloat(m[1]);i+=m[1].length;}
+      else{const m=/^(\d+(?:\.\d+)?)(?=\()/.exec(s.slice(i));if(m){base=parseFloat(m[1]);i+=m[1].length;}}
+      if(!(base>0)||base===1)throw 0;
+      t.push({k:'f',fn:'log',base});}
+    else if(c==='e'){t.push({k:'n',v:Math.E});i++;}
+    else if(c==='x'||c==='y'){t.push({k:'v',v:c});i++;}
+    else if('+-*/^()'.includes(c)){t.push({k:'o',v:c});i++;}
+    else throw 0;
+  }
+  return t;
+}
+function parseExpr(s){
+  const T=tokenize(s);let p=0;
+  const peek=()=>T[p];
+  const startsAtom=t=>t&&(t.k==='n'||t.k==='v'||t.k==='f'||(t.k==='o'&&t.v==='('));
+  function expr(){let l=term();while(peek()&&peek().k==='o'&&(peek().v==='+'||peek().v==='-')){const o=T[p++].v;const r=term();l=o==='+'?add(l,r):sub(l,r);}return l;}
+  function term(){let l=unary();for(;;){const t=peek();if(!t)break;if(t.k==='o'&&(t.v==='*'||t.v==='/')){p++;const r=unary();l=t.v==='*'?mul(l,r):div(l,r);}else if(startsAtom(t)){const r=unary();l=mul(l,r);}else break;}return l;}
+  function unary(){const t=peek();if(t&&t.k==='o'&&(t.v==='-'||t.v==='+')){p++;const u=unary();return t.v==='-'?neg(u):u;}return power();}
+  function power(){const b=atom();const t=peek();if(t&&t.k==='o'&&t.v==='^'){p++;const e=unary();return pw(b,e);}return b;}
+  function atom(){
+    const t=T[p++];if(!t)throw 0;
+    if(t.k==='n')return ()=>t.v;
+    if(t.k==='v')return env=>{const v=env[t.v];if(v===undefined)throw 0;return v;};
+    if(t.k==='f'){const a=atom();if(t.fn==='ln')return env=>Math.log(a(env));if(t.fn==='log'){const lb=Math.log(t.base);return env=>Math.log(a(env))/lb;}return env=>Math.sqrt(a(env));}
+    if(t.k==='o'&&t.v==='('){const e=expr();const c=T[p++];if(!c||c.v!==')')throw 0;return e;}
+    throw 0;
+  }
+  const add=(a,b)=>e=>a(e)+b(e),sub=(a,b)=>e=>a(e)-b(e),mul=(a,b)=>e=>a(e)*b(e),div=(a,b)=>e=>a(e)/b(e),neg=a=>e=>-a(e),pw=(a,b)=>e=>Math.pow(a(e),b(e));
+  const f=expr();if(p!==T.length)throw 0;return f;
+}
+const PTS=[1.7,2.3,3.1,0.6,-0.9,-2.4,4.6];
+function same(f,g,vars){
+  for(const x of PTS){const env={x:x,y:x*0.37+1.1};const a=f(env),b=g(env);if(!isFinite(a)||!isFinite(b)||Math.abs(a-b)>1e-6*Math.max(1,Math.abs(a),Math.abs(b)))return false;}
+  return true;
+}
+function val(s){return parseExpr(nrm(s))({x:0,y:0});}
+function valNum(s){const v=parseExpr(s)({});return v;}
+function stripUnits(s){return s.replace(/(squareunits|squnits|squarefeet|squareinches|cubicunits|units?|feet|foot|ft|miles?|mi|inches|in|cm|meters?|m|years?|yrs?|days?|hours?|hrs?|dollars?|mg)(\^?\d)?$/,'');}
+function stripLhs(s){return s.replace(/^[a-z]\s*=\s*/,'');}
+function expandPM(s){ // "3±sqrt5" -> ["3+sqrt5","3-sqrt5"]; "±4" -> ["4","-4"]
+  s=s.replace(/±/g,'±');const i=s.indexOf('±');if(i<0)return [s];
+  const a=s.slice(0,i),b=s.slice(i+1);return [a+'+'+b,a+'-'+b].map(z=>z.replace(/^\+/,''));
+}
+function closeTo(a,b,tol){return isFinite(a)&&Math.abs(a-b)<=(tol!=null?tol:1e-6*Math.max(1,Math.abs(b)));}
+const BAD='Not quite. Check your work and try again.';
+function pe(msg){return {ok:false,parse:true,msg:msg||"I couldn't read that. Check the format shown under the answer box."};}
+function checkNum(raw,a){
+  let s=nrm(raw).replace(/:/g,'/').replace(/\$/g,'').replace(/(\d),(?=\d{3}(?!\d))/g,'$1');
+  s=stripUnits(s); if(!s)return pe();
+  // an equation: "x=3", "y=-3", or an echoed statement such as "log_8(4)=2/3"
+  const eq=s.split('=');
+  if(eq.length>2)return pe();
+  if(eq.length===2){
+    const L=eq[0],Rt=eq[1]; if(!L||!Rt)return pe();
+    if(/^[a-z]$/.test(L)&&L!=='e'){
+      if(a.lhs&&L!==a.lhs)return {ok:false,msg:'Check what the answer should look like. A horizontal asymptote is a horizontal line, so it has the form y = number.'};
+      s=Rt;
+    } else {
+      let lv,rv;try{lv=parseExpr(L)({});rv=parseExpr(Rt)({});}catch(e){return pe();}
+      if(!closeTo(lv,rv,1e-9))return {ok:false,msg:'The two sides of that statement are not equal. Check your work.'};
+      s=Rt;
+    }
+  }
+  if(a.single&&/[,;]|(^|[^a-z])or([^a-z]|$)|and/.test(s))return {ok:false,msg:'This problem has exactly one valid answer. Check each possible solution in the original equation. Does every one of them work?'};
+  let v;try{v=parseExpr(s)({});}catch(e){return pe();}
+  const want=parseExpr(nrm(a.v))({});
+  if(!closeTo(v,want,a.tol)){
+    if(a.fracOnly&&Math.abs(v-want)<0.002&&!/^-?\d+$/.test(s)&&/\./.test(s))return {ok:false,msg:'That decimal is only a rounded copy. Give the exact value as a fraction.'};
+    return {ok:false,msg:BAD};}
+  if(a.exact&&!/pi|sqrt/.test(nrm(raw)))return {ok:false,msg:'That is the right size, but leave your answer exact: use π or a radical (√) instead of a decimal.'};
+  return {ok:true};
+}
+function parseList(raw){
+  let s=String(raw==null?'':raw).toLowerCase().replace(/\s+(or|and)\s+/g,',').replace(/;/g,',');
+  const segs=s.split(',').map(z=>nrm(z)).filter(z=>z.length);const out=[];
+  for(const g of segs){const h=stripLhs(g);for(const e of expandPM(h)){out.push(parseExpr(e)({}));}}
+  return out;
+}
+function checkNums(raw,a){
+  let got;try{got=parseList(raw);}catch(e){return pe();}
+  if(!got.length)return pe();
+  const want=[];for(const w of a.v)for(const e of expandPM(nrm(w)))want.push(parseExpr(e)({}));
+  got.sort((p,q)=>p-q);want.sort((p,q)=>p-q);
+  const g2=got.filter((v,i)=>i===0||Math.abs(v-got[i-1])>1e-9);
+  if(g2.length!==want.length||g2.some((v,i)=>!closeTo(v,want[i])))return {ok:false,msg:g2.length<want.length?'This problem has more than one solution. Give all of them.':BAD};
+  return {ok:true};
+}
+function splitTop(s){const out=[];let d=0,cur='';for(const c of s){if(c==='(')d++;if(c===')')d--;if(c===','&&d===0){out.push(cur);cur='';}else cur+=c;}out.push(cur);return out;}
+function checkPoint(raw,a){
+  let s=nrm(raw);s=s.replace(/^\((.*)\)$/,'$1');
+  const parts=splitTop(s);if(parts.length!==2)return pe('Type an ordered pair, like (2, 3).');
+  const l1=/^x=/.test(parts[0]),l2=/^y=/.test(parts[1]);if(l1!==l2)return pe('Type an ordered pair, like (2, 3).');
+  let g;try{g=[parts[0].replace(/^x=/,''),parts[1].replace(/^y=/,'')].map(z=>parseExpr(z)({}));}catch(e){return pe('Type an ordered pair, like (2, 3).');}
+  const w=a.v.map(z=>parseExpr(nrm(z))({}));
+  return closeTo(g[0],w[0])&&closeTo(g[1],w[1])?{ok:true}:{ok:false,msg:BAD};
+}
+function checkExpr(raw,a){
+  const n0=nrm(raw);let s=n0.replace(/^(y|f\(x\))=/,'');
+  if(!s)return pe();
+  let f;try{f=parseExpr(s);}catch(e){return pe();}
+  const g=parseExpr(nrm(a.v));
+  let ok=true;try{ok=same(f,g);}catch(e){ok=false;}
+  if(!ok)return {ok:false,msg:BAD};
+  const par=(s.match(/\(/g)||[]).length, xs=(s.match(/x/g)||[]).length;
+  if(a.minParens&&par<a.minParens)return {ok:false,msg:'That is equal to the right thing, but it is not factored the way the problem asks. Write it as a product of factors.'};
+  if(a.maxParens!=null&&par>a.maxParens)return {ok:false,msg:'That is equal, but multiply it out and write it in expanded form.'};
+  if(a.posExp&&/\^-|\^\(-/.test(s))return {ok:false,msg:'That is equal, but write it with a positive exponent.'};
+  if(a.simplified&&(xs>1||/\)\^|\)\(/.test(s)))return {ok:false,msg:'That is equal, but simplify it further: combine everything into one term.'};
+  if(a.forms&&!a.forms.includes(s.replace(/\*/g,'')))return {ok:false,msg:'That is equal, but it is not factored completely. Pull out the greatest common factor.'};
+  return {ok:true};
+}
+function checkYIneq(raw,a){
+  let s=nrm(raw).replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/=</g,'<=').replace(/=>/g,'>=');
+  s=s.replace(/≤/g,'<=');
+  const m=s.match(/^(.*?)(<=|>=|<|>)(.*)$/);if(!m||/(<=|>=|<|>)/.test(m[3]))return pe('Write it like y > 2x + 1. Use <= and >= for ≤ and ≥.');
+  let op=m[2],L=m[1],Rr=m[3],ex;
+  if(L==='y')ex=Rr;else if(Rr==='y'){ex=L;op={'<':'>','>':'<','<=':'>=','>=':'<='}[op];}
+  else return pe('Get y alone on one side, like y > 2x + 1.');
+  let f;try{f=parseExpr(ex);}catch(e){return pe('Write it like y > 2x + 1. Use <= and >= for ≤ and ≥.');}
+  const g=parseExpr(nrm(a.e));
+  const sameLine=same(f,g);
+  if(sameLine&&op===a.op)return {ok:true};
+  if(sameLine)return {ok:false,msg:'The line is right! Check the inequality symbol: dashed line → < or >, solid line → ≤ or ≥, shaded above → >/≥, shaded below → </≤.'};
+  return {ok:false,msg:BAD};
+}
+function normText(s){return String(s==null?'':s).toLowerCase().replace(/[∠△∆]/g,'').replace(/angle/g,'').replace(/[^a-z0-9]/g,'');}
+function checkText(raw,a){
+  const g=normText(raw);if(!g)return pe();
+  return a.v.some(z=>normText(z)===g)?{ok:true}:{ok:false,msg:BAD};
+}
+function checkAns(raw,a){
+  if(!String(raw||'').trim())return pe('Type your answer first.');
+  switch(a.t){
+    case 'num':return checkNum(raw,a);
+    case 'nums':return checkNums(raw,a);
+    case 'point':return checkPoint(raw,a);
+    case 'expr':return checkExpr(raw,a);
+    case 'yineq':return checkYIneq(raw,a);
+    case 'text':return checkText(raw,a);
+    default:return ineqCheck(raw,a);
+  }
+}
+
+const KEY='mrk-whodunit-'+CASE.unit;
+(function(){const P=CASE.palette;if(!P)return;const h=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));const mix=(c,k)=>'#'+h(c).map(v=>Math.round(v*k).toString(16).padStart(2,'0')).join('');const r=document.documentElement.style;r.setProperty('--navy',P.navy);r.setProperty('--amber',P.accent);r.setProperty('--amberd',mix(P.accent,.5));r.setProperty('--amber2',mix(P.accent,.78));const a=h(P.accent);r.setProperty('--glow','rgba('+a.join(',')+',.28)');})();
+const N=CASE.questions.length;
+let S={phase:'intro',i:0,tm:0,hn:0,sn:0,miss:0,hintShown:false,stepsShown:false,sel:{p:null,l:null,m:null},msg:''};
+try{const r=JSON.parse(localStorage.getItem(KEY)||'null');if(r&&typeof r.i==='number'&&['ask','reveal','accuse','won'].includes(r.phase)){S.phase=r.phase;S.i=r.i;S.tm=r.tm||0;S.hn=r.hn||0;S.sn=r.sn||0;}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({phase:S.phase,i:S.i,tm:S.tm,hn:S.hn,sn:S.sn}));}catch(e){}}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function avatar(s){
+  const hc=s.hairColor||'#222';
+  let hair='';
+  if(s.hair==='short')hair=`<path d="M20 27c-1-10 5-16 12-16s13 6 12 16c-3-6-7-8-12-8s-9 2-12 8z" fill="${hc}"/>`;
+  if(s.hair==='long')hair=`<path d="M19 30c-2-12 4-19 13-19s15 7 13 19v10h-5V28c-4-3-12-3-16 0v12h-5z" fill="${hc}"/>`;
+  if(s.hair==='bun')hair=`<circle cx="32" cy="10" r="6" fill="${hc}"/><path d="M20 27c-1-10 5-15 12-15s13 5 12 15c-3-6-7-8-12-8s-9 2-12 8z" fill="${hc}"/>`;
+  if(s.hair==='bald')hair=`<path d="M21 28c-1 2-1 5 0 7h-2c-1-3-1-6 1-8zM43 28c1 2 1 5 0 7h2c1-3 1-6-1-8z" fill="${hc}"/>`;
+  let acc='';
+  if(s.acc==='glasses')acc='<g fill="none" stroke="#222" stroke-width="1.6"><circle cx="27.5" cy="28" r="4"/><circle cx="36.5" cy="28" r="4"/><path d="M31.5 28h1"/></g>';
+  if(s.acc==='chef')acc='<g fill="#fff" stroke="#c9ced8"><rect x="22" y="14" width="20" height="7" rx="2"/><circle cx="25" cy="12" r="5"/><circle cx="32" cy="9" r="6"/><circle cx="39" cy="12" r="5"/></g>';
+  if(s.acc==='cap')acc='<g fill="#1b2d52"><path d="M20 23c0-8 5-11 12-11s12 3 12 11z"/><rect x="18" y="22" width="28" height="3" rx="1.5"/></g><circle cx="32" cy="16" r="2" fill="#f2a33a"/>';
+  if(s.acc==='bowtie')acc='<path d="M26 44l6 3-6 3zM38 44l-6 3 6 3z" fill="#b83a31"/>';
+  const eyes=s.acc==='glasses'?'':'<circle cx="28" cy="28" r="1.4" fill="#222"/><circle cx="36" cy="28" r="1.4" fill="#222"/>';
+  return `<svg class="av" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="${s.bg}"/><path d="M9 64c0-14 10-20 23-20s23 6 23 20z" fill="${s.color}"/><rect x="29" y="38" width="6" height="7" fill="${s.skin}"/><circle cx="32" cy="28" r="11" fill="${s.skin}"/>${hair}${eyes}<path d="M28 33q4 3 8 0" stroke="#7a3b2a" stroke-width="1.4" fill="none" stroke-linecap="round"/>${acc}</svg>`;
+}
+function clearedSets(){
+  const s=(S.phase==='ask')?S.i:(S.phase==='reveal'?S.i+1:N);
+  const c={p:new Set(),l:new Set(),m:new Set()};let last=null;
+  CASE.clues.slice(0,s).forEach((cl,k)=>{if(cl.p)c.p.add(cl.p);if(cl.l)c.l.add(cl.l);if(cl.m)c.m.add(cl.m);if(k===s-1&&S.phase==='reveal')last=cl;});
+  return {c,last,s};
+}
+function board(interactive){
+  const {c,last}=clearedSets();
+  const isNew=(t,id)=>last&&last[t]===id?' new':'';
+  const pick=(t,id)=>interactive&&S.sel[t]===id?' pick':'';
+  const tag=interactive?'button':'div';
+  const mk=(t,id,inner)=>`<${tag} class="card${c[t].has(id)?' cleared':''}${isNew(t,id)}${pick(t,id)}" ${interactive?`data-t="${t}" data-id="${id}" type="button" ${c[t].has(id)?'':''}`:''}>${inner}</${tag}>`;
+  return `<div class="cols">
+   <div class="col"><h3>${esc(CASE.labels.p)}</h3>${CASE.suspects.map(s=>mk('p',s.id,avatar(s)+`<span><span class="nm">${esc(s.name)}</span><br><span class="rl">${esc(s.role)}</span></span>`)).join('')}</div>
+   <div class="col"><h3>${esc(CASE.labels.l)}</h3>${CASE.places.map((s,k)=>mk('l',s.id,`<span class="ic">${k+1}</span><span class="nm">${esc(s.name)}</span>`)).join('')}</div>
+   <div class="col"><h3>${esc(CASE.labels.m)}</h3>${CASE.methods.map((s,k)=>mk('m',s.id,`<span class="ic">${String.fromCharCode(65+k)}</span><span class="nm">${esc(s.name)}</span>`)).join('')}</div>
+  </div>`;
+}
+function effectText(cl){
+  const nm=(arr,id)=>(arr.find(x=>x.id===id)||{}).name;
+  const bits=[];if(cl.p)bits.push(nm(CASE.suspects,cl.p));if(cl.l)bits.push(nm(CASE.places,cl.l));if(cl.m)bits.push(nm(CASE.methods,cl.m));
+  return 'Cleared: '+bits.join(' · ');
+}
+function log(){
+  const {s}=clearedSets();
+  if(!s)return '<p class="hint">No clues yet. Solve a problem to earn your first one.</p>';
+  return '<ol class="log">'+CASE.clues.slice(0,s).map((cl,k)=>`<li><b>#${k+1}</b><span>${esc(cl.text)}</span></li>`).join('')+'</ol>';
+}
+function header(){
+  const done=(S.phase==='ask')?S.i:(S.phase==='reveal'?S.i+1:N);
+  return `<header class="top"><div><div class="eyebrow">${esc(CASE.eyebrow)}</div><h1>${esc(CASE.title)}</h1><p class="sub">${esc(CASE.tagline)}</p></div><span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="pill">${S.phase==='intro'?'Case file':(S.phase==='accuse'||S.phase==='won'?'All clues found':'Clues earned: '+done+' of '+N)}</span>${S.phase==='intro'||S.phase==='won'?'':'<button class="action" id="restart" style="padding:8px 13px">Restart case</button>'}</span></header>`;
+}
+function render(){
+  let h=header();
+  if(S.phase==='intro'){
+    h+=`<div class="panel story" style="max-width:820px;margin:0 auto"><h2 style="margin-top:0">The case</h2>${CASE.intro.map(p=>`<p>${p}</p>`).join('')}
+    <div class="rules"><b>How to crack the case</b><ol>${CASE.rules.map(r=>`<li>${r}</li>`).join('')}</ol></div>
+    <div class="actions"><button class="action primary" id="start">Open the case file</button></div></div>`;
+  } else if(S.phase==='won'){
+    h+=won();
+  } else {
+    h+=`<div class="layout"><section class="panel"><div class="sectionhead"><h2>Case board</h2><span class="hint" style="margin:0">${S.phase==='accuse'?'Choose one from each column':'Struck-out cards are cleared'}</span></div>${board(S.phase==='accuse')}
+      <div class="sectionhead" style="margin-top:18px"><h2>Evidence log</h2></div>${log()}</section><section class="panel" id="side">${side()}</section></div>`;
+  }
+  $('#app').innerHTML=h;wire();
+  const inp=$('#ans'); if(inp&&S.phase==='ask'){inp.focus();pv();}
+}
+function fmtQ(q){return `<div class="problem"><div class="skill">${esc(q.skill)}</div><div class="instr">${q.instr}</div>${q.html?`<div class="display">${q.html}</div>`:''}</div>`;}
+function side(){
+  if(S.phase==='ask'){
+    const q=CASE.questions[S.i];
+    return `<div class="sectionhead"><h2>Clue ${S.i+1} of ${N}</h2></div><div class="progress"><div class="bar" style="width:${S.i/N*100}%"></div></div>${fmtQ(q)}
+    <label class="inputlabel" for="ans">Your answer</label>
+    <input id="ans" class="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(q.placeholder||CASE.placeholder)}">
+    ${(CASE.symbols||[]).length?'<div class="syms">':'<div style="display:none">'}${(CASE.symbols||[]).map(s=>typeof s==='string'?`<button class="sym" type="button" data-sym="${s}" aria-label="insert ${s}">${s}</button>`:`<button class="sym" type="button" data-sym="${esc(s.i)}" data-back="${s.b||0}" aria-label="insert ${esc(s.i)}"${s.t?` title="${esc(s.t)}"`:''}>${s.l}</button>`).join('')}</div>
+    ${CASE.preview?'<div class="pv" id="pv" aria-live="off"></div>':''}
+    <p class="hint">${esc(CASE.inputHint)}</p>
+    <div class="actions"><button class="action primary" id="check">Check answer</button>${S.miss>=2&&!S.hintShown?'<button class="action" id="hint">Get a hint</button>':''}${S.miss>=4&&!S.stepsShown?'<button class="action" id="steps">Show the steps</button>':''}</div>
+    <div class="feedback ${S.msg?'bad':''}" id="fb" role="status" aria-live="polite">${S.msg}</div>
+    ${S.hintShown?`<div class="solution"><h3>Hint</h3><div>${q.hint}</div></div>`:''}
+    ${S.stepsShown?`<div class="solution"><h3>Worked solution</h3>${q.steps.map(s=>`<div class="st">${s}</div>`).join('')}<p class="hint">Now type the answer to earn the clue.</p></div>`:''}`;
+  }
+  if(S.phase==='reveal'){
+    const cl=CASE.clues[S.i], last=S.i===N-1;
+    return `<div class="sectionhead"><h2>Clue ${S.i+1} unlocked</h2></div><div class="progress"><div class="bar" style="width:${(S.i+1)/N*100}%"></div></div>
+    <div class="clue"><div class="tag">New evidence</div><p>${esc(cl.text)}</p><div class="eff">${esc(effectText(cl))}</div></div>
+    <div class="actions"><button class="action ${last?'amber':'primary'}" id="next">${last?'Make your accusation':'Next problem'}</button></div>`;
+  }
+  if(S.phase==='accuse'){
+    const ok=S.sel.p&&S.sel.l&&S.sel.m;
+    return `<div class="sectionhead"><h2>Make your accusation</h2></div>
+    <p style="line-height:1.55;margin-top:0">All ${N} clues are in. Look at your case board: tap the one ${esc(CASE.labels.p.toLowerCase().replace(/^the /,'').replace(/s$/,''))}, the one ${esc(CASE.labels.l.toLowerCase().replace(/^the /,'').replace(/s$/,''))} and the one ${esc(CASE.labels.m.toLowerCase().replace(/^the /,'').replace(/s$/,''))} that were <b>not</b> cleared.</p>
+    <div class="clue" style="animation:none"><div class="tag">Your accusation</div><p>${accuseLine()}</p></div>
+    <div class="actions"><button class="action amber" id="accuse" ${ok?'':'disabled'}>Accuse!</button></div>
+    <div class="feedback ${S.msg?'bad':''}" role="status" aria-live="polite">${S.msg}</div>`;
+  }
+  return '';
+}
+function accuseLine(){
+  const f=(arr,id,ph)=>{const x=arr.find(a=>a.id===id);return x?`<b>${esc(x.name)}</b>`:`<span style="color:var(--muted)">${ph}</span>`;};
+  return CASE.accuseTemplate.replace('{p}',f(CASE.suspects,S.sel.p,'(choose a suspect)')).replace('{l}',f(CASE.places,S.sel.l,'(choose a place)')).replace('{m}',f(CASE.methods,S.sel.m,'(choose a method)'));
+}
+function won(){
+  const e=CASE.ending;
+  return `<div class="panel win" style="max-width:860px;margin:0 auto"><h2>Case closed!</h2><p style="font-size:1.1rem;line-height:1.6">${e}</p>
+  <div class="stats"><div class="stat"><b>${N} of ${N}</b>clues earned</div><div class="stat"><b>${S.tm}</b>wrong tries</div><div class="stat"><b>${S.hn+S.sn}</b>hints and steps used</div></div>
+  ${board(false)}
+  <div class="actions" style="justify-content:center"><button class="action primary" id="again">Play again</button></div></div>`;
+}
+function wire(){
+  const on=(id,fn)=>{const el=document.getElementById(id);if(el)el.addEventListener('click',fn);};
+  on('start',()=>{S.phase='ask';S.i=0;save();render();});
+  on('restart',()=>{if(confirm('Start the case over? Your clues will be cleared.')){reset();S.phase='ask';S.i=0;save();render();}});
+  on('again',reset);
+  on('check',check);on('hint',()=>{S.hintShown=true;S.hn++;save();render();keepVal();});
+  on('steps',()=>{S.stepsShown=true;S.sn++;save();render();});
+  on('next',()=>{if(S.i===N-1){S.phase='accuse';S.i=N;}else{S.i++;S.phase='ask';}S.miss=0;S.hintShown=false;S.stepsShown=false;S.msg='';save();render();});
+  on('accuse',accuse);
+  const inp=$('#ans');if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
+  document.querySelectorAll('.sym').forEach(b=>b.addEventListener('click',()=>{const i=$('#ans');if(!i)return;const t=b.dataset.sym;const a=i.selectionStart??i.value.length,z=i.selectionEnd??a;const ins=t==='or'?' or ':t;const bk=+(b.dataset.back||0);i.value=i.value.slice(0,a)+ins+i.value.slice(z);i.focus();i.selectionStart=i.selectionEnd=a+ins.length-bk;pv();}));
+  if(inp)inp.addEventListener('input',pv);
+  document.querySelectorAll('button.card[data-t]').forEach(b=>b.addEventListener('click',()=>{S.sel[b.dataset.t]=b.dataset.id;S.msg='';render();}));
+}
+function keepVal(){}
+function pretty(raw){
+  let s=esc(raw);
+  s=s.replace(/log_(\d+(?:\.\d+)?|e)/gi,'log<sub>$1</sub>').replace(/log([₀-₉]+)/g,(m,d)=>'log<sub>'+d.split('').map(c=>'₀₁₂₃₄₅₆₇₈₉'.indexOf(c)).join('')+'</sub>');
+  s=s.replace(/sqrt/g,'√').replace(/\bpi\b/g,'π').replace(/(\d)-(?=\d)/g,'$1−').replace(/(^|[^\w)])-/g,'$1−');
+  s=s.replace(/\^\(([^()]*)\)/g,'<sup>$1</sup>').replace(/\^(−?[\w.]+)/g,'<sup>$1</sup>');
+  const tok='(−?\\d+(?:\\.\\d+)?|\\([^()]*\\)|[a-z]+(?:<sub>[^<]*<\\/sub>)?\\s*\\d*)';
+  s=s.replace(new RegExp(tok+'\\s*\\/\\s*'+tok,'g'),(m,a,b)=>'<span class="fr"><span>'+a.replace(/^\((.*)\)$/,'$1')+'</span><span>'+b.replace(/^\((.*)\)$/,'$1')+'</span></span>');
+  return s;
+}
+function pv(){const i=$('#ans'),p=$('#pv');if(!i||!p)return;const v=i.value.trim();p.innerHTML=v?'<small>Reads as</small>'+pretty(v):'';}
+function check(){
+  const i=$('#ans');if(!i)return;const q=CASE.questions[S.i];const r=checkAns(i.value,q.answer);
+  if(r.ok){S.phase='reveal';S.msg='';save();render();return;}
+  if(r.parse){S.msg=r.msg;const v=i.value;render();$('#ans').value=v;$('#ans').focus();pv();return;}
+  S.miss++;S.tm++;S.msg=r.msg;const v=i.value;save();render();$('#ans').value=v;$('#ans').focus();pv();
+}
+function accuse(){
+  const t=CASE.culprit;
+  if(S.sel.p===t.p&&S.sel.l===t.l&&S.sel.m===t.m){S.phase='won';save();render();confetti();return;}
+  const wrong=[];if(S.sel.p!==t.p)wrong.push(CASE.labels.p.toLowerCase().replace(/^the /,'').replace(/s$/,''));if(S.sel.l!==t.l)wrong.push(CASE.labels.l.toLowerCase().replace(/^the /,'').replace(/s$/,''));if(S.sel.m!==t.m)wrong.push(CASE.labels.m.toLowerCase().replace(/^the /,'').replace(/s$/,''));
+  S.tm++;S.msg='Not quite: check your evidence log. At least one choice ('+wrong.join(', ')+') has already been cleared by a clue.';S.sel={p:null,l:null,m:null};save();render();
+}
+function reset(){S={phase:'intro',i:0,tm:0,hn:0,sn:0,miss:0,hintShown:false,stepsShown:false,sel:{p:null,l:null,m:null},msg:''};try{localStorage.removeItem(KEY);}catch(e){}render();}
+function confetti(){const c=document.createElement('div');c.className='confetti';const cols=['#f2a33a','#345bd5','#1f7a4d','#b83a31','#7a3fb0'];for(let k=0;k<70;k++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.background=cols[k%cols.length];e.style.animationDuration=(2.2+Math.random()*2.4)+'s';e.style.animationDelay=(Math.random()*.8)+'s';c.appendChild(e);}document.body.appendChild(c);setTimeout(()=>c.remove(),6000);}
+render();
+</script>
+</body>
+</html>
