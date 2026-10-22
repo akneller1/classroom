@@ -883,6 +883,15 @@ window.LIBRARY = {
           "name": "Systems of Equations",
           "artifacts": [
             {
+              "title": "Systems of Equations Worksheet Generator",
+              "path": "artifacts/systems-of-equations-worksheet-generator/index.html",
+              "thumb": "thumbs/systems-of-equations-worksheet-generator.svg",
+              "description": "Create customizable Systems of Equations worksheets on substitution, elimination, graphing and solution classification with matching answer keys and printable versions.",
+              "type": "Practice",
+              "topics": ["Systems of equations", "Elimination", "Substitution", "Graphing"],
+              "added": "2026-10-22"
+            },
+            {
               "title": "Systems Four",
               "path": "artifacts/systems-of-equations-connect-four/index.html",
               "thumb": "thumbs/systems-of-equations-connect-four.jpg",
