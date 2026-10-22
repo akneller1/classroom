@@ -305,3 +305,22 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 .support-button { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.1rem; min-height: 44px; background: #ffdd00; color: #25200b; border: 2px solid #25200b; border-radius: 10px; font-weight: 700; text-decoration: none; }
 .support-button:hover { background: #ffe959; text-decoration: underline; text-underline-offset: 0.2em; }
 .support-button:focus-visible { outline: 3px solid var(--blue-text); outline-offset: 4px; }
+
+/* Course and unit resources follow the home page category layout. */
+.course-units-title, .course-activities-title { margin-bottom: 1.25rem; }
+.activity-groups { display: grid; gap: 2rem; }
+.activity-group { min-width: 0; }
+.activity-group > h2 { display: flex; align-items: baseline; flex-wrap: wrap; gap: .75rem; padding: 1rem 1.25rem; margin-bottom: 1rem; background: var(--wash); border: 1px solid var(--line); border-radius: 12px; }
+.activity-group > h2 span { font-family: var(--body); font-size: .95rem; font-weight: 400; color: var(--ink-soft); }
+.grouped-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grouped-cards .card { min-width: 0; }
+.grouped-cards .thumb { width: 144px; height: 90px; aspect-ratio: auto; margin: 1.25rem 1.25rem 0; border: 1px solid var(--line); border-radius: 7px; }
+.grouped-cards .card-body { padding: 1rem 1.25rem 1.25rem; }
+.grouped-cards .card h3 { font-size: 1.25rem; }
+.grouped-cards .desc { font-size: .95rem; line-height: 1.5; }
+@media (max-width: 700px) {
+  .grouped-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 460px) {
+  .grouped-cards { grid-template-columns: minmax(0, 1fr); }
+}

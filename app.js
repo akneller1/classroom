@@ -192,7 +192,7 @@
 
   function activityUrl(a) { return 'activity.html?path=' + encodeURIComponent(a.path); }
 
-  function cardHtml(it, showWhere) {
+  function cardHtml(it, showWhere, compact) {
     var a = it.a;
     var tags = [];
     if (isNew(a)) tags.push('<li class="tag tag-new">New</li>');
@@ -206,8 +206,8 @@
         (tags.length ? '<ul class="tags">' + tags.join('') + '</ul>' : '') +
         '<h3><a href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener">' + esc(a.title) +
           '<span class="sr"> (opens in a new tab)</span></a></h3>' +
-        '<p class="desc">' + esc(a.description || '') + '</p>' +
-        (topics.length ? '<p class="topics">' + esc(topics.join(', ')) + '</p>' : '') +
+        '<p class="desc">' + esc(compact ? shortDescription(a) : (a.description || '')) + '</p>' +
+        (!compact && topics.length ? '<p class="topics">' + esc(topics.join(', ')) + '</p>' : '') +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open activity</a>' +
           saveBtnHtml(a.path) + '</div>' +
       '</div></li>';
@@ -274,7 +274,29 @@
     return '<section class="band"' + (c ? ' data-color="' + esc(c.color || '') + '"' : '') + '><div class="wrap">' + inner + '</div></section>';
   }
 
+
+  function shortDescription(a) {
+    var text = (a.description || FORMAT_SUMMARIES[activityFormat(a)] || '').trim();
+    if (text.length <= 155) return text;
+    var sentence = text.match(/^.{40,154}?[.!?](?:\s|$)/);
+    if (sentence) return sentence[0].trim();
+    return text.slice(0, 152).replace(/\s+\S*$/, '') + '…';
+  }
+
+  function groupedCardsHtml(items, showWhere) {
+    var shown = applyFilters(items);
+    if (!shown.length) return '<div class="empty"><h2>No matches</h2><p>No activities fit these filters. Choose All to see everything here.</p></div>';
+    return '<div class="activity-groups">' + RESOURCE_GROUPS.map(function (group) {
+      var members = shown.filter(function (it) { return group.formats.indexOf(activityFormat(it.a)) !== -1; });
+      if (!members.length) return '';
+      return '<section class="activity-group" aria-labelledby="group-' + group.id + '">' +
+        '<h2 id="group-' + group.id + '">' + esc(group.name) + '<span>' + acts(members.length) + '</span></h2>' +
+        '<ul class="cards grouped-cards">' + members.map(function (it) { return cardHtml(it, showWhere, true); }).join('') + '</ul></section>';
+    }).join('') + '</div>';
+  }
+
   function courseView(c) {
+    var items = everything().filter(function (it) { return it.c.id === c.id; });
     var n = courseCount(c);
     var inner =
       '<div class="band-grid"><div>' +
@@ -286,7 +308,7 @@
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        '<section class="section"><div class="wrap"><h2 class="sr">Units</h2><ul class="units">' +
+        '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
           if (!k) {
@@ -298,7 +320,8 @@
           }).join('');
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + esc(u.name) + '</h3>' +
             '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
-        }).join('') + '</ul></div></section>'
+        }).join('') + '</ul></div></section>' +
+        (items.length ? '<section class="section"><div class="wrap"><h2 class="course-activities-title">All activities</h2>' + chipsHtml(items) + groupedCardsHtml(items, true) + '</div></section>' : '')
     };
   }
 
@@ -312,7 +335,7 @@
       title: u.name + ', ' + c.name,
       html: bandHtml(c, inner) +
         '<section class="section"><div class="wrap">' +
-        (items.length ? chipsHtml(items) + cardsHtml(items, false)
+        (items.length ? chipsHtml(items) + groupedCardsHtml(items, false)
                       : '<div class="empty"><h2>Coming soon</h2><p>No activities in this unit yet. <a href="' + href(courseToken(c)) + '">Back to ' + esc(c.name) + '</a></p></div>') +
         '</div></section>'
     };
