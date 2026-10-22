@@ -53,16 +53,16 @@
     var i;
     for (i = xmin; i <= xmax; i++) {
       var major = (i % 5 === 0);
-      o.push('<line x1="' + X(i) + '" y1="' + PAD.t + '" x2="' + X(i) + '" y2="' + (PAD.t + H) + '" stroke="' + (major ? '#8e929e' : '#cfd2da') + '" stroke-width="' + (major ? 0.9 : 0.55) + '"/>');
+      o.push('<line x1="' + X(i) + '" y1="' + PAD.t + '" x2="' + X(i) + '" y2="' + (PAD.t + H) + '" stroke="' + (major ? '#555d68' : '#88929d') + '" stroke-width="' + (major ? 1.2 : 0.85) + '"/>');
     }
     for (i = ymin; i <= ymax; i++) {
       var majorY = (i % 5 === 0);
-      o.push('<line x1="' + PAD.l + '" y1="' + Y(i) + '" x2="' + (PAD.l + W) + '" y2="' + Y(i) + '" stroke="' + (majorY ? '#8e929e' : '#cfd2da') + '" stroke-width="' + (majorY ? 0.9 : 0.55) + '"/>');
+      o.push('<line x1="' + PAD.l + '" y1="' + Y(i) + '" x2="' + (PAD.l + W) + '" y2="' + Y(i) + '" stroke="' + (majorY ? '#555d68' : '#88929d') + '" stroke-width="' + (majorY ? 1.2 : 0.85) + '"/>');
     }
-    o.push('<rect x="' + PAD.l + '" y="' + PAD.t + '" width="' + W + '" height="' + H + '" fill="none" stroke="#5b5f6b" stroke-width="0.8"/>');
+    o.push('<rect x="' + PAD.l + '" y="' + PAD.t + '" width="' + W + '" height="' + H + '" fill="none" stroke="#303741" stroke-width="1.15"/>');
     // axes with arrows
     var ax = X(0), ay = Y(0), A = 6.5, AW = 3;
-    o.push('<g stroke="#111" stroke-width="1.5" fill="#111">');
+    o.push('<g stroke="#111" stroke-width="1.9" fill="#111">');
     o.push('<line x1="' + (PAD.l - 6) + '" y1="' + ay + '" x2="' + (PAD.l + W + 6) + '" y2="' + ay + '"/>');
     o.push('<line x1="' + ax + '" y1="' + (PAD.t + H + 6) + '" x2="' + ax + '" y2="' + (PAD.t - 6) + '"/>');
     o.push('<polygon stroke="none" points="' + (PAD.l + W + 6 + A) + ',' + ay + ' ' + (PAD.l + W + 6) + ',' + (ay - AW) + ' ' + (PAD.l + W + 6) + ',' + (ay + AW) + '"/>');
@@ -97,7 +97,7 @@
         var bx = tip[0] - dir * ux * L, by = tip[1] - dir * uy * L;
         return '<polygon fill="#111" points="' + r2(tip[0]) + ',' + r2(tip[1]) + ' ' + r2(bx - uy * Wd) + ',' + r2(by + ux * Wd) + ' ' + r2(bx + uy * Wd) + ',' + r2(by - ux * Wd) + '"/>';
       }
-      o.push('<path class="gline" d="M' + r2(a[0]) + ' ' + r2(a[1]) + ' L' + r2(b[0]) + ' ' + r2(b[1]) + '" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round"/>');
+      o.push('<path class="gline" d="M' + r2(a[0]) + ' ' + r2(a[1]) + ' L' + r2(b[0]) + ' ' + r2(b[1]) + '" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/>');
       o.push(head(b, 1)); o.push(head(a, -1));
     });
     // points
