@@ -22,7 +22,7 @@
     });
   }
   // Only embed a known local activity, never an arbitrary URL from a query string.
-  if (!match || !/^artifacts\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path) || match.path.indexOf('..') >= 0) {
+  if (!match || !/^(?:artifacts|worksheet-generator)\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path) || match.path.indexOf('..') >= 0) {
     title.textContent = 'Activity not found';
     message.textContent = 'This activity could not be found. Choose Home to browse the available activities.';
     return;
