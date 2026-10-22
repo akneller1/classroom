@@ -61,10 +61,35 @@ NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve 
  if(ctx.grids)fig.lines=[];else fig=null;
  return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
  }});
+
+function graphCase(ctx,kind){
+ var r=ctx.rng, x=r.int(-4,4),y=r.int(-4,4), slopes=[-3,-2,-1,0,1,2,3],m=pick(r,slopes),n=pick(r,slopes),b1,b2,lines,ans,steps,signature;
+ if(kind==='intersection'||kind==='classify-one'){NS.gen.need(m!==n);b1=y-m*x;b2=y-n*x;NS.gen.need(Math.abs(b1)<=9&&Math.abs(b2)<=9);
+ lines=[{kind:'line',m:m,b:b1},{kind:'line',m:n,b:b2}];ans=kind==='intersection'?M(T.pt(x,y)):'One solution: '+M(T.pt(x,y));
+ steps=['The lines intersect at '+M(T.pt(x,y))+'.'];signature=[m,b1,n,b2].join(',');}
+ else if(kind==='parallel'){b1=r.int(-7,7);b2=r.int(-7,7);NS.gen.need(b1!==b2);
+ lines=[{kind:'line',m:m,b:b1},{kind:'line',m:m,b:b2}];ans='No solution';
+ steps=['The two lines are parallel and never intersect.'];signature=[m,b1,m,b2].join(',');}
+ else {b1=r.int(-7,7);lines=[{kind:'line',m:m,b:b1},{kind:'line',m:m,b:b1}];ans='Infinitely many solutions';
+ steps=['Both equations have the same graph, so every point on the line satisfies both.'];signature=[m,b1,m,b1].join(',');}
+ return {fig:{xmin:-10,xmax:10,ymin:-10,ymax:10,lines:lines,points:[]},answer:ans,steps:steps,key:'graph-analysis|'+kind+'|'+signature,equiv:'graph-analysis|'+kind+'|'+signature};
+}
+NS.registerLesson({id:'sys-read-intersection',unit:U,category:'graphing',num:8,title:'Read the intersection from a graph',instruction:'Find the solution by inspecting two graphed lines.',layout:'row',figWidth:3,space:[.25,.5,.85],generate:function(ctx){
+ var p=graphCase(ctx,'intersection');p.prompt='The two lines are already graphed. Write the ordered pair that solves the system.';return p;
+}});
+NS.registerLesson({id:'sys-read-solution-type',unit:U,category:'graphing',num:9,title:'Determine number of solutions from a graph',instruction:'Analyze the lines and justify your conclusion.',layout:'row',figWidth:3,space:[.5,.9,1.3],generate:function(ctx){
+ var kind=pick(ctx.rng,['classify-one','parallel','same']);var p=graphCase(ctx,kind);p.prompt='Determine whether the graphed system has one solution, no solution, or infinitely many solutions. Explain your reasoning.';return p;
+}});
+NS.registerLesson({id:'sys-graph-match-equation',unit:U,category:'graphing',num:10,title:'Write an equation of a line shown in a system',instruction:'Read one line in the graph and write its equation.',layout:'row',figWidth:3,space:[.45,.75,1.1],generate:function(ctx){
+ var r=ctx.rng,m=pick(r,[-3,-2,-1,0,1,2,3]),b=r.int(-6,6),n=pick(r,[-3,-2,-1,0,1,2,3]),c=r.int(-6,6);
+ NS.gen.need(m!==n&&Math.abs(c-b)>=2);
+ return {prompt:'Two lines are graphed. Find the equation of the line that crosses the y-axis at '+M(T.num(b))+'.',fig:{xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[{kind:'line',m:m,b:b},{kind:'line',m:n,b:c}],points:[]},answer:M(T.eqSI(m,b)),steps:['Read the y-intercept: '+M('b='+T.num(b))+'.','Count rise over run to find slope '+M('m='+T.num(m))+'.','Use '+M(T.eqSI(m,b))+'.'],key:'graph-equation|'+m+'|'+b+'|'+n+'|'+c,equiv:'graph-equation|'+m+'|'+b+'|'+n+'|'+c};
+}});
+
 NS.registerUnit({id:U,course:'Algebra 1',color:'blue',name:'Systems of Equations',defaultTitle:'Systems of Equations Practice',categories:[
 {id:'substitution',letter:'A',name:'Substitution',lessons:['sys-substitution-easy','sys-substitution-standard']},
 {id:'elimination',letter:'B',name:'Elimination',lessons:['sys-elimination-add','sys-elimination-multiply']},
-{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph']},
+{id:'graphing',letter:'C',name:'Graphing',lessons:['sys-graph','sys-read-intersection','sys-read-solution-type','sys-graph-match-equation']},
 {id:'classification',letter:'D',name:'Types of Solutions',lessons:['sys-classify']},
 {id:'applications',letter:'E',name:'Applications',lessons:['sys-word']}
 ]});
