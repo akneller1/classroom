@@ -16,8 +16,10 @@
       });
     });
   }
+  // This older worksheet lives at the repository root; keep its existing links working.
+  var legacyWorksheet = match && match.path === 'Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf';
   // Only embed a known local activity, never an arbitrary URL from a query string.
-  if (!match || !/^artifacts\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path) || match.path.indexOf('..') >= 0) {
+  if (!match || (!legacyWorksheet && !/^artifacts\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path)) || match.path.indexOf('..') >= 0) {
     title.textContent = 'Activity not found';
     message.textContent = 'This activity could not be found. Choose Home to browse the available activities.';
     return;
