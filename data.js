@@ -37,6 +37,14 @@ window.LIBRARY = {
           "name": "Expressions & Equations",
           "artifacts": [
             {
+              "title": "Expressions & Equations Worksheet Generator",
+              "path": "worksheet-generator/algebra1-expressions-equations.html",
+              "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": ["Worksheet generator", "Expressions & Equations"],
+              "added": "2026-10-22"
+            },
+            {
               "title": "Equations Four",
               "path": "artifacts/expressions-equations-connect-four/index.html",
               "thumb": "thumbs/expressions-equations-connect-four.jpg",
@@ -243,6 +251,14 @@ window.LIBRARY = {
           "id": "inequalities",
           "name": "Inequalities",
           "artifacts": [
+            {
+              "title": "Inequalities Worksheet Generator",
+              "path": "worksheet-generator/algebra1-inequalities.html",
+              "description": "Create custom Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": ["Worksheet generator", "Inequalities"],
+              "added": "2026-10-22"
+            },
             {
               "title": "Compound Inequalities Picture Reveal",
               "path": "artifacts/compound-inequalities-picture-reveal/index.html",
@@ -690,6 +706,14 @@ window.LIBRARY = {
           "name": "Graphing Inequalities on the Coordinate Plane",
           "artifacts": [
             {
+              "title": "Graphing Inequalities Worksheet Generator",
+              "path": "worksheet-generator/algebra1-graphing-inequalities.html",
+              "description": "Create custom Graphing Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": ["Worksheet generator", "Graphing Inequalities"],
+              "added": "2026-10-22"
+            },
+            {
               "title": "Inequality Graphs Four",
               "path": "artifacts/graphing-inequalities-connect-four/index.html",
               "thumb": "thumbs/graphing-inequalities-connect-four.jpg",
@@ -1087,6 +1111,14 @@ window.LIBRARY = {
           "name": "Exponents & Exponential Functions",
           "artifacts": [
             {
+              "title": "Exponents & Exponential Functions Worksheet Generator",
+              "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
+              "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": ["Worksheet generator", "Exponents & Exponential Functions"],
+              "added": "2026-10-22"
+            },
+            {
               "title": "Exponents Four",
               "path": "artifacts/exponents-exponential-functions-connect-four/index.html",
               "thumb": "thumbs/exponents-exponential-functions-connect-four.jpg",
@@ -1292,6 +1324,14 @@ window.LIBRARY = {
           "id": "polynomials-factoring",
           "name": "Polynomials & Factoring",
           "artifacts": [
+            {
+              "title": "Polynomials & Factoring Worksheet Generator",
+              "path": "worksheet-generator/algebra1-polynomials-factoring.html",
+              "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": ["Worksheet generator", "Polynomials & Factoring"],
+              "added": "2026-10-22"
+            },
             {
               "title": "Factoring Four",
               "path": "artifacts/polynomials-factoring-connect-four/index.html",
@@ -1499,6 +1539,14 @@ window.LIBRARY = {
           "id": "quadratics",
           "name": "Quadratics",
           "artifacts": [
+            {
+              "title": "Quadratics Worksheet Generator",
+              "path": "worksheet-generator/algebra1-quadratics.html",
+              "description": "Create custom Quadratics worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": ["Worksheet generator", "Quadratics"],
+              "added": "2026-10-22"
+            },
             {
               "title": "Quadratics Four",
               "path": "artifacts/quadratics-connect-four/index.html",
