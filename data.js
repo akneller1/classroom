@@ -1909,7 +1909,215 @@ window.LIBRARY = {
         {
           "id": "linear-functions-systems",
           "name": "Linear Functions & Systems",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "The Line Cook Bistro: Assessment Menu",
+              "path": "artifacts/linear-functions-systems-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups, with printed coordinate grids for graphing dishes. 100 points total. Includes a teacher guide, rubrics and answer key with graphs computed from the equations.",
+              "type": "Printable",
+              "topics": [
+                "Linear equations",
+                "Systems of equations",
+                "Linear programming",
+                "Choice menu"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Color By Number",
+              "path": "artifacts/linear-functions-systems-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems on slope, parallel and perpendicular lines, residuals, linear modeling, systems, linear programming and three-variable systems, match each answer to the color code, then color the hot air balloons over the patchwork farms. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Linear modeling",
+                "Systems of equations",
+                "Linear programming",
+                "Color by number"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Cheat Sheet",
+              "path": "artifacts/linear-functions-systems-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to slope and rate of change, slope-intercept, point-slope and standard forms, parallel and perpendicular lines, lines of best fit and residuals, linear inequalities, systems of equations and inequalities, linear programming, three-variable systems, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Linear functions",
+                "Systems"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Crossroads Four",
+              "path": "artifacts/linear-functions-systems-connect-four/index.html",
+              "thumb": "thumbs/linear-functions-systems-connect-four.jpg",
+              "description": "Connect Four for two teams. Find slopes and equations of lines, read graphs and shaded regions, solve systems, fit lines to data, and find the best corner in linear programming. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Slope and equations of lines",
+                "Linear inequalities and graphs",
+                "Systems of equations and inequalities",
+                "Linear programming and best-fit lines"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Error Analysis",
+              "path": "artifacts/linear-functions-systems-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-error-analysis.jpg",
+              "description": "Find the mistake in 10 worked solutions on point-slope form, perpendicular slopes, linear models, systems, dashed versus solid boundaries, shading, best-fit lines, linear programming and three-variable systems. Seven items include computed student-versus-correct graphs. Explain the error and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Linear equations",
+                "Systems",
+                "Inequalities",
+                "Linear programming"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Picture Reveal",
+              "path": "artifacts/linear-functions-systems-picture-reveal/index.html",
+              "thumb": "thumbs/linear-functions-systems-picture-reveal.jpg",
+              "description": "Find rates of change, write and graph linear equations and inequalities, solve systems, read residuals, optimize with linear programming and solve three-variable systems to uncover a hidden alpine gondola scene. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Linear equations",
+                "Systems",
+                "Linear programming",
+                "Residuals"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Blizzard at Summit Lodge",
+              "path": "artifacts/linear-functions-systems-escape-room/index.html",
+              "thumb": "thumbs/linear-functions-systems-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, a scatter-plot trend line, a feasible-region check, a combination-vault dial puzzle (3 by 3 system), a linear programming order lock, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Linear functions",
+                "Systems of equations and inequalities",
+                "Linear programming",
+                "Escape room"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Flashcards",
+              "path": "artifacts/linear-functions-systems-flashcards/index.html",
+              "thumb": "thumbs/linear-functions-systems-flashcards.jpg",
+              "description": "25 flashcards with worked solutions and computed graphs for slope and rate of change, writing linear equations, lines of best fit and residuals, linear and absolute value inequalities, systems of two and three equations, and linear programming. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Slope and writing linear equations",
+                "Linear modeling and best fit",
+                "Systems of equations and inequalities",
+                "Linear programming"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Showdown",
+              "path": "artifacts/linear-functions-systems-jeopardy/index.html",
+              "thumb": "thumbs/linear-functions-systems-jeopardy.jpg",
+              "description": "A game board for Linear Functions & Systems. Write equations and model with lines of best fit, solve systems and inequalities (including graphs of shaded regions), then finish with linear programming and three-variable systems.",
+              "type": "Game",
+              "topics": [
+                "Lines and linear models",
+                "Systems and inequalities",
+                "Linear programming",
+                "Three-variable systems"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Maze",
+              "path": "artifacts/linear-functions-systems-maze/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-maze.jpg",
+              "description": "Printable 4-page worksheet: write linear equations, use parallel and perpendicular slopes, solve systems of two and three equations, fit a regression line, and optimize with linear programming to find the right door through a maze, recording each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Writing and graphing linear equations",
+                "Parallel and perpendicular lines",
+                "Systems of equations and inequalities",
+                "Linear modeling and linear programming"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Stations",
+              "path": "artifacts/algebra2-linear-functions-systems-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra2-linear-functions-systems-stations.svg",
+              "description": "Printable Algebra 2 station work for Linear Functions & Systems. Students rotate through four problem sets to practice and review unit skills, with a teacher answer key.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Linear Functions & Systems"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Tarsia Puzzle",
+              "path": "artifacts/linear-functions-systems-tarsia/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Covers writing equations of lines, parallel and perpendicular lines, linear models and lines of best fit, systems of equations and inequalities, linear programming, and three-variable systems. Includes a show-your-work page (with two graphs) and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Writing linear equations",
+                "Systems of equations",
+                "Linear programming",
+                "Tarsia puzzle"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Amber Fossil Fiasco",
+              "path": "artifacts/linear-functions-systems-amber-fossil-fiasco/index.html",
+              "thumb": "thumbs/linear-functions-systems-amber-fossil-fiasco.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type equations of lines in any form, ordered pairs and triples, and inequalities.",
+              "type": "Game",
+              "topics": [
+                "Linear functions & systems",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Linear Functions & Systems Tic-Tac-Toe",
+              "path": "artifacts/linear-functions-systems-tic-tac-toe/index.html",
+              "thumb": "thumbs/linear-functions-systems-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Linear functions & systems",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Amber Fossil Fiasco (Printable)",
+              "path": "artifacts/linear-functions-systems-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/linear-functions-systems-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Linear functions & systems",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-22"
+            }
+          ]
         },
         {
           "id": "quadratic-functions-complex-numbers",

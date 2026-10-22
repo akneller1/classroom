@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Amber Fossil Fiasco</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color-scheme:light;
+  --bg:#eef3fc;--ink:#162640;--blue:#345bd5;--muted:#536782;--line:#d3def2;--navy:#16233f;--amber:#f2a33a;--amberd:#b36b08;--red:#b83a31;--green:#1f7a4d;--amber2:#e4752a;--glow:rgba(242,163,58,.25)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+main{max-width:1180px;margin:0 auto;padding:22px}
+header.top{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;margin-bottom:18px;background:var(--navy);color:#fff;border-radius:20px;padding:18px 24px;background-image:radial-gradient(circle at 92% 20%,var(--glow),transparent 40%)}
+.eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+h1{font-size:clamp(1.5rem,3.2vw,2.3rem);margin:4px 0 2px;font-family:"Courier New",ui-monospace,monospace;letter-spacing:.02em}
+.sub{color:#c8d3ea;margin:0;line-height:1.45}
+.pill{display:inline-flex;background:rgba(255,255,255,.12);color:#fff;padding:9px 15px;border-radius:30px;font-weight:700;font-size:.92rem;white-space:nowrap}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 6px 25px #1c366014;padding:22px}
+.layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:20px;align-items:start}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.sectionhead h2{font-size:1.15rem;margin:0}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.col h3{font-family:"Courier New",monospace;font-size:.95rem;margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em;color:var(--amberd)}
+.card{position:relative;display:flex;align-items:center;gap:9px;border:2px solid #d6e0f3;background:#f8faff;border-radius:12px;padding:7px 9px;margin-bottom:7px;font-size:.88rem;line-height:1.25;min-height:50px;transition:all .3s;text-align:left;font:inherit;font-size:.88rem;width:100%;color:var(--ink)}
+.card .nm{font-weight:750}.card .rl{font-size:.74rem;color:var(--muted)}
+.card svg.av{width:38px;height:38px;flex:none;border-radius:50%}
+.card .ic{width:34px;height:34px;flex:none;border-radius:9px;background:#e8eefc;display:grid;place-items:center;font-weight:800;color:var(--blue);font-family:"Courier New",monospace}
+.card.cleared{opacity:.5;background:#eceff5;border-style:dashed}
+.card.cleared .nm{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:#b83a31}
+.card.cleared::after{content:"✕";position:absolute;right:9px;top:50%;transform:translateY(-50%);font-weight:900;font-size:.95rem;color:#b83a31}
+.card.new{animation:pop .9s ease}
+@keyframes pop{0%{transform:scale(1);background:#fff3c9}35%{transform:scale(1.05);background:#fff3c9;border-color:var(--amber)}100%{transform:scale(1)}}
+.card.pick{border-color:var(--blue);background:#e7eeff;box-shadow:0 0 0 3px #cfdcff}
+button.card{cursor:pointer}
+button.card:disabled{cursor:default}
+.progress{height:10px;background:#e8eef9;border-radius:20px;overflow:hidden;margin-bottom:14px}
+.bar{height:100%;background:linear-gradient(90deg,var(--amber),var(--amber2));width:0;transition:width .4s}
+.skill{font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.problem{border-radius:15px;background:#f6f9ff;padding:18px 16px;display:grid;gap:10px}
+.instr{font-size:1.05rem;font-weight:650;line-height:1.5}
+.display{font-size:clamp(1.35rem,3vw,1.9rem);font-weight:600;text-align:center;padding:4px 0;line-height:1.5}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.15}
+.fr>span:first-child{border-bottom:2px solid currentColor;padding:0 .2em}
+.fr>span:last-child{padding:0 .2em}
+.inputlabel{font-size:.9rem;font-weight:750;margin:16px 0 8px;display:block}
+input.ans{display:block;width:100%;font:inherit;font-size:1.2rem;padding:13px 12px;border:2px solid #d0dcee;border-radius:10px;color:var(--ink)}
+input.ans:focus{outline:3px solid #d7e3ff;border-color:var(--blue)}
+.syms{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap}
+.sym{font:inherit;font-size:1.05rem;font-weight:700;min-width:44px;height:38px;border:1px solid #cedbf1;background:#fff;border-radius:9px;cursor:pointer;color:var(--ink)}
+.sym:hover{background:#eef3ff}
+.pv{min-height:1.9em;margin-top:8px;font-size:1.2rem;color:var(--ink);background:#f4f8ff;border:1px dashed #c3d3ee;border-radius:9px;padding:6px 12px;line-height:1.7}.pv:empty{display:none}.pv small{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:8px}sub,sup{line-height:0}
+.hint{color:var(--muted);font-size:.86rem;margin:8px 0 0;line-height:1.45}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+button.action{font:inherit;padding:11px 16px;border:1px solid #cedbf1;background:#fff;color:var(--ink);border-radius:10px;font-weight:700;cursor:pointer}
+button.action:hover:not(:disabled){background:#eef3ff}
+button.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+button.primary:hover:not(:disabled){background:#2846b2}
+button.amber{background:var(--amber);border-color:var(--amber);color:#2b1a02}
+button.amber:hover:not(:disabled){background:#e6932a}
+button:disabled{opacity:.5;cursor:not-allowed}
+button:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.feedback{min-height:24px;margin-top:12px;font-weight:700;line-height:1.4}
+.feedback.bad{color:#ac3d34}
+.solution{margin-top:14px;padding:14px;background:#fffdf5;border:1px solid #ecdda4;border-radius:13px}
+.solution h3{margin:0 0 8px;font-size:1rem}
+.solution .st{padding:5px 0;border-top:1px dashed #ecdda4}.solution .st:first-of-type{border-top:0}
+.clue{background:#fffbea;border:2px solid var(--amber);border-radius:15px;padding:16px;animation:slide .5s ease}
+@keyframes slide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.clue .tag{font-family:"Courier New",monospace;font-weight:900;color:var(--amberd);letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
+.clue p{margin:8px 0;font-size:1.08rem;line-height:1.5}
+.clue .eff{font-size:.88rem;color:var(--muted)}
+.log{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.log li{display:flex;gap:10px;font-size:.9rem;line-height:1.4;background:#f8faff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.log li b{font-family:"Courier New",monospace;color:var(--amberd);min-width:1.8em}
+.story p{line-height:1.6;font-size:1.04rem;margin:0 0 12px}
+.rules{background:#f2f6ff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:14px 0}
+.rules ol{margin:6px 0 0;padding-left:20px;line-height:1.6}
+.win{text-align:center}
+.win h2{font-family:"Courier New",monospace;font-size:1.8rem;margin:0 0 6px;color:var(--green)}
+.stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.stat{background:#f2f6ff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}.stat b{display:block;font-size:1.4rem}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.confetti i{position:absolute;top:-20px;width:10px;height:14px;opacity:.9;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.layout>#side{order:-1}.cols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.gfx{display:block;margin:4px auto;width:min(100%,400px);height:auto}
+.display table,.prob table{max-width:100%}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const CASE={"unit": "linear-functions-systems", "eyebrow": "Case file No. 19", "title": "The Amber Fossil Fiasco", "tagline": "The Cretaceous amber vanished from the Brontosaur Bay Museum during Fossil Night. Solve each problem to earn a clue.", "palette": {"navy": "#143a2e", "accent": "#ffc857"}, "labels": {"p": "The Suspects", "l": "The Places", "m": "The Methods"}, "placeholder": "Your answer", "inputHint": "Type numbers, an equation, an ordered pair or triple, or an inequality. Equations of lines can be in any form: y = −2x + 5, y − 3 = −2(x − 1) or 2x + y = 5. Ordered pairs look like (3, 4) and triples like (1, 2, 3). For an inequality use the ≤ ≥ buttons or type <= and >=. For a fraction use the slash key, and the shaded line under the buttons shows how your answer is read.", "symbols": [{"l": "≤", "i": "≤"}, {"l": "≥", "i": "≥"}, {"l": "<", "i": "<"}, {"l": ">", "i": ">"}, {"l": "( )", "i": "()", "b": 1, "t": "ordered pair or triple: (3, 4)"}], "preview": true, "intro": ["Fossil Night at the Brontosaur Bay Natural History Museum was a sellout. At the stroke of eight the lights dipped for the dinosaur roar show, and when they came back up the display case in the Hall of Giants was empty. The <b>Golden Tear</b>, a hundred-million-year-old piece of amber with a perfectly preserved dragonfly inside, was gone!", "Six people had after-hours access that evening, each was seen in a different part of the museum, and there are six clever ways to carry a fossil out past the security desk. You are the lead detective. Find out <b>who</b> took it, <b>where</b> they were, and <b>how</b> they got it away."], "rules": ["Solve each problem correctly to unlock a clue. A wrong answer just means try again; hints appear if you get stuck.", "Every clue rules out something on the case board: a suspect and the place they were seen, or a method.", "The thief acted alone in a spot nobody else was in, so anyone with an alibi is cleared, and so is the place they were seen.", "After all 10 clues, exactly one suspect, one place and one method are left. Make your accusation!"], "suspects": [{"id": "s0", "name": "Odette Marsh", "role": "Paleontologist", "skin": "#d9a074", "hair": "short", "hairColor": "#2a1a12", "color": "#f4f4f4", "bg": "#ffe3c9", "acc": "glasses"}, {"id": "s1", "name": "Rafferty Boone", "role": "Night Guard", "skin": "#c68a5b", "hair": "long", "hairColor": "#2a1a12", "color": "#2a7f6f", "bg": "#d3f1ea", "acc": "none"}, {"id": "s2", "name": "Imelda Sato", "role": "Fossil Preparator", "skin": "#f0c7a0", "hair": "short", "hairColor": "#5a3a22", "color": "#24406e", "bg": "#d6e2f7", "acc": "bowtie"}, {"id": "s3", "name": "Cornelius Finch", "role": "Gift Shop Manager", "skin": "#f4d3b5", "hair": "long", "hairColor": "#15151a", "color": "#c0392b", "bg": "#fbdada", "acc": "cap"}, {"id": "s4", "name": "Zuri Abara", "role": "Tour Guide", "skin": "#e7b88f", "hair": "bald", "hairColor": "#d9d9df", "color": "#8a5a2b", "bg": "#f1e4c9", "acc": "none"}, {"id": "s5", "name": "Percival Hogg", "role": "Museum Trustee", "skin": "#f1c9a5", "hair": "bun", "hairColor": "#8c8c96", "color": "#7a3fb0", "bg": "#e8d9f5", "acc": "glasses"}], "places": [{"id": "p0", "name": "Dinosaur Hall"}, {"id": "p1", "name": "Fossil Lab"}, {"id": "p2", "name": "Gift Shop"}, {"id": "p3", "name": "Sandbox Dig Site"}, {"id": "p4", "name": "Ice Age Café"}, {"id": "p5", "name": "Loading Dock"}], "methods": [{"id": "m0", "name": "Hidden in a dinosaur-egg replica"}, {"id": "m1", "name": "Swapped for a resin copy"}, {"id": "m2", "name": "Folded into a souvenir T-shirt"}, {"id": "m3", "name": "Tucked inside a plaster skull cast"}, {"id": "m4", "name": "Packed in a field-supply crate"}, {"id": "m5", "name": "Rolled up in a banner"}], "clues": [{"p": "s0", "l": "p1", "text": "Odette Marsh was cataloguing bones in the Fossil Lab. The door scanner logged her badge every few minutes."}, {"m": "m0", "text": "The dinosaur-egg replica was cracked open at the front door. Inside was only foam padding and a price tag."}, {"p": "s1", "l": "p3", "text": "Rafferty Boone was helping a school group at the Sandbox Dig Site. Twenty-three kids and two teachers can vouch for him."}, {"m": "m1", "text": "The resin copy was found on its shelf, still sealed in its numbered box. Nobody swapped it."}, {"p": "s2", "l": "p0", "text": "Imelda Sato was repairing a rib cast in the Dinosaur Hall. The hall camera shows her on a ladder the whole hour."}, {"m": "m2", "text": "Every souvenir T-shirt in the display was unfolded and shaken out. Only cotton came out."}, {"p": "s3", "l": "p2", "text": "Cornelius Finch was ringing up souvenirs at the Gift Shop. The register log shows a sale every few seconds."}, {"m": "m4", "text": "The field-supply crate was pried open by the curator. It held trowels, brushes and half a sandwich."}, {"p": "s4", "l": "p4", "text": "Zuri Abara was serving hot cocoa to guests at the Ice Age Café. The receipt printer has her name on every order."}, {"m": "m5", "text": "The banner was unrolled across the floor of the Hall of Giants. It was just painted canvas."}], "culprit": {"p": "s5", "l": "p5", "m": "m3"}, "accuseTemplate": "Suspect: {p} · Place: {l} · Method: {m}", "ending": "While the guests lined up for dessert, <b>Percival Hogg</b> slipped down to the <b>Loading Dock</b>, tucked the Golden Tear inside a <b>plaster skull cast</b>, and had it wheeled out as a \"donation\" for the cast collection. Every alibi and method you cleared pointed straight at him. Case closed, detective!", "questions": [{"skill": "Clue 1", "instr": "Write the equation of the line through the two points. Any form is fine.", "html": "(−3, 4) and (5, −2)", "answer": {"t": "line", "e": "y-(-3/4*x+7/4)"}, "hint": "Start here: Slope: <i>m</i> = <span class=\"fr\"><span>−2 − 4</span><span>5 − (−3)</span></span> = <span class=\"fr\"><span>−6</span><span>8</span></span> = −<span class=\"fr\"><span>3</span><span>4</span></span>.", "steps": ["Slope: <i>m</i> = <span class=\"fr\"><span>−2 − 4</span><span>5 − (−3)</span></span> = <span class=\"fr\"><span>−6</span><span>8</span></span> = −<span class=\"fr\"><span>3</span><span>4</span></span>.", "Point-slope form with (−3, 4): <i>y</i> − 4 = −<span class=\"fr\"><span>3</span><span>4</span></span>(<i>x</i> + 3). Distribute: <i>y</i> − 4 = −<span class=\"fr\"><span>3</span><span>4</span></span><i>x</i> − <span class=\"fr\"><span>9</span><span>4</span></span>.", "<b><i>y</i> = −<span class=\"fr\"><span>3</span><span>4</span></span><i>x</i> + <span class=\"fr\"><span>7</span><span>4</span></span></b>"]}, {"skill": "Clue 2", "instr": "Write the equation of the line perpendicular to the given line that passes through the point (6, −1).", "html": "3<i>x</i> − 5<i>y</i> = 20", "answer": {"t": "line", "e": "y-(-5/3*x+9)"}, "hint": "Start here: Solve for <i>y</i>: −5<i>y</i> = −3<i>x</i> + 20, so <i>y</i> = <span class=\"fr\"><span>3</span><span>5</span></span><i>x</i> − 4. The slope is <span class=\"fr\"><span>3</span><span>5</span></span>.", "steps": ["Solve for <i>y</i>: −5<i>y</i> = −3<i>x</i> + 20, so <i>y</i> = <span class=\"fr\"><span>3</span><span>5</span></span><i>x</i> − 4. The slope is <span class=\"fr\"><span>3</span><span>5</span></span>.", "Perpendicular slopes are negative reciprocals: flip the fraction and change the sign, so <i>m</i> = −<span class=\"fr\"><span>5</span><span>3</span></span>.", "<b><i>y</i> = −<span class=\"fr\"><span>5</span><span>3</span></span><i>x</i> + 9</b>"]}, {"skill": "Clue 3", "instr": "The museum's Fossil Camp charges a flat registration fee plus a fixed price for each night. The table shows the total cost for three stays. Find the cost of an 11-night stay.", "html": "<table style=\"border-collapse:collapse;margin:6px auto;font-size:.82em\"><tr><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center;font-weight:700\">Nights</td><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center;font-weight:700\">2</td><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center;font-weight:700\">5</td><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center;font-weight:700\">9</td></tr><tr><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center\">Cost ($)</td><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center\">110</td><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center\">215</td><td style=\"padding:3px 12px;border:1.5px solid currentColor;text-align:center\">355</td></tr></table>", "answer": {"t": "num", "v": "425", "anyFn": true}, "hint": "Start here: Rate of change: <span class=\"fr\"><span>215 − 110</span><span>5 − 2</span></span> = <span class=\"fr\"><span>105</span><span>3</span></span> = 35 dollars per night. Check with the next pair: <span class=\"fr\"><span>355 − 215</span><span>9 − 5</span></span> = <span class=\"fr\"><span>140</span><span>4</span></span> = 35, so the table is linear.", "steps": ["Rate of change: <span class=\"fr\"><span>215 − 110</span><span>5 − 2</span></span> = <span class=\"fr\"><span>105</span><span>3</span></span> = 35 dollars per night. Check with the next pair: <span class=\"fr\"><span>355 − 215</span><span>9 − 5</span></span> = <span class=\"fr\"><span>140</span><span>4</span></span> = 35, so the table is linear.", "Flat fee: 110 = 35(2) + <i>b</i>, so <i>b</i> = 40. The model is <i>C</i> = 35<i>n</i> + 40.", "<b>$425</b>"]}, {"skill": "Clue 4", "instr": "The scatter plot shows hours of practice (<i>x</i>) and test score (<i>y</i>) for museum guide trainees. The line of best fit passes through the two labeled points. Use the line to predict the score of a trainee who practices 9 hours.", "html": "<svg class=\"gfx\" viewBox=\"0 0 380 380\" role=\"img\" aria-label=\"Scatter plot of test score against hours of practice with a line of best fit through (3, 58) and (7, 78)\" xmlns=\"http://www.w3.org/2000/svg\" style=\"font-family:Arial,Helvetica,sans-serif\"><defs><clipPath id=\"cp20290\"><rect x=\"34\" y=\"34\" width=\"312\" height=\"312\"/></clipPath></defs><rect x=\"34\" y=\"34\" width=\"312\" height=\"312\" fill=\"#fff\" stroke=\"#9aa7bd\" stroke-width=\"1\"/><line x1=\"34.0\" y1=\"34\" x2=\"34.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"60.0\" y1=\"34\" x2=\"60.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"86.0\" y1=\"34\" x2=\"86.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"112.0\" y1=\"34\" x2=\"112.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"138.0\" y1=\"34\" x2=\"138.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"164.0\" y1=\"34\" x2=\"164.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"190.0\" y1=\"34\" x2=\"190.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"216.0\" y1=\"34\" x2=\"216.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"242.0\" y1=\"34\" x2=\"242.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"268.0\" y1=\"34\" x2=\"268.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"294.0\" y1=\"34\" x2=\"294.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"320.0\" y1=\"34\" x2=\"320.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"346.0\" y1=\"34\" x2=\"346.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"346.0\" x2=\"346\" y2=\"346.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"314.8\" x2=\"346\" y2=\"314.8\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"283.6\" x2=\"346\" y2=\"283.6\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"252.4\" x2=\"346\" y2=\"252.4\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"221.2\" x2=\"346\" y2=\"221.2\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"190.0\" x2=\"346\" y2=\"190.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"158.8\" x2=\"346\" y2=\"158.8\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"127.6\" x2=\"346\" y2=\"127.6\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"96.4\" x2=\"346\" y2=\"96.4\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"65.2\" x2=\"346\" y2=\"65.2\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"34.0\" x2=\"346\" y2=\"34.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"346.0\" x2=\"346\" y2=\"346.0\" stroke=\"#2b3a55\" stroke-width=\"2\"/><line x1=\"34.0\" y1=\"34\" x2=\"34.0\" y2=\"346\" stroke=\"#2b3a55\" stroke-width=\"2\"/><text x=\"60.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">1</text><text x=\"86.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">2</text><text x=\"112.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">3</text><text x=\"138.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">4</text><text x=\"164.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">5</text><text x=\"190.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">6</text><text x=\"216.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">7</text><text x=\"242.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">8</text><text x=\"268.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">9</text><text x=\"294.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">10</text><text x=\"320.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">11</text><text x=\"346.0\" y=\"359.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">12</text><text x=\"29.0\" y=\"318.3\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">10</text><text x=\"29.0\" y=\"287.1\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">20</text><text x=\"29.0\" y=\"255.9\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">30</text><text x=\"29.0\" y=\"224.7\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">40</text><text x=\"29.0\" y=\"193.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">50</text><text x=\"29.0\" y=\"162.3\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">60</text><text x=\"29.0\" y=\"131.1\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">70</text><text x=\"29.0\" y=\"99.9\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">80</text><text x=\"29.0\" y=\"68.7\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">90</text><text x=\"29.0\" y=\"37.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">100</text><text x=\"350\" y=\"350.0\" font-size=\"12\" font-style=\"italic\" fill=\"#2b3a55\">x</text><text x=\"40.0\" y=\"28\" font-size=\"12\" font-style=\"italic\" fill=\"#2b3a55\">score</text><path d=\"M8.00,227.44 L8.52,227.13 L9.04,226.82 L9.56,226.50 L10.08,226.19 L10.60,225.88 L11.12,225.57 L11.64,225.26 L12.16,224.94 L12.68,224.63 L13.20,224.32 L13.72,224.01 L14.24,223.70 L14.76,223.38 L15.28,223.07 L15.80,222.76 L16.32,222.45 L16.84,222.14 L17.36,221.82 L17.88,221.51 L18.40,221.20 L18.92,220.89 L19.44,220.58 L19.96,220.26 L20.48,219.95 L21.00,219.64 L21.52,219.33 L22.04,219.02 L22.56,218.70 L23.08,218.39 L23.60,218.08 L24.12,217.77 L24.64,217.46 L25.16,217.14 L25.68,216.83 L26.20,216.52 L26.72,216.21 L27.24,215.90 L27.76,215.58 L28.28,215.27 L28.80,214.96 L29.32,214.65 L29.84,214.34 L30.36,214.02 L30.88,213.71 L31.40,213.40 L31.92,213.09 L32.44,212.78 L32.96,212.46 L33.48,212.15 L34.00,211.84 L34.52,211.53 L35.04,211.22 L35.56,210.90 L36.08,210.59 L36.60,210.28 L37.12,209.97 L37.64,209.66 L38.16,209.34 L38.68,209.03 L39.20,208.72 L39.72,208.41 L40.24,208.10 L40.76,207.78 L41.28,207.47 L41.80,207.16 L42.32,206.85 L42.84,206.54 L43.36,206.22 L43.88,205.91 L44.40,205.60 L44.92,205.29 L45.44,204.98 L45.96,204.66 L46.48,204.35 L47.00,204.04 L47.52,203.73 L48.04,203.42 L48.56,203.10 L49.08,202.79 L49.60,202.48 L50.12,202.17 L50.64,201.86 L51.16,201.54 L51.68,201.23 L52.20,200.92 L52.72,200.61 L53.24,200.30 L53.76,199.98 L54.28,199.67 L54.80,199.36 L55.32,199.05 L55.84,198.74 L56.36,198.42 L56.88,198.11 L57.40,197.80 L57.92,197.49 L58.44,197.18 L58.96,196.86 L59.48,196.55 L60.00,196.24 L60.52,195.93 L61.04,195.62 L61.56,195.30 L62.08,194.99 L62.60,194.68 L63.12,194.37 L63.64,194.06 L64.16,193.74 L64.68,193.43 L65.20,193.12 L65.72,192.81 L66.24,192.50 L66.76,192.18 L67.28,191.87 L67.80,191.56 L68.32,191.25 L68.84,190.94 L69.36,190.62 L69.88,190.31 L70.40,190.00 L70.92,189.69 L71.44,189.38 L71.96,189.06 L72.48,188.75 L73.00,188.44 L73.52,188.13 L74.04,187.82 L74.56,187.50 L75.08,187.19 L75.60,186.88 L76.12,186.57 L76.64,186.26 L77.16,185.94 L77.68,185.63 L78.20,185.32 L78.72,185.01 L79.24,184.70 L79.76,184.38 L80.28,184.07 L80.80,183.76 L81.32,183.45 L81.84,183.14 L82.36,182.82 L82.88,182.51 L83.40,182.20 L83.92,181.89 L84.44,181.58 L84.96,181.26 L85.48,180.95 L86.00,180.64 L86.52,180.33 L87.04,180.02 L87.56,179.70 L88.08,179.39 L88.60,179.08 L89.12,178.77 L89.64,178.46 L90.16,178.14 L90.68,177.83 L91.20,177.52 L91.72,177.21 L92.24,176.90 L92.76,176.58 L93.28,176.27 L93.80,175.96 L94.32,175.65 L94.84,175.34 L95.36,175.02 L95.88,174.71 L96.40,174.40 L96.92,174.09 L97.44,173.78 L97.96,173.46 L98.48,173.15 L99.00,172.84 L99.52,172.53 L100.04,172.22 L100.56,171.90 L101.08,171.59 L101.60,171.28 L102.12,170.97 L102.64,170.66 L103.16,170.34 L103.68,170.03 L104.20,169.72 L104.72,169.41 L105.24,169.10 L105.76,168.78 L106.28,168.47 L106.80,168.16 L107.32,167.85 L107.84,167.54 L108.36,167.22 L108.88,166.91 L109.40,166.60 L109.92,166.29 L110.44,165.98 L110.96,165.66 L111.48,165.35 L112.00,165.04 L112.52,164.73 L113.04,164.42 L113.56,164.10 L114.08,163.79 L114.60,163.48 L115.12,163.17 L115.64,162.86 L116.16,162.54 L116.68,162.23 L117.20,161.92 L117.72,161.61 L118.24,161.30 L118.76,160.98 L119.28,160.67 L119.80,160.36 L120.32,160.05 L120.84,159.74 L121.36,159.42 L121.88,159.11 L122.40,158.80 L122.92,158.49 L123.44,158.18 L123.96,157.86 L124.48,157.55 L125.00,157.24 L125.52,156.93 L126.04,156.62 L126.56,156.30 L127.08,155.99 L127.60,155.68 L128.12,155.37 L128.64,155.06 L129.16,154.74 L129.68,154.43 L130.20,154.12 L130.72,153.81 L131.24,153.50 L131.76,153.18 L132.28,152.87 L132.80,152.56 L133.32,152.25 L133.84,151.94 L134.36,151.62 L134.88,151.31 L135.40,151.00 L135.92,150.69 L136.44,150.38 L136.96,150.06 L137.48,149.75 L138.00,149.44 L138.52,149.13 L139.04,148.82 L139.56,148.50 L140.08,148.19 L140.60,147.88 L141.12,147.57 L141.64,147.26 L142.16,146.94 L142.68,146.63 L143.20,146.32 L143.72,146.01 L144.24,145.70 L144.76,145.38 L145.28,145.07 L145.80,144.76 L146.32,144.45 L146.84,144.14 L147.36,143.82 L147.88,143.51 L148.40,143.20 L148.92,142.89 L149.44,142.58 L149.96,142.26 L150.48,141.95 L151.00,141.64 L151.52,141.33 L152.04,141.02 L152.56,140.70 L153.08,140.39 L153.60,140.08 L154.12,139.77 L154.64,139.46 L155.16,139.14 L155.68,138.83 L156.20,138.52 L156.72,138.21 L157.24,137.90 L157.76,137.58 L158.28,137.27 L158.80,136.96 L159.32,136.65 L159.84,136.34 L160.36,136.02 L160.88,135.71 L161.40,135.40 L161.92,135.09 L162.44,134.78 L162.96,134.46 L163.48,134.15 L164.00,133.84 L164.52,133.53 L165.04,133.22 L165.56,132.90 L166.08,132.59 L166.60,132.28 L167.12,131.97 L167.64,131.66 L168.16,131.34 L168.68,131.03 L169.20,130.72 L169.72,130.41 L170.24,130.10 L170.76,129.78 L171.28,129.47 L171.80,129.16 L172.32,128.85 L172.84,128.54 L173.36,128.22 L173.88,127.91 L174.40,127.60 L174.92,127.29 L175.44,126.98 L175.96,126.66 L176.48,126.35 L177.00,126.04 L177.52,125.73 L178.04,125.42 L178.56,125.10 L179.08,124.79 L179.60,124.48 L180.12,124.17 L180.64,123.86 L181.16,123.54 L181.68,123.23 L182.20,122.92 L182.72,122.61 L183.24,122.30 L183.76,121.98 L184.28,121.67 L184.80,121.36 L185.32,121.05 L185.84,120.74 L186.36,120.42 L186.88,120.11 L187.40,119.80 L187.92,119.49 L188.44,119.18 L188.96,118.86 L189.48,118.55 L190.00,118.24 L190.52,117.93 L191.04,117.62 L191.56,117.30 L192.08,116.99 L192.60,116.68 L193.12,116.37 L193.64,116.06 L194.16,115.74 L194.68,115.43 L195.20,115.12 L195.72,114.81 L196.24,114.50 L196.76,114.18 L197.28,113.87 L197.80,113.56 L198.32,113.25 L198.84,112.94 L199.36,112.62 L199.88,112.31 L200.40,112.00 L200.92,111.69 L201.44,111.38 L201.96,111.06 L202.48,110.75 L203.00,110.44 L203.52,110.13 L204.04,109.82 L204.56,109.50 L205.08,109.19 L205.60,108.88 L206.12,108.57 L206.64,108.26 L207.16,107.94 L207.68,107.63 L208.20,107.32 L208.72,107.01 L209.24,106.70 L209.76,106.38 L210.28,106.07 L210.80,105.76 L211.32,105.45 L211.84,105.14 L212.36,104.82 L212.88,104.51 L213.40,104.20 L213.92,103.89 L214.44,103.58 L214.96,103.26 L215.48,102.95 L216.00,102.64 L216.52,102.33 L217.04,102.02 L217.56,101.70 L218.08,101.39 L218.60,101.08 L219.12,100.77 L219.64,100.46 L220.16,100.14 L220.68,99.83 L221.20,99.52 L221.72,99.21 L222.24,98.90 L222.76,98.58 L223.28,98.27 L223.80,97.96 L224.32,97.65 L224.84,97.34 L225.36,97.02 L225.88,96.71 L226.40,96.40 L226.92,96.09 L227.44,95.78 L227.96,95.46 L228.48,95.15 L229.00,94.84 L229.52,94.53 L230.04,94.22 L230.56,93.90 L231.08,93.59 L231.60,93.28 L232.12,92.97 L232.64,92.66 L233.16,92.34 L233.68,92.03 L234.20,91.72 L234.72,91.41 L235.24,91.10 L235.76,90.78 L236.28,90.47 L236.80,90.16 L237.32,89.85 L237.84,89.54 L238.36,89.22 L238.88,88.91 L239.40,88.60 L239.92,88.29 L240.44,87.98 L240.96,87.66 L241.48,87.35 L242.00,87.04 L242.52,86.73 L243.04,86.42 L243.56,86.10 L244.08,85.79 L244.60,85.48 L245.12,85.17 L245.64,84.86 L246.16,84.54 L246.68,84.23 L247.20,83.92 L247.72,83.61 L248.24,83.30 L248.76,82.98 L249.28,82.67 L249.80,82.36 L250.32,82.05 L250.84,81.74 L251.36,81.42 L251.88,81.11 L252.40,80.80 L252.92,80.49 L253.44,80.18 L253.96,79.86 L254.48,79.55 L255.00,79.24 L255.52,78.93 L256.04,78.62 L256.56,78.30 L257.08,77.99 L257.60,77.68 L258.12,77.37 L258.64,77.06 L259.16,76.74 L259.68,76.43 L260.20,76.12 L260.72,75.81 L261.24,75.50 L261.76,75.18 L262.28,74.87 L262.80,74.56 L263.32,74.25 L263.84,73.94 L264.36,73.62 L264.88,73.31 L265.40,73.00 L265.92,72.69 L266.44,72.38 L266.96,72.06 L267.48,71.75 L268.00,71.44 L268.52,71.13 L269.04,70.82 L269.56,70.50 L270.08,70.19 L270.60,69.88 L271.12,69.57 L271.64,69.26 L272.16,68.94 L272.68,68.63 L273.20,68.32 L273.72,68.01 L274.24,67.70 L274.76,67.38 L275.28,67.07 L275.80,66.76 L276.32,66.45 L276.84,66.14 L277.36,65.82 L277.88,65.51 L278.40,65.20 L278.92,64.89 L279.44,64.58 L279.96,64.26 L280.48,63.95 L281.00,63.64 L281.52,63.33 L282.04,63.02 L282.56,62.70 L283.08,62.39 L283.60,62.08 L284.12,61.77 L284.64,61.46 L285.16,61.14 L285.68,60.83 L286.20,60.52 L286.72,60.21 L287.24,59.90 L287.76,59.58 L288.28,59.27 L288.80,58.96 L289.32,58.65 L289.84,58.34 L290.36,58.02 L290.88,57.71 L291.40,57.40 L291.92,57.09 L292.44,56.78 L292.96,56.46 L293.48,56.15 L294.00,55.84 L294.52,55.53 L295.04,55.22 L295.56,54.90 L296.08,54.59 L296.60,54.28 L297.12,53.97 L297.64,53.66 L298.16,53.34 L298.68,53.03 L299.20,52.72 L299.72,52.41 L300.24,52.10 L300.76,51.78 L301.28,51.47 L301.80,51.16 L302.32,50.85 L302.84,50.54 L303.36,50.22 L303.88,49.91 L304.40,49.60 L304.92,49.29 L305.44,48.98 L305.96,48.66 L306.48,48.35 L307.00,48.04 L307.52,47.73 L308.04,47.42 L308.56,47.10 L309.08,46.79 L309.60,46.48 L310.12,46.17 L310.64,45.86 L311.16,45.54 L311.68,45.23 L312.20,44.92 L312.72,44.61 L313.24,44.30 L313.76,43.98 L314.28,43.67 L314.80,43.36 L315.32,43.05 L315.84,42.74 L316.36,42.42 L316.88,42.11 L317.40,41.80 L317.92,41.49 L318.44,41.18 L318.96,40.86 L319.48,40.55 L320.00,40.24 L320.52,39.93 L321.04,39.62 L321.56,39.30 L322.08,38.99 L322.60,38.68 L323.12,38.37 L323.64,38.06 L324.16,37.74 L324.68,37.43 L325.20,37.12 L325.72,36.81 L326.24,36.50 L326.76,36.18 L327.28,35.87 L327.80,35.56 L328.32,35.25 L328.84,34.94 L329.36,34.62 L329.88,34.31 L330.40,34.00 L330.92,33.69 L331.44,33.38 L331.96,33.06 L332.48,32.75 L333.00,32.44 L333.52,32.13 L334.04,31.82 L334.56,31.50 L335.08,31.19 L335.60,30.88 L336.12,30.57 L336.64,30.26 L337.16,29.94 L337.68,29.63 L338.20,29.32 L338.72,29.01 L339.24,28.70 L339.76,28.38 L340.28,28.07 L340.80,27.76 L341.32,27.45 L341.84,27.14 L342.36,26.82 L342.88,26.51 L343.40,26.20 L343.92,25.89 L344.44,25.58 L344.96,25.26 L345.48,24.95 L346.00,24.64 L346.52,24.33 L347.04,24.02 L347.56,23.70 L348.08,23.39 L348.60,23.08 L349.12,22.77 L349.64,22.46 L350.16,22.14 L350.68,21.83 L351.20,21.52 L351.72,21.21 L352.24,20.90 L352.76,20.58 L353.28,20.27 L353.80,19.96 L354.32,19.65 L354.84,19.34 L355.36,19.02 L355.88,18.71 L356.40,18.40 L356.92,18.09 L357.44,17.78 L357.96,17.46 L358.48,17.15 L359.00,16.84 L359.52,16.53 L360.04,16.22 L360.56,15.90 L361.08,15.59 L361.60,15.28 L362.12,14.97 L362.64,14.66 L363.16,14.34 L363.68,14.03 L364.20,13.72 L364.72,13.41 L365.24,13.10 L365.76,12.78 L366.28,12.47 L366.80,12.16 L367.32,11.85 L367.84,11.54 L368.36,11.22 L368.88,10.91 L369.40,10.60 L369.92,10.29 L370.44,9.98 L370.96,9.66 L371.48,9.35 L372.00,9.04\" fill=\"none\" stroke=\"#c0392b\" stroke-width=\"2.6\" stroke-linejoin=\"round\" stroke-linecap=\"round\" clip-path=\"url(#cp20290)\"/><circle cx=\"60.0\" cy=\"205.6\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"86.0\" cy=\"174.4\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"112.0\" cy=\"149.4\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"138.0\" cy=\"140.1\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"164.0\" cy=\"133.8\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"190.0\" cy=\"127.6\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"216.0\" cy=\"83.9\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"242.0\" cy=\"87.0\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"268.0\" cy=\"83.9\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"294.0\" cy=\"49.6\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"320.0\" cy=\"37.1\" r=\"4\" fill=\"#475569\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"112.0\" cy=\"165.0\" r=\"5.2\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"216.0\" cy=\"102.6\" r=\"5.2\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"1.2\"/><text x=\"118.0\" y=\"181.0\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"start\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">(3, 58)</text><text x=\"222.0\" y=\"118.6\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"start\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">(7, 78)</text><text x=\"190.0\" y=\"376.0\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#2b3a55\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">hours of practice</text></svg>", "answer": {"t": "num", "v": "88", "anyFn": true}, "hint": "Start here: Slope from the labeled points: <span class=\"fr\"><span>78 − 58</span><span>7 − 3</span></span> = <span class=\"fr\"><span>20</span><span>4</span></span> = 5 points per hour.", "steps": ["Slope from the labeled points: <span class=\"fr\"><span>78 − 58</span><span>7 − 3</span></span> = <span class=\"fr\"><span>20</span><span>4</span></span> = 5 points per hour.", "Point-slope with (3, 58): <i>y</i> − 58 = 5(<i>x</i> − 3), so <i>y</i> = 5<i>x</i> + 43.", "<b>88</b>"]}, {"skill": "Clue 5", "instr": "Solve the system. Write your answer as an ordered pair (<i>a</i>, <i>c</i>), where <i>a</i> is the price of an adult ticket and <i>c</i> is the price of a child ticket, both in dollars.", "html": "Saturday: 2<i>a</i> + 3<i>c</i> = 55<br>Sunday: 5<i>a</i> + 2<i>c</i> = 88", "answer": {"t": "point", "v": ["14", "9"], "names": ["a", "c"]}, "hint": "Start here: Eliminate <i>c</i>: multiply Saturday by 2 and Sunday by 3. That gives 4<i>a</i> + 6<i>c</i> = 110 and 15<i>a</i> + 6<i>c</i> = 264.", "steps": ["Eliminate <i>c</i>: multiply Saturday by 2 and Sunday by 3. That gives 4<i>a</i> + 6<i>c</i> = 110 and 15<i>a</i> + 6<i>c</i> = 264.", "Subtract: 11<i>a</i> = 154, so <i>a</i> = 14. Back-substitute into 2<i>a</i> + 3<i>c</i> = 55: 28 + 3<i>c</i> = 55, so <i>c</i> = 9.", "<b>(14, 9)</b>"]}, {"skill": "Clue 6", "instr": "Decide how many solutions the system has: one, none or infinitely many.", "html": "9<i>x</i> − 6<i>y</i> = 15<br>6<i>x</i> − 4<i>y</i> = 10", "answer": {"t": "words", "v": ["infinitely many", "infinite", "many", "dependent", "consistent dependent", "consistent and dependent", "same line", "coincident", "coincident lines", "lines are the same", "the lines are identical", "identical lines", "infinite many"], "near": [["^(none|no|nosolution|nosolutions|inconsistent|parallel|parallellines|zero|0)$", "You might be thinking of parallel lines, which give a false statement like 0 = 5. Look at what happens here when the equations are lined up: is it a false statement or a true one?"], ["^(one|1|unique|oneintersection|exactlyone|onesolution)$", "One solution means the lines cross at a single point. Compare the slopes and the y-intercepts of these two lines."]]}, "hint": "Start here: Make the <i>x</i>-terms match: multiply the first equation by 2 and the second by 3.", "steps": ["Make the <i>x</i>-terms match: multiply the first equation by 2 and the second by 3.", "First: 18<i>x</i> − 12<i>y</i> = 30. Second: 18<i>x</i> − 12<i>y</i> = 30. The two equations are identical.", "<b>infinitely many</b>"]}, {"skill": "Clue 7", "instr": "Write the inequality for the graph. The boundary is a solid line through the two labeled points. Any form is fine.", "html": "<svg class=\"gfx\" viewBox=\"0 0 380 380\" role=\"img\" aria-label=\"Graph of a solid line through (-3, -1) and (3, 3) with the region below the line shaded\" xmlns=\"http://www.w3.org/2000/svg\" style=\"font-family:Arial,Helvetica,sans-serif\"><defs><clipPath id=\"cp83181\"><rect x=\"34\" y=\"34\" width=\"312\" height=\"312\"/></clipPath></defs><rect x=\"34\" y=\"34\" width=\"312\" height=\"312\" fill=\"#fff\" stroke=\"#9aa7bd\" stroke-width=\"1\"/><line x1=\"34.0\" y1=\"34\" x2=\"34.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"60.0\" y1=\"34\" x2=\"60.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"86.0\" y1=\"34\" x2=\"86.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"112.0\" y1=\"34\" x2=\"112.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"138.0\" y1=\"34\" x2=\"138.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"164.0\" y1=\"34\" x2=\"164.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"190.0\" y1=\"34\" x2=\"190.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"216.0\" y1=\"34\" x2=\"216.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"242.0\" y1=\"34\" x2=\"242.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"268.0\" y1=\"34\" x2=\"268.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"294.0\" y1=\"34\" x2=\"294.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"320.0\" y1=\"34\" x2=\"320.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"346.0\" y1=\"34\" x2=\"346.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"346.0\" x2=\"346\" y2=\"346.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"320.0\" x2=\"346\" y2=\"320.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"294.0\" x2=\"346\" y2=\"294.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"268.0\" x2=\"346\" y2=\"268.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"242.0\" x2=\"346\" y2=\"242.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"216.0\" x2=\"346\" y2=\"216.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"190.0\" x2=\"346\" y2=\"190.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"164.0\" x2=\"346\" y2=\"164.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"138.0\" x2=\"346\" y2=\"138.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"112.0\" x2=\"346\" y2=\"112.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"86.0\" x2=\"346\" y2=\"86.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"60.0\" x2=\"346\" y2=\"60.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"34.0\" x2=\"346\" y2=\"34.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"190.0\" x2=\"346\" y2=\"190.0\" stroke=\"#2b3a55\" stroke-width=\"2\"/><line x1=\"190.0\" y1=\"34\" x2=\"190.0\" y2=\"346\" stroke=\"#2b3a55\" stroke-width=\"2\"/><text x=\"34.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−6</text><text x=\"60.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−5</text><text x=\"86.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−4</text><text x=\"112.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−3</text><text x=\"138.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−2</text><text x=\"164.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−1</text><text x=\"216.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">1</text><text x=\"242.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">2</text><text x=\"268.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">3</text><text x=\"294.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">4</text><text x=\"320.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">5</text><text x=\"346.0\" y=\"203.0\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">6</text><text x=\"185.0\" y=\"349.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−6</text><text x=\"185.0\" y=\"323.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−5</text><text x=\"185.0\" y=\"297.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−4</text><text x=\"185.0\" y=\"271.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−3</text><text x=\"185.0\" y=\"245.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−2</text><text x=\"185.0\" y=\"219.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−1</text><text x=\"185.0\" y=\"167.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">1</text><text x=\"185.0\" y=\"141.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">2</text><text x=\"185.0\" y=\"115.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">3</text><text x=\"185.0\" y=\"89.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">4</text><text x=\"185.0\" y=\"63.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">5</text><text x=\"185.0\" y=\"37.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">6</text><text x=\"350\" y=\"194.0\" font-size=\"12\" font-style=\"italic\" fill=\"#2b3a55\">x</text><text x=\"196.0\" y=\"28\" font-size=\"12\" font-style=\"italic\" fill=\"#2b3a55\">y</text><path d=\"M346.00,346.00 L346.00,60.00 L34.00,268.00 L34.00,346.00 Z\" fill=\"#5b8def\" fill-opacity=\"0.3\" stroke=\"none\" clip-path=\"url(#cp83181)\"/><path d=\"M8.00,285.33 L372.00,42.67\" stroke=\"#c0392b\" stroke-width=\"3\" fill=\"none\" stroke-linecap=\"round\" clip-path=\"url(#cp83181)\"/><circle cx=\"112.0\" cy=\"216.0\" r=\"4.2\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"268.0\" cy=\"112.0\" r=\"4.2\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"1.2\"/><text x=\"120.0\" y=\"233.0\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"start\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">(−3, −1)</text><text x=\"260.0\" y=\"103.0\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"end\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">(3, 3)</text></svg>", "answer": {"t": "ineq2", "e": "y-(2/3*x+1)", "op": "<="}, "hint": "Start here: Slope from the labeled points: <span class=\"fr\"><span>3 − (−1)</span><span>3 − (−3)</span></span> = <span class=\"fr\"><span>4</span><span>6</span></span> = <span class=\"fr\"><span>2</span><span>3</span></span>. The line crosses the <i>y</i>-axis at 1, so the boundary is <i>y</i> = <span class=\"fr\"><span>2</span><span>3</span></span><i>x</i> + 1.", "steps": ["Slope from the labeled points: <span class=\"fr\"><span>3 − (−1)</span><span>3 − (−3)</span></span> = <span class=\"fr\"><span>4</span><span>6</span></span> = <span class=\"fr\"><span>2</span><span>3</span></span>. The line crosses the <i>y</i>-axis at 1, so the boundary is <i>y</i> = <span class=\"fr\"><span>2</span><span>3</span></span><i>x</i> + 1.", "The line is solid, so the inequality includes the line (≤ or ≥). The shading is below the line, so use ≤. Test (0, 0): 0 ≤ 1 is true, and (0, 0) is in the shaded region.", "<b><i>y</i> ≤ <span class=\"fr\"><span>2</span><span>3</span></span><i>x</i> + 1</b>"]}, {"skill": "Clue 8", "instr": "The museum workshop makes <i>x</i> skull casts and <i>y</i> egg kits each week. Mold time limits them to 2<i>x</i> + <i>y</i> ≤ 16 and painting time to <i>x</i> + 3<i>y</i> ≤ 18, with <i>x</i> ≥ 0 and <i>y</i> ≥ 0. The profit is <i>P</i> = 40<i>x</i> + 55<i>y</i> dollars. The feasible region is shown. Find the maximum weekly profit.", "html": "<svg class=\"gfx\" viewBox=\"0 0 380 380\" role=\"img\" aria-label=\"Graph of the feasible region bounded by the axes and the lines 2x + y = 16 and x + 3y = 18\" xmlns=\"http://www.w3.org/2000/svg\" style=\"font-family:Arial,Helvetica,sans-serif\"><defs><clipPath id=\"cp99578\"><rect x=\"34\" y=\"34\" width=\"312\" height=\"312\"/></clipPath></defs><rect x=\"34\" y=\"34\" width=\"312\" height=\"312\" fill=\"#fff\" stroke=\"#9aa7bd\" stroke-width=\"1\"/><line x1=\"34.0\" y1=\"34\" x2=\"34.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"62.4\" y1=\"34\" x2=\"62.4\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"90.7\" y1=\"34\" x2=\"90.7\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"119.1\" y1=\"34\" x2=\"119.1\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"147.5\" y1=\"34\" x2=\"147.5\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"175.8\" y1=\"34\" x2=\"175.8\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"204.2\" y1=\"34\" x2=\"204.2\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"232.5\" y1=\"34\" x2=\"232.5\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"260.9\" y1=\"34\" x2=\"260.9\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"289.3\" y1=\"34\" x2=\"289.3\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"317.6\" y1=\"34\" x2=\"317.6\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"346.0\" y1=\"34\" x2=\"346.0\" y2=\"346\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"346.0\" x2=\"346\" y2=\"346.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"317.6\" x2=\"346\" y2=\"317.6\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"289.3\" x2=\"346\" y2=\"289.3\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"260.9\" x2=\"346\" y2=\"260.9\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"232.5\" x2=\"346\" y2=\"232.5\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"204.2\" x2=\"346\" y2=\"204.2\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"175.8\" x2=\"346\" y2=\"175.8\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"147.5\" x2=\"346\" y2=\"147.5\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"119.1\" x2=\"346\" y2=\"119.1\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"90.7\" x2=\"346\" y2=\"90.7\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"62.4\" x2=\"346\" y2=\"62.4\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"34.0\" x2=\"346\" y2=\"34.0\" stroke=\"#d5dcea\" stroke-width=\"1\"/><line x1=\"34\" y1=\"317.6\" x2=\"346\" y2=\"317.6\" stroke=\"#2b3a55\" stroke-width=\"2\"/><line x1=\"62.4\" y1=\"34\" x2=\"62.4\" y2=\"346\" stroke=\"#2b3a55\" stroke-width=\"2\"/><text x=\"34.0\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">−1</text><text x=\"90.7\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">1</text><text x=\"119.1\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">2</text><text x=\"147.5\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">3</text><text x=\"175.8\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">4</text><text x=\"204.2\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">5</text><text x=\"232.5\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">6</text><text x=\"260.9\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">7</text><text x=\"289.3\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">8</text><text x=\"317.6\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">9</text><text x=\"346.0\" y=\"330.6\" font-size=\"10\" text-anchor=\"middle\" fill=\"#2b3a55\">10</text><text x=\"57.4\" y=\"349.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">−1</text><text x=\"57.4\" y=\"292.8\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">1</text><text x=\"57.4\" y=\"264.4\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">2</text><text x=\"57.4\" y=\"236.0\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">3</text><text x=\"57.4\" y=\"207.7\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">4</text><text x=\"57.4\" y=\"179.3\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">5</text><text x=\"57.4\" y=\"151.0\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">6</text><text x=\"57.4\" y=\"122.6\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">7</text><text x=\"57.4\" y=\"94.2\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">8</text><text x=\"57.4\" y=\"65.9\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">9</text><text x=\"57.4\" y=\"37.5\" font-size=\"10\" text-anchor=\"end\" fill=\"#2b3a55\">10</text><text x=\"350\" y=\"321.6\" font-size=\"12\" font-style=\"italic\" fill=\"#2b3a55\">x</text><text x=\"68.4\" y=\"28\" font-size=\"12\" font-style=\"italic\" fill=\"#2b3a55\">y</text><path d=\"M62.36,317.64 L289.27,317.64 L232.55,204.18 L62.36,147.45 Z\" fill=\"#2fa36b\" fill-opacity=\"0.3\" stroke=\"#1f7a4d\" clip-path=\"url(#cp99578)\"/><path d=\"M5.64,-249.64 L374.36,487.82\" stroke=\"#c0392b\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\" clip-path=\"url(#cp99578)\"/><path d=\"M5.64,128.55 L374.36,251.45\" stroke=\"#1d4ed8\" stroke-width=\"2.6\" fill=\"none\" stroke-linecap=\"round\" clip-path=\"url(#cp99578)\"/><text x=\"184.3\" y=\"82.2\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"start\" fill=\"#c0392b\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">2<tspan font-style=\"italic\">x</tspan> + <tspan font-style=\"italic\">y</tspan> = 16</text><text x=\"258.1\" y=\"198.5\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"start\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\"><tspan font-style=\"italic\">x</tspan> + 3<tspan font-style=\"italic\">y</tspan> = 18</text><circle cx=\"289.3\" cy=\"317.6\" r=\"4.2\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"1.2\"/><circle cx=\"62.4\" cy=\"147.5\" r=\"4.2\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"1.2\"/><text x=\"289.3\" y=\"334.6\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">(8, 0)</text><text x=\"70.4\" y=\"141.5\" font-size=\"11.5\" font-weight=\"700\" text-anchor=\"start\" fill=\"#1d4ed8\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">(0, 6)</text><circle cx=\"232.5\" cy=\"204.2\" r=\"5\" fill=\"#fff\" stroke=\"#fff\" stroke-width=\"1.2\"/><text x=\"214.5\" y=\"199.2\" font-size=\"15\" font-weight=\"700\" text-anchor=\"start\" fill=\"#1f7a4d\" stroke=\"#fff\" stroke-width=\"3\" paint-order=\"stroke\">?</text></svg>", "answer": {"t": "num", "v": "460", "anyFn": true}, "hint": "Start here: The maximum is at a corner of the feasible region. The labeled corners are (8, 0) and (0, 6), and (0, 0) is the origin. Find the missing corner by solving 2<i>x</i> + <i>y</i> = 16 and <i>x</i> + 3<i>y</i> = 18: <i>y</i> = 16 − 2<i>x</i>, so <i>x</i> + 48 − 6<i>x</i> = 18, giving <i>x</i> = 6 and <i>y</i> = 4.", "steps": ["The maximum is at a corner of the feasible region. The labeled corners are (8, 0) and (0, 6), and (0, 0) is the origin. Find the missing corner by solving 2<i>x</i> + <i>y</i> = 16 and <i>x</i> + 3<i>y</i> = 18: <i>y</i> = 16 − 2<i>x</i>, so <i>x</i> + 48 − 6<i>x</i> = 18, giving <i>x</i> = 6 and <i>y</i> = 4.", "Test every corner: <i>P</i>(0, 0) = 0, <i>P</i>(8, 0) = 320, <i>P</i>(6, 4) = 240 + 220 = 460, <i>P</i>(0, 6) = 330.", "<b>$460</b>"]}, {"skill": "Clue 9", "instr": "The gift shop sells posters (<i>p</i>), mugs (<i>m</i>) and kits (<i>k</i>) at fixed prices. Three orders are shown. Find the price of each item as an ordered triple (<i>p</i>, <i>m</i>, <i>k</i>).", "html": "Order A: 2<i>p</i> + <i>m</i> + <i>k</i> = 79<br>Order B: <i>p</i> + 3<i>m</i> + <i>k</i> = 107<br>Order C: <i>p</i> + <i>m</i> + 2<i>k</i> = 102", "answer": {"t": "point", "v": ["12", "20", "35"], "names": ["p", "m", "k"]}, "hint": "Start here: Eliminate <i>k</i> twice. Order A minus Order B: <i>p</i> − 2<i>m</i> = −28. Order C minus 2 times Order A: −3<i>p</i> − <i>m</i> = −56, so 3<i>p</i> + <i>m</i> = 56.", "steps": ["Eliminate <i>k</i> twice. Order A minus Order B: <i>p</i> − 2<i>m</i> = −28. Order C minus 2 times Order A: −3<i>p</i> − <i>m</i> = −56, so 3<i>p</i> + <i>m</i> = 56.", "From <i>p</i> = 2<i>m</i> − 28: 3(2<i>m</i> − 28) + <i>m</i> = 56, so 7<i>m</i> = 140 and <i>m</i> = 20. Then <i>p</i> = 12.", "<b>(12, 20, 35)</b>"]}, {"skill": "Clue 10", "instr": "Plan A costs $85 plus $12 per visit. Plan B costs $35 plus $17 per visit. Write an inequality for the number of visits <i>x</i> for which Plan A is the cheaper plan.", "html": "Plan A cost &lt; Plan B cost", "answer": {"t": "ineq2", "e": "10-x", "op": "<"}, "hint": "Start here: Write each cost: Plan A is 85 + 12<i>x</i> and Plan B is 35 + 17<i>x</i>. Plan A is cheaper when 85 + 12<i>x</i> &lt; 35 + 17<i>x</i>.", "steps": ["Write each cost: Plan A is 85 + 12<i>x</i> and Plan B is 35 + 17<i>x</i>. Plan A is cheaper when 85 + 12<i>x</i> &lt; 35 + 17<i>x</i>.", "Subtract 12<i>x</i> and 35 from both sides: 50 &lt; 5<i>x</i>. Divide by 5 (positive, so the inequality does not flip): 10 &lt; <i>x</i>.", "<b><i>x</i> &gt; 10</b>"]}]};
+
+/* compound inequality answers: parsed into a true/false test for any x, then compared with the key */
+function ineqPred(raw){
+  const s=String(raw==null?'':raw).toLowerCase().replace(/[−–—]/g,'-').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/=</g,'<=').replace(/=>/g,'>=').replace(/\s+/g,'');
+  if(!s) return null;
+  const num=t=>{ if(/^[-+]?\d+(\.\d+)?$/.test(t)) return parseFloat(t); const m=t.match(/^([-+]?\d+)\/(\d+)$/); return m&&+m[2]?parseInt(m[1],10)/parseInt(m[2],10):NaN; };
+  const clauses=[];
+  for(const c of s.split('or')){
+    const atoms=[];
+    for(const a of c.split('and')){
+      const parts=a.split(/(<=|>=|<|>)/);
+      if(parts.length<3||parts.length%2===0) return null;
+      const ops=[], opd=[];
+      for(let i=0;i<parts.length;i++){
+        if(i%2){ ops.push(parts[i]); continue; }
+        if(parts[i]==='x') opd.push('x'); else { const v=num(parts[i]); if(isNaN(v)) return null; opd.push(v); }
+      }
+      if(!opd.includes('x')) return null;
+      atoms.push({ops,opd});
+    }
+    clauses.push(atoms);
+  }
+  return xv=>clauses.some(atoms=>atoms.every(a=>{
+    for(let i=0;i<a.ops.length;i++){
+      const L=a.opd[i]==='x'?xv:a.opd[i], R=a.opd[i+1]==='x'?xv:a.opd[i+1], o=a.ops[i];
+      if(!(o==='<'?L<R:o==='<='?L<=R:o==='>'?L>R:L>=R)) return false;
+    }
+    return true;
+  }));
+}
+function ineqCheck(raw,A){
+  const f=ineqPred(raw);
+  if(!f) return {ok:false,parse:true,msg:"I couldn't read that. Write it like 0 < x ≤ 9, or x < -1 or x ≥ 8. You can use the symbol buttons."};
+  const g=ineqPred(A.v), bad=[];
+  for(let k=-80;k<=80;k++){ const p=k/2; if(f(p)!==g(p)) bad.push(p); }
+  if(!bad.length) return {ok:true};
+  if(bad.every(Number.isInteger)) return {ok:false,msg:'Close! Check each endpoint: use < or > when the number is NOT included, and <= or >= when it IS included.'};
+  const wantOr=A.v.indexOf('or')>=0, gotOr=String(raw).toLowerCase().indexOf('or')>=0;
+  if(wantOr&&!gotOr) return {ok:false,msg:'This problem has two separate pieces. Join them with OR.'};
+  if(!wantOr&&gotOr) return {ok:false,msg:'Both conditions must be true at the same time. Write one inequality like a < x < b.'};
+  if(A.flip) return {ok:false,msg:'Not quite. Remember: multiplying or dividing by a negative number reverses the inequality symbol.'};
+  return {ok:false,msg:'Not quite. Check your work and try again.'};
+}
+
+/* ---------- general typed-answer engine ---------- */
+const SUB={'₀':'0','₁':'1','₂':'2','₃':'3','₄':'4','₅':'5','₆':'6','₇':'7','₈':'8','₉':'9'};
+const SUP={'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁻':'-'};
+function nrm(s){
+  s=String(s==null?'':s).toLowerCase();
+  s=s.replace(/[−–—]/g,'-').replace(/[×·⋅]/g,'*').replace(/÷/g,'/').replace(/[ ]/g,' ');
+  s=s.replace(/([⁻]?[⁰¹²³⁴⁵⁶⁷⁸⁹]+)/g,m=>'^'+m.split('').map(c=>SUP[c]).join(''));
+  s=s.replace(/([₀₁₂₃₄₅₆₇₈₉]+)/g,m=>'_'+m.split('').map(c=>SUB[c]).join(''));
+  s=s.replace(/[≈≅]/g,'=').replace(/(log_?\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)/g,'$1($2)');
+  s=s.replace(/π/g,'pi').replace(/√/g,'sqrt').replace(/∛/g,'cbrt').replace(/∘/g,'@').replace(/°/g,'').replace(/\s+/g,'');
+  s=s.replace(/degrees?|deg/g,'');
+  s=s.replace(/\{/g,'(').replace(/\}/g,')').replace(/\[/g,'(').replace(/\]/g,')');
+  let nb=0;s=s.replace(/\|/g,()=>(nb++%2===0)?'abs(':')');
+  return s;
+}
+function tokenize(s){
+  const t=[];let i=0;
+  while(i<s.length){
+    const c=s[i];
+    if(/[0-9.]/.test(c)){let j=i;while(j<s.length&&/[0-9.]/.test(s[j]))j++;const n=parseFloat(s.slice(i,j));if(isNaN(n))throw 0;t.push({k:'n',v:n});i=j;}
+    else if(c==='p'&&s.startsWith('pi',i)){t.push({k:'n',v:Math.PI,pi:1});i+=2;}
+    else if(c==='s'&&s.startsWith('sqrt',i)){t.push({k:'f',fn:'sqrt'});i+=4;}
+    else if(c==='a'&&s.startsWith('abs',i)){t.push({k:'f',fn:'abs'});i+=3;}
+    else if(c==='c'&&s.startsWith('cbrt',i)){t.push({k:'f',fn:'cbrt'});i+=4;}
+    else if(c==='l'&&s.startsWith('ln',i)){t.push({k:'f',fn:'ln'});i+=2;}
+    else if(c==='l'&&s.startsWith('log',i)){
+      i+=3;let base=10;
+      if(s[i]==='_'){i++;const m=/^(\d+(?:\.\d+)?|e)/.exec(s.slice(i));if(!m)throw 0;base=m[1]==='e'?Math.E:parseFloat(m[1]);i+=m[1].length;}
+      else{const m=/^(\d+(?:\.\d+)?)(?=\()/.exec(s.slice(i));if(m){base=parseFloat(m[1]);i+=m[1].length;}}
+      if(!(base>0)||base===1)throw 0;
+      t.push({k:'f',fn:'log',base});}
+    else if(c==='e'){t.push({k:'n',v:Math.E});i++;}
+    else if(c==='x'||c==='y'||c==='z'){t.push({k:'v',v:c});i++;}
+    else if('+-*/^()'.includes(c)){t.push({k:'o',v:c});i++;}
+    else throw 0;
+  }
+  return t;
+}
+function parseExpr(s){
+  const T=tokenize(s);let p=0;
+  const peek=()=>T[p];
+  const startsAtom=t=>t&&(t.k==='n'||t.k==='v'||t.k==='f'||(t.k==='o'&&t.v==='('));
+  function expr(){let l=term();while(peek()&&peek().k==='o'&&(peek().v==='+'||peek().v==='-')){const o=T[p++].v;const r=term();l=o==='+'?add(l,r):sub(l,r);}return l;}
+  function term(){let l=unary();for(;;){const t=peek();if(!t)break;if(t.k==='o'&&(t.v==='*'||t.v==='/')){p++;const r=unary();l=t.v==='*'?mul(l,r):div(l,r);}else if(startsAtom(t)){const r=unary();l=mul(l,r);}else break;}return l;}
+  function unary(){const t=peek();if(t&&t.k==='o'&&(t.v==='-'||t.v==='+')){p++;const u=unary();return t.v==='-'?neg(u):u;}return power();}
+  function power(){const b=atom();const t=peek();if(t&&t.k==='o'&&t.v==='^'){p++;const e=unary();return pw(b,e);}return b;}
+  function atom(){
+    const t=T[p++];if(!t)throw 0;
+    if(t.k==='n')return ()=>t.v;
+    if(t.k==='v')return env=>{const v=env[t.v];if(v===undefined)throw 0;return v;};
+    if(t.k==='f'){const a=atom();if(t.fn==='ln')return env=>Math.log(a(env));if(t.fn==='log'){const lb=Math.log(t.base);return env=>Math.log(a(env))/lb;}if(t.fn==='abs')return env=>Math.abs(a(env));if(t.fn==='cbrt')return env=>Math.cbrt(a(env));return env=>Math.sqrt(a(env));}
+    if(t.k==='o'&&t.v==='('){const e=expr();const c=T[p++];if(!c||c.v!==')')throw 0;return e;}
+    throw 0;
+  }
+  const add=(a,b)=>e=>a(e)+b(e),sub=(a,b)=>e=>a(e)-b(e),mul=(a,b)=>e=>a(e)*b(e),div=(a,b)=>e=>a(e)/b(e),neg=a=>e=>-a(e),pw=(a,b)=>e=>Math.pow(a(e),b(e));
+  const f=expr();if(p!==T.length)throw 0;return f;
+}
+const PTS=[1.7,2.3,3.1,0.6,-0.9,-2.4,4.6,7.3,10.9,-5.2,-7.7,13.4,0.13,-0.37,5.9,2.9,-1.6,8.4];
+/* two expressions are the same function if they agree wherever either is defined (and are defined on the same points) */
+function same(f,g,vars){
+  let n=0;
+  for(const x of PTS){const env={x:x,y:x*0.37+1.1,z:x*0.11-0.4};let a,b;try{a=f(env);b=g(env);}catch(e){return false;}
+    const fa=isFinite(a),fb=isFinite(b);
+    if(!fa&&!fb)continue;
+    if(fa!==fb)return false;
+    if(Math.abs(a-b)>1e-6*Math.max(1,Math.abs(a),Math.abs(b)))return false;
+    n++;}
+  return n>=3;
+}
+function val(s){return parseExpr(nrm(s))({x:0,y:0});}
+function valNum(s){const v=parseExpr(s)({});return v;}
+function stripUnits(s){return s.replace(/(squareunits|squnits|squarefeet|squareinches|cubicunits|units?|feet|foot|ft|miles?|mi|inches|in|cm|meters?|m|years?|yrs?|days?|nights?|visits?|points?|tickets?|percent|hours?|hrs?|dollars?|mg)(\^?\d)?$/,'');}
+function stripLhs(s){return s.replace(/^[a-z]\s*=\s*/,'');}
+function expandPM(s){ // "3±sqrt5" -> ["3+sqrt5","3-sqrt5"]; "±4" -> ["4","-4"]
+  s=s.replace(/±/g,'±');const i=s.indexOf('±');if(i<0)return [s];
+  const a=s.slice(0,i),b=s.slice(i+1);return [a+'+'+b,a+'-'+b].map(z=>z.replace(/^\+/,''));
+}
+function closeTo(a,b,tol){return isFinite(a)&&Math.abs(a-b)<=(tol!=null?tol:1e-6*Math.max(1,Math.abs(b)));}
+const BAD='Not quite. Check your work and try again.';
+function pe(msg){return {ok:false,parse:true,msg:msg||"I couldn't read that. Check the format shown under the answer box."};}
+/* ---- function-notation statements: f(3)=7, (f∘g)(2)=5, f^-1(4)=1 ---- */
+function canonLhs(L){
+  L=String(L).replace(/∘/g,'@').replace(/\^\(-1\)/g,'^-1').replace(/([fgh])o([fgh])/g,'$1@$2');
+  L=L.replace(/^([fgh])@([fgh])\((.*)\)$/,'($1@$2)($3)');
+  return L;
+}
+function isFnLhs(L){L=canonLhs(L);return /^\(*[fgh]/.test(L)&&/\)$/.test(L)&&/[fgh](\^-1)?\(|@/.test(L);}
+const LHS_MSG='That statement is not about the value the problem asks for. Check which value you need.';
+function lhsOk(L,a){ if(!a.lhsKey)return true; return a.lhsKey.map(canonLhs).includes(canonLhs(L)); }
+function checkNum(raw,a){
+  let s=nrm(raw).replace(/:/g,'/').replace(/\$/g,'').replace(/(\d),(?=\d{3}(?!\d))/g,'$1');
+  s=stripUnits(s); if(!s)return pe();
+  const approx=/≈/.test(String(raw));
+  // a statement or a chain: "x=3", "y=-3", "f(3)=7", "log_8(4)=2/3", "f(3)=2(3)+1=7"
+  let pieces=s.split('=');
+  if(pieces.length>3)return pe();
+  if(pieces.length>1){
+    const L=pieces[0]; if(!L||pieces.slice(1).some(z=>!z))return pe();
+    if(isFnLhs(L)){ if(!lhsOk(L,a))return {ok:false,msg:LHS_MSG}; pieces.shift(); }
+    else if(a.anyFn&&/^[a-z]\([^()=]*\)$/.test(L)&&L!=='e'){ pieces.shift(); }
+    else if(/^[a-z]$/.test(L)&&L!=='e'){
+      if(a.lhsKey&&!lhsOk(L,a))return {ok:false,msg:LHS_MSG};
+      if(a.lhs&&L!==a.lhs)return {ok:false,msg:'Check what the answer should look like. A horizontal asymptote is a horizontal line, so it has the form y = number.'};
+      pieces.shift();
+    }
+  }
+  const vals=[];
+  for(let pi=0;pi<pieces.length;pi++){const p=pieces[pi];let v;
+    try{v=parseExpr(p)({});}catch(e){
+      // a middle step of the student's work that still has function notation, like 2f(1)+3, is not checked
+      if(pi<pieces.length-1&&pi>0===false&&/[fgh]\(|@/.test(p))continue;
+      if(pi<pieces.length-1&&/[fgh]\(|@/.test(p))continue;
+      return pe();}
+    vals.push(v);}
+  if(!vals.length)return pe();
+  if(!approx&&vals.some(v=>!closeTo(vals[vals.length-1],v,1e-9)))return {ok:false,msg:'The two sides of that statement are not equal. Check your work.'};
+  s=pieces[pieces.length-1];
+  if(a.single&&/[,;]|(^|[^a-z])or([^a-z]|$)|and/.test(s))return {ok:false,msg:'This problem has exactly one valid answer. Check each possible solution in the original equation. Does every one of them work?'};
+  let v=vals[vals.length-1];
+  const want=parseExpr(nrm(a.v))({});
+  if(!closeTo(v,want,a.tol)){
+    if(a.fracOnly&&Math.abs(v-want)<0.002&&!/^-?\d+$/.test(s)&&/\./.test(s))return {ok:false,msg:'That decimal is only a rounded copy. Give the exact value as a fraction.'};
+    return {ok:false,msg:BAD};}
+  if(a.exact&&!/pi|sqrt/.test(nrm(raw)))return {ok:false,msg:'That is the right size, but leave your answer exact: use π or a radical (√) instead of a decimal.'};
+  return {ok:true};
+}
+function parseList(raw){
+  let s=String(raw==null?'':raw).toLowerCase().trim().replace(/^\{(.*)\}$/,'$1').replace(/\s+(or|and)\s+/g,',').replace(/;/g,',');
+  const segs=s.split(',').map(z=>nrm(z)).filter(z=>z.length);const out=[];
+  for(const g of segs){const h=stripLhs(g);for(const e of expandPM(h)){out.push(parseExpr(e)({}));}}
+  return out;
+}
+function checkNums(raw,a){
+  let got;try{got=parseList(raw);}catch(e){return pe();}
+  if(!got.length)return pe();
+  const want=[];for(const w of a.v)for(const e of expandPM(nrm(w)))want.push(parseExpr(e)({}));
+  got.sort((p,q)=>p-q);want.sort((p,q)=>p-q);
+  const g2=got.filter((v,i)=>i===0||Math.abs(v-got[i-1])>1e-9);
+  if(g2.length!==want.length||g2.some((v,i)=>!closeTo(v,want[i])))return {ok:false,msg:g2.length<want.length?'This problem has more than one solution. Give all of them.':BAD};
+  return {ok:true};
+}
+function splitTop(s){const out=[];let d=0,cur='';for(const c of s){if(c==='(')d++;if(c===')')d--;if(c===','&&d===0){out.push(cur);cur='';}else cur+=c;}out.push(cur);return out;}
+function checkPoint(raw,a){
+  const n=a.v.length;
+  const want=a.v.map(z=>parseExpr(nrm(z))({}));
+  const names=a.names||(n===2?['x','y']:['x','y','z']);
+  const fmt=n===2?'Type an ordered pair, like (2, 3).':'Type an ordered triple, like (1, 2, 3).';
+  let s=nrm(String(raw).replace(/,?\s+and\s+/gi,',').replace(/;/g,','));
+  // "(x, y) = (3, 4)"  or  "(a,c)=(3,4)"
+  let m=/^\(([a-z](?:,[a-z])*)\)=(.*)$/.exec(s);
+  if(m){s=m[2];}
+  s=s.replace(/^\((.*)\)$/,'$1');
+  const parts=splitTop(s);if(parts.length!==n)return pe(fmt);
+  const lab=parts.map(p=>{const q=/^([a-z])=(?!=)/.exec(p);return q?q[1]:null;});
+  const named=lab.filter(Boolean).length;
+  if(named&&named!==n)return pe(fmt);
+  let g;
+  try{g=parts.map(p=>parseExpr(named?p.replace(/^[a-z]=/,''):p)({}));}catch(e){return pe(fmt);}
+  if(named){
+    const sorted=lab.slice().sort().join(''),ref=names.slice().sort().join('');
+    if(sorted===ref&&new Set(lab).size===n){const h=names.map(nm=>g[lab.indexOf(nm)]);g=h;}
+  }
+  if(g.every((v,i)=>closeTo(v,want[i])))return {ok:true};
+  const gs=g.slice().sort((p,q)=>p-q),ws=want.slice().sort((p,q)=>p-q);
+  if(gs.every((v,i)=>closeTo(v,ws[i])))return {ok:false,msg:'Those are the right numbers, but in the wrong order. Check which value goes where.'};
+  return {ok:false,msg:BAD};
+}
+/* ---- linear equations / inequalities in x and y, any equivalent form ---- */
+function linCoef(f){ // f(env) linear in x,y -> {A,B,C} or null
+  const v=(x,y)=>f({x:x,y:y,z:0});
+  try{const C=v(0,0),A=v(1,0)-C,B=v(0,1)-C;
+    if(![A,B,C].every(isFinite))return null;
+    for(const [px,py] of [[2,3],[-1.7,0.4],[5.3,-2.2],[0.5,7]]){const t=v(px,py),l=C+A*px+B*py;if(!isFinite(t)||Math.abs(t-l)>1e-8*Math.max(1,Math.abs(t),Math.abs(l)))return null;}
+    return {A,B,C};}catch(e){return null;}
+}
+function cross(p,q){const sc=Math.max(Math.abs(p.A),Math.abs(p.B),Math.abs(p.C))*Math.max(Math.abs(q.A),Math.abs(q.B),Math.abs(q.C))+1e-12;
+  const z=u=>Math.abs(u)<=1e-9*sc;
+  return {par:z(p.A*q.B-p.B*q.A),prop:z(p.A*q.B-p.B*q.A)&&z(p.A*q.C-p.C*q.A)&&z(p.B*q.C-p.C*q.B),perp:z(p.A*q.A+p.B*q.B)};}
+function checkLine(raw,a){
+  let s=nrm(raw).replace(/≤/g,'<=').replace(/≥/g,'>=');
+  if(/[<>]/.test(s))return pe('This answer is an equation of a line, so use an = sign, like y = 2x + 1.');
+  s=s.replace(/^[fgh]\(x\)=/,'y=');
+  const q=s.split('=');
+  if(q.length!==2||!q[0]||!q[1])return pe('Write an equation with one = sign, like y = 2x + 1. Any form is fine, such as 3x + 4y = 7.');
+  let L,Rr;try{L=parseExpr(q[0]);Rr=parseExpr(q[1]);}catch(e){return pe('I could not read that. Write an equation in x and y, like y = 2x + 1.');}
+  const P=linCoef(env=>L(env)-Rr(env));
+  if(!P)return {ok:false,msg:'That is not the equation of a line. A line has the form y = mx + b, or Ax + By = C.'};
+  if(Math.abs(P.A)<1e-12&&Math.abs(P.B)<1e-12)return {ok:false,msg:'That equation does not describe a line. Check that it has x or y in it.'};
+  const K=linCoef(parseExpr(nrm(a.e)));
+  const c=cross(P,K);
+  if(c.prop)return {ok:true};
+  if(c.par)return {ok:false,msg:'The slope is right, but the line is not in the right place. Check the y-intercept, or the point the line has to pass through.'};
+  if(c.perp)return {ok:false,msg:'Your line is perpendicular to the one you need. Check the slope.'};
+  return {ok:false,msg:BAD};
+}
+function checkIneq2(raw,a){
+  let s=nrm(raw).replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/=</g,'<=').replace(/=>/g,'>=');
+  const fmt='Write an inequality in x and y, like y > 2x + 1 or 3x + 4y ≤ 12. Use <= and >= for ≤ and ≥.';
+  const m=/^([^<>]*?)(<=|>=|<|>)([^<>=]*)$/.exec(s);
+  if(!m||!m[1]||!m[3])return pe(fmt);
+  let L,Rr;try{L=parseExpr(m[1]);Rr=parseExpr(m[3]);}catch(e){return pe(fmt);}
+  const flip=(m[2][0]==='<')?-1:1,strict=m[2].length===1;
+  const P=linCoef(env=>flip*(L(env)-Rr(env)));
+  if(!P)return {ok:false,msg:'That is not a linear inequality. The boundary should be a line.'};
+  if(Math.abs(P.A)<1e-12&&Math.abs(P.B)<1e-12)return {ok:false,msg:'That inequality has no x or y in it. Write the inequality for the shaded region.'};
+  const kf=(a.op[0]==='<')?-1:1,kstrict=a.op.length===1;
+  const ke=parseExpr(nrm(a.e));
+  const K=linCoef(env=>kf*ke(env));
+  const c=cross(P,K);
+  if(c.prop){
+    const comp=Math.abs(K.A)>1e-12?P.A/K.A:(Math.abs(K.B)>1e-12?P.B/K.B:P.C/K.C);
+    if(comp>0){ if(strict===kstrict)return {ok:true};
+      return {ok:false,msg:'The boundary line is right! Check whether it is solid or dashed: solid means ≤ or ≥, dashed means < or >.'}; }
+    return {ok:false,msg:'The boundary line is right! Check which side is shaded. Test a point in the shaded region.'};
+  }
+  if(c.par)return {ok:false,msg:'The slope is right, but the boundary line is not in the right place. Check the y-intercept.'};
+  return {ok:false,msg:BAD};
+}
+const FILLER=new Set(['the','a','an','of','is','are','has','have','there','system','solution','solutions','answer','it','its','they','amount','number','will','be','this','that','exactly']);
+function wordKey(s){
+  s=String(s==null?'':s).toLowerCase().replace(/∞/g,' infinite ').replace(/[^a-z0-9\s]/g,' ');
+  return s.split(/\s+/).filter(w=>w&&!FILLER.has(w)).join('');
+}
+function checkWords(raw,a){
+  const g=wordKey(raw);if(!g)return pe();
+  if(a.v.some(z=>wordKey(z)===g))return {ok:true};
+  for(const [re,msg] of (a.near||[]))if(new RegExp(re).test(g))return {ok:false,msg};
+  return {ok:false,msg:BAD};
+}
+function checkExpr(raw,a){
+  let s=nrm(raw);
+  if(!s)return pe();
+  // "g(x)=...", "y=...", or a chain of equal expressions "(f∘g)(x)=(2x+3)^2-4(2x+3)=4x^2+4x-3"
+  const pieces=s.split('=');
+  if(pieces.length>1){
+    const L=pieces[0];
+    if(L==='y'){ if(a.lhsKey&&!a.lhsKey.map(canonLhs).includes('y'))return {ok:false,msg:LHS_MSG}; pieces.shift(); }
+    else if(isFnLhs(L)){ if(!lhsOk(L,a))return {ok:false,msg:'Check the name on the left side. Which function does the problem ask you to write?'}; pieces.shift(); }
+  }
+  if(!pieces.length||pieces.some(z=>!z))return pe();
+  const g=parseExpr(nrm(a.v));
+  for(const p of pieces){
+    let f;try{f=parseExpr(p);}catch(e){return pe('I could not read that. Write an expression in x, like 2(x-3)^2+1, and use the symbol buttons for |x|, √ and exponents.');}
+    let ok=true;try{ok=same(f,g);}catch(e){ok=false;}
+    if(!ok)return {ok:false,msg:BAD};
+  }
+  s=pieces[pieces.length-1];
+  const par=(s.match(/\(/g)||[]).length, xs=(s.match(/x/g)||[]).length;
+  if(a.minParens&&par<a.minParens)return {ok:false,msg:'That is equal to the right thing, but it is not factored the way the problem asks. Write it as a product of factors.'};
+  if(a.maxParens!=null&&par>a.maxParens)return {ok:false,msg:'That is equal, but multiply it out and write it in expanded form.'};
+  if(a.posExp&&/\^-|\^\(-/.test(s))return {ok:false,msg:'That is equal, but write it with a positive exponent.'};
+  if(a.simplified&&(xs>1||/\)\^|\)\(/.test(s)))return {ok:false,msg:'That is equal, but simplify it further: combine everything into one term.'};
+  if(a.forms&&!a.forms.includes(s.replace(/\*/g,'')))return {ok:false,msg:'That is equal, but it is not factored completely. Pull out the greatest common factor.'};
+  return {ok:true};
+}
+function checkYIneq(raw,a){
+  let s=nrm(raw).replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/=</g,'<=').replace(/=>/g,'>=');
+  s=s.replace(/≤/g,'<=');
+  const m=s.match(/^(.*?)(<=|>=|<|>)(.*)$/);if(!m||/(<=|>=|<|>)/.test(m[3]))return pe('Write it like y > 2x + 1. Use <= and >= for ≤ and ≥.');
+  let op=m[2],L=m[1],Rr=m[3],ex;
+  if(L==='y')ex=Rr;else if(Rr==='y'){ex=L;op={'<':'>','>':'<','<=':'>=','>=':'<='}[op];}
+  else return pe('Get y alone on one side, like y > 2x + 1.');
+  let f;try{f=parseExpr(ex);}catch(e){return pe('Write it like y > 2x + 1. Use <= and >= for ≤ and ≥.');}
+  const g=parseExpr(nrm(a.e));
+  const sameLine=same(f,g);
+  if(sameLine&&op===a.op)return {ok:true};
+  if(sameLine)return {ok:false,msg:'The line is right! Check the inequality symbol: dashed line → < or >, solid line → ≤ or ≥, shaded above → >/≥, shaded below → </≤.'};
+  return {ok:false,msg:BAD};
+}
+function normText(s){return String(s==null?'':s).toLowerCase().replace(/[∠△∆]/g,'').replace(/angle/g,'').replace(/[^a-z0-9]/g,'');}
+function checkText(raw,a){
+  const g=normText(raw);if(!g)return pe();
+  return a.v.some(z=>normText(z)===g)?{ok:true}:{ok:false,msg:BAD};
+}
+
+/* ---- domain / range answers: interval notation, inequalities, set lists, "all real numbers" ---- */
+function ivPre(raw){
+  let s=String(raw==null?'':raw).toLowerCase().trim();
+  s=s.replace(/[−–—]/g,'-').replace(/⋃/g,'∪').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/≠/g,'!=').replace(/=\/=/g,'!=').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+  s=s.replace(/^(the\s+)?(domain|range)\s*(is|=|:)?\s*/,'');
+  return s;
+}
+function ivBound(t){
+  t=t.replace(/\s+/g,'');
+  let m=/^([+-]?)(∞|inf|infinity|oo)$/.exec(t);
+  if(m)return {inf:true,v:m[1]==='-'?-Infinity:Infinity,sgn:m[1]==='-'?-1:1};
+  try{const v=parseExpr(nrm(t))({});if(!isFinite(v))return null;return {inf:false,v};}catch(e){return null;}
+}
+function ivAllReals(s){return /^(x\s*(∈|in)\s*)?(all\s*reals?(\s*numbers?)?|any\s*real(\s*number)?|reals|ℝ|r\s*)$/.test(s.trim())||/^\{?\s*x\s*\|\s*x\s*(∈|in)\s*ℝ\s*\}?$/.test(s.trim());}
+function ivParseIntervals(s){
+  // union separators between pieces
+  s=s.replace(/([\)\]])\s*(?:u|union|∪|or|,)\s*(?=[\(\[])/g,'$1∪');
+  const pieces=s.split('∪');const out=[];
+  for(let piece of pieces){
+    piece=piece.replace(/\s+/g,'');
+    if(!piece)return null;
+    const op=piece[0];if(op!=='('&&op!=='[')return null;
+    let d=0,comma=-1,close=-1;
+    for(let i=1;i<piece.length;i++){const c=piece[i];
+      if(c==='('){d++;}
+      else if(c===')'){if(d===0){close=i;break;}d--;}
+      else if(c===']'&&d===0){close=i;break;}
+      else if(c===','&&d===0&&comma<0)comma=i;}
+    if(comma<0||close<0||close!==piece.length-1)return null;
+    const lo=ivBound(piece.slice(1,comma)),hi=ivBound(piece.slice(comma+1,close));
+    if(!lo||!hi)return null;
+    const cl=piece[close];
+    if(lo.v>hi.v||(lo.v===hi.v&&!(op==='['&&cl===']')))return null;
+    if(lo.inf&&op==='[')return {badInf:true};
+    if(hi.inf&&cl===']')return {badInf:true};
+    out.push({lo:lo.v,hi:hi.v,li:op==='[',hi_:cl===']'});
+  }
+  const pts=[];out.forEach(o=>{if(isFinite(o.lo))pts.push(o.lo);if(isFinite(o.hi))pts.push(o.hi);});
+  return {pred:x=>out.some(o=>(o.li?x>=o.lo:x>o.lo)&&(o.hi_?x<=o.hi:x<o.hi)),pts};
+}
+function ivParseIneq(s,varName){
+  // clauses joined by or / ∪ (union) and by and / commas (intersection)
+  const clauses=s.split(/\s+or\s+|∪|\bor\b/);
+  const preds=[],pts=[];let wrongVar=false;
+  for(const c of clauses){
+    const atoms=c.split(/\s+and\s+|\band\b|,|;/).map(z=>z.trim()).filter(z=>z.length);
+    if(!atoms.length)return null;
+    const ap=[];
+    for(let atom of atoms){
+      atom=atom.replace(/^\(\s*(.*)\s*\)$/,'$1').replace(/\s+/g,'');
+      const parts=atom.split(/(<=|>=|!=|<|>)/);
+      if(parts.length<3||parts.length%2===0)return null;
+      const ops=[],opd=[];
+      for(let i=0;i<parts.length;i++){
+        if(i%2){ops.push(parts[i]);continue;}
+        const t=parts[i];
+        if(t===varName||(varName==='y'&&t==='f(x)')){opd.push('v');}
+        else if(/^[xy]$/.test(t)||/^[fgh]\(x\)$/.test(t)){wrongVar=true;opd.push('v');}
+        else{const b=ivBound(t);if(!b)return null;opd.push(b.v);if(isFinite(b.v))pts.push(b.v);}
+      }
+      if(!opd.includes('v'))return null;
+      ap.push(xv=>{for(let i=0;i<ops.length;i++){const L=opd[i]==='v'?xv:opd[i],R=opd[i+1]==='v'?xv:opd[i+1],o=ops[i];
+        const r=o==='<'?L<R:o==='<='?L<=R:o==='>'?L>R:o==='>='?L>=R:Math.abs(L-R)>1e-12;if(!r)return false;}return true;});
+    }
+    preds.push(xv=>ap.every(f=>f(xv)));
+  }
+  return {pred:x=>preds.some(f=>f(x)),pts,wrongVar};
+}
+function ivParseSet(s){
+  const m=/^\{(.*)\}$/.exec(s.trim());if(!m)return null;
+  if(/[|:]/.test(m[1])||/[xy<>=]/.test(m[1]))return null;
+  const vals=[];
+  for(const z of m[1].split(',')){const b=ivBound(z);if(!b||b.inf)return null;vals.push(b.v);}
+  return {pred:x=>vals.some(v=>Math.abs(v-x)<1e-9),pts:vals,isSet:true};
+}
+function ivParse(raw,varName){
+  let s=ivPre(raw);if(!s)return null;
+  if(ivAllReals(s))return {pred:()=>true,pts:[]};
+  // set-builder: {x | x >= 3}
+  let m=/^\{\s*([xy])\s*(?:\||:)\s*(.*)\}$/.exec(s);if(m){s=m[2].trim();}
+  const st=ivParseSet(s);if(st)return st;
+  s=s.replace(/^([xy])\s*(?:∈|in)\s*(?=[\(\[\{]|all|real)/,'');
+  if(ivAllReals(s))return {pred:()=>true,pts:[]};
+  if(/[xy]|<|>|!=/.test(s.replace(/infinity|inf/g,''))||/f\(x\)/.test(s))return ivParseIneq(s,varName);
+  return ivParseIntervals(s);
+}
+function checkInterval(raw,a){
+  const vn=a.var||'x';
+  const F=ivParse(raw,vn);
+  const fmt='Write it in interval notation like [3, 5) ∪ (5, ∞) or as an inequality like x ≥ 3 and x ≠ 5. The ∞, ∪, ≤ and ≥ buttons help.';
+  if(!F)return pe(fmt);
+  if(F.badInf)return {ok:false,msg:'Infinity is not a number you can reach, so it always gets a parenthesis, never a bracket.'};
+  if(F.wrongVar)return {ok:false,msg:'Check the variable. A domain is a set of x-values and a range is a set of y-values.'};
+  const G=ivParse(a.v,vn);
+  const crit=[...F.pts,...G.pts];
+  const sample=[];
+  for(let k=-60;k<=60;k++)sample.push(k/2);
+  crit.forEach(c=>{sample.push(c,c-1e-3,c+1e-3,c-0.37,c+0.37);});
+  [1e3,1e6,1e9,-1e3,-1e6,-1e9].forEach(v=>sample.push(v));
+  const bad=sample.filter(p=>F.pred(p)!==G.pred(p));
+  if(!bad.length)return {ok:true};
+  const atCrit=p=>crit.some(c=>Math.abs(p-c)<1e-9);
+  if(bad.every(atCrit))return {ok:false,msg:'Close! Check each endpoint: use a parenthesis (or <, >) when the number is NOT included, and a bracket (or ≤, ≥) when it IS included. Also check for any single value that has to be left out.'};
+  if(bad.every(p=>Math.abs(p)>=1e3))return {ok:false,msg:'Check the ends of your set. Does it keep going forever in each direction it should, and only there?'};
+  if(F.isSet)return {ok:false,msg:'Not quite. Check your work and try again.'};
+  return {ok:false,msg:BAD};
+}
+function checkAns(raw,a){
+  if(!String(raw||'').trim())return pe('Type your answer first.');
+  switch(a.t){
+    case 'num':return checkNum(raw,a);
+    case 'nums':return checkNums(raw,a);
+    case 'point':return checkPoint(raw,a);
+    case 'interval':return checkInterval(raw,a);
+    case 'expr':return checkExpr(raw,a);
+    case 'yineq':return checkYIneq(raw,a);
+    case 'text':return checkText(raw,a);
+    case 'line':return checkLine(raw,a);
+    case 'ineq2':return checkIneq2(raw,a);
+    case 'words':return checkWords(raw,a);
+    default:return ineqCheck(raw,a);
+  }
+}
+
+const KEY='mrk-whodunit-'+CASE.unit;
+(function(){const P=CASE.palette;if(!P)return;const h=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));const mix=(c,k)=>'#'+h(c).map(v=>Math.round(v*k).toString(16).padStart(2,'0')).join('');const r=document.documentElement.style;r.setProperty('--navy',P.navy);r.setProperty('--amber',P.accent);r.setProperty('--amberd',mix(P.accent,.5));r.setProperty('--amber2',mix(P.accent,.78));const a=h(P.accent);r.setProperty('--glow','rgba('+a.join(',')+',.28)');})();
+const N=CASE.questions.length;
+let S={phase:'intro',i:0,tm:0,hn:0,sn:0,miss:0,hintShown:false,stepsShown:false,sel:{p:null,l:null,m:null},msg:''};
+try{const r=JSON.parse(localStorage.getItem(KEY)||'null');if(r&&typeof r.i==='number'&&['ask','reveal','accuse','won'].includes(r.phase)){S.phase=r.phase;S.i=r.i;S.tm=r.tm||0;S.hn=r.hn||0;S.sn=r.sn||0;}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({phase:S.phase,i:S.i,tm:S.tm,hn:S.hn,sn:S.sn}));}catch(e){}}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function avatar(s){
+  const hc=s.hairColor||'#222';
+  let hair='';
+  if(s.hair==='short')hair=`<path d="M20 27c-1-10 5-16 12-16s13 6 12 16c-3-6-7-8-12-8s-9 2-12 8z" fill="${hc}"/>`;
+  if(s.hair==='long')hair=`<path d="M19 30c-2-12 4-19 13-19s15 7 13 19v10h-5V28c-4-3-12-3-16 0v12h-5z" fill="${hc}"/>`;
+  if(s.hair==='bun')hair=`<circle cx="32" cy="10" r="6" fill="${hc}"/><path d="M20 27c-1-10 5-15 12-15s13 5 12 15c-3-6-7-8-12-8s-9 2-12 8z" fill="${hc}"/>`;
+  if(s.hair==='bald')hair=`<path d="M21 28c-1 2-1 5 0 7h-2c-1-3-1-6 1-8zM43 28c1 2 1 5 0 7h2c1-3 1-6-1-8z" fill="${hc}"/>`;
+  let acc='';
+  if(s.acc==='glasses')acc='<g fill="none" stroke="#222" stroke-width="1.6"><circle cx="27.5" cy="28" r="4"/><circle cx="36.5" cy="28" r="4"/><path d="M31.5 28h1"/></g>';
+  if(s.acc==='chef')acc='<g fill="#fff" stroke="#c9ced8"><rect x="22" y="14" width="20" height="7" rx="2"/><circle cx="25" cy="12" r="5"/><circle cx="32" cy="9" r="6"/><circle cx="39" cy="12" r="5"/></g>';
+  if(s.acc==='cap')acc='<g fill="#1b2d52"><path d="M20 23c0-8 5-11 12-11s12 3 12 11z"/><rect x="18" y="22" width="28" height="3" rx="1.5"/></g><circle cx="32" cy="16" r="2" fill="#f2a33a"/>';
+  if(s.acc==='bowtie')acc='<path d="M26 44l6 3-6 3zM38 44l-6 3 6 3z" fill="#b83a31"/>';
+  const eyes=s.acc==='glasses'?'':'<circle cx="28" cy="28" r="1.4" fill="#222"/><circle cx="36" cy="28" r="1.4" fill="#222"/>';
+  return `<svg class="av" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="${s.bg}"/><path d="M9 64c0-14 10-20 23-20s23 6 23 20z" fill="${s.color}"/><rect x="29" y="38" width="6" height="7" fill="${s.skin}"/><circle cx="32" cy="28" r="11" fill="${s.skin}"/>${hair}${eyes}<path d="M28 33q4 3 8 0" stroke="#7a3b2a" stroke-width="1.4" fill="none" stroke-linecap="round"/>${acc}</svg>`;
+}
+function clearedSets(){
+  const s=(S.phase==='ask')?S.i:(S.phase==='reveal'?S.i+1:N);
+  const c={p:new Set(),l:new Set(),m:new Set()};let last=null;
+  CASE.clues.slice(0,s).forEach((cl,k)=>{if(cl.p)c.p.add(cl.p);if(cl.l)c.l.add(cl.l);if(cl.m)c.m.add(cl.m);if(k===s-1&&S.phase==='reveal')last=cl;});
+  return {c,last,s};
+}
+function board(interactive){
+  const {c,last}=clearedSets();
+  const isNew=(t,id)=>last&&last[t]===id?' new':'';
+  const pick=(t,id)=>interactive&&S.sel[t]===id?' pick':'';
+  const tag=interactive?'button':'div';
+  const mk=(t,id,inner)=>`<${tag} class="card${c[t].has(id)?' cleared':''}${isNew(t,id)}${pick(t,id)}" ${interactive?`data-t="${t}" data-id="${id}" type="button" ${c[t].has(id)?'':''}`:''}>${inner}</${tag}>`;
+  return `<div class="cols">
+   <div class="col"><h3>${esc(CASE.labels.p)}</h3>${CASE.suspects.map(s=>mk('p',s.id,avatar(s)+`<span><span class="nm">${esc(s.name)}</span><br><span class="rl">${esc(s.role)}</span></span>`)).join('')}</div>
+   <div class="col"><h3>${esc(CASE.labels.l)}</h3>${CASE.places.map((s,k)=>mk('l',s.id,`<span class="ic">${k+1}</span><span class="nm">${esc(s.name)}</span>`)).join('')}</div>
+   <div class="col"><h3>${esc(CASE.labels.m)}</h3>${CASE.methods.map((s,k)=>mk('m',s.id,`<span class="ic">${String.fromCharCode(65+k)}</span><span class="nm">${esc(s.name)}</span>`)).join('')}</div>
+  </div>`;
+}
+function effectText(cl){
+  const nm=(arr,id)=>(arr.find(x=>x.id===id)||{}).name;
+  const bits=[];if(cl.p)bits.push(nm(CASE.suspects,cl.p));if(cl.l)bits.push(nm(CASE.places,cl.l));if(cl.m)bits.push(nm(CASE.methods,cl.m));
+  return 'Cleared: '+bits.join(' · ');
+}
+function log(){
+  const {s}=clearedSets();
+  if(!s)return '<p class="hint">No clues yet. Solve a problem to earn your first one.</p>';
+  return '<ol class="log">'+CASE.clues.slice(0,s).map((cl,k)=>`<li><b>#${k+1}</b><span>${esc(cl.text)}</span></li>`).join('')+'</ol>';
+}
+function header(){
+  const done=(S.phase==='ask')?S.i:(S.phase==='reveal'?S.i+1:N);
+  return `<header class="top"><div><div class="eyebrow">${esc(CASE.eyebrow)}</div><h1>${esc(CASE.title)}</h1><p class="sub">${esc(CASE.tagline)}</p></div><span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="pill">${S.phase==='intro'?'Case file':(S.phase==='accuse'||S.phase==='won'?'All clues found':'Clues earned: '+done+' of '+N)}</span>${S.phase==='intro'||S.phase==='won'?'':'<button class="action" id="restart" style="padding:8px 13px">Restart case</button>'}</span></header>`;
+}
+function render(){
+  let h=header();
+  if(S.phase==='intro'){
+    h+=`<div class="panel story" style="max-width:820px;margin:0 auto"><h2 style="margin-top:0">The case</h2>${CASE.intro.map(p=>`<p>${p}</p>`).join('')}
+    <div class="rules"><b>How to crack the case</b><ol>${CASE.rules.map(r=>`<li>${r}</li>`).join('')}</ol></div>
+    <div class="actions"><button class="action primary" id="start">Open the case file</button></div></div>`;
+  } else if(S.phase==='won'){
+    h+=won();
+  } else {
+    h+=`<div class="layout"><section class="panel"><div class="sectionhead"><h2>Case board</h2><span class="hint" style="margin:0">${S.phase==='accuse'?'Choose one from each column':'Struck-out cards are cleared'}</span></div>${board(S.phase==='accuse')}
+      <div class="sectionhead" style="margin-top:18px"><h2>Evidence log</h2></div>${log()}</section><section class="panel" id="side">${side()}</section></div>`;
+  }
+  $('#app').innerHTML=h;wire();
+  const inp=$('#ans'); if(inp&&S.phase==='ask'){inp.focus();pv();}
+}
+function fmtQ(q){return `<div class="problem"><div class="skill">${esc(q.skill)}</div><div class="instr">${q.instr}</div>${q.html?`<div class="display">${q.html}</div>`:''}</div>`;}
+function side(){
+  if(S.phase==='ask'){
+    const q=CASE.questions[S.i];
+    return `<div class="sectionhead"><h2>Clue ${S.i+1} of ${N}</h2></div><div class="progress"><div class="bar" style="width:${S.i/N*100}%"></div></div>${fmtQ(q)}
+    <label class="inputlabel" for="ans">Your answer</label>
+    <input id="ans" class="ans" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(q.placeholder||CASE.placeholder)}">
+    ${(CASE.symbols||[]).length?'<div class="syms">':'<div style="display:none">'}${(CASE.symbols||[]).map(s=>typeof s==='string'?`<button class="sym" type="button" data-sym="${s}" aria-label="insert ${s}">${s}</button>`:`<button class="sym" type="button" data-sym="${esc(s.i)}" data-back="${s.b||0}" aria-label="insert ${esc(s.i)}"${s.t?` title="${esc(s.t)}"`:''}>${s.l}</button>`).join('')}</div>
+    ${CASE.preview?'<div class="pv" id="pv" aria-live="off"></div>':''}
+    <p class="hint">${esc(CASE.inputHint)}</p>
+    <div class="actions"><button class="action primary" id="check">Check answer</button>${S.miss>=2&&!S.hintShown?'<button class="action" id="hint">Get a hint</button>':''}${S.miss>=4&&!S.stepsShown?'<button class="action" id="steps">Show the steps</button>':''}</div>
+    <div class="feedback ${S.msg?'bad':''}" id="fb" role="status" aria-live="polite">${S.msg}</div>
+    ${S.hintShown?`<div class="solution"><h3>Hint</h3><div>${q.hint}</div></div>`:''}
+    ${S.stepsShown?`<div class="solution"><h3>Worked solution</h3>${q.steps.map(s=>`<div class="st">${s}</div>`).join('')}<p class="hint">Now type the answer to earn the clue.</p></div>`:''}`;
+  }
+  if(S.phase==='reveal'){
+    const cl=CASE.clues[S.i], last=S.i===N-1;
+    return `<div class="sectionhead"><h2>Clue ${S.i+1} unlocked</h2></div><div class="progress"><div class="bar" style="width:${(S.i+1)/N*100}%"></div></div>
+    <div class="clue"><div class="tag">New evidence</div><p>${esc(cl.text)}</p><div class="eff">${esc(effectText(cl))}</div></div>
+    <div class="actions"><button class="action ${last?'amber':'primary'}" id="next">${last?'Make your accusation':'Next problem'}</button></div>`;
+  }
+  if(S.phase==='accuse'){
+    const ok=S.sel.p&&S.sel.l&&S.sel.m;
+    return `<div class="sectionhead"><h2>Make your accusation</h2></div>
+    <p style="line-height:1.55;margin-top:0">All ${N} clues are in. Look at your case board: tap the one ${esc(CASE.labels.p.toLowerCase().replace(/^the /,'').replace(/s$/,''))}, the one ${esc(CASE.labels.l.toLowerCase().replace(/^the /,'').replace(/s$/,''))} and the one ${esc(CASE.labels.m.toLowerCase().replace(/^the /,'').replace(/s$/,''))} that were <b>not</b> cleared.</p>
+    <div class="clue" style="animation:none"><div class="tag">Your accusation</div><p>${accuseLine()}</p></div>
+    <div class="actions"><button class="action amber" id="accuse" ${ok?'':'disabled'}>Accuse!</button></div>
+    <div class="feedback ${S.msg?'bad':''}" role="status" aria-live="polite">${S.msg}</div>`;
+  }
+  return '';
+}
+function accuseLine(){
+  const f=(arr,id,ph)=>{const x=arr.find(a=>a.id===id);return x?`<b>${esc(x.name)}</b>`:`<span style="color:var(--muted)">${ph}</span>`;};
+  return CASE.accuseTemplate.replace('{p}',f(CASE.suspects,S.sel.p,'(choose a suspect)')).replace('{l}',f(CASE.places,S.sel.l,'(choose a place)')).replace('{m}',f(CASE.methods,S.sel.m,'(choose a method)'));
+}
+function won(){
+  const e=CASE.ending;
+  return `<div class="panel win" style="max-width:860px;margin:0 auto"><h2>Case closed!</h2><p style="font-size:1.1rem;line-height:1.6">${e}</p>
+  <div class="stats"><div class="stat"><b>${N} of ${N}</b>clues earned</div><div class="stat"><b>${S.tm}</b>wrong tries</div><div class="stat"><b>${S.hn+S.sn}</b>hints and steps used</div></div>
+  ${board(false)}
+  <div class="actions" style="justify-content:center"><button class="action primary" id="again">Play again</button></div></div>`;
+}
+function wire(){
+  const on=(id,fn)=>{const el=document.getElementById(id);if(el)el.addEventListener('click',fn);};
+  on('start',()=>{S.phase='ask';S.i=0;save();render();});
+  on('restart',()=>{if(confirm('Start the case over? Your clues will be cleared.')){reset();S.phase='ask';S.i=0;save();render();}});
+  on('again',reset);
+  on('check',check);on('hint',()=>{S.hintShown=true;S.hn++;save();render();keepVal();});
+  on('steps',()=>{S.stepsShown=true;S.sn++;save();render();});
+  on('next',()=>{if(S.i===N-1){S.phase='accuse';S.i=N;}else{S.i++;S.phase='ask';}S.miss=0;S.hintShown=false;S.stepsShown=false;S.msg='';save();render();});
+  on('accuse',accuse);
+  const inp=$('#ans');if(inp)inp.addEventListener('keydown',e=>{if(e.key==='Enter')check();});
+  document.querySelectorAll('.sym').forEach(b=>b.addEventListener('click',()=>{const i=$('#ans');if(!i)return;const t=b.dataset.sym;const a=i.selectionStart??i.value.length,z=i.selectionEnd??a;const ins=t==='or'?' or ':t;const bk=+(b.dataset.back||0);i.value=i.value.slice(0,a)+ins+i.value.slice(z);i.focus();i.selectionStart=i.selectionEnd=a+ins.length-bk;pv();}));
+  if(inp)inp.addEventListener('input',pv);
+  document.querySelectorAll('button.card[data-t]').forEach(b=>b.addEventListener('click',()=>{S.sel[b.dataset.t]=b.dataset.id;S.msg='';render();}));
+}
+function keepVal(){}
+function absBars(s){let out='',i=0;const st=[];while(i<s.length){if(s.startsWith('abs(',i)){st.push('abs');out+='|';i+=4;continue;}const c=s[i];if(c==='('){st.push('(');out+=c;}else if(c===')'){const t=st.pop();out+=(t==='abs')?'|':c;}else out+=c;i++;}return out;}
+function pretty(raw){
+  let s=esc(raw);
+  s=s.replace(/&lt;=/g,'≤').replace(/&gt;=/g,'≥').replace(/!=/g,'≠').replace(/\b(?:infinity|inf|oo)\b/gi,'∞').replace(/@/g,'∘');
+  s=absBars(s);
+  s=s.replace(/log_(\d+(?:\.\d+)?|e)/gi,'log<sub>$1</sub>').replace(/log([₀-₉]+)/g,(m,d)=>'log<sub>'+d.split('').map(c=>'₀₁₂₃₄₅₆₇₈₉'.indexOf(c)).join('')+'</sub>');
+  s=s.replace(/sqrt/g,'√').replace(/\bpi\b/g,'π').replace(/-/g,'−');
+  s=s.replace(/\^\(([^()]*)\)/g,'<sup>$1</sup>').replace(/\^(−?[\w.]+)/g,'<sup>$1</sup>');
+  const tok='(−?\\d+(?:\\.\\d+)?|\\([^()]*\\)|[a-z]+(?:<sub>[^<]*<\\/sub>)?\\s*\\d*)';
+  s=s.replace(new RegExp(tok+'\\s*\\/\\s*'+tok,'g'),(m,a,b)=>'<span class="fr"><span>'+a.replace(/^\((.*)\)$/,'$1')+'</span><span>'+b.replace(/^\((.*)\)$/,'$1')+'</span></span>');
+  return s;
+}
+function pv(){const i=$('#ans'),p=$('#pv');if(!i||!p)return;const v=i.value.trim();p.innerHTML=v?'<small>Reads as</small>'+pretty(v):'';}
+function check(){
+  const i=$('#ans');if(!i)return;const q=CASE.questions[S.i];const r=checkAns(i.value,q.answer);
+  if(r.ok){S.phase='reveal';S.msg='';save();render();return;}
+  if(r.parse){S.msg=r.msg;const v=i.value;render();$('#ans').value=v;$('#ans').focus();pv();return;}
+  S.miss++;S.tm++;S.msg=r.msg;const v=i.value;save();render();$('#ans').value=v;$('#ans').focus();pv();
+}
+function accuse(){
+  const t=CASE.culprit;
+  if(S.sel.p===t.p&&S.sel.l===t.l&&S.sel.m===t.m){S.phase='won';save();render();confetti();return;}
+  const wrong=[];if(S.sel.p!==t.p)wrong.push(CASE.labels.p.toLowerCase().replace(/^the /,'').replace(/s$/,''));if(S.sel.l!==t.l)wrong.push(CASE.labels.l.toLowerCase().replace(/^the /,'').replace(/s$/,''));if(S.sel.m!==t.m)wrong.push(CASE.labels.m.toLowerCase().replace(/^the /,'').replace(/s$/,''));
+  S.tm++;S.msg='Not quite: check your evidence log. At least one choice ('+wrong.join(', ')+') has already been cleared by a clue.';S.sel={p:null,l:null,m:null};save();render();
+}
+function reset(){S={phase:'intro',i:0,tm:0,hn:0,sn:0,miss:0,hintShown:false,stepsShown:false,sel:{p:null,l:null,m:null},msg:''};try{localStorage.removeItem(KEY);}catch(e){}render();}
+function confetti(){const c=document.createElement('div');c.className='confetti';const cols=['#f2a33a','#345bd5','#1f7a4d','#b83a31','#7a3fb0'];for(let k=0;k<70;k++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.background=cols[k%cols.length];e.style.animationDuration=(2.2+Math.random()*2.4)+'s';e.style.animationDelay=(Math.random()*.8)+'s';c.appendChild(e);}document.body.appendChild(c);setTimeout(()=>c.remove(),6000);}
+render();
+</script>
+</body>
+</html>

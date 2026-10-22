@@ -1,0 +1,1579 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Crossroads Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#f6f2e8; --surface:#ffffff; --surface-2:#ebe4d2; --ink:#1d2a22; --muted:#5b6a5e; --line:#d3cbb4;
+  --board:#1f6b45; --board-2:#15502f; --hole:#e4efe5;
+  --t0:#f2a100; --t0-ink:#2a1a00; --t1:#c2185b; --t1-ink:#ffffff;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0d1610; --surface:#16221a; --surface-2:#213426; --ink:#eaf6ec; --muted:#9dbfa5; --line:#2f4a37;
+  --board:#2f9462; --board-2:#1f7048; --hole:#0d1610;
+  --t0:#ffc247; --t1:#ff7fae; --t1-ink:#3a0a1f; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0d1610; --surface:#16221a; --surface-2:#213426; --ink:#eaf6ec; --muted:#9dbfa5; --line:#2f4a37;
+  --board:#2f9462; --board-2:#1f7048; --hole:#0d1610;
+  --t0:#ffc247; --t1:#ff7fae; --t1-ink:#3a0a1f; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+
+body{background-image:linear-gradient(color-mix(in srgb,var(--ink) 6%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 6%,transparent) 1px,transparent 1px);background-size:32px 32px}
+.swatch,.disc{font-family:'Source Serif 4','Times New Roman',Georgia,serif;font-weight:700}
+.choice svg.fig{width:100%;max-width:200px}
+.statement .tbl td,.statement .tbl th{white-space:nowrap;padding:.12em .42em}
+svg.fig .lb{paint-order:stroke;stroke:var(--bgc,#fff);stroke-width:3.2px;stroke-linejoin:round;font-size:13px}
+svg.fig .ttl{font-size:11px;opacity:.95;font-family:inherit}
+.controls label{min-width:0;max-width:100%}.controls select{max-width:100%;text-overflow:ellipsis}
+svg.fig .f.fill3{fill:color-mix(in srgb,var(--t1) 24%,transparent);stroke:none}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Crossroads Four</h1><span>Model with lines, solve systems, and find the best corner to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">N</div><div class="cardbody">
+      <input class="name" id="name0" value="Team North" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">S</div><div class="cardbody">
+      <input class="name" id="name1" value="Team South" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: slope, equations of lines, simple systems and graphs</option>
+        <option value="2">Level 2: parallel and perpendicular lines, best-fit lines, elimination, inequalities</option>
+        <option value="3">Level 3: linear programming, three equations, models and no-solution cases</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Crossroads Four: problem generators. Contract: define UNIT = {types, pools, gens}. Each gen(level) returns mcm({...}) or null.
+   Every graph is computed from its function (gSvg samples f), every generator passes an oracle that recomputes correctness
+   from the problem itself (substitution, sampling, sequential application of the stated transformations), never from ok.v. */
+const near=(a,b)=>Math.abs(a-b)<1e-9;
+const relEq=(a,b,t=1e-9)=>Math.abs(a-b)<=t*Math.max(1,Math.abs(a),Math.abs(b));
+const par=n=>n<0?'('+n+')':String(n);
+const Rneg=r=>R(-r.n,r.d);
+const commas=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const money=v=>'$'+(+v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const money0=v=>'$'+commas(Math.round(v));
+function mcm(o){const p=mc(o);if(p)p.meta=o.meta||null;return p;}
+const sameFn=(f,g,pts)=>{pts=pts||[-5.5,-4.25,-3.5,-2.75,-2,-1.5,-1,-.5,0,.5,1,1.5,2,2.75,3.5,4.25,5.5];
+  return pts.every(x=>{const u=f(x),w=g(x);if(Number.isNaN(u)&&Number.isNaN(w))return true;return Number.isFinite(u)&&Number.isFinite(w)&&relEq(u,w,1e-9);});};
+const cleanN=x=>{const t=Math.round(x*1e9)/1e9;return Object.is(t,-0)?0:t;};
+/* signed terms */
+const Sg=n=>n<0?'-':'';
+const asgn=(n)=>n<0?` - ${-n}`:n>0?` + ${n}`:'';
+/* x - h written as x + |h| / x - h / x */
+const xmh=h=>h===0?'x':'x'+(h>0?' - '+h:' + '+(-h));
+/* ---------- coordinates / graphs ---------- */
+let _gid=0;
+const mnum=n=>(n<0?'−':'')+Math.abs(n);
+function gSvg(o){
+  const px=o.px||200,[x0,y0,x1,y1]=o.win||[-6,-6,6,6],pad=o.pad==null?7:o.pad;
+  const sc=(px-2*pad)/(x1-x0),scy=o.ysc||sc,W=px,H=Math.round((y1-y0)*scy+2*pad);
+  const X=x=>+(pad+(x-x0)*sc).toFixed(2),Y=y=>+(pad+(y1-y)*scy).toFixed(2);
+  const id='gc'+(++_gid);
+  let g=`<defs><clipPath id="${id}"><rect x="${pad}" y="${pad}" width="${(W-2*pad).toFixed(2)}" height="${(H-2*pad).toFixed(2)}"/></clipPath></defs>`;
+  const st=o.step||1,sty=o.ystep||st,axX=x0>0?x0:x1<0?x1:0,axY=y0>0?y0:y1<0?y1:0;
+  for(let x=Math.ceil(x0/st)*st;x<=x1+1e-9;x+=st)if(x!==axX)g+=`<line class="gr" x1="${X(x)}" y1="${Y(y0)}" x2="${X(x)}" y2="${Y(y1)}"/>`;
+  for(let y=Math.ceil(y0/sty)*sty;y<=y1+1e-9;y+=sty)if(y!==axY)g+=`<line class="gr" x1="${X(x0)}" y1="${Y(y)}" x2="${X(x1)}" y2="${Y(y)}"/>`;
+  g+=`<line class="ax" x1="${X(axX)}" y1="${Y(y0)}" x2="${X(axX)}" y2="${Y(y1)}"/><line class="ax" x1="${X(x0)}" y1="${Y(axY)}" x2="${X(x1)}" y2="${Y(axY)}"/>`;
+  if(o.labels!==false){const lab=o.lstep||2;
+    for(let x=Math.ceil(x0/lab)*lab;x<=x1+1e-9;x+=lab){if(x===0&&axX===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(axY)+11}" text-anchor="middle">${mnum(x)}</text>`;}
+    const laby=o.lystep||lab;for(let y=Math.ceil(y0/laby)*laby;y<=y1+1e-9;y+=laby){if(y===0&&axY===0)continue;g+=`<text class="nm" x="${X(axX)-3}" y="${Y(y)+3.5}" text-anchor="end">${mnum(y)}</text>`;}}
+  if(o.xlab)g+=`<text class="nm ttl" x="${(W/2).toFixed(1)}" y="${H+(o.xlabDy||2)}" text-anchor="middle">${o.xlab}</text>`;
+  if(o.ylab)g+=`<text class="nm ttl" transform="translate(${-(o.ylabDx||2)},${(H/2).toFixed(1)}) rotate(-90)" text-anchor="middle">${o.ylab}</text>`;
+  let cg='';const rng=y1-y0;
+  (o.polys||[]).forEach((pg,pi)=>{if(pg.pts.length>=3)cg+=`<polygon class="f ${pg.cls||'fill'}" data-p="${pi}" points="${pg.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;});
+  (o.curves||[]).forEach((c,ci)=>{
+    const cls='f'+(c.cls?' '+c.cls:'')+(c.dash?' dash':'');
+    const segs=[];let cur=[];
+    const push=(x,y)=>{
+      if(!Number.isFinite(y)||Math.abs(y)>1000){if(cur.length)segs.push(cur);cur=[];return;}
+      if(cur.length&&Math.abs(y-cur[cur.length-1][1])>rng*1.2){segs.push(cur);cur=[];}
+      cur.push([x,y]);};
+    if(c.pts){c.pts.forEach(p=>{if(p===null){if(cur.length)segs.push(cur);cur=[];}else push(p[0],p[1]);});}
+    else{const a=c.dom?c.dom[0]:x0-0.5,b=c.dom?c.dom[1]:x1+0.5,n=Math.max(60,Math.round((b-a)*30));
+      for(let i=0;i<=n;i++){const x=a+(b-a)*i/n;push(x,c.f(x));}}
+    if(cur.length)segs.push(cur);
+    const d=segs.filter(s=>s.length>1).map(s=>'M'+s.map(p=>X(p[0])+','+Y(p[1])).join(' L')).join(' ');
+    cg+=`<path class="${cls}" data-c="${ci}" d="${d}"/>`;
+  });
+  g+=`<g clip-path="url(#${id})">${cg}</g>`;
+  (o.hl||[]).forEach(h=>{g+=`<line class="f thin dash" x1="${X(x0)}" y1="${Y(h.y)}" x2="${X(x1)}" y2="${Y(h.y)}"/>`;});
+  (o.dots||[]).forEach(d=>{g+=`<circle class="dot${d.k?' '+d.k:''}${d.open?' open':''}" cx="${X(d.p[0])}" cy="${Y(d.p[1])}" r="${d.r||(px>250?4.5:3.6)}"/>`;});
+  (o.tags||[]).forEach(t=>{g+=`<text class="lb ${t.k||''}" x="${X(t.p[0])}" y="${Y(t.p[1])}" text-anchor="${t.a||'start'}">${t.s}</text>`;});
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" data-view="${[x0,y0,x1,y1,pad,px,+scy.toFixed(4)].join(',')}" role="img" aria-label="${(o.alt||'Graph').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* the number of sample points of f inside a window, and whether two functions look different in the window */
+const inWin=(f,win=[-6,-6,6,6])=>{let n=0;for(let x=win[0];x<=win[2]+1e-9;x+=.25){const y=f(x);if(Number.isFinite(y)&&y>=win[1]&&y<=win[3])n++;}return n;};
+
+const looksDiff=(f,g,win=[-6,-6,6,6])=>{let n=0;for(let x=win[0];x<=win[2]+1e-9;x+=.25){const u=f(x),w=g(x);
+  const iu=Number.isFinite(u)&&u>=win[1]&&u<=win[3],iw=Number.isFinite(w)&&w>=win[1]&&w<=win[3];
+  if(iu!==iw||(iu&&iw&&Math.abs(u-w)>.6))n++;}return n>=7;};
+
+/* ---------- inequalities and regions: specs {a,b,c,op} meaning a x + b y op c (integers) ---------- */
+const flipOp={'<':'>','>':'<','<=':'>=','>=':'<='};
+const isStrict=S=>S.op==='<'||S.op==='>';
+const isLess=S=>S.op==='<'||S.op==='<=';
+const satS=(S,x,y)=>{const v=S.a*x+S.b*y;return S.op==='<'?v<S.c-1e-9:S.op==='<='?v<=S.c+1e-9:S.op==='>'?v>S.c+1e-9:v>=S.c-1e-9;};
+const onLine=(S,x,y)=>Math.abs(S.a*x+S.b*y-S.c)<1e-9;
+function ineqTxt(S,form){
+  if(form==='slope'&&S.b!==0){
+    const m=R(-S.a,S.b),k=R(S.c,S.b),op=S.b<0?flipOp[S.op]:S.op;
+    return lineEq(m,k).replace('=',op);}
+  if(S.b===0){const v=R(S.c,S.a),op=S.a<0?flipOp[S.op]:S.op;return `x ${op} ${Rstr(v)}`;}
+  if(S.a===0){const v=R(S.c,S.b),op=S.b<0?flipOp[S.op]:S.op;return `y ${op} ${Rstr(v)}`;}
+  return `${axby(S.a,S.b)} ${S.op} ${S.c}`;
+}
+const SQ=[[-6,-6],[6,-6],[6,6],[-6,6]];
+function clipHP(poly,a,b,c,sgn){
+  const g=p=>sgn*(a*p[0]+b*p[1]-c),out=[];
+  for(let i=0;i<poly.length;i++){const P=poly[i],Q=poly[(i+1)%poly.length],gp=g(P),gq=g(Q);
+    if(gp<=1e-12)out.push(P);
+    if((gp<-1e-12&&gq>1e-12)||(gp>1e-12&&gq<-1e-12)){const t=gp/(gp-gq);out.push([P[0]+t*(Q[0]-P[0]),P[1]+t*(Q[1]-P[1])]);}}
+  return out;
+}
+const regionPoly=Ss=>Ss.reduce((poly,S)=>clipHP(poly,S.a,S.b,S.c,isLess(S)?1:-1),SQ);
+function boundCurve(S){
+  if(S.b===0){const x=S.c/S.a;return {pts:[[x,-7],[x,7]],cls:'acc'+(isStrict(S)?' dash':''),dash:isStrict(S)};}
+  return {f:x=>(S.c-S.a*x)/S.b,cls:'acc'+(isStrict(S)?' dash':''),dash:isStrict(S)};
+}
+function regionSvg(Ss,o={}){
+  return gSvg({px:o.px||190,polys:[{pts:regionPoly(Ss),cls:'fill'}],curves:Ss.map(boundCurve),labels:!!o.labels,lstep:o.lstep||1,dots:o.dots||[],tags:o.tags||[],alt:o.alt||'Candidate graph'});
+}
+const gridPts=(()=>{const o=[];for(let x=-6;x<=6;x+=.5)for(let y=-6;y<=6;y+=.5)o.push([x+0.0137,y+0.0211]);return o;})();
+const sameRegion=(A,B)=>gridPts.every(([x,y])=>A.every(S=>satS(S,x,y))===B.every(S=>satS(S,x,y)));
+function lineKeyS(S){let a=S.a,b=S.b,c=S.c;const g=gcd(gcd(Math.abs(a),Math.abs(b)),Math.abs(c))||1;a/=g;b/=g;c/=g;if(a<0||(a===0&&b<0)){a=-a;b=-b;c=-c;}return a+'|'+b+'|'+c;}
+const boundsEq=(A,B)=>{const ka=A.map(S=>lineKeyS(S)+(isStrict(S)?'d':'s')).sort().join(';'),kb=B.map(S=>lineKeyS(S)+(isStrict(S)?'d':'s')).sort().join(';');return ka===kb;};
+const specEq=(A,B)=>boundsEq(A,B)&&sameRegion(A,B);
+const visibleRegion=Ss=>{const pg=regionPoly(Ss);if(pg.length<3)return false;let ar=0;for(let i=0;i<pg.length;i++){const P=pg[i],Q=pg[(i+1)%pg.length];ar+=P[0]*Q[1]-Q[0]*P[1];}return Math.abs(ar)/2>6&&Math.abs(ar)/2<130;};
+const mkS=(a,b,c,op)=>({a,b,c,op});
+const flipSide=S=>({...S,op:flipOp[S.op]});
+const toggleDash=S=>({...S,op:isStrict(S)?S.op+'=':S.op.replace('=','')});
+/* a random inequality from a line: slope-form text or standard form */
+function ineqFromLine(L,op){const q=L.m.d*L.b.d;return mkS(-L.m.n*(q/L.m.d),q,L.b.n*(q/L.b.d),op);}
+const reduceS=S=>{const g=gcd(gcd(Math.abs(S.a),Math.abs(S.b)),Math.abs(S.c))||1;return {...S,a:S.a/g,b:S.b/g,c:S.c/g};};
+const pickOp=()=>pick(['<','>','<=','>=']);
+/* test point not on the line */
+const testPt=S=>[[0,0],[1,0],[0,1],[1,1],[2,2],[-1,0]].find(([x,y])=>!onLine(S,x,y));
+const fmtOp=op=>op;
+/* ---------- systems of two lines in standard form ---------- */
+const det2=(a1,b1,a2,b2)=>a1*b2-a2*b1;
+const eqStd=(a,b,c)=>stdTxt(a,b,c);
+/* solution of a1x+b1y=c1, a2x+b2y=c2 as rationals */
+function solve2(a1,b1,c1,a2,b2,c2){const d=det2(a1,b1,a2,b2);if(d===0)return null;return [R(c1*b2-c2*b1,d),R(a1*c2-a2*c1,d)];}
+const ptTxt=(x,y)=>`(${x}, ${y})`;
+const ptR=(x,y)=>`(${Rstr(x)}, ${Rstr(y)})`;
+const satEq=(a,b,c,x,y)=>near(a*x+b*y,c);
+/* ---------- vertices of a convex region given by constraints (brute force) ---------- */
+function vertsOf(Ss){
+  const o=[];
+  for(let i=0;i<Ss.length;i++)for(let j=i+1;j<Ss.length;j++){
+    const A=Ss[i],B=Ss[j],d=det2(A.a,A.b,B.a,B.b);if(d===0)continue;
+    const x=(A.c*B.b-B.c*A.b)/d,y=(A.a*B.c-B.a*A.c)/d;
+    if(Ss.every(S=>satS({...S,op:S.op.includes('=')?S.op:S.op+'='},x,y))&&!o.some(p=>near(p[0],x)&&near(p[1],y)))o.push([cleanN(x),cleanN(y)]);}
+  return o;
+}
+const numC=v=>({t:String(v),v});
+const intsOnly=arr=>arr.map(cleanN).filter(b=>Number.isInteger(b)&&Math.abs(b)<1e6);
+const lead=a=>a===1?'':a===-1?'-':String(a);
+/* ======================================================================================================= */
+/* ---------- line helpers (all lines are y = m x + b with rational m, b) ---------- */
+const prs=(x,y)=>`(${x}, ${y})`;
+const rc=r=>({t:Rstr(r),v:Rnum(r)});
+const Rrec=r=>R(r.d,r.n);
+const lfn=L=>{const m=Rnum(L.m),b=Rnum(L.b);return x=>m*x+b;};
+const lEq=L=>lineEq(L.m,L.b);
+const latticePts=(L,lim=5)=>{const m=Rnum(L.m),b=Rnum(L.b),o=[];for(let x=-lim;x<=lim;x++){const y=m*x+b;if(Number.isInteger(cleanN(y))&&Math.abs(y)<=lim)o.push([x,cleanN(y)]);}return o;};
+/* a random line with at least two lattice points in the window and a visible, non-trivial look */
+function randLine(level,o={}){
+  for(let t=0;t<300;t++){
+    const run=pick(o.runs||(level===1?[1,1,1,2]:level===2?[1,1,2,3]:[1,2,3,4]));
+    const rise=nz(-4,4);if(Math.abs(rise)>5||(run===1&&Math.abs(rise)===0))continue;
+    const m=R(rise,run);if(o.fracOnly&&m.d===1)continue;if(o.intOnly&&m.d!==1)continue;
+    const b=o.b0?rnd(-5,5):nz(-5,5);const L={m,b:R(b)};
+    const lp=latticePts(L);if(lp.length<2)continue;
+    if(Math.abs(Rnum(m))>4)continue;
+    return L;}
+  return {m:R(1),b:R(1)};
+}
+const lineKey=L=>Rstr(L.m)+'|'+Rstr(L.b);
+const sameLine=(L,K)=>Req(L.m,K.m)&&Req(L.b,K.b);
+const sameLineFn=(L,K)=>sameFn(lfn(L),lfn(K));
+const throughPt=(v,x,y)=>near(v.m*x+v.b,y);
+function lineSvg(L,o={}){return gSvg({px:o.px||190,curves:[{f:lfn(L),cls:'acc'}],labels:!!o.labels,lstep:o.lstep||1,alt:o.alt||'Candidate graph',dots:o.dots||[],tags:o.tags||[]});}
+const vOf=L=>({m:Rnum(L.m),b:Rnum(L.b)});
+/* standard form of y = m x + b with integer coefficients, A>0, gcd 1 -> [A,B,C] meaning Ax + By = C */
+function stdOf(L){const q=L.m.d*L.b.d,A=-L.m.n*(q/L.m.d),B=q,C=L.b.n*(q/L.b.d);const g=gcd(gcd(Math.abs(A),Math.abs(B)),Math.abs(C))||1;let s=[A/g,B/g,C/g];if(s[0]<0||(s[0]===0&&s[1]<0))s=s.map(v=>-v);return s;}
+function stdTxt(A,B,C){let l=A===0?'':T(A,'x');const bt=B===0?'':(l?(B<0?' - ':' + ')+(Math.abs(B)===1?'y':Math.abs(B)+'y'):T(B,'y'));return `${l}${bt} = ${C}`;}
+/* two-term expression a x + b y (no right side) */
+const axby=(A,B)=>{const l=A===0?'':T(A,'x');return l+(B===0?'':(l?(B<0?' - ':' + ')+(Math.abs(B)===1?'y':Math.abs(B)+'y'):T(B,'y')));};
+const decT=v=>{const t=Math.round(v*100)/100;return String(Object.is(t,-0)?0:t);};
+
+const UNIT={
+types:{slopeRate:'Slope and rate of change',lineEq:'Equations of lines',parPerp:'Parallel and perpendicular',graphEq:'Graph to equation',eqGraph:'Equation to graph',
+  ineqGraph:'Graph the inequality',ineqPoint:'Test a point',sysSolve:'Solve a system',sysGraph:'Systems and graphs',sysCount:'How many solutions?',sysModel:'Systems in context',
+  regionGraph:'Systems of inequalities',linProg:'Linear programming',sys3:'Three variables',scatter:'Scatter plots and best fit'},
+pools:{
+  1:['slopeRate','slopeRate','lineEq','parPerp','graphEq','eqGraph','ineqGraph','ineqPoint','sysSolve','sysGraph','sysCount','sysModel','scatter'],
+  2:['slopeRate','lineEq','lineEq','parPerp','graphEq','eqGraph','ineqGraph','ineqPoint','sysSolve','sysSolve','sysGraph','sysCount','sysModel','regionGraph','linProg','sys3','scatter','scatter'],
+  3:['lineEq','parPerp','eqGraph','ineqGraph','sysSolve','sysSolve','sysGraph','sysCount','sysModel','sysModel','regionGraph','linProg','linProg','sys3','sys3','scatter','scatter']},
+gens:{
+
+/* ---------- slope and rate of change ---------- */
+slopeRate(level){
+  const mode=pick(level===1?['pts','pts','graph','rate']:level===2?['pts','table','rate','graph','rate','tableK']:['table','rate','rate','tableK','pts']);
+  const wrongR=(m,extra=[])=>[Rneg(m),m.n===0?R(1):Rrec(m),m.n===0?R(2):Rneg(Rrec(m)),...extra].map(rc);
+  if(mode==='pts'||mode==='graph'){
+    const run=pick(level===1?[1,2,3,4]:[2,3,4,5,6]),rise=nz(-6,6),m=R(rise,run);
+    if(level===1&&m.d!==1&&rnd(0,1))return null;
+    const x1=rnd(-5,3),y1=rnd(-5,5),x2=x1+run*(rnd(0,1)?1:-1)*1,dx=x2-x1,y2=y1+Rnum(m)*dx;
+    if(!Number.isInteger(cleanN(y2))||Math.abs(y2)>6||Math.abs(x2)>6||y2===y1&&false)return null;
+    const wrong=[...wrongR(m),{t:Rstr(R(dx,y2-y1===0?1:y2-y1)),v:dx/(y2-y1||1)},{t:Rstr(R(y2-y1,-dx)),v:-(y2-y1)/dx}];
+    const sm=`m = [[y_2 - y_1 ; x_2 - x_1]] = [[${y2} - ${par(y1)} ; ${x2} - ${par(x1)}]] = [[${y2-y1} ; ${dx}]]`;
+    const steps=[['Use the slope formula: change in {{y}} over change in {{x}}, subtracting in the same order on top and bottom.',sm],['Reduce.',`m = ${Rstr(m)}`]];
+    if(mode==='pts')return mcm({prompt:`Find the slope of the line through {{${prs(x1,y1)}}} and {{${prs(x2,y2)}}}.`,ok:rc(m),bad:wrong,steps,
+      oracle:v=>near(v,(y2-y1)/(x2-x1)),meta:{kind:'slopePts',pts:[[x1,y1],[x2,y2]]}});
+    const fig=gSvg({px:300,win:[-6,-6,6,6],curves:[{f:x=>y1+Rnum(m)*(x-x1),cls:'acc'}],dots:[{p:[x1,y1],k:'acc'},{p:[x2,y2],k:'acc'}],lstep:1,alt:'A line with two marked points'});
+    return mcm({prompt:'Use the two marked points to find the slope of the line.',fig,ok:rc(m),bad:wrong,steps:[['Read the coordinates of the two marked points.',`${prs(x1,y1)} and ${prs(x2,y2)}`],...steps],
+      oracle:v=>near(v,(y2-y1)/(x2-x1)),meta:{kind:'slopeGraph',pts:[[x1,y1],[x2,y2]]}});
+  }
+  if(mode==='rate'){
+    const ctx=pick([
+      {x:'hours',y:'miles',u:'miles per hour',s:()=>nz(4,16),n:'A delivery van',v:(a,b)=>`After ${a} hours the van has driven ${b} miles`},
+      {x:'minutes',y:'gallons',u:'gallons per minute',s:()=>-nz(2,9),n:'A pool',v:(a,b)=>`After ${a} minutes the pool holds ${b} gallons`},
+      {x:'weeks',y:'dollars',u:'dollars per week',s:()=>nz(5,25),n:'A savings account',v:(a,b)=>`After ${a} weeks the balance is ${b} dollars`},
+      {x:'days',y:'pages',u:'pages per day',s:()=>nz(8,30),n:'A reader',v:(a,b)=>`After ${a} days the reader has finished page ${b}`}]);
+    const half=level===3&&rnd(0,1);let s=ctx.s();if(half)s=s+0.5;
+    const x1=rnd(1,4),dx=half?2*rnd(1,3):rnd(2,6),x2=x1+dx,y1=Math.abs(s)*rnd(8,14)+(s<0?Math.abs(s)*dx+rnd(5,20):rnd(0,30)),y2=y1+s*dx;
+    if(!Number.isInteger(y1)||!Number.isInteger(y2)||y1<=0||y2<=0)return null;
+    const wrong=[-s,dx/(y2-y1),y2/x2,(y2+y1)/(x2+x1),(y2-y1)/(x2+x1)].map(cleanN).filter(v=>Number.isFinite(v)&&Math.abs(Math.round(v*100)/100-v)<1e-9).map(v=>({t:decT(v),v}));
+    return mcm({prompt:`Find the average rate of change, in ${ctx.u}.`,story:`${ctx.n} is tracked over time. ${ctx.v(x1,y1)}. ${ctx.v(x2,y2).replace(/^After/,'After')}.`,
+      ok:{t:decT(s),v:s},bad:wrong,steps:[['Rate of change is the change in the output over the change in the input.',`[[${y2} - ${par(y1)} ; ${x2} - ${x1}]] = [[${y2-y1} ; ${dx}]]`],[`Divide, and keep the sign: ${s<0?'the quantity is decreasing':'the quantity is increasing'}.`,`${decT(s)} ${ctx.u}`]],
+      oracle:v=>near(v,(y2-y1)/(x2-x1)),meta:{kind:'slopeRate',x1,y1,x2,y2}});
+  }
+  if(mode==='table'){
+    const xs=[],st=pick([2,3,4]),x0=rnd(-3,2);for(let i=0;i<4;i++)xs.push(x0+i*st);
+    const rise=nz(-5,5),m=R(rise,st),ys=[];const y0=rnd(-4,6);for(let i=0;i<4;i++)ys.push(y0+rise*i);
+    return mcm({prompt:'This table shows a linear relationship. What is the slope?',stmt:`tbl{x&&${xs.join('&&')} ;; y&&${ys.join('&&')}}`,ok:rc(m),bad:[...wrongR(m),{t:String(rise),v:rise},{t:String(st),v:st}],
+      steps:[['Pick any two columns and subtract in the same order.',`[[${ys[1]} - ${par(ys[0])} ; ${xs[1]} - ${par(xs[0])}]] = [[${ys[1]-ys[0]} ; ${st}]]`],['Reduce.',`m = ${Rstr(m)}`]],
+      oracle:v=>near(v,(ys[3]-ys[0])/(xs[3]-xs[0])),meta:{kind:'slopeTable',xs,ys}});
+  }
+  /* tableK: find the missing entry that makes the table linear */
+  const st=pick([2,3,4]),x0=rnd(-3,1),xs=[0,1,2,3].map(i=>x0+i*st),rise=nz(-6,6),y0=rnd(-5,8),ys=[0,1,2,3].map(i=>y0+rise*i);
+  const hole=pick([1,2]),k=ys[hole];
+  const row=ys.map((y,i)=>i===hole?'k':y);
+  const wrong=[k+rise,k-rise,(ys[hole-1]+ys[hole+1]+rise)/2+rise,ys[hole-1]+ys[hole+1],ys[3]-ys[0]].map(cleanN).filter(Number.isInteger);
+  return mcm({prompt:'Find the value of {{k}} that makes this table linear.',stmt:`tbl{x&&${xs.join('&&')} ;; y&&${row.join('&&')}}`,ok:numC(k),bad:wrong.map(numC),
+    steps:[['The {{x}}-values go up by {{'+st+'}} each time, so a linear table has a constant change in {{y}}. Find the rate from the two known neighbors.',`[[${ys[3]} - ${par(ys[0])} ; ${xs[3]} - ${par(xs[0])}]] = [[${ys[3]-ys[0]} ; ${3*st}]] = ${Rstr(R(rise,st))}`],['Apply it across one step of the table.',`k = ${ys[hole-1]} + ${par(rise)} = ${k}`]],
+    oracle:v=>{const r=[...row];r[hole]=v;const d=[r[1]-r[0],r[2]-r[1],r[3]-r[2]];return near(d[0],d[1])&&near(d[1],d[2]);},meta:{kind:'tableK',xs,row}});
+},
+
+/* ---------- equations of lines ---------- */
+lineEq(level){
+  const mode=pick(level===1?['two','two','ps','slopept']:level===2?['two','ps','ps','conv','slopept','conv']:['std','conv','std','two','ps']);
+  if(mode==='two'){
+    const L=randLine(level,{runs:level===3?[2,3,4]:level===2?[1,2]:[1],b0:false});const lp=latticePts(L);if(lp.length<2)return null;
+    const p=pick(lp),q=pick(lp.filter(z=>z[0]!==p[0]));if(!q)return null;
+    const m=Rnum(L.m),b=Rnum(L.b),wrongs=[{m:-m,b},{m:Rnum(Rrec(L.m)),b},{m,b:-b},{m:-m,b:-b},{m,b:p[1]},{m:Rnum(Rneg(Rrec(L.m))),b}];
+    const bad=wrongs.map(w=>({t:lEq({m:R(Math.round(w.m*1e6),1e6),b:R(Math.round(w.b*1e6),1e6)}),v:w}));
+    return mcm({prompt:`Which equation describes the line through {{${prs(p[0],p[1])}}} and {{${prs(q[0],q[1])}}}?`,ok:{t:lEq(L),v:{m,b}},bad,
+      steps:[['Find the slope.',`m = [[${q[1]} - ${par(p[1])} ; ${q[0]} - ${par(p[0])}]] = ${Rstr(L.m)}`],['Substitute one point into {{y = mx + b}} and solve for {{b}}.',`${p[1]} = ${Rstr(L.m)}(${p[0]}) + b, so b = ${Rstr(L.b)}`],['Write the equation.',lEq(L)]],
+      oracle:v=>throughPt(v,p[0],p[1])&&throughPt(v,q[0],q[1]),meta:{kind:'lineTwo',pts:[p,q]}});
+  }
+  if(mode==='ps'||mode==='slopept'){
+    const L=randLine(level,{runs:level===1?[1]:[1,2,3]}),lp=latticePts(L),p=pick(lp);const m=L.m;
+    if(p[0]===0||p[1]===0||Math.abs(Rnum(m))===1)return null;
+    const fmt=(m_,px,py)=>{const mm=m_.d===1?String(m_.n):(m_.n<0?'-':'')+`[[${Math.abs(m_.n)};${m_.d}]]`;
+      return `y ${py<0?'+ '+(-py):'- '+py} = ${mm}(x ${px<0?'+ '+(-px):'- '+px})`;};
+    const bad=[{m:m,px:-p[0],py:p[1]},{m:m,px:p[0],py:-p[1]},{m:m,px:-p[0],py:-p[1]},{m:Rneg(m),px:p[0],py:p[1]},{m:Rrec(m),px:p[0],py:p[1]},{m:m,px:p[1],py:p[0]}];
+    const rr=Rnum;
+    const mkc=w=>({t:fmt(w.m,w.px,w.py),v:{m:rr(w.m),px:w.px,py:w.py}});
+    if(mode==='ps')return mcm({prompt:`A line has slope {{${Rstr(m)}}} and passes through {{${prs(p[0],p[1])}}}. Which equation is the line written in point-slope form?`,ok:mkc({m,px:p[0],py:p[1]}),bad:bad.map(mkc),
+      steps:[['Point-slope form is {{y - y_1 = m(x - x_1)}}. Substitute {{m = '+Rstr(m)+'}}, {{x_1 = '+p[0]+'}}, {{y_1 = '+p[1]+'}}.',fmt(m,p[0],p[1])],['A negative coordinate turns the subtraction into addition, so {{y - ('+p[1]+')}} becomes '+(p[1]<0?'a plus sign':'a minus sign')+' in the equation.','']],
+      oracle:v=>near(v.m,Rnum(m))&&v.px===p[0]&&v.py===p[1],meta:{kind:'pointSlope',m:vOf({m,b:R(0)}).m,pt:p}});
+    /* slopept: from point-slope to slope of a line / to y-intercept */
+    const wantB=rnd(0,1);const val=wantB?Rnum(L.b):Rnum(m);
+    const bad2=wantB?[Rneg(L.b),R(p[1]),R(-p[1]),Radd(Rmul(m,R(p[0])),R(p[1])),Radd(Rmul(m,R(-p[0])),R(p[1])),Rneg(m)]:[Rneg(m),Rrec(m),R(p[1]),R(-p[0]),R(-p[1]),R(p[0])];
+    const asC=r=>({t:Rstr(r),v:Rnum(r)});
+    const bads=bad2.filter(r=>Math.abs(Rnum(r))<100).map(asC);
+    return mcm({prompt:wantB?'What is the {{y}}-intercept of this line?':'What is the slope of this line?',stmt:fmt(m,p[0],p[1]),ok:asC(wantB?L.b:m),bad:bads,
+      steps:wantB?[['Solve for {{y}}: distribute, then move the constant.',`y = ${Rstr(m)}x ${Rnum(L.b)<0?'-':'+'} ${Rstr(R(Math.abs(L.b.n),L.b.d))}`],['The {{y}}-intercept is the constant term.',`b = ${Rstr(L.b)}`]]:[['In point-slope form {{y - y_1 = m(x - x_1)}}, the slope is the number multiplying the parentheses.',`m = ${Rstr(m)}`]],
+      oracle:v=>near(v,val),meta:{kind:wantB?'psIntercept':'psSlope',m:Rnum(m),pt:p}});
+  }
+  if(mode==='conv'){
+    const L=randLine(level,{fracOnly:rnd(0,1)===1,runs:[2,3,4,5]});const [A,B,C]=stdOf(L);
+    if(Math.abs(A)>12||Math.abs(B)>12||Math.abs(C)>40)return null;
+    if(rnd(0,1)){ /* slope-intercept -> standard */
+      const bads=[[A,-B,C],[-A,B,C],[A,B,-C],[B,A,C],[A,B,C+B],[-A,-B,C]].filter(w=>!(w[0]===A&&w[1]===B&&w[2]===C));
+      const mk=w=>({t:stdTxt(w[0],w[1],w[2]),v:w});
+      return mcm({prompt:'Write this equation in standard form {{Ax + By = C}} with integer coefficients, and {{A}} positive.',stmt:lEq(L),ok:mk([A,B,C]),bad:bads.map(mk),
+        steps:[[`Multiply every term by {{${L.m.d}}} to clear the fraction.`,`${L.m.d}y = ${T(L.m.n,'x')}${addC(L.b.n*L.m.d)}`],['Move the {{x}}-term to the left side so {{A}} is positive, and check that the coefficients share no common factor.',stdTxt(A,B,C)]],
+        oracle:w=>{const[a,b,c]=w;return a>0&&gcd(gcd(a,Math.abs(b)),Math.abs(c))===1&&b!==0&&near(-a/b,Rnum(L.m))&&near(c/b,Rnum(L.b));},meta:{kind:'toStd',m:vOf(L).m,b:vOf(L).b}});
+    }
+    /* standard -> slope-intercept */
+    const bads=[{m:R(A,B),b:R(C,B)},{m:R(-B,A),b:R(C,A)},{m:R(A,B),b:R(-C,B)},{m:R(-A,B),b:R(-C,B)},{m:R(B,A),b:R(C,B)},{m:R(-A,-B),b:R(C,-B)}].filter(w=>!sameLine(w,L));
+    return mcm({prompt:'Write this equation in slope-intercept form.',stmt:stdTxt(A,B,C),ok:{t:lEq(L),v:vOf(L)},bad:bads.map(w=>({t:lEq(w),v:vOf(w)})),
+      steps:[['Subtract the {{x}}-term from both sides.',`${T(B,'y')} = ${T(-A,'x')}${addC(C)}`.replace('= ','= ')],['Divide every term by the coefficient of {{y}}.',lEq(L)]],
+      oracle:v=>near(-A/B,v.m)&&near(C/B,v.b),meta:{kind:'fromStd',A,B,C}});
+  }
+  /* std: line through two points, standard form */
+  const L=randLine(3,{runs:[2,3,4],fracOnly:true}),lp=latticePts(L);if(lp.length<2)return null;
+  const p=lp[0],q=lp[1];const [A,B,C]=stdOf(L);if(Math.abs(A)>12||Math.abs(B)>12||Math.abs(C)>60)return null;
+  const bads=[[A,-B,C],[-A,B,C],[B,A,C],[A,B,-C],[A,B,C+A],[B,-A,C]].filter(w=>!(w[0]===A&&w[1]===B&&w[2]===C));
+  const mk=w=>({t:stdTxt(w[0],w[1],w[2]),v:w});
+  return mcm({prompt:`Which equation, in standard form, describes the line through {{${prs(p[0],p[1])}}} and {{${prs(q[0],q[1])}}}?`,ok:mk([A,B,C]),bad:bads.map(mk),
+    steps:[['Find the slope.',`m = [[${q[1]} - ${par(p[1])} ; ${q[0]} - ${par(p[0])}]] = ${Rstr(L.m)}`],['Use point-slope form with the first point, then clear the fraction.',`y - ${par(p[1])} = ${Rstr(L.m)}(x - ${par(p[0])})`],['Rewrite as {{Ax + By = C}}.',stdTxt(A,B,C)]],
+    oracle:w=>{const[a,b,c]=w;return a>0&&a*p[0]+b*p[1]===c&&a*q[0]+b*q[1]===c&&gcd(gcd(a,Math.abs(b)),Math.abs(c))===1;},meta:{kind:'stdTwo',pts:[p,q]}});
+},
+
+/* ---------- parallel and perpendicular ---------- */
+parPerp(level){
+  const mode=pick(level===1?['which','which','which','through']:level===2?['which','through','through','classify']:['through','stdperp','classify','stdperp']);
+  const rel=pick(['parallel','perpendicular']);
+  const L=randLine(level===1?1:2,{runs:[1,2,3]});
+  if(Math.abs(L.m.n)===L.m.d)return null; /* avoid slope +-1: the reciprocal tricks need to stay distinct */
+  const target=rel==='parallel'?L.m:Rneg(Rrec(L.m));
+  const relOk=(m)=>rel==='parallel'?near(m,Rnum(L.m)):near(m*Rnum(L.m),-1);
+  if(mode==='which'){
+    const bs=shuffle([-4,-3,-2,-1,1,2,3,4,5,-5].filter(v=>v!==Rnum(L.b))).slice(0,4);
+    const mk=(m,b)=>({t:lEq({m,b:R(b)}),v:{m:Rnum(m),b}});
+    const bad=[mk(Rneg(target),bs[0]),mk(rel==='parallel'?Rrec(L.m):Rneg(L.m),bs[1]),mk(rel==='parallel'?Rneg(Rrec(L.m)):Rrec(L.m),bs[2]),mk(Rneg(Rrec(target)),bs[3])];
+    return mcm({prompt:`Which line is ${rel} to the line {{${lEq(L)}}}?`,ok:mk(target,bs[rnd(0,3)]),bad,
+      steps:[['The slope of the given line is the coefficient of {{x}}.',`m = ${Rstr(L.m)}`],rel==='parallel'?['Parallel lines have the same slope.',`m = ${Rstr(target)}`]:['Perpendicular slopes are negative reciprocals: flip the fraction and change the sign.',`m = ${Rstr(target)}`],['Find the choice with that slope. The intercept does not matter here.','']],
+      oracle:v=>relOk(v.m),meta:{kind:'parWhich',rel,m:Rnum(L.m)}});
+  }
+  if(mode==='classify'){
+    const A=nz(-5,5),B=nz(-5,5),C=nz(-12,12);if(Math.abs(A)===Math.abs(B))return null;
+    const kind=pick(['parallel','perpendicular','neither','same']);let A2,B2,C2;
+    const k=pick([2,3,-1,-2]);
+    if(kind==='parallel'){A2=k*A;B2=k*B;C2=k*C+pick([-3,3,5,-4]);}
+    else if(kind==='same'){A2=k*A;B2=k*B;C2=k*C;}
+    else if(kind==='perpendicular'){A2=k*B;B2=-k*A;C2=nz(-12,12);}
+    else{A2=A+pick([1,2,-1]);B2=B+pick([1,2,-1]);C2=nz(-12,12);}
+    if([A2,B2].some(z=>Math.abs(z)>12||z===0)||Math.abs(C2)>40)return null;
+    const truth=(A*B2===A2*B)?(A*C2===A2*C&&B*C2===B2*C?'same':'parallel'):(A*A2+B*B2===0?'perpendicular':'neither');
+    const txt={parallel:'parallel',perpendicular:'perpendicular',neither:'neither',same:'the same line'};
+    return mcm({prompt:'What is the relationship between these two lines?',story:`Line 1: {{${stdTxt(A,B,C)}}}.  Line 2: {{${stdTxt(A2,B2,C2)}}}.`,ok:{t:txt[truth],v:truth},bad:Object.keys(txt).map(k=>({t:txt[k],v:k})),
+      steps:[['Write each slope as {{[[-A ; B]]}}.',`m_1 = ${Rstr(R(-A,B))}, m_2 = ${Rstr(R(-A2,B2))}`],['Compare. Equal slopes mean parallel (or the same line, if the intercepts also match). Slopes whose product is {{-1}} mean perpendicular. Anything else is neither.','']],
+      oracle:v=>v===truth,meta:{kind:'parClassify',L1:[A,B,C],L2:[A2,B2,C2]}});
+  }
+  /* through a point */
+  const std=mode==='stdperp';
+  const m2=target;
+  const px=m2.d*rnd(-2,2)||m2.d,py=rnd(-6,6);
+  if(Math.abs(px)>7)return null;
+  const b2=R(py*m2.d-m2.n*px,m2.d);if(b2.d!==1)return null;
+  const K={m:m2,b:b2};
+  const dispBase=std?(()=>{const[A,B,C]=stdOf(L);return stdTxt(A,B,C);})():lEq(L);
+  if(std&&(stdOf(L).some(v=>Math.abs(v)>12)))return null;
+  const mkc=(m,b)=>({t:lEq({m,b:R(b)}),v:{m:Rnum(m),b}});
+  const bm=(m)=>R(py*m.d-m.n*px,m.d);
+  const cands=[m2,Rneg(m2),Rrec(m2),Rneg(Rrec(m2)),L.m].filter((m,i,a)=>a.findIndex(z=>Req(z,m))===i&&!Req(m,m2));
+  const bad=[];
+  cands.forEach(m=>{const b=bm(m);if(b.d===1)bad.push(mkc(m,b.n));});
+  bad.push(mkc(m2,py),mkc(m2,-b2.n),mkc(m2,Rnum(L.b)));
+  const sol=[['Find the slope of the new line from the given line.',`${rel==='parallel'?'m = ':'m = '}${Rstr(m2)}`],['Use the point to find {{b}}.',`${py} = ${Rstr(m2)}(${par(px)}) + b, so b = ${b2.n}`],['Write the equation.',lEq(K)]];
+  const ok={t:lEq(K),v:vOf(K)};
+  return mcm({prompt:`Which line passes through {{${prs(px,py)}}} and is ${rel} to {{${dispBase}}}?`,ok,bad,steps:sol,
+    oracle:v=>relOk(v.m)&&throughPt(v,px,py),meta:{kind:'parThrough',rel,base:std?stdOf(L):[-Rnum(L.m)*L.m.d,L.m.d,0],baseForm:std?'std':'slope',baseLine:vOf(L),pt:[px,py]}});
+},
+
+/* ---------- graph to equation ---------- */
+graphEq(level){
+  const L=randLine(level,{runs:level===1?[1,2]:[1,2,3]});const lp=latticePts(L);if(lp.length<3)return null;
+  const p=lp[0],q=lp[lp.length-1];
+  const fig=gSvg({px:300,win:[-6,-6,6,6],curves:[{f:lfn(L),cls:'acc'}],dots:[{p,k:'acc'},{p:q,k:'acc'}],lstep:1,alt:'A line with two marked points'});
+  const cand=[{m:Rneg(L.m),b:L.b},{m:Rrec(L.m),b:L.b},{m:L.m,b:Rneg(L.b)},{m:Rneg(Rrec(L.m)),b:L.b},{m:Rneg(L.m),b:Rneg(L.b)}].filter(w=>!sameLine(w,L));
+  const std=level===3&&rnd(0,1)===0&&L.m.d!==1;
+  const [A,B,C]=stdOf(L);
+  const txt=w=>{if(!std)return lEq(w);const s=stdOf(w);return stdTxt(s[0],s[1],s[2]);};
+  if(std&&(Math.abs(A)>12||Math.abs(B)>12||Math.abs(C)>40))return null;
+  return mcm({prompt:`Which equation matches the line? ${std?'The choices are in standard form.':''}`.trim(),fig,ok:{t:txt(L),v:vOf(L)},bad:cand.map(w=>({t:txt(w),v:vOf(w)})),
+    steps:[['Use the two marked points to find the slope: rise over run.',`${prs(p[0],p[1])}, ${prs(q[0],q[1])}: m = [[${q[1]-p[1]} ; ${q[0]-p[0]}]] = ${Rstr(L.m)}`],['Read where the line crosses the {{y}}-axis.',`b = ${Rstr(L.b)}`],['Write the equation.',txt(L)]],
+    oracle:v=>throughPt(v,p[0],p[1])&&throughPt(v,q[0],q[1]),meta:{kind:'graphEq',pts:[p,q],std}});
+},
+
+/* ---------- equation to graph ---------- */
+eqGraph(level){
+  const L=randLine(level,{runs:level===1?[1,2]:[1,2,3],fracOnly:level===3&&rnd(0,1)===1});
+  const std=level>=2&&rnd(0,1)===1;const [A,B,C]=stdOf(L);
+  if(std&&(Math.abs(A)>12||Math.abs(B)>12||Math.abs(C)>40))return null;
+  const stmt=std?stdTxt(A,B,C):lEq(L);
+  const raw=[{m:Rneg(L.m),b:L.b},{m:Rrec(L.m),b:L.b},{m:L.m,b:Rneg(L.b)},{m:Rneg(L.m),b:Rneg(L.b)},{m:Rneg(Rrec(L.m)),b:L.b},{m:L.m,b:R(L.b.n+(L.b.n>2?-3:3),L.b.d)}];
+  const good=[];
+  for(const w of raw){
+    if(sameLine(w,L)||!looksDiff(lfn(w),lfn(L))||inWin(lfn(w))<14)continue;
+    if(good.every(g=>looksDiff(lfn(w),lfn(g))))good.push(w);}
+  if(good.length<3||inWin(lfn(L))<14)return null;
+  const mk=w=>({svg:lineSvg(w),v:vOf(w)});
+  return mcm({prompt:'Which graph shows this line?',stmt,ok:mk(L),bad:good.map(mk),
+    steps:std?[['Find the intercepts of {{'+stdTxt(A,B,C)+'}}. Set {{x = 0}}, then {{y = 0}}.',`${B===0?'':'(0, '+Rstr(R(C,B))+')'}  ${A===0?'':'('+Rstr(R(C,A))+', 0)'}`],['Plot the intercepts and draw the line through them.','']]
+      :[['The {{y}}-intercept is {{'+Rstr(L.b)+'}}, so the line crosses the {{y}}-axis at {{(0, '+Rstr(L.b)+')}}.',''],['The slope {{'+Rstr(L.m)+'}} means: from that point, go up '+Math.abs(L.m.n)+' and '+(L.m.n<0?'left':'right')+' '+L.m.d+' (rise over run).','']],
+    oracle:v=>near(v.m,Rnum(L.m))&&near(v.b,Rnum(L.b)),meta:{kind:'eqGraph',L:vOf(L),std,A,B,C}});
+},
+
+/* ---------- graph the inequality ---------- */
+ineqGraph(level){
+  let S,form='slope';
+  if(level>=2&&rnd(0,3)===0){S=rnd(0,1)?mkS(1,0,nz(-4,4),pickOp()):mkS(0,1,nz(-4,4),pickOp());}
+  else{
+    const L=randLine(level,{runs:level===1?[1,2]:[1,2,3]});S=ineqFromLine(L,pickOp());
+    if(level>=2&&rnd(0,2)>0){form='std';S=reduceS(S);if(level===3&&rnd(0,1)){S={a:-S.a,b:-S.b,c:-S.c,op:flipOp[S.op]};}}
+    if(Math.abs(S.a)>12||Math.abs(S.b)>12||Math.abs(S.c)>40)return null;}
+  const cands=[flipSide(S),toggleDash(S),flipSide(toggleDash(S)),{...S,a:-S.a},{...S,c:-S.c}];
+  const need=[cands[0],cands[1]];const geo=[cands[3],cands[4],cands[2]].filter(w=>visibleRegion([w])&&!specEq([w],[S]));
+  const list=[...need,...geo].filter(w=>visibleRegion([w])&&!specEq([w],[S]));
+  const uniq=[];for(const w of list)if(uniq.every(u=>!specEq([u],[w])))uniq.push(w);
+  if(!visibleRegion([S])||uniq.length<3)return null;
+  const bad=uniq.slice(0,3).map(w=>({svg:regionSvg([w]),v:w}));
+  const bl=S.b!==0?(S.a===0?`y = ${Rstr(R(S.c,S.b))}`:lineEq(R(-S.a,S.b),R(S.c,S.b))):`x = ${Rstr(R(S.c,S.a))}`;
+  const tp=testPt(S),sat=satS(S,tp[0],tp[1]);
+  return mcm({prompt:'Which graph shows the solution set of this inequality?',stmt:ineqTxt(S,form),ok:{svg:regionSvg([S]),v:S},bad,
+    steps:[['Graph the boundary line (change the inequality sign to an equals sign).',bl],[isStrict(S)?'The inequality is strict ({{'+(S.op)+'}}), so the boundary is dashed: points on the line are not solutions.':'The inequality includes equality ({{'+S.op+'}}), so the boundary is solid: points on the line are solutions.',''],
+      [`Test {{${ptTxt(tp[0],tp[1])}}} in the original inequality. It is ${sat?'true':'false'}, so shade the side ${sat?'that contains':'that does not contain'} the point.`,'']],
+    oracle:v=>specEq([v],[S]),meta:{kind:'ineqGraph',S,form}});
+},
+
+/* ---------- test a point ---------- */
+ineqPoint(level){
+  const nsys=level===1?1:level===2?pick([1,2]):2;
+  const Ss=[],forms=[];
+  for(let i=0;i<nsys;i++){
+    const L=randLine(level,{runs:level===1?[1,2]:[1,2,3]});let S=ineqFromLine(L,pickOp());const f=level===1||rnd(0,1)?'slope':'std';if(f==='std')S=reduceS(S);
+    if(Math.abs(S.a)>12||Math.abs(S.b)>12||Math.abs(S.c)>40)return null;
+    if(Ss.some(U=>lineKeyS(U)===lineKeyS(S)))return null;Ss.push(S);forms.push(f);}
+  const all=[];for(let x=-6;x<=6;x++)for(let y=-6;y<=6;y++)all.push([x,y]);
+  const good=all.filter(([x,y])=>Ss.every(S=>satS(S,x,y))&&Ss.every(S=>!onLine(S,x,y)));
+  const trap=all.filter(([x,y])=>Ss.some(S=>isStrict(S)&&onLine(S,x,y))&&!Ss.every(S=>satS(S,x,y))&&Ss.every(S=>satS({...S,op:S.op.includes('=')?S.op:S.op+'='},x,y)));
+  const part=all.filter(([x,y])=>nsys>1&&Ss.some(S=>satS(S,x,y))&&!Ss.every(S=>satS(S,x,y)));
+  const none=all.filter(([x,y])=>Ss.every(S=>!satS(S,x,y)));
+  if(good.length<3)return null;
+  const okp=pick(good);const bad=[];
+  const push=a=>{if(a.length){const p=pick(a);if(!bad.some(q=>q[0]===p[0]&&q[1]===p[1]))bad.push(p);}};
+  push(trap);push(part);push(part);push(none);push(none);push(none);
+  const mk=p=>({t:ptTxt(p[0],p[1]),v:p});
+  const stmt=nsys===1?ineqTxt(Ss[0],forms[0]):`sys{${Ss.map((S,i)=>ineqTxt(S,forms[i])).join(' ;; ')}}`;
+  const chk=p=>Ss.map((S,i)=>`${ptTxt(p[0],p[1])}: ${S.a*p[0]+S.b*p[1]} ${S.op} ${S.c} is ${satS(S,p[0],p[1])?'true':'false'}`);
+  return mcm({prompt:nsys===1?'Which ordered pair is a solution of this inequality?':'Which ordered pair is a solution of the whole system?',stmt,ok:mk(okp),bad:bad.map(mk),
+    steps:[['Substitute the point into each inequality. For the system, a solution must make every inequality true.',''],[`The correct point {{${ptTxt(okp[0],okp[1])}}} works in each one.`,Ss.map((S,i)=>`${S.a*okp[0]+S.b*okp[1]} ${S.op} ${S.c}`).join(',  ')],[trap.length&&bad.some(q=>Ss.some(S=>isStrict(S)&&onLine(S,q[0],q[1])))?'A point on the boundary of a strict inequality (< or >) is not a solution, because the line itself is not included.':'Each other choice makes at least one inequality false.','']],
+    oracle:v=>Ss.every(S=>satS(S,v[0],v[1])),meta:{kind:'ineqPoint',Ss,forms}});
+},
+
+/* ---------- systems of inequalities: pick the graph ---------- */
+regionGraph(level){
+  const n=level===2?2:pick([2,3,3]);const Ss=[];
+  for(let i=0;i<n;i++){
+    let S;
+    if(level===3&&i===n-1&&n===3&&rnd(0,1)===0)S=pick([mkS(1,0,0,'>='),mkS(0,1,0,'>=')]);
+    else if(rnd(0,4)===0)S=rnd(0,1)?mkS(1,0,nz(-3,3),pickOp()):mkS(0,1,nz(-3,3),pickOp());
+    else{const L=randLine(2,{runs:[1,2]});S=ineqFromLine(L,pickOp());if(rnd(0,1))S=reduceS(S);}
+    if(Math.abs(S.a)>12||Math.abs(S.b)>12||Math.abs(S.c)>40)return null;
+    if(Ss.some(U=>lineKeyS(U)===lineKeyS(S)||(U.a*S.b===U.b*S.a)))return null;Ss.push(S);}
+  if(!visibleRegion(Ss))return null;
+  const cands=[];
+  const i1=rnd(0,n-1),i2=(i1+1)%n;
+  const sw=(i,f)=>Ss.map((S,j)=>j===i?f(S):S);
+  cands.push(sw(i1,flipSide),sw(i2,toggleDash),sw(i2,flipSide),sw(i1,toggleDash),sw(i1,S=>({...S,a:-S.a})),sw(i2,S=>({...S,c:-S.c})));
+  const uniq=[];for(const c of cands){if(!visibleRegion(c)||specEq(c,Ss))continue;if(uniq.every(u=>!specEq(u,c)))uniq.push(c);}
+  if(uniq.length<3)return null;
+  const useForm=Ss.map(S=>rnd(0,1)||S.a===0||S.b===0?'slope':'std');
+  const pick3=uniq.slice(0,3);
+  return mcm({prompt:'Which graph shows the solution set of the system?',stmt:`sys{${Ss.map((S,i)=>ineqTxt(S,useForm[i])).join(' ;; ')}}`,ok:{svg:regionSvg(Ss),v:Ss},bad:pick3.map(c=>({svg:regionSvg(c),v:c})),
+    steps:[['Graph each boundary line. Use a dashed line for {{<}} or {{>}} and a solid line for {{≤}} or {{≥}}.',Ss.map(S=>isStrict(S)?'dashed':'solid').join(', ')],['Test a point in each inequality to decide which side to shade.',Ss.map(S=>{const t=testPt(S);return ptTxt(t[0],t[1])+' '+(satS(S,t[0],t[1])?'works':'fails');}).join(',  ')],['The solution set is where all the shaded sides overlap.','']],
+    oracle:v=>specEq(v,Ss),meta:{kind:'regionGraph',Ss,useForm}});
+},
+
+/* ---------- solve a system ---------- */
+sysSolve(level){
+  const x0=rnd(-6,6),y0=rnd(-6,6);if(x0===0||y0===0||x0===y0)return null;
+  let a1,b1,c1,a2,b2,c2,method,eq1txt,eq2txt,steps;
+  if(level===1){
+    const m=nz(-4,4),b=y0-m*x0;if(Math.abs(b)>12)return null;
+    a2=nz(-4,4);b2=nz(-4,4);if(det2(-m,1,a2,b2)===0||Math.abs(a2)===Math.abs(b2)&&false)return null;
+    c2=a2*x0+b2*y0;a1=-m;b1=1;c1=b;
+    eq1txt=`y = ${lin(m,b)}`;eq2txt=stdTxt(a2,b2,c2);method='sub';
+    const k=a2+b2*m,rhs=c2-b2*b;
+    steps=[['The first equation already gives {{y}}. Substitute it into the second equation.',`${T(a2,'x')} ${b2<0?'-':'+'} ${Math.abs(b2)}(${lin(m,b)}) = ${c2}`],
+      ['Distribute and combine like terms, then solve for {{x}}.',`${T(k,'x')} = ${rhs},  so x = ${x0}`],['Substitute {{x = '+x0+'}} back into {{y = '+lin(m,b)+'}}.',`y = ${m}(${par(x0)})${asgn(b)} = ${y0}`]];
+  }else{
+    a1=nz(-5,5);b1=nz(-5,5);
+    if(level===2){
+      if(rnd(0,1)){b2=pick([-b1,b1*2,-b1*2,b1*3,-b1*3]);a2=nz(-5,5);}else{a2=pick([-a1,a1*2,-a1*2,a1*3,-a1*3]);b2=nz(-5,5);}
+    }else{a2=nz(-5,5);b2=nz(-5,5);}
+    if([a1,b1,a2,b2].some(v=>Math.abs(v)>12||v===0))return null;
+    if(det2(a1,b1,a2,b2)===0)return null;
+    if(level===3&&(a2%a1===0||a1%a2===0||b2%b1===0||b1%b2===0))return null;
+    c1=a1*x0+b1*y0;c2=a2*x0+b2*y0;eq1txt=stdTxt(a1,b1,c1);eq2txt=stdTxt(a2,b2,c2);method='elim';
+    const elimX=lcm(Math.abs(a1),Math.abs(a2))<lcm(Math.abs(b1),Math.abs(b2));
+    const ca=elimX?a1:b1,cb=elimX?a2:b2,l=lcm(Math.abs(ca),Math.abs(cb)),K1=l/ca,K2=-l/cb;
+    const na=K1*a1+K2*a2,nb=K1*b1+K2*b2,nc=K1*c1+K2*c2;
+    steps=[[`To eliminate {{${elimX?'x':'y'}}}, make its coefficients opposites: multiply the first equation by {{${K1}}} and the second by {{${K2}}}.`,`${stdTxt(K1*a1,K1*b1,K1*c1)},  ${stdTxt(K2*a2,K2*b2,K2*c2)}`],
+      ['Add the new equations and solve for the remaining variable.',elimX?`${T(nb,'y')} = ${nc},  so y = ${y0}`:`${T(na,'x')} = ${nc},  so x = ${x0}`],
+      ['Substitute into one original equation to find the other variable.',elimX?`${a1}x ${b1<0?'-':'+'} ${Math.abs(b1)}(${par(y0)}) = ${c1},  so x = ${x0}`:`${a1}(${par(x0)}) ${b1<0?'-':'+'} ${Math.abs(b1)}y = ${c1},  so y = ${y0}`]];
+  }
+  const mk=(x,y)=>({t:ptTxt(x,y),v:[x,y]});
+  /* wrong points: swapped, sign slips, satisfies only one equation */
+  const only1=[x0+b1,y0-a1],only2=[x0+b2,y0-a2];
+  const bad=[mk(y0,x0),mk(-x0,y0),mk(x0,-y0),mk(only1[0],only1[1]),mk(only2[0],only2[1]),mk(-x0,-y0)].filter(w=>Math.abs(w.v[0])<=14&&Math.abs(w.v[1])<=14);
+  return mcm({prompt:'Solve the system. Which ordered pair is the solution?',stmt:`sys{${eq1txt} ;; ${eq2txt}}`,ok:mk(x0,y0),bad,steps:[...steps.map(s=>s),['Check in both original equations.',`${ptTxt(x0,y0)}`]],
+    oracle:v=>satEq(a1,b1,c1,v[0],v[1])&&satEq(a2,b2,c2,v[0],v[1]),meta:{kind:'sysSolve',eqs:[[a1,b1,c1],[a2,b2,c2]],method}});
+},
+
+/* ---------- systems and graphs ---------- */
+sysGraph(level){
+  const mode=level===1?'read':level===2?pick(['read','pick']):'pick';
+  if(mode==='read'){
+    for(let t=0;t<200;t++){
+      const x0=rnd(-4,4),y0=rnd(-4,4);const m1=pick([1,2,-1,-2,3,-3,R(1,2),R(-1,2)].map(v=>typeof v==='number'?R(v):v)),m2=pick([1,2,-1,-2,3,-3,R(1,2),R(-1,2)].map(v=>typeof v==='number'?R(v):v));
+      if(Req(m1,m2))continue;
+      const b1=R(y0).n-Rnum(m1)*x0,b2=y0-Rnum(m2)*x0;if(!Number.isInteger(cleanN(b1))||!Number.isInteger(cleanN(b2))||Math.abs(b1)>5||Math.abs(b2)>5)continue;
+      const L={m:m1,b:R(cleanN(b1))},K={m:m2,b:R(cleanN(b2))};if(Req(L.b,K.b))continue;
+      const fig=gSvg({px:300,win:[-6,-6,6,6],curves:[{f:lfn(L),cls:'acc'},{f:lfn(K),cls:'acc2'}],lstep:1,alt:'Two lines that cross'});
+      const mk=(x,y)=>({t:ptTxt(x,y),v:[x,y]});
+      const bad=[mk(y0,x0),mk(0,L.b.n),mk(0,K.b.n),mk(-x0,y0),mk(x0,-y0),mk(x0+1,y0)].filter(w=>!(w.v[0]===x0&&w.v[1]===y0));
+      return mcm({prompt:'The graph shows a system of two linear equations. What is the solution of the system?',fig,ok:mk(x0,y0),bad,
+        steps:[['The solution is the point where the two lines cross, because that point is on both lines.',''],['Read its coordinates from the grid.',ptTxt(x0,y0)]],
+        oracle:v=>near(v[1],Rnum(L.m)*v[0]+Rnum(L.b))&&near(v[1],Rnum(K.m)*v[0]+Rnum(K.b)),meta:{kind:'sysRead',L:vOf(L),K:vOf(K)}});
+    }
+    return null;
+  }
+  /* pick the graph of the system */
+  const L=randLine(level,{runs:[1,2]}),K=randLine(level,{runs:[1,2]});
+  if(Req(L.m,K.m)||lineKey(L)===lineKey(K))return null;
+  const std=level===3;const eqt=(w)=>{if(!std)return lEq(w);const s=stdOf(w);return stdTxt(s[0],s[1],s[2]);};
+  if(std&&[L,K].some(w=>stdOf(w).some(v=>Math.abs(v)>12)))return null;
+  const cL=[{L:{m:Rneg(L.m),b:L.b},K},{L,K:{m:Rneg(K.m),b:K.b}},{L:{m:L.m,b:Rneg(L.b)},K},{L,K:{m:K.m,b:Rneg(K.b)}},{L:{m:Rneg(L.m),b:Rneg(L.b)},K:{m:Rneg(K.m),b:Rneg(K.b)}},{L:{m:Rrec(L.m),b:L.b},K}];
+  const sol=(A,B)=>{const dm=Rnum(A.m)-Rnum(B.m);if(Math.abs(dm)<1e-9)return null;const x=(Rnum(B.b)-Rnum(A.b))/dm;return [x,Rnum(A.m)*x+Rnum(A.b)];};
+  const sameSys=(P,Q)=>(sameLine(P.L,Q.L)&&sameLine(P.K,Q.K))||(sameLine(P.L,Q.K)&&sameLine(P.K,Q.L));
+  const T0={L,K};const good=[];
+  const drawn=P=>{const p=sol(P.L,P.K);return gSvg({px:190,curves:[{f:lfn(P.L),cls:'acc'},{f:lfn(P.K),cls:'acc2'}],labels:false,dots:p&&Math.abs(p[0])<=6&&Math.abs(p[1])<=6?[{p,k:''}]:[],alt:'Candidate graph'});};
+  for(const c of cL){
+    if(sameSys(c,T0)||inWin(lfn(c.L))<14||inWin(lfn(c.K))<14)continue;
+    if([c.L,c.K].some(w=>sameLine(w,c.L)&&sameLine(w,c.K)))continue;
+    if(good.every(g=>!sameSys(g,c)))good.push(c);}
+  if(good.length<3||inWin(lfn(L))<14||inWin(lfn(K))<14)return null;
+  const mk=P=>({svg:drawn(P),v:P});
+  return mcm({prompt:'Which graph shows this system?',stmt:`sys{${eqt(L)} ;; ${eqt(K)}}`,ok:mk(T0),bad:good.slice(0,3).map(mk),
+    steps:[['Graph the first line from its slope and intercept.',eqt(L)],['Graph the second line.',eqt(K)],['The correct picture has both lines, and the dot at the point where they cross is the solution of the system.','']],
+    oracle:v=>sameSys(v,T0),meta:{kind:'sysPick',L:vOf(L),K:vOf(K),std}});
+},
+
+/* ---------- how many solutions? ---------- */
+sysCount(level){
+  const mode=level===1?pick(['alg','graph']):level===2?pick(['alg','alg','graph','k']):pick(['alg','k','k','graph']);
+  const TXT={none:'no solution',inf:'infinitely many solutions',two:'exactly two solutions'};
+  if(mode==='graph'){
+    const kind=pick(['none','inf','one']);const L=randLine(level,{runs:[1,2]});let K;
+    if(kind==='none')K={m:L.m,b:R(L.b.n+pick([-3,-2,2,3]),L.b.d)};
+    else if(kind==='inf')K=L;
+    else{K=randLine(level,{runs:[1,2]});if(Req(K.m,L.m))return null;}
+    if(Math.abs(K.b.n/K.b.d)>5.5)return null;
+    const x=kind==='one'?(Rnum(K.b)-Rnum(L.b))/(Rnum(L.m)-Rnum(K.m)):0,p=kind==='one'?[x,Rnum(L.m)*x+Rnum(L.b)]:null;
+    if(kind==='one'&&(Math.abs(p[0])>5.5||Math.abs(p[1])>5.5))return null;
+    const fig=gSvg({px:300,win:[-6,-6,6,6],curves:[{f:lfn(L),cls:'acc'},{f:lfn(K),cls:'acc2 dash',dash:true}],lstep:1,alt:'Two lines'});
+    const ct=(typeof 0);
+    const truth=kind;const opts={none:{t:TXT.none,v:'none'},inf:{t:TXT.inf,v:'inf'},one:{t:'exactly one solution',v:'one'},two:{t:TXT.two,v:'two'}};
+    return mcm({prompt:'How many solutions does the system of equations shown in the graph have? (The second line is dashed so you can see when it lies on top of the first.)',fig,ok:opts[truth],bad:Object.keys(opts).filter(k=>k!==truth).map(k=>opts[k]),
+      steps:[kind==='one'?['The lines cross at exactly one point, so there is exactly one solution.','']:kind==='none'?['The lines are parallel (same slope, different intercepts). They never meet, so there is no solution.','']:['The two lines lie on top of each other: every point on the line is a solution, so there are infinitely many.',''],['A system of linear equations never has exactly two solutions: two different lines cross at most once.','']].slice(0,2),
+      oracle:v=>v===(Req(L.m,K.m)?(Req(L.b,K.b)?'inf':'none'):'one'),meta:{kind:'sysCountGraph',L:vOf(L),K:vOf(K)}});
+  }
+  if(mode==='k'){
+    const a=nz(-4,4),b=nz(-4,4),t=pick([2,3,-1,-2,3,4]),c=nz(-9,9),which=pick(['no','inf']);
+    const kk=t*a,b2=t*b;if(Math.abs(b2)>12||Math.abs(kk)>16||a===0)return null;
+    const c2=which==='inf'?t*c:t*c+pick([-4,-3,3,5]);
+    if(Math.abs(c2)>40)return null;
+    const wrong=[kk+1,-kk,kk-1,a+b2,t,a*b2-b,kk+a].filter(v=>Number.isInteger(v)&&v!==kk);
+    const eq2=`kx ${b2<0?'-':'+'} ${Math.abs(b2)===1?'':Math.abs(b2)}y = ${c2}`;
+    return mcm({prompt:`For what value of {{k}} does the system have ${which==='no'?'no solution':'infinitely many solutions'}?`,stmt:`sys{${stdTxt(a,b,c)} ;; ${eq2}}`,ok:numC(kk),bad:wrong.map(numC),
+      steps:[['The {{y}}-coefficient in the second equation is {{'+b2+'}}, which is {{'+t+'}} times the {{y}}-coefficient {{'+b+'}} of the first equation.',''],['For the lines to have the same slope, the {{x}}-coefficient must be multiplied by the same factor.',`k = ${t} * ${par(a)} = ${kk}`],[which==='no'?'Check the right side: {{'+c2+'}} is not {{'+t+'}} times {{'+c+'}} (which is {{'+t*c+'}}), so the lines are parallel and there is no solution.':'Check the right side: {{'+c2+'}} equals {{'+t+'}} times {{'+c+'}}, so the equations describe the same line.','']],
+      oracle:v=>{const sameSlope=near(a*b2-v*b,0);if(!sameSlope)return false;const prop=near(a*c2-v*c,0);return which==='inf'?prop:!prop;},meta:{kind:'sysK',a,b,c,b2,c2,which}});
+  }
+  /* algebra: classify, with one-solution distractors */
+  const kind=pick(['none','inf','one','one']);
+  let a1,b1,c1,a2,b2,c2,eq1,eq2;
+  if(level===1){ /* slope-intercept pairs */
+    const m=nz(-4,4),b=nz(-6,6);
+    if(kind==='one'){const m2=pick([-m,m+1,m-1,m*2].filter(v=>v!==m&&v!==0)),b2_=nz(-6,6);eq1=`y = ${lin(m,b)}`;eq2=`y = ${lin(m2,b2_)}`;a1=-m;b1=1;c1=b;a2=-m2;b2=1;c2=b2_;}
+    else{eq1=`y = ${lin(m,b)}`;a1=-m;b1=1;c1=b;a2=-m;b2=1;c2=kind==='inf'?b:b+pick([-3,2,4]);eq2=`y = ${lin(m,c2)}`;}
+  }else{
+    a1=nz(-5,5);b1=nz(-5,5);c1=nz(-10,10);const t=pick([2,3,-1,-2]);
+    if(kind==='one'){a2=a1+pick([1,2,-1]);b2=b1+pick([2,-1,3]);if(det2(a1,b1,a2,b2)===0||[a2,b2].some(v=>v===0))return null;c2=nz(-10,10);}
+    else{a2=t*a1;b2=t*b1;c2=kind==='inf'?t*c1:t*c1+pick([-3,3,5]);}
+    if([a2,b2,a1,b1].some(v=>Math.abs(v)>12)||Math.abs(c2)>40)return null;
+    eq1=stdTxt(a1,b1,c1);eq2=stdTxt(a2,b2,c2);
+  }
+  const d=det2(a1,b1,a2,b2);const truth=d!==0?'one':(a1*c2===a2*c1&&b1*c2===b2*c1?'inf':'none');
+  const sol=d!==0?solve2(a1,b1,c1,a2,b2,c2):null;
+  const optList=[{t:'no solution',v:{k:'none'}},{t:'infinitely many solutions',v:{k:'inf'}}];
+  if(sol){const xs=Rnum(sol[0]),ys=Rnum(sol[1]);
+    optList.push({t:'one solution: '+ptR(sol[0],sol[1]),v:{k:'one',p:[xs,ys]}});
+    const wps=[[ys,xs],[-xs,ys],[xs,-ys],[xs+1,ys]].filter(q=>Number.isInteger(q[0])&&Number.isInteger(q[1])&&!(near(q[0],xs)&&near(q[1],ys)));
+    wps.slice(0,2).forEach(wp=>optList.push({t:'one solution: '+ptTxt(wp[0],wp[1]),v:{k:'one',p:wp}}));}
+  else{
+    const on=[];for(let x=-6;x<=6;x++)for(let y=-6;y<=6;y++)if(truth==='none'?(satEq(a1,b1,c1,x,y)!==satEq(a2,b2,c2,x,y)):!satEq(a1,b1,c1,x,y))on.push([x,y]);
+    shuffle(on).slice(0,2).forEach(wp=>optList.push({t:'one solution: '+ptTxt(wp[0],wp[1]),v:{k:'one',p:wp}}));}
+  optList.push({t:'exactly two solutions',v:{k:'two'}});
+  const okOpt=truth==='one'?optList.find(o=>o.v.k==='one'&&o.t==='one solution: '+ptR(sol[0],sol[1])):optList.find(o=>o.v.k===truth);
+  const bad=optList.filter(o=>o!==okOpt);
+  const orc=v=>{if(truth==='one')return v.k==='one'&&satEq(a1,b1,c1,v.p[0],v.p[1])&&satEq(a2,b2,c2,v.p[0],v.p[1]);return v.k===truth;};
+  const tt=a1!==0?a2/a1:1,rem=cleanN(c2-tt*c1);
+  const steps=truth==='one'?[['The slopes are different, so the lines cross exactly once. Solve by substitution or elimination to find where.',`x = ${Rstr(sol[0])},  y = ${Rstr(sol[1])}`],['The system has one solution.',`one solution: ${ptR(sol[0],sol[1])}`]]
+    :truth==='none'?[['Eliminate a variable. Both variables disappear and the leftover statement is false: {{0 = '+rem+'}}.',''],['A false statement means the lines are parallel and never meet: there is no solution.','']]
+    :[['Eliminate a variable. Both variables disappear and the leftover statement is true: {{0 = 0}}.',''],['A true statement means both equations describe the same line: infinitely many solutions.','']];
+  return mcm({prompt:'How many solutions does the system have?',stmt:`sys{${eq1} ;; ${eq2}}`,ok:okOpt,bad,steps,oracle:orc,meta:{kind:'sysCountAlg',eqs:[[a1,b1,c1],[a2,b2,c2]]}});
+},
+
+/* ---------- systems in context ---------- */
+sysModel(level){
+  const kind=pick(level===1?['tix','plan']:level===2?['tix','plan','mix']:['mix','boat','invest','plan2']);
+  if(kind==='tix'){
+    const pa=pick([8,10,12,15]),ps=pick([4,5,6,7]),s=rnd(15,60),a=rnd(20,70),n=a+s,T_=pa*a+ps*s;
+    if(ps>=pa)return null;
+    const askS=rnd(0,1),ans=askS?s:a;
+    const bad=[askS?a:s,n-ans,T_/pa|0,ans+5,ans-5,(T_-n)/ (pa-ps)|0].filter(v=>Number.isInteger(v)&&v>0&&v!==ans);
+    return mcm({prompt:`How many ${askS?'student':'adult'} tickets were sold?`,story:`A school play charges ${money0(pa)} for an adult ticket and ${money0(ps)} for a student ticket. One night, ${n} tickets were sold for a total of ${money0(T_)}.`,
+      ok:numC(ans),bad:bad.map(numC),steps:[['Let {{a}} be adult tickets and {{s}} be student tickets. Write one equation for the number of tickets and one for the money.',`sys{a + s = ${n} ;; ${pa}a + ${ps}s = ${T_}}`],['Substitute {{a = '+n+' - s}} and solve.',`${pa}(${n} - s) + ${ps}s = ${T_},  so s = ${s}`],['Then {{a = '+n+' - '+s+'}}. Answer the question that was asked.',`${ans}`]],
+      oracle:v=>{const sv=askS?v:n-v,av=n-sv;return sv>=0&&av>=0&&pa*av+ps*sv===T_;},meta:{kind:'modelTix',pa,ps,n,T:T_,askS}});
+  }
+  if(kind==='plan'||kind==='plan2'){
+    const f1=pick([0,10,15,20]),f2=f1+pick([20,25,30,40]),r2=pick([2,3,4,5]),r1=r2+pick([2,3,4,5]),k=rnd(4,14);
+    const g=(f2-f1)%(r1-r2)===0?(f2-f1)/(r1-r2):null;
+    let n=g;if(!n||n<3||n>25)return null;
+    const cost=f1+r1*n,askCost=kind==='plan2';
+    const ans=askCost?cost:n;
+    const bad=askCost?[n,f2+r1*n,cost+f1,cost-r1,r1*n+r2*n,(f1+f2)*n].filter(v=>Number.isInteger(v)&&v>0&&v!==ans):[cost,n+1,n-1,(f2-f1)/(r1+r2)|0,(f2+f1)/(r1-r2)|0,f2-f1].filter(v=>Number.isInteger(v)&&v>0&&v!==ans);
+    const fmtP=(f,r)=>f===0?`${money0(r)} per ride, with no joining fee`:`a ${money0(f)} joining fee plus ${money0(r)} per ride`;
+    return mcm({prompt:askCost?'What is that common cost?':'After how many rides do the two plans cost the same?',story:`A bike-share company offers two plans. Plan A charges ${fmtP(f1,r1)}. Plan B charges ${fmtP(f2,r2)}.${askCost?' The plans cost the same after a certain number of rides.':''}`,
+      ok:askCost?{t:money0(ans),v:ans}:numC(ans),bad:bad.map(v=>askCost?{t:money0(v),v}:numC(v)),
+      steps:[['Let {{n}} be the number of rides and {{C}} the total cost. Write an equation for each plan.',`sys{C = ${f1===0?'':f1+' + '}${r1}n ;; C = ${f2} + ${r2}n}`],['Set the costs equal (substitution) and solve for {{n}}.',`${f1===0?'':f1+' + '}${r1}n = ${f2} + ${r2}n,  so n = ${n}`],askCost?['Substitute into either equation to find the cost.',`C = ${f1===0?'':f1+' + '}${r1}(${n}) = ${money0(cost)}`]:['Check: both plans cost {{'+money0(cost)+'}} at {{n = '+n+'}}. So the answer is the number of rides.',`${n}`]],
+      oracle:v=>askCost?(v===f1+r1*Math.round((f2-f1)/(r1-r2))):(f1+r1*v===f2+r2*v),meta:{kind:'modelPlan',f1,r1,f2,r2,askCost}});
+  }
+  if(kind==='mix'){
+    const c1=pick([8,9,10,12]),c2=pick([3,4,5,6]),x=rnd(3,12),y=rnd(3,12),N=x+y,T_=c1*x+c2*y;
+    if(c1<=c2)return null;
+    const askX=rnd(0,1),ans=askX?x:y;
+    const bad=[askX?y:x,N-ans>0&&N-ans!==ans?N-ans:ans+1,ans+2,ans-2,Math.round(T_/c1)].filter(v=>Number.isInteger(v)&&v>0&&v!==ans);
+    return mcm({prompt:`How many pounds of ${askX?'cashews':'raisins'} are in the mix?`,story:`A trail-mix stand blends cashews that cost ${money0(c1)} per pound with raisins that cost ${money0(c2)} per pound. The result is ${N} pounds of mix worth ${money0(T_)}.`,
+      ok:numC(ans),bad:bad.map(numC),steps:[['Let {{c}} be pounds of cashews and {{r}} be pounds of raisins. One equation counts pounds and the other counts dollars.',`sys{c + r = ${N} ;; ${c1}c + ${c2}r = ${T_}}`],['Multiply the first equation by {{-'+c2+'}} and add to eliminate {{r}}.',`${c1-c2}c = ${T_-c2*N},  so c = ${x}`],['Then {{r = '+N+' - '+x+' = '+y+'}}. Answer the question that was asked.',`${ans}`]],
+      oracle:v=>{const cv=askX?v:N-v,rv=N-cv;return cv>=0&&rv>=0&&c1*cv+c2*rv===T_;},meta:{kind:'modelMix',c1,c2,N,T:T_,askX}});
+  }
+  if(kind==='boat'){
+    const b=pick([10,12,14,15,16,18]),c=pick([2,3,4]),t1=pick([2,3,4]),t2=t1+pick([1,2]),down=b+c,up=b-c;
+    const D=down*t1;if(D%t2!==0||D/t2!==up)return null;
+    const askB=rnd(0,1),ans=askB?b:c;
+    const bad=[askB?c:b,down,up,D/t1/2,askB?down+c:b+c].map(cleanN).filter(v=>Number.isInteger(v)&&v>0&&v!==ans);
+    return mcm({prompt:`What is the ${askB?'speed of the ferry in still water':'speed of the current'}, in miles per hour?`,story:`A ferry travels ${D} miles downstream in ${t1} hours. The return trip upstream, against the current, takes ${t2} hours.`,
+      ok:numC(ans),bad:bad.map(numC),steps:[['Let {{f}} be the ferry speed and {{w}} the current. Distance = rate * time in each direction.',`sys{${t1}(f + w) = ${D} ;; ${t2}(f - w) = ${D}}`],['Find each speed: downstream {{f + w}} and upstream {{f - w}}.',`f + w = ${down},  f - w = ${up}`],['Add the two equations to find {{f}}; subtract them to find {{w}}.',`2f = ${down+up},  so f = ${b};  2w = ${down-up},  so w = ${c}`],['Answer the question that was asked.',`${ans}`]],
+      oracle:v=>{const f=askB?v:b,w=askB?c:v;return (askB?(near(t1*(v+c),D)&&near(t2*(v-c),D)):(near(t1*(b+v),D)&&near(t2*(b-v),D)));},meta:{kind:'modelBoat',D,t1,t2,askB}});
+  }
+  /* invest */
+  const N=pick([6000,8000,9000,10000,12000]),r1=pick([4,5]),r2=pick([6,7,8]),x=pick([2000,3000,4000,5000,6000,2500,3500].filter(v=>v<N)),y=N-x,I=(r1*x+r2*y)/100;
+  if(!Number.isInteger(I))return null;
+  const ans=x;const bad=[y,Math.round(I*100/r1),N/2,x+1000,Math.round(I*100/r2)].filter(v=>Number.isInteger(v)&&v>0&&v!==ans&&v<N*2);
+  return mcm({prompt:`How much was invested in the ${r1}% account?`,story:`A club invests ${money0(N)}, part in an account that earns ${r1}% simple interest per year and the rest in an account that earns ${r2}% simple interest per year. After one year the total interest is ${money0(I)}.`,
+    ok:{t:money0(ans),v:ans},bad:bad.map(v=>({t:money0(v),v})),steps:[['Let {{a}} and {{b}} be the amounts in the {{'+r1+'%}} and {{'+r2+'%}} accounts.',`sys{a + b = ${N} ;; ${r1/100}a + ${r2/100}b = ${I}}`],['Substitute {{b = '+N+' - a}} and solve.',`${r1/100}a + ${r2/100}(${N} - a) = ${I},  so a = ${ans}`],['Answer the question that was asked.',`${money0(ans)}`]],
+    oracle:v=>near((r1*v+r2*(N-v))/100,I),meta:{kind:'modelInvest',N,r1,r2,I}});
+},
+
+/* ---------- three variables ---------- */
+sys3(level){
+  const X0=rnd(-3,6),Y0=rnd(-3,6),Z0=rnd(-3,6);if(new Set([X0,Y0,Z0]).size<3)return null;
+  const word=level===3&&rnd(0,1)===0;
+  let M;
+  for(let t=0;t<200;t++){
+    const m=[0,1,2].map(()=>[0,1,2].map(()=>word?rnd(1,4):nz(-3,3)));
+    const d=m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])-m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])+m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);
+    if(d!==0&&Math.abs(d)<=14){M=m;break;}}
+  if(!M)return null;
+  if(word){if([X0,Y0,Z0].some(v=>v<1||v>9))return null;}
+  const rhs=M.map(r=>r[0]*X0+r[1]*Y0+r[2]*Z0);
+  const terms=(r,v)=>{let s='';r.forEach((c,i)=>{if(c===0)return;const body=(Math.abs(c)===1?'':Math.abs(c))+v[i];s+=s===''?(c<0?'-':'')+body:(c<0?' - ':' + ')+body;});return s;};
+  const eqs=M.map((r,i)=>`${terms(r,['x','y','z'])} = ${rhs[i]}`);
+  if(word){
+    const nm=['peaches','plums','pears'],who=['A','B','C'];
+    const story=`A roadside fruit stand sells peaches, plums, and pears by the pound. `+M.map((r,i)=>`Basket ${who[i]} has ${r[0]} lb of peaches, ${r[1]} lb of plums, and ${r[2]} lb of pears and costs ${money0(rhs[i])}.`).join(' ');
+    const idx=rnd(0,2),ans=[X0,Y0,Z0][idx];
+    const bad=[[X0,Y0,Z0][(idx+1)%3],[X0,Y0,Z0][(idx+2)%3],ans+1,ans-1,X0+Y0+Z0,rhs[0]-ans].filter(v=>Number.isInteger(v)&&v>0&&v!==ans);
+    return mcm({prompt:`What is the price of one pound of ${nm[idx]}?`,story,ok:{t:money0(ans),v:ans},bad:bad.map(v=>({t:money0(v),v})),
+      steps:[['Let {{x}}, {{y}}, {{z}} be the prices per pound of peaches, plums, and pears. Write one equation per basket.',`sys{${eqs.join(' ;; ')}}`],['Eliminate one variable from two pairs of equations, then solve the resulting 2 by 2 system.',`x = ${X0},  y = ${Y0},  z = ${Z0}`],['Answer the question that was asked.',`${nm[idx]}: ${money0(ans)}`]],
+      oracle:v=>{const s=[X0,Y0,Z0];s[idx]=v;return M.every((r,i)=>r[0]*s[0]+r[1]*s[1]+r[2]*s[2]===rhs[i]);},meta:{kind:'sys3Word',M,rhs,idx}});
+  }
+  const asTriple=level===3;
+  const cross=(u,v)=>[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];
+  const satAll=(p)=>M.every((r,i)=>r[0]*p[0]+r[1]*p[1]+r[2]*p[2]===rhs[i]);
+  const steps=[['Eliminate the same variable from two different pairs of equations. This leaves two equations in the other two variables.',''],['Solve that two-variable system, then substitute back to find the third variable.',`x = ${X0},  y = ${Y0},  z = ${Z0}`],['Check the values in all three original equations.','']];
+  if(asTriple){
+    const mk=p=>({t:`(${p[0]}, ${p[1]}, ${p[2]})`,v:p});
+    const dir12=cross(M[0],M[1]),dir13=cross(M[0],M[2]);
+    const wrong=[[Y0,X0,Z0],[X0,Z0,Y0],[-X0,Y0,Z0],[X0,Y0,-Z0],[X0+dir12[0],Y0+dir12[1],Z0+dir12[2]],[X0-dir12[0],Y0-dir12[1],Z0-dir12[2]],[X0+dir13[0],Y0+dir13[1],Z0+dir13[2]],[X0,Y0,Z0+1]].filter(p=>!satAll(p)&&p.every(v=>Math.abs(v)<=12));
+    return mcm({prompt:'Solve the system. Which ordered triple {{(x, y, z)}} is the solution?',stmt:`sys{${eqs.join(' ;; ')}}`,ok:mk([X0,Y0,Z0]),bad:wrong.map(mk),steps,oracle:p=>satAll(p),meta:{kind:'sys3Triple',M,rhs}});
+  }
+  const idx=rnd(0,2),ans=[X0,Y0,Z0][idx],nmv=['x','y','z'][idx];
+  const wrong=[[X0,Y0,Z0][(idx+1)%3],[X0,Y0,Z0][(idx+2)%3],-ans,ans+1,ans-1,X0+Y0+Z0].filter(v=>v!==ans);
+  return mcm({prompt:`Solve the system. What is the value of {{${nmv}}}?`,stmt:`sys{${eqs.join(' ;; ')}}`,ok:numC(ans),bad:wrong.map(numC),steps,
+    oracle:v=>{const s=[X0,Y0,Z0];s[idx]=v;return satAll(s);},meta:{kind:'sys3Var',M,rhs,idx}});
+},
+
+/* ---------- linear programming ---------- */
+linProg(level){
+  const minimize=level===3&&rnd(0,2)===0;
+  const mode=level===2?pick(['graphVal','which','graphVal']):pick(['story','story','storyGraph','which']);
+  let cons=null,verts=null;
+  for(let t=0;t<1500&&!cons;t++){
+    const n=(level===3&&!minimize&&rnd(0,1))?3:2,cs=[];
+    for(let i=0;i<n;i++){
+      if(i===2){cs.push(rnd(0,1)?mkS(1,0,rnd(2,8),'<='):mkS(0,1,rnd(2,8),'<='));continue;}
+      const lo=(mode==='story'||mode==='storyGraph')?2:1,a=rnd(lo,5),b=rnd(lo,5),c=minimize?rnd(8,36):rnd(8,40);cs.push(mkS(a,b,c,minimize?'>=':'<='));}
+    const all=[mkS(1,0,0,'>='),mkS(0,1,0,'>='),...cs];
+    const vs=vertsOf(all);
+    const expect=minimize?cs.length+1:cs.length+2;
+    if(vs.length!==expect||!vs.every(v=>v.every(c=>Number.isInteger(c)&&c>=0&&c<=10)))continue;
+    if(cs.some((S,i)=>cs.slice(0,i).some(U=>lineKeyS(U)===lineKeyS(S))))continue;
+    cons=cs;verts=vs;}
+  if(!cons)return null;
+  const all=[mkS(1,0,0,'>='),mkS(0,1,0,'>='),...cons];
+  let P=null;
+  for(let t=0;t<200&&!P;t++){
+    const p=rnd(1,9),q=rnd(1,9);if(p===q)continue;
+    const vals=verts.map(v=>p*v[0]+q*v[1]),srt=[...vals].sort((u,w)=>minimize?u-w:w-u);
+    if(srt[0]===srt[1]||srt[1]===srt[2]&&false)continue;
+    P={p,q,vals,best:vals.indexOf(srt[0]),second:srt[1]};}
+  if(!P)return null;
+  const objName=minimize?'C':'P',objTxt=`${objName} = ${P.p===1?'':P.p}x + ${P.q===1?'':P.q}y`;
+  const bestV=verts[P.best],bestVal=P.vals[P.best];
+  const rect=[[-1,-1],[11,-1],[11,11],[-1,11]];
+  const poly=all.reduce((pg,S)=>clipHP(pg,S.a,S.b,S.c,isLess(S)?1:-1),rect);
+  const labelled=mode==='graphVal'||mode==='which';
+  const fig=(mode==='story')?'':gSvg({px:300,win:[-1,-1,11,11],polys:[{pts:poly,cls:'fill'}],curves:cons.map(S=>({f:x=>(S.c-S.a*x)/S.b,cls:'acc'})).concat(cons.some(S=>S.b===0)?[]:[]),
+    dots:verts.map(v=>({p:v,k:'acc2'})),tags:labelled?verts.map(v=>({p:[v[0]+(v[0]>7?-0.3:0.3),v[1]+(v[1]>9?-0.9:0.5)],s:ptTxt(v[0],v[1]),a:v[0]>7?'end':'start',k:'b'})):[],lstep:2,step:1,alt:'Feasible region'});
+  const ctxs=minimize?[{who:'A trail crew feeds hikers with packs of oats (x) and packs of nuts (y).',rows:['Each pack of oats has {a} g of carbohydrate and each pack of nuts has {b} g. The crew needs at least {c} g of carbohydrate.','Each pack of oats has {a} g of protein and each pack of nuts has {b} g. The crew needs at least {c} g of protein.'],obj:'Oats cost {p} dollars per pack and nuts cost {q} dollars per pack, so the cost in dollars is {{C = {p}x + {q}y}}.'}]
+    :[{who:'A food truck makes wraps (x) and smoothies (y) each morning.',ix:'wraps',iy:'smoothies',rows:['Each wrap takes {a} minutes of prep and each smoothie takes {b} minutes. At most {c} prep minutes are available.','Each wrap uses {a} ounces of fruit-or-filling and each smoothie uses {b} ounces. At most {c} ounces are in stock.'],obj:'The profit is {p} dollars per wrap and {q} dollars per smoothie, so the profit in dollars is {{P = {p}x + {q}y}}.'},
+      {who:'A print shop makes posters (x) and banners (y) each day.',ix:'posters',iy:'banners',rows:['Each poster needs {a} minutes on the press and each banner needs {b} minutes. The press can run at most {c} minutes.','Each poster uses {a} units of ink and each banner uses {b} units. At most {c} units of ink are available.'],obj:'The profit is {p} dollars per poster and {q} dollars per banner, so the profit in dollars is {{P = {p}x + {q}y}}.'},
+      {who:'A potter fills a kiln with mugs (x) and bowls (y) each week.',ix:'mugs',iy:'bowls',rows:['Each mug takes up {a} units of shelf space and each bowl takes {b} units. The kiln has at most {c} units of shelf space.','Each mug needs {a} hours of studio time and each bowl needs {b} hours. At most {c} hours are available.'],obj:'The profit is {p} dollars per mug and {q} dollars per bowl, so the profit in dollars is {{P = {p}x + {q}y}}.'}];
+  const C=pick(ctxs);
+  const fill=(s,o)=>s.replace(/\{(\w)\}/g,(m,k)=>o[k]);
+  let story;
+  if(mode==='story'||mode==='storyGraph'){
+    const rows=cons.map((S,i)=>i<2?fill(C.rows[i],{a:S.a,b:S.b,c:S.c}):(S.b===0?`At most ${S.c} ${C.ix} can be made.`:`At most ${S.c} ${C.iy} can be made.`));
+    story=`${C.who} `+rows.join(' ')+' '+fill(C.obj,{p:P.p,q:P.q});
+  }else story=`Consider the feasible region of the system below. It is graphed with its corner points marked.`;
+  const stmt=`sys{${cons.map(S=>ineqTxt(S,'std')).join(' ;; ')} ;; x >= 0 ;; y >= 0}`;
+  const mkV=v=>({t:ptTxt(v[0],v[1]),v});
+  if(mode==='which'){
+    const others=verts.filter((v,i)=>i!==P.best);let pickd=shuffle(others).slice(0,3);
+    if(pickd.length<3)pickd.push([0,0]);
+    return mcm({prompt:`At which corner point is {{${objTxt}}} ${minimize?'smallest':'largest'}?`,story,stmt,fig,ok:{t:ptTxt(bestV[0],bestV[1]),v:bestV},bad:pickd.map(mkV),
+      steps:[['The best value of a linear objective always occurs at a corner point of the feasible region. Evaluate it at every corner.',verts.map((v,i)=>`${objName}${ptTxt(v[0],v[1])} = ${P.vals[i]}`).join(',  ')],[`The ${minimize?'smallest':'largest'} value is {{${bestVal}}}, at {{${ptTxt(bestV[0],bestV[1])}}}.`,'']],
+      oracle:v=>verts.every(w=>minimize?(P.p*v[0]+P.q*v[1])<=P.p*w[0]+P.q*w[1]:(P.p*v[0]+P.q*v[1])>=P.p*w[0]+P.q*w[1])&&verts.some(w=>w[0]===v[0]&&w[1]===v[1]),meta:{kind:'lpWhich',minimize}});
+  }
+  const xmax=Math.max(...verts.map(v=>v[0])),ymax=Math.max(...verts.map(v=>v[1])),inter=verts.find(v=>v[0]>0&&v[1]>0)||verts[0];
+  const cand=minimize?[P.second,0,P.p*xmax+P.q*ymax,bestVal+P.p,bestVal+P.q,Math.min(...verts.filter(v=>v[0]>0&&v[1]>0).map(v=>P.p*v[0]+P.q*v[1]).concat([1e9]))]
+    :[P.second,P.p*xmax+P.q*ymax,P.p*inter[0]+P.q*inter[1],bestVal-P.p,bestVal+P.q,P.vals[0]];
+  const bad=cand.filter(v=>Number.isInteger(v)&&v!==bestVal&&v<1000).map(v=>({t:String(v),v}));
+  const feas=(x,y)=>all.every(S=>satS({...S,op:S.op.includes('=')?S.op:S.op+'='},x,y));
+  const orc=v=>{let best=null;for(let x=0;x<=12;x++)for(let y=0;y<=12;y++)if(feas(x,y)){const val=P.p*x+P.q*y;if(best===null||(minimize?val<best:val>best))best=val;}
+    /* corner points are the only candidates: also check the vertices (integer lattice covers them here) */
+    return v===best;};
+  return mcm({prompt:`What is the ${minimize?'minimum':'maximum'} value of {{${objTxt}}}?`,story,stmt,fig,ok:{t:String(bestVal),v:bestVal},bad,
+    steps:[['Find the corner points of the feasible region (graph, or solve pairs of boundary equations).',verts.map(v=>ptTxt(v[0],v[1])).join(' ')],['Evaluate the objective at every corner point. Do not stop after testing only some of them.',verts.map((v,i)=>`${objName}${ptTxt(v[0],v[1])} = ${P.vals[i]}`).join(',  ')],[`The ${minimize?'smallest':'largest'} value is {{${bestVal}}}.`,'']],
+    oracle:orc,meta:{kind:'lpValue',minimize,mode}});
+},
+
+/* ---------- scatter plots and lines of best fit ---------- */
+scatter(level){
+  const CT=[
+    {xl:'Hours of practice per week',yl:'Quiz score',xn:'hours of practice per week',xu:'hour of practice',yn:'quiz score',yu:'point',yus:'points',m:[2.8,4.2],b:[40,58],xr:[2,14],win:[0,0,16,110],step:[2,10],lead:'A teacher compares weekly practice time with quiz scores for eight students.'},
+    {xl:'High temperature (°F)',yl:'Cups sold',xn:'daily high temperature (°F)',xu:'degree of daily high temperature',yn:'number of cups of cocoa sold',yu:'cup',yus:'cups',m:[-3.2,-2],b:[170,215],xr:[30,66],win:[20,0,70,160],step:[10,20],lead:'A cocoa stand records the daily high temperature and the cups of cocoa sold on eight days.'},
+    {xl:'Age of bike (years)',yl:'Value (dollars)',xn:'age of the bike in years',xu:'year of age',yn:'resale value in dollars',yu:'dollar',yus:'dollars',m:[-95,-60],b:[740,880],xr:[1,9],win:[0,0,10,900],step:[2,100],lead:'A bike shop lists the age and resale value of eight used bikes.'},
+    {xl:'Days since planting',yl:'Height (cm)',xn:'days since planting',xu:'day since planting',yn:'height of the sunflower in centimeters',yu:'centimeter',yus:'centimeters',m:[1.6,2.6],b:[3,9],xr:[4,20],win:[0,0,22,64],step:[2,8],lead:'A student measures a sunflower on eight different days after planting.'}];
+  const C=pick(CT);const mode=pick(level===1?['predict','predict','slope']:level===2?['predict','resid','slope','intercept','corr']:['resid','extrap','intercept','corr','predict','resid']);
+  const rnd1=v=>Math.round(v*10)/10;
+  let xs,ys,mh,bh,r,mR,bR;
+  for(let t=0;t<300;t++){
+    const mt=C.m[0]+(C.m[1]-C.m[0])*Math.random(),bt=C.b[0]+(C.b[1]-C.b[0])*Math.random();
+    const pool=[];for(let x=C.xr[0];x<=C.xr[1];x++)pool.push(x);
+    xs=shuffle(pool).slice(0,8).sort((u,w)=>u-w);if(xs[7]-xs[0]<(C.xr[1]-C.xr[0])*.6)continue;
+    const sp=Math.abs(mt)*(C.xr[1]-C.xr[0])*0.14+1;
+    ys=xs.map(x=>Math.round(mt*x+bt+(Math.random()*2-1)*sp*1.6));
+    if(ys.some(y=>y<=0||y>=C.win[3]))continue;
+    const n=8,mx=xs.reduce((a,b)=>a+b)/n,my=ys.reduce((a,b)=>a+b)/n;
+    const sxx=xs.reduce((a,x)=>a+(x-mx)**2,0),sxy=xs.reduce((a,x,i)=>a+(x-mx)*(ys[i]-my),0),syy=ys.reduce((a,y)=>a+(y-my)**2,0);
+    mh=sxy/sxx;bh=my-mh*mx;r=sxy/Math.sqrt(sxx*syy);mR=rnd1(mh);bR=rnd1(bh);
+    if(Math.abs(Math.abs(mh*10%1)-0.5)<0.03||Math.abs(Math.abs(bh*10%1)-0.5)<0.03)continue;
+    if(Math.abs(r)>0.93&&Math.abs(r)<0.995&&mR!==0)break;
+    if(t===299)return null;}
+  if(!(Math.abs(r)>0.93&&Math.abs(r)<0.995))return null;
+  const pred=x=>rnd1(mR*x+bR);
+  const eqT=`y = ${decT(mR)}x ${bR<0?'-':'+'} ${decT(Math.abs(bR))}`;
+  const fn=x=>mR*x+bR;
+  const H0=C.win;
+  const fig=gSvg({px:340,pad:38,win:H0,ysc:(214-76)/(H0[3]-H0[1]),step:C.step[0],ystep:C.step[1],lstep:C.step[0],lystep:C.step[1],curves:[{f:fn,cls:'acc',dom:[xs[0]-1,xs[7]+1]}],dots:xs.map((x,i)=>({p:[x,ys[i]],k:'acc2'})),xlab:C.xl,ylab:C.yl,xlabDy:-2,ylabDx:-8,alt:'Scatter plot with line of best fit'});
+  const story=`${C.lead} Let {{x}} be the ${C.xn} and {{y}} the ${C.yn}. The line of best fit is {{${eqT}}}.`;
+  const tbl=`tbl{x&&${xs.join('&&')} ;; y&&${ys.join('&&')}}`;
+  const num1=v=>({t:decT(v),v});
+  const base={story,stmt:tbl,fig};
+  const dirOf=mR>0?'increases':'decreases',opp=mR>0?'decreases':'increases';
+  if(mode==='predict'){
+    const cand=[];for(let x=xs[0]+1;x<xs[7];x++)if(!xs.includes(x))cand.push(x);if(!cand.length)return null;
+    const xp=pick(cand),ans=pred(xp);
+    const bad=[mR*xp,bR,rnd1(mR+bR),rnd1(mR*xp-bR),rnd1(bR-mR*xp),pred(xp)+mR,pred(xp-1)+0].map(v=>rnd1(v)).filter(v=>v!==ans);
+    return mcm({...base,prompt:`Use the line of best fit to predict {{y}} when {{x = ${xp}}}.`,ok:num1(ans),bad:bad.map(num1),
+      steps:[['Substitute {{x = '+xp+'}} into the equation of the line.',`y = ${decT(mR)}(${xp}) ${bR<0?'-':'+'} ${decT(Math.abs(bR))}`],['Multiply, then add.',`y = ${decT(rnd1(mR*xp))} ${bR<0?'-':'+'} ${decT(Math.abs(bR))} = ${decT(ans)}`],['The value {{'+xp+'}} is between the smallest and largest {{x}} in the data, so this is interpolation and is reasonably reliable.','']],
+      oracle:v=>near(v,mR*xp+bR),meta:{kind:'scPredict',xp}});
+  }
+  if(mode==='resid'){
+    const i=rnd(0,7),res=rnd1(ys[i]-fn(xs[i]));if(Math.abs(res)<0.2)return null;
+    const bad=[-res,rnd1(fn(xs[i])),rnd1(res+mR),rnd1(Math.abs(res)+1),rnd1(res*2)].filter(v=>v!==res&&v!==0);
+    return mcm({...base,prompt:`Find the residual for the data point {{${ptTxt(xs[i],ys[i])}}}. (Residual = actual {{y}} minus predicted {{y}}.)`,ok:num1(res),bad:bad.map(num1),
+      steps:[['Find the predicted value at {{x = '+xs[i]+'}}.',`predicted = ${decT(mR)}(${xs[i]}) ${bR<0?'-':'+'} ${decT(Math.abs(bR))} = ${decT(pred(xs[i]))}`],['Subtract: actual minus predicted.',`${ys[i]} - ${par(decT(pred(xs[i])))} = ${decT(res)}`],[res>0?'A positive residual means the point lies above the line.':'A negative residual means the point lies below the line.','']],
+      oracle:v=>near(v,ys[i]-(mR*xs[i]+bR)),meta:{kind:'scResid',i}});
+  }
+  if(mode==='slope'||mode==='intercept'){
+    const mAbs=decT(Math.abs(mR));
+    if(mode==='slope'){
+      const ok=`For each additional ${C.xu}, the predicted ${C.yn} ${dirOf} by about ${mAbs} ${C.yus}.`;
+      const bad=[`For each additional ${C.xu}, the predicted ${C.yn} ${opp} by about ${mAbs} ${C.yus}.`,`For each additional ${C.yu}, the predicted ${C.xn} ${dirOf} by about ${mAbs}.`,`When the ${C.xn} is 0, the predicted ${C.yn} is ${mAbs} ${C.yus}.`,`The ${C.yn} is always ${mAbs} ${C.yus}.`];
+      return mcm({...base,prompt:'What does the slope of the line of best fit mean in this situation?',ok:{t:ok,v:{dir:mR>0?'inc':'dec',per:'x'}},bad:bad.map((t,i)=>({t,v:{dir:i===0?(mR>0?'dec':'inc'):'inc',per:i===1?'y':'x',bad:true}})),
+        steps:[['The slope is the rate of change: the change in {{y}} for each 1-unit increase in {{x}}.',`m = ${decT(mR)}`],[mR>0?'The slope is positive, so {{y}} increases as {{x}} increases.':'The slope is negative, so {{y}} decreases as {{x}} increases.','']],
+        oracle:v=>!v.bad,meta:{kind:'scSlope'}});
+    }
+    const bAbs=decT(Math.abs(bR));
+    const ok=`The predicted ${C.yn} when the ${C.xn} is 0.`;
+    const bad=[`The change in the ${C.yn} for each additional ${C.xu}.`,`The ${C.xn} when the predicted ${C.yn} is 0.`,`The average ${C.yn} for all of the data.`];
+    return mcm({...base,prompt:`What does the {{y}}-intercept, {{${decT(bR)}}}, represent in this situation?`,ok:{t:ok,v:'zero'},bad:bad.map(t=>({t,v:'other'})),
+      steps:[['The {{y}}-intercept is the value of the line when {{x = 0}}.',`y = ${decT(mR)}(0) ${bR<0?'-':'+'} ${decT(Math.abs(bR))} = ${decT(bR)}`],['In context, that is the predicted '+C.yn+' when the '+C.xn+' is 0. (Check whether 0 is inside the data range: if not, this value is an extrapolation.)','']],
+      oracle:v=>v==='zero',meta:{kind:'scIntercept'}});
+  }
+  if(mode==='extrap'){
+    const lo=xs[0],hi=xs[7],outs=[];for(let x=Math.max(1,lo-Math.round((hi-lo)*.8));x<=hi+Math.round((hi-lo)*.8);x++)if(x<lo||x>hi)outs.push(x);
+    const xo=pick(outs),ins=shuffle(xs.slice(1,7).map(x=>x+(rnd(0,1)?0:0))).slice(0,3);
+    if(new Set(ins).size<3)return null;
+    return mcm({...base,prompt:'Which prediction from the line of best fit is an extrapolation, and so the least reliable?',ok:{t:`x = ${xo}`,v:xo},bad:ins.map(x=>({t:`x = ${x}`,v:x})),
+      steps:[[`The data have {{x}}-values from {{${lo}}} to {{${hi}}}. A prediction outside that interval is an extrapolation.`,`${lo} <= x <= ${hi}`],[`{{x = ${xo}}} is ${xo<lo?'below':'above'} the smallest data value, so it is an extrapolation. The other choices are inside the interval (interpolation).`.replace('smallest','data range').replace('below the data range','outside the data range').replace('above the data range','outside the data range'),'']],
+      oracle:v=>v<xs[0]||v>xs[7],meta:{kind:'scExtrap'}});
+  }
+  /* corr */
+  const sgn=r>0?1:-1;
+  const cands=[0.97,-0.97,0.15,-0.2,0.6,-0.6].map(v=>({t:String(v),v}));
+  const okc=sgn>0?0.97:-0.97;
+  const bad=cands.filter(c=>c.v!==okc).filter(c=>Math.abs(c.v)<0.9||Math.sign(c.v)!==sgn).slice(0,3);
+  return mcm({...base,prompt:'Which value is the best estimate of the correlation coefficient {{r}} for these data?',ok:{t:String(okc),v:okc},bad,
+    steps:[['The points lie close to a line that '+(sgn>0?'rises':'falls')+', so the correlation is '+(sgn>0?'positive':'negative')+' and strong (close to {{'+(sgn>0?'1':'-1')+'}}).',''],['A weak correlation would be near 0, and the sign must match the direction of the trend.','']],
+    oracle:v=>Math.sign(v)===sgn&&Math.abs(v)>0.9,meta:{kind:'scCorr'}});
+},
+}};
+UNIT.errors=[];
+for(const k of Object.keys(UNIT.gens)){const g=UNIT.gens[k];UNIT.gens[k]=function(level){try{return g(level);}catch(e){UNIT.errors.push(k+' L'+level+': '+e.message);return null;}};}
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Team North','Team South'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Team South':'Team North'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'S':'N'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>
