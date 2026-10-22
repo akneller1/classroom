@@ -5,6 +5,11 @@
   var original = document.getElementById('original-link');
   var content = document.getElementById('activity-content');
   var path = new URLSearchParams(window.location.search).get('path');
+  // Keep previously shared viewer links working after the worksheet move.
+  if (path === 'Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf') {
+    window.location.replace('activity.html?path=' + encodeURIComponent('artifacts/inequalities-cheat-sheet/worksheet.pdf'));
+    return;
+  }
   var match = null;
   var library = window.LIBRARY;
   if (library && Array.isArray(library.courses)) {
@@ -16,10 +21,8 @@
       });
     });
   }
-  // This older worksheet lives at the repository root; keep its existing links working.
-  var legacyWorksheet = match && match.path === 'Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf';
   // Only embed a known local activity, never an arbitrary URL from a query string.
-  if (!match || (!legacyWorksheet && !/^artifacts\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path)) || match.path.indexOf('..') >= 0) {
+  if (!match || !/^artifacts\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path) || match.path.indexOf('..') >= 0) {
     title.textContent = 'Activity not found';
     message.textContent = 'This activity could not be found. Choose Home to browse the available activities.';
     return;

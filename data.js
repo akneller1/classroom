@@ -442,7 +442,7 @@ window.LIBRARY = {
             },
             {
               "title": "Inequalities Cheat Sheet",
-              "path": "Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf",
+              "path": "artifacts/inequalities-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/inequalities-cheat-sheet.svg",
               "description": "Colorful, two-page printable reference sheet covering inequality vocabulary and symbols, number-line graphs, solving and checking inequalities, compound inequalities, and common mistakes.",
               "type": "Printable",
