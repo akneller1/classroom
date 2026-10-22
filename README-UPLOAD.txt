@@ -1,5 +1,3 @@
-MR. K'S CLASSROOM: ALGEBRA 2 PILOT (Exponential & Logarithmic Functions)
+ALGEBRA 2 PILOT, PART 2: Connect Four, Flashcards, Showdown, Maze, Stations, Cheat Sheet
 
-Drag the contents of this folder (artifacts, thumbs, data.js) into the classroom repo and choose Replace for data.js.
-data.js adds an Algebra 2 course with 11 units; only Exponential & Logarithmic Functions has activities so far, the rest show Coming soon.
-data.js also keeps every earlier update (the assessment-menu and escape-room entries point to those earlier zips).
+Drag artifacts, thumbs and data.js into the repo; replace data.js. This data.js was made from the repo's current data.js, so it keeps everything already there.

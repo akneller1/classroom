@@ -1,0 +1,1586 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Logs Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#e2e8f4; --ink:#12203f; --muted:#52608a; --line:#c6cfe3;
+  --board:#2848c7; --board-2:#1c3597; --hole:#dce4f6;
+  --t0:#e5484d; --t0-ink:#ffffff; --t1:#f4b400; --t1-ink:#2b2100;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Logs Four</h1><span>Convert, evaluate, expand, or solve with exponents and logs to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">L</div><div class="cardbody">
+      <input class="name" id="name0" value="Left side" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">R</div><div class="cardbody">
+      <input class="name" id="name1" value="Right side" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: exponential models, log form, evaluating logs</option>
+        <option value="2">Level 2: log properties, domain, same-base equations, compound interest</option>
+        <option value="3">Level 3: solving with logs, extraneous roots, inverses, modeling</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Logs Four: problem generators. Contract: define UNIT = {types, pools, gens}. Each gen(level) returns mc({...}) or null.
+   Choices that are numbers carry v (rounded value shown), functions carry v (a JS function), and every generator passes an oracle
+   that recomputes correctness from the problem itself (substitution, root scan, numeric evaluation), never from ok.v. */
+const near=(a,b)=>Math.abs(a-b)<1e-9;
+const relEq=(a,b,t=1e-9)=>Math.abs(a-b)<=t*Math.max(1,Math.abs(a),Math.abs(b));
+const par=n=>n<0?'('+n+')':String(n);
+const Rneg=r=>R(-r.n,r.d);
+const okR=r=>!!r&&r.d!==0&&Number.isFinite(r.n/r.d);
+const RP=(r,n)=>n>=0?R(Math.pow(r.n,n),Math.pow(r.d,n)):R(Math.pow(r.d,-n),Math.pow(r.n,-n));
+const commas=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const money=v=>'$'+commas(Math.round(v));
+const fmtN=(x,d)=>{let t=(+x).toFixed(d);if(/^-0(\.0+)?$/.test(t))t=t.slice(1);return t;};
+const logb=(b,x)=>Math.log(x)/Math.log(b);
+const bnum=b=>b==='e'?Math.E:b==='b'?3.3:+b;
+/* a rounded value is "safe" when it is not within 0.04 of a rounding boundary (so no one disputes the last digit) */
+const safeRound=(x,d)=>{const s=x*Math.pow(10,d),f=Math.abs(s-Math.floor(s));return Math.abs(f-.5)>.04;};
+function mcm(o){const p=mc(o);if(p)p.meta=o.meta||null;return p;}
+/* ---- text builders (mini-syntax) ---- */
+const sub2=(c,v)=>c===0?'':(c<0?' - ':' + ')+Math.abs(c)+(v||'');
+/* log of arg in base b (b = number, 'e', 'b'); bare atom when arg is a single letter or integer */
+const lgT=(b,arg)=>{
+  const nm=b==='e'?'ln':b===10?'log':'log_'+b;
+  return /^([A-Za-z]|\d+)$/.test(String(arg))?`${nm} ${arg}`:`${nm}(${arg})`;
+};
+const baseT=b=>b==='e'?'e':typeof b==='object'?`([[${b.n} ; ${b.d}]])`:String(b);
+const powT=(b,ex)=>{ex=String(ex);const bt=baseT(b);if(ex[0]==='{'&&ex[ex.length-1]==='}')return `${bt}^${ex}`;return /^-?(\d+|[A-Za-z])$/.test(ex)?`${bt}^${ex}`:`${bt}^{${ex}}`;};
+const bval=b=>b==='e'?Math.E:typeof b==='object'?b.n/b.d:b;
+/* a*b^(sx*x + c) + k  as text, name f(x) */
+function expFnT(a,b,sx,c,k,nm='f(x)'){
+  const ex=(sx===1?'x':'-x')+(c===0?'':(c>0?' + ':' - ')+Math.abs(c));
+  const core=powT(b,c===0?(sx===1?'x':'-x'):ex);
+  const lead=a===1?core:a===-1?'-'+core:`${a} * ${core}`;
+  return (nm?`${nm} = `:'')+`${lead}${addC(k)}`;
+}
+const expFnV=(a,b,sx,c,k)=>{const bv=bval(b);return x=>a*Math.pow(bv,sx*x+c)+k;};
+const sameFn=(f,g,pts=[-2.5,-1,-.5,0,.5,1,2,3.5])=>pts.every(x=>{const u=f(x),w=g(x);return Number.isFinite(u)&&Number.isFinite(w)&&relEq(u,w,1e-9);});
+const inf=(a,b)=>a;
+/* root scan for equations with domains: F(x) returns NaN where undefined */
+function scanRoots(F,lo=-30,hi=120,h=0.01){
+  const roots=[];let px=lo,pf=F(lo);
+  const add=r=>{if(!roots.some(q=>Math.abs(q-r)<1e-6))roots.push(r);};
+  for(let x=lo+h;x<=hi+1e-9;x+=h){
+    const f=F(x);
+    if(Number.isFinite(f)&&Math.abs(f)<1e-11)add(x);
+    if(Number.isFinite(f)&&Number.isFinite(pf)&&((pf<0&&f>0)||(pf>0&&f<0))){
+      let a=px,b=x,fa=pf;
+      for(let i=0;i<80;i++){const m=(a+b)/2,fm_=F(m);if(!Number.isFinite(fm_))break;if((fa<0)===(fm_<0)){a=m;fa=fm_;}else b=m;}
+      const r=(a+b)/2;if(Math.abs(F(r))<1e-6)add(r);
+    }
+    px=x;pf=f;
+  }
+  return roots.sort((u,w)=>u-w);
+}
+const lg=(b,x)=>x>0?logb(b,x):NaN;
+const sameRoots=(v,roots)=>Array.isArray(v)&&v.length===roots.length&&v.every((r,i)=>Math.abs(r-roots[i])<1e-6*Math.max(1,Math.abs(r)));
+const rootsTxt=rs=>rs.map(r=>'x = '+r).join(' or ');
+
+const UNIT={
+types:{growthDecay:'Growth or decay',expModel:'Model a situation',expGraph:'Graphs of exponentials',compound:'Compound interest',logConv:'Exponential and log form',evalLog:'Evaluate a log',logProps:'Properties of logs',changeBase:'Change of base',solveExp:'Same-base equations',solveExpLog:'Exponential equations',solveLog:'Log equations',logDomain:'Domain of a log',inverse:'Inverse functions',modeling:'Half-life, pH and decibels'},
+pools:{
+  1:['growthDecay','expModel','expGraph','compound','logConv','logConv','evalLog','evalLog','logProps','solveExp','modeling'],
+  2:['expModel','expGraph','compound','logConv','evalLog','logProps','changeBase','solveExp','solveExpLog','solveLog','logDomain','inverse','modeling'],
+  3:['expGraph','compound','evalLog','logProps','changeBase','solveExp','solveExpLog','solveLog','solveLog','logDomain','inverse','modeling','modeling']},
+gens:{
+
+/* ---------- growth or decay from f(x) = a b^x ---------- */
+growthDecay(level){
+  const a=pick([5,10,50,100,200,500]);
+  const b100=level===1?pick([110,120,130,150,90,80,70,50]):pick([105,115,125,108,107,95,85,75,92,96,103,112]);
+  const bt=String(b100/100),kind=b100>100?'Growth':'Decay',opp=kind==='Growth'?'Decay':'Growth',pct=Math.abs(b100-100);
+  const mk=(k,p)=>({t:`${k}, ${p}%`,v:{kind:k,pct:p}});
+  return mcm({prompt:'Does the function model growth or decay, and at what percent rate per period?',stmt:`f(x) = ${a}(${bt})^x`,ok:mk(kind,pct),
+    bad:shuffle([mk(opp,pct),mk(kind,b100),mk(opp,b100),mk(kind,pct<100?100-pct:pct+10),mk(opp,200-b100>0?200-b100:pct+5)]),
+    steps:[['Look at the base {{b}}. If {{b > 1}} the function models growth. If {{0 < b < 1}} it models decay.',`b = ${bt}`],
+           [`The base is ${b100>100?'greater':'less'} than 1, so this is ${kind.toLowerCase()}. The rate is the distance from 1, not the base itself: ${b100>100?`${b100}% - 100% = ${pct}%`:`100% - ${b100}% = ${pct}%`}.`,`${kind}, ${pct}%`]],
+    oracle:v=>v&&v.kind===(b100/100>1?'Growth':'Decay')&&v.pct===Math.round(Math.abs(b100/100-1)*100),
+    meta:{kind:'growthDecay',a,b:b100/100}});
+},
+
+/* ---------- model a story (factor, function, or "every p periods") ---------- */
+expModel(level){
+  const r1=Math.random();
+  if(level>=2&&r1<.45){
+    /* doubles / triples / halves every p units */
+    const a=pick([100,200,500,800,1000]),p=pick([2,3,4,5,6]),m=pick(['double','triple','halve']);
+    const unit=pick(['hours','days','years']);
+    const fac=m==='double'?2:m==='triple'?3:R(1,2);
+    const word=m==='double'?'doubles':m==='triple'?'triples':'is cut in half';
+    const story=m==='halve'?`A sample of ${a} grams of a substance decays so that its mass is cut in half every ${p} ${unit}.`:
+      `A colony starts with ${a} bacteria. The number of bacteria ${word} every ${p} ${unit}.`;
+    const nm=m==='halve'?'M(t)':'N(t)';
+    const bt=m==='halve'?'([[1 ; 2]])':String(fac);
+    const mkf=(A,Btxt,ex,fn,extra)=>({t:`${nm} = ${A===1?'':A+' * '}${Btxt}^{${ex}}`,v:fn});
+    const fv=typeof fac==='object'?.5:fac;
+    const ok=mkf(a,bt,`[[t ; ${p}]]`,t=>a*Math.pow(fv,t/p));
+    const bad=[mkf(a,bt,`${p}t`,t=>a*Math.pow(fv,p*t)),mkf(a,bt,`t`,t=>a*Math.pow(fv,t)),mkf(a,bt,`[[${p} ; t]]`,t=>a*Math.pow(fv,p/t)),
+      mkf(a,String(p),`t`,t=>a*Math.pow(p,t)),mkf(a,m==='halve'?'2':'([[1 ; '+fv+']])',`[[t ; ${p}]]`,t=>a*Math.pow(m==='halve'?2:1/fv,t/p)),
+      {t:`${nm} = ${a} * ${bt}^{[[t ; ${p}]]}`.replace(/\*/,'+'),v:t=>a+Math.pow(fv,t/p)}];
+    return mcm({prompt:`Which function gives the amount after {{t}} ${unit}?`,story,ok,bad,
+      steps:[['The amount starts at '+a+' and is multiplied by '+(m==='halve'?'{{[[1 ; 2]]}}':'{{'+fac+'}}')+' once for every '+p+' '+unit+'.',''],
+             ['After {{t}} '+unit+' that has happened {{[[t ; '+p+']]}} times, so the exponent is {{[[t ; '+p+']]}}, not {{'+p+'t}}.',ok.t]],
+      oracle:v=>typeof v==='function'&&[0,1,2,3,4].every(k=>relEq(v(k*p),a*Math.pow(fv,k)))&&relEq(v(p/2),a*Math.pow(fv,.5)),
+      meta:{kind:'expModelPeriod',a,p,fac:fv,story:story}});
+  }
+  const grow=Math.random()<.5;
+  const r=level===1?pick([10,20,25,50]):pick([5,8,12,15,30,40,4,6,7,9]);
+  const sc=grow?pick([[pick([2000,5000,12000]),x=>`A town has ${commas(x)} people. Its population grows by ${r}% each year.`],[pick([200,500,800,1200]),x=>`A video has ${commas(x)} views today. The number of views increases by ${r}% each day.`]])
+               :pick([[pick([8000,12000,15000,20000]),x=>`A car is worth $${commas(x)}. Its value drops by ${r}% each year.`],[pick([200,400,800,1200]),x=>`A dose of medicine is ${commas(x)} milligrams. The amount in the blood decreases by ${r}% each hour.`]]);
+  const a=sc[0],story=sc[1](a),b100=grow?100+r:100-r,b=b100/100,bt=String(b);
+  if(level===1||Math.random()<.4){
+    const bad=grow?[r/100,1-r/100,b100,1+r/1000,r]:[r/100,1+r/100,b100,1-r/1000,r];
+    return mcm({prompt:`What is the ${grow?'growth':'decay'} factor {{b}} in {{f(x) = a * b^x}}?`,story,ok:{t:bt,v:b},bad:bad.map(v=>({t:String(+v.toFixed(4)),v})),
+      steps:[[grow?'Growth by '+r+'% means the quantity keeps 100% and adds '+r+'%: {{100% + '+r+'% = '+b100+'%}}.':'A decrease of '+r+'% means the quantity keeps {{100% - '+r+'% = '+b100+'%}}.',''],['Write the percent as a decimal. The factor is the whole percent that remains, not just the rate.',`b = ${bt}`]],
+      oracle:v=>relEq(v,(grow?100+r:100-r)/100),meta:{kind:'expModelFactor',grow,r,story,b}});
+  }
+  const fn=(A,B)=>x=>A*Math.pow(B,x);
+  const mkf=(A,B,t)=>({t:t||`f(x) = ${A}(${B})^x`,v:fn(A,B)});
+  const wrongB=grow?+(1-r/100).toFixed(4):+(1+r/100).toFixed(4);
+  return mcm({prompt:'Which function models the situation, where {{x}} is the number of time periods?',story,ok:mkf(a,b),
+    bad:[mkf(a,wrongB),mkf(a,+(r/100).toFixed(4)),{t:`f(x) = ${a}${grow?' + ':' - '}${r}x`,v:x=>a+(grow?1:-1)*r*x},mkf(a,b100)],
+    steps:[['The starting value is '+commas(a)+'. Each period multiplies by the same factor, so the model is exponential, {{f(x) = a * b^x}}.',''],
+           [grow?'Growth factor: {{b = 1 + '+(r/100)+' = '+bt+'}}.':'Decay factor: {{b = 1 - '+(r/100)+' = '+bt+'}}.',`f(x) = ${a}(${bt})^x`]],
+    oracle:v=>typeof v==='function'&&[0,1,2,3].every(x=>relEq(v(x),a*Math.pow((grow?100+r:100-r)/100,x))),
+    meta:{kind:'expModelFn',a,grow,r,story}});
+},
+
+/* ---------- graphs of exponentials: asymptote, y-intercept, transformations ---------- */
+expGraph(level){
+  const kind=level===1?pick(['asym','asym','yint']):level===2?pick(['asym','yint','yint','transShift']):pick(['trans','trans','asym','yint']);
+  if(kind==='trans'||kind==='transShift'){
+    const b=pick([2,3,4,5,'e',2,3]);
+    const tk=kind==='transShift'?'none':pick(['refx','stretch','refy']);
+    let a=1,sx=1;
+    if(tk==='refx')a=-1;if(tk==='stretch')a=pick([2,3,4]);if(tk==='refy')sx=-1;
+    const h=nz(-4,4),k=nz(-5,5),c=-sx*h;
+    const desc=[];
+    if(tk==='refx')desc.push('reflected over the {{x}}-axis');
+    if(tk==='refy')desc.push('reflected over the {{y}}-axis');
+    if(tk==='stretch')desc.push(`stretched vertically by a factor of ${a}`);
+    desc.push(`shifted ${Math.abs(h)} unit${Math.abs(h)>1?'s':''} ${h>0?'right':'left'}`);
+    desc.push(`shifted ${Math.abs(k)} unit${Math.abs(k)>1?'s':''} ${k>0?'up':'down'}`);
+    const story=`The graph of {{f(x) = ${b==='e'?'e^x':b+'^x'}}} is ${desc.join(', then ')}. It becomes the graph of {{g(x)}}.`;
+    const mkf=(A,SX,C,K)=>({t:expFnT(A,b,SX,C,K,'g(x)'),v:expFnV(A,b,SX,C,K)});
+    const ok=mkf(a,sx,c,k);
+    const bad=[mkf(a,sx,-c,k),mkf(a,sx,c,-k),mkf(1,1,c,k),
+      tk==='refx'?mkf(1,-1,c,k):tk==='refy'?mkf(-1,1,c,k):tk==='stretch'?mkf(a,1,c,a*k):mkf(1,1,-c,-k),mkf(a,sx,c,0),mkf(a,sx,0,k)];
+    const steps=[['Start with {{f(x) = '+(b==='e'?'e':b)+'^x}}.',''],
+      tk==='refx'?['Reflecting over the {{x}}-axis multiplies the whole function by {{-1}}.',expFnT(-1,b,1,0,0,'')]:
+      tk==='refy'?['Reflecting over the {{y}}-axis replaces {{x}} with {{-x}}.',expFnT(1,b,-1,0,0,'')]:
+      tk==='stretch'?['A vertical stretch by '+a+' multiplies the whole function by '+a+'.',expFnT(a,b,1,0,0,'')]:['No reflection or stretch is needed.',''],
+      ['A shift right by {{h}} replaces {{x}} with {{x - h}}, so the shift of '+Math.abs(h)+' '+(h>0?'right':'left')+' puts '+(h>0?'a minus':'a plus')+' in the exponent. A shift up or down is added outside.',expFnT(a,b,sx,c,k,'g(x)')]];
+    const truth=x=>a*Math.pow(bval(b),sx*(x-h))+k;
+    return mcm({prompt:'Which equation gives {{g(x)}}?',story,ok,bad,steps,oracle:v=>typeof v==='function'&&sameFn(v,truth),
+      meta:{kind:'transform',b:String(b),tk,a,sx,h,k}});
+  }
+  /* asymptote / y-intercept of a*b^(x-h)+k */
+  const bs=level===1?[2,3,4,5,{n:1,d:2}]:[2,3,5,'e',{n:1,d:2},{n:1,d:3}];
+  let b=pick(level===1?bs:(kind==='yint'?bs.filter(z=>z!=='e'):bs));
+  const a=level===1?pick([1,2,3]):pick([1,2,3,-1,-2,4]);
+  const h=level===1?0:nz(-3,3),k=level===1&&kind==='asym'?nz(-6,6):nz(-6,6);
+  const fT=expFnT(a,b,1,-h,k,'f(x)'),bv=bval(b);
+  const f=expFnV(a,b,1,-h,k);
+  if(kind==='asym'){
+    const mk=(line,val)=>({t:`${line} = ${val}`,v:{line,val}});
+    const bad=[mk('y',-k),mk('x',k),mk('y',0),h!==0?mk('y',h):null,mk('y',a+k),mk('x',-k),mk('y',k+1)].filter(Boolean);
+    const L=bv>1?-60:60;
+    return mcm({prompt:'What is the equation of the horizontal asymptote?',stmt:fT,ok:mk('y',k),bad,
+      steps:[['The exponential part {{'+(a===1?'':a+' * ')+powT(b,h===0?'x':'{x '+(h>0?'-':'+')+' '+Math.abs(h)+'}')+'}} gets closer and closer to {{0}} but never reaches it.',''],
+             ['So {{f(x)}} gets closer and closer to the vertical shift {{k = '+k+'}}. The horizontal asymptote is the line {{y = k}}.',`y = ${k}`]],
+      oracle:v=>v.line==='y'&&Math.abs(f(L)-v.val)<1e-6,meta:{kind:'asym',b:String(b===0?0:(typeof b==='object'?b.n+'/'+b.d:b)),a,h,k}});
+  }
+  const bR=b==='e'?null:typeof b==='object'?b:R(b,1);
+  const y0=Radd(Rmul(R(a),RP(bR,-h)),R(k));
+  const pt=y=>({t:`(0, ${Rstr(y)})`,v:[0,Rnum(y)]});
+  const bad=[pt(R(a+k)),pt(R(k)),pt(R(a)),pt(Radd(Rmul(R(a),RP(bR,h)),R(k))),pt(Rmul(R(a),RP(bR,-h))),pt(R(-k)),pt(R(a*bR.n,bR.d))].filter(c=>okR(c.v[1]));
+  const steps=[['The {{y}}-intercept is the point where {{x = 0}}.',''],
+    ['Substitute {{x = 0}} into {{f(x)}}.',`f(0) = ${a===1?'':a===-1?'-':a+' * '}${powT(b,h===0?'0':`{0 ${h>0?'-':'+'} ${Math.abs(h)}}`)}${addC(k)}`],
+    ['Evaluate the power first, then multiply and add.',`f(0) = ${Rstr(y0)}`],['The {{y}}-intercept is',pt(y0).t]];
+  return mcm({prompt:'What is the {{y}}-intercept of the graph?',stmt:fT,ok:pt(y0),bad,steps,oracle:v=>v[0]===0&&near(f(0),v[1]),
+    meta:{kind:'yint',b:typeof b==='object'?b.n+'/'+b.d:String(b),a,h,k}});
+},
+
+/* ---------- compound interest and continuous growth ---------- */
+compound(level){
+  const P=pick([500,800,1000,1500,2000,2500,4000,5000,8000,10000]);
+  const rp=pick(level===1?[3,4,5,6,8]:[2.5,3,3.5,4,4.5,5,5.5,6,7.5]),r=rp/100;
+  const t=level===1?rnd(3,15):rnd(4,20);
+  const mode=level===1?'comp':level===2?'comp':pick(['cont','cont','earned']);
+  const n=level===1?1:mode==='cont'?0:pick(level===2?[2,4,12]:[4,12]);
+  const nWord={1:'annually',2:'semiannually',4:'quarterly',12:'monthly'}[n];
+  const comp=()=>{let v=P;const per=1+r/n;for(let i=0;i<n*t;i++)v*=per;return v;};   /* repeated multiplication, independent of Math.pow */
+  const A=mode==='cont'?P*Math.exp(r*t):comp();
+  const intr=A-P;
+  const target=mode==='earned'?intr:A;
+  if(!safeRound(target,0))return null;
+  const story=mode==='cont'?`You invest $${commas(P)} in an account that pays ${rp}% annual interest, compounded continuously.`:
+    `You invest $${commas(P)} in an account that pays ${rp}% annual interest, compounded ${nWord}.`;
+  const prompt=mode==='earned'?`How much interest is earned after ${t} years? Round to the nearest dollar.`:`How much is in the account after ${t} years? Round to the nearest dollar.`;
+  let cands;
+  if(mode==='cont'){
+    cands=[P*Math.pow(1+r,t),P*Math.exp(r)*t,P*(1+r*t),A-P,P*Math.exp(rp*t/10),P*Math.exp(t),P*Math.exp(r*t/2)];
+  } else {
+    cands=[n>1?P*Math.pow(1+r/n,t):null,n>1?P*Math.pow(1+r,n*t):null,P*(1+r*t),n>1?P*Math.pow(1+r,t):null,P*Math.pow(+(1+r/n).toFixed(2),n*t),P*Math.pow(1+r/n,n+t),A-P];
+    if(mode==='earned')cands=[A,P*Math.pow(1+r/n,t)-P,P*r*t,P*Math.pow(1+r,n*t)-P,A-P-P*r*t,P*(1+r*t)].filter(v=>v!==null);
+  }
+  const seen=new Set([Math.round(target)]),bad=[];
+  for(const c of cands){if(c==null||!Number.isFinite(c)||c>3*target||c<0)continue;const q=Math.round(c);if(Math.abs(c-target)<2||seen.has(q))continue;seen.add(q);bad.push({t:money(c),v:q});}
+  const rdn=Math.round(target);
+  const form=mode==='cont'?'A = P e^{rt}':'A = P(1 + [[r ; n]])^{nt}';
+  const sub=mode==='cont'?`A = ${commas(P)} e^{${r}(${t})}`:n===1?`A = ${commas(P)}(1 + ${r})^{${t}}`:`A = ${commas(P)}(1 + [[${r} ; ${n}]])^{${n}(${t})}`;
+  const steps=[['Use the '+(mode==='cont'?'continuous growth':'compound interest')+' formula. {{P}} is the starting amount, {{r}} the rate as a decimal'+(mode==='cont'?'':', {{n}} the number of compoundings per year')+', and {{t}} the years.',form],
+    ['Substitute. Write '+rp+'% as the decimal {{'+r+'}}.',sub],
+    ['Calculate without rounding in the middle of the problem.',`A ≈ ${fmtN(A,2)}`]];
+  if(mode==='earned')steps.push(['Interest earned is the final amount minus the starting amount.',`${fmtN(A,2)} - ${commas(P)} ≈ ${fmtN(intr,2)}`]);
+  steps.push(['Round to the nearest dollar.',money(target)]);
+  return mcm({prompt,story,ok:{t:money(target),v:rdn},bad,steps,
+    oracle:v=>Math.abs(v-target)<=0.5+1e-9&&Math.abs(v-(mode==='cont'?P*Math.exp(r*t):comp())+(mode==='earned'?P:0))<=0.5+1e-9,
+    meta:{kind:'compound',mode,P,rp,t,n}});
+},
+
+/* ---------- exponential form <-> logarithmic form, and unknown base/argument ---------- */
+logConv(level){
+  const v=level===1?pick(['toLog','toLog','toExp']):level===2?pick(['toLog','toExp','neg','nat']):pick(['unk','unk','unk','neg']);
+  const bases=level===1?[2,3,4,5,10]:[2,3,4,5,6,10];
+  if(v==='toLog'||v==='toExp'){
+    const b=pick(bases),k=level===1?rnd(2,4):rnd(2,5);const a=Math.pow(b,k);
+    if(a>100000||(b===2&&k===4)||(b===4&&k===2))return null;
+    const expT=`${b}^${k} = ${a}`,logT=b===10?`log ${a} = ${k}`:`log_${b} ${a} = ${k}`;
+    const lt=(bb,aa,kk)=>bb===10?`log ${aa} = ${kk}`:`log_${bb} ${aa} = ${kk}`;
+    if(v==='toLog'){
+      const wr=[lt(k,a,b),lt(a,b,k),lt(b,k,a),lt(a,k,b),lt(k,b,a)].filter(s=>s!==logT);
+      return mcm({prompt:'Which equation is the logarithmic form of the equation?',stmt:expT,ok:{t:logT,v:[b,a,k]},bad:wr.map(s=>({t:s,v:null})),
+        steps:[['The base of the power is the base of the log. The exponent is the value of the log.',''],[`{{${b}^${k} = ${a}}} says "{{${b}}} raised to {{${k}}} gives {{${a}}}", so the log of {{${a}}} in base {{${b}}} is {{${k}}}.`,logT]],
+        meta:{kind:'convToLog',b,k,a}});
+    }
+    const ex=(bb,aa,kk)=>`${bb}^${aa} = ${kk}`;
+    const wr=[ex(k,b,a),ex(a,k,b),ex(b,a,k),ex(k,a,b),ex(a,b,k)].filter(s=>s!==expT);
+    return mcm({prompt:'Which equation is the exponential form of the equation?',stmt:logT,ok:{t:expT,v:[b,k,a]},bad:wr.map(s=>({t:s,v:null})),
+      steps:[['In {{log_b a = c}} the base {{b}} stays the base, and the answer {{c}} becomes the exponent: {{b^c = a}}.',''],['Write it.',expT]],
+      meta:{kind:'convToExp',b,k,a}});
+  }
+  if(v==='neg'){
+    const b=pick([2,3,4,5,10]),k=rnd(1,3);const d=Math.pow(b,k);
+    if(b===4&&k===2)return null;   /* 4^-2 and 2^-4 are both 1/16 */
+    const frac=`[[1 ; ${d}]]`;
+    const flip=Math.random()<.5;
+    const expT=`${b}^-${k} = ${frac}`,logT=`${b===10?'log':'log_'+b}(${frac}) = -${k}`;
+    const lw=(bb,aa,kk)=>`${bb===10?'log':'log_'+bb}(${aa}) = ${kk}`;
+    if(!flip)return mcm({prompt:'Which equation is the logarithmic form of the equation?',stmt:expT,ok:{t:logT,v:1},
+      bad:[lw(b,frac,k),lw(b,d,-k),`${b===10?'log':'log_'+b}(-${k}) = ${frac}`,lw(d,frac,-k),lw(k,frac,-b)].map(s=>({t:s,v:null})),
+      steps:[['The base is {{'+b+'}}, the exponent is {{-'+k+'}}, and the power equals {{[[1 ; '+d+']]}}. A log can equal a negative number.',''],['Write the log form.',logT]],meta:{kind:'convNeg',b,k,d}});
+    return mcm({prompt:'Which equation is the exponential form of the equation?',stmt:logT,ok:{t:expT,v:1},
+      bad:[`${b}^${k} = ${frac}`,`${b}^-${k} = ${d}`,`${k}^-${b} = ${frac}`,`${d}^-${k} = ${b}`,`${frac}^-${k} = ${b}`].map(s=>({t:s,v:null})),
+      steps:[['The base is {{'+b+'}} and the log equals {{-'+k+'}}, so {{-'+k+'}} is the exponent.',''],['Write the exponential form. A negative exponent gives a fraction.',expT]],meta:{kind:'convNeg2',b,k,d}});
+  }
+  if(v==='nat'){
+    const c=pick([3,5,7,10,12,20,0.5,2]);const xx=pick(['x','t','y']);
+    if(Math.random()<.5){
+      return mcm({prompt:'Which equation is the logarithmic form of the equation?',stmt:`e^${xx} = ${c}`,ok:{t:`ln ${c} = ${xx}`,v:1},
+        bad:[`log_e ${xx} = ${c}`,`ln ${xx} = ${c}`,`log ${c} = ${xx}`,`ln ${c} = e`,`log_${xx} ${c} = e`].map(s=>({t:s,v:null})),
+        steps:[['The natural log {{ln}} is the log with base {{e}}, so {{e^'+xx+' = '+c+'}} becomes {{log_e '+c+' = '+xx+'}}.',''],['Write {{log_e}} as {{ln}}.',`ln ${c} = ${xx}`]],meta:{kind:'convNat',c,x:xx}});
+    }
+    return mcm({prompt:'Which equation is the exponential form of the equation?',stmt:`ln ${xx} = ${c}`,ok:{t:`e^${c} = ${xx}`,v:1},
+      bad:[`${xx}^${c} = e`,`e^${xx} = ${c}`,`${c}^e = ${xx}`,`e^${xx} = ln ${c}`,`${c}^${xx} = e`].map(s=>({t:s,v:null})),
+      steps:[['{{ln '+xx+'}} means {{log_e '+xx+'}}. The base is {{e}} and the log equals {{'+c+'}}, so {{'+c+'}} is the exponent.',''],['Write the exponential form.',`e^${c} = ${xx}`]],meta:{kind:'convNat2',c,x:xx}});
+  }
+  /* unk: find the unknown base or argument */
+  const sub=pick(['base','arg','argneg','argfrac']);
+  if(sub==='base'){
+    const b=pick([2,3,4,5,6,7]),k=rnd(2,4),a=Math.pow(b,k);
+    return mcm({prompt:'Find the base {{b}}.',stmt:`log_b ${a} = ${k}`,ok:{t:'b = '+b,v:b},
+      bad:[a-k,k,a,[[k,a]],k*k].map(x=>Array.isArray(x)?R(x[0],x[1]):R(x)).map(r=>({t:'b = '+Rstr(r),v:Rnum(r)})),
+      steps:[['Write in exponential form.',`b^${k} = ${a}`],['Take the '+(k===2?'square':k===3?'cube':'fourth')+' root of both sides.',`b = ${b}`]],
+      oracle:vv=>vv>1&&relEq(Math.log(a)/Math.log(vv),k,1e-9),meta:{kind:'unkBase',a,k}});
+  }
+  if(sub==='arg'){
+    const b=pick([2,3,4,5]),k=rnd(2,4),a=Math.pow(b,k);
+    return mcm({prompt:'Solve for {{x}}.',stmt:`log_${b} x = ${k}`,ok:{t:'x = '+a,v:a},
+      bad:[b*k,k*k===a?k+1:k*k,Math.pow(k,b),b+k,a-b].filter(z=>z!==a).map(z=>({t:'x = '+z,v:z})),
+      steps:[['Write in exponential form.',`x = ${b}^${k}`],['Evaluate.',`x = ${a}`]],oracle:vv=>relEq(logb(b,vv),k),meta:{kind:'unkArg',b,k}});
+  }
+  if(sub==='argneg'){
+    const b=pick([2,3,5,10]),k=rnd(1,3),a=Math.pow(b,k);
+    const ans=R(1,a);
+    return mcm({prompt:'Solve for {{x}}.',stmt:`${b===10?'log':'log_'+b} x = -${k}`,ok:{t:'x = '+Rstr(ans),v:Rnum(ans)},
+      bad:[R(-a),R(-b*k),R(-k,b),R(a),R(1,b*k),R(-1,a)].map(r=>({t:'x = '+Rstr(r),v:Rnum(r)})),
+      steps:[['Write in exponential form.',`x = ${b}^-${k}`],['A negative exponent means a reciprocal.',`x = ${Rstr(ans)}`]],oracle:vv=>relEq(logb(b,vv),-k),meta:{kind:'unkArgNeg',b,k}});
+  }
+  const b=pick([4,9,16,25,8,27]),pq={4:[2,1],9:[3,1],16:[2,2],25:[5,1],8:[2,3],27:[3,3]}[b];
+  /* log_b x = p/q style: b = r^m, x = b^(p/q) */
+  const r=pq[0],m=pq[1];
+  const opt=pick(m===1?[[3,2],[3,2],[1,2]]:[[2,3],[1,3]]);
+  const val=Math.round(Math.pow(b,opt[0]/opt[1]));
+  if(Math.abs(Math.pow(b,opt[0]/opt[1])-val)>1e-9)return null;
+  const ex=R(opt[0],opt[1]);
+  return mcm({prompt:'Solve for {{x}}.',stmt:`log_${b} x = [[${opt[0]} ; ${opt[1]}]]`,ok:{t:'x = '+val,v:val},
+    bad:[b*opt[0]/opt[1],opt[0]*b,Math.round(Math.pow(b,opt[1]/opt[0])),b+opt[0]-opt[1],val+b,Math.round(Math.sqrt(b))*opt[0]].filter(z=>Number.isInteger(z)&&z!==val&&z>0).map(z=>({t:'x = '+z,v:z})),
+    steps:[['Write in exponential form.',`x = ${b}^{[[${opt[0]} ; ${opt[1]}]]}`],[`The denominator is a root and the numerator is a power. Take the ${opt[1]===2?'square':'cube'} root of {{${b}}}${opt[0]>1?', then raise it to the power '+opt[0]:''}.`,`x = ${val}`]],
+    oracle:vv=>vv>0&&relEq(logb(b,vv),opt[0]/opt[1]),meta:{kind:'unkArgFrac',b,p:opt[0],q:opt[1]}});
+},
+
+/* ---------- evaluate a log without a calculator ---------- */
+evalLog(level){
+  let stmt,ans,val,steps,hint;
+  const lgn=(b,a)=>b===10?`log(${a})`:b==='e'?`ln(${a})`:`log_${b}(${a})`;
+  const lgb=(b,a)=>/^\d+$|^[a-z]$/.test(String(a))?(b===10?`log ${a}`:b==='e'?`ln ${a}`:`log_${b} ${a}`):lgn(b,a);
+  const f=pick(level===1?['pw','pw','one','self','pw10']:level===2?['neg','neg','root','pw','nat','natneg','pw10n']:['frac','frac','sum','diff','inv','natsum','frac2']);
+  if(f==='pw'){const b=pick([2,3,4,5,6,7]),k=rnd(2,6);if(Math.pow(b,k)>5000)return null;stmt=lgb(b,Math.pow(b,k));val=R(k);
+    steps=[['Ask: {{'+b+'}} to what power is {{'+Math.pow(b,k)+'}}?',`${b}^p = ${Math.pow(b,k)}`],['The power is',`${k}`]];hint=[b,Math.pow(b,k)];}
+  else if(f==='pw10'){const k=rnd(2,5);stmt=`log ${Math.pow(10,k)}`;val=R(k);hint=[10,Math.pow(10,k)];steps=[['{{log}} with no base means base {{10}}. {{10}} to what power is {{'+Math.pow(10,k)+'}}?',''],['The power is',`${k}`]];}
+  else if(f==='one'){const b=pick([2,3,5,7,10,12]);stmt=b===10?'log 1':`log_${b} 1`;val=R(0);hint=[b,1];steps=[['Any nonzero base to the power {{0}} equals {{1}}.',`${b}^0 = 1`],['So the log is',`0`]];}
+  else if(f==='self'){const b=pick([2,3,5,7,8,9,12]);stmt=`log_${b} ${b}`;val=R(1);hint=[b,b];steps=[['{{'+b+'}} to the power {{1}} is {{'+b+'}}.',`${b}^1 = ${b}`],['So the log is',`1`]];}
+  else if(f==='neg'){const b=pick([2,3,4,5,10]),k=rnd(1,4);if(Math.pow(b,k)>2000)return null;stmt=lgn(b,`[[1 ; ${Math.pow(b,k)}]]`);val=R(-k);hint=[b,1/Math.pow(b,k)];
+    steps=[['Write the fraction as a power of {{'+b+'}}.',`[[1 ; ${Math.pow(b,k)}]] = ${b}^-${k}`],['The log is the exponent.',`${-k}`]];}
+  else if(f==='root'){const t=pick([[4,2],[9,3],[25,5],[16,2],[16,4],[8,2],[8,2],[27,3],[49,7],[64,4],[64,8],[125,5],[100,10]]);
+    const [base,r]=t;const m=Math.round(Math.log(base)/Math.log(r));if(m<2)return null;stmt=lgb(base,r);val=R(1,m);hint=[base,r];
+    steps=[['Ask: {{'+base+'}} to what power is {{'+r+'}}? Since {{'+r+'^'+m+' = '+base+'}}, we need '+(m===2?'a square':'a cube')+' root, which is the power {{[[1 ; '+m+']]}}.',`${base}^{[[1 ; ${m}]]} = ${r}`],['So the log is',Rstr(val)]];}
+  else if(f==='nat'){const k=rnd(2,7);stmt=`ln(e^${k})`;val=R(k);hint=['e',Math.exp(k)];steps=[['{{ln}} is the log with base {{e}}, so {{ln(e^'+k+')}} asks: {{e}} to what power gives {{e^'+k+'}}?',''],['The power is',`${k}`]];}
+  else if(f==='natneg'){const k=rnd(1,4);stmt=`ln([[1 ; ${k===1?'e':'e^'+k}]])`;val=R(-k);hint=['e',Math.exp(-k)];steps=[['Write the fraction as a power of {{e}}.',`[[1 ; ${k===1?'e':'e^'+k}]] = e^-${k}`],['The natural log is the exponent.',`${-k}`]];}
+  else if(f==='pw10n'){const k=rnd(1,4);stmt=`log([[1 ; ${Math.pow(10,k)}]])`;val=R(-k);hint=[10,Math.pow(10,-k)];steps=[['Base {{10}}: write the fraction as a power of {{10}}.',`[[1 ; ${Math.pow(10,k)}]] = 10^-${k}`],['The log is the exponent.',`${-k}`]];}
+  else if(f==='frac'){const t=pick([[8,2,4],[8,2,2],[27,3,9],[9,3,27],[16,2,8],[16,2,32],[4,2,8],[4,2,32],[25,5,125],[9,3,81],[27,3,3],[8,2,32],[16,2,2],[32,2,8],[64,2,16],[81,3,9]]);
+    const [base,r,arg]=t;const i=Math.round(Math.log(base)/Math.log(r)),j=Math.round(Math.log(arg)/Math.log(r));
+    if(i<2||Math.abs(i-j)===0)return null;stmt=lgb(base,arg);val=R(j,i);hint=[base,arg];
+    steps=[['Write both the base and the argument as powers of {{'+r+'}}.',`${base} = ${r}^${i} and ${arg} = ${r}^${j}`],[`Ask: {{${r}^${i}}} to what power gives {{${r}^${j}}}? Set {{${i}p = ${j}}}.`,`p = ${Rstr(val)}`]];}
+  else if(f==='frac2'){const t=pick([[8,[1,4]],[8,[1,2]],[27,[1,9]],[4,[1,8]],[9,[1,3]],[16,[1,2]],[16,[1,8]],[25,[1,5]],[8,[1,16]],[27,[1,3]]]);
+    const [base,[n_,d_]]=t;const r=base===8||base===4||base===16?2:base===27||base===9?3:5;const i=Math.round(Math.log(base)/Math.log(r)),j=Math.round(Math.log(d_)/Math.log(r));
+    stmt=lgb(base,`[[1 ; ${d_}]]`);val=R(-j,i);hint=[base,1/d_];
+    steps=[['Write the base and the fraction as powers of {{'+r+'}}.',`${base} = ${r}^${i} and [[1 ; ${d_}]] = ${r}^-${j}`],[`Set {{${i}p = -${j}}}.`,`p = ${Rstr(val)}`]];}
+  else if(f==='sum'||f==='diff'){
+    const B=pick([2,3,5,6,10]),k=rnd(1,3),tot=Math.pow(B,k);const divs=[];for(let d=2;d<tot;d++)if(tot%d===0&&Math.log(d)/Math.log(B)%1!==0)divs.push(d);
+    if(f==='sum'){if(!divs.length)return null;const d=pick(divs);stmt=`${lgn(B,d)} + ${lgn(B,tot/d)}`;
+      steps=[['Product rule: add the logs by multiplying the arguments.',lgn(B,`${d} * ${tot/d}`)],['Multiply, then ask what power of {{'+B+'}} gives {{'+tot+'}}.',`${lgn(B,tot)} = ${k}`]];hint=[B,tot];}
+    else{const m=pick([2,3,4,5]);const big=tot*m;if(Math.log(m)/Math.log(B)%1===0&&B===m)return null;stmt=`${lgn(B,big)} - ${lgn(B,m)}`;
+      steps=[['Quotient rule: subtract the logs by dividing the arguments.',lgn(B,`[[${big} ; ${m}]]`)],['Divide, then ask what power of {{'+B+'}} gives {{'+tot+'}}.',`${lgn(B,tot)} = ${k}`]];hint=[B,tot];}
+    val=R(k);
+  }
+  else if(f==='inv'){const t=pick([[5,12],[3,7],[2,9],[4,11],[6,5],[10,4]]);const [b,a]=t;
+    if(Math.random()<.5){stmt=`${b}^{${lgn(b,a)}}`;val=R(a);steps=[['{{'+b+'^x}} and {{'+lgn(b,'x')+'}} undo each other.',''],['So the value is',`${a}`]];}
+    else{stmt=`${lgn(b,`${b}^${a}`)}`;val=R(a);steps=[['{{'+lgn(b,'x')+'}} and {{'+b+'^x}} undo each other.',''],['So the value is',`${a}`]];}
+    hint=null;}
+  else if(f==='natsum'){const a=rnd(2,5),b=rnd(1,4);stmt=`ln(e^${a}) + ln([[1 ; e^${b}]])`;val=R(a-b);hint=null;
+    steps=[['Simplify each natural log.',`ln(e^${a}) = ${a}  and  ln([[1 ; e^${b}]]) = -${b}`],['Add.',`${a} - ${b} = ${a-b}`]];}
+  const v0=Rnum(val);
+  const bad=[];
+  const push=r=>{if(okR(r)&&!Req(r,val))bad.push(r);};
+  push(Rneg(val));push(val.n===0?R(1):R(val.d,val.n));push(Radd(val,R(1)));push(Rsub(val,R(1)));
+  if(hint){push(R(Math.round(hint[1]>=1?hint[1]:0)||2));push(Rmul(val,R(2)));push(R(val.n+1,val.d));push(R(val.n,val.d+1));push(R(hint[0]>1&&hint[0]===Math.floor(hint[0])?hint[0]:2));}
+  else{push(Rmul(val,R(2)));push(Radd(val,R(2)));push(R(val.n,val.d+1));}
+  /* oracle: recompute the value numerically from the printed expression through an independent evaluator */
+  let numeric;
+  if(hint)numeric=logb(hint[0]==='e'?Math.E:hint[0],hint[1]);else numeric=v0;
+  return mcm({prompt:'Evaluate without a calculator.',stmt,ok:{t:Rstr(val),v:val},bad:bad.map(r=>({t:Rstr(r),v:r})),steps,
+    oracle:v=>okR(v)&&relEq(Rnum(v),numeric,1e-9),meta:{kind:'evalLog',val:Rstr(val)}});
+},
+
+/* ---------- properties of logs: expand and condense ---------- */
+logProps(level){
+  const VARS=['x','y','z'];
+  const bchoice=level===1?[2,3,4,5]:[2,3,5,10,'e'];
+  const b=pick(bchoice),bv=bnum(b);
+  const L=(arg)=>lgT(b,arg);
+  const lv=(v)=>L(v);                   /* log of a single variable */
+  const VAL=(co,c)=>pt=>c+co.reduce((s,k,i)=>s+k*logb(bv,pt[i]),0);
+  const termsT=(co,c)=>{let s='';const parts=[];if(c!==0)parts.push(c);
+    co.forEach((k,i)=>{if(k!==0)parts.push({k,v:VARS[i]});});
+    parts.forEach((p,i)=>{
+      if(typeof p==='number'){s+=(p<0&&i>0?' - ':p<0?'-':i>0?' + ':'')+(i>0&&p<0?-p:i===0&&p<0?-p:p);return;}
+      const a=Math.abs(p.k),sg=p.k<0?(i>0?' - ':'-'):(i>0?' + ':'');
+      s+=sg+(a===1?'':a)+lv(p.v);
+    });return s||'0';};
+  const monoT=(K,e)=>{
+    const num=[],den=[];
+    if(K.n!==1)num.push(String(K.n));if(K.d!==1)den.push(String(K.d));
+    e.forEach((k,i)=>{if(k>0)num.push(k===1?VARS[i]:`${VARS[i]}^${k}`);else if(k<0)den.push(k===-1?VARS[i]:`${VARS[i]}^${-k}`);});
+    const nt=num.length?num.join(' '):'1';
+    return den.length?`[[${nt} ; ${den.join(' ')}]]`:nt;};
+  const CVAL=(K,e)=>pt=>logb(bv,Rnum(K)*e.reduce((s,k,i)=>s*Math.pow(pt[i],k),1));
+  const pts=[[1.7,2.3,0.6],[3.1,0.45,2.2],[0.8,4.2,1.3],[5.3,1.1,0.35]];
+  const same=(f,g)=>pts.every(p=>relEq(f(p),g(p),1e-9));
+  const kind=level===1?pick(['p','q','pw','p','q','pw']):level===2?pick(['exp2','exp2','cond2','cond2','p']):pick(['expc','cond3','condc','expc','cond3']);
+  let stmt,prompt,ok,bad=[],steps,orig;
+  if(kind==='p'||kind==='q'||kind==='pw'){
+    const num=pick([5,7,3,6,11].filter(q=>q!==bv));
+    if(kind==='p'){stmt=L(`${num}x`);orig=pt=>logb(bv,num*pt[0]);
+      ok={t:`${L(num)} + ${lv('x')}`,v:pt=>logb(bv,num)+logb(bv,pt[0])};
+      bad=[{t:`${L(num)} * ${lv('x')}`,v:pt=>logb(bv,num)*logb(bv,pt[0])},{t:`${num}${lv('x')}`,v:pt=>num*logb(bv,pt[0])},{t:`${L(num)} - ${lv('x')}`,v:pt=>logb(bv,num)-logb(bv,pt[0])},{t:L(`${num} + x`),v:pt=>logb(bv,num+pt[0])},{t:`${L(num)} + x`,v:pt=>logb(bv,num)+pt[0]}];
+      steps=[['Product rule: the log of a product is the sum of the logs.',`${L(`${num}x`)} = ${L(num)} + ${lv('x')}`]];
+    } else if(kind==='q'){stmt=L(`[[x ; ${num}]]`);orig=pt=>logb(bv,pt[0]/num);
+      ok={t:`${lv('x')} - ${L(num)}`,v:pt=>logb(bv,pt[0])-logb(bv,num)};
+      bad=[{t:`[[${lv('x')} ; ${L(num)}]]`,v:pt=>logb(bv,pt[0])/logb(bv,num)},{t:`${lv('x')} + ${L(num)}`,v:pt=>logb(bv,pt[0])+logb(bv,num)},{t:`${L(num)} - ${lv('x')}`,v:pt=>logb(bv,num)-logb(bv,pt[0])},{t:L(`x - ${num}`),v:pt=>logb(bv,pt[0]-num)},{t:`[[${lv('x')} ; ${num}]]`,v:pt=>logb(bv,pt[0])/num}];
+      steps=[['Quotient rule: the log of a quotient is the difference of the logs, numerator first.',`${L(`[[x ; ${num}]]`)} = ${lv('x')} - ${L(num)}`]];
+    } else {const n=pick([2,3,4,5]);stmt=L(`x^${n}`);orig=pt=>logb(bv,Math.pow(pt[0],n));
+      ok={t:`${n}${lv('x')}`,v:pt=>n*logb(bv,pt[0])};
+      bad=[{t:`(${lv('x')})^${n}`,v:pt=>Math.pow(logb(bv,pt[0]),n)},{t:`${lv('x')} + ${n}`,v:pt=>logb(bv,pt[0])+n},{t:`x ${L(n)}`,v:pt=>pt[0]*logb(bv,n)},{t:`${L(`${n}x`)}`,v:pt=>logb(bv,n*pt[0])},{t:`${lv('x')}^${n}`.replace(/^(.*)$/,`${L(n)} * ${lv('x')}`),v:pt=>logb(bv,n)*logb(bv,pt[0])}];
+      steps=[['Power rule: the exponent comes down in front as a multiplier.',`${L(`x^${n}`)} = ${n}${lv('x')}`]];}
+    prompt='Which expression is equivalent? Expand using the properties of logarithms.';
+  } else if(kind==='exp2'||kind==='expc'){
+    /* expand log of a monomial quotient */
+    const nv=kind==='exp2'?pick([2,3]):3;
+    const e=[0,0,0];const idx=shuffle([0,1,2]).slice(0,nv);
+    idx.forEach((i,j)=>{e[i]=(j===nv-1&&Math.random()<.8||j===1&&nv===3&&Math.random()<.4)?-rnd(1,3):rnd(1,4)-(kind==='exp2'?0:0);});
+    if(e.every(k=>k>0))e[idx[idx.length-1]]*=-1;
+    let K=R(1),c=0;
+    if(kind==='expc'){c=pick([1,2,3,-1,-2]);if(b==='e'||b===10)c=pick([1,2,-1]);K=c>=0?R(Math.pow(bv,c)):R(1,Math.pow(bv,-c));
+      if(b==='e'||b===10){ /* base e and 10: constants are numbers like 100 or e^2, keep to base 10 only */ if(b==='e')return null;K=c>=0?R(Math.pow(10,c)):R(1,Math.pow(10,-c));}}
+    if(b==='e'&&kind==='expc')return null;
+    if(e.every(k=>k===0))return null;
+    const arg=monoT(K,e);stmt=L(arg);orig=CVAL(K,e);
+    ok={t:termsT(e,c),v:VAL(e,c)};
+    const flip=e.map(k=>-k),abs=e.map(Math.abs);
+    bad=[{t:termsT(abs,c),v:VAL(abs,c)},{t:termsT(flip,c),v:VAL(flip,c)},{t:termsT(e,-c),v:VAL(e,-c)},{t:termsT(e.map(k=>k>0?1:k<0?-1:0),c),v:VAL(e.map(k=>k>0?1:k<0?-1:0),c)},{t:termsT(e,c+1),v:VAL(e,c+1)}];
+    /* the classic trap: log of a sum/difference of terms */
+    const pos=e.map((k,i)=>k>0?`${VARS[i]}${k>1?'^'+k:''}`:'').filter(Boolean),neg=e.map((k,i)=>k<0?`${VARS[i]}${k<-1?'^'+(-k):''}`:'').filter(Boolean);
+    prompt='Which expression is equivalent? Expand using the properties of logarithms.';
+    steps=[['Use the quotient rule and the product rule to split the argument.',`${L(arg)}`],
+           ['Use the power rule to bring each exponent down as a multiplier. Factors in the denominator are subtracted.'+(c!==0?' Evaluate any log of a number that is a power of the base, such as {{'+L(Math.round(Math.pow(bv,Math.abs(c))))+'}}.':''),termsT(e,c)]];
+  } else {
+    /* condense */
+    const nv=kind==='cond2'?2:3;const co=[0,0,0];shuffle([0,1,2]).slice(0,nv).forEach((i,j)=>{co[i]=j===0?rnd(1,3):pick([-3,-2,-1,1,2,3]);});
+    let c=0;if(kind==='condc'&&b!=='e'){c=pick([1,2,-1,-2]);}
+    if(b==='e')c=0;
+    if(co.every(k=>k<0))co[co.findIndex(k=>k!==0)]*=-1;
+    const K=c>=0?R(Math.pow(bv,c)):R(1,Math.pow(bv,-c));
+    stmt=termsT(co,c);orig=VAL(co,c);
+    const mk=(Kk,e)=>({t:L(monoT(Kk,e)),v:CVAL(Kk,e)});
+    ok=mk(K,co);
+    const abs=co.map(Math.abs),mult=co.map(k=>Math.sign(k));
+    const withCoef=(()=>{let Kk=R(1);co.forEach(k=>{if(k>0)Kk=Rmul(Kk,R(k));else if(k<0)Kk=Rdiv(Kk,R(-k));});return mk(Kk,mult)})();
+    bad=[withCoef,mk(K,abs),mk(K,co.map(k=>-k)),{t:`[[${L(monoT(R(1),co.map(k=>k>0?k:0)))} ; ${L(monoT(R(1),co.map(k=>k<0?-k:0)))}]]`,v:null},
+      c!==0?mk(c>0?R(c):R(-c),co):mk(Rmul(K,R(2)),co),mk(c!==0?R(1):K,co)].filter(z=>z);
+    const hasNeg=co.some(k=>k<0);
+    if(!hasNeg)bad.pop();
+    bad=bad.filter(z=>z.v!==null||hasNeg);
+    prompt='Which expression is equivalent? Write it as a single logarithm.';
+    steps=[['Power rule first: move each coefficient up into an exponent.',`${co.map((k,i)=>k===0?'':(k<0?' - ':'  + ')+L(`${VARS[i]}${Math.abs(k)>1?'^'+Math.abs(k):''}`)).join('').replace(/^ *\+ /,'').replace(/^ - /,'-')}${c!==0?addC(c):''}`],
+      ['A constant is a log of the base to that power, so write it as a log.'+(c!==0?` {{${c} = ${L(Math.pow(bv,c)>=1?Math.pow(bv,c):`[[1 ; ${Math.pow(bv,-c)}]]`)}}}.`:' (No constant here.)'),''],
+      ['Product rule for sums, quotient rule for differences.',ok.t]];
+    if(c===0)steps.splice(1,1);
+  }
+  const pend=(kind==='cond2'||kind==='cond3'||kind==='condc');
+  return mcm({prompt,stmt,ok,bad,steps,oracle:v=>typeof v==='function'&&same(v,orig),meta:{kind:'logProps',b:String(b)}});
+},
+
+/* ---------- change of base ---------- */
+changeBase(level){
+  const A=pick([3,4,5,6,7,8,9]),X=pick([10,12,15,20,25,30,40,50,60,75,80,100,200]);
+  if(A===X)return null;
+  const val=logb(A,X);
+  if(level===2||Math.random()<.35){
+    const nat=Math.random()<.5,f=nat?'ln':'log';
+    const mk=(top,bot,v)=>({t:`[[${top} ; ${bot}]]`,v});
+    const ok=mk(`${f} ${X}`,`${f} ${A}`,val);
+    const g=nat?'log':'ln';
+    const bad=[mk(`${f} ${A}`,`${f} ${X}`,logb(X,A)),mk(`${f} ${X}`,String(A),Math.log(X)/A),mk(`${f}(${X} - ${A})`,`${f} ${A}`,Math.log(X-A)/Math.log(A)),
+      mk(String(X),`${f} ${A}`,X/Math.log(A)),mk(`${f} ${X}`,`${f}(${A}+${A})`,Math.log(X)/Math.log(2*A)),{t:`${f} ${X} - ${f} ${A}`,v:Math.log(X)-Math.log(A)}];
+    return mcm({prompt:`Which expression equals {{log_${A} ${X}}}? Use the change of base formula.`,stmt:`log_${A} ${X}`,ok,bad,
+      steps:[['Change of base: {{log_b a = [[log a ; log b]]}}, with the log of the argument on top and the log of the base on the bottom. Any base works, as long as it is the same on top and bottom.',''],['Write it with '+(nat?'natural logs.':'common logs.'),ok.t]],
+      oracle:v=>relEq(v,logb(A,X),1e-9),meta:{kind:'changeBaseExpr',A,X}});
+  }
+  if(!safeRound(val,2))return null;
+  const vv=fmtN(val,2);
+  const sh=(x)=>({t:'≈ '+fmtN(x,2),v:+fmtN(x,2)});
+  const nat=Math.random()<.5,f=nat?'ln':'log';
+  const early=logb(10,X).toFixed(1)/logb(10,A).toFixed(1);
+  const ok=sh(val);
+  const bad=[sh(logb(X,A)),sh(X/A),sh(Math.log(X)/A),sh(Math.log(X-A)/Math.log(A)),sh(Math.log(X)-Math.log(A)),sh(early),sh(X*A),sh(Math.log(A)*Math.log(X))];
+  return mcm({prompt:`Use the change of base formula to evaluate. Round to the nearest hundredth.`,stmt:`log_${A} ${X}`,ok,bad:shuffle(bad),
+    steps:[['Change of base, argument on top and base on the bottom.',`log_${A} ${X} = [[${f} ${X} ; ${f} ${A}]]`],['Use a calculator. Keep every digit until the end.',`≈ [[${fmtN(nat?Math.log(X):logb(10,X),4)} ; ${fmtN(nat?Math.log(A):logb(10,A),4)}]]`],['Round to the nearest hundredth.',`≈ ${vv}`]],
+    oracle:v=>Math.abs(v-val)<=0.005+1e-9,meta:{kind:'changeBaseNum',A,X,round:2}});
+},
+
+/* ---------- same-base exponential equations (exact) ---------- */
+solveExp(level){
+  const f=pick(level===1?['E1','E1','E2','E6']:level===2?['E3','E4','E4','E2','E3']:['E5','E5','E5','E4']);
+  let lhs,rhs,fn,ans,bad=[],steps,rt;
+  if(f==='E1'){const B=pick([2,3,5,10]),k=B===2?rnd(3,7):B===3?rnd(2,5):B===5?rnd(2,4):rnd(2,4);
+    lhs=`${B}^x`;rhs=String(Math.pow(B,k));rt=Math.pow(B,k);fn=v=>Math.pow(B,v);ans=R(k);bad=[R(k+1),R(k-1),R(Math.pow(B,k)/B),R(B*k),R(Math.pow(B,k)-B)];
+    steps=[[`Write ${rt} as a power of ${B}.`,`${B}^x = ${B}^${k}`],['The bases match, so the exponents are equal.',`x = ${k}`]];}
+  else if(f==='E2'){const B=pick([2,3,5]),k=B===5?rnd(2,3):rnd(2,4);
+    lhs=`${B}^x`;rhs=`[[1 ; ${Math.pow(B,k)}]]`;rt=1/Math.pow(B,k);fn=v=>Math.pow(B,v);ans=R(-k);bad=[R(k),R(-k-1),R(-k+1),R(-Math.pow(B,k)),R(1,k)];
+    steps=[[`Write the fraction as a power of ${B} using a negative exponent.`,`${B}^x = ${B}^-${k}`],['The bases match, so the exponents are equal.',`x = -${k}`]];}
+  else if(f==='E6'){const B=pick([2,3]),k=rnd(3,5),q=pick([1,2,3,-1,-2]);
+    lhs=`${B}^{x ${q>0?'+':'-'} ${Math.abs(q)}}`;rhs=String(Math.pow(B,k));rt=Math.pow(B,k);fn=v=>Math.pow(B,v+q);ans=R(k-q);bad=[R(k+q),R(k),R(Math.pow(B,k)-q),R(k*q),R(k-q+1)];
+    steps=[[`Write ${rt} as a power of ${B}.`,`${B}^{x ${q>0?'+':'-'} ${Math.abs(q)}} = ${B}^${k}`],['The bases match, so set the exponents equal.',`x ${q>0?'+':'-'} ${Math.abs(q)} = ${k}`],['Solve.',`x = ${k-q}`]];}
+  else if(f==='E3'){const B=pick([2,3,5]),k=B===5?rnd(2,3):rnd(3,5),a=pick([2,3,4,-1,-2]),q=nz(-5,5);
+    lhs=`${B}^{${lin(a,q)}}`;rhs=String(Math.pow(B,k));rt=Math.pow(B,k);fn=v=>Math.pow(B,a*v+q);ans=R(k-q,a);if(ans.d>6)return null;
+    bad=[R(k+q,a),R(k-q,1),R(k,a),R(k-q,-a),R(k+q,-a),R(k-q+1,a)];
+    steps=[[`Write ${rt} as a power of ${B}.`,`${B}^{${lin(a,q)}} = ${B}^${k}`],['The bases match, so set the exponents equal.',`${lin(a,q)} = ${k}`],['Solve for {{x}}.',`x = ${Rstr(ans)}`]];}
+  else if(f==='E4'){
+    const T_=pick([[4,2,32],[4,2,8],[8,2,16],[8,2,4],[9,3,27],[27,3,9],[16,2,8],[16,2,32],[25,5,125],[9,3,81],[27,3,81],[8,2,32],[64,2,16],[4,2,128],[49,7,7]]);
+    const [base,root,rv]=T_;const i=Math.round(Math.log(base)/Math.log(root)),j=Math.round(Math.log(rv)/Math.log(root));
+    if(rv===base||i<2)return null;
+    if(Math.random()<.35&&root<=3){ /* fractional base: (1/r)^x = r^j */
+      const bb=Math.pow(root,i);lhs=`([[1 ; ${bb}]])^x`;rhs=String(rv);fn=v=>Math.pow(1/bb,v);rt=rv;ans=R(-j,i);
+      bad=[R(j,i),R(-i,j),R(i,j),R(j-i),R(-j)];
+      steps=[[`Write ${bb} and ${rv} as powers of ${root}. The reciprocal means a negative exponent.`,`${root}^{-${i}x} = ${root}^${j}`],['Set the exponents equal.',`-${i}x = ${j}`],['Divide by {{-'+i+'}}.',`x = ${Rstr(ans)}`]];
+    } else {
+      lhs=`${base}^x`;rhs=String(rv);fn=v=>Math.pow(base,v);rt=rv;ans=R(j,i);bad=[R(i,j),R(j-i),R(rv,base),R(j*i),R(j,1)];
+      steps=[[`Write both sides as powers of ${root}.`,`${root}^{${i}x} = ${root}^${j}`],['Set the exponents equal.',`${i}x = ${j}`],['Divide.',`x = ${Rstr(ans)}`]];
+    }
+  } else { /* E5: different bases on the two sides, both powers of the same root */
+    const r=pick([2,2,3,5]);const pmax=r===5?2:3;
+    const p1=rnd(1,pmax),p2=rnd(1,pmax);if(p1===p2)return null;
+    const a1=pick([1,2,3,-1]),a2=pick([1,2,-1,-2]),b1=nz(-4,4),b2=nz(-5,5);
+    const num=p2*b2-p1*b1,den=p1*a1-p2*a2;if(den===0)return null;
+    ans=R(num,den);if(Math.abs(ans.n)>24||ans.d>8||ans.n===0)return null;
+    const B1=Math.pow(r,p1),B2=Math.pow(r,p2);
+    lhs=`${B1}^{${lin(a1,b1)}}`;rhs=`${B2}^{${lin(a2,b2)}}`;
+    fn=v=>Math.pow(B1,a1*v+b1)/Math.pow(B2,a2*v+b2);rt=1;
+    bad=[R(b2-b1,a1-a2===0?1:a1-a2),R(b2-b1,p1*a1-p2*a2),R(-num,den),R(num,-den),R(p1*b1-p2*b2,den),R(num+den,den),R(p2*b2+p1*b1,den)];
+    steps=[['Write both sides as powers of {{'+r+'}}.',`${r}^{${p1}(${lin(a1,b1)})} = ${r}^{${p2}(${lin(a2,b2)})}`],
+           ['Set the exponents equal and distribute.',`${lin(p1*a1,p1*b1)} = ${lin(p2*a2,p2*b2)}`],['Collect the {{x}} terms and solve.',`x = ${Rstr(ans)}`]];
+  }
+  return mcm({prompt:'Solve for {{x}}.',stmt:`${lhs} = ${rhs}`,ok:{t:'x = '+Rstr(ans),v:Rnum(ans)},bad:bad.filter(okR).map(r=>({t:'x = '+Rstr(r),v:Rnum(r)})),steps,
+    oracle:v=>typeof v==='number'&&relEq(fn(v),rt,1e-9),meta:{kind:'solveExp'}});
+},
+
+/* ---------- exponential equations that need logs (rounded) ---------- */
+solveExpLog(level){
+  const f=level===2?pick(['a','a','b','c']):pick(['b','c','d','e','f']);
+  let stmt,F,exact,bad,steps;
+  const sh=x=>({t:'x ≈ '+fmtN(x,2),v:+fmtN(x,2)});
+  if(f==='a'){const B=pick([2,3,5,7]),C=pick([10,15,20,30,40,50,75,100,200]);if(Math.abs(logb(B,C)%1)<1e-9)return null;
+    stmt=`${B}^x = ${C}`;F=x=>Math.pow(B,x)-C;exact=logb(B,C);
+    bad=[Math.log(C)/B,C/B,logb(C,B),Math.log(C-B)/Math.log(B),C-B,Math.log(C)-Math.log(B)];
+    steps=[['Take the log of both sides.',`ln(${B}^x) = ln ${C}`],['Power rule: bring the exponent down.',`x ln ${B} = ln ${C}`],['Divide by {{ln '+B+'}}.',`x = [[ln ${C} ; ln ${B}]] ≈ ${fmtN(exact,4)}`]];}
+  else if(f==='b'){const B=pick([2,3,5,4]),a=pick([2,3,4,5,6]),C=a*pick([7,9,12,15,20,30,40]);
+    stmt=`${a} * ${B}^x = ${C}`;F=x=>a*Math.pow(B,x)-C;exact=logb(B,C/a);
+    bad=[logb(B,C),logb(B,C-a),Math.log(C/a)/B,logb(B,C)/a,Math.log(C)/Math.log(a*B),logb(B,a/C)];
+    steps=[['Divide both sides by {{'+a+'}} first, so the exponential is alone.',`${B}^x = ${C/a}`],['Take the log of both sides and use the power rule.',`x ln ${B} = ln ${C/a}`],['Divide by {{ln '+B+'}}.',`x = [[ln ${C/a} ; ln ${B}]] ≈ ${fmtN(exact,4)}`]];}
+  else if(f==='c'){const B=pick([2,3,5]),a=pick([2,3,4]),d=pick([3,5,7,10]),C=pick([40,50,60,80,100,150]);
+    stmt=`${a} * ${B}^x + ${d} = ${C}`;F=x=>a*Math.pow(B,x)+d-C;const q=(C-d)/a;exact=logb(B,q);if(q<=0)return null;
+    bad=[logb(B,C-d)  ,logb(B,C/a-d),logb(B,C)-d,Math.log(C-d)/Math.log(a*B),logb(B,(C+d)/a),logb(B,C-d-a)];
+    steps=[['Subtract {{'+d+'}} from both sides, then divide by {{'+a+'}} to isolate the exponential.',`${B}^x = [[${C-d} ; ${a}]]`],['Take the log of both sides and use the power rule.',`x ln ${B} = ln([[${C-d} ; ${a}]])`],['Divide by {{ln '+B+'}}.',`x ≈ ${fmtN(exact,4)}`]];}
+  else if(f==='d'){const B=pick([2,3,5]),k=pick([2,3,4]),C=pick([30,50,90,200,500]);
+    stmt=`${B}^{${k}x} = ${C}`;F=x=>Math.pow(B,k*x)-C;exact=logb(B,C)/k;
+    bad=[logb(B,C),logb(B,C)*k,Math.log(C)/(B*k),logb(B,C/k),logb(B,C-k)/k];
+    steps=[['Take the log of both sides and bring down the exponent {{'+k+'x}}.',`${k}x ln ${B} = ln ${C}`],['Divide by {{'+k+' ln '+B+'}}.',`x = [[ln ${C} ; ${k} ln ${B}]] ≈ ${fmtN(exact,4)}`]];}
+  else if(f==='e'){const B=pick([2,3,5]),q=pick([1,2,3,-1,-2]),C=pick([30,50,90,200,500]);
+    stmt=`${B}^{x ${q>0?'+':'-'} ${Math.abs(q)}} = ${C}`;F=x=>Math.pow(B,x+q)-C;exact=logb(B,C)-q;
+    bad=[logb(B,C)+q,logb(B,C),logb(B,C-q),logb(B,C)/q,Math.log(C)/Math.log(B)*q];
+    steps=[['Take the log of both sides and use the power rule.',`(x ${q>0?'+':'-'} ${Math.abs(q)}) ln ${B} = ln ${C}`],['Divide by {{ln '+B+'}}, then solve for {{x}}.',`x ${q>0?'+':'-'} ${Math.abs(q)} = [[ln ${C} ; ln ${B}]] ≈ ${fmtN(logb(B,C),4)}`],['Finish.',`x ≈ ${fmtN(exact,4)}`]];}
+  else { /* natural base */
+    const r=pick([0.02,0.03,0.04,0.05,0.06,0.08,0.1,0.12]),a=pick([2,3,5]),C=a*pick([2,3,4,5,6,8]);
+    stmt=`${a} * e^{${r}x} = ${C}`;F=x=>a*Math.exp(r*x)-C;exact=Math.log(C/a)/r;
+    bad=[Math.log(C)/r,Math.log(C/a)*r,C/(a*r),Math.log(C/a)/Math.log(r),Math.log(C-a)/r];
+    steps=[['Divide by {{'+a+'}}.',`e^{${r}x} = ${C/a}`],['Take the natural log of both sides. {{ln e^u = u}}.',`${r}x = ln ${C/a}`],['Divide by {{'+r+'}}.',`x = [[ln ${C/a} ; ${r}]] ≈ ${fmtN(exact,4)}`]];}
+  if(!(exact>0.2&&exact<80)||!safeRound(exact,2))return null;
+  return mcm({prompt:'Solve for {{x}}. Round to the nearest hundredth.',stmt,ok:sh(exact),bad:bad.filter(Number.isFinite).map(sh),steps,
+    oracle:v=>{const r=scanRoots(F,-30,120,0.01);return r.length===1&&Math.abs(v-r[0])<=0.005+1e-9;},meta:{kind:'solveExpLog',round:2}});
+},
+
+/* ---------- logarithmic equations (domain check!) ---------- */
+solveLog(level){
+  const forms=level===2?['one','one','coef','conv','eqlog']:['prod','prod','prod','quot','eqlog','natexact','twoSum','coef'];
+  const f=pick(forms);
+  let stmt,F,sol,steps,bad=[];
+  const asRoots=a=>({t:a.length===1?'x = '+Rstr(R(a[0])):'x = '+a.map(r=>Rstr(R(r))).join(' or x = '),v:a});
+  const L2=(b,arg)=>`log_${b}(${arg})`;
+  if(f==='one'){const b=pick([2,3,4,5]),n=rnd(2,3),c=nz(-6,8);const s=Math.pow(b,n)-c;if(Math.abs(s)>200)return null;
+    stmt=`${L2(b,lin(1,c))} = ${n}`;F=x=>lg(b,x+c)-n;sol=[s];
+    bad=[[Math.pow(b,n)+c],[b*n-c],[n-c],[Math.pow(n,b)-c],[Math.pow(b,n)]];
+    steps=[['Write in exponential form.',`${lin(1,c)} = ${b}^${n}`],['Evaluate the power.',`${lin(1,c)} = ${Math.pow(b,n)}`],['Solve for {{x}}.',`x = ${s}`],['Check: the argument {{'+lin(1,c)+'}} must be positive. {{'+s+addC(c)+' = '+(s+c)+'}}, so it is valid.','']];}
+  else if(f==='conv'){const b=pick([2,3,5]),n=rnd(2,3),a=pick([2,3,4]),c=nz(-5,5);const num=Math.pow(b,n)-c;if(num%a!==0)return null;const s=num/a;
+    stmt=`${L2(b,lin(a,c))} = ${n}`;F=x=>lg(b,a*x+c)-n;sol=[s];
+    bad=[[Math.pow(b,n)+c],[(Math.pow(b,n)+c)/a],[Math.pow(b,n)-c],[b*n-c],[(Math.pow(b,n)-c)*a]].filter(r=>r.length&&Number.isInteger(r[0]));
+    steps=[['Write in exponential form.',`${lin(a,c)} = ${b}^${n}`],['Subtract and divide.',`${a}x = ${num}`],['Solve for {{x}}.',`x = ${s}`],['Check the domain: the argument {{'+lin(a,c)+'}} equals {{'+Math.pow(b,n)+'}} at this value, which is positive.','']];}
+  else if(f==='coef'){const b=pick([2,3,5]),a=pick([2,3]),k=rnd(2,3),d=nz(-4,6);const rhs=a*k+d;
+    stmt=`${a}${lgT(b,'x')} ${d>0?'+':'-'} ${Math.abs(d)} = ${rhs}`;F=x=>a*lg(b,x)+d-rhs;sol=[Math.pow(b,k)];
+    bad=[[k],[b*k],[Math.pow(b,rhs)],[Math.pow(b,k+d)],[Math.pow(b,a*k)],[a*k]];
+    steps=[['Isolate the log: add or subtract {{'+Math.abs(d)+'}}, then divide by {{'+a+'}}.',`${lgT(b,'x')} = ${k}`],['Write in exponential form.',`x = ${b}^${k}`],['Evaluate.',`x = ${Math.pow(b,k)}`]];}
+  else if(f==='prod'){
+    /* log_b(x+u) + log_b(x+v) = n, one valid root and one extraneous root */
+    let found=null;
+    for(let tr=0;tr<200&&!found;tr++){
+      const b=pick([2,3,5]),n=pick([1,2,3]),u=rnd(-3,3),v=rnd(-3,3);const rhs=Math.pow(b,n);
+      const B=u+v,Cc=u*v-rhs,disc=B*B-4*Cc;if(disc<=0)continue;const sq=Math.round(Math.sqrt(disc));if(sq*sq!==disc||(B+sq)%2!==0)continue;
+      const r1=(-B+sq)/2,r2=(-B-sq)/2;const lo=Math.max(-u,-v);
+      const valid=[r1,r2].filter(r=>r>lo);if(valid.length!==1||Math.abs(r1)>40||Math.abs(r2)>40)continue;
+      if(u===v)continue;
+      found={b,n,u,v,r1,r2,valid:valid[0],bad:[r1,r2].find(r=>r<=lo),rhs};
+    }
+    if(!found)return null;
+    const {b,n,u,v,r1,r2,rhs}=found;
+    const arg=(w)=>w===0?'x':lin(1,w);
+    stmt=`${L2(b,arg(u))} + ${L2(b,arg(v))} = ${n}`;F=x=>lg(b,x+u)+lg(b,x+v)-n;sol=[found.valid];
+    bad=[[r1,r2].sort((p,q)=>p-q),[found.bad],[rhs-u-v],[b*n-u-v],[r1+r2]].map(a=>a.slice?a:[a]);
+    steps=[['Product rule: combine the two logs into one.',L2(b,`(${arg(u)})(${arg(v)})`)+` = ${n}`],['Write in exponential form and multiply out.',`${poly([1,u+v,u*v])} = ${rhs}`],['Move everything to one side and factor.',`(x ${found.r1>=0?'-':'+'} ${Math.abs(found.r1)})(x ${found.r2>=0?'-':'+'} ${Math.abs(found.r2)}) = 0`],
+      ['Check both in the original equation. A log needs a positive argument, and {{x = '+found.bad+'}} makes an argument negative or zero. It is extraneous, so reject it.',''],['The only solution is',`x = ${found.valid}`]];}
+  else if(f==='quot'){
+    let found=null;
+    for(let tr=0;tr<200&&!found;tr++){const b=pick([2,3,5]),n=rnd(1,2),u=rnd(-4,8),v=rnd(-4,4);const m=Math.pow(b,n);
+      const num=u-m*v,den=m-1;if(num%den!==0)continue;const x0=num/den;if(!(x0+u>0&&x0+v>0)||Math.abs(x0)>50)continue;if(u<=v)continue;found={b,n,u,v,m,x0};}
+    if(!found)return null;const {b,n,u,v,m,x0}=found;
+    stmt=`${L2(b,lin(1,u))} - ${L2(b,v===0?'x':lin(1,v))} = ${n}`;F=x=>lg(b,x+u)-lg(b,x+v)-n;sol=[x0];
+    bad=[[(u+m*v)/(m+1)],[(u-v)/(m-1)],[(m*v+u)/(m-1)],[x0+1],[(m*u-v)/(m-1)]].filter(a=>Number.isInteger(a[0]));
+    steps=[['Quotient rule: combine into one log.',L2(b,`[[${lin(1,u)} ; ${v===0?'x':lin(1,v)}]]`)+` = ${n}`],['Write in exponential form.',`[[${lin(1,u)} ; ${v===0?'x':lin(1,v)}]] = ${m}`],['Multiply both sides by the denominator and solve.',`${lin(1,u)} = ${m}(${v===0?'x':lin(1,v)})`],['Solve for {{x}}.',`x = ${x0}`]];}
+  else if(f==='eqlog'){
+    /* ln(x+p) = ln(x^2 - q) style: logs equal -> arguments equal, check each */
+    const sub=pick(['sq','lin']);
+    if(sub==='lin'){const b=pick(['ln',2,3]);const a=rnd(2,4),c=nz(-5,5),d=nz(-4,8),k=rnd(2,5);
+      /* log(a x + c) = log(x + d)  ->  (a-1)x = d - c */
+      if((d-c)%(a-1)!==0)return null;const x0=(d-c)/(a-1);if(!(a*x0+c>0)||!(x0+d>0))return null;
+      const lgx=(arg)=>b==='ln'?`ln(${arg})`:`log_${b}(${arg})`;
+      stmt=`${lgx(lin(a,c))} = ${lgx(lin(1,d))}`;F=x=>(b==='ln'?lg(Math.E,a*x+c)-lg(Math.E,x+d):lg(b,a*x+c)-lg(b,x+d));sol=[x0];
+      bad=[[(d+c)/(a-1)],[(d-c)/(a+1)],[(c-d)/(a-1)],[d-c],[x0+1]].filter(r=>Number.isInteger(r[0]));
+      steps=[['If two logs with the same base are equal, their arguments are equal.',`${lin(a,c)} = ${lin(1,d)}`],['Solve for {{x}}.',`x = ${x0}`],['Check the domain: both arguments are positive at this value.','']];
+    } else { /* ln(x+p) = ln(x^2) type: both or one root valid */
+      const r1=nz(-5,5),r2=nz(-5,5);if(r1===r2||r1+r2===0)return null;
+      /* x^2 = x + p?  roots r1,r2 of x^2 - (r1+r2)x + r1 r2 -> choose ln(S x - P) = ln(x^2) with S=r1+r2, P=-r1 r2 -> x^2 = S x + (-P)... */
+      const Sx=r1+r2,Pp=-r1*r2;       /* x^2 = Sx*x + Pp  ->  x^2 - Sx x - Pp = 0 has roots? sum=Sx product=-Pp  */
+      if(Sx*r1+Pp!==r1*r1)return null;
+      const arg1=(Sx===0?'':T(Sx,'x'))+(Pp===0?'':Sx===0?String(Pp):addC(Pp));
+      if(!arg1)return null;
+      const valid=[r1,r2].filter(r=>Sx*r+Pp>0&&r!==0).sort((p,q)=>p-q);
+      if(!valid.length||Math.abs(Sx)>10||Math.abs(Pp)>30)return null;
+      stmt=`ln(${arg1}) = ln(x^2)`;F=x=>x===0?NaN:lg(Math.E,Sx*x+Pp)-lg(Math.E,x*x);sol=valid;
+      const all=[r1,r2].sort((p,q)=>p-q),inv=[r1,r2].filter(r=>!valid.includes(r));
+      bad=[all,inv.length?inv:[r1+r2],[Sx,Pp].filter(z=>z).slice(0,1),[all[0]],[all[1]]];
+      steps=[['Equal logs with the same base have equal arguments.',`${arg1} = x^2`],['Move everything to one side and factor.',`(x ${r1>=0?'-':'+'} ${Math.abs(r1)})(x ${r2>=0?'-':'+'} ${Math.abs(r2)}) = 0`],['Check each solution in the original equation. A log needs a positive argument, and {{x^2}} is positive for any {{x ≠ 0}}.'+(valid.length===2?' Both solutions check.':' The value {{x = '+inv[0]+'}} makes {{'+arg1+'}} negative, so it is extraneous and must be rejected.'),''],['Solution'+(valid.length>1?'s':''),rootsTxt(valid)]];
+    }
+  }
+  else if(f==='natexact'){const c=pick([1,2,3,-1,2,4]),n=rnd(1,3);
+    stmt=`ln(x ${c>0?'+':'-'} ${Math.abs(c)}) = ${n}`;F=x=>lg(Math.E,x+c)-n;sol=[Math.exp(n)-c];
+    const mkx=(a,b_)=>({t:b_,v:[a]});
+    const exactT=`x = e^${n}${c>0?' - '+c:' + '+(-c)}`;
+    const wrong=[[`x = e^${n}${c>0?' + '+c:' - '+(-c)}`,Math.exp(n)+c],[`x = ${n}${c>0?' - '+c:' + '+(-c)}`,n-c],[`x = ln ${n}${c>0?' - '+c:' + '+(-c)}`,Math.log(n)-c],[`x = ${n}e${c>0?' - '+c:' + '+(-c)}`,n*Math.E-c]];
+    steps=[['Write in exponential form with base {{e}}.',`x ${c>0?'+':'-'} ${Math.abs(c)} = e^${n}`],['Solve for {{x}}.',exactT],['Check: the argument equals {{e^'+n+'}}, which is positive.','']];
+    return mcm({prompt:'Solve for {{x}}. Give the exact answer.',stmt,ok:{t:exactT,v:[Math.exp(n)-c]},bad:wrong.map(([t,vv])=>({t,v:[vv]})),steps,
+      oracle:v=>sameRoots(v,scanRoots(F,-30,300,0.01)),meta:{kind:'solveLogNat'}});}
+  else { /* twoSum: log_b x + log_b(x - m) = n with nice roots */
+    const b=pick([2,3]),opts=b===2?[[4,2],[8,7]].map(([p,m])=>({p,m,n:logb(2,p*(p-m))})):[[3,0]];
+    let q=null;for(const o of shuffle(opts)){if(Number.isInteger(Math.round(o.n))&&Math.abs(o.n-Math.round(o.n))<1e-9)q=o;}
+    if(!q)return null;const n=Math.round(q.n),m=q.m,p=q.p,rr=-(Math.pow(b,n)/p);
+    stmt=`${lgT(b,'x')} + ${L2(b,lin(1,-m))} = ${n}`;F=x=>lg(b,x)+lg(b,x-m)-n;sol=[p];
+    bad=[[p,rr],[rr],[Math.pow(b,n)-m],[Math.pow(b,n)],[p+1]];
+    steps=[['Product rule.',`${L2(b,`x(${lin(1,-m)})`)} = ${n}`],['Exponential form and multiply out.',`${poly([1,-m,0])} = ${Math.pow(b,n)}`],['Factor.',`(x - ${p})(x ${rr>0?'-':'+'} ${Math.abs(rr)}) = 0`],['The root {{x = '+rr+'}} makes {{log_'+b+' x}} undefined, so it is extraneous.',`x = ${p}`]];}
+  const roots=scanRoots(F,-30,300,0.01);
+  if(!roots.length||!sameRoots(sol,roots)){ if(!(f==='natexact'))throw new Error('GENERATOR BUG solveLog '+f+' '+stmt+' sol='+sol+' scan='+roots); }
+  const okc=asRoots(sol.slice().sort((p,q)=>p-q));
+  const bads=bad.filter(a=>a.length&&a.every(Number.isFinite)).map(a=>asRoots(a.slice().sort((p,q)=>p-q)));
+  return mcm({prompt:'Solve for {{x}}. Check for extraneous solutions.',stmt,ok:okc,bad:bads,steps,oracle:v=>sameRoots(v,scanRoots(F,-30,300,0.01)),meta:{kind:'solveLog',form:f}});
+},
+
+/* ---------- domain and vertical asymptote ---------- */
+logDomain(level){
+  const ask=pick(['dom','dom','asym']);
+  const b=pick([2,3,5,10,'e']);const bt=lgT(b,'#');
+  let argT,argF,roots,truth;
+  const sh=level===3?pick([0,1,1]):0;
+  const kind=level===2?'lin':pick(['lin','lin','neglin','quad','quad2']);
+  const wrap=(arg)=>b==='e'?`ln(${arg})`:b===10?`log(${arg})`:`log_${b}(${arg})`;
+  let ok,bad,steps;
+  const cmp=(op,c)=>`x ${op} ${Rstr(c)}`;
+  let sol;   /* predicate truth */
+  if(kind==='lin'||kind==='neglin'){
+    let a=kind==='neglin'?-pick([1,2,3]):pick([1,2,3,4]);const c=nz(-9,9);
+    if(kind==='lin'&&a===1&&Math.random()<.4)a=1;
+    const bd=R(-c,a);argT=lin(a,c);argF=x=>a*x+c;
+    const gt=a>0;
+    const k0=level===3&&Math.random()<.5?pick([-3,-2,1,2,4]):0;
+    const fT=`f(x) = ${wrap(argT)}${addC(k0)}`;
+    const mkd=(op,r)=>({t:cmp(op,r),v:{op,r:Rnum(r)}});
+    steps=[['A log is only defined when its argument is positive. Set the argument greater than zero.',`${argT} > 0`],['Solve the inequality'+(a<0?'. Dividing by a negative number flips the inequality sign.':'.'),cmp(gt?'>':'<',bd)]];
+    if(ask==='dom'){
+      ok=mkd(gt?'>':'<',bd);
+      bad=[mkd(gt?'<':'>',bd),mkd(gt?'≥':'≤',bd),mkd(gt?'>':'<',Rneg(bd)),mkd(gt?'<':'>',Rneg(bd)),mkd(gt?'>':'<',R(c,a))].filter(z=>true);
+      if(k0!==0)bad.push(mkd(gt?'>':'<',Radd(bd,R(k0))));
+      const f=x=>argF(x)>0;
+      const holds=(v,x)=>v.op==='>'?x>v.r:v.op==='<'?x<v.r:v.op==='≥'?x>=v.r:x<=v.r;
+      const pts=[];for(let i=-60;i<=60;i++)pts.push(i/4);pts.push(Rnum(bd));pts.push(Rnum(bd)+1e-6,Rnum(bd)-1e-6);
+      return mcm({prompt:'What is the domain of the function?',stmt:fT,ok,bad,steps,oracle:v=>pts.every(x=>holds(v,x)===f(x)),meta:{kind:'logDomain',fT,k0}});
+    }
+    ok={t:'x = '+Rstr(bd),v:Rnum(bd)};
+    bad=[R(c,a),Rneg(bd),R(c),R(a),Radd(bd,R(1)),Rneg(R(c,a))].filter(r=>okR(r)&&!Req(r,bd)).map(r=>({t:'x = '+Rstr(r),v:Rnum(r)}));
+    steps=[['The vertical asymptote is where the argument equals zero.',`${argT} = 0`],['Solve.',`x = ${Rstr(bd)}`]];
+    return mcm({prompt:'What is the equation of the vertical asymptote?',stmt:fT,ok,bad,steps,oracle:v=>Math.abs(argF(v))<1e-9,meta:{kind:'logVA',fT}});
+  }
+  /* quadratic arguments: x^2 - n^2 > 0, or n^2 - x^2 > 0 */
+  const n=rnd(2,6),flip=kind==='quad2';
+  argT=flip?`${n*n} - x^2`:`x^2 - ${n*n}`;argF=x=>flip?n*n-x*x:x*x-n*n;
+  const fT=`f(x) = ${wrap(argT)}`;
+  const inside=`-${n} < x < ${n}`,outside=`x < -${n} or x > ${n}`;
+  const okT=flip?inside:outside;
+  const mkp=(t,fn)=>({t,v:fn});
+  const insideF=x=>x>-n&&x<n,outsideF=x=>x<-n||x>n;
+  if(ask==='dom'){
+    ok=mkp(okT,flip?insideF:outsideF);
+    bad=[mkp(flip?outside:inside,flip?outsideF:insideF),mkp(`x > ${n}`,x=>x>n),mkp(`x < ${n}`,x=>x<n),mkp(`-${n} ≤ x ≤ ${n}`,x=>x>=-n&&x<=n),mkp(`x ≤ -${n} or x ≥ ${n}`,x=>x<=-n||x>=n),mkp(`x ≠ ${n}`,x=>x!==n)];
+    const pts=[];for(let i=-60;i<=60;i++)pts.push(i/4);pts.push(n,-n,n+1e-6,n-1e-6,-n+1e-6,-n-1e-6);
+    steps=[['A log needs a positive argument.',`${argT} > 0`],['Factor and find where the factors have the right signs, or think of the graph of the quadratic: it is above the {{x}}-axis '+(flip?'between the roots {{x = ±'+n+'}}.':'outside the roots {{x = ±'+n+'}}.'),okT]];
+    return mcm({prompt:'What is the domain of the function?',stmt:fT,ok,bad,steps,oracle:v=>typeof v==='function'&&pts.every(x=>v(x)===(argF(x)>0)),meta:{kind:'logDomainQ',fT}});
+  }
+  /* vertical asymptotes of a quadratic argument: two lines */
+  ok={t:`x = -${n} and x = ${n}`,v:[-n,n]};
+  bad=[{t:`x = ${n*n}`,v:[n*n]},{t:`x = ${n}`,v:[n]},{t:`x = -${n}`,v:[-n]},{t:`x = -${n*n} and x = ${n*n}`,v:[-n*n,n*n]},{t:`y = -${n} and y = ${n}`,v:null}];
+  return mcm({prompt:'What are the equations of the vertical asymptotes?',stmt:fT,ok,bad:bad.filter(z=>z.v!==null),steps:[['Vertical asymptotes occur where the argument equals zero.',`${argT} = 0`],['Solve both factors.',`x = -${n} and x = ${n}`]],
+    oracle:v=>Array.isArray(v)&&v.length===2&&v.every(r=>Math.abs(argF(r))<1e-9),meta:{kind:'logVAQ',fT}});
+},
+
+/* ---------- inverse functions ---------- */
+inverse(level){
+  const kind=level===2?pick(['exp','exp','log']):pick(['exp','expk','log','logk','scaled','e']);
+  const b=kind==='e'?'e':pick([2,3,5]),bv=bnum(b);
+  let fT,fF,ok,bad,steps,pts;
+  const invT='f^{-1}(x)';
+  const lgx=(arg)=>lgT(b,arg);
+  if(kind==='exp'||kind==='expk'||kind==='e'){
+    const k=nz(-5,5),h=kind==='e'?pick([0,1,-1,2]):0;
+    const bb=kind==='exp'?b:b;
+    const hh=kind==='expk'||kind==='e'?(kind==='e'?h:pick([0,0,1,-2,2])):0;
+    fT=`f(x) = ${powT(b,hh===0?'x':`{x ${hh>0?'-':'+'} ${Math.abs(hh)}}`)}${addC(k)}`;
+    fF=x=>Math.pow(bv,x-hh)+k;
+    /* inverse: hh + log_b(x - k) */
+    const inv=(kk,h2,sx)=>x=>h2+sx*logb(bv,x-kk);
+    const t=(kk,h2)=>`${invT} = ${(h2!==0?h2+' + ':'')}${lgx(kk===0?'x':lin(1,-kk))}`.replace('+ -','- ');
+    const hasH=hh!==0;
+    ok={t:`${invT} = ${hasH?`${lgx(k===0?'x':lin(1,-k))} ${hh>0?'+':'-'} ${Math.abs(hh)}`:lgx(k===0?'x':lin(1,-k))}`,v:inv(k,hh,1)};
+    bad=[{t:`${invT} = ${hasH?`${lgx(k===0?'x':lin(1,k))} ${hh>0?'+':'-'} ${Math.abs(hh)}`:lgx(k===0?'x':lin(1,k))}`,v:inv(-k,hh,1)},
+         {t:`${invT} = ${lgx('x')}${addC(k)}${hasH?(hh>0?' + ':' - ')+Math.abs(hh):''}`,v:x=>logb(bv,x)+k+hh},
+         {t:`${invT} = ${powT(b,k===0?'x':'{x '+(k>0?'-':'+')+' '+Math.abs(k)+'}')}`,v:x=>Math.pow(bv,x-k)},
+         {t:`${invT} = [[1 ; ${powT(b,'x')}${addC(k)}]]`,v:x=>1/(Math.pow(bv,x)+k)}];
+    if(hasH)bad.push({t:`${invT} = ${lgx(k===0?'x':lin(1,-k))} ${hh>0?'-':'+'} ${Math.abs(hh)}`,v:inv(k,-hh,1)});
+    steps=[['Replace {{f(x)}} with {{y}} and swap {{x}} and {{y}}.',`x = ${powT(b,hh===0?'y':`{y ${hh>0?'-':'+'} ${Math.abs(hh)}}`)}${addC(k)}`],
+           ['Isolate the exponential part.',`${powT(b,hh===0?'y':`{y ${hh>0?'-':'+'} ${Math.abs(hh)}}`)} = ${k===0?'x':lin(1,-k)}`],
+           ['Write in log form, then solve for {{y}}.',ok.t.replace(invT,'y')]];
+    pts=[k+0.5,k+1,k+2,k+3.7,k+10];
+    return mcm({prompt:'Which function is the inverse of {{f}}?',stmt:fT,ok,bad,steps,oracle:v=>typeof v==='function'&&pts.every(x=>relEq(fF(v(x)),x,1e-9)&&relEq(v(fF(x/3)),x/3,1e-9)),meta:{kind:'inverseExp'}});
+  }
+  if(kind==='scaled'){
+    const a=pick([2,3,4,5]);fT=`f(x) = ${a} * ${powT(b,'x')}`;fF=x=>a*Math.pow(bv,x);
+    ok={t:`${invT} = ${lgx(`[[x ; ${a}]]`)}`,v:x=>logb(bv,x/a)};
+    bad=[{t:`${invT} = ${a} ${lgx('x')}`.replace(/^(.*)$/,`${invT} = ${a}${lgx('x')}`),v:x=>a*logb(bv,x)},{t:`${invT} = ${lgx(`${a}x`)}`,v:x=>logb(bv,a*x)},{t:`${invT} = ${lgx('x')} - ${a}`,v:x=>logb(bv,x)-a},{t:`${invT} = [[${lgx('x')} ; ${a}]]`,v:x=>logb(bv,x)/a}];
+    steps=[['Swap {{x}} and {{y}}.',`x = ${a} * ${powT(b,'y')}`],['Divide both sides by {{'+a+'}} to isolate the exponential.',`${powT(b,'y')} = [[x ; ${a}]]`],['Write in log form.',ok.t.replace(invT,'y')]];
+    pts=[0.5,1,2,5,13];
+    return mcm({prompt:'Which function is the inverse of {{f}}?',stmt:fT,ok,bad,steps,oracle:v=>typeof v==='function'&&pts.every(x=>relEq(fF(v(x)),x,1e-9)),meta:{kind:'inverseScaled'}});
+  }
+  /* inverse of a log function: f(x) = log_b(x - h) + k  ->  b^(x - k) + h */
+  const k=kind==='logk'?nz(-4,4):0,h=kind==='logk'?pick([0,1,-2,3]):0;
+  fT=`f(x) = ${lgx(h===0?'x':lin(1,-h))}${addC(k)}`;fF=x=>logb(bv,x-h)+k;
+  const invF=(kk,hh)=>x=>Math.pow(bv,x-kk)+hh;
+  const mk=(kk,hh)=>({t:`${invT} = ${powT(b,kk===0?'x':'{x '+(kk>0?'-':'+')+' '+Math.abs(kk)+'}')}${addC(hh)}`,v:invF(kk,hh)});
+  ok=mk(k,h);
+  bad=[mk(-k,h),mk(k,-h),mk(h,k),{t:`${invT} = ${powT(b,k===0?'x':'{x '+(k>0?'-':'+')+' '+Math.abs(k)+'}')}${h!==0?'':'+ 1'}`.replace(/\+ 1$/,' + 1'),v:x=>Math.pow(bv,x-k)+(h!==0?0:1)},{t:`${invT} = [[1 ; ${lgx(h===0?'x':lin(1,-h))}${addC(k)}]]`,v:x=>1/(logb(bv,x-h)+k)}];
+  steps=[['Swap {{x}} and {{y}}.',`x = ${lgx(h===0?'y':lin(1,-h).replace('x','y'))}${addC(k)}`],['Isolate the log.',`${lgx(h===0?'y':lin(1,-h).replace('x','y'))} = ${k===0?'x':lin(1,-k)}`],
+         ['Write in exponential form, then solve for {{y}}.',`${h===0?'y':lin(1,-h).replace('x','y')} = ${powT(b,k===0?'x':'{x '+(k>0?'-':'+')+' '+Math.abs(k)+'}')}`],['Add or subtract to isolate {{y}}.',ok.t.replace(invT,'y')]];
+  pts=[-1.5,-.5,0,1,2.5];
+  return mcm({prompt:'Which function is the inverse of {{f}}?',stmt:fT,ok,bad,steps,oracle:v=>typeof v==='function'&&pts.every(x=>relEq(fF(v(x)),x,1e-9)),meta:{kind:'inverseLog'}});
+},
+
+/* ---------- half-life, pH, decibels, and solving a model for time ---------- */
+modeling(level){
+  const kind=level===1?pick(['half','half','ph10']):level===2?pick(['ph','phdiff','db','phmant','half']):pick(['cont','halfq','double','decay','cont']);
+  if(kind==='half'){
+    const n=rnd(2,4),hl=pick([2,3,5,6,8,12]),N0=pick([40,80,120,160,240,320,640]);if(N0%Math.pow(2,n)!==0)return null;
+    const unit=pick(['hours','days','years']),t=n*hl,ans=N0/Math.pow(2,n);
+    const mk=v=>({t:`${v} grams`,v});
+    const bad=[N0/2,N0/n,N0/(2*n),N0/Math.pow(2,n+1),N0/Math.pow(2,n-1),N0-t,N0/t,N0/hl].filter(v=>Number.isInteger(v)&&v!==ans&&v>0).map(mk);
+    return mcm({prompt:`How many grams remain after ${t} ${unit}?`,story:`A sample of ${N0} grams of a radioactive substance has a half-life of ${hl} ${unit}.`,ok:mk(ans),bad,
+      steps:[['Find how many half-lives have passed.',`[[${t} ; ${hl}]] = ${n}`],['Each half-life cuts the amount in half, so multiply by {{[[1 ; 2]]}} that many times.',`${N0} * ([[1 ; 2]])^${n}`],['Evaluate.',`${ans} grams`]],
+      oracle:v=>{let a=N0;for(let i=0;i<t/hl;i++)a/=2;return Math.abs(v-a)<1e-9;},meta:{kind:'half',N0,hl,t,unit}});
+  }
+  if(kind==='ph10'||kind==='ph'){
+    const kk=rnd(2,11);const mk=v=>({t:String(v),v});
+    const ok=mk(kk);
+    const bad=[-kk,10-kk,14-kk,kk+1,kk-1,kk*10,Math.pow(10,-kk)].filter(v=>v!==kk&&Number.isFinite(v)&&(Number.isInteger(v)||v>1e-3)).map(v=>mk(Number.isInteger(v)?v:String(v)));
+    return mcm({prompt:'What is the pH of the solution?',story:`The pH of a solution is {{pH = -log[H^{+}]}}, where {{[H^{+}]}} is the concentration of hydrogen ions in moles per liter. A solution has {{[H^{+}] = 10^-${kk}}}.`,ok,bad,
+      steps:[['Substitute into the formula.',`pH = -log(10^-${kk})`],['{{log(10^-'+kk+') = -'+kk+'}}, so the negatives cancel.',`pH = ${kk}`]],oracle:v=>Math.abs(-Math.log10(Math.pow(10,-kk))-v)<1e-9,meta:{kind:'ph',k:kk}});
+  }
+  if(kind==='phdiff'){
+    const a=rnd(2,5),b=a+rnd(2,4);const d=b-a;const mk=v=>({t:String(v),v});const ans=Math.pow(10,d);
+    const bad=[d,10*d,b-a+1===ans?7:Math.pow(10,d+1),Math.pow(10,d-1),a*b,Math.pow(d,10)].filter(v=>v!==ans).map(v=>mk(v));
+    return mcm({prompt:`How many times as acidic is the solution with pH ${a} as the solution with pH ${b}?`,story:`Each decrease of 1 in pH means the hydrogen ion concentration is 10 times as large, since {{pH = -log[H^{+}]}}.`,ok:mk(ans),bad,
+      steps:[['The pH values differ by {{'+b+' - '+a+' = '+d+'}}.',''],['Each unit of pH is a factor of {{10}}, so the factors multiply.',`10^${d} = ${ans}`]],
+      oracle:v=>relEq(Math.pow(10,-a)/Math.pow(10,-b),v,1e-9),meta:{kind:'phdiff',a,b}});
+  }
+  if(kind==='db'){
+    const kk=rnd(2,9);const mk=v=>({t:`${v} dB`,v});const ans=10*kk;
+    const bad=[kk,Math.pow(10,kk),10*Math.pow(10,kk),100*kk,10+kk,20*kk].filter(v=>v!==ans&&v<1e7).map(mk);
+    const wd=pick(['a whisper','a conversation','a lawn mower']);
+    return mcm({prompt:'What is the sound level in decibels?',story:`The sound level in decibels is {{L = 10 log([[I ; I_0]])}}, where {{I_0}} is the faintest sound a person can hear. A sound has intensity {{I = 10^${kk} * I_0}}.`,ok:mk(ans),bad,
+      steps:[['Divide the intensity by {{I_0}}.',`[[I ; I_0]] = 10^${kk}`],['Substitute into the formula and use {{log(10^'+kk+') = '+kk+'}}.',`L = 10 log(10^${kk}) = 10(${kk})`],['Multiply.',`L = ${ans} dB`]],
+      oracle:v=>Math.abs(10*Math.log10(Math.pow(10,kk))-v)<1e-9,meta:{kind:'db',k:kk}});
+  }
+  if(kind==='phmant'){
+    const m=pick([2,3,4,5,6,7,8]),kk=rnd(3,9);const val=-Math.log10(m*Math.pow(10,-kk));if(!safeRound(val,1))return null;
+    const sh=x=>({t:fmtN(x,1),v:+fmtN(x,1)});
+    const bad=[kk,kk+Math.log10(m),Math.log10(m)-kk,-Math.log10(m)*kk,kk-m,m*kk,Math.log10(m)+kk+1,kk+m/10].map(sh);
+    return mcm({prompt:'Find the pH. Round to the nearest tenth.',story:`The pH of a solution is {{pH = -log[H^{+}]}}. A solution has {{[H^{+}] = ${m} * 10^-${kk}}}.`,ok:sh(val),bad,
+      steps:[['Substitute into the formula.',`pH = -log(${m} * 10^-${kk})`],['Evaluate the log with a calculator (or use {{log(a * b) = log a + log b}}).',`pH ≈ ${fmtN(val,4)}`],['Round to the nearest tenth.',`pH ≈ ${fmtN(val,1)}`]],
+      oracle:v=>Math.abs(v-(-Math.log10(m*1/Math.pow(10,kk))))<=0.05+1e-9,meta:{kind:'phmant',m,k:kk}});
+  }
+  if(kind==='cont'){
+    const P0=pick([100,200,500,800,1000,2500]),r=pick([0.03,0.04,0.05,0.06,0.08,0.1,0.12,0.15]),mult=pick([2,3,4,5]);const t=Math.log(mult)/r;
+    if(!safeRound(t,2))return null;
+    const unit=pick(['years','hours','days']);
+    const thing=unit==='years'?`An investment of $${commas(P0)} grows continuously at a rate of ${fmtN(r*100,0)}% per year.`:unit==='hours'?`A bacteria culture of ${commas(P0)} cells grows continuously at a rate of ${fmtN(r*100,0)}% per hour.`:`A population of ${commas(P0)} animals grows continuously at a rate of ${fmtN(r*100,0)}% per day.`;
+    const sh=x=>({t:fmtN(x,2)+' '+unit,v:+fmtN(x,2)});
+    const bad=[Math.log(P0*mult)/r,mult/r,Math.log(mult)*r,logb(10,mult)/r,Math.log(mult*P0)/r-Math.log(P0)*0,(mult-1)/r,Math.log(mult/r)];
+    const F=x=>P0*Math.exp(r*x)-P0*mult;
+    return mcm({prompt:`How long does it take to reach ${commas(P0*mult)}? Round to the nearest hundredth.`,story:thing+` Its size after {{t}} ${unit} is {{A = ${commas(P0)} e^{${r}t}}}.`,ok:sh(t),bad:bad.filter(v=>Number.isFinite(v)&&Math.abs(v-t)>0.01).map(sh),
+      steps:[['Set the model equal to the target.',`${commas(P0)} e^{${r}t} = ${commas(P0*mult)}`],['Divide by '+commas(P0)+'.',`e^{${r}t} = ${mult}`],['Take the natural log of both sides.',`${r}t = ln ${mult}`],['Divide by '+r+' and round.',`t = [[ln ${mult} ; ${r}]] ≈ ${fmtN(t,2)}`]],
+      oracle:v=>{const rr=scanRoots(F,0,200,0.01);return rr.length===1&&Math.abs(v-rr[0])<=0.005+1e-9;},meta:{kind:'cont',P0,r,mult,unit}});
+  }
+  if(kind==='halfq'){
+    const hl=pick([5,8,12,20,30]),q=pick([0.1,0.2,0.3,0.4,0.6,0.75]);const t=hl*Math.log(q)/Math.log(0.5);if(!safeRound(t,1))return null;
+    const sh=x=>({t:fmtN(x,1)+' days',v:+fmtN(x,1)});
+    const bad=[hl*Math.log(q),hl*Math.log(0.5)/Math.log(q),Math.log(q)/Math.log(0.5),hl*q,hl/Math.log(q)*Math.log(0.5),hl*(1-q)*2].filter(v=>Number.isFinite(v)&&v>0);
+    const F=x=>Math.pow(.5,x/hl)-q;
+    return mcm({prompt:`How many days until only ${fmtN(q*100,0)}% of the sample remains? Round to the nearest tenth.`,story:`A substance has a half-life of ${hl} days. The fraction remaining after {{t}} days is {{([[1 ; 2]])^{[[t ; ${hl}]]}}}.`,ok:sh(t),bad:bad.map(sh),
+      steps:[['Set the fraction remaining equal to {{'+q+'}}.',`([[1 ; 2]])^{[[t ; ${hl}]]} = ${q}`],['Take the log of both sides and use the power rule.',`[[t ; ${hl}]] ln([[1 ; 2]]) = ln ${q}`],['Solve for {{t}}.',`t = [[${hl} ln ${q} ; ln([[1 ; 2]])]] ≈ ${fmtN(t,2)}`],['Round to the nearest tenth.',`t ≈ ${fmtN(t,1)}`]],
+      oracle:v=>{const rr=scanRoots(F,0,200,0.01);return rr.length===1&&Math.abs(v-rr[0])<=0.05+1e-9;},meta:{kind:'halfq',hl,q}});
+  }
+  if(kind==='double'){
+    const rp=pick([3,4,5,6,7,8,9]),r=rp/100,mult=pick([2,3]);const t=Math.log(mult)/Math.log(1+r);if(!safeRound(t,1))return null;
+    const word=mult===2?'double':'triple';
+    const sh=x=>({t:fmtN(x,1)+' years',v:+fmtN(x,1)});
+    const bad=[Math.log(mult)/r,mult/rp,Math.log(mult)/Math.log(r),Math.log(1+r)/Math.log(mult),(mult-1)/r,Math.log(mult*(1+r))/Math.log(1+r)];
+    const F=x=>Math.pow(1+r,x)-mult;
+    return mcm({prompt:`How many years will it take the money to ${word}? Round to the nearest tenth.`,story:`An account earns ${rp}% interest, compounded annually. The balance after {{t}} years is {{A = P(${1+r})^t}}.`,ok:sh(t),bad:bad.filter(v=>Number.isFinite(v)&&v>0&&Math.abs(v-t)>0.06).map(sh),
+      steps:[['The balance has '+word+'d when {{A = '+mult+'P}}.',`P(${1+r})^t = ${mult}P`],['Divide by {{P}}.',`${1+r}^t = ${mult}`],['Take the log of both sides and use the power rule.',`t ln ${1+r} = ln ${mult}`],['Divide, then round.',`t = [[ln ${mult} ; ln ${1+r}]] ≈ ${fmtN(Math.log(mult)/Math.log(1+r),3)}`]],
+      oracle:v=>{const rr=scanRoots(F,0,100,0.01);return rr.length===1&&Math.abs(v-rr[0])<=0.05+1e-9;},meta:{kind:'double',rp,mult}});
+  }
+  /* decay: N = N0 e^{-kt}, time to reach a smaller amount */
+  const N0=pick([200,400,500,800,1000]),kk=pick([0.02,0.03,0.05,0.08,0.1]),div=pick([2,4,5,10]);const t=Math.log(div)/kk;if(!safeRound(t,2))return null;
+  const sh=x=>({t:fmtN(x,2)+' hours',v:+fmtN(x,2)});
+  const bad=[Math.log(N0/div)/kk,Math.log(1/div)/kk,Math.log(div)*kk,div/kk,Math.log(div)/Math.log(kk),Math.log10(div)/kk];
+  const F=x=>N0*Math.exp(-kk*x)-N0/div;
+  return mcm({prompt:`When will ${N0/div} milligrams remain? Round to the nearest hundredth.`,story:`A drug is eliminated from the body so that the amount remaining after {{t}} hours is {{A = ${N0} e^{-${kk}t}}} milligrams.`,ok:sh(t),bad:bad.filter(v=>Number.isFinite(v)&&v>0&&Math.abs(v-t)>0.01).map(sh),
+    steps:[['Set the amount equal to {{'+N0/div+'}}.',`${N0} e^{-${kk}t} = ${N0/div}`],['Divide by '+N0+'.',`e^{-${kk}t} = [[1 ; ${div}]]`],['Take the natural log of both sides.',`-${kk}t = ln([[1 ; ${div}]]) = -ln ${div}`],['Divide by {{-'+kk+'}}.',`t = [[ln ${div} ; ${kk}]] ≈ ${fmtN(t,3)}`]],
+    oracle:v=>{const rr=scanRoots(F,0,200,0.01);return rr.length===1&&Math.abs(v-rr[0])<=0.005+1e-9;},meta:{kind:'decay',N0,k:kk,div}});
+}
+}};
+/* A generator that throws (its own oracle disagreed with its answer) must never stop a game: skip it and count the event. The test harness reads UNIT.errors. */
+UNIT.errors=[];
+for(const k of Object.keys(UNIT.gens)){const g=UNIT.gens[k];UNIT.gens[k]=function(level){try{return g(level);}catch(e){UNIT.errors.push(k+' L'+level+': '+e.message);return null;}};}
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Left side','Right side'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Right side':'Left side'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'R':'L'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>

@@ -1845,6 +1845,89 @@ window.LIBRARY = {
                 "Growth and half-life"
               ],
               "added": "2026-10-22"
+            },
+            {
+              "title": "Logs Four",
+              "path": "artifacts/exponential-logarithmic-functions-connect-four/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Convert between exponential and log form, evaluate and expand logs, solve exponential and log equations, and model growth, decay, and compound interest. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponential and log form",
+                "Properties of logs and change of base",
+                "Solving exponential and log equations",
+                "Compound interest and half-life"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exp & Log Functions Flashcards",
+              "path": "artifacts/exponential-logarithmic-functions-flashcards/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for exponential growth and decay, graphs and asymptotes, compound and continuous interest, logarithm form and domain, log properties and change of base, solving exponential and log equations (with extraneous solutions), and half-life, growth, and pH models. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Exponential functions and graphs",
+                "Compound interest and e",
+                "Logarithm properties",
+                "Solving exponential and log equations"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exp & Log Functions Showdown",
+              "path": "artifacts/exponential-logarithmic-functions-jeopardy/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-jeopardy.jpg",
+              "description": "A game board for Exponential & Logarithmic Functions. Work with exponential models and compound interest, then log form, domain, expanding and condensing, and finish with exponential and log equations and half-life problems.",
+              "type": "Game",
+              "topics": [
+                "Exponential functions and interest",
+                "Logarithm definition and properties",
+                "Solving exponential and log equations",
+                "Half-life and growth models"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Maze",
+              "path": "artifacts/exponential-logarithmic-functions-maze/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-maze.jpg",
+              "description": "Printable 4-page worksheet: evaluate logarithms, solve exponential and logarithmic equations and model growth and decay to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Evaluating and expanding logarithms",
+                "Solving exponential and log equations",
+                "Extraneous solutions",
+                "Compound interest and decay models"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Stations",
+              "path": "artifacts/algebra2-exponential-logarithmic-functions-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra2-exponential-logarithmic-functions-stations.svg",
+              "description": "Printable Algebra 2 station work for Exponential & Logarithmic Functions. Students rotate through four problem sets to practice and review unit skills, with a teacher answer key.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Exponential & Logarithmic Functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Cheat Sheet",
+              "path": "artifacts/exponential-logarithmic-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-cheat-sheet.jpg",
+              "description": "Colorful two-page printable guide to exponential growth and decay, e and compound interest, logarithm definition, graphs and properties, change of base, solving equations with a check step, modeling formulas, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Exponential Functions",
+                "Logarithms"
+              ],
+              "added": "2026-10-22"
             }
           ]
         },
