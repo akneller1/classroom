@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linear Functions Worksheet Generator · Mr. K's Classroom</title>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="core/app.css">
+</head>
+<body data-unit="algebra1-linear-functions">
+<header class="topbar">
+  <a class="brand" href="../../index.html">Mr. K's Classroom</a>
+  <span class="crumb">Worksheet Generator · <span id="unitName"></span></span>
+  <span class="sp"></span>
+  <button type="button" class="btn ghost sm" id="themeBtn">Light / dark</button>
+</header>
+<main class="app">
+  <div id="config"></div>
+  <section id="preview" aria-label="Worksheet preview">
+    <div class="ptool">
+      <div class="grp" role="group" aria-label="Which sheet to show">
+        <button type="button" class="tab" id="viewStudent" aria-pressed="true">Worksheet</button>
+        <button type="button" class="tab" id="viewKey" aria-pressed="false">Answer key</button>
+      </div>
+      <div class="grp" id="verTabs" role="group" aria-label="Version"></div>
+      <span class="sp"></span>
+      <span id="status" role="status" aria-live="polite"></span>
+      <select id="zoom" aria-label="Preview zoom"><option value="fit">Fit width</option><option value="0.6">60%</option><option value="0.8">80%</option><option value="1">100%</option></select>
+    </div>
+    <div class="ptool">
+      <button type="button" class="btn sec2" id="btnNew">&#8635; New problems</button>
+      <span class="sp"></span>
+      <button type="button" class="btn" id="btnPrint">Print / Save PDF</button>
+      <button type="button" class="btn ghost" id="btnPrintAll" hidden>Print all versions</button>
+      <button type="button" class="btn ghost" id="btnPrintKey" hidden>Print answer key</button>
+    </div>
+    <div id="empty" hidden>Pick at least one skill on the left to build a worksheet.</div>
+    <div id="pagesWrap"><div id="pages"></div></div>
+  </section>
+</main>
+<div id="printRoot" aria-hidden="true"></div>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="core/rng.js"></script>
+<script src="core/frac.js"></script>
+<script src="core/tex.js"></script>
+<script src="core/graph.js"></script>
+<script src="core/framework.js"></script>
+<script src="core/render.js"></script>
+<script src="units/algebra1/linear-functions/common.js"></script>
+<script src="units/algebra1/linear-functions/lessons-slope.js"></script>
+<script src="units/algebra1/linear-functions/lessons-graphing.js"></script>
+<script src="units/algebra1/linear-functions/lessons-writing.js"></script>
+<script src="units/algebra1/linear-functions/lessons-forms.js"></script>
+<script src="units/algebra1/linear-functions/lessons-applications.js"></script>
+<script src="units/algebra1/linear-functions/index.js"></script>
+<script src="core/app.js"></script>
+</body>
+</html>
