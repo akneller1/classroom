@@ -1696,7 +1696,215 @@ window.LIBRARY = {
         {
           "id": "functions-transformations",
           "name": "Functions & Transformations",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "The Function Bistro: Assessment Menu",
+              "path": "artifacts/functions-transformations-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups, with printed grids for graphing dishes. 100 points total. Includes a teacher guide, rubrics and answer key with computed graphs.",
+              "type": "Printable",
+              "topics": [
+                "Function notation",
+                "Transformations",
+                "Composition and inverses",
+                "Choice menu"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Color By Number",
+              "path": "artifacts/functions-transformations-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems on function notation, domain, transformations, piecewise functions, composition and inverses, match each answer to the color code, then color the lighthouse on the island. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Function notation",
+                "Transformations",
+                "Composition & inverses",
+                "Color by number"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Cheat Sheet",
+              "path": "artifacts/functions-transformations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to function notation, domain and range, the vertical line test, a graphed gallery of the six parent functions, transformation rules with a worked graph, operations and composition, piecewise functions, inverses, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Functions",
+                "Transformations"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions Four",
+              "path": "artifacts/functions-transformations-connect-four/index.html",
+              "thumb": "thumbs/functions-transformations-connect-four.jpg",
+              "description": "Connect Four for two teams. Evaluate functions, find domain and range, match equations to graphs, transform parent functions, compose and invert, and model with piecewise functions. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Function notation, domain and range",
+                "Parent functions and transformations",
+                "Piecewise functions and composition",
+                "Inverse functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Error Analysis",
+              "path": "artifacts/functions-transformations-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-error-analysis.jpg",
+              "description": "Find the mistake in 10 worked solutions on function notation, domain, horizontal shifts, reflections, stretches, composition order, inverses and piecewise graphs. Five items include computed correct-versus-student graphs. Explain the error and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Transformations",
+                "Function notation",
+                "Composition",
+                "Inverse functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Picture Reveal",
+              "path": "artifacts/functions-transformations-picture-reveal/index.html",
+              "thumb": "thumbs/functions-transformations-picture-reveal.jpg",
+              "description": "Evaluate functions, find domains, read transformed and piecewise graphs, compose and invert functions to uncover a hidden lighthouse scene. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Transformations",
+                "Domain",
+                "Composition",
+                "Piecewise graphs"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Mirror Maze Mayhem",
+              "path": "artifacts/functions-transformations-escape-room/index.html",
+              "thumb": "thumbs/functions-transformations-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, graph-reading locks, a combination-safe dial puzzle, a logic order lock, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Transformations of graphs",
+                "Composition and inverse functions",
+                "Domain and range",
+                "Escape room"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Flashcards",
+              "path": "artifacts/functions-transformations-flashcards/index.html",
+              "thumb": "thumbs/functions-transformations-flashcards.jpg",
+              "description": "25 flashcards with worked solutions and computed graphs for function notation, domain and range, parent functions and symmetry, transformations of graphs, piecewise functions, composition, and inverse functions. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Function notation and domain",
+                "Parent functions and transformations",
+                "Piecewise functions and composition",
+                "Inverse functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Showdown",
+              "path": "artifacts/functions-transformations-jeopardy/index.html",
+              "thumb": "thumbs/functions-transformations-jeopardy.jpg",
+              "description": "A game board for Functions & Transformations. Evaluate functions and find domains, describe and write transformations from graphs, then finish with piecewise functions, composites, and inverses.",
+              "type": "Game",
+              "topics": [
+                "Function notation and domain",
+                "Transformations of graphs",
+                "Piecewise functions and composition",
+                "Inverse functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Maze",
+              "path": "artifacts/functions-transformations-maze/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-maze.jpg",
+              "description": "Printable 4-page worksheet: evaluate functions, find domain and range, apply transformations, compose and invert functions to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Function notation, domain and range",
+                "Transformations of graphs",
+                "Composition and inverse functions",
+                "Piecewise and transformed equations"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Stations",
+              "path": "artifacts/algebra2-functions-transformations-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra2-functions-transformations-stations.svg",
+              "description": "Printable Algebra 2 station work for Functions & Transformations. Students rotate through four problem sets to practice and review unit skills, with a teacher answer key.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Functions & Transformations"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Tarsia Puzzle",
+              "path": "artifacts/functions-transformations-tarsia/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Covers function notation, piecewise functions, composition, inverse functions, domain and range, and transformations of parent graphs. Includes a show-your-work page and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Composition and inverses",
+                "Domain and range",
+                "Transformations of graphs",
+                "Tarsia puzzle"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Vanishing Violin Caper",
+              "path": "artifacts/functions-transformations-vanishing-violin-caper/index.html",
+              "thumb": "thumbs/functions-transformations-vanishing-violin-caper.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers, with buttons for exponents, absolute value, intervals and function composition.",
+              "type": "Game",
+              "topics": [
+                "Functions & transformations",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Functions & Transformations Tic-Tac-Toe",
+              "path": "artifacts/functions-transformations-tic-tac-toe/index.html",
+              "thumb": "thumbs/functions-transformations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Functions & transformations",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Vanishing Violin Caper (Printable)",
+              "path": "artifacts/functions-transformations-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/functions-transformations-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Functions & transformations",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-22"
+            }
+          ]
         },
         {
           "id": "linear-functions-systems",

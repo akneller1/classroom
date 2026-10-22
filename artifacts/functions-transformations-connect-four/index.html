@@ -1,0 +1,1802 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Functions Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef5f3; --surface:#ffffff; --surface-2:#dcebe7; --ink:#10282b; --muted:#4b6a6c; --line:#bcd3cf;
+  --board:#0f766e; --board-2:#0a5650; --hole:#e3f1ee;
+  --t0:#ff7a1a; --t0-ink:#2a1200; --t1:#7c4dff; --t1-ink:#ffffff;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#07181a; --surface:#0f2427; --surface-2:#17383c; --ink:#e6fbf7; --muted:#8fbab4; --line:#24494d;
+  --board:#14a39a; --board-2:#0d7a73; --hole:#07181a;
+  --t0:#ff9340; --t1:#a98bff; --t1-ink:#170b45; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#07181a; --surface:#0f2427; --surface-2:#17383c; --ink:#e6fbf7; --muted:#8fbab4; --line:#24494d;
+  --board:#14a39a; --board-2:#0d7a73; --hole:#07181a;
+  --t0:#ff9340; --t1:#a98bff; --t1-ink:#170b45; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+
+body{background-image:linear-gradient(color-mix(in srgb,var(--ink) 7%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 7%,transparent) 1px,transparent 1px);background-size:28px 28px}
+.swatch,.disc{font-family:'Source Serif 4','Times New Roman',Georgia,serif;font-style:italic;font-weight:700}
+.choice svg.fig{width:100%;max-width:200px}
+.controls label{min-width:0;max-width:100%}.controls select{max-width:100%;text-overflow:ellipsis}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Functions Four</h1><span>Evaluate, transform, compose, and invert functions to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">f</div><div class="cardbody">
+      <input class="name" id="name0" value="Team f" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">g</div><div class="cardbody">
+      <input class="name" id="name1" value="Team g" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: function notation, parent graphs, simple shifts and reflections</option>
+        <option value="2">Level 2: domain and range, composition, inverses, matching graphs</option>
+        <option value="3">Level 3: multi-step transformations, piecewise graphs, inverses, modeling</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Functions Four: problem generators. Contract: define UNIT = {types, pools, gens}. Each gen(level) returns mcm({...}) or null.
+   Every graph is computed from its function (gSvg samples f), every generator passes an oracle that recomputes correctness
+   from the problem itself (substitution, sampling, sequential application of the stated transformations), never from ok.v. */
+const near=(a,b)=>Math.abs(a-b)<1e-9;
+const relEq=(a,b,t=1e-9)=>Math.abs(a-b)<=t*Math.max(1,Math.abs(a),Math.abs(b));
+const par=n=>n<0?'('+n+')':String(n);
+const Rneg=r=>R(-r.n,r.d);
+const commas=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const money=v=>'$'+(+v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const money0=v=>'$'+commas(Math.round(v));
+function mcm(o){const p=mc(o);if(p)p.meta=o.meta||null;return p;}
+const sameFn=(f,g,pts)=>{pts=pts||[-5.5,-4.25,-3.5,-2.75,-2,-1.5,-1,-.5,0,.5,1,1.5,2,2.75,3.5,4.25,5.5];
+  return pts.every(x=>{const u=f(x),w=g(x);if(Number.isNaN(u)&&Number.isNaN(w))return true;return Number.isFinite(u)&&Number.isFinite(w)&&relEq(u,w,1e-9);});};
+const cleanN=x=>{const t=Math.round(x*1e9)/1e9;return Object.is(t,-0)?0:t;};
+/* signed terms */
+const Sg=n=>n<0?'-':'';
+const asgn=(n)=>n<0?` - ${-n}`:n>0?` + ${n}`:'';
+/* x - h written as x + |h| / x - h / x */
+const xmh=h=>h===0?'x':'x'+(h>0?' - '+h:' + '+(-h));
+/* ---------- coordinates / graphs ---------- */
+let _gid=0;
+const mnum=n=>(n<0?'−':'')+Math.abs(n);
+function gSvg(o){
+  const px=o.px||200,[x0,y0,x1,y1]=o.win||[-6,-6,6,6],pad=o.pad==null?7:o.pad;
+  const sc=(px-2*pad)/(x1-x0),W=px,H=Math.round((y1-y0)*sc+2*pad);
+  const X=x=>+(pad+(x-x0)*sc).toFixed(2),Y=y=>+(pad+(y1-y)*sc).toFixed(2);
+  const id='gc'+(++_gid);
+  let g=`<defs><clipPath id="${id}"><rect x="${pad}" y="${pad}" width="${(W-2*pad).toFixed(2)}" height="${(H-2*pad).toFixed(2)}"/></clipPath></defs>`;
+  const st=o.step||1;
+  for(let x=Math.ceil(x0/st)*st;x<=x1+1e-9;x+=st)if(x!==0)g+=`<line class="gr" x1="${X(x)}" y1="${Y(y0)}" x2="${X(x)}" y2="${Y(y1)}"/>`;
+  for(let y=Math.ceil(y0/st)*st;y<=y1+1e-9;y+=st)if(y!==0)g+=`<line class="gr" x1="${X(x0)}" y1="${Y(y)}" x2="${X(x1)}" y2="${Y(y)}"/>`;
+  g+=`<line class="ax" x1="${X(0)}" y1="${Y(y0)}" x2="${X(0)}" y2="${Y(y1)}"/><line class="ax" x1="${X(x0)}" y1="${Y(0)}" x2="${X(x1)}" y2="${Y(0)}"/>`;
+  if(o.labels!==false){const lab=o.lstep||2;
+    for(let x=Math.ceil(x0/lab)*lab;x<=x1+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(0)+11}" text-anchor="middle">${mnum(x)}</text>`;}
+    for(let y=Math.ceil(y0/lab)*lab;y<=y1+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(0)-3}" y="${Y(y)+3.5}" text-anchor="end">${mnum(y)}</text>`;}}
+  let cg='';const rng=y1-y0;
+  (o.curves||[]).forEach((c,ci)=>{
+    const cls='f'+(c.cls?' '+c.cls:'')+(c.dash?' dash':'');
+    const segs=[];let cur=[];
+    const push=(x,y)=>{
+      if(!Number.isFinite(y)||Math.abs(y)>1000){if(cur.length)segs.push(cur);cur=[];return;}
+      if(cur.length&&Math.abs(y-cur[cur.length-1][1])>rng*1.2){segs.push(cur);cur=[];}
+      cur.push([x,y]);};
+    if(c.pts){c.pts.forEach(p=>{if(p===null){if(cur.length)segs.push(cur);cur=[];}else push(p[0],p[1]);});}
+    else{const a=c.dom?c.dom[0]:x0-0.5,b=c.dom?c.dom[1]:x1+0.5,n=Math.max(60,Math.round((b-a)*30));
+      for(let i=0;i<=n;i++){const x=a+(b-a)*i/n;push(x,c.f(x));}}
+    if(cur.length)segs.push(cur);
+    const d=segs.filter(s=>s.length>1).map(s=>'M'+s.map(p=>X(p[0])+','+Y(p[1])).join(' L')).join(' ');
+    cg+=`<path class="${cls}" data-c="${ci}" d="${d}"/>`;
+  });
+  g+=`<g clip-path="url(#${id})">${cg}</g>`;
+  (o.hl||[]).forEach(h=>{g+=`<line class="f thin dash" x1="${X(x0)}" y1="${Y(h.y)}" x2="${X(x1)}" y2="${Y(h.y)}"/>`;});
+  (o.dots||[]).forEach(d=>{g+=`<circle class="dot${d.k?' '+d.k:''}${d.open?' open':''}" cx="${X(d.p[0])}" cy="${Y(d.p[1])}" r="${d.r||(px>250?4.5:3.6)}"/>`;});
+  (o.tags||[]).forEach(t=>{g+=`<text class="lb ${t.k||''}" x="${X(t.p[0])}" y="${Y(t.p[1])}" text-anchor="${t.a||'start'}">${t.s}</text>`;});
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" data-view="${[x0,y0,x1,y1,pad,px].join(',')}" role="img" aria-label="${(o.alt||'Graph').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* the number of sample points of f inside a window, and whether two functions look different in the window */
+const inWin=(f,win=[-6,-6,6,6])=>{let n=0;for(let x=win[0];x<=win[2]+1e-9;x+=.25){const y=f(x);if(Number.isFinite(y)&&y>=win[1]&&y<=win[3])n++;}return n;};
+const looksDiff=(f,g,win=[-6,-6,6,6])=>{let n=0;for(let x=win[0];x<=win[2]+1e-9;x+=.25){const u=f(x),w=g(x);
+  const iu=Number.isFinite(u)&&u>=win[1]&&u<=win[3],iw=Number.isFinite(w)&&w>=win[1]&&w<=win[3];
+  if(iu!==iw||(iu&&iw&&Math.abs(u-w)>.6))n++;}return n>=7;};
+/* ---------- parent functions and the transformation tuple y = a*P(b(x-h)) + k (all rationals) ---------- */
+const PAR={
+  quad:{f:t=>t*t,T:a=>a==='x'?'x^2':`(${a})^2`,nm:'x^2',word:'quadratic'},
+  cubic:{f:t=>t*t*t,T:a=>a==='x'?'x^3':`(${a})^3`,nm:'x^3',word:'cubic'},
+  abs:{f:Math.abs,T:a=>`|${a}|`,nm:'|x|',word:'absolute value'},
+  sqrt:{f:t=>t>=0?Math.sqrt(t):NaN,T:a=>`rt{${a}}`,nm:'rt{x}',word:'square root'},
+  recip:{f:t=>t===0?NaN:1/t,T:a=>`[[1 ; ${a}]]`,nm:'[[1 ; x]]',word:'reciprocal'},
+  linear:{f:t=>t,T:a=>a,nm:'x',word:'linear'}
+};
+const S0=()=>({a:R(1),b:R(1),h:R(0),k:R(0)});
+const OPS={
+  rx:s=>({...s,a:Rneg(s.a),k:Rneg(s.k)}),
+  ry:s=>({...s,b:Rneg(s.b),h:Rneg(s.h)}),
+  vs:(s,m)=>({...s,a:Rmul(s.a,m),k:Rmul(s.k,m)}),
+  hs:(s,m)=>({...s,b:Rdiv(s.b,m),h:Rmul(s.h,m)}),
+  sx:(s,d)=>({...s,h:Radd(s.h,d)}),
+  sy:(s,d)=>({...s,k:Radd(s.k,d)})};
+const applyOps=(ops,s=S0())=>ops.reduce((st,[op,m])=>OPS[op](st,m),s);
+const tupFn=(P,s)=>{const a=Rnum(s.a),b=Rnum(s.b),h=Rnum(s.h),k=Rnum(s.k),pf=PAR[P].f;return x=>a*pf(b*(x-h))+k;};
+const coefT=r=>r.d===1?String(r.n):(r.n<0?'-':'')+`[[${Math.abs(r.n)} ; ${r.d}]]`;
+/* argument b(x-h) as text */
+function argT(b,h,hn){
+  const hv=Rnum(h),hs=hv===0?'':(hv>0?' - ':' + ')+Rstr(R(Math.abs(h.n),h.d));
+  if(Req(b,R(1)))return 'x'+hs;
+  if(hv===0){
+    if(Req(b,R(-1)))return '-x';
+    if(b.n===1)return `[[x ; ${b.d}]]`;
+    if(b.n===-1)return `-[[x ; ${b.d}]]`;
+    return `${b.n}x`;}
+  const bt=Req(b,R(-1))?'-':b.d===1?String(b.n):(b.n<0?'-':'')+`[[${Math.abs(b.n)} ; ${b.d}]]`;
+  return `${bt}(x${hs})`;
+}
+function tupT(P,s,nm='g(x)',fname){
+  const arg=argT(s.b,s.h);let core;
+  if(fname)core=`${fname}(${arg})`;else core=PAR[P].T(arg);
+  const kv=Rnum(s.k),kt=kv===0?'':(kv>0?' + ':' - ')+Rstr(R(Math.abs(s.k.n),s.k.d));
+  let body;
+  if(!fname&&P==='recip'){body=`[[${coefT(s.a)} ; ${arg}]]`;}
+  else{const a=s.a;body=Req(a,R(1))?core:Req(a,R(-1))?'-'+core:(a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)} ; ${a.d}]]`)+core;}
+  return (nm?nm+' = ':'')+body+kt;
+}
+/* phrases */
+function opPhrase(op,m,mode){
+  const M=s=>mode==='inl'?'{{'+s+'}}':s,xa=mode==='inl'?'{{x}}-axis':'x@{-}axis',ya=mode==='inl'?'{{y}}-axis':'y@{-}axis';
+  const nr=m?Rstr(m):'';
+  if(op==='rx')return `reflect in the ${xa}`;
+  if(op==='ry')return `reflect in the ${ya}`;
+  if(op==='vs')return m.n>m.d?`stretch vertically by factor ${M(nr)}`:`compress vertically by factor ${M(nr)}`;
+  if(op==='hs')return m.n>m.d?`stretch horizontally by factor ${M(nr)}`:`compress horizontally by factor ${M(nr)}`;
+  if(op==='sx')return m.n>0?`shift right ${M(nr)}`:`shift left ${M(Rstr(Rneg(m)))}`;
+  if(op==='sy')return m.n>0?`shift up ${M(nr)}`:`shift down ${M(Rstr(Rneg(m)))}`;
+}
+/* canonical op list for a tuple */
+function canonOps(s){
+  const ops=[];
+  if(s.b.n<0)ops.push(['ry',null]);
+  const ab=R(Math.abs(s.b.n),s.b.d);if(!Req(ab,R(1)))ops.push(['hs',Rdiv(R(1),ab)]);
+  if(s.a.n<0)ops.push(['rx',null]);
+  const aa=R(Math.abs(s.a.n),s.a.d);if(!Req(aa,R(1)))ops.push(['vs',aa]);
+  if(s.h.n!==0)ops.push(['sx',s.h]);
+  if(s.k.n!==0)ops.push(['sy',s.k]);
+  return ops;
+}
+const descOps=(ops,mode)=>ops.map(([o,m])=>opPhrase(o,m,mode)).join(', ');
+const tupKey=s=>[s.a,s.b,s.h,s.k].map(r=>r.n+'/'+r.d).join('|');
+const sameTup=(s,t)=>tupKey(s)===tupKey(t);
+/* nice tuple?  a in {+-1,+-2,+-3,+-1/2}, b in {+-1,+-2,+-3,+-1/2,+-1/3}, integer h,k */
+/* ---- sequential (independent) application of stated operations to the actual function ---- */
+function seqFn(P,ops){
+  let f=PAR[P].f;
+  for(const [op,m] of ops){const g=f,mv=m?Rnum(m):0;
+    if(op==='rx')f=x=>-g(x);else if(op==='ry')f=x=>g(-x);else if(op==='vs')f=x=>mv*g(x);
+    else if(op==='hs')f=x=>g(x/mv);else if(op==='sx')f=x=>g(x-mv);else if(op==='sy')f=x=>g(x)+mv;}
+  return f;
+}
+const goodA=a=>a.d===1?[1,2,3].includes(Math.abs(a.n)):(a.d===2&&a.n===Math.sign(a.n));
+const goodB=b=>b.d===1?[1,2,3].includes(Math.abs(b.n)):(b.n===Math.sign(b.n)&&[2,3].includes(b.d));
+function validTup(P,s,win){
+  if(!goodA(s.a)||!goodB(s.b)||s.h.d!==1||s.k.d!==1||Math.abs(s.h.n)>5||Math.abs(s.k.n)>5)return false;
+  if(P==='recip'&&(s.a.d!==1||(s.b.d!==1&&Math.abs(s.b.n)!==1)||Math.abs(s.b.n)>2))return false;
+  if(P==='recip'&&s.b.d!==1)return false;
+  if(win){const f=tupFn(P,s);if(inWin(f)<({quad:16,abs:18,cubic:10,sqrt:8,recip:12}[P]||10))return false;
+    if(Math.abs(s.h.n)>4||Math.abs(s.k.n)>4)return false;
+    if(P==='cubic'&&Math.abs(Rnum(s.a))>2)return false;}
+  return true;
+}
+const SH=()=>R(nz(-4,4));
+function genOps(level,P){
+  const vsm=()=>P==='recip'?R(pick([2,3])):pick([R(2),R(3),R(1,2)]);
+  const hsm=()=>P==='recip'?R(pick([2])):pick([R(2),R(1,2),R(3),R(1,3)]);
+  const pool=[];
+  if(level===1){
+    const t=pick(['sx','sy','rx','vs','sxy','sxy']);
+    if(t==='sxy')return [['sx',SH()],['sy',SH()]];
+    return [[t,t==='sx'||t==='sy'?SH():t==='vs'?vsm():null]];
+  }
+  const kinds=level===2?shuffle(['rx','vs','sx','sy']).slice(0,pick([2,3,3])):shuffle(['rx','vs','sx','sy','ry','hs']).slice(0,pick([3,4]));
+  if(level===3&&!kinds.some(k=>k==='ry'||k==='hs'))kinds[0]=pick(['ry','hs']);
+  if(level===2&&kinds.length<3&&!kinds.some(k=>k==='sx'||k==='sy'))kinds[0]='sx';
+  if(P!=='sqrt'){for(let i=0;i<kinds.length;i++)if(kinds[i]==='ry')kinds[i]='hs';const u=[...new Set(kinds)];for(const e of ['sy','sx','vs','rx']){if(u.length>=kinds.length)break;if(!u.includes(e))u.push(e);}kinds.length=0;kinds.push(...u);}
+  let ops=kinds.map(k=>[k,(k==='sx'||k==='sy')?SH():k==='vs'?vsm():k==='hs'?hsm():null]);
+  if(level===2){ /* stretch/reflect first, shifts last (the order students are used to) */
+    const rank={rx:0,vs:0,ry:0,hs:0,sx:1,sy:1};ops.sort((u,v)=>rank[u[0]]-rank[v[0]]);}
+  return ops;
+}
+function opStep(op,m,P){
+  const nm=PAR[P].nm;
+  switch(op){
+    case 'rx':return 'A negative sign outside the function multiplies every {{y}}-value by {{-1}}: reflection in the {{x}}-axis.';
+    case 'ry':return 'A negative sign on {{x}} inside the function reverses left and right: reflection in the {{y}}-axis.';
+    case 'vs':return 'A factor outside the function multiplies every {{y}}-value by {{'+Rstr(m)+'}}: '+(m.n>m.d?'a vertical stretch.':'a vertical compression.');
+    case 'hs':return 'A factor inside the function works backward. Multiplying {{x}} by {{'+Rstr(Rdiv(R(1),m))+'}} changes the width by {{'+Rstr(m)+'}}: '+(m.n>m.d?'a horizontal stretch.':'a horizontal compression.');
+    case 'sx':return 'Inside the function, {{x - h}} shifts the graph right {{h}} units, so a {{'+(m.n>0?'minus':'plus')+'}} sign here is a shift '+(m.n>0?'right':'left')+' {{'+Math.abs(m.n)+'}}.';
+    case 'sy':return 'A number added outside the function moves every point '+(m.n>0?'up':'down')+' {{'+Math.abs(m.n)+'}}.';
+  }
+}
+function tupVariants(s,ops){
+  const out=[];const add=t=>out.push(t);
+  if(s.h.n!==0)add({...s,h:Rneg(s.h)});
+  if(s.k.n!==0)add({...s,k:Rneg(s.k)});
+  if(s.a.n<0||!Req(s.a,R(1)))add({...s,a:Rneg(s.a)});else add({...s,a:R(-1),k:Rneg(s.k)});
+  if(!Req(s.b,R(1)))add({...s,b:Rdiv(R(1),s.b)});
+  if(Math.abs(s.a.n)!==s.a.d)add({...s,a:Rdiv(R(1),s.a)});
+  if(s.h.n!==0&&s.k.n!==0)add({...s,h:Rneg(s.h),k:Rneg(s.k)});
+  /* a swapped order of two neighbouring operations */
+  for(let i=0;i+1<ops.length;i++){const o2=ops.slice();[o2[i],o2[i+1]]=[o2[i+1],o2[i]];add(applyOps(o2));}
+  /* an operation left out */
+  if(ops.length>1)for(let i=0;i<ops.length;i++)add(applyOps(ops.filter((_,j)=>j!==i)));
+  add({...s,k:Radd(s.k,R(2))});add({...s,k:Radd(s.k,R(-2))});add({...s,h:Radd(s.h,R(2))});add({...s,h:Radd(s.h,R(-2))});
+  return out;
+}
+const hdir=h=>h>0?'right':'left';
+
+const intsOnly=arr=>arr.map(cleanN).filter(b=>Number.isInteger(b)&&Math.abs(b)<1e6);
+const numC=v=>({t:String(v),v});
+const lead=a=>a===1?'':a===-1?'-':String(a);
+/* interval sets: arrays of [lo,hi,loClosed,hiClosed] */
+const INF=Infinity;
+const validSet=T=>T.every(([lo,hi,lc,hc],i)=>(lo<hi||(lo===hi&&lc&&hc))&&(i===0||T[i-1][1]<=lo));
+const memb=(S,x)=>S.some(([lo,hi,lc,hc])=>(x>lo||(lc&&x===lo))&&(x<hi||(hc&&x===hi)));
+const num=n=>n===INF?'∞':n===-INF?'-∞':String(n);
+const itv=S=>S.length===1&&S[0][0]===-INF&&S[0][1]===INF?'(-∞, ∞)':S.map(([lo,hi,lc,hc])=>`${lc&&lo!==-INF?'[':'('}${num(lo)}, ${num(hi)}${hc&&hi!==INF?']':')'}`).join(' ∪ ');
+const ineq=(S,v='x')=>{
+  if(S.length===1&&S[0][0]===-INF&&S[0][1]===INF)return 'all real numbers';
+  if(S.length===2&&S[0][1]===S[1][0]&&!S[0][3]&&!S[1][2]&&S[0][0]===-INF&&S[1][1]===INF)return `${v} != ${S[0][1]}`;
+  return S.map(([lo,hi,lc,hc])=>lo===-INF?`${v} ${hc?'<=':'<'} ${hi}`:hi===INF?`${v} ${lc?'>=':'>'} ${lo}`:`${lo} ${lc?'<=':'<'} ${v} ${hc?'<=':'<'} ${hi}`).join(' or ');};
+
+/* ======================================================================================================= */
+const UNIT={
+types:{fnEval:'Evaluate f(x)',fnRead:'Tables and graphs',domainRange:'Domain and range',relation:'Relations and functions',parentId:'Parent functions',
+  transDesc:'Describe a transformation',transEq:'Write the transformed equation',transGraph:'Equation to graph',graphEq:'Graph to equation',keyPoint:'Transform a point',
+  piecewise:'Piecewise functions',fnOps:'Operations on functions',composite:'Composition',inverse:'Inverse functions',symmetry:'Even, odd, one-to-one',modeling:'Functions in context'},
+pools:{
+  1:['fnEval','fnEval','fnRead','domainRange','relation','parentId','transDesc','transEq','transGraph','graphEq','piecewise','fnOps','composite','inverse','modeling'],
+  2:['fnEval','fnRead','domainRange','relation','transDesc','transEq','transGraph','graphEq','keyPoint','piecewise','fnOps','composite','composite','inverse','inverse','symmetry','modeling'],
+  3:['fnEval','domainRange','relation','transDesc','transEq','transGraph','graphEq','keyPoint','keyPoint','piecewise','fnOps','composite','composite','inverse','inverse','symmetry','modeling','modeling']},
+gens:{
+
+/* ---------- evaluate f at a number ---------- */
+fnEval(level){
+  const fam=level===1?pick(['lin','quad','lin','quad']):level===2?pick(['abs','sqrt','recip','quad','cubic']):pick(['abs','sqrt','recip','quad','cubic','piece']);
+  let stmt,ff,n,sub,bad=[];
+  if(fam==='lin'){const a=nz(-6,6),b=nz(-9,9);n=nz(-6,6);stmt='f(x) = '+lin(a,b);ff=x=>a*x+b;
+    bad=[-a*n+b,a*n-b,a+n+b,a*(n+b),a*n];sub=`f(${n}) = ${a}(${par(n)})${asgn(b)}`;}
+  else if(fam==='quad'){const a=pick([1,1,2,-1,3]),b=nz(-6,6),c=nz(-9,9);n=nz(1,5)*pick([-1,-1,1]);
+    stmt='f(x) = '+poly([a,b,c]);ff=x=>a*x*x+b*x+c;
+    bad=[-a*n*n+b*n+c,a*n*n+b*n-c,a*n*n-b*n+c,a*n*2+b*n+c,ff(-n),a*n*n+b*n];
+    sub=`f(${n}) = ${a===1?'':a===-1?'-':a+' * '}(${n})^2 ${b<0?'-':'+'} ${Math.abs(b)}(${n})${asgn(c)}`;}
+  else if(fam==='abs'){const a=pick([1,2,3,-1,-2]),h=nz(-5,5),k=nz(-6,6);n=nz(-7,7);
+    stmt=`f(x) = ${lead(a)}|${xmh(h)}|${asgn(k)}`;ff=x=>a*Math.abs(x-h)+k;
+    bad=[a*(n-h)+k,a*Math.abs(n+h)+k,-a*Math.abs(n-h)+k,a*Math.abs(n-h)-k,a*Math.abs(n)-h+k];
+    sub=`f(${n}) = ${a===1?'':a===-1?'-':a+' * '}|${n-h}|${asgn(k)}`;}
+  else if(fam==='sqrt'){const h=nz(-6,6),r=rnd(1,5),k=nz(-5,5),a=pick([1,2,3,-1]);n=r*r+h;
+    stmt=`f(x) = ${lead(a)}rt{x${asgn(-h)}}${asgn(k)}`;ff=x=>x-h>=0?a*Math.sqrt(x-h)+k:NaN;
+    bad=[a*r*r+k,a*(-r)+k,a*r-k,a*r+k+h,a*(r*r/2)+k,-a*r+k,a*(r+1)+k];
+    sub=`f(${n}) = ${a===1?'':a===-1?'-':a+' * '}rt{${n-h}}${asgn(k)}`;}
+  else if(fam==='recip'){const a=pick([6,8,12,-6,-12,10]),h=nz(-4,4),k=nz(-5,5);const d=pick([1,2,3,-1,-2,-3,6].filter(z=>a%z===0));n=h+d;
+    stmt=`f(x) = [[${a} ; ${xmh(h)}]]${asgn(k)}`;ff=x=>x===h?NaN:a/(x-h)+k;
+    bad=[a/(n+h)+k,-a/d+k,a/d-k,a*d+k,a/n+k,d+k,a+d+k];sub=`f(${n}) = [[${a} ; ${par(d)}]]${asgn(k)}`;}
+  else if(fam==='cubic'){const a=pick([1,2,-1,-2]),h=nz(-3,3),k=nz(-8,8);n=nz(-3,3);
+    stmt=`f(x) = ${lead(a)}(${xmh(h)})^3${asgn(k)}`;ff=x=>a*Math.pow(x-h,3)+k;
+    bad=[a*Math.pow(n+h,3)+k,a*Math.pow(n-h,3)-k,a*3*(n-h)+k,-a*Math.pow(n-h,3)+k,a*(n-h)*(n-h)+k];
+    sub=`f(${n}) = ${a===1?'':a===-1?'-':a+' * '}(${par(n-h)})^3${asgn(k)}`;}
+  else { /* piecewise, evaluate at or near the boundary */
+    const c=nz(-2,3),A=pick([1,2,-1]),B=nz(-4,4),Cc=pick([1,-1,2]),Dd=nz(-3,3),incl=pick(['<=','<']),inv=incl==='<='?'>':'>=';
+    const f1=x=>A*x*x+B,f2=x=>Cc*x+Dd;
+    n=pick([c,c,c-1,c+1,c+2]);
+    ff=x=>(incl==='<='?x<=c:x<c)?f1(x):f2(x);
+    stmt=`f(x) = sys{${lead(A)}x^2${asgn(B)}, x ${incl} ${c} ;; ${lin(Cc,Dd)}, x ${inv} ${c}}`;
+    const top=incl==='<='?n<=c:n<c;
+    bad=[top?f2(n):f1(n),ff(n+1),ff(n-1),f1(n)+f2(n),f1(c)];
+    sub=top?`f(${n}) = ${lead(A)}(${par(n)})^2${asgn(B)}`:`f(${n}) = ${lead(Cc)==='' ?'':lead(Cc)==='-'?'-':Cc+' * '}(${par(n)})${asgn(Dd)}`;
+    if(!top)sub=`f(${n}) = ${Cc}(${par(n)})${asgn(Dd)}`;
+    return mcm({prompt:`Find {{f(${n})}}. First decide which rule applies to {{x = ${n}}}.`,stmt,ok:numC(ff(n)),bad:intsOnly(bad).map(numC),
+      steps:[[`Check the inequalities: {{x = ${n}}} makes {{x ${top?incl:inv} ${c}}} true, so use the ${top?'top':'bottom'} rule.`,''],['Substitute into that rule only.',sub],['Simplify.',`f(${n}) = ${ff(n)}`]],
+      oracle:v=>near(v,ff(n)),meta:{kind:'eval',fdef:stmt,n}});
+  }
+  return mcm({prompt:`Find {{f(${n})}}.`,stmt,ok:numC(ff(n)),bad:intsOnly(bad).map(numC),
+    steps:[['Replace every {{x}} with {{'+par(n)+'}}. Put parentheses around a negative input.',sub],['Simplify.',`f(${n}) = ${ff(n)}`]],
+    oracle:v=>near(v,ff(n)),meta:{kind:'eval',fdef:stmt,n}});
+},
+
+/* ---------- read a table or a graph ---------- */
+fnRead(level){
+  const xs=[-3,-2,-1,0,1,2,3];
+  const useGraph=level>=2&&rnd(0,1)===0;
+  if(!useGraph){
+    /* table: pick a function, hide formula; ask f(a) + f(b), x where f(x)=v, or f(f(a)) */
+    const fam=pick(['quad','lin','abs']);let ff;
+    if(fam==='quad'){const a=pick([1,2,-1]),h=nz(-1,1),k=nz(-4,4);ff=x=>a*(x-h)*(x-h)+k;}
+    else if(fam==='lin'){const m=nz(-3,3),b=nz(-4,4);ff=x=>m*x+b;}
+    else{const a=pick([1,2,-1]),h=nz(-1,1),k=nz(-3,3);ff=x=>a*Math.abs(x-h)+k;}
+    const ys=xs.map(ff);
+    const tbl=`tbl{x&&${xs.join('&&')} ;; f(x)&&${ys.join('&&')}}`;
+    const mode=level===1?pick(['val','val','inv']):pick(['sum','ff','inv','sum']);
+    let prompt,ok,bad=[],steps;
+    if(mode==='val'){const a=pick(xs);prompt=`Use the table to find {{f(${a})}}.`;ok=ff(a);bad=[ff(-a),a,ys[(xs.indexOf(a)+1)%7],ys[(xs.indexOf(a)+2)%7],ys[(xs.indexOf(a)+6)%7]];
+      steps=[[`Find {{x = ${a}}} in the top row, then read the value of {{f(x)}} directly below it.`,`f(${a}) = ${ok}`]];
+      return mcm({prompt,stmt:tbl,ok:numC(ok),bad:intsOnly(bad).map(numC),steps,oracle:v=>near(v,ff(a)),meta:{kind:'table',xs,ys,q:'val',a}});}
+    if(mode==='inv'){
+      const cand=xs.filter(x=>ys.filter(y=>y===ff(x)).length===1);if(!cand.length)return null;
+      const a=pick(cand),v=ff(a);prompt=`Use the table to find the value of {{x}} for which {{f(x) = ${v}}}.`;ok=a;bad=[v,-a,xs[(xs.indexOf(a)+1)%7],xs[(xs.indexOf(a)+2)%7],ff(a)+1];
+      steps=[[`Look for {{${v}}} in the {{f(x)}} row, then read the {{x}} above it.`,`x = ${a}`]];
+      return mcm({prompt,stmt:tbl,ok:numC(ok),bad:intsOnly(bad).map(numC),steps,oracle:x=>xs.includes(x)&&ff(x)===v,meta:{kind:'table',xs,ys,q:'inv',v}});}
+    if(mode==='sum'){const a=pick(xs),b=pick(xs.filter(z=>z!==a));prompt=`Use the table to find {{f(${a}) + f(${b})}}.`;ok=ff(a)+ff(b);
+      bad=[ff(a)-ff(b),ff(a+b>=-3&&a+b<=3?a+b:0),a+b,ff(a)*ff(b),ff(a)+ff(-b)];
+      steps=[[`Read each value from the table.`,`f(${a}) = ${ff(a)}, f(${b}) = ${ff(b)}`],['Add them.',`${par(ff(a))} + ${par(ff(b))} = ${ok}`]];
+      return mcm({prompt,stmt:tbl,ok:numC(ok),bad:intsOnly(bad).map(numC),steps,oracle:v=>near(v,ff(a)+ff(b)),meta:{kind:'table',xs,ys,q:'sum',a,b}});}
+    /* ff: f(f(a)) */
+    const cand=xs.filter(x=>xs.includes(ff(x)));if(!cand.length)return null;const a=pick(cand);
+    prompt=`Use the table to find {{f(f(${a}))}}.`;ok=ff(ff(a));bad=[ff(a),ff(-a),ff(a)*ff(a),a,ff(a)+ff(ff(a))];
+    steps=[['Work from the inside out. First find the inner value.',`f(${a}) = ${ff(a)}`],['Use that result as the new input.',`f(${ff(a)}) = ${ok}`]];
+    return mcm({prompt,stmt:tbl,ok:numC(ok),bad:intsOnly(bad).map(numC),steps,oracle:v=>near(v,ff(ff(a))),meta:{kind:'table',xs,ys,q:'ff',a}});
+  }
+  /* graph: integer-lattice curve with marked points */
+  const fam=pick(['quad','abs','line']);let ff;
+  if(fam==='quad'){const a=pick([1,-1]),h=nz(-2,2),k=nz(-3,3);ff=x=>a*(x-h)*(x-h)+k;}
+  else if(fam==='abs'){const a=pick([1,-1,2]),h=nz(-3,3),k=nz(-3,3);ff=x=>a*Math.abs(x-h)+k;}
+  else{const m=pick([1,-1,2,-2]),b=nz(-2,2);ff=x=>m*x+b;}
+  const lat=[];for(let x=-5;x<=5;x++){const y=ff(x);if(Math.abs(y)<=5)lat.push([x,y]);}
+  if(lat.length<4)return null;
+  const mode=pick(['val','val','sum','zero']);
+  const dots=lat.map(p=>({p,k:'acc'}));
+  const fig=gSvg({px:300,win:[-6,-6,6,6],curves:[{f:ff,cls:'acc'}],dots,lstep:1,alt:'Graph of y = f(x) with marked points'});
+  let prompt,ok,bad=[],steps,orc,fm_;
+  if(mode==='val'){const p=pick(lat);prompt=`Use the graph to find {{f(${p[0]})}}.`;ok=p[1];bad=[p[0],-p[1],p[1]+1,p[1]-1,ff(p[0]+1)];
+    steps=[[`Find {{x = ${p[0]}}} on the horizontal axis, go straight up or down to the curve, then read the {{y}}-value.`,`f(${p[0]}) = ${ok}`]];orc=v=>near(v,ff(p[0]));fm_={q:'val',a:p[0]};}
+  else if(mode==='sum'){const p=pick(lat),q=pick(lat.filter(z=>z[0]!==p[0]));prompt=`Use the graph to find {{f(${p[0]}) + f(${q[0]})}}.`;ok=p[1]+q[1];
+    bad=[p[1]-q[1],p[0]+q[0],ff(p[0]+q[0]),p[1]*q[1],Math.abs(p[1])+Math.abs(q[1])];
+    steps=[['Read each output from the graph.',`f(${p[0]}) = ${p[1]}, f(${q[0]}) = ${q[1]}`],['Add them.',`${par(p[1])} + ${par(q[1])} = ${ok}`]];orc=v=>near(v,ff(p[0])+ff(q[0]));fm_={q:'sum',a:p[0],b:q[0]};}
+  else{const zs=lat.filter(p=>p[1]===0);if(!zs.length)return null;const z=pick(zs);
+    const allz=[];for(let x=-6;x<=6;x+=.5)if(Math.abs(ff(x))<1e-9)allz.push(x);if(allz.length!==1)return null;
+    prompt='For which value of {{x}} is {{f(x) = 0}}? Use the graph.';ok=z[0];bad=[-z[0],ff(0),z[0]+1,z[0]-1,0];
+    steps=[['{{f(x) = 0}} means the output is zero, so look for where the curve crosses the {{x}}-axis.',`x = ${ok}`]];orc=v=>near(ff(v),0);fm_={q:'zero'};}
+  return mcm({prompt,fig,ok:numC(ok),bad:intsOnly(bad).map(numC),steps,oracle:orc,meta:{kind:'graphread',...fm_,fig:{fam},dots:lat}});
+},
+
+/* ---------- domain and range ---------- */
+domainRange(level){
+  const wantRange=level>=2?rnd(0,2)>0:rnd(0,3)===0;
+  let fdef,F,S,steps,fam;
+  const mkI=(a,b,c,d)=>[a,b,c,d];
+  if(!wantRange){
+    fam=level===1?pick(['sqrt1','rec','rec','sqrt1','lin']):level===2?pick(['sqrtax','sqrtax','rec2','sqrt1','recsqrt']):pick(['sqm','sqp','mix','rec2','sqrtax']);
+    if(fam==='lin'){const a=nz(-5,5),b=nz(-9,9);fdef=`f(x) = ${lin(a,b)}`;F=x=>a*x+b;S=[mkI(-INF,INF,false,false)];
+      steps=[['A linear function can accept any real number. Nothing is under a root and nothing is in a denominator.','all real numbers']];}
+    else if(fam==='sqrt1'){const h=nz(-6,6),k=pick([0,0,nz(-5,5)]);fdef=`f(x) = rt{x${asgn(-h)}}${asgn(k)}`;F=x=>x-h>=0?Math.sqrt(x-h)+k:NaN;S=[mkI(h,INF,true,false)];
+      steps=[['The expression under a square root cannot be negative.',`x${asgn(-h)} >= 0`],['Solve the inequality.',ineq(S)],['In interval notation:',itv(S)]];}
+    else if(fam==='rec'){const c=nz(-6,6),N=pick([1,2,3,5]);fdef=`f(x) = [[${N} ; ${xmh(c)}]]`;F=x=>N/(x-c);S=[mkI(-INF,c,false,false),mkI(c,INF,false,false)];
+      steps=[['The denominator cannot be zero.',`${xmh(c)} != 0`],['Solve: one value is excluded.',`x != ${c}`],['In interval notation:',itv(S)]];}
+    else if(fam==='sqrtax'){const a=pick([2,3,4,-2,-3]),m=nz(-4,4),b=-a*m;fdef=`f(x) = rt{${a<0?(b+' - '+(-a)+'x'):a+'x'+asgn(b)}}`;
+      if(a<0)fdef=`f(x) = rt{${b} - ${-a}x}`;F=x=>a*x+b>=0?Math.sqrt(a*x+b):NaN;
+      S=a>0?[mkI(m,INF,true,false)]:[mkI(-INF,m,false,true)];
+      steps=[['The radicand cannot be negative.',a>0?`${a}x${asgn(b)} >= 0`:`${b} - ${-a}x >= 0`],[a>0?`Solve. Dividing by the positive {{${a}}} keeps the inequality direction.`:`Solve. Dividing by the negative {{${a}}} reverses the inequality.`,ineq(S)],['In interval notation:',itv(S)]];}
+    else if(fam==='rec2'){const c=pick([2,3,4,5]),p=pick([1,2,3,-1,-2,-3,4].filter(z=>Math.abs(z)!==c));fdef=`f(x) = [[x${asgn(p)} ; x^2 - ${c*c}]]`;F=x=>(x+p)/(x*x-c*c);
+      S=[mkI(-INF,-c,false,false),mkI(-c,c,false,false),mkI(c,INF,false,false)];
+      steps=[['The denominator cannot be zero.',`x^2 - ${c*c} != 0`],['Factor and find the two excluded values.',`(x - ${c})(x + ${c}) != 0, so x != ${c} and x != -${c}`],['Remove both values from the number line.',itv(S)]];}
+    else if(fam==='recsqrt'){const h=nz(-4,4),c=nz(-3,5);fdef=`f(x) = [[1 ; rt{x${asgn(-h)}}]]`;F=x=>x-h>0?1/Math.sqrt(x-h):NaN;S=[mkI(h,INF,false,false)];
+      steps=[['The root needs a nonnegative radicand, and it is in a denominator, so the radicand must also be nonzero.',`x${asgn(-h)} > 0`],['Solve.',ineq(S)],['In interval notation:',itv(S)]];}
+    else if(fam==='sqm'){const c=rnd(2,5);fdef=`f(x) = rt{${c*c} - x^2}`;F=x=>c*c-x*x>=0?Math.sqrt(c*c-x*x):NaN;S=[mkI(-c,c,true,true)];
+      steps=[['The radicand cannot be negative.',`${c*c} - x^2 >= 0`],['Rewrite as {{x^2 <= '+c*c+'}}. The numbers whose squares are at most '+c*c+' are those between {{-'+c+'}} and {{'+c+'}}.',ineq(S)],['In interval notation:',itv(S)]];}
+    else if(fam==='sqp'){const c=rnd(2,5);fdef=`f(x) = rt{x^2 - ${c*c}}`;F=x=>x*x-c*c>=0?Math.sqrt(x*x-c*c):NaN;S=[mkI(-INF,-c,false,true),mkI(c,INF,true,false)];
+      steps=[['The radicand cannot be negative.',`x^2 - ${c*c} >= 0`],['Rewrite as {{x^2 >= '+c*c+'}}. Squares of at least '+c*c+' come from {{x <= -'+c+'}} or {{x >= '+c+'}}.',ineq(S)],['In interval notation:',itv(S)]];}
+    else{ /* mix */
+      const h=nz(-3,3),c=h+rnd(1,3);fdef=`f(x) = [[rt{x${asgn(-h)}} ; ${xmh(c)}]]`;F=x=>x-h>=0&&x!==c?Math.sqrt(x-h)/(x-c):NaN;S=[mkI(h,c,true,false),mkI(c,INF,false,false)];
+      steps=[['The radicand cannot be negative, and the denominator cannot be zero.',`x${asgn(-h)} >= 0  and  ${xmh(c)} != 0`],['Combine: start at the root condition, then remove the excluded value, which lies inside it.',ineq(S)],['In interval notation:',itv(S)]];}
+    const asIneq=S.length<3&&rnd(0,2)===0;
+    const show=asIneq?ineq:itv;
+    {const last=steps[steps.length-1];steps[steps.length-1]=[asIneq&&/^In interval/.test(last[0])?'As an inequality:':last[0],show(S)];}
+    const variants=[];
+    const cl=(T)=>T.map(r=>r.slice());
+    const toggle=(T,i,j)=>{const U=cl(T);U[i][j]=!U[i][j];return U;};
+    S.forEach((r,i)=>{if(r[0]!==-INF)variants.push(toggle(S,i,2));if(r[1]!==INF)variants.push(toggle(S,i,3));});
+    variants.push(S.map(([lo,hi,lc,hc])=>[-hi,-lo,hc,lc]).reverse());
+    variants.push(S.map(([lo,hi,lc,hc])=>[lo===-INF?lo:lo+1,hi===INF?hi:hi+1,lc,hc]));
+    variants.push(S.map(([lo,hi,lc,hc])=>[lo===-INF?lo:lo-1,hi===INF?hi:hi-1,lc,hc]));
+    if(S.length===1&&S[0][0]!==-INF&&S[0][1]===INF)variants.push([[-INF,S[0][0],false,!S[0][2]]]);
+    variants.push([[-INF,INF,false,false]]);
+    const bads=shuffle(variants.filter(validSet)).map(T=>({t:show(T),v:{s:T}}));
+    const okS={t:show(S),v:{s:S}};
+    const orc=v=>{const T=v.s;const pts=[];for(let x=-14;x<=14;x+=.25)pts.push(x);for(let x=-14;x<=14;x++){pts.push(x+1e-7,x-1e-7);}
+      return pts.every(x=>{const y=F(x),d=Number.isFinite(y);return d===memb(T,x);});};
+    return mcm({prompt:`What is the domain of {{f}}? Write your answer ${asIneq?'as an inequality':'in interval notation'}.`,stmt:fdef,ok:okS,bad:bads,steps,oracle:orc,meta:{kind:'domain',fdef,asIneq}});
+  }
+  /* ---------- range ---------- */
+  fam=level===1?pick(['absr','quadr','sqrtr']):level===2?pick(['absr','quadr','sqrtr','recr']):pick(['absr','quadr','sqrtr','recr','cubr']);
+  const a=pick([1,2,3,-1,-2]),h=nz(-4,4),k=nz(-5,5);
+  if(fam==='absr'){fdef=`f(x) = ${lead(a)}|${xmh(h)}|${asgn(k)}`;F=x=>a*Math.abs(x-h)+k;S=a>0?[mkI(k,INF,true,false)]:[mkI(-INF,k,false,true)];
+    steps=[[`{{|${xmh(h)}|}} is never negative and equals {{0}} at {{x = ${h}}}.`,''],[a>0?`Multiplying by ${a} keeps it nonnegative, so the lowest output is the vertical shift {{${k}}}.`:`Multiplying by {{${a}}} flips it to nonpositive, so the highest output is the vertical shift {{${k}}}.`,a>0?`f(x) >= ${k}`:`f(x) <= ${k}`],['In interval notation:',itv(S)]];}
+  else if(fam==='quadr'){fdef=`f(x) = ${lead(a)}(${xmh(h)})^2${asgn(k)}`;F=x=>a*(x-h)*(x-h)+k;S=a>0?[mkI(k,INF,true,false)]:[mkI(-INF,k,false,true)];
+    steps=[[`The vertex is {{(${h}, ${k})}}. The parabola opens ${a>0?'upward':'downward'} because {{a = ${a}}} is ${a>0?'positive':'negative'}.`,''],[a>0?`The vertex is the lowest point.`:`The vertex is the highest point.`,a>0?`y >= ${k}`:`y <= ${k}`],['In interval notation:',itv(S)]];}
+  else if(fam==='sqrtr'){fdef=`f(x) = ${lead(a)}rt{x${asgn(-h)}}${asgn(k)}`;F=x=>x-h>=0?a*Math.sqrt(x-h)+k:NaN;S=a>0?[mkI(k,INF,true,false)]:[mkI(-INF,k,false,true)];
+    steps=[[`{{rt{x${asgn(-h)}}}} is never negative and starts at {{0}}.`,''],[a>0?`Multiplying by ${a} keeps it nonnegative, so the lowest output is the shift {{${k}}}.`:`Multiplying by {{${a}}} makes it nonpositive, so the highest output is the shift {{${k}}}.`,a>0?`f(x) >= ${k}`:`f(x) <= ${k}`],['In interval notation:',itv(S)]];}
+  else if(fam==='recr'){const N=pick([1,2,3,-1,-2]);fdef=`f(x) = [[${N} ; ${xmh(h)}]]${asgn(k)}`;F=x=>x===h?NaN:N/(x-h)+k;S=[mkI(-INF,k,false,false),mkI(k,INF,false,false)];
+    steps=[[`{{[[${N} ; ${xmh(h)}]]}} can be any nonzero number but never {{0}}.`,''],[`Adding {{${k}}} shifts every output, so the output {{y = ${k}}} is never reached (the horizontal asymptote).`,`y != ${k}`],['In interval notation:',itv(S)]];}
+  else{fdef=`f(x) = ${lead(a)}(${xmh(h)})^3${asgn(k)}`;F=x=>a*Math.pow(x-h,3)+k;S=[mkI(-INF,INF,false,false)];
+    steps=[['A cubic with this shape rises (or falls) forever in both directions, so it reaches every output.',''],['Vertical shifts and stretches do not change that.','all real numbers']];}
+  const asIneq=rnd(0,2)===0&&S.length<3,show=asIneq?(T=>ineq(T,'y')):itv;
+  {const last=steps[steps.length-1];steps[steps.length-1]=[asIneq&&/^In interval/.test(last[0])?'As an inequality:':last[0],show(S)];}
+  const variants=[];const cl=T=>T.map(r=>r.slice());
+  if(S.length===1)S.forEach((r,i)=>{if(r[0]!==-INF){const U=cl(S);U[i][2]=!U[i][2];variants.push(U);}if(r[1]!==INF){const U=cl(S);U[i][3]=!U[i][3];variants.push(U);}});
+  if(S.length===1&&S[0][0]!==-INF&&S[0][1]===INF)variants.push([[-INF,S[0][0],false,true]]);
+  if(S.length===1&&S[0][0]===-INF&&S[0][1]!==INF)variants.push([[S[0][1],INF,true,false]]);
+  if(S.length===1&&S[0][0]!==-INF&&S[0][1]===INF||S.length===1&&S[0][1]!==INF&&S[0][0]===-INF){const e=S[0][0]===-INF?S[0][1]:S[0][0];
+    variants.push(S[0][0]===-INF?[[-INF,h,false,true]]:[[h,INF,true,false]]);variants.push(S[0][0]===-INF?[[-INF,-e,false,true]]:[[-e,INF,true,false]]);}
+  if(S.length===2){variants.push([[-INF,h,false,false],[h,INF,false,false]]);variants.push([[-INF,-k,false,false],[-k,INF,false,false]]);variants.push([[-INF,INF,false,false]]);}
+  if(S.length===1&&S[0][0]===-INF&&S[0][1]===INF){variants.push([[0,INF,true,false]]);variants.push([[-INF,0,false,true]]);variants.push([[-INF,k,false,false],[k,INF,false,false]]);variants.push([[k,INF,true,false]]);}
+  const okS={t:show(S),v:{s:S}};
+  const bads=shuffle(variants.filter(validSet)).map(T=>({t:show(T),v:{s:T}}));
+  const orc=v=>{const T=v.s;const ys=[];
+    const xsamp=[];for(let x=-300;x<=300;x+=.05)xsamp.push(x);for(let e=1;e<=7;e+=.25){xsamp.push(Math.pow(10,e)+0.001,-Math.pow(10,e)+0.001);}xsamp.push(h,h+1e-7,h-1e-7);
+    for(const x of xsamp){const y=F(x);if(Number.isFinite(y))ys.push(y);}
+    if(!ys.every(y=>memb(T,y)))return false;
+    for(const [lo,hi,lc,hc] of T){
+      for(const [e,closed,dir] of [[lo,lc,'lo'],[hi,hc,'hi']]){
+        if(e===INF||e===-INF){const big=dir==='lo'?ys.some(y=>y<-1000):ys.some(y=>y>1000);if(e===-INF&&dir==='lo'&&!big)return false;if(e===INF&&dir==='hi'&&!big)return false;continue;}
+        const d=Math.min(...ys.map(y=>Math.abs(y-e)));
+        if(closed&&d>1e-9)return false; if(!closed&&(d<1e-12||d>2e-3))return false;}}
+    return true;};
+  return mcm({prompt:`What is the range of {{f}}? Write your answer ${asIneq?'as an inequality':'in interval notation'}.`,stmt:fdef,ok:okS,bad:bads,steps,oracle:orc,meta:{kind:'range',fdef,asIneq}});
+},
+
+/* ---------- relations and functions ---------- */
+relation(level){
+  const mode=level===1?'pairs':level===2?pick(['pairs','graph','graph','eqn']):pick(['graph','eqn','eqn']);
+  if(mode==='pairs'){
+    const askFn=rnd(0,1)===0;           /* ask which IS a function, or which is NOT */
+    const mkFn=()=>{const xs=shuffle([-3,-2,-1,0,1,2,3,4,5]).slice(0,4).sort((a,b)=>a-b);const ys=xs.map(()=>rnd(-4,6));if(rnd(0,1)&&ys[0]!==ys[1])ys[1]=ys[0];return xs.map((x,i)=>[x,ys[i]]);};
+    const mkNon=()=>{const r=mkFn();const i=rnd(0,2);r[i+1]=[r[i][0],r[i][1]+nz(-3,3)];r.sort((a,b)=>a[0]-b[0]);return r;};
+    const txt=r=>'{'+r.map(p=>`(${p[0]}, ${p[1]})`).join(', ')+'}';
+    const isFn=r=>{const m=new Map();for(const [x,y] of r){if(m.has(x)&&m.get(x)!==y)return false;m.set(x,y);}return true;};
+    const ok_=askFn?mkFn():mkNon();const others=[];for(let i=0;i<5;i++)others.push(askFn?mkNon():mkFn());
+    const oc=r=>({t:txt(r),v:r});
+    const steps=askFn?[['A relation is a function when no input {{x}} is paired with two different outputs.',''],['Check the first coordinates in each set. Only one set has no repeated {{x}} with a different {{y}}.',txt(ok_)]]
+      :[['A relation is a function when no input {{x}} is paired with two different outputs. Repeated {{y}}-values are fine.',''],['Look for an {{x}} that appears twice with different {{y}}-values.',txt(ok_)]];
+    return mcm({prompt:askFn?'Which relation is a function?':'Which relation is NOT a function?',ok:oc(ok_),bad:others.map(oc),steps,
+      oracle:r=>askFn?isFn(r):!isFn(r),meta:{kind:'pairs',askFn}});
+  }
+  if(mode==='graph'){
+    const askFn=rnd(0,1)===0;
+    const r=rnd(2,4),c=rnd(1,3),h=nz(-2,2),k=nz(-2,2);
+    const FN=[
+      ()=>{const a=pick([1,-1]),b=nz(-3,3);return {br:[x=>a*(x-h)*(x-h)/2+b],nm:'parabola'};},
+      ()=>{const a=pick([1,-1,2]);return {br:[x=>a*Math.abs(x-h)+k],nm:'abs'};},
+      ()=>{const s=pick([1,-1]);return {br:[x=>s*Math.sqrt(Math.max(0,x-h))*1.5+k].map(f=>x=>x>=h?f(x):NaN),nm:'sqrt'};},
+      ()=>{const m=pick([1,-1,2,-2]);return {br:[x=>m*x/2+k],nm:'line'};},
+      ()=>{const s=pick([1,-1]);return {br:[x=>s*Math.pow(x-h,3)/6+k],nm:'cubic'};}];
+    const NON=[
+      ()=>({br:[x=>Math.abs(x)<=r?Math.sqrt(r*r-x*x):NaN,x=>Math.abs(x)<=r?-Math.sqrt(r*r-x*x):NaN],nm:'circle'}),
+      ()=>{const s=pick([1,-1]);return {br:[x=>s*(x-h)>=-1?Math.sqrt(s*(x-h)+1)*2:NaN,x=>s*(x-h)>=-1?-Math.sqrt(s*(x-h)+1)*2:NaN],nm:'sidepar'};},
+      ()=>({br:[x=>x>=h?(x-h)*1:NaN,x=>x>=h?-(x-h)*1:NaN],nm:'sideV'}),
+      ()=>({br:[x=>Math.abs(x)<=4?Math.sqrt(9*(1-x*x/16)):NaN,x=>Math.abs(x)<=4?-Math.sqrt(9*(1-x*x/16)):NaN],nm:'ellipse'})];
+    /* a vertical segment is drawn as a special piece */
+    const mkCurve=(spec)=>spec;
+    const fnSpecs=shuffle(FN).map(g=>g()),nonSpecs=shuffle(NON).map(g=>g());
+    const vseg=()=>({vline:h,nm:'vline'});
+    const isFnSpec=s=>{if(s.vline!==undefined)return false;for(let x=-6;x<=6.001;x+=.125){const ys=s.br.map(f=>f(x)).filter(y=>Number.isFinite(y)&&Math.abs(y)<=7);if(ys.length>=2&&Math.abs(ys[0]-ys[1])>0.2)return false;}return true;};
+    const pickSet=askFn?[fnSpecs[0],nonSpecs[0],nonSpecs[1],(rnd(0,1)?nonSpecs[2]:vseg())]:[nonSpecs[0],fnSpecs[0],fnSpecs[1],fnSpecs[2]];
+    const mk=s=>{
+      const curves=s.vline!==undefined?[{pts:[[s.vline,-5],[s.vline,5]],cls:'acc'}]:s.br.map(f=>({f,cls:'acc',dom:[-6.5,6.5]}));
+      return {svg:gSvg({px:190,curves,alt:'A graph',labels:false}),v:{spec:s,fn:isFnSpec(s),kind:'vlt'}};};
+    const choices=pickSet.map(mk);
+    const okC=choices[0],bads=choices.slice(1);
+    return mcm({prompt:askFn?'Which graph shows {{y}} as a function of {{x}}? Use the vertical line test.':'Which graph does NOT show {{y}} as a function of {{x}}? Use the vertical line test.',
+      ok:okC,bad:bads,steps:askFn?[['Imagine a vertical line sliding across each graph. If any vertical line touches the graph twice, it is not a function.',''],['Only one graph is crossed at most once by every vertical line.','']]
+        :[['Imagine a vertical line sliding across each graph. If any vertical line touches the graph twice, it is not a function.',''],['One graph has a vertical line that crosses it in two (or more) points.','']],
+      oracle:v=>v.fn===askFn,meta:{kind:'vlt',askFn}});
+  }
+  /* equations: which does NOT define y as a function of x */
+  const askFn=level===2&&rnd(0,2)===0;
+  const r=rnd(2,6),c=rnd(1,6),h=nz(-3,3),k=nz(-4,4),a=pick([2,3,-1,-2]);
+  const FNS=[
+    {t:`y = ${lead(a)}x^2${asgn(k)}`,F:(x,y)=>y-(a*x*x+k)},
+    {t:`y = |${xmh(h)}|${asgn(k)}`,F:(x,y)=>y-(Math.abs(x-h)+k)},
+    {t:`y = rt{x${asgn(-c)}}`,F:(x,y)=>y<0?NaN:(x>=c?y-Math.sqrt(x-c):NaN)},
+    {t:`y^3 = x${asgn(c)}`,F:(x,y)=>y*y*y-(x+c)},
+    {t:`${c}x - ${r}y = ${r*c}`,F:(x,y)=>c*x-r*y-r*c},
+    {t:`y = [[${r} ; ${xmh(h)}]]`,F:(x,y)=>x===h?NaN:y-r/(x-h)}];
+  const NONS=[
+    {t:`x^2 + y^2 = ${r*r}`,F:(x,y)=>x*x+y*y-r*r},
+    {t:`x = y^2${asgn(k)}`,F:(x,y)=>x-(y*y+k)},
+    {t:`|y| = x${asgn(c)}`,F:(x,y)=>Math.abs(y)-(x+c)},
+    {t:`y^2 = x${asgn(c)}`,F:(x,y)=>y*y-(x+c)},
+    {t:`x^2 - y^2 = ${r}`,F:(x,y)=>x*x-y*y-r}];
+  const countY=(F,x)=>{const ys=[];const lo=-30,hi=30,h2=0.02;let py=lo,pf=F(x,lo);
+    for(let y=lo+h2;y<=hi+1e-9;y+=h2){const f=F(x,y);if(Number.isFinite(f)&&Number.isFinite(pf)&&((pf<0&&f>=0)||(pf>0&&f<=0))){ys.push(y);}py=y;pf=f;}
+    const out=[];for(const y of ys)if(!out.some(z=>Math.abs(z-y)<0.05))out.push(y);return out.length;};
+  const isFnRel=rel=>{for(let x=-8;x<=8;x+=2){if(countY(rel.F,x+0.0001)>1)return false;}return true;};
+  const fnPick=shuffle(FNS).slice(0,askFn?1:3),nonPick=shuffle(NONS).slice(0,askFn?3:1);
+  const okRel=askFn?fnPick[0]:nonPick[0],badRels=askFn?nonPick:fnPick;
+  const oc=rel=>({t:rel.t,v:{rel,F:rel.F}});
+  const steps=askFn?[['Solve each equation for {{y}}. It is a function only if each {{x}} gives exactly one {{y}}.',''],['The other equations have a {{±}} (or an absolute value) that gives two outputs for the same input.',okRel.t]]
+    :[['Try solving each equation for {{y}}. If a square root or an absolute value gives {{±}}, one {{x}} can have two {{y}}-values.',''],['Test a value: this one gives two outputs for the same input.',okRel.t]];
+  return mcm({prompt:askFn?'Which equation defines {{y}} as a function of {{x}}?':'Which equation does NOT define {{y}} as a function of {{x}}?',ok:oc(okRel),bad:badRels.map(oc),steps,
+    oracle:v=>isFnRel(v.rel)===askFn,meta:{kind:'eqrel',askFn}});
+},
+
+/* ---------- parent functions ---------- */
+parentId(level){
+  const keys=['quad','cubic','abs','sqrt','recip','linear'];
+  const P=pick(keys);
+  const T={quad:'y = x^2',cubic:'y = x^3',abs:'y = |x|',sqrt:'y = rt{x}',recip:'y = [[1 ; x]]',linear:'y = x'};
+  const others=shuffle(keys.filter(k=>k!==P));
+  const mkC=k=>({t:T[k],v:{key:k}});
+  if(rnd(0,2)<2){
+    const fig=gSvg({px:300,curves:[{f:PAR[P].f,cls:'acc'}],lstep:1,alt:'Graph of a parent function'});
+    return mcm({prompt:'Which equation is the parent function shown in the graph?',fig,ok:mkC(P),bad:others.map(mkC),
+      steps:[['Use key features: the shape, the point where it passes through the origin, any asymptotes, and the domain.',T[P]]],
+      oracle:v=>sameFn(PAR[v.key].f,PAR[P].f),meta:{kind:'parentId',P,fig:PAR[P].nm}});
+  }
+  const props={quad:['Its graph passes through {{(3, 9)}} and {{(-3, 9)}}.',f=>f(3)===9&&f(-3)===9],
+    cubic:['Its graph passes through {{(2, 8)}} and {{(-2, -8)}}.',f=>f(2)===8&&f(-2)===-8],
+    abs:['It is two straight rays meeting at the origin: {{f(2) = 2}} and {{f(-2) = 2}}.',f=>f(2)===2&&f(-2)===2],
+    sqrt:['It is defined only for {{x >= 0}}, and {{f(4) = 2}}.',f=>f(4)===2&&Number.isNaN(f(-4))],
+    recip:['It is not defined at {{x = 0}}, and {{f(2) = [[1 ; 2]]}}.',f=>!Number.isFinite(f(0))&&f(2)===0.5],
+    linear:['Its graph is a line and {{f(5) = 5}}, {{f(-5) = -5}}.',f=>f(5)===5&&f(-5)===-5&&f(2)===2]};
+  const pr=props[P];
+  return mcm({prompt:'Which parent function matches this description?',story:pr[0],ok:mkC(P),bad:others.map(mkC),
+    steps:[['Test each parent function against the description.',T[P]]],oracle:v=>pr[1](PAR[v.key].f),meta:{kind:'parentProp',P}});
+},
+
+/* ---------- transformations: equation -> description ---------- */
+transDesc(level){
+  const P=pick(level===1?['quad','abs','sqrt']:['quad','abs','sqrt','cubic','recip']);
+  const ops=genOps(level,P),s=applyOps(ops);
+  if(!validTup(P,s,false))return null;
+  const truth=seqFn(P,ops);
+  const cops=canonOps(s);
+  const mkC=t=>({t:descOps(canonOps(t),'fm'),v:t});
+  const bad=tupVariants(s,ops).filter(t=>validTup(P,t,false)).map(mkC);
+  const stmt=tupT(P,s,'g(x)');
+  const steps=[['Compare {{g(x)}} with the parent {{f(x) = '+PAR[P].nm+'}}.',stmt]];
+  let st=S0();
+  for(const [o,m] of cops){steps.push([opStep(o,m,P),'']);}
+  steps.push(['Putting it together:',descOps(cops,'fm')]);
+  return mcm({prompt:`Which transformations of the parent function {{f(x) = ${PAR[P].nm}}} produce {{g}}?`,stmt,ok:mkC(s),bad,steps,
+    oracle:v=>sameFn(tupFn(P,v),truth),meta:{kind:'transDesc',P,gdef:stmt}});
+},
+
+/* ---------- transformations: description -> equation ---------- */
+transEq(level){
+  const P=pick(level===1?['quad','abs','sqrt']:['quad','abs','sqrt','cubic','recip']);
+  let ops=genOps(level,P);
+  if(level===3&&rnd(0,1))ops=shuffle(ops);
+  const s=applyOps(ops);if(!validTup(P,s,false))return null;
+  const truth=seqFn(P,ops);
+  const story=`Start with the graph of {{f(x) = ${PAR[P].nm}}}. Then: ${ops.map(([o,m])=>opPhrase(o,m,'inl')).join(', then ')}.`;
+  const mkC=t=>({t:tupT(P,t,'g(x)'),v:t});
+  const bad=tupVariants(s,ops).filter(t=>validTup(P,t,false)).map(mkC);
+  const steps=[['Apply the operations one at a time, in the stated order.','']];
+  let st=S0();
+  steps[0][1]=tupT(P,st,'f(x)');
+  ops.forEach(([o,m])=>{st=OPS[o](st,m);steps.push([opPhrase(o,m,'inl').replace(/^./,c=>c.toUpperCase())+'.',tupT(P,st,'')]);});
+  steps.push(['Write the final equation.',tupT(P,s,'g(x)')]);
+  return mcm({prompt:'Which equation gives the new graph {{g}}?',story,ok:mkC(s),bad,steps,oracle:v=>sameFn(tupFn(P,v),truth),meta:{kind:'transEq',P}});
+},
+
+/* ---------- transformations: equation -> graph ---------- */
+transGraph(level){
+  const P=pick(level===1?['quad','abs','sqrt']:['quad','abs','sqrt','cubic','recip']);
+  const ops=genOps(level,P),s=applyOps(ops);
+  if(!validTup(P,s,true))return null;
+  const truth=seqFn(P,ops);
+  const stmt=tupT(P,s,'g(x)');
+  const cands=tupVariants(s,ops).filter(t=>validTup(P,t,true));
+  const gok=tupFn(P,s);const chosen=[];
+  for(const t of shuffle(cands)){const f=tupFn(P,t);if(!looksDiff(f,gok))continue;if(chosen.some(c=>!looksDiff(tupFn(P,c),f)))continue;chosen.push(t);if(chosen.length===3)break;}
+  if(chosen.length<3)return null;
+  const mk=t=>({svg:gSvg({px:190,curves:[{f:PAR[P].f,cls:'thin dash',dash:true},{f:tupFn(P,t),cls:'acc'}],alt:'Candidate graph'}),v:{t:tupT(P,t,''),P,tup:t,f:tupFn(P,t)}});
+  const steps=[['Start from the parent {{f(x) = '+PAR[P].nm+'}} (dashed).','']];
+  const cops=canonOps(s);for(const [o,m] of cops)steps.push([opStep(o,m,P),'']);
+  steps.push(['The graph that makes all of these moves is the answer. Check one point: the "corner" or center of the parent moves to {{('+Rstr(s.h)+', '+Rstr(s.k)+')}}.',stmt]);
+  return mcm({prompt:`Which graph shows {{g}}? The dashed curve is the parent function {{f(x) = ${PAR[P].nm}}}.`,stmt,ok:mk(s),bad:chosen.map(mk),steps,
+    oracle:v=>sameFn(v.f,truth),meta:{kind:'transGraph',P,gdef:stmt}});
+},
+
+/* ---------- transformations: graph -> equation ---------- */
+graphEq(level){
+  const P=pick(level===1?['quad','abs','sqrt']:['quad','abs','sqrt','cubic','recip']);
+  const ops=genOps(level===1?1:level===2?2:3,P),s=applyOps(ops);
+  if(!validTup(P,s,true))return null;
+  const truth=seqFn(P,ops);const gf=tupFn(P,s);
+  /* lattice points on the transformed curve */
+  const lat=[];for(let x=-6;x<=6;x++){const y=gf(x);if(Number.isFinite(y)&&Math.abs(y)<=6&&Math.abs(y-Math.round(y))<1e-9)lat.push([x,Math.round(y)]);}
+  if(lat.length<3)return null;
+  const dots=shuffle(lat).slice(0,4).map(p=>({p,k:'acc2'}));
+  const fig=gSvg({px:300,curves:[{f:PAR[P].f,cls:'thin dash',dash:true},{f:gf,cls:'acc2'}],dots,lstep:1,alt:'Graph of g (solid) and its parent function (dashed)'});
+  const cands=tupVariants(s,ops).filter(t=>validTup(P,t,true));
+  const chosen=[];for(const t of shuffle(cands)){const f=tupFn(P,t);if(!looksDiff(f,gf))continue;chosen.push(t);if(chosen.length===3)break;}
+  if(chosen.length<3)return null;
+  const mkC=t=>({t:tupT(P,t,'g(x)'),v:t});
+  const steps=[['Compare the solid graph with the dashed parent {{f(x) = '+PAR[P].nm+'}}. Track where the key point (the center or corner) moves, and whether the graph flips or stretches.','']];
+  for(const [o,m] of canonOps(s))steps.push([opStep(o,m,P),'']);
+  steps.push(['Check the marked points in the equation.',tupT(P,s,'g(x)')]);
+  return mcm({prompt:`The solid graph is {{g}}. The dashed graph is the parent function {{f(x) = ${PAR[P].nm}}}. Which equation gives {{g}}?`,fig,ok:mkC(s),bad:chosen.map(mkC),steps,
+    oracle:v=>sameFn(tupFn(P,v),truth),meta:{kind:'graphEq',P,figT:tupT(P,s,'')}});
+},
+
+/* ---------- transforming a point ---------- */
+keyPoint(level){
+  const ops=genOps(level===2?2:3,'sqrt'),s=applyOps(ops);
+  if(!validTup('abs',s,false)||s.h.n===0&&s.k.n===0)return null;
+  const a=Rnum(s.a),b=Rnum(s.b),h=Rnum(s.h),k=Rnum(s.k);
+  const xs=[-4,-3,-2,-1,1,2,3,4].filter(p=>Number.isInteger(p/b+h)),ys=[-4,-3,-2,-1,1,2,3,4,6].filter(q=>Number.isInteger(a*q+k));
+  if(!xs.length||!ys.length)return null;
+  const p=pick(xs),q=pick(ys);
+  const X=p/b+h,Y=a*q+k;
+  const pt=(x,y)=>({t:`(${cleanN(x)}, ${cleanN(y)})`,v:[cleanN(x),cleanN(y)]});
+  const bad=[pt(p/b-h,a*q+k),pt(p*b+h,a*q+k),pt(p/b+h,q+k),pt(p/b+h,a*q-k),pt(p+h,a*q+k),pt(a*p/b+h,q+k),pt(p/b+h,q*a*b+k),pt(p*b-h,a*q-k)].filter(c=>c.v.every(Number.isInteger));
+  const stmt=tupT(null,s,'g(x)','f');
+  const steps=[['The input to {{f}} must be {{p = '+p+'}} for the known point to be used. Solve for {{x}}.',`${argT(s.b,s.h)} = ${p}`],
+    [`So {{x = ${cleanN(X)}}}. The output of {{f}} there is {{${q}}}. Apply the changes outside {{f}}.`,`g(${cleanN(X)}) = ${s.a.d===1?(s.a.n===1?'':s.a.n===-1?'-':s.a.n+' * '):'('+Rstr(s.a)+') * '}${par(q)}${asgn(Rnum(s.k))} = ${cleanN(Y)}`],
+    ['The new point is',`(${cleanN(X)}, ${cleanN(Y)})`]];
+  const f1=t=>q+(t-p)*(t-p)*0.5,f2=t=>q+Math.sin(t-p)*3+(t-p);
+  const gOf=(F,x)=>a*F(b*(x-h))+k;
+  return mcm({prompt:`The point {{(${p}, ${q})}} is on the graph of {{y = f(x)}}. Which point must be on the graph of {{g}}?`,stmt,ok:pt(X,Y),bad,steps,
+    oracle:v=>near(gOf(f1,v[0]),v[1])&&near(gOf(f2,v[0]),v[1]),meta:{kind:'keyPoint',gdef:stmt,p,q}});
+},
+
+/* ---------- piecewise functions ---------- */
+piecewise(level){
+  const c=pick([-2,-1,0,1,2]),incl=pick(['<=','<']);   /* which side owns the boundary */
+  const leftOwns=incl==='<=';
+  const mkLine=()=>{for(let i=0;i<80;i++){const m=pick([1,-1,2,-2,R(1,2),R(-1,2)]);const mm=typeof m==='object'?m:R(m);const mv=Rnum(mm);
+    const b=nz(-4,4);if(Math.abs(mv*c+b)>4.5||!Number.isInteger(mv*c+b))continue;
+    const t=mm.d===1?lin(mm.n,b):(mm.n<0?'-':'')+`[[x ; ${mm.d}]]`+asgn(b);
+    return {f:x=>mv*x+b,t,v:mv*c+b,kind:'line'};}
+    return {f:x=>x,t:'x',v:c,kind:'line'};};
+  const mkQuad=()=>{const s=pick([1,-1]),t0=nz(-4,4);return {f:x=>s*x*x+t0,t:`${s===1?'':'-'}x^2${asgn(t0)}`,v:s*c*c+t0,kind:'quad'};};
+  const pieceGens=pick([[mkLine,mkLine],[mkLine,mkQuad],[mkQuad,mkLine]]);
+  let L,Rt,tries=0;
+  do{L=pieceGens[0]();Rt=pieceGens[1]();tries++;}while((Math.abs(L.v)>4.5||Math.abs(Rt.v)>4.5||L.v===Rt.v||Math.abs(L.v-Rt.v)<2)&&tries<60);
+  if(tries>=60)return null;
+  const inv=leftOwns?'>':'>=';
+  const stmt=`f(x) = sys{${L.t}, x ${incl} ${c} ;; ${Rt.t}, x ${inv} ${c}}`;
+  const truth=x=>(leftOwns?x<=c:x<c)?L.f(x):Rt.f(x);
+  if(level<3){
+    /* evaluation */
+    const modes=level===1?['sum']:['solve','sum'];
+    const mode=pick(modes);
+    if(mode==='sum'){
+      const a=pick([c-2,c-1,c-3]),b=pick([c,c+1,c+2,c+3]);
+      const ans=truth(a)+truth(b);
+      const wrong=[L.f(a)+L.f(b),Rt.f(a)+Rt.f(b),Rt.f(a)+L.f(b),truth(a)-truth(b),truth(a)+truth(b===c?c+1:c)];
+      const sa=(leftOwns?a<=c:a<c)?'top':'bottom',sb=(leftOwns?b<=c:b<c)?'top':'bottom';
+      return mcm({prompt:`Find {{f(${a}) + f(${b})}}.`,stmt,ok:numC(ans),bad:intsOnly(wrong).map(numC),
+        steps:[[`Decide which rule applies to each input. {{x = ${a}}} uses the ${sa} rule and {{x = ${b}}} uses the ${sb} rule${b===c?' (look closely at the boundary: is it included on the top or bottom?)':''}.`,''],
+          ['Evaluate each.',`f(${a}) = ${truth(a)}, f(${b}) = ${truth(b)}`],['Add.',`${par(truth(a))} + ${par(truth(b))} = ${ans}`]],
+        oracle:v=>near(v,truth(a)+truth(b)),meta:{kind:'pwSum',fdef:stmt,a,b}});}
+    /* solve f(x) = k: find k with exactly one solution among integers */
+    const k=pick([-3,-2,-1,0,1,2,3,4,5]);
+    const snap=x=>Math.abs(x-Math.round(x*2)/2)<1e-7?Math.round(x*2)/2:x;
+    const sols=[];{ /* every real solution: scan each rule on its own domain for sign changes and exact zeros */
+      const rules=[[L.f,x=>leftOwns?x<=c:x<c],[Rt.f,x=>leftOwns?x>c:x>=c]];
+      for(const [fn,inDom] of rules){let px=-15,pf=fn(px)-k;
+        for(let x=-14.99;x<=15.0001;x+=.01){const fv=fn(x)-k;
+          if(Math.abs(fv)<1e-9&&inDom(snap(x))&&!sols.some(s=>Math.abs(s-x)<1e-6))sols.push(snap(x));
+          else if(((pf<0&&fv>0)||(pf>0&&fv<0))){let a=px,b=x,fa=pf;for(let i=0;i<60;i++){const m=(a+b)/2,fm_=fn(m)-k;if((fa<0)===(fm_<0)){a=m;fa=fm_;}else b=m;}
+            const r=snap((a+b)/2);if(inDom(r)&&Math.abs(fn(r)-k)<1e-6&&!sols.some(s=>Math.abs(s-r)<1e-4))sols.push(r);}
+          px=x;pf=fv;}}
+      /* also catch roots hit exactly at x = c */
+      if(Math.abs(truth(c)-k)<1e-9&&!sols.some(s=>Math.abs(s-c)<1e-4))sols.push(c);}
+    if(sols.length!==1||Math.abs(sols[0]-Math.round(sols[0]))>1e-6)return null;
+    sols[0]=Math.round(sols[0]);
+    const ans=sols[0];
+    /* distractors: solutions of each piece ignoring its domain */
+    const wr=[];for(let x=-12;x<=12;x++){if(L.f(x)===k)wr.push(x);if(Rt.f(x)===k)wr.push(x);}
+    const wrong=[...wr,ans+1,-ans,ans-1];
+    return mcm({prompt:`For which value of {{x}} is {{f(x) = ${k}}}? Only one value works.`,stmt,ok:numC(ans),bad:intsOnly(wrong).map(numC),
+      steps:[['Solve {{f(x) = '+k+'}} using each rule, then keep only answers that satisfy that rule\'s inequality.',''],['The valid solution is',`x = ${ans}`]],
+      oracle:v=>near(truth(v),k)&&sols.length===1,meta:{kind:'pwSolve',fdef:stmt,k}});
+  }
+  /* graph choices */
+  const spec=(lf,rf,lc,rc)=>({lf,rf,lc,rc});
+  const draw=sp=>{
+    const curves=[{f:sp.lf,dom:[-6.5,c],cls:'acc'},{f:sp.rf,dom:[c,6.5],cls:'acc'}];
+    const dots=[{p:[c,sp.lf(c)],open:!sp.lc,k:'acc'},{p:[c,sp.rf(c)],open:!sp.rc,k:'acc'}];
+    return {svg:gSvg({px:190,curves,dots,alt:'Candidate piecewise graph'}),v:{spec:sp,L:L.t,R:Rt.t,c,f:x=>pwVal(sp,x)}};};
+  const pwVal=(sp,x)=>x<c?sp.lf(x):x>c?sp.rf(x):(sp.lc&&!sp.rc?sp.lf(x):sp.rc&&!sp.lc?sp.rf(x):NaN);
+  const okSp=spec(L.f,Rt.f,leftOwns,!leftOwns);
+  const vis=sp=>{let a=0,b=0;for(let x=-6;x<c;x+=.25){const y=sp.lf(x);if(y>=-6&&y<=6)a++;}for(let x=c;x<=6;x+=.25){const y=sp.rf(x);if(y>=-6&&y<=6)b++;}return a>=3&&b>=3;};
+  const cand=[spec(L.f,Rt.f,!leftOwns,leftOwns),spec(L.f,Rt.f,true,true),spec(L.f,Rt.f,false,false),spec(Rt.f,L.f,leftOwns,!leftOwns),spec(Rt.f,L.f,!leftOwns,leftOwns)];
+  const third=[cand[3],cand[4]].filter(vis),fallback=[cand[1],cand[2]];
+  const picks=[cand[0],pick([cand[1],cand[2]])];
+  const rest=third.length?pick(third):(picks[1]===cand[1]?cand[2]:cand[1]);
+  picks.push(rest);
+  const dots3=picks.map(draw);
+  const steps=[['Graph each rule only on its own domain.',''],['At the boundary {{x = '+c+'}}: a "'+(leftOwns?'<=':'>=')+'" sign means a closed dot on that piece, and a "'+(leftOwns?'>':'<')+'" sign means an open dot on the other piece.',stmt]];
+  return mcm({prompt:'Which graph shows {{f}}?',stmt,ok:draw(okSp),bad:dots3,steps,oracle:v=>sameFn(v.f,truth,[-5.5,-4,-3,-2.5,-2,-1,-.5,c-.25,c,c+.25,.5,1,2,3,4.5,5.5]),meta:{kind:'pwGraph',fdef:stmt,c}});
+},
+
+/* ---------- operations on functions ---------- */
+fnOps(level){
+  const mkLinF=()=>{const a=nz(-4,4),b=nz(-6,6);return {t:lin(a,b),c:[a,b],f:x=>a*x+b};};
+  const mkQuadF=()=>{const a=pick([1,1,2,-1]),b=nz(-4,4),cc=nz(-6,6);return {t:poly([a,b,cc]),c:[a,b,cc],f:x=>a*x*x+b*x+cc};};
+  if(level===1){
+    const F=pick([mkLinF,mkQuadF])(),G=mkLinF();const op=pick(['+','-','*']);const a=nz(-4,4);
+    const sym={'+':'+','-':'-','*':'*'}[op];const name=op==='*'?`(f * g)(${a})`:`(f ${op} g)(${a})`;
+    const val=op==='+'?F.f(a)+G.f(a):op==='-'?F.f(a)-G.f(a):F.f(a)*G.f(a);
+    const wrong=[op==='+'?F.f(a)-G.f(a):F.f(a)+G.f(a),F.f(a)*G.f(a),F.f(a+a),F.f(G.f(a)),-F.f(a)-G.f(a),op==='-'?G.f(a)-F.f(a):F.f(a)-G.f(a),F.f(a)+G.f(a)+op.length];
+    const word=op==='+'?'Add':op==='-'?'Subtract':'Multiply';
+    return mcm({prompt:`Find {{${name}}}.`,stmt:`f(x) = ${F.t}\ng(x) = ${G.t}`,ok:numC(val),bad:intsOnly(wrong).map(numC),
+      steps:[[`{{${name}}} means ${word.toLowerCase()} the outputs of {{f}} and {{g}} at {{x = ${a}}}.`,''],['Evaluate each function.',`f(${a}) = ${F.f(a)}, g(${a}) = ${G.f(a)}`],[word+'.',`${par(F.f(a))} ${op==='*'?'*':op} ${par(G.f(a))} = ${val}`]],
+      oracle:v=>near(v,op==='+'?F.f(a)+G.f(a):op==='-'?F.f(a)-G.f(a):F.f(a)*G.f(a)),meta:{kind:'opsVal',fdef:'f(x) = '+F.t,gdef:'g(x) = '+G.t,op,a}});
+  }
+  if(level===2){
+    const op=pick(['+','-','*','*']);
+    const F=op==='*'?mkLinF():pick([mkLinF,mkQuadF])(),G=mkLinF();
+    const pad=P=>P.c.length===2?[0,P.c[0],P.c[1]]:P.c;
+    const fc=pad(F),gc=pad(G);
+    let rc,bad;
+    if(op==='*'){const [a1,b1]=F.c,[a2,b2]=G.c;rc=[a1*a2,a1*b2+a2*b1,b1*b2];
+      bad=[[a1*a2,0,b1*b2],[a1*a2,a1*b2-a2*b1,b1*b2],[a1*a2,a1*b2+a2*b1,b1+b2],[a1*a2,a1*b2+a2*b1,-b1*b2],[a1*a2,-(a1*b2+a2*b1),b1*b2]];}
+    else if(op==='+'){rc=fc.map((v,i)=>v+gc[i]);
+      bad=[fc.map((v,i)=>v-gc[i]),[rc[0],rc[1],fc[2]-gc[2]],[rc[0],-rc[1],rc[2]],[0,rc[0]+rc[1],rc[2]],[rc[0],rc[1],-rc[2]]];}
+    else{rc=fc.map((v,i)=>v-gc[i]);
+      bad=[fc.map((v,i)=>v+gc[i]),[rc[0],rc[1],fc[2]+gc[2]],[fc[0],fc[1]-gc[1],fc[2]+gc[2]],gc.map((v,i)=>v-fc[i]),[rc[0],fc[1]+gc[1],rc[2]]];}
+    const polyT=cc=>{const c0=cc.slice();while(c0.length>1&&c0[0]===0)c0.shift();return poly(c0);};
+    const expr=polyT(rc);
+    const name=op==='*'?'(f * g)(x)':`(f ${op} g)(x)`;
+    const ev=(cc,x)=>cc.reduce((s,v)=>s*x+v,0);
+    const mkC=cc=>({t:polyT(cc),v:{c:cc,f:x=>ev(cc,x)}});
+    const steps=op==='*'?[['Multiply the two expressions. Use FOIL so no term is missed.',`(${F.t})(${G.t})`],['Combine like terms.',expr]]
+      :[[`Write the two functions and ${op==='+'?'add':'subtract'} them.`,`(${F.t}) ${op} (${G.t})`],[op==='-'?'Distribute the negative sign to every term of {{g}}, then combine like terms.':'Combine like terms.',expr]];
+    return mcm({prompt:`Find {{${name}}}.`,stmt:`f(x) = ${F.t}\ng(x) = ${G.t}`,ok:mkC(rc),bad:bad.map(mkC),steps,
+      oracle:v=>sameFn(v.f,x=>op==='+'?F.f(x)+G.f(x):op==='-'?F.f(x)-G.f(x):F.f(x)*G.f(x)),meta:{kind:'opsExpr',fdef:'f(x) = '+F.t,gdef:'g(x) = '+G.t,op}});
+  }
+  /* level 3: domain of a quotient */
+  const p=nz(-4,3),c2=rnd(-3,5),ratio=pick(['f/g','g/f']);
+  const sq={t:`rt{x${asgn(-p)}}`,f:x=>x-p>=0?Math.sqrt(x-p):NaN};const lf={t:xmh(c2),f:x=>x-c2};
+  const num_=ratio==='f/g'?sq:lf,den=ratio==='f/g'?lf:sq;
+  const Fq=x=>{const n=num_.f(x),d=den.f(x);return (Number.isFinite(n)&&Number.isFinite(d)&&d!==0)?n/d:NaN;};
+  /* domain: x >= p, and for the denominator: if den is sqrt then x > p; else exclude c2 when c2 >= p */
+  let S;
+  if(ratio==='f/g'){S=c2>p?[[p,c2,true,false],[c2,INF,false,false]]:c2===p?[[p,INF,false,false]]:[[p,INF,true,false]];}
+  else{S=[[p,INF,false,false]];if(c2>p){S=[[p,INF,false,false]];}}
+  /* g/f with f = sqrt in the denominator: x > p; the numerator x - c2 imposes nothing */
+  const asIneq=S.length<2&&rnd(0,1)===0,show=asIneq?ineq:itv;
+  const okS={t:show(S),v:{s:S}};
+  const vs=[];
+  vs.push([[p,INF,true,false]]);vs.push([[p,INF,false,false]]);vs.push([[-INF,INF,false,false]]);vs.push([[p,c2,true,false],[c2,INF,false,false]]);vs.push([[p,c2,true,true],[c2,INF,true,false]]);vs.push([[c2,INF,false,false]]);vs.push([[-INF,c2,false,false],[c2,INF,false,false]]);vs.push([[-p,INF,true,false]]);
+  const bad=vs.filter(validSet).filter(T=>T.length<2||c2>p||ratio==='f/g').map(T=>({t:show(T),v:{s:T}}));
+  const orc=v=>{const pts=[];for(let x=-12;x<=12;x+=.25)pts.push(x);for(let x=-12;x<=12;x++){pts.push(x+1e-7,x-1e-7);}return pts.every(x=>Number.isFinite(Fq(x))===memb(v.s,x));};
+  const nm=ratio==='f/g'?'([[f ; g]])(x)':'([[g ; f]])(x)';
+  const steps=[['The domain of a quotient requires each function to be defined and the denominator not to be zero.',''],
+    [ratio==='f/g'?`{{f}} needs {{x${asgn(-p)} >= 0}}, and {{g}} in the denominator cannot be zero: {{${xmh(c2)} != 0}}.`:`{{f}} needs {{x${asgn(-p)} >= 0}} and it is in the denominator, so it also cannot be zero: {{x${asgn(-p)} > 0}}. {{g}} has no restriction.`,''],
+    ['Combine the conditions.',show(S)]];
+  return mcm({prompt:`What is the domain of {{${nm}}}? Write your answer ${asIneq?'as an inequality':'in interval notation'}.`,stmt:`f(x) = rt{x${asgn(-p)}}
+g(x) = ${xmh(c2)}`,ok:okS,bad,steps,oracle:orc,meta:{kind:'opsDomain',ratio,p,c2}});
+},
+
+/* ---------- composition ---------- */
+composite(level){
+  const mkLinF=()=>{const a=nz(-4,4),b=nz(-6,6);return {t:lin(a,b),c:[a,b],f:x=>a*x+b};};
+  const mkQuadF=()=>{const a=pick([1,1,2,-1]),b=nz(-4,4),cc=nz(-6,6);return {t:poly([a,b,cc]),c:[a,b,cc],f:x=>a*x*x+b*x+cc};};
+  const padd=(p,q)=>{const n=Math.max(p.length,q.length),o=Array(n).fill(0);p.forEach((v,i)=>o[n-p.length+i]+=v);q.forEach((v,i)=>o[n-q.length+i]+=v);return o;};
+  const pmul=(p,q)=>{const o=Array(p.length+q.length-1).fill(0);p.forEach((u,i)=>q.forEach((v,j)=>o[i+j]+=u*v));return o;};
+  const pscale=(p,k)=>p.map(v=>v*k);
+  const pcomp=(fc,gc)=>{let out=[0],pw=[1];for(let i=fc.length-1;i>=0;i--){out=padd(out,pscale(pw,fc[i]));pw=pmul(pw,gc);}return out;};
+  const trim=cc=>{const c0=cc.slice();while(c0.length>1&&c0[0]===0)c0.shift();return c0;};
+  const polyT=cc=>poly(trim(cc));
+  const ev=(cc,x)=>cc.reduce((s,v)=>s*x+v,0);
+  if(level===1){
+    const F=pick([mkLinF,mkQuadF])(),G=mkLinF();const fg=rnd(0,1)===0,a=nz(-4,4);
+    const In=fg?G:F,Out=fg?F:G;const name=fg?`(f ∘ g)(${a})`:`(g ∘ f)(${a})`;
+    const val=Out.f(In.f(a));
+    const wrong=[(fg?G:F).f((fg?F:G).f(a)),F.f(a)*G.f(a),F.f(a)+G.f(a),In.f(a),Out.f(a),F.f(a)-G.f(a)];
+    const nin=fg?'g':'f',nout=fg?'f':'g';
+    return mcm({prompt:`Find {{${name}}}.`,stmt:`f(x) = ${F.t}\ng(x) = ${G.t}`,ok:numC(val),bad:intsOnly(wrong).map(numC),
+      steps:[[`{{${name}}} means {{${nout}(${nin}(${a}))}}. Work from the inside out: first evaluate {{${nin}(${a})}}.`,`${nin}(${a}) = ${In.f(a)}`],[`Use that result as the input of {{${nout}}}.`,`${nout}(${In.f(a)}) = ${val}`]],
+      oracle:v=>near(v,(fg?F:G).f((fg?G:F).f(a))),meta:{kind:'compVal',fdef:'f(x) = '+F.t,gdef:'g(x) = '+G.t,fg,a}});
+  }
+  if(level===2){
+    if(rnd(0,2)===0){ /* from tables */
+      const dom=[1,2,3,4,5];const mkMap=()=>{const v=shuffle([1,2,3,4,5,6]).slice(0,5);return v;};
+      const fv=mkMap(),gv=mkMap();const f=x=>fv[x-1],g=x=>gv[x-1];
+      const mode=pick(['fg','gf','fg','ff']);
+      const cand=dom.filter(a=>mode==='fg'?dom.includes(g(a)):mode==='gf'?dom.includes(f(a)):dom.includes(f(a)));if(!cand.length)return null;
+      const a=pick(cand);
+      const name=mode==='fg'?`(f ∘ g)(${a})`:mode==='gf'?`(g ∘ f)(${a})`:`(f ∘ f)(${a})`;
+      const val=mode==='fg'?f(g(a)):mode==='gf'?g(f(a)):f(f(a));
+      const wrong=[mode==='fg'?(dom.includes(f(a))?g(f(a)):f(a)):(dom.includes(g(a))?f(g(a)):g(a)),f(a),g(a),f(a)+g(a),a];
+      const inner=mode==='fg'?'g':'f',outer=mode==='gf'?'g':'f';
+      const tbl=`tbl{x&&${dom.join('&&')} ;; f(x)&&${fv.slice(0,5).join('&&')} ;; g(x)&&${gv.join('&&')}}`;
+      return mcm({prompt:`Use the tables to find {{${name}}}.`,stmt:tbl,ok:numC(val),bad:intsOnly(wrong).map(numC),
+        steps:[[`Work from the inside out. Read {{${inner}(${a})}} from the table.`,`${inner}(${a}) = ${mode==='fg'?g(a):f(a)}`],[`Use that value as the input of {{${outer}}}.`,`${outer}(${mode==='fg'?g(a):f(a)}) = ${val}`]],
+        oracle:v=>near(v,mode==='fg'?f(g(a)):mode==='gf'?g(f(a)):f(f(a))),meta:{kind:'compTable',dom,fv,gv,mode,a}});
+    }
+    const useQuadOuter=rnd(0,1)===0;
+    const F=useQuadOuter?mkQuadF():mkLinF(),G=useQuadOuter?mkLinF():mkQuadF();const fg=rnd(0,1)===0;
+    const fc=F.c.length===2?[F.c[0],F.c[1]]:F.c,gc=G.c;
+    const rc=fg?pcomp(F.c,G.c):pcomp(G.c,F.c);
+    const other=fg?pcomp(G.c,F.c):pcomp(F.c,G.c);
+    const prod=pmul(F.c,G.c),sum=padd(F.c,G.c);
+    const name=fg?'(f ∘ g)(x)':'(g ∘ f)(x)';
+    /* common error: squaring a binomial as a^2 + b^2 */
+    const OuterQ=fg?F:G,InnerL=fg?G:F;let sq=null;
+    if(OuterQ.c.length===3&&InnerL.c.length===2){const [qa,qb,qc]=OuterQ.c,[la,lb]=InnerL.c;sq=[qa*la*la,qb*la,qa*lb*lb+qb*lb+qc];}
+    const cands=[other,sq,prod,sum].filter(Boolean);
+    const mkC=cc=>({t:polyT(cc),v:{c:cc,f:x=>ev(cc,x)}});
+    const inn=fg?'g':'f',out=fg?'f':'g';
+    const innT=(fg?G:F).t,outT=(fg?F:G).t;
+    const substT=(()=>{ /* write the outer rule with the inner expression substituted for x */
+      const oc=(fg?F:G).c;const arg='('+innT+')';
+      return oc.length===2?`${oc[0]===1?'':oc[0]===-1?'-':oc[0]}${arg}${asgn(oc[1])}`:`${oc[0]===1?'':oc[0]===-1?'-':oc[0]}${arg}^2${oc[1]===0?'':(oc[1]<0?' - ':' + ')+(Math.abs(oc[1])===1?'':Math.abs(oc[1]))+arg}${asgn(oc[2])}`;})();
+    return mcm({prompt:`Find {{${name}}}.`,stmt:`f(x) = ${F.t}\ng(x) = ${G.t}`,ok:mkC(rc),bad:cands.map(mkC),
+      steps:[[`{{${name}}} means {{${out}(${inn}(x))}}. Substitute the whole expression for {{${inn}(x)}} into {{${out}}}.`,substT],['Expand and combine like terms.',polyT(rc)]],
+      oracle:v=>sameFn(v.f,x=>(fg?F:G).f((fg?G:F).f(x))),meta:{kind:'compExpr',fdef:'f(x) = '+F.t,gdef:'g(x) = '+G.t,fg}});
+  }
+  /* level 3: non-polynomial outer function */
+  const fam=pick(['sqrt','recip','abs']);const p=nz(-5,5);
+  const wantFg=fam==='sqrt'?rnd(0,3)>0:rnd(0,1)===0;
+  const G=wantFg&&rnd(0,2)===0?{c:[1,nz(-4,4)],t:null}:mkLinF();
+  if(G.t===null){const e=G.c[1];G.c=[1,0,e];G.t=poly(G.c);G.f=x=>x*x+e;}
+  const fT={sqrt:`rt{x${asgn(p)}}`,recip:`[[1 ; x${asgn(p)}]]`,abs:`|x${asgn(p)}|`}[fam];
+  const fF={sqrt:x=>x+p>=0?Math.sqrt(x+p):NaN,recip:x=>x+p===0?NaN:1/(x+p),abs:x=>Math.abs(x+p)}[fam];
+  const wrapT=(cs)=>({sqrt:`rt{${polyT(cs)}}`,recip:`[[1 ; ${polyT(cs)}]]`,abs:`|${polyT(cs)}|`}[fam]);
+  const addK=(cs,k)=>{const o=cs.slice();o[o.length-1]+=k;return o;};
+  const wrapF=(cs)=>({sqrt:x=>{const v=ev(cs,x);return v>=0?Math.sqrt(v):NaN;},recip:x=>{const v=ev(cs,x);return v===0?NaN:1/v;},abs:x=>Math.abs(ev(cs,x))}[fam]);
+  const outsideT=(cs,k)=>({sqrt:`rt{${polyT(cs)}}${asgn(k)}`,recip:`[[1 ; ${polyT(cs)}]]${asgn(k)}`,abs:`|${polyT(cs)}|${asgn(k)}`}[fam]);
+  const outsideF=(cs,k)=>{const w=wrapF(cs);return x=>w(x)+k;};
+  const Gc=G.c.length===2?G.c:G.c;
+  if(wantFg){
+    const name='(f ∘ g)(x)';const truth=x=>fF(G.f(x));
+    const ok={t:wrapT(addK(Gc,p)),v:{f:wrapF(addK(Gc,p))}};
+    const gfT=(()=>{ /* g(f(x)) as text, only for linear g */
+      if(Gc.length!==2)return null;return {t:{sqrt:`${lead(Gc[0])}rt{x${asgn(p)}}${asgn(Gc[1])}`,recip:`[[${Gc[0]} ; x${asgn(p)}]]${asgn(Gc[1])}`,abs:`${lead(Gc[0])}|x${asgn(p)}|${asgn(Gc[1])}`}[fam],v:{f:x=>Gc[0]*fF(x)+Gc[1]}};})();
+    const bad=[gfT,{t:wrapT(addK(Gc,-p)),v:{f:wrapF(addK(Gc,-p))}},{t:outsideT(Gc,p),v:{f:outsideF(Gc,p)}},{t:wrapT(Gc),v:{f:wrapF(Gc)}}].filter(Boolean);
+    return mcm({prompt:`Find {{${name}}}.`,stmt:`f(x) = ${fT}\ng(x) = ${G.t}`,ok,bad,
+      steps:[['{{(f ∘ g)(x) = f(g(x))}}. Replace {{x}} in {{f}} with the whole expression {{g(x)}}.',`f(g(x)) = ${wrapT(Gc).replace(polyT(Gc),'('+G.t+')'+asgn(p))}`],['Combine like terms inside.',ok.t]],
+      oracle:v=>sameFn(v.f,truth),meta:{kind:'compNP',fdef:'f(x) = '+fT,gdef:'g(x) = '+G.t,fg:true}});
+  }
+  /* (g o f)(x) with g linear */
+  if(Gc.length!==2)return null;
+  const truth=x=>Gc[0]*fF(x)+Gc[1];
+  const gfT2=pp=>({sqrt:`${lead(Gc[0])}rt{x${asgn(pp)}}${asgn(Gc[1])}`,recip:`[[${Gc[0]} ; x${asgn(pp)}]]${asgn(Gc[1])}`,abs:`${lead(Gc[0])}|x${asgn(pp)}|${asgn(Gc[1])}`}[fam]);
+  const gfF2=pp=>({sqrt:x=>x+pp>=0?Gc[0]*Math.sqrt(x+pp)+Gc[1]:NaN,recip:x=>x+pp===0?NaN:Gc[0]/(x+pp)+Gc[1],abs:x=>Gc[0]*Math.abs(x+pp)+Gc[1]}[fam]);
+  const ok={t:gfT2(p),v:{f:gfF2(p)}};
+  const bad=[{t:wrapT(addK(Gc,p)),v:{f:wrapF(addK(Gc,p))}},{t:gfT2(-p),v:{f:gfF2(-p)}},{t:outsideT(Gc,p),v:{f:outsideF(Gc,p)}}];
+  return mcm({prompt:'Find {{(g ∘ f)(x)}}.',stmt:`f(x) = ${fT}\ng(x) = ${G.t}`,ok,bad,
+    steps:[['{{(g ∘ f)(x) = g(f(x))}}. Put the whole expression {{f(x)}} in place of {{x}} in {{g}}.',`g(f(x)) = ${lin(Gc[0],0).replace(/x$/,'')==='' ?'':''}${G.t.replace(/x/,'('+fT+')')}`],['Simplify.',ok.t]],
+    oracle:v=>sameFn(v.f,truth),meta:{kind:'compNP',fdef:'f(x) = '+fT,gdef:'g(x) = '+G.t,fg:false}});
+},
+
+/* ---------- inverse functions ---------- */
+inverse(level){
+  const flin=(p,q,r)=>{ /* (p x + q) / r with r > 0 */
+    if(r<0){p=-p;q=-q;r=-r;}
+    const num=lin(p,q);
+    return {t:r===1?num:`[[${num} ; ${r}]]`,g:x=>(p*x+q)/r};};
+  /* is g the inverse of f?  g(f(x)) = x on the domain of f, and f(g(t)) = t wherever g is defined */
+  const isInv=(f,g)=>{
+    for(let x=-9;x<=9.001;x+=.5){const y=f(x);if(!Number.isFinite(y))continue;const w=g(y);if(!Number.isFinite(w)||Math.abs(w-x)>1e-7*(1+Math.abs(x)))return false;}
+    for(let t=-40;t<=40.001;t+=.5){const w=g(t);if(!Number.isFinite(w))continue;const z=f(w);if(!Number.isFinite(z)||Math.abs(z-t)>1e-6*(1+Math.abs(t)))return false;}
+    return true;};
+  const mkItem=fam=>{
+    if(fam==='lin'){const a=pick([2,3,4,5,-2,-3]),b=nz(-9,9);
+      return {rhs:lin(a,b),f:x=>a*x+b,ok:flin(1,-b,a),
+        bad:[flin(1,b,a),{t:`[[x ; ${a}]]${asgn(-b)}`,g:x=>x/a-b},{t:`[[1 ; ${lin(a,b)}]]`,g:x=>1/(a*x+b)},{t:`${a}(x${asgn(-b)})`,g:x=>a*(x-b)},flin(-1,b,a),flin(1,-b,-a).t===flin(1,-b,a).t?flin(1,b,-a):flin(1,-b,-a)]};}
+    if(fam==='cubic'){const k=nz(-8,8);
+      return {rhs:`x^3${asgn(k)}`,f:x=>x*x*x+k,ok:{t:`cbrt{x${asgn(-k)}}`,g:x=>Math.cbrt(x-k)},
+        bad:[{t:`cbrt{x${asgn(k)}}`,g:x=>Math.cbrt(x+k)},{t:`rt{x${asgn(-k)}}`,g:x=>x-k>=0?Math.sqrt(x-k):NaN},{t:`cbrt{x}${asgn(-k)}`,g:x=>Math.cbrt(x)-k},{t:`[[1 ; x^3${asgn(k)}]]`,g:x=>1/(x*x*x+k)}]};}
+    if(fam==='shiftcubic'){const h=nz(-5,5);
+      return {rhs:`(${xmh(h)})^3`,f:x=>Math.pow(x-h,3),ok:{t:`cbrt{x}${asgn(h)}`,g:x=>Math.cbrt(x)+h},
+        bad:[{t:`cbrt{x}${asgn(-h)}`,g:x=>Math.cbrt(x)-h},{t:`cbrt{x${asgn(h)}}`,g:x=>Math.cbrt(x+h)},{t:`cbrt{x${asgn(-h)}}`,g:x=>Math.cbrt(x-h)},{t:`(x${asgn(h)})^3`,g:x=>Math.pow(x+h,3)}]};}
+    if(fam==='fracf'){const a=pick([2,3,4,5]),b=nz(-8,8);
+      return {rhs:`[[x${asgn(b)} ; ${a}]]`,f:x=>(x+b)/a,ok:{t:lin(a,-b),g:x=>a*x-b},
+        bad:[{t:lin(a,b),g:x=>a*x+b},{t:`[[x${asgn(-b)} ; ${a}]]`,g:x=>(x-b)/a},{t:`[[${a} ; x${asgn(b)}]]`,g:x=>a/(x+b)},{t:`${a}(x${asgn(b)})`,g:x=>a*(x+b)}]};}
+    if(fam==='sqrt'){const h=nz(-5,5),k=pick([0,0,nz(-4,4)]);
+      const f=x=>x-h>=0?Math.sqrt(x-h)+k:NaN;
+      const okT=k===0?`x^2${asgn(h)}, x >= 0`:`(x${asgn(-k)})^2${asgn(h)}, x >= ${k}`;
+      return {rhs:`rt{x${asgn(-h)}}${asgn(k)}`,f,dom:`x >= ${h}`,ok:{t:okT,g:x=>x>=k?(x-k)*(x-k)+h:NaN},
+        bad:[{t:k===0?`x^2${asgn(h)}`:`(x${asgn(-k)})^2${asgn(h)}`,g:x=>(x-k)*(x-k)+h},{t:k===0?`x^2${asgn(-h)}, x >= 0`:`(x${asgn(k)})^2${asgn(h)}, x >= ${-k}`,g:k===0?(x=>x>=0?x*x-h:NaN):(x=>x>=-k?(x+k)*(x+k)+h:NaN)},{t:`rt{x}${asgn(h)}`,g:x=>x>=0?Math.sqrt(x)+h:NaN},{t:k===0?`x^2${asgn(h)}, x >= ${h}`:`(x${asgn(-k)})^2${asgn(h)}, x >= ${h}`,g:x=>x>=h?(x-k)*(x-k)+h:NaN}]};}
+    if(fam==='quadres'){const h=nz(-4,4),k=nz(-5,5);
+      const f=x=>x>=h?(x-h)*(x-h)+k:NaN;
+      return {rhs:`(${xmh(h)})^2${asgn(k)}`,f,dom:`x >= ${h}`,ok:{t:`rt{x${asgn(-k)}}${asgn(h)}`,g:x=>x-k>=0?Math.sqrt(x-k)+h:NaN},
+        bad:[{t:`-rt{x${asgn(-k)}}${asgn(h)}`,g:x=>x-k>=0?-Math.sqrt(x-k)+h:NaN},{t:`rt{x${asgn(k)}}${asgn(h)}`,g:x=>x+k>=0?Math.sqrt(x+k)+h:NaN},{t:`rt{x${asgn(-k)}}${asgn(-h)}`,g:x=>x-k>=0?Math.sqrt(x-k)-h:NaN},{t:`rt{x${asgn(-h)}}${asgn(k)}`,g:x=>x-h>=0?Math.sqrt(x-h)+k:NaN}]};}
+    /* mob */
+    const p=nz(-4,4),q=nz(-4,4);if(p+q===0||q===-1)return null;
+    return {rhs:`[[x${asgn(p)} ; x${asgn(-q)}]]`,f:x=>x===q?NaN:(x+p)/(x-q),ok:{t:`[[${lin(q,p)} ; x - 1]]`,g:x=>x===1?NaN:(q*x+p)/(x-1)},
+      bad:[{t:`[[${lin(q,-p)} ; x - 1]]`,g:x=>x===1?NaN:(q*x-p)/(x-1)},{t:`[[${lin(p,q)} ; x - 1]]`,g:x=>x===1?NaN:(p*x+q)/(x-1)},{t:`[[x${asgn(-q)} ; x${asgn(p)}]]`,g:x=>x===-p?NaN:(x-q)/(x+p)},{t:`[[${lin(q,p)} ; x + 1]]`,g:x=>x===-1?NaN:(q*x+p)/(x+1)}]};
+  };
+  const modes=level===1?['find','eval','eval','table']:level===2?['find','find','pair','graph','eval']:['find','find','graph','pair'];
+  const mode=pick(modes);
+  const fams=level===1?['lin']:level===2?['lin','cubic','fracf','shiftcubic','sqrt']:['sqrt','quadres','mob','sqrt','fracf','shiftcubic'];
+  if(mode==='find'){
+    const it=mkItem(pick(fams));if(!it)return null;
+    const mkC=c=>({t:'f^{-1}(x) = '+c.t,v:{t:c.t,g:c.g}});
+    const swap='x = '+it.rhs.replace(/x/g,'y');
+    const steps=[['Replace {{f(x)}} with {{y}}.','y = '+it.rhs],['Swap {{x}} and {{y}}.',swap],['Solve for {{y}}.','y = '+it.ok.t],['Write the inverse.','f^{-1}(x) = '+it.ok.t]];
+    if(it.dom)steps.splice(3,0,['The inverse must have the domain {{x >= '+(it.ok.t.match(/x >= (-?\d+)$/)||['',0])[1]+'}} (the range of {{f}}), so keep the restriction.','']);
+    return mcm({prompt:`Find the inverse function {{f^{-1}(x)}}.`,stmt:'f(x) = '+it.rhs+(it.dom?', '+it.dom:''),ok:mkC(it.ok),bad:it.bad.filter(Boolean).map(mkC),steps,
+      oracle:v=>isInv(it.f,v.g),meta:{kind:'invFind',rhs:it.rhs,dom:it.dom||null}});
+  }
+  if(mode==='pair'){
+    const f1=pick(['lin','cubic','fracf','shiftcubic']),others=shuffle(['lin','cubic','fracf','shiftcubic']);
+    const itemsOk=mkItem(f1);if(!itemsOk)return null;
+    const mkP=(it,c)=>({t:`f(x) = ${it.rhs} and g(x) = ${c.t}`,v:{f:it.f,g:c.g,fT:it.rhs,gT:c.t}});
+    const okP=mkP(itemsOk,itemsOk.ok);
+    const badP=[];for(const fam of others.slice(0,3)){const it=mkItem(fam);if(!it)return null;badP.push(mkP(it,pick(it.bad)));}
+    return mcm({prompt:'Which pair of functions are inverses of each other? Check by composing them.',ok:okP,bad:badP,
+      steps:[['Two functions are inverses when {{f(g(x)) = x}} and {{g(f(x)) = x}}. Test each pair by substituting one function into the other.',''],['Only one pair simplifies to {{x}} both ways.',okP.t]],
+      oracle:v=>isInv(v.f,v.g),meta:{kind:'invPair'}});
+  }
+  if(mode==='eval'){
+    const f1=pick(level===1?['lin','lin','fracf']:['lin','cubic','shiftcubic','fracf']);
+    const it=mkItem(f1);if(!it)return null;
+    let x0;do{x0=nz(-4,4);}while(false);
+    const y0=it.f(x0);if(!Number.isInteger(y0))return null;
+    const bad=[it.f(y0),-x0,y0,x0+1,x0-1,y0-x0].filter(Number.isFinite);
+    return mcm({prompt:`Find {{f^{-1}(${y0})}}. Remember: {{f^{-1}(${y0})}} is the input that gives output {{${y0}}}.`,stmt:'f(x) = '+it.rhs,ok:numC(x0),bad:intsOnly(bad).map(numC),
+      steps:[[`{{f^{-1}(${y0})}} is the value of {{x}} with {{f(x) = ${y0}}}.`,`${it.rhs} = ${y0}`],['Solve for {{x}}.',`x = ${x0}`],['Check: {{f('+x0+') = '+y0+'}}.',`f^{-1}(${y0}) = ${x0}`]],
+      oracle:v=>near(it.f(v),y0),meta:{kind:'invEval',rhs:it.rhs,y0}});
+  }
+  if(mode==='table'){
+    const xs=[1,2,3,4,5],ys=shuffle([2,4,5,7,9,10,12]).slice(0,5);const f=i=>ys[i-1];
+    const a=pick(xs),y0=f(a);
+    const bad=[f(y0>=1&&y0<=5?y0:1),y0,a+1,xs[(a)%5],ys[(a+1)%5]].filter(Number.isFinite);
+    return mcm({prompt:`The function {{f}} is one-to-one. Find {{f^{-1}(${y0})}}.`,stmt:`tbl{x&&${xs.join('&&')} ;; f(x)&&${ys.join('&&')}}`,ok:numC(a),bad:intsOnly(bad).map(numC),
+      steps:[[`{{f^{-1}(${y0})}} asks: which input gives the output {{${y0}}}? Find {{${y0}}} in the {{f(x)}} row.`,''],['Read the {{x}} above it.',`f^{-1}(${y0}) = ${a}`]],
+      oracle:v=>xs.includes(v)&&f(v)===y0,meta:{kind:'invTable',xs,ys,y0}});
+  }
+  /* graph: reflection in y = x */
+  const fam=pick(['lin','cubic','sqrt']);let f,fT;
+  if(fam==='lin'){const m=pick([2,-2,R(1,2),R(-1,2)]),mv=typeof m==='object'?Rnum(m):m,b=nz(-3,3);
+    f=x=>mv*x+b;fT=typeof m==='object'?`${m.n<0?'-':''}[[x ; ${m.d}]]${asgn(b)}`:lin(m,b);}
+  else if(fam==='cubic'){const k=nz(-2,2);f=x=>x*x*x/4+k;fT=`[[x^3 ; 4]]${asgn(k)}`;}
+  else{const h=rnd(0,4),k=nz(-2,2);f=x=>x+h>=0?Math.sqrt(x+h)+k:NaN;fT=`rt{x${asgn(h)}}${asgn(k)}`;}
+  const T=[];for(let t=-8;t<=8.001;t+=.04)T.push(t);
+  const ptsOf=g=>{const pts=[];for(const t of T){const p=g(t);pts.push(p&&Number.isFinite(p[0])&&Number.isFinite(p[1])?p:null);}return pts;};
+  const inWindow=p=>p&&Math.abs(p[0])<=6&&Math.abs(p[1])<=6;
+  const curves={inv:ptsOf(t=>[f(t),t]),same:ptsOf(t=>[t,f(t)]),rx:ptsOf(t=>[t,-f(t)]),ry:ptsOf(t=>[-t,f(t)]),rot:ptsOf(t=>[-t,-f(t)]),invx:ptsOf(t=>[-f(t),t]),invy:ptsOf(t=>[f(t),-t])};
+  const dist=(A,B)=>{const a=A.filter(inWindow),b=B.filter(inWindow);if(a.length<20||b.length<20)return -1;let far=0;for(let i=0;i<a.length;i+=2){let m=1e9;for(const q of b){const d=Math.hypot(a[i][0]-q[0],a[i][1]-q[1]);if(d<m)m=d;if(m<.5)break;}if(m>=.5)far++;}return far;};
+  const okK='inv';
+  const order=shuffle(['same','rx','ry','rot','invx','invy']);const pickd=[];
+  for(const k of order){if(curves[k].filter(inWindow).length<20)continue;if(dist(curves[k],curves[okK])<6)continue;if(pickd.some(q=>dist(curves[k],curves[q])<6&&dist(curves[q],curves[k])<6))continue;pickd.push(k);if(pickd.length===3)break;}
+  if(pickd.length<3||curves.inv.filter(inWindow).length<20)return null;
+  const mkSvg=k=>({svg:gSvg({px:190,curves:[{f:x=>x,cls:'thin dash',dash:true},{pts:curves[k],cls:'acc'}],alt:'Candidate graph'}),v:{k,pts:curves[k].filter(inWindow),fT}});
+  const fig=gSvg({px:300,curves:[{f:x=>x,cls:'thin dash',dash:true},{f,cls:'acc2'}],lstep:1,alt:'Graph of f and the line y = x'});
+  return mcm({prompt:'The solid graph is {{f}}. Which graph shows {{f^{-1}}}? The dashed line is {{y = x}}.',fig,ok:mkSvg(okK),bad:pickd.map(mkSvg),
+    steps:[['The graph of {{f^{-1}}} is the reflection of the graph of {{f}} in the line {{y = x}}. Each point {{(a, b)}} on {{f}} becomes {{(b, a)}}.',''],['Pick a point on {{f}} and swap its coordinates to find the matching point on the correct graph.','']],
+    oracle:v=>v.pts.length>=20&&v.pts.every(p=>{const z=f(p[1]);return Number.isFinite(z)&&Math.abs(z-p[0])<1e-6;}),meta:{kind:'invGraph',fT}});
+},
+
+/* ---------- even, odd, one-to-one ---------- */
+symmetry(level){
+  if(rnd(0,2)>0||level===2&&rnd(0,1)===0){
+    /* even or odd */
+    const kind=pick(['even','odd','neither','neither','even','odd']);
+    let cs;const mk=ds=>{const cc=Array(5).fill(0);ds.forEach(d=>{cc[4-d]=nz(-4,4);});return cc;};
+    if(kind==='even')cs=mk(pick([[4,2,0],[2,0],[4,0],[4,2]]));
+    else if(kind==='odd')cs=mk(pick([[3,1],[3],[1],[3,1]]));
+    else cs=mk(pick([[2,1],[3,2],[3,0],[2,1,0],[4,1],[3,2,1]]));
+    const coef=cs.slice();while(coef.length>1&&coef[0]===0)coef.shift();
+    const f=x=>coef.reduce((s,v)=>s*x+v,0);
+    const pt=poly(coef);
+    const neg=coef.map((c,i)=>{const d=coef.length-1-i;return d%2?-c:c;});
+    const negf=poly(neg),mneg=poly(coef.map(c=>-c));
+    const isEven=[-3,-2,-1,.5,1,2,3,4.5].every(x=>near(f(-x),f(x))),isOdd=[-3,-2,-1,.5,1,2,3,4.5].every(x=>near(f(-x),-f(x)));
+    const verdict=isEven&&isOdd?'both':isEven?'even':isOdd?'odd':'neither';
+    const T={even:'Even: {{f(-x) = f(x)}}',odd:'Odd: {{f(-x) = -f(x)}}',neither:'Neither even nor odd',both:'Both even and odd'};
+    const ch=k=>({t:T[k].replace(/\{\{|\}\}/g,''),v:{k}});
+    const steps=[['Replace {{x}} with {{-x}} and simplify.',`f(-x) = ${negf}`],['Compare with {{f(x)}} and with {{-f(x)}}.',`f(x) = ${pt}      -f(x) = ${mneg}`],
+      [verdict==='even'?'{{f(-x)}} matches {{f(x)}}, so the function is even (symmetric about the {{y}}-axis).':verdict==='odd'?'{{f(-x)}} matches {{-f(x)}}, so the function is odd (symmetric about the origin).':'{{f(-x)}} matches neither, so the function is neither even nor odd.','']];
+    return mcm({prompt:'Is {{f}} even, odd, or neither?',stmt:'f(x) = '+pt,ok:ch(verdict),bad:['even','odd','neither','both'].filter(k=>k!==verdict).map(ch),steps,
+      oracle:v=>{const e=[-3,-2,-1,.5,1,2,3,4.5].every(x=>near(f(-x),f(x))),o=[-3,-2,-1,.5,1,2,3,4.5].every(x=>near(f(-x),-f(x)));return v.k==='both'?e&&o:v.k==='even'?e&&!o:v.k==='odd'?o&&!e:!e&&!o;},meta:{kind:'evenodd',fdef:'f(x) = '+pt}});
+  }
+  /* one-to-one */
+  const inj=pick([
+    ()=>{const m=nz(-5,5),b=nz(-6,6);return {t:lin(m,b),f:x=>m*x+b};},
+    ()=>{const k=nz(-6,6),a=pick([1,2,-1]);return {t:`${lead(a)}x^3${asgn(k)}`,f:x=>a*x*x*x+k};},
+    ()=>{const h=nz(-4,4),k=nz(-4,4);return {t:`rt{x${asgn(-h)}}${asgn(k)}`,f:x=>x-h>=0?Math.sqrt(x-h)+k:NaN};},
+    ()=>{const h=nz(-4,4),k=nz(-4,4),N=pick([1,2,3,-1,-2]);return {t:`[[${N} ; ${xmh(h)}]]${asgn(k)}`,f:x=>x===h?NaN:N/(x-h)+k};}])();
+  const nonInj=[
+    ()=>{const h=nz(-4,4),k=nz(-5,5),a=pick([1,2,-1]);return {t:`${lead(a)}(${xmh(h)})^2${asgn(k)}`,f:x=>a*(x-h)*(x-h)+k};},
+    ()=>{const h=nz(-4,4),k=nz(-5,5),a=pick([1,2,-1,3]);return {t:`${lead(a)}|${xmh(h)}|${asgn(k)}`,f:x=>a*Math.abs(x-h)+k};},
+    ()=>{const k=nz(-5,5),a=pick([1,-1,2]);return {t:`${lead(a)}x^4${asgn(k)}`,f:x=>a*x*x*x*x+k};},
+    ()=>{const b=pick([2,4,6]),k=nz(-3,3);return {t:`x^2 - ${b}x${asgn(k)}`.replace(/\+ -/,'- '),f:x=>x*x-b*x+k};}];
+  const isOne=f=>{const v=[];for(let i=-240;i<=240;i++){const y=f(i/20);if(Number.isFinite(y))v.push(y);}v.sort((a,b)=>a-b);for(let i=1;i<v.length;i++)if(Math.abs(v[i]-v[i-1])<1e-9)return false;return true;};
+  const others=shuffle(nonInj).slice(0,3).map(g=>g());
+  const mk=c=>({t:'f(x) = '+c.t,v:{f:c.f}});
+  return mcm({prompt:'Which function is one-to-one, so that its inverse is also a function? Use the horizontal line test.',ok:mk(inj),bad:others.map(mk),
+    steps:[['A function is one-to-one when no horizontal line crosses its graph twice. Equivalent: different inputs never give the same output.',''],['The parabolas, absolute value graphs, and even powers fail because {{x}} and a mirror-image {{x}} give the same output. Only one function never repeats an output.',mk(inj).t]],
+    oracle:v=>isOne(v.f),meta:{kind:'oneToOne'}});
+},
+
+/* ---------- functions in context ---------- */
+modeling(level){
+  const kinds=level===1?['disc','ship']:level===2?['disc','temp','ship','rev']:['temp','rev','ripple','cost','disc'];
+  const kind=pick(kinds);
+  const term=x=>Math.abs(Math.round(x*100)/100-x)<1e-9;
+  if(kind==='disc'){
+    const p=pick([40,60,80,100,120,160,200]),pct=pick([10,20,25,30,40]),cp=pick([5,10,15,20]);
+    const mult=(100-pct)/100;
+    const final=Math.round(p*(100-pct))/100-cp;
+    const wrong2=[mult*(p-cp),p-pct-cp,p*(pct/100)-cp,p*mult+cp,p*mult].map(x=>Math.round(x*100)/100);
+    return mcm({prompt:`What is the final cost of a ${money0(p)} item? The store discount is applied first, then the coupon.`,
+      story:`A store takes ${pct}% off every item. The discount function is {{d(p) = ${mult}p}}. A coupon then takes ${money0(cp)} off the discounted price: {{c(p) = p - ${cp}}}.`,
+      ok:{t:money(final),v:final},bad:wrong2.filter(w=>w>=0&&term(w)).map(w=>({t:money(w),v:w})),
+      steps:[['The discount comes first, so the final cost is {{c(d('+p+'))}}. Find the inner value first.',`d(${p}) = ${mult} * ${p} = ${Math.round(p*(100-pct))/100}`],['Now apply the coupon to that price.',`c(${Math.round(p*(100-pct))/100}) = ${Math.round(p*(100-pct))/100} - ${cp} = ${final}`]],
+      oracle:v=>Math.abs(v-(Math.round(p*(100-pct))/100-cp))<1e-9,meta:{kind:'mDisc',p,pct,cp,mult}});
+  }
+  if(kind==='ship'){
+    const b0=pick([4,4.5,5,6]),r=pick([0.5,0.75,1,1.25,1.5]),m=pick([1,2,3]);
+    const cost=w=>w<=m?b0:b0+r*(w-m);
+    const stmt=`C(w) = sys{${b0}, 0 < w <= ${m} ;; ${b0} + ${r}(w - ${m}), w > ${m}}`;
+    const w1=m+rnd(2,6);
+    if(level===1){
+      const ans=cost(w1);const wrong=[b0+r*w1,b0,r*w1,b0+r*(w1-m)+r,b0+r*(w1-m)-r,b0*w1].map(x=>Math.round(x*100)/100);
+      return mcm({prompt:`A package weighs ${w1} pounds. What does it cost to ship?`,story:`A shipping company charges by weight {{w}} in pounds. The cost in dollars is given by the piecewise function below.`,stmt,
+        ok:{t:money(ans),v:ans},bad:wrong.filter(x=>x>0&&term(x)).map(x=>({t:money(x),v:x})),
+        steps:[[`{{w = ${w1}}} is greater than {{${m}}}, so use the second rule.`,`C(${w1}) = ${b0} + ${r}(${w1} - ${m})`],['Subtract inside the parentheses first, then multiply, then add.',`C(${w1}) = ${b0} + ${r}(${w1-m}) = ${ans}`]],
+        oracle:v=>Math.abs(v-cost(w1))<1e-9,meta:{kind:'mShip',b0,r,m,w:[w1]}});
+    }
+    const w2=pick([m,m-0.5>0?m:m,1]);
+    const ans=cost(w1)+cost(w2);
+    const wrong=[b0+r*w1+cost(w2),cost(w1)+cost(w2)-b0,2*cost(w1),cost(w1)+r*w2,b0*2+r*(w1-m)*2,cost(w1)].map(x=>Math.round(x*100)/100);
+    return mcm({prompt:`One package weighs ${w1} pounds and another weighs ${w2} pound${w2===1?'':'s'}. What is the total shipping cost?`,story:`A shipping company charges by weight {{w}} in pounds. The cost in dollars is given by the piecewise function below.`,stmt,
+      ok:{t:money(ans),v:ans},bad:wrong.filter(x=>x>0&&term(x)).map(x=>({t:money(x),v:x})),
+      steps:[[`Pick the rule for each weight. {{w = ${w1}}} is greater than {{${m}}}. {{w = ${w2}}} is at most {{${m}}}.`,`C(${w1}) = ${b0} + ${r}(${w1-m}) = ${cost(w1)}, C(${w2}) = ${cost(w2)}`],['Add the two costs.',`${cost(w1)} + ${cost(w2)} = ${ans}`]],
+      oracle:v=>Math.abs(v-(cost(w1)+cost(w2)))<1e-9,meta:{kind:'mShip',b0,r,m,w:[w1,w2]}});
+  }
+  if(kind==='temp'){
+    const C=pick([-10,0,5,10,15,20,25,30,35,40]),F=C*9/5+32;
+    if(F===32||C===0&&false)return null;
+    const wrong=[F*9/5+32,(F-32)*9/5,F-32,(F-32)/5,(F+32)*5/9,F*5/9-32,5*(F-32)/9+5,(F-32)*5].filter(x=>Number.isFinite(x)&&Math.abs(Math.round(x*10)/10-x)<1e-9).map(x=>Math.round(x*10)/10);
+    return mcm({prompt:`A thermometer reads ${F}°F. Use the inverse of {{F}} to find the temperature in degrees Celsius.`,story:`The function {{F(C) = [[9 ; 5]]C + 32}} converts a Celsius temperature {{C}} to Fahrenheit.`,
+      ok:{t:C+'@{°C}',v:C},bad:wrong.map(x=>({t:x+'@{°C}',v:x})),
+      steps:[['Find the inverse. Write {{F = [[9 ; 5]]C + 32}}, then solve for {{C}}.','C = [[5 ; 9]](F - 32)'],[`Substitute {{F = ${F}}}.`,`C = [[5 ; 9]](${F} - 32) = [[5 ; 9]](${F-32}) = ${C}`]],
+      oracle:v=>Math.abs(v*9/5+32-F)<1e-9,meta:{kind:'mTemp',F}});
+  }
+  if(kind==='rev'){
+    const n0=pick([200,240,300,400]),m=pick([5,8,10,12,15,20]),p=pick([6,8,10,12,15]);
+    const A=n0-m*p;if(A<=0||n0/m<p+3)return null;
+    const R_=p*A;
+    const wrong=[A,p+A,n0*p-m*p,p*n0-m,(n0-m)*p,p*A+p].map(x=>Math.round(x));
+    return mcm({prompt:`What revenue does the school expect if tickets cost ${money0(p)}?`,
+      story:`A school sells tickets at price {{p}} dollars. Expected attendance is {{A(p) = ${n0} - ${m}p}}, and revenue is {{R(p) = p * A(p)}}.`,
+      ok:{t:money0(R_),v:R_},bad:wrong.map(x=>({t:money0(x),v:x})),
+      steps:[[`Find the attendance at {{p = ${p}}}.`,`A(${p}) = ${n0} - ${m}(${p}) = ${A}`],['Revenue is price times attendance.',`R(${p}) = ${p} * ${A} = ${commas(R_)}`]],
+      oracle:v=>v===p*(n0-m*p),meta:{kind:'mRev',n0,m,p}});
+  }
+  if(kind==='ripple'){
+    const rate=pick([2,3,4,5]),t=pick([2,3,4,5]);
+    const coef=(rate*t)*(rate*t);
+    const wrong=[rate*t*t,rate*t,2*rate*t,rate*rate*t,coef+rate,(rate+t)*(rate+t)];
+    const ct=c=>({t:`${c}π ft^2`,v:c});
+    return mcm({prompt:`Find the area of the ripple after ${t} seconds. Give the exact value.`,
+      story:`A circular ripple spreads outward. After {{t}} seconds its radius is {{r(t) = ${rate}t}} feet. The area of a circle is {{A(r) = πr^2}}.`,
+      ok:ct(coef),bad:[...new Set(wrong)].filter(c=>c!==coef).map(ct),
+      steps:[['The area after {{t}} seconds is the composition {{A(r(t))}}. First find the radius.',`r(${t}) = ${rate} * ${t} = ${rate*t}`],['Use that radius in the area formula.',`A(${rate*t}) = π(${rate*t})^2 = ${coef}π ft^2`]],
+      oracle:v=>v===Math.round(Math.PI*(rate*t)*(rate*t)/Math.PI),meta:{kind:'mRipple',rate,t}});
+  }
+  /* cost: inverse in context */
+  const fee=pick([30,45,60,80]),rt=pick([8,10,12,15,20]),hrs=pick([4,5,6,8,10,12]);
+  const budget=fee+rt*hrs;
+  const wrong=[budget-fee,fee+rt*budget,hrs+1,hrs-1,budget-rt,hrs*2,budget];
+  return mcm({prompt:`A group has a budget of ${money0(budget)}. For how many hours can they book the studio? (Find {{C^{-1}(${budget})}}.)`,
+    story:`A studio charges a ${money0(fee)} fee plus ${money0(rt)} per hour. The total cost of {{h}} hours is {{C(h) = ${fee} + ${rt}h}}.`,
+    ok:numC(hrs),bad:intsOnly(wrong).filter(x=>x!==hrs&&x>0).map(numC),
+    steps:[['{{C^{-1}('+budget+')}} is the number of hours {{h}} with {{C(h) = '+budget+'}}.',`${fee} + ${rt}h = ${budget}`],['Subtract the fee, then divide by the hourly rate.',`${rt}h = ${budget-fee}, so h = ${hrs}`]],
+    oracle:v=>fee+rt*v===budget,meta:{kind:'mCost',fee,rt,budget}});
+}
+}};
+UNIT.errors=[];
+for(const k of Object.keys(UNIT.gens)){const g=UNIT.gens[k];UNIT.gens[k]=function(level){try{return g(level);}catch(e){UNIT.errors.push(k+' L'+level+': '+e.message);return null;}};}
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Team f','Team g'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Team g':'Team f'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'g':'f'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>
