@@ -156,6 +156,14 @@
 
   /* ---------- decorative art ---------- */
   var ART = {
+    linear:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="35" y="20" width="140" height="115" rx="6"/>' +
+      '<path class="s-thin" d="M 35 45 H 175 M 35 75 H 175 M 35 105 H 175 M 65 20 V 135 M 100 20 V 135 M 135 20 V 135"/>' +
+      '<path class="s" d="M 20 135 H 185 M 35 145 V 10"/>' +
+      '<path class="s" d="M 45 120 L 165 30"/>' +
+      '<circle class="f" cx="65" cy="105" r="6"/><circle class="f" cx="105" cy="75" r="6"/><circle class="f" cx="145" cy="45" r="6"/>' +
+      '</svg>',
     curve:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
       '<rect class="f-soft" x="100" y="20" width="80" height="110" rx="6"/>' +
@@ -173,7 +181,7 @@
       '<circle class="f" cx="100" cy="20" r="7"/><circle class="f" cx="30" cy="130" r="7"/><circle class="f" cx="170" cy="130" r="7"/>' +
       '</svg>'
   };
-  function artFor(c) { return ART[c.art] || ''; }
+  function artFor(c) { return ART[c.id === 'algebra' ? 'linear' : c.art] || ''; }
 
   var STAR =
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2 6.3 20.3l1.2-6.4L2.8 9.5l6.4-.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
