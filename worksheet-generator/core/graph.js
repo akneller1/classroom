@@ -103,7 +103,7 @@
         var bx = tip[0] - dir * ux * L, by = tip[1] - dir * uy * L;
         return '<polygon fill="#111" points="' + r2(tip[0]) + ',' + r2(tip[1]) + ' ' + r2(bx - uy * Wd) + ',' + r2(by + ux * Wd) + ' ' + r2(bx + uy * Wd) + ',' + r2(by - ux * Wd) + '"/>';
       }
-      o.push('<path class="gline" d="M' + r2(a[0]) + ' ' + r2(a[1]) + ' L' + r2(b[0]) + ' ' + r2(b[1]) + '" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/>');
+      o.push('<path class="gline" d="M' + r2(a[0]) + ' ' + r2(a[1]) + ' L' + r2(b[0]) + ' ' + r2(b[1]) + '" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"' + (ln.dashed ? ' stroke-dasharray="8 6"' : '') + '/>');
       if (!ln.dashed) { o.push(head(b, 1)); o.push(head(a, -1)); }
     });
     // points
