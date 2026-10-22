@@ -26,7 +26,7 @@
 
   function load() {
     var s = NS.defaultSettings();
-    s.lessons = unit.id === 'algebra1-linear-functions' ? JSON.parse(JSON.stringify(DEFAULT_LESSONS)) : { 'sys-substitution-easy': 3, 'sys-elimination-add': 3, 'sys-classify': 2 };
+    s.lessons = unit.id === 'algebra1-linear-functions' ? JSON.parse(JSON.stringify(DEFAULT_LESSONS)) : unit.id === 'algebra1-systems-of-equations' ? { 'sys-substitution-easy': 3, 'sys-elimination-add': 3, 'sys-classify': 2 } : (function(){var ids=unit.categories.reduce(function(a,c){return a.concat(c.lessons)},[]),o={};ids.slice(0,3).forEach(function(id){o[id]=3});return o;})();
     try {
       var raw = G.localStorage.getItem(STORE);
       if (raw) {
