@@ -38,9 +38,20 @@ reg('sys-substitution-standard',2,'Substitution: solve for a variable','substitu
 reg('sys-elimination-add',3,'Elimination by adding or subtracting','elimination','unique');
 reg('sys-elimination-multiply',4,'Elimination with multiplication','elimination','unique');
 reg('sys-classify',5,'One, none, or infinitely many solutions','classification',null);
-NS.registerLesson({id:'sys-word',unit:U,category:'applications',num:6,title:'Ticket sales word problems',instruction:'Write and solve a system of equations.',layout:'full',space:[1.1,2,2.7],generate:function(ctx){
-var r=ctx.rng,a=r.int(5,20),s=r.int(4,16),pa=r.int(8,15),ps=r.int(3,7),n=a+s,v=a*pa+s*ps;
-return {prompt:'Adult tickets cost '+pa+' dollars and student tickets cost '+ps+' dollars. A total of '+n+' tickets brought in '+v+' dollars. How many of each were sold?',answer:'Adults: '+a+', students: '+s,steps:['Let a represent adult tickets and s represent student tickets.',M('a+s='+n),M(pa+'a+'+ps+'s='+v),'The solution is '+M(T.pt(a,s))+'.'],key:'word|'+n+'|'+v+'|'+pa+'|'+ps,equiv:'word|'+a+'|'+s+'|'+pa+'|'+ps};
+NS.registerLesson({id:'sys-word',unit:U,category:'applications',num:6,title:'Systems of equations word problems',instruction:'Define variables, write a system, and solve.',layout:'full',space:[1.1,2,2.7],generate:function(ctx){
+ var r=ctx.rng,kind=r.int(0,4),a=r.int(5,18),b=r.int(4,16),p=r.int(8,16),q=r.int(2,7),n=a+b,v=p*a+q*b,prompt,what,unit1,unit2;
+ NS.gen.need(p!==q);
+ if(kind===0){prompt='At a school event, adult tickets cost $'+p+' and student tickets cost $'+q+'. A total of '+n+' tickets brought in $'+v+'. How many adult and student tickets were sold?';unit1='adult tickets';unit2='student tickets';}
+ if(kind===1){prompt='A school store sells hoodies for $'+p+' and stickers for $'+q+'. It sold '+n+' items for $'+v+'. How many hoodies and stickers were sold?';unit1='hoodies';unit2='stickers';}
+ if(kind===2){prompt='A theater sold '+n+' tickets. Reserved seats cost $'+p+' and general seats cost $'+q+'. The revenue was $'+v+'. How many tickets of each type were sold?';unit1='reserved tickets';unit2='general tickets';}
+ if(kind===3){prompt='A fundraiser sold '+n+' items: mugs for $'+p+' and keychains for $'+q+'. Sales totaled $'+v+'. How many of each item were sold?';unit1='mugs';unit2='keychains';}
+ if(kind===4){prompt='At a fair, meal vouchers cost $'+p+' and drink vouchers cost $'+q+'. A group bought '+n+' vouchers costing $'+v+'. How many of each voucher did they buy?';unit1='meal vouchers';unit2='drink vouchers';}
+ return {prompt:prompt,answer:a+' '+unit1+' and '+b+' '+unit2,
+ steps:['Let x be the number of '+unit1+' and y the number of '+unit2+'.',M('x+y='+n),M(p+'x+'+q+'y='+v),
+ 'Subtract '+M(q+'(x+y)='+q*n)+' from the revenue equation: '+M((p-q)+'x='+(v-q*n))+'.',
+ 'Thus '+M('x='+a)+' and '+M('y='+b)+'.',
+ 'Check: '+a+' + '+b+' = '+n+' and $'+(p*a)+' + $'+(q*b)+' = $'+v+'.'],
+ key:'word|'+kind+'|'+n+'|'+v+'|'+p+'|'+q,equiv:'word|'+kind+'|'+a+'|'+b+'|'+p+'|'+q};
 }});
 /* Graphing tasks: construct two distinct lines through a lattice-point solution. */
 NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve a system by graphing',instruction:'Graph both lines and identify their intersection.',layout:'row',space:[.2,.4,.8],figWidth:3,generate:function(ctx){
