@@ -43,12 +43,12 @@ case 'words':p='Write an inequality: a number x decreased by '+a+' is at least '
 case 'inclusive':p='Does '+M('x\\le '+a)+' include '+M('x='+a)+' in its solution set?';ans='Yes';steps=['The less-than-or-equal sign includes the endpoint.'];break;
 case 'solveAnd':p='Solve '+M((x-a+b)+'<t+'+b+'\\le '+(x+a+b))+'.';ans=M((x-a)+'<t\\le '+(x+a));steps=['Subtract '+b+' from all three parts.'];break;
 case 'solveOr':p='Solve '+M('t+'+b+'<'+(x-a+b)+'\\text{ or }t+'+b+'>'+(x+a+b))+'.';ans=M('t<'+(x-a)+'\\text{ or }t>'+(x+a));steps=['Subtract '+b+' from both inequalities.'];break;
-case 'absShift':p='Solve '+M('|x-'+x+'|+'+b+'\\le '+(a+b))+'.';ans=M((x-a)+'\\le x\\le '+(x+a));steps=['Subtract '+b+', then keep x within '+a+' units of '+x+'.'];break;
+case 'absShift':p='Solve '+M('|x'+signed(-x)+'|+'+b+'\\le '+(a+b))+'.';ans=M((x-a)+'\\le x\\le '+(x+a));steps=['Subtract '+b+', then keep x within '+a+' units of '+x+'.'];break;
 case 'lineType':p='For '+M('y\\ge '+a+'x-'+b)+', is the boundary solid or dashed?';ans='Solid';steps=['The equality bar includes the boundary line.'];break;
 case 'strict':p='Graph '+M('y>'+a+'x-'+b)+' on the coordinate plane.';ans='Dashed boundary, shade above';fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};steps=['Use a dashed line because the inequality is strict, and shade above.'];break;
 case 'horizontal':p='Graph '+M('y\\le '+b)+' on the coordinate plane.';ans='Solid horizontal line at y='+b+', shade below';fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};steps=['Draw the horizontal boundary at '+b+'; shade the region below.'];break;
 case 'pointNo':p='Does the point '+M('('+x+','+(a*x-b-1)+')')+' satisfy '+M('y\\ge '+a+'x-'+b)+'?';ans='No';steps=['The point is exactly one unit below the boundary.'];break;
-case 'readGraph':p='Write an inequality for the solid line shown, shading below it.';fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[{kind:'line',m:a,b:-b}],points:[]};ans=M('y\\le '+a+'x-'+b);steps=['Read the slope and y-intercept, then include the boundary because it is solid.'];break;
+case 'readGraph':p='The graphed line is a solid boundary. Write an inequality that includes the line and shades below it.';fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[{kind:'line',m:a,b:-b}],points:[]};ans=M('y\\le '+a+'x-'+b);steps=['Read the slope and y-intercept, then include the boundary because it is solid.'];break;
 case 'coeffPower':p='Simplify '+M(a+'x^'+b+'\\cdot '+c+'x^'+a)+'.';ans=M((a*c)+'x^{'+(a+b)+'}');steps=['Multiply coefficients and add exponents of like bases.'];break;
 case 'negativeValue':p='Evaluate '+M(a+'^{-2}')+'.';ans=M('\\frac{1}{'+(a*a)+'}');steps=['Use a reciprocal and square the base.'];break;
 case 'decayModel':p='A machine worth $'+a*100+' loses '+b+'% of its value each year. Write V(t).';ans=M('V(t)='+(a*100)+'(1-\\frac{'+b+'}{100})^t');steps=['Multiply starting value by the decay factor to the time exponent.'];break;
@@ -61,7 +61,7 @@ case 'nonmonic':p='Factor '+M((a*c)+'x^2+'+(a*b+c)+'x+'+b)+'.';ans=M('('+a+'x+1)
 case 'solveDifference':p='Solve '+M('x^2-'+(a*a)+'=0')+'.';ans=M('x=\\pm '+a);steps=['Factor as a difference of two squares and set each factor to zero.'];break;
 case 'maxMin':p='Does '+M('y=-'+a+'(x-'+x+')^2+'+b)+' have a maximum or minimum? Give the value.';ans='Maximum value '+b;steps=['Negative leading coefficient means the parabola opens downward.'];break;
 case 'yIntercept':p='Find the y-intercept of '+M('y='+a+'x^2+'+b+'x+'+c)+'.';ans=M('(0,'+c+')');steps=['Set x equal to zero.'];break;
-case 'complete':p='Solve '+M('(x-'+x+')^2='+a*a)+'.';ans=M('x='+(x-a)+'\\text{ or }x='+(x+a));steps=['Take positive and negative square roots, then isolate x.'];break;
+case 'complete':p='Solve '+M('(x'+signed(-x)+')^2='+a*a)+'.';ans=M('x='+(x-a)+'\\text{ or }x='+(x+a));steps=['Take positive and negative square roots, then isolate x.'];break;
 case 'numberRoots':p='How many real solutions does '+M('x^2+'+b+'x+'+(b*b+a)+'=0')+' have?';ans='No real solutions';steps=['The discriminant is '+(b*b-4*(b*b+a))+', which is negative.'];break;
 case 'tableValue':p='For '+M('f(x)='+a+'x^2-'+b)+' find '+M('f('+x+')')+'.';ans=M(String(a*x*x-b));steps=['Square the input before multiplying by '+a+'.'];break;
 case 'matchRoots':p='Write a monic quadratic with roots '+M(x)+' and '+M(-a)+', in factored form.';ans=M('(x'+signed(-x)+')(x+'+a+')');steps=['A root r contributes a factor (x-r).'];break;
