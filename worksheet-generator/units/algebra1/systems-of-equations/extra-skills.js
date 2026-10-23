@@ -46,7 +46,7 @@ if(type==='coins'){var total=a+b,value=5*a+10*b;result('A jar has '+total+' nick
 if(type==='numbers'){result('Two numbers have sum '+(a+b)+' and difference '+(a-b)+'. Find both numbers.',a+' and '+b,['Let x and y represent the numbers.',M('x+y='+(a+b)),M('x-y='+(a-b))]);}
 if(type==='plans'){var t=r.int(2,7),base1=10+a*t,base2=10,rate1=3,rate2=3+a;result('Plan A costs $'+base1+' plus $'+rate1+' per month. Plan B costs $'+base2+' plus $'+rate2+' per month. After how many months are costs equal?',t+' months',[M(base1+'+3t='+base2+'+'+(3+a)+'t')]);}
 if(type==='mixture'){var n=a+b,amount=10*a+30*b;result('Combine '+n+' liters of 10% and 30% salt solutions. The resulting mixture contains exactly '+(amount/100)+' liters of salt. How many liters of each solution were used?',a+' L at 10% and '+b+' L at 30%',[M('x+y='+n),M('10x+30y='+amount)]);}
-if(type==='distance'){var h=r.int(2,5),speed1=a*10,speed2=b*10;result('Two cyclists leave in opposite directions at '+speed1+' km/h and '+speed2+' km/h. They are '+((speed1+speed2)*h)+' km apart. How long have they ridden?',h+' hours',[M('('+speed1+'+'+speed2+')t='+((speed1+speed2)*h))]);}
+if(type==='distance'){var speed1=a*10,speed2=b*10,trip1=2*speed1+3*speed2,trip2=3*speed1+speed2;result('A vehicle uses two constant travel speeds. On one trip it travels 2 hours at the first speed and 3 hours at the second, covering '+trip1+' km. On another it travels 3 hours at the first speed and 1 hour at the second, covering '+trip2+' km. Find both speeds.',speed1+' km/h and '+speed2+' km/h',['Let x and y be the two speeds (km/h).',M('2x+3y='+trip1),M('3x+y='+trip2),'Solve the two-equation system.']);}
 }
 return {prompt:p,answer:ans,steps:steps,fig:fig,figWhere:fig?'right':'none',key:type+'|'+p,equiv:type+'|'+p};
 };}
