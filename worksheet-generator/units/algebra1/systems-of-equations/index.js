@@ -30,9 +30,9 @@ function steps(s,method){
 function skillSystem(ctx,id,mode){
  var r=ctx.rng,x=r.int(-5,5),y=r.int(-5,5),a,b,c,d;
  if(id==='sys-substitution-easy'){a=1;b=0;c=r.int(2,5);d=r.int(1,5);Ncheck(d); }
- else if(id==='sys-substitution-standard'){a=r.int(2,5);b=r.int(1,5);c=r.int(1,5);d=r.int(1,5);Ncheck(a*d-b*c);}
+ else if(id==='sys-substitution-standard'){a=r.int(2,5);b=r.int(2,5);c=r.int(2,5);d=r.int(2,5);Ncheck(a*d-b*c);}
  else if(id==='sys-elimination-add'){a=r.int(2,5);b=r.int(1,5);c=-a;d=r.int(1,5);Ncheck(b+d);}
- else if(id==='sys-elimination-multiply'){a=r.int(2,4);b=r.int(1,5);c=a*2;d=r.int(1,5);Ncheck(2*b-d);}
+ else if(id==='sys-elimination-multiply'){a=r.int(2,4);b=r.int(1,5);c=a*2;d=r.int(1,5);Ncheck(2*b-d);Ncheck(d-b);}
  else return seed(ctx,mode);
  var sys={a:a,b:b,c:c,d:d,e:a*x+b*y,f:c*x+d*y,x:x,y:y,mode:'unique'};
  verify(sys);return sys;
@@ -40,7 +40,7 @@ function skillSystem(ctx,id,mode){
 function Ncheck(value){NS.gen.need(value!==0);}
 function reg(id,num,title,method,mode,layout){
  NS.registerLesson({id:id,unit:U,category:method,num:num,title:title,instruction:'Solve each system. Show your work.',layout:layout||'half',space:[1,1.7,2.5],generate:function(ctx){
- var s=skillSystem(ctx,id,mode||(ctx.rng.chance(.08)?pick(ctx.rng,['none','infinite']):'unique'));verify(s);
+ var s=skillSystem(ctx,id,mode||(id==='sys-classify'?pick(ctx.rng,['unique','none','infinite']):'unique'));verify(s);
  return {prompt:'Solve the system '+(method==='substitution'?'using substitution':method==='elimination'?'using elimination':'and classify the solution')+':'+question(s),answer:s.mode==='unique'?M(T.pt(s.x,s.y)):s.mode==='none'?'No solution':'Infinitely many solutions',steps:(id==='sys-elimination-add'?['Add the equations to eliminate x.',M((s.b+s.d)+'y='+(s.e+s.f)),M('y='+s.y),'Substitute to find '+M('x='+s.x)]:id==='sys-elimination-multiply'?['Multiply the first equation by -2, then add the second equation.',M((s.d-2*s.b)+'y='+(s.f-2*s.e)),M('y='+s.y),'Substitute to find '+M('x='+s.x)]:id==='sys-substitution-easy'?['The first equation already gives '+M('x='+s.x)+'.','Substitute into the second equation: '+M(s.c+'('+s.x+')+'+s.d+'y='+s.f),M('y='+s.y)]:steps(s,method)),key:id+'|'+[s.a,s.b,s.e,s.c,s.d,s.f].join('|'),equiv:id+'|'+s.x+'|'+s.y+'|'+s.mode};
  }});
 }
