@@ -50,8 +50,8 @@ function verifySystems(p,id){
   if(['sys-substitution-easy','sys-substitution-standard','sys-elimination-add','sys-elimination-multiply'].includes(id)){
     const e1=coefficients(s[0]),e2=coefficients(s[1]);
     assert.notEqual(e1.a*e2.b-e2.a*e1.b,0,'System must have unique solution');
-    if(id==='sys-substitution-easy'){assert.equal(Math.abs(e1.a),1);assert.equal(e1.b,0);}
-    if(id==='sys-substitution-standard')for(const v of [e1.a,e1.b,e2.a,e2.b])assert(Math.abs(v)>1,'General substitution has an easy isolated variable');
+    if(id==='sys-substitution-easy')assert(/^y=/.test(s[0]),'Easy substitution must isolate y');
+    if(id==='sys-substitution-standard')assert(/^x=/.test(s[0]),'Standard substitution must isolate x');
     if(id==='sys-elimination-add')assert(e1.a+e2.a===0||e1.b+e2.b===0||e1.a===e2.a||e1.b===e2.b,'Adding/subtracting cannot immediately eliminate either variable');
     if(id==='sys-elimination-multiply'){assert.equal(e2.a,2*e1.a);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b),'Multiplication example also has a direct elimination shortcut');}
     const tuple=p.answer.match(/⟨\((-?\d+),\\,(-?\d+)\)⟩/);
