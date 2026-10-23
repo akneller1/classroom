@@ -53,18 +53,18 @@ function verifySystems(p,id){
     if(id==='sys-substitution-easy')assert(/^y=/.test(s[0]),'Easy substitution must isolate y');
     if(id==='sys-substitution-standard')assert(/^x=/.test(s[0]),'Standard substitution must isolate x');
     if(id==='sys-elimination-add')assert(e1.a+e2.a===0||e1.b+e2.b===0||e1.a===e2.a||e1.b===e2.b,'Adding/subtracting cannot immediately eliminate either variable');
-    if(id==='sys-elimination-multiply'){assert.equal(e2.a,2*e1.a);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b),'Multiplication example also has a direct elimination shortcut');}
+    if(id==='sys-elimination-multiply'){assert(Math.abs(e2.a-2*e1.a)<1e-9,'Multiplication must align x coefficients');assert.notEqual(Math.abs(e1.b),Math.abs(e2.b),'Multiplication example also has a direct elimination shortcut');}
     const tuple=p.answer.match(/⟨\((-?\d+),\\,(-?\d+)\)⟩/);
     assert(tuple,'Missing ordered-pair answer');
     const x=+tuple[1],y=+tuple[2];
-    for(const e of [e1,e2])assert.equal(e.a*x+e.b*y,e.c,'Wrong ordered-pair answer');
+    for(const e of [e1,e2])assert(Math.abs(e.a*x+e.b*y-e.c)<1e-9,'Wrong ordered-pair answer');
   }
   if(['sys-extra-add','sys-extra-subtract','sys-extra-scale','sys-extra-bothScale'].includes(id)){
     const [e1,e2]=s.slice(0,2).map(coefficients);
-    if(id==='sys-extra-add')assert.equal(e1.a+e2.a,0);
-    if(id==='sys-extra-subtract')assert.equal(e1.a,e2.a);
+    if(id==='sys-extra-add')assert(Math.abs(e1.a+e2.a)<1e-9,'x coefficients must cancel when added');
+    if(id==='sys-extra-subtract')assert(Math.abs(e1.a-e2.a)<1e-9,'x coefficients must cancel when subtracted');
     if(id==='sys-extra-scale'){assert.equal(e2.a,2*e1.a);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b));}
-    if(id==='sys-extra-bothScale'){assert.equal(e1.a,2);assert.equal(e2.a,3);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b));}
+    if(id==='sys-extra-bothScale'){assert(Math.abs(e1.a-2)<1e-9);assert(Math.abs(e2.a-3)<1e-9);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b));}
   }
 }
 let total=0,skills=0;
