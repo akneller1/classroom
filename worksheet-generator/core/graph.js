@@ -92,6 +92,12 @@
       var fillY = sh.above ? PAD.t : PAD.t + H;
       o.push('<polygon points="' + X(xmin) + ',' + Y(yy1) + ' ' + X(xmax) + ',' + Y(yy2) + ' ' + X(xmax) + ',' + fillY + ' ' + X(xmin) + ',' + fillY + '" fill="#b2b9c2" fill-opacity="0.24"/>');
     }
+    if (spec.shade && spec.shade.x !== undefined) {
+      var boundX = Math.max(xmin, Math.min(xmax, Number(spec.shade.x)));
+      var leftEdge = spec.shade.right ? X(boundX) : X(xmin);
+      var rightEdge = spec.shade.right ? X(xmax) : X(boundX);
+      o.push('<rect x="' + leftEdge + '" y="' + PAD.t + '" width="' + Math.max(0,rightEdge-leftEdge) + '" height="' + H + '" fill="#b2b9c2" fill-opacity="0.24"/>');
+    }
     // lines
     (spec.lines || []).forEach(function (ln) {
       var seg = clipLine(ln, { xmin: xmin, xmax: xmax, ymin: ymin, ymax: ymax });
