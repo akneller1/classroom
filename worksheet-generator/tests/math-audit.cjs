@@ -87,6 +87,16 @@ for(const name of units){
         assert(Math.abs(residual(solution+1))>1e-8,'Proportion is an identity, not a unique equation');
       }
 
+      if(id==='a1-polynomials-factoring-extended-7'){
+        const lhs=mathSnippets(p.prompt)[0],rhs=mathSnippets(p.answer)[0];
+        const a=/^(\d+)x\^2\+(\d+)x$/.exec(lhs);
+        const b=/^(\d+)x\((\d+)x\+(\d+)\)$/.exec(rhs);
+        assert(a&&b,'Unexpected GCF problem format');
+        const gcd=(x,y)=>y?gcd(y,x%y):x;
+        assert.equal(+b[1],gcd(+a[1],+a[2]),'GCF not fully factored');
+        assert.equal(+b[1]* +b[2],+a[1]);
+        assert.equal(+b[1]* +b[3],+a[2]);
+      }
       if(name==='graphing-inequalities'){
         const n=/^a1-graphing-inequalities-extended-(\d+)$/.exec(id);
         if(n&&+n[1]<=5){
