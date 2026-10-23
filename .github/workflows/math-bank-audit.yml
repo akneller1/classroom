@@ -1,0 +1,21 @@
+name: Worksheet math bank audit
+on:
+  push:
+    paths:
+      - 'worksheet-generator/**'
+      - '.github/workflows/math-bank-audit.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/**'
+      - '.github/workflows/math-bank-audit.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check all worksheet generators
+        run: node worksheet-generator/tests/math-audit.cjs
