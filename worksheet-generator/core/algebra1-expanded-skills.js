@@ -61,7 +61,7 @@ case 'nonmonic':p='Factor '+M((a*c)+'x^2+'+(a*b+c)+'x+'+b)+'.';ans=M('('+a+'x+1)
 case 'solveDifference':p='Solve '+M('x^2-'+(a*a)+'=0')+'.';ans=M('x=\\pm '+a);steps=['Factor as a difference of two squares and set each factor to zero.'];break;
 case 'maxMin':p='Does '+M('y=-'+a+'(x-'+x+')^2+'+b)+' have a maximum or minimum? Give the value.';ans='Maximum value '+b;steps=['Negative leading coefficient means the parabola opens downward.'];break;
 case 'yIntercept':p='Find the y-intercept of '+M('y='+a+'x^2+'+b+'x+'+c)+'.';ans=M('(0,'+c+')');steps=['Set x equal to zero.'];break;
-case 'complete':p='Solve '+M('(x'+signed(-x)+')^2='+a*a)+'.';ans=M('x='+(x-a)+'\\text{ or }x='+(x+a));steps=['Take positive and negative square roots, then isolate x.'];break;
+case 'complete':N.gen.need(x!==0);p='Solve by completing the square: '+M('x^2'+signed(-2*x)+'x='+(a*a-x*x))+'.';ans=M('x='+(x-a)+'\\text{ or }x='+(x+a));steps=['Add '+(x*x)+' to both sides to form a perfect square.',M('(x'+signed(-x)+')^2='+(a*a)),'Take both square roots and isolate x.'];break;
 case 'numberRoots':p='How many real solutions does '+M('x^2+'+b+'x+'+(b*b+a)+'=0')+' have?';ans='No real solutions';steps=['The discriminant is '+(b*b-4*(b*b+a))+', which is negative.'];break;
 case 'tableValue':p='For '+M('f(x)='+a+'x^2-'+b)+' find '+M('f('+x+')')+'.';ans=M(String(a*x*x-b));steps=['Square the input before multiplying by '+a+'.'];break;
 case 'matchRoots':p='Write a monic quadratic with roots '+M(x)+' and '+M(-a)+', in factored form.';ans=M('(x'+signed(-x)+')(x+'+a+')');steps=['A root r contributes a factor (x-r).'];break;
