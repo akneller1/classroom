@@ -334,3 +334,24 @@ a.unit:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sha
 .browse-pagination { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin-top: 2rem; }
 @media (max-width: 900px) { .browse-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 540px) { .browse-filters { grid-template-columns: minmax(0, 1fr); } }
+
+/* Persistent navigation and quieter resource cards */
+.site-header { position: sticky; top: 0; z-index: 15; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 2px 8px #0000000d; }
+.site-header .bar { padding-block: .6rem; }
+.search { flex: 1 1 19rem; max-width: 30rem; }
+.search input { width: 100%; }
+html { scroll-padding-top: 12rem; }
+.unit-generator { margin-top: 1.25rem; display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; }
+.unit-generator .btn { background: var(--card); color: var(--ink); }
+.unit-generator p { font-size: 1rem; }
+.card .save { background: transparent; color: var(--ink-soft); border: 1px solid var(--line); box-shadow: none; font-size: .9rem; }
+.card .save[aria-pressed="true"] { color: var(--ink); background: var(--wash); }
+.clear-search { margin-bottom: 1rem; }
+@media (max-width: 700px) {
+  .site-header .bar { gap: .4rem; }
+  .site-header .brand { font-size: 1.1rem; }
+  .site-header .brand svg { width: 1.5rem; height: 1.5rem; }
+  .main-nav { flex-wrap: nowrap; width: 100%; overflow-x: auto; }
+  .main-nav a { flex: 0 0 auto; font-size: .9rem; padding: .25rem .6rem; }
+  .search { flex-basis: 100%; max-width: none; }
+}

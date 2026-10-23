@@ -211,6 +211,14 @@
 
   function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
 
+  function actionLabel(a) {
+    var format = activityFormat(a);
+    if (format === 'worksheet-generator') return 'Create worksheet';
+    if (format === 'cheat-sheets') return 'View study guide';
+    if (format === 'flashcards') return 'Study flashcards';
+    if (/\.pdf$/i.test(a.path)) return 'Open PDF';
+    return toArr(a.type).indexOf('Game') >= 0 ? 'Play' : 'Open activity';
+  }
   function cardHtml(it, showWhere, compact) {
     var a = it.a;
     var tags = [];
@@ -222,12 +230,10 @@
         (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') + '</a>' +
       '<div class="card-body">' +
         (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(it.u.name) + '</p>' : '') +
-        (tags.length ? '<ul class="tags">' + tags.join('') + '</ul>' : '') +
         '<h3><a href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener">' + esc(a.title) +
           '<span class="sr"> (opens in a new tab)</span></a></h3>' +
-        '<p class="desc">' + esc(compact ? shortDescription(a) : (a.description || '')) + '</p>' +
-        (!compact && topics.length ? '<p class="topics">' + esc(topics.join(', ')) + '</p>' : '') +
-        '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">Open activity</a>' +
+        '<p class="desc">' + esc(shortDescription(a)) + '</p>' +
+        '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" >' + esc(actionLabel(a)) + '<span class="sr"> (opens in a new tab)</span></a>' +
           saveBtnHtml(a.path) + '</div>' +
       '</div></li>';
   }
@@ -264,7 +270,7 @@
     if (!shown.length) {
       return '<div class="empty"><h2>No matches</h2><p>No activities fit these filters. Choose All to see everything here.</p></div>';
     }
-    return '<ul class="cards">' + shown.map(function (it) { return cardHtml(it, showWhere); }).join('') + '</ul>';
+    return '<ul class="cards grouped-cards">' + shown.map(function (it) { return cardHtml(it, showWhere); }).join('') + '</ul>';
   }
 
   /* ---------- views ---------- */
@@ -342,10 +348,12 @@
 
   function unitView(c, u) {
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
+    var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];
     var inner =
       crumbs([['Home', '#'], [c.name, href(courseToken(c))], [u.name, null]]) +
       '<h1 tabindex="-1">' + esc(u.name) + '</h1>' +
-      '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>';
+      '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>' +
+      (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '" target="_blank" rel="noopener">Create a worksheet<span class="sr"> (opens in a new tab)</span></a><p>Choose skills and customize practice for this unit.</p></div>' : '');
     return {
       title: u.name + ', ' + c.name,
       html: bandHtml(c, inner) +
@@ -445,20 +453,33 @@
     };
   }
 
+
+  function searchWords(text) {
+    return String(text || '').toLowerCase().replace(/flash\s+cards/g, 'flashcards')
+      .replace(/connect\s*(?:four|4)/g, 'connect4').replace(/algebra\s*1/g, 'algebra1')
+      .replace(/algebra\s*2/g, 'algebra2').replace(/[^a-z0-9]+/g, ' ').trim();
+  }
   function searchView(text) {
-    var terms = text.toLowerCase().split(/\s+/).filter(Boolean);
+    var terms = searchWords(text).split(/\s+/).filter(Boolean);
     var items = everything().filter(function (it) {
-      var hay = [it.a.title, it.a.description, it.u.name, it.c.name]
-        .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' ').toLowerCase();
-      return terms.every(function (t) { return hay.indexOf(t) >= 0; });
+      var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === activityFormat(it.a); })[0];
+      var hay = searchWords([it.a.title, it.a.description, it.u.name, it.c.name, format ? format.name : '']
+        .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' '));
+      return terms.every(function (term) { return hay.indexOf(term) >= 0; });
     });
-    var inner = '<h1 tabindex="-1">Results for “' + esc(text) + '”</h1><p class="band-meta">' + acts(items.length) + '</p>';
+    items.sort(function (a, b) {
+      function score(it) { var title = searchWords(it.a.title); return terms.filter(function (t) { return title.indexOf(t) >= 0; }).length; }
+      return score(b) - score(a);
+    });
+    var inner = crumbs([['Home', '#'], ['Search', null]]) +
+      '<h1 tabindex="-1">Results for “' + esc(text) + '”</h1><p class="band-meta" role="status">' +
+      acts(applyFilters(items).length) + '</p>';
     return {
       title: 'Search: ' + text,
       html: bandHtml(null, inner) +
-        '<section class="section"><div class="wrap">' +
-        (items.length ? chipsHtml(items) + cardsHtml(items, true)
-                      : '<div class="empty"><h2>No matches</h2><p>Nothing matches “' + esc(text) + '”. Try a topic such as slope or inequalities, or <a href="#">browse by course</a>.</p></div>') +
+        '<section class="section"><div class="wrap"><button class="btn clear-search" type="button" id="clear-search">Clear search</button>' +
+        (items.length ? chipsHtml(items) + cardsHtml(items, true) :
+          '<div class="empty"><h2>No matches</h2><p>Try a topic such as slope, an activity type such as flashcards, or a subject such as Algebra 1.</p><p><a href="#activities">Browse with subject, unit, and activity filters</a></p></div>') +
         '</div></section>'
     };
   }
@@ -557,6 +578,7 @@
   });
 
   document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('#clear-search')) { go(token); q.focus(); return; }
     if (e.target.closest && e.target.closest('#browse-clear')) {
       go('activities');
       var subject = document.getElementById('browse-subject');
