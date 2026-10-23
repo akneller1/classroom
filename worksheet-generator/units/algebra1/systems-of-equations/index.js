@@ -29,7 +29,7 @@ function steps(s,method){
 }
 function skillSystem(ctx,id,mode){
  var r=ctx.rng,x=r.int(-5,5),y=r.int(-5,5),a,b,c,d;
- if(id==='sys-substitution-easy'){a=1;b=r.int(1,4);c=r.int(2,5);d=r.int(1,5);Ncheck(a*d-b*c); }
+ if(id==='sys-substitution-easy'){a=1;b=0;c=r.int(2,5);d=r.int(1,5);Ncheck(d); }
  else if(id==='sys-substitution-standard'){a=r.int(2,5);b=r.int(1,5);c=r.int(1,5);d=r.int(1,5);Ncheck(a*d-b*c);}
  else if(id==='sys-elimination-add'){a=r.int(2,5);b=r.int(1,5);c=-a;d=r.int(1,5);Ncheck(b+d);}
  else if(id==='sys-elimination-multiply'){a=r.int(2,4);b=r.int(1,5);c=a*2;d=r.int(1,5);Ncheck(2*b-d);}
