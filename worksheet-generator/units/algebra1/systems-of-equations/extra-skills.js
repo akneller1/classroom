@@ -23,8 +23,8 @@ else result('Solve by substitution: '+renderPair(a,1,a*x+y,1,-1,x-y),M(T.pt(x,y)
 else if(type==='add'||type==='subtract'||type==='scale'||type==='bothScale'){
 if(type==='add')result('Solve by elimination: '+renderPair(a,b,a*x+b*y,-a,c,-a*x+c*y),M(T.pt(x,y)),['Add the two equations to eliminate x.','Solve for y, then back-substitute.']);
 if(type==='subtract')result('Solve by elimination: '+renderPair(a,b,a*x+b*y,a,-c,a*x-c*y),M(T.pt(x,y)),['Subtract the equations to eliminate x.','Solve for y, then back-substitute.']);
-if(type==='scale')result('Solve by elimination: '+renderPair(a,b,a*x+b*y,2*a,-c,2*a*x-c*y),M(T.pt(x,y)),['Multiply the first equation by -2, then add.','Solve and back-substitute.']);
-if(type==='bothScale')result('Solve by elimination: '+renderPair(2,b,2*x+b*y,3,-c,3*x-c*y),M(T.pt(x,y)),['Multiply the first equation by 3 and the second by -2, then add.','Solve and back-substitute.']);
+if(type==='scale'){N.gen.need(b!==c);result('Solve by elimination: '+renderPair(a,b,a*x+b*y,2*a,-c,2*a*x-c*y),M(T.pt(x,y)),['Multiply the first equation by -2, then add.','Solve and back-substitute.']);}
+if(type==='bothScale'){N.gen.need(b!==c);result('Solve by elimination: '+renderPair(2,b,2*x+b*y,3,-c,3*x-c*y),M(T.pt(x,y)),['Multiply the first equation by 3 and the second by -2, then add.','Solve and back-substitute.']);}
 }
 else if(['read','parallel','same','lineEq'].indexOf(type)>=0){
 layout='row';
