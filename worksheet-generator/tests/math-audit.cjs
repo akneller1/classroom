@@ -35,8 +35,8 @@ function load(name){
 }
 function mathSnippets(prompt){return [...prompt.matchAll(/⟨([^⟩]*)⟩/g)].map(m=>m[1]);}
 function evaluate(expr,x,y){
-  const converted=expr.replace(/\\,/g,'').replace(/(\d)([xy])/g,'$1*$2').replace(/\s/g,'');
-  assert(/^[xy0-9+*().\-]+$/.test(converted),'Unsupported linear equation '+expr);
+  const converted=expr.replace(/\\frac\{([^{}]+)\}\{([^{}]+)\}/g,'(($1)/($2))').replace(/\\,/g,'').replace(/(\d)([xy])/g,'$1*$2').replace(/\s/g,'');
+  assert(/^[xy0-9+*/().\-]+$/.test(converted),'Unsupported linear equation '+expr);
   return new Function('x','y','return '+converted)(x,y);
 }
 function coefficients(tex){
@@ -59,6 +59,13 @@ function verifySystems(p,id){
     const x=+tuple[1],y=+tuple[2];
     for(const e of [e1,e2])assert.equal(e.a*x+e.b*y,e.c,'Wrong ordered-pair answer');
   }
+  if(['sys-extra-add','sys-extra-subtract','sys-extra-scale','sys-extra-bothScale'].includes(id)){
+    const [e1,e2]=s.slice(0,2).map(coefficients);
+    if(id==='sys-extra-add')assert.equal(e1.a+e2.a,0);
+    if(id==='sys-extra-subtract')assert.equal(e1.a,e2.a);
+    if(id==='sys-extra-scale'){assert.equal(e2.a,2*e1.a);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b));}
+    if(id==='sys-extra-bothScale'){assert.equal(e1.a,2);assert.equal(e2.a,3);assert.notEqual(Math.abs(e1.b),Math.abs(e2.b));}
+  }
 }
 let total=0,skills=0;
 for(const name of units){
@@ -71,6 +78,15 @@ for(const name of units){
       if(p.fig)assert(NS.graph(p.fig).includes('<svg'),'Broken student figure '+id);
       if(p.answerFig)assert(NS.graph(p.answerFig).includes('<svg'),'Broken answer figure '+id);
       if(name==='systems-of-equations')verifySystems(p,id);
+      if(name==='expressions-equations'&&['a1-expressions-equations-proportion','a1-expressions-equations-fractionEq'].includes(id)){
+        const question=mathSnippets(p.prompt)[0],answer=mathSnippets(p.answer)[0];
+        const eq=question.split('='),solution=Number(answer.replace('x=',''));
+        assert.equal(eq.length,2);
+        const residual=x=>evaluate(eq[0],x,0)-evaluate(eq[1],x,0);
+        assert(Math.abs(residual(solution))<1e-8,'Proportion answer is wrong');
+        assert(Math.abs(residual(solution+1))>1e-8,'Proportion is an identity, not a unique equation');
+      }
+
       if(name==='graphing-inequalities'){
         const n=/^a1-graphing-inequalities-extended-(\d+)$/.exec(id);
         if(n&&+n[1]<=5){
