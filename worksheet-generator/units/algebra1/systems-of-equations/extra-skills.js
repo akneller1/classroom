@@ -35,7 +35,7 @@ if(type==='same'){result('The graph shows two equations that coincide. How many 
 if(type==='lineEq'){result('Find the equation of the graphed line with y-intercept '+M(String(k1))+'.',M(T.eqSI(m1,k1)),['Read the slope from the grid and use the given intercept.']);fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[line(m1,k1)],points:[]};}
 }
 else if(['check','inconsistent','dependent'].indexOf(type)>=0){
-if(type==='check'){result('Does '+M(T.pt(x,y))+' satisfy both equations? '+renderPair(a,b,a*x+b*y,a,-b,a*x-b*y),'Yes',['Substitution gives true statements in both equations.']);}
+if(type==='check'){var candidateX=r.chance(.5)?x:x+1;var isSolution=candidateX===x;result('Does '+M(T.pt(candidateX,y))+' satisfy both equations? '+renderPair(a,b,a*x+b*y,a,-b,a*x-b*y),isSolution?'Yes':'No',[isSolution?'Substitution gives true statements in both equations.':'Substitute the proposed x-value into both equations; at least one equality is false.']);}
 if(type==='inconsistent'){result('Classify this system: '+renderPair(a,b,a*x+b*y,2*a,2*b,2*(a*x+b*y)+c),'No solution',['The coefficients are proportional but the constants are not.']);}
 if(type==='dependent'){result('Classify this system: '+renderPair(a,b,a*x+b*y,2*a,2*b,2*(a*x+b*y)),'Infinitely many solutions',['One equation is a multiple of the other.']);}
 }
