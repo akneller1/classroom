@@ -31,11 +31,11 @@ case 10:p='Does '+M('x='+(x+1))+' satisfy '+M('x>'+x)+'?';ans='Yes';break;
 case 11:p='Admission costs $'+a+' per person. You have at most $'+(a*b)+'. Write an inequality for the number of people n.';ans=M(a+'n\\le '+(a*b));break;}
 else if(short==='graphing-inequalities'){var strict=[0,1,8,10].indexOf(i)>=0,less=[1,3,7,9].indexOf(i)>=0,vertical=i===5,horizontal=i===4,kind=vertical?'vline':'line',ls=vertical?{kind:'vline',x:bb,dashed:strict}:{kind:'line',m:horizontal?0:m,b:bb,dashed:strict};
 fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[ls],points:[],shade:vertical?undefined:{m:horizontal?0:m,b:bb,above:!less}};
-if(i<=5){p='Graph '+M((vertical?'x': 'y')+(strict?(less?'<':'>'):(less?'\\le':'\\ge'))+(vertical?bb:(horizontal?bb:m+'x'+sg(bb))))+'.';fig.lines=[];ans=(strict?'Dashed':'Solid')+' boundary; shade '+(vertical?'right':less?'below':'above');}
-else if(i===6||i===7){p='The graphed boundary is '+M('y='+m+'x'+sg(bb))+'. Should the solution for '+M('y'+(i===6?'>':'<')+m+'x'+sg(bb))+' be shaded above or below?';ans=i===6?'Above':'Below';}
+if(i<=5){fig.shade=undefined;p='Graph '+M((vertical?'x': 'y')+(strict?(less?'<':'>'):(less?'\\le':'\\ge'))+(vertical?bb:(horizontal?bb:m+'x'+sg(bb))))+'.';fig.lines=[];ans=(strict?'Dashed':'Solid')+' boundary; shade '+(vertical?'right':less?'below':'above');}
+else if(i===6||i===7){fig.shade=undefined;p='The graphed boundary is '+M('y='+m+'x'+sg(bb))+'. Should the solution for '+M('y'+(i===6?'>':'<')+m+'x'+sg(bb))+' be shaded above or below?';ans=i===6?'Above':'Below';}
 else if(i===8||i===9){fig.lines[0].dashed=i===8;p='Write the inequality for this graphed boundary and the shaded region.';ans=M('y'+(i===8?'>':'\\le')+m+'x'+sg(bb));fig.shade.above=i===8;}
 else if(i===10){p='Does '+M('(0,'+(bb+2)+')')+' satisfy the inequality represented by the graph?';ans='Yes';fig.shade.above=true;}
-else {p='Does '+M('y='+m+'x'+sg(bb))+' represent a solid or dashed boundary for '+M('y>'+m+'x'+sg(bb))+'?';ans='Dashed';}
+else {fig.shade=undefined;p='Does '+M('y='+m+'x'+sg(bb))+' represent a solid or dashed boundary for '+M('y>'+m+'x'+sg(bb))+'?';ans='Dashed';}
 }
 else if(short==='exponents-exponential-functions')switch(i){
 case 0:p='Simplify '+M('x^'+a+'\\cdot x^'+b);ans=M('x^{'+(a+b)+'}');break;
@@ -76,7 +76,7 @@ case 8:{var d=b*b-4*a*c;p='Find the discriminant of '+M(a+'x^2+'+b+'x+'+c+'=0');
 case 9:p='How many real solutions does '+M('x^2+'+b+'x+'+(b*b+a)+'=0')+' have?';ans='No real solutions';break;
 case 10:p='A projectile reaches height '+b+' meters at the vertex of '+M('h(t)=-'+a+'(t-'+c+')^2+'+b)+'. What is the maximum height?';ans=b+' meters';break;
 case 11:p='A profit model is '+M('P(x)=(x-'+a+')(x+'+b+')')+'. At which positive x is break-even?';ans=M('x='+a);break;}
-steps=['Correct answer: '+ans];key=short+'|'+i+'|'+p;return {prompt:p,answer:ans,steps:steps,fig:fig,figWhere:fig?'below':'none',key:key,equiv:key};
+steps=['Correct answer: '+ans];key=short+'|'+i+'|'+p;var answerFig=null;if(short==='graphing-inequalities'&&i<=5){var solVertical=i===5,solHorizontal=i===4,solLess=[1,3].indexOf(i)>=0,solStrict=i<=1;answerFig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[solVertical?{kind:'vline',x:bb,dashed:solStrict}:{kind:'line',m:solHorizontal?0:m,b:bb,dashed:solStrict}],points:[],shade:solVertical?undefined:{m:solHorizontal?0:m,b:bb,above:!solLess}};}return {prompt:p,answer:ans,steps:steps,fig:fig,answerFig:answerFig,figWhere:fig?'below':'none',key:key,equiv:key};
 };}
 var cat={id:'extended',letter:String.fromCharCode(65+unit.categories.length),name:'Extended Practice & Applications',lessons:[]};for(var i=0;i<names.length;i++){var id='a1-'+short+'-extended-'+i;N.registerLesson({id:id,unit:u,category:'extended',num:unit.categories.reduce(function(a,c){return a+c.lessons.length},0)+i+1,title:names[i],instruction:names[i],layout:(short==='inequalities'&&i<3?'full':'half'),space:[.5,.85,1.2],generate:make(i)});cat.lessons.push(id);}unit.categories.push(cat);
 if(short==='expressions-equations'){
