@@ -88,9 +88,20 @@
     o.push('<text x="' + (ax + 6) + '" y="' + (PAD.t - 4) + '" ' + F.replace('font-size="12"', 'font-size="13" font-style="italic"') + '>y</text>');
     // Subtle hatch fill for solutions; SVG remains legible when printed in grayscale.
     if (spec.shade && spec.shade.m !== undefined) {
-      var sh = spec.shade, mm = Number(sh.m), bb = Number(sh.b), yy1 = Math.max(ymin, Math.min(ymax, mm * xmin + bb)), yy2 = Math.max(ymin, Math.min(ymax, mm * xmax + bb));
-      var fillY = sh.above ? PAD.t : PAD.t + H;
-      o.push('<polygon points="' + X(xmin) + ',' + Y(yy1) + ' ' + X(xmax) + ',' + Y(yy2) + ' ' + X(xmax) + ',' + fillY + ' ' + X(xmin) + ',' + fillY + '" fill="#b2b9c2" fill-opacity="0.24"/>');
+      var sh = spec.shade, mm = Number(sh.m), bb = Number(sh.b);
+      var corners = [[xmin, ymin], [xmax, ymin], [xmax, ymax], [xmin, ymax]];
+      var shaded = [];
+      function delta(p) { return (p[1] - mm * p[0] - bb) * (sh.above ? 1 : -1); }
+      for (var ci = 0; ci < corners.length; ci++) {
+        var p0 = corners[ci], p1 = corners[(ci + 1) % corners.length];
+        var d0 = delta(p0), d1 = delta(p1), in0 = d0 >= -1e-9, in1 = d1 >= -1e-9;
+        if (in0) shaded.push(p0);
+        if (in0 !== in1) {
+          var t = d0 / (d0 - d1);
+          shaded.push([p0[0] + (p1[0] - p0[0]) * t, p0[1] + (p1[1] - p0[1]) * t]);
+        }
+      }
+      if (shaded.length >= 3) o.push('<polygon points="' + shaded.map(function(p) { return r2(X(p[0])) + ',' + r2(Y(p[1])); }).join(' ') + '" fill="#b2b9c2" fill-opacity="0.24"/>');
     }
     if (spec.shade && spec.shade.x !== undefined) {
       var boundX = Math.max(xmin, Math.min(xmax, Number(spec.shade.x)));
