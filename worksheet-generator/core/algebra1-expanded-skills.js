@@ -67,7 +67,7 @@ case 'tableValue':p='For '+M('f(x)='+a+'x^2-'+b)+' find '+M('f('+x+')')+'.';ans=
 case 'matchRoots':p='Write a monic quadratic with roots '+M(x)+' and '+M(-a)+', in factored form.';ans=M('(x'+signed(-x)+')(x+'+a+')');steps=['A root r contributes a factor (x-r).'];break;
 default:throw Error('Unknown problem '+type);
 }
-return {prompt:p,answer:ans,steps:steps,fig:fig,figWhere:fig?'below':'none',key:type+'|'+p,equiv:type+'|'+p};
+var answerFig=null;if(type==='strict')answerFig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[{kind:'line',m:a,b:-b,dashed:true}],points:[],shade:{m:a,b:-b,above:true}};if(type==='horizontal')answerFig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[{kind:'line',m:0,b:b}],points:[],shade:{m:0,b:b,above:false}};return {prompt:p,answer:ans,steps:steps,fig:fig,answerFig:answerFig,figWhere:fig?'below':'none',key:type+'|'+p,equiv:type+'|'+p};
 };}
 var orig=unit.categories.reduce(function(a,c){return a.concat(c.lessons)},[]);
 var used={},cats=[],count=orig.length;
