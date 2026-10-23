@@ -18,7 +18,7 @@ case 9:p='A person is '+a+' times as old as a child. Their ages total '+(a+1)*b+
 case 10:p='How many solutions does '+M(a+'(x+'+b+')='+a+'x+'+(a*b))+' have?';ans='Infinitely many solutions';break;
 case 11:p='Solve '+M('P=2l+2w')+' for '+M('w')+'.';ans=M('w=\\frac{P-2l}{2}');break;}
 else if(short==='inequalities')switch(i){
-case 0:case 1:{var o=i===0?'>':'<=';p='Graph '+M('x'+(i===0?'>':'\\le')+x)+' on the number line.';ans=i===0?'Open circle at '+x+', shade right':'Closed circle at '+x+', shade left';break;}
+case 0:case 1:{var o=i===0?'>':'<=';p='Graph '+M('x'+(i===0?'>':'\\le')+x)+' on the number line.';p+=' Draw your solution on a number line.';ans=i===0?'Open circle at '+x+', shade right':'Closed circle at '+x+', shade left';break;}
 case 2:{p='Write the inequality shown on the number line: '+numberline(x,op);ans=M('x'+({'>':'>','<':'<','>=':'\\ge','<=':'\\le'}[op])+x);break;}
 case 3:p='For '+M('x\\ge '+x)+', is the endpoint '+x+' open or closed?';ans='Closed';break;
 case 4:p='Solve and graph '+M(a+'x+'+b+'>'+ (a*x+b))+'.';ans=M('x>'+x);break;
@@ -45,7 +45,7 @@ case 3:p='Simplify '+M('\\frac{x^'+a+'}{x^'+a+'}')+' for nonzero x.';ans=M('1');
 case 4:p='Rewrite '+M('x^{-'+a+'}')+' using positive exponents.';ans=M('\\frac{1}{x^'+a+'}');break;
 case 5:p='Evaluate '+M('(\\frac{1}{'+a+'})^2');ans=M('\\frac{1}{'+(a*a)+'}');break;
 case 6:p='Write '+(a*10000)+' in scientific notation.';ans=M(a+'\\times 10^4');break;
-case 7:p='Multiply '+M('('+a+'\\times 10^2)('+b+'\\times 10^3)');ans=M((a*b)+'\\times 10^5');break;
+case 7:p='Multiply '+M('('+a+'\\times 10^2)('+b+'\\times 10^3)');ans=M((a*b>=10?(a*b/10)+'\\times 10^6':(a*b)+'\\times 10^5'));break;
 case 8:p='Is '+M('P(t)=100(1.'+a+')^t')+' growth or decay?';ans='Growth';break;
 case 9:p='Is '+M('P(t)=100(0.'+a+')^t')+' growth or decay?';ans='Decay';break;
 case 10:p='An amount of $'+(a*100)+' grows by '+b+'% in one year. Find the new amount.';ans='$'+(a*100*(1+b/100)).toFixed(2);break;
