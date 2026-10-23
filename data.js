@@ -42,7 +42,10 @@ window.LIBRARY = {
               "thumb": "thumbs/algebra1-expressions-equations-generator.svg",
               "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
-              "topics": ["Worksheet generator", "Expressions & Equations"],
+              "topics": [
+                "Worksheet generator",
+                "Expressions & Equations"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -245,6 +248,30 @@ window.LIBRARY = {
                 "Expressions & Equations"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Solving Multi-Step Equations",
+              "path": "artifacts/expressions-equations-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on solving multi-step equations. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Solving Multi-Step Equations"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Simplifying & Evaluating Expressions",
+              "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on simplifying & evaluating expressions. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Simplifying & Evaluating Expressions"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -258,7 +285,10 @@ window.LIBRARY = {
               "thumb": "thumbs/algebra1-inequalities-generator.svg",
               "description": "Create custom Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
-              "topics": ["Worksheet generator", "Inequalities"],
+              "topics": [
+                "Worksheet generator",
+                "Inequalities"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -471,6 +501,30 @@ window.LIBRARY = {
                 "Compound inequalities"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Solving Multi-Step Inequalities",
+              "path": "artifacts/inequalities-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/inequalities-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on solving multi-step inequalities. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Solving Multi-Step Inequalities"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Compound Inequalities & Writing Inequalities",
+              "path": "artifacts/inequalities-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/inequalities-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on compound inequalities & writing inequalities. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Compound Inequalities & Writing Inequalities"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -484,7 +538,12 @@ window.LIBRARY = {
               "thumb": "thumbs/linear-functions-worksheet-generator.svg",
               "description": "Create custom Algebra 1 linear functions worksheets by sub-lesson, with slope, graphing, equation forms, applications, answer keys and multiple versions.",
               "type": "Practice",
-              "topics": ["Slope", "Linear equations", "Graphing", "Worksheet generator"],
+              "topics": [
+                "Slope",
+                "Linear equations",
+                "Graphing",
+                "Worksheet generator"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -700,6 +759,30 @@ window.LIBRARY = {
                 "Linear Equations & Slope"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Finding Slope",
+              "path": "artifacts/linear-equations-slope-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/linear-equations-slope-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on finding slope. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Finding Slope"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Writing Equations of Lines",
+              "path": "artifacts/linear-equations-slope-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/linear-equations-slope-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on writing equations of lines. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Writing Equations of Lines"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -713,7 +796,10 @@ window.LIBRARY = {
               "thumb": "thumbs/algebra1-graphing-inequalities-generator.svg",
               "description": "Create custom Graphing Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
-              "topics": ["Worksheet generator", "Graphing Inequalities"],
+              "topics": [
+                "Worksheet generator",
+                "Graphing Inequalities"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -902,6 +988,30 @@ window.LIBRARY = {
                 "Graphing Inequalities"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Boundary Lines & Shading",
+              "path": "artifacts/graphing-inequalities-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on boundary lines & shading. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Boundary Lines & Shading"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Writing Inequalities from Graphs & Situations",
+              "path": "artifacts/graphing-inequalities-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on writing inequalities from graphs & situations. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Writing Inequalities from Graphs & Situations"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -915,7 +1025,12 @@ window.LIBRARY = {
               "thumb": "thumbs/systems-of-equations-worksheet-generator.svg",
               "description": "Create customizable Systems of Equations worksheets on substitution, elimination, graphing and solution classification with matching answer keys and printable versions.",
               "type": "Practice",
-              "topics": ["Systems of equations", "Elimination", "Substitution", "Graphing"],
+              "topics": [
+                "Systems of equations",
+                "Elimination",
+                "Substitution",
+                "Graphing"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -1106,6 +1221,30 @@ window.LIBRARY = {
                 "Systems of Equations"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Solving by Substitution or Graphing",
+              "path": "artifacts/systems-of-equations-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/systems-of-equations-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on solving by substitution or graphing. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Solving by Substitution or Graphing"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Elimination & Word Problems",
+              "path": "artifacts/systems-of-equations-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/systems-of-equations-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on elimination & word problems. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Elimination & Word Problems"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -1119,7 +1258,10 @@ window.LIBRARY = {
               "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
               "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
-              "topics": ["Worksheet generator", "Exponents & Exponential Functions"],
+              "topics": [
+                "Worksheet generator",
+                "Exponents & Exponential Functions"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -1321,6 +1463,30 @@ window.LIBRARY = {
                 "Exponents & Exponential Functions"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Exponent Rules",
+              "path": "artifacts/exponents-exponential-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on exponent rules. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exponent Rules"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Exponential Functions, Growth & Decay",
+              "path": "artifacts/exponents-exponential-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on exponential functions, growth & decay. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exponential Functions, Growth & Decay"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -1334,7 +1500,10 @@ window.LIBRARY = {
               "thumb": "thumbs/algebra1-polynomials-factoring-generator.svg",
               "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
-              "topics": ["Worksheet generator", "Polynomials & Factoring"],
+              "topics": [
+                "Worksheet generator",
+                "Polynomials & Factoring"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -1537,6 +1706,30 @@ window.LIBRARY = {
                 "Polynomials & Factoring"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Operations with Polynomials",
+              "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on operations with polynomials. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Operations with Polynomials"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Factoring",
+              "path": "artifacts/polynomials-factoring-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on factoring. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Factoring"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -1550,7 +1743,10 @@ window.LIBRARY = {
               "thumb": "thumbs/algebra1-quadratics-generator.svg",
               "description": "Create custom Quadratics worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
               "type": "Practice",
-              "topics": ["Worksheet generator", "Quadratics"],
+              "topics": [
+                "Worksheet generator",
+                "Quadratics"
+              ],
               "added": "2026-10-22"
             },
             {
@@ -1753,6 +1949,30 @@ window.LIBRARY = {
                 "Quadratics"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Solving Quadratic Equations",
+              "path": "artifacts/quadratics-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/quadratics-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on solving quadratic equations. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Solving Quadratic Equations"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Features of Parabolas",
+              "path": "artifacts/quadratics-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/quadratics-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on features of parabolas. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Features of Parabolas"
+              ],
+              "added": "2026-10-23"
             }
           ]
         }
