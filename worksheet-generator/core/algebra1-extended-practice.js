@@ -18,7 +18,7 @@ case 9:p='A person is '+a+' times as old as a child. Their ages total '+(a+1)*b+
 case 10:p='How many solutions does '+M(a+'(x+'+b+')='+a+'x+'+(a*b))+' have?';ans='Infinitely many solutions';break;
 case 11:p='Solve '+M('P=2l+2w')+' for '+M('w')+'.';ans=M('w=\\frac{P-2l}{2}');break;}
 else if(short==='inequalities')switch(i){
-case 0:case 1:{var o=i===0?'>':'<=';p='Graph '+M('x'+(i===0?'>':'\\le')+x)+' on the number line.';p+=' Draw your solution on a number line.';ans=i===0?'Open circle at '+x+', shade right':'Closed circle at '+x+', shade left';break;}
+case 0:case 1:{var o=i===0?'>':'<=';p='Graph '+M('x'+(i===0?'>':'\\le')+x)+' on the number line.';p+='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 90" width="4.1in" aria-label="blank number line" role="img"><path d="M17 37H443" stroke="#111" stroke-width="2.5"/><path d="M17 37l10 -5v10z M443 37l-10 -5v10z" fill="#111"/>';for(var tick=-8;tick<=8;tick++){var loc=224+tick*24;p+='<path d="M'+loc+' 30v14" stroke="#222" stroke-width="1.5"/><text x="'+loc+'" y="64" font-size="12" font-family="Arial" text-anchor="middle">'+(x+tick)+'</text>';}p+='</svg>';ans=i===0?'Open circle at '+x+', shade right':'Closed circle at '+x+', shade left';break;}
 case 2:{p='Write the inequality shown on the number line: '+numberline(x,op);ans=M('x'+({'>':'>','<':'<','>=':'\\ge','<=':'\\le'}[op])+x);break;}
 case 3:p='For '+M('x\\ge '+x)+', is the endpoint '+x+' open or closed?';ans='Closed';break;
 case 4:p='Solve and graph '+M(a+'x+'+b+'>'+ (a*x+b))+'.';ans=M('x>'+x);break;
