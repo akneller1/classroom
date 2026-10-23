@@ -283,9 +283,7 @@
               '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
               '<p class="count">' + (n ? acts(n) + ' in ' + units(unitsWithActivities(c)) : 'First activities coming soon') + '</p>' +
               artFor(c) + '</a></li>';
-          }).join('') + '</ul></div></section>' +
-        '<section class="section"><div class="wrap"><div class="section-head"><h2>Browse by activity</h2></div>' +
-          activityDirectoryHtml() + '</div></section>'
+          }).join('') + '</ul></div></section>'
     };
   }
 
