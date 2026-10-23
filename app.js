@@ -70,6 +70,7 @@
     return (Date.now() - t) < (L.newDays || 30) * 86400000;
   }
   var ACTIVITY_FORMATS = [
+    { id: 'worksheet-generator', name: 'Worksheet Generator', description: 'Choose unit skills and customize printable practice worksheets with answer keys.' },
     { id: 'partner-checks', name: 'Partner Checks', description: 'Partners solve different problems with matching answers, compare results, and work together to resolve mistakes. Includes Partner A and Partner B worksheets.' },
     { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
@@ -90,6 +91,7 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra 1, Algebra 2, and Geometry.' }
   ];
   function activityFormat(a) {
+    if (/worksheet-generator\//i.test(a.path || '')) return 'worksheet-generator';
     if (/partner-check/i.test(a.path || '')) return 'partner-checks';
     var path = a.path || '';
     if (/jeopardy|showdown/i.test(path)) return 'showdown';
@@ -116,9 +118,10 @@
   var RESOURCE_GROUPS = [
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
-    { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
+    { id: 'worksheets', name: 'Printable Worksheets', formats: ['worksheet-generator', 'partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
+    'worksheet-generator': 'Choose skills and create customized printable worksheets with answer keys.',
     'partner-checks': 'Solve different problems, compare matching answers, and check each other’s work.',
     'showdown': 'Choose a question and point value for team review.',
     'connect-four': 'Solve problems to earn discs and connect four.',
