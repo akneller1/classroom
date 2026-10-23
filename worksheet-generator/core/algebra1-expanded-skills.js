@@ -36,7 +36,7 @@ var r=ctx.rng,a=val(r,2,6),b=val(r,1,7),c=val(r,1,6),x=val(r,-5,5),p,ans,steps=[
 switch(type){
 case 'nested':p='Simplify '+M(a+'(2x+'+b+')-'+c+'(x-'+b+')')+'.';ans=M((2*a-c)+'x'+signed(a*b+c*b));steps=['Distribute each term, then combine like terms.'];break;
 case 'formulaEval':p='Use '+M('A=lw')+' to find area when '+M('l='+a+',\\ w='+b)+'.';ans=M('A='+(a*b));steps=['Substitute '+a+' and '+b+' into '+M('A=lw')+'.'];break;
-case 'fractionEq':p='Solve '+M('\\frac{x+'+(a*b)+'}{'+a+'}=\\frac{'+(x+a*b)+'}{'+a+'}')+'.';ans=M('x='+x);steps=['Multiply both sides by '+a+', then subtract '+(a*b)+'.'];break;
+case 'fractionEq':x=a*val(r,-4,4);p='Solve '+M('\\frac{x+'+(a*b)+'}{'+a+'}='+(x/a+b))+'.';ans=M('x='+x);steps=['Multiply both sides by '+a+', then subtract '+(a*b)+'.'];break;
 case 'noSolution':p='How many solutions? '+M(a+'(x+'+b+')='+a+'x+'+(a*b+c));ans='No solution';steps=['Expanding gives '+M(a+'x+'+(a*b)+'='+a+'x+'+(a*b+c))+'.','Subtracting '+M(a+'x')+' leaves a false equality.'];break;
 case 'percent':p='Find '+a*10+'% of '+b*10+'.';ans=M(String(a*b));steps=[M('\\frac{'+a*10+'}{100}\\times '+b*10+'='+a*b)];break;
 case 'words':p='Write an inequality: a number x decreased by '+a+' is at least '+b+'.';ans=M('x-'+a+'\\ge '+b);steps=['At least means greater than or equal to.'];break;
