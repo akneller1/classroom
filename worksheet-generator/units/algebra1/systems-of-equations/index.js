@@ -70,7 +70,7 @@ NS.registerLesson({id:'sys-graph',unit:U,category:'graphing',num:7,title:'Solve 
  var b1=y-m1*x,b2=y-m2*x;NS.gen.need(Math.abs(b1)<=10&&Math.abs(b2)<=10);
  var fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[]};
  if(ctx.grids)fig.lines=[];else fig=null;
- return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
+ return {prompt:'Graph both equations and name their intersection:<div>'+M(T.eqSI(m1,b1))+'</div><div>'+M(T.eqSI(m2,b2))+'</div>',fig:fig,answerFig:{xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[{kind:'line',m:m1,b:b1},{kind:'line',m:m2,b:b2}],points:[{x:x,y:y,label:true}]},answer:M(T.pt(x,y)),steps:['The lines intersect at '+M(T.pt(x,y))+'.','Substitute the coordinates into both equations to verify.'],key:'sg|'+m1+'|'+b1+'|'+m2+'|'+b2,equiv:'sg|'+x+'|'+y+'|'+m1+'|'+m2};
  }});
 
 function graphCase(ctx,kind){
