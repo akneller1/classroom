@@ -45,7 +45,7 @@ if(type==='tickets'){var n=a+b,v=8*a+5*b;result('At a school event, adult ticket
 if(type==='coins'){var total=a+b,value=5*a+10*b;result('A jar has '+total+' nickels and dimes worth '+value+' cents. How many of each coin are there?',a+' nickels and '+b+' dimes',['Let n be nickels and d be dimes.',M('n+d='+total),M('5n+10d='+value)]);}
 if(type==='numbers'){result('Two numbers have sum '+(a+b)+' and difference '+(a-b)+'. Find both numbers.',a+' and '+b,['Let x and y represent the numbers.',M('x+y='+(a+b)),M('x-y='+(a-b))]);}
 if(type==='plans'){var t=r.int(2,7),base1=10+a*t,base2=10,rate1=3,rate2=3+a;result('Plan A costs $'+base1+' plus $'+rate1+' per month. Plan B costs $'+base2+' plus $'+rate2+' per month. After how many months are costs equal?',t+' months',[M(base1+'+3t='+base2+'+'+(3+a)+'t')]);}
-if(type==='mixture'){var n=a+b,amount=10*a+30*b;result('Mix '+n+' liters of solutions containing 10% and 30% salt to obtain '+amount/ n+'% salt. How many liters of each?',a+' L at 10% and '+b+' L at 30%',[M('x+y='+n),M('10x+30y='+amount)]);}
+if(type==='mixture'){var n=a+b,amount=10*a+30*b;result('Mix '+n+' liters of solutions containing 10% and 30% salt to obtain '+(amount/n).toFixed(2)+'% salt (approximately). How many liters of each?',a+' L at 10% and '+b+' L at 30%',[M('x+y='+n),M('10x+30y='+amount)]);}
 if(type==='distance'){var h=r.int(2,5),speed1=a*10,speed2=b*10;result('Two cyclists leave in opposite directions at '+speed1+' km/h and '+speed2+' km/h. They are '+((speed1+speed2)*h)+' km apart. How long have they ridden?',h+' hours',[M('('+speed1+'+'+speed2+')t='+((speed1+speed2)*h))]);}
 }
 return {prompt:p,answer:ans,steps:steps,fig:fig,figWhere:fig?'right':'none',key:type+'|'+p,equiv:type+'|'+p};
