@@ -79,4 +79,44 @@ case 11:p='A profit model is '+M('P(x)=(x-'+a+')(x+'+b+')')+'. At which positive
 steps=['Correct answer: '+ans];key=short+'|'+i+'|'+p;return {prompt:p,answer:ans,steps:steps,fig:fig,figWhere:fig?'below':'none',key:key,equiv:key};
 };}
 var cat={id:'extended',letter:String.fromCharCode(65+unit.categories.length),name:'Extended Practice & Applications',lessons:[]};for(var i=0;i<names.length;i++){var id='a1-'+short+'-extended-'+i;N.registerLesson({id:id,unit:u,category:'extended',num:unit.categories.reduce(function(a,c){return a+c.lessons.length},0)+i+1,title:names[i],instruction:names[i],layout:(short==='inequalities'&&i<3?'full':'half'),space:[.5,.85,1.2],generate:make(i)});cat.lessons.push(id);}unit.categories.push(cat);
+if(short==='expressions-equations'){
+ var harder=[
+ ['Variables on both sides: distribute and combine like terms',function(ctx){
+   var r=ctx.rng,x=r.int(-9,9),a=r.int(2,6),b=r.int(2,6),c=r.int(1,5),d=r.int(1,5);
+   var leftCoef=a+c,rightCoef=b+d;N.gen.need(leftCoef!==rightCoef);
+   var leftConst=r.int(-10,10),rightConst=(leftCoef-rightCoef)*x+leftConst;
+   var L=a+'(x'+(leftConst>=0?'+':'')+leftConst+')+'+c+'x';
+   var R=b+'(x'+(rightConst>=0?'+':'')+rightConst+')+'+d+'x';
+   // Adjust constants inside parentheses so solution is exactly x.
+   var LC=a*leftConst,RC=LC+(leftCoef-rightCoef)*x;
+   N.gen.need(RC%b===0);
+   rightConst=RC/b;
+   R=b+'(x'+(rightConst>=0?'+':'')+rightConst+')+'+d+'x';
+   return {prompt:'Solve and show your work: '+M(L+'='+R),answer:M('x='+x),
+   steps:['Distribute: '+M(a+'x'+(LC>=0?'+':'')+LC+'+'+c+'x='+b+'x'+(RC>=0?'+':'')+RC+'+'+d+'x'),
+   'Combine like terms: '+M(leftCoef+'x'+(LC>=0?'+':'')+LC+'='+rightCoef+'x'+(RC>=0?'+':'')+RC),
+   'Isolate the variable: '+M((leftCoef-rightCoef)+'x='+(RC-LC)),
+   'Solution: '+M('x='+x)],key:'both-distribute|'+[a,b,c,d,leftConst,rightConst].join('|'),equiv:'both-distribute|'+[a,b,c,d,x].join('|')};
+ }],
+ ['Variables on both sides: two distributions and constants',function(ctx){
+  var r=ctx.rng,x=r.int(-8,8),a=r.int(2,6),b=r.int(2,6),c=r.int(1,5),d=r.int(1,5);
+  var leftCoef=a+c,rightCoef=b+d;N.gen.need(leftCoef!==rightCoef);
+  var u=r.int(-7,7),v=r.int(-7,7),k=r.int(-8,8);
+  var lhsConst=a*u+k,rhsConst=lhsConst+(leftCoef-rightCoef)*x;
+  N.gen.need(rhsConst%b===0);
+  var w=rhsConst/b;
+  var L=a+'(x'+(u>=0?'+':'')+u+')+'+c+'x'+(k>=0?'+':'')+k;
+  var R=b+'(x'+(w>=0?'+':'')+w+')+'+d+'x';
+  return {prompt:'Solve the equation. Distribute, combine like terms, and collect variables: '+M(L+'='+R),
+  answer:M('x='+x),steps:['Distribute both sides and collect like terms.',
+  M(leftCoef+'x'+(lhsConst>=0?'+':'')+lhsConst+'='+rightCoef+'x'+(rhsConst>=0?'+':'')+rhsConst),
+  M((leftCoef-rightCoef)+'x='+(rhsConst-lhsConst)),M('x='+x)],
+  key:'two-distrib|'+[a,b,c,d,u,w,k].join('|'),equiv:'two-distrib|'+[a,b,c,d,x].join('|')};
+ }]
+ ];
+ var catHard={id:'multi-step-combined',letter:String.fromCharCode(65+unit.categories.length),name:'Advanced Multi-Step Equations',lessons:[]};
+ harder.forEach(function(pair,i){var id='a1-expressions-equations-combined-'+i;N.registerLesson({id:id,unit:u,category:catHard.id,num:unit.categories.reduce(function(n,c){return n+c.lessons.length},0)+i+1,title:pair[0],instruction:'Solve, showing distribution and collection of like terms.',layout:'full',space:[1.2,1.8,2.5],generate:pair[1]});catHard.lessons.push(id)});
+ unit.categories.push(catHard);
+}
+
 })(typeof window!=='undefined'?window:globalThis);
