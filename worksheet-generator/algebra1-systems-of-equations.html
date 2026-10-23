@@ -91,6 +91,25 @@ function Ncheck(value){NS.gen.need(value!==0);}
 function reg(id,num,title,method,mode,layout){
  NS.registerLesson({id:id,unit:U,category:method,num:num,title:title,instruction:'Solve each system. Show your work.',layout:layout||'half',space:[1,1.7,2.5],generate:function(ctx){
  var s=skillSystem(ctx,id,mode||(id==='sys-classify'?pick(ctx.rng,['unique','none','infinite']):'unique'));verify(s);
+ if(id==='sys-substitution-easy'||id==='sys-substitution-standard'){
+   var r=ctx.rng,x=r.int(-5,5),y=r.int(-5,5),m=r.int(1,3)*(r.chance(.5)?1:-1),k=y-m*x,aa=r.int(2,5),bb=r.int(1,4);
+   NS.gen.need(aa+bb*m!==0);
+   var total=aa*x+bb*y, first=M('y='+T.lin([[m,'x']])+ (k<0?String(k):'+'+k));
+   var second=M(T.eqStd(aa,bb,total));
+   if(id==='sys-substitution-standard'){
+     var offset=r.int(1,3),m2=r.int(1,3)*(r.chance(.5)?1:-1),xconst=x-m2*y;
+     NS.gen.need(bb+aa*m2!==0);
+     first=M('x='+T.lin([[m2,'y']])+(xconst<0?String(xconst):'+'+xconst));
+     return {prompt:'Solve by substitution:<div>'+first+'</div><div>'+second+'</div>',answer:M(T.pt(x,y)),
+       steps:['Substitute '+M('x='+m2+'y'+(xconst<0?xconst:'+'+xconst))+' into the second equation.',
+       M((aa*m2+bb)+'y='+(total-aa*xconst)),M('y='+y),M('x='+x)],
+       key:id+'|'+[m2,xconst,aa,bb,total].join('|'),equiv:id+'|'+[x,y,m2,aa,bb].join('|')};
+   }
+   return {prompt:'Solve by substitution:<div>'+first+'</div><div>'+second+'</div>',answer:M(T.pt(x,y)),
+     steps:['Replace y in the second equation with '+M(m+'x'+(k<0?k:'+'+k))+'.',
+       M((aa+bb*m)+'x='+(total-bb*k)),M('x='+x),M('y='+y)],
+     key:id+'|'+[m,k,aa,bb,total].join('|'),equiv:id+'|'+[x,y,m,aa,bb].join('|')};
+ }
  return {prompt:'Solve the system '+(method==='substitution'?'using substitution':method==='elimination'?'using elimination':'and classify the solution')+':'+question(s),answer:s.mode==='unique'?M(T.pt(s.x,s.y)):s.mode==='none'?'No solution':'Infinitely many solutions',steps:(id==='sys-elimination-add'?['Add the equations to eliminate x.',M((s.b+s.d)+'y='+(s.e+s.f)),M('y='+s.y),'Substitute to find '+M('x='+s.x)]:id==='sys-elimination-multiply'?['Multiply the first equation by -2, then add the second equation.',M((s.d-2*s.b)+'y='+(s.f-2*s.e)),M('y='+s.y),'Substitute to find '+M('x='+s.x)]:id==='sys-substitution-easy'?['The first equation already gives '+M('x='+s.x)+'.','Substitute into the second equation: '+M(s.c+'('+s.x+')+'+s.d+'y='+s.f),M('y='+s.y)]:steps(s,method)),key:id+'|'+[s.a,s.b,s.e,s.c,s.d,s.f].join('|'),equiv:id+'|'+s.x+'|'+s.y+'|'+s.mode};
  }});
 }
