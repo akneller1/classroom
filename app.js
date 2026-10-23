@@ -313,7 +313,6 @@
   }
 
   function courseView(c) {
-    var items = everything().filter(function (it) { return it.c.id === c.id; });
     var n = courseCount(c);
     var inner =
       '<div class="band-grid"><div>' +
@@ -337,8 +336,7 @@
           }).join('');
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + esc(u.name) + '</h3>' +
             '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
-        }).join('') + '</ul></div></section>' +
-        (items.length ? '<section class="section"><div class="wrap"><h2 class="course-activities-title">All activities</h2>' + chipsHtml(items) + groupedCardsHtml(items, true) + '</div></section>' : '')
+        }).join('') + '</ul></div></section>'
     };
   }
 
@@ -358,25 +356,80 @@
     };
   }
 
-  function activityIndexView() {
-    return {
-      title: 'Browse by activity',
-      html: bandHtml(null, crumbs([['Home', '#'], ['Browse by activity', null]]) + '<h1 tabindex="-1">Browse by activity</h1>') +
-        '<section class="section"><div class="wrap">' + activityDirectoryHtml() + '</div></section>'
-    };
-  }
 
-  function activityView(format) {
-    var items = formatItems(format);
-    var inner = crumbs([['Home', '#'], ['Browse by activity', '#activities'], [format.name, null]]) +
-      '<h1 tabindex="-1">' + esc(format.name) + '</h1>' +
-      '<p class="band-blurb">' + esc(format.description) + '</p><p class="band-meta">' + acts(items.length) + ' across Algebra 1, Algebra 2, and Geometry</p>';
+  function browseState(defaultFormat) {
+    var params = new URLSearchParams(token.split('?')[1] || '');
+    return { subject: params.get('subject') || '', unit: params.get('unit') || '',
+      format: params.get('format') || defaultFormat || '', page: Math.max(1, parseInt(params.get('page'), 10) || 1) };
+  }
+  function browseToken(state) {
+    var params = new URLSearchParams();
+    ['subject', 'unit', 'format'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    if (state.page > 1) params.set('page', state.page);
+    return 'activities' + (params.toString() ? '?' + params.toString() : '');
+  }
+  function browseResults(state) {
+    return everything().filter(function (it) {
+      return (!state.subject || it.c.id === state.subject) &&
+        (!state.unit || unitToken(it.c, it.u) === state.unit) &&
+        (!state.format || activityFormat(it.a) === state.format);
+    });
+  }
+  function browseSelect(id, label, choices, selected, allLabel) {
+    return '<label for="browse-' + id + '">' + label +
+      '<select id="browse-' + id + '" data-browse="' + id + '"><option value="">' + allLabel + '</option>' +
+      choices.map(function (choice) { return '<option value="' + esc(choice.id) + '"' +
+        (choice.id === selected ? ' selected' : '') + '>' + esc(choice.name) + '</option>'; }).join('') +
+      '</select></label>';
+  }
+  function activityIndexView(defaultFormat) {
+    var state = browseState(defaultFormat);
+    var unitChoices = [];
+    L.courses.forEach(function (c) {
+      if (state.subject && state.subject !== c.id) return;
+      c.units.forEach(function (u) { if (u.artifacts.length) unitChoices.push({
+        id: unitToken(c, u), name: (state.subject ? '' : c.name + ' — ') + u.name
+      }); });
+    });
+    var formats = [];
+    RESOURCE_GROUPS.forEach(function (group) {
+      group.formats.forEach(function (id) {
+        var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === id; })[0];
+        if (format && formatItems(format).length) formats.push(format);
+      });
+    });
+    var items = browseResults(state);
+    var pages = Math.max(1, Math.ceil(items.length / 24));
+    state.page = Math.min(state.page, pages);
+    var offset = (state.page - 1) * 24;
+    var visible = items.slice(offset, offset + 24);
+    var controls = '<div class="browse-filters" role="group" aria-label="Filter activities">' +
+      browseSelect('subject', 'Subject', L.courses, state.subject, 'All subjects') +
+      browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
+      browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
+      '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
+    var pager = '';
+    if (pages > 1) {
+      var previous = Object.assign({}, state, { page: state.page - 1 });
+      var next = Object.assign({}, state, { page: state.page + 1 });
+      pager = '<nav class="browse-pagination" aria-label="Results pages">' +
+        (state.page > 1 ? '<a class="btn" href="' + esc(href(browseToken(previous))) + '">Previous</a>' : '') +
+        '<span>Page ' + state.page + ' of ' + pages + '</span>' +
+        (state.page < pages ? '<a class="btn" href="' + esc(href(browseToken(next))) + '">Next</a>' : '') + '</nav>';
+    }
     return {
-      title: format.name,
-      html: bandHtml(null, inner) + '<section class="section"><div class="wrap">' +
-        (items.length ? chipsHtml(items) + cardsHtml(items, true) : '<div class="empty"><h2>Coming soon</h2><p>No activities in this format yet.</p></div>') + '</div></section>'
+      title: 'Browse activities',
+      html: bandHtml(null, crumbs([['Home', '#'], ['Activities', null]]) +
+        '<h1 tabindex="-1">Browse activities</h1><p class="band-blurb">Choose a subject, unit, or activity type to find what you need.</p>') +
+        '<section class="section"><div class="wrap">' + controls +
+        '<p class="browse-count" role="status" aria-live="polite">' + acts(items.length) +
+        (items.length ? ' · Showing ' + (offset + 1) + '–' + (offset + visible.length) : '') + '</p>' +
+        (visible.length ? '<ul class="cards grouped-cards">' + visible.map(function (it) { return cardHtml(it, true, true); }).join('') + '</ul>' :
+          '<div class="empty"><h2>No matching activities</h2><p>Try a different activity type or clear the filters to browse everything.</p></div>') +
+        pager + '</div></section>'
     };
   }
+  function activityView(format) { return activityIndexView(format.id); }
 
   function savedView() {
     var items = everything().filter(function (it) { return isSaved(it.a.path); });
@@ -419,6 +472,7 @@
   }
 
   function resolve(t) {
+    t = t.split('?')[0];
     if (!t) return { name: 'home' };
     if (t === 'saved') return { name: 'saved' };
     if (t === 'activities') return { name: 'activities' };
@@ -488,7 +542,27 @@
   }
 
   /* ---------- events ---------- */
+  document.addEventListener('change', function (e) {
+    var key = e.target.getAttribute && e.target.getAttribute('data-browse');
+    if (!key) return;
+    var route = resolve(token);
+    var state = browseState(route.format ? route.format.id : '');
+    state[key] = e.target.value;
+    state.page = 1;
+    if (key === 'subject') state.unit = '';
+    if (key === 'unit' && state.unit) state.subject = state.unit.split('.')[0];
+    go(browseToken(state));
+    var control = document.getElementById('browse-' + key);
+    if (control) control.focus({ preventScroll: true });
+  });
+
   document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('#browse-clear')) {
+      go('activities');
+      var subject = document.getElementById('browse-subject');
+      if (subject) subject.focus({ preventScroll: true });
+      return;
+    }
     var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
     if (a && !e.metaKey && !e.ctrlKey && !e.shiftKey && a.getAttribute('target') !== '_blank') {
       e.preventDefault();
