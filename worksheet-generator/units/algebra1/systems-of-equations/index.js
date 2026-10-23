@@ -27,10 +27,21 @@ function steps(s,method){
  if(s.mode==='infinite')return ['The second equation is twice the first equation; the equations describe the same line, so there are infinitely many solutions.'];
  return ['Use '+method+' to solve the pair of equations.','Check in the first equation: '+M(T.lin([[s.a,'('+s.x+')'],[s.b,'('+s.y+')']])+'='+s.e)+'.','Check in the second equation: '+M(T.lin([[s.c,'('+s.x+')'],[s.d,'('+s.y+')']])+'='+s.f)+'.'];
 }
+function skillSystem(ctx,id,mode){
+ var r=ctx.rng,x=r.int(-5,5),y=r.int(-5,5),a,b,c,d;
+ if(id==='sys-substitution-easy'){a=1;b=r.int(1,4);c=r.int(2,5);d=r.int(1,5);Ncheck(a*d-b*c); }
+ else if(id==='sys-substitution-standard'){a=r.int(2,5);b=r.int(1,5);c=r.int(1,5);d=r.int(1,5);Ncheck(a*d-b*c);}
+ else if(id==='sys-elimination-add'){a=r.int(2,5);b=r.int(1,5);c=-a;d=r.int(1,5);Ncheck(b+d);}
+ else if(id==='sys-elimination-multiply'){a=r.int(2,4);b=r.int(1,5);c=a*2;d=r.int(1,5);Ncheck(2*b-d);}
+ else return seed(ctx,mode);
+ var sys={a:a,b:b,c:c,d:d,e:a*x+b*y,f:c*x+d*y,x:x,y:y,mode:'unique'};
+ verify(sys);return sys;
+}
+function Ncheck(value){NS.gen.need(value!==0);}
 function reg(id,num,title,method,mode,layout){
  NS.registerLesson({id:id,unit:U,category:method,num:num,title:title,instruction:'Solve each system. Show your work.',layout:layout||'half',space:[1,1.7,2.5],generate:function(ctx){
- var s=seed(ctx,mode||(ctx.rng.chance(.08)?pick(ctx.rng,['none','infinite']):'unique'));verify(s);
- return {prompt:'Solve the system '+(method==='graphing'?'by graphing':method==='substitution'?'using substitution':method==='elimination'?'using elimination':'and classify the solution')+':'+question(s),answer:s.mode==='unique'?M(T.pt(s.x,s.y)):s.mode==='none'?'No solution':'Infinitely many solutions',steps:steps(s,method),key:id+'|'+[s.a,s.b,s.e,s.c,s.d,s.f].join('|'),equiv:id+'|'+s.x+'|'+s.y+'|'+s.mode};
+ var s=skillSystem(ctx,id,mode||(ctx.rng.chance(.08)?pick(ctx.rng,['none','infinite']):'unique'));verify(s);
+ return {prompt:'Solve the system '+(method==='substitution'?'using substitution':method==='elimination'?'using elimination':'and classify the solution')+':'+question(s),answer:s.mode==='unique'?M(T.pt(s.x,s.y)):s.mode==='none'?'No solution':'Infinitely many solutions',steps:steps(s,method),key:id+'|'+[s.a,s.b,s.e,s.c,s.d,s.f].join('|'),equiv:id+'|'+s.x+'|'+s.y+'|'+s.mode};
  }});
 }
 reg('sys-substitution-easy',1,'Substitution: an isolated variable','substitution','unique');
