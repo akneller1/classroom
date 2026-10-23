@@ -91,7 +91,7 @@ function Ncheck(value){NS.gen.need(value!==0);}
 function reg(id,num,title,method,mode,layout){
  NS.registerLesson({id:id,unit:U,category:method,num:num,title:title,instruction:'Solve each system. Show your work.',layout:layout||'half',space:[1,1.7,2.5],generate:function(ctx){
  var s=skillSystem(ctx,id,mode||(ctx.rng.chance(.08)?pick(ctx.rng,['none','infinite']):'unique'));verify(s);
- return {prompt:'Solve the system '+(method==='substitution'?'using substitution':method==='elimination'?'using elimination':'and classify the solution')+':'+question(s),answer:s.mode==='unique'?M(T.pt(s.x,s.y)):s.mode==='none'?'No solution':'Infinitely many solutions',steps:steps(s,method),key:id+'|'+[s.a,s.b,s.e,s.c,s.d,s.f].join('|'),equiv:id+'|'+s.x+'|'+s.y+'|'+s.mode};
+ return {prompt:'Solve the system '+(method==='substitution'?'using substitution':method==='elimination'?'using elimination':'and classify the solution')+':'+question(s),answer:s.mode==='unique'?M(T.pt(s.x,s.y)):s.mode==='none'?'No solution':'Infinitely many solutions',steps:(id==='sys-elimination-add'?['Add the equations to eliminate x.',M((s.b+s.d)+'y='+(s.e+s.f)),M('y='+s.y),'Substitute to find '+M('x='+s.x)]:id==='sys-elimination-multiply'?['Multiply the first equation by -2, then add the second equation.',M((s.d-2*s.b)+'y='+(s.f-2*s.e)),M('y='+s.y),'Substitute to find '+M('x='+s.x)]:id==='sys-substitution-easy'?['The first equation already gives '+M('x='+s.x)+'.','Substitute into the second equation: '+M(s.c+'('+s.x+')+'+s.d+'y='+s.f),M('y='+s.y)]:steps(s,method)),key:id+'|'+[s.a,s.b,s.e,s.c,s.d,s.f].join('|'),equiv:id+'|'+s.x+'|'+s.y+'|'+s.mode};
  }});
 }
 reg('sys-substitution-easy',1,'Substitution: an isolated variable','substitution','unique');
