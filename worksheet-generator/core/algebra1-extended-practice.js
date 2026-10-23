@@ -11,19 +11,19 @@ case 2:p='Simplify '+M('-'+a+'(x-'+b+')')+'.';ans=M('-'+a+'x+'+(a*b));break;
 case 3:p='Solve '+M(a+'(x+'+b+')='+a*(x+b)) +'.';ans=M('x='+x);break;
 case 4:p='Solve '+M(a+'x+'+b+'='+ (a*x+b))+'.';ans=M('x='+x);break;
 case 5:p='Solve '+M('0.'+a+'x+'+b+'='+(a*x/10+b).toFixed(1))+'.';ans=M('x='+x);break;
-case 6:p='Solve '+M('\\frac{x}{'+a+'}=\\frac{'+(x*b)+'}{'+(a*b)+'}')+'.';ans=M('x='+x);break;
+case 6:p='Solve '+M('\\frac{x}{'+a+'}='+b)+'.';ans=M('x='+(a*b));break;
 case 7:p='A taxi charges $'+b+' plus $'+a+' per mile. What is the cost for '+c+' miles?';ans='$'+(b+a*c);break;
 case 8:p='A fee of $'+b+' plus $'+a+' per ticket totals $'+(b+a*c)+'. Write and solve an equation for the number of tickets.';ans=M('x='+c);break;
 case 9:p='A person is '+a+' times as old as a child. Their ages total '+(a+1)*b+'. How old is the child?';ans=b+' years';break;
 case 10:p='How many solutions does '+M(a+'(x+'+b+')='+a+'x+'+(a*b))+' have?';ans='Infinitely many solutions';break;
 case 11:p='Solve '+M('P=2l+2w')+' for '+M('w')+'.';ans=M('w=\\frac{P-2l}{2}');break;}
 else if(short==='inequalities')switch(i){
-case 0:case 1:{var o=i===0?'>':'<=';p='Graph '+M('x'+(i===0?'>':'\\le')+x)+' on the number line.';p+=numberline(x,o);ans=i===0?'Open circle, shade right':'Closed circle, shade left';break;}
+case 0:case 1:{var o=i===0?'>':'<=';p='Graph '+M('x'+(i===0?'>':'\\le')+x)+' on the number line.';ans=i===0?'Open circle at '+x+', shade right':'Closed circle at '+x+', shade left';break;}
 case 2:{p='Write the inequality shown on the number line: '+numberline(x,op);ans=M('x'+({'>':'>','<':'<','>=':'\\ge','<=':'\\le'}[op])+x);break;}
 case 3:p='For '+M('x\\ge '+x)+', is the endpoint '+x+' open or closed?';ans='Closed';break;
-case 4:p='Solve and graph '+M(a+'x+'+b+'>'+ (a*x+b))+'. '+numberline(x,'>');ans=M('x>'+x);break;
+case 4:p='Solve and graph '+M(a+'x+'+b+'>'+ (a*x+b))+'.';ans=M('x>'+x);break;
 case 5:p='Solve '+M('-'+a+'x+'+b+'>'+(-a*x+b))+'.';ans=M('x<'+x);break;
-case 6:p='Write the solution to the AND inequality '+M('x>'+ (x-a)+'\\text{ and }x<'+(x+a))+'. '+numberline(x-a,'>');ans=M((x-a)+'<x<'+(x+a));break;
+case 6:p='Write the solution to the AND inequality '+M('x>'+ (x-a)+'\\text{ and }x<'+(x+a))+'.';ans=M((x-a)+'<x<'+(x+a));break;
 case 7:p='Write the solution to '+M('x<'+(x-a)+'\\text{ or }x>'+(x+a))+'.';ans=M('x<'+(x-a)+'\\text{ or }x>'+(x+a));break;
 case 8:p='Solve '+M('|x-'+x+'|<'+a)+'.';ans=M((x-a)+'<x<'+(x+a));break;
 case 9:p='Solve '+M('|x-'+x+'|>'+a)+'.';ans=M('x<'+(x-a)+'\\text{ or }x>' +(x+a));break;
@@ -69,7 +69,7 @@ case 1:{var B=-2*a*x;p='Find the axis of symmetry of '+M('y='+a+'x^2'+sg(B)+'x+'
 case 2:p='Evaluate '+M('f(x)='+a+'x^2+'+b)+' for '+M('x='+x);ans=M(String(a*x*x+b));break;
 case 3:p='Complete the table: '+M('f(x)=x^2+'+b)+', find '+M('f('+x+')');ans=M(String(x*x+b));break;
 case 4:p='Find the zeros of '+M('y=(x-'+a+')(x+'+b+')');ans=M('x='+a+'\\text{ or }x=-'+b);break;
-case 5:p='Find the x-intercepts of the parabola '+M('y=(x-'+a+')(x+'+b+')')+'.';fig={xmin:-10,xmax:10,ymin:-10,ymax:10,lines:[],points:[{x:a,y:0},{x:-b,y:0}]};ans=M('('+a+',0),(-'+b+',0)');break;
+case 5:p='Find the x-intercepts of the parabola '+M('y=(x-'+a+')(x+'+b+')')+'.';fig=null;ans=M('('+a+',0),(-'+b+',0)');break;
 case 6:p='Solve '+M('x^2='+a*a);ans=M('x=\\pm '+a);break;
 case 7:p='Solve '+M('(x-'+a+')(x+'+b+')=0');ans=M('x='+a+'\\text{ or }x=-'+b);break;
 case 8:{var d=b*b-4*a*c;p='Find the discriminant of '+M(a+'x^2+'+b+'x+'+c+'=0');ans=M(String(d));break;}
