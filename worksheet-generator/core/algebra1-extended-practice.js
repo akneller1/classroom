@@ -25,8 +25,8 @@ case 4:p='Solve and graph '+M(a+'x+'+b+'>'+ (a*x+b))+'.';ans=M('x>'+x);break;
 case 5:p='Solve '+M('-'+a+'x+'+b+'>'+(-a*x+b))+'.';ans=M('x<'+x);break;
 case 6:p='Write the solution to the AND inequality '+M('x>'+ (x-a)+'\\text{ and }x<'+(x+a))+'.';ans=M((x-a)+'<x<'+(x+a));break;
 case 7:p='Write the solution to '+M('x<'+(x-a)+'\\text{ or }x>'+(x+a))+'.';ans=M('x<'+(x-a)+'\\text{ or }x>'+(x+a));break;
-case 8:p='Solve '+M('|x-'+x+'|<'+a)+'.';ans=M((x-a)+'<x<'+(x+a));break;
-case 9:p='Solve '+M('|x-'+x+'|>'+a)+'.';ans=M('x<'+(x-a)+'\\text{ or }x>' +(x+a));break;
+case 8:p='Solve '+M('|x'+sg(-x)+'|<'+a)+'.';ans=M((x-a)+'<x<'+(x+a));break;
+case 9:p='Solve '+M('|x'+sg(-x)+'|>'+a)+'.';ans=M('x<'+(x-a)+'\\text{ or }x>' +(x+a));break;
 case 10:p='Does '+M('x='+(x+1))+' satisfy '+M('x>'+x)+'?';ans='Yes';break;
 case 11:p='Admission costs $'+a+' per person. You have at most $'+(a*b)+'. Write an inequality for the number of people n.';ans=M(a+'n\\le '+(a*b));break;}
 else if(short==='graphing-inequalities'){var strict=[0,1,8,10].indexOf(i)>=0,less=[1,3,7,9].indexOf(i)>=0,vertical=i===5,horizontal=i===4,kind=vertical?'vline':'line',ls=vertical?{kind:'vline',x:bb,dashed:strict}:{kind:'line',m:horizontal?0:m,b:bb,dashed:strict};
@@ -58,7 +58,7 @@ case 3:p='Subtract '+M('('+a+'x+'+b+')-('+c+'x+'+a+')');ans=M((a-c)+'x'+sg(b-a))
 case 4:p='Multiply '+M(a+'x^2\\cdot '+b+'x^3');ans=M((a*b)+'x^5');break;
 case 5:p='Expand '+M(a+'x('+b+'x+'+c+')');ans=M((a*b)+'x^2+'+(a*c)+'x');break;
 case 6:p='Expand '+M('(x+'+a+')(x+'+b+')');ans=M('x^2+'+(a+b)+'x+'+(a*b));break;
-case 7:p='Factor '+M((a*b)+'x^2+'+(a*c)+'x');ans=M(a+'x('+b+'x+'+c+')');break;
+case 7:{var gg=function(m,n){while(n){var tmp=m%n;m=n;n=tmp;}return m;}(b,c);p='Factor out the GCF: '+M((a*b)+'x^2+'+(a*c)+'x');ans=M((a*gg)+'x('+ (b/gg)+'x+'+(c/gg)+')');break;}
 case 8:p='Factor '+M('x^2+'+(a+b)+'x+'+(a*b));ans=M('(x+'+a+')(x+'+b+')');break;
 case 9:p='Factor '+M((a*c)+'x^2+'+(a*b+c)+'x+'+b);ans=M('('+a+'x+1)('+c+'x+'+b+')');break;
 case 10:p='Factor '+M('x^2-'+a*a);ans=M('(x-'+a+')(x+'+a+')');break;
