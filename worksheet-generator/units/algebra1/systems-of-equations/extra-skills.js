@@ -6,7 +6,7 @@ var groups=[
 ['Elimination Strategies',[['Eliminate by adding','add'],['Eliminate by subtracting','subtract'],['Multiply one equation before eliminating','scale'],['Multiply both equations before eliminating','bothScale']]],
 ['Graph Interpretation',[['Read the solution from a graph','read'],['Recognize parallel lines on a graph','parallel'],['Recognize coincident lines on a graph','same'],['Find a line equation from a graph','lineEq']]],
 ['Classifying & Checking',[['Check an ordered pair in both equations','check'],['Determine if a system is inconsistent','inconsistent'],['Determine if a system is dependent','dependent']]],
-['Word Problems & Modeling',[['Ticket sales with two prices','tickets'],['Coins: nickels and dimes','coins'],['Two numbers given sum and difference','numbers'],['Two pricing plans at break-even','plans'],['Mixtures with two concentrations','mixture'],['Distance with opposite directions','distance']]]
+['Word Problems & Modeling',[['Ticket sales with two prices','tickets'],['Coins: nickels and dimes','coins'],['Two numbers given sum and difference','numbers'],['Two pricing plans at break-even','plans'],['Mixtures with two concentrations','mixture'],['Two-speed travel word problem','distance']]]
 ];
 function sign(v){return v<0?String(v):'+'+v}
 function line(m,b){return {kind:'line',m:m,b:b}}
