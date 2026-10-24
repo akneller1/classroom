@@ -83,3 +83,8 @@ displayed question or the drawn graph back and recompute the answer.
 - Layout is tuned and tested in Chromium (print → PDF). Firefox/Safari print engines were not tested.
 - Page-fit uses real layout in the browser; a custom zoom or user font override in print settings can change it.
 - Word-problem contexts (9 so far) and sub-type variety can be extended in `lessons-applications.js`.
+
+## Menu Assessment Generator
+`menu-assessment.html` builds customizable restaurant-style choice assessments (CP2/CP1/Honors, Versions A–C,
+teacher keys with rubrics) on top of the same `core/` files. Pilot unit: Algebra 1 · Expressions & Equations.
+See `menu/README.md` for the architecture, the independent answer checker and its tests.

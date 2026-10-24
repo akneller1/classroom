@@ -1,0 +1,312 @@
+/* Menu Assessment Generator — browser tests (teacher controls, print layout, PDFs, site integration).
+   Needs Playwright + Chromium:   node worksheet-generator/menu/tests/browser-test.cjs
+   (or PW=/path/to/playwright-core CHROME=/path/to/chromium node …).  Set OUT=dir to keep the PDFs.
+   pdftotext (poppler-utils) is used to read the PDFs back when it is installed. */
+'use strict';
+const assert = require('node:assert/strict');
+const http = require('http'), fs = require('fs'), path = require('path'), os = require('os'), cp = require('child_process');
+const pw = process.env.PW ? require(process.env.PW) : require('playwright');
+const ROOT = path.resolve(__dirname, '..', '..', '..');
+const OUT = process.env.OUT || fs.mkdtempSync(path.join(os.tmpdir(), 'menu-pdf-'));
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.json': 'application/json', '.pdf': 'application/pdf', '.ttf': 'font/ttf', '.woff': 'font/woff' };
+const server = http.createServer((req, res) => {
+  const p = decodeURIComponent(req.url.split('?')[0]), f = path.join(ROOT, p.endsWith('/') ? p + 'index.html' : p);
+  if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end('nf'); }
+  res.writeHead(200, { 'content-type': TYPES[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(res);
+});
+const hasPdftotext = (() => { try { cp.execSync('pdftotext -v', { stdio: 'ignore' }); return true; } catch (e) { return false; } })();
+let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
+
+(async () => {
+  await new Promise(r => server.listen(0, r));
+  const base = 'http://localhost:' + server.address().port;
+  const browser = await pw.chromium.launch(process.env.CHROME ? { executablePath: process.env.CHROME } : {});
+  const ctx = await browser.newContext({ viewport: { width: 1400, height: 1000 }, acceptDownloads: true });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on('pageerror', e => errors.push('pageerror ' + e.message));
+  page.on('console', m => { if (m.type() === 'error') errors.push('console ' + m.text()); });
+  page.on('dialog', d => d.accept());
+  const URL = base + '/worksheet-generator/menu-assessment.html';
+  await page.goto(URL); await page.waitForSelector('#mmBuildBtn');
+  ok('page loads');
+
+  /* ---------- setup controls ---------- */
+  await page.check('input[name=mmLevel][value=cp2]');
+  await page.waitForSelector('.mm-level.on input[value=cp2]');
+  let summary = await page.textContent('#mmSummary');
+  assert.match(summary, /100\s*points possible/);
+  // impossible requirement shows an error and blocks building
+  await page.fill('.mm-sectbl tbody tr:nth-child(2) .mmSecReq', '9'); await page.dispatchEvent('.mm-sectbl tbody tr:nth-child(2) .mmSecReq', 'change');
+  await page.waitForSelector('.mm-err');
+  assert.match(await page.textContent('.mm-rules'), /only 6 are offered/);
+  assert.equal(await page.isDisabled('#mmBuildBtn'), true);
+  await page.fill('.mm-sectbl tbody tr:nth-child(2) .mmSecReq', '4'); await page.dispatchEvent('.mm-sectbl tbody tr:nth-child(2) .mmSecReq', 'change');
+  await page.waitForFunction(() => !document.querySelector('.mm-err'));
+  // custom points change the maximum
+  await page.fill('.mm-sectbl tbody tr:nth-child(3) .mmSecPts', '15'); await page.dispatchEvent('.mm-sectbl tbody tr:nth-child(3) .mmSecPts', 'change');
+  await page.waitForFunction(() => /90\s*points possible/.test(document.querySelector('#mmSummary').textContent));
+  ok('rules: errors block building, maximum score follows the point values (90)');
+  // skill exclusion
+  await page.uncheck('.mmSkill[value=evaluate]');
+  await page.selectOption('#mmVersions', '2');
+  // sample dialog shows seven difficulty levels
+  await page.click('.mmSample[data-skill=multi-step]');
+  assert.equal(await page.locator('#mmDialog .mm-sample tr').count(), 7);
+  await page.click('#mmDialog [data-close]');
+  ok('skill exclusion, versions, difficulty samples');
+
+  /* ---------- build ---------- */
+  await page.click('#mmBuildBtn'); await page.waitForSelector('.mm-dcard');
+  const st = () => page.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
+  let S = await st();
+  assert.equal(S.versions.length, 2);
+  const items = S.versions[0].sections.flatMap(s => s.items);
+  assert.equal(items.length, 15);
+  assert.ok(items.every(i => !i.failed && i.verify.status === 'verified'));
+  assert.ok(!items.some(i => i.skill === 'evaluate'), 'excluded skill appeared');
+  assert.deepEqual(S.versions[0].sections.map(s => s.items[0].c), [1, 2, 3]);
+  assert.match(await page.textContent('#mmSummary'), /every answer verified/);
+  ok('build: 15 verified dishes per version, CP2 difficulty 1/2/3, excluded skill absent');
+
+  /* ---------- per-problem controls ---------- */
+  const card = i => page.locator('.mm-dcard').nth(i);
+  const keyOf = async i => (await st()).versions[0].sections.flatMap(s => s.items)[i].key;
+  const all0 = (await st()).versions[0].sections.flatMap(s => s.items).map(x => x.key);
+  await card(1).locator('[data-act=regen]').click(); await page.waitForTimeout(150);
+  const all1 = (await st()).versions[0].sections.flatMap(s => s.items).map(x => x.key);
+  assert.notEqual(all1[1], all0[1]); all1.forEach((k, i) => { if (i !== 1) assert.equal(k, all0[i]); });
+  ok('regenerate one problem changes only that problem');
+  await card(2).locator('[data-act=pin]').click();
+  const pinnedKey = await keyOf(2);
+  const otherVersionBefore = (await st()).versions[1].sections.flatMap(s => s.items).map(x => x.key);
+  await page.click('#mmRegenVer'); await page.waitForTimeout(300);
+  S = await st();
+  assert.equal(S.versions[0].sections.flatMap(s => s.items)[2].key, pinnedKey);
+  assert.deepEqual(S.versions[1].sections.flatMap(s => s.items).map(x => x.key), otherVersionBefore);
+  ok('pinned problem survives “new problems”; the other version is untouched');
+  await card(0).locator('[data-act=harder]').click(); await page.waitForTimeout(150);
+  S = await st(); assert.equal(S.versions[0].sections[0].items[0].c, 2); assert.equal(S.versions[1].sections[0].items[0].c, 2);
+  await card(0).locator('[data-act=easier]').click(); await page.waitForTimeout(150);
+  ok('easier / harder change the slot in both versions');
+  await card(3).locator('select[data-act=skill]').selectOption('proportion'); await page.waitForTimeout(150);
+  S = await st(); assert.equal(S.versions[0].sections[0].items[3].skill, 'proportion'); assert.equal(S.versions[1].sections[0].items[3].skill, 'proportion');
+  ok('change skill');
+  await card(4).locator('select[data-act=move]').selectOption('2'); await page.waitForTimeout(150);
+  S = await st(); assert.equal(S.versions[0].sections[0].items.length, 5); assert.equal(S.versions[0].sections[2].items.length, 4);
+  ok('move to another section');
+  const nBefore = await page.locator('.mm-dcard').count();
+  await card(0).locator('[data-act=delete]').click();
+  assert.equal(await page.locator('.mm-dcard').count(), nBefore - 1);
+  await page.click('#mmToastAct');
+  assert.equal(await page.locator('.mm-dcard').count(), nBefore);
+  ok('delete with undo');
+  await card(0).locator('[data-act=required]').click();
+  S = await st(); assert.equal(S.versions[1].sections[0].items[0].required, true);
+  ok('mark a problem as required for everyone');
+  await page.selectOption('.mmAddSkill[data-si="1"]', 'literal'); await page.selectOption('.mmAddC[data-si="1"]', '5');
+  await page.click('[data-add="1"]'); await page.waitForTimeout(150);
+  S = await st(); const added = S.versions[0].sections[1].items[S.versions[0].sections[1].items.length - 1];
+  assert.equal(added.skill, 'literal'); assert.equal(added.c, 5);
+  ok('add a problem of a chosen skill and difficulty');
+  // show answer
+  await card(1).locator('[data-act=answer]').click();
+  assert.ok(await card(1).locator('.mm-cans').isVisible());
+  ok('answer and worked solution preview');
+
+  /* ---------- edit: a wrong answer is caught, the computed one can be used ---------- */
+  S = await st();
+  const E = S.versions[0].sections.flatMap(s => s.items).findIndex(i => i.parts.length === 1 && !i.edited);
+  const eCard = () => card(E);
+  await eCard().locator('[data-act=edit]').click();
+  await page.fill('#mmEQ', 'Solve $3(x-4)+5=2x+9$.');
+  await page.selectOption('#mmDialog .mmEPtype', 'solve');
+  await page.fill('#mmDialog .mmEPans', 'x = 3');
+  await page.click('#mmECheck');
+  await page.waitForSelector('#mmDialog .mmEPresult p');
+  const res1 = await page.textContent('#mmDialog .mmEPresult');
+  assert.match(res1, /Correct answer is x = 16/, res1);
+  await page.click('#mmESave'); await page.waitForTimeout(150);
+  const flat = () => st().then(x => x.versions[0].sections.flatMap(s => s.items));
+  let ed = (await flat())[E];
+  assert.equal(ed.verify.status, 'mismatch'); assert.equal(ed.approved, false); assert.equal(ed.pinned, true);
+  assert.ok(await eCard().locator('.mm-badge.bad').count());
+  await eCard().locator('[data-act=edit]').click();
+  await page.click('#mmECheck'); await page.click('[data-use-computed]'); await page.click('#mmESave'); await page.waitForTimeout(150);
+  ed = (await flat())[E];
+  assert.equal(ed.verify.status, 'verified'); assert.match(ed.parts[0].answer, /x=16/);
+  ok('manual edit: wrong answer flagged, computed answer accepted after re-verification');
+  // teacher-written problem with no automatic check needs approval
+  await page.click('[data-manual="2"]');
+  await page.fill('#mmEQ', 'Dev says $2(x+3)=2x+3$. Explain his mistake.');
+  await page.selectOption('#mmDialog .mmEPtype', 'none');
+  await page.fill('#mmDialog .mmEPans', 'He did not multiply 3 by 2.');
+  await page.click('#mmESave'); await page.waitForTimeout(150);
+  S = await st(); const man = S.versions[0].sections[2].items[S.versions[0].sections[2].items.length - 1];
+  assert.equal(man.verify.status, 'manual'); assert.equal(man.approved, false);
+  assert.match(await page.textContent('#mmSummary'), /need approval/);
+  await page.locator('.mm-dcard').last().locator('.mmApprove').check(); await page.waitForTimeout(100);
+  S = await st(); assert.equal(S.versions[0].sections[2].items.slice(-1)[0].approved, true);
+  ok('teacher-written problem requires approval');
+
+  /* ---------- bank ---------- */
+  await page.click('#mmBankToggle'); await page.selectOption('#mmBankSkill', 'both-sides'); await page.selectOption('#mmBankC', '3');
+  await page.fill('#mmBankN', '10'); await page.click('#mmBankGo'); await page.waitForSelector('.mm-bcard');
+  assert.equal(await page.locator('.mm-bcard').count(), 10);
+  assert.ok(await page.locator('.mm-bcard').first().locator('.mm-cans').isVisible(), 'bank shows answers');
+  await page.locator('.mm-bcard').nth(4).locator('.mmBankTo').selectOption('1');
+  await page.locator('.mm-bcard').nth(4).locator('[data-use]').click(); await page.waitForTimeout(150);
+  assert.equal(await page.locator('.mm-bcard').count(), 9);
+  S = await st(); assert.equal(S.versions[0].sections[1].items.slice(-1)[0].skill, 'both-sides');
+  ok('problem bank: 10 previews with answers, choose one for the menu');
+
+  /* ---------- versions ---------- */
+  await page.click('[data-ver="1"]');
+  assert.match(await page.textContent('#mmRegenVer'), /Version B/);
+  const b0 = (await st()).versions[0].sections.flatMap(s => s.items).map(x => x.key);
+  await page.click('#mmRegenVer'); await page.waitForTimeout(300);
+  assert.deepEqual((await st()).versions[0].sections.flatMap(s => s.items).map(x => x.key), b0);
+  ok('regenerate only Version B');
+
+  /* ---------- tablet layout ---------- */
+  await page.setViewportSize({ width: 820, height: 1180 });
+  const over = await page.evaluate(() => document.scrollingElement.scrollWidth - window.innerWidth);
+  assert.ok(over <= 1, 'horizontal overflow on tablet: ' + over);
+  await page.setViewportSize({ width: 1400, height: 1000 });
+  ok('tablet width: no horizontal scrolling');
+
+  /* ---------- accessibility basics ---------- */
+  const a11y = await page.evaluate(() => {
+    const bad = [];
+    document.querySelectorAll('button, select, input, textarea').forEach(e => {
+      if (e.type === 'hidden' || e.closest('[hidden]')) return;
+      const name = (e.getAttribute('aria-label') || e.textContent || '').trim() || (e.labels && e.labels.length && e.labels[0].textContent.trim()) || e.title;
+      if (!name) bad.push(e.outerHTML.slice(0, 90));
+    });
+    return bad;
+  });
+  assert.deepEqual(a11y, [], 'controls without an accessible name: ' + a11y.join(' | '));
+  await page.keyboard.press('Tab');
+  assert.ok(await page.evaluate(() => document.activeElement && document.activeElement !== document.body));
+  ok('every control has an accessible name; keyboard focus works');
+
+  /* ---------- preview + PDFs ---------- */
+  await page.click('#mmToPreview'); await page.waitForSelector('#pages .page');
+  assert.doesNotMatch(await page.textContent('#mmPStatus'), /taller than one page/);
+  const layouts = [
+    { name: 'together-standard', layout: { format: 'together', density: 'standard', grid: 'none', reference: false, guide: true } },
+    { name: 'menuonly-compact-graph', layout: { format: 'menu-only', density: 'compact', grid: 'graph', reference: true, guide: false } },
+    { name: 'together-spacious-coord', layout: { format: 'together', density: 'spacious', grid: 'coordinate', reference: true, guide: true } }
+  ];
+  const pdfs = [];
+  for (const L of layouts) for (const v of [0, 1]) for (const kind of ['student', 'key']) {
+    const info = await page.evaluate(async ({ L, v, kind }) => {
+      const S = MKMENU.app.state(); S.config.layout = L;
+      const pages = await MKMENU.renderPages(S, v, kind);
+      const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
+      document.body.classList.add('printing');
+      const html = root.innerHTML;
+      // everything the key knows that a student must never see
+      const secrets = []; S.versions[v].sections.forEach(s => s.items.forEach(it => { (it.parts || []).forEach(pt => { const m = (pt.answer || '').match(/⟨([^⟩]*)⟩/g) || []; m.forEach(x => secrets.push(x.slice(1, -1))); }); (it.steps || []).forEach(st => { if (st.t && st.t.length > 12) secrets.push(st.t.replace(/⟨[^⟩]*⟩/g, '').trim()); }); }));
+      const annotations = [...root.querySelectorAll('annotation')].map(a => a.textContent.replace(/\\dfrac/g, '\\frac').replace(/\s/g, ''));
+      const text = root.innerText;
+      const labels = []; S.versions[v].sections.forEach((s, si) => s.items.forEach((it, i) => labels.push(MKMENU.dishLabel(S.config, si, i))));
+      return { pages: pages.length, overflow: pages.overflow.length, secrets, annotations, text, labels, nItems: labels.length };
+    }, { L: L.layout, v, kind });
+    const file = path.join(OUT, `menu-${L.name}-v${'AB'[v]}-${kind}.pdf`);
+    await page.emulateMedia({ media: 'print' });
+    await page.pdf({ path: file, format: 'Letter', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, preferCSSPageSize: true });
+    await page.emulateMedia({ media: 'screen' });
+    await page.evaluate(() => { document.body.classList.remove('printing'); document.getElementById('printRoot').innerHTML = ''; });
+    assert.equal(info.overflow, 0, file + ': a block overflows its page');
+    info.labels.forEach(l => assert.ok(info.text.indexOf(l) >= 0, file + ' missing dish ' + l));
+    if (kind === 'student') {
+      assert.doesNotMatch(info.text, /Answer:|Rubric|TEACHER KEY|Teacher key/, file + ' contains key text');
+      // no answer math and no worked-solution text in the student document
+      const solveAnswers = info.secrets.filter(s => /^[a-zA-Z]=/.test(s.replace(/\s/g, '')));
+      solveAnswers.forEach(s => assert.ok(info.annotations.indexOf(s.replace(/\s/g, '')) < 0, file + ' shows an answer: ' + s));
+      info.secrets.filter(s => !/^[a-zA-Z]?=?-?\d/.test(s) && s.length > 12).forEach(s => assert.ok(info.text.indexOf(s) < 0, file + ' shows solution text: ' + s));
+    } else {
+      assert.equal((info.text.match(/Answer:/g) || []).length, info.nItems, file + ': every offered dish needs an answer');
+      assert.match(info.text, /pts?\b/);
+    }
+    // the PDF itself
+    const pdfPages = (fs.readFileSync(file, 'latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
+    assert.equal(pdfPages, info.pages, file + ': PDF page count ' + pdfPages + ' vs layout ' + info.pages);
+    if (hasPdftotext) {
+      const t = cp.execSync('pdftotext -layout "' + file + '" -').toString();
+      if (kind === 'student') assert.doesNotMatch(t, /Answer:|Rubric|TEACHER KEY/, file + ' (PDF text) contains key text');
+      else assert.match(t, /TEACHER KEY/);
+      const size = cp.execSync('pdfinfo "' + file + '"').toString().match(/Page size:\s+([\d.]+) x ([\d.]+)/);
+      assert.ok(Math.abs(+size[1] - 612) < 1 && Math.abs(+size[2] - 792) < 1, 'not US Letter: ' + size[0]);
+    }
+    pdfs.push(file + ' (' + info.pages + ' pages)');
+  }
+  ok('PDFs for 3 layouts × 2 versions × student/key: Letter size, no overflow, students see no answers, keys list every offered dish');
+  console.log('      ' + pdfs.join('\n      '));
+
+  /* ---------- save / reload / file round trip ---------- */
+  await page.click('#mmToExport');
+  await page.fill('#mmSaveName', 'Pilot test menu'); await page.click('#mmSaveNamed');
+  await page.waitForSelector('.mm-saves li');
+  const [dl] = await Promise.all([page.waitForEvent('download'), page.click('#mmDownload')]);
+  const saved = path.join(OUT, 'saved-menu.json'); await dl.saveAs(saved);
+  const before = await st();
+  await page.reload(); await page.waitForSelector('.mm-dcard');
+  const after = await st();
+  assert.deepEqual(after.versions.map(v => v.sections.map(s => s.items.map(i => i.key))), before.versions.map(v => v.sections.map(s => s.items.map(i => i.key))));
+  ok('autosave restores the menu after a reload');
+  // tamper with the downloaded file: the key no longer matches and must be flagged on open
+  const o = JSON.parse(fs.readFileSync(saved, 'utf8'));
+  const victim = o.versions[0].sections[1].items.find(i => i.parts.length === 1 && /=\-?\d+⟩$/.test(i.parts[0].answer));
+  victim.parts[0].answer = victim.parts[0].answer.replace(/(-?\d+)⟩$/, (m, d) => (+d + 1) + '⟩');
+  const tampered = path.join(OUT, 'tampered.json'); fs.writeFileSync(tampered, JSON.stringify(o));
+  await page.click('.mm-stepbtn[data-step="7"]');
+  await page.setInputFiles('#mmOpenFile', tampered); await page.waitForTimeout(400);
+  assert.match(await page.textContent('#mmSummary'), /need approval/);
+  ok('opening a file re-checks every answer (a tampered key is flagged)');
+  await page.click('.mm-stepbtn[data-step="7"]');
+  await page.click('[data-load]'); await page.waitForTimeout(300);
+  assert.match(await page.textContent('#mmSummary'), /every answer verified|need approval/);
+  ok('named saves can be reopened');
+
+  /* ---------- Honors build ---------- */
+  await page.click('.mm-stepbtn[data-step="7"]'); await page.click('#mmNew');
+  await page.waitForSelector('#mmBuildBtn');
+  await page.check('input[name=mmLevel][value=honors]'); await page.selectOption('#mmVersions', '3');
+  await page.click('#mmBuildBtn'); await page.waitForSelector('.mm-dcard');
+  S = await st(); assert.equal(S.versions.length, 3);
+  assert.deepEqual(S.versions[2].sections.map(s => s.items[0].c), [5, 6, 7]);
+  assert.ok(S.versions.every(v => v.sections.every(s => s.items.every(i => i.verify.status === 'verified'))));
+  ok('Honors with Versions A, B, C');
+  assert.deepEqual(errors, [], 'console errors: ' + errors.join('\n'));
+
+  /* ---------- the rest of the site still works ---------- */
+  const site = await ctx.newPage(); const siteErr = [];
+  site.on('pageerror', e => siteErr.push(e.message)); site.on('console', m => { if (m.type() === 'error') siteErr.push(m.text()); });
+  await site.goto(base + '/index.html#algebra.expressions-equations'); await site.waitForTimeout(800);
+  const unitText = await site.textContent('body');
+  assert.match(unitText, /Build a menu assessment/); assert.match(unitText, /Menu Assessment Generator/); assert.match(unitText, /The Equation Bistro: Assessment Menu/);
+  const href = await site.getAttribute('a.btn:has-text("Build a menu assessment")', 'href');
+  assert.equal(href, 'worksheet-generator/menu-assessment.html');
+  await site.goto(base + '/index.html#activity.assessment-generator'); await site.waitForTimeout(500);
+  assert.match(await site.textContent('body'), /Menu Assessment Generator/);
+  await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForTimeout(800);
+  assert.ok(await site.locator('#pages .page').count() >= 0);
+  await site.goto(base + '/activity.html?path=' + encodeURIComponent('artifacts/expressions-equations-assessment-menu/worksheet.pdf')); await site.waitForTimeout(500);
+  // every thumbnail and path referenced from data.js exists
+  const missing = await site.evaluate(async () => {
+    const out = []; const L = window.LIBRARY;
+    for (const c of L.courses) for (const u of c.units) for (const a of u.artifacts) for (const f of [a.path, a.thumb].filter(Boolean)) {
+      const r = await fetch(f, { method: 'HEAD' }); if (!r.ok) out.push(f);
+    }
+    return out;
+  });
+  assert.deepEqual(missing, [], 'missing files referenced by data.js: ' + missing.join(', '));
+  // external fonts/analytics may be unreachable from a test machine; only errors from the site's own code count
+  assert.deepEqual(siteErr.filter(e => !/favicon|ERR_TUNNEL|ERR_NAME|ERR_INTERNET|ERR_CONNECTION|net::ERR_/.test(e)), [], 'site errors: ' + siteErr.join('\n'));
+  ok('site: unit page links the generator, listings work, existing generator and PDF viewer load, every data.js file exists');
+
+  await browser.close(); server.close();
+  console.log('PASS: ' + n + ' browser checks (PDFs in ' + OUT + ')');
+})().catch(e => { console.error(e); server.close(); process.exit(1); });

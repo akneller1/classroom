@@ -1,0 +1,26 @@
+name: Menu assessment generator tests
+on:
+  push:
+    paths:
+      - 'worksheet-generator/menu/**'
+      - 'worksheet-generator/menu-assessment.html'
+      - 'worksheet-generator/core/**'
+      - '.github/workflows/menu-generator-tests.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/menu/**'
+      - 'worksheet-generator/menu-assessment.html'
+      - 'worksheet-generator/core/**'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Mathematics (independent verification, mutation and difficulty tests)
+        run: N=300 node worksheet-generator/menu/tests/math-tests.cjs
+      - name: Menu rules, versions, editing, save/load
+        run: node worksheet-generator/menu/tests/model-tests.cjs
