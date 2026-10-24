@@ -129,11 +129,14 @@
     var tk = this.peek();
     if (tk && tk.t === '^') {
       this.i++;
-      var e = this.peek(), neg = false, val;
-      if (e && e.t === '{') { this.i++; if (this.peek() && this.peek().t === '-') { neg = true; this.i++; } val = this.take('num').v; this.take('}'); }
-      else { if (e && e.t === '-') { neg = true; this.i++; } val = this.take('num').v; }
-      if (!val.isInt() || val.n > 12n) throw new CheckError('unsupported exponent');
-      a = { k: 'pow', a: a, e: Number(val.n) * (neg ? -1 : 1) };
+      var e = this.peek(), ex;
+      // the exponent: a braced expression, a (signed) number or a single letter
+      if (e && e.t === '{') { this.i++; ex = this.expr(); this.take('}'); }
+      else if (e && e.t === '-') { this.i++; ex = { k: 'neg', a: this.atom() }; }
+      else ex = this.atom();
+      var c = constInt(ex);
+      if (c !== null && Math.abs(c) <= 40) a = { k: 'pow', a: a, e: c };
+      else a = { k: 'xpow', a: a, b: ex };    // variable or fractional exponent: 2^x, (1.05)^{t}, 4^{3/2}
     }
     return a;
   };
@@ -155,6 +158,25 @@
     throw new CheckError('unexpected ' + tk.t);
   };
 
+  /* integer value of a constant exponent node, else null */
+  function constInt(n) {
+    if (Object.keys(varsOf(n)).length) return null;
+    try { var v = evalNode(n, {}); return v.isInt() ? Number(v.n) : null; } catch (e) { return null; }
+  }
+  /* exact b^e for rational e; a fractional power must come out rational (8^{2/3} = 4) */
+  function bigRoot(n, k) {   // exact k-th root of a non-negative BigInt, or null
+    if (n < 0n) return null; if (n < 2n) return n;
+    var x = BigInt(Math.round(Math.pow(Number(n), 1 / k)));
+    for (var d = -2n; d <= 2n; d++) { var y = x + d; if (y >= 0n && y ** BigInt(k) === n) return y; }
+    return null;
+  }
+  function qpow(b, e) {
+    if (e.isInt()) { if (e.n > 400n || e.n < -400n) throw new CheckError('exponent too large'); return b.pow(Number(e.n)); }
+    var k = Number(e.d); if (b.n < 0n) throw new CheckError('fractional power of a negative number');
+    var rn = bigRoot(b.n, k), rd = bigRoot(b.d, k);
+    if (rn === null || rd === null) throw new CheckError('the power is not a rational number');
+    return new Q(rn, rd).pow(Number(e.n));
+  }
   function parseExpr(src) {
     var toks = tokenize(src); if (!toks.length) throw new CheckError('empty expression');
     var p = new Parser(toks), a = p.expr();
@@ -239,6 +261,11 @@
       case 'mul': return toRF(node.a).mul(toRF(node.b));
       case 'div': return toRF(node.a).div(toRF(node.b));
       case 'abs': throw new CheckError('absolute value is not a polynomial');
+      case 'xpow':
+        if (Object.keys(varsOf(node.b)).length) throw new CheckError('a variable exponent is not a polynomial');
+        if (!Object.keys(varsOf(node.a)).length) return new RF(P.const(evalNode(node, {})));
+        var ev = evalNode(node.b, {}); if (!ev.isInt()) throw new CheckError('fractional power of a variable');
+        return toRF({ k: 'pow', a: node.a, e: Number(ev.n) });
       case 'pow':
         var base = toRF(node.a), r = new RF(P.const(Q.ONE));
         for (var i = 0; i < Math.abs(node.e); i++) r = r.mul(base);
@@ -257,6 +284,7 @@
       case 'mul': return evalNode(node.a, env).mul(evalNode(node.b, env));
       case 'div': return evalNode(node.a, env).div(evalNode(node.b, env));
       case 'pow': return evalNode(node.a, env).pow(node.e);
+      case 'xpow': return qpow(evalNode(node.a, env), evalNode(node.b, env));
       case 'abs': var av = evalNode(node.a, env); return av.n < 0n ? av.neg() : av;
     }
     throw new CheckError('bad node');
@@ -383,7 +411,7 @@
     return texNode(parseExpr(s));
   }
   function texNode(n, parentPrec) {
-    var prec = { add: 1, sub: 1, neg: 2, mul: 3, div: 3, pow: 4, num: 5, var: 5, grp: 5 }[n.k];
+    var prec = { add: 1, sub: 1, neg: 2, mul: 3, div: 3, pow: 4, xpow: 4, num: 5, var: 5, grp: 5 }[n.k];
     var out;
     switch (n.k) {
       case 'num': out = n.v.isInt() ? String(n.v.n) : '\\frac{' + String(n.v.n < 0n ? -n.v.n : n.v.n) + '}{' + n.v.d + '}'; if (n.v.n < 0n && !n.v.isInt()) out = '-' + out; break;
@@ -397,6 +425,7 @@
         out = n.implicit || /^[a-zπ(\\]/i.test(B) && !/^\\frac/.test(B) ? A + B : A + '\\cdot ' + B; break;
       case 'div': out = '\\frac{' + texNode(n.a, 0) + '}{' + texNode(n.b, 0) + '}'; break;
       case 'pow': out = texNode(n.a, 4) + '^{' + n.e + '}'; break;
+      case 'xpow': out = texNode(n.a, 5) + '^{' + texNode(n.b, 0) + '}'; break;
     }
     return parentPrec !== undefined && prec < parentPrec && n.k !== 'grp' ? '(' + out + ')' : out;
   }

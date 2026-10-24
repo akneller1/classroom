@@ -116,6 +116,10 @@
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
     if (t === 'ineq' || t === 'read-graph' || t === 'ineq-members' || t === 'error-line' || t === 'iscenario' || t === 'model-ineq') return checkIneqPart(p, part, policy);
+    if (FUNC_TYPES.indexOf(t) >= 0) return checkFuncPart(p, part, policy);
+    if (EXP_TYPES.indexOf(t) >= 0) return checkExpPart(p, part, policy);
+    if (FACT_TYPES.indexOf(t) >= 0) return checkFactorPart(p, part, policy);
+    if (STAT_TYPES.indexOf(t) >= 0) return checkStatPart(p, part, policy);
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -271,6 +275,746 @@
       }
       if (chk.want === 'best') return nums.some(function (q) { return q.eq(sc.best); }) && new RegExp(sc.dir === 'max' ? 'at most|maximum|up to|no more' : 'at least|minimum|no fewer', 'i').test(C.plainText(ans)) ? { status: 'verified' } : { status: 'mismatch', msg: 'The ' + (sc.dir === 'max' ? 'most' : 'least') + ' is ' + sc.best + '.' };
       if (chk.want === 'range') { var ints = C.numbersInText(ans), a0 = ceilQ(sc.lo), b0 = floorQ(sc.hi); return ints.length >= 2 && ints[0].eq(a0) && ints[1].eq(b0) ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: from ' + a0 + ' to ' + b0 + '.' }; }
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+  /* ---------- relations and functions (Algebra 1 Unit 4) ---------- */
+  var FUNC_TYPES = ['domain-range', 'is-function', 'func-eval', 'func-solve', 'func-combo', 'read-fig', 'linear-rule', 'table-fill', 'rate', 'graph-behavior', 'sequence'];
+  function qOf(pair) { return pair ? new Q(pair[0], pair[1]) : null; }
+  function qStr(s) { return C.readNumber(String(s)); }
+  /* ordered pairs printed in the problem, e.g. ⟨(1,\ 4),\ (2,\ -3)⟩ */
+  function pairsFrom(tex) {
+    var out = [], re = /\(\s*(-?[\d.]+(?:\/\d+)?)\s*,\s*(?:\\[ ,;]\s*)*(-?[\d.]+)\s*\)/g, m;
+    var t = String(tex).replace(/\\[ ,;!]/g, ' ');
+    while ((m = re.exec(t))) out.push([qStr(m[1]), qStr(m[2])]);
+    return out;
+  }
+  /* What relation does the student see? Reads the drawn figure (or printed pairs). */
+  function relationOf(p, chk) {
+    if (chk.pairs) {
+      if (!shown(p, chk.pairs)) throw new C.CheckError('the ordered pairs being checked are not printed');
+      return { kind: 'discrete', pairs: pairsFrom(chk.pairs) };
+    }
+    var f = p.fig; if (!f) throw new C.CheckError('no figure to read');
+    if (f.kind === 'table') return { kind: 'discrete', pairs: NS.fig.readTable(NS.fig.table(f)).filter(function (r) { return r[0] !== '?' && r[1] !== '?'; }).map(function (r) { return [qStr(r[0]), qStr(r[1])]; }) };
+    if (f.kind === 'mapping') return { kind: 'discrete', pairs: NS.fig.readMapping(NS.fig.mapping(f)).pairs.map(function (r) { return [qStr(r[0]), qStr(r[1])]; }) };
+    if (f.kind === 'plane') {
+      var g = NS.fig.readPlane(NS.fig.plane(f));
+      if (g.segs.length || g.curves.length) return { kind: 'graph', segs: g.segs.map(function (sg) { return { a: [qOf(sg.a[0]), qOf(sg.a[1])], b: [qOf(sg.b[0]), qOf(sg.b[1])], aEnd: sg.aEnd, bEnd: sg.bEnd }; }), curves: g.curves.map(function (c) { return c.map(function (pt) { return [qOf(pt[0]), qOf(pt[1])]; }); }), points: g.points };
+      return { kind: 'discrete', pairs: g.points.map(function (pt) { return [qOf(pt.x), qOf(pt.y)]; }) };
+    }
+    throw new C.CheckError('cannot read this figure');
+  }
+  function uniqQ(list) { return C.parseCondition ? list.slice().sort(function (a, b) { return C.cmpQ(a, b); }).filter(function (q, i, arr) { return i === 0 || !arr[i - 1].eq(q); }) : list; }
+  function setOfNumbers(markup) {
+    var sn = C.snippets(markup).join(' ');
+    var body = /\\\{([^}]*)\\\}/.exec(sn) || /\{([^}]*)\}/.exec(sn);
+    if (!body) return null;
+    return uniqQ(body[1].replace(/\\[ ,;!]/g, ' ').split(',').map(function (x) { return x.trim(); }).filter(Boolean).map(qStr));
+  }
+  function sameList(a, b) { return a.length === b.length && a.every(function (q, i) { return q.eq(b[i]); }); }
+  /* domain or range of a drawn graph: union of the pieces' x- (or y-) intervals */
+  function graphSpan(rel, axis) {
+    var k = axis === 'x' ? 0 : 1, conds = [];
+    rel.segs.forEach(function (sg) {
+      var A = sg.a[k], B = sg.b[k], aIn = sg.aEnd !== 'open', bIn = sg.bEnd !== 'open', aInf = sg.aEnd === 'arrow', bInf = sg.bEnd === 'arrow';
+      var lo = A, hi = B, loIn = aIn, hiIn = bIn, loInf = aInf, hiInf = bInf;
+      if (C.cmpQ(A, B) > 0) { lo = B; hi = A; loIn = bIn; hiIn = aIn; loInf = bInf; hiInf = aInf; }
+      if (C.cmpQ(A, B) === 0) { if (aInf || bInf) throw new C.CheckError('vertical/horizontal ray'); conds.push('v=' + qText(A)); return; }
+      var parts = [];
+      if (!loInf) parts.push('v' + (loIn ? '\\ge ' : '>') + qText(lo));
+      if (!hiInf) parts.push('v' + (hiIn ? '\\le ' : '<') + qText(hi));
+      conds.push(parts.length ? parts.join('\\text{ and }') : 'v=v');
+    });
+    rel.curves.forEach(function (cv) { var vals = cv.map(function (pt) { return pt[k]; }); var lo = vals.reduce(function (m, q) { return C.cmpQ(q, m) < 0 ? q : m; }), hi = vals.reduce(function (m, q) { return C.cmpQ(q, m) > 0 ? q : m; }); conds.push('v\\ge ' + qText(lo) + '\\text{ and }v\\le ' + qText(hi)); });
+    // union of pieces
+    var sets = conds.map(function (c) { return /v=v/.test(c) ? C.solutionSet('v>v-1', 'v') : C.solutionSet(c, 'v'); });
+    return sets.reduce(function (acc, st) { return unionSets(acc, st); }, []);
+  }
+  function unionSets(a, b) {
+    // evaluate membership on a fine set of candidate points built from both sets' endpoints
+    var pts = []; a.concat(b).forEach(function (I) { if (I.lo) pts.push(I.lo); if (I.hi) pts.push(I.hi); });
+    pts = uniqQ(pts);
+    function inSet(S, x) { return S.some(function (I) { var lo = !I.lo || C.cmpQ(x, I.lo) > 0 || (I.loC && I.lo.eq(x)); var hi = !I.hi || C.cmpQ(x, I.hi) < 0 || (I.hiC && I.hi.eq(x)); return lo && hi; }); }
+    if (!pts.length) return a.length || b.length ? [{ lo: null, loC: false, hi: null, hiC: false }] : [];
+    var samples = [{ x: pts[0].sub(Q.ONE), gap: [null, pts[0]] }];
+    pts.forEach(function (c, i) { samples.push({ x: c, point: c }); var nx = pts[i + 1]; samples.push(nx ? { x: c.add(nx).div(new Q(2)), gap: [c, nx] } : { x: c.add(Q.ONE), gap: [c, null] }); });
+    var out = [];
+    samples.forEach(function (sm) {
+      if (!(inSet(a, sm.x) || inSet(b, sm.x))) return;
+      var lo = sm.point || sm.gap[0], hi = sm.point || sm.gap[1], loC = !!sm.point, hiC = !!sm.point, last = out[out.length - 1];
+      if (last && last.hi && lo && C.cmpQ(last.hi, lo) === 0 && (last.hiC || loC)) { last.hi = hi; last.hiC = hiC; }
+      else out.push({ lo: lo, loC: lo ? loC : false, hi: hi, hiC: hi ? hiC : false });
+    });
+    return out;
+  }
+  /* y-value(s) of a drawn graph at x */
+  function graphAt(rel, x) {
+    var ys = [];
+    rel.segs.forEach(function (sg) {
+      var x1 = sg.a[0], x2 = sg.b[0]; if (x1.eq(x2)) { if (x1.eq(x)) ys.push(sg.a[1], sg.b[1]); return; }
+      var t = x.sub(x1).div(x2.sub(x1)), inA = sg.aEnd !== 'open', inB = sg.bEnd !== 'open';
+      var ok = (C.cmpQ(t, Q.ZERO) > 0 || (t.isZero() && inA) || (C.cmpQ(t, Q.ZERO) < 0 && sg.aEnd === 'arrow')) && (C.cmpQ(t, Q.ONE) < 0 || (t.eq(Q.ONE) && inB) || (C.cmpQ(t, Q.ONE) > 0 && sg.bEnd === 'arrow'));
+      if (ok) ys.push(sg.a[1].add(sg.b[1].sub(sg.a[1]).mul(t)));
+    });
+    return uniqQ(ys);
+  }
+  function ruleRHS(rule) { var i = rule.indexOf('='); if (i < 0) throw new C.CheckError('rule needs ='); return C.parseExpr(rule.slice(i + 1)); }
+  function subst(node, v, valNode) {
+    if (node.k === 'var') return node.v === v ? { k: 'grp', a: valNode } : node;
+    var c = Object.assign({}, node); if (c.a) c.a = subst(c.a, v, valNode); if (c.b) c.b = subst(c.b, v, valNode); return c;
+  }
+  /* replace printed calls like f(3) or g(-1) by their values (from the printed rules) */
+  function evalCalls(expr, rules) {
+    var named = {};
+    rules.forEach(function (r) { var m = /^\s*([a-zA-Z])\(\s*([a-z])\s*\)\s*=/.exec(r); if (!m) throw new C.CheckError('cannot read rule ' + r); named[m[1]] = { v: m[2], rhs: ruleRHS(r), txt: r.slice(r.indexOf('=') + 1) }; });
+    var out = String(expr).replace(/([a-zA-Z])\(([^()]*)\)/g, function (w, f, arg) {
+      if (!named[f]) return w;
+      C.parseExpr(arg);   // the argument must be readable
+      var rhsTxt = named[f].txt.replace(/\\[a-zA-Z]+|[a-zA-Z]/g, function (tok) { return tok === named[f].v ? '(' + arg + ')' : tok; });
+      return '(' + rhsTxt + ')';
+    });
+    return out;
+  }
+  function texOfRF(rf) { if (!rf.isPoly() || !rf.asPoly().isConst()) throw new C.CheckError('expected a number'); return qText(rf.asPoly().constVal()).replace(/^-/, '0-'); }
+  function lastEq(markup) { var sn = C.snippets(markup); if (!sn.length) return null; var s = sn[sn.length - 1]; var i = s.lastIndexOf('='); return i >= 0 ? s.slice(i + 1) : s; }
+  /* numbers in the answer, where one snippet may list several ("5,\\ 9") */
+  function listNumbers(markup) { var out = []; C.snippets(markup).forEach(function (sn) { var i = sn.lastIndexOf('='); (i >= 0 ? sn.slice(i + 1) : sn).replace(/\\[ ;!]/g, '').split(/,|\\,/).forEach(function (x) { x = x.trim(); if (x) out.push(qStr(x)); }); }); return out; }
+  function answerNumbers(markup) { return C.snippets(markup).map(function (s) { var i = s.lastIndexOf('='); return qStr((i >= 0 ? s.slice(i + 1) : s).replace(/\\[ ,;!]/g, '')); }); }
+
+  function checkFuncPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase();
+    if (t === 'domain-range' || t === 'is-function') {
+      var rel;
+      if (chk.equation) {
+        if (!shown(p, chk.equation)) return { status: 'invalid', msg: 'The equation is not printed.' };
+        var r = C.parseRelation(chk.equation), many = false, found = 0;
+        for (var xi = -60; xi <= 60 && !many; xi++) {
+          var ys = [];
+          for (var yi = -40; yi <= 40; yi++) { var env = { x: new Q(xi), y: new Q(yi) }; try { if (C.evalNode(r.lhs, env).eq(C.evalNode(r.rhs, env))) ys.push(yi); } catch (e) { /* skip */ } }
+          if (ys.length > 1) many = true; if (ys.length) found++;
+        }
+        if (!found) return { status: 'invalid', msg: 'No whole-number points to test.' };
+        var isF = !many, said = /^\s*yes/.test(txt) ? true : /^\s*no/.test(txt) ? false : null;
+        return said === isF ? { status: 'verified', computed: isF ? 'Yes' : 'No' } : { status: 'mismatch', msg: 'Correct: ' + (isF ? 'Yes, it is a function.' : 'No, some x has two y-values.'), computed: isF ? 'Yes' : 'No' };
+      }
+      rel = relationOf(p, chk);
+      if (t === 'is-function') {
+        var isFun = true;
+        if (rel.kind === 'discrete') { var seen = {}; rel.pairs.forEach(function (pr) { var k = pr[0].toString(); if (seen[k] !== undefined && seen[k] !== pr[1].toString()) isFun = false; seen[k] = pr[1].toString(); }); }
+        else {
+          // vertical line test at many x-values (including every drawn x-coordinate)
+          var xs = []; rel.segs.forEach(function (sg) { xs.push(sg.a[0], sg.b[0]); }); rel.curves.forEach(function (cv) { cv.forEach(function (pt) { xs.push(pt[0]); }); });
+          xs = uniqQ(xs); var probes = xs.slice(); xs.forEach(function (x, i) { if (xs[i + 1]) probes.push(x.add(xs[i + 1]).div(new Q(2))); });
+          probes.forEach(function (x) {
+            var hits = graphAt(rel, x).length;
+            rel.curves.forEach(function (cv) { for (var i = 0; i + 1 < cv.length; i++) { var a = cv[i], b = cv[i + 1]; if (C.cmpQ(a[0], b[0]) === 0) { if (a[0].eq(x)) hits += 2; continue; } var lo = C.cmpQ(a[0], b[0]) < 0 ? a[0] : b[0], hi = C.cmpQ(a[0], b[0]) < 0 ? b[0] : a[0]; if (C.cmpQ(x, lo) >= 0 && C.cmpQ(x, hi) < 0) hits++; if (i + 2 === cv.length && x.eq(hi)) hits++; } });
+            if (hits > 1) isFun = false;
+          });
+        }
+        var said2 = /^\s*yes/.test(txt) ? true : /^\s*no/.test(txt) ? false : null;
+        if (rel.kind === 'graph' && C.snippets(ans).length) {
+          // an explanation that names an x-value must name the one that matters
+          var gx = /x=(-?[\d.\/]+)/.exec(norm(C.snippets(ans)[0]));
+          if (gx) { var gq = qStr(gx[1]), nh = graphAt(rel, gq).length, isEnd = rel.segs.some(function (sg) { return (sg.a[0].eq(gq) && sg.aEnd !== 'arrow' && sg.aEnd !== 'none') || (sg.b[0].eq(gq) && sg.bEnd !== 'arrow' && sg.bEnd !== 'none'); });
+            if (said2 === false ? nh < 2 : !isEnd) return { status: 'mismatch', msg: 'The explanation names the wrong x-value.' }; }
+        }
+        if (said2 === false && !isFun && rel.kind === 'discrete' && C.snippets(ans).length) {
+          // the explanation names an input and its outputs: they must really be paired
+          var sn0 = C.snippets(ans), cx = /x=(-?[\d.\/]+)/.exec(norm(sn0[0]));
+          if (!cx) return { status: 'mismatch', msg: 'Name the input that has two outputs.' };
+          var xq = qStr(cx[1]), outs = sn0.slice(1).map(function (z) { return qStr(z.replace(/\\[ ,;!]/g, '')); });
+          var real = rel.pairs.filter(function (pr) { return pr[0].eq(xq); }).map(function (pr) { return pr[1]; });
+          if (outs.length < 2 || !outs.every(function (o) { return real.some(function (y) { return y.eq(o); }); }) || outs[0].eq(outs[1])) return { status: 'mismatch', msg: 'The explanation does not match the relation.' };
+        }
+        return said2 === isFun ? { status: 'verified', computed: isFun ? 'Yes' : 'No' } : { status: 'mismatch', msg: 'Correct: ' + (isFun ? 'Yes.' : 'No.'), computed: isFun ? 'Yes' : 'No' };
+      }
+      // domain / range
+      var axis = chk.want === 'domain' ? 'x' : 'y';
+      if (rel.kind === 'discrete') {
+        var vals = uniqQ(rel.pairs.map(function (pr) { return pr[axis === 'x' ? 0 : 1]; })), got = setOfNumbers(ans);
+        if (!got) return { status: 'mismatch', msg: 'Write the ' + chk.want + ' as a set in braces.' };
+        return sameList(got, vals) ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct ' + chk.want + ': {' + vals.join(', ') + '}' };
+      }
+      var span = graphSpan(rel, axis), comp = C.setText(span, axis);
+      if (policy && policy.intOnly && span.some(function (I) { return (I.lo && !I.lo.isInt()) || (I.hi && !I.hi.isInt()); })) return { status: 'invalid', msg: 'Non-integer endpoint.' };
+      var aset; try { aset = C.setFromAnswer(ans, axis); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer: ' + e.message, computed: comp }; }
+      return C.setEqual(aset, span) ? { status: 'verified', computed: comp } : { status: 'mismatch', msg: 'Correct ' + chk.want + ': ' + comp, computed: comp };
+    }
+    if (t === 'func-eval' || t === 'func-combo') {
+      var rules = chk.rules || [chk.rule];
+      for (var i = 0; i < rules.length; i++) if (!shown(p, rules[i])) return { status: 'invalid', msg: 'The rule is not printed.' };
+      if (!shown(p, chk.expr) && !C.snippets(C.plainText ? NS.studentText(p) : '').some(function (s) { return s.replace(/\s/g, '').indexOf(chk.expr.replace(/\s/g, '')) >= 0; })) return { status: 'invalid', msg: 'The expression is not printed.' };
+      var value = C.toRF(C.parseExpr(evalCalls(chk.expr, rules)));
+      var ansSn = lastEq(ans); if (ansSn === null) return { status: 'mismatch', msg: 'No answer.' };
+      var chain = C.snippets(ans); chain = chain[chain.length - 1].split('=');
+      if (chain.length > 1 && /^[a-zA-Z]\(/.test(chain[0].trim()) && norm(chain[0]) !== norm(chk.expr)) return { status: 'mismatch', msg: 'The answer is for ' + chain[0] + ', not ' + chk.expr + '.' };
+      for (var ci = 1; ci + 1 < chain.length; ci++) { var mid = C.toRF(C.parseExpr(evalCalls(chain[ci], rules))); if (!mid.sub(value).n.isZero()) return { status: 'mismatch', msg: 'A middle step is wrong.' }; }
+      var got2 = C.toRF(C.parseExpr(ansSn));
+      var same = got2.sub(value).n.isZero();
+      if (same && chk.symbolic) { var fm = C.simplifiedForm(ansSn); if (!fm.ok) return { status: 'mismatch', msg: 'Simplify fully (' + fm.problems.join(', ') + ').' }; }
+      if (!value.isPoly() || !value.asPoly().isConst()) return same ? { status: 'verified' } : { status: 'mismatch', msg: 'Not equivalent.' };
+      var cv = value.asPoly().constVal();
+      if (policy && policy.intOnly && !cv.isInt()) return { status: 'invalid', msg: 'The value is not a whole number.', computed: qText(cv) };
+      return same ? { status: 'verified', computed: qText(cv) } : { status: 'mismatch', msg: 'Correct value: ' + cv + '.', computed: qText(cv) };
+    }
+    if (t === 'func-solve') {
+      if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The rule is not printed.' };
+      var eq = chk.rule.slice(chk.rule.indexOf('=') + 1) + '=' + chk.value;
+      var s2 = C.solveLinear(eq, chk.v || 'x');
+      if (s2.kind !== 'one') return { status: 'invalid', msg: 'No single solution.' };
+      if (policy && policy.intOnly && !s2.value.isInt()) return { status: 'invalid', msg: 'Not a whole number.' };
+      return answerNumbers(ans).some(function (q) { return q.eq(s2.value); }) ? { status: 'verified', computed: (chk.v || 'x') + '=' + qText(s2.value) } : { status: 'mismatch', msg: 'Correct: ' + (chk.v || 'x') + ' = ' + s2.value + '.', computed: (chk.v || 'x') + '=' + qText(s2.value) };
+    }
+    if (t === 'read-fig') {
+      var rel2 = relationOf(p, chk), want = chk.want;
+      if (want === 'value') {
+        var at = qStr(chk.at), ys2 = rel2.kind === 'discrete' ? uniqQ(rel2.pairs.filter(function (pr) { return pr[0].eq(at); }).map(function (pr) { return pr[1]; })) : graphAt(rel2, at);
+        if (ys2.length !== 1) return { status: 'invalid', msg: 'The figure does not give one value at x = ' + at + '.' };
+        var calls = []; C.snippets(ans).forEach(function (sn) { var re2 = /f\((-?[\d.\/]+)\)/g, mm2; while ((mm2 = re2.exec(norm(sn)))) calls.push(qStr(mm2[1])); });
+        if (chk.inner !== undefined) {
+          var inner = qStr(chk.inner), iy = rel2.kind === 'discrete' ? rel2.pairs.filter(function (pr) { return pr[0].eq(inner); }).map(function (pr) { return pr[1]; }) : graphAt(rel2, inner);
+          if (iy.length !== 1 || !iy[0].eq(at)) return { status: 'mismatch', msg: 'f(' + inner + ') is not ' + at + '.' };
+          if (!shown(p, 'f(f(' + chk.inner + '))') && !C.snippets(studentText(p)).some(function (sn) { return norm(sn).indexOf('f(f(' + chk.inner + '))') >= 0; })) return { status: 'invalid', msg: 'f(f(' + chk.inner + ')) is not asked.' };
+          if (!calls.length || !calls[0].eq(inner) || !calls[calls.length - 1].eq(at)) return { status: 'mismatch', msg: 'The inputs in the answer are wrong.' };
+        } else if (calls.length && !calls[calls.length - 1].eq(at)) return { status: 'mismatch', msg: 'The answer is for a different input.' };
+        return answerNumbers(ans).some(function (q) { return q.eq(ys2[0]); }) ? { status: 'verified', computed: qText(ys2[0]) } : { status: 'mismatch', msg: 'Correct: ' + ys2[0] + '.', computed: qText(ys2[0]) };
+      }
+      // want === 'inputs': every x with f(x) = k
+      var k = qStr(chk.k), xs2 = [];
+      if (rel2.kind === 'discrete') xs2 = rel2.pairs.filter(function (pr) { return pr[1].eq(k); }).map(function (pr) { return pr[0]; });
+      else rel2.segs.forEach(function (sg) {
+        var y1 = sg.a[1], y2 = sg.b[1]; if (y1.eq(y2)) { if (y1.eq(k)) xs2.push(null); return; }
+        var tt = k.sub(y1).div(y2.sub(y1)), inA = sg.aEnd !== 'open', inB = sg.bEnd !== 'open';
+        if ((C.cmpQ(tt, Q.ZERO) > 0 || (tt.isZero() && inA) || sg.aEnd === 'arrow' && C.cmpQ(tt, Q.ZERO) < 0) && (C.cmpQ(tt, Q.ONE) < 0 || (tt.eq(Q.ONE) && inB) || sg.bEnd === 'arrow' && C.cmpQ(tt, Q.ONE) > 0)) xs2.push(sg.a[0].add(sg.b[0].sub(sg.a[0]).mul(tt)));
+      });
+      if (xs2.some(function (x) { return x === null; }) || !xs2.length) return { status: 'invalid', msg: 'No single set of inputs for this output.' };
+      xs2 = uniqQ(xs2);
+      var got3 = uniqQ(answerNumbers(ans));
+      return sameList(got3, xs2) ? { status: 'verified', computed: xs2.join(', ') } : { status: 'mismatch', msg: 'Correct x: ' + xs2.join(', ') + '.' };
+    }
+    if (t === 'linear-rule') {
+      var rel3 = relationOf(p, chk), pts;
+      if (rel3.kind === 'discrete') pts = rel3.pairs; else { pts = []; rel3.segs.forEach(function (sg) { pts.push(sg.a, sg.b); }); }
+      var linear = true, m0 = null;
+      for (var j = 1; j < pts.length; j++) { var dx = pts[j][0].sub(pts[0][0]); if (dx.isZero()) { linear = false; break; } var m1 = pts[j][1].sub(pts[0][1]).div(dx); if (m0 && !m1.eq(m0)) linear = false; m0 = m0 || m1; }
+      if (!linear) {
+        if (!/not linear|no/.test(txt)) return { status: 'mismatch', msg: 'The data are not linear.' };
+        var lists = C.snippets(ans).filter(function (z) { return /,/.test(z); });
+        if (lists.length) { var diffs = pts.slice(1).map(function (pt, i) { return pt[1].sub(pts[i][1]); }); if (!sameList(listNumbers('⟨' + lists[0] + '⟩'), diffs)) return { status: 'mismatch', msg: 'The listed changes are wrong: ' + diffs.join(', ') + '.' }; }
+        return { status: 'verified', computed: 'Not linear' };
+      }
+      if (chk.predict !== undefined) {
+        if (!shown(p, 'x=' + chk.predict)) return { status: 'invalid', msg: 'The input is not printed.' };
+        var Xp = qStr(chk.predict), Yp = pts[0][1].add(m0.mul(Xp.sub(pts[0][0]))), gp = listNumbers(ans);
+        return gp.length === 1 && gp[0].eq(Yp) ? { status: 'verified', computed: qText(Yp) } : { status: 'mismatch', msg: 'Correct: y = ' + Yp + '.' };
+      }
+      var rhs = lastEq(ans); if (rhs === null) return { status: 'mismatch', msg: 'Write the rule.' };
+      var fn = C.toRF(C.parseExpr(rhs)); if (!fn.isPoly() || fn.asPoly().degreeIn('x') > 1) return { status: 'mismatch', msg: 'The rule must be linear in x.' };
+      var okAll = pts.every(function (pt) { return fn.asPoly().evalAt({ x: pt[0] }).eq(pt[1]); });
+      var form = C.simplifiedForm(rhs);
+      return okAll && form.ok ? { status: 'verified' } : { status: 'mismatch', msg: okAll ? 'Simplify the rule.' : 'The rule does not fit every point.' };
+    }
+    if (t === 'table-fill') {
+      if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The rule is not printed.' };
+      var rows = NS.fig.readTable(NS.fig.table(p.fig)), rhsN = ruleRHS(chk.rule), v = chk.v || 'x', need = [];
+      rows.forEach(function (r) {
+        if (r[1] === '?' && r[0] !== '?') { var e2 = {}; e2[v] = qStr(r[0]); need.push(C.evalNode(rhsN, e2)); }
+        else if (r[0] === '?' && r[1] !== '?') { var sol = C.solveLinear({ lhs: rhsN, rhs: C.parseExpr(r[1]), rel: '=' }, v); if (sol.kind !== 'one') throw new C.CheckError('missing input not unique'); need.push(sol.value); }
+      });
+      if (!need.length) return { status: 'invalid', msg: 'Nothing to fill in.' };
+      if (policy && policy.intOnly && need.some(function (q) { return !q.isInt(); })) return { status: 'invalid', msg: 'Non-integer entry.' };
+      var got4 = answerNumbers(ans);
+      return sameList(got4, need) ? { status: 'verified', computed: need.join(', ') } : { status: 'mismatch', msg: 'Correct entries: ' + need.join(', ') + '.' };
+    }
+    if (t === 'rate') {
+      var x1, y1, x2, y2;
+      if (chk.rule) {
+        if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The rule is not printed.' };
+        var rr = ruleRHS(chk.rule), va = chk.v || 'x'; x1 = qStr(chk.from); x2 = qStr(chk.to);
+        var e3 = {}; e3[va] = x1; y1 = C.evalNode(rr, e3); e3[va] = x2; y2 = C.evalNode(rr, e3);
+      } else if (chk.words) {
+        var nums = C.numbersInText(p.prompt); x1 = nums[chk.words[0]]; y1 = nums[chk.words[1]]; x2 = nums[chk.words[2]]; y2 = nums[chk.words[3]];
+      } else {
+        var rel4 = relationOf(p, chk);
+        if (rel4.kind === 'discrete') {
+          var A = chk.from !== undefined ? rel4.pairs.filter(function (pr) { return pr[0].eq(qStr(chk.from)); })[0] : rel4.pairs[0];
+          var B = chk.to !== undefined ? rel4.pairs.filter(function (pr) { return pr[0].eq(qStr(chk.to)); })[0] : rel4.pairs[rel4.pairs.length - 1];
+          if (!A || !B) return { status: 'invalid', msg: 'Interval endpoints are not in the data.' };
+          if (chk.constant) { for (var q = 2; q < rel4.pairs.length; q++) { var s0 = rel4.pairs[1][1].sub(rel4.pairs[0][1]).div(rel4.pairs[1][0].sub(rel4.pairs[0][0])), sq = rel4.pairs[q][1].sub(rel4.pairs[q - 1][1]).div(rel4.pairs[q][0].sub(rel4.pairs[q - 1][0])); if (!sq.eq(s0)) return { status: 'invalid', msg: 'The rate is not constant.' }; } }
+          x1 = A[0]; y1 = A[1]; x2 = B[0]; y2 = B[1];
+        } else { var sg = rel4.segs[0]; x1 = sg.a[0]; y1 = sg.a[1]; x2 = sg.b[0]; y2 = sg.b[1]; }
+      }
+      var rate = y2.sub(y1).div(x2.sub(x1));
+      if (chk.from !== undefined && !chk.words) {
+        var fT = chk.from, tT = chk.to, pr2 = C.snippets(studentText(p)).map(norm);
+        if (!(pr2.indexOf(norm('x=' + fT)) >= 0 && pr2.indexOf(norm('x=' + tT)) >= 0) && !pr2.some(function (z) { return z.indexOf(norm(fT + '\\le x\\le ' + tT)) >= 0; })) return { status: 'invalid', msg: 'The interval is not printed.' };
+      }
+      if (chk.words) { var ex2 = C.numbersInText(ans); if (!ex2.every(function (q2) { return q2.eq(rate) || q2.eq(rate.neg()); })) return { status: 'mismatch', msg: 'The explanation uses the wrong rate.' }; }
+      if (chk.intervals) {
+        var rel6 = relationOf(p, chk), pr3 = C.snippets(studentText(p)).map(norm), rates = chk.intervals.map(function (iv) {
+          if (pr3.indexOf(norm(iv[0] + '\\le x\\le ' + iv[1])) < 0) throw new C.CheckError('interval not printed');
+          var a2 = rel6.pairs.filter(function (q3) { return q3[0].eq(qStr(iv[0])); })[0], b2 = rel6.pairs.filter(function (q3) { return q3[0].eq(qStr(iv[1])); })[0];
+          if (!a2 || !b2) throw new C.CheckError('interval endpoints not in the table');
+          return b2[1].sub(a2[1]).div(b2[0].sub(a2[0]));
+        });
+        var big = C.cmpQ(rates[0], rates[1]) > 0 ? 'first' : C.cmpQ(rates[0], rates[1]) < 0 ? 'second' : 'same', gotR = listNumbers(ans);
+        return txt.indexOf(big) >= 0 && gotR.length === 2 && gotR[0].eq(rates[0]) && gotR[1].eq(rates[1]) ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: the ' + big + ' interval (' + rates.join(' vs. ') + ').' };
+      }
+      if (policy && policy.intOnly && !rate.isInt()) return { status: 'invalid', msg: 'The rate is not a whole number.' };
+      var got5 = answerNumbers(ans);
+      if (chk.compare) { var other = qStr(chk.compare); var bigger = C.cmpQ(rate, other) > 0 ? 'first' : C.cmpQ(rate, other) < 0 ? 'second' : 'same'; return txt.indexOf(bigger) >= 0 ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: ' + bigger + '.' }; }
+      return got5.length && got5[0].eq(rate) ? { status: 'verified', computed: qText(rate) } : { status: 'mismatch', msg: 'Correct rate: ' + rate + '.', computed: qText(rate) };
+    }
+    if (t === 'graph-behavior') {
+      var rel5 = relationOf(p, chk), conds = [];
+      rel5.segs.forEach(function (sg) {
+        var dx = sg.b[0].sub(sg.a[0]), dy = sg.b[1].sub(sg.a[1]); if (dx.isZero()) return;
+        var sl = dy.div(dx), kind = sl.isZero() ? 'constant' : C.cmpQ(sl, Q.ZERO) > 0 ? 'increasing' : 'decreasing';
+        if (kind !== chk.want) return;
+        var lo = C.cmpQ(sg.a[0], sg.b[0]) < 0 ? sg.a[0] : sg.b[0], hi = C.cmpQ(sg.a[0], sg.b[0]) < 0 ? sg.b[0] : sg.a[0];
+        conds.push(C.solutionSet(qText(lo) + '<x<' + qText(hi), 'x'));
+      });
+      var want2 = conds.reduce(function (acc, st) { return unionSets(acc, st); }, []);
+      var got6 = /none|never/.test(txt) && !C.snippets(ans).length ? [] : C.snippets(ans).map(function (s3) { return C.solutionSet(s3, 'x'); }).reduce(function (acc, st) { return unionSets(acc, st); }, []);
+      return C.setEqual(got6, want2) ? { status: 'verified', computed: C.setText(want2) } : { status: 'mismatch', msg: 'Correct: ' + (want2.length ? C.setText(want2) : 'none') + '.' };
+    }
+    if (t === 'sequence') {
+      var terms, geoWord = /geometric/.test(C.plainText(p.prompt).toLowerCase());
+      if (chk.terms) { if (!shown(p, chk.terms)) return { status: 'invalid', msg: 'The terms are not printed.' }; terms = chk.terms.replace(/\\dots|\\ldots|\.\.\./g, '').replace(/\\[ ,;!]/g, ' ').split(',').map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) { return C.evalNode(C.parseExpr(x), {}); }); }
+      else { // two given terms "a_3=11" and "a_7=27"
+        var g1 = chk.given[0], g2 = chk.given[1]; if (!shown(p, g1.tex) || !shown(p, g2.tex)) return { status: 'invalid', msg: 'The given terms are not printed.' };
+        var v1 = qStr(g1.val), v2 = qStr(g2.val), gap = g2.n - g1.n;
+        if (geoWord) {
+          if (gap % 2 === 0) return { status: 'invalid', msg: 'An even gap leaves two possible ratios.' };
+          var rq = v2.div(v1), negR = C.cmpQ(rq, Q.ZERO) < 0, root = qpowRoot(negR ? rq.neg() : rq, gap); if (!root) return { status: 'invalid', msg: 'The ratio is not rational.' };
+          var rr = negR ? root.neg() : root, a1g = v1.div(rr.pow(g1.n - 1)); terms = [a1g, a1g.mul(rr), a1g.mul(rr).mul(rr)];
+        } else { var dd = v2.sub(v1).div(new Q(gap)); var a1 = v1.sub(dd.mul(new Q(g1.n - 1))); terms = [a1, a1.add(dd), a1.add(dd.mul(new Q(2)))]; }
+      }
+      var d = terms[1].sub(terms[0]), arith = terms.every(function (q, j) { return !j || q.sub(terms[j - 1]).eq(d); });
+      var ratio = terms[0].isZero() ? null : terms[1].div(terms[0]);
+      var geo = !arith && !!ratio && terms.every(function (q, j) { return !j || (!terms[j - 1].isZero() && q.div(terms[j - 1]).eq(ratio)); });
+      if (!arith && !geo) return { status: 'invalid', msg: 'The sequence is neither arithmetic nor geometric.' };
+      if (geoWord && !geo) return { status: 'invalid', msg: 'The problem says geometric but the terms are not.' };
+      var term = function (n) { return arith ? terms[0].add(d.mul(new Q(n - 1))) : terms[0].mul(ratio.pow(n - 1)); };
+      var nums2 = (chk.want === 'formula' || chk.want === 'recursive') ? [] : listNumbers(ans);
+      if (chk.want === 'recursive') {
+        var rs = C.snippets(ans).join(',').replace(/\\[ ,;!]/g, '').replace(/\s/g, '');
+        var mr = /a_\{?1\}?=(-?[\d.\/]+),a_\{?n\}?=(.+)$/.exec(rs);
+        if (!mr || !qStr(mr[1]).eq(terms[0])) return { status: 'mismatch', msg: 'Write a_1 = ' + terms[0] + ' and the rule for a_n.' };
+        var rhsR = mr[2].replace(/a_\{n-1\}/g, 'p'), okR = true;
+        for (var nr = 2; nr <= 6; nr++) { try { if (!C.evalNode(C.parseExpr(rhsR), { p: term(nr - 1) }).eq(term(nr))) okR = false; } catch (e) { okR = false; } }
+        return okR ? { status: 'verified' } : { status: 'mismatch', msg: arith ? 'a_n = a_{n-1} + ' + d + '.' : 'a_n = ' + ratio + '·a_{n-1}.' };
+      }
+      if (chk.want === 'next') { var nx = [term(terms.length + 1), term(terms.length + 2)]; return sameList(nums2.slice(0, 2), nx) ? { status: 'verified' } : { status: 'mismatch', msg: 'Next terms: ' + nx.join(', ') + '.' }; }
+      if (chk.want === 'd') return nums2.some(function (q) { return q.eq(arith ? d : ratio); }) ? { status: 'verified' } : { status: 'mismatch', msg: (arith ? 'd = ' + d : 'r = ' + ratio) + '.' };
+      if (chk.want === 'nth') { var sub = /a_\{?(-?\d+)\}?=/.exec(norm(C.snippets(ans).join(' '))); if (sub && +sub[1] !== chk.n) return { status: 'mismatch', msg: 'Wrong term number.' }; }
+      if (chk.want === 'nth') return nums2.length && nums2[nums2.length - 1].eq(term(chk.n)) ? { status: 'verified' } : { status: 'mismatch', msg: 'Term ' + chk.n + ' is ' + term(chk.n) + '.' };
+      if (chk.want === 'which') {
+        var target = qStr(chk.value), nn = null;
+        if (arith) { var nq = target.sub(terms[0]).div(d).add(Q.ONE); if (nq.isInt() && nq.n > 0n) nn = nq; }
+        else for (var k2 = 1; k2 <= 80; k2++) if (term(k2).eq(target)) { nn = new Q(k2); break; }
+        var isTerm = nn !== null;
+        if (chk.yesno) { var sy = /^\s*yes/.test(txt); return sy === isTerm && (!isTerm || nums2.some(function (q) { return q.eq(nn); })) ? { status: 'verified' } : { status: 'mismatch', msg: isTerm ? 'Yes, term ' + nn + '.' : 'No.' }; }
+        if (!isTerm) return { status: 'invalid', msg: 'That value is not a term.' };
+        return nums2.some(function (q) { return q.eq(nn); }) ? { status: 'verified' } : { status: 'mismatch', msg: 'It is term ' + nn + '.' };
+      }
+      if (chk.want === 'formula') {
+        var f2 = lastEq(ans); if (f2 === null) return { status: 'mismatch', msg: 'Write the formula.' };
+        var ex = C.parseExpr(f2.replace(/a_\{?n\}?/g, 'n'));
+        for (var nn2 = 1; nn2 <= 6; nn2++) { var gv; try { gv = C.evalNode(ex, { n: new Q(nn2) }); } catch (e) { return { status: 'mismatch', msg: 'Could not read the formula.' }; } if (!gv.eq(term(nn2))) return { status: 'mismatch', msg: 'The formula does not give the terms (a_' + nn2 + ' = ' + term(nn2) + ').' }; }
+        return { status: 'verified' };
+      }
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+
+  /* ---------------- exponential functions ---------------- */
+  var EXP_TYPES = ['exp-identify', 'exp-features', 'exp-model', 'exp-rule', 'exp-solve', 'exp-apply'];
+  function qf(q) { return Number(q.n) / Number(q.d); }
+  function ruleFn(rule, v) { var rhs = ruleRHS(rule); return function (x) { var e = {}; e[v] = x instanceof Q ? x : new Q(x); return C.evalNode(rhs, e); }; }
+  function hasVarExponent(node, v) { if (!node || typeof node !== 'object') return false; if (node.k === 'xpow' && C.varsOf(node.b)[v]) return true; return hasVarExponent(node.a, v) || hasVarExponent(node.b, v); }
+  /* f(x) = a·b^x + k, read back by evaluating the printed rule (and confirmed at two more points) */
+  function expParams(rule, v) {
+    var f = ruleFn(rule, v || 'x'), f0 = f(0), f1 = f(1), f2 = f(2), den = f0.add(f2).sub(f1.mul(new Q(2)));
+    if (den.isZero()) throw new C.CheckError('the rule is not exponential');
+    var k = f0.mul(f2).sub(f1.mul(f1)).div(den), a = f0.sub(k);
+    if (a.isZero()) throw new C.CheckError('the rule is constant');
+    var b = f1.sub(k).div(a);
+    if (C.cmpQ(b, Q.ZERO) <= 0 || b.eq(Q.ONE)) throw new C.CheckError('not an exponential base');
+    [3, -1, -2].forEach(function (x) { if (!f(x).eq(a.mul(b.pow(x)).add(k))) throw new C.CheckError('the rule is not of the form a·b^x + k'); });
+    return { a: a, b: b, k: k };
+  }
+  function firstWord(txt) { return (/^\s*([a-z]+)/.exec(txt) || [])[1] || ''; }
+  function pctOf(q) { return q.sub(Q.ONE).mul(new Q(100)); }
+  function checkExpPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), v = chk.v || 'x';
+    if (chk.rule && !shown(p, chk.rule)) return { status: 'invalid', msg: 'The rule is not printed.' };
+    if (t === 'exp-identify' || t === 'exp-features') {
+      var E = expParams(chk.rule, v), want = chk.want, growth = C.cmpQ(E.b, Q.ONE) > 0;
+      if (t === 'exp-identify' && !E.k.isZero()) return { status: 'invalid', msg: 'Use a rule of the form a·b^x.' };
+      if (p.fig && p.fig.kind === 'plane') {   // a drawn graph must be the graph of the printed rule
+        var gr = NS.fig.readPlane(NS.fig.plane(p.fig), true), fx = ruleFn(chk.rule, v), offGraph = false, near = function (x, y) { var xi = Math.round(x); return Math.abs(x - xi) > 0.01 || Math.abs(qf(fx(xi)) - y) < 0.05; };
+        gr.points.forEach(function (pt) { if (!near(pt.x, pt.y)) offGraph = true; });
+        gr.curves.forEach(function (cv) { cv.forEach(function (pt) { if (!near(pt[0], pt[1])) offGraph = true; }); if (cv.length < 4) offGraph = true; });
+        if (offGraph) return { status: 'invalid', msg: 'The drawn graph does not match the rule.' };
+      }
+      if (want === 'kind') { var w = growth ? 'growth' : 'decay', bs = C.snippets(ans);
+        if (bs.some(function (sn) { try { return !C.evalNode(C.parseExpr(sn), {}).eq(E.b); } catch (e) { return true; } })) return { status: 'mismatch', msg: 'The base is ' + E.b + '.' };
+        return firstWord(txt) === w ? { status: 'verified', computed: w } : { status: 'mismatch', msg: 'Correct: ' + w + '.' }; }
+      if (want === 'initial') return lastNum(ans, E.a) ? { status: 'verified', computed: qText(E.a) } : { status: 'mismatch', msg: 'Initial value: ' + E.a + '.' };
+      if (want === 'factor') return lastNum(ans, E.b) ? { status: 'verified', computed: qText(E.b) } : { status: 'mismatch', msg: 'Factor: ' + E.b + '.' };
+      if (want === 'rate') { var r = pctOf(E.b); if (C.cmpQ(r, Q.ZERO) < 0) r = r.neg(); var nums = C.numbersInText(ans); var w2 = growth ? 'growth' : 'decay';
+        return nums.length && nums[0].eq(r) && (txt.indexOf(w2) >= 0 || txt.indexOf(growth ? 'increase' : 'decrease') >= 0) ? { status: 'verified', computed: qText(r) + '%' } : { status: 'mismatch', msg: 'Rate: ' + r + '% ' + w2 + '.' }; }
+      if (want === 'intercept') { var y0 = E.a.add(E.k), pr = pairsFrom(C.snippets(ans).join(' ')); var okI = pr.length ? pr[0][0].isZero() && pr[0][1].eq(y0) : lastNum(ans, y0);
+        return okI ? { status: 'verified', computed: '(0, ' + y0 + ')' } : { status: 'mismatch', msg: 'y-intercept: (0, ' + y0 + ').' }; }
+      if (want === 'asymptote') { var le = lastEq(ans); var okA = le !== null && /y\s*=/.test(C.snippets(ans).join('')) && C.evalNode(C.parseExpr(le), {}).eq(E.k);
+        return okA ? { status: 'verified', computed: 'y=' + qText(E.k) } : { status: 'mismatch', msg: 'Asymptote: y = ' + E.k + '.' }; }
+      if (want === 'domain') return /all real/.test(txt) ? { status: 'verified' } : { status: 'mismatch', msg: 'Domain: all real numbers.' };
+      if (want === 'range') { var rng = C.solutionSet('y' + (C.cmpQ(E.a, Q.ZERO) > 0 ? '>' : '<') + qText(E.k), 'y'), got; try { got = C.setFromAnswer(ans, 'y'); } catch (e) { return { status: 'mismatch', msg: 'Write the range as an inequality in y.' }; }
+        return C.setEqual(got, rng) ? { status: 'verified', computed: C.setText(rng, 'y') } : { status: 'mismatch', msg: 'Range: ' + C.setText(rng, 'y') + '.' }; }
+      if (want === 'behavior') { var inc = (C.cmpQ(E.a, Q.ZERO) > 0) === growth, w3 = inc ? 'increasing' : 'decreasing'; return firstWord(txt) === w3 ? { status: 'verified', computed: w3 } : { status: 'mismatch', msg: 'Correct: ' + w3 + '.' }; }
+      throw new C.CheckError('unknown want ' + want);
+    }
+    if (t === 'exp-model') {
+      var rel = relationOf(p, chk), pts = rel.pairs; if (!pts || pts.length < 3) return { status: 'invalid', msg: 'Need at least three points.' };
+      var dx = pts[1][0].sub(pts[0][0]); for (var i = 2; i < pts.length; i++) if (!pts[i][0].sub(pts[i - 1][0]).eq(dx)) return { status: 'invalid', msg: 'The x-values must be equally spaced.' };
+      var d = pts[1][1].sub(pts[0][1]), lin = pts.every(function (q, j) { return !j || q[1].sub(pts[j - 1][1]).eq(d); });
+      var ratio = pts.every(function (q) { return !q[1].isZero(); }) ? pts[1][1].div(pts[0][1]) : null, ex = !!ratio && !ratio.eq(Q.ONE) && pts.every(function (q, j) { return !j || q[1].div(pts[j - 1][1]).eq(ratio); });
+      var kind = lin ? 'linear' : ex ? 'exponential' : 'neither', fw = firstWord(txt);
+      if (fw !== kind) return { status: 'mismatch', msg: 'Correct: ' + kind + '.' };
+      var sn = C.snippets(ans); if (kind !== 'neither' && sn.length) { var nq = C.evalNode(C.parseExpr(lastEq(ans) || sn[0]), {}); if (!nq.eq(kind === 'linear' ? d : ratio)) return { status: 'mismatch', msg: 'The explanation uses the wrong ' + (kind === 'linear' ? 'difference' : 'factor') + '.' }; }
+      return { status: 'verified', computed: kind };
+    }
+    if (t === 'exp-rule') {
+      var rel2 = chk.pairs ? relationOf(p, chk) : relationOf(p, chk), pts2 = rel2.kind === 'discrete' ? rel2.pairs : rel2.points.map(function (q) { return [qOf(q.x), qOf(q.y)]; });
+      if (chk.predict !== undefined) {   // the value of the exponential through the points at another x
+        if (!shown(p, v + '=' + chk.predict)) return { status: 'invalid', msg: 'The input is not printed.' };
+        var P1 = pts2[0], P2 = pts2[pts2.length - 1], gapE = Number(P2[0].sub(P1[0]).n), ratE = P2[1].div(P1[1]);
+        if (C.cmpQ(ratE, Q.ZERO) <= 0) return { status: 'invalid', msg: 'Not an exponential.' };
+        var bE = qpowRoot(ratE, gapE); if (!bE) return { status: 'invalid', msg: 'The factor is not rational.' };
+        var aE = P1[1].div(qpowFn(bE, P1[0])); if (!pts2.every(function (q) { return aE.mul(qpowFn(bE, q[0])).eq(q[1]); })) return { status: 'invalid', msg: 'The points are not on one exponential.' };
+        var want4 = aE.mul(qpowFn(bE, qStr(chk.predict))), g4 = listNumbers(ans);
+        if (policy && policy.intOnly && !want4.isInt()) return { status: 'invalid', msg: 'Not a whole number.' };
+        return g4.length && g4[g4.length - 1].eq(want4) ? { status: 'verified', computed: qText(want4) } : { status: 'mismatch', msg: 'Correct: ' + want4 + '.' };
+      }
+      var rr = lastEq(ans); if (rr === null) return { status: 'mismatch', msg: 'Write the rule.' };
+      var node = C.parseExpr(rr); if (!hasVarExponent(node, v)) return { status: 'mismatch', msg: 'The rule should be exponential (the variable in the exponent).' };
+      var fits = pts2.every(function (q) { var e = {}; e[v] = q[0]; try { return C.evalNode(node, e).eq(q[1]); } catch (er) { return false; } });
+      if (!fits) return { status: 'mismatch', msg: 'The rule does not fit every point.' };
+      if (pts2.length < 2) return { status: 'invalid', msg: 'Need two points.' };
+      return { status: 'verified' };
+    }
+    if (t === 'exp-solve') {
+      if (!shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation is not printed.' };
+      var R = C.parseRelation(chk.eq), env = function (x) { var e = {}; e[v] = new Q(x); return e; };
+      // both sides are c·b^(linear): their logarithms are linear in x, so there is at most one solution
+      function logLin(side) { var h = [0, 1, 2, 3].map(function (x) { var val = qf(C.evalNode(side, env(x))); if (!(val > 0)) throw new C.CheckError('a side is not positive'); return Math.log(val); });
+        var m = h[1] - h[0]; if (Math.abs(h[2] - h[1] - m) > 1e-9 || Math.abs(h[3] - h[2] - m) > 1e-9) throw new C.CheckError('not an exponential equation'); return { m: m, c: h[0] }; }
+      var L = logLin(R.lhs), Rr = logLin(R.rhs);
+      if (Math.abs(L.m - Rr.m) < 1e-12) return { status: 'invalid', msg: Math.abs(L.c - Rr.c) < 1e-12 ? 'Every number is a solution.' : 'No solution.' };
+      var xs = (Rr.c - L.c) / (L.m - Rr.m), got = listNumbers(ans);
+      if (got.length !== 1) return { status: 'mismatch', msg: 'Give one value.' };
+      var e1 = {}; e1[v] = got[0]; var exact; try { exact = C.evalNode(R.lhs, e1).eq(C.evalNode(R.rhs, e1)); } catch (er) { exact = false; }
+      if (policy && policy.intOnly && Math.abs(xs - Math.round(xs)) > 1e-9) return { status: 'invalid', msg: 'Not a whole-number solution.' };
+      return exact && Math.abs(qf(got[0]) - xs) < 1e-9 ? { status: 'verified', computed: v + '=' + qText(got[0]) } : { status: 'mismatch', msg: 'Correct: ' + v + ' ≈ ' + (Math.round(xs * 1e6) / 1e6) + '.' };
+    }
+    if (t === 'exp-apply') {
+      var pr2 = C.plainText(studentText(p)).toLowerCase(), nums2 = C.numbersInText(studentText(p)), at = function (i) { if (nums2[i] === undefined) throw new C.CheckError('missing number ' + i); return nums2[i]; };
+      var start = at(chk.start), factor;
+      if (chk.pct !== undefined) { var pc = at(chk.pct).div(new Q(100)), up = /(increas|grow|earn|interest|rise|gain)/.test(pr2), down = /(decreas|los|decay|depreciat|drop|declin)/.test(pr2);
+        if (up === down) throw new C.CheckError('cannot tell growth from decay'); factor = up ? Q.ONE.add(pc) : Q.ONE.sub(pc); }
+      else { var kw = /\b(doubles|triples|quadruples|halves|half)\b/.exec(pr2); if (!kw) throw new C.CheckError('no growth word'); factor = { doubles: new Q(2), triples: new Q(3), quadruples: new Q(4), halves: new Q(1, 2), half: new Q(1, 2) }[kw[1]]; }
+      var every = chk.every !== undefined ? at(chk.every) : Q.ONE;
+      var valueAt = function (tq) { var n = tq.div(every); if (!n.isInt()) throw new C.CheckError('time is not a whole number of periods'); return start.mul(factor.pow(Number(n.n))); };
+      if (chk.want === 'value') {
+        var val2 = valueAt(at(chk.time)), g = listNumbers(ans.replace(/\$/g, '')), gv = g[g.length - 1];
+        if (!gv) return { status: 'mismatch', msg: 'No value.' };
+        if (chk.round !== undefined) {
+          var phrase = chk.round === 2 ? /nearest cent|nearest hundredth/ : chk.round === 1 ? /nearest tenth/ : /nearest whole/;
+          if (!phrase.test(pr2)) return { status: 'invalid', msg: 'The problem must say how to round.' };
+          var scale = Math.pow(10, chk.round), want2 = Math.round(qf(val2) * scale) / scale;
+          return Math.abs(qf(gv) - want2) < 1e-9 ? { status: 'verified', computed: String(want2) } : { status: 'mismatch', msg: 'Correct: ' + want2 + '.' };
+        }
+        return gv.eq(val2) ? { status: 'verified', computed: qText(val2) } : { status: 'mismatch', msg: 'Correct: ' + val2 + '.' };
+      }
+      if (chk.want === 'rule') {
+        var rr2 = lastEq(ans); if (rr2 === null) return { status: 'mismatch', msg: 'Write the function.' };
+        var nd = C.parseExpr(rr2); if (!hasVarExponent(nd, v)) return { status: 'mismatch', msg: 'The function should be exponential.' };
+        for (var j2 = 0; j2 <= 3; j2++) { var tt = every.mul(new Q(j2)), e2 = {}; e2[v] = tt; var gotv; try { gotv = C.evalNode(nd, e2); } catch (er) { return { status: 'mismatch', msg: 'Could not evaluate the function.' }; } if (!gotv.eq(valueAt(tt))) return { status: 'mismatch', msg: 'The function gives the wrong value at ' + v + ' = ' + tt + '.' }; }
+        return { status: 'verified' };
+      }
+      if (chk.want === 'when') {
+        var th = at(chk.threshold), above = C.cmpQ(factor, Q.ONE) > 0, n0 = null;
+        for (var tw = 0; tw <= 200; tw++) { var vv = start.mul(factor.pow(tw)); if (above ? C.cmpQ(vv, th) > 0 : C.cmpQ(vv, th) < 0) { n0 = tw; break; } }
+        if (n0 === null || !every.eq(Q.ONE)) return { status: 'invalid', msg: 'No whole number of periods works.' };
+        var g2 = listNumbers(ans); return g2.length && g2[g2.length - 1].eq(new Q(n0)) ? { status: 'verified', computed: String(n0) } : { status: 'mismatch', msg: 'Correct: after ' + n0 + '.' };
+      }
+      throw new C.CheckError('unknown want');
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+  function qpowRoot(q, k) { try { return C.evalNode(C.parseExpr('(' + qText(q).replace(/^-/, '0-') + ')^{\\frac{1}{' + k + '}}'), {}); } catch (e) { return null; } }
+  function qpowFn(b, e) { return C.evalNode({ k: 'xpow', a: { k: 'num', v: b }, b: { k: 'num', v: e } }, {}); }
+  function lastNum(markup, q) { var g = listNumbers(markup); if (!g.length) g = C.numbersInText(markup); return g.length > 0 && g[g.length - 1].eq(q); }
+
+
+  /* ---------------- factoring and solving by factoring ---------------- */
+  var FACT_TYPES = ['factor', 'quad-roots', 'quad-apply'];
+  function bigAbs(n) { return n < 0n ? -n : n; }
+  function bigGcd(a, b) { a = bigAbs(a); b = bigAbs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  /* coefficients [c0, c1, …] of a polynomial in one variable */
+  function coeffsOf(node, v) {
+    var rf = C.toRF(node); if (!rf.isPoly()) throw new C.CheckError('not a polynomial');
+    var P = rf.asPoly(); if (P.vars().some(function (x) { return x !== v; })) throw new C.CheckError('use only the variable ' + v);
+    var out = []; for (var k = 0; k <= P.degreeIn(v); k++) out.push(P.coeffOf(v, k).constVal());
+    while (out.length > 1 && out[out.length - 1].isZero()) out.pop();
+    return out;
+  }
+  function polyEq(a, b) { return a.length === b.length && a.every(function (q, i) { return q.eq(b[i]); }); }
+  function evalCo(co, x) { var s = Q.ZERO; for (var i = co.length - 1; i >= 0; i--) s = s.mul(x).add(co[i]); return s; }
+  function deflate(co, r) { var n = co.length - 1, out = new Array(n), carry = Q.ZERO; for (var i = n; i >= 1; i--) { carry = carry.mul(r).add(co[i]); out[i - 1] = carry; } return out; }
+  function divisors(n) { n = Number(bigAbs(n)); if (n > 1e7) throw new C.CheckError('numbers too large'); var d = []; for (var i = 1; i * i <= n; i++) if (n % i === 0) { d.push(i); if (i * i !== n) d.push(n / i); } return d; }
+  /* all rational roots (with multiplicity) and what is left over */
+  function ratRoots(co) {
+    var roots = [], rest = co.slice();
+    while (rest.length > 1 && rest[0].isZero()) { roots.push(Q.ZERO); rest = rest.slice(1); }
+    if (rest.length <= 1) return { roots: roots, rest: rest };
+    var L = rest.reduce(function (l, q) { return l * q.d / bigGcd(l, q.d); }, 1n), ints = rest.map(function (q) { return q.n * (L / q.d); });
+    var cands = []; divisors(ints[0]).forEach(function (p) { divisors(ints[ints.length - 1]).forEach(function (q) { cands.push(new Q(p, q), new Q(-p, q)); }); });
+    var again = true;
+    while (again && rest.length > 1) { again = false; for (var i = 0; i < cands.length; i++) if (evalCo(rest, cands[i]).isZero()) { roots.push(cands[i]); rest = deflate(rest, cands[i]); again = true; break; } }
+    return { roots: roots, rest: rest };
+  }
+  function isSquareQ(q) { if (q.n < 0n) return false; var s = function (n) { var r = BigInt(Math.round(Math.sqrt(Number(n)))); for (var d = -1n; d <= 1n; d++) if ((r + d) >= 0n && (r + d) * (r + d) === n) return true; return false; }; return s(q.n) && s(q.d); }
+  /* irreducible over the integers? (degree 1 always; degree 2 by the discriminant; degree 3 by rational roots) */
+  function irreducible(co) {
+    var deg = co.length - 1; if (deg < 1) return false; if (deg === 1) return true;
+    if (deg === 2) return !isSquareQ(co[1].mul(co[1]).sub(new Q(4).mul(co[0]).mul(co[2])));
+    if (deg === 3) return ratRoots(co).roots.length === 0;
+    return null;    // cannot decide: treat as "factor further"
+  }
+  function contentOf(co) { if (!co.every(function (q) { return q.isInt(); })) return null; return co.reduce(function (g, q) { return bigGcd(g, q.n); }, 0n); }
+  /* split a product into its factors: [{node, e}] and a constant */
+  function flattenProduct(node) {
+    var facs = [], cst = Q.ONE;
+    (function f(n, e) {
+      if (n.k === 'mul') { f(n.a, e); f(n.b, e); }
+      else if (n.k === 'neg') { if (e % 2) cst = cst.neg(); f(n.a, e); }
+      else if (n.k === 'grp') { if (/mul|neg|pow|grp/.test(n.a.k)) f(n.a, e); else facs.push({ node: n.a, e: e }); }
+      else if (n.k === 'pow') f(n.a, e * n.e);
+      else if (n.k === 'num') cst = cst.mul(n.v.pow(e));
+      else facs.push({ node: n, e: e });
+    })(node, 1);
+    return { facs: facs, cst: cst };
+  }
+  function checkFactorPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), v = chk.v || 'x';
+    if (t === 'factor') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The polynomial is not printed.' };
+      var T = coeffsOf(C.parseExpr(chk.expr), v), cT = contentOf(T);
+      if (cT === null) return { status: 'invalid', msg: 'Use integer coefficients.' };
+      var tIrr = irreducible(T), isPrime = cT === 1n && tIrr === true;
+      var sn = C.snippets(ans);
+      if (!sn.length) return /prime/.test(txt) ? (isPrime ? { status: 'verified', computed: 'prime' } : { status: 'mismatch', msg: 'It factors.' }) : { status: 'mismatch', msg: 'No answer.' };
+      var aTxt = sn[sn.length - 1], eqi = aTxt.lastIndexOf('='); if (eqi >= 0) aTxt = aTxt.slice(eqi + 1);
+      var A = C.parseExpr(aTxt), Aco;
+      try { Aco = coeffsOf(A, v); } catch (e) { return { status: 'mismatch', msg: e.message }; }
+      if (!polyEq(Aco, T)) return { status: 'mismatch', msg: 'The factors do not multiply back to the polynomial.' };
+      var fp = flattenProduct(A);
+      if (!fp.cst.isInt()) return { status: 'mismatch', msg: 'Use integer factors.' };
+      for (var i = 0; i < fp.facs.length; i++) {
+        var co = coeffsOf(fp.facs[i].node, v), cc = contentOf(co);
+        if (co.length < 2) return { status: 'mismatch', msg: 'Collect the number factors.' };
+        if (cc === null) return { status: 'mismatch', msg: 'Use integer coefficients in every factor.' };
+        if (cc !== 1n) return { status: 'mismatch', msg: 'A factor still has a common factor ' + cc + '.' };
+        if (irreducible(co) !== true) return { status: 'mismatch', msg: 'Not factored completely.' };
+      }
+      return { status: 'verified', computed: isPrime ? 'prime' : 'factored' };
+    }
+    if (t === 'quad-roots') {
+      if (!shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation is not printed.' };
+      var R = C.parseRelation(chk.eq), co2 = coeffsOf({ k: 'sub', a: R.lhs, b: { k: 'grp', a: R.rhs } }, v);
+      if (co2.length < 2) return { status: 'invalid', msg: 'Not an equation in ' + v + '.' };
+      var rr = ratRoots(co2); if (rr.rest.length > 1) return { status: 'invalid', msg: 'Some solutions are not rational.' };
+      var want = uniqQ(rr.roots);
+      if (policy && policy.intOnly && want.some(function (q) { return !q.isInt(); })) return { status: 'invalid', msg: 'A solution is not a whole number.' };
+      var got = uniqQ(listNumbers(ans));
+      return sameList(got, want) ? { status: 'verified', computed: want.map(qText).join(', ') } : { status: 'mismatch', msg: 'Solutions: ' + want.join(', ') + '.' };
+    }
+    if (t === 'quad-apply') {
+      var st = studentText(p), pr = C.plainText(st).toLowerCase(), nums = C.numbersInText(st), at = function (k) { if (nums[k] === undefined) throw new C.CheckError('missing number ' + k); return nums[k]; };
+      var co3, keep, out;
+      if (chk.form === 'rule') {
+        if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The model is not printed.' };
+        var target = chk.target !== undefined ? at(chk.target) : Q.ZERO;
+        co3 = coeffsOf({ k: 'sub', a: ruleRHS(chk.rule), b: { k: 'num', v: target } }, v);
+      } else if (chk.form === 'consec') {
+        var step = /\b(even|odd)\b/.test(pr) ? 2 : 1, P = at(chk.p);
+        co3 = [P.neg(), new Q(step), Q.ONE];   // n(n + step) = P
+        keep = function (n) { return n.isInt() && C.cmpQ(n, Q.ZERO) > 0 && (step === 1 || (/even/.test(pr) ? n.n % 2n === 0n : bigAbs(n.n) % 2n === 1n)); };
+        out = function (n) { return [n, n.add(new Q(step))]; };
+      } else if (chk.form === 'rect') {
+        var k = at(chk.k), Ar = at(chk.A), twice = /twice its width/.test(pr), more = /more than (twice )?its width/.test(pr), less = /less than (twice )?its width/.test(pr);
+        if (more === less) throw new C.CheckError('cannot read the length');
+        var m = twice ? new Q(2) : Q.ONE, kk = more ? k : k.neg();
+        co3 = [Ar.neg(), kk, m];   // w(m·w + kk) = A
+        out = function (w) { return [w, m.mul(w).add(kk)]; };
+      } else if (chk.form === 'border') {
+        if (!/uniform/.test(pr)) throw new C.CheckError('the border must be uniform');
+        var W = at(chk.W), Lb = at(chk.L), Ab = at(chk.A);
+        co3 = [W.mul(Lb).sub(Ab), W.add(Lb).mul(new Q(2)), new Q(4)];   // (W + 2x)(L + 2x) = A
+      } else throw new C.CheckError('unknown form');
+      var rr3 = ratRoots(co3); if (rr3.rest.length > 1) return { status: 'invalid', msg: 'The solutions are not rational.' };
+      var pos = uniqQ(rr3.roots).filter(keep || function (q) { return C.cmpQ(q, Q.ZERO) > 0; });
+      if (pos.length !== 1) return { status: 'invalid', msg: pos.length ? 'More than one answer makes sense.' : 'No answer makes sense.' };
+      var wantList = out ? out(pos[0]) : [pos[0]], gotList = listNumbers(ans);
+      return sameList(gotList, wantList) ? { status: 'verified', computed: wantList.map(qText).join(', ') } : { status: 'mismatch', msg: 'Correct: ' + wantList.join(', ') + '.' };
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+
+  /* ---------------- statistics ---------------- */
+  var STAT_TYPES = ['stat', 'stat-box', 'twoway', 'scatter-corr', 'stat-line'];
+  function sortQ(a) { return a.slice().sort(function (x, y) { return C.cmpQ(x, y); }); }
+  function sumQ(a) { return a.reduce(function (s, q) { return s.add(q); }, Q.ZERO); }
+  function meanQ(a) { return sumQ(a).div(new Q(a.length)); }
+  function medianQ(s) { var n = s.length; return n % 2 ? s[(n - 1) / 2] : s[n / 2 - 1].add(s[n / 2]).div(new Q(2)); }
+  /* quartiles: medians of the lower and upper halves, leaving out the median when the count is odd */
+  function quartiles(a) { var s = sortQ(a), n = s.length, h = Math.floor(n / 2); return [s[0], medianQ(s.slice(0, h)), medianQ(s), medianQ(s.slice(n - h)), s[n - 1]]; }
+  function madQ(a) { var m = meanQ(a); return meanQ(a.map(function (x) { var d = x.sub(m); return C.cmpQ(d, Q.ZERO) < 0 ? d.neg() : d; })); }
+  function outliersQ(a) { var q = quartiles(a), iqr = q[3].sub(q[1]), lo = q[1].sub(iqr.mul(new Q(3, 2))), hi = q[3].add(iqr.mul(new Q(3, 2))); return { lo: lo, hi: hi, list: uniqQ(a.filter(function (x) { return C.cmpQ(x, lo) < 0 || C.cmpQ(x, hi) > 0; })) }; }
+  function dataOf(p, chk) {
+    if (chk.data) { if (!shown(p, chk.data)) throw new C.CheckError('the data are not printed'); return chk.data.replace(/\\[ ,;!]/g, ' ').split(',').map(function (x) { return qStr(x.trim()); }); }
+    var f = p.fig; if (!f) throw new C.CheckError('no data');
+    if (f.kind === 'dotplot') return NS.fig.readDotplot(NS.fig.dotplot(f)).map(function (v) { return qStr(String(v)); });
+    throw new C.CheckError('cannot read the data');
+  }
+  /* compare a computed value with the answer, honouring a printed rounding instruction */
+  function roundCheck(p, chk, val, got, label) {
+    if (!got) return { status: 'mismatch', msg: 'No value.' };
+    if (chk.round !== undefined) {
+      var phrase = chk.round === 0 ? /nearest (whole|percent)/ : chk.round === 1 ? /nearest tenth/ : /nearest hundredth/;
+      if (!phrase.test(C.plainText(studentText(p)).toLowerCase())) return { status: 'invalid', msg: 'The problem must say how to round.' };
+      var sc = Math.pow(10, chk.round), w = Math.round(qf(val) * sc + 1e-9) / sc;
+      return Math.abs(qf(got) - w) < 1e-9 ? { status: 'verified', computed: String(w) } : { status: 'mismatch', msg: (label || 'Correct') + ': ' + w + '.' };
+    }
+    return got.eq(val) ? { status: 'verified', computed: qText(val) } : { status: 'mismatch', msg: (label || 'Correct') + ': ' + val + '.' };
+  }
+  function pctNums(ans) { var t = String(ans).replace(/⟨([^⟩]*)⟩/g, ' $1 ').replace(/\\%/g, '%').replace(/−/g, '-'), out = [], re = /(-?\d+(?:\.\d+)?)\s*%/g, m; while ((m = re.exec(t))) out.push(qStr(m[1])); return out; }
+  function checkStatPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), w = chk.want;
+    if (t === 'stat') {
+      var d = dataOf(p, chk), got = listNumbers(ans), last = got[got.length - 1];
+      if (w === 'mean') return roundCheck(p, chk, meanQ(d), last, 'Mean');
+      if (w === 'median') return roundCheck(p, chk, medianQ(sortQ(d)), last, 'Median');
+      if (w === 'range') { var s0 = sortQ(d); return roundCheck(p, chk, s0[s0.length - 1].sub(s0[0]), last, 'Range'); }
+      if (w === 'mad') return roundCheck(p, chk, madQ(d), last, 'MAD');
+      if (w === 'mode') { var cnt = {}, best = 0; d.forEach(function (x) { cnt[x] = (cnt[x] || 0) + 1; best = Math.max(best, cnt[x]); }); if (best < 2) return { status: 'invalid', msg: 'No mode.' };
+        var modes = uniqQ(d.filter(function (x) { return cnt[x] === best; })); return sameList(uniqQ(got), modes) ? { status: 'verified' } : { status: 'mismatch', msg: 'Mode: ' + modes.join(', ') + '.' }; }
+      var q = quartiles(d);
+      if (w === 'q1' || w === 'q3') return roundCheck(p, chk, q[w === 'q1' ? 1 : 3], last, w.toUpperCase());
+      if (w === 'iqr') return roundCheck(p, chk, q[3].sub(q[1]), last, 'IQR');
+      if (w === 'five') return sameList(got, q) ? { status: 'verified', computed: q.map(qText).join(', ') } : { status: 'mismatch', msg: 'Five-number summary: ' + q.join(', ') + '.' };
+      if (w === 'outliers') { var o = outliersQ(d); if (!o.list.length) return /none|no outlier/.test(txt) && !got.length ? { status: 'verified', computed: 'none' } : { status: 'mismatch', msg: 'There are no outliers.' };
+        return sameList(uniqQ(got), o.list) ? { status: 'verified', computed: o.list.join(', ') } : { status: 'mismatch', msg: 'Outliers: ' + o.list.join(', ') + '.' }; }
+      if (w === 'fences') { var o2 = outliersQ(d); return got.length >= 2 && got[0].eq(o2.lo) && got[1].eq(o2.hi) ? { status: 'verified' } : { status: 'mismatch', msg: 'Fences: ' + o2.lo + ' and ' + o2.hi + '.' }; }
+      if (w === 'better') { var o3 = outliersQ(d), pick = o3.list.length ? 'median' : 'mean'; if (got.some(function (x) { return !o3.list.some(function (y) { return y.eq(x); }); })) return { status: 'mismatch', msg: 'That value is not an outlier.' }; return firstWord(txt) === pick ? { status: 'verified', computed: pick } : { status: 'mismatch', msg: 'Better: the ' + pick + '.' }; }
+      if (w === 'missing') {   // the mean of n values is M; find the missing one
+        var nums = C.numbersInText(studentText(p)), M = nums[chk.mean], n = d.length + 1;
+        if (!M || !nums[chk.count] || !nums[chk.count].eq(new Q(n))) return { status: 'invalid', msg: 'The count or the mean is not printed.' };
+        return roundCheck(p, chk, M.mul(new Q(n)).sub(sumQ(d)), last, 'Missing value');
+      }
+      if (w === 'newmean' || w === 'without') {
+        var nums2 = C.numbersInText(studentText(p)), d2 = d.slice();
+        if (w === 'newmean') { if (!nums2[chk.add]) return { status: 'invalid', msg: 'The new value is not printed.' }; d2.push(nums2[chk.add]); }
+        else { var ol = outliersQ(d).list; if (ol.length !== 1) return { status: 'invalid', msg: 'There must be exactly one outlier.' }; d2 = d.filter(function (x) { return !x.eq(ol[0]); }); }
+        var stat = chk.stat === 'median' ? medianQ(sortQ(d2)) : meanQ(d2);
+        return roundCheck(p, chk, stat, last, 'New ' + (chk.stat || 'mean'));
+      }
+      if (w === 'compare-mad') { var d1 = dataOf(p, { data: chk.data }), dB = dataOf(p, { data: chk.data2 }), m1 = madQ(d1), m2 = madQ(dB), more = C.cmpQ(m1, m2) > 0 ? chk.labels[0] : chk.labels[1];
+        if (m1.eq(m2)) return { status: 'invalid', msg: 'The MADs are equal.' };
+        return txt.indexOf(more.toLowerCase()) === txt.search(/[a-z]/) && sameList(got.slice(-2), [m1, m2]) ? { status: 'verified', computed: more } : { status: 'mismatch', msg: more + ' (MADs ' + m1 + ' and ' + m2 + ').' }; }
+      throw new C.CheckError('unknown want ' + w);
+    }
+    if (t === 'stat-box') {
+      var boxes = NS.fig.readBoxplot(NS.fig.boxplot(p.fig)).map(function (b) { return { label: b.label, q: b.q.map(function (v) { return qStr(String(v)); }) }; });
+      var B = boxes[chk.box || 0], gotB = listNumbers(ans), lastB = gotB[gotB.length - 1];
+      var val = { min: B.q[0], q1: B.q[1], median: B.q[2], q3: B.q[3], max: B.q[4], range: B.q[4].sub(B.q[0]), iqr: B.q[3].sub(B.q[1]) };
+      if (val[w]) return roundCheck(p, chk, val[w], lastB, w);
+      if (w === 'percent') { var idx = { min: 0, q1: 1, median: 2, q3: 3, max: 4 }, pc = (idx[chk.to] - idx[chk.from]) * 25, gp = pctNums(ans);
+        if (!shown(p, chk.fromTeX) || !shown(p, chk.toTeX) || !qStr(chk.fromTeX).eq(B.q[idx[chk.from]]) || !qStr(chk.toTeX).eq(B.q[idx[chk.to]])) return { status: 'invalid', msg: 'The values asked about are not the printed quartiles.' };
+        return gp.length && gp[0].eq(new Q(pc)) ? { status: 'verified', computed: pc + '%' } : { status: 'mismatch', msg: 'Correct: ' + pc + '%.' }; }
+      if (w === 'compare') { var stat2 = chk.stat, f = function (b) { return stat2 === 'iqr' ? b.q[3].sub(b.q[1]) : stat2 === 'range' ? b.q[4].sub(b.q[0]) : b.q[2]; };
+        var c = C.cmpQ(f(boxes[0]), f(boxes[1])); if (!c) return { status: 'invalid', msg: 'They are equal.' };
+        var lab = (c > 0 ? boxes[0].label : boxes[1].label).toLowerCase(), first = txt.replace(/^\W+/, '');
+        var diffOk = chk.diff ? gotB.length && gotB[gotB.length - 1].eq(f(boxes[c > 0 ? 0 : 1]).sub(f(boxes[c > 0 ? 1 : 0]))) : true;
+        return first.indexOf(lab) === 0 && diffOk ? { status: 'verified', computed: lab } : { status: 'mismatch', msg: 'Correct: ' + lab + '.' }; }
+      throw new C.CheckError('unknown want ' + w);
+    }
+    if (t === 'twoway') {
+      var tw = NS.fig.readTwoway(NS.fig.twoway(p.fig)), R = tw.rows.length, Cn = tw.cols.length;
+      if (!/total/i.test(tw.cols[Cn - 1]) || !/total/i.test(tw.rows[R - 1].label)) return { status: 'invalid', msg: 'The table needs total row and column.' };
+      var g = tw.rows.map(function (r) { return r.cells.map(function (v) { return v === '?' ? null : qStr(v); }); }), missing = [];
+      g.forEach(function (r, i) { r.forEach(function (v, j) { if (v === null) missing.push([i, j]); }); });
+      for (var pass = 0; pass < 10; pass++) {   // fill from row and column totals
+        for (var i = 0; i < R; i++) { var nul = g[i].filter(function (v) { return v === null; }).length; if (nul === 1) { var j0 = g[i].indexOf(null), s1 = Q.ZERO; g[i].forEach(function (v, j) { if (j < Cn - 1 && j !== j0) s1 = s1.add(v); }); g[i][j0] = j0 === Cn - 1 ? s1 : g[i][Cn - 1].sub(s1); } }
+        for (var j = 0; j < Cn; j++) { var col = g.map(function (r) { return r[j]; }), nn = col.filter(function (v) { return v === null; }).length; if (nn === 1) { var i0 = col.indexOf(null), s2 = Q.ZERO; col.forEach(function (v, i) { if (i < R - 1 && i !== i0) s2 = s2.add(v); }); g[i0][j] = i0 === R - 1 ? s2 : g[R - 1][j].sub(s2); } }
+      }
+      if (g.some(function (r) { return r.some(function (v) { return v === null || C.cmpQ(v, Q.ZERO) < 0; }); })) return { status: 'invalid', msg: 'The table cannot be completed.' };
+      for (var a = 0; a < R; a++) { var rs = Q.ZERO; for (var b = 0; b < Cn - 1; b++) rs = rs.add(g[a][b]); if (!rs.eq(g[a][Cn - 1])) return { status: 'invalid', msg: 'A row total does not add up.' }; }
+      for (var b2 = 0; b2 < Cn; b2++) { var cs = Q.ZERO; for (var a2 = 0; a2 < R - 1; a2++) cs = cs.add(g[a2][b2]); if (!cs.eq(g[R - 1][b2])) return { status: 'invalid', msg: 'A column total does not add up.' }; }
+      if (w === 'fill') { var want = missing.map(function (m) { return g[m[0]][m[1]]; }); return sameList(listNumbers(ans), want) ? { status: 'verified', computed: want.join(', ') } : { status: 'mismatch', msg: 'Missing values: ' + want.join(', ') + '.' }; }
+      var ri = function (name) { var k = tw.rows.map(function (r) { return r.label; }).indexOf(name); if (k < 0) throw new C.CheckError('no row ' + name); return k; };
+      var ci = function (name) { var k = tw.cols.indexOf(name); if (k < 0) throw new C.CheckError('no column ' + name); return k; };
+      var total = g[R - 1][Cn - 1], hundred = new Q(100), gp2 = pctNums(ans);
+      var pctv;
+      if (w === 'joint') pctv = g[ri(chk.row)][ci(chk.col)].div(total);
+      else if (w === 'marginal') pctv = chk.row ? g[ri(chk.row)][Cn - 1].div(total) : g[R - 1][ci(chk.col)].div(total);
+      else if (w === 'cond-row') pctv = g[ri(chk.row)][ci(chk.col)].div(g[ri(chk.row)][Cn - 1]);    // of the people in this row, the fraction in this column
+      else if (w === 'cond-col') pctv = g[ri(chk.row)][ci(chk.col)].div(g[R - 1][ci(chk.col)]);
+      else if (w === 'assoc') {
+        var p1 = g[ri(chk.rows[0])][ci(chk.col)].div(g[ri(chk.rows[0])][Cn - 1]).mul(hundred), p2 = g[ri(chk.rows[1])][ci(chk.col)].div(g[ri(chk.rows[1])][Cn - 1]).mul(hundred);
+        var r1 = Math.round(qf(p1) + 1e-9), r2 = Math.round(qf(p2) + 1e-9), diff = Math.abs(qf(p1) - qf(p2));
+        if (diff > 5 && diff < 15) return { status: 'invalid', msg: 'The percents are too close to call.' };
+        var yes = diff >= 15, said = /^\s*yes/.test(txt) ? true : /^\s*no/.test(txt) ? false : null;
+        return said === yes && gp2.length >= 2 && gp2[0].eq(new Q(r1)) && gp2[1].eq(new Q(r2)) ? { status: 'verified', computed: yes ? 'yes' : 'no' } : { status: 'mismatch', msg: (yes ? 'Yes' : 'No') + ' (' + r1 + '% vs ' + r2 + '%).' };
+      } else throw new C.CheckError('unknown want ' + w);
+      return roundCheck(p, chk, pctv.mul(hundred), gp2[0], 'Percent');
+    }
+    if (t === 'scatter-corr') {
+      var pts = NS.fig.readScatter(NS.fig.scatter(p.fig)), n3 = pts.length, mx = 0, my = 0;
+      pts.forEach(function (q2) { mx += q2[0] / n3; my += q2[1] / n3; });
+      var sxy = 0, sxx = 0, syy = 0; pts.forEach(function (q2) { sxy += (q2[0] - mx) * (q2[1] - my); sxx += Math.pow(q2[0] - mx, 2); syy += Math.pow(q2[1] - my, 2); });
+      var r = sxy / Math.sqrt(sxx * syy);
+      var kind = r >= 0.6 ? 'positive' : r <= -0.6 ? 'negative' : Math.abs(r) <= 0.3 ? 'no' : null;
+      if (!kind) return { status: 'invalid', msg: 'The association is not clear (r = ' + r.toFixed(2) + ').' };
+      return firstWord(txt) === kind ? { status: 'verified', computed: kind } : { status: 'mismatch', msg: 'Correct: ' + kind + ' correlation.' };
+    }
+    if (t === 'stat-line') {
+      var fx;
+      if (chk.pairs) {   // the line through two printed points
+        if (!shown(p, chk.pairs)) return { status: 'invalid', msg: 'The points are not printed.' };
+        var pp = pairsFrom(chk.pairs); if (pp.length !== 2 || pp[0][0].eq(pp[1][0])) return { status: 'invalid', msg: 'Need two points.' };
+        var mL = pp[1][1].sub(pp[0][1]).div(pp[1][0].sub(pp[0][0])), bL = pp[0][1].sub(mL.mul(pp[0][0])); fx = function (x) { return mL.mul(x).add(bL); };
+      } else { if (!shown(p, chk.rule)) return { status: 'invalid', msg: 'The line is not printed.' }; fx = ruleFn(chk.rule, chk.v || 'x'); }
+      var gl = listNumbers(ans), lastL = gl[gl.length - 1];
+      if (w === 'predict') { if (!C.snippets(studentText(p)).some(function (sn) { return norm(sn).indexOf(norm((chk.v || 'x') + '=' + chk.at)) >= 0; })) return { status: 'invalid', msg: 'The input is not printed.' }; return roundCheck(p, chk, fx(qStr(chk.at)), lastL, 'Prediction'); }
+      if (w === 'residual' || w === 'over-under') {
+        var pt = '(' + chk.x + ',\\ ' + chk.y + ')'; if (!C.snippets(studentText(p)).some(function (sn) { return norm(sn).indexOf(norm(pt)) >= 0; })) return { status: 'invalid', msg: 'The data point is not printed.' };
+        var res = qStr(chk.y).sub(fx(qStr(chk.x)));
+        if (w === 'residual') return roundCheck(p, chk, res, lastL, 'Residual');
+        if (res.isZero()) return { status: 'invalid', msg: 'The point is on the line.' };
+        var word = C.cmpQ(res, Q.ZERO) > 0 ? 'under' : 'over';
+        return txt.indexOf(word) >= 0 && txt.indexOf(word === 'under' ? 'over' : 'under') < 0 && lastL && lastL.eq(res) ? { status: 'verified', computed: word } : { status: 'mismatch', msg: 'The line ' + word + 'estimates (residual ' + res + ').' };
+      }
+      if (w === 'slope' || w === 'intercept') { var b0 = fx(Q.ZERO), m = fx(Q.ONE).sub(b0), want3 = w === 'slope' ? m : b0, sn3 = C.snippets(ans);
+        if (!sn3.length) return { status: 'mismatch', msg: 'Give the number.' };
+        var v3 = C.evalNode(C.parseExpr(sn3[w === 'intercept' ? sn3.length - 1 : 0]), {}); var dec = /decreas|less|fewer|drop|lower/.test(txt), neg0 = C.cmpQ(want3, Q.ZERO) < 0; return (dec ? neg0 && v3.eq(want3.neg()) : v3.eq(want3) && (w === 'intercept' || !neg0)) ? { status: 'verified' } : { status: 'mismatch', msg: 'The ' + w + ' is ' + want3 + '.' }; }
+      throw new C.CheckError('unknown want ' + w);
     }
     return { status: 'manual', msg: 'Unknown check ' + t };
   }

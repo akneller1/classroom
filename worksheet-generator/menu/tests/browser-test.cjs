@@ -121,6 +121,7 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   await eCard().locator('[data-act=edit]').click();
   await page.fill('#mmEQ', 'Solve $3(x-4)+5=2x+9$.');
   await page.selectOption('#mmDialog .mmEPtype', 'solve');
+  if (await page.locator('#mmDialog .mmEPvar').count()) await page.fill('#mmDialog .mmEPvar', 'x');   // the dish being edited may have used another letter
   await page.fill('#mmDialog .mmEPans', 'x = 3');
   await page.click('#mmECheck');
   await page.waitForSelector('#mmDialog .mmEPresult p');
@@ -207,21 +208,21 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
       document.body.classList.add('printing');
       const html = root.innerHTML;
       // everything the key knows that a student must never see: per dish, its answers (as rendered math) and its solution text
-      const flat = s => s.replace(/\s+/g, '');
+      const flat = s => s.replace(/\s+/g, ''); const tok = (h, t) => { for (let i = h.indexOf(t); i >= 0; i = h.indexOf(t, i + 1)) { if (!/[0-9A-Za-z.]/.test(h[i - 1] || ' ') && !/[0-9.]/.test(h[i + t.length] || ' ')) return true; } return false; }; /* whole tokens only: 5x=−4x does not contain the answer x=−4 */
       if (window.__plantLeak) {   // self-test of this detector: put one answer on the student page
         const it = S.versions[v].sections[1].items[0], el = root.querySelector('[data-uid="' + it.uid + '"]');
-        el.insertAdjacentHTML('beforeend', '<div>' + MKMENU.mathSafe(it.parts[it.parts.length - 1].answer) + '</div>');
+        el.insertAdjacentHTML('beforeend', '<div>→ ' + MKMENU.mathSafe(it.parts[it.parts.length - 1].answer) + ' ←</div>');
       }
       const leaks = [];
       S.versions[v].sections.forEach(sec => sec.items.forEach(it => {
         const el = root.querySelector('[data-uid="' + it.uid + '"]'); if (!el) return;
         const shown = flat(el.textContent), studentTeX = flat(MKMENU.studentText(it));
         (it.parts || []).forEach(pt => (pt.answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => {
-          if (studentTeX.indexOf(flat(m)) >= 0) return;                         // e.g. "Graph x ≥ 2": the inequality is the question
+          if (studentTeX.indexOf(flat(m)) >= 0 || studentTeX.indexOf(flat(m.slice(1, -1))) >= 0) return;   // quoting the question (the base of y = 5(1.09)^x) is not a leak                         // e.g. "Graph x ≥ 2": the inequality is the question
           const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1).replace(/\\frac/g, '\\dfrac'), { output: 'html', throwOnError: false });
-          const t = flat(box.textContent); if (t.length >= 3 && shown.indexOf(t) >= 0) leaks.push(it.uid + ': ' + m);
+          const t = flat(box.textContent); if (t.length >= 3 && tok(shown, t)) leaks.push(it.uid + ': ' + m + ' IN ' + el.textContent.slice(0, 160));
         }));
-        (it.steps || []).forEach(st => { const t = flat((st.t || '').replace(/⟨[^⟩]*⟩/g, '')); if (t.length > 14 && shown.indexOf(t) >= 0) leaks.push(it.uid + ': ' + st.t); });
+        (it.steps || []).forEach(st => { const t = flat((st.t || '').replace(/⟨[^⟩]*⟩/g, '')); if (t.length > 14 && tok(shown, t)) leaks.push(it.uid + ': ' + st.t); });
       }));
       const text = root.innerText;
       const labels = []; S.versions[v].sections.forEach((s, si) => s.items.forEach((it, i) => labels.push(MKMENU.dishLabel(S.config, si, i))));
@@ -258,13 +259,13 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   const planted = await page.evaluate(async () => {
     window.__plantLeak = true; const S = MKMENU.app.state(); const pages = await MKMENU.renderPages(S, 0, 'student');
     const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
-    const it = S.versions[0].sections[1].items[0], el = root.querySelector('[data-uid="' + it.uid + '"]');
-    el.insertAdjacentHTML('beforeend', '<div>' + MKMENU.mathSafe(it.parts[it.parts.length - 1].answer) + '</div>');
-    const flat = s => s.replace(/\s+/g, ''); let found = false;
-    (it.parts[it.parts.length - 1].answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => { const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1).replace(/\\frac/g, '\\dfrac'), { output: 'html', throwOnError: false }); if (flat(el.textContent).indexOf(flat(box.textContent)) >= 0) found = true; });
-    window.__plantLeak = false; root.innerHTML = ''; return found;
+    const it = S.versions[0].sections.flatMap(sc => sc.items).find(x => /⟨/.test(x.parts[x.parts.length - 1].answer)), el = root.querySelector('[data-uid="' + it.uid + '"]');
+    el.insertAdjacentHTML('beforeend', '<div>→ ' + MKMENU.mathSafe(it.parts[it.parts.length - 1].answer) + ' ←</div>');
+    const flat = s => s.replace(/\s+/g, ''); const tok = (h, t) => { for (let i = h.indexOf(t); i >= 0; i = h.indexOf(t, i + 1)) { if (!/[0-9A-Za-z.]/.test(h[i - 1] || ' ') && !/[0-9.]/.test(h[i + t.length] || ' ')) return true; } return false; }; /* whole tokens only: 5x=−4x does not contain the answer x=−4 */ let found = false;
+    (it.parts[it.parts.length - 1].answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => { const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1).replace(/\\frac/g, '\\dfrac'), { output: 'html', throwOnError: false }); if (tok(flat(el.textContent), flat(box.textContent))) found = true; });
+    window.__plantLeak = false; const txt = el.textContent; root.innerHTML = ''; return found || ('MISS ' + it.parts[it.parts.length - 1].answer + ' :: ' + txt.slice(-200));
   });
-  assert.ok(planted, 'the student-leak detector failed to notice a planted answer');
+  assert.ok(planted === true, 'the student-leak detector failed to notice a planted answer: ' + planted);
   ok('PDFs for 3 layouts × 2 versions × student/key: Letter size, no overflow, students see no answers, keys list every offered dish');
   console.log('      ' + pdfs.join('\n      '));
 
@@ -327,13 +328,13 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
       // graphs that are part of a question (read-the-graph) vs. graphs that are answers
       let promptSegs = 0; S.versions[v].sections.forEach(s => s.items.forEach(it => { if (it.fig && it.fig.pieces) promptSegs += it.fig.pieces.filter(p => !(p.lo && p.hi && p.lo[0] / p.lo[1] === p.hi[0] / p.hi[1])).length; }));
       let answerFigs = 0; S.versions[v].sections.forEach(s => s.items.forEach(it => it.parts.forEach(pt => { if (pt.answerFig) answerFigs++; })));
-      const flat = s => s.replace(/\s+/g, ''), leaks = [];
+      const flat = s => s.replace(/\s+/g, ''), leaks = []; const tok = (h, t) => { for (let i = h.indexOf(t); i >= 0; i = h.indexOf(t, i + 1)) { if (!/[0-9A-Za-z.]/.test(h[i - 1] || ' ') && !/[0-9.]/.test(h[i + t.length] || ' ')) return true; } return false; }; /* whole tokens only: 5x=−4x does not contain the answer x=−4 */
       if (kind === 'student') S.versions[v].sections.forEach(sec => sec.items.forEach(it => {
         const el = root.querySelector('[data-uid="' + it.uid + '"]'), shown = flat(el.textContent), studentTeX = flat(MKMENU.studentText(it));
         it.parts.forEach(pt => (pt.answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => {
-          if (studentTeX.indexOf(flat(m)) >= 0) return;
+          if (studentTeX.indexOf(flat(m)) >= 0 || studentTeX.indexOf(flat(m.slice(1, -1))) >= 0) return;   // quoting the question (the base of y = 5(1.09)^x) is not a leak
           const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1), { output: 'html', throwOnError: false });
-          const t = flat(box.textContent); if (t.length >= 3 && shown.indexOf(t) >= 0) leaks.push(m);
+          const t = flat(box.textContent); if (t.length >= 3 && tok(shown, t)) leaks.push(m + ' IN ' + el.textContent.slice(0, 220));
         }));
       }));
       return { leaks, pages: pages.length, overflow: pages.overflow.length, segs: root.querySelectorAll('.nl-seg').length, lines: root.querySelectorAll('svg.mm-nl').length, promptSegs, answerFigs, text: root.innerText };
@@ -362,6 +363,57 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   ok('Inequalities PDFs: students see blank number lines only (no shaded answers); keys include the answer graphs; units keep separate autosaves');
   console.log('      ' + pdfs.slice(-4).join('\n      '));
 
+  /* ---------- Relations and Functions: tables, mapping diagrams and graphs ---------- */
+  for (const [UNITID, TITLE, TAGS, SHORT] of [['algebra1-relations-functions', /Function Diner/, ['RELATIONS', 'NOTATION', 'REPRESENT', 'RATE', 'SEQUENCE'], 'functions'], ['algebra1-exponential-functions', /Exponential Eatery/, ['EVAL', 'GROWTH', 'MODEL', 'SOLVE', 'SEQUENCE', 'APPLY'], 'exponential'], ['algebra1-factoring-zero-product', /Factor Factory/, ['GCF', 'TRI', 'SPECIAL', 'SOLVE', 'APPLY'], 'factoring'], ['algebra1-statistics-data-modeling', /Data Deli/, ['CENTER', 'SPREAD', 'DISPLAY', 'TWOWAY', 'SCATTER'], 'statistics']]) {
+  const rf = await ctx.newPage(); const rfErr = [];
+  rf.on('pageerror', e => rfErr.push(e.message)); rf.on('console', m => { if (m.type() === 'error') rfErr.push(m.text()); }); rf.on('dialog', d => d.accept());
+  await rf.goto(URL + '#unit=' + UNITID); await rf.waitForSelector('#mmUnitSel');
+  assert.equal(await rf.inputValue('#mmUnitSel'), UNITID);
+  assert.match(await rf.inputValue('#mmTitle'), TITLE);
+  for (const lvl of ['cp2', 'cp1', 'honors']) {
+    if (lvl !== 'cp2') { await rf.click('.mm-stepbtn[data-step="7"]'); await rf.click('#mmNew'); }
+    await rf.waitForSelector('#mmBuildBtn');
+    await rf.check('input[name=mmLevel][value="' + lvl + '"]');
+    await rf.selectOption('#mmVersions', '2'); await rf.click('#mmBuildBtn'); await rf.waitForSelector('.mm-dcard');
+    const RF = await rf.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
+    assert.ok(RF.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && i.verify.status === 'verified'))), lvl + ': unverified item');
+    const tagsRF = new Set(RF.versions[0].sections.flatMap(s => s.items.map(i => i.tag)));
+    TAGS.forEach(t => assert.ok(tagsRF.has(t), UNITID + ' ' + lvl + ' menu lacks ' + t));
+    for (const v of [0, 1]) for (const kind of ['student', 'key']) {
+      const info = await rf.evaluate(async ({ v, kind }) => {
+        const S = MKMENU.app.state(), pages = await MKMENU.renderPages(S, v, kind);
+        const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
+        document.body.classList.add('printing');
+        let figs = 0; S.versions[v].sections.forEach(s => s.items.forEach(it => { if (it.fig) figs++; }));
+        const flat = s => s.replace(/\s+/g, ''), leaks = []; const tok = (h, t) => { for (let i = h.indexOf(t); i >= 0; i = h.indexOf(t, i + 1)) { if (!/[0-9A-Za-z.]/.test(h[i - 1] || ' ') && !/[0-9.]/.test(h[i + t.length] || ' ')) return true; } return false; }; /* whole tokens only: 5x=−4x does not contain the answer x=−4 */
+        if (kind === 'student') S.versions[v].sections.forEach(sec => sec.items.forEach(it => {
+          // reading a value off a table or graph is the question, so the figure itself is left out of the comparison
+          const el = root.querySelector('[data-uid="' + it.uid + '"]').cloneNode(true); el.querySelectorAll('.mm-fig').forEach(f => f.remove());
+          const shown = flat(el.textContent), studentTeX = flat(MKMENU.studentText(it));
+          it.parts.forEach(pt => (pt.answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => {
+            if (studentTeX.indexOf(flat(m)) >= 0 || studentTeX.indexOf(flat(m.slice(1, -1))) >= 0) return;   // quoting the question (the base of y = 5(1.09)^x) is not a leak
+            const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1), { output: 'html', throwOnError: false });
+            const t = flat(box.textContent); if (t.length >= 3 && tok(shown, t)) leaks.push(m + ' IN ' + el.textContent.slice(0, 160));
+          }));
+        }));
+        return { leaks, pages: pages.length, overflow: pages.overflow.length, figs, drawn: root.querySelectorAll('.mm-fig').length, text: root.innerText };
+      }, { v, kind });
+      const file = path.join(OUT, `${SHORT}-${lvl}-v${'AB'[v]}-${kind}.pdf`);
+      await rf.emulateMedia({ media: 'print' });
+      await rf.pdf({ path: file, format: 'Letter', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, preferCSSPageSize: true });
+      await rf.emulateMedia({ media: 'screen' });
+      await rf.evaluate(() => { document.body.classList.remove('printing'); document.getElementById('printRoot').innerHTML = ''; });
+      assert.equal(info.overflow, 0, file + ' overflows');
+      assert.ok(info.drawn >= info.figs, file + ': figures missing (' + info.drawn + ' of ' + info.figs + ')');
+      if (kind === 'student') { assert.doesNotMatch(info.text, /Answer:|Rubric/); assert.deepEqual(info.leaks, [], file + ' shows answers: ' + info.leaks.join(' | ')); }
+      pdfs.push(file + ' (' + info.pages + ' pages)');
+    }
+  }
+  assert.deepEqual(rfErr, [], UNITID + ' page errors: ' + rfErr.join('\n'));
+  ok(UNITID + ': CP2/CP1/Honors menus verified, cover every skill group, draw every figure, PDFs fit and leak no answers');
+  await rf.close();
+  }
+
   /* ---------- the rest of the site still works ---------- */
   const site = await ctx.newPage(); const siteErr = [];
   site.on('pageerror', e => siteErr.push(e.message)); site.on('console', m => { if (m.type() === 'error') siteErr.push(m.text()); });
@@ -372,6 +424,8 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   assert.equal(href, 'worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations');
   await site.goto(base + '/index.html#algebra.inequalities'); await site.waitForTimeout(500);
   assert.equal(await site.getAttribute('a.btn:has-text("Build a menu assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-inequalities');
+  await site.goto(base + '/index.html#algebra.relations-functions'); await site.waitForTimeout(500);
+  assert.equal(await site.getAttribute('a.btn:has-text("Build a menu assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions');
   await site.goto(base + '/index.html#activity.assessment-generator'); await site.waitForTimeout(500);
   assert.match(await site.textContent('body'), /Menu Assessment Generator/);
   await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForTimeout(800);

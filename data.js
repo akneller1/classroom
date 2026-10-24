@@ -162,6 +162,81 @@ window.LIBRARY = {
                 "Simplifying & Evaluating Expressions"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Foundations of Algebra Flashcards",
+              "path": "artifacts/foundations-algebra-flashcards/index.html",
+              "thumb": "thumbs/foundations-algebra-flashcards.jpg",
+              "description": "A fresh deck of foundations of algebra flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Evaluating expressions",
+                "One- and two-step equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Foundations of Algebra Showdown",
+              "path": "artifacts/foundations-algebra-showdown/index.html",
+              "thumb": "thumbs/foundations-algebra-showdown.jpg",
+              "description": "A game board for foundations of algebra review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Evaluating expressions",
+                "One- and two-step equations",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Foundations of Algebra Connect Four",
+              "path": "artifacts/foundations-algebra-connect-four/index.html",
+              "thumb": "thumbs/foundations-algebra-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice foundations of algebra problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Evaluating expressions",
+                "One- and two-step equations",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Foundations of Algebra Tic-Tac-Toe",
+              "path": "artifacts/foundations-algebra-tic-tac-toe/index.html",
+              "thumb": "thumbs/foundations-algebra-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice foundations of algebra problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Evaluating expressions",
+                "One- and two-step equations",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Foundations of Algebra: Picture Reveal",
+              "path": "artifacts/foundations-algebra-picture-reveal/index.html",
+              "thumb": "thumbs/foundations-algebra-picture-reveal.jpg",
+              "description": "Solve 10 foundations of algebra problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Evaluating expressions",
+                "One- and two-step equations"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -686,7 +761,96 @@ window.LIBRARY = {
         {
           "id": "relations-functions",
           "name": "Relations and Functions",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions",
+              "thumb": "thumbs/menu-assessment-generator-relations-functions.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Relations and Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes domain and range, deciding whether a relation is a function (pairs, tables, mapping diagrams, graphs and equations), function notation, reading tables and graphs, writing rules, rate of change, increasing and decreasing intervals and arithmetic sequences. Prints student menus (Versions A–C) and teacher keys with tables, graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Relations and Functions Flashcards",
+              "path": "artifacts/relations-functions-flashcards/index.html",
+              "thumb": "thumbs/relations-functions-flashcards.jpg",
+              "description": "A fresh deck of relations and functions flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Relations and Functions Showdown",
+              "path": "artifacts/relations-functions-showdown/index.html",
+              "thumb": "thumbs/relations-functions-showdown.jpg",
+              "description": "A game board for relations and functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Relations and Functions Connect Four",
+              "path": "artifacts/relations-functions-connect-four/index.html",
+              "thumb": "thumbs/relations-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice relations and functions problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Relations and Functions Tic-Tac-Toe",
+              "path": "artifacts/relations-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/relations-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice relations and functions problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Relations and Functions: Picture Reveal",
+              "path": "artifacts/relations-functions-picture-reveal/index.html",
+              "thumb": "thumbs/relations-functions-picture-reveal.jpg",
+              "description": "Solve 10 relations and functions problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "linear-equations-slope",
@@ -1651,6 +1815,19 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-exponential-functions",
+              "thumb": "thumbs/menu-assessment-generator-exponential-functions.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Exponential Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes evaluating exponential functions, growth and decay, percent rates, key features of graphs (intercept, asymptote, domain and range), linear vs. exponential tables, writing y = a·bˣ, equations with a common base, geometric sequences and growth/decay word problems. Prints student menus (Versions A–C) and teacher keys with graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Exponential functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
               "title": "Exponents & Exponential Functions Worksheet Generator",
               "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
               "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
@@ -1861,6 +2038,81 @@ window.LIBRARY = {
                 "Exponential Functions, Growth & Decay"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Exponential Functions Flashcards",
+              "path": "artifacts/exponential-functions-flashcards/index.html",
+              "thumb": "thumbs/exponential-functions-flashcards.jpg",
+              "description": "A fresh deck of exponential functions flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Exponential growth and decay",
+                "Exponential equations",
+                "Geometric sequences",
+                "Linear vs. exponential"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponential Functions Showdown",
+              "path": "artifacts/exponential-functions-showdown/index.html",
+              "thumb": "thumbs/exponential-functions-showdown.jpg",
+              "description": "A game board for exponential functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Exponential growth and decay",
+                "Exponential equations",
+                "Geometric sequences",
+                "Linear vs. exponential",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponential Functions Connect Four",
+              "path": "artifacts/exponential-functions-connect-four/index.html",
+              "thumb": "thumbs/exponential-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice exponential functions problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Exponential growth and decay",
+                "Exponential equations",
+                "Geometric sequences",
+                "Linear vs. exponential",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponential Functions Tic-Tac-Toe",
+              "path": "artifacts/exponential-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/exponential-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice exponential functions problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Exponential growth and decay",
+                "Exponential equations",
+                "Geometric sequences",
+                "Linear vs. exponential",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponential Functions: Picture Reveal",
+              "path": "artifacts/exponential-functions-picture-reveal/index.html",
+              "thumb": "thumbs/exponential-functions-picture-reveal.jpg",
+              "description": "Solve 10 exponential functions problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Exponential growth and decay",
+                "Exponential equations",
+                "Geometric sequences",
+                "Linear vs. exponential"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -2073,6 +2325,19 @@ window.LIBRARY = {
           "id": "factoring-zero-product",
           "name": "Factoring and Zero Product Property",
           "artifacts": [
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-factoring-zero-product",
+              "thumb": "thumbs/menu-assessment-generator-factoring-zero-product.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Factoring and the Zero Product Property. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes GCF and grouping, x² + bx + c, ax² + bx + c, differences of squares and perfect squares, prime polynomials, solving by factoring and word problems (consecutive integers, rectangles, borders, falling objects). Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every factorization is multiplied back out and checked for complete factoring, and every equation is solved independently.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Factoring"
+              ],
+              "added": "2026-10-24"
+            },
             {
               "title": "Polynomials & Factoring Worksheet Generator",
               "path": "worksheet-generator/algebra1-polynomials-factoring.html",
@@ -2310,6 +2575,81 @@ window.LIBRARY = {
                 "Factoring"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Factoring Flashcards",
+              "path": "artifacts/factoring-zero-product-flashcards/index.html",
+              "thumb": "thumbs/factoring-zero-product-flashcards.jpg",
+              "description": "A fresh deck of factoring flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "GCF and grouping",
+                "Factoring trinomials",
+                "Special products",
+                "Zero product property"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Factoring Showdown",
+              "path": "artifacts/factoring-zero-product-showdown/index.html",
+              "thumb": "thumbs/factoring-zero-product-showdown.jpg",
+              "description": "A game board for factoring review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "GCF and grouping",
+                "Factoring trinomials",
+                "Special products",
+                "Zero product property",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Factoring Connect Four",
+              "path": "artifacts/factoring-zero-product-connect-four/index.html",
+              "thumb": "thumbs/factoring-zero-product-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice factoring problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "GCF and grouping",
+                "Factoring trinomials",
+                "Special products",
+                "Zero product property",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Factoring Tic-Tac-Toe",
+              "path": "artifacts/factoring-zero-product-tic-tac-toe/index.html",
+              "thumb": "thumbs/factoring-zero-product-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice factoring problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "GCF and grouping",
+                "Factoring trinomials",
+                "Special products",
+                "Zero product property",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Factoring: Picture Reveal",
+              "path": "artifacts/factoring-zero-product-picture-reveal/index.html",
+              "thumb": "thumbs/factoring-zero-product-picture-reveal.jpg",
+              "description": "Solve 10 factoring problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "GCF and grouping",
+                "Factoring trinomials",
+                "Special products",
+                "Zero product property"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -2559,7 +2899,96 @@ window.LIBRARY = {
         {
           "id": "statistics-data-modeling",
           "name": "Statistics and Data Modeling",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-statistics-data-modeling",
+              "thumb": "thumbs/menu-assessment-generator-statistics-data-modeling.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Statistics and Data Modeling. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes mean, median, mode and MAD (including dot plots), quartiles, IQR and outliers, reading and comparing box plots, two-way tables with joint, marginal and conditional relative frequencies, and scatter plots with correlation, lines of fit, predictions and residuals. Prints student menus (Versions A–C) and teacher keys with every display, worked solutions and rubrics. Every answer is recomputed from the printed data or the drawn display.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Statistics"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Statistics Flashcards",
+              "path": "artifacts/statistics-data-modeling-flashcards/index.html",
+              "thumb": "thumbs/statistics-data-modeling-flashcards.jpg",
+              "description": "A fresh deck of statistics flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots",
+                "Two-way tables",
+                "Scatter plots and lines of fit"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Statistics Showdown",
+              "path": "artifacts/statistics-data-modeling-showdown/index.html",
+              "thumb": "thumbs/statistics-data-modeling-showdown.jpg",
+              "description": "A game board for statistics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots",
+                "Two-way tables",
+                "Scatter plots and lines of fit",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Statistics Connect Four",
+              "path": "artifacts/statistics-data-modeling-connect-four/index.html",
+              "thumb": "thumbs/statistics-data-modeling-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice statistics problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots",
+                "Two-way tables",
+                "Scatter plots and lines of fit",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Statistics Tic-Tac-Toe",
+              "path": "artifacts/statistics-data-modeling-tic-tac-toe/index.html",
+              "thumb": "thumbs/statistics-data-modeling-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice statistics problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots",
+                "Two-way tables",
+                "Scatter plots and lines of fit",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Statistics: Picture Reveal",
+              "path": "artifacts/statistics-data-modeling-picture-reveal/index.html",
+              "thumb": "thumbs/statistics-data-modeling-picture-reveal.jpg",
+              "description": "Solve 10 statistics problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots",
+                "Two-way tables",
+                "Scatter plots and lines of fit"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         }
       ]
     },

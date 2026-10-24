@@ -54,6 +54,7 @@ function complexity(p) {
       if (n.k === 'neg' || n.k === 'sub') score += 0.6;
       if (n.k === 'grp') score += 2;
       if (n.k === 'pow') score += 1.5;
+      if (n.k === 'xpow') score += 3;   // a variable or fractional exponent
       if (n.k === 'abs') score += 4;
       if (n.a) walk(n.a); if (n.b) walk(n.b);
     })(node);
@@ -61,9 +62,10 @@ function complexity(p) {
   // how many inverse operations wrap the unknown (solve / literal problems)
   (p.parts || []).forEach(pt => {
     if (!pt.check || !pt.check.v || !/solve|literal|classify/.test(pt.check.type) || !pt.check.eq) return;
+    if (pt.check.type === 'exp-solve') { const bases = new Set(); (function bw(n) { if (!n || typeof n !== 'object') return; if (n.k === 'xpow') { try { bases.add(String(C.evalNode(n.a, {}))); } catch (e) { /* variable base */ } } bw(n.a); bw(n.b); })(C.parseRelation(pt.check.eq)); if (bases.size > 1) score += 5; }
     let r; try { r = C.parseRelation(pt.check.eq); } catch (e) { return; }
     let best = 0;
-    (function depth(n, d) { if (n.k === 'var' && n.v === pt.check.v) best = Math.max(best, d); const inc = /add|sub|mul|div|neg/.test(n.k) ? 1 : 0; if (n.a) depth(n.a, d + inc); if (n.b) depth(n.b, d + inc); })({ k: 'x', a: r.lhs, b: r.rhs }, 0);
+    (function depth(n, d) { if (n.k === 'var' && n.v === pt.check.v) best = Math.max(best, d); const inc = /add|sub|mul|div|neg|xpow/.test(n.k) ? 1 : 0; if (n.a) depth(n.a, d + inc); if (n.b) depth(n.b, d + inc); })({ k: 'x', a: r.lhs, b: r.rhs }, 0);
     let occ = 0; (function cnt(n) { if (n.k === 'var' && n.v === pt.check.v) occ++; if (n.a) cnt(n.a); if (n.b) cnt(n.b); })({ k: 'x', a: r.lhs, b: r.rhs });
     score += 2.5 * best + 3 * Math.max(0, occ - 1);
   });
@@ -89,6 +91,63 @@ function complexity(p) {
         if (!JSON.stringify(a, (k, v) => typeof v === 'bigint' ? 0 : v).includes('"abs"') && f(1).sub(f(0)).n < 0n) score += 4;
       }); } catch (e) { /* not linear */ }
     }
+  });
+  // function-unit content: what the student must read from a figure, and the shape of the answer they must write
+  const f = p.fig;
+  if (f && f.kind === 'table') f.rows.forEach(rw => rw.forEach((cell, j) => {
+    if (cell === '?') score += j === 0 ? 6 : 2.5;   // a missing input must be solved for
+    else score += 0.5 + Math.log10(1 + Math.abs(+cell || 0)) * 0.4;
+  }));
+  if (f && f.kind === 'table' && (p.parts || []).some(pt => pt.check && pt.check.type === 'exp-model')) {   // tables to classify: x-steps other than 1, fraction ratios
+    const num = f.rows.map(rw => [+rw[0], +rw[1]]); if (num.length > 1 && num[1][0] - num[0][0] !== 1) score += 3; if (num.length > 1 && num[0][1] && !Number.isInteger(num[1][1] / num[0][1]) && !Number.isInteger(num[0][1] / num[1][1])) score += 3;
+  }
+  if (f && f.kind === 'table' && (p.parts || []).some(pt => pt.check && pt.check.type === 'linear-rule')) {   // a table whose rate is a fraction, or whose x-steps are uneven, is harder to turn into a rule
+    const num = f.rows.filter(rw => rw[0] !== '?' && rw[1] !== '?').map(rw => [+rw[0], +rw[1]]);
+    if (num.length > 2) { const st = num.slice(1).map((rw, i) => rw[0] - num[i][0]); if (st.some(d => d !== st[0])) score += 3;
+      const rt = (num[1][1] - num[0][1]) / (num[1][0] - num[0][0]); if (!Number.isInteger(rt)) score += 4; if (!num.some(rw => rw[0] === 0)) score += 2; }
+  }
+  if (f && f.kind === 'dotplot') score += 0.3 * Object.values(f.counts).reduce((x, y) => x + y, 0);
+  if (f && f.kind === 'boxplot') score += 3 * f.boxes.length;
+  if (f && f.kind === 'scatter') score += 0.2 * f.points.length + (f.line ? 1 : 0);
+  if (f && f.kind === 'twoway') score += 0.3 * f.rows.length * f.cols.length + 2 * f.rows.reduce((n, rw) => n + rw.cells.filter(v => v === '?').length, 0);
+  if (f && f.kind === 'mapping') score += 1.4 * f.arrows.length;
+  if (f && f.kind === 'plane') {
+    score += 1.8 * (f.points || []).length + 4 * (f.segs || []).length + (f.curves || []).reduce((n, cv) => n + 6 + 0.8 * Math.min(cv.length, 9), 0);
+    (f.segs || []).forEach(sg => { [sg.aEnd, sg.bEnd].forEach(e => { if (e === 'open') score += 2; if (e === 'arrow') score += 2; });
+      const dx = sg.b[0] - sg.a[0]; if (dx && !Number.isInteger((sg.b[1] - sg.a[1]) / dx)) score += 3; });
+  }
+  // snippets the expression parser cannot read (lists, pairs, subscripted terms): count the numbers in them
+  all.forEach(sn => { let okp = true; try { C.parseRelation(sn); } catch (e) { try { C.parseCondition(sn); } catch (e2) { try { C.parseExpr(sn); } catch (e3) { okp = false; } } }
+    if (!okp || /,/.test(sn)) score += 0.8 * (sn.match(/\d+/g) || []).length + 2 * (sn.match(/_\{/g) || []).length; });
+  (p.parts || []).forEach(pt => {
+    const t = pt.check && pt.check.type;
+    if (t === 'factor') {   // factoring work: GCF to remove, leading coefficient (ac method), degree, number of factors, proving "prime"
+      const co = (() => { try { const rf = C.toRF(C.parseExpr(pt.check.expr)); const P = rf.asPoly(), v = pt.check.v || 'x'; const out = []; for (let k = 0; k <= P.degreeIn(v); k++) out.push(P.coeffOf(v, k).constVal()); return out; } catch (e) { return null; } })();
+      if (co) { const ints = co.map(q => q.n); let g = 0n; ints.forEach(n => { let a = n < 0n ? -n : n, b = g; while (b) { [a, b] = [b, a % b]; } g = a; });
+        const lead = ints[ints.length - 1] / (g || 1n); if (g > 1n) score += 3; if (lead !== 1n && lead !== -1n) score += 6; if (lead < 0n) score += 1; score += 3 * Math.max(0, co.length - 3); if (co.filter(q => !q.isZero()).length >= 4) score += 3; }
+      if (/prime/i.test(pt.answer)) score += 5;
+      const fac = (pt.answer.match(/\(/g) || []).length; score += 2 * Math.max(0, fac - 2);
+    }
+    if (t === 'quad-roots') { const e = pt.check.eq; if (!/\(/.test(e)) score += 5; if (!/=\s*0\s*$/.test(e)) score += 3; const d = (e.match(/\^\{?(\d)/g) || []).map(x => +x.replace(/\D/g, '')); if (Math.max(0, ...d) >= 3) score += 4; }
+    // statistics: the computation each question needs, and the size of the display
+    const SW = { stat: { mean: 3, median: 3, mode: 1, range: 1, five: 6, q1: 4, q3: 4, iqr: 5, mad: 8, outliers: 8, fences: 7, missing: 6, newmean: 5, without: 6, better: 6, 'compare-mad': 12 },
+      'stat-box': { median: 1, min: 1, max: 1, q1: 2, q3: 2, iqr: 3, range: 3, percent: 4, compare: 5 }, twoway: { fill: 3, joint: 3, marginal: 3, 'cond-row': 6, 'cond-col': 7, assoc: 10 },
+      'scatter-corr': { undefined: 2 }, 'stat-line': { predict: 4, residual: 6, 'over-under': 7, slope: 7, intercept: 6 } };
+    if (SW[t]) score += (SW[t][pt.check.want] || 0) + (pt.check.round !== undefined ? 1 : 0) + (pt.check.diff ? 2 : 0);
+    if (t === 'linear-rule' && pt.check.predict !== undefined) score += 4;
+    if (t === 'quad-apply') score += ({ consec: 0, rect: 4, rule: 5, border: 9 })[pt.check.form] || 0;
+    if (!/domain-range|is-function|func-|read-fig|linear-rule|table-fill|rate|graph-behavior|sequence|exp-|factor|quad-/.test(t || '')) return;
+    C.snippets(pt.answer).forEach(sn => {
+      const rhs = sn.slice(sn.lastIndexOf('=') + 1);
+      if (/,/.test(sn)) score += 0.8 * (sn.match(/\d+/g) || []).length;   // several values to produce
+      if (/[a-z]/.test(rhs.replace(/\\[a-z]+/g, ''))) score += 5;                       // a rule or formula, not a number
+      if (/\\frac/.test(sn)) score += 3;
+      const ineqs = (sn.match(/\\le|\\ge|<|>/g) || []).length; score += 2.5 * ineqs;   // intervals to write
+    });
+    if (/recursive|formula/.test(pt.check.want || '')) score += 3;
+    if (pt.check.want === 'which') score += 6;   // an equation must be solved
+    if (t === 'func-solve') score += 4;
+    if (pt.check.equation) score += 6;   // decide from an equation, with no picture
   });
   return score;
 }

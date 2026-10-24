@@ -105,7 +105,7 @@
   function promptHtml(p, forKey) {
     var h = '<div class="mm-q">' + mathSafe(p.prompt || '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
-    if (p.fig && NS.figHtml && !(forKey && !(p.fig.pieces || []).length)) h += NS.figHtml(p.fig);   // the key skips blank student lines
+    if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;

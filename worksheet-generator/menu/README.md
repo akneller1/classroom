@@ -6,6 +6,10 @@ accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-gener
 **Supported units (Algebra 1 roadmap):**
 - Units 1–2 · Foundations & Solving Linear Equations (`algebra1-expressions-equations`)
 - Unit 3 · Linear Inequalities (`algebra1-inequalities`)
+- Unit 4 · Relations and Functions (`algebra1-relations-functions`)
+- Unit 8 · Exponential Functions (`algebra1-exponential-functions`)
+- Unit 10 · Factoring and Zero Product Property (`algebra1-factoring-zero-product`)
+- Unit 12 · Statistics and Data Modeling (`algebra1-statistics-data-modeling`)
 
 Other units appear in the unit list as "not yet supported" until they have generators that pass the same
 verification tests (see *Adding a unit*). Open a unit directly with `menu-assessment.html#unit=<id>`. Each
@@ -119,7 +123,78 @@ using the critical-point method on exact rationals. It also re-reads the key's d
 blank student line shows every endpoint, checks which line in a "find the mistake" problem is the first wrong one,
 and re-solves word problems from the printed numbers.
 
-**Gaps (not generated, use "Write your own"):** Linear Inequalities: absolute-value *equations*. Foundations & Solving Linear Equations: error-analysis ("find the mistake") problems; percent
+### Relations and Functions skills (tags RELATIONS · NOTATION · REPRESENT · RATE · SEQUENCE)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| RELATIONS | Domain and range | ordered pairs → table → mapping diagram, graphed points (a repeated input) → graphs as inequalities with open dots and arrows |
+| RELATIONS | Is it a function? | pairs, tables, mapping diagrams, points → vertical line test on lines and curves → a split graph where one dot decides → equations such as `x=y²` |
+| NOTATION | Function notation | `f(4)` → negative inputs, quadratics, solve `f(x)=k` → `2f(1)−g(3)` → simplify `f(2a+3)` and solve |
+| NOTATION | Read tables and graphs | `f(a)` and `f(x)=k` from a table → one-piece graph → two solutions on V-shaped and three-piece graphs → `f(f(a))` |
+| REPRESENT | Write a rule | `x=0,1,2…` → negative rates, “is it linear?” → a graph with a fraction slope → uneven x-steps → fraction rates without `x=0`, then predict |
+| REPRESENT | Complete a table | linear outputs → quadratics → missing inputs that must be solved, fraction rules |
+| RATE | Rate of change | two points → linear table → word problems with units → average rate of a quadratic, comparing two intervals |
+| RATE | Increasing / decreasing | where is it increasing → all three behaviours → stories (distance from home) |
+| SEQUENCE | Arithmetic sequences | next two terms → the nth term → explicit formula → which term is k → formula from two terms → recursive + explicit + “is k a term?” |
+
+Tables, mapping diagrams and coordinate graphs are drawn from a spec and the verifier reads them back from the drawn SVG/HTML
+before checking anything: domain and range from the drawn pieces (open dots, arrows), the vertical line test at every
+drawn x and between them, values and solutions of `f(x)=k` read off the drawing, a line fitted through every table row,
+missing table entries, rates from the printed points or interval, and arithmetic-sequence formulas checked term by term.
+Explanations are checked too: a "not a function" answer must name an input that really has two outputs, and a word-problem
+rate explanation must use the same rate.
+
+### Exponential Functions skills (tags EVAL · GROWTH · MODEL · SOLVE · SEQUENCE · APPLY)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| EVAL | Evaluate | `f(3)` for `3·2ˣ` → x = 0 and negative inputs, fraction bases → shifts `a·b^(x−h)+k`, decimal bases, `f(3) − g(0)` |
+| GROWTH | Growth or decay, initial value, factor, rate | integer bases → fraction bases, `1.05`, `0.85` → models in context, fraction bases above 1, value after 2 years |
+| GROWTH | Key features | intercept and increasing/decreasing from a graph → asymptote, domain, range → shifts and reflections, all five features |
+| MODEL | Linear, exponential or neither | integer tables → decreasing and decay → x-steps of 2, fraction ratios, “neither” |
+| MODEL | Write `y = a·bˣ` | tables from x = 0 → tables from x = 1, decay tables, x = 2 → two points (+ predict a value), fraction factors |
+| SOLVE | Common base | `2ˣ = 32` → `3·2ˣ = 48`, `3ˣ⁻¹ = 27`, same base both sides → rewrite bases, `(1/4)^(x+3) = 64`, fraction answers |
+| SEQUENCE | Geometric sequences | next terms → negative and fraction ratios, nth term, explicit formula → which term, formula from two terms, recursive + explicit |
+| APPLY | Growth and decay | doubling, halving → percent growth/decay value, write `P(t) = a(1 ± r)ᵗ` → rounding, doubling periods `2^(t/3)`, when a value first passes a target |
+
+The checker now reads variable and fractional exponents exactly (`4^{3/2} = 8`; an irrational power is refused). It
+recovers `a`, `b` and `k` of a printed rule by evaluating it, checks a drawn exponential curve against the rule,
+solves exponential equations through logarithms (proving the solution is unique) and then confirms the answer exactly,
+detects arithmetic vs. geometric sequences, and re-solves word problems from the printed numbers (growth words,
+percent, doubling period, rounding instruction).
+
+### Factoring and Zero Product Property skills (tags GCF · TRI · SPECIAL · SOLVE · APPLY)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| GCF | GCF and grouping | `6x + 9` → `4x² + 10x`, a common binomial, three terms → grouping, GCF then grouping, `x(x + h)(x² − n²)` |
+| TRI | `x² + bx + c` | positive → negative b and c → prime trinomials and a negative leading term, a GCF first, `x³` trinomials, `x⁴ − 13x² + 36` |
+| TRI | `ax² + bx + c` | `2x² + 7x + 3` → mixed signs, `a` composite → a GCF first, `4x⁴ − 17x² + 4` |
+| SPECIAL | Special products | `x² − 64` → perfect squares, `4x² − 1` → a GCF first, `2a⁴ − 32`, sums of squares are prime |
+| SOLVE | Zero product property | `(x − 2)(x − 5) = 0` → `x² + 5x + 4 = 0`, terms on both sides, `(x − 1)(x + 4) = 24` → `5x² − 32x + 12 = 0`, cubics |
+| APPLY | Problems | consecutive (even/odd) integers → rectangles (`L = w + k`, `2w ± k`) → a uniform border, dropped and thrown objects |
+
+A factorization is accepted only if it multiplies back to the printed polynomial, every number factor is an integer,
+and every other factor has no common factor and is irreducible over the integers (degree 1; degree 2 with a
+non-square discriminant; degree 3 with no rational root). “Prime” is accepted only for primitive irreducible
+polynomials. Equations are solved by finding every rational root (rational root theorem, exact arithmetic);
+problems whose roots are not all rational are refused. Word problems are re-solved from the printed numbers and
+wording (“consecutive even integers”, “3 feet less than twice its width”, “uniform width”) and keep only the
+answer that makes sense.
+
+### Statistics and Data Modeling skills (tags CENTER · SPREAD · DISPLAY · TWOWAY · SCATTER)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| CENTER | Mean, median, mode, MAD | mean → median (even count) → MAD, a missing value → a dot plot (mean, median, mode) → a value added → compare two groups by MAD |
+| SPREAD | Range, quartiles, IQR, outliers | range → IQR → five-number summary → outliers (1.5 × IQR) → mean or median? → effect of removing an outlier → fences |
+| DISPLAY | Box plots | median → Q1 and Q3 → median, IQR, range → percent between values → compare two box plots (median, IQR, consistency) |
+| TWOWAY | Two-way tables | joint and marginal relative frequency → complete a table → conditional relative frequency (by row, by column, rounded) → association |
+| SCATTER | Scatter plots | correlation → line through two points → predict → residual → interpret slope and intercept → over/underestimate → line, prediction, residual and slope together |
+
+New displays: dot plots, box plots, scatter plots (with real scales and an optional line) and two-way tables, each drawn
+from a spec and read back from the drawing. Quartiles use the medians of the lower and upper halves, leaving out the
+median when the count is odd (as on the TI-84). Rounding is accepted only when the problem prints the instruction.
+Correlation is judged from the drawn points (r ≥ 0.6 positive, r ≤ −0.6 negative, |r| ≤ 0.3 none; anything in between is refused).
+An association answer must quote both conditional percents; tables whose percents differ by 5–15 points are refused as too close to call.
+
+**Gaps (not generated, use "Write your own"):** Statistics: standard deviation, histograms and computing least-squares regression.  Factoring: two variables (x² − 9y²) and sums/differences of cubes.  Exponential Functions: compound interest with several periods per year and continuous growth.  Relations and Functions: describing a curved graph in words.  Linear Inequalities: absolute-value *equations*. Foundations & Solving Linear Equations: error-analysis ("find the mistake") problems; percent
 and absolute-value equations. A skill that cannot produce a verified problem at a requested difficulty is
 flagged in red with a reason; it is never silently replaced.
 
