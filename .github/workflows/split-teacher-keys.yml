@@ -6,6 +6,9 @@ on:
       - 'scripts/split_teacher_keys.py'
       - '.github/workflows/split-teacher-keys.yml'
   workflow_dispatch:
+concurrency:
+  group: split-teacher-keys-main
+  cancel-in-progress: false
 permissions:
   contents: write
 jobs:
@@ -25,4 +28,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add artifacts resource-details.js teacher-key-audit.txt
-          if ! git diff --cached --quiet; then git commit -m "Separate embedded teacher keys from student PDFs"; git push; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Separate embedded teacher keys from student PDFs"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then exit 0; fi
+              sleep 2
+            done
+            echo "Could not push after five attempts" >&2
+            exit 1
+          fi
