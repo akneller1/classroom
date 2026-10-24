@@ -992,5 +992,25 @@ window.RESOURCE_DETAILS = {
     "pages": 2,
     "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
     "keyPages": 4
+  },
+  "artifacts/algebra2-conic-sections-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 4
+  },
+  "artifacts/algebra2-conic-sections-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 4
+  },
+  "artifacts/algebra2-probability-statistics-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 4
+  },
+  "artifacts/algebra2-probability-statistics-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 4
   }
 };

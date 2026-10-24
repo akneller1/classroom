@@ -3056,7 +3056,32 @@ window.LIBRARY = {
         {
           "id": "conic-sections",
           "name": "Conic Sections",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Circles & Parabolas",
+              "path": "artifacts/algebra2-conic-sections-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-conic-sections-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Circles & Parabolas"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Ellipses & Hyperbolas",
+              "path": "artifacts/algebra2-conic-sections-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-conic-sections-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Ellipses & Hyperbolas"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "trigonometric-functions",
@@ -3091,7 +3116,32 @@ window.LIBRARY = {
         {
           "id": "probability-statistics",
           "name": "Probability & Statistics",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Counting & Probability",
+              "path": "artifacts/algebra2-probability-statistics-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-probability-statistics-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Counting & Probability"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Statistics & Normal Distributions",
+              "path": "artifacts/algebra2-probability-statistics-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-probability-statistics-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Statistics & Normal Distributions"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         }
       ]
     },
