@@ -44,7 +44,8 @@ window.LIBRARY = {
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-22"
             },
@@ -57,7 +58,8 @@ window.LIBRARY = {
               "topics": [
                 "Assessment generator",
                 "Choice menu",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-24"
             },
@@ -71,7 +73,8 @@ window.LIBRARY = {
                 "Combining like terms",
                 "Distributive property",
                 "Multi-step equations",
-                "Literal equations"
+                "Literal equations",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -85,7 +88,8 @@ window.LIBRARY = {
                 "Evaluating expressions",
                 "Simplifying",
                 "Solving equations",
-                "Proportions"
+                "Proportions",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -99,7 +103,8 @@ window.LIBRARY = {
                 "Evaluating expressions",
                 "Simplifying",
                 "Solving equations",
-                "Proportions"
+                "Proportions",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -113,128 +118,10 @@ window.LIBRARY = {
                 "Combining like terms",
                 "Distributive property",
                 "Multi-step equations",
-                "Literal equations"
+                "Literal equations",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
-            },
-            {
-              "title": "Solving Equations Maze",
-              "path": "artifacts/expressions-equations-maze/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-maze.jpg",
-              "description": "Printable 4-page worksheet: solve multi-step equations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Multi-step equations",
-                "Distributive property",
-                "Variables on both sides"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Error Analysis",
-              "path": "artifacts/expressions-equations-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Distributive property",
-                "Combining like terms",
-                "Multi-step equations",
-                "Literal equations"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Color By Number",
-              "path": "artifacts/expressions-equations-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the rocket blasting off. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Solving equations",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Golden Whisk Caper",
-              "path": "artifacts/expressions-equations-golden-whisk-caper/index.html",
-              "thumb": "thumbs/expressions-equations-golden-whisk-caper.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Solving equations",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Expressions & Equations Tic-Tac-Toe",
-              "path": "artifacts/expressions-equations-tic-tac-toe/index.html",
-              "thumb": "thumbs/expressions-equations-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solving equations",
-                "Team game",
-                "Multiple choice"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Golden Whisk Caper (Printable)",
-              "path": "artifacts/expressions-equations-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Solving equations",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Solving Equations Tarsia Puzzle",
-              "path": "artifacts/expressions-equations-tarsia/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Solving equations",
-                "Tarsia puzzle",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Equation Bistro: Assessment Menu",
-              "path": "artifacts/expressions-equations-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Combining like terms",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Great Rigged Bake-Off",
-              "path": "artifacts/expressions-equations-escape-room/index.html",
-              "thumb": "thumbs/expressions-equations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Combining like terms",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-21"
             },
             {
               "title": "Expressions & Equations Stations",
@@ -245,7 +132,8 @@ window.LIBRARY = {
               "topics": [
                 "Stations",
                 "Station work",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-20"
             },
@@ -258,21 +146,10 @@ window.LIBRARY = {
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-19"
-            },
-            {
-              "title": "Partner Check 1: Solving Multi-Step Equations",
-              "path": "artifacts/expressions-equations-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on solving multi-step equations. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Solving Multi-Step Equations"
-              ],
-              "added": "2026-10-23"
             },
             {
               "title": "Partner Check 2: Simplifying & Evaluating Expressions",
@@ -300,7 +177,8 @@ window.LIBRARY = {
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-22"
             },
@@ -313,7 +191,8 @@ window.LIBRARY = {
               "topics": [
                 "Assessment generator",
                 "Choice menu",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-24"
             },
@@ -327,7 +206,8 @@ window.LIBRARY = {
                 "Combining like terms",
                 "Distributive property",
                 "Multi-step equations",
-                "Literal equations"
+                "Literal equations",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -341,7 +221,8 @@ window.LIBRARY = {
                 "Evaluating expressions",
                 "Simplifying",
                 "Solving equations",
-                "Proportions"
+                "Proportions",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -355,7 +236,8 @@ window.LIBRARY = {
                 "Evaluating expressions",
                 "Simplifying",
                 "Solving equations",
-                "Proportions"
+                "Proportions",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -369,7 +251,8 @@ window.LIBRARY = {
                 "Combining like terms",
                 "Distributive property",
                 "Multi-step equations",
-                "Literal equations"
+                "Literal equations",
+                "Units 1–2"
               ],
               "added": "2026-10-18"
             },
@@ -501,7 +384,8 @@ window.LIBRARY = {
               "topics": [
                 "Stations",
                 "Station work",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-20"
             },
@@ -514,7 +398,8 @@ window.LIBRARY = {
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Expressions & Equations"
+                "Expressions & Equations",
+                "Units 1–2"
               ],
               "added": "2026-10-19"
             },
@@ -527,18 +412,6 @@ window.LIBRARY = {
               "topics": [
                 "Partner Check",
                 "Solving Multi-Step Equations"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Simplifying & Evaluating Expressions",
-              "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on simplifying & evaluating expressions. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Simplifying & Evaluating Expressions"
               ],
               "added": "2026-10-23"
             }
@@ -1541,7 +1414,8 @@ window.LIBRARY = {
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Exponents & Exponential Functions"
+                "Exponents & Exponential Functions",
+                "Units 7–8"
               ],
               "added": "2026-10-22"
             },
@@ -1555,7 +1429,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Zero and negative exponents",
                 "Scientific notation",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1569,7 +1444,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Zero and negative exponents",
                 "Scientific notation",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1583,7 +1459,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Scientific notation",
                 "Exponential equations",
-                "Growth and decay"
+                "Growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1597,7 +1474,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Zero and negative exponents",
                 "Scientific notation",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1623,7 +1501,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Negative and zero exponents",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1636,7 +1515,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Color by number",
-                "Self-checking"
+                "Self-checking",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1649,7 +1529,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Detective game",
-                "Typed answers"
+                "Typed answers",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1662,7 +1543,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Team game",
-                "Multiple choice"
+                "Multiple choice",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1676,7 +1558,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
+                "Self-checking",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1702,7 +1585,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Assessment",
-                "Choice menu"
+                "Choice menu",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1715,7 +1599,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Escape room",
-                "Teamwork"
+                "Teamwork",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1728,7 +1613,8 @@ window.LIBRARY = {
               "topics": [
                 "Stations",
                 "Station work",
-                "Exponents & Exponential Functions"
+                "Exponents & Exponential Functions",
+                "Units 7–8"
               ],
               "added": "2026-10-20"
             },
@@ -1741,7 +1627,8 @@ window.LIBRARY = {
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Exponents & Exponential Functions"
+                "Exponents & Exponential Functions",
+                "Units 7–8"
               ],
               "added": "2026-10-19"
             },
@@ -1754,18 +1641,6 @@ window.LIBRARY = {
               "topics": [
                 "Partner Check",
                 "Exponent Rules"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Exponential Functions, Growth & Decay",
-              "path": "artifacts/exponents-exponential-functions-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on exponential functions, growth & decay. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Exponential Functions, Growth & Decay"
               ],
               "added": "2026-10-23"
             }
@@ -1783,7 +1658,8 @@ window.LIBRARY = {
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Exponents & Exponential Functions"
+                "Exponents & Exponential Functions",
+                "Units 7–8"
               ],
               "added": "2026-10-22"
             },
@@ -1797,7 +1673,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Zero and negative exponents",
                 "Scientific notation",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1811,7 +1688,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Zero and negative exponents",
                 "Scientific notation",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1825,7 +1703,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Scientific notation",
                 "Exponential equations",
-                "Growth and decay"
+                "Growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1839,20 +1718,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Zero and negative exponents",
                 "Scientific notation",
-                "Exponential growth and decay"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Exponent Rules Maze",
-              "path": "artifacts/exponents-exponential-functions-maze/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-maze.jpg",
-              "description": "Printable 4-page worksheet: simplify and evaluate expressions with the exponent rules to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Product, quotient and power rules",
-                "Zero and negative exponents",
-                "Evaluating powers"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1865,7 +1732,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Negative and zero exponents",
-                "Exponential growth and decay"
+                "Exponential growth and decay",
+                "Units 7–8"
               ],
               "added": "2026-10-18"
             },
@@ -1878,7 +1746,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Color by number",
-                "Self-checking"
+                "Self-checking",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1891,7 +1760,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Detective game",
-                "Typed answers"
+                "Typed answers",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1904,7 +1774,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Team game",
-                "Multiple choice"
+                "Multiple choice",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1918,20 +1789,8 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Exponent Rules Tarsia Puzzle",
-              "path": "artifacts/exponents-exponential-functions-tarsia/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Tarsia puzzle",
-                "Self-checking"
+                "Self-checking",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1944,7 +1803,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Assessment",
-                "Choice menu"
+                "Choice menu",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1957,7 +1817,8 @@ window.LIBRARY = {
               "topics": [
                 "Exponent rules",
                 "Escape room",
-                "Teamwork"
+                "Teamwork",
+                "Units 7–8"
               ],
               "added": "2026-10-21"
             },
@@ -1970,7 +1831,8 @@ window.LIBRARY = {
               "topics": [
                 "Stations",
                 "Station work",
-                "Exponents & Exponential Functions"
+                "Exponents & Exponential Functions",
+                "Units 7–8"
               ],
               "added": "2026-10-20"
             },
@@ -1983,21 +1845,10 @@ window.LIBRARY = {
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Exponents & Exponential Functions"
+                "Exponents & Exponential Functions",
+                "Units 7–8"
               ],
               "added": "2026-10-19"
-            },
-            {
-              "title": "Partner Check 1: Exponent Rules",
-              "path": "artifacts/exponents-exponential-functions-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on exponent rules. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Exponent Rules"
-              ],
-              "added": "2026-10-23"
             },
             {
               "title": "Partner Check 2: Exponential Functions, Growth & Decay",
@@ -2025,7 +1876,8 @@ window.LIBRARY = {
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Polynomials & Factoring"
+                "Polynomials & Factoring",
+                "Units 9–10"
               ],
               "added": "2026-10-22"
             },
@@ -2039,7 +1891,8 @@ window.LIBRARY = {
                 "Adding, subtracting and multiplying polynomials",
                 "GCF and trinomial factoring",
                 "Difference of squares",
-                "Zero-product property"
+                "Zero-product property",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2053,7 +1906,8 @@ window.LIBRARY = {
                 "Adding, subtracting and multiplying polynomials",
                 "GCF and trinomial factoring",
                 "Difference of squares",
-                "Factoring completely"
+                "Factoring completely",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2067,7 +1921,8 @@ window.LIBRARY = {
                 "Adding and subtracting polynomials",
                 "Multiplying polynomials",
                 "Factoring trinomials",
-                "Factoring completely"
+                "Factoring completely",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2081,20 +1936,8 @@ window.LIBRARY = {
                 "Adding, subtracting and multiplying polynomials",
                 "GCF and trinomial factoring",
                 "Difference of squares",
-                "Zero-product property"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Factoring Maze",
-              "path": "artifacts/polynomials-factoring-maze/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-maze.jpg",
-              "description": "Printable 4-page worksheet: factor trinomials, differences of squares, and GCF problems completely to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Factoring x^2 + bx + c and ax^2 + bx + c",
-                "Difference of squares",
-                "Factoring out the GCF first"
+                "Zero-product property",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2108,22 +1951,10 @@ window.LIBRARY = {
                 "Adding and subtracting polynomials",
                 "Multiplying polynomials",
                 "Factoring",
-                "Zero product property"
+                "Zero product property",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials & Factoring Color By Number",
-              "path": "artifacts/polynomials-factoring-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the fairy-tale castle. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Factoring",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
             },
             {
               "title": "The Castle Crown Caper",
@@ -2134,7 +1965,8 @@ window.LIBRARY = {
               "topics": [
                 "Factoring",
                 "Detective game",
-                "Typed answers"
+                "Typed answers",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2147,7 +1979,8 @@ window.LIBRARY = {
               "topics": [
                 "Factoring",
                 "Team game",
-                "Multiple choice"
+                "Multiple choice",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2161,20 +1994,8 @@ window.LIBRARY = {
                 "Factoring",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Factoring Trinomials Tarsia Puzzle",
-              "path": "artifacts/polynomials-factoring-tarsia/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Factoring",
-                "Tarsia puzzle",
-                "Self-checking"
+                "Self-checking",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2187,7 +2008,8 @@ window.LIBRARY = {
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
                 "Assessment",
-                "Choice menu"
+                "Choice menu",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2200,7 +2022,8 @@ window.LIBRARY = {
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
                 "Escape room",
-                "Teamwork"
+                "Teamwork",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2213,7 +2036,8 @@ window.LIBRARY = {
               "topics": [
                 "Stations",
                 "Station work",
-                "Polynomials & Factoring"
+                "Polynomials & Factoring",
+                "Units 9–10"
               ],
               "added": "2026-10-20"
             },
@@ -2226,7 +2050,8 @@ window.LIBRARY = {
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Polynomials & Factoring"
+                "Polynomials & Factoring",
+                "Units 9–10"
               ],
               "added": "2026-10-19"
             },
@@ -2239,18 +2064,6 @@ window.LIBRARY = {
               "topics": [
                 "Partner Check",
                 "Operations with Polynomials"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Factoring",
-              "path": "artifacts/polynomials-factoring-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on factoring. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Factoring"
               ],
               "added": "2026-10-23"
             }
@@ -2268,7 +2081,8 @@ window.LIBRARY = {
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Polynomials & Factoring"
+                "Polynomials & Factoring",
+                "Units 9–10"
               ],
               "added": "2026-10-22"
             },
@@ -2282,7 +2096,8 @@ window.LIBRARY = {
                 "Adding, subtracting and multiplying polynomials",
                 "GCF and trinomial factoring",
                 "Difference of squares",
-                "Zero-product property"
+                "Zero-product property",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2296,7 +2111,8 @@ window.LIBRARY = {
                 "Adding, subtracting and multiplying polynomials",
                 "GCF and trinomial factoring",
                 "Difference of squares",
-                "Factoring completely"
+                "Factoring completely",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2310,7 +2126,8 @@ window.LIBRARY = {
                 "Adding and subtracting polynomials",
                 "Multiplying polynomials",
                 "Factoring trinomials",
-                "Factoring completely"
+                "Factoring completely",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2324,7 +2141,8 @@ window.LIBRARY = {
                 "Adding, subtracting and multiplying polynomials",
                 "GCF and trinomial factoring",
                 "Difference of squares",
-                "Zero-product property"
+                "Zero-product property",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2351,7 +2169,8 @@ window.LIBRARY = {
                 "Adding and subtracting polynomials",
                 "Multiplying polynomials",
                 "Factoring",
-                "Zero product property"
+                "Zero product property",
+                "Units 9–10"
               ],
               "added": "2026-10-18"
             },
@@ -2377,7 +2196,8 @@ window.LIBRARY = {
               "topics": [
                 "Factoring",
                 "Detective game",
-                "Typed answers"
+                "Typed answers",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2390,7 +2210,8 @@ window.LIBRARY = {
               "topics": [
                 "Factoring",
                 "Team game",
-                "Multiple choice"
+                "Multiple choice",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2404,7 +2225,8 @@ window.LIBRARY = {
                 "Factoring",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
+                "Self-checking",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2430,7 +2252,8 @@ window.LIBRARY = {
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
                 "Assessment",
-                "Choice menu"
+                "Choice menu",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2443,7 +2266,8 @@ window.LIBRARY = {
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
                 "Escape room",
-                "Teamwork"
+                "Teamwork",
+                "Units 9–10"
               ],
               "added": "2026-10-21"
             },
@@ -2456,7 +2280,8 @@ window.LIBRARY = {
               "topics": [
                 "Stations",
                 "Station work",
-                "Polynomials & Factoring"
+                "Polynomials & Factoring",
+                "Units 9–10"
               ],
               "added": "2026-10-20"
             },
@@ -2469,21 +2294,10 @@ window.LIBRARY = {
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Polynomials & Factoring"
+                "Polynomials & Factoring",
+                "Units 9–10"
               ],
               "added": "2026-10-19"
-            },
-            {
-              "title": "Partner Check 1: Operations with Polynomials",
-              "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on operations with polynomials. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Operations with Polynomials"
-              ],
-              "added": "2026-10-23"
             },
             {
               "title": "Partner Check 2: Factoring",
