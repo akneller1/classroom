@@ -3738,8 +3738,8 @@ window.LIBRARY = {
       "blurb": "Reasoning, shapes, measurement, and transformations.",
       "units": [
         {
-          "id": "basics-reasoning",
-          "name": "Basics & Reasoning",
+          "id": "foundations-geometry",
+          "name": "Foundations of Geometry",
           "artifacts": [
             {
               "title": "Reasoning Four",
@@ -3957,7 +3957,7 @@ window.LIBRARY = {
         },
         {
           "id": "angles-parallel-lines",
-          "name": "Angles & Parallel Lines",
+          "name": "Angles and Parallel Lines",
           "artifacts": [
             {
               "title": "Angles Four",
@@ -4174,8 +4174,226 @@ window.LIBRARY = {
           ]
         },
         {
-          "id": "triangles-congruence",
-          "name": "Triangles & Congruence",
+          "id": "triangle-congruence",
+          "name": "Triangle Congruence",
+          "artifacts": [
+            {
+              "title": "Congruence Four",
+              "path": "artifacts/triangles-congruence-connect-four/index.html",
+              "thumb": "thumbs/triangles-congruence-connect-four.jpg",
+              "description": "Connect Four for two teams. Triangle inequality, missing angles, congruence criteria and corresponding parts. A wrong answer lets the other team steal. Three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Triangle inequality and angle sums",
+                "SSS, SAS, ASA, AAS, HL",
+                "Corresponding parts and CPCTC",
+                "Solving for x with congruent parts"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Triangles & Congruence Flashcards",
+              "path": "artifacts/triangles-congruence-flashcards/index.html",
+              "thumb": "thumbs/triangles-congruence-flashcards.jpg",
+              "description": "25 flashcards with worked solutions on triangle angles, isosceles triangles, the triangle inequality, SSS, SAS, ASA, AAS, HL, CPCTC and proof planning. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Triangle angle sum and exterior angles",
+                "Isosceles triangles and the triangle inequality",
+                "SSS, SAS, ASA, AAS, HL",
+                "CPCTC and proof planning"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Triangles & Congruence Picture Reveal",
+              "path": "artifacts/triangles-congruence-picture-reveal/index.html",
+              "thumb": "thumbs/triangles-congruence-picture-reveal.jpg",
+              "description": "Use the triangle angle sum, exterior angles, isosceles triangles, corresponding parts and the congruence shortcuts to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Triangle angle sum and exterior angles",
+                "Isosceles triangles",
+                "Corresponding parts (CPCTC)",
+                "SAS, ASA and HL"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Triangles Showdown",
+              "path": "artifacts/triangles-congruence-jeopardy/index.html",
+              "thumb": "thumbs/triangles-congruence-jeopardy.jpg",
+              "description": "A game board for Triangles and Congruence. Triangle facts, proving triangles congruent with SSS, SAS, ASA, AAS and HL, and using corresponding parts.",
+              "type": "Game",
+              "topics": [
+                "Triangle inequality and angle sums",
+                "SSS, SAS, ASA, AAS, HL",
+                "Corresponding parts and CPCTC",
+                "Solving for x with congruent parts"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Triangle Angles Maze",
+              "path": "artifacts/triangles-congruence-maze/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-maze.jpg",
+              "description": "Printable 4-page worksheet: use the triangle angle sum, the exterior angle theorem, and isosceles and equilateral triangle facts to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Triangle angle sum",
+                "Exterior angle theorem",
+                "Isosceles & equilateral triangles"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Triangles & Congruence Error Analysis",
+              "path": "artifacts/triangles-congruence-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Angle sum and exterior angles",
+                "Triangle inequality",
+                "Congruence shortcuts",
+                "CPCTC proofs"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Triangles & Congruence Color By Number",
+              "path": "artifacts/triangles-congruence-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the sailboats on a lake. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Congruence rules",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Pyramid Puzzle",
+              "path": "artifacts/triangles-congruence-pyramid-puzzle/index.html",
+              "thumb": "thumbs/triangles-congruence-pyramid-puzzle.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Congruence rules",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Triangles & Congruence Tic-Tac-Toe",
+              "path": "artifacts/triangles-congruence-tic-tac-toe/index.html",
+              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Congruence rules",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Pyramid Puzzle (Printable)",
+              "path": "artifacts/triangles-congruence-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Congruence rules",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Congruence Bistro: Assessment Menu",
+              "path": "artifacts/triangles-congruence-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/triangles-congruence-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Triangle inequality and angle sums",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Lockdown at the Robot Factory",
+              "path": "artifacts/triangles-congruence-escape-room/index.html",
+              "thumb": "thumbs/triangles-congruence-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Triangle inequality and angle sums",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Triangles & Congruence Stations",
+              "path": "artifacts/geometry-triangles-congruence-stations/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-stations.svg",
+              "description": "Printable Geometry station work for Triangles & Congruence. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Triangles & Congruence Cheat Sheet",
+              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Triangle angle facts, triangle classifications, and triangle congruence criteria.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Geometry",
+                "Reference"
+              ],
+              "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Proving Triangles Congruent",
+              "path": "artifacts/geometry-triangles-congruence-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-partner-check-1.jpg",
+              "description": "Partners solve different problems on proving triangles congruent and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Proving Triangles Congruent"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Triangle Properties",
+              "path": "artifacts/geometry-triangles-congruence-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-partner-check-2.jpg",
+              "description": "Partners solve different problems on triangle properties and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Triangle Properties"
+              ],
+              "added": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "id": "triangle-relationships",
+          "name": "Triangle Relationships",
           "artifacts": [
             {
               "title": "Congruence Four",
@@ -4611,7 +4829,7 @@ window.LIBRARY = {
         },
         {
           "id": "right-triangles-trigonometry",
-          "name": "Right Triangles & Trigonometry",
+          "name": "Right Triangles and Trigonometry",
           "artifacts": [
             {
               "title": "Trig Four",
@@ -4835,6 +5053,229 @@ window.LIBRARY = {
               "topics": [
                 "Partner Check",
                 "Trigonometric Ratios"
+              ],
+              "added": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "id": "quadrilaterals-polygons",
+          "name": "Quadrilaterals and Polygons",
+          "artifacts": []
+        },
+        {
+          "id": "transformations",
+          "name": "Transformations",
+          "artifacts": [
+            {
+              "title": "Transformations Four",
+              "path": "artifacts/coordinate-geometry-transformations-connect-four/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-connect-four.jpg",
+              "description": "Connect Four for two teams. Use distance, midpoint, slope and transformations on the coordinate plane to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Distance, midpoint and slope",
+                "Reflections, rotations, translations and dilations",
+                "Classifying figures from coordinates",
+                "Parallel and perpendicular lines"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Flashcards",
+              "path": "artifacts/coordinate-geometry-transformations-flashcards/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for distance, midpoint and slope, classifying figures on the coordinate plane, translations, reflections, rotations, dilations and compositions. Graphs are drawn to scale. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Distance, midpoint and slope",
+                "Classifying figures from coordinates",
+                "Translations, reflections, rotations and dilations",
+                "Compositions and congruence"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Picture Reveal",
+              "path": "artifacts/coordinate-geometry-transformations-picture-reveal/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-picture-reveal.jpg",
+              "description": "Use distance, midpoint and slope, classify figures on the plane, and find images under translations, reflections, rotations, dilations and compositions to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Distance, midpoint and slope",
+                "Parallel and perpendicular lines",
+                "Classifying figures",
+                "Transformations and compositions"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Showdown",
+              "path": "artifacts/coordinate-geometry-transformations-jeopardy/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-jeopardy.jpg",
+              "description": "A game board for Coordinate Geometry and Transformations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "type": "Game",
+              "topics": [
+                "Distance, midpoint and slope",
+                "Reflections, rotations, translations and dilations",
+                "Classifying figures from coordinates",
+                "Parallel and perpendicular lines"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry Maze",
+              "path": "artifacts/coordinate-geometry-transformations-maze/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-maze.jpg",
+              "description": "Printable 4-page worksheet: find midpoints, distances, parallel and perpendicular slopes, and images of points under transformations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Midpoint and distance",
+                "Parallel and perpendicular slopes",
+                "Transformations of points"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Error Analysis",
+              "path": "artifacts/coordinate-geometry-transformations-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Distance and midpoint",
+                "Reflections and rotations",
+                "Translations and dilations",
+                "Equation of a circle"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Color By Number",
+              "path": "artifacts/coordinate-geometry-transformations-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the fox in an autumn forest. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Transformations",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Treasure Map Mystery",
+              "path": "artifacts/coordinate-geometry-transformations-treasure-map-mystery/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-treasure-map-mystery.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Transformations",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Transformations Tic-Tac-Toe",
+              "path": "artifacts/coordinate-geometry-transformations-tic-tac-toe/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Transformations",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Treasure Map Mystery (Printable)",
+              "path": "artifacts/coordinate-geometry-transformations-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Transformations",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Transformations Bistro: Assessment Menu",
+              "path": "artifacts/coordinate-geometry-transformations-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/coordinate-geometry-transformations-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Distance, midpoint and slope",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Glitch World: Trapped in the Game",
+              "path": "artifacts/coordinate-geometry-transformations-escape-room/index.html",
+              "thumb": "thumbs/coordinate-geometry-transformations-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Distance, midpoint and slope",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Stations",
+              "path": "artifacts/geometry-coordinate-geometry-transformations-stations/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-geometry-transformations-stations.svg",
+              "description": "Printable Geometry station work for Coordinate Geometry & Transformations. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Coordinate Geometry & Transformations"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Coordinate Geometry & Transformations Cheat Sheet",
+              "path": "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.svg",
+              "description": "Colorful two-page printable geometry reference guide: Coordinate formulas, translations, reflections, rotations, dilations and transformation sequences.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Geometry",
+                "Reference"
+              ],
+              "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Coordinate Geometry",
+              "path": "artifacts/geometry-coordinate-geometry-transformations-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-geometry-transformations-partner-check-1.jpg",
+              "description": "Partners solve different problems on coordinate geometry and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Coordinate Geometry"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Transformations",
+              "path": "artifacts/geometry-coordinate-geometry-transformations-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-geometry-transformations-partner-check-2.jpg",
+              "description": "Partners solve different problems on transformations and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Transformations"
               ],
               "added": "2026-10-23"
             }
@@ -5073,7 +5514,7 @@ window.LIBRARY = {
         },
         {
           "id": "area-surface-area-volume",
-          "name": "Area, Surface Area & Volume",
+          "name": "Area, Surface Area and Volume",
           "artifacts": [
             {
               "title": "Volume Four",
@@ -5302,8 +5743,8 @@ window.LIBRARY = {
           ]
         },
         {
-          "id": "coordinate-geometry-transformations",
-          "name": "Coordinate Geometry & Transformations",
+          "id": "coordinate-geometry",
+          "name": "Coordinate Geometry",
           "artifacts": [
             {
               "title": "Transformations Four",
