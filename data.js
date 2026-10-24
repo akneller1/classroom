@@ -2432,6 +2432,30 @@ window.LIBRARY = {
                 "Self-checking"
               ],
               "added": "2026-10-22"
+            },
+            {
+              "title": "Partner Check 1: Linear Equations & Graphs",
+              "path": "artifacts/algebra2-linear-functions-systems-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-linear-functions-systems-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Linear Equations & Graphs"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Systems of Equations & Inequalities",
+              "path": "artifacts/algebra2-linear-functions-systems-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-linear-functions-systems-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Systems of Equations & Inequalities"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
