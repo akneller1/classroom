@@ -28,7 +28,7 @@ for relative, info in details.items():
         text = page.get_text().lower().replace("\n", " ")
         # Only recognize explicit teacher-key headings at the beginning of a page.
         head = text[:300]
-        if re.search(r"\\b(?:teacher(?:'s)?\\s+(?:answer\\s+)?key|answer\\s+key|solutions?\\s+key)\\b", head):
+        if re.search(r"\b(?:teacher(?:'s)?\s+(?:answer\s+)?key|answer\s+key|solutions?\s+key)\b", head):
             hits.append(idx)
     # We must preserve all student pages and avoid choosing a non-final key section.
     if not hits or hits[0] == 0 or any(i < hits[0] for i in hits[1:]):
@@ -47,7 +47,7 @@ for relative, info in details.items():
         src.close()
         continue
     # Recheck text on student-side pages for explicit keys before writing.
-    if any(re.search(r"\\b(?:teacher(?:'s)?\\s+(?:answer\\s+)?key|answer\\s+key)\\b", student[i].get_text().lower()[:300]) for i in range(len(student))):
+    if any(re.search(r"\b(?:teacher(?:'s)?\s+(?:answer\s+)?key|answer\s+key)\b", student[i].get_text().lower()[:300]) for i in range(len(student))):
         unresolved.append((relative, "key heading within student pages"))
         src.close()
         continue
