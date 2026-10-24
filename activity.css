@@ -21,3 +21,12 @@ a:focus-visible { outline: 3px solid #14173a; outline-offset: 3px; }
 .resource-toolbar p { margin: 0; }
 .resource-toolbar a { color: inherit; }
 #resource-details a { display: inline-block; margin-left: 1rem; }
+
+#teacher-key-dialog { width: min(26rem, calc(100% - 2rem)); border: 1px solid #666; border-radius: 12px; padding: 1.5rem; }
+#teacher-key-dialog::backdrop { background: rgb(0 0 0 / .55); }
+#teacher-key-dialog h2 { margin-top: 0; }
+#teacher-key-dialog label { display: block; font-weight: bold; margin-bottom: .4rem; }
+#teacher-key-code { width: 100%; box-sizing: border-box; padding: .65rem; font: inherit; }
+#teacher-key-error { color: #b42318; min-height: 1.5em; }
+.key-dialog-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: .75rem; }
+.key-dialog-actions button { padding: .6rem .8rem; font: inherit; cursor: pointer; }
