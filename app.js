@@ -212,7 +212,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
+  function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+)?$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);

@@ -206,12 +206,26 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
       const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
       document.body.classList.add('printing');
       const html = root.innerHTML;
-      // everything the key knows that a student must never see
-      const secrets = []; S.versions[v].sections.forEach(s => s.items.forEach(it => { (it.parts || []).forEach(pt => { const m = (pt.answer || '').match(/⟨([^⟩]*)⟩/g) || []; m.forEach(x => secrets.push(x.slice(1, -1))); }); (it.steps || []).forEach(st => { if (st.t && st.t.length > 12) secrets.push(st.t.replace(/⟨[^⟩]*⟩/g, '').trim()); }); }));
-      const annotations = [...root.querySelectorAll('annotation')].map(a => a.textContent.replace(/\\dfrac/g, '\\frac').replace(/\s/g, ''));
+      // everything the key knows that a student must never see: per dish, its answers (as rendered math) and its solution text
+      const flat = s => s.replace(/\s+/g, '');
+      if (window.__plantLeak) {   // self-test of this detector: put one answer on the student page
+        const it = S.versions[v].sections[1].items[0], el = root.querySelector('[data-uid="' + it.uid + '"]');
+        el.insertAdjacentHTML('beforeend', '<div>' + MKMENU.mathSafe(it.parts[it.parts.length - 1].answer) + '</div>');
+      }
+      const leaks = [];
+      S.versions[v].sections.forEach(sec => sec.items.forEach(it => {
+        const el = root.querySelector('[data-uid="' + it.uid + '"]'); if (!el) return;
+        const shown = flat(el.textContent), studentTeX = flat(MKMENU.studentText(it));
+        (it.parts || []).forEach(pt => (pt.answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => {
+          if (studentTeX.indexOf(flat(m)) >= 0) return;                         // e.g. "Graph x ≥ 2": the inequality is the question
+          const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1).replace(/\\frac/g, '\\dfrac'), { output: 'html', throwOnError: false });
+          const t = flat(box.textContent); if (t.length >= 3 && shown.indexOf(t) >= 0) leaks.push(it.uid + ': ' + m);
+        }));
+        (it.steps || []).forEach(st => { const t = flat((st.t || '').replace(/⟨[^⟩]*⟩/g, '')); if (t.length > 14 && shown.indexOf(t) >= 0) leaks.push(it.uid + ': ' + st.t); });
+      }));
       const text = root.innerText;
       const labels = []; S.versions[v].sections.forEach((s, si) => s.items.forEach((it, i) => labels.push(MKMENU.dishLabel(S.config, si, i))));
-      return { pages: pages.length, overflow: pages.overflow.length, secrets, annotations, text, labels, nItems: labels.length };
+      return { pages: pages.length, overflow: pages.overflow.length, leaks, text, labels, nItems: labels.length, dishes: root.querySelectorAll('[data-uid]').length };
     }, { L: L.layout, v, kind });
     const file = path.join(OUT, `menu-${L.name}-v${'AB'[v]}-${kind}.pdf`);
     await page.emulateMedia({ media: 'print' });
@@ -222,10 +236,8 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
     info.labels.forEach(l => assert.ok(info.text.indexOf(l) >= 0, file + ' missing dish ' + l));
     if (kind === 'student') {
       assert.doesNotMatch(info.text, /Answer:|Rubric|TEACHER KEY|Teacher key/, file + ' contains key text');
-      // no answer math and no worked-solution text in the student document
-      const solveAnswers = info.secrets.filter(s => /^[a-zA-Z]=/.test(s.replace(/\s/g, '')));
-      solveAnswers.forEach(s => assert.ok(info.annotations.indexOf(s.replace(/\s/g, '')) < 0, file + ' shows an answer: ' + s));
-      info.secrets.filter(s => !/^[a-zA-Z]?=?-?\d/.test(s) && s.length > 12).forEach(s => assert.ok(info.text.indexOf(s) < 0, file + ' shows solution text: ' + s));
+      assert.equal(info.dishes, info.nItems, file + ': every dish must be findable');
+      assert.deepEqual(info.leaks, [], file + ' shows answers or solutions: ' + info.leaks.join(' | '));
     } else {
       assert.equal((info.text.match(/Answer:/g) || []).length, info.nItems, file + ': every offered dish needs an answer');
       assert.match(info.text, /pts?\b/);
@@ -242,6 +254,17 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
     }
     pdfs.push(file + ' (' + info.pages + ' pages)');
   }
+  // the leak detector itself must notice a planted answer
+  const planted = await page.evaluate(async () => {
+    window.__plantLeak = true; const S = MKMENU.app.state(); const pages = await MKMENU.renderPages(S, 0, 'student');
+    const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
+    const it = S.versions[0].sections[1].items[0], el = root.querySelector('[data-uid="' + it.uid + '"]');
+    el.insertAdjacentHTML('beforeend', '<div>' + MKMENU.mathSafe(it.parts[it.parts.length - 1].answer) + '</div>');
+    const flat = s => s.replace(/\s+/g, ''); let found = false;
+    (it.parts[it.parts.length - 1].answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => { const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1).replace(/\\frac/g, '\\dfrac'), { output: 'html', throwOnError: false }); if (flat(el.textContent).indexOf(flat(box.textContent)) >= 0) found = true; });
+    window.__plantLeak = false; root.innerHTML = ''; return found;
+  });
+  assert.ok(planted, 'the student-leak detector failed to notice a planted answer');
   ok('PDFs for 3 layouts × 2 versions × student/key: Letter size, no overflow, students see no answers, keys list every offered dish');
   console.log('      ' + pdfs.join('\n      '));
 
@@ -281,6 +304,64 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   ok('Honors with Versions A, B, C');
   assert.deepEqual(errors, [], 'console errors: ' + errors.join('\n'));
 
+  /* ---------- Inequalities: number lines in questions and keys ---------- */
+  const iq = await ctx.newPage(); const iqErr = [];
+  iq.on('pageerror', e => iqErr.push(e.message)); iq.on('console', m => { if (m.type() === 'error') iqErr.push(m.text()); }); iq.on('dialog', d => d.accept());
+  await iq.goto(URL + '#unit=algebra1-inequalities'); await iq.waitForSelector('#mmUnitSel');
+  assert.equal(await iq.inputValue('#mmUnitSel'), 'algebra1-inequalities');
+  assert.match(await iq.inputValue('#mmTitle'), /Inequalities Bistro/);
+  await iq.selectOption('#mmVersions', '2'); await iq.click('#mmBuildBtn'); await iq.waitForSelector('.mm-dcard');
+  let IQ = await iq.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
+  assert.equal(IQ.config.unitId, 'algebra1-inequalities');
+  assert.ok(IQ.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && i.verify.status === 'verified'))));
+  const tagsIQ = new Set(IQ.versions[0].sections.flatMap(s => s.items.map(i => i.tag)));
+  ['SOLVE', 'COMPOUND', 'REASON', 'APPLY'].forEach(t => assert.ok(tagsIQ.has(t), 'menu lacks ' + t));
+  assert.ok(await iq.locator('.mm-dcard svg.mm-nl').count() > 0, 'number lines appear on the cards');
+  ok('Inequalities opens from its link, builds a verified menu covering SOLVE/COMPOUND/REASON/APPLY, shows number lines');
+  for (const v of [0, 1]) for (const kind of ['student', 'key']) {
+    const info = await iq.evaluate(async ({ v, kind }) => {
+      const S = MKMENU.app.state();
+      const pages = await MKMENU.renderPages(S, v, kind);
+      const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
+      document.body.classList.add('printing');
+      // graphs that are part of a question (read-the-graph) vs. graphs that are answers
+      let promptSegs = 0; S.versions[v].sections.forEach(s => s.items.forEach(it => { if (it.fig && it.fig.pieces) promptSegs += it.fig.pieces.filter(p => !(p.lo && p.hi && p.lo[0] / p.lo[1] === p.hi[0] / p.hi[1])).length; }));
+      let answerFigs = 0; S.versions[v].sections.forEach(s => s.items.forEach(it => it.parts.forEach(pt => { if (pt.answerFig) answerFigs++; })));
+      const flat = s => s.replace(/\s+/g, ''), leaks = [];
+      if (kind === 'student') S.versions[v].sections.forEach(sec => sec.items.forEach(it => {
+        const el = root.querySelector('[data-uid="' + it.uid + '"]'), shown = flat(el.textContent), studentTeX = flat(MKMENU.studentText(it));
+        it.parts.forEach(pt => (pt.answer.match(/⟨[^⟩]*⟩/g) || []).forEach(m => {
+          if (studentTeX.indexOf(flat(m)) >= 0) return;
+          const box = document.createElement('div'); box.innerHTML = katex.renderToString(m.slice(1, -1), { output: 'html', throwOnError: false });
+          const t = flat(box.textContent); if (t.length >= 3 && shown.indexOf(t) >= 0) leaks.push(m);
+        }));
+      }));
+      return { leaks, pages: pages.length, overflow: pages.overflow.length, segs: root.querySelectorAll('.nl-seg').length, lines: root.querySelectorAll('svg.mm-nl').length, promptSegs, answerFigs, text: root.innerText };
+    }, { v, kind });
+    const file = path.join(OUT, `inequalities-v${'AB'[v]}-${kind}.pdf`);
+    await iq.emulateMedia({ media: 'print' });
+    await iq.pdf({ path: file, format: 'Letter', printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, preferCSSPageSize: true });
+    await iq.emulateMedia({ media: 'screen' });
+    await iq.evaluate(() => { document.body.classList.remove('printing'); document.getElementById('printRoot').innerHTML = ''; });
+    assert.equal(info.overflow, 0, file + ' overflows');
+    if (kind === 'student') {
+      assert.equal(info.segs, info.promptSegs, file + ': a student page shows a shaded answer graph (' + info.segs + ' segments vs ' + info.promptSegs + ' in questions)');
+      assert.doesNotMatch(info.text, /Answer:|Rubric/);
+      assert.deepEqual(info.leaks, [], file + ' shows answers: ' + info.leaks.join(' | '));
+    } else assert.ok(info.lines >= info.answerFigs, file + ': the key is missing answer graphs');
+    pdfs.push(file + ' (' + info.pages + ' pages)');
+  }
+  assert.deepEqual(iqErr, [], 'inequalities page errors: ' + iqErr.join('\n'));
+  // switching units keeps each unit's own autosave
+  await iq.click('.mm-stepbtn[data-step="0"]');
+  await iq.selectOption('#mmUnitSel', 'algebra1-expressions-equations'); await iq.waitForTimeout(300);
+  assert.equal(await iq.evaluate(() => MKMENU.app.state() && MKMENU.app.state().config.unitId), 'algebra1-expressions-equations');
+  await iq.click('.mm-stepbtn[data-step="0"]'); await iq.selectOption('#mmUnitSel', 'algebra1-inequalities'); await iq.waitForTimeout(300);
+  const back = await iq.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
+  assert.deepEqual(back.versions[0].sections.map(s => s.items.map(i => i.key)), IQ.versions[0].sections.map(s => s.items.map(i => i.key)));
+  ok('Inequalities PDFs: students see blank number lines only (no shaded answers); keys include the answer graphs; units keep separate autosaves');
+  console.log('      ' + pdfs.slice(-4).join('\n      '));
+
   /* ---------- the rest of the site still works ---------- */
   const site = await ctx.newPage(); const siteErr = [];
   site.on('pageerror', e => siteErr.push(e.message)); site.on('console', m => { if (m.type() === 'error') siteErr.push(m.text()); });
@@ -288,7 +369,9 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   const unitText = await site.textContent('body');
   assert.match(unitText, /Build a menu assessment/); assert.match(unitText, /Menu Assessment Generator/); assert.match(unitText, /The Equation Bistro: Assessment Menu/);
   const href = await site.getAttribute('a.btn:has-text("Build a menu assessment")', 'href');
-  assert.equal(href, 'worksheet-generator/menu-assessment.html');
+  assert.equal(href, 'worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations');
+  await site.goto(base + '/index.html#algebra.inequalities'); await site.waitForTimeout(500);
+  assert.equal(await site.getAttribute('a.btn:has-text("Build a menu assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-inequalities');
   await site.goto(base + '/index.html#activity.assessment-generator'); await site.waitForTimeout(500);
   assert.match(await site.textContent('body'), /Menu Assessment Generator/);
   await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForTimeout(800);

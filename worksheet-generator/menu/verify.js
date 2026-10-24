@@ -15,7 +15,7 @@
   var C = NS.check, Q = C.Q;
 
   function studentText(p) {
-    return [p.prompt || ''].concat((p.parts || []).map(function (pt) { return pt.prompt || ''; })).join(' ');
+    return [p.prompt || ''].concat((p.work || []).map(function (w) { return '⟨' + w + '⟩'; })).concat((p.parts || []).map(function (pt) { return pt.prompt || ''; })).join(' ');
   }
   function shown(p, tex) {
     return C.snippets(studentText(p)).some(function (s) { return norm(s) === norm(tex); });
@@ -75,10 +75,47 @@
     }
   };
 
+  /* ---------- inequalities ---------- */
+  function figSet(spec) {
+    if (!NS.fig) throw new C.CheckError('figures module not loaded');
+    var r = NS.fig.readNumberLine(NS.fig.numberLine(spec));
+    return { min: r.min, max: r.max, set: r.pieces.map(function (pc) {
+      return { lo: pc.lo ? new Q(pc.lo[0], pc.lo[1]) : null, loC: !!pc.loC, hi: pc.hi ? new Q(pc.hi[0], pc.hi[1]) : null, hiC: !!pc.hiC };
+    }) };
+  }
+  function endpoints(set) { var e = []; set.forEach(function (I) { if (I.lo) e.push(I.lo); if (I.hi) e.push(I.hi); }); return e; }
+  function intEnds(set) { return endpoints(set).every(function (q) { return q.isInt(); }); }
+  function fitsWindow(set, fig) {
+    return endpoints(set).every(function (q) { var v = Number(q.n) / Number(q.d); return v > fig.min + 0.4 && v < fig.max - 0.4; });
+  }
+  /* word problems with inequalities: re-solved from the printed numbers and words */
+  var ISCEN = {
+    'buy-max': function (t, n) { var b = n[1].div(n[0]); return { set: C.solutionSet('x\\le ' + qText(b)), best: floorQ(b), dir: 'max' }; },
+    'fee-max': function (t, n) { var b = n[2].sub(n[0]).div(n[1]); return { set: C.solutionSet('x\\le ' + qText(b)), best: floorQ(b), dir: 'max' }; },
+    'save-min': function (t, n) { var b = n[2].sub(n[0]).div(n[1]); return { set: C.solutionSet('x\\ge ' + qText(b)), best: ceilQ(b), dir: 'min' }; },
+    'plans': function (t, n) {
+      // "Plan A … $f1 … $r1 per … Plan B … $f2 … $r2 per …" — when is the FIRST plan cheaper?
+      var f1 = n[0], r1 = n[1], f2 = n[2], r2 = n[3], k = f2.sub(f1).div(r1.sub(r2));
+      var set = r1.sub(r2).n > 0n ? C.solutionSet('x<' + qText(k)) : C.solutionSet('x>' + qText(k));
+      var best = r1.sub(r2).n > 0n ? (k.isInt() ? k.sub(Q.ONE) : floorQ(k)) : (k.isInt() ? k.add(Q.ONE) : ceilQ(k));
+      return { set: set, best: best, dir: r1.sub(r2).n > 0n ? 'max' : 'min', k: k };
+    },
+    'range': function (t, n) { var lo = n[2].sub(n[0]).div(n[1]), hi = n[3].sub(n[0]).div(n[1]); return { set: C.solutionSet(qText(lo) + '\\le x\\le ' + qText(hi)), lo: lo, hi: hi }; },
+    'average': function (t, n) {
+      var m = /average of at least (\d+)/.exec(t); var target = new Q(m[1]), scores = n.slice(0, n.length - 1), sum = Q.ZERO;
+      var count = new Q(scores.length + 1); scores.forEach(function (q) { sum = sum.add(q); });
+      var b = target.mul(count).sub(sum);
+      return { set: C.solutionSet('x\\ge ' + qText(b)), best: ceilQ(b), dir: 'min' };
+    }
+  };
+  function floorQ(q) { var f = q.n / q.d; if (q.n < 0n && f * q.d !== q.n) f -= 1n; return new Q(f); }
+  function ceilQ(q) { var f = floorQ(q); return f.eq(q) ? f : f.add(Q.ONE); }
+
   function checkPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if (t === 'ineq' || t === 'read-graph' || t === 'ineq-members' || t === 'error-line' || t === 'iscenario' || t === 'model-ineq') return checkIneqPart(p, part, policy);
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -164,12 +201,86 @@
     return { status: 'manual', msg: 'Unknown check type ' + t };
   }
 
+  function checkIneqPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, v = chk.v || 'x', res;
+    function figOk(set) {
+      if (!part.answerFig) return null;
+      var fs = figSet(part.answerFig);
+      if (!C.setEqual(fs.set, set)) return { status: 'mismatch', msg: 'The number line in the key does not match the answer.' };
+      if (!fitsWindow(set, fs)) return { status: 'invalid', msg: 'The number line in the key does not show every endpoint.' };
+      return null;
+    }
+    function blankOk(set) {
+      if (!p.fig || (p.fig.pieces && p.fig.pieces.length)) return null;
+      return fitsWindow(set, figSet(p.fig)) ? null : { status: 'invalid', msg: 'The printed number line does not reach the answer’s endpoints.' };
+    }
+    if (t === 'ineq') {
+      if (!shown(p, chk.ineq)) return { status: 'invalid', msg: 'The inequality being checked is not the one printed for students.' };
+      var set = C.solutionSet(chk.ineq, v), comp = C.setText(set, v);
+      if (policy && policy.intOnly && !intEnds(set)) return { status: 'invalid', msg: 'The boundary is not a whole number.', computed: comp };
+      if (!chk.allowSpecial && (!set.length || (set.length === 1 && !set[0].lo && !set[0].hi))) return { status: 'invalid', msg: 'The solution is ' + comp.toLowerCase() + ' (not intended here).', computed: comp };
+      var got = C.setFromAnswer(ans, v);
+      if (!C.setEqual(got, set)) return { status: 'mismatch', msg: 'Correct solution: ' + comp, computed: comp };
+      if (!C.solvedForm(ans, v)) return { status: 'mismatch', msg: 'The answer is not written with ' + v + ' by itself.', computed: comp };
+      return figOk(set) || blankOk(set) || { status: 'verified', computed: comp };
+    }
+    if (t === 'read-graph') {
+      if (!p.fig || !p.fig.pieces || !p.fig.pieces.length) return { status: 'invalid', msg: 'There is no graph to read.' };
+      var gs = figSet(p.fig).set, gt = C.setText(gs, v);
+      if (!fitsWindow(gs, figSet(p.fig))) return { status: 'invalid', msg: 'The printed graph does not show its endpoints clearly.' };
+      if (policy && policy.intOnly && !intEnds(gs)) return { status: 'invalid', msg: 'The graph has a non-integer endpoint.' };
+      var formOk = chk.form === 'abs' ? C.snippets(ans).some(function (x) { return /\|/.test(x); }) : C.solvedForm(ans, v);
+      return C.setEqual(C.setFromAnswer(ans, v), gs) && formOk ? { status: 'verified', computed: gt } : { status: 'mismatch', msg: 'The graph shows ' + gt + (chk.form === 'abs' ? ' (answer must use absolute value)' : ''), computed: gt };
+    }
+    if (t === 'ineq-members') {
+      if (!shown(p, chk.ineq)) return { status: 'invalid', msg: 'The inequality being checked is not the one printed for students.' };
+      var cond = C.parseCondition(chk.ineq), yes = [];
+      chk.values.forEach(function (vt) {
+        if (!shown(p, vt)) throw new C.CheckError('value ' + vt + ' is not printed');
+        var q = C.readNumber(vt); if (C.truth(cond, v, q)) yes.push(q);
+      });
+      var said = /none/i.test(C.plainText(ans)) && !C.snippets(ans).length ? [] : C.snippets(ans).map(function (x) { return C.readNumber(x.replace(/^[a-z]=/, '')); });
+      var same = said.length === yes.length && said.every(function (q) { return yes.some(function (y) { return y.eq(q); }); });
+      return same ? { status: 'verified' } : { status: 'mismatch', msg: 'Solutions: ' + (yes.length ? yes.join(', ') : 'none') + '.' };
+    }
+    if (t === 'error-line') {
+      if (!shown(p, chk.ineq)) return { status: 'invalid', msg: 'The original inequality is not printed.' };
+      var base = C.solutionSet(chk.ineq, v), first = 0;
+      chk.lines.forEach(function (ln, i) { if (!shown(p, ln)) throw new C.CheckError('work line not printed: ' + ln); if (!first && !C.setEqual(C.solutionSet(ln, v), base)) first = i + 1; });
+      if (!first) return { status: 'invalid', msg: 'The shown work has no mistake.' };
+      var m = /line\s*(\d+)/i.exec(C.plainText(ans));
+      return m && +m[1] === first ? { status: 'verified', computed: 'Line ' + first } : { status: 'mismatch', msg: 'The first wrong line is line ' + first + '.', computed: 'Line ' + first };
+    }
+    if (t === 'model-ineq' || t === 'iscenario') {
+      var text = C.plainText(p.prompt), sc = ISCEN[chk.scenario](text, C.numbersInText(p.prompt));
+      if (t === 'model-ineq') {
+        var em = C.snippets(ans)[0]; if (!em) return { status: 'mismatch', msg: 'No inequality in the answer.' };
+        var mset = C.solutionSet(em, chk.v);
+        return C.setEqual(mset, sc.set) ? { status: 'verified' } : { status: 'mismatch', msg: 'The inequality does not model the situation.' };
+      }
+      if (chk.want === 'set') {
+        var aset = C.setFromAnswer(ans, chk.v);
+        return C.setEqual(aset, sc.set) ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: ' + C.setText(sc.set, chk.v) };
+      }
+      var nums = C.numbersInText(ans);
+      if (chk.want === 'best') {
+        // the solved inequality written in the answer must also be right
+        var sn = C.snippets(ans);
+        if (sn.length) { var sset; try { sset = C.solutionSet(sn[0], chk.v); } catch (e) { return { status: 'mismatch', msg: 'Could not read the inequality in the answer.' }; }
+          if (!C.setEqual(sset, sc.set)) return { status: 'mismatch', msg: 'The solved inequality should be ' + C.setText(sc.set, chk.v) + '.' }; }
+      }
+      if (chk.want === 'best') return nums.some(function (q) { return q.eq(sc.best); }) && new RegExp(sc.dir === 'max' ? 'at most|maximum|up to|no more' : 'at least|minimum|no fewer', 'i').test(C.plainText(ans)) ? { status: 'verified' } : { status: 'mismatch', msg: 'The ' + (sc.dir === 'max' ? 'most' : 'least') + ' is ' + sc.best + '.' };
+      if (chk.want === 'range') { var ints = C.numbersInText(ans), a0 = ceilQ(sc.lo), b0 = floorQ(sc.hi); return ints.length >= 2 && ints[0].eq(a0) && ints[1].eq(b0) ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: from ' + a0 + ' to ' + b0 + '.' }; }
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
   /* Worked-solution steps must agree with the problem (same solution set / same expression). */
   function checkSteps(p) {
     var issues = [], first = (p.parts || [])[0];
     if (!first || !first.check) return issues;
     (p.steps || []).forEach(function (st, i) {
-      if (!st.m) return;
+      if (!st.m || st.partial) return;
       try {
         if ((first.check.type === 'solve' || first.check.type === 'classify') && /=/.test(st.m) && !/[<>]/.test(st.m)) {
           var vars = Object.keys(Object.assign(C.varsOf(C.parseRelation(st.m).lhs), C.varsOf(C.parseRelation(st.m).rhs)));
@@ -177,6 +288,8 @@
             var a = C.solveLinear(first.check.eq, first.check.v), b = C.solveLinear(st.m, first.check.v);
             if (a.kind !== b.kind || (a.kind === 'one' && !a.value.eq(b.value))) issues.push('Step ' + (i + 1) + ' changes the solution.');
           }
+        } else if (first.check.type === 'ineq' && /[<>]|\\le|\\ge/.test(st.m)) {
+          if (!C.setEqual(C.solutionSet(st.m, first.check.v || 'x'), C.solutionSet(first.check.ineq, first.check.v || 'x'))) issues.push('Step ' + (i + 1) + ' changes the solution set.');
         } else if (first.check.type === 'simplify' && !/=/.test(st.m)) {
           if (!C.equivalent(first.check.expr, st.m)) issues.push('Step ' + (i + 1) + ' is not equivalent to the expression.');
         }

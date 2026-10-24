@@ -23,10 +23,13 @@
   };
   /* Units the generator knows about. Units without a skill set are listed as "not yet supported". */
   NS.CATALOG = [
-    { course: 'Algebra 1', units: [
-      ['algebra1-expressions-equations', 'Expressions & Equations'], ['algebra1-inequalities', 'Inequalities'], ['algebra1-linear-equations-slope', 'Linear Equations & Slope'],
-      ['algebra1-graphing-inequalities', 'Graphing Inequalities'], ['algebra1-systems-of-equations', 'Systems of Equations'], ['algebra1-exponents-exponential-functions', 'Exponents & Exponential Functions'],
-      ['algebra1-polynomials-factoring', 'Polynomials & Factoring'], ['algebra1-quadratics', 'Quadratics']] },
+    { course: 'Algebra 1', units: [   // follows the 180-day roadmap (units 1–12)
+      ['algebra1-expressions-equations', 'Units 1–2 · Foundations & Solving Linear Equations'], ['algebra1-inequalities', 'Unit 3 · Linear Inequalities'],
+      ['algebra1-relations-functions', 'Unit 4 · Relations and Functions'], ['algebra1-linear-equations-slope', 'Unit 5 · Linear Functions and Graphing'],
+      ['algebra1-systems-of-equations', 'Unit 6 · Systems of Equations and Inequalities'], ['algebra1-exponents-exponential-functions', 'Unit 7 · Exponents and Scientific Notation'],
+      ['algebra1-exponential-functions', 'Unit 8 · Exponential Functions'], ['algebra1-polynomials-factoring', 'Unit 9 · Polynomials'],
+      ['algebra1-factoring-zero-product', 'Unit 10 · Factoring and Zero Product Property'], ['algebra1-quadratics', 'Unit 11 · Quadratic Functions and Equations'],
+      ['algebra1-statistics-data-modeling', 'Unit 12 · Statistics and Data Modeling']] },
     { course: 'Geometry', units: [
       ['geometry-basics-reasoning', 'Basics & Reasoning'], ['geometry-angles-parallel-lines', 'Angles & Parallel Lines'], ['geometry-triangles-congruence', 'Triangles & Congruence'],
       ['geometry-similarity', 'Similarity'], ['geometry-right-triangles-trigonometry', 'Right Triangles & Trigonometry'], ['geometry-circles', 'Circles'],
@@ -174,9 +177,11 @@
   }
 
   /* ---------------- problem generation ---------------- */
-  function studentKey(p) { return NS.studentText(p).replace(/\s+/g, ''); }
+  /* Everything a student sees: words, math, shown work and figures. */
+  function figKey(p) { return p.fig ? '|fig:' + JSON.stringify(p.fig) : ''; }
+  function studentKey(p) { return NS.studentText(p).replace(/\s+/g, '') + figKey(p); }
   function nearSig(skill, p) {
-    var nums = (NS.studentText(p).match(/\d+(?:\.\d+)?/g) || []).map(Number).map(Math.abs).sort(function (a, b) { return a - b; });
+    var nums = ((NS.studentText(p) + figKey(p)).match(/\d+(?:\.\d+)?/g) || []).map(Number).map(Math.abs).sort(function (a, b) { return a - b; });
     return skill + '|' + (p.variant || '') + '|' + nums.join(',');
   }
   NS.stats = { generated: 0, rejectedByVerifier: 0, rejectedByGenerator: 0, duplicates: 0 };

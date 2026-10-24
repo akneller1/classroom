@@ -10,7 +10,10 @@
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var mathSafe = NS.mathSafe;
 
-  var KEY_CUR = 'mk-menu-current-v1', KEY_SAVES = 'mk-menu-saves-v1', KEY_THEME = 'mkws-theme';
+  var KEY_CUR = 'mk-menu-current-v1', KEY_SAVES = 'mk-menu-saves-v1', KEY_THEME = 'mkws-theme', KEY_LAST = 'mk-menu-last-unit';
+  /* Each unit keeps its own autosave, so switching units never loses work. */
+  function curKey(unit) { return KEY_CUR + ':' + unit; }
+  function hashUnit() { var m = /unit=([a-z0-9\-]+)/.exec(G.location.hash || ''); return m && NS.skillSets[m[1]] ? m[1] : null; }
   var defaultUnit = doc.body.getAttribute('data-unit') || 'algebra1-expressions-equations';
   var ui = { view: 'setup', version: 0, preview: 'student', showAns: {}, zoom: 'fit', bankSkill: null, bankC: null, bankN: 10, bankOpen: false };
   var draft = null, S = null, undoStack = [];
@@ -20,7 +23,8 @@
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); return true; } catch (e) { return false; } }
   function cfg() { return S ? S.config : draft; }
   function autosave() {
-    var ok = lsSet(KEY_CUR, S ? NS.serialize(S) : JSON.stringify({ draft: draft }));
+    var unit = cfg().unitId;
+    var ok = lsSet(curKey(unit), S ? NS.serialize(S) : JSON.stringify({ draft: draft })); lsSet(KEY_LAST, unit);
     var el = $('#mmSaveState'); if (el) el.textContent = ok ? 'Saved in this browser' : 'Could not save in this browser — download a file to keep your work';
   }
   function snapshot() { undoStack.push(S ? NS.serialize(S) : JSON.stringify({ draft: draft })); if (undoStack.length > 30) undoStack.shift(); $('#mmUndo').disabled = false; }
@@ -51,7 +55,7 @@
   var STEPS = [['setup', '1', 'Course & unit', 'mmUnit'], ['setup', '2', 'Class level', 'mmLevel'], ['setup', '3', 'Menu & rules', 'mmMenu'], ['setup', '4', 'Skills', 'mmSkills'],
     ['setup', '5', 'Build', 'mmBuild'], ['review', '6', 'Review & edit', null], ['preview', '7', 'Preview', null], ['export', '8', 'Print & save', null]];
   function renderSteps() {
-    $('.mm-steps').innerHTML = STEPS.map(function (s, i) {
+    $('.mm-stepnav').innerHTML = STEPS.map(function (s, i) {
       var dis = !S && i >= 5;
       var cur = ui.view === s[0] && (s[0] !== 'setup' || i === 0);
       return '<button type="button" class="mm-stepbtn' + (ui.view === s[0] ? ' on' : '') + '" data-step="' + i + '"' + (dis ? ' disabled' : '') + (cur ? ' aria-current="step"' : '') + '><span class="step">' + s[1] + '</span>' + esc(s[2]) + '</button>';
@@ -93,7 +97,7 @@
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
       '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
-      '<p class="hint">Pilot: <b>Algebra 1 · Expressions &amp; Equations</b> is fully supported. Other units are listed so you can see what is planned; they are not available until their problem generators pass the same verification tests. The ready-to-print Assessment Menu PDFs for every unit are still on each unit page.</p>' +
+      '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. The ready-to-print Assessment Menu PDFs for every unit are still on each unit page.</p>' +
       '<label class="field"><span class="lbl">Menu title</span><input type="text" id="mmTitle" value="' + esc(c.title) + '" maxlength="80"></label>' +
       '<label class="field"><span class="lbl">Subtitle</span><input type="text" id="mmSubtitle" value="' + esc(c.subtitle) + '" maxlength="120"></label></section>';
     // 2
@@ -156,7 +160,7 @@
   function bindSetup() {
     var c = cfg();
     function upd(fn, rerender) { return function (e) { if (S) snapshot(); fn(e); afterConfigChange(rerender); }; }
-    $('#mmUnitSel').onchange = upd(function (e) { var id = e.target.value; if (!NS.skillSets[id]) return; var n = NS.defaultConfig(id); n.level = c.level; draft = n; S = null; }, true);
+    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (!NS.skillSets[id]) return; snapshot(); autosave(); loadUnit(id, c.level); try { G.history.replaceState(null, '', '#unit=' + id); } catch (er) { /* ignore */ } render(); autosave(); };
     $('#mmTitle').oninput = function (e) { c.title = e.target.value; autosave(); };
     $('#mmSubtitle').oninput = function (e) { c.subtitle = e.target.value; autosave(); };
     $$('input[name=mmLevel]').forEach(function (r) { r.onchange = upd(function () { c.level = r.value; if (S) levelChanged(); }, true); });
@@ -254,12 +258,14 @@
   /* ---------------- REVIEW (step 6) ---------------- */
   function promptBlock(p) {
     var h = '<div class="mm-cq">' + mathSafe(p.prompt) + '</div>';
+    if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
+    if (p.fig) h += NS.figHtml(p.fig);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="mm-cparts">' + parts.map(function (pt) { return '<div><b>(' + esc(pt.label) + ')</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;
   }
   function answerBlock(p) {
-    var ans = (p.parts || []).map(function (pt) { return (pt.label ? '<b>(' + esc(pt.label) + ')</b> ' : '') + mathSafe(pt.answer); }).join('<br>');
+    var ans = (p.parts || []).map(function (pt) { return (pt.label ? '<b>(' + esc(pt.label) + ')</b> ' : '') + mathSafe(pt.answer) + (pt.answerFig ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
     var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
     return '<div class="mm-cans"><div><b>Answer:</b> ' + ans + '</div>' + (steps ? '<ol>' + steps + '</ol>' : '') + '</div>';
   }
@@ -613,18 +619,27 @@
   doc.addEventListener('keydown', function (e) { if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !/INPUT|TEXTAREA|SELECT/.test(doc.activeElement.tagName)) { e.preventDefault(); undo(); } });
   G.addEventListener('resize', function () { if (ui.view === 'preview') fitZoom(); });
 
-  (function restore() {
-    var raw = lsGet(KEY_CUR);
+  /* Load a unit's autosaved work (or a fresh menu for it). */
+  function loadUnit(unit, level) {
+    draft = null; S = null; ui.view = 'setup'; ui.version = 0;
+    var raw = lsGet(curKey(unit));
+    if (!raw && unit === 'algebra1-expressions-equations') raw = lsGet(KEY_CUR);     // autosave from the first release
     if (raw) {
       try {
         var o = JSON.parse(raw);
-        if (o.draft && NS.skillSets[o.draft.unitId]) draft = o.draft;
-        else if (o.format === 'mk-menu-assessment') { S = NS.deserialize(o); ui.view = 'review'; }
+        if (o.draft && o.draft.unitId === unit) draft = o.draft;
+        else if (o.format === 'mk-menu-assessment' && o.config.unitId === unit) { S = NS.deserialize(o); ui.view = 'review'; }
       } catch (e) { draft = null; S = null; }
     }
-    if (!draft && !S) draft = NS.defaultConfig(NS.skillSets[defaultUnit] ? defaultUnit : Object.keys(NS.skillSets)[0]);
+    if (!draft && !S) { draft = NS.defaultConfig(unit); if (level) draft.level = level; }
+    return !!S;
+  }
+  (function restore() {
+    var unit = hashUnit() || (NS.skillSets[lsGet(KEY_LAST)] ? lsGet(KEY_LAST) : null) || (NS.skillSets[defaultUnit] ? defaultUnit : Object.keys(NS.skillSets)[0]);
+    var restored = loadUnit(unit);
     render();
-    if (S) toast('Welcome back. Your last menu was restored from this browser.');
+    if (restored) toast('Welcome back. Your last ' + NS.skillSets[unit].unitName + ' menu was restored from this browser.');
   })();
+  G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { autosave(); loadUnit(u); render(); } });
   NS.app = { state: function () { return S; }, render: render, ui: ui };   // for tests
 })(window);

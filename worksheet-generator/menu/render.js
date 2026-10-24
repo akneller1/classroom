@@ -102,8 +102,10 @@
     if (!rules.tags.length) return '';
     return '<div class="mm-box mm-skillchk"><b>My skill check</b> (circle each skill you have covered): ' + rules.tags.map(esc).join(' · ') + '</div>';
   }
-  function promptHtml(p) {
+  function promptHtml(p, forKey) {
     var h = '<div class="mm-q">' + mathSafe(p.prompt || '') + '</div>';
+    if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
+    if (p.fig && NS.figHtml && !(forKey && !(p.fig.pieces || []).length)) h += NS.figHtml(p.fig);   // the key skips blank student lines
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;
@@ -125,7 +127,7 @@
   function dishHtml(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
-    return '<div class="mm-dish' + (isWide(p) ? ' wide' : '') + '"><div class="mm-dh"><span><b>' + lab + '</b>' + (p.tag ? '<span class="mm-chip">' + esc(p.tag) + '</span>' : '') +
+    return '<div class="mm-dish' + (isWide(p) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '</b>' + (p.tag ? '<span class="mm-chip">' + esc(p.tag) + '</span>' : '') +
       (p.required ? '<span class="mm-req">everyone must do</span>' : '') + '</span><span class="mm-pick"><span class="mm-box-chk"></span>My pick · ' + ptsText(+sec.points) + '</span></div>' +
       promptHtml(p) + workspace(p, cfg) + '</div>';
   }
@@ -176,10 +178,10 @@
   function keyRow(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<tr><td><b>' + lab + '</b></td><td colspan="3">' + statusBadge(p) + '</td></tr>';
-    var ans = (p.parts || []).map(function (pt) { return (pt.label ? '(' + esc(pt.label) + ') ' : '') + mathSafe(pt.answer); }).join('<br>');
+    var ans = (p.parts || []).map(function (pt) { return (pt.label ? '(' + esc(pt.label) + ') ' : '') + mathSafe(pt.answer) + (pt.answerFig && NS.figHtml ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
     var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
     var rub = NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
-    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p) + statusBadge(p) + '</td>' +
+    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + statusBadge(p) + '</td>' +
       '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td><td><ul class="mm-rub">' + rub + '</ul></td></tr>';
   }
   function guideBlocks(state, vIdx) {
@@ -210,7 +212,7 @@
     cfg.sections.forEach(function (sec, si) {
       B.push({ html: '<div class="mm-head"><div><div class="mm-title mm-t2">Answer Key: ' + esc(sec.name) + ' (' + ptsText(+sec.points) + ' each)</div><div class="mm-sub">Every offered dish, with worked solutions and a suggested partial-credit rubric.</div></div>' + verTag(state, vIdx, 'key') + '</div>', keep: true, page: si === 0 && cfg.layout.guide === false ? null : 'new' });
       ver.sections[si].items.forEach(function (it, i) {
-        B.push({ cls: 'tight', html: '<table class="mm-tbl mm-key"><colgroup><col style="width:.6in"><col style="width:2.2in"><col><col style="width:2.1in"></colgroup>' + (i === 0 ? '<thead><tr><th>Dish</th><th>Problem</th><th>Answer and solution</th><th>Rubric</th></tr></thead>' : '') + '<tbody>' + keyRow(it, cfg, si, i, sec) + '</tbody></table>' });
+        B.push({ cls: 'tight', html: '<table class="mm-tbl mm-key"><colgroup><col style="width:.82in"><col style="width:2.1in"><col><col style="width:2.05in"></colgroup>' + (i === 0 ? '<thead><tr><th>Dish</th><th>Problem</th><th>Answer and solution</th><th>Rubric</th></tr></thead>' : '') + '<tbody>' + keyRow(it, cfg, si, i, sec) + '</tbody></table>' });
       });
     });
     return B;

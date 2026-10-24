@@ -3,9 +3,13 @@
 A browser-only builder for restaurant-style choice assessments ("Assessment Menus"). It has no server, no
 accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-generator/menu-assessment.html`.
 
-**Pilot status:** Algebra 1 · Expressions & Equations is fully supported. Other units appear in the unit
-list as "not yet supported" until they have generators that pass the same verification tests (see
-*Adding a unit*). The existing static Assessment Menu PDFs are unchanged and still listed on every unit page.
+**Supported units (Algebra 1 roadmap):**
+- Units 1–2 · Foundations & Solving Linear Equations (`algebra1-expressions-equations`)
+- Unit 3 · Linear Inequalities (`algebra1-inequalities`)
+
+Other units appear in the unit list as "not yet supported" until they have generators that pass the same
+verification tests (see *Adding a unit*). Open a unit directly with `menu-assessment.html#unit=<id>`. Each
+unit keeps its own autosave. The existing static Assessment Menu PDFs are unchanged and still listed on every unit page.
 
 ## Teacher workflow
 1. **Course and unit.** Also set the menu title and subtitle.
@@ -71,6 +75,8 @@ multi-step and multi-part ones.
 | `verify.js` | Re-derives every answer from the **student-facing text**. The math in a part's `check` must appear verbatim in the printed question. Word problems are re-solved from the numbers and words in the prompt. Also checks every worked-solution step. |
 | `engine.js` | Skill-set registry, levels, menu rules (maximum score, max-flow coverage feasibility, warnings), generation loop (generate → verify → de-duplicate → retry; a failure becomes a flagged slot, never a substitute), versions sharing one slot structure, all teacher operations, problem bank, rebuild, save/load (re-verifies on load). |
 | `skills/algebra1-expressions-equations.js` | The 11 E&E skills, answer-first, difficulty 1–7, worked steps with rubric weights, reference page, documented gaps. |
+| `figures.js` | Number lines drawn from data specs, and `readNumberLine()`, which reads the **drawn SVG** back (circles, segments, arrows) so the verifier checks the picture itself. |
+| `skills/kit.js` | Shared TeX/step/number-line helpers for skill files (generator side only). |
 | `render.js` | Student menu (cover, directions, order form, score table, sections, work pages, reference page) and teacher key (guide, every offered dish, answer, worked solution, partial-credit rubric). Letter pages are measured so nothing is split across pages. Text outside math is HTML-escaped. |
 | `app.js`, `menu.css` | The 8-step teacher interface and the paper styles. |
 
@@ -93,7 +99,27 @@ fractions for the generators), `core/tex.js` (TeX builders), `core/framework.js`
 | LITERAL | Literal equations and formulas | solve for `y` in one move → `ax+by=c`, formulas → multi-step formulas, then use them (2 parts) |
 | MODEL | Word problems | fee + rate → consecutive integers, perimeter → comparing plans, multi-part |
 
-**Gaps (not generated, use "Write your own"):** error-analysis ("find the mistake") problems; percent
+### Linear Inequalities skills (tags SOLVE · COMPOUND · REASON · APPLY)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| SOLVE | One- and two-step | `x+9>13` → negative coefficients that reverse the sign → fraction/decimal coefficients |
+| SOLVE | Multi-step | `a(x+b)<c` → both sides, `d−e(x+f)` → LCDs, several groups |
+| SOLVE | All real numbers / no solution | simplified sides → distribution on both sides |
+| COMPOUND | “And” | `a<x+b≤c` → negative coefficient, two separate inequalities → fraction middles |
+| COMPOUND | “Or” | simple → coefficients, a negative → fractions, overlapping rays (all real numbers) |
+| COMPOUND | Absolute value | `|x|<a` → `|x−h|`, `|ax+b|` → isolate first, special cases |
+| REASON | Graphs | draw/read a ray → read and draw intervals and “or” graphs → write absolute value inequalities for a graph (2 parts) |
+| REASON | Which values are solutions? | always tests the boundary value (open vs. closed) |
+| REASON | Find and fix the mistake | forgot to reverse → one-sided LCD → distribution sign errors in longer work |
+| APPLY | Word problems | budget → fees, saving goals, comparing plans → compound budgets, averages, listing whole-number answers |
+
+Every "solve" problem prints a blank number line for the student; the key shows the graph. The verifier
+solves the printed inequality itself. It handles chains (`−3<2x+1≤7`), “and”/“or”, `|…|` and fraction bars,
+using the critical-point method on exact rationals. It also re-reads the key's drawn number line, checks that the
+blank student line shows every endpoint, checks which line in a "find the mistake" problem is the first wrong one,
+and re-solves word problems from the printed numbers.
+
+**Gaps (not generated, use "Write your own"):** Linear Inequalities: absolute-value *equations*. Foundations & Solving Linear Equations: error-analysis ("find the mistake") problems; percent
 and absolute-value equations. A skill that cannot produce a verified problem at a requested difficulty is
 flagged in red with a reason; it is never silently replaced.
 

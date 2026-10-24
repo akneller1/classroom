@@ -763,7 +763,7 @@
   });
 
   NS.registerSkillSet({
-    id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Expressions & Equations',
+    id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Foundations & Solving Linear Equations',
     title: 'The Equation Bistro',
     tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', SOLVE: 'Solve equations', LITERAL: 'Literal equations', MODEL: 'Model with equations' },
     reference:

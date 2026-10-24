@@ -13,7 +13,10 @@
 'use strict';
 const assert = require('node:assert/strict');
 const load = require('./load.cjs');
-const env = load(), M = env.MKMENU, C = M.check, set = M.skillSets['algebra1-expressions-equations'];
+const env = load(), M = env.MKMENU, C = M.check;
+const ONLY = process.env.UNIT;                       // e.g. UNIT=algebra1-inequalities to test one unit
+const SETS = Object.values(M.skillSets).filter(s => !ONLY || s.id === ONLY);
+const EE = M.skillSets['algebra1-expressions-equations'], INEQ = M.skillSets['algebra1-inequalities'];
 const N = +process.env.N || 200;
 let checks = 0, fails = [];
 function ok(cond, msg) { checks++; if (!cond) fails.push(msg); }
@@ -38,7 +41,12 @@ function complexity(p) {
   const all = C.snippets(M.studentText(p));
   all.forEach(s => {
     let node;
-    try { const r = C.parseRelation(s); node = { k: 'add', a: r.lhs, b: r.rhs }; } catch (e) { try { node = C.parseExpr(s); } catch (e2) { return; } }
+    try { const r = C.parseRelation(s); node = { k: 'add', a: r.lhs, b: r.rhs }; }
+    catch (e) {
+      try { const cd = C.parseCondition(s); node = { k: 'list', a: null }; const atoms = cd.chains.flat(); score += 4 * (cd.chains.length - 1) + 2 * (atoms.length - 1);
+        node = atoms.reduce((acc, a) => ({ k: 'add', a: acc, b: { k: 'add', a: a.lhs, b: a.rhs } }), { k: 'num', v: new C.Q(0) }); }
+      catch (e2) { try { node = C.parseExpr(s); } catch (e3) { return; } }
+    }
     (function walk(n) {
       score += 1;
       if (n.k === 'num') { const v = Math.abs(Number(n.v.n) / Number(n.v.d)); score += Math.log10(1 + v) * 1.2; if (!n.v.isInt()) score += 3; }
@@ -46,12 +54,13 @@ function complexity(p) {
       if (n.k === 'neg' || n.k === 'sub') score += 0.6;
       if (n.k === 'grp') score += 2;
       if (n.k === 'pow') score += 1.5;
+      if (n.k === 'abs') score += 4;
       if (n.a) walk(n.a); if (n.b) walk(n.b);
     })(node);
   });
   // how many inverse operations wrap the unknown (solve / literal problems)
   (p.parts || []).forEach(pt => {
-    if (!pt.check || !pt.check.v || !/solve|literal|classify/.test(pt.check.type)) return;
+    if (!pt.check || !pt.check.v || !/solve|literal|classify/.test(pt.check.type) || !pt.check.eq) return;
     let r; try { r = C.parseRelation(pt.check.eq); } catch (e) { return; }
     let best = 0;
     (function depth(n, d) { if (n.k === 'var' && n.v === pt.check.v) best = Math.max(best, d); const inc = /add|sub|mul|div|neg/.test(n.k) ? 1 : 0; if (n.a) depth(n.a, d + inc); if (n.b) depth(n.b, d + inc); })({ k: 'x', a: r.lhs, b: r.rhs }, 0);
@@ -64,13 +73,30 @@ function complexity(p) {
   score += 4 * ((words.match(/more than|less than|times|consecutive|same|which|by how much|even|odd/g) || []).length);
   score += 6 * Math.max(0, (p.parts || []).filter(x => x.prompt).length - 1);
   score += 0.02 * words.length;
+  score += 3 * (p.work || []).length;
+  if (p.fig && p.fig.pieces) score += 3 * p.fig.pieces.length;
+  if ((p.parts || []).some(pt => pt.check && pt.check.form === 'abs')) score += 8;
+  // graphs: endpoints the student must read, or draw on a blank line; inequalities the student must write from a graph
+  const ends = f => (f && f.pieces ? f.pieces.reduce((n, pc) => n + (pc.lo ? 1 : 0) + (pc.hi ? 1 : 0), 0) : 0);
+  if (p.fig && p.fig.pieces && p.fig.pieces.length) score += 3 * ends(p.fig);
+  (p.parts || []).forEach(pt => {
+    if (pt.check && pt.check.type === 'read-graph') C.snippets(pt.answer).forEach(sn => { try { score += 2.5 * C.parseCondition(sn).chains.flat().length; } catch (e) { score += 2.5; } });
+    if (pt.answerFig && p.fig && !(p.fig.pieces || []).length && /^Graph /.test(p.prompt)) score += 2.5 * ends(pt.answerFig);
+    // dividing by a negative (the sign must be reversed)
+    if (pt.check && pt.check.type === 'ineq' && pt.check.ineq) {
+      try { const cd = C.parseCondition(pt.check.ineq); cd.chains.flat().forEach(a => {
+        const f = x => { const env = {}; env[pt.check.v || 'x'] = new C.Q(x); return C.evalNode(a.lhs, env).sub(C.evalNode(a.rhs, env)); };
+        if (!JSON.stringify(a, (k, v) => typeof v === 'bigint' ? 0 : v).includes('"abs"') && f(1).sub(f(0)).n < 0n) score += 4;
+      }); } catch (e) { /* not linear */ }
+    }
+  });
   return score;
 }
 
 /* ---------- 1. large batches ---------- */
 const meanScore = {};
 const t0 = Date.now();
-for (const sk of set.skills) {
+for (const set of SETS) for (const sk of set.skills) {
   for (let c = 1; c <= 7; c++) {
     for (const intOnly of [true, false]) {
       let used = null, sum = 0, made = 0;
@@ -93,12 +119,15 @@ for (const sk of set.skills) {
           if (/^[a-zA-Z]=/.test(a.replace(/\s/g, ''))) ok(M.studentText(p).replace(/\s/g, '').indexOf('⟨' + a.replace(/\s/g, '') + '⟩') < 0 || pt.check.type === 'literal-eval', tag + ' answer appears in the question: ' + a);
         }));
         // CP2/CP1 difficulty range (1–5) keeps whole-number answers even when fractions are allowed
-        if (c <= 5) p.parts.forEach(pt => { if (pt.check && /solve|evaluate|literal-eval/.test(pt.check.type)) { const comp = v.computed[p.parts.indexOf(pt)]; if (comp) ok(!/frac/.test(comp), tag + ' non-integer answer at difficulty ' + c + ': ' + comp); } });
+        if (c <= 5) p.parts.forEach(pt => { if (pt.check && /solve|evaluate|literal-eval|^ineq$|read-graph/.test(pt.check.type)) { const comp = v.computed[p.parts.indexOf(pt)]; if (comp) ok(!/frac/.test(comp), tag + ' non-integer answer at difficulty ' + c + ': ' + comp); } });
+        // number lines: the key's graph matches its answer (re-read from the SVG) and the blank line shows the endpoints
+        p.parts.forEach(pt => { if (pt.answerFig) ok(pt.answerFig.min < pt.answerFig.max && JSON.stringify(pt.answerFig).length > 10, tag + ' bad figure'); });
+        if (p.fig && p.parts.some(pt => pt.answerFig)) p.parts.forEach(pt => { if (pt.answerFig) ok(pt.answerFig.min === p.fig.min && pt.answerFig.max === p.fig.max, tag + ' key graph uses a different scale than the student line'); });
         // every worked solution has steps that sum to positive weight (rubric possible)
         ok((p.steps || []).some(s => s.w > 0), tag + ' has no gradable steps');
         sum += complexity(p);
       }
-      meanScore[sk.id + '|' + c + '|' + intOnly] = sum / Math.max(1, made);
+      meanScore[set.id + '/' + sk.id + '|' + c + '|' + intOnly] = sum / Math.max(1, made);
     }
   }
 }
@@ -110,16 +139,34 @@ ok(!(M.stats.generatorErrors > 0), 'generator threw unexpected errors: ' + M.sta
 function clone(o) { return JSON.parse(JSON.stringify(o)); }
 let mutants = 0, caught = 0; const missed = [];
 function mustCatch(p, why) { mutants++; const v = M.verifyProblem(p, { intOnly: false }); if (!v.ok) caught++; else missed.push('verifier MISSED: ' + why + ' :: ' + p.prompt + ' => ' + p.parts.map(x => x.answer).join(' ; ')); }
-for (const sk of set.skills) for (let c = 1; c <= 7; c++) for (let i = 0; i < 25; i++) {
+for (const set of SETS) for (const sk of set.skills) for (let c = 1; c <= 7; c++) for (let i = 0; i < 25; i++) {
   const p = M.generateProblem(set.id, sk.id, c, { intOnly: false, level: 'test' }, 'mut|' + i, null);
   if (p.failed) continue;
   p.parts.forEach((pt, k) => {
+    if (!pt.check || !/^ineq$|read-graph/.test(pt.check.type)) return;
+    // (f) inequality direction reversed, (g) open/closed swapped
+    const a = pt.answer;
+    const flipped = a.replace(/\\le |\\ge |<|>/, t => ({ '\\le ': '\\ge ', '\\ge ': '\\le ', '<': '>', '>': '<' })[t]);
+    if (flipped !== a) { const m = clone(p); m.parts[k].answer = flipped; mustCatch(m, sk.id + ' c' + c + ' direction reversed'); }
+    const opened = a.replace(/\\le |\\ge |<|>/, t => ({ '\\le ': '<', '\\ge ': '>', '<': '\\le ', '>': '\\ge ' })[t]);
+    if (opened !== a) { const m = clone(p); m.parts[k].answer = opened; mustCatch(m, sk.id + ' c' + c + ' open/closed swapped'); }
+    // (h) the key's number line is wrong: a circle filled/emptied, an endpoint moved, a piece dropped
+    if (pt.answerFig && pt.answerFig.pieces.length && (pt.answerFig.pieces[0].lo || pt.answerFig.pieces[0].hi)) {
+      const m1 = clone(p), f1 = m1.parts[k].answerFig.pieces[0]; if (f1.lo) f1.loC = !f1.loC; else f1.hiC = !f1.hiC; mustCatch(m1, sk.id + ' c' + c + ' key graph: circle filled/emptied');
+      const m2 = clone(p), f2 = m2.parts[k].answerFig.pieces[0]; if (f2.lo) f2.lo = [f2.lo[0] + f2.lo[1], f2.lo[1]]; else f2.hi = [f2.hi[0] - f2.hi[1], f2.hi[1]]; mustCatch(m2, sk.id + ' c' + c + ' key graph: endpoint moved');
+      if (pt.answerFig.pieces.length > 1) { const m3 = clone(p); m3.parts[k].answerFig.pieces.pop(); mustCatch(m3, sk.id + ' c' + c + ' key graph: piece missing'); }
+    }
+    // (i) the printed graph changed but the key did not
+    if (pt.check.type === 'read-graph') { const m4 = clone(p), g = m4.fig.pieces[0]; if (g.lo) g.loC = !g.loC; else g.hiC = !g.hiC; if (pt.check.form !== 'abs' || true) mustCatch(m4, sk.id + ' c' + c + ' printed graph changed'); }
+  });
+  p.parts.forEach((pt, k) => {
     // (a) numeric answers off by one
     const m = clone(p), a = m.parts[k].answer;
-    const bumped = a.replace(/(-?\d+)(?!.*\d)/, d => String(+d + 1));
+    const bumped = pt.check && pt.check.type === 'error-line' ? a.replace(/Line (\d+)/, (w, d) => 'Line ' + (+d + 1)) : a.replace(/(-?\d+)(?!.*\d)/, d => String(+d + 1));   // explanations are words; the line number is what is checked
     if (bumped !== a) { m.parts[k].answer = bumped; mustCatch(m, sk.id + ' c' + c + ' answer off by one'); }
     // (b) sign flipped in the first number of the answer math
     const m2 = clone(p), a2 = m2.parts[k].answer; if (/⟨\s*([a-zA-Z]\s*=\s*)?0\s*⟩/.test(a2)) return;   // flipping the sign of 0 changes nothing
+    const firstNum = (/⟨[^⟩]*?(\d+)/.exec(a2) || [])[1]; if (firstNum === '0') return;   // −0 = 0
     const s2 = a2.replace(/⟨([^⟩]*?)(\d+)/, (w, pre, d) => '⟨' + pre + (pre.endsWith('-') ? '' : '-') + d).replace('⟨-⟨', '⟨');
     if (s2 !== a2 && pt.check && pt.check.type !== 'scenario') { m2.parts[k].answer = s2.replace(/--/g, ''); if (m2.parts[k].answer !== a2) mustCatch(m2, sk.id + ' c' + c + ' sign flipped'); }
     // (c) classification swapped
@@ -133,8 +180,8 @@ for (const sk of set.skills) for (let c = 1; c <= 7; c++) for (let i = 0; i < 25
   }
 }
 // (e) unsimplified answers to simplify problems
-{
-  const p = M.generateProblem(set.id, 'distribute', 4, { intOnly: true, level: 't' }, 'unsimp', null);
+if (EE && SETS.indexOf(EE) >= 0) {
+  const p = M.generateProblem(EE.id, 'distribute', 4, { intOnly: true, level: 't' }, 'unsimp', null);
   const m = clone(p); m.parts[0].answer = '⟨' + m.parts[0].check.expr + '⟩'; mustCatch(m, 'answer equal to the unsimplified expression');
 }
 console.log('mutations: ' + caught + '/' + mutants + ' caught');
@@ -145,34 +192,52 @@ missed.filter(m => !/HARMLESS/.test(m)).forEach(m => fails.push(m));
 ok(mutants > 1000, 'too few mutants (' + mutants + ')');
 
 /* ---------- 3. difficulty rises with c ---------- */
-for (const sk of set.skills) {
-  const s = [1, 2, 3, 4, 5, 6, 7].map(c => meanScore[sk.id + '|' + c + '|false']);
-  for (let c = 1; c < 7; c++) ok(s[c] >= s[c - 1] * 0.92, sk.id + ': difficulty ' + (c + 1) + ' scored easier than ' + c + ' (' + s.map(x => x.toFixed(1)).join(' → ') + ')');
-  ok(s[6] > s[0] * 1.5, sk.id + ': Challenge problems are not clearly harder than Warm-ups (' + s[0].toFixed(1) + ' vs ' + s[6].toFixed(1) + ')');
-  // tiers inside each level: Appetizer < Entrée < Chef's Special
+for (const set of SETS) for (const sk of set.skills) {
+  const id = set.id + '/' + sk.id;
+  const s = [1, 2, 3, 4, 5, 6, 7].map(c => meanScore[id + '|' + c + '|false']);
+  for (let c = 1; c < 7; c++) ok(s[c] >= s[c - 1] * 0.92, id + ': difficulty ' + (c + 1) + ' scored easier than ' + c + ' (' + s.map(x => x.toFixed(1)).join(' → ') + ')');
+  ok(s[6] > s[0] * 1.5, id + ': Challenge problems are not clearly harder than Warm-ups (' + s[0].toFixed(1) + ' vs ' + s[6].toFixed(1) + ')');
   for (const lv of Object.values(M.LEVELS)) {
-    const t = lv.tiers.map(c => meanScore[sk.id + '|' + c + '|' + lv.intOnly]);
-    ok(t[2] > t[0], sk.id + ' ' + lv.name + ': the Chef’s Special tier is not harder than the Appetizer tier');
+    const t = lv.tiers.map(c => meanScore[id + '|' + c + '|' + lv.intOnly]);
+    ok(t[2] > t[0], id + ' ' + lv.name + ': the Chef’s Special tier is not harder than the Appetizer tier');
   }
-  console.log('  ' + sk.id.padEnd(18) + s.map(x => x.toFixed(1).padStart(5)).join(''));
+  console.log('  ' + id.padEnd(40) + s.map(x => x.toFixed(1).padStart(5)).join(''));
 }
 
 /* ---------- 4. structure promises ---------- */
-function gen(id, c, i, intOnly = true) { return M.generateProblem(set.id, id, c, { intOnly, level: 't' }, 'struct|' + i, null); }
-for (let i = 0; i < 300; i++) {
-  let p = gen('two-step', 1, i), e = C.parseRelation(p.parts[0].check.eq);
+function gen(set, id, c, i, intOnly = true) { return M.generateProblem(set.id, id, c, { intOnly, level: 't' }, 'struct|' + i, null); }
+if (EE && SETS.indexOf(EE) >= 0) for (let i = 0; i < 300; i++) {
+  let p = gen(EE, 'two-step', 1, i), e = C.parseRelation(p.parts[0].check.eq);
   let ops = 0; (function w(n) { if (/add|sub|mul/.test(n.k)) ops++; if (n.a) w(n.a); if (n.b) w(n.b); })({ k: 'eq', a: e.lhs, b: e.rhs });
   ok(ops <= 1, 'two-step level 1 must be a one-step equation: ' + p.parts[0].check.eq);
-  p = gen('multi-step', 1, i); ok(/^\d+\(x[+-]\s?\d+\)=-?\d+$/.test(p.parts[0].check.eq.replace(/\s/g, '')), 'multi-step level 1 must be a(x+b)=c: ' + p.parts[0].check.eq);
-  p = gen('both-sides', 1, i); ok(!/-/.test(p.parts[0].check.eq), 'both-sides level 1 must use positive numbers: ' + p.parts[0].check.eq);
-  p = gen('distribute', 1, i); ok(!/-/.test(p.parts[0].check.expr), 'distribute level 1 must be positive: ' + p.parts[0].check.expr);
-  p = gen('evaluate', 1, i); ok(!/-/.test(M.studentText(p)), 'evaluate level 1 must use positive values: ' + p.prompt);
-  p = gen('literal', 1, i); ok(p.parts[0].check.v === 'y', 'literal level 1 solves for y');
-  p = gen('fraction-eq', 5, i); ok(/\\frac\{x\}\{\d+\}\+\\frac\{x\}\{\d+\}/.test(p.parts[0].check.eq.replace(/\s/g, '')), 'fraction-eq level 5 needs an LCD: ' + p.parts[0].check.eq);
-  p = gen('special-solutions', 3 + (i % 5), i);
+  p = gen(EE, 'multi-step', 1, i); ok(/^\d+\(x[+-]\s?\d+\)=-?\d+$/.test(p.parts[0].check.eq.replace(/\s/g, '')), 'multi-step level 1 must be a(x+b)=c: ' + p.parts[0].check.eq);
+  p = gen(EE, 'both-sides', 1, i); ok(!/-/.test(p.parts[0].check.eq), 'both-sides level 1 must use positive numbers: ' + p.parts[0].check.eq);
+  p = gen(EE, 'distribute', 1, i); ok(!/-/.test(p.parts[0].check.expr), 'distribute level 1 must be positive: ' + p.parts[0].check.expr);
+  p = gen(EE, 'evaluate', 1, i); ok(!/-/.test(M.studentText(p)), 'evaluate level 1 must use positive values: ' + p.prompt);
+  p = gen(EE, 'literal', 1, i); ok(p.parts[0].check.v === 'y', 'literal level 1 solves for y');
+  p = gen(EE, 'fraction-eq', 5, i); ok(/\\frac\{x\}\{\d+\}\+\\frac\{x\}\{\d+\}/.test(p.parts[0].check.eq.replace(/\s/g, '')), 'fraction-eq level 5 needs an LCD: ' + p.parts[0].check.eq);
+  p = gen(EE, 'special-solutions', 3 + (i % 5), i);
   const k = C.solveLinear(p.parts[0].check.eq, 'x').kind, said = /No solution/.test(p.parts[0].answer) ? 'none' : /Infinitely/.test(p.parts[0].answer) ? 'all' : 'one';
   ok(k === said, 'special-solutions classification: ' + p.parts[0].check.eq);
-  p = gen('model', 1, i); ok(C.numbersInText(p.prompt).every(q => q.isInt() && q.n > 0n), 'model level 1 uses positive whole numbers: ' + p.prompt);
+  p = gen(EE, 'model', 1, i); ok(C.numbersInText(p.prompt).every(q => q.isInt() && q.n > 0n), 'model level 1 uses positive whole numbers: ' + p.prompt);
+}
+if (INEQ && SETS.indexOf(INEQ) >= 0) for (let i = 0; i < 300; i++) {
+  const sign = t => /\\le|\\ge|<|>/.test(t);
+  let p = gen(INEQ, 'ineq-solve', 1, i); let cd = C.parseCondition(p.parts[0].check.ineq).chains[0][0];
+  let ops = 0; (function w(n) { if (/add|sub|mul|div/.test(n.k)) ops++; if (n.a) w(n.a); if (n.b) w(n.b); })({ k: 'r', a: cd.lhs, b: cd.rhs });
+  ok(ops <= 1, 'ineq-solve level 1 is one step: ' + p.parts[0].check.ineq);
+  p = gen(INEQ, 'ineq-solve', 2, i); ok(!/\\frac|-\s*\d*x/.test(p.parts[0].check.ineq.split(/<|>|\\le|\\ge/)[0]), 'ineq-solve level 2 has a positive x-coefficient: ' + p.parts[0].check.ineq);
+  p = gen(INEQ, 'ineq-solve', 3, i); const flipNeeded = /-\s*\d*x|\\frac\{x\}\{-/.test(p.parts[0].check.ineq);
+  p = gen(INEQ, 'compound-and', 1 + (i % 7), i); ok(C.solutionSet(p.parts[0].check.ineq).length === 1, 'compound-and gives one interval: ' + p.parts[0].check.ineq);
+  p = gen(INEQ, 'compound-or', 1 + (i % 5), i); ok(C.solutionSet(p.parts[0].check.ineq).length === 2, 'compound-or below level 6 gives two rays: ' + p.parts[0].check.ineq);
+  p = gen(INEQ, 'abs-ineq', 1 + (i % 2), i); ok(/^\|x\|/.test(p.parts[0].check.ineq), 'abs level 1–2 is |x| alone: ' + p.parts[0].check.ineq);
+  p = gen(INEQ, 'error-analysis', 1 + (i % 7), i);
+  const base = C.solutionSet(p.parts[1].check.ineq), last = C.solutionSet(p.work[p.work.length - 1]);
+  ok(!C.setEqual(base, last), 'error analysis: the shown work must end with a wrong answer: ' + p.prompt);
+  ok(sign(p.parts[1].answer), 'error analysis part (b) gives a solved inequality');
+  p = gen(INEQ, 'graph-read', [2, 3, 4, 6, 7][i % 5], i); ok(p.fig && p.fig.pieces.length >= 1, 'read-graph problems print a graph');
+  p = gen(INEQ, 'check-values', 1 + (i % 7), i); ok(!p.failed, 'check-values failed: ' + p.reason); if (p.failed) continue;
+  ok(p.parts[0].check.values.some(v => { const ss = C.solutionSet(p.parts[0].check.ineq); return ss.some(I => (I.lo && I.lo.eq(C.readNumber(v))) || (I.hi && I.hi.eq(C.readNumber(v)))); }) || /\|/.test(p.parts[0].check.ineq), 'check-values always tests a boundary value: ' + p.prompt);
 }
 
 /* ---------- results ---------- */

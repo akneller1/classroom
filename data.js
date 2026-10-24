@@ -50,7 +50,7 @@ window.LIBRARY = {
             },
             {
               "title": "Menu Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/menu-assessment-generator.svg",
               "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
               "type": "Printable",
@@ -306,7 +306,7 @@ window.LIBRARY = {
             },
             {
               "title": "Menu Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/menu-assessment-generator.svg",
               "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
               "type": "Printable",
@@ -559,6 +559,19 @@ window.LIBRARY = {
                 "Inequalities"
               ],
               "added": "2026-10-22"
+            },
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-inequalities",
+              "thumb": "thumbs/menu-assessment-generator-inequalities.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Linear Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes solving, compound and absolute value inequalities, graphing and reading number lines, find-the-mistake problems and word problems. Prints student menus (Versions A–C) and teacher keys with number lines, worked solutions and rubrics. Every answer and graph is checked independently.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Inequalities"
+              ],
+              "added": "2026-10-24"
             },
             {
               "title": "Compound Inequalities Picture Reveal",

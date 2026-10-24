@@ -56,7 +56,8 @@
       .replace(/\\dfrac|\\tfrac/g, '\\frac')
       .replace(/\\[,;:! ]|~/g, ' ')
       .replace(/[−–]/g, '-').replace(/[·×]|\\cdot|\\times/g, '*').replace(/÷|\\div/g, '/')
-      .replace(/\\le(q)?\b|≤/g, '≤').replace(/\\ge(q)?\b|≥/g, '≥')
+      .replace(/\\le(q)?(?![a-zA-Z])|≤/g, '≤').replace(/\\ge(q)?(?![a-zA-Z])|≥/g, '≥').replace(/\\lt(?![a-zA-Z])/g, '<').replace(/\\gt(?![a-zA-Z])/g, '>')
+      .replace(/\\lvert|\\rvert|\\vert|\\mid/g, '|')
       .replace(/\\pi\b|π/g, 'π');
     var out = [], i = 0;
     while (i < s.length) {
@@ -75,7 +76,7 @@
         throw new CheckError('unsupported command \\' + m[1]);
       }
       if (/[a-zA-Zπ]/.test(c)) { out.push({ t: 'var', v: c }); i++; continue; }
-      if ('+-*/^(){}[]=<>≤≥'.indexOf(c) >= 0) {
+      if ('+-*/^(){}[]=<>≤≥|'.indexOf(c) >= 0) {
         if (c === '[') c = '('; if (c === ']') c = ')';
         out.push({ t: c }); i++; continue;
       }
@@ -88,7 +89,7 @@
   /* ---------------- parser -> AST ---------------- */
   // AST: {k:'num',v:Q} {k:'var',v:'x'} {k:'add',a,b} {k:'sub',a,b} {k:'mul',a,b} {k:'div',a,b} {k:'neg',a} {k:'pow',a,e:int}
   //      {k:'grp',a}  (a parenthesised group — kept so form checks can see parentheses)
-  function Parser(tokens) { this.t = tokens; this.i = 0; }
+  function Parser(tokens) { this.t = tokens; this.i = 0; this.absDepth = 0; }
   Parser.prototype.peek = function () { return this.t[this.i]; };
   Parser.prototype.take = function (type) {
     var tk = this.t[this.i];
@@ -103,7 +104,7 @@
       else return a;
     }
   };
-  Parser.prototype.startsAtom = function (tk) { return tk && (tk.t === 'num' || tk.t === 'var' || tk.t === '(' || tk.t === 'frac' || tk.t === '{'); };
+  Parser.prototype.startsAtom = function (tk) { return tk && (tk.t === 'num' || tk.t === 'var' || tk.t === '(' || tk.t === 'frac' || tk.t === '{' || (tk.t === '|' && this.absDepth === 0)); };
   Parser.prototype.term = function () {
     var a = this.unary();
     for (;;) {
@@ -142,6 +143,10 @@
     if (tk.t === 'var') return { k: 'var', v: tk.v };
     if (tk.t === '(') { var a = this.expr(); this.take(')'); return { k: 'grp', a: a }; }
     if (tk.t === '{') { var b = this.expr(); this.take('}'); return b; }
+    if (tk.t === '|') {
+      if (this.absDepth > 0) throw new CheckError('nested absolute values are not supported');
+      this.absDepth++; var ab = this.expr(); this.absDepth--; this.take('|'); return { k: 'abs', a: ab };
+    }
     if (tk.t === 'frac') {
       this.take('{'); var n = this.expr(); this.take('}');
       this.take('{'); var d = this.expr(); this.take('}');
@@ -233,6 +238,7 @@
       case 'sub': return toRF(node.a).sub(toRF(node.b));
       case 'mul': return toRF(node.a).mul(toRF(node.b));
       case 'div': return toRF(node.a).div(toRF(node.b));
+      case 'abs': throw new CheckError('absolute value is not a polynomial');
       case 'pow':
         var base = toRF(node.a), r = new RF(P.const(Q.ONE));
         for (var i = 0; i < Math.abs(node.e); i++) r = r.mul(base);
@@ -251,6 +257,7 @@
       case 'mul': return evalNode(node.a, env).mul(evalNode(node.b, env));
       case 'div': return evalNode(node.a, env).div(evalNode(node.b, env));
       case 'pow': return evalNode(node.a, env).pow(node.e);
+      case 'abs': var av = evalNode(node.a, env); return av.n < 0n ? av.neg() : av;
     }
     throw new CheckError('bad node');
   }
@@ -394,6 +401,161 @@
     return parentPrec !== undefined && prec < parentPrec && n.k !== 'grp' ? '(' + out + ')' : out;
   }
 
+  /* ---------------- inequalities: solution sets ---------------- */
+  /* A set of real numbers is a sorted list of disjoint intervals {lo, loC, hi, hiC};
+     lo/hi are Q or null (−∞ / +∞). Computed by the critical-point method, which works for any
+     one-variable condition that is piecewise linear (linear expressions, |…|, constant fraction bars),
+     joined by "and"/"or" and written as chains such as  −3 < 2x + 1 ≤ 7. */
+  function cmpQ(a, b) { var d = a.sub(b); return d.n < 0n ? -1 : d.n > 0n ? 1 : 0; }
+  function holds(rel, a, b) { var c = cmpQ(a, b); return rel === '<' ? c < 0 : rel === '>' ? c > 0 : rel === '≤' ? c <= 0 : rel === '≥' ? c >= 0 : c === 0; }
+  /* Split a condition into chains joined by and/or (top level only). */
+  function splitConnectors(src) {
+    var s = String(src).replace(/[⟨⟩$]/g, ' ').replace(/\\text\{\s*(and|or)\s*\}/g, ' $1 ').replace(/\\(?:quad|qquad)/g, ' ');
+    var parts = s.split(/\s(and|or)\s/);
+    var chains = [], ops = [];
+    parts.forEach(function (p, i) { if (p === undefined) return; if (p === 'and' || p === 'or') ops.push(p); else if (p.trim()) chains.push(p.trim()); });
+    if (ops.length && ops.some(function (o) { return o !== ops[0]; })) throw new CheckError('mixing "and" with "or" is ambiguous');
+    return { chains: chains, op: ops[0] || 'and' };
+  }
+  function parseChain(src) {
+    var toks = tokenize(src), cuts = [], depth = 0, absOpen = false;
+    toks.forEach(function (tk, i) {
+      if (tk.t === '(' || tk.t === '{') depth++; else if (tk.t === ')' || tk.t === '}') depth--;
+      else if (tk.t === '|') absOpen = !absOpen;
+      else if (depth === 0 && !absOpen && '=<>≤≥'.indexOf(tk.t) >= 0) cuts.push(i);
+    });
+    if (!cuts.length) throw new CheckError('no inequality sign');
+    if (cuts.length > 2) throw new CheckError('too many inequality signs');
+    var pieces = [], prev = 0;
+    cuts.concat([toks.length]).forEach(function (c) {
+      var P2 = new Parser(toks.slice(prev, c)), e = P2.expr();
+      if (P2.i !== c - prev) throw new CheckError('could not read "' + src + '"');
+      pieces.push(e); prev = c + 1;
+    });
+    var atoms = [];
+    for (var i = 0; i < cuts.length; i++) atoms.push({ lhs: pieces[i], rhs: pieces[i + 1], rel: toks[cuts[i]].t });
+    return atoms;
+  }
+  function absArgs(node, out) {
+    if (node.k === 'abs') out.push(node.a);
+    if (node.a) absArgs(node.a, out); if (node.b) absArgs(node.b, out);
+    return out;
+  }
+  function linRoot(node, v) {
+    var rf = toRF(node); if (!rf.isPoly()) throw new CheckError('variable in a denominator');
+    var p = rf.asPoly(); if (p.degreeIn(v) > 1) throw new CheckError('not linear');
+    p.vars().forEach(function (w) { if (w !== v) throw new CheckError('unexpected variable ' + w); });
+    var a = p.coeffOf(v, 1).constVal(), b = p.coeffOf(v, 0).constVal();
+    return a.isZero() ? null : b.neg().div(a);
+  }
+  /* Parse a condition into {atoms:[[atom,…] per chain], op} */
+  function parseCondition(src) {
+    var sp = splitConnectors(src);
+    return { chains: sp.chains.map(parseChain), op: sp.op };
+  }
+  function truth(cond, v, x) {
+    var env = {}; env[v] = x;
+    var vals = cond.chains.map(function (atoms) { return atoms.every(function (a) { return holds(a.rel, evalNode(a.lhs, env), evalNode(a.rhs, env)); }); });
+    return cond.op === 'or' ? vals.some(Boolean) : vals.every(Boolean);
+  }
+  function solutionSet(src, v) {
+    v = v || 'x';
+    var cond = typeof src === 'string' ? parseCondition(src) : src;
+    var vars = {}; cond.chains.forEach(function (ch) { ch.forEach(function (a) { Object.assign(vars, varsOf(a.lhs), varsOf(a.rhs)); }); });
+    Object.keys(vars).forEach(function (w) { if (w !== v) throw new CheckError('unexpected variable ' + w); });
+    // critical points: zeros of |…| arguments
+    var crit = [];
+    cond.chains.forEach(function (ch) { ch.forEach(function (a) { absArgs(a.lhs, []).concat(absArgs(a.rhs, [])).forEach(function (arg) { var r = linRoot(arg, v); if (r) crit.push(r); }); }); });
+    crit = uniqSort(crit);
+    // inside each region every atom is linear: add the point where it changes sign
+    var cand = crit.slice(), bounds = [null].concat(crit).concat([null]);
+    cond.chains.forEach(function (ch) { ch.forEach(function (a) {
+      for (var i = 0; i + 1 < bounds.length; i++) {
+        var lo = bounds[i], hi = bounds[i + 1], p1, p2;
+        if (lo && hi) { var w = hi.sub(lo); p1 = lo.add(w.div(new Q(3))); p2 = lo.add(w.mul(new Q(2, 3))); }
+        else if (lo) { p1 = lo.add(Q.ONE); p2 = lo.add(new Q(2)); }
+        else if (hi) { p1 = hi.sub(Q.ONE); p2 = hi.sub(new Q(2)); }
+        else { p1 = Q.ZERO; p2 = Q.ONE; }
+        var env1 = {}, env2 = {}; env1[v] = p1; env2[v] = p2;
+        var f1 = evalNode(a.lhs, env1).sub(evalNode(a.rhs, env1)), f2 = evalNode(a.lhs, env2).sub(evalNode(a.rhs, env2));
+        var slope = f2.sub(f1).div(p2.sub(p1));
+        if (slope.isZero()) continue;
+        var root = p1.sub(f1.div(slope));
+        if ((!lo || cmpQ(root, lo) > 0) && (!hi || cmpQ(root, hi) < 0)) cand.push(root);
+      }
+    }); });
+    cand = uniqSort(cand);
+    // sample: (−∞,c1), c1, (c1,c2), c2, …, (cn,∞)
+    var samples = [];
+    if (!cand.length) samples.push({ x: Q.ZERO, gap: [null, null] });
+    else {
+      samples.push({ x: cand[0].sub(Q.ONE), gap: [null, cand[0]] });
+      cand.forEach(function (c, i) {
+        samples.push({ x: c, point: c });
+        var nx = cand[i + 1];
+        samples.push(nx ? { x: c.add(nx).div(new Q(2)), gap: [c, nx] } : { x: c.add(Q.ONE), gap: [c, null] });
+      });
+    }
+    var out = [];
+    samples.forEach(function (sm) {
+      if (!truth(cond, v, sm.x)) return;
+      if (sm.point) addInterval(out, sm.point, true, sm.point, true);
+      else addInterval(out, sm.gap[0], false, sm.gap[1], false);
+    });
+    return out;
+  }
+  function uniqSort(list) {
+    list.sort(cmpQ); var out = [];
+    list.forEach(function (q) { if (!out.length || cmpQ(out[out.length - 1], q) !== 0) out.push(q); });
+    return out;
+  }
+  function addInterval(list, lo, loC, hi, hiC) {
+    var last = list[list.length - 1];
+    if (last && last.hi && lo && cmpQ(last.hi, lo) === 0 && (last.hiC || loC)) { last.hi = hi; last.hiC = hiC; return; }
+    list.push({ lo: lo, loC: lo ? loC : false, hi: hi, hiC: hi ? hiC : false });
+  }
+  function setEqual(a, b) {
+    if (a.length !== b.length) return false;
+    return a.every(function (x, i) {
+      var y = b[i];
+      function same(p, q) { return (!p && !q) || (p && q && cmpQ(p, q) === 0); }
+      return same(x.lo, y.lo) && same(x.hi, y.hi) && x.loC === y.loC && x.hiC === y.hiC;
+    });
+  }
+  function setText(set, v) {
+    v = v || 'x';
+    if (!set.length) return 'No solution';
+    if (set.length === 1 && !set[0].lo && !set[0].hi) return 'All real numbers';
+    function q(z) { return z.isInt() ? String(z.n) : (z.n < 0n ? '-' : '') + '\\frac{' + (z.n < 0n ? -z.n : z.n) + '}{' + z.d + '}'; }
+    return set.map(function (I) {
+      if (I.lo && I.hi && cmpQ(I.lo, I.hi) === 0) return v + '=' + q(I.lo);
+      if (I.lo && I.hi) return q(I.lo) + (I.loC ? '\\le ' : '<') + v + (I.hiC ? '\\le ' : '<') + q(I.hi);
+      if (I.lo) return v + (I.loC ? '\\ge ' : '>') + q(I.lo);
+      if (I.hi) return v + (I.hiC ? '\\le ' : '<') + q(I.hi);
+      return 'all';
+    }).join('\\text{ or }');
+  }
+  /* Read an answer: "⟨x>3⟩", "⟨-2<x\le 5⟩", "⟨x<-1⟩ or ⟨x>4⟩", "All real numbers", "No solution". */
+  function setFromAnswer(markup, v) {
+    var txt = plainText(markup).toLowerCase(), sn = snippets(markup);
+    if (/no solution|no real|empty/.test(txt) && !sn.length) return [];
+    if (/all real|every real|infinitely many/.test(txt) && !sn.length) return [{ lo: null, loC: false, hi: null, hiC: false }];
+    if (!sn.length) throw new CheckError('no inequality in the answer');
+    var joined = sn.join(/\bor\b/.test(txt) ? ' or ' : ' and ');
+    return solutionSet(joined, v);
+  }
+  /* Is the condition already "solved"? (each atom compares the bare variable with a number) */
+  function solvedForm(markup, v) {
+    var sn = snippets(markup); if (!sn.length) return /no solution|all real/i.test(plainText(markup));
+    try {
+      return sn.every(function (s) { return parseCondition(s).chains.every(function (ch) { return ch.every(function (a) {
+        var lv = a.lhs.k === 'var' && a.lhs.v === v, rv = a.rhs.k === 'var' && a.rhs.v === v;
+        var other = lv ? a.rhs : rv ? a.lhs : null;
+        return other && !varsOf(other)[v] && Object.keys(varsOf(other)).length === 0;
+      }); }); });
+    } catch (e) { return false; }
+  }
+
   /* math snippets displayed in a prompt */
   function snippets(markup) { var r = [], re = /⟨([^⟩]*)⟩/g, m; while ((m = re.exec(markup))) r.push(m[1]); return r; }
   function plainText(markup) { return String(markup).replace(/⟨[^⟩]*⟩/g, ' ').replace(/<[^>]+>/g, ' '); }
@@ -408,6 +570,8 @@
     Q: Q, CheckError: CheckError, tokenize: tokenize, parseExpr: parseExpr, parseRelation: parseRelation,
     toRF: toRF, evalNode: evalNode, varsOf: varsOf, solveLinear: solveLinear, equivalent: equivalent,
     simplifiedForm: simplifiedForm, checkLiteral: checkLiteral, readNumber: readNumber, classifyText: classifyText,
-    toTeX: toTeX, snippets: snippets, plainText: plainText, numbersInText: numbersInText, monoKey: monoKey
+    toTeX: toTeX, snippets: snippets, plainText: plainText, numbersInText: numbersInText, monoKey: monoKey,
+    parseCondition: parseCondition, solutionSet: solutionSet, setEqual: setEqual, setText: setText, setFromAnswer: setFromAnswer,
+    solvedForm: solvedForm, truth: truth, cmpQ: cmpQ
   };
 })(typeof window !== 'undefined' ? window : globalThis);
