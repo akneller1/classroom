@@ -1,0 +1,28 @@
+name: Split embedded PDF teacher keys
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/split_teacher_keys.py'
+      - '.github/workflows/split-teacher-keys.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pymupdf
+      - run: python scripts/split_teacher_keys.py
+      - name: Commit split student and teacher PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts resource-details.js teacher-key-audit.txt
+          if ! git diff --cached --quiet; then git commit -m "Separate embedded teacher keys from student PDFs"; git push; fi
