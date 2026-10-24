@@ -767,5 +767,85 @@ window.RESOURCE_DETAILS = {
   "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
+  },
+  "artifacts/geometry-basics-reasoning-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-basics-reasoning-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-angles-parallel-lines-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-angles-parallel-lines-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-triangles-congruence-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-triangles-congruence-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-similarity-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-similarity-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-right-triangles-trigonometry-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-right-triangles-trigonometry-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-circles-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-circles-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-area-surface-area-volume-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-area-surface-area-volume-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-coordinate-geometry-transformations-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/geometry-coordinate-geometry-transformations-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
+    "keyPages": 3
   }
 };

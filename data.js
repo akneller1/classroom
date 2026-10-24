@@ -3072,6 +3072,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Segments, Midpoints & Angle Basics",
+              "path": "artifacts/geometry-basics-reasoning-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-basics-reasoning-partner-check-1.jpg",
+              "description": "Partners solve different problems on segments, midpoints & angle basics and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Segments, Midpoints & Angle Basics"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Logic & Reasoning",
+              "path": "artifacts/geometry-basics-reasoning-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-basics-reasoning-partner-check-2.jpg",
+              "description": "Partners solve different problems on logic & reasoning and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Logic & Reasoning"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -3266,6 +3290,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Angle Pairs & Transversals",
+              "path": "artifacts/geometry-angles-parallel-lines-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-angles-parallel-lines-partner-check-1.jpg",
+              "description": "Partners solve different problems on angle pairs & transversals and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Angle Pairs & Transversals"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Triangles, Polygons & Parallel Lines",
+              "path": "artifacts/geometry-angles-parallel-lines-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-angles-parallel-lines-partner-check-2.jpg",
+              "description": "Partners solve different problems on triangles, polygons & parallel lines and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Triangles, Polygons & Parallel Lines"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -3460,6 +3508,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Proving Triangles Congruent",
+              "path": "artifacts/geometry-triangles-congruence-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-partner-check-1.jpg",
+              "description": "Partners solve different problems on proving triangles congruent and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Proving Triangles Congruent"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Triangle Properties",
+              "path": "artifacts/geometry-triangles-congruence-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-partner-check-2.jpg",
+              "description": "Partners solve different problems on triangle properties and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Triangle Properties"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -3654,6 +3726,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Similar Figures & Proportions",
+              "path": "artifacts/geometry-similarity-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-similarity-partner-check-1.jpg",
+              "description": "Partners solve different problems on similar figures & proportions and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Similar Figures & Proportions"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Similarity Rules, Right Triangles & Dilations",
+              "path": "artifacts/geometry-similarity-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-similarity-partner-check-2.jpg",
+              "description": "Partners solve different problems on similarity rules, right triangles & dilations and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Similarity Rules, Right Triangles & Dilations"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -3861,6 +3957,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Pythagorean Theorem & Special Triangles",
+              "path": "artifacts/geometry-right-triangles-trigonometry-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-right-triangles-trigonometry-partner-check-1.jpg",
+              "description": "Partners solve different problems on pythagorean theorem & special triangles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Pythagorean Theorem & Special Triangles"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Trigonometric Ratios",
+              "path": "artifacts/geometry-right-triangles-trigonometry-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-right-triangles-trigonometry-partner-check-2.jpg",
+              "description": "Partners solve different problems on trigonometric ratios and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Trigonometric Ratios"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -4068,6 +4188,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Arcs, Angles & Segments in Circles",
+              "path": "artifacts/geometry-circles-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-circles-partner-check-1.jpg",
+              "description": "Partners solve different problems on arcs, angles & segments in circles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Arcs, Angles & Segments in Circles"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Circumference, Area & Equations of Circles",
+              "path": "artifacts/geometry-circles-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-circles-partner-check-2.jpg",
+              "description": "Partners solve different problems on circumference, area & equations of circles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Circumference, Area & Equations of Circles"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -4274,6 +4418,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Area of Polygons & Circles",
+              "path": "artifacts/geometry-area-surface-area-volume-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-area-surface-area-volume-partner-check-1.jpg",
+              "description": "Partners solve different problems on area of polygons & circles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Area of Polygons & Circles"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Surface Area & Volume",
+              "path": "artifacts/geometry-area-surface-area-volume-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-area-surface-area-volume-partner-check-2.jpg",
+              "description": "Partners solve different problems on surface area & volume and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Surface Area & Volume"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
@@ -4468,6 +4636,30 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Coordinate Geometry",
+              "path": "artifacts/geometry-coordinate-geometry-transformations-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-geometry-transformations-partner-check-1.jpg",
+              "description": "Partners solve different problems on coordinate geometry and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Coordinate Geometry"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Transformations",
+              "path": "artifacts/geometry-coordinate-geometry-transformations-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-geometry-transformations-partner-check-2.jpg",
+              "description": "Partners solve different problems on transformations and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Transformations"
+              ],
+              "added": "2026-10-23"
             }
           ]
         }
