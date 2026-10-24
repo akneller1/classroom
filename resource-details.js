@@ -1,7 +1,8 @@
 window.RESOURCE_DETAILS = {
   "artifacts/expressions-equations-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/expressions-equations-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/expressions-equations-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -29,8 +30,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/algebra-expressions-equations-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-expressions-equations-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/expressions-equations-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -45,8 +47,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/compound-inequalities-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/compound-inequalities-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/inequalities-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -78,8 +81,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/algebra-inequalities-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-inequalities-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/inequalities-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -94,8 +98,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/linear-equations-slope-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/linear-equations-slope-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/linear-equations-slope-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -123,8 +128,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/algebra-linear-equations-slope-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-linear-equations-slope-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/linear-equations-slope-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -159,8 +165,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/algebra-graphing-inequalities-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-graphing-inequalities-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -175,8 +182,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/systems-of-equations-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/systems-of-equations-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/systems-of-equations-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -199,8 +207,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/algebra-systems-of-equations-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-systems-of-equations-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/systems-of-equations-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -215,8 +224,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/exponents-exponential-functions-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/exponents-exponential-functions-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -244,8 +254,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-exponents-exponential-functions-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -260,8 +271,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/polynomials-factoring-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/polynomials-factoring-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/polynomials-factoring-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -289,8 +301,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-polynomials-factoring-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -305,8 +318,9 @@ window.RESOURCE_DETAILS = {
     "studentOnly": true
   },
   "artifacts/quadratics-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/quadratics-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/quadratics-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -334,8 +348,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/algebra-quadratics-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra-quadratics-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/quadratics-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -369,12 +384,14 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/functions-transformations-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/functions-transformations-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/algebra2-functions-transformations-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra2-functions-transformations-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/functions-transformations-tarsia/worksheet.pdf": {
     "pages": 3,
@@ -406,12 +423,14 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/linear-functions-systems-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/linear-functions-systems-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/algebra2-linear-functions-systems-stations/worksheet.pdf": {
-    "pages": 6,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra2-linear-functions-systems-stations/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/linear-functions-systems-tarsia/worksheet.pdf": {
     "pages": 3,
@@ -443,12 +462,14 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/quadratic-functions-complex-numbers-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/quadratic-functions-complex-numbers-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/algebra2-quadratic-functions-complex-numbers-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra2-quadratic-functions-complex-numbers-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/quadratic-functions-complex-numbers-tarsia/worksheet.pdf": {
     "pages": 3,
@@ -486,20 +507,23 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/exponential-logarithmic-functions-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/exponential-logarithmic-functions-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/algebra2-exponential-logarithmic-functions-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/algebra2-exponential-logarithmic-functions-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/exponential-logarithmic-functions-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/basics-reasoning-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/basics-reasoning-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/basics-reasoning-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -522,16 +546,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/geometry-basics-reasoning-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-basics-reasoning-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-basics-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/angles-parallel-lines-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/angles-parallel-lines-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/angles-parallel-lines-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -554,16 +580,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/geometry-angles-parallel-lines-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-angles-parallel-lines-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-angles-parallel-lines-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/triangles-congruence-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/triangles-congruence-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/triangles-congruence-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -586,16 +614,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/geometry-triangles-congruence-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-triangles-congruence-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/similarity-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/similarity-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/similarity-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -618,16 +648,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/geometry-similarity-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-similarity-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/right-triangles-trigonometry-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/right-triangles-trigonometry-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/right-triangles-trigonometry-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -655,16 +687,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 4
   },
   "artifacts/geometry-right-triangles-trigonometry-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-right-triangles-trigonometry-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/circles-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/circles-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/circles-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -692,16 +726,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/geometry-circles-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-circles-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-circles-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/area-surface-area-volume-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/area-surface-area-volume-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/area-surface-area-volume-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -729,16 +765,18 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/geometry-area-surface-area-volume-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-area-surface-area-volume-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-area-surface-area-volume-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   },
   "artifacts/coordinate-geometry-transformations-maze/worksheet.pdf": {
-    "pages": 4,
-    "embeddedKey": true
+    "pages": 2,
+    "answerKey": "artifacts/coordinate-geometry-transformations-maze/teacher-key.pdf",
+    "keyPages": 2
   },
   "artifacts/coordinate-geometry-transformations-error-analysis/worksheet.pdf": {
     "pages": 5,
@@ -761,8 +799,9 @@ window.RESOURCE_DETAILS = {
     "keyPages": 5
   },
   "artifacts/geometry-coordinate-geometry-transformations-stations/worksheet.pdf": {
-    "pages": 5,
-    "embeddedKey": true
+    "pages": 4,
+    "answerKey": "artifacts/geometry-coordinate-geometry-transformations-stations/teacher-key.pdf",
+    "keyPages": 1
   },
   "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf": {
     "pages": 2,
