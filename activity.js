@@ -33,6 +33,26 @@
   original.textContent = /\.pdf$/i.test(match.path) ? 'Open / print PDF ↗' : 'Open full page ↗';
   original.setAttribute('aria-label', original.textContent + ' (opens in a new tab)');
   original.hidden = false;
+  var details = (window.RESOURCE_DETAILS || {})[match.path];
+  var info = document.getElementById('resource-details');
+  if (details) {
+    var labels = [details.pages + (details.pages === 1 ? ' page' : ' pages')];
+    if (details.embeddedKey) labels.push('Answer key included in this PDF');
+    if (details.studentOnly) labels.push('Student worksheets only');
+    if (details.referenceSheet) labels.push('Reference sheet');
+    info.textContent = labels.join(' · ');
+    if (details.answerKey) {
+      var key = document.createElement('a');
+      key.href = details.answerKey;
+      key.target = '_blank'; key.rel = 'noopener';
+      key.textContent = 'Open teacher key (' + details.keyPages + (details.keyPages === 1 ? ' page' : ' pages') + ') ↗';
+      info.appendChild(key);
+    }
+  }
+  var report = document.getElementById('report-problem');
+  report.href = 'https://github.com/akneller1/classroom/issues/new?title=' + encodeURIComponent('Resource problem: ' + match.title) +
+    '&body=' + encodeURIComponent('Activity: ' + match.title + '\nLink: https://akneller1.github.io/classroom/activity.html?path=' + encodeURIComponent(match.path) + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n');
+  report.hidden = false;
   var frame = document.createElement('iframe');
   frame.className = 'activity-frame';
   frame.title = match.title;

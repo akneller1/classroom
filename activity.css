@@ -16,3 +16,8 @@ a:focus-visible { outline: 3px solid #14173a; outline-offset: 3px; }
   h1 { font-size: 0.9rem; }
   .original-link { font-size: 0.8rem; }
 }
+
+.resource-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding: .6rem 1rem; font-size: .85rem; }
+.resource-toolbar p { margin: 0; }
+.resource-toolbar a { color: inherit; }
+#resource-details a { display: inline-block; margin-left: 1rem; }

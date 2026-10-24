@@ -219,6 +219,21 @@
     if (/\.pdf$/i.test(a.path)) return 'Open PDF';
     return toArr(a.type).indexOf('Game') >= 0 ? 'Play' : 'Open activity';
   }
+  function resourceInfo(a) {
+    var m = (window.RESOURCE_DETAILS || {})[a.path];
+    if (!m) return '';
+    var labels = [m.pages + (m.pages === 1 ? ' page' : ' pages')];
+    if (m.embeddedKey) labels.push('Answer key included');
+    if (m.answerKey) labels.push('Separate teacher key');
+    if (m.studentOnly) labels.push('Student worksheets only');
+    if (m.referenceSheet) labels.push('Reference sheet');
+    return '<p class="resource-info">' + labels.map(esc).join(' · ') + '</p>';
+  }
+  function reportUrl(a) {
+    var url = 'https://akneller1.github.io/classroom/' + activityUrl(a);
+    var body = 'Activity: ' + a.title + '\nLink: ' + url + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n';
+    return 'https://github.com/akneller1/classroom/issues/new?title=' + encodeURIComponent('Resource problem: ' + a.title) + '&body=' + encodeURIComponent(body);
+  }
   function cardHtml(it, showWhere, compact) {
     var a = it.a;
     var tags = [];
@@ -232,9 +247,10 @@
         (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(it.u.name) + '</p>' : '') +
         '<h3><a href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener">' + esc(a.title) +
           '<span class="sr"> (opens in a new tab)</span></a></h3>' +
-        '<p class="desc">' + esc(shortDescription(a)) + '</p>' +
+        '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" >' + esc(actionLabel(a)) + '<span class="sr"> (opens in a new tab)</span></a>' +
           saveBtnHtml(a.path) + '</div>' +
+        '<a class="report-problem" href="' + esc(reportUrl(a)) + '" target="_blank" rel="noopener">Report a problem<span class="sr"> with ' + esc(a.title) + '</span> (GitHub)</a>' +
       '</div></li>';
   }
 
