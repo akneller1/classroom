@@ -2195,6 +2195,30 @@ window.LIBRARY = {
                 "Self-checking"
               ],
               "added": "2026-10-22"
+            },
+            {
+              "title": "Partner Check 1: Function Operations & Evaluation",
+              "path": "artifacts/algebra2-functions-transformations-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-functions-transformations-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Function Operations & Evaluation"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Transformations of Functions",
+              "path": "artifacts/algebra2-functions-transformations-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-functions-transformations-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Transformations of Functions"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -2621,18 +2645,92 @@ window.LIBRARY = {
                 "Self-checking"
               ],
               "added": "2026-10-22"
+            },
+            {
+              "title": "Partner Check 1: Solving Quadratic Equations",
+              "path": "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Solving Quadratic Equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Complex Numbers & Parabolas",
+              "path": "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Complex Numbers & Parabolas"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
         {
           "id": "polynomial-functions",
           "name": "Polynomial Functions",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Polynomial Operations & Graphs",
+              "path": "artifacts/algebra2-polynomial-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-polynomial-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Polynomial Operations & Graphs"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Zeros, Factoring & Inequalities",
+              "path": "artifacts/algebra2-polynomial-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-polynomial-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Zeros, Factoring & Inequalities"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "radicals-rational-exponents",
           "name": "Radicals & Rational Exponents",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Simplifying Radicals & Exponents",
+              "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Simplifying Radicals & Exponents"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Radical Equations & Functions",
+              "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Radical Equations & Functions"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "exponential-logarithmic-functions",
@@ -2844,18 +2942,92 @@ window.LIBRARY = {
                 "Logarithms"
               ],
               "added": "2026-10-22"
+            },
+            {
+              "title": "Partner Check 1: Exponential & Log Basics",
+              "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exponential & Log Basics"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Exp & Log Equations and Graphs",
+              "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exp & Log Equations and Graphs"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
         {
           "id": "rational-functions",
           "name": "Rational Functions",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Rational Expressions & Equations",
+              "path": "artifacts/algebra2-rational-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-rational-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Rational Expressions & Equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Graphs of Rational Functions",
+              "path": "artifacts/algebra2-rational-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-rational-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Graphs of Rational Functions"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "sequences-series",
           "name": "Sequences & Series",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Arithmetic & Geometric Sequences",
+              "path": "artifacts/algebra2-sequences-series-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-sequences-series-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Arithmetic & Geometric Sequences"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Series, Binomials & Applications",
+              "path": "artifacts/algebra2-sequences-series-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-sequences-series-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Series, Binomials & Applications"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "conic-sections",
@@ -2865,7 +3037,32 @@ window.LIBRARY = {
         {
           "id": "trigonometric-functions",
           "name": "Trigonometric Functions",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Radians, Unit Circle & Right-Triangle Trig",
+              "path": "artifacts/algebra2-trigonometric-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Radians, Unit Circle & Right-Triangle Trig"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Graphs of Trig Functions & Trig Equations",
+              "path": "artifacts/algebra2-trigonometric-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Graphs of Trig Functions & Trig Equations"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
         },
         {
           "id": "probability-statistics",

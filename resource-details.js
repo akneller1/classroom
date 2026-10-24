@@ -886,5 +886,85 @@ window.RESOURCE_DETAILS = {
     "pages": 2,
     "answerKey": "artifacts/geometry-partner-checks/teacher-key.pdf",
     "keyPages": 3
+  },
+  "artifacts/algebra2-functions-transformations-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-functions-transformations-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-polynomial-functions-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-polynomial-functions-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-radicals-rational-exponents-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-radicals-rational-exponents-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-rational-functions-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-rational-functions-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-exponential-logarithmic-functions-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-exponential-logarithmic-functions-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-sequences-series-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-sequences-series-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-trigonometric-functions-partner-check-1/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra2-trigonometric-functions-partner-check-2/worksheet.pdf": {
+    "pages": 2,
+    "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
+    "keyPages": 3
   }
 };
