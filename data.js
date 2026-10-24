@@ -33,8 +33,264 @@ window.LIBRARY = {
       "blurb": "Equations, inequalities, functions, and polynomials.",
       "units": [
         {
+          "id": "foundations-algebra",
+          "name": "Foundations of Algebra",
+          "artifacts": [
+            {
+              "title": "Expressions & Equations Worksheet Generator",
+              "path": "worksheet-generator/algebra1-expressions-equations.html",
+              "thumb": "thumbs/algebra1-expressions-equations-generator.svg",
+              "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Expressions & Equations"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html",
+              "thumb": "thumbs/menu-assessment-generator.svg",
+              "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Expressions & Equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Equations Four",
+              "path": "artifacts/expressions-equations-connect-four/index.html",
+              "thumb": "thumbs/expressions-equations-connect-four.jpg",
+              "description": "Connect Four for two teams. Simplify, evaluate, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Multi-step equations",
+                "Literal equations"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Flashcards",
+              "path": "artifacts/expressions-equations-flashcards/index.html",
+              "thumb": "thumbs/expressions-equations-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for vocabulary, evaluating, simplifying, solving equations, proportions and applications. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Evaluating expressions",
+                "Simplifying",
+                "Solving equations",
+                "Proportions"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Picture Reveal",
+              "path": "artifacts/expressions-equations-picture-reveal/index.html",
+              "thumb": "thumbs/expressions-equations-picture-reveal.jpg",
+              "description": "Evaluate, simplify and solve 10 problems to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Evaluating expressions",
+                "Simplifying",
+                "Solving equations",
+                "Proportions"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Equations Showdown",
+              "path": "artifacts/expressions-equations-jeopardy/index.html",
+              "thumb": "thumbs/expressions-equations-jeopardy.jpg",
+              "description": "A game board for Expressions and Equations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Multi-step equations",
+                "Literal equations"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Solving Equations Maze",
+              "path": "artifacts/expressions-equations-maze/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-maze.jpg",
+              "description": "Printable 4-page worksheet: solve multi-step equations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Multi-step equations",
+                "Distributive property",
+                "Variables on both sides"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Error Analysis",
+              "path": "artifacts/expressions-equations-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Distributive property",
+                "Combining like terms",
+                "Multi-step equations",
+                "Literal equations"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Color By Number",
+              "path": "artifacts/expressions-equations-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the rocket blasting off. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Solving equations",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Golden Whisk Caper",
+              "path": "artifacts/expressions-equations-golden-whisk-caper/index.html",
+              "thumb": "thumbs/expressions-equations-golden-whisk-caper.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Solving equations",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Expressions & Equations Tic-Tac-Toe",
+              "path": "artifacts/expressions-equations-tic-tac-toe/index.html",
+              "thumb": "thumbs/expressions-equations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Solving equations",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Golden Whisk Caper (Printable)",
+              "path": "artifacts/expressions-equations-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Solving equations",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Solving Equations Tarsia Puzzle",
+              "path": "artifacts/expressions-equations-tarsia/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Solving equations",
+                "Tarsia puzzle",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Equation Bistro: Assessment Menu",
+              "path": "artifacts/expressions-equations-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Combining like terms",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Great Rigged Bake-Off",
+              "path": "artifacts/expressions-equations-escape-room/index.html",
+              "thumb": "thumbs/expressions-equations-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Expressions & Equations Stations",
+              "path": "artifacts/algebra-expressions-equations-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-expressions-equations-stations.svg",
+              "description": "Printable Algebra station work for Expressions & Equations. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Expressions & Equations"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Expressions & Equations Cheat Sheet",
+              "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-cheat-sheet.svg",
+              "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Expressions & Equations"
+              ],
+              "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Solving Multi-Step Equations",
+              "path": "artifacts/expressions-equations-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on solving multi-step equations. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Solving Multi-Step Equations"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Simplifying & Evaluating Expressions",
+              "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on simplifying & evaluating expressions. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Simplifying & Evaluating Expressions"
+              ],
+              "added": "2026-10-23"
+            }
+          ]
+        },
+        {
           "id": "expressions-equations",
-          "name": "Expressions & Equations",
+          "name": "Solving Linear Equations",
           "artifacts": [
             {
               "title": "Expressions & Equations Worksheet Generator",
@@ -290,7 +546,7 @@ window.LIBRARY = {
         },
         {
           "id": "inequalities",
-          "name": "Inequalities",
+          "name": "Linear Inequalities",
           "artifacts": [
             {
               "title": "Inequalities Worksheet Generator",
@@ -542,8 +798,13 @@ window.LIBRARY = {
           ]
         },
         {
+          "id": "relations-functions",
+          "name": "Relations and Functions",
+          "artifacts": []
+        },
+        {
           "id": "linear-equations-slope",
-          "name": "Linear Equations & Slope",
+          "name": "Linear Functions and Graphing",
           "artifacts": [
             {
               "title": "Linear Functions Worksheet Generator",
@@ -800,237 +1061,8 @@ window.LIBRARY = {
           ]
         },
         {
-          "id": "graphing-inequalities",
-          "name": "Graphing Inequalities on the Coordinate Plane",
-          "artifacts": [
-            {
-              "title": "Graphing Inequalities Worksheet Generator",
-              "path": "worksheet-generator/algebra1-graphing-inequalities.html",
-              "thumb": "thumbs/algebra1-graphing-inequalities-generator.svg",
-              "description": "Create custom Graphing Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Graphing Inequalities"
-              ],
-              "added": "2026-10-22"
-            },
-            {
-              "title": "Inequality Graphs Four",
-              "path": "artifacts/graphing-inequalities-connect-four/index.html",
-              "thumb": "thumbs/graphing-inequalities-connect-four.jpg",
-              "description": "Connect Four for two teams. Test points, choose solid or dashed lines, decide the shading, and match graphs to inequalities to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Rewriting in slope-intercept form",
-                "Test points and shading",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Flashcards",
-              "path": "artifacts/graphing-inequalities-flashcards/index.html",
-              "thumb": "thumbs/graphing-inequalities-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and shaded graphs for inequalities in two variables: solid or dashed boundary lines, test points, shading, writing an inequality from a graph, systems, and real-world constraints. Mark cards you need to practice and review them again.",
-              "type": "Practice",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Test points and shading",
-                "Writing inequalities from graphs",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Picture Reveal",
-              "path": "artifacts/graphing-inequalities-picture-reveal/index.html",
-              "thumb": "thumbs/graphing-inequalities-picture-reveal.jpg",
-              "description": "Test points, read boundary lines and shading, and work with systems of inequalities to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Test points",
-                "Solid or dashed boundary lines",
-                "Writing inequalities from graphs",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Zombie Fence",
-              "path": "artifacts/zombie-fence/index.html",
-              "thumb": "thumbs/zombie-fence.jpg",
-              "description": "Build fences from inequalities in slope-intercept form. Keep every survivor in the safe zone and every zombie out, using solid and dashed lines and, on later nights, two inequalities at once.",
-              "type": "Game",
-              "topics": [
-                "Graphing inequalities",
-                "Slope-intercept form",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-16"
-            },
-            {
-              "title": "Inequality Graphs Showdown",
-              "path": "artifacts/graphing-inequalities-jeopardy/index.html",
-              "thumb": "thumbs/graphing-inequalities-jeopardy.jpg",
-              "description": "A game board for graphing linear inequalities. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Rewriting in slope-intercept form",
-                "Test points and shading",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Error Analysis",
-              "path": "artifacts/graphing-inequalities-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 incorrect graphs and solutions. Students find the error, explain it, and graph the correct answer.",
-              "type": "Printable",
-              "topics": [
-                "Solid vs. dashed boundary",
-                "Shading and test points",
-                "Graphing linear inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Color By Number",
-              "path": "artifacts/graphing-inequalities-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the sea turtle on a coral reef. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Graphing linear inequalities",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Aquarium After Hours",
-              "path": "artifacts/graphing-inequalities-aquarium-after-hours/index.html",
-              "thumb": "thumbs/graphing-inequalities-aquarium-after-hours.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Graphing linear inequalities",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Graphing Inequalities Tic-Tac-Toe",
-              "path": "artifacts/graphing-inequalities-tic-tac-toe/index.html",
-              "thumb": "thumbs/graphing-inequalities-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Graphing linear inequalities",
-                "Team game",
-                "Multiple choice"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Aquarium After Hours (Printable)",
-              "path": "artifacts/graphing-inequalities-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Graphing linear inequalities",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Shaded Region Bistro: Assessment Menu",
-              "path": "artifacts/graphing-inequalities-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Treasure Island: The Feasible Region",
-              "path": "artifacts/graphing-inequalities-escape-room/index.html",
-              "thumb": "thumbs/graphing-inequalities-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Escape room",
-                "Teamwork"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Graphing Inequalities Stations",
-              "path": "artifacts/algebra-graphing-inequalities-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-graphing-inequalities-stations.svg",
-              "description": "Printable Algebra station work for Graphing Inequalities. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Graphing Inequalities"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Graphing Inequalities Cheat Sheet",
-              "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Graphing linear inequalities on the coordinate plane, boundary lines, shading, and systems.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Graphing Inequalities"
-              ],
-              "added": "2026-10-19"
-            },
-            {
-              "title": "Partner Check 1: Boundary Lines & Shading",
-              "path": "artifacts/graphing-inequalities-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on boundary lines & shading. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Boundary Lines & Shading"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Writing Inequalities from Graphs & Situations",
-              "path": "artifacts/graphing-inequalities-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on writing inequalities from graphs & situations. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Writing Inequalities from Graphs & Situations"
-              ],
-              "added": "2026-10-23"
-            }
-          ]
-        },
-        {
           "id": "systems-of-equations",
-          "name": "Systems of Equations",
+          "name": "Systems of Equations and Inequalities",
           "artifacts": [
             {
               "title": "Systems of Equations Worksheet Generator",
@@ -1258,12 +1290,477 @@ window.LIBRARY = {
                 "Elimination & Word Problems"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Graphing Inequalities Worksheet Generator",
+              "path": "worksheet-generator/algebra1-graphing-inequalities.html",
+              "thumb": "thumbs/algebra1-graphing-inequalities-generator.svg",
+              "description": "Create custom Graphing Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Graphing Inequalities"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Inequality Graphs Four",
+              "path": "artifacts/graphing-inequalities-connect-four/index.html",
+              "thumb": "thumbs/graphing-inequalities-connect-four.jpg",
+              "description": "Connect Four for two teams. Test points, choose solid or dashed lines, decide the shading, and match graphs to inequalities to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Solid and dashed boundary lines",
+                "Rewriting in slope-intercept form",
+                "Test points and shading",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Graphing Inequalities Flashcards",
+              "path": "artifacts/graphing-inequalities-flashcards/index.html",
+              "thumb": "thumbs/graphing-inequalities-flashcards.jpg",
+              "description": "25 flashcards with worked solutions and shaded graphs for inequalities in two variables: solid or dashed boundary lines, test points, shading, writing an inequality from a graph, systems, and real-world constraints. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Solid and dashed boundary lines",
+                "Test points and shading",
+                "Writing inequalities from graphs",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Graphing Inequalities Picture Reveal",
+              "path": "artifacts/graphing-inequalities-picture-reveal/index.html",
+              "thumb": "thumbs/graphing-inequalities-picture-reveal.jpg",
+              "description": "Test points, read boundary lines and shading, and work with systems of inequalities to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Test points",
+                "Solid or dashed boundary lines",
+                "Writing inequalities from graphs",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Zombie Fence",
+              "path": "artifacts/zombie-fence/index.html",
+              "thumb": "thumbs/zombie-fence.jpg",
+              "description": "Build fences from inequalities in slope-intercept form. Keep every survivor in the safe zone and every zombie out, using solid and dashed lines and, on later nights, two inequalities at once.",
+              "type": "Game",
+              "topics": [
+                "Graphing inequalities",
+                "Slope-intercept form",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-16"
+            },
+            {
+              "title": "Inequality Graphs Showdown",
+              "path": "artifacts/graphing-inequalities-jeopardy/index.html",
+              "thumb": "thumbs/graphing-inequalities-jeopardy.jpg",
+              "description": "A game board for graphing linear inequalities. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "type": "Game",
+              "topics": [
+                "Solid and dashed boundary lines",
+                "Rewriting in slope-intercept form",
+                "Test points and shading",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Graphing Inequalities Error Analysis",
+              "path": "artifacts/graphing-inequalities-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 incorrect graphs and solutions. Students find the error, explain it, and graph the correct answer.",
+              "type": "Printable",
+              "topics": [
+                "Solid vs. dashed boundary",
+                "Shading and test points",
+                "Graphing linear inequalities"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Graphing Inequalities Color By Number",
+              "path": "artifacts/graphing-inequalities-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the sea turtle on a coral reef. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Graphing linear inequalities",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Aquarium After Hours",
+              "path": "artifacts/graphing-inequalities-aquarium-after-hours/index.html",
+              "thumb": "thumbs/graphing-inequalities-aquarium-after-hours.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Graphing linear inequalities",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Graphing Inequalities Tic-Tac-Toe",
+              "path": "artifacts/graphing-inequalities-tic-tac-toe/index.html",
+              "thumb": "thumbs/graphing-inequalities-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Graphing linear inequalities",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Aquarium After Hours (Printable)",
+              "path": "artifacts/graphing-inequalities-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Graphing linear inequalities",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Shaded Region Bistro: Assessment Menu",
+              "path": "artifacts/graphing-inequalities-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Solid and dashed boundary lines",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Treasure Island: The Feasible Region",
+              "path": "artifacts/graphing-inequalities-escape-room/index.html",
+              "thumb": "thumbs/graphing-inequalities-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Solid and dashed boundary lines",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Graphing Inequalities Stations",
+              "path": "artifacts/algebra-graphing-inequalities-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-graphing-inequalities-stations.svg",
+              "description": "Printable Algebra station work for Graphing Inequalities. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Graphing Inequalities"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Graphing Inequalities Cheat Sheet",
+              "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-cheat-sheet.svg",
+              "description": "Colorful two-page printable study guide: Graphing linear inequalities on the coordinate plane, boundary lines, shading, and systems.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Graphing Inequalities"
+              ],
+              "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Boundary Lines & Shading",
+              "path": "artifacts/graphing-inequalities-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on boundary lines & shading. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Boundary Lines & Shading"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Writing Inequalities from Graphs & Situations",
+              "path": "artifacts/graphing-inequalities-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/graphing-inequalities-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on writing inequalities from graphs & situations. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Writing Inequalities from Graphs & Situations"
+              ],
+              "added": "2026-10-23"
             }
           ]
         },
         {
           "id": "exponents-exponential-functions",
-          "name": "Exponents & Exponential Functions",
+          "name": "Exponents and Scientific Notation",
+          "artifacts": [
+            {
+              "title": "Exponents & Exponential Functions Worksheet Generator",
+              "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
+              "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
+              "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Exponents & Exponential Functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponents Four",
+              "path": "artifacts/exponents-exponential-functions-connect-four/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Use exponent rules, scientific notation, and exponential growth and decay to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Exponential growth and decay"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Flashcards",
+              "path": "artifacts/exponents-exponential-functions-flashcards/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for exponent rules, zero and negative exponents, scientific notation, exponential functions, growth and decay, and compound-growth word problems. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Exponential growth and decay"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Picture Reveal",
+              "path": "artifacts/exponents-exponential-functions-picture-reveal/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-picture-reveal.jpg",
+              "description": "Use exponent rules, scientific notation, exponential equations and growth and decay to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Scientific notation",
+                "Exponential equations",
+                "Growth and decay"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents Showdown",
+              "path": "artifacts/exponents-exponential-functions-jeopardy/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-jeopardy.jpg",
+              "description": "A game board for Exponents and Exponential Functions. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Exponential growth and decay"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponent Rules Maze",
+              "path": "artifacts/exponents-exponential-functions-maze/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-maze.jpg",
+              "description": "Printable 4-page worksheet: simplify and evaluate expressions with the exponent rules to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Product, quotient and power rules",
+                "Zero and negative exponents",
+                "Evaluating powers"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Error Analysis",
+              "path": "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Negative and zero exponents",
+                "Exponential growth and decay"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Color By Number",
+              "path": "artifacts/exponents-exponential-functions-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the butterfly on a flower. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Great Pumpkin Snatch",
+              "path": "artifacts/exponents-exponential-functions-great-pumpkin-snatch/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-great-pumpkin-snatch.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Exponents Tic-Tac-Toe",
+              "path": "artifacts/exponents-exponential-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Great Pumpkin Snatch (Printable)",
+              "path": "artifacts/exponents-exponential-functions-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Exponent Rules Tarsia Puzzle",
+              "path": "artifacts/exponents-exponential-functions-tarsia/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Tarsia puzzle",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Exponent Bistro: Assessment Menu",
+              "path": "artifacts/exponents-exponential-functions-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Dr. Petri’s Growth Lab",
+              "path": "artifacts/exponents-exponential-functions-escape-room/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Exponents & Exponential Functions Stations",
+              "path": "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-exponents-exponential-functions-stations.svg",
+              "description": "Printable Algebra station work for Exponents & Exponential Functions. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Exponents & Exponential Functions"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Exponents & Exponential Functions Cheat Sheet",
+              "path": "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to exponent rules, scientific notation, exponential growth and decay, and worked examples.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Exponents & Exponential Functions"
+              ],
+              "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Exponent Rules",
+              "path": "artifacts/exponents-exponential-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on exponent rules. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exponent Rules"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Exponential Functions, Growth & Decay",
+              "path": "artifacts/exponents-exponential-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on exponential functions, growth & decay. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exponential Functions, Growth & Decay"
+              ],
+              "added": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "id": "exponential-functions",
+          "name": "Exponential Functions",
           "artifacts": [
             {
               "title": "Exponents & Exponential Functions Worksheet Generator",
@@ -1505,7 +2002,250 @@ window.LIBRARY = {
         },
         {
           "id": "polynomials-factoring",
-          "name": "Polynomials & Factoring",
+          "name": "Polynomials",
+          "artifacts": [
+            {
+              "title": "Polynomials & Factoring Worksheet Generator",
+              "path": "worksheet-generator/algebra1-polynomials-factoring.html",
+              "thumb": "thumbs/algebra1-polynomials-factoring-generator.svg",
+              "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Polynomials & Factoring"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Factoring Four",
+              "path": "artifacts/polynomials-factoring-connect-four/index.html",
+              "thumb": "thumbs/polynomials-factoring-connect-four.jpg",
+              "description": "Connect Four for two teams. Multiply, factor, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "GCF and trinomial factoring",
+                "Difference of squares",
+                "Zero-product property"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Flashcards",
+              "path": "artifacts/polynomials-factoring-flashcards/index.html",
+              "thumb": "thumbs/polynomials-factoring-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for classifying, adding, subtracting and multiplying polynomials, then factoring with GCF, trinomials, difference of squares and factoring completely. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "GCF and trinomial factoring",
+                "Difference of squares",
+                "Factoring completely"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Picture Reveal",
+              "path": "artifacts/polynomials-factoring-picture-reveal/index.html",
+              "thumb": "thumbs/polynomials-factoring-picture-reveal.jpg",
+              "description": "Add, multiply and factor polynomials, then use factoring to solve area problems and uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Factoring trinomials",
+                "Factoring completely"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials Showdown",
+              "path": "artifacts/polynomials-factoring-jeopardy/index.html",
+              "thumb": "thumbs/polynomials-factoring-jeopardy.jpg",
+              "description": "A game board for Polynomials and Factoring. Add, subtract, and multiply polynomials, factor every way you know, and use the zero-product property.",
+              "type": "Game",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "GCF and trinomial factoring",
+                "Difference of squares",
+                "Zero-product property"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Factoring Maze",
+              "path": "artifacts/polynomials-factoring-maze/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-maze.jpg",
+              "description": "Printable 4-page worksheet: factor trinomials, differences of squares, and GCF problems completely to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Factoring x^2 + bx + c and ax^2 + bx + c",
+                "Difference of squares",
+                "Factoring out the GCF first"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Error Analysis",
+              "path": "artifacts/polynomials-factoring-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Factoring",
+                "Zero product property"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Color By Number",
+              "path": "artifacts/polynomials-factoring-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the fairy-tale castle. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Factoring",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Castle Crown Caper",
+              "path": "artifacts/polynomials-factoring-castle-crown-caper/index.html",
+              "thumb": "thumbs/polynomials-factoring-castle-crown-caper.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Factoring",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Polynomials & Factoring Tic-Tac-Toe",
+              "path": "artifacts/polynomials-factoring-tic-tac-toe/index.html",
+              "thumb": "thumbs/polynomials-factoring-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Factoring",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Castle Crown Caper (Printable)",
+              "path": "artifacts/polynomials-factoring-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Factoring",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Factoring Trinomials Tarsia Puzzle",
+              "path": "artifacts/polynomials-factoring-tarsia/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Factoring",
+                "Tarsia puzzle",
+                "Self-checking"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Polynomial Bistro: Assessment Menu",
+              "path": "artifacts/polynomials-factoring-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Wizard’s Spell Library",
+              "path": "artifacts/polynomials-factoring-escape-room/index.html",
+              "thumb": "thumbs/polynomials-factoring-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Polynomials & Factoring Stations",
+              "path": "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-polynomials-factoring-stations.svg",
+              "description": "Printable Algebra station work for Polynomials & Factoring. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Polynomials & Factoring"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Polynomials & Factoring Cheat Sheet",
+              "path": "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to polynomial operations, multiplication, special products, factoring methods, and solving by factoring.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Polynomials & Factoring"
+              ],
+              "added": "2026-10-19"
+            },
+            {
+              "title": "Partner Check 1: Operations with Polynomials",
+              "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-partner-check-1.jpg",
+              "description": "Partner A and B solve different problems with matching answers on operations with polynomials. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Operations with Polynomials"
+              ],
+              "added": "2026-10-23"
+            },
+            {
+              "title": "Partner Check 2: Factoring",
+              "path": "artifacts/polynomials-factoring-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-partner-check-2.jpg",
+              "description": "Partner A and B solve different problems with matching answers on factoring. Includes both student worksheets.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Factoring"
+              ],
+              "added": "2026-10-23"
+            }
+          ]
+        },
+        {
+          "id": "factoring-zero-product",
+          "name": "Factoring and Zero Product Property",
           "artifacts": [
             {
               "title": "Polynomials & Factoring Worksheet Generator",
@@ -1748,7 +2488,7 @@ window.LIBRARY = {
         },
         {
           "id": "quadratics",
-          "name": "Quadratics",
+          "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
               "title": "Quadratics Worksheet Generator",
@@ -1988,6 +2728,11 @@ window.LIBRARY = {
               "added": "2026-10-23"
             }
           ]
+        },
+        {
+          "id": "statistics-data-modeling",
+          "name": "Statistics and Data Modeling",
+          "artifacts": []
         }
       ]
     },
