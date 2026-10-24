@@ -43,7 +43,7 @@ with zipfile.ZipFile(INCOMING) as z:
             first=(n-1)*2
             head=source_pdf[first].get_text()[:180]
             other=source_pdf[first+1].get_text()[:180]
-            if not re.search(r"Activity\s+\d+\\."+str(n),head) or " B " not in other.replace("\n"," "):
+            if not re.search(r"Activity\s+\d+\."+str(n),head) or " B " not in other.replace("\n"," "):
                 raise ValueError("Unexpected A/B page order in "+source+" activity "+str(n))
             dest="artifacts/algebra2-"+slug+"-partner-check-"+str(n)+"/worksheet.pdf"
             pdf=fitz.open()
