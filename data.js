@@ -198,6 +198,83 @@ window.LIBRARY = {
                 "Evaluating expressions"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "The Midnight Library Mystery",
+              "path": "artifacts/foundations-algebra-midnight-library-mystery/index.html",
+              "thumb": "thumbs/foundations-algebra-midnight-library-mystery.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Order of operations",
+                "Evaluating expressions",
+                "Combining like terms",
+                "Distributive property",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "The Midnight Library Mystery (Printable)",
+              "path": "artifacts/foundations-algebra-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Order of operations",
+                "Evaluating expressions",
+                "Combining like terms",
+                "Distributive property",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Night at the Number Museum",
+              "path": "artifacts/foundations-algebra-escape-room/index.html",
+              "thumb": "thumbs/foundations-algebra-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five galleries with a cipher, hidden clues, property plaques, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Order of operations",
+                "Evaluating expressions",
+                "Combining like terms",
+                "Distributive property",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Foundations of Algebra Stations",
+              "path": "artifacts/algebra-foundations-algebra-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-foundations-algebra-stations.jpg",
+              "description": "Printable station work for Unit 1: order of operations and evaluating, real numbers and properties, combining like terms and distributing, and words to expressions. Four stations of 10 problems with an answer key.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Foundations of Algebra Cheat Sheet",
+              "path": "artifacts/foundations-algebra-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/foundations-algebra-cheat-sheet.jpg",
+              "description": "Colorful two-page printable study guide: vocabulary, order of operations, evaluating, the real numbers, properties, like terms, the distributive property, words to algebra and integers.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
             }
           ]
         },

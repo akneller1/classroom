@@ -1012,5 +1012,19 @@ window.RESOURCE_DETAILS = {
     "pages": 2,
     "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
     "keyPages": 4
+  },
+  "artifacts/foundations-algebra-whodunnit/worksheet.pdf": {
+    "pages": 7,
+    "answerKey": "artifacts/foundations-algebra-whodunnit/teacher-key.pdf",
+    "keyPages": 3
+  },
+  "artifacts/algebra-foundations-algebra-stations/worksheet.pdf": {
+    "pages": 4,
+    "answerKey": "artifacts/algebra-foundations-algebra-stations/teacher-key.pdf",
+    "keyPages": 1
+  },
+  "artifacts/foundations-algebra-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
   }
 };
