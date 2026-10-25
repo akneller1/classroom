@@ -187,6 +187,39 @@
     // a plain list of whole numbers ("24, 25, 26, 27"): shift every number
     if (!snippets(key).length && /^\s*-?\d+(\s*,\s*-?\d+)+\s*$/.test(key)) [1, -1, 2].forEach(function (d) { cands.push({ a: key.replace(/-?\d+/g, function (n) { return String(+n + d); }), w: 3 }); });
     if (ch0.type === 'stat-line' && ch0.want === 'over-under') cands.push({ a: key.replace(/under|over/, function (m) { return m === 'under' ? 'over' : 'under'; }), w: 5 });
+    // real numbers: a set left out or added, rational and irrational swapped; for a list, one number left out or added
+    if (ch0.type === 'num-class' && !ch0.list) {
+      var SN = ['Natural', 'Whole', 'Integer', 'Rational', 'Irrational', 'Real'], have = key.split(/\s*,\s*/);
+      have.forEach(function (w) { if (w !== 'Real' && have.length > 2) cands.push({ a: have.filter(function (x) { return x !== w; }).join(', '), w: 3 }); });
+      SN.forEach(function (w) { if (have.indexOf(w) < 0 && w !== 'Irrational' && w !== 'Rational') cands.push({ a: SN.filter(function (x) { return have.indexOf(x) >= 0 || x === w; }).join(', '), w: 3 }); });
+      cands.push({ a: have.map(function (x) { return x === 'Rational' ? 'Irrational' : x === 'Irrational' ? 'Rational' : x; }).join(', '), w: 4 });
+      if (have.indexOf('Irrational') >= 0) cands.push({ a: 'Rational, Real', w: 4 }); else cands.push({ a: 'Irrational, Real', w: 2 });
+    }
+    if (ch0.type === 'num-class' && ch0.list) {
+      var inK = snippets(key);
+      inK.forEach(function (t) { if (inK.length > 1) cands.push({ a: inK.filter(function (x) { return x !== t; }).map(function (x) { return '⟨' + x + '⟩'; }).join(', '), w: 3 }); });
+      ch0.list.forEach(function (t) { if (inK.indexOf(t) < 0) cands.push({ a: ch0.list.filter(function (x) { return inK.indexOf(x) >= 0 || x === t; }).map(function (x) { return '⟨' + x + '⟩'; }).join(', '), w: 3 }); });
+    }
+    // unit conversions: multiplied instead of divided (or the reverse), off by one
+    if (ch0.type === 'units') {
+      var un = /^(\d+(?:\.\d+)?)\s/.exec(key), q0 = /Convert (\d+(?:\.\d+)?)/.exec(C.plainText(p.prompt)) || /at (\d+)/.exec(C.plainText(p.prompt));
+      if (un) { var v1 = +un[1], q1 = q0 ? +q0[1] : 0, alt = [v1 + 1, v1 - 1, v1 * 2, v1 * 10];
+        if (q1 && v1) { var f1 = v1 / q1; alt.unshift(Math.round(q1 / f1 * 1000) / 1000); }
+        alt.forEach(function (x) { if (x > 0 && x !== v1) cands.push({ a: key.replace(un[1], String(Math.round(x * 1000) / 1000)), w: 4 }); }); }
+    }
+    // linear transformations: steeper / less steep, the other axis
+    if (ch0.type === 'lin-transform') {
+      [[/\bsteeper\b/, 'less steep'], [/\bless steep\b/, 'steeper'], [/^Steeper\b/, 'Less steep'], [/^Less steep\b/, 'Steeper'], [/\by-axis\b/, 'x-axis'], [/\bx-axis\b/, 'y-axis']].forEach(function (sw) { if (sw[0].test(key)) cands.push({ a: key.replace(sw[0], sw[1]), w: 4 }); });
+    }
+    // closure and causation: the other yes/no
+    if (ch0.type === 'poly-closure' && ch0.want === 'closed') cands.push({ a: /^\s*Yes/.test(key) ? 'No. The result has the variable in a denominator, so it is not a polynomial.' : 'Yes. Polynomials are closed under division.', w: 5 });
+    if (ch0.type === 'causation') {
+      if (ch0.want === 'cause') cands.push({ a: /^\s*Yes/.test(key) ? 'No. Correlation does not show causation; a lurking variable could cause both.' : 'Yes. The correlation is strong, so one variable causes the other.', w: 5 });
+      if (ch0.want === 'type') cands.push({ a: /experiment/i.test(key) ? 'An observational study (the data were only observed).' : 'An experiment (the researchers measured both variables).', w: 5 });
+      if (ch0.want === 'which') cands.push({ a: key.replace(/Study ([AB])/, function (w, l) { return 'Study ' + (l === 'A' ? 'B' : 'A'); }).replace(/because .*$/, 'because its correlation is strong.'), w: 5 });
+      if (ch0.want === 'why') { cands.push({ a: 'The large number of subjects.', w: 4 }); cands.push({ a: 'The strong correlation.', w: 3 }); }
+      if (ch0.want === 'lurk') { ['The number of people surveyed.', 'The day of the week.', 'The color of the graph.'].forEach(function (x) { cands.push({ a: x, w: 2 }); }); }
+    }
     // a classic slip: the answer to another part of the same problem (the range given as the domain)
     p.parts.forEach(function (o, j) {
       if (j === k) return; var a = snippets(key), b = snippets(o.answer); if (a.length !== 1 || b.length !== 1) return;
@@ -216,6 +249,7 @@
     if (t === 'factor' && /^\s*prime\b/i.test(part.answer)) return 'factor';
     if (/^\s*-?\d+(\.\d+)?%\s*$/.test(part.answer)) return 'percent';
     if (t === 'stat' && /better|compare/.test(ch.want) || t === 'scatter-corr' || (t === 'stat-box' && ch.want === 'compare') || (t === 'twoway' && ch.want === 'assoc') || (t === 'stat-line' && /over|slope|intercept/.test(ch.want))) return null;
+    if (t === 'num-class' || t === 'causation' || t === 'units' || (t === 'poly-closure' && ch.want === 'closed')) return null;
     if (t === 'quad-solve') return 'qroots';
     if (t === 'quad-feature') return { vertex: 'point', yint: 'point', axis: 'eq', zeros: 'qroots', range: 'ineq' }[ch.want] || null;
     if (t === 'quad-disc') return ch.want === 'value' ? 'number' : null;

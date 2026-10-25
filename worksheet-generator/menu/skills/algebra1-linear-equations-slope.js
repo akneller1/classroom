@@ -186,10 +186,43 @@
     }
   });
 
+  /* ================= TRANSFORM · transformations of linear functions ================= */
+  function fx(name, m, b) { return name + '(x)=' + (Fr.of(m).isZero() ? num(b) : lin([[m, 'x'], [b, '']])); }
+  function shiftWords(d) { return 'shifted ' + Math.abs(d) + ' unit' + (Math.abs(d) === 1 ? '' : 's') + (d > 0 ? ' up' : ' down'); }
+  skill({
+    id: 'lin-transform', best: [0, 1, 2], tag: 'TRANSFORM', name: 'Transformations of linear functions',
+    blurb: 'Shifts up and down (CP2) → steeper, less steep, reflections, a shift and a slope change together (CP1) → write g from a description or from g(x) = f(x − h) (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], m1 = nz(r, -4, 4), b1 = r.int(-6, 6), m2 = m1, b2 = b1;
+      if (c === 1) b2 = b1 + r.int(1, 8); if (c === 2) b2 = b1 - r.int(1, 8);
+      if (c === 3) { m2 = r.pick([m1 * r.int(2, 3), F(m1, r.int(2, 4))]); need(!Fr.of(m2).eq(m1)); }
+      if (c === 4) m2 = -m1;
+      if (c === 5) { m2 = m1 * r.int(2, 3) * r.pick([1, -1]); b2 = b1 + nz(r, -6, 6); }
+      if (c <= 5) {
+        var f = fx('f', m1, b1), g = fx('g', m2, b2), w = [], M1 = Fr.of(m1), M2 = Fr.of(m2);
+        if (M1.sign() !== M2.sign()) w.push('reflected across the y-axis');
+        if (!M1.abs().eq(M2.abs())) w.push(M2.abs().gt(M1.abs()) ? 'steeper' : 'less steep');
+        if (b2 !== b1) w.push(shiftWords(b2 - b1));
+        var ansW = w.join(', and '); ansW = ansW.charAt(0).toUpperCase() + ansW.slice(1) + '.';
+        steps.push(step('Compare the slopes ⟨' + num(m1) + '⟩ and ⟨' + num(m2) + '⟩ and the y-intercepts ⟨' + b1 + '⟩ and ⟨' + b2 + '⟩.', '', 2));
+        steps.push(step('A bigger |slope| is steeper; the opposite slope reflects the line; a new y-intercept shifts it up or down.', '', 2));
+        return { variant: 'lt' + c, prompt: 'Describe how the graph of ' + M(g) + ' compares with the graph of ' + M(f) + '.', parts: [{ answer: ansW, check: { type: 'lin-transform', want: 'describe', f: f, g: g } }], steps: steps, space: [0.4, 0.5, 0.6] };
+      }
+      var f6 = fx('f', m1, b1);
+      if (c === 6) { var d6 = nz(r, -9, 9);
+        steps.push(step('A shift up or down adds to the whole function: ⟨g(x)=f(x)' + (d6 > 0 ? '+' : '-') + Math.abs(d6) + '⟩.', fx('g', m1, b1 + d6), 3));
+        return { variant: 'lt6', prompt: 'The graph of ' + M(f6) + ' is ' + shiftWords(d6) + ' to make the graph of ⟨g⟩. Write ⟨g(x)⟩ in slope-intercept form.', parts: [{ answer: M(fx('g', m1, b1 + d6)), check: { type: 'lin-transform', want: 'shift-eq', f: f6 } }], steps: steps, space: [0.5, 0.6, 0.7] }; }
+      var h = nz(r, -6, 6), rel = 'g(x)=f(x' + (h > 0 ? '-' + h : '+' + (-h)) + ')';
+      steps.push(step('Replace ⟨x⟩ with ⟨x' + (h > 0 ? '-' + h : '+' + (-h)) + '⟩ in the rule for ⟨f⟩.', 'g(x)=' + mcoef(m1) + '(x' + (h > 0 ? '-' + h : '+' + (-h)) + ')' + (b1 ? (b1 > 0 ? '+' : '-') + Math.abs(b1) : ''), 2), step('Distribute and combine.', fx('g', m1, b1 - m1 * h), 2));
+      return { variant: 'lt7', prompt: 'Let ' + M(f6) + ' and ' + M(rel) + '. Write ⟨g(x)⟩ in slope-intercept form. How is the graph moved?', parts: [{ label: 'a', answer: M(fx('g', m1, b1 - m1 * h)), check: { type: 'lin-transform', want: 'h-eq', f: f6, rel: rel } },
+        { label: 'b', answer: 'Shifted ' + Math.abs(h) + ' unit' + (Math.abs(h) === 1 ? '' : 's') + (h > 0 ? ' right.' : ' left.'), check: { type: 'lin-transform', want: 'h-words', f: f6, rel: rel } }], steps: steps, space: [0.7, 0.9, 1.1] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-linear-equations-slope', course: 'algebra1', courseName: 'Algebra 1', unit: 'linear-equations-slope', unitName: 'Linear Functions and Graphing',
     title: 'The Slope Shack',
-    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models' },
+    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Slope</h4><p>⟨m=\\frac{y_2-y_1}{x_2-x_1}⟩ (rise over run). Horizontal: ⟨m=0⟩. Vertical: undefined.</p></section>' +

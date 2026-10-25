@@ -111,6 +111,101 @@
   function floorQ(q) { var f = q.n / q.d; if (q.n < 0n && f * q.d !== q.n) f -= 1n; return new Q(f); }
   function ceilQ(q) { var f = floorQ(q); return f.eq(q) ? f : f.add(Q.ONE); }
 
+  /* ---------- real-number classification, verbal phrases, unit conversions ---------- */
+  function classifyNumber(tex) {
+    var s = String(tex).replace(/\s+/g, ''), neg = s[0] === '-', b = neg ? s.slice(1) : s, m, q = null, irr = false, sq = function (n) { var r0 = Math.round(Math.sqrt(n)); return r0 * r0 === n ? r0 : null; };
+    if (/^\d+$/.test(b)) q = new Q(BigInt(b));
+    else if ((m = /^\\frac\{(\d+)\}\{(\d+)\}$/.exec(b))) q = new Q(BigInt(m[1]), BigInt(m[2]));
+    else if (/^\d+\.\d+$/.test(b)) q = Q.parseDecimal(b);
+    else if ((m = /^(\d+)\.(\d*)\\overline\{(\d+)\}$/.exec(b))) { var pre = m[2], rep = m[3], whole = BigInt(m[1] + pre + rep) - BigInt(m[1] + pre), den = BigInt('9'.repeat(rep.length) + '0'.repeat(pre.length)); q = new Q(whole, den); }
+    else if ((m = /^\\sqrt\{(\d+)\}$/.exec(b))) { var r1 = sq(+m[1]); if (r1 === null) irr = true; else q = new Q(BigInt(r1)); }
+    else if ((m = /^\\sqrt\{\\frac\{(\d+)\}\{(\d+)\}\}$/.exec(b))) { var f = new Q(BigInt(m[1]), BigInt(m[2])), rn = sq(Number(f.n)), rd = sq(Number(f.d)); if (rn === null || rd === null) irr = true; else q = new Q(BigInt(rn), BigInt(rd)); }
+    else if (/^(\d*)\\pi$|^\\frac\{\\pi\}\{\d+\}$/.test(b)) irr = true;
+    else throw new C.CheckError('cannot classify ' + tex);
+    if (irr) return ['irrational', 'real'];
+    if (neg) q = q.neg();
+    var out = [];
+    if (q.isInt()) { if (q.n > 0n) out.push('natural'); if (q.n >= 0n) out.push('whole'); out.push('integer'); }
+    return out.concat(['rational', 'real']);
+  }
+  function setNamesIn(text) {
+    var t = C.plainText(text).toLowerCase(), out = [];
+    if (/\bnatural/.test(t)) out.push('natural'); if (/\bwhole/.test(t)) out.push('whole'); if (/\bintegers?\b/.test(t)) out.push('integer');
+    if (/(^|[^r])\brational/.test(t)) out.push('rational'); if (/irrational/.test(t)) out.push('irrational'); if (/\breal/.test(t)) out.push('real');
+    return out;
+  }
+  /* English phrase → every TeX reading of it (a small grammar; the verifier keeps only phrases with one meaning) */
+  var NUMW = { twice: 2, 'three times': 3, 'four times': 4, 'five times': 5, 'six times': 6 };
+  function readPhrase(s) {
+    s = s.trim().replace(/\.$/, '').replace(/^the\s+/i, function (w) { return w.toLowerCase(); }); var out = [], m, i;
+    var splits = function (str, sep, fn) { var at = -1; while ((at = str.indexOf(sep, at + 1)) >= 0) { var A = readPhrase(str.slice(0, at)), B = readPhrase(str.slice(at + sep.length)); A.forEach(function (a) { B.forEach(function (b) { out.push(fn(a, b)); }); }); } };
+    if ((m = /^a number ([a-z])$/i.exec(s)) || (m = /^([a-z])$/.exec(s))) return [m[1]];
+    if (/^\d+$/.test(s)) return [s];
+    if ((m = /^the sum of (.+)$/i.exec(s))) splits(m[1], ' and ', function (a, b) { return '(' + a + ')+(' + b + ')'; });
+    if ((m = /^the difference of (.+)$/i.exec(s))) splits(m[1], ' and ', function (a, b) { return '(' + a + ')-(' + b + ')'; });
+    if ((m = /^the product of (.+)$/i.exec(s))) splits(m[1], ' and ', function (a, b) { return '(' + a + ')(' + b + ')'; });
+    if ((m = /^the quotient of (.+)$/i.exec(s))) splits(m[1], ' and ', function (a, b) { return '\\frac{' + a + '}{' + b + '}'; });
+    if ((m = /^the square of (.+)$/i.exec(s))) readPhrase(m[1]).forEach(function (a) { out.push('(' + a + ')^2'); });
+    for (var w in NUMW) if (s.toLowerCase().indexOf(w + ' ') === 0) readPhrase(s.slice(w.length + 1)).forEach(function (a) { out.push(NUMW[w] + '(' + a + ')'); });
+    if ((m = /^(\d+) times (.+)$/i.exec(s))) readPhrase(m[2]).forEach(function (a) { out.push(m[1] + '(' + a + ')'); });
+    splits(s, ' more than ', function (a, b) { return '(' + b + ')+(' + a + ')'; });
+    splits(s, ' less than ', function (a, b) { return '(' + b + ')-(' + a + ')'; });
+    [[', increased by ', '+'], [' increased by ', '+'], [', decreased by ', '-'], [' decreased by ', '-']].forEach(function (op) { splits(s, op[0], function (a, b) { return '(' + a + ')' + op[1] + '(' + b + ')'; }); });
+    for (i = out.length - 1; i >= 0; i--) if (out.indexOf(out[i]) !== i) out.splice(i, 1);
+    return out;
+  }
+  function phraseMeaning(s) {
+    var c = readPhrase(s); if (!c.length) throw new C.CheckError('cannot read the phrase'); 
+    for (var i = 1; i < c.length; i++) if (!C.equivalent(c[0], c[i])) throw new C.CheckError('the phrase has two meanings');
+    return c[0];
+  }
+  var UNITF = { inches: ['L', 1], feet: ['L', 12], yards: ['L', 36], miles: ['L', 63360], centimeters: ['M', 1], meters: ['M', 100], kilometers: ['M', 100000],
+    seconds: ['T', 1], minutes: ['T', 60], hours: ['T', 3600], cups: ['V', 1], pints: ['V', 2], quarts: ['V', 4], gallons: ['V', 16], ounces: ['W', 1], pounds: ['W', 16], grams: ['G', 1], kilograms: ['G', 1000] };
+  function unitFactor(a, b) { var sq = /^square /.test(a), A = UNITF[a.replace(/^square /, '')], B = UNITF[b.replace(/^square /, '')]; if (!A || !B || A[0] !== B[0] || sq !== /^square /.test(b)) throw new C.CheckError('cannot convert ' + a + ' to ' + b); var f = A[1] / B[1]; return sq ? f * f : f; }
+  function checkUnits(p, part) {
+    var txt = C.plainText(p.prompt).replace(/\s+/g, ' '), ans = part.answer || '', got = C.numbersInText(ans), m, val, unit, k = null;
+    if ((m = /^Convert (\d+(?:\.\d+)?) ((?:square )?[a-z]+) to ((?:square )?[a-z]+)\.$/.exec(txt))) { val = +m[1] * unitFactor(m[2], m[3]); unit = m[3]; }
+    else if ((m = /works at (\d+) ([a-z]+) per hour\. Convert this rate to \2 per minute\./.exec(txt))) { val = +m[1] / 60; unit = m[2] + ' per minute'; }
+    else if ((m = /^Convert (\d+) ([a-z]+) per hour to ([a-z]+) per second\. Round to the nearest tenth\.$/.exec(txt))) { val = +m[1] * unitFactor(m[2], m[3]) / 3600; unit = m[3] + ' per second'; k = 1; }
+    else throw new C.CheckError('cannot read the conversion');
+    if (!got.length) return { status: 'mismatch', msg: 'No number in the answer.' };
+    var want = k === null ? val : Math.round(val * 10) / 10, g = Number(got[0].n) / Number(got[0].d);
+    if (k === null && Math.abs(val - Math.round(val * 1e6) / 1e6) > 1e-9) return { status: 'invalid', msg: 'The answer is not exact; the problem must say how to round.' };
+    if (Math.abs(g - want) > 1e-9) return { status: 'mismatch', msg: 'Correct: ' + want + ' ' + unit + '.' };
+    return C.plainText(ans).toLowerCase().indexOf(unit) >= 0 ? { status: 'verified', computed: want + ' ' + unit } : { status: 'mismatch', msg: 'Give the unit: ' + unit + '.' };
+  }
+  function checkNumClass(p, part) {
+    var chk = part.check, ans = part.answer || '';
+    if (chk.num) { if (!shown(p, chk.num)) return { status: 'invalid', msg: 'The number is not printed.' }; var want = classifyNumber(chk.num), got = setNamesIn(ans);
+      return want.length === got.length && want.every(function (w) { return got.indexOf(w) >= 0; }) ? { status: 'verified', computed: want.join(', ') } : { status: 'mismatch', msg: 'Correct: ' + want.join(', ') + '.' }; }
+    if (!chk.list.every(function (t) { return shown(p, t); })) return { status: 'invalid', msg: 'The numbers are not printed.' };
+    var yes = chk.list.filter(function (t) { var s = classifyNumber(t); return chk.want === 'rational-not-integer' ? s.indexOf('rational') >= 0 && s.indexOf('integer') < 0 : s.indexOf(chk.want) >= 0; });
+    var said = C.snippets(ans).map(norm), yesN = yes.map(norm);
+    return said.length === yesN.length && yesN.every(function (y) { return said.indexOf(y) >= 0; }) ? { status: 'verified', computed: yes.join(', ') } : { status: 'mismatch', msg: 'Correct: ' + yes.join(', ') + '.' };
+  }
+  /* ---------- transformations of linear functions ---------- */
+  function lineMB(src) { var R = C.parseRelation(src), at = function (x) { return C.evalNode(R.rhs, { x: new Q(BigInt(x)) }); }; var b = at(0); return { m: at(1).sub(b), b: b }; }
+  function checkLinTransform(p, part) {
+    var chk = part.check, ans = part.answer || '', txt = C.plainText(ans).toLowerCase(), pr = C.plainText(p.prompt);
+    if (!shown(p, chk.f)) return { status: 'invalid', msg: 'f is not printed.' };
+    var F1 = lineMB(chk.f), sgn = function (q) { return C.cmpQ(q, Q.ZERO); }, absQ = function (q) { return sgn(q) < 0 ? q.neg() : q; };
+    var eqAns = function (want) { var s = C.snippets(ans)[0]; if (!s) return { status: 'mismatch', msg: 'No equation.' }; var G; try { G = lineMB(s); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+      if (!/^\s*(g\(x\)|y)\s*=/.test(s)) return { status: 'mismatch', msg: 'Write g(x) = mx + b.' };
+      return G.m.eq(want.m) && G.b.eq(want.b) ? { status: 'verified' } : { status: 'mismatch', msg: 'g(x) = ' + qText(want.m) + 'x + ' + qText(want.b) + '.' }; };
+    if (chk.want === 'describe') {
+      if (!shown(p, chk.g)) return { status: 'invalid', msg: 'g is not printed.' };
+      var G2 = lineMB(chk.g), refl = sgn(F1.m) * sgn(G2.m) < 0, c1 = C.cmpQ(absQ(G2.m), absQ(F1.m)), db = G2.b.sub(/x-axis/.test(txt) ? F1.b.neg() : F1.b);   // across the x-axis the intercept flips too
+      var saidRefl = /reflect/.test(txt), saidSteep = /less steep/.test(txt) ? -1 : /steeper/.test(txt) ? 1 : 0;
+      var sh = /(\d+) units? (up|down)/.exec(txt), saidShift = sh ? new Q(BigInt(sh[1])).mul(new Q(sh[2] === 'up' ? 1n : -1n)) : Q.ZERO;
+      return saidRefl === refl && saidSteep === c1 && saidShift.eq(db) ? { status: 'verified' } : { status: 'mismatch', msg: (refl ? 'reflected; ' : '') + (c1 ? (c1 > 0 ? 'steeper; ' : 'less steep; ') : '') + 'vertical shift ' + qText(db) + '.' };
+    }
+    if (chk.want === 'shift-eq') { var mS = /is shifted (\d+) units? (up|down) to make/.exec(pr); if (!mS) throw new C.CheckError('cannot read the shift'); var d = new Q(BigInt(mS[1])).mul(new Q(mS[2] === 'up' ? 1n : -1n)); return eqAns({ m: F1.m, b: F1.b.add(d) }); }
+    if (!shown(p, chk.rel)) return { status: 'invalid', msg: 'g is not printed.' };
+    var mh = /^g\(x\)=f\(x([+-])(\d+)\)$/.exec(chk.rel.replace(/\s/g, '')); if (!mh) throw new C.CheckError('cannot read g'); var h = new Q(BigInt(mh[2])).mul(new Q(mh[1] === '-' ? 1n : -1n));
+    if (chk.want === 'h-eq') return eqAns({ m: F1.m, b: F1.b.sub(F1.m.mul(h)) });
+    var hw = /(\d+) units? (right|left)/.exec(txt); if (!hw) return { status: 'mismatch', msg: 'Say how many units and which way.' };
+    return new Q(BigInt(hw[1])).mul(new Q(hw[2] === 'right' ? 1n : -1n)).eq(h) && !/\b(up|down)\b/.test(txt) ? { status: 'verified' } : { status: 'mismatch', msg: 'Shifted ' + qText(absQ(h)) + (sgn(h) > 0 ? ' right.' : ' left.') };
+  }
   function checkPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
@@ -129,6 +224,20 @@
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
+    if (t === 'num-class') return checkNumClass(p, part);
+    if (t === 'lin-transform') return checkLinTransform(p, part);
+    if (t === 'units') return checkUnits(p, part);
+    if (t === 'verbal-expr') {
+      var mv = /Write an algebraic expression for “([^”]+)”\./.exec(C.plainText(p.prompt)); if (!mv) throw new C.CheckError('no phrase');
+      var meaning = phraseMeaning(mv[1]), av = firstMath(ans); if (av === null) return { status: 'mismatch', msg: 'No expression.' };
+      var eqv; try { eqv = C.equivalent(meaning, av); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      return eqv ? { status: 'verified', computed: meaning } : { status: 'mismatch', msg: 'The phrase means ' + meaning + '.' };
+    }
+    if (t === 'verbal-words') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+      var mw; try { mw = phraseMeaning(C.plainText(ans)); } catch (e) { return { status: 'mismatch', msg: 'The words do not read as one expression: ' + e.message + '.' }; }
+      return C.equivalent(mw, chk.expr) ? { status: 'verified' } : { status: 'mismatch', msg: 'Those words mean ' + mw + '.' };
+    }
     if (t === 'expr-error-line') {
       if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The original expression is not printed.' };
       var firstE = 0;
@@ -985,7 +1094,7 @@
 
 
   /* ---------------- statistics ---------------- */
-  var STAT_TYPES = ['stat', 'stat-box', 'twoway', 'scatter-corr', 'stat-line', 'hist', 'lsrl'];
+  var STAT_TYPES = ['stat', 'stat-box', 'twoway', 'scatter-corr', 'stat-line', 'hist', 'lsrl', 'causation'];
   function sortQ(a) { return a.slice().sort(function (x, y) { return C.cmpQ(x, y); }); }
   function sumQ(a) { return a.reduce(function (s, q) { return s.add(q); }, Q.ZERO); }
   function meanQ(a) { return sumQ(a).div(new Q(a.length)); }
@@ -1062,6 +1171,49 @@
     if (chk.want === 'est-mean') { var s = 0; bins.forEach(function (b) { s += b.count * (b.lo + b.hi) / 2; }); return roundF(p, chk.round, s / tot, got[got.length - 1], 'Estimated mean'); }
     throw new C.CheckError('unknown want');
   }
+  /* correlation vs causation: the verifier's own table of observational studies and the lurking variables that explain them */
+  var LURK = [
+    [/ice cream/, /drown/, /temperature|heat|hot|warm|summer|weather|season/],
+    [/shoe size/, /reading/, /\bage\b|older|grade|years old/],
+    [/firefighters/, /damage/, /size of the fire|bigger fire|larger fire|how big|severity/],
+    [/tvs?\b/, /life expectancy/, /wealth|rich|income|money|econom|health care/],
+    [/churches/, /crimes?/, /population|size of the city|bigger cit|number of people|city size/],
+    [/umbrellas/, /accidents/, /rain|weather|storm|wet/],
+    [/hot chocolate/, /flu/, /cold|winter|temperature|season|weather/],
+    [/miles driven/, /price/, /\bage\b|older|year|condition/],
+    [/swimming pools/, /temperature/, /location|climate|region|where|latitude|geograph/]];
+  function checkCausation(p, chk, ans) {
+    var full = C.plainText(studentText(p)).toLowerCase(), stem = C.plainText(p.prompt).toLowerCase(), t = C.plainText(ans).toLowerCase().trim();
+    var rBad = C.snippets(p.prompt).some(function (sn) { var m = /^r=(-?[\d.]+)$/.exec(sn.replace(/\s+/g, '')); return m && !(Math.abs(+m[1]) <= 1); });
+    if (rBad) return { status: 'invalid', msg: 'r must be between −1 and 1.' };
+    var exp = /randomly assigned/.test(stem);
+    if (chk.want === 'which') {
+      var segs = /study a:(.*)study b:(.*)/.exec(stem); if (!segs) return { status: 'invalid', msg: 'Two studies must be printed.' };
+      var ea = /randomly assigned/.test(segs[1]), eb = /randomly assigned/.test(segs[2]); if (ea === eb) return { status: 'invalid', msg: 'Exactly one study must be an experiment.' };
+      var pick = /study\s+([ab])\b/.exec(t), want = ea ? 'a' : 'b';
+      if (!pick || pick[1] !== want || (/study\s+([ab])\b.*study\s+([ab])\b/.test(t) && !/random/.test(t))) return { status: 'mismatch', msg: 'Study ' + want.toUpperCase() + ' is the experiment.' };
+      return /random/.test(t) ? { status: 'verified', computed: 'Study ' + want.toUpperCase() } : { status: 'mismatch', msg: 'Explain: random assignment.' };
+    }
+    if (chk.want === 'type') {
+      var saysE = /experiment/.test(t), saysO = /observational/.test(t);
+      if (saysE === saysO) return { status: 'mismatch', msg: 'Name one: observational study or experiment.' };
+      return saysE === exp ? { status: 'verified', computed: exp ? 'experiment' : 'observational' } : { status: 'mismatch', msg: exp ? 'The treatments were randomly assigned: an experiment.' : 'Nothing was assigned: an observational study.' };
+    }
+    if (chk.want === 'cause') {
+      var yes = /^yes\b/.test(t), no = /^no\b/.test(t); if (yes === no) return { status: 'mismatch', msg: 'Start with Yes or No.' };
+      if (yes !== exp) return { status: 'mismatch', msg: exp ? 'Yes: it is a randomized experiment.' : 'No: it is an observational study.' };
+      if (yes && !/random/.test(t)) return { status: 'mismatch', msg: 'Explain: random assignment.' };
+      if (no && !/lurking|confounding|third|other variable|correlation|causation/.test(t)) return { status: 'mismatch', msg: 'Explain: correlation is not causation.' };
+      return { status: 'verified', computed: exp ? 'yes' : 'no' };
+    }
+    if (chk.want === 'why') { if (!exp) return { status: 'invalid', msg: 'Not an experiment.' }; return /random/.test(t) ? { status: 'verified' } : { status: 'mismatch', msg: 'Random assignment.' }; }
+    if (chk.want === 'lurk') {
+      var hits = LURK.filter(function (L) { return L[0].test(full) && L[1].test(full); });
+      if (hits.length !== 1) return { status: 'invalid', msg: 'Unknown study.' };
+      return hits[0][2].test(t) ? { status: 'verified' } : { status: 'mismatch', msg: 'Not a lurking variable for this study.' };
+    }
+    throw new C.CheckError('unknown want');
+  }
   function checkLSRL(p, chk, ans) {
     var txt = C.plainText(studentText(p)).toLowerCase(), got = []; try { got = listNumbers(ans); } catch (e) { got = []; } var last = got[got.length - 1];
     var STR = function (rv) { var a = Math.abs(rv); return [a >= 0.8 ? 'strong' : a >= 0.5 ? 'moderate' : 'weak', rv > 0 ? 'positive' : 'negative']; };
@@ -1094,6 +1246,7 @@
     var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), w = chk.want;
     if (t === 'hist') return checkHist(p, chk, ans);
     if (t === 'lsrl') return checkLSRL(p, chk, ans);
+    if (t === 'causation') return checkCausation(p, chk, ans);
     if (t === 'stat' && (w === 'sd' || w === 'sd-compare')) return checkSD(p, chk, ans);
     if (t === 'stat') {
       var d = dataOf(p, chk), got = listNumbers(ans), last = got[got.length - 1];
@@ -1558,7 +1711,7 @@
   }
 
   /* ---------- polynomials (Algebra 1 Unit 9) ---------- */
-  var POLY_TYPES = ['poly-simplify', 'poly-classify', 'poly-apply', 'poly-divide'];
+  var POLY_TYPES = ['poly-simplify', 'poly-classify', 'poly-apply', 'poly-divide', 'poly-closure'];
   function polyOf(src) { var rf = C.toRF(typeof src === 'string' ? C.parseExpr(src) : src); if (!rf.isPoly()) throw new C.CheckError('not a polynomial'); return rf.asPoly(); }
   function keyDeg(k) { return k ? k.split('*').reduce(function (s, part) { return s + (+part.split('^')[1]); }, 0) : 0; }
   function polyDeg(P) { var d = 0; P.m.forEach(function (q, k) { d = Math.max(d, keyDeg(k)); }); return d; }
@@ -1573,9 +1726,44 @@
     var d = writtenTerms(src); for (var i = 1; i < d.length; i++) if (d[i] > d[i - 1]) return 'terms are not in order from highest to lowest degree';
     return null;
   }
+  /* closure: does the printed expression simplify to a polynomial? one variable; long division of numerator by denominator */
+  function coefsIn(Pl, v) { var d = Pl.isZero() ? 0 : Pl.degreeIn(v), a = []; for (var k = 0; k <= d; k++) a.push(Pl.coeffOf(v, k).constVal()); return a; }
+  function reducesToPoly(src, v) {
+    var rf = C.toRF(C.parseExpr(src)); if (rf.isPoly()) return true;
+    var vs = rf.n.vars().concat(rf.d.vars()); if (vs.some(function (u) { return u !== v; })) throw new C.CheckError('one variable only');
+    var n = coefsIn(rf.n, v), d = coefsIn(rf.d, v), dl = d.length - 1;
+    for (var i = n.length - 1; i >= dl; i--) { var q = n[i].div(d[dl]); for (var j = 0; j <= dl; j++) n[i - dl + j] = n[i - dl + j].sub(q.mul(d[j])); }
+    return n.slice(0, dl).every(function (x) { return x.isZero(); });
+  }
+  function checkClosure(p, chk, ans, am, txt) {
+    if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+    var v = chk.v || (C.varsOf ? null : null), vars = (function () { var s = {}; (function w(n) { if (!n || typeof n !== 'object') return; if (n.k === 'var') s[n.v] = 1; w(n.a); w(n.b); })(C.parseExpr(chk.expr)); return Object.keys(s); })();
+    if (vars.length !== 1) throw new C.CheckError('closure needs one variable');
+    var closed = reducesToPoly(chk.expr, vars[0]);
+    if (chk.want === 'result') {
+      if (am === null) return { status: 'mismatch', msg: 'No answer.' };
+      var eq; try { eq = C.equivalent(chk.expr, am); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (!eq) return { status: 'mismatch', msg: 'Not equal to the printed expression.' };
+      if (!closed) return { status: 'verified' };
+      var why; try { polyOf(am); why = polyStandard(am); } catch (e) { why = 'not a polynomial'; }
+      return why ? { status: 'mismatch', msg: 'Write it in standard form: ' + why + '.' } : { status: 'verified' };
+    }
+    if (chk.want === 'closed') {
+      var yes = /^\s*yes\b/.test(txt), no = /^\s*no\b/.test(txt);
+      if (yes === no) return { status: 'mismatch', msg: 'Start with Yes or No.' };
+      if (yes !== closed) return { status: 'mismatch', msg: closed ? 'It is a polynomial.' : 'It is not a polynomial.' };
+      var top = (function () { var n = C.parseExpr(chk.expr); while (n.k === 'grp') n = n.a; return n.k; })(), opName = { add: 'addition', sub: 'subtraction', mul: 'multiplication', div: 'division' }[top] || null;
+      var named = /closed under (addition|subtraction|multiplication|division)/.exec(txt);
+      if (named && closed && named[1] !== opName) return { status: 'mismatch', msg: 'The operation here is ' + opName + '.' };
+      if (!closed && !/denominator|negative exponent|remainder/.test(txt)) return { status: 'mismatch', msg: 'Explain why: the variable ends up in a denominator.' };
+      return { status: 'verified', computed: closed ? 'yes' : 'no' };
+    }
+    throw new C.CheckError('unknown want');
+  }
   var DEG_NAMES = ['constant', 'linear', 'quadratic', 'cubic', 'quartic', 'quintic'], TERM_NAMES = [null, 'monomial', 'binomial', 'trinomial'];
   function checkPolyPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, txt = C.plainText(ans).toLowerCase(), am = (function () { var s = C.snippets(ans); return s.length ? s[s.length - 1] : null; })();
+    if (t === 'poly-closure') return checkClosure(p, chk, ans, am, txt);
     if (t === 'poly-divide') {
       if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
       if (am === null) return { status: 'mismatch', msg: 'No answer.' };

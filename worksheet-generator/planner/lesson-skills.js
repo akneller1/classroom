@@ -24,9 +24,9 @@
 
   var L = {
     /* Unit 1 · Foundations of Algebra */
-    'U1-L1': part([['F', 'evaluate', 1, 2]], 'Translating verbal phrases into expressions has no generator yet: add 3–4 phrases of your own to the notes.'),
+    'U1-L1': full([['F', 'verbal', 1, 7], ['F', 'evaluate', 1, 2]]),
     'U1-L2': full([['F', 'evaluate', 1, 7]]),
-    'U1-L3': none('Classifying real numbers has no generator yet. The practice below reviews evaluating expressions; add your own classification sort (Venn diagram of number sets).', [['F', 'evaluate', 1, 2]]),
+    'U1-L3': full([['F', 'real-numbers', 1, 7]]),
     'U1-L4': part([['F', 'evaluate', 2, 4]], 'Integer and fraction operations appear inside evaluating expressions; there is no generator for bare real-number arithmetic yet.'),
     'U1-L5': part([['F', 'distribute', 1, 3], ['F', 'like-terms', 1, 2]], 'Naming the property (commutative, associative, identity) has no generator yet; the problems use the properties.'),
     'U1-L6': full([['F', 'distribute', 1, 7], ['F', 'like-terms', 1, 7]]),
@@ -40,7 +40,7 @@
     'U2-L6': full([['E', 'model', 1, 7]]),
     'U2-L7': full([['E', 'proportion', 1, 7], ['E', 'percent', 1, 7]]),
     'U2-L8': full([['E', 'literal', 1, 7]]),
-    'U2-L9': none('Units and dimensional analysis have no generator yet. The practice below reviews formulas; add unit-conversion problems of your own.', [['E', 'literal', 3, 5]]),
+    'U2-L9': full([['E', 'units', 1, 7]]),
     /* Unit 3 · Linear Inequalities */
     'U3-L1': full([['I', 'graph-read', 1, 5], ['I', 'check-values', 1, 3], ['I', 'apply', 1, 2]]),
     'U3-L2': full([['I', 'ineq-solve', 1, 7]]),
@@ -66,7 +66,7 @@
     'U5-L6': full([['L', 'forms', 3, 3], ['L', 'write-line', 3, 4], ['L', 'write-line', 6, 6]]),
     'U5-L7': full([['L', 'write-line', 1, 7], ['R', 'linear-rule', 1, 7]]),
     'U5-L8': full([['L', 'parperp', 1, 7]]),
-    'U5-L9': none('Transformations of linear functions have no generator yet. The practice below reviews slope-intercept form; add 2–3 "how does the graph change" questions.', [['L', 'forms', 1, 3]]),
+    'U5-L9': full([['L', 'lin-transform', 1, 7]]),
     'U5-L10': full([['L', 'line-model', 1, 7]]),
     'U5-L11': part([['R', 'linear-rule', 1, 7], ['R', 'rate-of-change', 3, 5]], 'Comparing two functions given in different forms has no generator yet; pair two of the problems and ask which grows faster.'),
     /* Unit 6 · Systems of Equations and Inequalities */
@@ -103,7 +103,7 @@
     'U9-L3': full([['Y', 'poly-mult', 1, 1], ['Y', 'poly-mult', 3, 3]]),
     'U9-L4': full([['Y', 'poly-mult', 2, 2], ['Y', 'poly-mult', 4, 5]]),
     'U9-L5': full([['Y', 'poly-mult', 6, 7], ['Y', 'poly-special', 1, 7]]),
-    'U9-L6': part([['Y', 'poly-apply', 1, 7], ['Y', 'poly-divide', 1, 4]], 'Closure has no generator yet; add one "is the result a polynomial?" question.'),
+    'U9-L6': full([['Y', 'poly-closure', 1, 7], ['Y', 'poly-apply', 1, 7], ['Y', 'poly-divide', 1, 4]]),
     /* Unit 10 · Factoring and Zero Product Property */
     'U10-L1': full([['Z', 'gcf', 1, 2], ['Z', 'gcf', 4, 4]]),
     'U10-L2': full([['Z', 'gcf', 3, 3], ['Z', 'gcf', 5, 6]]),
@@ -134,7 +134,7 @@
     'U12-L4': full([['D', 'twoway', 1, 7]]),
     'U12-L5': full([['D', 'scatter', 1, 1]]),
     'U12-L6': full([['D', 'scatter', 2, 5]]),
-    'U12-L7': part([['D', 'scatter', 1, 1], ['D', 'regression', 2, 3]], 'Causation has no generator; add a "correlation or causation?" discussion.'),
+    'U12-L7': full([['D', 'causation', 1, 7], ['D', 'scatter', 1, 1], ['D', 'regression', 2, 3]]),
     'U12-L8': full([['D', 'scatter', 4, 4], ['D', 'scatter', 6, 7], ['D', 'regression', 4, 7]]),
   };
   /* Day 2's diagnostic (and Do Nows that point back to it): pre-algebra readiness. */

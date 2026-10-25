@@ -347,6 +347,13 @@ verifier reads back). Exponents: simplifying square roots. Exponential Functions
 Polynomials: dividing by a binomial. Factoring: two variables and sums/differences of cubes. Quadratics: graphing by hand, transformations in
 words, quadratic models and regression. Statistics: standard deviation, histograms, least-squares regression and r. Answers that depend on a
 calculator are computed by the verifier from the printed data and must match the printed rounding instruction.
+
+**Last lesson gaps closed (2026-10-25):** Foundations: classifying real numbers (the verifier classifies each printed number itself) and
+writing expressions from verbal phrases, both ways (the verifier reads the English phrase). Solving Linear Equations: units and dimensional
+analysis (the verifier keeps its own conversion table). Linear Functions: transformations of ⟨f(x)=mx+b⟩ in words and ⟨f(x−h)⟩.
+Polynomials: closure, “is the result a polynomial?” (the verifier divides the printed expression itself). Statistics: correlation vs
+causation: observational study or experiment, lurking variables (from the verifier's own table of studies), which study can show cause.
+With these, every Algebra 1 lesson in the Lesson Planner has at least partial generator coverage.
 A skill that cannot produce a verified problem at a requested difficulty is
 flagged in red with a reason; it is never silently replaced.
 

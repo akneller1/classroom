@@ -947,10 +947,124 @@
     }
   });
 
+  /* ============================================================
+     NUMBER · Classify real numbers   (the verifier classifies each printed number itself)
+     ============================================================ */
+  var SETNAMES = ['natural', 'whole', 'integer', 'rational', 'irrational', 'real'];
+  /* a printed number and the sets it belongs to: {tex, sets:[…]} */
+  function numObj(kind, r) {
+    var t, s;
+    if (kind === 'nat') { t = String(r.int(1, 40)); s = ['natural', 'whole', 'integer', 'rational', 'real']; }
+    else if (kind === 'zero') { t = '0'; s = ['whole', 'integer', 'rational', 'real']; }
+    else if (kind === 'negint') { t = String(-r.int(1, 30)); s = ['integer', 'rational', 'real']; }
+    else if (kind === 'frac') { var d = r.int(2, 9), n = r.int(1, 20) * r.sign(); need(gcd(Math.abs(n), d) === 1); t = (n < 0 ? '-' : '') + '\\frac{' + Math.abs(n) + '}{' + d + '}'; s = ['rational', 'real']; }
+    else if (kind === 'fracint') { var d2 = r.int(2, 6), q = r.int(2, 8) * r.sign(); t = (q < 0 ? '-' : '') + '\\frac{' + Math.abs(q * d2) + '}{' + d2 + '}'; s = q > 0 ? ['natural', 'whole', 'integer', 'rational', 'real'] : ['integer', 'rational', 'real']; }
+    else if (kind === 'dec') { t = (r.chance(0.3) ? '-' : '') + r.int(0, 9) + '.' + r.pick(['25', '5', '75', '125', '4', '05', '36']); s = ['rational', 'real']; }
+    else if (kind === 'rep') { t = (r.chance(0.3) ? '-' : '') + r.int(0, 9) + '.\\overline{' + r.pick(['3', '6', '1', '27', '45', '142857']) + '}'; s = ['rational', 'real']; }
+    else if (kind === 'sqsq') { var k = r.int(2, 12); t = (r.chance(0.3) ? '-' : '') + '\\sqrt{' + k * k + '}'; s = t[0] === '-' ? ['integer', 'rational', 'real'] : ['natural', 'whole', 'integer', 'rational', 'real']; }
+    else if (kind === 'sqrt') { var m = r.pick([2, 3, 5, 6, 7, 8, 10, 11, 12, 15, 20]); t = (r.chance(0.3) ? '-' : '') + '\\sqrt{' + m + '}'; s = ['irrational', 'real']; }
+    else if (kind === 'pi') { t = r.pick(['\\pi', '2\\pi', '-\\pi', '\\frac{\\pi}{2}']); s = ['irrational', 'real']; }
+    else { var a = r.int(1, 7), b = r.int(2, 9); need(gcd(a, b) === 1); t = '\\sqrt{\\frac{' + a * a + '}{' + b * b + '}}'; s = ['rational', 'real']; }
+    return { tex: t, sets: s };
+  }
+  function setWords(s) { return s.map(function (w) { return w === 'integer' ? 'integer' : w; }).join(', '); }
+  skill({
+    id: 'real-numbers', best: [0, 1], tag: 'NUMBER', name: 'Classify real numbers',
+    blurb: 'Natural, whole and integers (CP2) → fractions, decimals, repeating decimals and square roots (CP1) → numbers in disguise such as −12/4 and √(4/9), choosing the irrational numbers from a list (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [];
+      var KINDS = [null, ['nat', 'zero', 'negint'], ['negint', 'frac'], ['dec', 'rep', 'frac'], ['sqsq', 'sqrt', 'rep'], ['fracint', 'sqfrac', 'pi', 'sqsq']];
+      if (c <= 5) {
+        var o = numObj(r.pick(KINDS[c]), r), ans = o.sets.map(function (w) { return w.charAt(0).toUpperCase() + w.slice(1); });
+        steps.push(step(o.sets.indexOf('irrational') >= 0 ? 'It cannot be written as a fraction of integers (its decimal never ends or repeats): irrational.' : 'It can be written as a fraction of integers: rational.', '', 2));
+        steps.push(step('Check each smaller set: natural (1, 2, 3, …), whole (0, 1, 2, …), integers (…, −1, 0, 1, …). Every number here is real.', '', 2));
+        return { variant: 'rn' + c, prompt: 'Name every set the number ' + M(o.tex) + ' belongs to: natural, whole, integer, rational, irrational, real.', parts: [{ answer: ans.join(', '), check: { type: 'num-class', num: o.tex } }], steps: steps, space: [0.5, 0.6, 0.7] };
+      }
+      var want = c === 6 ? 'irrational' : r.pick(['integer', 'rational']), list = [], kinds = ['nat', 'negint', 'frac', 'fracint', 'dec', 'rep', 'sqsq', 'sqrt', 'pi', 'sqfrac'];
+      r.shuffle(kinds).slice(0, 6).forEach(function (k) { list.push(numObj(k, r)); });
+      var texs = list.map(function (o) { return o.tex; }); need(new Set(texs).size === 6);
+      var yes = list.filter(function (o) { return o.sets.indexOf(want) >= 0 && (want !== 'rational' || o.sets.indexOf('integer') < 0); }); need(yes.length >= 1 && yes.length <= 4);
+      var qw = want === 'rational' ? 'rational but NOT integers' : want === 'integer' ? 'integers' : 'irrational';
+      steps.push(step('Rewrite each number in its simplest form first (for example ⟨\\sqrt{25}=5⟩, ⟨-\\frac{12}{4}=-3⟩).', '', 2), step('Then test each one.', '', 2));
+      return { variant: 'rn-list-' + want, prompt: 'Which of these numbers are ' + qw + '? ' + texs.map(M).join(', '), parts: [{ answer: yes.map(function (o) { return M(o.tex); }).join(', '), check: { type: 'num-class', list: texs, want: want === 'rational' ? 'rational-not-integer' : want } }], steps: steps, space: [0.5, 0.6, 0.7] };
+    }
+  });
+
+  /* ============================================================
+     WORDS · Verbal phrases → expressions   (the verifier reads the English itself)
+     ============================================================ */
+  var NWORD = { 2: 'twice', 3: 'three times', 4: 'four times', 5: 'five times', 6: 'six times' };
+  function vphrase(r, c, v) {   // returns [english, tex]
+    var a = r.int(2, 12), b = r.int(2, 9), k = r.int(2, 6), V = 'a number ' + v;
+    var simple = [['the sum of ' + V + ' and ' + a, v + '+' + a], [V + ' increased by ' + a, v + '+' + a], ['the product of ' + k + ' and ' + V, k + v],
+      [a + ' more than ' + V, v + '+' + a]];
+    var two = [[a + ' less than ' + V, v + '-' + a], ['the difference of ' + V + ' and ' + a, v + '-' + a], ['the quotient of ' + V + ' and ' + k, '\\frac{' + v + '}{' + k + '}'], [V + ' decreased by ' + a, v + '-' + a]];
+    var ops = [[a + ' less than ' + NWORD[k] + ' ' + V, k + v + '-' + a], [a + ' more than ' + NWORD[k] + ' ' + V, k + v + '+' + a], [NWORD[k] + ' ' + V + ' decreased by ' + a, k + v + '-' + a], ['the quotient of ' + V + ' and ' + k + ', increased by ' + a, '\\frac{' + v + '}{' + k + '}+' + a]];
+    var grp = [['the product of ' + k + ' and the sum of ' + V + ' and ' + a, k + '(' + v + '+' + a + ')'], [NWORD[k] + ' the difference of ' + V + ' and ' + a, k + '(' + v + '-' + a + ')'], ['the product of ' + k + ' and the difference of ' + V + ' and ' + a, k + '(' + v + '-' + a + ')']];
+    var sq = [[a + ' less than the square of ' + V, v + '^2-' + a], ['the square of the sum of ' + V + ' and ' + b, '(' + v + '+' + b + ')^2'], ['the sum of the square of ' + V + ' and ' + a, v + '^2+' + a]];
+    var twov = [['the sum of ' + NWORD[k] + ' x and ' + NWORD[b > 6 ? 3 : b] + ' y', k + 'x+' + (b > 6 ? 3 : b) + 'y'], ['the product of x and y, decreased by ' + a, 'xy-' + a], ['the quotient of x and the sum of y and ' + a, '\\frac{x}{y+' + a + '}']];
+    var pool = c === 1 ? simple : c === 2 ? two : c === 3 ? ops : c === 4 ? grp : c === 5 ? sq : twov;
+    return r.pick(pool);
+  }
+  skill({
+    id: 'verbal', best: [0, 1], tag: 'WORDS', name: 'Write expressions from words',
+    blurb: 'Sum, difference, product, quotient (CP2) → “less than”, two operations (CP1) → grouping, squares, two variables, and writing the words for an expression (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, v = r.pick(['n', 'x', 'm', 't']), steps = [];
+      if (c === 6) v = 'n';
+      var ph = vphrase(r, Math.min(c, 6), c >= 6 ? 'x' : v), eng = ph[0], tex = ph[1];
+      if (c === 7) {   // write the words for an expression; the verifier reads the student's words
+        var p7 = vphrase(r, r.int(3, 4), 'n');
+        steps.push(step('Read the expression from the outside in: the last operation names the phrase.', '', 2), step('One correct phrase:', '', 2));
+        return { variant: 'vb7', prompt: 'Write a verbal phrase for the expression ' + M(p7[1]) + '. Use “a number n” for the variable.', parts: [{ answer: p7[0].charAt(0).toUpperCase() + p7[0].slice(1) + '.', check: { type: 'verbal-words', expr: p7[1] } }], steps: steps, space: [0.5, 0.6, 0.7] };
+      }
+      steps.push(step('“' + (/less than/.test(eng) ? 'Less than' : /more than/.test(eng) ? 'More than' : 'The phrase') + '” tells you the order: write each part, then the operation.', tex, 3));
+      return { variant: 'vb' + c, prompt: 'Write an algebraic expression for “' + eng + '”.', parts: [{ answer: M(tex), check: { type: 'verbal-expr' } }], steps: steps, space: [0.4, 0.5, 0.6] };
+    }
+  });
+
+  /* ============================================================
+     MODEL · Units and dimensional analysis
+     ============================================================ */
+  var CONV = [['feet', 'inches', 12], ['yards', 'feet', 3], ['miles', 'feet', 5280], ['meters', 'centimeters', 100], ['kilometers', 'meters', 1000], ['hours', 'minutes', 60], ['minutes', 'seconds', 60],
+    ['gallons', 'quarts', 4], ['quarts', 'pints', 2], ['pints', 'cups', 2], ['pounds', 'ounces', 16], ['kilograms', 'grams', 1000]];
+  var TWO = [['yards', 'inches'], ['gallons', 'cups'], ['hours', 'seconds'], ['miles', 'inches'], ['gallons', 'pints'], ['kilometers', 'centimeters']];
+  function factor(from, to) {   // to-units per from-unit, by following the table
+    var f = {}; CONV.forEach(function (c) { f[c[0] + '>' + c[1]] = c[2]; f[c[1] + '>' + c[0]] = 1 / c[2]; });
+    if (f[from + '>' + to]) return f[from + '>' + to];
+    var mids = Object.keys(f).filter(function (k) { return k.indexOf(from + '>') === 0; });
+    for (var i = 0; i < mids.length; i++) { var mid = mids[i].split('>')[1]; if (f[mid + '>' + to]) return f[mids[i]] * f[mid + '>' + to];
+      var m2 = Object.keys(f).filter(function (k) { return k.indexOf(mid + '>') === 0; }); for (var j = 0; j < m2.length; j++) { var mm = m2[j].split('>')[1]; if (mm !== from && f[mm + '>' + to]) return f[mids[i]] * f[m2[j]] * f[mm + '>' + to]; } }
+    throw new WS.gen.Reject('no path');
+  }
+  function r1(x) { return Math.round(x * 10) / 10; }
+  skill({
+    id: 'units', best: [0, 1, 2], tag: 'MODEL', name: 'Units and dimensional analysis',
+    blurb: 'One conversion factor (CP2) → two factors, rates such as miles per hour (CP1) → converting both units of a rate, square units (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], q, from, to, val, ans, prompt;
+      if (c <= 2) { var cv = r.pick(CONV); from = c === 1 ? cv[0] : cv[1]; to = c === 1 ? cv[1] : cv[0]; q = c === 1 ? r.int(2, 15) : cv[2] * r.int(2, 12); val = q * factor(from, to);
+        prompt = 'Convert ' + q + ' ' + from + ' to ' + to + '.'; ans = String(val) + ' ' + to;
+        steps.push(step('Multiply by a conversion factor that cancels ' + from + '.', q + '\\cdot\\frac{' + (c === 1 ? cv[2] + '\\text{ ' + to + '}' : '1\\text{ ' + to + '}') + '}{' + (c === 1 ? '1\\text{ ' + from + '}' : cv[2] + '\\text{ ' + from + '}') + '}=' + val, 3)); }
+      else if (c === 3) { var tw = r.pick(TWO); from = tw[0]; to = tw[1]; q = r.int(2, 9); val = q * factor(from, to); need(val <= 2000000);
+        prompt = 'Convert ' + q + ' ' + from + ' to ' + to + '.'; ans = String(val) + ' ' + to; steps.push(step('Chain two conversion factors so the units cancel.', '', 2), step('Result: ' + val + ' ' + to + '.', '', 2)); }
+      else if (c === 4) { var rate = r.int(2, 12) * 60, unit = r.pick(['miles', 'gallons', 'pages', 'meters']); val = rate / 60;
+        prompt = 'A machine works at ' + rate + ' ' + unit + ' per hour. Convert this rate to ' + unit + ' per minute.'; ans = val + ' ' + unit + ' per minute';
+        steps.push(step('Divide by 60 because 1 hour = 60 minutes.', '\\frac{' + rate + '}{60}=' + val, 3)); }
+      else if (c === 5 || c === 6) { var mph = c === 5 ? r.int(10, 75) : r.int(20, 120), km = c === 6; val = km ? mph * 1000 / 3600 : mph * 5280 / 3600; need(Math.abs(val * 10 - Math.floor(val * 10) - 0.5) > 1e-6);
+        prompt = 'Convert ' + mph + (km ? ' kilometers per hour to meters per second' : ' miles per hour to feet per second') + '. Round to the nearest tenth.'; ans = r1(val) + (km ? ' meters per second' : ' feet per second');
+        steps.push(step('Change the distance unit (×' + (km ? 1000 : 5280) + ') and the time unit (÷3600).', mph + '\\cdot\\frac{' + (km ? 1000 : 5280) + '}{3600}\\approx ' + r1(val), 3)); }
+      else { var sq = r.pick([['square feet', 'square inches', 144], ['square yards', 'square feet', 9], ['square meters', 'square centimeters', 10000]]); q = r.int(2, 30); val = q * sq[2];
+        prompt = 'Convert ' + q + ' ' + sq[0] + ' to ' + sq[1] + '.'; ans = val + ' ' + sq[1];
+        steps.push(step('A square unit converts by the factor twice (the factor squared): ' + Math.sqrt(sq[2]) + '² = ' + sq[2] + '.', q + '\\cdot ' + sq[2] + '=' + val, 3)); }
+      return { variant: 'un' + c, prompt: prompt, parts: [{ answer: ans, check: { type: 'units' } }], steps: steps, space: [0.6, 0.8, 1.0] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Solving Linear Equations',
     title: 'The Equation Bistro',
-    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', SOLVE: 'Solve equations', LITERAL: 'Literal equations', MODEL: 'Model with equations' },
+    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', SOLVE: 'Solve equations', LITERAL: 'Literal equations', MODEL: 'Model with equations', NUMBER: 'Real numbers', WORDS: 'Expressions from words' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Properties</h4><p>Distributive: ⟨a(b+c)=ab+ac⟩</p><p>Combine like terms: ⟨3x+5x=8x⟩, but ⟨3x+5y⟩ stays as it is.</p><p>Subtracting a group changes every sign: ⟨-(x-4)=-x+4⟩</p></section>' +
@@ -968,15 +1082,15 @@
   NS.registerSkillSet({
     id: 'algebra1-foundations', course: 'algebra1', courseName: 'Algebra 1', unit: 'foundations-algebra', unitName: 'Foundations of Algebra',
     title: 'The Expression Café',
-    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', MODEL: 'Percent' },
+    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', MODEL: 'Percent', NUMBER: 'Real numbers', WORDS: 'Expressions from words' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Order of operations</h4><p>Grouping symbols → exponents → multiply and divide (left to right) → add and subtract (left to right).</p></section>' +
       '<section><h4>Properties</h4><p>Distributive: ⟨a(b+c)=ab+ac⟩</p><p>Combine like terms: ⟨3x+5x=8x⟩, but ⟨3x+5y⟩ stays as it is.</p><p>Subtracting a group changes every sign: ⟨-(x-4)=-x+4⟩</p></section>' +
       '<section><h4>Evaluating</h4><p>Replace each variable with its value in parentheses: if ⟨x=-3⟩, then ⟨x^2=(-3)^2=9⟩.</p></section></div>',
     gaps: [
-      'Real-number classification, properties by name, and translating words to expressions are not generated yet. Use Add → Write your own problem.'
+      'Naming properties (commutative, associative, identity) is not generated yet. Use Add → Write your own problem.'
     ],
-    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate', 'expr-error', 'percent'].indexOf(s.id) >= 0; })
+    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate', 'expr-error', 'percent', 'real-numbers', 'verbal'].indexOf(s.id) >= 0; })
   });
 })(typeof window !== 'undefined' ? window : globalThis);

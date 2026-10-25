@@ -185,6 +185,16 @@ function complexity(p) {
     if (t === 'stat' && /^sd/.test(pt.check.want)) score += pt.check.want === 'sd' ? 8 + (pt.check.round === 2 ? 2 : 0) + (pt.check.transform === 'add' ? 6 : pt.check.transform === 'mul' ? 8 : 0) + (pt.check.data ? 0 : 12) : 0;
     if (t === 'hist') { const w = pt.check.want, pr = p.prompt; score += w === 'count' ? (/in all/.test(pr) ? 6 : /at least|less than/.test(pr) ? 9 : 1) : w === 'percent' ? 12 + 2 * pt.check.round : w === 'median-bin' ? 18 : 22; }
     if (t === 'lsrl') score += ({ use: 8, describe: 16, r: 34, line: 33, predict: 10, residual: 14 })[pt.check.want] || 0;
+    // the last lesson gaps: real numbers, verbal phrases, units, linear transformations, closure, causation
+    if (t === 'num-class') { const one = x => 2 + (/\\sqrt/.test(x) ? 7 : 0) + (/\\overline/.test(x) ? 5 : 0) + (/\\frac/.test(x) ? 3 : 0) + (/\\pi/.test(x) ? 5 : 0) + (/\./.test(x) ? 3 : 0) + (/^-/.test(x) ? 1 : 0) + (/\\sqrt\{\\frac/.test(x) ? 4 : 0);
+      score += pt.check.list ? 20 + pt.check.list.reduce((n, x) => n + one(x) / 2, 0) : one(pt.check.num); }
+    if (t === 'verbal-expr' || t === 'verbal-words') { const tx = t === 'verbal-words' ? pt.check.expr : (C.snippets(pt.answer)[0] || ''), letters = new Set((tx.replace(/\\[a-z]+/g, '').match(/[a-z]/g) || []));
+      score += 4 + (/\\frac/.test(tx) ? 4 : 0) + (/\d[a-z]/.test(tx) ? 3 : 0) + (/\(/.test(tx) ? 9 : 0) + (/\^/.test(tx) ? 9 : 0) + (letters.size > 1 ? 9 : 0) + (t === 'verbal-words' ? 18 : 0); }
+    if (t === 'units') { const w = C.plainText(p.prompt); score += 4 + (/square/.test(w) ? 26 : /per hour to \w+ per second/.test(w) ? 16 + (/kilometers/.test(w) ? 2 : 0) : / per /.test(w) ? 10 : /yards to inches|gallons to cups|hours to seconds|miles to inches|gallons to pints|kilometers to centimeters/.test(w) ? 7 : 0) + (/Round/.test(w) ? 4 : 0);
+      const nums = C.numbersInText(p.prompt).concat(C.numbersInText(pt.answer)); if (nums.length >= 2 && Number(nums[nums.length - 1].n) * Number(nums[0].d) < Number(nums[0].n) * Number(nums[nums.length - 1].d)) score += 2; }
+    if (t === 'lin-transform') { const w = pt.check.want, a = C.plainText(pt.answer).toLowerCase(); score += w === 'describe' ? 3 * ((a.match(/shift|steeper|less steep|reflect/g) || []).length) + (/reflect/.test(a) ? 4 : 0) : ({ 'shift-eq': 14, 'h-eq': 16, 'h-words': 6 })[w] || 0; }
+    if (t === 'poly-closure' && pt.check.want === 'result') { const ex = pt.check.expr; score += /^\\frac/.test(ex) ? (/\}\{[^}]*[+-]/.test(ex) ? 30 : 18) + (/\\frac/.test(pt.answer) ? 6 : 0) : /\\right\)\\left\(/.test(ex) ? 16 : /\\left\(/.test(ex) && !/^\\left/.test(ex) ? 14 : /\\right\)-/.test(ex) ? 2 : 0; }
+    if (t === 'causation') score += ({ cause: 4, lurk: 6, type: 10, why: 5, which: 10 })[pt.check.want] || 0;
     // graphing by hand: what must be drawn (the key graph is not in the student's text)
     if (t === 'graph-key') { const n = (pt.check.ineqs || pt.check.eqs).length, fr = /\\frac/.test((pt.check.ineqs || pt.check.eqs).join(' ')), sf = (pt.check.ineqs || []).some(e => !/^y/.test(e)); score += pt.check.eqs ? 14 : 6 + 14 * (n - 1) + (fr ? 6 : 0) + (sf ? 8 : 0) + (/\\le|\\ge/.test((pt.check.ineqs || []).join(' ')) ? 0 : 2); }
     // parabolas by hand, transformations and quadratic models

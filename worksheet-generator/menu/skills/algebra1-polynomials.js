@@ -169,6 +169,44 @@
     }
   });
 
+  /* ================= CLASSIFY · closure ================= */
+  var OPN = { add: 'addition', sub: 'subtraction', mul: 'multiplication', div: 'division' };
+  skill({
+    id: 'poly-closure', print: ['error', 'who', 'stations'], best: [0, 1, 2], tag: 'CLASSIFY', name: 'Closure: is the result a polynomial?',
+    blurb: 'Add or subtract two polynomials and decide whether the result is a polynomial (CP2) → multiply, divide by a monomial that divides evenly (CP1) → divisions that leave a variable in a denominator (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], x = r.pick(['x', 'x', 'n', 'a', 't']), op, e, ans, closed = true;
+      if (c <= 2) { op = c === 1 ? 'add' : 'sub';
+        var A = randPoly(r, r.int(2, 3), r.int(2, 3), -9, 9), B = randPoly(r, r.int(1, 3), r.int(2, 3), -9, 9), S = add(A, B, op === 'add' ? 1 : -1); need(S.length >= 2);
+        e = P(tex(A, x)) + (op === 'add' ? '+' : '-') + P(tex(B, x)); ans = tex(S, x);
+        steps.push(step(op === 'add' ? 'Combine like terms.' : 'Distribute the negative sign, then combine like terms.', ans, 3)); }
+      else if (c <= 4) { op = 'mul';
+        var m = c === 3 ? [[nz(r, -6, 6), r.int(1, 2), 0]] : lin(r.int(1, 3), nz(r, -7, 7)), B2 = c === 3 ? randPoly(r, r.int(1, 2), r.int(2, 3), -7, 7) : lin(nz(r, -4, 4), nz(r, -7, 7)), Pr = mul(m, B2);
+        e = (c === 3 ? tex(m, x) : P(tex(m, x))) + P(tex(B2, x)); ans = tex(Pr, x);
+        steps.push(step(c === 3 ? 'Multiply the monomial by every term.' : 'Multiply every term by every term, then combine like terms.', ans, 3)); }
+      else if (c <= 6) { op = 'div';
+        var dm = [[r.int(2, 5), r.int(1, 2), 0]], Qt = randPoly(r, r.int(1, 3), r.int(2, 3), -6, 6), N = mul(dm, Qt);
+        if (c === 6) { var extra = nz(r, -9, 9); N = add(N, [[extra, 0, 0]]); }
+        e = '\\frac{' + tex(N, x) + '}{' + tex(dm, x) + '}';
+        if (c === 5) { ans = tex(Qt, x); steps.push(step('Divide every term by the monomial.', ans, 3)); }
+        else { closed = false; var ex2 = N.filter(function (t) { return t[1] === 0; })[0][0];
+          var qq = Qt, g = Math.abs(gcd(ex2, dm[0][0])), rn = ex2 / g, rd = dm[0][0] / g, dt = (rd === 1 ? '' : rd) + vp(x, dm[0][1]);
+          ans = tex(qq, x) + (rn < 0 ? '-' : '+') + '\\frac{' + Math.abs(rn) + '}{' + dt + '}';
+          steps.push(step('Divide every term by the monomial. The constant term leaves ' + M(x) + ' in a denominator.', ans, 3)); } }
+      else { op = 'div'; closed = false;
+        var a7 = nz(r, -6, 6), D7 = [[1, 1, 0], [a7, 0, 0]], Q7 = lin(1, nz(r, -8, 8)), rem = nz(r, -9, 9), N7 = add(mul(Q7, D7), [[rem, 0, 0]]); need(N7.length === 3);
+        e = '\\frac{' + tex(N7, x) + '}{' + tex(D7, x) + '}'; ans = tex(Q7, x) + (rem < 0 ? '-' : '+') + '\\frac{' + Math.abs(rem) + '}{' + tex(D7, x) + '}';
+        steps.push(step('Long division leaves a remainder of ' + rem + '.', ans, 3)); }
+      var why = closed ? (op === 'div' ? 'Yes. Every term divided evenly, so the quotient is a polynomial (but division is not always closed).' : 'Yes. Polynomials are closed under ' + OPN[op] + '.')
+        : 'No. The result has the variable in a denominator, so it is not a polynomial. Polynomials are not closed under division.';
+      steps.push(step(closed ? 'The result has whole-number exponents and no variable in a denominator.' : 'A variable in a denominator means a negative exponent.', '', 1));
+      return { variant: 'clo' + c, prompt: 'Simplify ' + M(e) + '.', parts: [
+        { label: 'a', prompt: c >= 6 ? 'Write the result as a polynomial plus a fraction.' : 'Write the result in standard form.', answer: M(ans), check: { type: 'poly-closure', want: 'result', expr: e } },
+        { label: 'b', prompt: 'Is the result a polynomial? Explain.', answer: why, check: { type: 'poly-closure', want: 'closed', expr: e, v: x } }], steps: steps, space: [0.8, 1.0, 1.2] };
+      function gcd(p, q) { p = Math.abs(p); q = Math.abs(q); while (q) { var t = p % q; p = q; q = t; } return p; }
+    }
+  });
+
   /* ================= DIVIDE · by a binomial ================= */
   function remTerm(rm, D) { return rm === 0 ? '' : (rm < 0 ? '-' : '+') + '\\frac{' + Math.abs(rm) + '}{' + tex(D) + '}'; }
   skill({
@@ -195,7 +233,7 @@
   NS.registerSkillSet({
     id: 'algebra1-polynomials', course: 'algebra1', courseName: 'Algebra 1', unit: 'polynomials-factoring', unitName: 'Polynomials',
     title: 'The Polynomial Pizzeria',
-    tags: { CLASSIFY: 'Classify polynomials', ADDSUB: 'Add and subtract', MULT: 'Multiply', SPECIAL: 'Special products', APPLY: 'Divide by a monomial; geometry', DIVIDE: 'Divide by a binomial' },
+    tags: { CLASSIFY: 'Classify polynomials; closure', ADDSUB: 'Add and subtract', MULT: 'Multiply', SPECIAL: 'Special products', APPLY: 'Divide by a monomial; geometry', DIVIDE: 'Divide by a binomial' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Names</h4><p>Terms: monomial (1), binomial (2), trinomial (3). Degree: linear (1), quadratic (2), cubic (3), quartic (4), quintic (5).</p></section>' +

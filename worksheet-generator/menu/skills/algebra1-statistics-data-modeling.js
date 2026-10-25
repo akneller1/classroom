@@ -342,10 +342,67 @@
     }
   });
 
+  /* ================= SCATTER · correlation and causation ================= */
+  // observational studies: who was studied, the two variables, the sign of the correlation, a lurking variable
+  var OBS = [
+    ['months at a beach town', 'ice cream sales', 'the number of drownings', 1, 'Hot weather (temperature): more people swim and buy ice cream in summer.', 'buying ice cream causes drownings'],
+    ['elementary school students', 'shoe size', 'reading score', 1, 'Age: older students have bigger feet and read better.', 'bigger feet cause better reading'],
+    ['house fires', 'the number of firefighters sent', 'the amount of damage', 1, 'The size of the fire: bigger fires get more firefighters and cause more damage.', 'sending more firefighters causes more damage'],
+    ['countries', 'the number of TVs per household', 'life expectancy', 1, 'Wealth (income): richer countries have more TVs and better health care.', 'owning TVs makes people live longer'],
+    ['cities', 'the number of churches', 'the number of crimes', 1, 'Population: bigger cities have more churches and more crimes.', 'churches cause crime'],
+    ['days in one city', 'umbrellas sold', 'car accidents', 1, 'Rain (the weather): rainy days bring umbrella sales and slippery roads.', 'selling umbrellas causes car accidents'],
+    ['weeks of the year', 'hot chocolate sales', 'flu cases', 1, 'Cold weather (winter): people drink hot chocolate and catch the flu in winter.', 'hot chocolate causes the flu'],
+    ['used cars', 'the number of miles driven', 'the price', -1, 'Age of the car: older cars have more miles and sell for less.', 'driving more miles lowers the price'],
+    ['towns', 'the number of swimming pools', 'the average temperature', 1, 'Location (climate): warm places build more pools.', 'building pools raises the temperature']];
+  // randomized experiments: what was assigned, the result, the claim
+  var EXP = [
+    ['tomato plants', 'either a new fertilizer or no fertilizer', 'The fertilized plants grew taller on average.', 'the fertilizer makes plants grow taller'],
+    ['students', 'either a flashcard app or no app for two weeks', 'The app group scored higher on a vocabulary quiz.', 'the app raises quiz scores'],
+    ['volunteers', 'to sleep either 5 hours or 8 hours', 'The 5-hour group had slower reaction times.', 'less sleep slows reaction time'],
+    ['patients with headaches', 'either a new pill or a placebo', 'More patients in the pill group reported relief.', 'the pill relieves headaches'],
+    ['runners', 'either a sports drink or water during a race', 'The sports-drink group finished faster on average.', 'the sports drink makes runners faster']];
+  function rStr(v) { return (v < 0 ? '-' : '') + String(Math.abs(v)).replace(/^0/, '0'); }
+  function obsText(o, n, rv) { return 'A study of ' + n + ' ' + o[0] + ' found ' + (rv === null ? 'a strong ' + (o[3] > 0 ? 'positive' : 'negative') + ' correlation' : 'a correlation of ' + M('r=' + rStr(rv))) + ' between ' + o[1] + ' and ' + o[2] + '.'; }
+  function expText(e, n) { return 'Researchers randomly assigned ' + n + ' ' + e[0] + (/^to /.test(e[1]) ? ' ' : ' to get ') + e[1] + '. ' + e[2]; }
+  var NO_WHY = 'No. Correlation does not show causation; a lurking variable could cause both.', YES_WHY = 'Yes. The subjects were randomly assigned, so the treatment is the likely cause.';
+  skill({
+    id: 'causation', print: ['who', 'stations'], best: [0, 1, 2], tag: 'SCATTER', name: 'Correlation and causation',
+    blurb: 'Does a correlation show causation? Name a lurking variable (CP2) → describe r, observational study or experiment (CP1) → compare two studies and decide which one can show cause and effect (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = [0, 1, 2, 4, 5, 3, 6, 7][ctx.c], steps = [], o = r.pick(OBS), e = r.pick(EXP), n = r.int(3, /months|weeks/.test(o[0]) ? 5 : 12) * 10, parts = [];
+      var rv = Math.round((r.int(c === 3 ? 30 : 75, 97) / 100) * 100) / 100 * o[3];
+      if (c <= 3) {
+        var t = obsText(o, n, c === 1 ? null : rv);
+        if (c === 3) parts.push({ label: 'a', prompt: 'Describe the strength and direction of the correlation (strong: |r| ≥ 0.8, moderate: 0.5 ≤ |r| < 0.8, weak: |r| < 0.5).', answer: strength(rv).charAt(0).toUpperCase() + strength(rv).slice(1), check: { type: 'lsrl', want: 'describe', r: 'r=' + rStr(rv) } });
+        parts.push({ label: c > 1 ? (c === 3 ? 'b' : 'a') : undefined, prompt: 'Does this show that ' + o[5] + '? Explain.', answer: NO_WHY, check: { type: 'causation', want: 'cause' } });
+        if (c >= 2) parts.push({ label: c === 3 ? 'c' : 'b', prompt: 'Name a lurking variable that could explain the correlation.', answer: o[4], check: { type: 'causation', want: 'lurk' } });
+        steps.push(step('An observational study only shows that the variables move together.', '', 2), step('Look for a third variable that could drive both.', '', 2));
+        if (c === 1) { parts[0].label = undefined; return out('cz1', t + ' ' + parts[0].prompt, [{ answer: NO_WHY, check: parts[0].check }], steps); }
+        return out('cz' + c, t, parts, steps);
+      }
+      if (c <= 6) {
+        var isExp = r.chance(0.5), t2 = isExp ? expText(e, n) : obsText(o, n, c === 6 ? rv : null), claim = isExp ? e[3] : o[5];
+        parts.push({ label: 'a', prompt: 'Is this an observational study or an experiment?', answer: isExp ? 'An experiment (the treatments were randomly assigned).' : 'An observational study (nothing was assigned).', check: { type: 'causation', want: 'type' } });
+        if (c === 6 && !isExp) parts.push({ label: 'b', prompt: 'Describe the strength and direction of the correlation (strong: |r| ≥ 0.8, moderate: 0.5 ≤ |r| < 0.8, weak: |r| < 0.5).', answer: strength(rv).charAt(0).toUpperCase() + strength(rv).slice(1), check: { type: 'lsrl', want: 'describe', r: 'r=' + rStr(rv) } });
+        parts.push({ label: String.fromCharCode(97 + parts.length), prompt: 'Can you conclude that ' + claim + '? Explain.', answer: isExp ? YES_WHY : NO_WHY, check: { type: 'causation', want: 'cause' } });
+        if (c >= 5) parts.push(isExp ? { label: String.fromCharCode(97 + parts.length), prompt: 'What part of the design makes a cause-and-effect conclusion possible?', answer: 'Random assignment: the groups are alike except for the treatment.', check: { type: 'causation', want: 'why' } }
+          : { label: String.fromCharCode(97 + parts.length), prompt: 'Name a lurking variable that could explain the correlation.', answer: o[4], check: { type: 'causation', want: 'lurk' } });
+        steps.push(step('Were the treatments randomly assigned? Then it is an experiment.', '', 2), step(isExp ? 'Random assignment lets you conclude cause and effect.' : 'Without random assignment, a lurking variable could explain the link.', '', 2));
+        return out('cz' + c + (isExp ? 'e' : 'o'), t2, parts, steps);
+      }
+      var expFirst = r.chance(0.5), sA = expFirst ? expText(e, n) : obsText(o, n, rv), sB = expFirst ? obsText(o, r.int(3, 12) * 10, rv) : expText(e, r.int(3, 12) * 10), win = expFirst ? 'A' : 'B';
+      parts.push({ label: 'a', prompt: 'Which study can show cause and effect? Explain.', answer: 'Study ' + win + ', because the subjects were randomly assigned.', check: { type: 'causation', want: 'which' } });
+      parts.push({ label: 'b', prompt: 'Describe the strength and direction of the correlation in Study ' + (win === 'A' ? 'B' : 'A') + ' (strong: |r| ≥ 0.8, moderate: 0.5 ≤ |r| < 0.8, weak: |r| < 0.5).', answer: strength(rv).charAt(0).toUpperCase() + strength(rv).slice(1), check: { type: 'lsrl', want: 'describe', r: 'r=' + rStr(rv) } });
+      parts.push({ label: 'c', prompt: 'For Study ' + (win === 'A' ? 'B' : 'A') + ', name a lurking variable that could explain the correlation.', answer: o[4], check: { type: 'causation', want: 'lurk' } });
+      steps.push(step('Only a randomized experiment can show cause and effect.', '', 2), step('In the observational study, look for a third variable.', '', 2));
+      return out('cz7', 'Study A: ' + sA + ' Study B: ' + sB, parts, steps);
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-statistics-data-modeling', course: 'algebra1', courseName: 'Algebra 1', unit: 'statistics-data-modeling', unitName: 'Statistics and Data Modeling',
     title: 'The Data Deli',
-    tags: { CENTER: 'Measures of center', SPREAD: 'Spread and outliers', DISPLAY: 'Box plots and histograms', TWOWAY: 'Two-way tables', SCATTER: 'Scatter plots and lines of fit' },
+    tags: { CENTER: 'Measures of center', SPREAD: 'Spread and outliers', DISPLAY: 'Box plots and histograms', TWOWAY: 'Two-way tables', SCATTER: 'Scatter plots, lines of fit; correlation vs causation' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Center</h4><p>Mean = sum ÷ count. Median = middle value (mean of the two middle values for an even count). Mode = most frequent.</p></section>' +

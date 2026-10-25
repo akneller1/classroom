@@ -26,8 +26,8 @@ test('impossible requirements are reported', () => {
   const c = cfg(); c.sections[1].required = 7;
   assert.ok(M.checkRules(c, null).errors.some(e => /only 6 are offered/.test(e)));
   const c2 = cfg(); c2.sections[0].points = 0; assert.ok(M.checkRules(c2, null).errors.some(e => /points/.test(e)));
-  const c3 = cfg(); c3.sections.forEach(s => { s.required = 1; }); // 3 picks, 5 categories
-  assert.ok(M.checkRules(c3, null).errors.some(e => /cover 5 skill categories/.test(e)));
+  const c3 = cfg(); c3.sections.forEach(s => { s.required = 1; }); // 3 picks, more categories than that
+  assert.ok(M.checkRules(c3, null).errors.some(e => /cover \d+ skill categories/.test(e)));
   const c4 = cfg(); c4.sections = []; assert.ok(M.checkRules(c4, null).errors.length);
   const c5 = cfg(); c5.sections[2].skills = ['nonexistent']; assert.ok(M.checkRules(c5, null).errors.some(e => /no skills/.test(e)));
 });
