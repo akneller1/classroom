@@ -151,12 +151,19 @@ def main():
                 if not any(re.search(r'-cheat-sheet/worksheet\.pdf$', a['path']) for a in arts): problems.append('%s/%s: no cheat sheet' % (c['id'], u['id']))
                 if not any(re.search(r'-escape-room/index\.html$', a['path']) for a in arts): problems.append('%s/%s: no escape room' % (c['id'], u['id']))
                 if not any('Detective game' in (a.get('topics') or []) for a in arts): problems.append('%s/%s: no detective game' % (c['id'], u['id']))
+        if c['id'] == 'algebra':   # every Algebra 1 unit opens the Daily Lesson Planner on that unit
+            for u in c['units']:
+                links = [a['path'] for a in u['artifacts'] if a['path'].startswith('worksheet-generator/lesson-planner.html')]
+                if len(links) != 1:
+                    problems.append('%s/%s: needs exactly one Daily Lesson Planner (found %d)' % (c['id'], u['id'], len(links)))
+                elif links[0].split('#unit=')[-1] not in skill_sets():
+                    problems.append('%s/%s: Daily Lesson Planner points at unknown skill set "%s"' % (c['id'], u['id'], links[0].split('#unit=')[-1]))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
-            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator'):
+            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator', 'daily lesson planner'):
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))
         for u in c['units']:
             for a in u['artifacts']:

@@ -37,6 +37,21 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-foundations",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-foundations",
               "thumb": "thumbs/worksheet-generator-foundations.svg",
@@ -279,6 +294,21 @@ window.LIBRARY = {
           "id": "expressions-equations",
           "name": "Solving Linear Equations",
           "artifacts": [
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-expressions-equations",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Solving Linear Equations",
+                "Unit 2"
+              ],
+              "added": "2026-10-25"
+            },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-expressions-equations",
@@ -527,6 +557,21 @@ window.LIBRARY = {
           "name": "Linear Inequalities",
           "artifacts": [
             {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-inequalities",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Linear Inequalities",
+                "Unit 3"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-inequalities",
               "thumb": "thumbs/worksheet-generator-inequalities.svg",
@@ -759,6 +804,21 @@ window.LIBRARY = {
           "id": "relations-functions",
           "name": "Relations and Functions",
           "artifacts": [
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-relations-functions",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Relations and Functions",
+                "Unit 4"
+              ],
+              "added": "2026-10-25"
+            },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-relations-functions",
@@ -998,6 +1058,21 @@ window.LIBRARY = {
           "id": "linear-equations-slope",
           "name": "Linear Functions and Graphing",
           "artifacts": [
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-linear-equations-slope",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Linear Functions and Graphing",
+                "Unit 5"
+              ],
+              "added": "2026-10-25"
+            },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-linear-equations-slope",
@@ -1243,6 +1318,21 @@ window.LIBRARY = {
           "id": "systems-of-equations",
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-systems-of-equations",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Systems of Equations and Inequalities",
+                "Unit 6"
+              ],
+              "added": "2026-10-25"
+            },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-systems-of-equations",
@@ -1528,6 +1618,21 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-exponents-scientific-notation",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Exponents and Scientific Notation",
+                "Unit 7"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/worksheet-generator-exponents-scientific-notation.svg",
@@ -1769,6 +1874,21 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-exponential-functions",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Exponential Functions",
+                "Unit 8"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/worksheet-generator-exponential-functions.svg",
@@ -2004,6 +2124,21 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-polynomials",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Polynomials",
+                "Unit 9"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-polynomials",
               "thumb": "thumbs/worksheet-generator-polynomials.svg",
@@ -2237,6 +2372,21 @@ window.LIBRARY = {
           "id": "factoring-zero-product",
           "name": "Factoring and Zero Product Property",
           "artifacts": [
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-factoring-zero-product",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Factoring and Zero Product Property",
+                "Unit 10"
+              ],
+              "added": "2026-10-25"
+            },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-factoring-zero-product",
@@ -2473,6 +2623,21 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-quadratics",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Quadratic Functions and Equations",
+                "Unit 11"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-quadratics",
               "thumb": "thumbs/worksheet-generator-quadratics.svg",
@@ -2704,6 +2869,21 @@ window.LIBRARY = {
           "id": "statistics-data-modeling",
           "name": "Statistics and Data Modeling",
           "artifacts": [
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=algebra1-statistics-data-modeling",
+              "thumb": "thumbs/lesson-planner.svg",
+              "description": "Plan any day of this unit from the 180-day scope and sequence: objectives, standards, vocabulary, sentence frame and common misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Print one student handout and a teacher key; every answer is checked.",
+              "type": "Planning",
+              "topics": [
+                "Lesson planner",
+                "Do Now",
+                "Exit ticket",
+                "Statistics and Data Modeling",
+                "Unit 12"
+              ],
+              "added": "2026-10-25"
+            },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=algebra1-statistics-data-modeling",

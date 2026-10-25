@@ -73,6 +73,7 @@
     return (Date.now() - t) < (L.newDays || 30) * 86400000;
   }
   var ACTIVITY_FORMATS = [
+    { id: 'lesson-planner', name: 'Daily Lesson Planner', description: 'Plan any of the 180 Algebra 1 days from the scope and sequence: objectives, vocabulary, sentence frame and misconception, plus a Do Now, worked examples, practice and an exit ticket at CP2, CP1 or Honors level. Prints a student handout and a teacher key with every answer checked.' },
     { id: 'worksheet-generator', name: 'Worksheet Generator', description: 'Build practice worksheets for any unit: choose skills and CP2, CP1 or Honors difficulty, short answer or multiple choice, up to three versions, and an answer key with worked solutions. Every answer is checked.' },
     { id: 'assessment-generator', name: 'Assessment Generator', description: 'Build a standard unit test (multiple choice and short answer) or a choice-based restaurant-menu assessment: pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys.' },
     { id: 'printable-generator', name: 'Printable Generators', description: 'Make a maze, color-by-number page, Tarsia puzzle, error analysis or partner check for any unit: CP2, CP1 or Honors, up to three versions, and an answer key with every answer checked.' },
@@ -96,6 +97,7 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra 1, Algebra 2, and Geometry.' }
   ];
   function activityFormat(a) {
+    if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
     if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
     if (/worksheet-generator\/menu-assessment/i.test(a.path || '')) return 'assessment-generator';
     if (/worksheet-generator\//i.test(a.path || '')) return 'worksheet-generator';
@@ -123,12 +125,13 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'generators', name: 'Generators', formats: ['worksheet-generator', 'assessment-generator', 'printable-generator'] },
+    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
+    'lesson-planner': 'Plan a day: Do Now, notes, practice and exit ticket from the 180-day scope and sequence.',
     'worksheet-generator': 'Choose skills and create customized printable worksheets with answer keys.',
     'assessment-generator': 'Build a test or a menu assessment with verified answer keys.',
     'printable-generator': 'Make mazes, color-by-number pages, Tarsia puzzles, error analysis and partner checks with answer keys.',
@@ -224,6 +227,7 @@
   function actionLabel(a) {
     var format = activityFormat(a);
     if (/worksheet-generator\/printables\.html/.test(a.path || '')) return 'Make printable';
+    if (format === 'lesson-planner') return 'Plan a day';
     if (format === 'worksheet-generator') return 'Create worksheet';
     if (format === 'assessment-generator') return 'Build assessment';
     if (format === 'cheat-sheets') return 'View study guide';
@@ -376,12 +380,14 @@
 
   function unitView(c, u) {
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
+    var planner = u.artifacts.filter(function (a) { return activityFormat(a) === 'lesson-planner'; })[0];
     var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];
     var menuGen = u.artifacts.filter(function (a) { return activityFormat(a) === 'assessment-generator'; })[0];
     var inner =
       crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
       '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
       '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>' +
+      (planner ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(planner)) + '">Plan a lesson</a><p>Pick any day of this unit: objectives, vocabulary, Do Now, notes, practice and exit ticket, printed as a student handout and a teacher key.</p></div>' : '') +
       (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '">Create a worksheet</a><p>Practice with short-answer or multiple-choice questions. Choose skills and CP2, CP1 or Honors difficulty; prints with an answer key.</p></div>' : '') +
       (menuGen ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(menuGen)) + '">Build an assessment</a><p>A standard test (multiple choice and short answer) or a choice menu. Choose skills and CP2, CP1 or Honors difficulty, then edit every problem before you print.</p></div>' : '');
     return {
@@ -545,6 +551,7 @@
       var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
     }).join('');
+    html += '<a href="worksheet-generator/lesson-planner.html">Lesson Planner</a>';
     html += '<a href="#activities"' + (r && (r.name === 'activities' || r.name === 'activity') ? ' aria-current="page"' : '') + '>Activities</a>';
     var curSaved = r && r.name === 'saved' ? ' aria-current="page"' : '';
     html += '<a href="#saved"' + curSaved + '>Saved' +
