@@ -25,7 +25,7 @@ An activity that covers two units goes in the unit it is mainly about; an even m
 `python3 scripts/check_library.py --fix` removes duplicate listings using the decisions in
 `scripts/library-placement.json`. The same check runs on GitHub after every change to `data.js`
 (the "Library check" action) and at the start of the menu generator tests.
-A unit that has the Assessment Generator does not also list a fixed assessment-menu PDF, and every
+Every Algebra 1 unit lists both the Worksheet Generator and the Assessment Generator, each pointing at a registered skill set (`#unit=<id>`). A unit that has the Assessment Generator does not also list a fixed assessment-menu PDF, and every
 Algebra flashcard deck has an Easy / Medium / Hard level menu (`python3 scripts/flashcard_levels.py <deck>/index.html`
 adds it to a hand-made deck); the check reports both.
 

@@ -9,6 +9,8 @@ Problems reported:
   * an Algebra flashcard deck without the Easy / Medium / Hard level menu
   * a fixed assessment-menu PDF in a unit that has the Assessment Generator
   * an old template worksheet generator in a unit that has the verified Worksheet Generator (worksheet.html)
+  * an Algebra 1 unit without the Worksheet Generator or the Assessment Generator, or a generator link to a
+    unit the generators do not know (#unit=<id> must be a registered skill set)
 
 Usage:
   python3 scripts/check_library.py          # report; exit code 1 if anything is wrong
@@ -19,7 +21,7 @@ An activity that covers two units goes to the unit its content is mainly about; 
 later unit (by then students have learned all of it). New duplicates without a decision are kept in the
 later unit and the decision is added to library-placement.json, so the same choice is made every time.
 """
-import json, os, sys, collections
+import json, os, re, sys, collections
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data.js')
@@ -34,6 +36,20 @@ def load():
 
 def save(head, d):
     open(DATA, 'w', encoding='utf-8').write(head + ' ' + json.dumps(d, indent=2, ensure_ascii=False) + ';\n')
+
+
+_SETS = None
+def skill_sets():
+    """Ids of the skill sets registered in worksheet-generator/menu/skills/*.js."""
+    global _SETS
+    if _SETS is None:
+        _SETS = set()
+        d = os.path.join(ROOT, 'worksheet-generator', 'menu', 'skills')
+        for f in os.listdir(d) if os.path.isdir(d) else []:
+            if f.endswith('.js'):
+                txt = open(os.path.join(d, f), encoding='utf-8').read()
+                _SETS.update(re.findall(r"registerSkillSet\(\{\s*id:\s*'([a-z0-9-]+)'", txt))
+    return _SETS
 
 
 def main():
@@ -85,6 +101,16 @@ def main():
                     p = a['path'].split('#')[0]
                     if (p.startswith('worksheet-generator/algebra1-') and p.endswith('.html')) or p == 'artifacts/worksheet-generator/index.html':
                         problems.append('%s/%s: old worksheet generator "%s" listed next to the Worksheet Generator (remove it)' % (c['id'], u['id'], a['title']))
+        if c['id'] == 'algebra':   # every Algebra 1 unit has both generators, pointing at a real skill set
+            for u in c['units']:
+                for page, name in (('worksheet.html', 'Worksheet Generator'), ('menu-assessment.html', 'Assessment Generator')):
+                    links = [a['path'] for a in u['artifacts'] if a['path'].startswith('worksheet-generator/' + page + '#unit=')]
+                    if not links:
+                        problems.append('%s/%s: no %s (add worksheet-generator/%s#unit=<skill set>)' % (c['id'], u['id'], name, page))
+                    for l in links:
+                        sid = l.split('#unit=')[1].split('&')[0]
+                        if sid not in skill_sets():
+                            problems.append('%s/%s: %s points at unknown skill set "%s"' % (c['id'], u['id'], name, sid))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
