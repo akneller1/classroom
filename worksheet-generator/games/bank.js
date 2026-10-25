@@ -64,8 +64,8 @@
     if (/^\s*Yes:/.test(ans)) out.push({ a: ans.replace(/^\s*Yes:/, 'No:'), w: 4 });
     if (/^\s*No:/.test(ans)) out.push({ a: ans.replace(/^\s*No:/, 'Yes:'), w: 4 });
     if (/^\s*(Median|Mean)\b/.test(ans)) out.push({ a: /^\s*Median/.test(ans) ? 'Mean, because it uses every value.' : 'Median, because the data have an outlier.', w: 4 });
-    if (/^\s*Yes\b/.test(ans) && !/^\s*Yes:/.test(ans)) out.push({ a: 'No, some input has two different outputs.', w: 4 });
-    if (/^\s*No\b/.test(ans) && !/^\s*No:/.test(ans)) out.push({ a: 'Yes, every input has exactly one output.', w: 4 });
+    if (/^\s*Yes\b/.test(ans) && !/^\s*Yes:/.test(ans) && !/solution/i.test(ans)) out.push({ a: 'No, some input has two different outputs.', w: 4 });
+    if (/^\s*No\b/.test(ans) && !/^\s*No:/.test(ans) && !/solution/i.test(ans)) out.push({ a: 'Yes, every input has exactly one output.', w: 4 });
     if (/^\s*Not linear/.test(ans)) out.push({ a: 'Linear: the y-values change by the same amount.', w: 1 });
     if (/\bfirst\b/.test(ans)) out.push({ a: ans.replace(/\bfirst\b/, 'second'), w: 4 });
     else if (/\bsecond\b/.test(ans)) out.push({ a: ans.replace(/\bsecond\b/, 'first'), w: 4 });
@@ -73,6 +73,13 @@
     if (/^\s*Linear\b/.test(ans)) { out.push({ a: 'Exponential: each y-value is ⟨' + k1 + '⟩ times the one before.', w: 4 }); out.push({ a: 'Neither: there is no constant difference or constant factor.', w: 2 }); }
     if (/^\s*Exponential\b/.test(ans)) { out.push({ a: 'Linear: the y-values change by ⟨' + k1 + '⟩ each time.', w: 4 }); out.push({ a: 'Neither: there is no constant difference or constant factor.', w: 2 }); }
     if (/^\s*Neither\b/.test(ans)) { out.push({ a: 'Linear: the y-values change by a constant amount.', w: 3 }); out.push({ a: 'Exponential: the y-values change by a constant factor.', w: 3 }); }
+    if (/\bincreases\b/.test(ans)) out.push({ a: ans.replace('increases', 'decreases'), w: 3 });
+    if (/\bdecreases\b/.test(ans)) out.push({ a: ans.replace('decreases', 'increases'), w: 3 });
+    var CW = [['One solution', 'One solution: the slopes are different.'], ['No solution', 'No solution: the lines are parallel.'], ['Infinitely many solutions', 'Infinitely many solutions: the equations describe the same line.']];
+    if (/^\s*(One solution|No solution|Infinitely many solutions)\b/.test(ans)) CW.forEach(function (cw) { if (ans.indexOf(cw[0]) !== 0) out.push({ a: cw[1], w: 4 }); });
+    if (/^\s*Undefined\b/.test(ans)) { out.push({ a: '⟨m=0⟩', w: 5 }); out.push({ a: '⟨m=1⟩', w: 1 }); }
+    if (/^⟨m=0⟩$/.test(ans.trim())) out.push({ a: 'Undefined', w: 5 });
+    ['Parallel', 'Perpendicular', 'Neither'].forEach(function (wd) { if (new RegExp('^\\s*(Parallel|Perpendicular|Neither)\\s*$').test(ans) && ans.trim() !== wd) out.push({ a: wd, w: 4 }); });
     if (/increased/.test(ans)) out.push({ a: ans.replace('increased', 'decreased'), w: 2 });
     if (/decreased/.test(ans)) out.push({ a: ans.replace('decreased', 'increased'), w: 2 });
     return out;
@@ -130,6 +137,12 @@
       else if (p.fig && p.fig.kind === 'boxplot') { var q = p.fig.boxes[ch0.box || 0].q; vals = [q[0], q[1], q[2], q[3], q[4], q[4] - q[0], q[3] - q[1], q[2] - q[1]]; }
       uniq(vals.map(r2)).forEach(function (v) { cands.push({ a: key.replace('⟨' + ks[0] + '⟩', '⟨' + String(v).replace(/^-/, '-') + '⟩'), w: 5 }); });
     }
+    // slopes: the reciprocal and the opposite (the parallel/perpendicular mix-up), also for unit fractions
+    if (ch0.type === 'slope' || ch0.type === 'line-eq') {
+      var fm = (ch0.type === 'slope' ? /(-?)\\frac\{(\d+)\}\{(\d+)\}/ : /(-?)\\frac\{(\d+)\}\{(\d+)\}(?=x)/).exec(key);
+      if (fm) { var rec = fm[2] === '1' ? fm[3] : '\\frac{' + fm[3] + '}{' + fm[2] + '}', opp = fm[1] ? '' : '-';
+        cands.push({ a: key.replace(fm[0], fm[1] + rec), w: 5 }); cands.push({ a: key.replace(fm[0], opp + rec), w: 5 }); cands.push({ a: key.replace(fm[0], opp + '\\frac{' + fm[2] + '}{' + fm[3] + '}'), w: 4 }); }
+    }
     if (ch0.type === 'stat-line' && ch0.want === 'over-under') cands.push({ a: key.replace(/under|over/, function (m) { return m === 'under' ? 'over' : 'under'; }), w: 5 });
     // a classic slip: the answer to another part of the same problem (the range given as the domain)
     p.parts.forEach(function (o, j) {
@@ -160,15 +173,22 @@
     if (t === 'factor' && /^\s*prime\b/i.test(part.answer)) return 'factor';
     if (/^\s*-?\d+(\.\d+)?%\s*$/.test(part.answer)) return 'percent';
     if (t === 'stat' && /better|compare/.test(ch.want) || t === 'scatter-corr' || (t === 'stat-box' && ch.want === 'compare') || (t === 'twoway' && ch.want === 'assoc') || (t === 'stat-line' && /over|slope|intercept/.test(ch.want))) return null;
+    if (t === 'system') return ch.want === 'is-solution' || ch.want === 'count' || !snippets(part.answer).length ? null : ch.want === 'param' ? 'number' : 'point';
+    if (t === 'sys-apply') return ch.want === 'model' ? 'eqs' : ch.want === 'x' || ch.want === 'y' ? 'number' : 'list';
+    if (t === 'ineq2') return ch.want === 'is-solution' ? null : ch.want === 'point-in' ? 'point' : snippets(part.answer).length > 1 ? 'ineqs' : 'ineq';
     if ((t === 'stat' && /five|outliers|fences|mode/.test(ch.want)) || (t === 'twoway' && ch.want === 'fill')) return snippets(part.answer).length ? 'list' : null;
     if (!snippets(part.answer).length) return null;
-    if (!/^((domain|range|initial value|growth factor|decay factor):|term|and|or|after|years?|mg|bacteria|followers|the integers are|width|length|feet|inches|meters|seconds|\.|,|\s)*$/.test(plain)) return null;
+    if (!/^((domain|range|initial value|growth factor|decay factor):|term|and|or|after|years?|mg|bacteria|followers|the integers are|width|length|feet|inches|meters|seconds|minutes?|hours?|weeks?|months?|per|\.|,|\s)*$/.test(plain)) return null;
     if (t === 'is-function' || t === 'graph-behavior' || (t === 'rate' && (ch.words || ch.intervals)) || (t === 'linear-rule' && /not/.test(plain))) return null;
     if (t === 'sequence' && (ch.want === 'recursive' || ch.yesno)) return null;
     if (/^(ineq|read-graph|error-line|model-ineq|iscenario|classify|scenario|model-eq|literal-eval)$/.test(t)) return t === 'ineq' ? 'ineq' : null;
     if (t === 'factor') return 'factor';
     if (t === 'quad-roots') return 'list';
     if (t === 'quad-apply') return ch.form === 'consec' || ch.form === 'rect' ? 'list' : 'number';
+    if (t === 'slope') return ch.want === 'collinear' || ch.want === 'relation' ? null : 'number';
+    if (t === 'line-eq') return 'rule';
+    if (t === 'intercepts') return 'point';
+    if (t === 'line-apply') return ch.want === 'equation' ? 'rule' : 'number';
     if (t === 'exp-model') return null;
     if (t === 'exp-identify') return ch.want === 'initial' || ch.want === 'factor' ? 'number' : null;
     if (t === 'exp-features') return ch.want === 'asymptote' ? 'eq' : ch.want === 'range' ? 'ineq' : null;
@@ -199,7 +219,10 @@
     factor: 'Type the factored form, like 3x(x - 4) or (2x + 1)(x - 5). Use ^ for powers. Type “prime” if it does not factor.',
     expr: 'Type the simplified expression, like 3a + 7 (use ^ for powers).',
     literal: 'Type the formula, like h = (A - 2b)/3.',
-    solve: 'Type the solution, like x = 4 (or just 4).'
+    solve: 'Type the solution, like x = 4 (or just 4).',
+    point: 'Type a point, like (0, -3).',
+    eqs: 'Type both equations separated by “and”, like x + y = 10 and 2x + 3y = 24.',
+    ineqs: 'Type both inequalities separated by “and”, like y > 2x - 1 and y <= -x + 4 (use <= for ≤ and >= for ≥).'
   };
   function texOf(s) {
     return s.replace(/[−–]/g, '-').replace(/≤|<=|=</g, '\\le ').replace(/≥|>=|=>/g, '\\ge ')
@@ -213,6 +236,7 @@
     if (kind === 'factor' && /^prime$/i.test(s)) return 'Prime';
     if (kind === 'percent') return '⟨' + texOf(s.replace(/%/g, '')) + '⟩%';
     if (kind === 'ineq' && /\s(or|and)\s/.test(s)) return s.split(/\s+(or|and)\s+/).map(function (x, i) { return i % 2 ? x : '⟨' + texOf(x) + '⟩'; }).join(' ');
+    if (kind === 'eqs' || kind === 'ineqs') return s.split(/\s*(?:\band\b|;)\s*/).filter(Boolean).map(function (x) { return '⟨' + texOf(x) + '⟩'; }).join(' and ');
     if (kind === 'list') return s.split(/\s*(?:,|;|\band\b|\bor\b)\s*/).filter(Boolean).map(function (x) { return '⟨' + texOf(x) + '⟩'; }).join(' and ');
     if (kind === 'set') { var body = s.replace(/^\{|\}$/g, '').replace(/^\\\{|\\\}$/g, ''); return '⟨\\{' + body.split(/\s*,\s*/).map(texOf).join(',\\ ') + '\\}⟩'; }
     if (kind === 'interval' && !/x|y/.test(s)) return '⟨' + texOf(s) + '⟩';

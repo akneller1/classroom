@@ -112,6 +112,7 @@ function complexity(p) {
   if (f && f.kind === 'twoway') score += 0.3 * f.rows.length * f.cols.length + 2 * f.rows.reduce((n, rw) => n + rw.cells.filter(v => v === '?').length, 0);
   if (f && f.kind === 'mapping') score += 1.4 * f.arrows.length;
   if (f && f.kind === 'plane') {
+    score += 6 * (f.halfplanes || []).length + 3 * (f.halfplanes || []).filter(h => (h.b[0] - h.a[0]) !== 1).length;
     score += 1.8 * (f.points || []).length + 4 * (f.segs || []).length + (f.curves || []).reduce((n, cv) => n + 6 + 0.8 * Math.min(cv.length, 9), 0);
     (f.segs || []).forEach(sg => { [sg.aEnd, sg.bEnd].forEach(e => { if (e === 'open') score += 2; if (e === 'arrow') score += 2; });
       const dx = sg.b[0] - sg.a[0]; if (dx && !Number.isInteger((sg.b[1] - sg.a[1]) / dx)) score += 3; });
@@ -136,6 +137,33 @@ function complexity(p) {
     if (SW[t]) score += (SW[t][pt.check.want] || 0) + (pt.check.round !== undefined ? 1 : 0) + (pt.check.diff ? 2 : 0);
     if (t === 'linear-rule' && pt.check.predict !== undefined) score += 4;
     if (t === 'quad-apply') score += ({ consec: 0, rect: 4, rule: 5, border: 9 })[pt.check.form] || 0;
+    // lines: where the line comes from, which form is asked for, and the extra steps a question needs
+    if (/^(slope|line-eq|intercepts|line-apply)$/.test(t || '')) {
+      const ck = pt.check, s0 = ck.src || {}, eqs = (s0.eq || '').replace(/\s/g, '');
+      score += s0.pairs ? 4 : s0.fig ? 3 : s0.eq ? (/\(/.test(eqs) ? 4 : /^y=/.test(eqs) ? (/^y=-?\d+[+-]/.test(eqs) ? 3 : 1) : 5) : s0.parallel ? 6 : s0.perp ? 10 : s0.slope !== undefined ? 3 : 0;
+      if ((s0.parallel || s0.perp || '').replace(/\s/g, '') && !/^y=/.test((s0.parallel || s0.perp).replace(/\s/g, ''))) score += 4;   // the given line must be solved for y first
+      if (t === 'slope') score += ({ missing: 12, collinear: 18, relation: 0 })[ck.want] || 2;
+      if (t === 'line-eq') score += ({ 'slope-intercept': 3, 'point-slope': 6, standard: 9 })[ck.form] || 0;
+      if (t === 'intercepts') score += 5;
+      if (t === 'line-apply') score += (({ equation: 5, rate: 3, start: 3, value: 6, when: 7 })[ck.want] || 0) + (ck.pts ? 12 : 0);
+      if (/\\frac/.test(pt.answer)) score += 3;
+      if (/undefined/i.test(pt.answer)) score += 5;
+      if (t === 'slope' && /m=0\b/.test(pt.answer.replace(/\s/g, ''))) score += 4;
+      if (s0.slope === '0' || s0.slope === 'undefined') score += 2;
+    }
+    // systems: the method a question needs, the form of the equations and the numbers in the story
+    if (/^(system|sys-apply|ineq2)$/.test(t || '')) {
+      const ck = pt.check, w0 = ck.want || 'solve';
+      if (t === 'system' && w0 === 'solve' && ck.eqs) { try {   // elimination work: equal/opposite coefficients, one multiplier, or two
+        const co = ck.eqs.map(e => { const R = C.parseRelation(e), P = C.toRF({ k: 'sub', a: R.lhs, b: { k: 'grp', a: R.rhs } }).asPoly(); return [P.coeffOf('x', 1).constVal(), P.coeffOf('y', 1).constVal()].map(q => Number(q.n) / Number(q.d)); });
+        const same = j => Math.abs(co[0][j]) === Math.abs(co[1][j]), mult = j => { const a = Math.abs(co[0][j]), b = Math.abs(co[1][j]); return a && b && (Number.isInteger(a / b) || Number.isInteger(b / a)); };
+        score += same(0) || same(1) ? 0 : mult(0) || mult(1) ? 4 : 7; } catch (e) { /* not linear */ } }
+      if (t === 'system' && w0 === 'solve' && /no solution|infinitely/i.test(pt.answer)) score += 4;   // recognizing a special system
+      if (t === 'system') { score += ({ solve: 6, 'is-solution': 2, count: 7, param: 12 })[w0] || 0; (ck.eqs || []).forEach(e => { if (!/^y=/.test(e.replace(/\s/g, ''))) score += 2; if (/\\frac|\d\.\d/.test(e)) score += 3; }); }
+      if (t === 'sys-apply') { score += w0 === 'model' ? 7 : 8; ck.rows.forEach(rw => rw.forEach((e, j) => { if (typeof e === 'object') { if (j < 2) score += 3; if (e.s === -1) score += 1; if (e.mul !== undefined) score += 4; } })); if (/\d\.\d/.test(p.prompt)) score += 6; }
+      if (t === 'ineq2') { const nH = (ck.ineqs || ck.hrows || (p.fig && p.fig.halfplanes) || []).length; score += w0 === 'is-solution' ? 2 * nH : w0 === 'point-in' ? 10 : 10 * nH; if (ck.hrows) score += 4; }
+      if (/\\frac/.test(pt.answer)) score += 5;
+    }
     if (!/domain-range|is-function|func-|read-fig|linear-rule|table-fill|rate|graph-behavior|sequence|exp-|factor|quad-/.test(t || '')) return;
     C.snippets(pt.answer).forEach(sn => {
       const rhs = sn.slice(sn.lastIndexOf('=') + 1);
@@ -219,6 +247,9 @@ for (const set of SETS) for (const sk of set.skills) for (let c = 1; c <= 7; c++
     if (pt.check.type === 'read-graph') { const m4 = clone(p), g = m4.fig.pieces[0]; if (g.lo) g.loC = !g.loC; else g.hiC = !g.hiC; if (pt.check.form !== 'abs' || true) mustCatch(m4, sk.id + ' c' + c + ' printed graph changed'); }
   });
   p.parts.forEach((pt, k) => {
+    // open answers ("name a point in the region"): a far-away point above or below must be rejected (every boundary is non-vertical, so one of them is outside)
+    if (pt.check && pt.check.want === 'point-in') { mutants++; const far = ['(0,\\ 40)', '(0,\\ -40)'].map(q => { const m0 = clone(p); m0.parts[k].answer = '⟨' + q + '⟩'; return M.verifyProblem(m0, { intOnly: false }).ok; });
+      if (far.some(okk => !okk)) caught++; else missed.push('verifier MISSED: ' + sk.id + ' c' + c + ' far point accepted :: ' + p.prompt); return; }
     // (a) numeric answers off by one
     const m = clone(p), a = m.parts[k].answer;
     const bumped = pt.check && pt.check.type === 'error-line' ? a.replace(/Line (\d+)/, (w, d) => 'Line ' + (+d + 1)) : a.replace(/(-?\d+)(?!.*\d)/, d => String(+d + 1));   // explanations are words; the line number is what is checked

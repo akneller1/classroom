@@ -106,6 +106,19 @@
     if (xmin <= 0 && xmax >= 0) h.push('<path d="M' + X(0) + ' ' + (Y(ymin) + 6) + 'V' + (Y(ymax) - 6) + '" stroke="#111" stroke-width="1.4"/><text x="' + (X(0) + 5) + '" y="' + (Y(ymax) - 4) + '" font-size="11" font-style="italic" font-family="Georgia,serif">y</text>');
     for (var tx = Math.ceil(xmin / step) * step; tx <= xmax; tx += step) if (tx !== 0) h.push('<text x="' + X(tx) + '" y="' + (Math.min(Math.max(Y(0), Y(ymax)), Y(ymin)) + 12) + '" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#333">' + numTxt(tx) + '</text>');
     for (var ty = Math.ceil(ymin / step) * step; ty <= ymax; ty += step) if (ty !== 0) h.push('<text x="' + (Math.max(Math.min(X(0), X(xmax)), X(xmin)) - 4) + '" y="' + (Y(ty) + 3) + '" text-anchor="end" font-size="8.5" font-family="Arial,sans-serif" fill="#333">' + numTxt(ty) + '</text>');
+    /* half-planes: { a:[x,y], b:[x,y], dashed, side:[x,y] } — the boundary line through a and b across the window,
+       shading on the side that contains "side" */
+    (spec.halfplanes || []).forEach(function (hp, k) {
+      var col = ['#1d4ed8', '#c2410c'][k % 2], ax = hp.a[0], ay = hp.a[1], bx = hp.b[0], by = hp.b[1];
+      var f = function (x, y) { return (bx - ax) * (y - ay) - (by - ay) * (x - ax); }, sg = f(hp.side[0], hp.side[1]) > 0 ? 1 : -1;
+      var poly = [[xmin, ymin], [xmax, ymin], [xmax, ymax], [xmin, ymax]], out = [];
+      poly.forEach(function (P, i) { var Q2 = poly[(i + 1) % poly.length], fp = sg * f(P[0], P[1]), fq = sg * f(Q2[0], Q2[1]);
+        if (fp >= 0) out.push(P); if ((fp > 0 && fq < 0) || (fp < 0 && fq > 0)) { var t = fp / (fp - fq); out.push([P[0] + t * (Q2[0] - P[0]), P[1] + t * (Q2[1] - P[1])]); } });
+      var ends = []; poly.forEach(function (P, i) { var Q2 = poly[(i + 1) % poly.length], fp = f(P[0], P[1]), fq = f(Q2[0], Q2[1]);
+        if (fp === 0) ends.push(P); else if ((fp > 0 && fq < 0) || (fp < 0 && fq > 0)) { var t = fp / (fp - fq); ends.push([P[0] + t * (Q2[0] - P[0]), P[1] + t * (Q2[1] - P[1])]); } });
+      h.push('<g class="pl-hp"><polygon class="pl-shade" points="' + out.map(function (P) { return X(P[0]) + ',' + Y(P[1]); }).join(' ') + '" fill="' + col + '" fill-opacity="0.14" stroke="none"/>' +
+        (ends.length >= 2 ? '<path class="pl-bline" d="M' + X(ends[0][0]) + ' ' + Y(ends[0][1]) + 'L' + X(ends[1][0]) + ' ' + Y(ends[1][1]) + '" stroke="' + col + '" stroke-width="2.4"' + (hp.dashed ? ' stroke-dasharray="7 5"' : '') + '/>' : '') + '</g>');
+    });
     (spec.curves || []).forEach(function (c) { h.push('<polyline class="pl-curve" fill="none" stroke="#1d4ed8" stroke-width="2.4" points="' + c.map(function (p) { return X(p[0]) + ',' + Y(p[1]); }).join(' ') + '"/>'); });
     (spec.segs || []).forEach(function (sg) {
       h.push('<path class="pl-seg" d="M' + X(sg.a[0]) + ' ' + Y(sg.a[1]) + 'L' + X(sg.b[0]) + ' ' + Y(sg.b[1]) + '" stroke="#1d4ed8" stroke-width="2.6"/>');
@@ -141,7 +154,14 @@
       return { a: [vx(a[0]), vy(a[1])], b: [vx(b[0]), vy(b[1])], aEnd: endAt(a, b), bEnd: endAt(b, a) };
     });
     var curves = (svg.match(/<polyline[^>]*class="pl-curve"[^>]*>/g) || []).map(function (c) { return attr(c, 'points').split(' ').map(function (p) { var xy = p.split(','); return [vx(+xy[0]), vy(+xy[1])]; }); });
-    return { xmin: xmin, ymax: ymax, points: pts, segs: segs, curves: curves };
+    var hps = (svg.match(/<g class="pl-hp">.*?<\/g>/g) || []).map(function (g) {
+      var poly = attr(/<polygon[^>]*>/.exec(g)[0], 'points').split(' ').map(function (p) { var xy = p.split(','); return [+xy[0], +xy[1]]; });
+      var cx = poly.reduce(function (s0, p) { return s0 + p[0]; }, 0) / poly.length, cy = poly.reduce(function (s0, p) { return s0 + p[1]; }, 0) / poly.length;
+      var bl = /<path[^>]*class="pl-bline"[^>]*>/.exec(g); if (!bl) return null;
+      var m = /M([-\d.]+) ([-\d.]+)L([-\d.]+) ([-\d.]+)/.exec(attr(bl[0], 'd'));
+      return { a: [vx(+m[1]), vy(+m[2])], b: [vx(+m[3]), vy(+m[4])], dashed: /stroke-dasharray/.test(bl[0]), inside: [(cx - pad) / unit + xmin, ymax - (cy - pad) / unit] };
+    }).filter(Boolean);
+    return { xmin: xmin, ymax: ymax, points: pts, segs: segs, curves: curves, halfplanes: hps };
   }
 
   /* ---------- function tables ---------- */

@@ -303,10 +303,10 @@
   var STORIES = [['Distance from home (miles)', 'Time (hours)', 'Maya’s distance from home'], ['Water in a tank (gallons)', 'Time (minutes)', 'the water in a tank'], ['Height (m)', 'Time (seconds)', 'a drone’s height']];
   skill({
     id: 'graph-behavior', best: [1, 2], tag: 'RATE', name: 'Interpret increasing, decreasing and constant intervals',
-    blurb: 'Where is the graph increasing? (CP2) → increasing, decreasing and constant intervals (CP1) → several pieces, a story, the fastest change (Honors).',
+    blurb: 'Where is the graph increasing? (CP2) → increasing, decreasing and constant intervals (CP1) → four or five pieces, a story (Honors).',
     generate: function (ctx) {
-      var r = ctx.rng, c = ctx.c, nseg = c <= 1 ? 2 : c <= 4 ? 3 : 4, x = 0, y = r.int(1, 4), segs = [], kinds = [];
-      var pool = r.shuffle(['up', 'down', 'flat', 'up', 'down']);
+      var r = ctx.rng, c = ctx.c, nseg = c <= 1 ? 2 : c <= 4 ? 3 : c <= 6 ? 4 : 5, x = 0, y = r.int(1, 4), segs = [], kinds = [];
+      var pool = r.shuffle(['up', 'down', 'flat', 'up', 'down'].concat(nseg > 4 ? [r.pick(['up', 'down', 'flat'])] : []));
       for (var i = 0; i < nseg; i++) {
         var len = r.int(1, 3), kind = pool[i] || r.pick(['up', 'down', 'flat']), dy = kind === 'flat' ? 0 : (kind === 'up' ? 1 : -1) * r.int(1, 3) * (len > 1 ? r.int(1, 2) : 1);
         var ny = y + dy; need(ny >= 0 && ny <= 9 && (i === 0 || kind !== kinds[i - 1]));

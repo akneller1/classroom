@@ -7,6 +7,8 @@ accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-gener
 - Units 1–2 · Foundations & Solving Linear Equations (`algebra1-expressions-equations`)
 - Unit 3 · Linear Inequalities (`algebra1-inequalities`)
 - Unit 4 · Relations and Functions (`algebra1-relations-functions`)
+- Unit 5 · Linear Functions and Graphing (`algebra1-linear-equations-slope`)
+- Unit 6 · Systems of Equations and Inequalities (`algebra1-systems-of-equations`)
 - Unit 8 · Exponential Functions (`algebra1-exponential-functions`)
 - Unit 10 · Factoring and Zero Product Property (`algebra1-factoring-zero-product`)
 - Unit 12 · Statistics and Data Modeling (`algebra1-statistics-data-modeling`)
@@ -178,6 +180,35 @@ polynomials. Equations are solved by finding every rational root (rational root 
 problems whose roots are not all rational are refused. Word problems are re-solved from the printed numbers and
 wording (“consecutive even integers”, “3 feet less than twice its width”, “uniform width”) and keep only the
 answer that makes sense.
+
+### Systems of Equations and Inequalities skills (tags GRAPH · SUBST · ELIM · APPLY · INEQ)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| GRAPH | Solutions and graphs | solve from a graph → is a point a solution? → graph with a fraction slope → how many solutions (graph) → is a point a solution (standard form) → how many solutions (equations) → the value of k for none / infinitely many |
+| SUBST | Substitution | y = kx → y = mx + b → x isolated → isolate x → isolate y → fraction slope → fraction coefficient and fraction solution |
+| ELIM | Elimination | opposite coefficients → equal coefficients → multiply one equation → multiply both → rearrange first → no solution / infinitely many / one → decimal coefficients |
+| APPLY | Systems in context | sum and difference → ticket sales → write the system → when two plans cost the same → prices with cents → mixtures → boat and current |
+| INEQ | Inequalities in two variables | is a point a solution? → inequality from a graph → a point in the solution of a system → is a point a solution of a system? → system from a graph → with a fraction slope → a system from a situation and a check |
+
+Systems are solved again (exactly) from the printed equations, the two drawn lines, or the numbers in the story (each
+equation of a story is described by references to the printed numbers). Half-planes are drawn from a spec (boundary,
+dashed or solid, shaded side) and read back from the drawing: the boundary from the line, the side from the shaded
+polygon. An inequality answer must describe the same half-plane (same line, same side, same strictness); "name a point in
+the region" accepts any correct point.
+
+### Linear Functions and Graphing skills (tags SLOPE · FORMS · WRITE · PARPERP · APPLY)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| SLOPE | Find slope | two points → fraction slopes → zero and undefined slopes → from a table → from a graph → a missing coordinate → are three points on one line? |
+| FORMS | Slope-intercept, point-slope, standard form | slope and y-intercept → y = b + mx → point-slope to slope-intercept → standard to slope-intercept with the y-intercept → slope-intercept to standard → intercepts of Ax + By = C → point-slope to both forms |
+| WRITE | Write the equation of a line | slope and y-intercept → horizontal or vertical line → slope and a point → two points → from a graph → point-slope form → standard form from two points |
+| PARPERP | Parallel and perpendicular lines | parallel slope → perpendicular slope → parallel, perpendicular or neither → parallel line through a point → perpendicular line → given line in standard form → answer in standard form |
+| APPLY | Linear models | a value from words → write the model → when does it reach a value → interpret slope and intercept → model from two data points → predict → rate, start and model together |
+
+Every line is rebuilt from what is printed (two points, a slope read after the word "slope", a point, a given equation, the drawn
+graph or table) and compared with the answer as a set of points; the requested form is then checked (slope-intercept,
+point-slope using the given point, or standard form with integers, A ≥ 0 and no common factor). Models read the start value
+and rate from the printed numbers and decide up or down from the words (drains, burns, adds, charges, …).
 
 ### Statistics and Data Modeling skills (tags CENTER · SPREAD · DISPLAY · TWOWAY · SCATTER)
 | Tag | Skill | Level 1 → 7 |

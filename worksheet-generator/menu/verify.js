@@ -120,6 +120,8 @@
     if (EXP_TYPES.indexOf(t) >= 0) return checkExpPart(p, part, policy);
     if (FACT_TYPES.indexOf(t) >= 0) return checkFactorPart(p, part, policy);
     if (STAT_TYPES.indexOf(t) >= 0) return checkStatPart(p, part, policy);
+    if (LINE_TYPES.indexOf(t) >= 0) return checkLinePart(p, part, policy);
+    if (SYS_TYPES.indexOf(t) >= 0) return checkSysPart(p, part, policy);
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -1015,6 +1017,243 @@
         if (!sn3.length) return { status: 'mismatch', msg: 'Give the number.' };
         var v3 = C.evalNode(C.parseExpr(sn3[w === 'intercept' ? sn3.length - 1 : 0]), {}); var dec = /decreas|less|fewer|drop|lower/.test(txt), neg0 = C.cmpQ(want3, Q.ZERO) < 0; return (dec ? neg0 && v3.eq(want3.neg()) : v3.eq(want3) && (w === 'intercept' || !neg0)) ? { status: 'verified' } : { status: 'mismatch', msg: 'The ' + w + ' is ' + want3 + '.' }; }
       throw new C.CheckError('unknown want ' + w);
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+
+  /* ---------------- lines ---------------- */
+  var LINE_TYPES = ['slope', 'line-eq', 'intercepts', 'line-apply'];
+  /* a·x + b·y + c = 0 from a printed equation */
+  function lineOf(src, vx, vy) {
+    vx = vx || 'x'; vy = vy || 'y';
+    var R = C.parseRelation(src); if (R.rel !== '=') throw new C.CheckError('not an equation');
+    var rf = C.toRF({ k: 'sub', a: R.lhs, b: { k: 'grp', a: R.rhs } }); if (!rf.isPoly()) throw new C.CheckError('not linear');
+    var P = rf.asPoly(); if (P.vars().some(function (v) { return v !== vx && v !== vy; })) throw new C.CheckError('use only ' + vx + ' and ' + vy);
+    var ok = true; P.m.forEach(function (q, key) { if (key.split('*').filter(Boolean).reduce(function (d, part) { return d + (+part.split('^')[1]); }, 0) > 1) ok = false; });
+    if (!ok) throw new C.CheckError('not linear');
+    var L = { a: P.coeffOf(vx, 1).constVal(), b: P.coeffOf(vy, 1).constVal(), c: P.coeffOf(vx, 0).coeffOf(vy, 0).constVal() };
+    if (L.a.isZero() && L.b.isZero()) throw new C.CheckError('not a line');
+    return L;
+  }
+  function sameLine(L, M) { return L.a.mul(M.b).eq(M.a.mul(L.b)) && L.a.mul(M.c).eq(M.a.mul(L.c)) && L.b.mul(M.c).eq(M.b.mul(L.c)); }
+  function slopeOfLine(L) { return L.b.isZero() ? null : L.a.neg().div(L.b); }
+  function lineThrough(P1, P2) { if (P1[0].eq(P2[0]) && P1[1].eq(P2[1])) throw new C.CheckError('the points are the same'); var a = P2[1].sub(P1[1]), b = P1[0].sub(P2[0]); return { a: a, b: b, c: a.mul(P1[0]).add(b.mul(P1[1])).neg() }; }
+  function lineSlopePoint(m, P1) { return m === null ? { a: Q.ONE, b: Q.ZERO, c: P1[0].neg() } : { a: m, b: Q.ONE.neg(), c: P1[1].sub(m.mul(P1[0])) }; }
+  function readSlopeTeX(t) { return /undefined/i.test(t) ? null : qStr(t); }
+  function onePair(p, tex) { if (!C.snippets(studentText(p)).some(function (sn) { return norm(sn).indexOf(norm(tex)) >= 0; })) throw new C.CheckError('the point is not printed'); var pr = pairsFrom(tex); if (pr.length !== 1) throw new C.CheckError('bad point'); return pr[0]; }
+  /* the first math snippet printed after a word ("slope ⟨3⟩") */
+  function snippetAfter(p, re) { var st = studentText(p), m = re.exec(st); if (!m) return null; var sn = C.snippets(st.slice(m.index)); return sn.length ? sn[0] : null; }
+  /* the line described by what is printed */
+  function targetLine(p, chk) {
+    var src = chk.src;
+    if (src.pairs) { if (!shown(p, src.pairs) && !C.snippets(studentText(p)).some(function (sn) { return norm(sn).indexOf(norm(src.pairs)) >= 0; })) throw new C.CheckError('the points are not printed'); var pp = pairsFrom(src.pairs); return lineThrough(pp[0], pp[1]); }
+    if (src.eq) { if (!C.snippets(studentText(p)).some(function (sn) { return norm(sn) === norm(src.eq); })) throw new C.CheckError('the equation is not printed'); return lineOf(src.eq); }
+    if (src.slope !== undefined) { var stS = studentText(p), hz = src.slope === '0' && /\bhorizontal\b/.test(stS), vt = /undefined/.test(src.slope) && /\bvertical\b/.test(stS);
+      if (!hz && !vt) { var sS = snippetAfter(p, /slope/i); if (/undefined/.test(src.slope) ? !/slope\s+is\s+undefined|undefined\s+slope/i.test(stS) : (sS === null || norm(sS) !== norm(src.slope))) throw new C.CheckError('the slope is not printed'); }
+      return lineSlopePoint(readSlopeTeX(src.slope), onePair(p, src.point)); }
+    if (src.yint !== undefined) { var sM = snippetAfter(p, /slope/i), sB = snippetAfter(p, /y-intercept/i); if (sM === null || sB === null || norm(sM) !== norm(src.m) || norm(sB) !== norm(src.yint)) throw new C.CheckError('slope or intercept not printed'); return lineSlopePoint(qStr(src.m), [Q.ZERO, qStr(src.yint)]); }
+    if (src.parallel || src.perp) { var base = lineOf(src.parallel || src.perp); if (!C.snippets(studentText(p)).some(function (sn) { return norm(sn) === norm(src.parallel || src.perp); })) throw new C.CheckError('the given line is not printed');
+      var m0 = slopeOfLine(base), m1 = src.parallel ? m0 : (m0 === null ? Q.ZERO : m0.isZero() ? null : Q.ONE.neg().div(m0)); return lineSlopePoint(m1, onePair(p, src.point)); }
+    if (src.fig) { var rel = relationOf(p, {}); if (rel.kind === 'graph') { var sg = rel.segs[0]; return lineThrough(sg.a, sg.b); } if (rel.pairs.length < 2) throw new C.CheckError('need two points'); var L0 = lineThrough(rel.pairs[0], rel.pairs[1]);
+      if (!rel.pairs.every(function (q) { return L0.a.mul(q[0]).add(L0.b.mul(q[1])).add(L0.c).isZero(); })) throw new C.CheckError('the points are not on one line'); return L0; }
+    throw new C.CheckError('unknown source');
+  }
+  function isVar(n, v) { return n.k === 'var' && n.v === v; }
+  function numOf(n) { try { if (Object.keys(C.varsOf(n)).length) return null; return C.evalNode(n, {}); } catch (e) { return null; } }
+  /* y − k  →  k (also y, y + k) */
+  function shiftOf(n, v) { if (isVar(n, v)) return Q.ZERO; if ((n.k === 'sub' || n.k === 'add') && isVar(n.a, v)) { var k = numOf(n.b); if (k === null) return null; return n.k === 'sub' ? k : k.neg(); } return null; }
+  function formOk(form, src) {
+    var R = C.parseRelation(src), lhs = R.lhs, rhs = R.rhs;
+    if (form === 'slope-intercept') {
+      if (isVar(lhs, 'x') && numOf(rhs) !== null) return true;    // a vertical line x = c
+      if (!isVar(lhs, 'y')) return false;
+      var rf = C.toRF(rhs); if (!rf.isPoly() || rf.asPoly().vars().some(function (v) { return v !== 'x'; })) return false;
+      return C.simplifiedForm(rhs).ok;
+    }
+    if (form === 'point-slope') {
+      var k = shiftOf(lhs, 'y'); if (k === null) return false;
+      var core = rhs, coef = Q.ONE;
+      if (core.k === 'neg') { coef = coef.neg(); core = core.a; }
+      if (core.k === 'mul') { var cf = numOf(core.a); if (cf === null) return false; coef = coef.mul(cf); core = core.b; }
+      if (core.k !== 'grp') return false;
+      var h = shiftOf(core.a, 'x'); return h !== null;
+    }
+    if (form === 'standard') {
+      var cR = numOf(rhs); if (cR === null || !cR.isInt()) return false;
+      var L = C.toRF(lhs).asPoly(), A = L.coeffOf('x', 1).constVal(), B = L.coeffOf('y', 1).constVal(), C0 = L.coeffOf('x', 0).coeffOf('y', 0).constVal();
+      if (!C0.isZero() || !A.isInt() || !B.isInt()) return false;
+      if (C.cmpQ(A, Q.ZERO) < 0 || (A.isZero() && C.cmpQ(B, Q.ZERO) < 0)) return false;
+      var g = [A.n, B.n, cR.n].reduce(function (x, y) { return bigGcd(x, y); }, 0n); return g === 1n;
+    }
+    return true;
+  }
+  function pointOf(src) {   // the point used in a point-slope answer
+    var R = C.parseRelation(src), k = shiftOf(R.lhs, 'y'), core = R.rhs; if (core.k === 'neg') core = core.a; if (core.k === 'mul') core = core.b; return [shiftOf(core.a, 'x'), k];
+  }
+  function checkLinePart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), w = chk.want;
+    if (t === 'slope') {
+      if (w === 'missing') {   // the line through (x1, ?) and (x2, y2) has slope m
+        var m = qStr(chk.m), x1 = qStr(chk.x1), x2 = qStr(chk.x2), y2 = qStr(chk.y2);
+        var sns = C.snippets(studentText(p)).map(norm), sm = snippetAfter(p, /has slope/i);
+        if (sns.indexOf(norm('(' + chk.x1 + ',\\ k)')) < 0 || sns.indexOf(norm('(' + chk.x2 + ',\\ ' + chk.y2 + ')')) < 0 || sm === null || norm(sm) !== norm(chk.m)) return { status: 'invalid', msg: 'The points or slope are not printed as expected.' };
+        var k = y2.sub(m.mul(x2.sub(x1))), g1 = listNumbers(ans); return g1.length && g1[g1.length - 1].eq(k) ? { status: 'verified', computed: qText(k) } : { status: 'mismatch', msg: 'Correct: ' + k + '.' };
+      }
+      if (w === 'collinear') {
+        if (!shown(p, chk.pts)) return { status: 'invalid', msg: 'The points are not printed.' };
+        var P3 = pairsFrom(chk.pts), Lc = lineThrough(P3[0], P3[1]), on = Lc.a.mul(P3[2][0]).add(Lc.b.mul(P3[2][1])).add(Lc.c).isZero();
+        var said = /^\s*yes/.test(txt) ? true : /^\s*no/.test(txt) ? false : null;
+        if (said !== on) return { status: 'mismatch', msg: on ? 'Yes, they are on one line.' : 'No.' };
+        if (on && C.snippets(ans).length) { var sc = slopeOfLine(Lc), gc = listNumbers(ans); if (sc === null || !gc.length || !gc[gc.length - 1].eq(sc)) return { status: 'mismatch', msg: 'The common slope is ' + (sc === null ? 'undefined' : sc) + '.' }; }
+        return { status: 'verified', computed: on ? 'yes' : 'no' };
+      }
+      if (w === 'relation') {   // parallel, perpendicular or neither
+        var L1 = lineOf(chk.eqs[0]), L2 = lineOf(chk.eqs[1]); if (!chk.eqs.every(function (e) { return shown(p, e); })) return { status: 'invalid', msg: 'The equations are not printed.' };
+        var s1 = slopeOfLine(L1), s2 = slopeOfLine(L2), rel = sameLine(L1, L2) ? 'same' : (s1 === null && s2 === null) || (s1 && s2 && s1.eq(s2)) ? 'parallel' : (s1 === null && s2 && s2.isZero()) || (s2 === null && s1 && s1.isZero()) || (s1 && s2 && s1.mul(s2).eq(Q.ONE.neg())) ? 'perpendicular' : 'neither';
+        if (rel === 'same') return { status: 'invalid', msg: 'The lines are the same.' };
+        return firstWord(txt) === rel ? { status: 'verified', computed: rel } : { status: 'mismatch', msg: 'Correct: ' + rel + '.' };
+      }
+      var L = targetLine(p, chk), sl = slopeOfLine(L);
+      if (sl === null) return /undefined|no slope/.test(txt) && !C.snippets(ans).length ? { status: 'verified', computed: 'undefined' } : { status: 'mismatch', msg: 'The slope is undefined.' };
+      var g2 = listNumbers(ans);
+      return g2.length && g2[g2.length - 1].eq(sl) ? { status: 'verified', computed: qText(sl) } : { status: 'mismatch', msg: 'Slope: ' + sl + '.' };
+    }
+    if (t === 'line-eq') {
+      var T = targetLine(p, chk), sn = C.snippets(ans); if (!sn.length) return { status: 'mismatch', msg: 'Write an equation.' };
+      var a = sn[sn.length - 1], A;
+      try { A = lineOf(a); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation: ' + e.message }; }
+      if (!sameLine(A, T)) return { status: 'mismatch', msg: 'That is a different line.' };
+      if (!formOk(chk.form || 'any', a)) return { status: 'mismatch', msg: 'Write it in ' + chk.form + ' form.' };
+      if (chk.form === 'point-slope' && chk.point) { var pt = pairsFrom(chk.point)[0], used = pointOf(a); if (!used[0].eq(pt[0]) || !used[1].eq(pt[1])) return { status: 'mismatch', msg: 'Use the point ' + chk.point + '.' }; }
+      return { status: 'verified' };
+    }
+    if (t === 'intercepts') {
+      var Li = targetLine(p, chk), val, which = w;
+      if (which === 'x') { if (Li.a.isZero()) return { status: 'invalid', msg: 'No x-intercept.' }; val = Li.c.neg().div(Li.a); }
+      else { if (Li.b.isZero()) return { status: 'invalid', msg: 'No y-intercept.' }; val = Li.c.neg().div(Li.b); }
+      if (policy && policy.intOnly && !val.isInt()) return { status: 'invalid', msg: 'Not a whole number.' };
+      var pr = pairsFrom(C.snippets(ans).join(' ')), okI = pr.length ? (which === 'x' ? pr[0][0].eq(val) && pr[0][1].isZero() : pr[0][0].isZero() && pr[0][1].eq(val)) : (listNumbers(ans).slice(-1)[0] || Q.ONE.neg()).eq(val);
+      return okI ? { status: 'verified', computed: qText(val) } : { status: 'mismatch', msg: which + '-intercept: ' + val + '.' };
+    }
+    if (t === 'line-apply') {
+      var st = studentText(p), pr2 = C.plainText(st).toLowerCase(), nums = C.numbersInText(st), at = function (k3) { if (nums[k3] === undefined) throw new C.CheckError('missing number ' + k3); return nums[k3]; };
+      var mm, bb;
+      if (chk.pts) { var A1 = [at(chk.pts[0][0]), at(chk.pts[0][1])], A2 = [at(chk.pts[1][0]), at(chk.pts[1][1])]; if (A1[0].eq(A2[0])) throw new C.CheckError('same input'); mm = A2[1].sub(A1[1]).div(A2[0].sub(A1[0])); bb = A1[1].sub(mm.mul(A1[0])); }
+      else { var down = /(decreas|loses|drains|burns|spends|falls|drops|less each|melts)/.test(pr2), up = /(increas|gains|earns|grows|adds|charges|plus|more each|rises|fills)/.test(pr2);
+        if (down === up) throw new C.CheckError('cannot tell if the amount goes up or down'); mm = down ? at(chk.rate).neg() : at(chk.rate); bb = at(chk.start); }
+      var vx = chk.vars ? chk.vars[0] : 'x', vy = chk.vars ? chk.vars[1] : 'y';
+      if (w === 'equation') { var sn2 = C.snippets(ans); if (!sn2.length) return { status: 'mismatch', msg: 'Write an equation.' }; var Ae;
+        try { Ae = lineOf(sn2[sn2.length - 1], vx, vy); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+        return sameLine(Ae, { a: mm, b: Q.ONE.neg(), c: bb }) ? { status: 'verified' } : { status: 'mismatch', msg: 'The model is ' + vy + ' = ' + mm + vx + ' + ' + bb + '.' }; }
+      var g3 = listNumbers(ans), last3 = g3[g3.length - 1] || null;
+      if (w === 'rate') return last3 && (last3.eq(mm) || (last3.eq(mm.neg()) && C.cmpQ(mm, Q.ZERO) < 0 && /decreas|less|loses|drops/.test(txt))) ? { status: 'verified', computed: qText(mm) } : { status: 'mismatch', msg: 'Rate: ' + mm + '.' };
+      if (w === 'start') return last3 && last3.eq(bb) ? { status: 'verified', computed: qText(bb) } : { status: 'mismatch', msg: 'Starting value: ' + bb + '.' };
+      if (w === 'value') { var vv = mm.mul(at(chk.at)).add(bb); return last3 && last3.eq(vv) ? { status: 'verified', computed: qText(vv) } : { status: 'mismatch', msg: 'Correct: ' + vv + '.' }; }
+      if (w === 'when') { if (mm.isZero()) return { status: 'invalid', msg: 'Constant.' }; var xw = at(chk.target).sub(bb).div(mm); if (C.cmpQ(xw, Q.ZERO) < 0) return { status: 'invalid', msg: 'Negative time.' };
+        if (policy && policy.intOnly && !xw.isInt()) return { status: 'invalid', msg: 'Not whole.' }; return last3 && last3.eq(xw) ? { status: 'verified', computed: qText(xw) } : { status: 'mismatch', msg: 'Correct: ' + xw + '.' }; }
+      throw new C.CheckError('unknown want');
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+  /* ---------- systems of equations and inequalities (Algebra 1 Unit 6) ---------- */
+  var SYS_TYPES = ['system', 'sys-apply', 'ineq2'];
+  function solve2(L1, L2) {   // lines a·x + b·y + c = 0
+    var det = L1.a.mul(L2.b).sub(L2.a.mul(L1.b));
+    if (det.isZero()) return { kind: sameLine(L1, L2) ? 'infinite' : 'none' };
+    var x = L1.b.mul(L2.c).sub(L2.b.mul(L1.c)).div(det), y = L2.a.mul(L1.c).sub(L1.a.mul(L2.c)).div(det);
+    return { kind: 'one', x: x, y: y };
+  }
+  function sysLines(p, chk) {
+    if (chk.eqs) { if (!chk.eqs.every(function (e) { return shown(p, e); })) throw new C.CheckError('the equations are not printed'); return chk.eqs.map(function (e) { return lineOf(e, chk.vx, chk.vy); }); }
+    var rel = relationOf(p, {}); if (rel.kind !== 'graph' || rel.segs.length !== 2) throw new C.CheckError('need two drawn lines');
+    return rel.segs.map(function (sg) { return lineThrough(sg.a, sg.b); });
+  }
+  /* (x, y) from "(3, -2)" or from "x = 3, y = -2" */
+  function pairAnswer(ans, vx, vy) {
+    vx = vx || 'x'; vy = vy || 'y';
+    var sn = C.snippets(ans), pm = sn.length === 1 && /^\s*\((.*)\)\s*$/.exec(sn[0].replace(/\\left|\\right/g, ''));
+    if (pm) { var parts = pm[1].replace(/\\[ ;!]/g, ' ').split(/,(?![^{]*\})/); if (parts.length === 2) { try { return parts.map(function (x) { return C.evalNode(C.parseExpr(x.replace(/\\,/g, '').trim()), {}); }); } catch (e) { return null; } } }
+    var got = {}; sn.forEach(function (s) { s.split(/,|\\[ ,;]|\\text\{\s*and\s*\}/).forEach(function (piece) { if (!/=/.test(piece)) return; try { var R = C.parseRelation(piece); if (R.lhs.k === 'var') got[R.lhs.v] = C.evalNode(R.rhs, {}); } catch (e) { /* not x = number */ } }); });
+    return got[vx] && got[vy] ? [got[vx], got[vy]] : null;
+  }
+  function countWord(txt) { return /^\s*one\b/.test(txt) ? 'one' : /^\s*(no\b|none)/.test(txt) ? 'none' : /^\s*infinite/.test(txt) ? 'infinite' : null; }
+  function sysVerdict(S, ans, txt, vx, vy) {
+    if (S.kind !== 'one') return countWord(txt) === S.kind && !pairAnswer(ans, vx, vy) ? { status: 'verified', computed: S.kind } : { status: 'mismatch', msg: S.kind === 'none' ? 'No solution (parallel lines).' : 'Infinitely many solutions (same line).' };
+    var pa = pairAnswer(ans, vx, vy);
+    return pa && pa[0].eq(S.x) && pa[1].eq(S.y) ? { status: 'verified', computed: '(' + qText(S.x) + ', ' + qText(S.y) + ')' } : { status: 'mismatch', msg: 'The solution is (' + S.x + ', ' + S.y + ').' };
+  }
+  /* a half-plane a·x + b·y + c > 0 (or ≥ 0) from a printed inequality */
+  function halfOf(src, vx, vy) {
+    vx = vx || 'x'; vy = vy || 'y';
+    var R = C.parseRelation(src); if (R.rel === '=') throw new C.CheckError('not an inequality');
+    var L = lineOf(src.replace(/\\le|\\ge|<|>|≤|≥/, '='), vx, vy);
+    var neg = R.rel === '<' || R.rel === '≤';
+    return { a: neg ? L.a.neg() : L.a, b: neg ? L.b.neg() : L.b, c: neg ? L.c.neg() : L.c, strict: R.rel === '<' || R.rel === '>' };
+  }
+  function sameHalf(H, K) { return H.strict === K.strict && sameLine(H, K) && C.cmpQ(H.a.mul(K.a).add(H.b.mul(K.b)).add(H.c.mul(K.c)), Q.ZERO) > 0; }
+  function inHalf(H, pt) { var v = H.a.mul(pt[0]).add(H.b.mul(pt[1])).add(H.c); var s = C.cmpQ(v, Q.ZERO); return H.strict ? s > 0 : s >= 0; }
+  function figHalves(p) {
+    var f = p.fig; if (!f || f.kind !== 'plane') throw new C.CheckError('no graph');
+    return NS.fig.readPlane(NS.fig.plane(f)).halfplanes.map(function (hp) {
+      if (!hp.a[0] || !hp.a[1] || !hp.b[0] || !hp.b[1]) throw new C.CheckError('boundary not readable');
+      var L = lineThrough([qOf(hp.a[0]), qOf(hp.a[1])], [qOf(hp.b[0]), qOf(hp.b[1])]), fl = function (q) { return Number(q.n) / Number(q.d); };
+      var v = fl(L.a) * hp.inside[0] + fl(L.b) * hp.inside[1] + fl(L.c); if (Math.abs(v) < 1e-6) throw new C.CheckError('shading not readable');
+      return v > 0 ? { a: L.a, b: L.b, c: L.c, strict: hp.dashed } : { a: L.a.neg(), b: L.b.neg(), c: L.c.neg(), strict: hp.dashed };
+    });
+  }
+  function rowsFromText(p, rows) {
+    var nums = C.numbersInText(studentText(p));
+    var val = function (e) { if (typeof e === 'number') return new Q(BigInt(e)); if (typeof e === 'string') return qStr(e); var q = nums[e.n]; if (q === undefined) throw new C.CheckError('missing number ' + e.n); if (e.div) q = q.div(new Q(BigInt(e.div))); if (e.mul !== undefined) { if (nums[e.mul] === undefined) throw new C.CheckError('missing number ' + e.mul); q = q.mul(nums[e.mul]); } return e.s === -1 ? q.neg() : q; };
+    return rows.map(function (r) { var a = val(r[0]), b = val(r[1]), c = val(r[2]); return { a: a, b: b, c: c.neg() }; });   // a·x + b·y = c
+  }
+  function yesNo(txt) { return /^\s*yes/.test(txt) ? true : /^\s*no\b/.test(txt) ? false : null; }
+  function checkSysPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), w = chk.want || 'solve', vx = chk.vx || 'x', vy = chk.vy || 'y';
+    if (t === 'system') {
+      if (w === 'is-solution') { if (!shown(p, chk.point)) return { status: 'invalid', msg: 'The point is not printed.' }; var Ls = sysLines(p, chk), P0 = pairsFrom(chk.point)[0];
+        var on = Ls.every(function (L) { return L.a.mul(P0[0]).add(L.b.mul(P0[1])).add(L.c).isZero(); }); return yesNo(txt) === on ? { status: 'verified', computed: on ? 'yes' : 'no' } : { status: 'mismatch', msg: on ? 'Yes, it satisfies both equations.' : 'No.' }; }
+      if (w === 'param') {   // the value of k that gives chk.target ('none' or 'infinite')
+        var sn = C.snippets(ans), kv = null; sn.forEach(function (s) { try { var R = C.parseRelation(s); if (R.lhs.k === 'var' && R.lhs.v === (chk.param || 'k')) kv = s.slice(s.indexOf('=') + 1); } catch (e) { /* skip */ } });
+        if (kv === null) return { status: 'mismatch', msg: 'Give the value of ' + (chk.param || 'k') + '.' };
+        if (!chk.eqs.every(function (e) { return shown(p, e); })) return { status: 'invalid', msg: 'The equations are not printed.' };
+        var sub = chk.eqs.map(function (e) { return lineOf(e.replace(new RegExp(chk.param || 'k', 'g'), '\\left(' + kv + '\\right)'), vx, vy); });
+        var Sk = solve2(sub[0], sub[1]); return Sk.kind === chk.target ? { status: 'verified', computed: kv } : { status: 'mismatch', msg: 'With that value the system has ' + (Sk.kind === 'one' ? 'one solution' : Sk.kind === 'none' ? 'no solution' : 'infinitely many solutions') + '.' };
+      }
+      var L2 = sysLines(p, chk), S = solve2(L2[0], L2[1]);
+      if (w === 'count') { var cw = countWord(txt); if (cw !== S.kind) return { status: 'mismatch', msg: 'Correct: ' + S.kind + '.' }; var pc = pairAnswer(ans, vx, vy); if (pc && S.kind === 'one' && !(pc[0].eq(S.x) && pc[1].eq(S.y))) return { status: 'mismatch', msg: 'The intersection is (' + S.x + ', ' + S.y + ').' }; return { status: 'verified', computed: S.kind }; }
+      if (policy && policy.intOnly && S.kind === 'one' && !(S.x.isInt() && S.y.isInt())) return { status: 'invalid', msg: 'Not whole numbers.' };
+      return sysVerdict(S, ans, txt, vx, vy);
+    }
+    if (t === 'sys-apply') {
+      var Rw = rowsFromText(p, chk.rows), Sa = solve2(Rw[0], Rw[1]);
+      if (Sa.kind !== 'one') return { status: 'invalid', msg: 'The situation has no single answer.' };
+      if (chk.int && !(Sa.x.isInt() && Sa.y.isInt())) return { status: 'invalid', msg: 'Not whole numbers.' };
+      if (chk.pos && (C.cmpQ(Sa.x, Q.ZERO) < 0 || C.cmpQ(Sa.y, Q.ZERO) < 0)) return { status: 'invalid', msg: 'Negative amounts.' };
+      if (w === 'model') { var es = C.snippets(ans).filter(function (s) { return /=/.test(s); }); if (es.length !== 2) return { status: 'mismatch', msg: 'Write two equations.' }; var ML;
+        try { ML = es.map(function (e) { return lineOf(e, vx, vy); }); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equations.' }; }
+        var okM = (sameLine(ML[0], Rw[0]) && sameLine(ML[1], Rw[1])) || (sameLine(ML[0], Rw[1]) && sameLine(ML[1], Rw[0])); return okM ? { status: 'verified' } : { status: 'mismatch', msg: 'The equations do not match the situation.' }; }
+      var g = listNumbers(ans);
+      if (w === 'x' || w === 'y') { var tv = w === 'x' ? Sa.x : Sa.y; return g.length && g[g.length - 1].eq(tv) ? { status: 'verified', computed: qText(tv) } : { status: 'mismatch', msg: 'Correct: ' + tv + '.' }; }
+      return g.length === 2 && g[0].eq(Sa.x) && g[1].eq(Sa.y) ? { status: 'verified', computed: qText(Sa.x) + ', ' + qText(Sa.y) } : { status: 'mismatch', msg: 'Correct: ' + Sa.x + ' and ' + Sa.y + '.' };
+    }
+    if (t === 'ineq2') {
+      var Hs;
+      if (chk.ineqs) { if (!chk.ineqs.every(function (e) { return shown(p, e); })) return { status: 'invalid', msg: 'The inequalities are not printed.' }; Hs = chk.ineqs.map(function (e) { return halfOf(e, vx, vy); }); }
+      else if (chk.hrows) { var nums2 = rowsFromText(p, chk.hrows.map(function (h) { return h.slice(0, 3); })); Hs = nums2.map(function (r, i) { var rel = chk.hrows[i][3], neg = rel === '<' || rel === 'le'; return { a: neg ? r.a.neg() : r.a, b: neg ? r.b.neg() : r.b, c: neg ? r.c.neg() : r.c, strict: rel === '<' || rel === '>' }; }); }
+      else Hs = figHalves(p);
+      if (w === 'is-solution') { if (!shown(p, chk.point)) return { status: 'invalid', msg: 'The point is not printed.' }; var P1 = pairsFrom(chk.point)[0], inAll = Hs.every(function (H) { return inHalf(H, P1); });
+        return yesNo(txt) === inAll ? { status: 'verified', computed: inAll ? 'yes' : 'no' } : { status: 'mismatch', msg: inAll ? 'Yes.' : 'No.' }; }
+      if (w === 'point-in') { var pp = pairsFrom(C.snippets(ans).join(' ')); if (pp.length !== 1) return { status: 'mismatch', msg: 'Give one point.' }; return Hs.every(function (H) { return inHalf(H, pp[0]); }) ? { status: 'verified' } : { status: 'mismatch', msg: 'That point is not in the solution region.' }; }
+      if (w === 'inequality' || w === 'model') {   // the student's inequality (or system) must describe the same half-plane(s)
+        var ss = C.snippets(ans).filter(function (s) { return /<|>|\\le|\\ge|≤|≥/.test(s); }), want = chk.which === undefined ? Hs : [Hs[chk.which]], SH;
+        if (ss.length !== want.length) return { status: 'mismatch', msg: 'Write ' + want.length + ' inequalit' + (want.length > 1 ? 'ies' : 'y') + '.' };
+        try { SH = ss.map(function (s) { return halfOf(s, vx, vy); }); } catch (e) { return { status: 'mismatch', msg: 'Could not read: ' + e.message }; }
+        var used = {}, all = want.every(function (H) { for (var i = 0; i < SH.length; i++) if (!used[i] && sameHalf(SH[i], H)) { used[i] = 1; return true; } return false; });
+        return all ? { status: 'verified' } : { status: 'mismatch', msg: 'That is a different region (check the boundary, the side and solid vs dashed).' };
+      }
+      throw new C.CheckError('unknown want');
     }
     return { status: 'manual', msg: 'Unknown check ' + t };
   }
