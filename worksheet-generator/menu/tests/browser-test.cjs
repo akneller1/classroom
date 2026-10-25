@@ -1,4 +1,4 @@
-/* Menu Assessment Generator — browser tests (teacher controls, print layout, PDFs, site integration).
+/* Assessment Generator — browser tests (teacher controls, print layout, PDFs, site integration).
    Needs Playwright + Chromium:   node worksheet-generator/menu/tests/browser-test.cjs
    (or PW=/path/to/playwright-core CHROME=/path/to/chromium node …).  Set OUT=dir to keep the PDFs.
    pdftotext (poppler-utils) is used to read the PDFs back when it is installed. */
@@ -28,7 +28,7 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   page.on('console', m => { if (m.type() === 'error') errors.push('console ' + m.text()); });
   page.on('dialog', d => d.accept());
   const URL = base + '/worksheet-generator/menu-assessment.html';
-  await page.goto(URL); await page.waitForSelector('#mmBuildBtn');
+  await page.goto(URL + '#mode=menu'); await page.waitForSelector('#mmBuildBtn');
   ok('page loads');
 
   /* ---------- setup controls ---------- */
@@ -308,7 +308,7 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   /* ---------- Inequalities: number lines in questions and keys ---------- */
   const iq = await ctx.newPage(); const iqErr = [];
   iq.on('pageerror', e => iqErr.push(e.message)); iq.on('console', m => { if (m.type() === 'error') iqErr.push(m.text()); }); iq.on('dialog', d => d.accept());
-  await iq.goto(URL + '#unit=algebra1-inequalities'); await iq.waitForSelector('#mmUnitSel');
+  await iq.goto(URL + '#unit=algebra1-inequalities&mode=menu'); await iq.waitForSelector('#mmUnitSel');
   assert.equal(await iq.inputValue('#mmUnitSel'), 'algebra1-inequalities');
   assert.match(await iq.inputValue('#mmTitle'), /Inequalities Bistro/);
   await iq.selectOption('#mmVersions', '2'); await iq.click('#mmBuildBtn'); await iq.waitForSelector('.mm-dcard');
@@ -367,7 +367,7 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   for (const [UNITID, TITLE, TAGS, SHORT] of [['algebra1-relations-functions', /Function Diner/, ['RELATIONS', 'NOTATION', 'REPRESENT', 'RATE', 'SEQUENCE'], 'functions'], ['algebra1-exponential-functions', /Exponential Eatery/, ['EVAL', 'GROWTH', 'MODEL', 'SOLVE', 'SEQUENCE', 'APPLY'], 'exponential'], ['algebra1-factoring-zero-product', /Factor Factory/, ['GCF', 'TRI', 'SPECIAL', 'SOLVE', 'APPLY'], 'factoring'], ['algebra1-statistics-data-modeling', /Data Deli/, ['CENTER', 'SPREAD', 'DISPLAY', 'TWOWAY', 'SCATTER'], 'statistics'], ['algebra1-linear-equations-slope', /Slope Shack/, ['SLOPE', 'FORMS', 'WRITE', 'PARPERP', 'APPLY'], 'lines'], ['algebra1-systems-of-equations', /Intersection Inn/, ['GRAPH', 'SUBST', 'ELIM', 'APPLY', 'INEQ'], 'systems'], ['algebra1-exponents-scientific-notation', /Power Pantry/, ['PRODUCT', 'QUOTIENT', 'EVAL', 'SCI', 'SCIOPS'], 'exponents'], ['algebra1-polynomials', /Polynomial Pizzeria/, ['CLASSIFY', 'ADDSUB', 'MULT', 'SPECIAL', 'APPLY'], 'polynomials'], ['algebra1-quadratics', /Parabola Bakery/, ['GRAPH', 'ROOTS', 'FORMULA', 'COMPLETE', 'APPLY'], 'quadratics']]) {
   const rf = await ctx.newPage(); const rfErr = [];
   rf.on('pageerror', e => rfErr.push(e.message)); rf.on('console', m => { if (m.type() === 'error') rfErr.push(m.text()); }); rf.on('dialog', d => d.accept());
-  await rf.goto(URL + '#unit=' + UNITID); await rf.waitForSelector('#mmUnitSel');
+  await rf.goto(URL + '#unit=' + UNITID + '&mode=menu'); await rf.waitForSelector('#mmUnitSel');
   assert.equal(await rf.inputValue('#mmUnitSel'), UNITID);
   assert.match(await rf.inputValue('#mmTitle'), TITLE);
   for (const lvl of ['cp2', 'cp1', 'honors']) {
@@ -446,20 +446,73 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   }
   ok('standard tests: every unit builds a verified 16-question test; parts, numbering and four lettered choices print and fit; keys have the quick key');
 
+  /* ---------- practice worksheets (worksheet.html) ---------- */
+  const WURL = base + '/worksheet-generator/worksheet.html';
+  for (const [ui, UNITID] of units.entries()) {
+    const wp = await ctx.newPage(); const wErr = []; wp.on('pageerror', e => wErr.push(e.message)); wp.on('dialog', d => d.accept());
+    await wp.goto(WURL + '#unit=' + UNITID); await wp.waitForSelector('#mmUnitSel');
+    assert.equal(await wp.locator('input[name=mmMode]').count(), 0, 'the worksheet page has no menu/test switch');
+    assert.equal(await wp.locator('.mmSecPts').count(), 0, 'no points column on a worksheet');
+    await wp.click('[data-wpreset="both"]'); await wp.waitForTimeout(100);
+    const lvl = ['cp2', 'cp1', 'honors'][ui % 3];
+    await wp.check('input[name=mmLevel][value="' + lvl + '"]'); await wp.selectOption('#mmVersions', '2');
+    await wp.click('#mmBuildBtn'); await wp.waitForSelector('.mm-dcard');
+    const W = await wp.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
+    assert.equal(W.config.mode, 'worksheet'); assert.equal(W.config.sections.length, 2);
+    assert.ok(W.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && i.verify.status === 'verified'))), UNITID + ' worksheet: unverified item');
+    for (const v of [0, 1]) for (const kind of ['student', 'key']) {
+      const info = await wp.evaluate(async ({ v, kind }) => {
+        const S = MKMENU.app.state(), pages = await MKMENU.renderPages(S, v, kind);
+        const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
+        const mc = S.versions[v].sections[0].items.filter(it => it.mc).length;
+        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc };
+        root.innerHTML = ''; return r;
+      }, { v, kind });
+      const tag = UNITID + ' worksheet ' + lvl + ' v' + 'AB'[v] + ' ' + kind;
+      assert.equal(info.overflow, 0, tag + ' overflows');
+      assert.equal(info.choices, info.mc, tag + ': choices print'); assert.equal(info.bubbles, 4 * info.mc, tag + ': four letters each');
+      assert.doesNotMatch(info.text, /\d pts?\b|worth \d+ points|Rubric|My pick|Score \(teacher\)/, tag + ': no points or rubric on a worksheet');
+      if (kind === 'student') { assert.match(info.text, /Part 2 · Show Your Work/); assert.match(info.text, /Answer all 14 questions/); assert.doesNotMatch(info.text, /Answer:/); }
+      else { assert.match(info.text, /Answer Key/); assert.match(info.text, /Quick key/); }
+    }
+    assert.deepEqual(wErr, [], UNITID + ' worksheet page errors: ' + wErr.join('\n'));
+    await wp.close();
+  }
+  { // separate autosave: the test generator's saved work does not appear on the worksheet page
+    const a = await ctx.newPage(); await a.goto(URL + '#unit=algebra1-quadratics'); await a.waitForSelector('.mm-stepbtn');
+    assert.equal(await a.evaluate(() => MKMENU.app.state().config.mode), 'test', 'the test generator restores its own saved test'); await a.close();
+    const b = await ctx.newPage(); await b.goto(WURL + '#unit=algebra1-quadratics'); await b.waitForSelector('.mm-stepbtn');
+    assert.equal(await b.evaluate(() => MKMENU.app.state().config.mode), 'worksheet', 'the worksheet page restores its own saved worksheet'); await b.close();
+  }
+  ok('practice worksheets: every unit builds a verified multiple choice + show-your-work worksheet with two versions; no points; keys print and fit');
+
   /* ---------- the rest of the site still works ---------- */
   const site = await ctx.newPage(); const siteErr = [];
   site.on('pageerror', e => siteErr.push(e.message)); site.on('console', m => { if (m.type() === 'error') siteErr.push(m.text()); });
   await site.goto(base + '/index.html#algebra.expressions-equations'); await site.waitForTimeout(800);
   const unitText = await site.textContent('body');
-  assert.match(unitText, /Build a test or menu/); assert.match(unitText, /Test & Menu Generator/); assert.doesNotMatch(unitText, /The Equation Bistro: Assessment Menu/);   // the generator replaces the fixed menu PDFs
-  const href = await site.getAttribute('a.btn:has-text("Build a test or menu")', 'href');
+  assert.match(unitText, /Build an assessment/); assert.match(unitText, /Assessment Generator/); assert.doesNotMatch(unitText, /The Equation Bistro: Assessment Menu/);   // the generator replaces the fixed menu PDFs
+  const href = await site.getAttribute('a.btn:has-text("Build an assessment")', 'href');
   assert.equal(href, 'worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations');
+  assert.equal(await site.getAttribute('a.btn:has-text("Create a worksheet")', 'href'), 'worksheet-generator/worksheet.html#unit=algebra1-expressions-equations', 'the unit page links the verified Worksheet Generator');
+  assert.doesNotMatch(unitText, /Expressions & Equations Worksheet Generator/);   // the old template generator is no longer listed
+  { // Foundations of Algebra has its own generators; the Assessment Generator opens as a standard test
+    await site.goto(base + '/index.html#algebra.foundations-algebra'); await site.waitForTimeout(400);
+    assert.equal(await site.getAttribute('a.btn:has-text("Build an assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-foundations');
+    const f = await ctx.newPage(); await f.goto(base + '/worksheet-generator/menu-assessment.html'); await f.evaluate(() => localStorage.clear());
+    await f.goto(base + '/worksheet-generator/menu-assessment.html#unit=algebra1-foundations'); await f.reload(); await f.waitForSelector('#mmUnitSel');
+    assert.equal(await f.inputValue('input[name=mmMode]:checked'), 'test', 'a standard test is the default'); assert.equal(await f.inputValue('#mmTitle'), 'Foundations of Algebra Test'); await f.close();
+  }
+  for (const [tok, sid] of [['algebra.quadratics', 'algebra1-quadratics'], ['algebra.linear-equations-slope', 'algebra1-linear-equations-slope'], ['algebra.polynomials-factoring', 'algebra1-polynomials']]) {
+    await site.goto(base + '/index.html#' + tok); await site.waitForTimeout(400);
+    assert.equal(await site.getAttribute('a.btn:has-text("Create a worksheet")', 'href'), 'worksheet-generator/worksheet.html#unit=' + sid, tok + ' worksheet link');
+  }
   await site.goto(base + '/index.html#algebra.inequalities'); await site.waitForTimeout(500);
-  assert.equal(await site.getAttribute('a.btn:has-text("Build a test or menu")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-inequalities');
+  assert.equal(await site.getAttribute('a.btn:has-text("Build an assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-inequalities');
   await site.goto(base + '/index.html#algebra.relations-functions'); await site.waitForTimeout(500);
-  assert.equal(await site.getAttribute('a.btn:has-text("Build a test or menu")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions');
+  assert.equal(await site.getAttribute('a.btn:has-text("Build an assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions');
   await site.goto(base + '/index.html#activity.assessment-generator'); await site.waitForTimeout(500);
-  assert.match(await site.textContent("body"), /Test & Menu Generator/);
+  assert.match(await site.textContent("body"), /Assessment Generator/);
   await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForTimeout(800);
   assert.ok(await site.locator('#pages .page').count() >= 0);
   await site.goto(base + '/activity.html?path=' + encodeURIComponent('artifacts/expressions-equations-assessment-menu/worksheet.pdf')); await site.waitForTimeout(500);

@@ -37,6 +37,34 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-foundations",
+              "thumb": "thumbs/worksheet-generator-foundations.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-foundations",
+              "thumb": "thumbs/menu-assessment-generator-foundations.svg",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
+              "type": "Printable",
+              "topics": [
+                "Test generator",
+                "Choice menu",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-24"
+            },
+            {
               "title": "Partner Check 2: Simplifying & Evaluating Expressions",
               "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
@@ -130,29 +158,30 @@ window.LIBRARY = {
           "name": "Solving Linear Equations",
           "artifacts": [
             {
-              "title": "Expressions & Equations Worksheet Generator",
-              "path": "worksheet-generator/algebra1-expressions-equations.html",
-              "thumb": "thumbs/algebra1-expressions-equations-generator.svg",
-              "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-expressions-equations",
+              "thumb": "thumbs/worksheet-generator-expressions-equations.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
-                "Expressions & Equations",
-                "Units 1–2"
+                "Multiple choice",
+                "Solving Linear Equations",
+                "Unit 2"
               ],
-              "added": "2026-10-22"
+              "added": "2026-10-24"
             },
             {
-              "title": "Test & Menu Generator",
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/menu-assessment-generator.svg",
-              "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
                 "Choice menu",
-                "Expressions & Equations",
-                "Units 1–2"
+                "Solving Linear Equations",
+                "Unit 2"
               ],
               "added": "2026-10-24"
             },
@@ -369,22 +398,23 @@ window.LIBRARY = {
           "name": "Linear Inequalities",
           "artifacts": [
             {
-              "title": "Inequalities Worksheet Generator",
-              "path": "worksheet-generator/algebra1-inequalities.html",
-              "thumb": "thumbs/algebra1-inequalities-generator.svg",
-              "description": "Create custom Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-inequalities",
+              "thumb": "thumbs/worksheet-generator-inequalities.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
               "type": "Practice",
               "topics": [
                 "Worksheet generator",
+                "Multiple choice",
                 "Inequalities"
               ],
-              "added": "2026-10-22"
+              "added": "2026-10-24"
             },
             {
-              "title": "Test & Menu Generator",
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-inequalities",
               "thumb": "thumbs/menu-assessment-generator-inequalities.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Linear Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes solving, compound and absolute value inequalities, graphing and reading number lines, find-the-mistake problems and word problems. Prints student copies (Versions A–C) and teacher keys with number lines, worked solutions and rubrics. Every answer and graph is checked independently.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -621,10 +651,23 @@ window.LIBRARY = {
           "name": "Relations and Functions",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-relations-functions",
+              "thumb": "thumbs/worksheet-generator-relations-functions.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions",
               "thumb": "thumbs/menu-assessment-generator-relations-functions.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Relations and Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes domain and range, deciding whether a relation is a function (pairs, tables, mapping diagrams, graphs and equations), function notation, reading tables and graphs, writing rules, rate of change, increasing and decreasing intervals and arithmetic sequences. Prints student copies (Versions A–C) and teacher keys with tables, graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -715,10 +758,23 @@ window.LIBRARY = {
           "name": "Linear Functions and Graphing",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-linear-equations-slope",
+              "thumb": "thumbs/worksheet-generator-linear-equations-slope.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Linear functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-linear-equations-slope",
               "thumb": "thumbs/menu-assessment-generator-linear-equations-slope.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Linear Functions and Graphing. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes slope from points, graphs and tables (zero and undefined slopes, missing coordinates, collinear points), slope-intercept, point-slope and standard form, intercepts, writing equations of lines from a slope, points or a graph, horizontal and vertical lines, parallel and perpendicular lines, and linear models with rate of change. Prints student copies (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every line is rebuilt from what is printed and checked for the right form.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -726,20 +782,6 @@ window.LIBRARY = {
                 "Linear functions"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Linear Functions Worksheet Generator",
-              "path": "artifacts/worksheet-generator/index.html",
-              "thumb": "thumbs/linear-functions-worksheet-generator.svg",
-              "description": "Create custom Algebra 1 linear functions worksheets by sub-lesson, with slope, graphing, equation forms, applications, answer keys and multiple versions.",
-              "type": "Practice",
-              "topics": [
-                "Slope",
-                "Linear equations",
-                "Graphing",
-                "Worksheet generator"
-              ],
-              "added": "2026-10-22"
             },
             {
               "title": "Slope Four",
@@ -1048,10 +1090,23 @@ window.LIBRARY = {
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-systems-of-equations",
+              "thumb": "thumbs/worksheet-generator-systems-of-equations.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Systems of equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-systems-of-equations",
               "thumb": "thumbs/menu-assessment-generator-systems-of-equations.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Systems of Equations and Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes checking solutions, solving by graphing, how many solutions a system has (from a graph or the equations, and the value of k that makes none or infinitely many), substitution, elimination (multiplying one or both equations, decimals, special systems), word problems (tickets, prices, plans, mixtures, boats in a current, writing the system), and linear inequalities in two variables: checking points, writing an inequality or a system from a shaded graph, and systems of inequalities from a situation. Prints student copies (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every system is solved again from what is printed or drawn.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -1059,20 +1114,6 @@ window.LIBRARY = {
                 "Systems of equations"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Systems of Equations Worksheet Generator",
-              "path": "worksheet-generator/algebra1-systems-of-equations.html",
-              "thumb": "thumbs/systems-of-equations-worksheet-generator.svg",
-              "description": "Create customizable Systems of Equations worksheets on substitution, elimination, graphing and solution classification with matching answer keys and printable versions.",
-              "type": "Practice",
-              "topics": [
-                "Systems of equations",
-                "Elimination",
-                "Substitution",
-                "Graphing"
-              ],
-              "added": "2026-10-22"
             },
             {
               "title": "Systems Four",
@@ -1273,18 +1314,6 @@ window.LIBRARY = {
                 "Elimination & Word Problems"
               ],
               "added": "2026-10-23"
-            },
-            {
-              "title": "Graphing Inequalities Worksheet Generator",
-              "path": "worksheet-generator/algebra1-graphing-inequalities.html",
-              "thumb": "thumbs/algebra1-graphing-inequalities-generator.svg",
-              "description": "Create custom Graphing Inequalities worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Graphing Inequalities"
-              ],
-              "added": "2026-10-22"
             },
             {
               "title": "Inequality Graphs Four",
@@ -1566,10 +1595,24 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-exponents-scientific-notation",
+              "thumb": "thumbs/worksheet-generator-exponents-scientific-notation.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/menu-assessment-generator-exponents-scientific-notation.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Exponents and Scientific Notation. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes the product, power and quotient rules with coefficients and two variables, zero and negative exponents, negative powers of monomials, evaluating powers (negative bases, fraction bases, rational exponents), converting to and from scientific notation, fixing numbers that are not in scientific notation, comparing, and multiplying, dividing, adding and subtracting in scientific notation with “how many times” contexts and rounding. Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every simplified answer is checked for equivalence and for being fully simplified (positive exponents, each variable once, reduced numbers).",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -1724,10 +1767,23 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-exponential-functions",
+              "thumb": "thumbs/worksheet-generator-exponential-functions.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Exponential functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/menu-assessment-generator-exponential-functions.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Exponential Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes evaluating exponential functions, growth and decay, percent rates, key features of graphs (intercept, asymptote, domain and range), linear vs. exponential tables, writing y = a·bˣ, equations with a common base, geometric sequences and growth/decay word problems. Prints student copies (Versions A–C) and teacher keys with graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -1735,19 +1791,6 @@ window.LIBRARY = {
                 "Exponential functions"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Exponents & Exponential Functions Worksheet Generator",
-              "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
-              "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
-              "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Exponents & Exponential Functions",
-                "Units 7–8"
-              ],
-              "added": "2026-10-22"
             },
             {
               "title": "Exponents Four",
@@ -1986,10 +2029,23 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-polynomials",
+              "thumb": "thumbs/worksheet-generator-polynomials.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Polynomials"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-polynomials",
               "thumb": "thumbs/menu-assessment-generator-polynomials.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Polynomials. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes degree and naming polynomials, standard form and leading coefficients, adding and subtracting (missing terms, two variables, multiples), multiplying (monomials, binomials, a binomial times a trinomial, three binomials, two variables), special products, dividing by a monomial, and perimeter, area, shaded-region and volume expressions. Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked for equivalence and for standard form.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -2087,10 +2143,23 @@ window.LIBRARY = {
           "name": "Factoring and Zero Product Property",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-factoring-zero-product",
+              "thumb": "thumbs/worksheet-generator-factoring-zero-product.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Factoring"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-factoring-zero-product",
               "thumb": "thumbs/menu-assessment-generator-factoring-zero-product.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Factoring and the Zero Product Property. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes GCF and grouping, x² + bx + c, ax² + bx + c, differences of squares and perfect squares, prime polynomials, solving by factoring and word problems (consecutive integers, rectangles, borders, falling objects). Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every factorization is multiplied back out and checked for complete factoring, and every equation is solved independently.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -2098,19 +2167,6 @@ window.LIBRARY = {
                 "Factoring"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Polynomials & Factoring Worksheet Generator",
-              "path": "worksheet-generator/algebra1-polynomials-factoring.html",
-              "thumb": "thumbs/algebra1-polynomials-factoring-generator.svg",
-              "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Polynomials & Factoring",
-                "Units 9–10"
-              ],
-              "added": "2026-10-22"
             },
             {
               "title": "Factoring Four",
@@ -2405,10 +2461,23 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-quadratics",
+              "thumb": "thumbs/worksheet-generator-quadratics.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Quadratics"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-quadratics",
               "thumb": "thumbs/menu-assessment-generator-quadratics.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Quadratic Functions and Equations. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes vertex, axis of symmetry, zeros, maximum or minimum and range from graphs and equations, writing the equation of a graphed parabola, solving by square roots and factoring, the discriminant and the quadratic formula (rounded and exact answers), completing the square and vertex form, and projectile models (height, maximum height, landing time). Prints student copies (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Exact answers must be in simplest radical form, and rounding is accepted only when the problem asks for it.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",
@@ -2416,18 +2485,6 @@ window.LIBRARY = {
                 "Quadratics"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Quadratics Worksheet Generator",
-              "path": "worksheet-generator/algebra1-quadratics.html",
-              "thumb": "thumbs/algebra1-quadratics-generator.svg",
-              "description": "Create custom Quadratics worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Quadratics"
-              ],
-              "added": "2026-10-22"
             },
             {
               "title": "Quadratics Four",
@@ -2723,10 +2780,23 @@ window.LIBRARY = {
           "name": "Statistics and Data Modeling",
           "artifacts": [
             {
-              "title": "Test & Menu Generator",
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=algebra1-statistics-data-modeling",
+              "thumb": "thumbs/worksheet-generator-statistics-data-modeling.svg",
+              "description": "Build practice worksheets for this unit. Pick skills and CP2, CP1 or Honors difficulty, then choose short answer or multiple choice for each part (or mix them). Questions go from easier to harder; print up to three versions with an answer key and worked solutions. Every answer and every multiple-choice option is checked.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Multiple choice",
+                "Statistics"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-statistics-data-modeling",
               "thumb": "thumbs/menu-assessment-generator-statistics-data-modeling.svg",
-              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Statistics and Data Modeling. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes mean, median, mode and MAD (including dot plots), quartiles, IQR and outliers, reading and comparing box plots, two-way tables with joint, marginal and conditional relative frequencies, and scatter plots with correlation, lines of fit, predictions and residuals. Prints student copies (Versions A–C) and teacher keys with every display, worked solutions and rubrics. Every answer is recomputed from the printed data or the drawn display.",
+              "description": "Build a standard unit test (multiple choice and short answer, easier to harder) or, as an option, a choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys with worked solutions. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
                 "Test generator",

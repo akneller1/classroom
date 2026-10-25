@@ -763,7 +763,7 @@
   });
 
   NS.registerSkillSet({
-    id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Foundations & Solving Linear Equations',
+    id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Solving Linear Equations',
     title: 'The Equation Bistro',
     tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', SOLVE: 'Solve equations', LITERAL: 'Literal equations', MODEL: 'Model with equations' },
     reference:
@@ -779,5 +779,22 @@
       'Percent and absolute-value equations are not part of this pilot.'
     ],
     skills: skills
+  });
+
+  /* Unit 1 · Foundations of Algebra: the simplify, distribute and evaluate skills on their own
+     (the same generators and checks; Unit 2 keeps them for review). */
+  NS.registerSkillSet({
+    id: 'algebra1-foundations', course: 'algebra1', courseName: 'Algebra 1', unit: 'foundations-algebra', unitName: 'Foundations of Algebra',
+    title: 'The Expression Café',
+    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute' },
+    reference:
+      '<div class="mm-refgrid">' +
+      '<section><h4>Order of operations</h4><p>Grouping symbols → exponents → multiply and divide (left to right) → add and subtract (left to right).</p></section>' +
+      '<section><h4>Properties</h4><p>Distributive: ⟨a(b+c)=ab+ac⟩</p><p>Combine like terms: ⟨3x+5x=8x⟩, but ⟨3x+5y⟩ stays as it is.</p><p>Subtracting a group changes every sign: ⟨-(x-4)=-x+4⟩</p></section>' +
+      '<section><h4>Evaluating</h4><p>Replace each variable with its value in parentheses: if ⟨x=-3⟩, then ⟨x^2=(-3)^2=9⟩.</p></section></div>',
+    gaps: [
+      'Real-number classification, properties by name, and translating words to expressions are not generated yet. Use Add → Write your own problem.'
+    ],
+    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate'].indexOf(s.id) >= 0; })
   });
 })(typeof window !== 'undefined' ? window : globalThis);

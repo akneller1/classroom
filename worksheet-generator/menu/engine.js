@@ -24,7 +24,7 @@
   /* Units the generator knows about. Units without a skill set are listed as "not yet supported". */
   NS.CATALOG = [
     { course: 'Algebra 1', units: [   // follows the 180-day roadmap (units 1–12)
-      ['algebra1-expressions-equations', 'Units 1–2 · Foundations & Solving Linear Equations'], ['algebra1-inequalities', 'Unit 3 · Linear Inequalities'],
+      ['algebra1-foundations', 'Unit 1 · Foundations of Algebra'], ['algebra1-expressions-equations', 'Unit 2 · Solving Linear Equations'], ['algebra1-inequalities', 'Unit 3 · Linear Inequalities'],
       ['algebra1-relations-functions', 'Unit 4 · Relations and Functions'], ['algebra1-linear-equations-slope', 'Unit 5 · Linear Functions and Graphing'],
       ['algebra1-systems-of-equations', 'Unit 6 · Systems of Equations and Inequalities'], ['algebra1-exponents-scientific-notation', 'Unit 7 · Exponents and Scientific Notation'],
       ['algebra1-exponential-functions', 'Unit 8 · Exponential Functions'], ['algebra1-polynomials', 'Unit 9 · Polynomials'],
@@ -71,7 +71,9 @@
     var lv = NS.LEVELS[cfg.level] || NS.LEVELS.cp1, t = n > 0 ? Math.min(2, Math.floor(3 * i / n)) : 1;
     return Math.max(NS.MIN_C, Math.min(NS.MAX_C, lv.tiers[t] + (sec.adjust || 0)));
   };
-  NS.isTest = function (cfg) { return !!cfg && cfg.mode === 'test'; };
+  /* A standard test and a practice worksheet both have every student answer every question. */
+  NS.isTest = function (cfg) { return !!cfg && (cfg.mode === 'test' || cfg.mode === 'worksheet'); };
+  NS.isWorksheet = function (cfg) { return !!cfg && cfg.mode === 'worksheet'; };
   NS.sectionFormat = function (cfg, si) { return (cfg.sections[si] && cfg.sections[si].qformat) || 'open'; };
   NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice' };
 
@@ -88,6 +90,19 @@
       open: [['Short Answer', 'Show your work.', 10, 10, 'open']] }[preset || 'std'];
     return P.map(function (x) { return { id: uid('sec'), name: x[0], note: x[1], points: x[2], offered: x[3], required: x[3], tier: 'ramp', adjust: 0, skills: null, qformat: x[4] }; });
   };
+  /* Practice worksheet parts (no points shown). 'skill' makes one part per selected skill. */
+  NS.worksheetSections = function (preset, cfg) {
+    function part(name, note, n, fmt, skills) { return { id: uid('sec'), name: name, note: note, points: 1, offered: n, required: n, tier: 'ramp', adjust: 0, skills: skills || null, qformat: fmt }; }
+    preset = preset || 'mixed';
+    if (preset === 'skill') {
+      var set = cfg && sets[cfg.unitId], list = set ? set.skills.filter(function (s) { return cfg.skills[s.id]; }) : [];
+      if (list.length) return list.map(function (s) { return part(s.name, '', 4, 'open', [s.id]); });
+      preset = 'mixed';
+    }
+    return { mixed: [part('Practice', 'Show your work.', 12, 'open')],
+      mc: [part('Multiple Choice', 'Choose the best answer.', 12, 'mc')],
+      both: [part('Multiple Choice', 'Choose the best answer.', 8, 'mc'), part('Show Your Work', 'Show your work.', 6, 'open')] }[preset] || [part('Practice', 'Show your work.', 12, 'open')];
+  };
   NS.menuSections = function () {
     return [
       { id: 'app', name: 'Appetizers', note: 'Warm-ups', points: 5, offered: 6, required: 4, tier: 0, adjust: 0, skills: null },
@@ -96,18 +111,18 @@
   };
   /* Switch a configuration between the choice menu and a standard test (sections, coverage, default titles). */
   NS.setMode = function (cfg, mode) {
-    var set = sets[cfg.unitId], wasDefaultTitle = !cfg.title || cfg.title === (set && set.title) || cfg.title === (set && set.unitName + ' Test');
-    var wasDefaultSub = !cfg.subtitle || /^Assessment Menu · |^Unit test · /.test(cfg.subtitle);
-    cfg.mode = mode === 'test' ? 'test' : 'menu';
-    cfg.sections = cfg.mode === 'test' ? NS.testSections('std') : NS.menuSections();
-    cfg.coverage = { on: cfg.mode !== 'test', tags: null };
-    if (wasDefaultTitle && set) cfg.title = cfg.mode === 'test' ? set.unitName + ' Test' : set.title;
-    if (wasDefaultSub) cfg.subtitle = cfg.mode === 'test' ? 'Unit test · answer every question' : 'Assessment Menu · choose your meal and show what you know';
+    var set = sets[cfg.unitId], wasDefaultTitle = !cfg.title || cfg.title === (set && set.title) || cfg.title === (set && set.unitName + ' Test') || cfg.title === (set && set.unitName + ' Practice');
+    var wasDefaultSub = !cfg.subtitle || /^Assessment Menu · |^Unit test · |^Practice worksheet/.test(cfg.subtitle);
+    cfg.mode = mode === 'test' || mode === 'worksheet' ? mode : 'menu';
+    cfg.sections = cfg.mode === 'test' ? NS.testSections('std') : cfg.mode === 'worksheet' ? NS.worksheetSections('mixed', cfg) : NS.menuSections();
+    cfg.coverage = { on: cfg.mode === 'menu', tags: null };
+    if (wasDefaultTitle && set) cfg.title = cfg.mode === 'test' ? set.unitName + ' Test' : cfg.mode === 'worksheet' ? set.unitName + ' Practice' : set.title;
+    if (wasDefaultSub) cfg.subtitle = cfg.mode === 'test' ? 'Unit test · answer every question' : cfg.mode === 'worksheet' ? 'Practice worksheet' : 'Assessment Menu · choose your meal and show what you know';
     return cfg;
   };
   NS.defaultConfig = function (setId, mode) {
     var cfg = NS.menuConfig(setId);
-    if (mode === 'test') NS.setMode(cfg, 'test');
+    if (mode === 'test' || mode === 'worksheet') NS.setMode(cfg, mode);
     return cfg;
   };
   NS.menuConfig = function (setId) {
@@ -156,10 +171,10 @@
       if (!(o >= 1)) errors.push(nm + ': offer at least one problem.');
       if (r < 0) errors.push(nm + ': the number required cannot be negative.');
       if (r > o) errors.push(nm + ': students must complete ' + r + ' but only ' + o + ' are offered.');
-      if (!(pts > 0)) errors.push(nm + ': points per problem must be more than 0.');
+      if (!(pts > 0) && !NS.isWorksheet(cfg)) errors.push(nm + ': points per problem must be more than 0.');
       if (r === 0 && o > 0) warnings.push(nm + ': students are not required to complete any of these, so they will not count toward the score.');
       if (r === o && o > 0 && !test) warnings.push(nm + ': students must complete every problem, so there is no choice in this section.');
-      if (!NS.sectionSkills(cfg, i).length) errors.push(nm + ': no skills are available for this section.');
+      if (!NS.sectionSkills(cfg, i).length) errors.push(nm + (NS.isWorksheet(cfg) && s.skills && s.skills.length ? ': its skill is unchecked in step 4. Check it again or remove this part.' : ': no skills are available for this section.'));
       var forced = 0;
       if (state) { var sec = state.versions[0] && state.versions[0].sections[i]; if (sec) forced = sec.items.filter(function (it) { return it.required; }).length; }
       if (forced > r) errors.push(nm + ': ' + forced + ' problems are marked "everyone must do this" but students only complete ' + r + '.');
@@ -181,7 +196,7 @@
         });
       }
     }
-    if (max !== 100 && !errors.length) warnings.push('The maximum score is ' + fmt(max) + ' points (not 100). That is fine for a quiz; scale it if you need a percentage.');
+    if (max !== 100 && !errors.length && !NS.isWorksheet(cfg)) warnings.push('The maximum score is ' + fmt(max) + ' points (not 100). That is fine for a quiz; scale it if you need a percentage.');
     return { errors: errors, warnings: warnings, maxScore: max, totalOffered: offered, totalRequired: reqTotal, perSection: per, tags: tags };
   };
   function fmt(n) { return Math.round(n * 100) / 100; }
@@ -306,6 +321,11 @@
       var q = cands[i].p;
       if (q !== p) { var v = NS.verifyProblem(q, { intOnly: false }); if (!v.ok) continue; q.verify = { status: v.status, issues: v.issues }; }
       var m = choicesFor(q);
+      if (m && /\bName one point that is\b/.test(q.prompt || '')) {   // with choices, ask "which point" (wording only; re-verified)
+        var w = JSON.parse(JSON.stringify(q)); w.prompt = w.prompt.replace(/\bName one point that is\b/, 'Which point is');
+        var vw = NS.verifyProblem(w, { intOnly: false });
+        if (vw.ok) { w.verify = { status: vw.status, issues: vw.issues }; m.derived = w; m.note = q !== p ? cands[i].note : m.note; return m; }
+      }
       if (m) { if (q !== p) { m.derived = q; m.note = cands[i].note; } return m; }
     }
     return { fail: cands.length ? 'There are not enough checked wrong answers for this problem, so it stays short answer.' : 'The answer is a graph, so it stays short answer.' };

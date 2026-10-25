@@ -1,4 +1,4 @@
-# Menu Assessment Generator
+# Assessment Generator
 
 
 ## Standard tests (Format: Standard test)
@@ -34,6 +34,25 @@ accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-gener
 Other units appear in the unit list as "not yet supported" until they have generators that pass the same
 verification tests (see *Adding a unit*). Open a unit directly with `menu-assessment.html#unit=<id>`. Each
 unit keeps its own autosave. Units that have this generator no longer list the old fixed Assessment Menu PDFs (the files are still in `artifacts/` but unlisted); Geometry and Algebra 2 keep theirs.
+
+## Practice worksheets (`worksheet-generator/worksheet.html`)
+
+The Worksheet Generator is the same app and the same verified problem generators, locked to `mode: 'worksheet'`
+(set by `<body data-mode="worksheet">`). It replaces the old template generators (`worksheet-generator/algebra1-*.html`
+and `artifacts/worksheet-generator/`), which stay on disk but are no longer listed; `scripts/check_library.py`
+reports one if it is listed next to the new generator.
+
+* Every question is answered; there are no points, score table or rubric. The key has a multiple-choice quick key,
+  the skill table, and every answer with a worked solution.
+* Parts work like test parts: name, number of questions, **Short answer** or **Multiple choice**, and difficulty
+  (easier → harder within the class level, or one difficulty). Starting points: Mixed practice (12 short answer),
+  All multiple choice (12), Multiple choice + show your work (8 + 6), One part per skill (4 each).
+* Multiple choice uses the same checked choices as standard tests (only the key passes the verifier).
+  "Name one point that is a solution" is asked as "Which point is a solution" when it has choices.
+* Autosave is separate from the Assessment Generator (`mk-menu-current-v1:<unit>:worksheet`).
+* Tests: `tests/worksheet-tests.cjs` (every unit × level × preset) and a browser block in `tests/browser-test.cjs`.
+* `worksheet.html` is a copy of `menu-assessment.html` with a different title and `data-mode`; keep their script
+  lists and `?v=` strings the same.
 
 ## Teacher workflow
 1. **Course and unit.** Also set the menu title and subtitle.

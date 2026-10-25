@@ -1,5 +1,10 @@
 # Mr. K's Classroom — Worksheet Generator
 
+> **Algebra 1 now uses the verified Worksheet Generator** (`worksheet.html`, built on `menu/`; see `menu/README.md`,
+> "Practice worksheets"). The template generators described below (`core/framework.js`, `algebra1-*.html`) are kept
+> for reference but are no longer listed on the site.
+
+
 A browser-only worksheet generator. First unit: **Algebra 1 — Linear Functions** (all 21 skills).
 No server, no build step, no accounts, no network calls at run time. Open
 `algebra1-linear-functions.html` in a browser (double-click works), or host the folder on GitHub Pages.
@@ -84,7 +89,7 @@ displayed question or the drawn graph back and recompute the answer.
 - Page-fit uses real layout in the browser; a custom zoom or user font override in print settings can change it.
 - Word-problem contexts (9 so far) and sub-type variety can be extended in `lessons-applications.js`.
 
-## Menu Assessment Generator
+## Assessment Generator
 `menu-assessment.html` builds customizable restaurant-style choice assessments (CP2/CP1/Honors, Versions A–C,
 teacher keys with rubrics) on top of the same `core/` files. Pilot unit: Algebra 1 · Expressions & Equations.
 See `menu/README.md` for the architecture, the independent answer checker and its tests.

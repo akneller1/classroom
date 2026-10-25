@@ -7,7 +7,8 @@ Problems reported:
   * two different activities with the same title in one course (teachers cannot tell them apart)
   * an activity or thumbnail file that does not exist
   * an Algebra flashcard deck without the Easy / Medium / Hard level menu
-  * a fixed assessment-menu PDF in a unit that has the Menu Assessment Generator
+  * a fixed assessment-menu PDF in a unit that has the Assessment Generator
+  * an old template worksheet generator in a unit that has the verified Worksheet Generator (worksheet.html)
 
 Usage:
   python3 scripts/check_library.py          # report; exit code 1 if anything is wrong
@@ -77,13 +78,19 @@ def main():
             if any('menu-assessment.html' in a['path'] for a in u['artifacts']):
                 for a in u['artifacts']:
                     if a['path'].endswith('-assessment-menu/worksheet.pdf'):
-                        problems.append('%s/%s: fixed assessment menu "%s" listed next to the Menu Assessment Generator (remove it)' % (c['id'], u['id'], a['title']))
+                        problems.append('%s/%s: fixed assessment menu "%s" listed next to the Assessment Generator (remove it)' % (c['id'], u['id'], a['title']))
+        for u in c['units']:   # the verified Worksheet Generator replaces the old template generators
+            if any(a['path'].startswith('worksheet-generator/worksheet.html') for a in u['artifacts']):
+                for a in u['artifacts']:
+                    p = a['path'].split('#')[0]
+                    if (p.startswith('worksheet-generator/algebra1-') and p.endswith('.html')) or p == 'artifacts/worksheet-generator/index.html':
+                        problems.append('%s/%s: old worksheet generator "%s" listed next to the Worksheet Generator (remove it)' % (c['id'], u['id'], a['title']))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
-            if len(paths) > 1 and t not in ('menu assessment generator', 'test & menu generator'):
+            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator'):
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))
         for u in c['units']:
             for a in u['artifacts']:

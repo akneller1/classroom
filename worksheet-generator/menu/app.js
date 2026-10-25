@@ -1,4 +1,4 @@
-/* Menu Assessment Generator — teacher interface.
+/* Assessment Generator — teacher interface.
    Steps: 1 course & unit · 2 class level · 3 menu & rules · 4 skills · 5 build · 6 review & edit
           7 preview · 8 print & save.
    All state lives in this browser (autosaved to localStorage) and can be exported as a file. */
@@ -12,7 +12,10 @@
 
   var KEY_CUR = 'mk-menu-current-v1', KEY_SAVES = 'mk-menu-saves-v1', KEY_THEME = 'mkws-theme', KEY_LAST = 'mk-menu-last-unit';
   /* Each unit keeps its own autosave, so switching units never loses work. */
-  function curKey(unit) { return KEY_CUR + ':' + unit; }
+  /* The Worksheet Generator page (body data-mode="worksheet") is the same app locked to practice worksheets,
+     with its own autosave per unit. */
+  var PAGE_MODE = doc.body.getAttribute('data-mode') === 'worksheet' ? 'worksheet' : null;
+  function curKey(unit) { return KEY_CUR + ':' + unit + (PAGE_MODE ? ':' + PAGE_MODE : ''); }
   function hashUnit() { var m = /unit=([a-z0-9\-]+)/.exec(G.location.hash || ''); return m && NS.skillSets[m[1]] ? m[1] : null; }
   var defaultUnit = doc.body.getAttribute('data-unit') || 'algebra1-expressions-equations';
   var ui = { view: 'setup', version: 0, preview: 'student', showAns: {}, zoom: 'fit', bankSkill: null, bankC: null, bankN: 10, bankOpen: false };
@@ -23,7 +26,8 @@
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); return true; } catch (e) { return false; } }
   function cfg() { return S ? S.config : draft; }
   function isTest() { return NS.isTest(cfg()); }
-  function noun() { return isTest() ? 'test' : 'menu'; }
+  function isWs() { return NS.isWorksheet(cfg()); }
+  function noun() { return isWs() ? 'worksheet' : isTest() ? 'test' : 'menu'; }
   function autosave() {
     var unit = cfg().unitId;
     var ok = lsSet(curKey(unit), S ? NS.serialize(S) : JSON.stringify({ draft: draft })); lsSet(KEY_LAST, unit);
@@ -58,7 +62,7 @@
     ['setup', '5', 'Build', 'mmBuild'], ['review', '6', 'Review & edit', null], ['preview', '7', 'Preview', null], ['export', '8', 'Print & save', null]];
   function renderSteps() {
     $('.mm-stepnav').innerHTML = STEPS.map(function (s, i) {
-      var dis = !S && i >= 5; if (i === 2 && isTest()) s = [s[0], s[1], 'Test parts', s[3]];
+      var dis = !S && i >= 5; if (i === 2 && isTest()) s = [s[0], s[1], isWs() ? 'Worksheet parts' : 'Test parts', s[3]];
       var cur = ui.view === s[0] && (s[0] !== 'setup' || i === 0);
       return '<button type="button" class="mm-stepbtn' + (ui.view === s[0] ? ' on' : '') + '" data-step="' + i + '"' + (dis ? ' disabled' : '') + (cur ? ' aria-current="step"' : '') + '><span class="step">' + s[1] + '</span>' + esc(s[2]) + '</button>';
     }).join('');
@@ -72,7 +76,7 @@
     var bits = [];
     if (NS.isTest(c)) bits.push('<span><b>' + rules.totalOffered + '</b> questions</span>');
     else { bits.push('<span><b>' + rules.totalOffered + '</b> offered</span>'); bits.push('<span><b>' + rules.totalRequired + '</b> students complete</span>'); }
-    bits.push('<span><b>' + rules.maxScore + '</b> points possible</span>');
+    if (!NS.isWorksheet(c)) bits.push('<span><b>' + rules.maxScore + '</b> points possible</span>');
     if (S) {
       var cnt = NS.counts(S);
       bits.push('<span>' + S.versions.length + (S.versions.length > 1 ? ' versions' : ' version') + '</span>');
@@ -99,11 +103,12 @@
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
       '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
-      '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. The ready-to-print Assessment Menu PDFs for every unit are still on each unit page.</p>' +
+      (PAGE_MODE ? '<p class="hint">Every problem is made fresh and its answer is checked by a separate verifier. Choose short answer or multiple choice for each part in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
+       : '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. For practice, use the <a href="worksheet.html#unit=' + esc(c.unitId) + '">Worksheet Generator</a>.</p>' +
       '<fieldset class="field mm-mode"><legend class="lbl">Format</legend>' +
-      '<label class="chk"><input type="radio" name="mmMode" value="menu"' + (NS.isTest(c) ? '' : ' checked') + '><span>Choice menu<small>Students choose problems from Appetizers, Entrées and Chef’s Specials.</small></span></label>' +
-      '<label class="chk"><input type="radio" name="mmMode" value="test"' + (NS.isTest(c) ? ' checked' : '') + '><span>Standard test<small>Everyone answers every question: multiple-choice and short-answer parts, easier to harder.</small></span></label></fieldset>' +
-      '<label class="field"><span class="lbl">' + (NS.isTest(c) ? 'Test' : 'Menu') + ' title</span><input type="text" id="mmTitle" value="' + esc(c.title) + '" maxlength="80"></label>' +
+      '<label class="chk"><input type="radio" name="mmMode" value="test"' + (NS.isTest(c) ? ' checked' : '') + '><span>Standard test<small>Everyone answers every question: multiple-choice and short-answer parts, easier to harder.</small></span></label>' +
+      '<label class="chk"><input type="radio" name="mmMode" value="menu"' + (NS.isTest(c) ? '' : ' checked') + '><span>Choice menu<small>Students choose problems from Appetizers, Entrées and Chef’s Specials.</small></span></label></fieldset>') +
+      '<label class="field"><span class="lbl">' + (NS.isWorksheet(c) ? 'Worksheet' : NS.isTest(c) ? 'Test' : 'Menu') + ' title</span><input type="text" id="mmTitle" value="' + esc(c.title) + '" maxlength="80"></label>' +
       '<label class="field"><span class="lbl">Subtitle</span><input type="text" id="mmSubtitle" value="' + esc(c.subtitle) + '" maxlength="120"></label></section>';
     // 2
     h += '<section class="card mm-card" id="mmLevel"><h2><span class="step">2</span>Class level</h2><div class="mm-levels" role="radiogroup" aria-label="Class level">' +
@@ -155,15 +160,18 @@
   }
   /* Step 3 for a standard test: parts with a question format; everyone answers every question. */
   var TIERS_TEST = [['ramp', 'Easier → harder'], [0, 'Easier'], [1, 'Middle'], [2, 'Harder']];
+  var WS_PRESETS = [['mixed', 'Mixed practice (short answer)'], ['mc', 'All multiple choice'], ['both', 'Multiple choice + show your work'], ['skill', 'One part per skill']];
   function testPartsHtml(c, rules) {
-    return '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>Test parts</h2>' +
-      '<div class="mm-presets"><span class="lbl">Start from:</span> ' + [['std', 'Standard test (100 pts)'], ['quiz', 'Short quiz (50 pts)'], ['mc', 'All multiple choice'], ['open', 'All short answer']].map(function (x) { return '<button type="button" class="btn ghost sm" data-tpreset="' + x[0] + '">' + x[1] + '</button>'; }).join(' ') + '</div>' +
-      '<div class="mm-tablewrap"><table class="mm-sectbl"><thead><tr><th>Part name</th><th>Points each</th><th>Questions</th><th>Question format</th><th>Difficulty</th><th>Skills</th><th><span class="sr">Remove</span></th></tr></thead><tbody>' +
+    var ws = NS.isWorksheet(c);
+    return '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>' + (ws ? 'Worksheet parts' : 'Test parts') + '</h2>' +
+      '<div class="mm-presets"><span class="lbl">Start from:</span> ' + (ws ? WS_PRESETS.map(function (x) { return '<button type="button" class="btn ghost sm" data-wpreset="' + x[0] + '">' + x[1] + '</button>'; }).join(' ') :
+        [['std', 'Standard test (100 pts)'], ['quiz', 'Short quiz (50 pts)'], ['mc', 'All multiple choice'], ['open', 'All short answer']].map(function (x) { return '<button type="button" class="btn ghost sm" data-tpreset="' + x[0] + '">' + x[1] + '</button>'; }).join(' ')) + '</div>' +
+      '<div class="mm-tablewrap"><table class="mm-sectbl"><thead><tr><th>Part name</th>' + (ws ? '' : '<th>Points each</th>') + '<th>Questions</th><th>Question format</th><th>Difficulty</th><th>Skills</th><th><span class="sr">Remove</span></th></tr></thead><tbody>' +
       c.sections.map(function (s, si) {
         var skillsTxt = s.skills && s.skills.length ? s.skills.length + ' chosen' : 'All selected', tierV = s.tier === undefined ? 'ramp' : s.tier, cs = [0, 1, 2].map(function (k) { return NS.itemC(c, si, k, 3); });
         var cTxt = tierV === 'ramp' ? cs[0] + '–' + cs[2] : String(NS.sectionC(c, si));
         return '<tr data-si="' + si + '"><td><input type="text" class="mmSecName" value="' + esc(s.name) + '" aria-label="Part ' + (si + 1) + ' name" maxlength="40"><input type="text" class="mmSecNote" value="' + esc(s.note || '') + '" aria-label="Part ' + (si + 1) + ' directions" placeholder="Directions (optional)" maxlength="60"></td>' +
-          '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>' +
+          (ws ? '' : '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>') +
           '<td><input type="number" class="mmSecOff" min="1" max="30" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"></td>' +
           '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
           '<td><select class="mmSecTier" aria-label="' + esc(s.name) + ' difficulty">' + TIERS_TEST.map(function (t) { return '<option value="' + t[0] + '"' + (String(tierV) === String(t[0]) ? ' selected' : '') + '>' + t[1] + '</option>'; }).join('') + '</select>' +
@@ -172,11 +180,11 @@
           '<td><button type="button" class="btn ghost sm mmSecDel" aria-label="Remove part ' + esc(s.name) + '"' + (c.sections.length < 2 ? ' disabled' : '') + '>✕</button></td></tr>';
       }).join('') + '</tbody></table></div>' +
       '<p><button type="button" class="btn ghost sm" id="mmAddSec">+ Add a part</button></p>' +
-      '<p class="hint">Every student answers every question. Within each part the questions go from easier to harder inside the class level, unless you choose one difficulty. Multiple-choice answers are checked: the right answer is verified and every wrong choice is a checked mistake.</p>' +
+      '<p class="hint">' + (ws ? 'Students answer every question; the answer key has each answer and a worked solution.' : 'Every student answers every question.') + ' Within each part the questions go from easier to harder inside the class level, unless you choose one difficulty. Multiple-choice answers are checked: the right answer is verified and every wrong choice is a checked mistake.</p>' +
       rulesHtml(rules) + '</section>';
   }
   function rulesHtml(rules) {
-    return '<div class="mm-rules" aria-live="polite"><div class="mm-max">Maximum score: <b>' + rules.maxScore + '</b> points · ' + (isTest() ? '<b>' + rules.totalOffered + '</b> questions' : 'students complete <b>' + rules.totalRequired + '</b> of <b>' + rules.totalOffered + '</b>') + '</div>' +
+    return '<div class="mm-rules" aria-live="polite"><div class="mm-max">' + (isWs() ? '<b>' + rules.totalOffered + '</b> questions' : 'Maximum score: <b>' + rules.maxScore + '</b> points · ' + (isTest() ? '<b>' + rules.totalOffered + '</b> questions' : 'students complete <b>' + rules.totalRequired + '</b> of <b>' + rules.totalOffered + '</b>')) + '</div>' +
       rules.errors.map(function (e) { return '<p class="mm-err">✕ ' + esc(e) + '</p>'; }).join('') +
       rules.warnings.map(function (w) { return '<p class="mm-warn">! ' + esc(w) + '</p>'; }).join('') + '</div>';
   }
@@ -188,7 +196,7 @@
   function bindSetup() {
     var c = cfg();
     function upd(fn, rerender) { return function (e) { if (S) snapshot(); fn(e); afterConfigChange(rerender); }; }
-    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (!NS.skillSets[id]) return; snapshot(); autosave(); loadUnit(id, c.level); try { G.history.replaceState(null, '', '#unit=' + id); } catch (er) { /* ignore */ } render(); autosave(); };
+    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); };   // a new unit starts in the same format
     $$('input[name=mmMode]').forEach(function (r) { r.onchange = function () {
       if (S) { change(function () { NS.setMode(S.config, r.value); S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }, r.value === 'test' ? 'Switched to a standard test. New questions were made for the test parts.' : 'Switched to a choice menu. New problems were made for the menu sections.'); }
       else { NS.setMode(draft, r.value); autosave(); render(); }
@@ -201,6 +209,10 @@
       c.sections = NS.testSections(b.getAttribute('data-tpreset'));
       if (S) { S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }
     }, true); });
+    $$('[data-wpreset]').forEach(function (b) { b.onclick = upd(function () {
+      c.sections = NS.worksheetSections(b.getAttribute('data-wpreset'), c);
+      if (S) { S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }
+    }, true); });
     $$('[data-preset]').forEach(function (b) { b.onclick = upd(function () {
       c.sections = PRESETS[b.getAttribute('data-preset')].map(function (p, i) { return { id: NS.uid('sec'), name: p[0], note: p[1], points: p[2], offered: p[3], required: p[4], tier: p[5], adjust: 0, skills: null }; });
       if (S) { S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }
@@ -209,7 +221,7 @@
       var si = +tr.getAttribute('data-si'), s = c.sections[si];
       $('.mmSecName', tr).onchange = upd(function (e) { s.name = e.target.value.trim() || 'Section ' + (si + 1); }, true);
       $('.mmSecNote', tr).onchange = upd(function (e) { s.note = e.target.value; }, false);
-      $('.mmSecPts', tr).onchange = upd(function (e) { var v = Math.round(parseFloat(e.target.value) * 2) / 2; s.points = v > 0 ? v : s.points; }, true);
+      if ($('.mmSecPts', tr)) $('.mmSecPts', tr).onchange = upd(function (e) { var v = Math.round(parseFloat(e.target.value) * 2) / 2; s.points = v > 0 ? v : s.points; }, true);
       $('.mmSecOff', tr).onchange = upd(function (e) { var v = Math.max(1, Math.min(20, parseInt(e.target.value, 10) || 1)); s.offered = v; if (S) NS.syncStructure(S); }, true);
       if ($('.mmSecReq', tr)) $('.mmSecReq', tr).onchange = upd(function (e) { var v = Math.max(0, Math.min(20, parseInt(e.target.value, 10) || 0)); s.required = v; }, true);
       if ($('.mmSecFmt', tr)) $('.mmSecFmt', tr).onchange = upd(function (e) { s.qformat = e.target.value; if (S) { NS.rebuild(S); NS.ensureFormats(S); } }, true);
@@ -218,7 +230,7 @@
       $('.mmSecSkills', tr).onclick = function () { sectionSkillsDialog(si); };
       $('.mmSecDel', tr).onclick = upd(function () { c.sections.splice(si, 1); if (S) S.versions.forEach(function (v) { v.sections.splice(si, 1); }); }, true);
     });
-    $('#mmAddSec').onclick = upd(function () { c.sections.push(NS.isTest(c) ? { id: NS.uid('sec'), name: 'Part ' + (c.sections.length + 1), note: 'Show your work.', points: 10, offered: 3, required: 3, tier: 'ramp', adjust: 0, skills: null, qformat: 'open' } : { id: NS.uid('sec'), name: 'Dessert', note: 'Bonus', points: 5, offered: 2, required: 1, tier: 2, adjust: 0, skills: null }); if (S) NS.syncStructure(S); }, true);
+    $('#mmAddSec').onclick = upd(function () { c.sections.push(NS.isTest(c) ? { id: NS.uid('sec'), name: 'Part ' + (c.sections.length + 1), note: 'Show your work.', points: NS.isWorksheet(c) ? 1 : 10, offered: 3, required: 3, tier: 'ramp', adjust: 0, skills: null, qformat: 'open' } : { id: NS.uid('sec'), name: 'Dessert', note: 'Bonus', points: 5, offered: 2, required: 1, tier: 2, adjust: 0, skills: null }); if (S) NS.syncStructure(S); }, true);
     if ($('#mmCov')) $('#mmCov').onchange = upd(function (e) { c.coverage.on = e.target.checked; }, true);
     $$('.mmCovTag').forEach(function (b) { b.onchange = upd(function () {
       var on = $$('.mmCovTag').filter(function (x) { return x.checked; }).map(function (x) { return x.value; });
@@ -259,7 +271,7 @@
       $('#mmView').classList.remove('busy');
       render(); autosave();
       var cnt = NS.counts(S);
-      toast(cnt.failed ? cnt.failed + ' problem slot(s) could not be filled with a verified problem — they are marked in red.' : (isTest() ? 'Test' : 'Menu') + ' built. Every answer was checked independently.');
+      toast(cnt.failed ? cnt.failed + ' problem slot(s) could not be filled with a verified problem — they are marked in red.' : (isWs() ? 'Worksheet' : isTest() ? 'Test' : 'Menu') + ' built. Every answer was checked independently.');
     }, 20);
   }
 
@@ -357,11 +369,11 @@
       '<button type="button" class="btn ghost" id="mmShowAll">' + (ui.allAns ? 'Hide all answers' : 'Show all answers') + '</button>' +
       '<button type="button" class="btn ghost" id="mmBankToggle" aria-expanded="' + ui.bankOpen + '">Problem bank</button>' +
       '<span class="sp"></span><button type="button" class="btn" id="mmToPreview">Preview →</button></div>' +
-      '<p class="hint mm-howto"><b>Regenerate, pin, edit and approve</b> apply to this version only. <b>Easier/Harder, skill, move, delete, add and required</b> change the menu’s structure, so they apply to every version at once.</p>';
+      '<p class="hint mm-howto"><b>Regenerate, pin, edit and approve</b> apply to this version only. <b>Easier/Harder, skill, move, delete, add and required</b> change the ' + noun() + '’s structure, so they apply to every version at once.</p>';
     h += '<div class="mm-revgrid' + (ui.bankOpen ? ' withbank' : '') + '"><div class="mm-sections">';
     c.sections.forEach(function (sec, si) {
       var items = v.sections[si].items, req = items.filter(function (x) { return x.required; }).length;
-      h += '<section class="mm-secblock" aria-labelledby="mmsec' + si + '"><div class="mm-sechd"><h2 id="mmsec' + si + '">' + esc(sec.name) + '</h2><span class="mm-secinfo">' + (NS.isTest(c) ? items.length + ' questions · ' + esc(NS.FORMATS[NS.sectionFormat(c, si)]) + ' · ' + sec.points + ' pts each' : items.length + ' offered · students complete ' + sec.required + ' · ' + sec.points + ' pts each' + (req ? ' · ' + req + ' required' : '')) + '</span></div>' +
+      h += '<section class="mm-secblock" aria-labelledby="mmsec' + si + '"><div class="mm-sechd"><h2 id="mmsec' + si + '">' + esc(sec.name) + '</h2><span class="mm-secinfo">' + (NS.isTest(c) ? items.length + ' questions · ' + esc(NS.FORMATS[NS.sectionFormat(c, si)]) + (NS.isWorksheet(c) ? '' : ' · ' + sec.points + ' pts each') : items.length + ' offered · students complete ' + sec.required + ' · ' + sec.points + ' pts each' + (req ? ' · ' + req + ' required' : '')) + '</span></div>' +
         '<div class="mm-cards">' + items.map(function (p, i) { return dishCard(p, si, i); }).join('') + '</div>' +
         '<div class="mm-addrow"><label>Add a problem: <select class="mmAddSkill" data-si="' + si + '">' + set.skills.map(function (s) { return '<option value="' + s.id + '">' + esc(s.name) + '</option>'; }).join('') + '</select></label>' +
         '<label>Difficulty <select class="mmAddC" data-si="' + si + '">' + [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<option value="' + k + '"' + (k === NS.sectionC(c, si) ? ' selected' : '') + '>' + k + ' · ' + NS.DIFF_NAMES[k] + '</option>'; }).join('') + '</select></label>' +
@@ -375,7 +387,7 @@
   function bankHtml() {
     var c = S.config, set = NS.skillSets[c.unitId], b = S.bank || { items: [] };
     var sk = ui.bankSkill || set.skills[0].id, cc = ui.bankC || NS.sectionC(c, 1);
-    return '<aside class="mm-bank card" aria-labelledby="mmBankH"><h2 id="mmBankH">Problem bank</h2><p class="hint">Preview several problems with answers and solutions, then put the ones you want on the menu.</p>' +
+    return '<aside class="mm-bank card" aria-labelledby="mmBankH"><h2 id="mmBankH">Problem bank</h2><p class="hint">Preview several problems with answers and solutions, then put the ones you want on the ' + noun() + '.</p>' +
       '<label class="field"><span class="lbl">Skill</span><select id="mmBankSkill">' + set.skills.map(function (s) { return '<option value="' + s.id + '"' + (s.id === sk ? ' selected' : '') + '>' + esc(s.name) + '</option>'; }).join('') + '</select></label>' +
       '<div class="mm-bankrow"><label class="field"><span class="lbl">Difficulty</span><select id="mmBankC">' + [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<option value="' + k + '"' + (k === cc ? ' selected' : '') + '>' + k + ' · ' + NS.DIFF_NAMES[k] + '</option>'; }).join('') + '</select></label>' +
       '<label class="field"><span class="lbl">How many</span><input type="number" id="mmBankN" min="1" max="20" value="' + ui.bankN + '"></label></div>' +
@@ -673,7 +685,7 @@
         else if (o.format === 'mk-menu-assessment' && o.config.unitId === unit) { S = NS.deserialize(o); ui.view = 'review'; }
       } catch (e) { draft = null; S = null; }
     }
-    if (!draft && !S) { draft = NS.defaultConfig(unit, /mode=test/.test(G.location.hash || '') ? 'test' : 'menu'); if (level) draft.level = level; }
+    if (!draft && !S) { draft = NS.defaultConfig(unit, PAGE_MODE || (/mode=menu/.test(G.location.hash || '') ? 'menu' : 'test')); /* a standard test unless #mode=menu */ if (level) draft.level = level; }
     return !!S;
   }
   (function restore() {

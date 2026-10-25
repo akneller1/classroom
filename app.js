@@ -70,8 +70,8 @@
     return (Date.now() - t) < (L.newDays || 30) * 86400000;
   }
   var ACTIVITY_FORMATS = [
-    { id: 'worksheet-generator', name: 'Worksheet Generator', description: 'Choose unit skills and customize printable practice worksheets with answer keys.' },
-    { id: 'assessment-generator', name: 'Test & Menu Generator', description: 'Build a standard unit test (multiple choice and short answer) or a choice-based restaurant-menu assessment: pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys.' },
+    { id: 'worksheet-generator', name: 'Worksheet Generator', description: 'Build practice worksheets for any unit: choose skills and CP2, CP1 or Honors difficulty, short answer or multiple choice, up to three versions, and an answer key with worked solutions. Every answer is checked.' },
+    { id: 'assessment-generator', name: 'Assessment Generator', description: 'Build a standard unit test (multiple choice and short answer) or a choice-based restaurant-menu assessment: pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys.' },
     { id: 'partner-checks', name: 'Partner Checks', description: 'Partners solve different problems with matching answers, compare results, and work together to resolve mistakes. Includes Partner A and Partner B worksheets.' },
     { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
@@ -374,8 +374,8 @@
       crumbs([['Home', '#'], [c.name, href(courseToken(c))], [u.name, null]]) +
       '<h1 tabindex="-1">' + esc(u.name) + '</h1>' +
       '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>' +
-      (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '" target="_blank" rel="noopener">Create a worksheet<span class="sr"> (opens in a new tab)</span></a><p>Choose skills and customize practice for this unit.</p></div>' : '') +
-      (menuGen ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(menuGen)) + '" target="_blank" rel="noopener">Build a test or menu<span class="sr"> (opens in a new tab)</span></a><p>A standard test (multiple choice and short answer) or a choice menu. Choose skills and CP2, CP1 or Honors difficulty, then edit every problem before you print.</p></div>' : '');
+      (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '" target="_blank" rel="noopener">Create a worksheet<span class="sr"> (opens in a new tab)</span></a><p>Practice with short-answer or multiple-choice questions. Choose skills and CP2, CP1 or Honors difficulty; prints with an answer key.</p></div>' : '') +
+      (menuGen ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(menuGen)) + '" target="_blank" rel="noopener">Build an assessment<span class="sr"> (opens in a new tab)</span></a><p>A standard test (multiple choice and short answer) or a choice menu. Choose skills and CP2, CP1 or Honors difficulty, then edit every problem before you print.</p></div>' : '');
     return {
       title: u.name + ', ' + c.name,
       html: bandHtml(c, inner) +

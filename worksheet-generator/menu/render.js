@@ -144,10 +144,11 @@
   NS.choicesHtml = choicesHtml;
   function testDirections(state, rules) {
     var cfg = state.config, nQ = cfg.sections.reduce(function (n, s) { return n + (s.offered | 0); }, 0);
-    var li = ['Answer <b>all ' + nQ + ' questions</b>. The test is worth <b>' + rules.maxScore + ' points</b>.'];
+    var ws = NS.isWorksheet(cfg);
+    var li = [ws ? 'Answer <b>all ' + nQ + ' questions</b>.' : 'Answer <b>all ' + nQ + ' questions</b>. The test is worth <b>' + rules.maxScore + ' points</b>.'];
     cfg.sections.forEach(function (s, si) {
-      var fm = NS.sectionFormat(cfg, si) === 'mc' ? 'circle the letter of the best answer' : 'show your work; points are given for correct steps as well as the answer';
-      li.push('<b>Part ' + (si + 1) + ' · ' + esc(s.name) + '</b> (' + ptsText(+s.points) + ' each): ' + fm + '.');
+      var fm = NS.sectionFormat(cfg, si) === 'mc' ? 'circle the letter of the best answer' : ws ? 'show your work' : 'show your work; points are given for correct steps as well as the answer';
+      li.push('<b>Part ' + (si + 1) + ' · ' + esc(s.name) + '</b>' + (ws ? '' : ' (' + ptsText(+s.points) + ' each)') + ': ' + fm + '.');
     });
     return '<div class="mm-box mm-dirs"><h3>Directions</h3><ol>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol></div>';
   }
@@ -162,16 +163,18 @@
     if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '.</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
     var mc = NS.sectionFormat(cfg, si) === 'mc' && p.mc;
     var space = mc ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: cfg.layout.density, grid: cfg.layout.grid } });
-    return '<div class="mm-dish mm-tq' + (isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span><span class="mm-pts">' + ptsText(+sec.points) + '</span></div>' +
+    return '<div class="mm-dish mm-tq' + (isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span>' + (NS.isWorksheet(cfg) ? '' : '<span class="mm-pts">' + ptsText(+sec.points) + '</span>') + '</div>' +
       promptHtml(p) + (mc ? choicesHtml(p) : '') + space + '</div>';
   }
   function testStudentBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), B = [];
     B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + '</div><div class="mm-sub">' + esc(cfg.subtitle || '') + '</div></div>' + verTag(state, vIdx, 'student') + '</div>' + nameLines(cfg) });
-    B.push({ html: testDirections(state, rules) + testScoreTable(state, rules) });
+    var ws = NS.isWorksheet(cfg);
+    B.push({ html: testDirections(state, rules) + (ws ? '' : testScoreTable(state, rules)) });
     cfg.sections.forEach(function (sec, si) {
       var items = ver.sections[si].items;
-      var head = '<div class="mm-sechead"><div><div class="mm-sectitle">Part ' + (si + 1) + ' · ' + esc(sec.name) + '</div><div class="mm-secsub">' + ptsText(+sec.points) + ' each' + (sec.note ? ' · ' + esc(sec.note) : '') + '</div></div></div>';
+      var sub = ws ? esc(sec.note || (NS.sectionFormat(cfg, si) === 'mc' ? 'Choose the best answer.' : 'Show your work.')) : ptsText(+sec.points) + ' each' + (sec.note ? ' · ' + esc(sec.note) : '');
+      var head = '<div class="mm-sechead"><div><div class="mm-sectitle">Part ' + (si + 1) + ' · ' + esc(sec.name) + '</div><div class="mm-secsub">' + sub + '</div></div></div>';
       B.push({ html: head, keep: true, sectionHead: si });
       var row = [];
       function flush() { if (row.length) { B.push({ cls: 'tight', html: '<div class="mm-row">' + row.join('') + (row.length === 1 ? '<div></div>' : '') + '</div>', sec: si }); row = []; } }
@@ -243,8 +246,9 @@
     var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
     var rub = mcOn ? '<li><b>' + ptsText(+sec.points) + '</b>: choice ' + 'ABCDEFGH'[p.mc.key] + '. No partial credit.</li>' : NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
     if (NS.sectionFormat(cfg, si) === 'mc' && !p.mc && !p.failed) rub = '<li><span class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</span></li>' + rub;
+    var ws = NS.isWorksheet(cfg), fallback = NS.sectionFormat(cfg, si) === 'mc' && !p.mc ? '<div class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</div>' : '';
     return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : '') + statusBadge(p) + '</td>' +
-      '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td><td><ul class="mm-rub">' + rub + '</ul></td></tr>';
+      '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (ws ? fallback : '') + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td>' + (ws ? '' : '<td><ul class="mm-rub">' + rub + '</ul></td>') + '</tr>';
   }
   function guideBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), set = NS.skillSets[cfg.unitId], B = [];
@@ -270,7 +274,7 @@
   }
   function testGuideBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), set = NS.skillSets[cfg.unitId], B = [];
-    B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + ': Teacher Key</div><div class="mm-sub">' + esc(NS.LEVELS[cfg.level].long) + ' · ' + rules.totalOffered + ' questions · ' + rules.maxScore + ' points</div></div>' + verTag(state, vIdx, 'key') + '</div>' });
+    B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + ': ' + (NS.isWorksheet(cfg) ? 'Answer Key' : 'Teacher Key') + '</div><div class="mm-sub">' + esc(NS.LEVELS[cfg.level].long) + ' · ' + rules.totalOffered + ' questions' + (NS.isWorksheet(cfg) ? '' : ' · ' + rules.maxScore + ' points') + '</div></div>' + verTag(state, vIdx, 'key') + '</div>' });
     var quick = [];
     ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { if (NS.sectionFormat(cfg, si) === 'mc' && it.mc) quick.push('<td><b>' + dishLabel(cfg, si, i) + '.</b> ' + 'ABCDEFGH'[it.mc.key] + '</td>'); }); });
     if (quick.length) { var rows = []; for (var k = 0; k < quick.length; k += 10) rows.push('<tr>' + quick.slice(k, k + 10).join('') + '</tr>'); B.push({ html: '<div class="mm-box"><h3>Quick key: multiple choice</h3><table class="mm-tbl mm-quick"><tbody>' + rows.join('') + '</tbody></table></div>' }); }
@@ -280,12 +284,13 @@
     return B;
   }
   function keyBlocks(state, vIdx) {
-    var cfg = state.config, ver = state.versions[vIdx], B = [], test = NS.isTest(cfg);
+    var cfg = state.config, ver = state.versions[vIdx], B = [], test = NS.isTest(cfg), ws = NS.isWorksheet(cfg);
     if (cfg.layout.guide !== false) B = test ? testGuideBlocks(state, vIdx) : guideBlocks(state, vIdx);
     cfg.sections.forEach(function (sec, si) {
-      B.push({ html: '<div class="mm-head"><div><div class="mm-title mm-t2">Answer Key: ' + (test ? 'Part ' + (si + 1) + ' · ' : '') + esc(sec.name) + ' (' + ptsText(+sec.points) + ' each)</div><div class="mm-sub">' + (test ? 'Every question, with the answer and a worked solution' + (NS.sectionFormat(cfg, si) === 'mc' ? '.' : ' and a suggested partial-credit rubric.') : 'Every offered dish, with worked solutions and a suggested partial-credit rubric.') + '</div></div>' + verTag(state, vIdx, 'key') + '</div>', keep: true, page: si === 0 && cfg.layout.guide === false ? null : (test && si > 0 ? null : 'new') });
+      B.push({ html: '<div class="mm-head"><div><div class="mm-title mm-t2">Answer Key: ' + (test ? 'Part ' + (si + 1) + ' · ' : '') + esc(sec.name) + (ws ? '' : ' (' + ptsText(+sec.points) + ' each)') + '</div><div class="mm-sub">' + (ws ? 'Every question, with the answer and a worked solution.' : test ? 'Every question, with the answer and a worked solution' + (NS.sectionFormat(cfg, si) === 'mc' ? '.' : ' and a suggested partial-credit rubric.') : 'Every offered dish, with worked solutions and a suggested partial-credit rubric.') + '</div></div>' + verTag(state, vIdx, 'key') + '</div>', keep: true, page: ws || (si === 0 && cfg.layout.guide === false) ? null : (test && si > 0 ? null : 'new') });
       ver.sections[si].items.forEach(function (it, i) {
-        B.push({ cls: 'tight', html: '<table class="mm-tbl mm-key"><colgroup><col style="width:.82in"><col style="width:2.1in"><col><col style="width:2.05in"></colgroup>' + (i === 0 ? '<thead><tr><th>' + (test ? 'Question' : 'Dish') + '</th><th>Problem</th><th>Answer and solution</th><th>Rubric</th></tr></thead>' : '') + '<tbody>' + keyRow(it, cfg, si, i, sec) + '</tbody></table>' });
+        var cols = ws ? '<colgroup><col style="width:.82in"><col style="width:2.6in"><col></colgroup>' : '<colgroup><col style="width:.82in"><col style="width:2.1in"><col><col style="width:2.05in"></colgroup>';
+        B.push({ cls: 'tight', html: '<table class="mm-tbl mm-key">' + cols + (i === 0 ? '<thead><tr><th>' + (test ? 'Question' : 'Dish') + '</th><th>Problem</th><th>Answer and solution</th>' + (ws ? '' : '<th>Rubric</th>') + '</tr></thead>' : '') + '<tbody>' + keyRow(it, cfg, si, i, sec) + '</tbody></table>' });
       });
     });
     return B;
