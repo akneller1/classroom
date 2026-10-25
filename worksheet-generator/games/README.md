@@ -22,7 +22,7 @@ banks (`worksheet-generator/menu/skills/`). They look and play like the hand-bui
   ("Yes, because…") are multiple choice only.
 
 ## Units with games
-- Relations and Functions (`relations-functions-*`), Foundations of Algebra (`foundations-algebra-*`, expression skills), Exponential Functions (`exponential-functions-*`), Factoring (`factoring-zero-product-*`), Statistics (`statistics-data-modeling-*`), Linear Functions (`linear-functions-*`; the older hand-made `linear-equations-slope-*` games stay), Systems (`systems-*`; the hand-made `systems-of-equations-*` games stay), Exponents (`exponents-*`; the hand-made `exponents-exponential-functions-*` games stay).
+- Relations and Functions (`relations-functions-*`), Foundations of Algebra (`foundations-algebra-*`, expression skills), Exponential Functions (`exponential-functions-*`), Factoring (`factoring-zero-product-*`), Statistics (`statistics-data-modeling-*`), Linear Functions (`linear-functions-*`; the older hand-made `linear-equations-slope-*` games stay), Systems (`systems-*`; the hand-made `systems-of-equations-*` games stay), Exponents (`exponents-*`; the hand-made `exponents-exponential-functions-*` games stay), Polynomials (`polynomials-*`, titled “Polynomial Practice …”).
 
 ## Adding a unit
 1. The unit needs a menu skill set (`worksheet-generator/menu/skills/<set>.js`).

@@ -2,12 +2,12 @@
 import sys, os
 repo, unit_dir, set_id, unit_label = sys.argv[1:5]
 skills = sys.argv[5] if len(sys.argv) > 5 else ''
-V = 'games-7'
+V = 'games-8'
 GAMES = [('flashcards', 'Flashcards'), ('showdown', 'Showdown'), ('connect-four', 'Connect Four'), ('tic-tac-toe', 'Tic-Tac-Toe'), ('picture-reveal', 'Picture Reveal')]
 skill_file = 'skills/' + set_id + '.js'
 core = ['core/rng.js', 'core/frac.js', 'core/tex.js', 'core/graph.js?v=full-audit-v2', 'core/framework.js', 'core/render.js',
-        'menu/mathcheck.js?v=menu-pow-1', 'menu/figures.js?v=menu-pow-1', 'menu/verify.js?v=menu-pow-1', 'menu/engine.js?v=menu-pow-1',
-        'menu/skills/kit.js?v=menu-pow-1', 'menu/' + skill_file + '?v=menu-pow-1', 'menu/render.js?v=menu-pow-1', 'games/bank.js?v=' + V, 'games/games.js?v=' + V]
+        'menu/mathcheck.js?v=menu-poly-1', 'menu/figures.js?v=menu-poly-1', 'menu/verify.js?v=menu-poly-1', 'menu/engine.js?v=menu-poly-1',
+        'menu/skills/kit.js?v=menu-poly-1', 'menu/' + skill_file + '?v=menu-poly-1', 'menu/render.js?v=menu-poly-1', 'games/bank.js?v=' + V, 'games/games.js?v=' + V]
 for g, name in GAMES:
     title = unit_label + ' ' + name if g != 'picture-reveal' else unit_label + ': Picture Reveal'
     d = os.path.join(repo, 'artifacts', unit_dir + '-' + g); os.makedirs(d, exist_ok=True)

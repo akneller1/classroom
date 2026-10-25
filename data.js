@@ -2066,6 +2066,19 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-polynomials",
+              "thumb": "thumbs/menu-assessment-generator-polynomials.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Polynomials. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes degree and naming polynomials, standard form and leading coefficients, adding and subtracting (missing terms, two variables, multiples), multiplying (monomials, binomials, a binomial times a trinomial, three binomials, two variables), special products, dividing by a monomial, and perimeter, area, shaded-region and volume expressions. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked for equivalence and for standard form.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Polynomials"
+              ],
+              "added": "2026-10-24"
+            },
+            {
               "title": "Partner Check 1: Operations with Polynomials",
               "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/polynomials-factoring-partner-check-1.jpg",
@@ -2076,6 +2089,76 @@ window.LIBRARY = {
                 "Operations with Polynomials"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Polynomial Practice Flashcards",
+              "path": "artifacts/polynomials-flashcards/index.html",
+              "thumb": "thumbs/polynomials-flashcards.jpg",
+              "description": "A fresh deck of polynomial practice flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Polynomial Practice Showdown",
+              "path": "artifacts/polynomials-showdown/index.html",
+              "thumb": "thumbs/polynomials-showdown.jpg",
+              "description": "A game board for polynomial practice review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Polynomial Practice Connect Four",
+              "path": "artifacts/polynomials-connect-four/index.html",
+              "thumb": "thumbs/polynomials-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice polynomial practice problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Polynomial Practice Tic-Tac-Toe",
+              "path": "artifacts/polynomials-tic-tac-toe/index.html",
+              "thumb": "thumbs/polynomials-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice polynomial practice problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Polynomial Practice: Picture Reveal",
+              "path": "artifacts/polynomials-picture-reveal/index.html",
+              "thumb": "thumbs/polynomials-picture-reveal.jpg",
+              "description": "Solve 10 polynomial practice problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },

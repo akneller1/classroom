@@ -10,6 +10,7 @@ accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-gener
 - Unit 5 · Linear Functions and Graphing (`algebra1-linear-equations-slope`)
 - Unit 6 · Systems of Equations and Inequalities (`algebra1-systems-of-equations`)
 - Unit 7 · Exponents and Scientific Notation (`algebra1-exponents-scientific-notation`)
+- Unit 9 · Polynomials (`algebra1-polynomials`)
 - Unit 8 · Exponential Functions (`algebra1-exponential-functions`)
 - Unit 10 · Factoring and Zero Product Property (`algebra1-factoring-zero-product`)
 - Unit 12 · Statistics and Data Modeling (`algebra1-statistics-data-modeling`)
@@ -181,6 +182,18 @@ polynomials. Equations are solved by finding every rational root (rational root 
 problems whose roots are not all rational are refused. Word problems are re-solved from the printed numbers and
 wording (“consecutive even integers”, “3 feet less than twice its width”, “uniform width”) and keep only the
 answer that makes sense.
+
+### Polynomials skills (tags CLASSIFY · ADDSUB · MULT · SPECIAL · APPLY)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| CLASSIFY | Classify polynomials | degree → name by terms → name by degree and terms → standard form and leading coefficient → degree with two variables → degree of a product → simplify, then the degree |
+| ADDSUB | Add and subtract | add → subtract → missing terms → terms out of order → three polynomials → two variables → multiples of polynomials |
+| MULT | Multiply | monomial × binomial → two binomials → monomial × trinomial → leading coefficients ≠ 1 → binomial × trinomial → two variables → three binomials |
+| SPECIAL | Special products | (a+b)² → (a−b)² → (a+b)(a−b) → (ka±b)² → two-variable squares → two-variable sum × difference → difference of squares of binomials, a cube |
+| APPLY | Divide; geometry | perimeter → area → divide by a monomial → shaded region → square with a hole → box volume → divide with two variables |
+
+Answers must be equivalent to the printed expression (or to the expression built from the printed side lengths, matched
+in the order they are printed) and in standard form: one simplified term per degree, highest degree first.
 
 ### Exponents and Scientific Notation skills (tags PRODUCT · QUOTIENT · EVAL · SCI · SCIOPS)
 | Tag | Skill | Level 1 → 7 |

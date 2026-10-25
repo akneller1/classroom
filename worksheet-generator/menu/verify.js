@@ -123,6 +123,7 @@
     if (LINE_TYPES.indexOf(t) >= 0) return checkLinePart(p, part, policy);
     if (SYS_TYPES.indexOf(t) >= 0) return checkSysPart(p, part, policy);
     if (POW_TYPES.indexOf(t) >= 0) return checkPowPart(p, part, policy);
+    if (POLY_TYPES.indexOf(t) >= 0) return checkPolyPart(p, part, policy);
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -1340,6 +1341,65 @@
       if (form === 'sci' && !sciParts(am)) return { status: 'mismatch', msg: 'Write the answer in scientific notation (1 ≤ a < 10).' };
       if (form === 'std' && !plainNumber(am)) return { status: 'mismatch', msg: 'Write the number in standard form.' };
       return { status: 'verified', computed: qText(target) };
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+  /* ---------- polynomials (Algebra 1 Unit 9) ---------- */
+  var POLY_TYPES = ['poly-simplify', 'poly-classify', 'poly-apply'];
+  function polyOf(src) { var rf = C.toRF(typeof src === 'string' ? C.parseExpr(src) : src); if (!rf.isPoly()) throw new C.CheckError('not a polynomial'); return rf.asPoly(); }
+  function keyDeg(k) { return k ? k.split('*').reduce(function (s, part) { return s + (+part.split('^')[1]); }, 0) : 0; }
+  function polyDeg(P) { var d = 0; P.m.forEach(function (q, k) { d = Math.max(d, keyDeg(k)); }); return d; }
+  /* terms of a written expression, left to right, with their total degrees */
+  function writtenTerms(src) {
+    var out = []; (function f(n, s) { if (n.k === 'add') { f(n.a, s); f(n.b, s); } else if (n.k === 'sub') { f(n.a, s); f(n.b, -s); } else out.push(n); })(C.parseExpr(src), 1);
+    return out.map(function (t) { return polyDeg(polyOf(t)); });
+  }
+  /* standard form: like terms combined, single monomials, degrees from highest to lowest */
+  function polyStandard(src) {
+    var form = C.simplifiedForm(src); if (!form.ok) return form.problems.join(', ');
+    var d = writtenTerms(src); for (var i = 1; i < d.length; i++) if (d[i] > d[i - 1]) return 'terms are not in order from highest to lowest degree';
+    return null;
+  }
+  var DEG_NAMES = ['constant', 'linear', 'quadratic', 'cubic', 'quartic', 'quintic'], TERM_NAMES = [null, 'monomial', 'binomial', 'trinomial'];
+  function checkPolyPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, txt = C.plainText(ans).toLowerCase(), am = (function () { var s = C.snippets(ans); return s.length ? s[s.length - 1] : null; })();
+    if (t === 'poly-simplify' || t === 'poly-apply') {
+      var target;
+      if (t === 'poly-simplify') { if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' }; target = chk.expr; }
+      else {   // the expression is built from printed side lengths: area, perimeter, outer minus inner area, or volume
+        var seq = chk.sides.filter(function (sd, i) { return !(chk.square && i === 1); }), printed = C.snippets(studentText(p)).map(norm);   // the sides, in the order they are printed
+        if (printed.length !== seq.length || !seq.every(function (sd, i) { return norm(sd) === printed[i]; })) return { status: 'invalid', msg: 'The side lengths are not the ones printed.' };
+        var sides = chk.sides.map(function (sd) { return '\\left(' + sd + '\\right)'; });
+        target = w === 'area' ? sides[0] + sides[1] : w === 'perimeter' ? '2' + sides[0] + '+2' + sides[1] : w === 'triangle' ? sides[0] + '+' + sides[1] + '+' + sides[2] : w === 'shaded' ? sides[0] + sides[1] + '-' + sides[2] + sides[3] : w === 'square' ? sides[0] + '^{2}' : w === 'volume' ? sides[0] + sides[1] + sides[2] : null;
+        if (!target) throw new C.CheckError('unknown want');
+      }
+      if (am === null) return { status: 'mismatch', msg: 'No expression in the answer.' };
+      var eq; try { eq = C.equivalent(target, am); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (!eq) return { status: 'mismatch', msg: 'Not equivalent.' };
+      var why; try { why = polyStandard(am); } catch (e) { why = 'not a polynomial in simplest form'; }
+      return why ? { status: 'mismatch', msg: 'Write it in standard form: ' + why + '.' } : { status: 'verified' };
+    }
+    if (t === 'poly-classify') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The polynomial is not printed.' };
+      var P0 = polyOf(chk.expr), deg = polyDeg(P0), nt = P0.m.size;
+      if (w === 'degree') { var g = listNumbers(ans); return g.length && g[g.length - 1].eq(new Q(BigInt(deg))) ? { status: 'verified', computed: String(deg) } : { status: 'mismatch', msg: 'Degree ' + deg + '.' }; }
+      if (w === 'name') {   // "cubic trinomial", "quartic polynomial with 4 terms"
+        var dn = DEG_NAMES[deg] || null, tn = TERM_NAMES[nt] || 'polynomial';
+        var wrongDeg = DEG_NAMES.filter(function (x) { return x !== dn && new RegExp('\\b' + x + '\\b').test(txt); }).length > 0, degOk = !wrongDeg && (chk.only === 'terms' || !dn || new RegExp('\\b' + dn + '\\b').test(txt));
+        var termOk = new RegExp('\\b' + tn + '\\b').test(txt) && ['monomial', 'binomial', 'trinomial'].filter(function (x) { return x !== tn && new RegExp('\\b' + x + '\\b').test(txt); }).length === 0;
+        return degOk && termOk ? { status: 'verified', computed: (dn ? dn + ' ' : '') + tn } : { status: 'mismatch', msg: 'It is a ' + (dn ? dn + ' ' : 'degree ' + deg + ' ') + tn + '.' };
+      }
+      if (w === 'leading') {   // the leading coefficient (one variable)
+        var v = chk.v || 'x', lc = P0.coeffOf(v, P0.degreeIn(v)).constVal(), g2 = listNumbers(ans);
+        return g2.length && g2[g2.length - 1].eq(lc) ? { status: 'verified', computed: qText(lc) } : { status: 'mismatch', msg: 'Leading coefficient ' + qText(lc) + '.' };
+      }
+      if (w === 'standard') {
+        if (am === null) return { status: 'mismatch', msg: 'Write the polynomial.' };
+        if (!C.equivalent(chk.expr, am)) return { status: 'mismatch', msg: 'Not the same polynomial.' };
+        var why2 = polyStandard(am); return why2 ? { status: 'mismatch', msg: why2 + '.' } : { status: 'verified' };
+      }
+      throw new C.CheckError('unknown want');
     }
     return { status: 'manual', msg: 'Unknown check ' + t };
   }

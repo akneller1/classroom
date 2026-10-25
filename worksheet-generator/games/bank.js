@@ -70,11 +70,17 @@
     if (/\bfirst\b/.test(ans)) out.push({ a: ans.replace(/\bfirst\b/, 'second'), w: 4 });
     else if (/\bsecond\b/.test(ans)) out.push({ a: ans.replace(/\bsecond\b/, 'first'), w: 4 });
     var k1 = (snippets(ans)[0] || '');
-    if (/^\s*Linear\b/.test(ans)) { out.push({ a: 'Exponential: each y-value is ⟨' + k1 + '⟩ times the one before.', w: 4 }); out.push({ a: 'Neither: there is no constant difference or constant factor.', w: 2 }); }
-    if (/^\s*Exponential\b/.test(ans)) { out.push({ a: 'Linear: the y-values change by ⟨' + k1 + '⟩ each time.', w: 4 }); out.push({ a: 'Neither: there is no constant difference or constant factor.', w: 2 }); }
-    if (/^\s*Neither\b/.test(ans)) { out.push({ a: 'Linear: the y-values change by a constant amount.', w: 3 }); out.push({ a: 'Exponential: the y-values change by a constant factor.', w: 3 }); }
+    if (/^\s*Linear\s*:/.test(ans)) { out.push({ a: 'Exponential: each y-value is ⟨' + k1 + '⟩ times the one before.', w: 4 }); out.push({ a: 'Neither: there is no constant difference or constant factor.', w: 2 }); }
+    if (/^\s*Exponential\s*:/.test(ans)) { out.push({ a: 'Linear: the y-values change by ⟨' + k1 + '⟩ each time.', w: 4 }); out.push({ a: 'Neither: there is no constant difference or constant factor.', w: 2 }); }
+    if (/^\s*Neither\s*:/.test(ans)) { out.push({ a: 'Linear: the y-values change by a constant amount.', w: 3 }); out.push({ a: 'Exponential: the y-values change by a constant factor.', w: 3 }); }
     if (/\bincreases\b/.test(ans)) out.push({ a: ans.replace('increases', 'decreases'), w: 3 });
     if (/\bdecreases\b/.test(ans)) out.push({ a: ans.replace('decreases', 'increases'), w: 3 });
+    // polynomial names: the other degree or term-count names
+    var DN = ['Linear', 'Quadratic', 'Cubic', 'Quartic', 'Quintic'], TN = ['monomial', 'binomial', 'trinomial', 'polynomial'];
+    var nm = /^\s*(Linear|Quadratic|Cubic|Quartic|Quintic)?\s*(monomial|binomial|trinomial|polynomial|Monomial|Binomial|Trinomial|Polynomial)\s*$/.exec(ans);
+    if (nm) { var di = nm[1] ? DN.indexOf(nm[1]) : -1, ti = TN.indexOf(nm[2].toLowerCase()), cap = function (w) { return w.charAt(0).toUpperCase() + w.slice(1); };
+      [ti - 1, ti + 1].forEach(function (j) { if (j >= 0 && j < 4) out.push({ a: nm[1] ? nm[1] + ' ' + TN[j] : cap(TN[j]), w: 3 }); });
+      if (di >= 0) [di - 1, di + 1].forEach(function (j) { if (j >= 0 && j < 5) out.push({ a: DN[j] + ' ' + nm[2].toLowerCase(), w: 3 }); }); }
     var CW = [['One solution', 'One solution: the slopes are different.'], ['No solution', 'No solution: the lines are parallel.'], ['Infinitely many solutions', 'Infinitely many solutions: the equations describe the same line.']];
     if (/^\s*(One solution|No solution|Infinitely many solutions)\b/.test(ans)) CW.forEach(function (cw) { if (ans.indexOf(cw[0]) !== 0) out.push({ a: cw[1], w: 4 }); });
     if (/^\s*Undefined\b/.test(ans)) { out.push({ a: '⟨m=0⟩', w: 5 }); out.push({ a: '⟨m=1⟩', w: 1 }); }
@@ -144,7 +150,7 @@
         cands.push({ a: key.replace(fm[0], fm[1] + rec), w: 5 }); cands.push({ a: key.replace(fm[0], opp + rec), w: 5 }); cands.push({ a: key.replace(fm[0], opp + '\\frac{' + fm[2] + '}{' + fm[3] + '}'), w: 4 }); }
     }
     // exponents: the classic slips are in the exponents themselves (added instead of multiplied, off by one, wrong sign)
-    if (ch0.type === 'pow-simplify' || ch0.type === 'sci' || ch0.type === 'pow-eval') {
+    if (ch0.type === 'pow-simplify' || ch0.type === 'sci' || ch0.type === 'pow-eval' || ch0.type === 'poly-simplify' || ch0.type === 'poly-apply' || ch0.type === 'poly-classify') {
       var re2 = /\^\{(-?\d+)\}/g, m2, kk = 0;
       while ((m2 = re2.exec(key)) && kk < 4) { kk++; var e0 = +m2[1], at = m2.index;
         [e0 + 1, e0 - 1, -e0, ch0.type === 'sci' ? e0 + 2 : e0 * 2].forEach(function (v) { if (v === e0 || (ch0.type !== 'sci' && v < 2)) return; cands.push({ a: key.slice(0, at) + '^{' + v + '}' + key.slice(at + m2[0].length), w: v === -e0 ? 4 : 3 }); });
@@ -184,6 +190,8 @@
     if (/^\s*-?\d+(\.\d+)?%\s*$/.test(part.answer)) return 'percent';
     if (t === 'stat' && /better|compare/.test(ch.want) || t === 'scatter-corr' || (t === 'stat-box' && ch.want === 'compare') || (t === 'twoway' && ch.want === 'assoc') || (t === 'stat-line' && /over|slope|intercept/.test(ch.want))) return null;
     if (t === 'pow-simplify') return 'pexpr';
+    if (t === 'poly-simplify' || t === 'poly-apply') return 'poly';
+    if (t === 'poly-classify') return ch.want === 'name' ? null : ch.want === 'standard' ? 'poly' : 'number';
     if (t === 'pow-eval') return 'number';
     if (t === 'sci') return ch.want === 'to-std' ? 'number' : 'sci';
     if (t === 'system') return ch.want === 'is-solution' || ch.want === 'count' || !snippets(part.answer).length ? null : ch.want === 'param' ? 'number' : 'point';
@@ -235,6 +243,7 @@
     solve: 'Type the solution, like x = 4 (or just 4).',
     point: 'Type a point, like (0, -3).',
     pexpr: 'Type like 4x^6 or (3x^2)/(4y^3). Use ^ for powers and positive exponents only.',
+    poly: 'Type the polynomial in standard form, like 3x^2 - 5x + 2 (use ^ for powers).',
     sci: 'Type scientific notation like 4.2 x 10^-4 (or 4.2*10^-4).',
     eqs: 'Type both equations separated by “and”, like x + y = 10 and 2x + 3y = 24.',
     ineqs: 'Type both inequalities separated by “and”, like y > 2x - 1 and y <= -x + 4 (use <= for ≤ and >= for ≥).'

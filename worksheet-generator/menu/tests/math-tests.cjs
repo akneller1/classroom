@@ -174,6 +174,14 @@ function complexity(p) {
         const all = ex + ' ' + (ck.terms || []).join(' ') + ' ' + ans; score += 2 * (all.match(/\^\{-/g) || []).length; if (/\\frac/.test(ex)) score += 3; if (/[+]|[^{(]-\d/.test(ex.replace(/\^\{-/g, ''))) score += 9;
         score += 0.6 * (C.snippets(ans).join('').replace(/\^\{[^}]*\}/g, '').match(/\d/g) || []).length; if (w === 'op' && /^-?[\d.]+\\times10\^\{-?\d+\}$/.test(ex)) score += 6; }
     }
+    // polynomials: the operations a question needs
+    if (/^(poly-simplify|poly-classify|poly-apply)$/.test(t || '')) {
+      const ck = pt.check, ex = ck.expr || (ck.sides || []).join(' '), ans = pt.answer, T = (C.snippets(ans).join('').match(/[+-]/g) || []).length + 1;
+      const G = (ex.match(/\\left\(/g) || []).length, adj = (ex.match(/\\right\)\\left\(/g) || []).length;
+      if (t === 'poly-simplify') score += 2 * G + 5 * adj + (/\\right\)\^\{2\}/.test(ex) ? 4 : 0) + (/\\right\)\^\{3\}/.test(ex) ? 10 : 0) + 3 * (ex.match(/-\\left\(/g) || []).length + 2 * T + (/y/.test(ex) ? 4 : 0) + (/\d\\left\(/.test(ex) ? 3 : 0) + (/\\frac/.test(ex) ? 3 : 0) + (/\\left\(-?\d+[a-z]/.test(ex) ? 2 : 0);
+      if (t === 'poly-apply') score += ({ perimeter: 2, area: 8, shaded: 14, volume: 22 })[ck.want] + (ck.square ? 3 : 0) + 2 * T;
+      if (t === 'poly-classify') score += ({ degree: 1, name: ck.only ? 2 : 4, leading: 3, standard: 4 })[ck.want] + (/y/.test(ex) ? 6 : 0) + (/\\right\)\\left\(/.test(ex) ? 6 : 0) + (/\\right\)-/.test(ex) ? 4 : 0);
+    }
     if (!/domain-range|is-function|func-|read-fig|linear-rule|table-fill|rate|graph-behavior|sequence|exp-|factor|quad-/.test(t || '')) return;
     C.snippets(pt.answer).forEach(sn => {
       const rhs = sn.slice(sn.lastIndexOf('=') + 1);
