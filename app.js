@@ -48,6 +48,9 @@
   function units(n) { return n === 1 ? '1 unit' : n + ' units'; }
   function courseToken(c) { return c.id; }
   function unitToken(c, u) { return c.id + '.' + u.id; }
+  /* Units are numbered in course order: "Unit 3: Linear Inequalities". */
+  function unitNum(c, u) { return c.units.indexOf(u) + 1; }
+  function unitLabel(c, u) { return 'Unit ' + unitNum(c, u) + ': ' + u.name; }
   function href(t) { return '#' + encodeURIComponent(t).replace(/%2E/g, '.'); }
   function courseCount(c) {
     return c.units.reduce(function (n, u) { return n + u.artifacts.length; }, 0);
@@ -72,6 +75,7 @@
   var ACTIVITY_FORMATS = [
     { id: 'worksheet-generator', name: 'Worksheet Generator', description: 'Build practice worksheets for any unit: choose skills and CP2, CP1 or Honors difficulty, short answer or multiple choice, up to three versions, and an answer key with worked solutions. Every answer is checked.' },
     { id: 'assessment-generator', name: 'Assessment Generator', description: 'Build a standard unit test (multiple choice and short answer) or a choice-based restaurant-menu assessment: pick skills and CP2, CP1 or Honors difficulty, review and edit every problem, then print student copies (Versions A–C) and teacher keys.' },
+    { id: 'printable-generator', name: 'Printable Generators', description: 'Make a maze, color-by-number page, Tarsia puzzle, error analysis or partner check for any unit: CP2, CP1 or Honors, up to three versions, and an answer key with every answer checked.' },
     { id: 'partner-checks', name: 'Partner Checks', description: 'Partners solve different problems with matching answers, compare results, and work together to resolve mistakes. Includes Partner A and Partner B worksheets.' },
     { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
@@ -92,6 +96,7 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra 1, Algebra 2, and Geometry.' }
   ];
   function activityFormat(a) {
+    if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
     if (/worksheet-generator\/menu-assessment/i.test(a.path || '')) return 'assessment-generator';
     if (/worksheet-generator\//i.test(a.path || '')) return 'worksheet-generator';
     if (/partner-check/i.test(a.path || '')) return 'partner-checks';
@@ -118,13 +123,15 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
+    { id: 'generators', name: 'Generators', formats: ['worksheet-generator', 'assessment-generator', 'printable-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
-    { id: 'worksheets', name: 'Printable Worksheets', formats: ['worksheet-generator', 'assessment-generator', 'partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
+    { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
     'worksheet-generator': 'Choose skills and create customized printable worksheets with answer keys.',
     'assessment-generator': 'Build a test or a menu assessment with verified answer keys.',
+    'printable-generator': 'Make mazes, color-by-number pages, Tarsia puzzles, error analysis and partner checks with answer keys.',
     'partner-checks': 'Solve different problems, compare matching answers, and check each other’s work.',
     'showdown': 'Choose a question and point value for team review.',
     'connect-four': 'Solve problems to earn discs and connect four.',
@@ -212,10 +219,11 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+)?$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
+  function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
+    if (/worksheet-generator\/printables\.html/.test(a.path || '')) return 'Make printable';
     if (format === 'worksheet-generator') return 'Create worksheet';
     if (format === 'assessment-generator') return 'Build assessment';
     if (format === 'cheat-sheets') return 'View study guide';
@@ -245,14 +253,14 @@
     toArr(a.type).concat(toArr(a.level)).forEach(function (t) { tags.push('<li class="tag">' + esc(t) + '</li>'); });
     var topics = toArr(a.topics);
     return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-path="' + esc(a.path) + '">' +
-      '<a class="thumb" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">' +
+      '<a class="thumb" href="' + esc(activityUrl(a)) + '" tabindex="-1" aria-hidden="true">' +
         (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') + '</a>' +
       '<div class="card-body">' +
-        (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(it.u.name) + '</p>' : '') +
-        '<h3><a href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener">' + esc(a.title) +
-          '<span class="sr"> (opens in a new tab)</span></a></h3>' +
+        (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(unitLabel(it.c, it.u)) + '</p>' : '') +
+        '<h3><a href="' + esc(activityUrl(a)) + '">' + esc(a.title) +
+          '</a></h3>' +
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
-        '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '" target="_blank" rel="noopener" >' + esc(actionLabel(a)) + '<span class="sr"> (opens in a new tab)</span></a>' +
+        '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
           saveBtnHtml(a.path) + '</div>' +
         '<a class="report-problem" href="' + esc(reportUrl(a)) + '" target="_blank" rel="noopener">Report a problem<span class="sr"> with ' + esc(a.title) + '</span> (GitHub)</a>' +
       '</div></li>';
@@ -354,13 +362,13 @@
         c.units.map(function (u) {
           var k = u.artifacts.length;
           if (!k) {
-            return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + esc(u.name) + '</h3>' +
+            return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + esc(u.name) + '</h3>' +
+          return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
             '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
         }).join('') + '</ul></div></section>'
     };
@@ -371,13 +379,13 @@
     var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];
     var menuGen = u.artifacts.filter(function (a) { return activityFormat(a) === 'assessment-generator'; })[0];
     var inner =
-      crumbs([['Home', '#'], [c.name, href(courseToken(c))], [u.name, null]]) +
-      '<h1 tabindex="-1">' + esc(u.name) + '</h1>' +
+      crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
+      '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
       '<p class="band-meta">' + (items.length ? acts(items.length) : 'Coming soon') + '</p>' +
-      (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '" target="_blank" rel="noopener">Create a worksheet<span class="sr"> (opens in a new tab)</span></a><p>Practice with short-answer or multiple-choice questions. Choose skills and CP2, CP1 or Honors difficulty; prints with an answer key.</p></div>' : '') +
-      (menuGen ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(menuGen)) + '" target="_blank" rel="noopener">Build an assessment<span class="sr"> (opens in a new tab)</span></a><p>A standard test (multiple choice and short answer) or a choice menu. Choose skills and CP2, CP1 or Honors difficulty, then edit every problem before you print.</p></div>' : '');
+      (generator ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(generator)) + '">Create a worksheet</a><p>Practice with short-answer or multiple-choice questions. Choose skills and CP2, CP1 or Honors difficulty; prints with an answer key.</p></div>' : '') +
+      (menuGen ? '<div class="unit-generator"><a class="btn" href="' + esc(activityUrl(menuGen)) + '">Build an assessment</a><p>A standard test (multiple choice and short answer) or a choice menu. Choose skills and CP2, CP1 or Honors difficulty, then edit every problem before you print.</p></div>' : '');
     return {
-      title: u.name + ', ' + c.name,
+      title: unitLabel(c, u) + ', ' + c.name,
       html: bandHtml(c, inner) +
         '<section class="section"><div class="wrap">' +
         (items.length ? chipsHtml(items) + groupedCardsHtml(items, false)
@@ -418,7 +426,7 @@
     L.courses.forEach(function (c) {
       if (state.subject && state.subject !== c.id) return;
       c.units.forEach(function (u) { if (u.artifacts.length) unitChoices.push({
-        id: unitToken(c, u), name: (state.subject ? '' : c.name + ' — ') + u.name
+        id: unitToken(c, u), name: (state.subject ? '' : c.name + ' — ') + unitLabel(c, u)
       }); });
     });
     var formats = [];
@@ -485,7 +493,7 @@
     var terms = searchWords(text).split(/\s+/).filter(Boolean);
     var items = everything().filter(function (it) {
       var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === activityFormat(it.a); })[0];
-      var hay = searchWords([it.a.title, it.a.description, it.u.name, it.c.name, format ? format.name : '']
+      var hay = searchWords([it.a.title, it.a.description, it.u.name, 'unit ' + unitNum(it.c, it.u), it.c.name, format ? format.name : '']
         .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' '));
       return terms.every(function (term) { return hay.indexOf(term) >= 0; });
     });
@@ -650,6 +658,16 @@
   });
 
   document.getElementById('searchForm').addEventListener('submit', function (e) { e.preventDefault(); });
+  /* Back: the previous page in this tab (course, unit, browse page or search); home when there is none. */
+  var backBtn = document.getElementById('backBtn');
+  if (backBtn) backBtn.addEventListener('click', function () {
+    var fromSite = document.referrer && document.referrer.indexOf(location.origin) === 0;
+    if (history.length > 1 && (fromSite || (history.state && history.state.mk) || sessionStorageGet())) history.back();
+    else if (location.hash && location.hash !== '#') location.hash = '';
+    else history.back();
+  });
+  function sessionStorageGet() { try { return sessionStorage.getItem('mk-nav') === '1'; } catch (e) { return false; } }
+  window.addEventListener('hashchange', function () { try { sessionStorage.setItem('mk-nav', '1'); } catch (e) { /* ignore */ } });
   q.addEventListener('input', function () {
     query = q.value.trim();
     filters = {};

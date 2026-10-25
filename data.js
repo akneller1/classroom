@@ -65,16 +65,69 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Partner Check 2: Simplifying & Evaluating Expressions",
-              "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on simplifying & evaluating expressions. Includes both student worksheets.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=maze",
+              "thumb": "thumbs/maze-generator-foundations.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Partner Check",
-                "Simplifying & Evaluating Expressions"
+                "Printable generator",
+                "Foundations of Algebra",
+                "Unit 1"
               ],
-              "added": "2026-10-23"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=color",
+              "thumb": "thumbs/color-generator-foundations.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-foundations.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=error",
+              "thumb": "thumbs/error-generator-foundations.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=partner",
+              "thumb": "thumbs/partner-generator-foundations.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "Foundations of Algebra Flashcards",
@@ -93,7 +146,7 @@ window.LIBRARY = {
               "title": "Foundations of Algebra Showdown",
               "path": "artifacts/foundations-algebra-showdown/index.html",
               "thumb": "thumbs/foundations-algebra-showdown.jpg",
-              "description": "A game board for foundations of algebra review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for foundations of algebra review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Combining like terms",
@@ -181,44 +234,69 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Solving Equations Maze",
-              "path": "artifacts/expressions-equations-maze/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-maze.jpg",
-              "description": "Printable 4-page worksheet: solve multi-step equations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=maze",
+              "thumb": "thumbs/maze-generator-expressions-equations.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Multi-step equations",
-                "Distributive property",
-                "Variables on both sides"
+                "Printable generator",
+                "Solving Linear Equations",
+                "Unit 2"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Expressions & Equations Error Analysis",
-              "path": "artifacts/expressions-equations-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=color",
+              "thumb": "thumbs/color-generator-expressions-equations.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Distributive property",
-                "Combining like terms",
-                "Multi-step equations",
-                "Literal equations"
+                "Printable generator",
+                "Solving Linear Equations",
+                "Unit 2"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Expressions & Equations Color By Number",
-              "path": "artifacts/expressions-equations-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the rocket blasting off. Page 1 is the picture, page 2 is the work space.",
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-expressions-equations.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
               "type": "Printable",
               "topics": [
-                "Solving equations",
-                "Color by number",
-                "Self-checking"
+                "Printable generator",
+                "Solving Linear Equations",
+                "Unit 2"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=error",
+              "thumb": "thumbs/error-generator-expressions-equations.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Solving Linear Equations",
+                "Unit 2"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=partner",
+              "thumb": "thumbs/partner-generator-expressions-equations.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Solving Linear Equations",
+                "Unit 2"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "The Golden Whisk Caper",
@@ -243,19 +321,6 @@ window.LIBRARY = {
                 "Solving equations",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Solving Equations Tarsia Puzzle",
-              "path": "artifacts/expressions-equations-tarsia/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Solving equations",
-                "Tarsia puzzle",
                 "Self-checking"
               ],
               "added": "2026-10-21"
@@ -302,18 +367,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 1: Solving Multi-Step Equations",
-              "path": "artifacts/expressions-equations-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on solving multi-step equations. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Solving Multi-Step Equations"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Solving Equations Flashcards",
               "path": "artifacts/solving-equations-flashcards/index.html",
               "thumb": "thumbs/solving-equations-flashcards.jpg",
@@ -332,7 +385,7 @@ window.LIBRARY = {
               "title": "Solving Equations Showdown",
               "path": "artifacts/solving-equations-showdown/index.html",
               "thumb": "thumbs/solving-equations-showdown.jpg",
-              "description": "A game board for solving equations review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for solving equations review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Multi-step equations",
@@ -426,44 +479,64 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Compound Inequalities Maze",
-              "path": "artifacts/compound-inequalities-maze/worksheet.pdf",
-              "thumb": "thumbs/compound-inequalities-maze.svg",
-              "description": "Printable 4-page worksheet: solve compound inequalities to navigate a maze, then graph solutions on number lines. Includes teacher answer keys.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=maze",
+              "thumb": "thumbs/maze-generator-inequalities.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Compound inequalities",
-                "Number line graphs",
-                "Maze worksheet"
+                "Printable generator",
+                "Inequalities"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Inequalities Error Analysis",
-              "path": "artifacts/inequalities-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/inequalities-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=color",
+              "thumb": "thumbs/color-generator-inequalities.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Dividing by a negative",
-                "Compound inequalities",
-                "AND and OR",
-                "Number-line graphs"
+                "Printable generator",
+                "Inequalities"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Inequalities Color By Number",
-              "path": "artifacts/inequalities-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/inequalities-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the owl on a branch under the moon. Page 1 is the picture, page 2 is the work space.",
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-inequalities.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
               "type": "Printable",
               "topics": [
-                "Inequalities",
-                "Color by number",
-                "Self-checking"
+                "Printable generator",
+                "Inequalities"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=error",
+              "thumb": "thumbs/error-generator-inequalities.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Inequalities"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=partner",
+              "thumb": "thumbs/partner-generator-inequalities.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Inequalities"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "The Golden Parabola Heist",
@@ -493,19 +566,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Solving Inequalities Tarsia Puzzle",
-              "path": "artifacts/inequalities-tarsia/worksheet.pdf",
-              "thumb": "thumbs/inequalities-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Solving inequalities",
-                "Tarsia puzzle",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Code Red: Station Nimbus",
               "path": "artifacts/inequalities-escape-room/index.html",
               "thumb": "thumbs/inequalities-escape-room.jpg",
@@ -515,19 +575,6 @@ window.LIBRARY = {
                 "Compound inequalities",
                 "Escape room",
                 "Teamwork"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Absolute Value Maze",
-              "path": "artifacts/absolute-value-maze/worksheet.pdf",
-              "thumb": "thumbs/absolute-value-maze.jpg",
-              "description": "Evaluate absolute value expressions and solve absolute value equations to find your way from start to finish in this printable maze.",
-              "type": "Printable",
-              "topics": [
-                "Absolute value",
-                "Absolute value equations",
-                "Maze worksheet"
               ],
               "added": "2026-10-21"
             },
@@ -559,30 +606,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 1: Solving Multi-Step Inequalities",
-              "path": "artifacts/inequalities-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/inequalities-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on solving multi-step inequalities. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Solving Multi-Step Inequalities"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Compound Inequalities & Writing Inequalities",
-              "path": "artifacts/inequalities-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/inequalities-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on compound inequalities & writing inequalities. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Compound Inequalities & Writing Inequalities"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Linear Inequalities Flashcards",
               "path": "artifacts/linear-inequalities-flashcards/index.html",
               "thumb": "thumbs/linear-inequalities-flashcards.jpg",
@@ -600,7 +623,7 @@ window.LIBRARY = {
               "title": "Linear Inequalities Showdown",
               "path": "artifacts/linear-inequalities-showdown/index.html",
               "thumb": "thumbs/linear-inequalities-showdown.jpg",
-              "description": "A game board for linear inequalities review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for linear inequalities review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Solving inequalities",
@@ -690,6 +713,66 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=maze",
+              "thumb": "thumbs/maze-generator-relations-functions.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=color",
+              "thumb": "thumbs/color-generator-relations-functions.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-relations-functions.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=error",
+              "thumb": "thumbs/error-generator-relations-functions.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=partner",
+              "thumb": "thumbs/partner-generator-relations-functions.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Relations and Functions Flashcards",
               "path": "artifacts/relations-functions-flashcards/index.html",
               "thumb": "thumbs/relations-functions-flashcards.jpg",
@@ -707,7 +790,7 @@ window.LIBRARY = {
               "title": "Relations and Functions Showdown",
               "path": "artifacts/relations-functions-showdown/index.html",
               "thumb": "thumbs/relations-functions-showdown.jpg",
-              "description": "A game board for relations and functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for relations and functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Domain and range",
@@ -797,6 +880,66 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=maze",
+              "thumb": "thumbs/maze-generator-linear-equations-slope.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=color",
+              "thumb": "thumbs/color-generator-linear-equations-slope.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-linear-equations-slope.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=error",
+              "thumb": "thumbs/error-generator-linear-equations-slope.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=partner",
+              "thumb": "thumbs/partner-generator-linear-equations-slope.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Slope Links Mini Golf",
               "path": "artifacts/slope-links-mini-golf/index.html",
               "thumb": "thumbs/slope-links-mini-golf.jpg",
@@ -808,46 +951,6 @@ window.LIBRARY = {
                 "Coordinate plane"
               ],
               "added": "2026-10-16"
-            },
-            {
-              "title": "Slope & Linear Equations Maze",
-              "path": "artifacts/linear-equations-slope-maze/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-maze.jpg",
-              "description": "Printable 4-page worksheet: find slopes and write equations in slope-intercept form to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Slope from two points",
-                "Slope from an equation",
-                "Writing y = mx + b"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Linear Equations & Slope Error Analysis",
-              "path": "artifacts/linear-equations-slope-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Slope",
-                "Slope-intercept form",
-                "Parallel and perpendicular lines",
-                "Intercepts"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Linear Equations & Slope Color By Number",
-              "path": "artifacts/linear-equations-slope-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the hot-air balloon. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Slope-intercept form",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
             },
             {
               "title": "The Summit Sabotage",
@@ -872,19 +975,6 @@ window.LIBRARY = {
                 "Writing linear equations",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Slope Tarsia Puzzle",
-              "path": "artifacts/linear-equations-slope-tarsia/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Slope",
-                "Tarsia puzzle",
                 "Self-checking"
               ],
               "added": "2026-10-21"
@@ -929,30 +1019,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 1: Finding Slope",
-              "path": "artifacts/linear-equations-slope-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on finding slope. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Finding Slope"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Writing Equations of Lines",
-              "path": "artifacts/linear-equations-slope-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on writing equations of lines. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Writing Equations of Lines"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Linear Functions Flashcards",
               "path": "artifacts/linear-functions-flashcards/index.html",
               "thumb": "thumbs/linear-functions-flashcards.jpg",
@@ -970,7 +1036,7 @@ window.LIBRARY = {
               "title": "Linear Functions Showdown",
               "path": "artifacts/linear-functions-showdown/index.html",
               "thumb": "thumbs/linear-functions-showdown.jpg",
-              "description": "A game board for linear functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for linear functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Slope",
@@ -1060,44 +1126,64 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems of Equations Maze",
-              "path": "artifacts/systems-of-equations-maze/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-maze.jpg",
-              "description": "Printable 4-page worksheet: solve systems of linear equations by substitution or elimination to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=maze",
+              "thumb": "thumbs/maze-generator-systems-of-equations.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Solving by substitution",
-                "Solving by elimination",
-                "No solution and infinitely many solutions"
+                "Printable generator",
+                "Systems of equations"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Systems of Equations Error Analysis",
-              "path": "artifacts/systems-of-equations-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=color",
+              "thumb": "thumbs/color-generator-systems-of-equations.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Substitution",
-                "Elimination",
-                "No solution and infinite solutions",
-                "Writing systems"
+                "Printable generator",
+                "Systems of equations"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Systems of Equations Color By Number",
-              "path": "artifacts/systems-of-equations-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the dinosaur by a volcano. Page 1 is the picture, page 2 is the work space.",
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-systems-of-equations.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
               "type": "Printable",
               "topics": [
-                "Solving systems",
-                "Color by number",
-                "Self-checking"
+                "Printable generator",
+                "Systems of equations"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=error",
+              "thumb": "thumbs/error-generator-systems-of-equations.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Systems of equations"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=partner",
+              "thumb": "thumbs/partner-generator-systems-of-equations.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Systems of equations"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "The Space Station Swindle",
@@ -1166,30 +1252,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 1: Solving by Substitution or Graphing",
-              "path": "artifacts/systems-of-equations-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on solving by substitution or graphing. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Solving by Substitution or Graphing"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Elimination & Word Problems",
-              "path": "artifacts/systems-of-equations-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on elimination & word problems. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Elimination & Word Problems"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Zombie Fence",
               "path": "artifacts/zombie-fence/index.html",
               "thumb": "thumbs/zombie-fence.jpg",
@@ -1201,32 +1263,6 @@ window.LIBRARY = {
                 "Systems of inequalities"
               ],
               "added": "2026-10-16"
-            },
-            {
-              "title": "Graphing Inequalities Error Analysis",
-              "path": "artifacts/graphing-inequalities-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 incorrect graphs and solutions. Students find the error, explain it, and graph the correct answer.",
-              "type": "Printable",
-              "topics": [
-                "Solid vs. dashed boundary",
-                "Shading and test points",
-                "Graphing linear inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Color By Number",
-              "path": "artifacts/graphing-inequalities-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the sea turtle on a coral reef. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Graphing linear inequalities",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
             },
             {
               "title": "Aquarium After Hours",
@@ -1295,30 +1331,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 1: Boundary Lines & Shading",
-              "path": "artifacts/graphing-inequalities-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on boundary lines & shading. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Boundary Lines & Shading"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Writing Inequalities from Graphs & Situations",
-              "path": "artifacts/graphing-inequalities-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on writing inequalities from graphs & situations. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Writing Inequalities from Graphs & Situations"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Systems of Equations Flashcards",
               "path": "artifacts/systems-flashcards/index.html",
               "thumb": "thumbs/systems-flashcards.jpg",
@@ -1336,7 +1348,7 @@ window.LIBRARY = {
               "title": "Systems of Equations Showdown",
               "path": "artifacts/systems-showdown/index.html",
               "thumb": "thumbs/systems-showdown.jpg",
-              "description": "A game board for systems of equations review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for systems of equations review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Systems of equations",
@@ -1428,42 +1440,69 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponent Rules Maze",
-              "path": "artifacts/exponents-exponential-functions-maze/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-maze.jpg",
-              "description": "Printable 4-page worksheet: simplify and evaluate expressions with the exponent rules to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=maze",
+              "thumb": "thumbs/maze-generator-exponents-scientific-notation.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Product, quotient and power rules",
-                "Zero and negative exponents",
-                "Evaluating powers"
+                "Printable generator",
+                "Exponents",
+                "Scientific notation"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Exponent Rules Tarsia Puzzle",
-              "path": "artifacts/exponents-exponential-functions-tarsia/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=color",
+              "thumb": "thumbs/color-generator-exponents-scientific-notation.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Exponent rules",
-                "Tarsia puzzle",
-                "Self-checking"
+                "Printable generator",
+                "Exponents",
+                "Scientific notation"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
             },
             {
-              "title": "Partner Check 1: Exponent Rules",
-              "path": "artifacts/exponents-exponential-functions-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on exponent rules. Includes both student worksheets.",
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-exponents-scientific-notation.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
               "type": "Printable",
               "topics": [
-                "Partner Check",
-                "Exponent Rules"
+                "Printable generator",
+                "Exponents",
+                "Scientific notation"
               ],
-              "added": "2026-10-23"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=error",
+              "thumb": "thumbs/error-generator-exponents-scientific-notation.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=partner",
+              "thumb": "thumbs/partner-generator-exponents-scientific-notation.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "Exponents Flashcards",
@@ -1482,7 +1521,7 @@ window.LIBRARY = {
               "title": "Exponents Showdown",
               "path": "artifacts/exponents-showdown/index.html",
               "thumb": "thumbs/exponents-showdown.jpg",
-              "description": "A game board for exponents review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for exponents review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Exponent rules",
@@ -1568,32 +1607,64 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponents & Exponential Functions Error Analysis",
-              "path": "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=maze",
+              "thumb": "thumbs/maze-generator-exponential-functions.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Exponent rules",
-                "Negative and zero exponents",
-                "Exponential growth and decay",
-                "Units 7–8"
+                "Printable generator",
+                "Exponential functions"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Exponents & Exponential Functions Color By Number",
-              "path": "artifacts/exponents-exponential-functions-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the butterfly on a flower. Page 1 is the picture, page 2 is the work space.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=color",
+              "thumb": "thumbs/color-generator-exponential-functions.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Exponent rules",
-                "Color by number",
-                "Self-checking",
-                "Units 7–8"
+                "Printable generator",
+                "Exponential functions"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-exponential-functions.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Exponential functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=error",
+              "thumb": "thumbs/error-generator-exponential-functions.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Exponential functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=partner",
+              "thumb": "thumbs/partner-generator-exponential-functions.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Exponential functions"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "The Great Pumpkin Snatch",
@@ -1667,18 +1738,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 2: Exponential Functions, Growth & Decay",
-              "path": "artifacts/exponents-exponential-functions-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on exponential functions, growth & decay. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Exponential Functions, Growth & Decay"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Exponential Functions Flashcards",
               "path": "artifacts/exponential-functions-flashcards/index.html",
               "thumb": "thumbs/exponential-functions-flashcards.jpg",
@@ -1696,7 +1755,7 @@ window.LIBRARY = {
               "title": "Exponential Functions Showdown",
               "path": "artifacts/exponential-functions-showdown/index.html",
               "thumb": "thumbs/exponential-functions-showdown.jpg",
-              "description": "A game board for exponential functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for exponential functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Exponential growth and decay",
@@ -1786,16 +1845,64 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Partner Check 1: Operations with Polynomials",
-              "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on operations with polynomials. Includes both student worksheets.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=maze",
+              "thumb": "thumbs/maze-generator-polynomials.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Partner Check",
-                "Operations with Polynomials"
+                "Printable generator",
+                "Polynomials"
               ],
-              "added": "2026-10-23"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=color",
+              "thumb": "thumbs/color-generator-polynomials.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Polynomials"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-polynomials.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Polynomials"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=error",
+              "thumb": "thumbs/error-generator-polynomials.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Polynomials"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=partner",
+              "thumb": "thumbs/partner-generator-polynomials.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Polynomials"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "Polynomials Flashcards",
@@ -1814,7 +1921,7 @@ window.LIBRARY = {
               "title": "Polynomials Showdown",
               "path": "artifacts/polynomials-showdown/index.html",
               "thumb": "thumbs/polynomials-showdown.jpg",
-              "description": "A game board for polynomials review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for polynomials review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -1900,45 +2007,64 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Factoring Maze",
-              "path": "artifacts/polynomials-factoring-maze/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-maze.jpg",
-              "description": "Printable 4-page worksheet: factor trinomials, differences of squares, and GCF problems completely to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=maze",
+              "thumb": "thumbs/maze-generator-factoring-zero-product.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Factoring x^2 + bx + c and ax^2 + bx + c",
-                "Difference of squares",
-                "Factoring out the GCF first"
+                "Printable generator",
+                "Factoring"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Polynomials & Factoring Error Analysis",
-              "path": "artifacts/polynomials-factoring-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=color",
+              "thumb": "thumbs/color-generator-factoring-zero-product.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Adding and subtracting polynomials",
-                "Multiplying polynomials",
-                "Factoring",
-                "Zero product property",
-                "Units 9–10"
+                "Printable generator",
+                "Factoring"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Polynomials & Factoring Color By Number",
-              "path": "artifacts/polynomials-factoring-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the fairy-tale castle. Page 1 is the picture, page 2 is the work space.",
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-factoring-zero-product.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
               "type": "Printable",
               "topics": [
-                "Factoring",
-                "Color by number",
-                "Self-checking"
+                "Printable generator",
+                "Factoring"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=error",
+              "thumb": "thumbs/error-generator-factoring-zero-product.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Factoring"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=partner",
+              "thumb": "thumbs/partner-generator-factoring-zero-product.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Factoring"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "The Castle Crown Caper",
@@ -1966,19 +2092,6 @@ window.LIBRARY = {
                 "Multiple choice",
                 "Self-checking",
                 "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Factoring Trinomials Tarsia Puzzle",
-              "path": "artifacts/polynomials-factoring-tarsia/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Factoring",
-                "Tarsia puzzle",
-                "Self-checking"
               ],
               "added": "2026-10-21"
             },
@@ -2025,18 +2138,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 2: Factoring",
-              "path": "artifacts/polynomials-factoring-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on factoring. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Factoring"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Factoring Flashcards",
               "path": "artifacts/factoring-zero-product-flashcards/index.html",
               "thumb": "thumbs/factoring-zero-product-flashcards.jpg",
@@ -2054,7 +2155,7 @@ window.LIBRARY = {
               "title": "Factoring Showdown",
               "path": "artifacts/factoring-zero-product-showdown/index.html",
               "thumb": "thumbs/factoring-zero-product-showdown.jpg",
-              "description": "A game board for factoring review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for factoring review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "GCF and grouping",
@@ -2144,44 +2245,64 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Solving Quadratics Maze",
-              "path": "artifacts/quadratics-maze/worksheet.pdf",
-              "thumb": "thumbs/quadratics-maze.jpg",
-              "description": "Printable 4-page worksheet: solve quadratic equations by factoring, square roots, and the quadratic formula to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=maze",
+              "thumb": "thumbs/maze-generator-quadratics.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
               "type": "Printable",
               "topics": [
-                "Solving by factoring",
-                "Solving with square roots",
-                "The quadratic formula"
+                "Printable generator",
+                "Quadratics"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Quadratics Error Analysis",
-              "path": "artifacts/quadratics-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/quadratics-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=color",
+              "thumb": "thumbs/color-generator-quadratics.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
-                "Quadratic formula",
-                "Completing the square",
-                "Vertex and graph",
-                "Projectile problems"
+                "Printable generator",
+                "Quadratics"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-25"
             },
             {
-              "title": "Quadratics Color By Number",
-              "path": "artifacts/quadratics-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/quadratics-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the race car. Page 1 is the picture, page 2 is the work space.",
+              "title": "Tarsia Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=tarsia",
+              "thumb": "thumbs/tarsia-generator-quadratics.svg",
+              "description": "Make a Tarsia puzzle for this unit: cut out the triangles and match each problem to its answer to rebuild a hexagon (or triangle). Border decoys, work pages, CP2/CP1/Honors, up to three versions, and a solved key.",
               "type": "Printable",
               "topics": [
-                "Solving quadratics",
-                "Color by number",
-                "Self-checking"
+                "Printable generator",
+                "Quadratics"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=error",
+              "thumb": "thumbs/error-generator-quadratics.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadratics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=partner",
+              "thumb": "thumbs/partner-generator-quadratics.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadratics"
+              ],
+              "added": "2026-10-25"
             },
             {
               "title": "The Cannonball Circus Caper",
@@ -2206,19 +2327,6 @@ window.LIBRARY = {
                 "Solving quadratics",
                 "Whodunnit",
                 "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Solving Quadratics Tarsia Puzzle",
-              "path": "artifacts/quadratics-tarsia/worksheet.pdf",
-              "thumb": "thumbs/quadratics-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Solving quadratics",
-                "Tarsia puzzle",
                 "Self-checking"
               ],
               "added": "2026-10-21"
@@ -2263,30 +2371,6 @@ window.LIBRARY = {
               "added": "2026-10-19"
             },
             {
-              "title": "Partner Check 1: Solving Quadratic Equations",
-              "path": "artifacts/quadratics-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/quadratics-partner-check-1.jpg",
-              "description": "Partner A and B solve different problems with matching answers on solving quadratic equations. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Solving Quadratic Equations"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Features of Parabolas",
-              "path": "artifacts/quadratics-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/quadratics-partner-check-2.jpg",
-              "description": "Partner A and B solve different problems with matching answers on features of parabolas. Includes both student worksheets.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Features of Parabolas"
-              ],
-              "added": "2026-10-23"
-            },
-            {
               "title": "Quadratics Flashcards",
               "path": "artifacts/quadratic-practice-flashcards/index.html",
               "thumb": "thumbs/quadratic-practice-flashcards.jpg",
@@ -2304,7 +2388,7 @@ window.LIBRARY = {
               "title": "Quadratics Showdown",
               "path": "artifacts/quadratic-practice-showdown/index.html",
               "thumb": "thumbs/quadratic-practice-showdown.jpg",
-              "description": "A game board for quadratics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for quadratics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Parabolas",
@@ -2394,6 +2478,54 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
+              "title": "Maze Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=maze",
+              "thumb": "thumbs/maze-generator-statistics-data-modeling.svg",
+              "description": "Make a printable answer maze for this unit: solve the problem in each room and leave through the door with the answer; wrong answers lead to dead ends. CP2/CP1/Honors, up to three versions, answer key with the path and worked solutions. Every door is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Statistics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=color",
+              "thumb": "thumbs/color-generator-statistics-data-modeling.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems and color a picture using a code of answers. Choose the picture or get a surprise; CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Statistics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=error",
+              "thumb": "thumbs/error-generator-statistics-data-modeling.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix. CP2/CP1/Honors, up to three versions, answer key with the correct solution. Every wrong answer is checked to be wrong.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Statistics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=partner",
+              "thumb": "thumbs/partner-generator-statistics-data-modeling.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Statistics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Statistics Flashcards",
               "path": "artifacts/statistics-data-modeling-flashcards/index.html",
               "thumb": "thumbs/statistics-data-modeling-flashcards.jpg",
@@ -2411,7 +2543,7 @@ window.LIBRARY = {
               "title": "Statistics Showdown",
               "path": "artifacts/statistics-data-modeling-showdown/index.html",
               "thumb": "thumbs/statistics-data-modeling-showdown.jpg",
-              "description": "A game board for statistics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "description": "A game board for statistics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Measures of center and spread",

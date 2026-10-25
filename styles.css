@@ -358,3 +358,10 @@ html { scroll-padding-top: 12rem; }
 
 .resource-info { font-size: .85rem; color: var(--ink-soft); line-height: 1.5; }
 .report-problem { position: relative; z-index: 2; align-self: flex-start; font-size: .8rem; color: var(--ink-soft); margin-top: .25rem; }
+
+/* Back button (previous page) and unit numbers */
+.back-btn { flex: none; display: inline-flex; align-items: center; gap: .35rem; min-height: 40px; padding: .4rem .8rem; border: 2px solid var(--edge); border-radius: 10px; background: var(--card); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
+.back-btn:hover { background: var(--wash); }
+.back-btn:focus-visible { outline: 3px solid var(--blue-bg); outline-offset: 2px; }
+@media (max-width: 560px) { .back-btn { padding: .35rem .55rem; } }
+.unit-num { display: block; font-size: .78rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: .15rem; }
