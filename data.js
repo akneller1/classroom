@@ -85,8 +85,7 @@ window.LIBRARY = {
               "topics": [
                 "Combining like terms",
                 "Distributive property",
-                "Evaluating expressions",
-                "One- and two-step equations"
+                "Evaluating expressions"
               ],
               "added": "2026-10-24"
             },
@@ -94,13 +93,12 @@ window.LIBRARY = {
               "title": "Foundations of Algebra Showdown",
               "path": "artifacts/foundations-algebra-showdown/index.html",
               "thumb": "thumbs/foundations-algebra-showdown.jpg",
-              "description": "A game board for foundations of algebra review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for foundations of algebra review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Combining like terms",
                 "Distributive property",
                 "Evaluating expressions",
-                "One- and two-step equations",
                 "Team game"
               ],
               "added": "2026-10-24"
@@ -115,7 +113,6 @@ window.LIBRARY = {
                 "Combining like terms",
                 "Distributive property",
                 "Evaluating expressions",
-                "One- and two-step equations",
                 "Team game",
                 "Multiple choice"
               ],
@@ -131,7 +128,6 @@ window.LIBRARY = {
                 "Combining like terms",
                 "Distributive property",
                 "Evaluating expressions",
-                "One- and two-step equations",
                 "Team game",
                 "Multiple choice"
               ],
@@ -146,8 +142,7 @@ window.LIBRARY = {
               "topics": [
                 "Combining like terms",
                 "Distributive property",
-                "Evaluating expressions",
-                "One- and two-step equations"
+                "Evaluating expressions"
               ],
               "added": "2026-10-24"
             }
@@ -184,66 +179,6 @@ window.LIBRARY = {
                 "Unit 2"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Equations Four",
-              "path": "artifacts/expressions-equations-connect-four/index.html",
-              "thumb": "thumbs/expressions-equations-connect-four.jpg",
-              "description": "Connect Four for two teams. Simplify, evaluate, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Combining like terms",
-                "Distributive property",
-                "Multi-step equations",
-                "Literal equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Flashcards",
-              "path": "artifacts/expressions-equations-flashcards/index.html",
-              "thumb": "thumbs/expressions-equations-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for vocabulary, evaluating, simplifying, solving equations, proportions and applications. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Evaluating expressions",
-                "Simplifying",
-                "Solving equations",
-                "Proportions",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Picture Reveal",
-              "path": "artifacts/expressions-equations-picture-reveal/index.html",
-              "thumb": "thumbs/expressions-equations-picture-reveal.jpg",
-              "description": "Evaluate, simplify and solve 10 problems to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Evaluating expressions",
-                "Simplifying",
-                "Solving equations",
-                "Proportions",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Equations Showdown",
-              "path": "artifacts/expressions-equations-jeopardy/index.html",
-              "thumb": "thumbs/expressions-equations-jeopardy.jpg",
-              "description": "A game board for Expressions and Equations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Combining like terms",
-                "Distributive property",
-                "Multi-step equations",
-                "Literal equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
             },
             {
               "title": "Solving Equations Maze",
@@ -295,19 +230,6 @@ window.LIBRARY = {
                 "Solving equations",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Expressions & Equations Tic-Tac-Toe",
-              "path": "artifacts/expressions-equations-tic-tac-toe/index.html",
-              "thumb": "thumbs/expressions-equations-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solving equations",
-                "Team game",
-                "Multiple choice"
               ],
               "added": "2026-10-21"
             },
@@ -390,6 +312,86 @@ window.LIBRARY = {
                 "Solving Multi-Step Equations"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Solving Equations Flashcards",
+              "path": "artifacts/solving-equations-flashcards/index.html",
+              "thumb": "thumbs/solving-equations-flashcards.jpg",
+              "description": "A fresh deck of solving equations flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Multi-step equations",
+                "Variables on both sides",
+                "Proportions",
+                "Literal equations",
+                "Equations from word problems"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Solving Equations Showdown",
+              "path": "artifacts/solving-equations-showdown/index.html",
+              "thumb": "thumbs/solving-equations-showdown.jpg",
+              "description": "A game board for solving equations review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Multi-step equations",
+                "Variables on both sides",
+                "Proportions",
+                "Literal equations",
+                "Equations from word problems",
+                "Team game"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Solving Equations Connect Four",
+              "path": "artifacts/solving-equations-connect-four/index.html",
+              "thumb": "thumbs/solving-equations-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice solving equations problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Multi-step equations",
+                "Variables on both sides",
+                "Proportions",
+                "Literal equations",
+                "Equations from word problems",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Solving Equations Tic-Tac-Toe",
+              "path": "artifacts/solving-equations-tic-tac-toe/index.html",
+              "thumb": "thumbs/solving-equations-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice solving equations problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Multi-step equations",
+                "Variables on both sides",
+                "Proportions",
+                "Literal equations",
+                "Equations from word problems",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Solving Equations: Picture Reveal",
+              "path": "artifacts/solving-equations-picture-reveal/index.html",
+              "thumb": "thumbs/solving-equations-picture-reveal.jpg",
+              "description": "Solve 10 solving equations problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Multi-step equations",
+                "Variables on both sides",
+                "Proportions",
+                "Literal equations",
+                "Equations from word problems"
+              ],
+              "added": "2026-10-25"
             }
           ]
         },
@@ -424,19 +426,6 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Compound Inequalities Picture Reveal",
-              "path": "artifacts/compound-inequalities-picture-reveal/index.html",
-              "thumb": "thumbs/compound-inequalities-picture-reveal.jpg",
-              "description": "Solve 10 compound inequalities to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Compound inequalities",
-                "AND and OR",
-                "Solving inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Compound Inequalities Maze",
               "path": "artifacts/compound-inequalities-maze/worksheet.pdf",
               "thumb": "thumbs/compound-inequalities-maze.svg",
@@ -448,44 +437,6 @@ window.LIBRARY = {
                 "Maze worksheet"
               ],
               "added": "2026-10-18"
-            },
-            {
-              "title": "Inequalities Flashcards",
-              "path": "artifacts/inequalities-flashcards/index.html",
-              "thumb": "thumbs/inequalities-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and number-line graphs: translating, testing solutions, one- and multi-step inequalities, flipping the sign, compound inequalities, special cases and word problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Translating and testing solutions",
-                "Solving and flipping the sign",
-                "Graphing on a number line",
-                "Compound inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Inequality Four",
-              "path": "artifacts/inequality-four/index.html",
-              "thumb": "thumbs/inequality-four.jpg",
-              "description": "Connect Four for two teams. Solve, graph, or translate a compound inequality to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Compound inequalities",
-                "Number line graphs"
-              ],
-              "added": "2026-10-16"
-            },
-            {
-              "title": "Inequality Showdown",
-              "path": "artifacts/inequality-showdown/index.html",
-              "thumb": "thumbs/inequality-showdown.jpg",
-              "description": "A game board for Algebra 1 review. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Compound inequalities",
-                "Absolute value inequalities"
-              ],
-              "added": "2026-10-16"
             },
             {
               "title": "Inequalities Error Analysis",
@@ -524,19 +475,6 @@ window.LIBRARY = {
                 "Inequalities",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Inequalities Tic-Tac-Toe",
-              "path": "artifacts/inequalities-tic-tac-toe/index.html",
-              "thumb": "thumbs/inequalities-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Inequalities",
-                "Team game",
-                "Multiple choice"
               ],
               "added": "2026-10-21"
             },
@@ -643,6 +581,81 @@ window.LIBRARY = {
                 "Compound Inequalities & Writing Inequalities"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Linear Inequalities Flashcards",
+              "path": "artifacts/linear-inequalities-flashcards/index.html",
+              "thumb": "thumbs/linear-inequalities-flashcards.jpg",
+              "description": "A fresh deck of linear inequalities flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Solving inequalities",
+                "Compound inequalities",
+                "Absolute value inequalities",
+                "Inequalities from word problems"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Linear Inequalities Showdown",
+              "path": "artifacts/linear-inequalities-showdown/index.html",
+              "thumb": "thumbs/linear-inequalities-showdown.jpg",
+              "description": "A game board for linear inequalities review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Solving inequalities",
+                "Compound inequalities",
+                "Absolute value inequalities",
+                "Inequalities from word problems",
+                "Team game"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Linear Inequalities Connect Four",
+              "path": "artifacts/linear-inequalities-connect-four/index.html",
+              "thumb": "thumbs/linear-inequalities-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice linear inequalities problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Solving inequalities",
+                "Compound inequalities",
+                "Absolute value inequalities",
+                "Inequalities from word problems",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Linear Inequalities Tic-Tac-Toe",
+              "path": "artifacts/linear-inequalities-tic-tac-toe/index.html",
+              "thumb": "thumbs/linear-inequalities-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice linear inequalities problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Solving inequalities",
+                "Compound inequalities",
+                "Absolute value inequalities",
+                "Inequalities from word problems",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Linear Inequalities: Picture Reveal",
+              "path": "artifacts/linear-inequalities-picture-reveal/index.html",
+              "thumb": "thumbs/linear-inequalities-picture-reveal.jpg",
+              "description": "Solve 10 linear inequalities problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Solving inequalities",
+                "Compound inequalities",
+                "Absolute value inequalities",
+                "Inequalities from word problems"
+              ],
+              "added": "2026-10-25"
             }
           ]
         },
@@ -694,7 +707,7 @@ window.LIBRARY = {
               "title": "Relations and Functions Showdown",
               "path": "artifacts/relations-functions-showdown/index.html",
               "thumb": "thumbs/relations-functions-showdown.jpg",
-              "description": "A game board for relations and functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for relations and functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Domain and range",
@@ -784,48 +797,6 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Slope Four",
-              "path": "artifacts/linear-equations-slope-connect-four/index.html",
-              "thumb": "thumbs/linear-equations-slope-connect-four.jpg",
-              "description": "Connect Four for two teams. Find slopes, intercepts, and equations of lines, and read graphs, to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Slope from points, tables, and graphs",
-                "Slope-intercept, point-slope, and standard form",
-                "Parallel and perpendicular lines",
-                "Linear models"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Linear Equations & Slope Flashcards",
-              "path": "artifacts/linear-equations-slope-flashcards/index.html",
-              "thumb": "thumbs/linear-equations-slope-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for slope, slope-intercept, point-slope and standard form, writing equations of lines, parallel and perpendicular lines, intercepts and rate of change. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Slope from points, graphs and tables",
-                "Slope-intercept, point-slope and standard form",
-                "Parallel and perpendicular lines",
-                "Rate of change"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Linear Equations & Slope Picture Reveal",
-              "path": "artifacts/linear-equations-slope-picture-reveal/index.html",
-              "thumb": "thumbs/linear-equations-slope-picture-reveal.jpg",
-              "description": "Find slopes, intercepts and equations of lines to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Slope from points and graphs",
-                "Slope-intercept and point-slope form",
-                "Parallel and perpendicular lines",
-                "Rate of change"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Slope Links Mini Golf",
               "path": "artifacts/slope-links-mini-golf/index.html",
               "thumb": "thumbs/slope-links-mini-golf.jpg",
@@ -837,20 +808,6 @@ window.LIBRARY = {
                 "Coordinate plane"
               ],
               "added": "2026-10-16"
-            },
-            {
-              "title": "Slope Showdown",
-              "path": "artifacts/linear-equations-slope-jeopardy/index.html",
-              "thumb": "thumbs/linear-equations-slope-jeopardy.jpg",
-              "description": "A game board for Linear Equations and Slope. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Slope from points, tables, and graphs",
-                "Slope-intercept, point-slope, and standard form",
-                "Parallel and perpendicular lines",
-                "Linear models"
-              ],
-              "added": "2026-10-18"
             },
             {
               "title": "Slope & Linear Equations Maze",
@@ -902,19 +859,6 @@ window.LIBRARY = {
                 "Slope-intercept form",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Linear Equations & Slope Tic-Tac-Toe",
-              "path": "artifacts/linear-equations-slope-tic-tac-toe/index.html",
-              "thumb": "thumbs/linear-equations-slope-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Writing linear equations",
-                "Team game",
-                "Multiple choice"
               ],
               "added": "2026-10-21"
             },
@@ -1026,7 +970,7 @@ window.LIBRARY = {
               "title": "Linear Functions Showdown",
               "path": "artifacts/linear-functions-showdown/index.html",
               "thumb": "thumbs/linear-functions-showdown.jpg",
-              "description": "A game board for linear functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for linear functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Slope",
@@ -1116,63 +1060,6 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Four",
-              "path": "artifacts/systems-of-equations-connect-four/index.html",
-              "thumb": "thumbs/systems-of-equations-connect-four.jpg",
-              "description": "Connect Four for two teams. Check a solution, solve by substitution or elimination, read a graph, or model a story. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Checking and graphing solutions",
-                "Substitution",
-                "Elimination",
-                "Special cases and word problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Systems of Equations Flashcards",
-              "path": "artifacts/systems-of-equations-flashcards/index.html",
-              "thumb": "thumbs/systems-of-equations-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for checking solutions, reading graphs and tables, substitution, elimination, special cases, choosing a method and word problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Checking and graphing",
-                "Substitution",
-                "Elimination",
-                "No or infinite solutions",
-                "Word problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Systems of Equations Picture Reveal",
-              "path": "artifacts/systems-of-equations-picture-reveal/index.html",
-              "thumb": "thumbs/systems-of-equations-picture-reveal.jpg",
-              "description": "Solve systems by graphing, substitution and elimination, then tackle word problems to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Solving by graphing",
-                "Substitution",
-                "Elimination",
-                "Word problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Systems Showdown",
-              "path": "artifacts/systems-of-equations-jeopardy/index.html",
-              "thumb": "thumbs/systems-of-equations-jeopardy.jpg",
-              "description": "A game board for Systems of Equations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Checking and graphing solutions",
-                "Substitution",
-                "Elimination",
-                "Special cases and word problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Systems of Equations Maze",
               "path": "artifacts/systems-of-equations-maze/worksheet.pdf",
               "thumb": "thumbs/systems-of-equations-maze.jpg",
@@ -1222,19 +1109,6 @@ window.LIBRARY = {
                 "Solving systems",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Systems of Equations Tic-Tac-Toe",
-              "path": "artifacts/systems-of-equations-tic-tac-toe/index.html",
-              "thumb": "thumbs/systems-of-equations-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solving systems",
-                "Team game",
-                "Multiple choice"
               ],
               "added": "2026-10-21"
             },
@@ -1316,48 +1190,6 @@ window.LIBRARY = {
               "added": "2026-10-23"
             },
             {
-              "title": "Inequality Graphs Four",
-              "path": "artifacts/graphing-inequalities-connect-four/index.html",
-              "thumb": "thumbs/graphing-inequalities-connect-four.jpg",
-              "description": "Connect Four for two teams. Test points, choose solid or dashed lines, decide the shading, and match graphs to inequalities to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Rewriting in slope-intercept form",
-                "Test points and shading",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Flashcards",
-              "path": "artifacts/graphing-inequalities-flashcards/index.html",
-              "thumb": "thumbs/graphing-inequalities-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and shaded graphs for inequalities in two variables: solid or dashed boundary lines, test points, shading, writing an inequality from a graph, systems, and real-world constraints. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Test points and shading",
-                "Writing inequalities from graphs",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Graphing Inequalities Picture Reveal",
-              "path": "artifacts/graphing-inequalities-picture-reveal/index.html",
-              "thumb": "thumbs/graphing-inequalities-picture-reveal.jpg",
-              "description": "Test points, read boundary lines and shading, and work with systems of inequalities to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Test points",
-                "Solid or dashed boundary lines",
-                "Writing inequalities from graphs",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Zombie Fence",
               "path": "artifacts/zombie-fence/index.html",
               "thumb": "thumbs/zombie-fence.jpg",
@@ -1369,20 +1201,6 @@ window.LIBRARY = {
                 "Systems of inequalities"
               ],
               "added": "2026-10-16"
-            },
-            {
-              "title": "Inequality Graphs Showdown",
-              "path": "artifacts/graphing-inequalities-jeopardy/index.html",
-              "thumb": "thumbs/graphing-inequalities-jeopardy.jpg",
-              "description": "A game board for graphing linear inequalities. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Rewriting in slope-intercept form",
-                "Test points and shading",
-                "Systems of inequalities"
-              ],
-              "added": "2026-10-18"
             },
             {
               "title": "Graphing Inequalities Error Analysis",
@@ -1420,19 +1238,6 @@ window.LIBRARY = {
                 "Graphing linear inequalities",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Graphing Inequalities Tic-Tac-Toe",
-              "path": "artifacts/graphing-inequalities-tic-tac-toe/index.html",
-              "thumb": "thumbs/graphing-inequalities-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Graphing linear inequalities",
-                "Team game",
-                "Multiple choice"
               ],
               "added": "2026-10-21"
             },
@@ -1514,10 +1319,10 @@ window.LIBRARY = {
               "added": "2026-10-23"
             },
             {
-              "title": "Systems Practice Flashcards",
+              "title": "Systems of Equations Flashcards",
               "path": "artifacts/systems-flashcards/index.html",
               "thumb": "thumbs/systems-flashcards.jpg",
-              "description": "A fresh deck of systems flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of systems of equations flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Systems of equations",
@@ -1528,10 +1333,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Practice Showdown",
+              "title": "Systems of Equations Showdown",
               "path": "artifacts/systems-showdown/index.html",
               "thumb": "thumbs/systems-showdown.jpg",
-              "description": "A game board for systems review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for systems of equations review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Systems of equations",
@@ -1543,10 +1348,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Practice Connect Four",
+              "title": "Systems of Equations Connect Four",
               "path": "artifacts/systems-connect-four/index.html",
               "thumb": "thumbs/systems-connect-four.jpg",
-              "description": "Connect Four for two teams. Answer a multiple-choice systems problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "description": "Connect Four for two teams. Answer a multiple-choice systems of equations problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
               "type": "Game",
               "topics": [
                 "Systems of equations",
@@ -1559,10 +1364,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Practice Tic-Tac-Toe",
+              "title": "Systems of Equations Tic-Tac-Toe",
               "path": "artifacts/systems-tic-tac-toe/index.html",
               "thumb": "thumbs/systems-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice systems problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice systems of equations problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
               "type": "Game",
               "topics": [
                 "Systems of equations",
@@ -1575,10 +1380,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Practice: Picture Reveal",
+              "title": "Systems of Equations: Picture Reveal",
               "path": "artifacts/systems-picture-reveal/index.html",
               "thumb": "thumbs/systems-picture-reveal.jpg",
-              "description": "Solve 10 systems problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "description": "Solve 10 systems of equations problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
               "type": "Game",
               "topics": [
                 "Systems of equations",
@@ -1623,36 +1428,6 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponents & Exponential Functions Flashcards",
-              "path": "artifacts/exponents-exponential-functions-flashcards/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for exponent rules, zero and negative exponents, scientific notation, exponential functions, growth and decay, and compound-growth word problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Exponent rules",
-                "Zero and negative exponents",
-                "Scientific notation",
-                "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Exponents Showdown",
-              "path": "artifacts/exponents-exponential-functions-jeopardy/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-jeopardy.jpg",
-              "description": "A game board for Exponents and Exponential Functions. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Zero and negative exponents",
-                "Scientific notation",
-                "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Exponent Rules Maze",
               "path": "artifacts/exponents-exponential-functions-maze/worksheet.pdf",
               "thumb": "thumbs/exponents-exponential-functions-maze.jpg",
@@ -1691,7 +1466,7 @@ window.LIBRARY = {
               "added": "2026-10-23"
             },
             {
-              "title": "Exponent Practice Flashcards",
+              "title": "Exponents Flashcards",
               "path": "artifacts/exponents-flashcards/index.html",
               "thumb": "thumbs/exponents-flashcards.jpg",
               "description": "A fresh deck of exponents flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
@@ -1704,10 +1479,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponent Practice Showdown",
+              "title": "Exponents Showdown",
               "path": "artifacts/exponents-showdown/index.html",
               "thumb": "thumbs/exponents-showdown.jpg",
-              "description": "A game board for exponents review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for exponents review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Exponent rules",
@@ -1718,7 +1493,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponent Practice Connect Four",
+              "title": "Exponents Connect Four",
               "path": "artifacts/exponents-connect-four/index.html",
               "thumb": "thumbs/exponents-connect-four.jpg",
               "description": "Connect Four for two teams. Answer a multiple-choice exponents problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
@@ -1733,7 +1508,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponent Practice Tic-Tac-Toe",
+              "title": "Exponents Tic-Tac-Toe",
               "path": "artifacts/exponents-tic-tac-toe/index.html",
               "thumb": "thumbs/exponents-tic-tac-toe.jpg",
               "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice exponents problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
@@ -1748,7 +1523,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponent Practice: Picture Reveal",
+              "title": "Exponents: Picture Reveal",
               "path": "artifacts/exponents-picture-reveal/index.html",
               "thumb": "thumbs/exponents-picture-reveal.jpg",
               "description": "Solve 10 exponents problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
@@ -1793,36 +1568,6 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Exponents Four",
-              "path": "artifacts/exponents-exponential-functions-connect-four/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-connect-four.jpg",
-              "description": "Connect Four for two teams. Use exponent rules, scientific notation, and exponential growth and decay to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Zero and negative exponents",
-                "Scientific notation",
-                "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Exponents & Exponential Functions Picture Reveal",
-              "path": "artifacts/exponents-exponential-functions-picture-reveal/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-picture-reveal.jpg",
-              "description": "Use exponent rules, scientific notation, exponential equations and growth and decay to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Scientific notation",
-                "Exponential equations",
-                "Growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Exponents & Exponential Functions Error Analysis",
               "path": "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf",
               "thumb": "thumbs/exponents-exponential-functions-error-analysis.jpg",
@@ -1860,20 +1605,6 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Detective game",
                 "Typed answers",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Exponents Tic-Tac-Toe",
-              "path": "artifacts/exponents-exponential-functions-tic-tac-toe/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Team game",
-                "Multiple choice",
                 "Units 7–8"
               ],
               "added": "2026-10-21"
@@ -1965,7 +1696,7 @@ window.LIBRARY = {
               "title": "Exponential Functions Showdown",
               "path": "artifacts/exponential-functions-showdown/index.html",
               "thumb": "thumbs/exponential-functions-showdown.jpg",
-              "description": "A game board for exponential functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for exponential functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Exponential growth and decay",
@@ -2067,10 +1798,10 @@ window.LIBRARY = {
               "added": "2026-10-23"
             },
             {
-              "title": "Polynomial Practice Flashcards",
+              "title": "Polynomials Flashcards",
               "path": "artifacts/polynomials-flashcards/index.html",
               "thumb": "thumbs/polynomials-flashcards.jpg",
-              "description": "A fresh deck of polynomial practice flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of polynomials flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -2080,10 +1811,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Polynomial Practice Showdown",
+              "title": "Polynomials Showdown",
               "path": "artifacts/polynomials-showdown/index.html",
               "thumb": "thumbs/polynomials-showdown.jpg",
-              "description": "A game board for polynomial practice review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for polynomials review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -2094,10 +1825,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Polynomial Practice Connect Four",
+              "title": "Polynomials Connect Four",
               "path": "artifacts/polynomials-connect-four/index.html",
               "thumb": "thumbs/polynomials-connect-four.jpg",
-              "description": "Connect Four for two teams. Answer a multiple-choice polynomial practice problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "description": "Connect Four for two teams. Answer a multiple-choice polynomials problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
               "type": "Game",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -2109,10 +1840,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Polynomial Practice Tic-Tac-Toe",
+              "title": "Polynomials Tic-Tac-Toe",
               "path": "artifacts/polynomials-tic-tac-toe/index.html",
               "thumb": "thumbs/polynomials-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice polynomial practice problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice polynomials problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
               "type": "Game",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -2124,10 +1855,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Polynomial Practice: Picture Reveal",
+              "title": "Polynomials: Picture Reveal",
               "path": "artifacts/polynomials-picture-reveal/index.html",
               "thumb": "thumbs/polynomials-picture-reveal.jpg",
-              "description": "Solve 10 polynomial practice problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "description": "Solve 10 polynomials problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
               "type": "Game",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -2167,66 +1898,6 @@ window.LIBRARY = {
                 "Factoring"
               ],
               "added": "2026-10-24"
-            },
-            {
-              "title": "Factoring Four",
-              "path": "artifacts/polynomials-factoring-connect-four/index.html",
-              "thumb": "thumbs/polynomials-factoring-connect-four.jpg",
-              "description": "Connect Four for two teams. Multiply, factor, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "GCF and trinomial factoring",
-                "Difference of squares",
-                "Zero-product property",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials & Factoring Flashcards",
-              "path": "artifacts/polynomials-factoring-flashcards/index.html",
-              "thumb": "thumbs/polynomials-factoring-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for classifying, adding, subtracting and multiplying polynomials, then factoring with GCF, trinomials, difference of squares and factoring completely. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "GCF and trinomial factoring",
-                "Difference of squares",
-                "Factoring completely",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials & Factoring Picture Reveal",
-              "path": "artifacts/polynomials-factoring-picture-reveal/index.html",
-              "thumb": "thumbs/polynomials-factoring-picture-reveal.jpg",
-              "description": "Add, multiply and factor polynomials, then use factoring to solve area problems and uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Adding and subtracting polynomials",
-                "Multiplying polynomials",
-                "Factoring trinomials",
-                "Factoring completely",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials Showdown",
-              "path": "artifacts/polynomials-factoring-jeopardy/index.html",
-              "thumb": "thumbs/polynomials-factoring-jeopardy.jpg",
-              "description": "A game board for Polynomials and Factoring. Add, subtract, and multiply polynomials, factor every way you know, and use the zero-product property.",
-              "type": "Game",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "GCF and trinomial factoring",
-                "Difference of squares",
-                "Zero-product property",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
             },
             {
               "title": "Factoring Maze",
@@ -2279,20 +1950,6 @@ window.LIBRARY = {
                 "Factoring",
                 "Detective game",
                 "Typed answers",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Polynomials & Factoring Tic-Tac-Toe",
-              "path": "artifacts/polynomials-factoring-tic-tac-toe/index.html",
-              "thumb": "thumbs/polynomials-factoring-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Factoring",
-                "Team game",
-                "Multiple choice",
                 "Units 9–10"
               ],
               "added": "2026-10-21"
@@ -2397,7 +2054,7 @@ window.LIBRARY = {
               "title": "Factoring Showdown",
               "path": "artifacts/factoring-zero-product-showdown/index.html",
               "thumb": "thumbs/factoring-zero-product-showdown.jpg",
-              "description": "A game board for factoring review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for factoring review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "GCF and grouping",
@@ -2487,62 +2144,6 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Quadratics Four",
-              "path": "artifacts/quadratics-connect-four/index.html",
-              "thumb": "thumbs/quadratics-connect-four.jpg",
-              "description": "Connect Four for two teams. Solve quadratics, find vertices and axes of symmetry, and use the discriminant. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solving quadratic equations",
-                "Vertex and axis of symmetry",
-                "The discriminant",
-                "Projectile motion"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Quadratics Flashcards",
-              "path": "artifacts/quadratics-flashcards/index.html",
-              "thumb": "thumbs/quadratics-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for parabolas (vertex, axis, intercepts, vertex form), solving by factoring, square roots, completing the square and the quadratic formula, the discriminant, and projectile and area problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
-              "type": "Practice",
-              "topics": [
-                "Vertex and axis of symmetry",
-                "Solving quadratics",
-                "The discriminant",
-                "Projectile and area problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Quadratics Picture Reveal",
-              "path": "artifacts/quadratics-picture-reveal/index.html",
-              "thumb": "thumbs/quadratics-picture-reveal.jpg",
-              "description": "Find vertices, solve quadratic equations by factoring, square roots and the quadratic formula, and model a launched object to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Vertex and axis of symmetry",
-                "Solving by factoring and square roots",
-                "Quadratic formula and discriminant",
-                "Projectile problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Quadratics Showdown",
-              "path": "artifacts/quadratics-jeopardy/index.html",
-              "thumb": "thumbs/quadratics-jeopardy.jpg",
-              "description": "A game board for Quadratics. Solve by factoring, square roots, completing the square, and the quadratic formula, then work with parabolas, the discriminant, and projectile problems.",
-              "type": "Game",
-              "topics": [
-                "Solving quadratic equations",
-                "Vertex and axis of symmetry",
-                "The discriminant",
-                "Projectile motion"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Solving Quadratics Maze",
               "path": "artifacts/quadratics-maze/worksheet.pdf",
               "thumb": "thumbs/quadratics-maze.jpg",
@@ -2592,19 +2193,6 @@ window.LIBRARY = {
                 "Solving quadratics",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Quadratics Tic-Tac-Toe",
-              "path": "artifacts/quadratics-tic-tac-toe/index.html",
-              "thumb": "thumbs/quadratics-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Solving quadratics",
-                "Team game",
-                "Multiple choice"
               ],
               "added": "2026-10-21"
             },
@@ -2699,10 +2287,10 @@ window.LIBRARY = {
               "added": "2026-10-23"
             },
             {
-              "title": "Quadratic Practice Flashcards",
+              "title": "Quadratics Flashcards",
               "path": "artifacts/quadratic-practice-flashcards/index.html",
               "thumb": "thumbs/quadratic-practice-flashcards.jpg",
-              "description": "A fresh deck of quadratic practice flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of quadratics flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Parabolas",
@@ -2713,10 +2301,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Quadratic Practice Showdown",
+              "title": "Quadratics Showdown",
               "path": "artifacts/quadratic-practice-showdown/index.html",
               "thumb": "thumbs/quadratic-practice-showdown.jpg",
-              "description": "A game board for quadratic practice review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for quadratics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Parabolas",
@@ -2728,10 +2316,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Quadratic Practice Connect Four",
+              "title": "Quadratics Connect Four",
               "path": "artifacts/quadratic-practice-connect-four/index.html",
               "thumb": "thumbs/quadratic-practice-connect-four.jpg",
-              "description": "Connect Four for two teams. Answer a multiple-choice quadratic practice problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "description": "Connect Four for two teams. Answer a multiple-choice quadratics problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
               "type": "Game",
               "topics": [
                 "Parabolas",
@@ -2744,10 +2332,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Quadratic Practice Tic-Tac-Toe",
+              "title": "Quadratics Tic-Tac-Toe",
               "path": "artifacts/quadratic-practice-tic-tac-toe/index.html",
               "thumb": "thumbs/quadratic-practice-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice quadratic practice problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice quadratics problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
               "type": "Game",
               "topics": [
                 "Parabolas",
@@ -2760,10 +2348,10 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Quadratic Practice: Picture Reveal",
+              "title": "Quadratics: Picture Reveal",
               "path": "artifacts/quadratic-practice-picture-reveal/index.html",
               "thumb": "thumbs/quadratic-practice-picture-reveal.jpg",
-              "description": "Solve 10 quadratic practice problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "description": "Solve 10 quadratics problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
               "type": "Game",
               "topics": [
                 "Parabolas",
@@ -2823,7 +2411,7 @@ window.LIBRARY = {
               "title": "Statistics Showdown",
               "path": "artifacts/statistics-data-modeling-showdown/index.html",
               "thumb": "thumbs/statistics-data-modeling-showdown.jpg",
-              "description": "A game board for statistics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "description": "A game board for statistics review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to four teams and name them. Open a problem, show choices if you want them, then reveal the worked solution and award points. A new board is generated every time.",
               "type": "Game",
               "topics": [
                 "Measures of center and spread",

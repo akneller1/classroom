@@ -11,6 +11,8 @@ Problems reported:
   * an old template worksheet generator in a unit that has the verified Worksheet Generator (worksheet.html)
   * an Algebra 1 unit without the Worksheet Generator or the Assessment Generator, or a generator link to a
     unit the generators do not know (#unit=<id> must be a registered skill set)
+  * an Algebra 1 unit without exactly one of each generated game (Flashcards, Showdown, Connect Four,
+    Tic-Tac-Toe, Picture Reveal), or with an older hand-made copy of one of those games
 
 Usage:
   python3 scripts/check_library.py          # report; exit code 1 if anything is wrong
@@ -111,6 +113,18 @@ def main():
                         sid = l.split('#unit=')[1].split('&')[0]
                         if sid not in skill_sets():
                             problems.append('%s/%s: %s points at unknown skill set "%s"' % (c['id'], u['id'], name, sid))
+        if c['id'] == 'algebra':   # the same five generated games in every Algebra 1 unit, and no older copies
+            KINDS = [('Flashcards', r'flashcards'), ('Showdown', r'showdown|jeopardy'), ('Connect Four', r'connect-four|-four/'),
+                     ('Tic-Tac-Toe', r'tic-tac-toe'), ('Picture Reveal', r'picture-reveal')]
+            for u in c['units']:
+                for kind, rx in KINDS:
+                    found = [a['path'] for a in u['artifacts'] if a['path'].startswith('artifacts/') and re.search(rx, a['path'])]
+                    gen = [p for p in found if os.path.exists(os.path.join(ROOT, p)) and 'data-game=' in open(os.path.join(ROOT, p), encoding='utf-8', errors='ignore').read()]
+                    if len(gen) != 1:
+                        problems.append('%s/%s: needs exactly one generated %s (found %d; make it with worksheet-generator/games/mkgames.py)' % (c['id'], u['id'], kind, len(gen)))
+                    for p in found:
+                        if p not in gen:
+                            problems.append('%s/%s: older hand-made %s "%s" duplicates the generated one (remove it)' % (c['id'], u['id'], kind, p))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
