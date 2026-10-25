@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Lesson Planner · Mr. K's Classroom</title>
+<meta name="description" content="Plan any of the 180 Algebra 1 days: objectives, vocabulary, sentence frame and misconception from the scope and sequence, plus a Do Now, worked examples, practice and an exit ticket with every answer checked. Print one student handout and a teacher key.">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="core/app.css">
+<link rel="stylesheet" href="menu/menu.css?v=menu-gaps-1">
+<link rel="stylesheet" href="planner/planner.css?v=planner-1">
+</head>
+<body>
+<a class="mm-skip" href="#plMain">Skip to the planner</a>
+<header class="topbar">
+  <button type="button" class="btn ghost sm" id="backBtn" aria-label="Back to the previous page" onclick="if (history.length > 1 &amp;&amp; document.referrer) history.back(); else location.href = '../index.html';">← Back</button>
+  <a class="brand" href="../index.html">Mr. K's Classroom</a>
+  <span class="crumb">Daily Lesson Planner · Algebra 1</span>
+  <span class="sp"></span>
+  <button type="button" class="btn ghost sm" id="themeBtn">Light / dark</button>
+</header>
+<main id="plMain" class="pl-app">
+  <aside class="pl-side">
+    <div class="card pl-pickcard"><h2>Choose a day</h2><div id="plPick"></div></div>
+    <div class="card"><h2>Options</h2><div id="plCtl"></div></div>
+  </aside>
+  <div class="pl-main">
+    <div class="card pl-headcard" id="plHead"></div>
+    <div id="plView" class="pl-view"></div>
+  </div>
+</main>
+<div id="printRoot" aria-hidden="true"></div>
+<noscript><p style="padding:20px">The Daily Lesson Planner needs JavaScript.</p></noscript>
+
+<script src="vendor/katex/katex.min.js"></script>
+<script src="core/rng.js"></script>
+<script src="core/frac.js"></script>
+<script src="core/tex.js"></script>
+<script src="core/graph.js?v=full-audit-v2"></script>
+<script src="core/framework.js"></script>
+<script src="core/render.js"></script>
+<script src="menu/mathcheck.js?v=menu-gaps-1"></script>
+<script src="menu/figures.js?v=menu-gaps-1"></script>
+<script src="menu/verify.js?v=menu-gaps-1"></script>
+<script src="menu/engine.js?v=menu-gaps-1"></script>
+<script src="menu/skills/kit.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-expressions-equations.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-inequalities.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-relations-functions.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-exponential-functions.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-factoring-zero-product.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-statistics-data-modeling.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-linear-equations-slope.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-systems-of-equations.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-exponents-scientific-notation.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-polynomials.js?v=menu-gaps-1"></script>
+<script src="menu/skills/algebra1-quadratics.js?v=menu-gaps-1"></script>
+<script src="menu/render.js?v=menu-gaps-1"></script>
+<script src="planner/scope-algebra1.js?v=planner-1"></script>
+<script src="planner/lesson-skills.js?v=planner-2"></script>
+<script src="planner/planner.js?v=planner-1"></script>
+<script src="planner/planner-ui.js?v=planner-1"></script>
+</body>
+</html>

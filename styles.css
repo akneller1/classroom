@@ -123,6 +123,10 @@ h1:focus, main:focus { outline: none; box-shadow: none; }
 }
 .main-nav a:hover { border-color: var(--edge); }
 .main-nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+.main-nav .soon-link { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.85rem; font-weight: 700; opacity: .55; cursor: default; }
+.main-nav .soon-link small { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.course.soon { opacity: .6; cursor: default; }
+.course.soon:hover { transform: none; box-shadow: none; }
 .badge {
   min-width: 1.4rem; padding: 0 0.4rem; border-radius: 999px; text-align: center;
   background: var(--sun); color: var(--sun-ink); font-size: 0.85rem; line-height: 1.4rem;
