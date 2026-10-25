@@ -280,8 +280,90 @@
     return P;
   }
 
+  /* =========================== WHODUNNIT =========================== */
+  /* Like the hand-made whodunnits: a case page with the story and case board, a Show Your Work page, and clue
+     cards two to a page (cut apart and post them around the room). The key names the culprit, maps each card
+     to what it clears, and gives every worked solution and every wrong choice's false clue. */
+  var LET = 'ABCD';
+  function whoHead(ttl, sub, nameOn, key, nV, v) {
+    return '<div class="pw-row"><div><div class="pw-mono pw-ttl">' + esc(ttl) + (key ? ' <span class="pc-key">ANSWER KEY</span>' : '') + (nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '') + '</div><div class="pw-sub">' + sub + '</div></div>' +
+      (nameOn ? '<div class="pw-nm">Name: <i class="ln long"></i></div>' : '') + '</div><div class="pw-rule"></div>';
+  }
+  function cardProblem(p) { return '<div class="pw-cq">' + prompt(p) + '</div>'; }
+  function whoPages(cfg, B, v, nV, key) {
+    var S = B.S, no = unitNo(cfg), sub = 'Whodunnit? · ' + (no ? 'Unit ' + no + ': ' : '') + esc(unitName(cfg)), P = [];
+    var clears = function (t) { return t.p !== undefined ? 'Suspect: ' + esc(S.suspects[t.p].n) + ' · Place: ' + esc(S.places[t.l].n) : 'Method: ' + esc(S.methods[t.m].n); };
+    if (!key) {
+      P.push({ nofoot: true, html: '<div class="mm-body pc pw">' + whoHead(S.name, sub, true, false, nV, v) +
+        '<p class="pw-intro">' + S.intro + '</p><p class="pw-intro">Six people were at ' + esc(S.where) + ', each seen in a different spot, and there are six sneaky ways the thief could have gotten away. You are the lead detective. Find out <b>who</b> took it, <b>where</b> they were, and <b>how</b> they did it.</p>' +
+        '<div class="pw-box"><h3>How to crack the case</h3><ol><li>Your teacher will post <b>10 clue cards</b> around the room. Each card has a math problem and four answer choices. Every choice is paired with a clue.</li><li>Solve the problem on the <b>Show Your Work</b> page. Find your answer among the choices and read the clue next to it. If your answer is not there, check your work.</li><li>Use the clue to cross out suspects, places or methods on the case board below. Write the card number beside what it cleared.</li><li>After all 10 cards, exactly one suspect, one place and one method are left. Those three name the culprit. If you end up with none, or more than one, a clue went wrong: recheck your math!</li></ol></div>' +
+        '<div class="pw-board"><div><h4>The Suspects</h4>' + S.suspects.map(function (x) { return '<div class="pw-bi"><i></i><span>' + esc(x.n) + '<small>' + esc(x.r) + '</small></span></div>'; }).join('') + '</div>' +
+        '<div><h4>The Places</h4>' + S.places.map(function (x) { return '<div class="pw-bi"><i></i><span>' + esc(x.n) + '</span></div>'; }).join('') + '</div>' +
+        '<div><h4>The Methods</h4>' + S.methods.map(function (x) { return '<div class="pw-bi"><i></i><span>' + esc(x.n) + '</span></div>'; }).join('') + '</div></div>' +
+        '<div class="pw-culprit">The culprit is <i class="ln mid"></i> in the <i class="ln mid"></i> using <i class="ln mid"></i></div></div>' });
+      P.push({ nofoot: true, html: '<div class="mm-body pc pw">' + whoHead('Show Your Work', esc(S.name) + ' · Show every step in the matching box.', true, false, nV, v) +
+        '<div class="pw-wgrid">' + B.cards.map(function (_, i) { return '<div>' + (i + 1) + '.<small>Choice ______</small></div>'; }).join('') + '</div></div>' });
+      var fl = flow(cfg, nV, v, false, B.cards, 2, function (from, to) {
+        return '<div class="mm-body pc pw">' + B.cards.slice(from, to).map(function (c, k) {
+          return '<div class="pw-card">' + (k ? '<span class="pw-cut">✂ cut here</span>' : '') + '<div class="pw-ch"><span class="pw-mono">Clue #' + (from + k + 1) + '</span><span>' + esc(S.name) + '</span></div>' + cardProblem(c.item.p) +
+            '<table class="pw-opts">' + c.opts.map(function (o, j) { return '<tr><td><b>' + LET[j] + '.</b> ' + mathSafe(o.a) + '</td><td>' + esc(o.clue) + '</td></tr>'; }).join('') + '</table><div class="pw-cf">Solve the problem, find your answer, and read its clue. Cross it off on your case board.</div></div>';
+        }).join('') + '</div>';
+      });
+      fl[0].raw = true; fl[0].nofoot = true; P = P.concat(fl);
+    } else {
+      var C = B.culprit;
+      P.push({ nofoot: true, html: '<div class="mm-body pc pw">' + whoHead(S.name, sub + ' · Teacher Guide', false, true, nV, v) +
+        '<div class="pw-sol">' + esc(S.suspects[C.p].n) + ' · ' + esc(S.places[C.l].n) + ' · ' + esc(S.methods[C.m].n) + '</div>' +
+        '<p><b>Setup:</b> print the clue cards (two per page), cut them apart and post them around the room. Give each student the case page and the Show Your Work page. Students can start at any card. Teams of 2–3 work well; plan on 25–40 minutes.</p>' +
+        '<p><b>How it works:</b> each correct answer leads to a true clue. Five true clues clear an innocent suspect AND the place where they were; the other five clear an innocent method. Each wrong answer (every one is checked to be wrong) leads to a false clue: some clear the culprit, the crime scene or the real method, and the rest clear only innocent things. Either way the card’s true clue is missed, so a mistake leaves the board with none, or more than one, of something.</p>' +
+        '<table class="pw-k"><thead><tr><th>Card</th><th>Correct choice</th><th>Clears</th></tr></thead><tbody>' + B.cards.map(function (c, i) {
+          return '<tr><td><b>' + (i + 1) + '</b></td><td><b>' + LET[c.pos] + '.</b> ' + mathSafe(c.item.key) + '</td><td>' + clears(c.truth) + '</td></tr>'; }).join('') + '</tbody></table>' +
+        '<p><b>Solution:</b> ' + esc(S.suspects[C.p].n) + ' was in the ' + esc(S.places[C.l].n) + ' and got away with ' + esc(S.item) + ': ' + esc(S.methods[C.m].n.toLowerCase()) + '. Every other suspect, place and method was cleared by a true clue.</p></div>' });
+      P = P.concat(chunkPages(cfg, nV, v, true, 'Answer Key: worked solutions', B.cards.map(function (c, i) { return { c: c, i: i }; }), 10, function (l) {
+        return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Problem</th><th>Answer and solution</th><th>True clue</th></tr></thead><tbody>' + l.map(function (x) {
+          return '<tr><td><b>' + (x.i + 1) + '</b></td><td>' + prompt(x.c.item.p) + '</td><td><div class="mm-ans"><b>' + LET[x.c.pos] + '.</b> ' + mathSafe(x.c.item.key) + '</div><ol class="mm-steps">' + steps(x.c.item.p) + '</ol></td><td>' + esc(x.c.truth.text) + '</td></tr>'; }).join('') + '</tbody></table>';
+      }));
+      var WHAT = { p: 'clears the culprit', l: 'clears the crime scene', m: 'clears the real method', x: 'clears only innocent things, but the true clue is missed' };
+      P = P.concat(chunkPages(cfg, nV, v, true, 'Wrong choices and their false clues', B.cards.map(function (c, i) { return { c: c, i: i }; }), 10, function (l) {
+        return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>Card</th><th>Wrong choice</th><th>False clue</th><th>Why it misleads</th></tr></thead><tbody>' + l.map(function (x) {
+          return x.c.opts.map(function (o, j) { return o.ok ? '' : '<tr><td>' + (x.i + 1) + '</td><td><b>' + LET[j] + '.</b> ' + mathSafe(o.a) + '</td><td>' + esc(o.clue) + '</td><td>' + WHAT[o.clears] + '</td></tr>'; }).join(''); }).join('') + '</tbody></table>';
+      }));
+    }
+    return P;
+  }
+
+  /* =========================== STATIONS =========================== */
+  /* Like the hand-made stations: "Algebra Review: Unit N — name", a boxed "Station i of n" title, name and date,
+     problems with room to work; one key page with every answer. */
+  function stationPages(cfg, B, v, nV, key) {
+    var no = unitNo(cfg), hd = 'Algebra Review: ' + (no ? 'Unit ' + no + ' — ' : '') + unitName(cfg), n = B.stations.length, P = [];
+    var foot = function (r) { return '<div class="ps-ft"><span>Mr. K’s Classroom • Algebra • ' + (no ? 'Unit ' + no + ': ' : '') + esc(unitName(cfg)) + '</span><span>' + r + '</span></div>'; };
+    var vt = nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '';
+    if (!key) B.stations.forEach(function (st, si) {
+      var fl = flow(cfg, nV, v, false, st.items, st.items.length, function (from, to) {
+        return '<div class="mm-body pc ps"><div class="ps-hd">' + esc(hd) + vt + '</div><div class="ps-st"><b>Station ' + (si + 1) + ' of ' + n + ':</b> ' + esc(st.title) + (from ? ' (continued)' : '') + '</div>' +
+          (from ? '' : '<div class="ps-nm"><span>Name: <i class="ln long"></i></span><span>Date: <i class="ln mid"></i></span></div><div class="ps-note">Show your work. Circle or box your final answer.</div>') +
+          '<div class="ps-qs">' + st.items.slice(from, to).map(function (it, k) { return '<div class="ps-q"><b>' + (from + k + 1) + '.</b><div>' + prompt(it.p) + '</div></div>'; }).join('') + '</div>' + foot('Station ' + (si + 1)) + '</div>';
+      });
+      fl[0].raw = true; fl[0].nofoot = true; P = P.concat(fl);
+    });
+    else {
+      var fl = flow(cfg, nV, v, true, B.stations, n, function (from, to) {
+        return '<div class="mm-body pc ps"><div class="ps-hd">' + esc(hd) + vt + '<div class="ps-ak">Answer Key</div></div>' + B.stations.slice(from, to).map(function (st, k) {
+          return '<h3 class="ps-kh">Station ' + (from + k + 1) + ': ' + esc(st.title) + '</h3><div class="ps-kg">' + st.items.map(function (it, i) { return '<div><b>' + (i + 1) + '.</b> ' + mathSafe(it.key) + '</div>'; }).join('') + '</div>';
+        }).join('') + foot('Answer Key') + '</div>';
+      });
+      fl[0].raw = true; fl[0].nofoot = true; P = P.concat(fl);
+      P = P.concat(chunkPages(cfg, nV, v, true, 'Worked solutions', [].concat.apply([], B.stations.map(function (st, si) { return st.items.map(function (it, i) { return { it: it, s: si, i: i }; }); })), 12, function (l) {
+        return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Problem</th><th>Answer and solution</th></tr></thead><tbody>' + l.map(function (x) {
+          return '<tr><td><b>' + (x.s + 1) + '.' + (x.i + 1) + '</b></td><td>' + prompt(x.it.p) + '</td><td><div class="mm-ans"><b>Answer:</b> ' + mathSafe(x.it.key) + '</div><ol class="mm-steps">' + steps(x.it.p) + '</ol></td></tr>'; }).join('') + '</tbody></table>';
+      }));
+    }
+    return P;
+  }
+
   PR.pages = function (cfg, B, v, nV, key) {
-    return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages })[cfg.kind](cfg, B, v, nV, key);
+    return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages })[cfg.kind](cfg, B, v, nV, key);
   };
   PR.pageEls = function (cfg, B, v, nV, key) {
     var P = expandFlow(PR.pages(cfg, B, v, nV, key));
@@ -306,6 +388,7 @@
     try { var o = JSON.parse(raw); if (o && o.unitId === unit && o.kind === kind) cfg = o; } catch (e) { cfg = null; }
     if (!cfg) cfg = PR.defaultConfig(unit, kind);
     NS.skillSets[unit].skills.forEach(function (s) { if (cfg.skills[s.id] === undefined) cfg.skills[s.id] = true; });
+    var d = PR.defaultConfig(unit, kind); ['story', 'stations', 'perStation'].forEach(function (k) { if (cfg[k] === undefined) cfg[k] = d[k]; });
   }
   function save() { lsSet(KEY + ':' + unit + ':' + kind, JSON.stringify(cfg)); }
   function setHash() { try { G.history.replaceState(null, '', '#unit=' + unit + '&kind=' + kind); } catch (e) { /* ignore */ } }
@@ -319,7 +402,10 @@
     h += '<section class="card"><h2>Level and skills</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
       '<p class="hint">Skills this printable cannot use are greyed out (for example, problems answered with a graph cannot go on a maze door).</p>' +
       set.skills.map(function (s) { var cap = PR.capable(unit, s.id, kind); return '<label class="chk' + (cap ? '' : ' off') + '"><input type="checkbox" class="prSkill" value="' + s.id + '"' + (cfg.skills[s.id] && cap ? ' checked' : '') + (cap ? '' : ' disabled') + '><span>' + esc(s.name) + (cap ? '' : '<small>Not available for a ' + esc(k.name.toLowerCase()) + '</small>') + '</span></label>'; }).join('') + '</section>';
-    h += '<section class="card"><h2>Options</h2>' + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.SCENES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.SCENES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
+    var story = kind === 'who' ? '<label class="field"><span class="lbl">Case</span><select id="prStory"><option value="auto">Surprise me</option>' + Object.keys(PR.CASES).map(function (id) { return '<option value="' + id + '"' + (cfg.story === id ? ' selected' : '') + '>' + esc(PR.CASES[id].name) + '</option>'; }).join('') + '</select></label><p class="hint">The culprit, place and method change with every new set of problems.</p>' : '';
+    var st = kind === 'stations' ? '<label class="field"><span class="lbl">Stations</span><select id="prSt">' + [2, 3, 4, 5, 6].map(function (n) { return '<option value="' + n + '"' + ((cfg.stations | 0 || 4) === n ? ' selected' : '') + '>' + n + ' stations</option>'; }).join('') + '</select></label>' +
+      '<label class="field"><span class="lbl">Problems per station</span><select id="prPer">' + [6, 8, 10].map(function (n) { return '<option value="' + n + '"' + ((cfg.perStation | 0 || 8) === n ? ' selected' : '') + '>' + n + ' problems</option>'; }).join('') + '</select></label><p class="hint">The checked skills are split, in order, across the stations (never more stations than skills).</p>' : '';
+    h += '<section class="card"><h2>Options</h2>' + story + st + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.SCENES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.SCENES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
       '<label class="field"><span class="lbl">Versions</span><select id="prVer">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((cfg.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
       '<p><button type="button" class="btn" id="prNew">↻ New problems</button></p><p class="hint">Every answer is checked independently. Every wrong label (a maze door, a Tarsia edge, a student’s wrong answer) is checked to be wrong.</p></section>';
     return h;
@@ -330,6 +416,9 @@
     $$('input[name=prKind]').forEach(function (r) { r.onchange = function () { kind = r.value; load(); setHash(); rebuild(); }; });
     $$('input[name=prLevel]').forEach(function (r) { r.onchange = function () { cfg.level = r.value; save(); rebuild(); }; });
     $$('.prSkill').forEach(function (b) { b.onchange = function () { cfg.skills[b.value] = b.checked; save(); rebuild(); }; });
+    if ($('#prStory')) $('#prStory').onchange = function (e) { cfg.story = e.target.value; save(); rebuild(); };
+    if ($('#prSt')) $('#prSt').onchange = function (e) { cfg.stations = +e.target.value; save(); rebuild(); };
+    if ($('#prPer')) $('#prPer').onchange = function (e) { cfg.perStation = +e.target.value; save(); rebuild(); };
     if ($('#prPic')) $('#prPic').onchange = function (e) { cfg.picture = e.target.value; save(); rebuild(); };
     $('#prVer').onchange = function (e) { cfg.versions = +e.target.value; save(); rebuild(); };
     $('#prNew').onclick = function () { cfg.seed = Math.floor(Math.random() * 1e9); save(); rebuild(); };

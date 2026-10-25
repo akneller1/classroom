@@ -37,7 +37,7 @@ unit keeps its own autosave. Units that have this generator no longer list the o
 
 ## Printable generators (`worksheet-generator/printables.html#unit=<set>&kind=<kind>`)
 
-Maze, Color by Number, Tarsia, Error Analysis and Partner Check for every Algebra 1 unit, built from the same
+Maze, Color by Number, Tarsia, Error Analysis, Partner Check, Whodunnit and Stations for every Algebra 1 unit, built from the same
 verified skill generators (`menu/printables.js` = builders, no DOM; `menu/printables-ui.js` = pages + teacher
 controls; `menu/printables.css`). They replace the fixed maze / Tarsia / color / error-analysis / partner-check
 PDFs (unlisted 2026-10-25; `scripts/check_library.py` reports one if it comes back). Every printable has
@@ -63,6 +63,14 @@ CP2/CP1/Honors, up to three versions and an answer key with worked solutions.
   (listed in the tests and the library check as the one gap).
 * **Error Analysis** – the worked steps with a checked wrong answer written into the step that produces the answer.
 * **Partner Check** – pairs of different problems whose answers each verifier accepts for the other.
+* **Whodunnit** – six cases (`menu/printables-cases.js`), a new culprit, place and method for every seed. 10 clue
+  cards with four choices (the three wrong ones are checked to be wrong). Correct answers lead to true clues: five
+  alibis that clear an innocent suspect and their place, five that clear an innocent method. Wrong answers lead to false
+  clues: some clear the culprit, the crime scene or the real method, the rest clear only innocent things, so the culprit
+  is not named on every card. No false clue is printed twice or equals a true clue.
+* **Stations** – the chosen skills split, in order, into 2–6 stations of 6–10 problems; a skill that makes few
+  different problems shares its station with the next one (fewer stations, with a note). Key: one answer page plus
+  worked solutions.
 * Honors problems that are too long for a maze door or a Tarsia edge fall back to CP1 problems (the page says so).
 * Tests: `tests/printables-tests.cjs` (every unit × kind × level, checked independently of the builders) and
   `tests/printables-browser.cjs` (every page fits; controls; site links).

@@ -1,4 +1,4 @@
-/* Printable Generators — engine (no DOM). Maze, Color by Number, Tarsia, Error Analysis, Partner Check.
+/* Printable Generators — engine (no DOM). Maze, Color by Number, Tarsia, Error Analysis, Partner Check, Whodunnit, Stations.
    Every problem comes from the verified skill generators (menu/skills), every answer is checked by the
    verifier, and every wrong label (maze doors, Tarsia edges, a student's wrong answer) is an answer the
    verifier REJECTS for that problem. Two problems on one printable never accept each other's answer, so a
@@ -14,7 +14,9 @@
     { id: 'color', name: 'Color by Number', blurb: 'Solve the numbered problems, find each answer in the color code, and color the matching squares to reveal a picture.' },
     { id: 'tarsia', name: 'Tarsia Puzzle', blurb: 'Cut out the triangles and match every problem to its answer to rebuild the shape.' },
     { id: 'error', name: 'Error Analysis', blurb: 'A student solved each problem and made a mistake. Find it, explain it, and fix it.' },
-    { id: 'partner', name: 'Partner Check', blurb: 'Partner A and Partner B solve different problems with the same answers, then compare.' }
+    { id: 'partner', name: 'Partner Check', blurb: 'Partner A and Partner B solve different problems with the same answers, then compare.' },
+    { id: 'who', name: 'Whodunnit', blurb: 'Ten clue cards with four answer choices. Each choice leads to a clue that clears a suspect, a place or a method. The one of each left standing solves the case.' },
+    { id: 'stations', name: 'Stations', blurb: 'One page per station, each practicing its own skills, plus a one-page answer key.' }
   ];
   PR.kind = function (id) { return PR.KINDS.filter(function (k) { return k.id === id; })[0]; };
 
@@ -82,7 +84,9 @@
     tarsia: { prompt: 28, answer: 15, fig: false, wrong: 2, verb: true },
     color: { prompt: 170, answer: 30, fig: true, wrong: 0 },
     error: { prompt: 170, answer: 40, fig: true, wrong: 2, steps: true },
-    partner: { prompt: 170, answer: 40, fig: true, wrong: 0 }
+    partner: { prompt: 170, answer: 40, fig: true, wrong: 0 },
+    who: { prompt: 150, answer: 30, fig: true, wrong: 3 },
+    stations: { prompt: 260, answer: 60, fig: true, wrong: 0 }
   };
   /* Make one printable item: {p, key, wrong[], skill, c, tag, expr?, verb?} or null. */
   function makeItem(cfg, skill, c, seed, used, kind) {
@@ -130,7 +134,7 @@
     var used = { keys: new Set(), sigs: new Set() };
     for (var i = 0; i < n; i++) {
       var c = lv.tiers[Math.min(2, Math.floor(3 * i / n))];
-      for (var t = 0; t < 34; t++) {
+      for (var t = 0, T = kind === 'stations' ? 70 : 34; t < T; t++) {
         // the planned difficulty first, then the level's other tiers, then one or two steps easier
         var sk = order[(i + t) % order.length], cc = t < 12 ? c : t < 22 ? lv.tiers[t % 3] : Math.max(1, lv.tiers[0] - 1 - (t % 2));
         var it = makeItem(cfg, sk, cc, [cfg.seed, vIdx, kind, i, t].join('|'), used, kind);
@@ -148,7 +152,7 @@
     var set = NS.skillSets[unitId], skills = {};
     set.skills.forEach(function (s) { skills[s.id] = true; });
     return { format: 'mk-printable', schema: 1, unitId: unitId, kind: kind || 'maze', level: 'cp1', answers: 'auto', skills: skills,
-      seed: Math.floor(Math.random() * 1e9), versions: 1, picture: 'auto', count: null };
+      seed: Math.floor(Math.random() * 1e9), versions: 1, picture: 'auto', story: 'auto', stations: 4, perStation: 8, count: null };
   };
 
   /* =========================== MAZE =========================== */
@@ -390,9 +394,95 @@
     return { kind: 'tarsia', shape: shapeId, pieces: pieces, items: items, scrambled: scrambled };
   };
 
+  /* =========================== WHODUNNIT =========================== */
+  /* Like the hand-made whodunnits: a case board (6 suspects, 6 places, 6 methods), 10 clue cards with four
+     choices each. The correct choice of a card leads to a TRUE clue: an alibi that clears one innocent suspect
+     and one innocent place, or a clue that clears one innocent method. Each wrong choice (checked to be wrong)
+     leads to a FALSE clue that clears the culprit, the crime scene or the real method, so a mistake leaves
+     the board with nothing (or the wrong thing) standing and sends the student back to recheck. */
+  PR.buildWho = function (cfg, vIdx) {
+    var cases = PR.CASES || {}, ids = Object.keys(cases);
+    if (!ids.length) return { error: 'The cases did not load.' };
+    var sid = cfg.story && cases[cfg.story] ? cfg.story : ids[(Math.abs(WS.rng.hash(String(cfg.seed))) + vIdx) % ids.length];
+    var S = cases[sid], rng = rngOf(cfg.seed, vIdx, 'who', sid);
+    var items = gather(cfg, vIdx, 10, 'who', function (it) {
+      if (it.wrong.length < 3) return false;
+      var ws = it.wrong.slice(0, 3).map(nrm);
+      return new Set(ws).size === 3 && ws.indexOf(nrm(it.key)) < 0;
+    });
+    if (items.length < 10) return { error: 'Not enough different multiple-choice problems for these skills and level (' + items.length + ' of 10). Choose more skills.' };
+    var culprit = { p: rng.int(0, 5), l: rng.int(0, 5), m: rng.int(0, 5) };
+    var others = function (k) { return [0, 1, 2, 3, 4, 5].filter(function (i) { return i !== k; }); };
+    var proofs = rng.shuffle(PR.PROOFS.slice()), pi = 0;
+    var alibi = function (p, l, proof) { return S.suspects[p].n + ' was ' + S.places[l].a + ' ' + S.places[l].n + ' the whole time. ' + proof; };
+    // the ten true clues: five alibis (innocent suspect + innocent place) and five cleared methods
+    var ip = rng.shuffle(others(culprit.p)), il = rng.shuffle(others(culprit.l)), im = rng.shuffle(others(culprit.m));
+    var truth = [];
+    ip.forEach(function (p, i) { truth.push({ p: p, l: il[i], text: alibi(p, il[i], proofs[pi++ % proofs.length]) }); });
+    im.forEach(function (m) { truth.push({ m: m, text: rng.pick(S.methods[m].clear) }); });
+    truth = rng.shuffle(truth);
+    // Wrong choices lead to false clues. About one per card misleads: it clears the culprit (an alibi somewhere
+    // else), the crime scene (an innocent suspect placed there) or the real method. The others are "noise":
+    // they clear only innocent things, so the culprit is not named on every card. Either way, a wrong answer
+    // means that card's true clue is missed, so the board does not come down to exactly one of each.
+    var usedT = {}; truth.forEach(function (t) { usedT[t.text] = 1; });
+    var mLeft = rng.shuffle(S.methods[culprit.m].clear.slice());
+    var otherClear = im.map(function (m) { return S.methods[m].clear.filter(function (t) { return !usedT[t]; }); });
+    var falseClue = function (type) {
+      for (var t = 0; t < 80; t++) {
+        var c;
+        if (type === 'p') c = { clears: 'p', text: alibi(culprit.p, rng.pick(il), rng.pick(PR.PROOFS)) };
+        else if (type === 'l') c = { clears: 'l', text: alibi(rng.pick(ip), culprit.l, rng.pick(PR.PROOFS)) };
+        else if (type === 'm') { if (!mLeft.length) return null; c = { clears: 'm', text: mLeft.shift() }; }
+        else if (rng.next() < 0.35) { var k = rng.int(0, 4); if (!otherClear[k].length) continue; c = { clears: 'x', text: otherClear[k].shift() }; }
+        else c = { clears: 'x', text: alibi(rng.pick(ip), rng.pick(il), rng.pick(PR.PROOFS)) };
+        if (usedT[c.text]) continue;
+        usedT[c.text] = 1; return c;
+      }
+      return null;
+    };
+    var mislead = rng.shuffle(['p', 'p', 'p', 'l', 'l', 'l', 'm', 'm', 'p', 'l']);
+    var cards = items.map(function (it, i) {
+      var pos = rng.int(0, 3), wr = it.wrong.slice(0, 3), opts = [], w = 0, fl = [];
+      var types = rng.shuffle([mislead[i], 'x', i % 3 === 0 ? rng.pick(['p', 'l']) : 'x']);
+      types.forEach(function (ty) { var c = falseClue(ty) || falseClue('x'); fl.push(c); });
+      for (var j = 0; j < 4; j++) opts.push(j === pos ? { a: it.key, ok: true, clue: truth[i].text } : { a: wr[w], ok: false, clue: fl[w].text, clears: fl[w++].clears });
+      return { item: it, pos: pos, opts: opts, truth: truth[i] };
+    });
+    return { kind: 'who', story: sid, S: S, culprit: culprit, cards: cards };
+  };
+
+  /* =========================== STATIONS =========================== */
+  /* The selected skills are split, in order, into 2–6 stations; each station gets its own page of problems
+     (difficulty rising down the page) and the key lists every answer. */
+  PR.buildStations = function (cfg, vIdx) {
+    var set = NS.skillSets[cfg.unitId], skills = PR.skillsFor(cfg);
+    if (!skills.length) return { error: 'Choose at least one skill.' };
+    var want = Math.max(1, Math.min(cfg.stations | 0 || 4, skills.length)), per = Math.max(4, Math.min(12, cfg.perStation | 0 || 8)), short = '';
+    // a skill that makes few different problems shares its station with the next skill (fewer stations)
+    for (var n = want; n >= 1; n--) {
+      var stations = [], bad = null;
+      for (var g = 0; g < n && !bad; g++) {
+        var grp = skills.slice(Math.round(g * skills.length / n), Math.round((g + 1) * skills.length / n));
+        var sub = Object.assign({}, cfg, { skills: {} }); grp.forEach(function (s) { sub.skills[s] = true; });
+        var items = gather(sub, vIdx, per, 'stations');
+        if (items.length < Math.min(per, 4)) { bad = 'Station ' + (g + 1) + ' could only make ' + items.length + ' different problems'; break; }
+        var names = grp.map(function (s, i) { var nm = set.byId[s].name; return i && !/^[A-Z]{2}/.test(nm) ? nm.charAt(0).toLowerCase() + nm.slice(1) : nm; });
+        stations.push({ skills: grp, title: names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0], items: items });
+      }
+      if (!bad) {
+        var B = { kind: 'stations', stations: stations };
+        if (n < want) B.levelNote = 'Some of these skills make only a few different problems, so they share a station: ' + n + ' stations instead of ' + want + '.';
+        return B;
+      }
+      short = bad;
+    }
+    return { error: short + '. Choose more skills or fewer problems per station.' };
+  };
+
   /* Build one version; a draw that cannot be completed is retried with other numbers before giving up. */
   PR.build = function (cfg, vIdx) {
-    var f = { maze: PR.buildMaze, color: PR.buildColor, partner: PR.buildPartner, error: PR.buildError, tarsia: PR.buildTarsia }[cfg.kind];
+    var f = { maze: PR.buildMaze, color: PR.buildColor, partner: PR.buildPartner, error: PR.buildError, tarsia: PR.buildTarsia, who: PR.buildWho, stations: PR.buildStations }[cfg.kind];
     if (!f) return { error: 'Unknown printable ' + cfg.kind };
     var B = null;
     for (var k = 0; k < 3; k++) {

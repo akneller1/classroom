@@ -127,9 +127,10 @@ def main():
                     for p in found:
                         if p not in gen:
                             problems.append('%s/%s: older hand-made %s "%s" duplicates the generated one (remove it)' % (c['id'], u['id'], kind, p))
-        if c['id'] == 'algebra':   # the printable generators replace the fixed maze / Tarsia / color / error / partner PDFs
+        if c['id'] == 'algebra':   # the printable generators replace the fixed maze / Tarsia / color / error / partner / whodunnit / stations PDFs
             PKINDS = [('maze', 'Maze', r'maze'), ('color', 'Color by Number', r'color-by-number'), ('tarsia', 'Tarsia', r'tarsia'),
-                      ('error', 'Error Analysis', r'error-analysis'), ('partner', 'Partner Check', r'partner-check')]
+                      ('error', 'Error Analysis', r'error-analysis'), ('partner', 'Partner Check', r'partner-check'),
+                      ('who', 'Whodunnit', r'-whodunnit/'), ('stations', 'Stations', r'-stations/')]
             GAPS = {'statistics-data-modeling': ['tarsia']}   # too few short problems for a Tarsia (see menu/tests/printables-tests.cjs)
             for u in c['units']:
                 for kind, name, rx in PKINDS:
@@ -144,12 +145,18 @@ def main():
                     for a in u['artifacts']:
                         if a['path'].startswith('artifacts/') and a['path'].endswith('.pdf') and re.search(rx, a['path']):
                             problems.append('%s/%s: older fixed %s "%s" duplicates the %s generator (remove it)' % (c['id'], u['id'], name, a['title'], name))
+            # every Algebra 1 unit has the hand-made unit pack: a cheat sheet, an escape room and an online detective game
+            for u in c['units']:
+                arts = u['artifacts']
+                if not any(re.search(r'-cheat-sheet/worksheet\.pdf$', a['path']) for a in arts): problems.append('%s/%s: no cheat sheet' % (c['id'], u['id']))
+                if not any(re.search(r'-escape-room/index\.html$', a['path']) for a in arts): problems.append('%s/%s: no escape room' % (c['id'], u['id']))
+                if not any('Detective game' in (a.get('topics') or []) for a in arts): problems.append('%s/%s: no detective game' % (c['id'], u['id']))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
-            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator'):
+            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator'):
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))
         for u in c['units']:
             for a in u['artifacts']:

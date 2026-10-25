@@ -14,11 +14,6 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/expressions-equations-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/expressions-equations-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/expressions-equations-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/expressions-equations-tarsia/worksheet.pdf": {
     "pages": 3,
     "answerKey": "artifacts/expressions-equations-tarsia/teacher-key.pdf",
@@ -28,11 +23,6 @@ window.RESOURCE_DETAILS = {
     "pages": 4,
     "answerKey": "artifacts/expressions-equations-assessment-menu/teacher-key.pdf",
     "keyPages": 4
-  },
-  "artifacts/algebra-expressions-equations-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-expressions-equations-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/expressions-equations-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -63,11 +53,6 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/inequalities-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/inequalities-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/inequalities-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/inequalities-tarsia/worksheet.pdf": {
     "pages": 3,
     "answerKey": "artifacts/inequalities-tarsia/teacher-key.pdf",
@@ -81,11 +66,6 @@ window.RESOURCE_DETAILS = {
   "artifacts/absolute-value-maze/worksheet.pdf": {
     "pages": 1,
     "studentOnly": true
-  },
-  "artifacts/algebra-inequalities-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-inequalities-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/inequalities-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -116,11 +96,6 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/linear-equations-slope-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/linear-equations-slope-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/linear-equations-slope-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/linear-equations-slope-tarsia/worksheet.pdf": {
     "pages": 3,
     "answerKey": "artifacts/linear-equations-slope-tarsia/teacher-key.pdf",
@@ -130,11 +105,6 @@ window.RESOURCE_DETAILS = {
     "pages": 4,
     "answerKey": "artifacts/linear-equations-slope-assessment-menu/teacher-key.pdf",
     "keyPages": 4
-  },
-  "artifacts/algebra-linear-equations-slope-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-linear-equations-slope-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/linear-equations-slope-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -160,20 +130,10 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/graphing-inequalities-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/graphing-inequalities-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/graphing-inequalities-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/graphing-inequalities-assessment-menu/worksheet.pdf": {
     "pages": 4,
     "answerKey": "artifacts/graphing-inequalities-assessment-menu/teacher-key.pdf",
     "keyPages": 4
-  },
-  "artifacts/algebra-graphing-inequalities-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-graphing-inequalities-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -204,20 +164,10 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/systems-of-equations-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/systems-of-equations-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/systems-of-equations-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/systems-of-equations-assessment-menu/worksheet.pdf": {
     "pages": 4,
     "answerKey": "artifacts/systems-of-equations-assessment-menu/teacher-key.pdf",
     "keyPages": 5
-  },
-  "artifacts/algebra-systems-of-equations-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-systems-of-equations-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/systems-of-equations-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -248,11 +198,6 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/exponents-exponential-functions-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/exponents-exponential-functions-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/exponents-exponential-functions-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/exponents-exponential-functions-tarsia/worksheet.pdf": {
     "pages": 3,
     "answerKey": "artifacts/exponents-exponential-functions-tarsia/teacher-key.pdf",
@@ -262,11 +207,6 @@ window.RESOURCE_DETAILS = {
     "pages": 4,
     "answerKey": "artifacts/exponents-exponential-functions-assessment-menu/teacher-key.pdf",
     "keyPages": 5
-  },
-  "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-exponents-exponential-functions-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -297,11 +237,6 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/polynomials-factoring-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/polynomials-factoring-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/polynomials-factoring-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/polynomials-factoring-tarsia/worksheet.pdf": {
     "pages": 3,
     "answerKey": "artifacts/polynomials-factoring-tarsia/teacher-key.pdf",
@@ -311,11 +246,6 @@ window.RESOURCE_DETAILS = {
     "pages": 4,
     "answerKey": "artifacts/polynomials-factoring-assessment-menu/teacher-key.pdf",
     "keyPages": 4
-  },
-  "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-polynomials-factoring-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -346,11 +276,6 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/quadratics-color-by-number/teacher-key.pdf",
     "keyPages": 2
   },
-  "artifacts/quadratics-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/quadratics-whodunnit/teacher-key.pdf",
-    "keyPages": 4
-  },
   "artifacts/quadratics-tarsia/worksheet.pdf": {
     "pages": 3,
     "answerKey": "artifacts/quadratics-tarsia/teacher-key.pdf",
@@ -360,11 +285,6 @@ window.RESOURCE_DETAILS = {
     "pages": 4,
     "answerKey": "artifacts/quadratics-assessment-menu/teacher-key.pdf",
     "keyPages": 5
-  },
-  "artifacts/algebra-quadratics-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-quadratics-stations/teacher-key.pdf",
-    "keyPages": 1
   },
   "artifacts/quadratics-cheat-sheet/worksheet.pdf": {
     "pages": 2,
@@ -1013,17 +933,23 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/algebra2-partner-checks/teacher-key.pdf",
     "keyPages": 4
   },
-  "artifacts/foundations-algebra-whodunnit/worksheet.pdf": {
-    "pages": 7,
-    "answerKey": "artifacts/foundations-algebra-whodunnit/teacher-key.pdf",
-    "keyPages": 3
-  },
-  "artifacts/algebra-foundations-algebra-stations/worksheet.pdf": {
-    "pages": 4,
-    "answerKey": "artifacts/algebra-foundations-algebra-stations/teacher-key.pdf",
-    "keyPages": 1
-  },
   "artifacts/foundations-algebra-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/relations-functions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/statistics-data-modeling-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/exponents-scientific-notation-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/polynomials-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
   }

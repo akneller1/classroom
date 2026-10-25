@@ -130,6 +130,34 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=who",
+              "thumb": "thumbs/who-generator-foundations.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-foundations&kind=stations",
+              "thumb": "thumbs/stations-generator-foundations.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Foundations of Algebra",
+                "Unit 1"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Foundations of Algebra Flashcards",
               "path": "artifacts/foundations-algebra-flashcards/index.html",
               "thumb": "thumbs/foundations-algebra-flashcards.jpg",
@@ -216,23 +244,6 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
-              "title": "The Midnight Library Mystery (Printable)",
-              "path": "artifacts/foundations-algebra-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/foundations-algebra-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Order of operations",
-                "Evaluating expressions",
-                "Combining like terms",
-                "Distributive property",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-25"
-            },
-            {
               "title": "Night at the Number Museum",
               "path": "artifacts/foundations-algebra-escape-room/index.html",
               "thumb": "thumbs/foundations-algebra-escape-room.jpg",
@@ -245,20 +256,6 @@ window.LIBRARY = {
                 "Distributive property",
                 "Escape room",
                 "Teamwork"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Foundations of Algebra Stations",
-              "path": "artifacts/algebra-foundations-algebra-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-foundations-algebra-stations.jpg",
-              "description": "Printable station work for Unit 1: order of operations and evaluating, real numbers and properties, combining like terms and distributing, and words to expressions. Four stations of 10 problems with an answer key.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Foundations of Algebra",
-                "Unit 1"
               ],
               "added": "2026-10-25"
             },
@@ -376,6 +373,34 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=who",
+              "thumb": "thumbs/who-generator-expressions-equations.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Solving Linear Equations",
+                "Unit 2"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-expressions-equations&kind=stations",
+              "thumb": "thumbs/stations-generator-expressions-equations.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Solving Linear Equations",
+                "Unit 2"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "The Golden Whisk Caper",
               "path": "artifacts/expressions-equations-golden-whisk-caper/index.html",
               "thumb": "thumbs/expressions-equations-golden-whisk-caper.jpg",
@@ -385,20 +410,6 @@ window.LIBRARY = {
                 "Solving equations",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Golden Whisk Caper (Printable)",
-              "path": "artifacts/expressions-equations-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Solving equations",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
               ],
               "added": "2026-10-21"
             },
@@ -414,20 +425,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Expressions & Equations Stations",
-              "path": "artifacts/algebra-expressions-equations-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-expressions-equations-stations.svg",
-              "description": "Printable Algebra station work for Expressions & Equations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Expressions & Equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Expressions & Equations Cheat Sheet",
@@ -616,6 +613,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=who",
+              "thumb": "thumbs/who-generator-inequalities.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Inequalities"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-inequalities&kind=stations",
+              "thumb": "thumbs/stations-generator-inequalities.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Inequalities"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "The Golden Parabola Heist",
               "path": "artifacts/inequalities-golden-parabola-heist/index.html",
               "thumb": "thumbs/inequalities-golden-parabola-heist.jpg",
@@ -625,20 +648,6 @@ window.LIBRARY = {
                 "Inequalities",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Golden Parabola Heist (Printable)",
-              "path": "artifacts/inequalities-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/inequalities-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Inequalities",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
               ],
               "added": "2026-10-21"
             },
@@ -654,19 +663,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Inequalities Stations",
-              "path": "artifacts/algebra-inequalities-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-inequalities-stations.svg",
-              "description": "Printable Algebra station work for Inequalities. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Inequalities"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Inequalities Cheat Sheet",
@@ -850,6 +846,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=who",
+              "thumb": "thumbs/who-generator-relations-functions.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-relations-functions&kind=stations",
+              "thumb": "thumbs/stations-generator-relations-functions.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Relations and Functions Flashcards",
               "path": "artifacts/relations-functions-flashcards/index.html",
               "thumb": "thumbs/relations-functions-flashcards.jpg",
@@ -923,6 +945,52 @@ window.LIBRARY = {
                 "Arithmetic sequences"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "The Arcade Token Heist",
+              "path": "artifacts/relations-functions-arcade-token-heist/index.html",
+              "thumb": "thumbs/relations-functions-arcade-token-heist.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Escape the Function Factory",
+              "path": "artifacts/relations-functions-escape-room/index.html",
+              "thumb": "thumbs/relations-functions-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with a function machine, a cipher with a hidden shift, a function-or-not sorting belt, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Domain and range",
+                "Function notation",
+                "Rate of change",
+                "Arithmetic sequences",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Relations and Functions Cheat Sheet",
+              "path": "artifacts/relations-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/relations-functions-cheat-sheet.jpg",
+              "description": "Colorful two-page printable study guide: vocabulary, is it a function, domain and range, function notation, solving f(x) = k, rate of change, linear vs. nonlinear, arithmetic sequences and reading graphs.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Relations and Functions",
+                "Unit 4"
+              ],
+              "added": "2026-10-25"
             }
           ]
         },
@@ -1017,6 +1085,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=who",
+              "thumb": "thumbs/who-generator-linear-equations-slope.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-linear-equations-slope&kind=stations",
+              "thumb": "thumbs/stations-generator-linear-equations-slope.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Linear functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Slope Links Mini Golf",
               "path": "artifacts/slope-links-mini-golf/index.html",
               "thumb": "thumbs/slope-links-mini-golf.jpg",
@@ -1043,20 +1137,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Summit Sabotage (Printable)",
-              "path": "artifacts/linear-equations-slope-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Writing linear equations",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Avalanche Patrol: Race to the Lodge",
               "path": "artifacts/linear-equations-slope-escape-room/index.html",
               "thumb": "thumbs/linear-equations-slope-escape-room.jpg",
@@ -1068,19 +1148,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Linear Equations & Slope Stations",
-              "path": "artifacts/algebra-linear-equations-slope-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-linear-equations-slope-stations.svg",
-              "description": "Printable Algebra station work for Linear Equations & Slope. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Linear Equations & Slope"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Linear Equations & Slope Cheat Sheet",
@@ -1263,6 +1330,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=who",
+              "thumb": "thumbs/who-generator-systems-of-equations.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Systems of equations"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-systems-of-equations&kind=stations",
+              "thumb": "thumbs/stations-generator-systems-of-equations.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Systems of equations"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "The Space Station Swindle",
               "path": "artifacts/systems-of-equations-space-station-swindle/index.html",
               "thumb": "thumbs/systems-of-equations-space-station-swindle.jpg",
@@ -1272,20 +1365,6 @@ window.LIBRARY = {
                 "Solving systems",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Space Station Swindle (Printable)",
-              "path": "artifacts/systems-of-equations-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Solving systems",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
               ],
               "added": "2026-10-21"
             },
@@ -1301,19 +1380,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Systems of Equations Stations",
-              "path": "artifacts/algebra-systems-of-equations-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-systems-of-equations-stations.svg",
-              "description": "Printable Algebra station work for Systems of Equations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Systems of Equations"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Systems of Equations Cheat Sheet",
@@ -1355,20 +1421,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Aquarium After Hours (Printable)",
-              "path": "artifacts/graphing-inequalities-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Graphing linear inequalities",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Treasure Island: The Feasible Region",
               "path": "artifacts/graphing-inequalities-escape-room/index.html",
               "thumb": "thumbs/graphing-inequalities-escape-room.jpg",
@@ -1380,19 +1432,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Graphing Inequalities Stations",
-              "path": "artifacts/algebra-graphing-inequalities-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-graphing-inequalities-stations.svg",
-              "description": "Printable Algebra station work for Graphing Inequalities. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Graphing Inequalities"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Graphing Inequalities Cheat Sheet",
@@ -1582,6 +1621,34 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=who",
+              "thumb": "thumbs/who-generator-exponents-scientific-notation.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponents-scientific-notation&kind=stations",
+              "thumb": "thumbs/stations-generator-exponents-scientific-notation.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Exponents Flashcards",
               "path": "artifacts/exponents-flashcards/index.html",
               "thumb": "thumbs/exponents-flashcards.jpg",
@@ -1650,6 +1717,50 @@ window.LIBRARY = {
                 "Scientific notation"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "The Planetarium Power Outage",
+              "path": "artifacts/exponents-scientific-notation-planetarium-power-outage/index.html",
+              "thumb": "thumbs/exponents-scientific-notation-planetarium-power-outage.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Escape the Rocket Lab",
+              "path": "artifacts/exponents-scientific-notation-escape-room/index.html",
+              "thumb": "thumbs/exponents-scientific-notation-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with fuel gauges, a cipher with a hidden shift, a true-or-false airlock, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Exponents and Scientific Notation Cheat Sheet",
+              "path": "artifacts/exponents-scientific-notation-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/exponents-scientific-notation-cheat-sheet.jpg",
+              "description": "Colorful two-page printable study guide: vocabulary, the exponent rules, powers of products, negative exponents, evaluating powers, scientific notation, multiplying and dividing in scientific notation and powers of 10.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Exponents and Scientific Notation",
+                "Unit 7"
+              ],
+              "added": "2026-10-25"
             }
           ]
         },
@@ -1744,6 +1855,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=who",
+              "thumb": "thumbs/who-generator-exponential-functions.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Exponential functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-exponential-functions&kind=stations",
+              "thumb": "thumbs/stations-generator-exponential-functions.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Exponential functions"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "The Great Pumpkin Snatch",
               "path": "artifacts/exponents-exponential-functions-great-pumpkin-snatch/index.html",
               "thumb": "thumbs/exponents-exponential-functions-great-pumpkin-snatch.jpg",
@@ -1753,21 +1890,6 @@ window.LIBRARY = {
                 "Exponent rules",
                 "Detective game",
                 "Typed answers",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Great Pumpkin Snatch (Printable)",
-              "path": "artifacts/exponents-exponential-functions-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking",
                 "Units 7–8"
               ],
               "added": "2026-10-21"
@@ -1785,20 +1907,6 @@ window.LIBRARY = {
                 "Units 7–8"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Exponents & Exponential Functions Stations",
-              "path": "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-exponents-exponential-functions-stations.svg",
-              "description": "Printable Algebra station work for Exponents & Exponential Functions. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Exponents & Exponential Functions",
-                "Units 7–8"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Exponents & Exponential Functions Cheat Sheet",
@@ -1982,6 +2090,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=who",
+              "thumb": "thumbs/who-generator-polynomials.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Polynomials"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-polynomials&kind=stations",
+              "thumb": "thumbs/stations-generator-polynomials.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Polynomials"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Polynomials Flashcards",
               "path": "artifacts/polynomials-flashcards/index.html",
               "thumb": "thumbs/polynomials-flashcards.jpg",
@@ -2050,6 +2184,52 @@ window.LIBRARY = {
                 "Special products"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "The Toy Factory Takedown",
+              "path": "artifacts/polynomials-toy-factory-takedown/index.html",
+              "thumb": "thumbs/polynomials-toy-factory-takedown.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Classifying polynomials",
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Escape the Toy Workshop",
+              "path": "artifacts/polynomials-escape-room/index.html",
+              "thumb": "thumbs/polynomials-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with a block machine, a cipher with a hidden shift, monomial-binomial-trinomial sorting bins, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Classifying polynomials",
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Special products",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Polynomials Cheat Sheet",
+              "path": "artifacts/polynomials-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/polynomials-cheat-sheet.jpg",
+              "description": "Colorful two-page printable study guide: vocabulary, naming polynomials, adding, subtracting, standard form, distributing, FOIL, special products, dividing by a monomial, and area and perimeter.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Polynomials",
+                "Unit 9"
+              ],
+              "added": "2026-10-25"
             }
           ]
         },
@@ -2144,6 +2324,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=who",
+              "thumb": "thumbs/who-generator-factoring-zero-product.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Factoring"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-factoring-zero-product&kind=stations",
+              "thumb": "thumbs/stations-generator-factoring-zero-product.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Factoring"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "The Castle Crown Caper",
               "path": "artifacts/polynomials-factoring-castle-crown-caper/index.html",
               "thumb": "thumbs/polynomials-factoring-castle-crown-caper.jpg",
@@ -2153,21 +2359,6 @@ window.LIBRARY = {
                 "Factoring",
                 "Detective game",
                 "Typed answers",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Castle Crown Caper (Printable)",
-              "path": "artifacts/polynomials-factoring-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Factoring",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking",
                 "Units 9–10"
               ],
               "added": "2026-10-21"
@@ -2185,20 +2376,6 @@ window.LIBRARY = {
                 "Units 9–10"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Polynomials & Factoring Stations",
-              "path": "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-polynomials-factoring-stations.svg",
-              "description": "Printable Algebra station work for Polynomials & Factoring. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Polynomials & Factoring",
-                "Units 9–10"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Polynomials & Factoring Cheat Sheet",
@@ -2382,6 +2559,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=who",
+              "thumb": "thumbs/who-generator-quadratics.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Quadratics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-quadratics&kind=stations",
+              "thumb": "thumbs/stations-generator-quadratics.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Quadratics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "The Cannonball Circus Caper",
               "path": "artifacts/quadratics-cannonball-circus-caper/index.html",
               "thumb": "thumbs/quadratics-cannonball-circus-caper.jpg",
@@ -2391,20 +2594,6 @@ window.LIBRARY = {
                 "Solving quadratics",
                 "Detective game",
                 "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Cannonball Circus Caper (Printable)",
-              "path": "artifacts/quadratics-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/quadratics-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Solving quadratics",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
               ],
               "added": "2026-10-21"
             },
@@ -2420,19 +2609,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Quadratics Stations",
-              "path": "artifacts/algebra-quadratics-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-quadratics-stations.svg",
-              "description": "Printable Algebra station work for Quadratics. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Quadratics"
-              ],
-              "added": "2026-10-20"
             },
             {
               "title": "Quadratics Cheat Sheet",
@@ -2603,6 +2779,32 @@ window.LIBRARY = {
               "added": "2026-10-25"
             },
             {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=who",
+              "thumb": "thumbs/who-generator-statistics-data-modeling.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Each correct answer leads to a true clue; every wrong choice is checked to be wrong and leads to a false one. Six cases, a new culprit every time, CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Whodunnit",
+                "Statistics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=algebra1-statistics-data-modeling&kind=stations",
+              "thumb": "thumbs/stations-generator-statistics-data-modeling.svg",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions. Every answer is checked.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Stations",
+                "Statistics"
+              ],
+              "added": "2026-10-25"
+            },
+            {
               "title": "Statistics Flashcards",
               "path": "artifacts/statistics-data-modeling-flashcards/index.html",
               "thumb": "thumbs/statistics-data-modeling-flashcards.jpg",
@@ -2676,6 +2878,52 @@ window.LIBRARY = {
                 "Scatter plots and lines of fit"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "The Stadium Scoreboard Scandal",
+              "path": "artifacts/statistics-data-modeling-stadium-scoreboard-scandal/index.html",
+              "thumb": "thumbs/statistics-data-modeling-stadium-scoreboard-scandal.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots and outliers",
+                "Two-way tables",
+                "Lines of fit and residuals",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Escape the Stats Lab",
+              "path": "artifacts/statistics-data-modeling-escape-room/index.html",
+              "thumb": "thumbs/statistics-data-modeling-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with a data wall, a cipher with a hidden shift, a correlation sorting room, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Measures of center and spread",
+                "Box plots and outliers",
+                "Two-way tables",
+                "Lines of fit and residuals",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Statistics and Data Modeling Cheat Sheet",
+              "path": "artifacts/statistics-data-modeling-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/statistics-data-modeling-cheat-sheet.jpg",
+              "description": "Colorful two-page printable study guide: vocabulary, MAD, quartiles and IQR, box plots, outliers, two-way tables, correlation, lines of fit, residuals and the shape of data.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Statistics and Data Modeling",
+                "Unit 12"
+              ],
+              "added": "2026-10-25"
             }
           ]
         }

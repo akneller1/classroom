@@ -3,7 +3,7 @@
 'use strict';
 const assert = require('node:assert/strict');
 const load = require('./load.cjs');
-const env = load(['games/bank.js', 'menu/printables.js', 'menu/printables-scenes.js']), M = env.MKMENU, PR = M.printables, GB = env.MKGAMES;
+const env = load(['games/bank.js', 'menu/printables.js', 'menu/printables-scenes.js', 'menu/printables-cases.js']), M = env.MKMENU, PR = M.printables, GB = env.MKGAMES;
 const SEEDS = +(process.env.SEEDS || 2);
 let checks = 0, builds = 0; const ok = (c, m) => { checks++; assert.ok(c, m); };
 const accepts = (p, a) => GB.answerOk(p, 0, a).ok;
@@ -64,6 +64,41 @@ const CHECK = {
       ok(shown.length <= 1, tag + ': at most one changed line');
     });
   },
+  who(B, tag) {
+    const S = B.S, C = B.culprit;
+    ok(B.cards.length === 10, tag + ': ten clue cards');
+    const sus = new Set(), pl = new Set(), me = new Set(), truthT = new Set(), falseT = new Set();
+    B.cards.forEach((c, i) => {
+      verified(c.item, tag);
+      ok(c.opts.length === 4 && c.opts.filter(o => o.ok).length === 1 && c.opts[c.pos].ok, tag + ': four choices, one correct');
+      ok(new Set(c.opts.map(o => String(o.a).replace(/\s+/g, ''))).size === 4, tag + ': four different choices');
+      c.opts.forEach(o => { if (!o.ok) ok(!accepts(c.item.p, o.a), tag + ': wrong choice is wrong (' + o.a + ')'); });
+      const t = c.truth; truthT.add(t.text);
+      if (t.p !== undefined) { sus.add(t.p); pl.add(t.l); ok(t.text.startsWith(S.suspects[t.p].n + ' was ') && t.text.includes(S.places[t.l].n), tag + ': alibi names its suspect and place'); }
+      else { me.add(t.m); ok(S.methods[t.m].clear.includes(t.text), tag + ': method clue is that method’s'); }
+      c.opts.forEach(o => { if (o.ok) return;
+        ok(!falseT.has(o.clue), tag + ': no false clue printed twice'); falseT.add(o.clue);
+        const cn = S.suspects[C.p].n, cl = S.places[C.l].n, cm = S.methods[C.m].clear;
+        if (o.clears === 'p') ok(o.clue.startsWith(cn + ' was '), tag + ': false alibi clears the culprit');
+        else if (o.clears === 'l') ok(o.clue.includes(' ' + cl + ' the whole time'), tag + ': false clue clears the crime scene');
+        else if (o.clears === 'm') ok(cm.includes(o.clue), tag + ': false clue clears the real method');
+        else ok(o.clears === 'x' && !o.clue.includes(cn) && !o.clue.includes(' ' + cl + ' the whole time') && !cm.includes(o.clue), tag + ': noise clue clears only innocent things');
+      });
+    });
+    ok(sus.size === 5 && !sus.has(C.p) && pl.size === 5 && !pl.has(C.l) && me.size === 5 && !me.has(C.m), tag + ': true clues leave exactly the culprit, the place and the method');
+    falseT.forEach(t => ok(!truthT.has(t), tag + ': a false clue is never a true clue'));
+  },
+  stations(B, tag, cfg) {
+    const all = PR.skillsFor(cfg), seen = [];
+    ok(B.stations.length === Math.min(cfg.stations, all.length) || (B.levelNote && B.stations.length < cfg.stations), tag + ': the chosen number of stations (or fewer, with a note)');
+    B.stations.forEach(st => {
+      ok(st.items.length >= 4 && st.items.length <= cfg.perStation, tag + ': 4 to ' + cfg.perStation + ' problems');
+      st.items.forEach(it => { verified(it, tag); ok(st.skills.includes(it.skill), tag + ': problem from this station’s skills'); });
+      st.items.forEach((a, i) => st.items.forEach((b, j) => { if (i < j) ok(a.p.prompt !== b.p.prompt, tag + ': different problems'); }));
+      seen.push(...st.skills);
+    });
+    ok(seen.length === all.length && new Set(seen).size === all.length, tag + ': every chosen skill is in exactly one station');
+  },
   tarsia(B, tag) {
     const inner = B.items.length;
     ok(inner === (B.shape === 'hexagon' ? 30 : 18), tag + ': every inner edge is a match');
@@ -81,7 +116,7 @@ for (const unit of Object.keys(M.skillSets)) for (const kind of PR.KINDS.map(k =
   const B = PR.build(cfg, s % 2), tag = unit + ' ' + kind + ' ' + level;
   if ((UNSUPPORTED[unit] || []).includes(kind)) { ok(!!B.error, tag + ': listed as unsupported (remove it from UNSUPPORTED if it works now)'); continue; }
   ok(!B.error, tag + ': built (' + (B.error || '') + ')');
-  CHECK[kind](B, tag); builds++;
+  CHECK[kind](B, tag, cfg); builds++;
 }
 // versions differ
 { const cfg = PR.defaultConfig('algebra1-quadratics', 'maze'); cfg.seed = 9; const A = PR.build(cfg, 0), B = PR.build(cfg, 1);

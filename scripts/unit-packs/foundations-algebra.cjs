@@ -9,6 +9,7 @@ module.exports = {
 
   /* ======================= MYSTERY (online + printable) ======================= */
   mystery: {
+    skills: 'order of operations, evaluating expressions, combining like terms, the distributive property, and writing expressions from words.',
     slug: 'midnight-library-mystery', title: 'The Midnight Library Mystery', eyebrow: 'Case file No. 1',
     tagline: 'A priceless atlas vanished during Family Game Night. Solve each problem to earn a clue.',
     palette: { navy: '#1f2a4d', accent: '#f2c14e' },
