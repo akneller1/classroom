@@ -159,6 +159,14 @@
       var lv = /^⟨([a-z])⟩$/.exec(key.trim()); if (lv) { cands.push({ a: '⟨' + lv[1] + '^{2}⟩', w: 3 }); cands.push({ a: '⟨1⟩', w: 2 }); cands.push({ a: '⟨\\frac{1}{' + lv[1] + '}⟩', w: 3 }); }
       if (ch0.type === 'pow-simplify') { var fr = /\\frac\{([^{}]*)\}\{([^{}]*)\}/.exec(key); if (fr) cands.push({ a: key.replace(fr[0], '\\frac{' + fr[2] + '}{' + fr[1] + '}'), w: 3 }); }
     }
+    // quadratic-formula slips: the sign of −b, dividing by a instead of 2a, the radicand
+    if (ch0.type === 'quad-solve' || ch0.type === 'quad-feature') {
+      var qf = /\\frac\{(-?\d*)\\pm\s*(\d*)\\sqrt\{(\d+)\}\}\{(\d+)\}/.exec(key);
+      if (qf) { var P0 = qf[1] === '' ? 0 : +qf[1], S0 = +qf[4], mk = function (p, sq, s) { return key.replace(qf[0], '\\frac{' + (p ? p : '') + '\\pm ' + qf[2] + '\\sqrt{' + sq + '}}{' + s + '}'); };
+        if (P0) cands.push({ a: mk(-P0, qf[3], S0), w: 5 }); cands.push({ a: mk(P0, qf[3], S0 % 2 === 0 ? S0 / 2 : 2 * S0), w: 4 }); [2, 3, 5, 7].forEach(function (d) { var r0 = +qf[3] + d; for (var k = 2; k * k <= r0; k++) if (r0 % (k * k) === 0) return; cands.push({ a: mk(P0, r0, S0), w: 2 }); }); }
+      var qp = /=(-?\d+)\\pm\s*(\d*)\\sqrt\{(\d+)\}/.exec(key);
+      if (qp) { cands.push({ a: key.replace(qp[0], '=' + (-qp[1]) + '\\pm ' + qp[2] + '\\sqrt{' + qp[3] + '}'), w: 5 }); }
+    }
     if (ch0.type === 'stat-line' && ch0.want === 'over-under') cands.push({ a: key.replace(/under|over/, function (m) { return m === 'under' ? 'over' : 'under'; }), w: 5 });
     // a classic slip: the answer to another part of the same problem (the range given as the domain)
     p.parts.forEach(function (o, j) {
@@ -189,6 +197,11 @@
     if (t === 'factor' && /^\s*prime\b/i.test(part.answer)) return 'factor';
     if (/^\s*-?\d+(\.\d+)?%\s*$/.test(part.answer)) return 'percent';
     if (t === 'stat' && /better|compare/.test(ch.want) || t === 'scatter-corr' || (t === 'stat-box' && ch.want === 'compare') || (t === 'twoway' && ch.want === 'assoc') || (t === 'stat-line' && /over|slope|intercept/.test(ch.want))) return null;
+    if (t === 'quad-solve') return 'qroots';
+    if (t === 'quad-feature') return { vertex: 'point', yint: 'point', axis: 'eq', zeros: 'qroots', range: 'ineq' }[ch.want] || null;
+    if (t === 'quad-disc') return ch.want === 'value' ? 'number' : null;
+    if (t === 'quad-vertex-eq') return 'rule';
+    if (t === 'quad-ctsq' || t === 'quad-proj') return 'number';
     if (t === 'pow-simplify') return 'pexpr';
     if (t === 'poly-simplify' || t === 'poly-apply') return 'poly';
     if (t === 'poly-classify') return ch.want === 'name' ? null : ch.want === 'standard' ? 'poly' : 'number';
@@ -243,6 +256,7 @@
     solve: 'Type the solution, like x = 4 (or just 4).',
     point: 'Type a point, like (0, -3).',
     pexpr: 'Type like 4x^6 or (3x^2)/(4y^3). Use ^ for powers and positive exponents only.',
+    qroots: 'Type the solutions separated by commas, like 3, -5 or 2 ± sqrt(5) or (-3 ± sqrt(17))/4. Type “none” if there are no real solutions.',
     poly: 'Type the polynomial in standard form, like 3x^2 - 5x + 2 (use ^ for powers).',
     sci: 'Type scientific notation like 4.2 x 10^-4 (or 4.2*10^-4).',
     eqs: 'Type both equations separated by “and”, like x + y = 10 and 2x + 3y = 24.',
@@ -260,6 +274,10 @@
     if (kind === 'factor' && /^prime$/i.test(s)) return 'Prime';
     if (kind === 'percent') return '⟨' + texOf(s.replace(/%/g, '')) + '⟩%';
     if (kind === 'ineq' && /\s(or|and)\s/.test(s)) return s.split(/\s+(or|and)\s+/).map(function (x, i) { return i % 2 ? x : '⟨' + texOf(x) + '⟩'; }).join(' ');
+    if (kind === 'qroots') { if (/^\s*(none|no real|no solution)/i.test(s)) return 'No real solutions';
+      return s.replace(/^\s*[a-z]\s*=\s*/i, '').split(/\s*(?:,|;|\band\b|\bor\b)\s*/).filter(Boolean).map(function (x) {
+        x = x.replace(/^\s*[a-z]\s*(=|≈|~)\s*/i, '').replace(/√\s*\(?(\d+)\)?/g, 'sqrt($1)').replace(/±|\+\s*-|\+\/-/g, '\\pm ').replace(/sqrt\s*\(?\s*(\d+)\s*\)?/gi, '\\sqrt{$1}');
+        return '⟨' + texOf(x) + '⟩'; }).join(' and '); }
     if (kind === 'sci') return '⟨' + s.replace(/\s*(?:x|×|\*|\\times|\\cdot)\s*10\s*\^\s*\(?\s*\{?(-?\s*\d+)\}?\s*\)?/i, function (w, e) { return '\\times10^{' + e.replace(/\s/g, '') + '}'; }).replace(/^\s*10\s*\^\s*\(?(-?\d+)\)?/, '10^{$1}').trim() + '⟩';
     if (kind === 'eqs' || kind === 'ineqs') return s.split(/\s*(?:\band\b|;)\s*/).filter(Boolean).map(function (x) { return '⟨' + texOf(x) + '⟩'; }).join(' and ');
     if (kind === 'list') return s.split(/\s*(?:,|;|\band\b|\bor\b)\s*/).filter(Boolean).map(function (x) { return '⟨' + texOf(x) + '⟩'; }).join(' and ');
@@ -270,7 +288,7 @@
   // the key written the way a student would type it (used by the tests and the "show me" button)
   GB.typedForm = function (part) {
     function plain(t) {
-      return t.replace(/\\text\{\s*(or|and)\s*\}/g, ' $1 ').replace(/\\left|\\right/g, '').replace(/\\le\s*/g, '<=').replace(/\\ge\s*/g, '>=').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g, '$1/$2').replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)').replace(/\\times\s*/g, ' x ').replace(/\\cdot\s*/g, '*').replace(/\^\{([^{}]*)\}/g, '^($1)').replace(/\\\{/g, '{').replace(/\\\}/g, '}')
+      return t.replace(/\\text\{\s*(or|and)\s*\}/g, ' $1 ').replace(/\\left|\\right/g, '').replace(/\\le\s*/g, '<=').replace(/\\ge\s*/g, '>=').replace(/\\sqrt\{(\d+)\}/g, 'sqrt($1)').replace(/\\pm\s*/g, '+-').replace(/\\approx\s*/g, '=').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g, '$1/$2').replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)').replace(/\\times\s*/g, ' x ').replace(/\\cdot\s*/g, '*').replace(/\^\{([^{}]*)\}/g, '^($1)').replace(/\\\{/g, '{').replace(/\\\}/g, '}')
         .replace(/\\[ ,;!]/g, ' ').replace(/\s+/g, ' ').trim();
     }
     // keep the connecting words "or"/"and" between answers; drop labels and units

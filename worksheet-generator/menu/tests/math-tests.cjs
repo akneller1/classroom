@@ -182,6 +182,16 @@ function complexity(p) {
       if (t === 'poly-apply') score += ({ perimeter: 2, area: 8, shaded: 14, volume: 22 })[ck.want] + (ck.square ? 3 : 0) + 2 * T;
       if (t === 'poly-classify') score += ({ degree: 1, name: ck.only ? 2 : 4, leading: 3, standard: 4 })[ck.want] + (/y/.test(ex) ? 6 : 0) + (/\\right\)\\left\(/.test(ex) ? 6 : 0) + (/\\right\)-/.test(ex) ? 4 : 0);
     }
+    // quadratics: the method a question needs
+    if (/^quad-(solve|feature|disc|vertex-eq|proj|ctsq)$/.test(t || '')) {
+      const ck = pt.check, w0 = ck.want, eqs = (ck.eq || '').replace(/\s/g, ''), pr = p.prompt;
+      if (t === 'quad-solve') score += 4 + (ck.radical ? 8 : 0) + (ck.round !== undefined ? 6 : 0) + (/completing the square/.test(pr) ? 6 : 0) + (/quadratic formula/.test(pr) ? 4 : 0) + (/^-?\d+[a-z]\^/.test(eqs) ? 3 : 0) + (!/=0$/.test(eqs) && /[a-z]/.test(eqs.split('=')[1] || '') ? 4 : 0) + (/\\frac/.test(pt.answer) ? 3 : 0);
+      if (t === 'quad-feature') score += ({ vertex: 2, axis: 2, maxmin: 3, zeros: 5, yint: 1, range: 5 })[w0] + (ck.eq ? 5 : 0);
+      if (t === 'quad-vertex-eq') score += ck.eq ? 10 + (/^y=-?\d+[a-z]\^/.test(eqs) && !/^y=-?1?[a-z]\^/.test(eqs) ? 8 : 0) : 14;
+      if (t === 'quad-ctsq') score += 3;
+      if (t === 'quad-disc') score += w0 === 'value' ? 4 : 7;
+      if (t === 'quad-proj') score += ({ at: 2, tmax: 6, max: 9, ground: 14 })[w0] + (/4\.9/.test(eqs) ? 4 : 0);
+    }
     if (!/domain-range|is-function|func-|read-fig|linear-rule|table-fill|rate|graph-behavior|sequence|exp-|factor|quad-/.test(t || '')) return;
     C.snippets(pt.answer).forEach(sn => {
       const rhs = sn.slice(sn.lastIndexOf('=') + 1);

@@ -11,13 +11,14 @@ accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-gener
 - Unit 6 · Systems of Equations and Inequalities (`algebra1-systems-of-equations`)
 - Unit 7 · Exponents and Scientific Notation (`algebra1-exponents-scientific-notation`)
 - Unit 9 · Polynomials (`algebra1-polynomials`)
+- Unit 11 · Quadratic Functions and Equations (`algebra1-quadratics`)
 - Unit 8 · Exponential Functions (`algebra1-exponential-functions`)
 - Unit 10 · Factoring and Zero Product Property (`algebra1-factoring-zero-product`)
 - Unit 12 · Statistics and Data Modeling (`algebra1-statistics-data-modeling`)
 
 Other units appear in the unit list as "not yet supported" until they have generators that pass the same
 verification tests (see *Adding a unit*). Open a unit directly with `menu-assessment.html#unit=<id>`. Each
-unit keeps its own autosave. The existing static Assessment Menu PDFs are unchanged and still listed on every unit page.
+unit keeps its own autosave. Units that have this generator no longer list the old fixed Assessment Menu PDFs (the files are still in `artifacts/` but unlisted); Geometry and Algebra 2 keep theirs.
 
 ## Teacher workflow
 1. **Course and unit.** Also set the menu title and subtitle.
@@ -182,6 +183,19 @@ polynomials. Equations are solved by finding every rational root (rational root 
 problems whose roots are not all rational are refused. Word problems are re-solved from the printed numbers and
 wording (“consecutive even integers”, “3 feet less than twice its width”, “uniform width”) and keep only the
 answer that makes sense.
+
+### Quadratic Functions and Equations skills (tags GRAPH · ROOTS · FORMULA · COMPLETE · APPLY)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| GRAPH | Features of parabolas | vertex (graph) → zeros (graph) → vertex of y = ax² + bx + c → axis and max/min (graph) → equation of a graphed parabola → max/min and range → axis, vertex and y-intercept |
+| ROOTS | Square roots and factoring | x² = k → (x − h)² = k → x² = k in simplest radical form → ax² + c = d → factoring x² + bx + c → (x − h)² = k with radicals → factoring ax² + bx + c |
+| FORMULA | Discriminant and formula | discriminant → number of real solutions → formula, rational answers → rounded answers → exact answers → exact with a ≠ 1 → rewrite in standard form first |
+| COMPLETE | Completing the square | the number to add → solve (rational) → solve (radical) → odd b → a ≠ 1 → vertex form (a = 1) → vertex form (a ≠ 1) |
+| APPLY | Projectile models | height at a time → time of the maximum → maximum height → landing time (rounded) → two parts → metric model → three parts |
+
+Parabolas are read back from the printed equation or from the drawn curve (fitted exactly through the plotted points).
+Exact answers must be in simplest radical form (square-free radicand, reduced fraction, ± allowed); rounded answers are
+accepted only when the problem states the rounding.
 
 ### Polynomials skills (tags CLASSIFY · ADDSUB · MULT · SPECIAL · APPLY)
 | Tag | Skill | Level 1 → 7 |

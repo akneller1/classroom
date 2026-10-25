@@ -52,7 +52,7 @@ window.LIBRARY = {
               "title": "Foundations of Algebra Flashcards",
               "path": "artifacts/foundations-algebra-flashcards/index.html",
               "thumb": "thumbs/foundations-algebra-flashcards.jpg",
-              "description": "A fresh deck of foundations of algebra flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of foundations of algebra flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Combining like terms",
@@ -175,7 +175,7 @@ window.LIBRARY = {
               "title": "Expressions & Equations Flashcards",
               "path": "artifacts/expressions-equations-flashcards/index.html",
               "thumb": "thumbs/expressions-equations-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for vocabulary, evaluating, simplifying, solving equations, proportions and applications. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for vocabulary, evaluating, simplifying, solving equations, proportions and applications. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Evaluating expressions",
@@ -310,19 +310,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Equation Bistro: Assessment Menu",
-              "path": "artifacts/expressions-equations-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Combining like terms",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Great Rigged Bake-Off",
               "path": "artifacts/expressions-equations-escape-room/index.html",
               "thumb": "thumbs/expressions-equations-escape-room.jpg",
@@ -436,7 +423,7 @@ window.LIBRARY = {
               "title": "Inequalities Flashcards",
               "path": "artifacts/inequalities-flashcards/index.html",
               "thumb": "thumbs/inequalities-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and number-line graphs: translating, testing solutions, one- and multi-step inequalities, flipping the sign, compound inequalities, special cases and word problems. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions and number-line graphs: translating, testing solutions, one- and multi-step inequalities, flipping the sign, compound inequalities, special cases and word problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Translating and testing solutions",
@@ -551,20 +538,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Inequalities Bistro: Assessment Menu",
-              "path": "artifacts/inequalities-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/inequalities-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Solving inequalities",
-                "Compound inequalities",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Code Red: Station Nimbus",
               "path": "artifacts/inequalities-escape-room/index.html",
               "thumb": "thumbs/inequalities-escape-room.jpg",
@@ -664,7 +637,7 @@ window.LIBRARY = {
               "title": "Relations and Functions Flashcards",
               "path": "artifacts/relations-functions-flashcards/index.html",
               "thumb": "thumbs/relations-functions-flashcards.jpg",
-              "description": "A fresh deck of relations and functions flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of relations and functions flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Domain and range",
@@ -786,7 +759,7 @@ window.LIBRARY = {
               "title": "Linear Equations & Slope Flashcards",
               "path": "artifacts/linear-equations-slope-flashcards/index.html",
               "thumb": "thumbs/linear-equations-slope-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for slope, slope-intercept, point-slope and standard form, writing equations of lines, parallel and perpendicular lines, intercepts and rate of change. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for slope, slope-intercept, point-slope and standard form, writing equations of lines, parallel and perpendicular lines, intercepts and rate of change. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Slope from points, graphs and tables",
@@ -931,19 +904,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Slope Bistro: Assessment Menu",
-              "path": "artifacts/linear-equations-slope-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Slope from points, tables, and graphs",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Avalanche Patrol: Race to the Lodge",
               "path": "artifacts/linear-equations-slope-escape-room/index.html",
               "thumb": "thumbs/linear-equations-slope-escape-room.jpg",
@@ -1010,7 +970,7 @@ window.LIBRARY = {
               "title": "Linear Functions Flashcards",
               "path": "artifacts/linear-functions-flashcards/index.html",
               "thumb": "thumbs/linear-functions-flashcards.jpg",
-              "description": "A fresh deck of linear functions flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of linear functions flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Slope",
@@ -1132,7 +1092,7 @@ window.LIBRARY = {
               "title": "Systems of Equations Flashcards",
               "path": "artifacts/systems-of-equations-flashcards/index.html",
               "thumb": "thumbs/systems-of-equations-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for checking solutions, reading graphs and tables, substitution, elimination, special cases, choosing a method and word problems. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for checking solutions, reading graphs and tables, substitution, elimination, special cases, choosing a method and word problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Checking and graphing",
@@ -1252,19 +1212,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Systems Bistro: Assessment Menu",
-              "path": "artifacts/systems-of-equations-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Checking and graphing solutions",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Locked In: Night at the Museum",
               "path": "artifacts/systems-of-equations-escape-room/index.html",
               "thumb": "thumbs/systems-of-equations-escape-room.jpg",
@@ -1357,7 +1304,7 @@ window.LIBRARY = {
               "title": "Graphing Inequalities Flashcards",
               "path": "artifacts/graphing-inequalities-flashcards/index.html",
               "thumb": "thumbs/graphing-inequalities-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and shaded graphs for inequalities in two variables: solid or dashed boundary lines, test points, shading, writing an inequality from a graph, systems, and real-world constraints. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions and shaded graphs for inequalities in two variables: solid or dashed boundary lines, test points, shading, writing an inequality from a graph, systems, and real-world constraints. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Solid and dashed boundary lines",
@@ -1475,19 +1422,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Shaded Region Bistro: Assessment Menu",
-              "path": "artifacts/graphing-inequalities-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Solid and dashed boundary lines",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Treasure Island: The Feasible Region",
               "path": "artifacts/graphing-inequalities-escape-room/index.html",
               "thumb": "thumbs/graphing-inequalities-escape-room.jpg",
@@ -1554,7 +1488,7 @@ window.LIBRARY = {
               "title": "Systems Practice Flashcards",
               "path": "artifacts/systems-flashcards/index.html",
               "thumb": "thumbs/systems-flashcards.jpg",
-              "description": "A fresh deck of systems flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of systems flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Systems of equations",
@@ -1649,7 +1583,7 @@ window.LIBRARY = {
               "title": "Exponents & Exponential Functions Flashcards",
               "path": "artifacts/exponents-exponential-functions-flashcards/index.html",
               "thumb": "thumbs/exponents-exponential-functions-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for exponent rules, zero and negative exponents, scientific notation, exponential functions, growth and decay, and compound-growth word problems. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for exponent rules, zero and negative exponents, scientific notation, exponential functions, growth and decay, and compound-growth word problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Exponent rules",
@@ -1702,20 +1636,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Exponent Bistro: Assessment Menu",
-              "path": "artifacts/exponents-exponential-functions-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Assessment",
-                "Choice menu",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Partner Check 1: Exponent Rules",
               "path": "artifacts/exponents-exponential-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/exponents-exponential-functions-partner-check-1.jpg",
@@ -1731,7 +1651,7 @@ window.LIBRARY = {
               "title": "Exponent Practice Flashcards",
               "path": "artifacts/exponents-flashcards/index.html",
               "thumb": "thumbs/exponents-flashcards.jpg",
-              "description": "A fresh deck of exponents flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of exponents flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Exponent rules",
@@ -1988,7 +1908,7 @@ window.LIBRARY = {
               "title": "Exponential Functions Flashcards",
               "path": "artifacts/exponential-functions-flashcards/index.html",
               "thumb": "thumbs/exponential-functions-flashcards.jpg",
-              "description": "A fresh deck of exponential functions flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of exponential functions flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Exponential growth and decay",
@@ -2094,7 +2014,7 @@ window.LIBRARY = {
               "title": "Polynomial Practice Flashcards",
               "path": "artifacts/polynomials-flashcards/index.html",
               "thumb": "thumbs/polynomials-flashcards.jpg",
-              "description": "A fresh deck of polynomial practice flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of polynomial practice flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Adding and subtracting polynomials",
@@ -2211,7 +2131,7 @@ window.LIBRARY = {
               "title": "Polynomials & Factoring Flashcards",
               "path": "artifacts/polynomials-factoring-flashcards/index.html",
               "thumb": "thumbs/polynomials-factoring-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for classifying, adding, subtracting and multiplying polynomials, then factoring with GCF, trinomials, difference of squares and factoring completely. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for classifying, adding, subtracting and multiplying polynomials, then factoring with GCF, trinomials, difference of squares and factoring completely. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
@@ -2350,20 +2270,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Polynomial Bistro: Assessment Menu",
-              "path": "artifacts/polynomials-factoring-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "Assessment",
-                "Choice menu",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Wizard’s Spell Library",
               "path": "artifacts/polynomials-factoring-escape-room/index.html",
               "thumb": "thumbs/polynomials-factoring-escape-room.jpg",
@@ -2421,7 +2327,7 @@ window.LIBRARY = {
               "title": "Factoring Flashcards",
               "path": "artifacts/factoring-zero-product-flashcards/index.html",
               "thumb": "thumbs/factoring-zero-product-flashcards.jpg",
-              "description": "A fresh deck of factoring flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of factoring flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "GCF and grouping",
@@ -2499,6 +2405,19 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-quadratics",
+              "thumb": "thumbs/menu-assessment-generator-quadratics.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Quadratic Functions and Equations. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes vertex, axis of symmetry, zeros, maximum or minimum and range from graphs and equations, writing the equation of a graphed parabola, solving by square roots and factoring, the discriminant and the quadratic formula (rounded and exact answers), completing the square and vertex form, and projectile models (height, maximum height, landing time). Prints student menus (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Exact answers must be in simplest radical form, and rounding is accepted only when the problem asks for it.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Quadratics"
+              ],
+              "added": "2026-10-24"
+            },
+            {
               "title": "Quadratics Worksheet Generator",
               "path": "worksheet-generator/algebra1-quadratics.html",
               "thumb": "thumbs/algebra1-quadratics-generator.svg",
@@ -2528,7 +2447,7 @@ window.LIBRARY = {
               "title": "Quadratics Flashcards",
               "path": "artifacts/quadratics-flashcards/index.html",
               "thumb": "thumbs/quadratics-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for parabolas (vertex, axis, intercepts, vertex form), solving by factoring, square roots, completing the square and the quadratic formula, the discriminant, and projectile and area problems. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for parabolas (vertex, axis, intercepts, vertex form), solving by factoring, square roots, completing the square and the quadratic formula, the discriminant, and projectile and area problems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Vertex and axis of symmetry",
@@ -2660,19 +2579,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Quadratics Bistro: Assessment Menu",
-              "path": "artifacts/quadratics-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/quadratics-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Solving quadratic equations",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Thunder Bolt: Launch Gone Wrong",
               "path": "artifacts/quadratics-escape-room/index.html",
               "thumb": "thumbs/quadratics-escape-room.jpg",
@@ -2734,6 +2640,81 @@ window.LIBRARY = {
                 "Features of Parabolas"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Quadratic Practice Flashcards",
+              "path": "artifacts/quadratic-practice-flashcards/index.html",
+              "thumb": "thumbs/quadratic-practice-flashcards.jpg",
+              "description": "A fresh deck of quadratic practice flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Parabolas",
+                "Quadratic formula",
+                "Completing the square",
+                "Projectile motion"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Quadratic Practice Showdown",
+              "path": "artifacts/quadratic-practice-showdown/index.html",
+              "thumb": "thumbs/quadratic-practice-showdown.jpg",
+              "description": "A game board for quadratic practice review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Parabolas",
+                "Quadratic formula",
+                "Completing the square",
+                "Projectile motion",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Quadratic Practice Connect Four",
+              "path": "artifacts/quadratic-practice-connect-four/index.html",
+              "thumb": "thumbs/quadratic-practice-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice quadratic practice problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Parabolas",
+                "Quadratic formula",
+                "Completing the square",
+                "Projectile motion",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Quadratic Practice Tic-Tac-Toe",
+              "path": "artifacts/quadratic-practice-tic-tac-toe/index.html",
+              "thumb": "thumbs/quadratic-practice-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice quadratic practice problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Parabolas",
+                "Quadratic formula",
+                "Completing the square",
+                "Projectile motion",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Quadratic Practice: Picture Reveal",
+              "path": "artifacts/quadratic-practice-picture-reveal/index.html",
+              "thumb": "thumbs/quadratic-practice-picture-reveal.jpg",
+              "description": "Solve 10 quadratic practice problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Parabolas",
+                "Quadratic formula",
+                "Completing the square",
+                "Projectile motion"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -2758,7 +2739,7 @@ window.LIBRARY = {
               "title": "Statistics Flashcards",
               "path": "artifacts/statistics-data-modeling-flashcards/index.html",
               "thumb": "thumbs/statistics-data-modeling-flashcards.jpg",
-              "description": "A fresh deck of statistics flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "description": "A fresh deck of statistics flashcards at Easy, Medium or Hard level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
               "type": "Practice",
               "topics": [
                 "Measures of center and spread",
@@ -2946,7 +2927,7 @@ window.LIBRARY = {
               "title": "Functions & Transformations Flashcards",
               "path": "artifacts/functions-transformations-flashcards/index.html",
               "thumb": "thumbs/functions-transformations-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and computed graphs for function notation, domain and range, parent functions and symmetry, transformations of graphs, piecewise functions, composition, and inverse functions. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions and computed graphs for function notation, domain and range, parent functions and symmetry, transformations of graphs, piecewise functions, composition, and inverse functions. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Function notation and domain",
@@ -3183,7 +3164,7 @@ window.LIBRARY = {
               "title": "Linear Functions & Systems Flashcards",
               "path": "artifacts/linear-functions-systems-flashcards/index.html",
               "thumb": "thumbs/linear-functions-systems-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and computed graphs for slope and rate of change, writing linear equations, lines of best fit and residuals, linear and absolute value inequalities, systems of two and three equations, and linear programming. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions and computed graphs for slope and rate of change, writing linear equations, lines of best fit and residuals, linear and absolute value inequalities, systems of two and three equations, and linear programming. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Slope and writing linear equations",
@@ -3420,7 +3401,7 @@ window.LIBRARY = {
               "title": "Quadratic Functions & Complex Numbers Flashcards",
               "path": "artifacts/quadratic-functions-complex-numbers-flashcards/index.html",
               "thumb": "thumbs/quadratic-functions-complex-numbers-flashcards.jpg",
-              "description": "25 flashcards with worked solutions and computed parabola graphs for vertex form, graphing and converting between forms, solving by factoring, square roots, completing the square and the quadratic formula, imaginary and complex numbers (conjugates and division), the discriminant, quadratic modeling, and quadratic inequalities and systems. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions and computed parabola graphs for vertex form, graphing and converting between forms, solving by factoring, square roots, completing the square and the quadratic formula, imaginary and complex numbers (conjugates and division), the discriminant, quadratic modeling, and quadratic inequalities and systems. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Vertex form and graphing parabolas",
@@ -3757,7 +3738,7 @@ window.LIBRARY = {
               "title": "Exp & Log Functions Flashcards",
               "path": "artifacts/exponential-logarithmic-functions-flashcards/index.html",
               "thumb": "thumbs/exponential-logarithmic-functions-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for exponential growth and decay, graphs and asymptotes, compound and continuous interest, logarithm form and domain, log properties and change of base, solving exponential and log equations (with extraneous solutions), and half-life, growth, and pH models. Mark cards you need to practice and review them again.",
+              "description": "25 flashcards with worked solutions for exponential growth and decay, graphs and asymptotes, compound and continuous interest, logarithm form and domain, log properties and change of base, solving exponential and log equations (with extraneous solutions), and half-life, growth, and pH models. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
               "type": "Practice",
               "topics": [
                 "Exponential functions and graphs",

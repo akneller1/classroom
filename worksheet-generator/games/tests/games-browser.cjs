@@ -5,7 +5,7 @@
 const assert = require('assert');
 const { chromium } = require(process.env.PW || 'playwright');
 const BASE = process.env.BASE || 'http://localhost:8765';
-const UNITS = (process.env.UNITS || "relations-functions,foundations-algebra,exponential-functions,factoring-zero-product,statistics-data-modeling,linear-functions,systems,exponents,polynomials").split(',');
+const UNITS = (process.env.UNITS || "relations-functions,foundations-algebra,exponential-functions,factoring-zero-product,statistics-data-modeling,linear-functions,systems,exponents,polynomials,quadratic-practice").split(',');
 let passed = 0;
 function ok(m) { passed++; console.log('  ✓ ' + m); }
 

@@ -48,8 +48,10 @@
   function head(sub, pill) {
     return '<div class="gm-head"><div><div class="gm-eyebrow">Mr. K’s Classroom · ' + esc(SET.courseName || 'Algebra') + '</div><h1>' + esc(TITLE) + '</h1><p>' + sub + '</p></div>' + (pill ? '<span class="gm-pill">' + esc(pill) + '</span>' : '') + '</div>';
   }
-  function levelSel(id, cur) {
-    return '<select class="gm-sel" id="' + id + '">' + Object.keys(GB.LEVELS).map(function (k) { return '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + GB.LEVELS[k].name + '</option>'; }).join('') + '</select>';
+  /* flashcards show the levels as Easy / Medium / Hard (CP2 / CP1 / Honors problems underneath) */
+  var EASY_NAMES = { cp2: 'Easy', cp1: 'Medium', honors: 'Hard' };
+  function levelSel(id, cur, names) {
+    return '<select class="gm-sel" id="' + id + '">' + Object.keys(GB.LEVELS).map(function (k) { return '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + ((names && names[k]) || GB.LEVELS[k].name) + '</option>'; }).join('') + '</select>';
   }
   function loading(msg) { app.innerHTML = '<div class="gm-panel gm-loading" role="status"><div><div class="gm-spin"></div>' + esc(msg || 'Cooking up fresh problems…') + '<div class="gm-muted" id="gmProg"></div></div></div>'; }
   function progress(i, n) { var e = $('#gmProg'); if (e) e.textContent = i + ' of ' + n; }
@@ -88,7 +90,7 @@
     function render() {
       var c = cur(), got = 0, need = 0; Object.keys(S.rate).forEach(function (k) { if (S.rate[k] === 'got') got++; else need++; });
       var h = head('Flip each card for the answer and the worked solution. Every card is a fresh, checked problem.') +
-        '<div class="gm-ctl"><label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level) +
+        '<div class="gm-ctl"><label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level, EASY_NAMES) +
         '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + skillIds.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + '</select>' +
         '<button class="gm-btn" id="fcShuffle">Shuffle</button><button class="gm-btn" id="fcMissed"' + (need ? '' : ' disabled') + '>' + (S.missed ? 'All cards' : 'Practice missed') + '</button><button class="gm-btn" id="fcNew">New cards</button><button class="gm-btn" id="fcReset">Reset progress</button></div>' +
         '<div class="fc-stats"><span>' + (S.order.length ? 'Card ' + (S.i + 1) + ' of ' + S.order.length : 'No cards') + '</span><span>Got it: ' + got + ' • Need practice: ' + need + '</span></div>' +

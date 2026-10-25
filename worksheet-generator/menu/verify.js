@@ -124,6 +124,7 @@
     if (SYS_TYPES.indexOf(t) >= 0) return checkSysPart(p, part, policy);
     if (POW_TYPES.indexOf(t) >= 0) return checkPowPart(p, part, policy);
     if (POLY_TYPES.indexOf(t) >= 0) return checkPolyPart(p, part, policy);
+    if (QUAD_TYPES.indexOf(t) >= 0) return checkQuadPart(p, part, policy);
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -1400,6 +1401,136 @@
         var why2 = polyStandard(am); return why2 ? { status: 'mismatch', msg: why2 + '.' } : { status: 'verified' };
       }
       throw new C.CheckError('unknown want');
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+  /* ---------- quadratic functions and equations (Algebra 1 Unit 11) ---------- */
+  var QUAD_TYPES = ['quad-solve', 'quad-feature', 'quad-disc', 'quad-vertex-eq', 'quad-proj', 'quad-ctsq'];
+  var fl = function (q) { return Number(q.n) / Number(q.d); };
+  /* a small float evaluator for answers with square roots: numbers, \frac, \sqrt, + − and products */
+  function surdEval(src) {
+    var s = String(src).replace(/\\left|\\right/g, '').replace(/\\[ ,;!]/g, '').replace(/\s+/g, '').replace(/\\cdot|\\times/g, '*'), i = 0;
+    function peek() { return s[i]; }
+    function expr() { var v = term(); while (peek() === '+' || peek() === '-') { var o = s[i++]; var w = term(); v = o === '+' ? v + w : v - w; } return v; }
+    function term() { var v = unary(); for (;;) { if (peek() === '*') { i++; v *= unary(); } else if (peek() === '/') { i++; v /= unary(); } else if (peek() === '\\' || peek() === '(' || (peek() && /[0-9.]/.test(peek()) && false)) v *= unary(); else return v; } }
+    function unary() { if (peek() === '-') { i++; return -unary(); } if (peek() === '+') { i++; return unary(); } return atom(); }
+    function group() { if (s[i] !== '{') throw new C.CheckError('bad group'); i++; var v = expr(); if (s[i] !== '}') throw new C.CheckError('bad group'); i++; return v; }
+    function atom() {
+      if (s.slice(i, 5 + i) === '\\frac') { i += 5; var a = group(), b = group(); return a / b; }
+      if (s.slice(i, 5 + i) === '\\sqrt') { i += 5; var r = group(); if (r < 0) throw new C.CheckError('square root of a negative'); return Math.sqrt(r); }
+      if (peek() === '(') { i++; var v = expr(); if (s[i] !== ')') throw new C.CheckError('bad parentheses'); i++; return v; }
+      var m = /^\d+(\.\d+)?/.exec(s.slice(i)); if (!m) throw new C.CheckError('cannot read ' + s.slice(i, i + 8));
+      i += m[0].length; return +m[0];
+    }
+    var v = expr(); if (i !== s.length) throw new C.CheckError('cannot read the answer'); return v;
+  }
+  function squarefree(n) { for (var k = 2; k * k <= n; k++) if (n % (k * k) === 0) return false; return n > 1; }
+  function gcdI(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  /* is an exact root written in simplest radical form? (p ± q√r)/s, r square-free, nothing left to reduce */
+  function radicalSimplest(t) {
+    var s = t.replace(/\\left|\\right/g, '').replace(/\s+/g, '').replace(/\\[ ,;!]/g, ''), neg = false;
+    if (s[0] === '-' && /^-\\frac/.test(s)) { neg = true; s = s.slice(1); }
+    var num = s, den = 1, fm = /^\\frac\{(.*)\}\{(\d+)\}$/.exec(s);
+    if (fm) { num = fm[1]; den = +fm[2]; if (den === 1) return 'denominator 1'; }
+    if (/\\frac/.test(num)) return 'a fraction inside a fraction';
+    var parts = num.match(/[+-]?[^+-]+/g) || [], coefs = [];
+    for (var k = 0; k < parts.length; k++) {
+      var m = /^([+-]?)(\d*)(\\sqrt\{(\d+)\})?$/.exec(parts[k]); if (!m || (m[2] === '' && !m[3])) return 'cannot read ' + parts[k];
+      if (m[3] && !squarefree(+m[4])) return 'the square root can be simplified';
+      coefs.push(m[2] === '' ? 1 : +m[2]);
+    }
+    if (parts.filter(function (p) { return /sqrt/.test(p); }).length > 1 || parts.filter(function (p) { return !/sqrt/.test(p); }).length > 1) return 'combine like terms';
+    if (den > 1 && coefs.reduce(gcdI, den) > 1) return 'the fraction can be reduced';
+    return null;
+  }
+  /* the values a student wrote (± expanded), from the right side of each equation */
+  function rootsWritten(ans) {
+    var out = [];
+    C.snippets(ans).forEach(function (sn) {
+      var rhs = sn.slice(sn.lastIndexOf('=') + 1); if (/\\approx/.test(rhs)) rhs = rhs.slice(rhs.lastIndexOf('\\approx') + 7);
+      rhs.split(/,(?![^{]*\})/).forEach(function (piece) { piece = piece.trim(); if (!piece) return;
+        if (/\\pm/.test(piece)) { out.push(piece.replace('\\pm', '+'), piece.replace('\\pm', '-')); } else out.push(piece); });
+    });
+    return out.map(function (t) { return t.replace(/^\+/, '').replace(/\(\+/, '(').replace(/\{\+/, '{'); });
+  }
+  function quadCo(p, chk, v) {
+    v = v || chk.v || 'x';
+    if (chk.eq) { if (!shown(p, chk.eq)) throw new C.CheckError('the equation is not printed');
+      var R = C.parseRelation(chk.eq), lhsIsFn = /^\s*[a-zA-Z](\([a-z]\))?\s*=/.test(chk.eq) && !/[a-z]/.test(chk.eq.split('=')[0].replace(/^\s*[a-zA-Z]\([a-z]\)|^\s*[a-zA-Z]/, ''));
+      var node = chk.fn ? R.rhs : { k: 'sub', a: R.lhs, b: { k: 'grp', a: R.rhs } }; void lhsIsFn;
+      var co = coeffsOf(node, v); while (co.length < 3) co.push(Q.ZERO); if (co.length > 3 || co[2].isZero()) throw new C.CheckError('not quadratic'); return co; }
+    var f = p.fig; if (!f || f.kind !== 'plane') throw new C.CheckError('no graph');
+    var g = NS.fig.readPlane(NS.fig.plane(f)); if (!g.curves.length) throw new C.CheckError('no curve');
+    var pts = g.curves[0].filter(function (q) { return q[0] && q[1]; }).map(function (q) { return [qOf(q[0]), qOf(q[1])]; }); if (pts.length < 5) throw new C.CheckError('curve not readable');
+    var A = pts[0], B = pts[Math.floor(pts.length / 2)], Cc = pts[pts.length - 1];   // the parabola through three read points, then every point must fit
+    var d1 = B[1].sub(A[1]).div(B[0].sub(A[0])), d2 = Cc[1].sub(B[1]).div(Cc[0].sub(B[0])), a = d2.sub(d1).div(Cc[0].sub(A[0])), b = d1.sub(a.mul(A[0].add(B[0]))), c = A[1].sub(a.mul(A[0]).mul(A[0])).sub(b.mul(A[0]));
+    if (!pts.every(function (q) { return a.mul(q[0]).mul(q[0]).add(b.mul(q[0])).add(c).eq(q[1]); })) throw new C.CheckError('the curve is not one parabola');
+    if (a.isZero()) throw new C.CheckError('not a parabola');
+    return [c, b, a];
+  }
+  function checkQuadPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, txt = C.plainText(ans).toLowerCase(), v = chk.v || 'x';
+    if (t === 'quad-ctsq') {   // the number that completes the square for x² + bx
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+      var cq = coeffsOf(C.parseExpr(chk.expr), v); if (cq.length !== 3 || !cq[2].eq(Q.ONE)) throw new C.CheckError('needs x² + bx');
+      var hb = cq[1].div(new Q(2n)), tq = hb.mul(hb), gq = []; try { gq = listNumbers(ans); } catch (e) { gq = []; }
+      return gq.length && gq[gq.length - 1].eq(tq) ? { status: 'verified', computed: qText(tq) } : { status: 'mismatch', msg: 'Add ' + qText(tq) + '.' };
+    }
+    var co = quadCo(p, chk), a = co[2], b = co[1], c = co[0], D = b.mul(b).sub(new Q(4n).mul(a).mul(c)), h = b.neg().div(new Q(2n).mul(a)), k = a.mul(h).mul(h).add(b.mul(h)).add(c);
+    var Df = fl(D), roots = Df < 0 ? [] : [(-fl(b) - Math.sqrt(Df)) / (2 * fl(a)), (-fl(b) + Math.sqrt(Df)) / (2 * fl(a))].sort(function (x, y) { return x - y; });
+    var rootQ = null; if (Df >= 0) { var sq = qpowRoot(D, 2); if (sq) rootQ = uniqQ([b.neg().sub(sq).div(new Q(2n).mul(a)), b.neg().add(sq).div(new Q(2n).mul(a))]); }
+    function rootsVerdict(prefix) {
+      if (Df < 0) return /no real|no solution/.test(txt) && !C.snippets(ans).length ? { status: 'verified', computed: 'no real solutions' } : { status: 'mismatch', msg: 'There are no real solutions.' };
+      var want = (rootQ ? rootQ.map(fl) : (D.isZero() ? [roots[0]] : roots)).slice().sort(function (x, y) { return x - y; });
+      var ws = rootsWritten(ans), vals;
+      try { vals = ws.map(surdEval); } catch (e) { return { status: 'mismatch', msg: 'Could not read: ' + e.message }; }
+      if (chk.round !== undefined) {
+        var got = vals, sc = Math.pow(10, chk.round), rw = want.map(function (x) { return Math.round(x * sc + 1e-9) / sc; }).sort(function (x, y) { return x - y; }); rw = rw.filter(function (x, i) { return i === 0 || x !== rw[i - 1]; });
+        got = got.slice().sort(function (x, y) { return x - y; });
+        return got.length === rw.length && got.every(function (x, i) { return Math.abs(x - rw[i]) < 1e-9; }) ? { status: 'verified', computed: rw.join(', ') } : { status: 'mismatch', msg: 'Rounded: ' + rw.join(', ') + '.' };
+      }
+      for (var i = 0; i < ws.length; i++) { if (/[+-]\s*[+-]/.test(ws[i])) return { status: 'mismatch', msg: 'Two signs in a row.' }; var why = radicalSimplest(ws[i]); if (why) return { status: 'mismatch', msg: 'Simplest radical form: ' + why + '.' }; }
+      var sv = vals.slice().sort(function (x, y) { return x - y; }).filter(function (x, i, arr) { return i === 0 || Math.abs(x - arr[i - 1]) > 1e-12; });
+      return sv.length === want.length && sv.every(function (x, i) { return Math.abs(x - want[i]) < 1e-9; }) ? { status: 'verified' } : { status: 'mismatch', msg: 'The solutions are ' + want.map(function (x) { return x.toFixed(3); }).join(' and ') + ' (approximately).' };
+    }
+    if (t === 'quad-solve') { if (policy && policy.intOnly && chk.round === undefined && !(rootQ && rootQ.every(function (q) { return q.isInt(); })) && !chk.radical && !chk.exact && Df >= 0) return { status: 'invalid', msg: 'Not whole-number solutions.' }; return rootsVerdict(); }
+    if (t === 'quad-disc') {
+      if (w === 'value') { var g3 = listNumbers(ans); return g3.length && g3[g3.length - 1].eq(D) ? { status: 'verified', computed: qText(D) } : { status: 'mismatch', msg: 'Discriminant: ' + qText(D) + '.' }; }
+      var cnt = C.cmpQ(D, Q.ZERO) > 0 ? 'two' : D.isZero() ? 'one' : 'no', said = /^\s*(two|2)\b/.test(txt) ? 'two' : /^\s*(one|1)\b/.test(txt) ? 'one' : /^\s*(no|none|zero|0)\b/.test(txt) ? 'no' : null;
+      if (said === cnt && C.snippets(ans).length) { var gd = []; try { gd = listNumbers(ans); } catch (e) { gd = []; } if (!gd.length || !gd[gd.length - 1].eq(D)) return { status: 'mismatch', msg: 'The discriminant is ' + qText(D) + '.' }; }
+      return said === cnt ? { status: 'verified', computed: cnt } : { status: 'mismatch', msg: cnt + ' real solution' + (cnt === 'one' ? '' : 's') + '.' };
+    }
+    if (t === 'quad-feature') {
+      var lastNum = function () { var g4 = []; try { g4 = listNumbers(ans); } catch (e) { g4 = []; } return g4[g4.length - 1]; };
+      if (w === 'vertex') { var pr = pairsFrom(C.snippets(ans).join(' ')); return pr.length === 1 && pr[0][0].eq(h) && pr[0][1].eq(k) ? { status: 'verified', computed: '(' + qText(h) + ', ' + qText(k) + ')' } : { status: 'mismatch', msg: 'Vertex (' + qText(h) + ', ' + qText(k) + ').' }; }
+      if (w === 'axis') { var sn = C.snippets(ans)[0] || ''; var ok = false; try { var R2 = C.parseRelation(sn); ok = R2.lhs.k === 'var' && R2.lhs.v === v && C.evalNode(R2.rhs, {}).eq(h); } catch (e) { ok = false; } return ok ? { status: 'verified', computed: v + '=' + qText(h) } : { status: 'mismatch', msg: 'Axis of symmetry: ' + v + ' = ' + qText(h) + '.' }; }
+      if (w === 'yint') { var pr2 = pairsFrom(C.snippets(ans).join(' ')), yv = pr2.length ? (pr2[0][0].isZero() ? pr2[0][1] : null) : lastNum(); return yv && yv.eq(c) ? { status: 'verified', computed: qText(c) } : { status: 'mismatch', msg: 'y-intercept ' + qText(c) + '.' }; }
+      if (w === 'zeros') return rootsVerdict();
+      if (w === 'maxmin') { var isMax = C.cmpQ(a, Q.ZERO) < 0, word = isMax ? 'maximum' : 'minimum', other = isMax ? 'minimum' : 'maximum';
+        return new RegExp('\\b' + word + '\\b').test(txt) && !new RegExp('\\b' + other + '\\b').test(txt) && lastNum() && lastNum().eq(k) ? { status: 'verified', computed: word + ' ' + qText(k) } : { status: 'mismatch', msg: 'The ' + word + ' value is ' + qText(k) + '.' }; }
+      if (w === 'range') { var sn2 = (C.snippets(ans)[0] || '').replace(/\s+/g, ''), ok2 = false, rm = /^y(\\le|\\ge|≤|≥)(.+)$/.exec(sn2); try { ok2 = !!rm && C.evalNode(C.parseExpr(rm[2]), {}).eq(k) && (C.cmpQ(a, Q.ZERO) < 0 ? /le|≤/.test(rm[1]) : /ge|≥/.test(rm[1])); } catch (e) { ok2 = false; } return ok2 ? { status: 'verified' } : { status: 'mismatch', msg: 'Range: y ' + (C.cmpQ(a, Q.ZERO) < 0 ? '≤ ' : '≥ ') + qText(k) + '.' }; }
+      throw new C.CheckError('unknown want');
+    }
+    if (t === 'quad-proj') {   // a height model h(t) printed; time is the variable
+      var g5 = listNumbers(ans), l5 = g5[g5.length - 1];
+      if (w === 'max') return l5 && l5.eq(k) ? { status: 'verified', computed: qText(k) } : { status: 'mismatch', msg: 'Maximum height ' + qText(k) + '.' };
+      if (w === 'tmax') return l5 && l5.eq(h) ? { status: 'verified', computed: qText(h) } : { status: 'mismatch', msg: 'Time ' + qText(h) + '.' };
+      if (w === 'at') { var tv = C.readNumber(String(chk.at)); if (!C.numbersInText(studentText(p)).some(function (q) { return q.eq(tv); })) return { status: 'invalid', msg: 'The time is not printed.' }; var hv = a.mul(tv).mul(tv).add(b.mul(tv)).add(c); return l5 && l5.eq(hv) ? { status: 'verified', computed: qText(hv) } : { status: 'mismatch', msg: 'Height ' + qText(hv) + '.' }; }
+      if (w === 'ground') { var pos = roots.filter(function (x) { return x > 1e-12; }); if (pos.length !== 1) return { status: 'invalid', msg: 'No single landing time.' };
+        var sc2 = Math.pow(10, chk.round || 0), want2 = Math.round(pos[0] * sc2 + 1e-9) / sc2; return l5 && Math.abs(fl(l5) - want2) < 1e-9 ? { status: 'verified', computed: String(want2) } : { status: 'mismatch', msg: 'Lands at about ' + want2 + '.' }; }
+      throw new C.CheckError('unknown want');
+    }
+    if (t === 'quad-vertex-eq') {   // y = a(x − h)² + k through a printed vertex and point (or the drawn parabola)
+      var am = C.snippets(ans); am = am[am.length - 1]; if (!am) return { status: 'mismatch', msg: 'Write an equation.' };
+      var R4; try { R4 = C.parseRelation(am); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+      if (!(R4.lhs.k === 'var' && R4.lhs.v === 'y')) return { status: 'mismatch', msg: 'Write y = … .' };
+      var co4; try { co4 = coeffsOf(R4.rhs, v); } catch (e) { return { status: 'mismatch', msg: 'Not a quadratic in ' + v + '.' }; } while (co4.length < 3) co4.push(Q.ZERO);
+      if (!(co4.length === 3 && co4[0].eq(c) && co4[1].eq(b) && co4[2].eq(a))) return { status: 'mismatch', msg: 'That is a different parabola.' };
+      var vf = am.replace(/\\left|\\right/g, '').replace(/\s+/g, '').replace(/\^\(([^()]*)\)/g, '^{$1}');
+      if (chk.form === 'vertex' && !/^y=-?(\d+|\\frac\{\d+\}\{\d+\})?\([a-z]([+-]\d+)?\)\^\{?2\}?([+-]\d+)?$/.test(vf)) return { status: 'mismatch', msg: 'Write it in vertex form y = a(x − h)² + k.' };
+      if (chk.form === 'standard' && !/^y=[^()]*$/.test(vf)) return { status: 'mismatch', msg: 'Write it in standard form.' };
+      return { status: 'verified' };
     }
     return { status: 'manual', msg: 'Unknown check ' + t };
   }

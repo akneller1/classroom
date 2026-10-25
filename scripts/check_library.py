@@ -6,6 +6,8 @@ Problems reported:
   * the same activity listed twice in one unit
   * two different activities with the same title in one course (teachers cannot tell them apart)
   * an activity or thumbnail file that does not exist
+  * an Algebra flashcard deck without the Easy / Medium / Hard level menu
+  * a fixed assessment-menu PDF in a unit that has the Menu Assessment Generator
 
 Usage:
   python3 scripts/check_library.py          # report; exit code 1 if anything is wrong
@@ -71,6 +73,11 @@ def main():
                         else:
                             changed += 1
                     u['artifacts'] = new
+        for u in c['units']:   # a unit with the menu generator does not also list a fixed assessment-menu PDF
+            if any('menu-assessment.html' in a['path'] for a in u['artifacts']):
+                for a in u['artifacts']:
+                    if a['path'].endswith('-assessment-menu/worksheet.pdf'):
+                        problems.append('%s/%s: fixed assessment menu "%s" listed next to the Menu Assessment Generator (remove it)' % (c['id'], u['id'], a['title']))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
@@ -83,6 +90,10 @@ def main():
                 f = a['path'].split('#')[0]
                 if not os.path.exists(os.path.join(ROOT, f)):
                     problems.append('%s/%s: missing file %s' % (c['id'], u['id'], f))
+                if c['id'] in ('algebra', 'algebra2') and f.endswith('-flashcards/index.html') and os.path.exists(os.path.join(ROOT, f)):
+                    page = open(os.path.join(ROOT, f), encoding='utf-8', errors='ignore').read()
+                    if 'id="level"' not in page and 'data-game="flashcards"' not in page:
+                        problems.append('%s/%s: flashcards without an Easy/Medium/Hard level menu: %s (run scripts/flashcard_levels.py on it)' % (c['id'], u['id'], f))
                 if a.get('thumb') and not os.path.exists(os.path.join(ROOT, a['thumb'])):
                     problems.append('%s/%s: missing thumbnail %s' % (c['id'], u['id'], a['thumb']))
     if fix and changed:
