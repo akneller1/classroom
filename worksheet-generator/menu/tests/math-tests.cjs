@@ -129,6 +129,8 @@ function complexity(p) {
       if (/prime/i.test(pt.answer)) score += 5;
       const fac = (pt.answer.match(/\(/g) || []).length; score += 2 * Math.max(0, fac - 2);
     }
+    if (t === 'factor' && pt.check.v2) { const ex = pt.check.expr.replace(/\s/g, ''), an = pt.answer.replace(/\s/g, '');
+      score += (/^-?\d+x/.test(ex) ? 6 : 0) + (/⟨-?\d*[xy]*\(/.test(an) && !/⟨\(/.test(an) ? 4 : 0) + (/x\^4/.test(ex) ? 10 : 0) + (ex.match(/-/g) || []).length; }
     if (t === 'quad-roots') { const e = pt.check.eq; if (!/\(/.test(e)) score += 5; if (!/=\s*0\s*$/.test(e)) score += 3; const d = (e.match(/\^\{?(\d)/g) || []).map(x => +x.replace(/\D/g, '')); if (Math.max(0, ...d) >= 3) score += 4; }
     // statistics: the computation each question needs, and the size of the display
     const SW = { stat: { mean: 3, median: 3, mode: 1, range: 1, five: 6, q1: 4, q3: 4, iqr: 5, mad: 8, outliers: 8, fences: 7, missing: 6, newmean: 5, without: 6, better: 6, 'compare-mad': 12 },
@@ -174,6 +176,26 @@ function complexity(p) {
         const all = ex + ' ' + (ck.terms || []).join(' ') + ' ' + ans; score += 2 * (all.match(/\^\{-/g) || []).length; if (/\\frac/.test(ex)) score += 3; if (/[+]|[^{(]-\d/.test(ex.replace(/\^\{-/g, ''))) score += 9;
         score += 0.6 * (C.snippets(ans).join('').replace(/\^\{[^}]*\}/g, '').match(/\d/g) || []).length; if (w === 'op' && /^-?[\d.]+\\times10\^\{-?\d+\}$/.test(ex)) score += 6; }
     }
+    // compound interest: the formula a question needs
+    if (t === 'compound') { const w = C.plainText(p.prompt); score += pt.check.want === 'compare' ? 22 : (/continuously/.test(w) ? 12 : /monthly|daily/.test(w) ? 9 : /quarterly|semiannually/.test(w) ? 7 : 3) + (pt.check.want === 'interest' ? 3 : 0); }
+    // dividing by a binomial: the degree, a missing term, a remainder, a divisor whose leading coefficient is not 1
+    if (t === 'poly-divide') { const ex = pt.check.expr, top = ex.slice(6, ex.indexOf('}{')), deg = Math.max(1, ...(top.match(/\^\{(\d)\}/g) || ['^{1}']).map(x => +x.replace(/\D/g, ''))), terms = (top.match(/[+-]/g) || []).length + 1;
+      score += 6 * deg + (terms <= deg ? 4 : 0) + (/\\frac\{\d+\}\{/.test(pt.answer) ? 6 : 0) + (/\}\{\d+x/.test(ex) ? 6 : 0) + (/^\\frac\{\d+x/.test(ex) ? 3 : 0); }
+    // standard deviation, histograms and regression: the computation a question needs
+    if (t === 'stat' && /^sd/.test(pt.check.want)) score += pt.check.want === 'sd' ? 8 + (pt.check.round === 2 ? 2 : 0) + (pt.check.transform === 'add' ? 6 : pt.check.transform === 'mul' ? 8 : 0) + (pt.check.data ? 0 : 12) : 0;
+    if (t === 'hist') { const w = pt.check.want, pr = p.prompt; score += w === 'count' ? (/in all/.test(pr) ? 6 : /at least|less than/.test(pr) ? 9 : 1) : w === 'percent' ? 12 + 2 * pt.check.round : w === 'median-bin' ? 18 : 22; }
+    if (t === 'lsrl') score += ({ use: 8, describe: 16, r: 34, line: 33, predict: 10, residual: 14 })[pt.check.want] || 0;
+    // graphing by hand: what must be drawn (the key graph is not in the student's text)
+    if (t === 'graph-key') { const n = (pt.check.ineqs || pt.check.eqs).length, fr = /\\frac/.test((pt.check.ineqs || pt.check.eqs).join(' ')), sf = (pt.check.ineqs || []).some(e => !/^y/.test(e)); score += pt.check.eqs ? 14 : 6 + 14 * (n - 1) + (fr ? 6 : 0) + (sf ? 8 : 0) + (/\\le|\\ge/.test((pt.check.ineqs || []).join(' ')) ? 0 : 2); }
+    // parabolas by hand, transformations and quadratic models
+    if (t === 'quad-graph') { const e = pt.check.eq.replace(/\s/g, ''); score += 10 + (/^y=-/.test(e) ? 3 : 0) + (/\\frac|y=-?\d+[(x]/.test(e) ? 5 : 0) + (/\)\^/.test(e) ? 0 : 22) + (/\)\^\{2\}[+-]\d/.test(e) ? 6 : 0); }
+    if (t === 'quad-transform') { const tx = pt.check.want === 'equation' ? p.prompt : pt.answer; score += (pt.check.want === 'equation' ? 16 : 2) + 3 * ((tx.match(/units?/g) || []).length) + (/reflect/i.test(tx) ? 4 : 0) + (/factor/.test(tx) ? 6 : 0); }
+    if (t === 'quad-fit') score += ({ exact: 10, reg: 22, predict: 8 })[pt.check.want] || 0;
+    // a curved graph: what must be read from it
+    if (t === 'curve-behavior') score += ({ increasing: 6, decreasing: 6, extreme: 9 })[pt.check.want] + ((p.fig.curves[0] || []).length > 9 && /x\^\{?3|relative/i.test(pt.answer + p.prompt + (pt.prompt || '')) ? 4 : 0);
+    // square roots: how many roots, how big, and the operations around them
+    if (t === 'radical-simplify') { const ex = pt.check.expr, rads = (ex.match(/\\sqrt\{(\d+)\}/g) || []).map(x => +x.replace(/\D/g, ''));
+      score += 4 * rads.length + rads.reduce((n, v) => n + Math.log10(v), 0) + (/\\frac/.test(ex) ? 9 : 0) + (/\(/.test(ex) ? 12 : 0) + 3 * (ex.replace(/^-/, '').match(/[+-]/g) || []).length + (/\d\\sqrt/.test(ex) ? 2 : 0) + (/\\cdot/.test(ex) ? 3 : 0); }
     // polynomials: the operations a question needs
     if (/^(poly-simplify|poly-classify|poly-apply)$/.test(t || '')) {
       const ck = pt.check, ex = ck.expr || (ck.sides || []).join(' '), ans = pt.answer, T = (C.snippets(ans).join('').match(/[+-]/g) || []).length + 1;
@@ -236,8 +258,10 @@ for (const set of SETS) for (const sk of set.skills) {
         // CP2/CP1 difficulty range (1–5) keeps whole-number answers even when fractions are allowed
         if (c <= 5) p.parts.forEach(pt => { if (pt.check && /solve|evaluate|literal-eval|^ineq$|read-graph/.test(pt.check.type)) { const comp = v.computed[p.parts.indexOf(pt)]; if (comp) ok(!/frac/.test(comp), tag + ' non-integer answer at difficulty ' + c + ': ' + comp); } });
         // number lines: the key's graph matches its answer (re-read from the SVG) and the blank line shows the endpoints
-        p.parts.forEach(pt => { if (pt.answerFig) ok(pt.answerFig.min < pt.answerFig.max && JSON.stringify(pt.answerFig).length > 10, tag + ' bad figure'); });
-        if (p.fig && p.parts.some(pt => pt.answerFig)) p.parts.forEach(pt => { if (pt.answerFig) ok(pt.answerFig.min === p.fig.min && pt.answerFig.max === p.fig.max, tag + ' key graph uses a different scale than the student line'); });
+        p.parts.forEach(pt => { if (pt.answerFig && pt.answerFig.kind !== 'plane') ok(pt.answerFig.min < pt.answerFig.max && JSON.stringify(pt.answerFig).length > 10, tag + ' bad figure'); });
+        if (p.fig && p.parts.some(pt => pt.answerFig)) p.parts.forEach(pt => { if (pt.answerFig && pt.answerFig.kind !== 'plane') ok(pt.answerFig.min === p.fig.min && pt.answerFig.max === p.fig.max, tag + ' key graph uses a different scale than the student line'); });
+        // a key graph drawn on a blank grid uses the same grid
+        if (p.fig && p.fig.kind === 'plane') p.parts.forEach(pt => { if (pt.answerFig) ok(['xmin', 'xmax', 'ymin', 'ymax'].every(k => pt.answerFig[k] === p.fig[k]), tag + ' key graph uses a different grid'); });
         // every worked solution has steps that sum to positive weight (rubric possible)
         ok((p.steps || []).some(s => s.w > 0), tag + ' has no gradable steps');
         sum += complexity(p);
@@ -280,7 +304,7 @@ for (const set of SETS) for (const sk of set.skills) for (let c = 1; c <= 7; c++
       if (far.some(okk => !okk)) caught++; else missed.push('verifier MISSED: ' + sk.id + ' c' + c + ' far point accepted :: ' + p.prompt); return; }
     // (a) numeric answers off by one
     const m = clone(p), a = m.parts[k].answer;
-    const bumped = pt.check && pt.check.type === 'error-line' ? a.replace(/Line (\d+)/, (w, d) => 'Line ' + (+d + 1)) : a.replace(/(-?\d+)(?!.*\d)/, d => String(+d + 1));   // explanations are words; the line number is what is checked
+    const bumped = pt.check && /error-line$/.test(pt.check.type) ? a.replace(/Line (\d+)/, (w, d) => 'Line ' + (+d + 1)) : a.replace(/(-?\d+)(?!.*\d)/, d => String(+d + 1));   // explanations are words; the line number is what is checked
     if (bumped !== a) { m.parts[k].answer = bumped; mustCatch(m, sk.id + ' c' + c + ' answer off by one'); }
     // (b) sign flipped in the first number of the answer math
     const m2 = clone(p), a2 = m2.parts[k].answer; if (/⟨\s*([a-zA-Z]\s*=\s*)?0\s*⟩/.test(a2)) return;   // flipping the sign of 0 changes nothing

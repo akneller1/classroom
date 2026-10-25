@@ -358,6 +358,41 @@
     }
   });
 
+  /* ================= RATE · describe a curved graph ================= */
+  function pt(x, y) { return '(' + num(x) + ',\ ' + num(y) + ')'; }
+  function curvePts(f, x1, x2) { var pts = []; for (var x = x1; x <= x2 + 1e-9; x += 0.5) pts.push([x, f(x)]); return pts; }
+  skill({
+    id: 'curve-behavior', best: [1, 2], tag: 'RATE', name: 'Describe a curved graph',
+    blurb: 'Where a parabola rises or falls (CP2) → its maximum or minimum, both intervals (CP1) → a curve with two turning points: every interval, the relative maximum and minimum (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], f, turns, x1, x2;
+      if (c <= 4) {
+        var h = r.int(-2, 2), k = r.int(-3, 4), a = r.pick([1, -1, 0.5, -0.5]); f = function (x) { return a * (x - h) * (x - h) + k; };
+        x1 = h - r.int(2, 3); x2 = h + r.int(2, 3); turns = [[h, k, a < 0 ? 'max' : 'min']];
+      } else {
+        var m = 1, k3 = r.int(-2, 2), a3 = r.pick([1, -1]), s = r.int(-1, 1); f = function (x) { return a3 * ((x - s) * (x - s) * (x - s) - 3 * (x - s)) + k3; };
+        x1 = s - 2; x2 = s + 2; turns = [[s - 1, f(s - 1), a3 > 0 ? 'max' : 'min'], [s + 1, f(s + 1), a3 > 0 ? 'min' : 'max']]; void m;
+      }
+      var pts = curvePts(f, x1, x2); need(pts.every(function (q) { return Math.abs(q[1]) <= 7 && Math.abs(q[0]) <= 7; }));
+      var ys = pts.map(function (q) { return q[1]; }), fig = { kind: 'plane', xmin: Math.min(-1, x1 - 1), xmax: Math.max(1, x2 + 1), ymin: Math.min(-1, Math.floor(Math.min.apply(null, ys)) - 1), ymax: Math.max(1, Math.ceil(Math.max.apply(null, ys)) + 1), points: [{ x: x1, y: f(x1) }, { x: x2, y: f(x2) }], segs: [], curves: [pts] };
+      // monotone pieces between the ends and the turning points
+      var cuts = [x1].concat(turns.map(function (t) { return t[0]; })).concat([x2]), pieces = [];
+      for (var i = 0; i + 1 < cuts.length; i++) pieces.push({ lo: cuts[i], hi: cuts[i + 1], up: f(cuts[i + 1]) > f(cuts[i]) });
+      var iv = function (up) { var L = pieces.filter(function (pc) { return pc.up === up; }).map(function (pc) { return M(num(F(pc.lo * 2, 2)) + '<x<' + num(F(pc.hi * 2, 2))); }); return L.length ? L.join(' and ') : 'Never'; };
+      var ext = function (t) { return (turns.length > 1 ? 'Relative ' : '') + (t[2] === 'max' ? (turns.length > 1 ? 'maximum' : 'Maximum') : (turns.length > 1 ? 'minimum' : 'Minimum')) + ' value ' + M('y=' + num(F(t[1] * 4, 4))) + ' at ' + M('x=' + t[0]); };
+      var parts = [], wants = c === 1 ? ['increasing'] : c === 2 ? ['decreasing'] : c === 3 ? ['extreme'] : c === 4 ? ['increasing', 'decreasing'] : c === 5 ? ['increasing', 'decreasing'] : ['increasing', 'decreasing', 'extreme'];
+      wants.forEach(function (w, j) {
+        var lab = wants.length > 1 ? 'abc'[j] : '';
+        if (w === 'extreme') parts.push({ label: lab, prompt: wants.length > 1 ? (turns.length > 1 ? 'Give the relative maximum and minimum values and where they occur.' : 'Give the maximum or minimum value and where it occurs.') : '', answer: turns.map(ext).join('; '), check: { type: 'curve-behavior', want: 'extreme' } });
+        else parts.push({ label: lab, prompt: wants.length > 1 ? 'Where is the function ' + w + '?' : '', answer: iv(w === 'increasing'), check: { type: 'curve-behavior', want: w } });
+      });
+      steps.push(step('Read the graph from left to right: it rises where it is increasing and falls where it is decreasing.', '', 2));
+      steps.push(step('The turning point' + (turns.length > 1 ? 's are' : ' is') + ' at ' + turns.map(function (t) { return M(pt(t[0], F(t[1] * 4, 4))); }).join(' and ') + '.', '', 2));
+      var q0 = wants.length > 1 ? 'Use the graph of the function on ' + M(x1 + '\\le x\\le ' + x2) + '.' : wants[0] === 'extreme' ? 'Use the graph of the function on ' + M(x1 + '\\le x\\le ' + x2) + '. Give its maximum or minimum value and where it occurs.' : 'Use the graph of the function on ' + M(x1 + '\\le x\\le ' + x2) + '. Where is the function ' + wants[0] + '?';
+      return { variant: 'cb' + c, prompt: q0, fig: fig, parts: parts, steps: steps, space: [0.6, 0.8, 1.0] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-relations-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'relations-functions', unitName: 'Relations and Functions',
     title: 'The Function Diner',
@@ -370,7 +405,7 @@
       '<section><h4>Rate of change</h4><p>⟨\\text{rate}=\\frac{\\text{change in }y}{\\text{change in }x}=\\frac{y_2-y_1}{x_2-x_1}⟩</p><p>Average rate of change on ⟨a\\le x\\le b⟩: ⟨\\frac{f(b)-f(a)}{b-a}⟩</p></section>' +
       '<section><h4>Arithmetic sequences</h4><p>Common difference ⟨d⟩. Explicit: ⟨a_n=a_1+(n-1)d⟩</p><p>Recursive: ⟨a_n=a_{n-1}+d⟩ with ⟨a_1⟩ given.</p></section>' +
       '<section><h4>Reading graphs</h4><p>Left to right: up = increasing, down = decreasing, level = constant.</p></section></div>',
-    gaps: ['Interpreting graphs uses piecewise-linear graphs; describing a curved graph in words is a "write your own" item.'],
+    gaps: [],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

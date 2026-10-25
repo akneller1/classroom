@@ -169,10 +169,33 @@
     }
   });
 
+  /* ================= DIVIDE · by a binomial ================= */
+  function remTerm(rm, D) { return rm === 0 ? '' : (rm < 0 ? '-' : '+') + '\\frac{' + Math.abs(rm) + '}{' + tex(D) + '}'; }
+  skill({
+    id: 'poly-divide', print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'DIVIDE', name: 'Divide by a binomial',
+    blurb: 'A quadratic divided by x + a with no remainder (CP2) → remainders, cubics, missing terms (CP1) → leading coefficients other than 1, divisors such as 2x − 1 (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [];
+      var k = c === 7 ? r.int(2, 3) : 1, a = nz(r, c <= 1 ? 1 : -9, 9), D = [[k, 1, 0], [a, 0, 0]];
+      var Q = c <= 3 ? [[c === 3 ? r.int(1, 3) : 1, 1, 0], [nz(r, -9, 9), 0, 0]] : [[c >= 6 ? r.int(2, 4) : 1, 2, 0], [r.int(-9, 9), 1, 0], [nz(r, -9, 9), 0, 0]];
+      Q = Q.filter(function (t) { return t[0] !== 0; });
+      var rem = c === 3 || c >= 6 ? nz(r, -12, 12) : 0;
+      var Dv = add(mul(Q, D), rem ? [[rem, 0, 0]] : []);
+      if (c === 5) need(Dv.length < 4);          // a missing term: the student must write a 0 placeholder
+      if (c <= 2) need(Dv.length === 3);
+      var expr = '\\frac{' + tex(Dv) + '}{' + tex(D) + '}', ans = tex(Q) + remTerm(rem, D);
+      steps.push(step('Divide the leading terms to get the first term of the quotient' + (c === 5 ? ' (write ⟨0⟩ for the missing term).' : '.'), '', 1));
+      steps.push(step('Multiply, subtract, bring down; repeat.', '', 2));
+      steps.push(step(rem ? 'The remainder is ' + rem + '; write it over the divisor.' : 'The remainder is 0.', ans, 2));
+      return { variant: 'pdiv' + c, prompt: 'Divide ' + M(expr) + '.' + (rem ? ' Write any remainder as a fraction.' : ''),
+        parts: [{ answer: M(ans), check: { type: 'poly-divide', expr: expr } }], steps: steps, space: [1.3, 1.6, 1.9] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-polynomials', course: 'algebra1', courseName: 'Algebra 1', unit: 'polynomials-factoring', unitName: 'Polynomials',
     title: 'The Polynomial Pizzeria',
-    tags: { CLASSIFY: 'Classify polynomials', ADDSUB: 'Add and subtract', MULT: 'Multiply', SPECIAL: 'Special products', APPLY: 'Divide by a monomial; geometry' },
+    tags: { CLASSIFY: 'Classify polynomials', ADDSUB: 'Add and subtract', MULT: 'Multiply', SPECIAL: 'Special products', APPLY: 'Divide by a monomial; geometry', DIVIDE: 'Divide by a binomial' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Names</h4><p>Terms: monomial (1), binomial (2), trinomial (3). Degree: linear (1), quadratic (2), cubic (3), quartic (4), quintic (5).</p></section>' +
@@ -180,7 +203,7 @@
       '<section><h4>Special products</h4><p>⟨(a+b)^{2}=a^{2}+2ab+b^{2}⟩, ⟨(a-b)^{2}=a^{2}-2ab+b^{2}⟩, ⟨(a+b)(a-b)=a^{2}-b^{2}⟩.</p></section>' +
       '<section><h4>Geometry</h4><p>Rectangle: ⟨P=2l+2w⟩, ⟨A=lw⟩. Box: ⟨V=lwh⟩.</p></section>' +
       '</div>',
-    gaps: ['Long division by a binomial and factoring are not part of this set (factoring is in Unit 10).'],
+    gaps: ['Factoring is in Unit 10.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

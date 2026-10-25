@@ -509,6 +509,9 @@
     }
   });
 
+  /* absolute value EQUATIONS: the shared generator from the Expressions & Equations file */
+  skill(NS.absEqSkill('COMPOUND'));
+
   NS.registerSkillSet({
     id: 'algebra1-inequalities', course: 'algebra1', courseName: 'Algebra 1', unit: 'inequalities', unitName: 'Linear Inequalities',
     title: 'The Inequalities Bistro',
@@ -521,7 +524,7 @@
       '<section><h4>Absolute value</h4><p>⟨|x-h|<r⟩ → ⟨h-r<x<h+r⟩ (between)</p><p>⟨|x-h|>r⟩ → ⟨x<h-r⟩ or ⟨x>h+r⟩ (outside)</p><p>Isolate the absolute value first.</p></section>' +
       '<section><h4>Words</h4><p>at most, no more than → ⟨\\le⟩</p><p>at least, no less than → ⟨\\ge⟩</p><p>more than → ⟨>⟩ · less than, fewer than → ⟨<⟩</p></section>' +
       '<section><h4>Check</h4><p>Test a number from your shaded region in the original inequality.</p></section></div>',
-    gaps: ['Absolute-value EQUATIONS (roadmap Unit 3, days 36–37) are not generated yet; absolute-value inequalities are.', 'Inequalities in two variables are in Unit 6 (systems of inequalities).'],
+    gaps: ['Inequalities in two variables are in Unit 6 (systems of inequalities).'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -7,6 +7,10 @@
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
   });
+  /* Courses marked "comingSoon" in data.js stay in the files but are hidden from navigation, search and
+     browsing: the home page and the menu show them as "Coming soon". */
+  var SOON = L.courses.filter(function (c) { return c.comingSoon; });
+  L.courses = L.courses.filter(function (c) { return !c.comingSoon; });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
   var q = document.getElementById('q');
@@ -94,7 +98,7 @@
     { id: 'tarsia', name: 'Tarsia Puzzles', description: 'Cut out triangles and match math problems to their answers to build a hexagon. Printable puzzles with space to show your work.' },
     { id: 'assessment-menus', name: 'Assessment Menus', description: 'Choose problems from a menu of point values to demonstrate your understanding. Printable assessments with student choice, scoring guidance, and teacher keys.' },
     { id: 'stations', name: 'Stations', description: 'Printable station-work activities with sets of problems for small-group rotation, review, and independent practice.' },
-    { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources across Algebra 1, Algebra 2, and Geometry.' }
+    { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources.' }
   ];
   function activityFormat(a) {
     if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
@@ -321,6 +325,9 @@
               '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
               '<p class="count">' + (n ? acts(n) + ' in ' + units(unitsWithActivities(c)) : 'First activities coming soon') + '</p>' +
               artFor(c) + '</a></li>';
+          }).join('') + SOON.map(function (c) {
+            return '<li><div class="course soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
+              '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
           }).join('') + '</ul></div></section>'
     };
   }
@@ -520,6 +527,13 @@
     };
   }
 
+  function soonView(c) {
+    return {
+      title: c.name + ': coming soon',
+      html: bandHtml(c, '<h1 tabindex="-1">' + esc(c.name) + '</h1>') +
+        '<section class="section"><div class="wrap"><div class="empty"><h2>Coming soon</h2><p>' + esc(c.name) + ' activities are being rebuilt in the same style as Algebra 1. <a href="#algebra">Browse Algebra 1</a> in the meantime.</p></div></div></section>'
+    };
+  }
   function notFoundView() {
     return {
       title: 'Page not found',
@@ -539,6 +553,8 @@
     }
     var parts = t.split('.');
     var c = L.courses.filter(function (x) { return x.id === parts[0]; })[0];
+    var hid = SOON.filter(function (x) { return x.id === parts[0]; })[0];
+    if (!c && hid) return { name: 'soon', c: hid };
     if (!c) return { name: 'nf' };
     if (!parts[1]) return { name: 'course', c: c };
     var u = c.units.filter(function (x) { return x.id === parts[1]; })[0];
@@ -550,7 +566,7 @@
     var html = L.courses.map(function (c) {
       var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
-    }).join('');
+    }).join('') + SOON.map(function (c) { return '<span class="soon-link" title="Coming soon">' + esc(c.name) + ' <small>Coming soon</small></span>'; }).join('');
     html += '<a href="worksheet-generator/lesson-planner.html">Lesson Planner</a>';
     html += '<a href="#activities"' + (r && (r.name === 'activities' || r.name === 'activity') ? ' aria-current="page"' : '') + '>Activities</a>';
     var curSaved = r && r.name === 'saved' ? ' aria-current="page"' : '';
@@ -569,6 +585,7 @@
     else if (r.name === 'saved') view = savedView();
     else if (r.name === 'activities') view = activityIndexView();
     else if (r.name === 'activity') view = activityView(r.format);
+    else if (r.name === 'soon') view = soonView(r.c);
     else view = notFoundView();
 
     app.innerHTML = view.html;

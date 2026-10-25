@@ -58,6 +58,18 @@
       var fm = /\\frac\{(\d+)\}\{(\d+)\}/.exec(tex);
       if (fm) { var cp2 = parts.slice(); cp2[si] = '⟨' + tex.replace(fm[0], '\\frac{' + fm[2] + '}{' + fm[1] + '}') + '⟩'; out.push({ a: cp2.join(''), w: 3 }); }
     });
+    // plain-text words and numbers outside the math: money amounts, swapped words, "3 units" off by one, an interval shifted
+    var outside = function (f) { var segs = ans.split(/(⟨[^⟩]*⟩)/), done = false; return segs.map(function (sg) { if (done || /^⟨/.test(sg)) return sg; var r = f(sg); if (r !== sg) done = true; return r; }).join(''); };
+    var mm = /\$([\d,]+(?:\.\d\d)?)/.exec(ans.replace(/⟨[^⟩]*⟩/g, ''));
+    if (mm) { var mv = +mm[1].replace(/,/g, ''), fmt = function (x) { var c2 = Math.round(x * 100); return '$' + String(Math.floor(c2 / 100)).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (/\./.test(mm[1]) ? '.' + String(c2 % 100).padStart(2, '0') : ''); };
+      [mv + 1, mv - 1, mv + 10, mv - 10, mv * 1.1, mv * 0.9].forEach(function (x) { if (x > 0 && Math.round(x * 100) !== Math.round(mv * 100)) out.push({ a: outside(function (sg) { return sg.replace('$' + mm[1], fmt(x)); }), w: 3 }); }); }
+    [['left', 'right'], ['right', 'left'], ['up', 'down'], ['down', 'up'], ['strong', 'moderate'], ['moderate', 'weak'], ['weak', 'strong'], ['positive', 'negative'], ['negative', 'positive'], ['Class A', 'Class B'], ['Class B', 'Class A'], ['Account A', 'Account B'], ['Account B', 'Account A'], ['stretched', 'compressed'], ['compressed', 'stretched'], ['Maximum', 'Minimum'], ['Minimum', 'Maximum']].forEach(function (sw) {
+      var re0 = new RegExp('\\b' + sw[0] + '\\b'), cand = outside(function (sg) { return sg.replace(re0, sw[1]); }); if (cand !== ans) out.push({ a: cand, w: 3 }); });
+    var cap = function (t) { return t.charAt(0).toUpperCase() + t.slice(1); };
+    if (/^Reflected across the x-axis, /.test(ans)) out.push({ a: cap(ans.replace(/^Reflected across the x-axis, /, '')), w: 4 });
+    else if (/^(Shifted|Vertically)/.test(ans)) out.push({ a: 'Reflected across the x-axis, ' + ans.charAt(0).toLowerCase() + ans.slice(1), w: 4 });
+    [1, -1].forEach(function (d) { var cand = outside(function (sg) { return sg.replace(/(\d+)( units?)/, function (w0, n0, u) { var v = +n0 + d; return v > 0 ? v + (v === 1 ? ' unit' : ' units') : w0; }); }); if (cand !== ans) out.push({ a: cand, w: 2 }); });
+    var bin = /^From (-?\d+) up to (-?\d+)/.exec(ans); if (bin) { var wd = +bin[2] - +bin[1]; [wd, -wd].forEach(function (d) { out.push({ a: 'From ' + (+bin[1] + d) + ' up to ' + (+bin[2] + d), w: 4 }); }); }
     // percents written in plain text ("25%"): the complement, ±5, ±10
     var pm = /(^|[^\d.])(\d+(?:\.\d+)?)%/.exec(ans);
     if (pm) { var pv = +pm[2]; [100 - pv, pv + 5, pv - 5, pv + 10, pv - 10].forEach(function (v) { if (v > 0 && v < 100 && v !== pv) out.push({ a: ans.replace(pm[0], pm[1] + (Math.round(v * 10) / 10) + '%'), w: v === 100 - pv ? 4 : 2 }); }); }
@@ -270,7 +282,7 @@
     ineqs: 'Type both inequalities separated by “and”, like y > 2x - 1 and y <= -x + 4 (use <= for ≤ and >= for ≥).'
   };
   function texOf(s) {
-    return s.replace(/[−–]/g, '-').replace(/≤|<=|=</g, '\\le ').replace(/≥|>=|=>/g, '\\ge ')
+    return s.replace(/[−–]/g, '-').replace(/(?:√|sqrt)\s*\(?\s*(\d+)\s*\)?/gi, '\\sqrt{$1}').replace(/≤|<=|=</g, '\\le ').replace(/≥|>=|=>/g, '\\ge ')
       .replace(/\*/g, '\\cdot ').replace(/(\([^()]*\)|[A-Za-z0-9.]+)\s*\/\s*(\([^()]*\)|[A-Za-z0-9.]+)/g, function (w, a, b) {
         var tail = '', m = /^(\d+(?:\.\d+)?)([A-Za-z].*)$/.exec(b);
         if (m && /^-?[\d.]+$/.test(a)) { b = m[1]; tail = m[2]; }    // 1/2x means one half of x

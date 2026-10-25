@@ -762,6 +762,191 @@
     }
   });
 
+  var K = NS.kit;
+  /* ============================================================
+     SOLVE · Absolute value equations   (checked as solution sets by the inequality checker)
+     ============================================================ */
+  skill(NS.absEqSkill('SOLVE'));
+
+  /* ============================================================
+     SOLVE · Find and fix the mistake (equations)
+     ============================================================ */
+  /* plain text for the mistake explanation (the line number is what is checked) */
+  function P(t) { return String(t).replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2').replace(/\s+/g, ' ').replace(/-/g, '−'); }
+  var WHO = ['Alex', 'Jordan', 'Sam', 'Taylor', 'Riley', 'Casey', 'Morgan', 'Jamie', 'Avery', 'Quinn'];
+  skill({
+    id: 'eq-error', best: [1, 2], tag: 'SOLVE', name: 'Find and fix the mistake',
+    blurb: 'A sign slip in a one- or two-step equation (CP2) → distributing to only one term, moving a term without changing its sign (CP1) → a negative times a group, clearing fractions, mistakes deep in longer work (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(WHO), x = pickAnswer(ctx, -9, 9), orig, lines = [], why;
+      if (c === 1) {
+        var b = r.int(2, 15), R = x + b; need(R !== 0);
+        orig = eq(xb(b), num(R)); lines.push(answerX('x', R + b)); why = 'added ' + b + ' to both sides instead of subtracting it';
+      } else if (c === 2) {
+        var a2 = r.int(2, 7) * r.sign(), b2 = nz(r, -15, 15), R2 = a2 * x + b2;
+        orig = eq(ax_b(a2, b2), num(R2)); lines.push(eq(lin([[a2, 'x']]), num(R2 + b2))); lines.push(answerX('x', F(R2 + b2, a2)));
+        why = (b2 > 0 ? 'added ' + b2 : 'subtracted ' + (-b2)) + ' on the right side instead of undoing it';
+      } else if (c === 3) {
+        var a3 = r.int(2, 6), b3 = nz(r, -9, 9), R3 = a3 * (x + b3); need(R3 !== 0);
+        orig = eq(grp(a3, xb(b3)), num(R3)); lines.push(eq(ax_b(a3, b3), num(R3))); lines.push(eq(lin([[a3, 'x']]), num(R3 - b3))); lines.push(answerX('x', F(R3 - b3, a3)));
+        why = 'multiplied only the ' + P('x') + ' by ' + a3 + ' when distributing (the ' + num(b3) + ' must be multiplied too)';
+      } else if (c === 4) {
+        var a4 = r.int(2, 9) * r.sign(), d4 = r.int(1, 7) * r.sign(), b4 = nz(r, -12, 12); need(a4 !== d4 && a4 + d4 !== 0);
+        var e4 = (a4 - d4) * x + b4; need(e4 !== 0);
+        orig = eq(ax_b(a4, b4), ax_b(d4, e4)); lines.push(eq(ax_b(a4 + d4, b4), num(e4))); lines.push(eq(lin([[a4 + d4, 'x']]), num(e4 - b4))); lines.push(answerX('x', F(e4 - b4, a4 + d4)));
+        why = 'moved ' + P(lin([[d4, 'x']])) + ' to the left side without changing its sign';
+      } else if (c === 5) {
+        var p5 = r.int(2, 20), q5 = r.int(2, 6), d5 = nz(r, -8, 8), R5 = p5 - q5 * (x + d5);
+        orig = eq(p5 + '-' + grp(q5, xb(d5)), num(R5));
+        var wrongB = p5 + q5 * d5;   // wrote −q(x + d) as −qx + qd
+        lines.push(eq(lin([[p5, ''], [-q5, 'x'], [q5 * d5, '']]), num(R5))); lines.push(eq(ax_b(-q5, wrongB), num(R5)));
+        lines.push(eq(lin([[-q5, 'x']]), num(R5 - wrongB))); lines.push(answerX('x', F(R5 - wrongB, -q5)));
+        why = 'distributed ' + P('-' + q5) + ' but did not change the sign of ' + P(num(d5)) + ' (it should be ' + P(num(-q5 * d5)) + ')';
+      } else if (c === 6) {   // x on both sides; the negative group distributed with the wrong sign
+        var p6 = r.int(2, 20), q6 = r.int(2, 6), d6 = nz(r, -8, 8), e6 = nz(r, -5, 5); need(-q6 - e6 !== 0);
+        var R6 = p6 - q6 * (x + d6) - e6 * x, W6 = p6 + q6 * d6;
+        orig = eq(p6 + '-' + grp(q6, xb(d6)), ax_b(e6, R6));
+        lines.push(eq(lin([[p6, ''], [-q6, 'x'], [q6 * d6, '']]), ax_b(e6, R6))); lines.push(eq(ax_b(-q6, W6), ax_b(e6, R6)));
+        lines.push(eq(lin([[-q6 - e6, 'x']]), num(R6 - W6))); lines.push(answerX('x', F(R6 - W6, -q6 - e6)));
+        why = 'distributed ' + P('-' + q6) + ' but did not change the sign of ' + P(num(d6)) + ' (it should be ' + P(num(-q6 * d6)) + ')';
+      } else {
+        var a7 = r.int(2, 6), b7 = nz(r, -6, 6), c7 = r.int(2, 5), d7 = r.int(1, 7), e7 = nz(r, -4, 4);
+        var A1 = a7 - c7, B1 = a7 * b7 + c7 * d7; need(A1 !== e7);
+        var f7 = (A1 - e7) * x + B1; need(f7 !== 0);
+        orig = eq(grp(a7, xb(b7)) + '-' + grp(c7, xb(-d7)), ax_b(e7, f7));
+        var Bw7 = a7 * b7 - c7 * d7;
+        lines.push(eq(lin([[a7, 'x'], [a7 * b7, ''], [-c7, 'x'], [-c7 * d7, '']]), ax_b(e7, f7)));
+        lines.push(eq(ax_b(A1, Bw7), ax_b(e7, f7))); lines.push(eq(lin([[A1 - e7, 'x']]), num(f7 - Bw7))); lines.push(answerX('x', F(f7 - Bw7, A1 - e7)));
+        why = 'distributed ' + P('-' + c7) + ' and wrote ' + P(num(-c7 * d7)) + ' instead of ' + P('+' + c7 * d7) + ' (a negative times a negative is positive)';
+      }
+      var C = NS.check, base = C.solutionSet(orig, 'x'), first = 0;
+      need(base.length === 1);
+      lines.forEach(function (ln, i) { if (!first && !C.setEqual(C.solutionSet(ln, 'x'), base)) first = i + 1; });
+      need(first > 0);
+      var X = base[0].lo; need(ctx.intOnly ? X.n % X.d === 0n : true);
+      var xs = F(Number(X.n), Number(X.d)), st = [step('Line ' + first + ': ' + who + ' ' + why + '.', '', 3)];
+      st.push(step('Correct solution:', answerX('x', xs), 3));
+      return {
+        variant: 'eq-error' + c, prompt: who + ' solved ' + M(orig) + ' like this:', work: lines,
+        parts: [{ label: 'a', prompt: 'Which line has the first mistake? Explain what went wrong.', answer: 'Line ' + first + ': ' + who + ' ' + why + '.', check: { type: 'error-line', ineq: orig, lines: lines, v: 'x' } },
+                { label: 'b', prompt: 'Solve the equation correctly.', answer: M(answerX('x', xs)), check: solveSpec(orig, 'x') }],
+        steps: st, space: [1.3, 1.6, 1.9]
+      };
+    }
+  });
+
+  /* ============================================================
+     MODEL · Percent problems (re-solved from the words and numbers printed)
+     ============================================================ */
+  var ITEMS_PCT = [['jacket', 'jackets'], ['video game', 'games'], ['pair of shoes', 'shoes'], ['bike', 'bikes'], ['backpack', 'backpacks'], ['headphones', 'headphones']];
+  function cents(x) { var v = Math.round(x * 100); return '$' + (v % 100 === 0 ? String(v / 100) : (v / 100).toFixed(2)); }
+  skill({
+    id: 'percent', best: [0, 1, 2], tag: 'MODEL', name: 'Percent problems',
+    blurb: 'A percent of a number, what percent, the whole (CP2) → percent change, discounts, simple interest (CP1) → discount then tax, finding the original price, two changes in a row (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], item = r.pick(ITEMS_PCT)[0], prompt, ans, sc;
+      if (c === 1) {
+        var p1 = r.pick([10, 20, 25, 50, 5, 30, 40, 75]), n1 = r.int(2, 30) * (100 / gcd(p1, 100)); need(n1 <= 400);
+        var v1 = p1 * n1 / 100; prompt = 'What is ' + p1 + '% of ' + n1 + '?'; ans = M(String(v1)); sc = 'of';
+        steps.push(step('Write the percent as a decimal and multiply.', (p1 / 100) + '\\times ' + n1 + '=' + v1, 3));
+      } else if (c === 2) {
+        var p2 = r.pick([5, 10, 15, 20, 25, 30, 40, 60, 75, 80]), w2 = r.int(2, 20) * (100 / gcd(p2, 100)); need(w2 <= 400);
+        var part2 = p2 * w2 / 100; prompt = part2 + ' is what percent of ' + w2 + '?'; ans = p2 + '%'; sc = 'what-pct';
+        steps.push(step('Divide the part by the whole.', '\\frac{' + part2 + '}{' + w2 + '}=' + (p2 / 100), 2), step('Write the decimal as a percent.', p2 + '\\%', 1));
+      } else if (c === 3) {
+        var p3 = r.pick([5, 10, 20, 25, 40, 60, 75, 15, 35]), w3 = r.int(2, 20) * (100 / gcd(p3, 100)); need(w3 <= 500);
+        var part3 = p3 * w3 / 100; prompt = part3 + ' is ' + p3 + '% of what number?'; ans = M(String(w3)); sc = 'whole';
+        steps.push(step('Write an equation.', part3 + '=' + (p3 / 100) + 'n', 2), step('Divide.', 'n=' + w3, 1));
+      } else if (c === 4) {
+        var o4 = r.int(2, 30) * r.pick([4, 5, 10, 20]), p4 = r.pick([10, 20, 25, 50, 5, 15, 40, 75]), up = r.chance(0.5);
+        need(o4 * p4 % 100 === 0); var n4 = up ? o4 + o4 * p4 / 100 : o4 - o4 * p4 / 100;
+        prompt = 'A club had ' + o4 + ' members last year and has ' + n4 + ' members this year. Find the percent change and say whether it is an increase or a decrease.';
+        ans = p4 + '% ' + (up ? 'increase' : 'decrease'); sc = 'change';
+        steps.push(step('Change = new − old.', String(n4 - o4), 1), step('Divide by the original amount.', '\\frac{' + Math.abs(n4 - o4) + '}{' + o4 + '}=' + (p4 / 100), 2), step('As a percent: ' + p4 + '% ' + (up ? 'increase' : 'decrease') + '.', '', 1));
+      } else if (c === 5) {
+        if (r.chance(0.5)) {
+          var pr5 = r.int(4, 40) * 5, d5 = r.pick([10, 20, 25, 15, 30, 40]); need(pr5 * d5 % 100 === 0 || ctx.intOnly === false);
+          var sale = pr5 * (100 - d5) / 100; prompt = 'A ' + item + ' costs ' + cents(pr5) + '. It is on sale for ' + d5 + '% off. What is the sale price?'; ans = cents(sale); sc = 'discount';
+          steps.push(step('Discount = ' + d5 + '% of ' + cents(pr5) + '.', (d5 / 100) + '\\times ' + pr5 + '=' + (pr5 * d5 / 100), 2), step('Subtract from the price.', pr5 + '-' + (pr5 * d5 / 100) + '=' + sale, 1));
+        } else {
+          var P5 = r.int(2, 30) * 100, rr = r.pick([2, 3, 4, 5, 6]), t5 = r.int(2, 6), I5 = P5 * rr * t5 / 100;
+          prompt = 'Maya puts ' + cents(P5) + ' in an account that earns ' + rr + '% simple interest per year. How much interest does she earn in ' + t5 + ' years?';
+          ans = cents(I5); sc = 'interest'; steps.push(step('Use ⟨I=Prt⟩.', 'I=' + P5 + '(' + (rr / 100) + ')(' + t5 + ')=' + I5, 3));
+        }
+      } else if (c === 6) {
+        if (r.chance(0.5)) {
+          var pr6 = r.int(4, 30) * 10, d6 = r.pick([10, 20, 25, 30]), tx = r.pick([5, 6, 8, 10]); var s6 = pr6 * (100 - d6) / 100, tot = s6 * (100 + tx) / 100;
+          need(Math.abs(tot * 100 - Math.round(tot * 100)) < 1e-9);
+          prompt = 'A ' + item + ' costs ' + cents(pr6) + '. It is ' + d6 + '% off, and then ' + tx + '% sales tax is added to the sale price. What is the total cost?'; ans = cents(tot); sc = 'disc-tax';
+          steps.push(step('Sale price: ' + cents(pr6) + ' × ' + ((100 - d6) / 100) + '.', String(s6), 2), step('Add the tax: × ' + ((100 + tx) / 100) + '.', String(tot), 2));
+        } else {
+          var o6 = r.int(4, 40) * 5, d66 = r.pick([10, 20, 25, 40, 50, 30]), s66 = o6 * (100 - d66) / 100; need(Math.abs(s66 - Math.round(s66 * 100) / 100) < 1e-9);
+          prompt = 'After a ' + d66 + '% discount, a ' + item + ' costs ' + cents(s66) + '. What was the original price?'; ans = cents(o6); sc = 'original';
+          steps.push(step('The sale price is ' + (100 - d66) + '% of the original.', s66 + '=' + ((100 - d66) / 100) + 'p', 2), step('Divide.', 'p=' + o6, 2));
+        }
+      } else {
+        var o7 = r.int(2, 20) * 50, u7 = r.pick([10, 20, 25, 50]), d7 = r.pick([10, 20, 25, 40]); var m7 = o7 * (100 + u7) / 100, f7 = m7 * (100 - d7) / 100;
+        need(Math.abs(f7 * 100 - Math.round(f7 * 100)) < 1e-9);
+        prompt = 'A store raises the price of a ' + item + ' that cost ' + cents(o7) + ' by ' + u7 + '%. Later it lowers the new price by ' + d7 + '%. What is the final price, and is it more or less than the original?';
+        ans = cents(f7) + ', ' + (f7 > o7 ? 'more' : f7 < o7 ? 'less' : 'the same as') + (f7 === o7 ? ' the original' : ' than the original'); sc = 'two-changes'; need(f7 !== o7);
+        steps.push(step('Increase: ' + cents(o7) + ' × ' + ((100 + u7) / 100) + '.', String(m7), 2), step('Decrease: × ' + ((100 - d7) / 100) + '.', String(f7), 2), step('Compare with ' + cents(o7) + '.', '', 1));
+      }
+      return { variant: 'pct-' + sc, prompt: prompt, parts: [{ answer: ans, check: { type: 'percent', scenario: sc } }], steps: steps, space: [0.8, 1.0, 1.2] };
+    }
+  });
+
+  /* ============================================================
+     SIMPLIFY · Find and fix the mistake (expressions, for Unit 1)
+     ============================================================ */
+  skill({
+    id: 'expr-error', best: [1, 2], tag: 'SIMPLIFY', name: 'Find and fix the mistake (expressions)',
+    blurb: 'Combining unlike terms (CP2) → distributing to only one term, subtracting a group (CP1) → two groups, two variables, fractions (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(WHO), orig, lines = [], why, fix;
+      if (c === 1) {
+        var a = r.int(2, 9), b = r.int(2, 12), d = r.int(2, 9);
+        orig = a + 'x+' + b + '+' + d + 'x'; lines.push(lin([[a + d + b, 'x']]));
+        why = 'added the constant ' + b + ' to the ' + P('x') + '-terms (only like terms combine)'; fix = ax_b(a + d, b);
+      } else if (c === 2) {
+        var a2 = r.int(2, 9), b2 = r.int(2, 9), e2 = r.int(2, 12);
+        orig = grp(a2, xb(b2)) + '+' + e2; lines.push(lin([[a2, 'x'], [b2, ''], [e2, '']])); lines.push(ax_b(a2, b2 + e2));
+        why = 'multiplied only the ' + P('x') + ' by ' + a2 + ' (the ' + b2 + ' must be multiplied too)'; fix = ax_b(a2, a2 * b2 + e2);
+      } else if (c === 3 || c === 4) {
+        var a3 = r.int(3, 9), q3 = r.int(2, 6), d3 = r.int(1, 9) * r.sign();
+        orig = a3 + 'x-' + grp(q3, xb(d3)); lines.push(lin([[a3, 'x'], [-q3, 'x'], [q3 * d3, '']])); lines.push(ax_b(a3 - q3, q3 * d3));
+        why = 'did not change the sign of ' + P(num(d3)) + ' when distributing ' + P('-' + q3) + ' (it should be ' + P(num(-q3 * d3)) + ')'; fix = ax_b(a3 - q3, -q3 * d3); need(a3 !== q3);
+        if (c === 4) {
+          var y1 = r.int(2, 8), y2 = r.int(2, 8), x1 = r.int(2, 9), x2 = r.int(1, 8); need(x1 !== x2);
+          orig = lin([[x1, 'x'], [y1, 'y'], [-x2, 'x'], [y2, 'y']]); lines = [lin([[x1, 'x'], [-x2, 'x'], [y1, 'y'], [y2, 'y']]), lin([[x1 + x2, 'x'], [y1 + y2, 'y']])];
+          why = 'added ' + P(lin([[x2, 'x']])) + ' instead of subtracting it'; fix = lin([[x1 - x2, 'x'], [y1 + y2, 'y']]);
+        }
+      } else if (c === 5 || c === 6) {
+        var a5 = r.int(2, 5), b5 = nz(r, -7, 7), q5 = r.int(2, 5), d5 = nz(r, -7, 7);
+        orig = grp(a5, xb(b5)) + '-' + grp(q5, xb(d5));
+        lines.push(lin([[a5, 'x'], [a5 * b5, ''], [-q5, 'x'], [-q5 * d5, '']])); lines.push(ax_b(a5 - q5, a5 * b5 - q5 * d5));
+        var wrongIdx = c === 5 ? 1 : 0; need(a5 !== q5); fix = ax_b(a5 - q5, a5 * b5 - q5 * d5);
+        if (wrongIdx === 1) { lines[1] = ax_b(a5 + q5, a5 * b5 - q5 * d5); why = 'combined ' + P(a5 + 'x') + ' and ' + P('-' + q5 + 'x') + ' as ' + P((a5 + q5) + 'x') + ' (it should be ' + P(num(a5 - q5) + 'x') + ')'; need(a5 - q5 !== 0); }
+        else { lines[0] = lin([[a5, 'x'], [a5 * b5, ''], [-q5, 'x'], [q5 * d5, '']]); lines[1] = ax_b(a5 - q5, a5 * b5 + q5 * d5); why = 'did not change the sign of ' + P(num(d5)) + ' when distributing ' + P('-' + q5); need(a5 - q5 !== 0); }
+      } else {
+        var h = r.pick([2, 3, 4]), u = r.int(1, 5) * h, w = nz(r, -4, 4) * h, k7 = r.int(1, 9);
+        var g7 = r.int(2, 9);
+        orig = '\\frac{1}{' + h + '}(' + ax_b(u, w) + ')-(x-' + k7 + ')+' + g7 + 'x';
+        lines.push(lin([[u / h, 'x'], [w / h, ''], [-1, 'x'], [-k7, ''], [g7, 'x']])); lines.push(lin([[u / h - 1 + g7, 'x'], [w / h, ''], [-k7, '']])); lines.push(ax_b(u / h - 1 + g7, w / h - k7));
+        why = 'subtracted the group but wrote ' + P('-' + k7) + ' instead of ' + P('+' + k7) + ' (subtracting a group changes every sign)'; need(u / h - 1 + g7 !== 0); fix = ax_b(u / h - 1 + g7, w / h + k7);
+      }
+      var C = NS.check, first = 0;
+      lines.forEach(function (ln, i) { if (!first && !C.equivalent(orig, ln)) first = i + 1; });
+      need(first > 0);
+      need(C.equivalent(orig, fix));
+      return {
+        variant: 'expr-error' + c, prompt: who + ' simplified ' + M(orig) + ' like this:', work: lines,
+        parts: [{ label: 'a', prompt: 'Which line has the first mistake? Explain what went wrong.', answer: 'Line ' + first + ': ' + who + ' ' + why + '.', check: { type: 'expr-error-line', expr: orig, lines: lines } },
+                { label: 'b', prompt: 'Simplify the expression correctly.', answer: M(fix), check: { type: 'simplify', expr: orig } }],
+        steps: [step('Line ' + first + ': ' + who + ' ' + why + '.', '', 3), step('Correct simplified form:', fix, 3)], space: [1.2, 1.5, 1.8]
+      };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Solving Linear Equations',
     title: 'The Equation Bistro',
@@ -774,10 +959,7 @@
       '<section><h4>Proportions</h4><p>If ⟨\\frac{a}{b}=\\frac{c}{d}⟩, then ⟨ad=bc⟩.</p></section>' +
       '<section><h4>Formulas</h4><p>Perimeter of a rectangle ⟨P=2l+2w⟩ · Area ⟨A=lw⟩</p><p>Triangle ⟨A=\\frac{1}{2}bh⟩ · Trapezoid ⟨A=\\frac{h(b+c)}{2}⟩</p><p>Distance ⟨d=rt⟩ · Simple interest ⟨I=Prt⟩</p><p>Temperature ⟨F=\\frac{9}{5}C+32⟩</p></section>' +
       '<section><h4>Words to equations</h4><p>“3 more than twice ⟨w⟩” → ⟨2w+3⟩</p><p>Consecutive integers: ⟨n,\\ n+1,\\ n+2⟩; consecutive even or odd: ⟨n,\\ n+2,\\ n+4⟩</p><p>Fee + rate: ⟨\\text{total}=\\text{fee}+\\text{rate}\\cdot n⟩</p></section></div>',
-    gaps: [
-      'Error analysis ("find the mistake") dishes are not generated yet. Use Add → Write your own problem.',
-      'Percent and absolute-value equations are not part of this pilot.'
-    ],
+    gaps: [],
     skills: skills
   });
 
@@ -786,7 +968,7 @@
   NS.registerSkillSet({
     id: 'algebra1-foundations', course: 'algebra1', courseName: 'Algebra 1', unit: 'foundations-algebra', unitName: 'Foundations of Algebra',
     title: 'The Expression Café',
-    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute' },
+    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', MODEL: 'Percent' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Order of operations</h4><p>Grouping symbols → exponents → multiply and divide (left to right) → add and subtract (left to right).</p></section>' +
@@ -795,6 +977,6 @@
     gaps: [
       'Real-number classification, properties by name, and translating words to expressions are not generated yet. Use Add → Write your own problem.'
     ],
-    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate'].indexOf(s.id) >= 0; })
+    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate', 'expr-error', 'percent'].indexOf(s.id) >= 0; })
   });
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -203,6 +203,43 @@
     }
   });
 
+  /* ================= GRAPH BY HAND (the key shows the finished graph; the verifier reads it back) ================= */
+  skill({
+    id: 'graph-hand', best: [0, 1, 2], tag: 'INEQ', name: 'Graph systems and inequalities by hand',
+    blurb: 'Graph one inequality: solid or dashed, which side to shade (CP2) → graph a system of equations and read the solution (CP1) → graph and shade a system of inequalities, fraction slopes, standard form first (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], blank = win(), key = win();
+      if (c <= 2) {
+        var h = hpSpec(r, false);
+        if (c === 1) need(h.rel === 'ge' || h.rel === 'le'); else need(h.rel === '>' || h.rel === '<');
+        key.halfplanes = [h.fig];
+        steps.push(step('Graph the boundary line ' + M(si(h.m, h.b)) + ': start at ' + M(pt(0, h.b)) + ', then use the slope.', '', 2));
+        steps.push(step((h.fig.dashed ? 'Use a dashed line (< or >).' : 'Use a solid line (≤ or ≥).') + ' Shade ' + (/>|ge/.test(h.rel) ? 'above' : 'below') + ' the line.', '', 2));
+        return { variant: 'gh' + c, prompt: 'Graph ' + M(h.tex) + ' on the grid.', fig: blank,
+          parts: [{ answer: 'Boundary ' + M(si(h.m, h.b)) + ' (' + (h.fig.dashed ? 'dashed' : 'solid') + '), shaded ' + (/>|ge/.test(h.rel) ? 'above' : 'below') + '.', answerFig: key, check: { type: 'graph-key', ineqs: [h.tex] } }], steps: steps, space: [0.5, 0.6, 0.7] };
+      }
+      if (c <= 4) {
+        var x0 = r.int(-4, 4), y0 = r.int(-4, 4), m1 = slopePick(r, false), m2 = slopePick(r, c === 4); need(!m1.eq(m2));
+        var e1 = si(m1, F(y0).sub(m1.mul(x0))), e2 = si(m2, F(y0).sub(m2.mul(x0)));
+        key.segs = [lineSeg(m1, x0, y0), lineSeg(m2, x0, y0)]; key.points = [{ x: x0, y: y0 }];
+        steps.push(step('Graph each line from its y-intercept and slope.', '', 2), step('The lines cross at the solution.', pt(x0, y0), 2));
+        return { variant: 'gh' + c, prompt: 'Solve the system by graphing: ' + sysTeX(e1, e2) + '.', fig: blank,
+          parts: [{ answer: 'Solution: ' + M(pt(x0, y0)), answerFig: key, check: { type: 'graph-key', eqs: [e1, e2] } }], steps: steps, space: [0.5, 0.6, 0.7] };
+      }
+      var A = hpSpec(r, c >= 6), B = hpSpec(r, false); need(!A.m.eq(B.m));
+      var texA = A.tex;
+      if (c === 7) {   // the first inequality in standard form: −m·x + y (rel) b, cleared of fractions
+        var d = A.m.d, n = A.m.n; texA = lin([[-n, 'x'], [d, 'y']]) + RELTEX[A.rel] + num(A.b * d);
+        steps.push(step('Solve the first inequality for ' + M('y') + '.', A.tex, 2));
+      }
+      key.halfplanes = [A.fig, B.fig];
+      steps.push(step('Graph each boundary line; dashed for < or >, solid for ≤ or ≥.', '', 2), step('Shade each side; the solution is where the shadings overlap.', '', 2));
+      return { variant: 'gh' + c, prompt: 'Graph the system of inequalities and shade the solution: ' + sysTeX(texA, B.tex) + '.', fig: blank,
+        parts: [{ answer: 'Boundaries ' + M(si(A.m, A.b)) + ' (' + (A.fig.dashed ? 'dashed' : 'solid') + ', shade ' + (/>|ge/.test(A.rel) ? 'above' : 'below') + ') and ' + M(si(B.m, B.b)) + ' (' + (B.fig.dashed ? 'dashed' : 'solid') + ', shade ' + (/>|ge/.test(B.rel) ? 'above' : 'below') + '); the solution is the overlap.',
+          answerFig: key, check: { type: 'graph-key', ineqs: [texA, B.tex] } }], steps: steps, space: [0.5, 0.6, 0.7] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-systems-of-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'systems-of-equations', unitName: 'Systems of Equations and Inequalities',
     title: 'The Intersection Inn',
@@ -215,7 +252,7 @@
       '<section><h4>Elimination</h4><p>Multiply so one variable has opposite coefficients, add, solve, substitute back.</p></section>' +
       '<section><h4>Inequalities</h4><p>⟨<⟩, ⟨>⟩: dashed line. ⟨\\le⟩, ⟨\\ge⟩: solid line. ⟨y>⟩: shade above.</p></section>' +
       '</div>',
-    gaps: ['Graphing a system or shading a region by hand is not checked automatically; three-variable systems and nonlinear systems are not generated.'],
+    gaps: ['Three-variable systems and nonlinear systems are not generated. Graphs drawn by students are checked against the key graph by the teacher.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

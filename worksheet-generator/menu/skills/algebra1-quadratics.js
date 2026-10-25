@@ -155,10 +155,111 @@
     }
   });
 
+  /* ================= GRAPH · by hand (the key shows the parabola; the verifier reads it back) ================= */
+  function blank7() { return { kind: 'plane', xmin: -7, xmax: 7, ymin: -7, ymax: 7, points: [], segs: [], curves: [] }; }
+  function sform(a, b, c) { return 'y=' + quad(a, b, c); }
+  skill({
+    id: 'q-graph', best: [0, 1, 2], tag: 'GRAPH', name: 'Graph a parabola by hand',
+    blurb: 'Vertex form with a = 1 (CP2) → opening down, a = 2 or ½, standard form (CP1) → standard form with a ≠ 1, finding the vertex first (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], h = r.int(-3, 3), k = r.int(-4, 4), a = 1;
+      if (c === 1) { h = r.int(-6, 6); k = r.int(-7, 4); var pick1 = r.int(0, 2); if (pick1 === 0) h = 0; else if (pick1 === 1) k = 0; else { h = nz(r, -2, 2); k = nz(r, -2, 2); } }
+      if (c === 2) need(h !== 0 && k !== 0);
+      if (c === 3 || c === 6) a = -1;
+      if (c === 4) a = r.pick([2, -2, F(1, 2), F(-1, 2)]);
+      if (c === 7) a = r.pick([2, -2]);
+      a = Fr.of(a); need(!(h === 0 && k === 0));
+      var eq, b = a.mul(-2 * h), cc = a.mul(h * h).add(k);
+      if (c >= 5) { need(b.isInt() && cc.isInt()); eq = sform(a, b, cc); steps.push(step('Find the vertex: ⟨x=-\\frac{b}{2a}=' + h + '⟩, then ⟨y=' + k + '⟩.', '', 2)); }
+      else eq = vform(a, h, k);
+      var y1 = a.add(k), key = parab(a, h, k); key.points = [{ x: h, y: k }];
+      need(Math.abs(y1.val()) <= 7);
+      steps.push(step('Plot the vertex ' + M(pt(h, k)) + ' and draw the axis of symmetry ' + M('x=' + h) + '.', '', 2));
+      steps.push(step('One step left or right of the vertex, ⟨y⟩ changes by ⟨a=' + num(a) + '⟩: plot ' + M(pt(h - 1, y1)) + ' and ' + M(pt(h + 1, y1)) + ', then more points, and draw a smooth curve.', '', 2));
+      return { variant: 'qg' + c, prompt: 'Graph ' + M(eq) + '. Label the vertex.', fig: blank7(),
+        parts: [{ answer: 'Vertex ' + M(pt(h, k)) + ', axis of symmetry ' + M('x=' + h) + '; it passes through ' + M(pt(h - 1, y1)) + ' and ' + M(pt(h + 1, y1)) + '.', answerFig: key, check: { type: 'quad-graph', eq: eq, fn: true } }], steps: steps, space: [0.5, 0.6, 0.7] };
+    }
+  });
+
+  /* ================= TRANSFORM · transformations of y = x² in words ================= */
+  function moves(a, h, k) {
+    var w = [], A = Fr.of(a), aa = A.abs();
+    if (A.sign() < 0) w.push('reflected across the x-axis');
+    if (!aa.eq(1)) w.push((aa.gt(1) ? 'vertically stretched by a factor of ' : 'vertically compressed by a factor of ') + (aa.isInt() ? String(aa.n) : aa.n + '/' + aa.d));
+    var sh = [];
+    if (h) sh.push(Math.abs(h) + ' unit' + (Math.abs(h) === 1 ? '' : 's') + (h > 0 ? ' right' : ' left'));
+    if (k) sh.push(Math.abs(k) + ' unit' + (Math.abs(k) === 1 ? '' : 's') + (k > 0 ? ' up' : ' down'));
+    if (sh.length) w.push('shifted ' + sh.join(' and '));
+    return w;
+  }
+  function joinW(w) { return w.length === 1 ? w[0] : w.slice(0, -1).join(', ') + ' and ' + w[w.length - 1]; }
+  skill({
+    id: 'q-transform', best: [0, 1, 2], tag: 'TRANSFORM', name: 'Transformations of y = x²',
+    blurb: 'Shifts up, down, left and right (CP2) → both shifts, reflections, stretches and compressions (CP1) → write the equation from a description (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], h = nz(r, -6, 6), k = nz(r, -8, 8), a = F(1);
+      if (c === 1) { h = 0; k = nz(r, -15, 15); } if (c === 2) { k = 0; h = nz(r, -14, 14); }
+      if (c === 4 || c === 6) a = F(-1);
+      if (c === 5 || c === 7) a = F(r.pick([2, 3, 4, -2, -3])); if (c === 5 && r.chance(0.4)) a = F(r.pick([1, -1]), r.pick([2, 3, 4]));
+      var eq = vform(a, h, k), w = moves(a, h, k);
+      if (c <= 5) {
+        steps.push(step('Compare with ⟨y=a(x-h)^2+k⟩: ⟨a=' + num(a) + '⟩, ⟨h=' + h + '⟩, ⟨k=' + k + '⟩.', '', 2));
+        steps.push(step('⟨h⟩ moves the graph right (positive) or left (negative); ⟨k⟩ moves it up or down' + (a.eq(1) ? '.' : '; ⟨a⟩ reflects and stretches it.'), '', 2));
+        var ansW = joinW(w); ansW = ansW.charAt(0).toUpperCase() + ansW.slice(1) + '.';
+        return { variant: 'qt' + c, prompt: 'Describe how the graph of ' + M(eq) + ' is related to the graph of ' + M('y=x^{2}') + '.', parts: [{ answer: ansW, check: { type: 'quad-transform', eq: eq, want: 'describe' } }], steps: steps, space: [0.4, 0.5, 0.6] };
+      }
+      steps.push(step('A shift right ⟨h⟩ gives ⟨(x-h)⟩; a shift up ⟨k⟩ adds ⟨k⟩; a reflection makes ⟨a⟩ negative.', '', 2), step('The equation:', eq, 2));
+      return { variant: 'qt' + c, prompt: 'The graph of ' + M('y=x^{2}') + ' is ' + joinW(w) + '. Write the equation of the new graph in vertex form.', parts: [{ answer: M(eq), check: { type: 'quad-transform', want: 'equation' } }], steps: steps, space: [0.5, 0.6, 0.7] };
+    }
+  });
+
+  /* ================= MODEL · fitting a quadratic to data ================= */
+  var QCTX = [['Time (s)', 'Height (ft)'], ['Price ($)', 'Profit ($)'], ['Speed (mph)', 'Fuel use'], ['Day', 'Visitors']];
+  function rH(x) { return Math.round(x * 100 + (x < 0 ? -1e-9 : 1e-9)) / 100; }
+  function fmtC(v) { var x = rH(v); return (x < 0 ? '-' : '') + String(Math.abs(x)); }
+  function quadReg(pts) {   // least squares: solve the 3×3 normal equations
+    var S = [0, 0, 0, 0, 0], T = [0, 0, 0]; pts.forEach(function (p) { var x = p[0], y = p[1], xp = 1; for (var i = 0; i < 5; i++) { S[i] += xp; if (i < 3) T[i] += xp * y; xp *= x; } });
+    var A = [[S[4], S[3], S[2], T[2]], [S[3], S[2], S[1], T[1]], [S[2], S[1], S[0], T[0]]];
+    for (var i = 0; i < 3; i++) { var piv = i; for (var j = i + 1; j < 3; j++) if (Math.abs(A[j][i]) > Math.abs(A[piv][i])) piv = j; var tmp = A[i]; A[i] = A[piv]; A[piv] = tmp;
+      for (var j2 = 0; j2 < 3; j2++) if (j2 !== i) { var f = A[j2][i] / A[i][i]; for (var k = i; k < 4; k++) A[j2][k] -= f * A[i][k]; } }
+    return [A[0][3] / A[0][0], A[1][3] / A[1][1], A[2][3] / A[2][2]];
+  }
+  function safeH(x) { var f = x * 100 - Math.floor(x * 100); return Math.abs(f - 0.5) > 1e-6; }
+  skill({
+    id: 'q-fit', best: [1, 2], tag: 'MODEL', name: 'Quadratic models and regression',
+    blurb: 'The quadratic through three points that include the y-intercept (CP2) → three points anywhere (CP1) → quadratic regression with a calculator, and predictions from it (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], cx = r.pick(QCTX), pts = [], fig;
+      if (c <= 3) {
+        var a = nz(r, -4, 4), b = c === 1 ? 0 : r.int(-6, 6), cc = r.int(-9, 9), xsP = c <= 2 ? [-1, 0, 1] : r.shuffle([-3, -2, -1, 1, 2, 3]).slice(0, 2).concat([0]);
+        if (c === 3) xsP = [r.int(-3, -1), r.int(1, 2), r.int(3, 4)];
+        xsP.sort(function (p, q) { return p - q; }); xsP.forEach(function (x) { pts.push([x, a * x * x + b * x + cc]); });
+        fig = { kind: 'table', vertical: true, head: ['x', 'y'], rows: pts };
+        steps.push(step('Substitute each point into ⟨y=ax^2+bx+c⟩ to get three equations.', '', 2), step('Solve the system for ⟨a⟩, ⟨b⟩ and ⟨c⟩.', sform(a, b, cc), 3));
+        return { variant: 'qf' + c, prompt: 'Find the equation ' + M('y=ax^{2}+bx+c') + ' of the parabola through the points in the table.', fig: fig,
+          parts: [{ answer: M(sform(a, b, cc)), check: { type: 'quad-fit', want: 'exact' } }], steps: steps, space: [1.2, 1.5, 1.8] };
+      }
+      var A0 = -r.pick([0.5, 1, 1.5, 2, 2.5, 3]), x0 = r.int(3, 6), y0 = r.int(20, 60), n = r.int(6, 8);
+      for (var i = 0; i < n; i++) { var x = i + 1, y = A0 * (x - x0) * (x - x0) + y0 + r.int(-2, 2); pts.push([x, y]); }
+      var co = quadReg(pts); need(co.every(safeH) && Math.abs(co[0]) > 0.05);
+      fig = { kind: 'table', vertical: true, head: cx, rows: pts };
+      var cf = function (v, first) { var x = rH(v), ab = Math.abs(x), body = ab === 1 ? '' : String(ab); return (first ? (x < 0 ? '-' : '') : (x < 0 ? '-' : '+')) + body; };
+      need(rH(co[1]) !== 0 && rH(co[2]) !== 0);
+      var ln = 'y=' + cf(co[0], true) + 'x^{2}' + cf(co[1]) + 'x' + (rH(co[2]) < 0 ? '-' : '+') + Math.abs(rH(co[2]));
+      steps.push(step('Enter the data in two lists and run quadratic regression (QuadReg).', '', 2), step('Round each coefficient to the nearest hundredth.', ln, 3));
+      var parts = [{ label: c >= 6 ? 'a' : '', answer: M(ln), check: { type: 'quad-fit', want: 'reg' } }];
+      if (c >= 6) { var xp = n + (c === 7 ? 2 : 1), yp = rH(co[0]) * xp * xp + rH(co[1]) * xp + rH(co[2]), yr = Math.round(yp * 10) / 10; need(Math.abs(yp * 10 - Math.floor(yp * 10) - 0.5) > 1e-6);
+        parts.push({ label: 'b', answer: 'y ≈ ' + M(String(yr)), check: { type: 'quad-fit', want: 'predict', at: 'x=' + xp } });
+        steps.push(step('Substitute ⟨x=' + xp + '⟩ into the rounded model.', 'y\\approx ' + yr, 2)); }
+      if (!parts[0].label) delete parts[0].label;
+      return { variant: 'qf' + c, prompt: 'Use quadratic regression on a calculator to find a model ' + M('y=ax^{2}+bx+c') + ' for the data. Round each coefficient to the nearest hundredth.' + (c >= 6 ? ' Then use your rounded model to predict ⟨y⟩ when ' + M('x=' + (n + (c === 7 ? 2 : 1))) + ', to the nearest tenth.' : ''), fig: fig, parts: parts, steps: steps, space: [1.0, 1.3, 1.6] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-quadratics', course: 'algebra1', courseName: 'Algebra 1', unit: 'quadratics', unitName: 'Quadratic Functions and Equations',
     title: 'The Parabola Bakery',
-    tags: { GRAPH: 'Features of parabolas', ROOTS: 'Square roots and factoring', FORMULA: 'Quadratic formula', COMPLETE: 'Completing the square', APPLY: 'Projectile models' },
+    tags: { GRAPH: 'Features of parabolas', ROOTS: 'Square roots and factoring', FORMULA: 'Quadratic formula', COMPLETE: 'Completing the square', APPLY: 'Projectile models', TRANSFORM: 'Transformations', MODEL: 'Quadratic models' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Vertex</h4><p>⟨y=ax^{2}+bx+c⟩: axis ⟨x=-\\frac{b}{2a}⟩. Vertex form ⟨y=a(x-h)^{2}+k⟩ has vertex ⟨(h,\\ k)⟩.</p></section>' +
@@ -166,7 +267,7 @@
       '<section><h4>Completing the square</h4><p>Add ⟨\\left(\\frac{b}{2}\\right)^{2}⟩ to ⟨x^{2}+bx⟩.</p></section>' +
       '<section><h4>Projectiles</h4><p>⟨h(t)=-16t^{2}+v_{0}t+h_{0}⟩ (feet) or ⟨-4.9t^{2}+v_{0}t+h_{0}⟩ (meters).</p></section>' +
       '</div>',
-    gaps: ['Graphing a parabola by hand is not checked automatically; transformations described in words and quadratic regression are not generated.'],
+    gaps: ['A parabola drawn by a student is checked against the key graph by the teacher.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

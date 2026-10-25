@@ -117,6 +117,7 @@
     var t = chk.type;
     if (t === 'ineq' || t === 'read-graph' || t === 'ineq-members' || t === 'error-line' || t === 'iscenario' || t === 'model-ineq') return checkIneqPart(p, part, policy);
     if (FUNC_TYPES.indexOf(t) >= 0) return checkFuncPart(p, part, policy);
+    if (t === 'compound') return checkCompound(p, part);
     if (EXP_TYPES.indexOf(t) >= 0) return checkExpPart(p, part, policy);
     if (FACT_TYPES.indexOf(t) >= 0) return checkFactorPart(p, part, policy);
     if (STAT_TYPES.indexOf(t) >= 0) return checkStatPart(p, part, policy);
@@ -128,6 +129,41 @@
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
+    if (t === 'expr-error-line') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The original expression is not printed.' };
+      var firstE = 0;
+      chk.lines.forEach(function (ln, i) { if (!shown(p, ln)) throw new C.CheckError('work line not printed: ' + ln); if (!firstE && !C.equivalent(chk.expr, ln)) firstE = i + 1; });
+      if (!firstE) return { status: 'invalid', msg: 'The shown work has no mistake.' };
+      var mE = /line\s*(\d+)/i.exec(C.plainText(ans));
+      return mE && +mE[1] === firstE ? { status: 'verified', computed: 'Line ' + firstE } : { status: 'mismatch', msg: 'The first wrong line is line ' + firstE + '.', computed: 'Line ' + firstE };
+    }
+    if (t === 'percent') {
+      var pt = C.plainText(p.prompt).replace(/\s+/g, ' '), NUM = '(\\d+(?:\\.\\d+)?)', rd = function (x) { return Q.parseDecimal(x); }, hund = new Q(100n);
+      var pc = function (x) { return rd(x).div(hund); }, mt, target, word = null;
+      var R = function (re) { var m0 = new RegExp(re).exec(pt); if (!m0) throw new C.CheckError('could not read the percent problem'); return m0; };
+      switch (chk.scenario) {
+        case 'of': mt = R('What is ' + NUM + '% of ' + NUM + '\\?'); target = pc(mt[1]).mul(rd(mt[2])); break;
+        case 'what-pct': mt = R(NUM + ' is what percent of ' + NUM + '\\?'); target = rd(mt[1]).div(rd(mt[2])).mul(hund); break;
+        case 'whole': mt = R(NUM + ' is ' + NUM + '% of what number\\?'); target = rd(mt[1]).div(pc(mt[2])); break;
+        case 'change': mt = R('had ' + NUM + ' members last year and has ' + NUM + ' members this year'); var o = rd(mt[1]), nw = rd(mt[2]), df = nw.sub(o);
+          word = df.n > 0n ? 'increase' : 'decrease'; target = (df.n < 0n ? df.neg() : df).div(o).mul(hund); break;
+        case 'discount': mt = R('costs \\$' + NUM + '\\. It is on sale for ' + NUM + '% off'); target = rd(mt[1]).mul(Q.ONE.sub(pc(mt[2]))); break;
+        case 'interest': mt = R('puts \\$' + NUM + ' in an account that earns ' + NUM + '% simple interest per year\\. How much interest does she earn in ' + NUM + ' years'); target = rd(mt[1]).mul(pc(mt[2])).mul(rd(mt[3])); break;
+        case 'disc-tax': mt = R('costs \\$' + NUM + '\\. It is ' + NUM + '% off, and then ' + NUM + '% sales tax is added to the sale price'); target = rd(mt[1]).mul(Q.ONE.sub(pc(mt[2]))).mul(Q.ONE.add(pc(mt[3]))); break;
+        case 'original': mt = R('After an? ' + NUM + '% discount, an? [^$]* costs \\$' + NUM + '\\.'); target = rd(mt[2]).div(Q.ONE.sub(pc(mt[1]))); break;
+        case 'two-changes': mt = R('that cost \\$' + NUM + ' by ' + NUM + '%\\. Later it lowers the new price by ' + NUM + '%'); var o2 = rd(mt[1]);
+          target = o2.mul(Q.ONE.add(pc(mt[2]))).mul(Q.ONE.sub(pc(mt[3]))); var d2 = target.sub(o2); word = d2.n > 0n ? 'more' : d2.n < 0n ? 'less' : 'same'; break;
+        default: throw new C.CheckError('unknown percent scenario');
+      }
+      var gotN = C.numbersInText(ans).concat(C.snippets(ans).map(function (m) { try { return C.readNumber(m); } catch (e) { return null; } }).filter(Boolean));
+      if (!gotN.length) return { status: 'mismatch', msg: 'No number in the answer.' };
+      var low = C.plainText(ans).toLowerCase();
+      if (!gotN[0].eq(target)) return { status: 'mismatch', msg: 'Correct: ' + qText(target) + (word ? ' (' + word + ')' : '') + '.', computed: qText(target) };
+      if (word && low.indexOf(word) < 0) return { status: 'mismatch', msg: 'Say whether it is ' + (word === 'increase' || word === 'decrease' ? 'an increase or a decrease' : 'more or less') + ': ' + word + '.' };
+      if (word === 'increase' && /decrease/.test(low) || word === 'decrease' && /increase/.test(low) || word === 'more' && /\bless\b/.test(low) || word === 'less' && /\bmore\b/.test(low)) return { status: 'mismatch', msg: 'The direction is wrong.' };
+      if (/^(what-pct|change)$/.test(chk.scenario) && !/%|percent/.test(low)) return { status: 'mismatch', msg: 'Write the answer as a percent.' };
+      return { status: 'verified', computed: qText(target) };
+    }
     if (t === 'solve') {
       var s = C.solveLinear(chk.eq, chk.v);
       if (s.kind !== 'one') return { status: 'invalid', msg: s.kind === 'none' ? 'This equation has no solution.' : 'Every number is a solution of this equation.' };
@@ -285,7 +321,7 @@
   }
 
   /* ---------- relations and functions (Algebra 1 Unit 4) ---------- */
-  var FUNC_TYPES = ['domain-range', 'is-function', 'func-eval', 'func-solve', 'func-combo', 'read-fig', 'linear-rule', 'table-fill', 'rate', 'graph-behavior', 'sequence'];
+  var FUNC_TYPES = ['domain-range', 'is-function', 'func-eval', 'func-solve', 'func-combo', 'read-fig', 'linear-rule', 'table-fill', 'rate', 'graph-behavior', 'sequence', 'curve-behavior'];
   function qOf(pair) { return pair ? new Q(pair[0], pair[1]) : null; }
   function qStr(s) { return C.readNumber(String(s)); }
   /* ordered pairs printed in the problem, e.g. ⟨(1,\ 4),\ (2,\ -3)⟩ */
@@ -572,6 +608,25 @@
       if (chk.compare) { var other = qStr(chk.compare); var bigger = C.cmpQ(rate, other) > 0 ? 'first' : C.cmpQ(rate, other) < 0 ? 'second' : 'same'; return txt.indexOf(bigger) >= 0 ? { status: 'verified' } : { status: 'mismatch', msg: 'Correct: ' + bigger + '.' }; }
       return got5.length && got5[0].eq(rate) ? { status: 'verified', computed: qText(rate) } : { status: 'mismatch', msg: 'Correct rate: ' + rate + '.', computed: qText(rate) };
     }
+    if (t === 'curve-behavior') {   // monotone runs and turning points read from the drawn curve
+      var relC = relationOf(p, chk); if (!relC.curves || relC.curves.length !== 1) throw new C.CheckError('need one curve');
+      var cv = relC.curves[0].slice().sort(function (a, b) { return C.cmpQ(a[0], b[0]); }), runs = [], dir = 0, start = cv[0];
+      for (var i = 1; i < cv.length; i++) { var dd = C.cmpQ(cv[i][1], cv[i - 1][1]); if (dd === 0) throw new C.CheckError('flat piece'); if (dir && dd !== dir) { runs.push({ lo: start[0], hi: cv[i - 1][0], up: dir > 0, end: cv[i - 1] }); start = cv[i - 1]; } dir = dd; }
+      runs.push({ lo: start[0], hi: cv[cv.length - 1][0], up: dir > 0, end: cv[cv.length - 1] });
+      var dom = C.snippets(studentText(p)).map(function (s4) { return /^(-?\d+)\\lex\\le(-?\d+)$/.exec(s4.replace(/\s/g, '')); }).filter(Boolean)[0];
+      if (!dom || !new Q(BigInt(dom[1])).eq(cv[0][0]) || !new Q(BigInt(dom[2])).eq(cv[cv.length - 1][0])) return { status: 'invalid', msg: 'The printed domain is not the drawn curve.' };
+      if (chk.want === 'extreme') {
+        var tps = runs.slice(0, -1).map(function (rn) { return { x: rn.end[0], y: rn.end[1], kind: rn.up ? 'max' : 'min' }; });
+        var tx = C.plainText(ans).toLowerCase(), sn = C.snippets(ans), okE = tps.length && tps.every(function (tp) {
+          return sn.some(function (s, j) { var m1 = /^y=(.*)$/.exec(s.replace(/\s/g, '')); var m2 = sn[j + 1] && /^x=(.*)$/.exec(sn[j + 1].replace(/\s/g, '')); return m1 && m2 && C.readNumber(m1[1]).eq(tp.y) && C.readNumber(m2[1]).eq(tp.x); });
+        }) && sn.length === 2 * tps.length && tps.every(function (tp) { return tx.indexOf(tp.kind === 'max' ? 'maximum' : 'minimum') >= 0; });
+        return okE ? { status: 'verified' } : { status: 'mismatch', msg: tps.map(function (tp) { return tp.kind + ' ' + qText(tp.y) + ' at x = ' + qText(tp.x); }).join('; ') + '.' };
+      }
+      var wantC = runs.filter(function (rn) { return rn.up === (chk.want === 'increasing'); }).reduce(function (acc, rn) { return unionSets(acc, C.solutionSet(qText(rn.lo) + '<x<' + qText(rn.hi), 'x')); }, []);
+      var piecesC = []; C.snippets(ans).forEach(function (s3) { s3.split(/\s+and\s+|\\text\{\s*and\s*\}|,/).forEach(function (x) { if (x.trim()) piecesC.push(x.trim()); }); });
+      var gotC = /none|never/.test(txt) && !piecesC.length ? [] : piecesC.map(function (s3) { return C.solutionSet(s3, 'x'); }).reduce(function (acc, st) { return unionSets(acc, st); }, []);
+      return C.setEqual(gotC, wantC) ? { status: 'verified', computed: C.setText(wantC) } : { status: 'mismatch', msg: 'Correct: ' + (wantC.length ? C.setText(wantC) : 'none') + '.' };
+    }
     if (t === 'graph-behavior') {
       var rel5 = relationOf(p, chk), conds = [];
       rel5.segs.forEach(function (sg) {
@@ -637,6 +692,31 @@
 
 
   /* ---------------- exponential functions ---------------- */
+  /* ---------- compound interest (re-read from the words and numbers printed) ---------- */
+  var PERIODS = { annually: 1, semiannually: 2, quarterly: 4, monthly: 12, daily: 365 };
+  function balance(P, rate, how, t) { if (how === 'continuously') return P * Math.exp(rate / 100 * t); if (!PERIODS[how]) throw new C.CheckError('unknown compounding ' + how); return P * Math.pow(1 + rate / 100 / PERIODS[how], PERIODS[how] * t); }
+  function moneyIn(s) { return +String(s).replace(/,/g, ''); }
+  function checkCompound(p, part) {
+    var chk = part.check, ans = part.answer || '', txt = C.plainText(p.prompt).replace(/\s+/g, ' '), M0 = '\\$([\\d,]+(?:\\.\\d+)?)', R0 = '(\\d+(?:\\.\\d+)?)%';
+    var got = C.numbersInText(ans); if (!got.length) return { status: 'mismatch', msg: 'No amount in the answer.' };
+    var cents = function (x) { return Math.round(x * 100); }, gotC = Math.round(Number(got[0].n) * 100 / Number(got[0].d));
+    if (chk.want === 'compare') {
+      var m = new RegExp('Account A pays ' + R0 + ' interest compounded (\\w+)\\. Account B pays ' + R0 + ' interest compounded (\\w+)\\. \\w+ deposits ' + M0 + ' in one of them for (\\d+) years').exec(txt);
+      if (!m) throw new C.CheckError('could not read the two accounts');
+      var P = moneyIn(m[5]), t = +m[6], a = cents(balance(P, +m[1], m[2], t)), b = cents(balance(P, +m[3], m[4], t)), win = a > b ? 'A' : 'B', d = Math.abs(a - b);
+      if (a === b) return { status: 'invalid', msg: 'The accounts give the same amount.' };
+      var said = /account\s*([ab])\b/i.exec(C.plainText(ans));
+      if (!said || said[1].toUpperCase() !== win) return { status: 'mismatch', msg: 'Account ' + win + ' gives more.' };
+      return gotC === d ? { status: 'verified', computed: 'Account ' + win + ', ' + (d / 100).toFixed(2) } : { status: 'mismatch', msg: 'Difference: $' + (d / 100).toFixed(2) + '.' };
+    }
+    var m2 = new RegExp('deposits ' + M0 + ' in an account that pays ' + R0 + ' interest compounded (\\w+)\\. (How much interest does the account earn in|How much is in the account after) (\\d+) years').exec(txt);
+    if (!m2) throw new C.CheckError('could not read the account');
+    if (!/Round to the nearest cent/.test(txt)) return { status: 'invalid', msg: 'The problem must say how to round.' };
+    var P2 = moneyIn(m2[1]), A = balance(P2, +m2[2], m2[3], +m2[5]), interest = /interest does/.test(m2[4]);
+    if ((chk.want === 'interest') !== interest) return { status: 'invalid', msg: 'The question asks for something else.' };
+    var want = cents(A) - (interest ? Math.round(P2 * 100) : 0);
+    return gotC === want ? { status: 'verified', computed: (want / 100).toFixed(2) } : { status: 'mismatch', msg: 'Correct: $' + (want / 100).toFixed(2) + '.' };
+  }
   var EXP_TYPES = ['exp-identify', 'exp-features', 'exp-model', 'exp-rule', 'exp-solve', 'exp-apply'];
   function qf(q) { return Number(q.n) / Number(q.d); }
   function ruleFn(rule, v) { var rhs = ruleRHS(rule); return function (x) { var e = {}; e[v] = x instanceof Q ? x : new Q(x); return C.evalNode(rhs, e); }; }
@@ -815,10 +895,32 @@
     })(node, 1);
     return { facs: facs, cst: cst };
   }
+  /* two-variable factoring: multiply back (both variables), then check each factor with y = 1 and that no factor still holds x or y */
+  function subVar(n, v, val) { if (!n || typeof n !== 'object') return n; if (n.k === 'var' && n.v === v) return { k: 'num', v: val }; var o = Object.assign({}, n); if (o.a) o.a = subVar(o.a, v, val); if (o.b) o.b = subVar(o.b, v, val); return o; }
+  function checkFactor2(p, chk, ans) {
+    var v = chk.v || 'x', w = chk.v2;
+    var sn = C.snippets(ans); if (!sn.length) return { status: 'mismatch', msg: 'No answer.' };
+    var aTxt = sn[sn.length - 1], eqi = aTxt.lastIndexOf('='); if (eqi >= 0) aTxt = aTxt.slice(eqi + 1);
+    var same; try { same = C.equivalent(chk.expr, aTxt); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+    if (!same) return { status: 'mismatch', msg: 'The factors do not multiply back to the polynomial.' };
+    var fp = flattenProduct(C.parseExpr(aTxt)); if (!fp.cst.isInt()) return { status: 'mismatch', msg: 'Use integer factors.' };
+    for (var i = 0; i < fp.facs.length; i++) {
+      var nd = fp.facs[i].node; if (nd.k === 'var') continue;   // a single x or y
+      var co, cc; try { co = coeffsOf(subVar(nd, w, Q.ONE), v); } catch (e) { return { status: 'mismatch', msg: e.message }; }
+      cc = contentOf(co); if (co.length < 2) return { status: 'mismatch', msg: 'Collect the monomial factors.' };
+      if (cc === null || cc !== 1n) return { status: 'mismatch', msg: 'A factor still has a common factor.' };
+      var at0 = function (x) { try { return C.toRF(subVar(nd, x, Q.ZERO)).asPoly(); } catch (e) { return null; } };
+      [v, w].forEach(function (x) { var P0 = at0(x); if (P0 && P0.isZero && P0.isZero()) cc = -1n; });
+      if (cc === -1n) return { status: 'mismatch', msg: 'A factor still has a common variable factor.' };
+      if (irreducible(co) !== true) return { status: 'mismatch', msg: 'Not factored completely.' };
+    }
+    return { status: 'verified', computed: 'factored' };
+  }
   function checkFactorPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), v = chk.v || 'x';
     if (t === 'factor') {
       if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The polynomial is not printed.' };
+      if (chk.v2) return checkFactor2(p, chk, ans);
       var T = coeffsOf(C.parseExpr(chk.expr), v), cT = contentOf(T);
       if (cT === null) return { status: 'invalid', msg: 'Use integer coefficients.' };
       var tIrr = irreducible(T), isPrime = cT === 1n && tIrr === true;
@@ -883,7 +985,7 @@
 
 
   /* ---------------- statistics ---------------- */
-  var STAT_TYPES = ['stat', 'stat-box', 'twoway', 'scatter-corr', 'stat-line'];
+  var STAT_TYPES = ['stat', 'stat-box', 'twoway', 'scatter-corr', 'stat-line', 'hist', 'lsrl'];
   function sortQ(a) { return a.slice().sort(function (x, y) { return C.cmpQ(x, y); }); }
   function sumQ(a) { return a.reduce(function (s, q) { return s.add(q); }, Q.ZERO); }
   function meanQ(a) { return sumQ(a).div(new Q(a.length)); }
@@ -910,8 +1012,89 @@
     return got.eq(val) ? { status: 'verified', computed: qText(val) } : { status: 'mismatch', msg: (label || 'Correct') + ': ' + val + '.' };
   }
   function pctNums(ans) { var t = String(ans).replace(/⟨([^⟩]*)⟩/g, ' $1 ').replace(/\\%/g, '%').replace(/−/g, '-'), out = [], re = /(-?\d+(?:\.\d+)?)\s*%/g, m; while ((m = re.exec(t))) out.push(qStr(m[1])); return out; }
+  /* ---------- standard deviation, histograms, least-squares regression (float math; the problem must print how to round) ---------- */
+  function sdF(a) { var n = a.length, m = a.reduce(function (s, x) { return s + x; }, 0) / n; return Math.sqrt(a.reduce(function (s, x) { return s + (x - m) * (x - m); }, 0) / n); }
+  function roundF(p, k, val, got, label) {
+    var phrase = k === 0 ? /nearest (whole|percent)/ : k === 1 ? /nearest tenth/ : /nearest hundredth/;
+    if (!phrase.test(C.plainText(studentText(p)).toLowerCase())) return { status: 'invalid', msg: 'The problem must say how to round.' };
+    if (!got) return { status: 'mismatch', msg: 'No value.' };
+    var sc = Math.pow(10, k), w = Math.round(val * sc + 1e-9 * (val < 0 ? -1 : 1)) / sc;
+    return Math.abs(qf(got) - w) < 1e-9 ? { status: 'verified', computed: String(w) } : { status: 'mismatch', msg: (label || 'Correct') + ': ' + w + '.' };
+  }
+  function checkSD(p, chk, ans) {
+    var txt = C.plainText(studentText(p)), got = listNumbers(ans), last = got[got.length - 1];
+    if (chk.want === 'sd-compare') {
+      var A = dataOf(p, { data: chk.data }).map(qf), B = dataOf(p, { data: chk.data2 }).map(qf), sa = sdF(A), sb = sdF(B);
+      if (Math.abs(sa - sb) < 0.5) return { status: 'invalid', msg: 'The spreads are too close to call by eye.' };
+      var more = sa > sb ? chk.labels[0] : chk.labels[1], t0 = C.plainText(ans).toLowerCase().replace(/^\W+/, '');
+      if (txt.indexOf(chk.labels[0] + ':') < 0 || txt.indexOf(chk.labels[1] + ':') < 0) return { status: 'invalid', msg: 'The data sets are not labeled.' };
+      return t0.indexOf(more.toLowerCase()) === 0 ? { status: 'verified', computed: more } : { status: 'mismatch', msg: more + ' is more spread out.' };
+    }
+    var d = dataOf(p, chk).map(qf);
+    if (!/standard deviation/.test(txt)) return { status: 'invalid', msg: 'The question must ask for the standard deviation.' };
+    var tr = /Every value is (increased|multiplied) by (\d+)/.exec(txt);
+    if (!!tr !== !!chk.transform) return { status: 'invalid', msg: 'The change to the data is not printed.' };
+    if (tr) d = d.map(function (x) { return tr[1] === 'increased' ? x + +tr[2] : x * +tr[2]; });
+    return roundF(p, chk.round, sdF(d), last, 'σ');
+  }
+  function checkHist(p, chk, ans) {
+    if (!p.fig || p.fig.kind !== 'histogram') throw new C.CheckError('no histogram');
+    var bins = NS.fig.readHistogram(NS.fig.histogram(p.fig)), txt = C.plainText(p.prompt).replace(/\s+/g, ' '), got = listNumbers(ans);
+    var first = bins[0].lo, end = bins[bins.length - 1].hi, tot = bins.reduce(function (s, b) { return s + b.count; }, 0);
+    var between = function (lo, hi) { var edges = bins.map(function (b) { return b.lo; }).concat([end]); if (edges.indexOf(lo) < 0 || edges.indexOf(hi) < 0) throw new C.CheckError('not a bin edge'); return bins.filter(function (b) { return b.lo >= lo && b.hi <= hi; }).reduce(function (s, b) { return s + b.count; }, 0); };
+    if (chk.want === 'count' || chk.want === 'percent') {
+      var m, lo, hi;
+      if ((m = /from (\d+) up to (\d+)\?/.exec(txt))) { lo = +m[1]; hi = +m[2]; }
+      else if ((m = /are at least (\d+)\?/.exec(txt))) { lo = +m[1]; hi = end; }
+      else if ((m = /are less than (\d+)\?/.exec(txt))) { lo = first; hi = +m[1]; }
+      else if (/shown in all\?/.test(txt)) { lo = first; hi = end; }
+      else throw new C.CheckError('cannot read the interval');
+      var k = between(lo, hi);
+      if (chk.want === 'count') return got.length && got[got.length - 1].eq(new Q(k)) ? { status: 'verified', computed: String(k) } : { status: 'mismatch', msg: 'Count: ' + k + '.' };
+      var pg = pctNums(ans); return roundF(p, chk.round, 100 * k / tot, pg[0], 'Percent');
+    }
+    if (chk.want === 'median-bin') {
+      got = C.numbersInText(ans).concat(got);
+      if (tot % 2 === 0) return { status: 'invalid', msg: 'Use an odd number of values.' };
+      var target = (tot + 1) / 2, cum = 0, bin = null; bins.forEach(function (b) { if (!bin && cum + b.count >= target) bin = b; cum += b.count; });
+      return got.length >= 2 && got[0].eq(new Q(bin.lo)) && got[1].eq(new Q(bin.hi)) ? { status: 'verified', computed: bin.lo + '–' + bin.hi } : { status: 'mismatch', msg: 'The median is in ' + bin.lo + '–' + bin.hi + '.' };
+    }
+    if (chk.want === 'est-mean') { var s = 0; bins.forEach(function (b) { s += b.count * (b.lo + b.hi) / 2; }); return roundF(p, chk.round, s / tot, got[got.length - 1], 'Estimated mean'); }
+    throw new C.CheckError('unknown want');
+  }
+  function checkLSRL(p, chk, ans) {
+    var txt = C.plainText(studentText(p)).toLowerCase(), got = []; try { got = listNumbers(ans); } catch (e) { got = []; } var last = got[got.length - 1];
+    var STR = function (rv) { var a = Math.abs(rv); return [a >= 0.8 ? 'strong' : a >= 0.5 ? 'moderate' : 'weak', rv > 0 ? 'positive' : 'negative']; };
+    var saysStrength = function (rv) { var w = STR(rv), t = C.plainText(ans).toLowerCase(); return t.indexOf(w[0]) >= 0 && t.indexOf(w[1]) >= 0 && ['strong', 'moderate', 'weak', 'positive', 'negative'].every(function (x) { return w.indexOf(x) >= 0 || t.indexOf(x) < 0; }); };
+    if (chk.want === 'describe') { if (!shown(p, chk.r)) return { status: 'invalid', msg: 'r is not printed.' }; var rv = qf(C.readNumber(chk.r.slice(chk.r.indexOf('=') + 1)));
+      return saysStrength(rv) ? { status: 'verified', computed: STR(rv).join(' ') } : { status: 'mismatch', msg: 'Correct: ' + STR(rv).join(' ') + '.' }; }
+    var pts = NS.fig.readTable(NS.fig.table(p.fig)).map(function (r) { return [qf(qStr(r[0])), qf(qStr(r[1]))]; });
+    var atX = function () { if (!shown(p, chk.at)) throw new C.CheckError('x is not printed'); return qf(C.readNumber(chk.at.slice(chk.at.indexOf('=') + 1))); };
+    if (chk.want === 'use') { if (!shown(p, chk.line)) return { status: 'invalid', msg: 'The line is not printed.' }; var Rl = C.parseRelation(chk.line), env = {}; env.x = C.readNumber(String(atX()));
+      return roundF(p, chk.round, qf(C.evalNode(Rl.rhs, env)), last, 'y'); }
+    var n = pts.length, sx = 0, sy = 0, sxx = 0, sxy = 0, syy = 0; pts.forEach(function (q) { sx += q[0]; sy += q[1]; sxx += q[0] * q[0]; sxy += q[0] * q[1]; syy += q[1] * q[1]; });
+    var Sxx = sxx - sx * sx / n, Sxy = sxy - sx * sy / n, Syy = syy - sy * sy / n, m = Sxy / Sxx, b = (sy - m * sx) / n, r = Sxy / Math.sqrt(Sxx * Syy);
+    var r2 = function (x) { return Math.round(x * 100 + 1e-9 * (x < 0 ? -1 : 1)) / 100; }, mR = r2(m), bR = r2(b);
+    if (!/least-squares regression line|correlation coefficient/.test(txt)) return { status: 'invalid', msg: 'The question must name the regression.' };
+    if (chk.want === 'r') { var res = roundF(p, 2, r, last, 'r'); if (res.status === 'verified' && chk.describe && !saysStrength(r2(r))) return { status: 'mismatch', msg: 'Describe it as ' + STR(r2(r)).join(' ') + '.' }; return res; }
+    if (chk.want === 'line') {
+      if (!/nearest hundredth/.test(txt)) return { status: 'invalid', msg: 'The problem must say how to round.' };
+      var sn = C.snippets(ans), eq0 = sn[0]; if (!eq0) return { status: 'mismatch', msg: 'No equation.' };
+      var R0; try { R0 = C.parseRelation(eq0); } catch (e) { return { status: 'mismatch', msg: 'Could not read the line.' }; }
+      if (!(R0.lhs.k === 'var' && R0.lhs.v === 'y')) return { status: 'mismatch', msg: 'Write y = ax + b.' };
+      var at = function (x) { return qf(C.evalNode(R0.rhs, { x: C.readNumber(String(x)) })); }, gb = at(0), gm = at(1) - gb;
+      return Math.abs(gb - bR) < 1e-9 && Math.abs(gm - mR) < 1e-9 ? { status: 'verified', computed: 'y=' + mR + 'x+' + bR } : { status: 'mismatch', msg: 'Correct: y = ' + mR + 'x + ' + bR + '.' };
+    }
+    var x0 = atX(), yhat = mR * x0 + bR;
+    if (chk.want === 'predict') return roundF(p, chk.round, yhat, last, 'Prediction');
+    if (chk.want === 'residual') { var pt = pts.filter(function (q) { return q[0] === x0; })[0]; if (!pt) return { status: 'invalid', msg: 'No data point at that x.' }; return roundF(p, chk.round, pt[1] - yhat, last, 'Residual'); }
+    throw new C.CheckError('unknown want');
+  }
   function checkStatPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '', t = chk.type, txt = C.plainText(ans).toLowerCase(), w = chk.want;
+    if (t === 'hist') return checkHist(p, chk, ans);
+    if (t === 'lsrl') return checkLSRL(p, chk, ans);
+    if (t === 'stat' && (w === 'sd' || w === 'sd-compare')) return checkSD(p, chk, ans);
     if (t === 'stat') {
       var d = dataOf(p, chk), got = listNumbers(ans), last = got[got.length - 1];
       if (w === 'mean') return roundCheck(p, chk, meanQ(d), last, 'Mean');
@@ -1161,7 +1344,7 @@
   }
 
   /* ---------- systems of equations and inequalities (Algebra 1 Unit 6) ---------- */
-  var SYS_TYPES = ['system', 'sys-apply', 'ineq2'];
+  var SYS_TYPES = ['system', 'sys-apply', 'ineq2', 'graph-key'];
   function solve2(L1, L2) {   // lines a·x + b·y + c = 0
     var det = L1.a.mul(L2.b).sub(L2.a.mul(L1.b));
     if (det.isZero()) return { kind: sameLine(L1, L2) ? 'infinite' : 'none' };
@@ -1229,6 +1412,26 @@
       if (policy && policy.intOnly && S.kind === 'one' && !(S.x.isInt() && S.y.isInt())) return { status: 'invalid', msg: 'Not whole numbers.' };
       return sysVerdict(S, ans, txt, vx, vy);
     }
+    if (t === 'graph-key') {   // the key's graph must be the printed system; the written answer must match it
+      if (!part.answerFig) return { status: 'invalid', msg: 'The key has no graph.' };
+      var keyP = { fig: part.answerFig }, ansT = C.snippets(ans);
+      if (chk.ineqs) {
+        if (!chk.ineqs.every(function (e) { return shown(p, e); })) return { status: 'invalid', msg: 'The inequalities are not printed.' };
+        var want = chk.ineqs.map(function (e) { return halfOf(e, vx, vy); }), drawn = figHalves(keyP);
+        if (drawn.length !== want.length || !want.every(function (H) { return drawn.some(function (K) { return sameHalf(H, K); }); })) return { status: 'mismatch', msg: 'The key graph does not show the printed inequalities.' };
+        var bLines = ansT.map(function (s) { return lineOf(s, vx, vy); });
+        if (bLines.length !== want.length || !want.every(function (H) { return bLines.some(function (L) { return sameLine(H, L); }); })) return { status: 'mismatch', msg: 'The boundary lines in the answer are wrong.' };
+        var words = C.plainText(ans).toLowerCase(), okW = want.every(function (H, i) { return words.indexOf(H.strict ? 'dashed' : 'solid') >= 0; });
+        return okW ? { status: 'verified' } : { status: 'mismatch', msg: 'Solid or dashed is wrong.' };
+      }
+      if (!chk.eqs.every(function (e) { return shown(p, e); })) return { status: 'invalid', msg: 'The equations are not printed.' };
+      var Ls2 = chk.eqs.map(function (e) { return lineOf(e, vx, vy); }), g2 = NS.fig.readPlane(NS.fig.plane(part.answerFig));
+      var segL = g2.segs.map(function (sg) { return lineThrough([qOf(sg.a[0]), qOf(sg.a[1])], [qOf(sg.b[0]), qOf(sg.b[1])]); });
+      if (segL.length !== 2 || !Ls2.every(function (L) { return segL.some(function (Sg) { return sameLine(L, Sg); }); })) return { status: 'mismatch', msg: 'The key graph does not show the printed lines.' };
+      var S2 = solve2(Ls2[0], Ls2[1]); if (S2.kind !== 'one') return { status: 'invalid', msg: 'Not one solution.' };
+      var pa2 = pairAnswer(ans, vx, vy);
+      return pa2 && pa2[0].eq(S2.x) && pa2[1].eq(S2.y) ? { status: 'verified', computed: '(' + qText(S2.x) + ', ' + qText(S2.y) + ')' } : { status: 'mismatch', msg: 'The solution is (' + S2.x + ', ' + S2.y + ').' };
+    }
     if (t === 'sys-apply') {
       var Rw = rowsFromText(p, chk.rows), Sa = solve2(Rw[0], Rw[1]);
       if (Sa.kind !== 'one') return { status: 'invalid', msg: 'The situation has no single answer.' };
@@ -1262,7 +1465,7 @@
   }
 
   /* ---------- exponents and scientific notation (Algebra 1 Unit 7) ---------- */
-  var POW_TYPES = ['pow-simplify', 'pow-eval', 'sci'];
+  var POW_TYPES = ['pow-simplify', 'pow-eval', 'sci', 'radical-simplify'];
   function unGrp(n) { while (n && n.k === 'grp') n = n.a; return n; }
   /* one monomial: an optional number and each variable once, with exponents 2, 3, … (no 0, 1 or negatives) */
   function powMono(n) {
@@ -1314,6 +1517,14 @@
       if (!eq) return { status: 'mismatch', msg: 'Not equivalent to the expression.' };
       var why = powSimplified(am); return why ? { status: 'mismatch', msg: 'Not fully simplified: ' + why + '.' } : { status: 'verified' };
     }
+    if (t === 'radical-simplify') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+      if (am === null) return { status: 'mismatch', msg: 'No answer.' };
+      var want, gotR; try { want = surdEval(chk.expr); } catch (e) { return { status: 'invalid', msg: 'Could not read the printed expression.' }; }
+      try { gotR = surdEval(am); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (!(Math.abs(gotR - want) <= 1e-9 * (1 + Math.abs(want)))) return { status: 'mismatch', msg: 'Not equal to the expression.' };
+      var whyR = radicalSimplest(am); return whyR ? { status: 'mismatch', msg: 'Not in simplest radical form: ' + whyR + '.' } : { status: 'verified' };
+    }
     if (t === 'pow-eval') {
       if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
       var v = C.evalNode(C.parseExpr(chk.expr), {}); if (am === null) return { status: 'mismatch', msg: 'Give a number.' };
@@ -1347,7 +1558,7 @@
   }
 
   /* ---------- polynomials (Algebra 1 Unit 9) ---------- */
-  var POLY_TYPES = ['poly-simplify', 'poly-classify', 'poly-apply'];
+  var POLY_TYPES = ['poly-simplify', 'poly-classify', 'poly-apply', 'poly-divide'];
   function polyOf(src) { var rf = C.toRF(typeof src === 'string' ? C.parseExpr(src) : src); if (!rf.isPoly()) throw new C.CheckError('not a polynomial'); return rf.asPoly(); }
   function keyDeg(k) { return k ? k.split('*').reduce(function (s, part) { return s + (+part.split('^')[1]); }, 0) : 0; }
   function polyDeg(P) { var d = 0; P.m.forEach(function (q, k) { d = Math.max(d, keyDeg(k)); }); return d; }
@@ -1365,6 +1576,16 @@
   var DEG_NAMES = ['constant', 'linear', 'quadratic', 'cubic', 'quartic', 'quintic'], TERM_NAMES = [null, 'monomial', 'binomial', 'trinomial'];
   function checkPolyPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, txt = C.plainText(ans).toLowerCase(), am = (function () { var s = C.snippets(ans); return s.length ? s[s.length - 1] : null; })();
+    if (t === 'poly-divide') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+      if (am === null) return { status: 'mismatch', msg: 'No answer.' };
+      var eqD; try { eqD = C.equivalent(chk.expr, am); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (!eqD) return { status: 'mismatch', msg: 'Not equal to the quotient.' };
+      var a0 = am.replace(/\s+/g, ''), rm = /([+-])\\frac\{(\d+)\}\{([^{}]*)\}$/.exec(a0), polyPart = rm ? a0.slice(0, rm.index) : a0;
+      if (/\\frac\{[^{}]*[a-z]/.test(polyPart) || /\}\{[^{}]*[a-z][^{}]*\}/.test(polyPart)) return { status: 'mismatch', msg: 'Write the quotient as a polynomial plus a remainder fraction.' };
+      var whyD; try { polyOf(polyPart); whyD = polyStandard(polyPart); } catch (e) { return { status: 'mismatch', msg: 'The quotient is not a polynomial.' }; }
+      return whyD ? { status: 'mismatch', msg: 'Write the quotient in standard form: ' + whyD + '.' } : { status: 'verified' };
+    }
     if (t === 'poly-simplify' || t === 'poly-apply') {
       var target;
       if (t === 'poly-simplify') { if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' }; target = chk.expr; }
@@ -1406,7 +1627,7 @@
   }
 
   /* ---------- quadratic functions and equations (Algebra 1 Unit 11) ---------- */
-  var QUAD_TYPES = ['quad-solve', 'quad-feature', 'quad-disc', 'quad-vertex-eq', 'quad-proj', 'quad-ctsq'];
+  var QUAD_TYPES = ['quad-solve', 'quad-feature', 'quad-disc', 'quad-vertex-eq', 'quad-proj', 'quad-ctsq', 'quad-graph', 'quad-transform', 'quad-fit'];
   var fl = function (q) { return Number(q.n) / Number(q.d); };
   /* a small float evaluator for answers with square roots: numbers, \frac, \sqrt, + − and products */
   function surdEval(src) {
@@ -1469,8 +1690,72 @@
     if (a.isZero()) throw new C.CheckError('not a parabola');
     return [c, b, a];
   }
+  /* "reflected …, vertically stretched by a factor of 3, shifted 4 units left and 2 units up" → {reflect, factor, h, k} */
+  function transformWords(text) {
+    var t = String(text).toLowerCase().replace(/−/g, '-'), out = { reflect: /reflect/.test(t), factor: Q.ONE, h: Q.ZERO, k: Q.ZERO };
+    var fm = /(stretch|compress)\w* by a factor of (\d+)(?:\/(\d+))?/.exec(t); if (fm) out.factor = new Q(BigInt(fm[2]), BigInt(fm[3] || 1));
+    var re = /(\d+) units? (left|right|up|down)/g, m;
+    while ((m = re.exec(t))) { var q = new Q(BigInt(m[1])); if (m[2] === 'left') out.h = q.neg(); if (m[2] === 'right') out.h = q; if (m[2] === 'down') out.k = q.neg(); if (m[2] === 'up') out.k = q; }
+    return out;
+  }
   function checkQuadPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, txt = C.plainText(ans).toLowerCase(), v = chk.v || 'x';
+    if (t === 'quad-graph') {   // the key parabola must be the printed one; the vertex and points in the answer must be on it
+      if (!part.answerFig) return { status: 'invalid', msg: 'The key has no graph.' };
+      var coP = quadCo(p, chk), coK; try { coK = quadCo({ fig: part.answerFig }, {}); } catch (e) { return { status: 'mismatch', msg: 'The key graph is not a parabola: ' + e.message }; }
+      if (!coP.every(function (q, i) { return q.eq(coK[i]); })) return { status: 'mismatch', msg: 'The key graph is not the printed parabola.' };
+      var hV = coP[1].neg().div(coP[2].mul(new Q(2n))), kV = coP[0].sub(coP[1].mul(coP[1]).div(coP[2].mul(new Q(4n)))), onP = function (x, y) { return coP[2].mul(x).mul(x).add(coP[1].mul(x)).add(coP[0]).eq(y); };
+      var pairs = []; C.snippets(ans).forEach(function (s) { var m = /^\s*\((.*)\)\s*$/.exec(s.replace(/\\left|\\right/g, '')); if (m) { var xy = m[1].replace(/\\[ ,;!]/g, ' ').split(','); if (xy.length === 2) pairs.push([C.readNumber(xy[0].trim()), C.readNumber(xy[1].trim())]); } });
+      if (!pairs.length || !pairs[0][0].eq(hV) || !pairs[0][1].eq(kV)) return { status: 'mismatch', msg: 'The vertex is (' + qText(hV) + ', ' + qText(kV) + ').' };
+      if (!pairs.every(function (q) { return onP(q[0], q[1]); })) return { status: 'mismatch', msg: 'A listed point is not on the parabola.' };
+      var axS = C.snippets(ans).filter(function (s) { return /^\s*x\s*=/.test(s); })[0];
+      if (!axS || !C.readNumber(axS.slice(axS.indexOf('=') + 1)).eq(hV)) return { status: 'mismatch', msg: 'The axis of symmetry is x = ' + qText(hV) + '.' };
+      return { status: 'verified', computed: '(' + qText(hV) + ', ' + qText(kV) + ')' };
+    }
+    if (t === 'quad-transform') {
+      var aT, hT, kT;
+      if (!shown(p, 'y=x^{2}')) return { status: 'invalid', msg: 'The parent graph y = x² is not printed.' };
+      if (w === 'describe') {
+        var coT = quadCo(p, Object.assign({ fn: true }, chk)); aT = coT[2]; hT = coT[1].neg().div(aT.mul(new Q(2n))); kT = coT[0].sub(coT[1].mul(coT[1]).div(aT.mul(new Q(4n))));
+        var said = transformWords(C.plainText(ans));
+        var okT = said.reflect === (C.cmpQ(aT, Q.ZERO) < 0) && said.h.eq(hT) && said.k.eq(kT) && said.factor.eq(C.cmpQ(aT, Q.ZERO) < 0 ? aT.neg() : aT);
+        return okT ? { status: 'verified' } : { status: 'mismatch', msg: 'a = ' + qText(aT) + ', h = ' + qText(hT) + ', k = ' + qText(kT) + '.' };
+      }
+      var desc = transformWords(C.plainText(p.prompt)), wantA = desc.reflect ? desc.factor.neg() : desc.factor;
+      var am2 = C.snippets(ans)[0]; if (!am2) return { status: 'mismatch', msg: 'No equation.' };
+      var coA; try { coA = quadCo({ prompt: ans }, { eq: am2, fn: true }); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+      var wantCo = [wantA.mul(desc.h).mul(desc.h).add(desc.k), wantA.mul(desc.h).mul(new Q(-2n)), wantA];
+      if (!coA.every(function (q, i) { return q.eq(wantCo[i]); })) return { status: 'mismatch', msg: 'Correct: a = ' + qText(wantA) + ', h = ' + qText(desc.h) + ', k = ' + qText(desc.k) + '.' };
+      return /\)\^(\{2\}|\(2\)|2)/.test(am2.replace(/\s/g, '')) || desc.h.isZero() ? { status: 'verified' } : { status: 'mismatch', msg: 'Write it in vertex form.' };
+    }
+    if (t === 'quad-fit') {
+      if (!p.fig || p.fig.kind !== 'table') throw new C.CheckError('no data table');
+      if (!shown(p, 'y=ax^{2}+bx+c')) return { status: 'invalid', msg: 'The form y = ax² + bx + c is not printed.' };
+      var ptsF = NS.fig.readTable(NS.fig.table(p.fig)).map(function (rw) { return [qStr(rw[0]), qStr(rw[1])]; });
+      var rhsAt = function (src, x) { var R = C.parseRelation(src); return C.evalNode(R.rhs, { x: x }); };
+      if (w === 'exact') {
+        if (ptsF.length !== 3) throw new C.CheckError('need three points');
+        var P1 = ptsF[0], P2 = ptsF[1], P3 = ptsF[2], d1 = P2[1].sub(P1[1]).div(P2[0].sub(P1[0])), d2 = P3[1].sub(P2[1]).div(P3[0].sub(P2[0])), aF = d2.sub(d1).div(P3[0].sub(P1[0])), bF = d1.sub(aF.mul(P1[0].add(P2[0]))), cF = P1[1].sub(aF.mul(P1[0]).mul(P1[0])).sub(bF.mul(P1[0]));
+        var sF = C.snippets(ans)[0]; if (!sF) return { status: 'mismatch', msg: 'No equation.' };
+        var okF; try { okF = [Q.ZERO, Q.ONE, new Q(-1n), new Q(2n)].every(function (x) { return rhsAt(sF, x).eq(aF.mul(x).mul(x).add(bF.mul(x)).add(cF)); }); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+        return okF ? { status: 'verified', computed: 'y=' + qText(aF) + 'x^2+' + qText(bF) + 'x+' + qText(cF) } : { status: 'mismatch', msg: 'a = ' + qText(aF) + ', b = ' + qText(bF) + ', c = ' + qText(cF) + '.' };
+      }
+      if (!/quadratic regression/.test(C.plainText(p.prompt)) || !/nearest hundredth/.test(C.plainText(p.prompt))) return { status: 'invalid', msg: 'The problem must ask for quadratic regression and say how to round.' };
+      var fpts = ptsF.map(function (q) { return [fl(q[0]), fl(q[1])]; }), S = [0, 0, 0, 0, 0], T = [0, 0, 0];
+      fpts.forEach(function (q) { var xp = 1; for (var i = 0; i < 5; i++) { S[i] += xp; if (i < 3) T[i] += xp * q[1]; xp *= q[0]; } });
+      var Mx = [[S[4], S[3], S[2], T[2]], [S[3], S[2], S[1], T[1]], [S[2], S[1], S[0], T[0]]];
+      for (var i2 = 0; i2 < 3; i2++) { var pv = i2; for (var j = i2 + 1; j < 3; j++) if (Math.abs(Mx[j][i2]) > Math.abs(Mx[pv][i2])) pv = j; var tm = Mx[i2]; Mx[i2] = Mx[pv]; Mx[pv] = tm;
+        for (var j2 = 0; j2 < 3; j2++) if (j2 !== i2) { var f0 = Mx[j2][i2] / Mx[i2][i2]; for (var k2 = i2; k2 < 4; k2++) Mx[j2][k2] -= f0 * Mx[i2][k2]; } }
+      var r2 = function (x) { return Math.round(x * 100 + (x < 0 ? -1e-9 : 1e-9)) / 100; }, cR = [r2(Mx[0][3] / Mx[0][0]), r2(Mx[1][3] / Mx[1][1]), r2(Mx[2][3] / Mx[2][2])];
+      if (w === 'reg') { var sR = C.snippets(ans)[0]; if (!sR) return { status: 'mismatch', msg: 'No equation.' };
+        var v0, v1, vm; try { v0 = fl(rhsAt(sR, Q.ZERO)); v1 = fl(rhsAt(sR, Q.ONE)); vm = fl(rhsAt(sR, new Q(-1n))); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+        var gA = (v1 + vm) / 2 - v0, gB = (v1 - vm) / 2;
+        return Math.abs(gA - cR[0]) < 1e-9 && Math.abs(gB - cR[1]) < 1e-9 && Math.abs(v0 - cR[2]) < 1e-9 ? { status: 'verified', computed: cR.join(', ') } : { status: 'mismatch', msg: 'a = ' + cR[0] + ', b = ' + cR[1] + ', c = ' + cR[2] + '.' }; }
+      if (w === 'predict') { if (!shown(p, chk.at)) return { status: 'invalid', msg: 'x is not printed.' }; var xq = fl(C.readNumber(chk.at.slice(chk.at.indexOf('=') + 1))), yq = cR[0] * xq * xq + cR[1] * xq + cR[2];
+        var gq; try { gq = listNumbers(ans); } catch (e) { gq = []; } var wq = Math.round(yq * 10 + (yq < 0 ? -1e-9 : 1e-9)) / 10;
+        return gq.length && Math.abs(fl(gq[gq.length - 1]) - wq) < 1e-9 ? { status: 'verified', computed: String(wq) } : { status: 'mismatch', msg: 'Prediction: ' + wq + '.' }; }
+      throw new C.CheckError('unknown want');
+    }
     if (t === 'quad-ctsq') {   // the number that completes the square for x² + bx
       if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
       var cq = coeffsOf(C.parseExpr(chk.expr), v); if (cq.length !== 3 || !cq[2].eq(Q.ONE)) throw new C.CheckError('needs x² + bx');

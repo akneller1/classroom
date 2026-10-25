@@ -223,10 +223,129 @@
     }
   });
 
+  /* ================= SPREAD · standard deviation (population, σ) ================= */
+  function sd(a) { var m = mean(a); return Math.sqrt(mean(a.map(function (x) { return (x - m) * (x - m); }))); }
+  function rTo(x, k) { var s = Math.pow(10, k); return Math.round(x * s + 1e-9) / s; }
+  function safeRound(x, k) { var s = Math.pow(10, k), f = x * s - Math.floor(x * s); return Math.abs(f - 0.5) > 1e-6; }
+  var ROUND = ['to the nearest whole number', 'to the nearest tenth', 'to the nearest hundredth'];
+  skill({
+    id: 'stdev', best: [1, 2], tag: 'SPREAD', name: 'Standard deviation',
+    blurb: 'Which data set is more spread out (CP2) → the standard deviation of a small data set (CP1) → adding to or multiplying every value, data from a dot plot (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], cx = r.pick(CTX), data, D, k = c <= 3 ? 1 : 2;
+      var sdNote = ' Use the population standard deviation, ⟨\\sigma⟩.';
+      if (c === 1) {
+        var ctr = r.int(10, 20), A = [], B = [];
+        for (var i = 0; i < 5; i++) { A.push(ctr + r.int(-2, 2)); B.push(ctr + r.int(-9, 9)); }
+        need(Math.abs(sd(A) - sd(B)) > 1.5); var lab = r.chance(0.5) ? ['Class A', 'Class B'] : ['Class B', 'Class A'];
+        var DA = list(A), DB = list(B), more = sd(A) > sd(B) ? lab[0] : lab[1];
+        steps.push(step('Standard deviation measures how far the values typically are from the mean.', '', 1), step('The values of ' + more + ' are more spread out.', '', 2));
+        return out('sd-cmp', lab[0] + ': ' + M(DA) + '. ' + lab[1] + ': ' + M(DB) + '. Which data set has the larger standard deviation? Explain without calculating.',
+          [{ answer: more + ': its values are more spread out from the mean.', check: { type: 'stat', want: 'sd-compare', data: DA, data2: DB, labels: lab } }], steps);
+      }
+      var n = c === 2 ? 4 : c === 3 ? 5 : r.int(6, 8);
+      data = rnd(r, n, 1, c <= 3 ? 20 : 60); D = list(data); var s0 = sd(data); need(s0 > 0.5 && safeRound(s0, k));
+      if (c <= 4) {
+        steps.push(step('Find the mean: ' + dec(rTo(mean(data), 3)) + '.', '', 1), step('Square each distance from the mean and find the mean of the squares (the variance).', '', 2), step('Take the square root: ⟨\\sigma\\approx ' + rTo(s0, k) + '⟩.', '', 2));
+        return out('sd' + c, 'Find the standard deviation of the ' + cx[0] + ': ' + M(D) + '.' + sdNote + ' Round ' + ROUND[k] + '.',
+          [{ answer: 'σ ≈ ' + M(String(rTo(s0, k))), check: { type: 'stat', want: 'sd', data: D, round: k } }], steps);
+      }
+      if (c === 5 || c === 6) {
+        var add = c === 5, kk = add ? r.int(2, 15) : r.int(2, 5), s1 = add ? s0 : s0 * kk; need(safeRound(s1, k));
+        steps.push(step('The standard deviation of the data is about ' + rTo(s0, 3) + '.', '', 1));
+        steps.push(step(add ? 'Adding the same number to every value moves the data but does not spread it out, so σ stays the same.' : 'Multiplying every value by ' + kk + ' multiplies every distance from the mean by ' + kk + ', so σ is ' + kk + ' times as large.', '', 3));
+        return out('sd-' + (add ? 'add' : 'mul'), 'Here are the ' + cx[0] + ': ' + M(D) + '. ' + (add ? 'Every value is increased by ' + kk + '.' : 'Every value is multiplied by ' + kk + '.') + ' What is the standard deviation of the new data?' + sdNote + ' Round ' + ROUND[k] + '.',
+          [{ answer: 'σ ≈ ' + M(String(rTo(s1, k))), check: { type: 'stat', want: 'sd', data: D, round: k, transform: add ? 'add' : 'mul' } }], steps);
+      }
+      var lo = r.int(0, 4), counts = {}, vals = []; for (var v = lo; v <= lo + 8; v++) { var cnt = r.int(0, 4); if (cnt) { counts[v] = cnt; for (var j = 0; j < cnt; j++) vals.push(v); } }
+      need(vals.length >= 10 && vals.length <= 22); var s7 = sd(vals); need(safeRound(s7, 2));
+      steps.push(step('Read every value from the dot plot (' + vals.length + ' values).', '', 1), step('Find the mean, then the mean of the squared distances, then the square root.', '\\sigma\\approx ' + rTo(s7, 2), 3));
+      return out('sd-dot', 'The dot plot shows the ' + cx[0] + ' for a group. Find the standard deviation of the data.' + sdNote + ' Round to the nearest hundredth.',
+        [{ answer: 'σ ≈ ' + M(String(rTo(s7, 2))), check: { type: 'stat', want: 'sd', round: 2 } }], steps, { kind: 'dotplot', min: lo, max: lo + 8, counts: counts, label: cx[0] });
+    }
+  });
+
+  /* ================= DISPLAY · histograms ================= */
+  var HCTX = [['Test scores', 50, 10], ['Minutes of exercise', 0, 15], ['Heights of plants (cm)', 10, 5], ['Commute time (minutes)', 0, 10], ['Points per game', 0, 5], ['Ages of museum visitors', 10, 10]];
+  skill({
+    id: 'histogram', best: [0, 1, 2], tag: 'DISPLAY', name: 'Histograms',
+    blurb: 'How many in an interval, how many in all (CP2) → “at least” and percent questions (CP1) → the interval with the median, an estimated mean from the midpoints (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], hc = r.pick(HCTX), nb = r.int(5, 7), counts = [];
+      for (var i = 0; i < nb; i++) counts.push(r.int(c <= 2 ? 1 : 0, c <= 2 ? 9 : 14));
+      need(counts[0] > 0 && counts[nb - 1] > 0);
+      var st = hc[1], w = hc[2], tot = sum(counts), edge = function (k) { return st + k * w; }, fig = { kind: 'histogram', start: st, width: w, counts: counts, label: hc[0] };
+      var intro = 'The histogram shows ' + hc[0].charAt(0).toLowerCase() + hc[0].slice(1) + '. Each bar includes its left edge but not its right edge.';
+      if (c === 1) { var b = r.int(0, nb - 1); need(counts[b] > 0);
+        steps.push(step('Read the height of the bar from ' + edge(b) + ' to ' + edge(b + 1) + '.', String(counts[b]), 3));
+        return out('hg1', intro + ' How many values are from ' + edge(b) + ' up to ' + edge(b + 1) + '?', [{ answer: M(String(counts[b])), check: { type: 'hist', want: 'count', lo: edge(b), hi: edge(b + 1) } }], steps, fig); }
+      if (c === 2) { steps.push(step('Add the heights of all the bars.', counts.join('+') + '=' + tot, 3));
+        return out('hg2', intro + ' How many values are shown in all?', [{ answer: M(String(tot)), check: { type: 'hist', want: 'count', lo: edge(0), hi: edge(nb) } }], steps, fig); }
+      if (c === 3) { var b3 = r.int(1, nb - 2), k3 = sum(counts.slice(b3)); need(k3 > 0);
+        steps.push(step('Add the bars from ' + edge(b3) + ' up.', counts.slice(b3).join('+') + '=' + k3, 3));
+        return out('hg3', intro + ' How many values are at least ' + edge(b3) + '?', [{ answer: M(String(k3)), check: { type: 'hist', want: 'count', lo: edge(b3), hi: edge(nb) } }], steps, fig); }
+      if (c === 4 || c === 5) { var b4 = r.int(1, nb - 1), below = c === 4 ? r.chance(0.5) : r.chance(0.5), part = below ? sum(counts.slice(0, b4)) : sum(counts.slice(b4)), rk = c === 4 ? 0 : 1, pc = 100 * part / tot;
+        need(part > 0 && part < tot && safeRound(pc, rk));
+        steps.push(step('Count the values ' + (below ? 'below ' : 'at least ') + edge(b4) + ': ' + part + '. Total: ' + tot + '.', '', 2), step('Divide and write as a percent.', '\\frac{' + part + '}{' + tot + '}\\approx ' + rTo(pc, rk) + '\\%', 2));
+        return out('hg-pct', intro + ' What percent of the values are ' + (below ? 'less than ' : 'at least ') + edge(b4) + '? Round ' + (rk ? 'to the nearest tenth of a percent.' : 'to the nearest whole percent.'),
+          [{ answer: rTo(pc, rk) + '%', check: { type: 'hist', want: 'percent', lo: below ? edge(0) : edge(b4), hi: below ? edge(b4) : edge(nb), round: rk } }], steps, fig); }
+      if (c === 6) { var cum = 0, mid = tot / 2, mb = -1; need(tot % 2 === 1);
+        for (var k = 0; k < nb; k++) { if (cum < mid + 0.5 && cum + counts[k] >= mid + 0.5) mb = k; cum += counts[k]; }
+        need(mb >= 0);
+        steps.push(step('There are ' + tot + ' values, so the median is value number ' + (tot + 1) / 2 + '.', '', 2), step('Count up the bars until you pass it.', '', 2));
+        return out('hg-med', intro + ' Which interval contains the median?', [{ answer: 'From ' + edge(mb) + ' up to ' + edge(mb + 1), check: { type: 'hist', want: 'median-bin' } }], steps, fig); }
+      var est = 0; counts.forEach(function (n0, k7) { est += n0 * (edge(k7) + w / 2); }); est /= tot; need(safeRound(est, 1));
+      steps.push(step('Use the midpoint of each interval for its values.', '', 1), step('Multiply each midpoint by its count, add, and divide by ' + tot + '.', '\\approx ' + rTo(est, 1), 3));
+      return out('hg-mean', intro + ' Estimate the mean using the midpoint of each interval. Round to the nearest tenth.', [{ answer: M(String(rTo(est, 1))), check: { type: 'hist', want: 'est-mean', round: 1 } }], steps, fig);
+    }
+  });
+
+  /* ================= SCATTER · least-squares regression ================= */
+  var LS = [['Hours studied', 'Test score', 0, 6, 55, 8], ['Temperature (°F)', 'Drinks sold', 60, 5, 20, 3], ['Age of car (years)', 'Value (thousands of $)', 1, 1, 30, -2.5], ['Minutes practiced', 'Free throws made', 10, 10, 4, 0.12]];
+  function fmtN(v, k) { var x = rTo(v, k); return (x < 0 ? '-' : '') + String(Math.abs(x)); }
+  function lineTex(m, b, k) { var bb = rTo(b, k); return 'y=' + fmtN(m, k) + 'x' + (bb < 0 ? '-' : '+') + String(Math.abs(bb)); }
+  function lsq(pts) { var n = pts.length, sx = 0, sy = 0, sxx = 0, sxy = 0, syy = 0; pts.forEach(function (p) { sx += p[0]; sy += p[1]; sxx += p[0] * p[0]; sxy += p[0] * p[1]; syy += p[1] * p[1]; });
+    var Sxx = sxx - sx * sx / n, Sxy = sxy - sx * sy / n, Syy = syy - sy * sy / n, m = Sxy / Sxx; return { m: m, b: (sy - m * sx) / n, r: Sxy / Math.sqrt(Sxx * Syy) }; }
+  function strength(rv) { var a = Math.abs(rv); return (a >= 0.8 ? 'strong' : a >= 0.5 ? 'moderate' : 'weak') + ' ' + (rv > 0 ? 'positive' : 'negative'); }
+  skill({
+    id: 'regression', best: [1, 2], tag: 'SCATTER', name: 'Least-squares regression and correlation',
+    blurb: 'Predict with a regression line, describe r (CP2) → find r and the least-squares line with a calculator (CP1) → predictions and residuals from the line you found (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], L = r.pick(LS), n = c <= 3 ? 6 : r.int(6, 8), pts = [], xs = [];
+      for (var i = 0; i < n; i++) xs.push(L[2] + i * L[3] + (c >= 5 ? r.int(0, 1) * L[3] / 2 : 0));
+      xs = xs.filter(function (x, j) { return xs.indexOf(x) === j; });
+      var noise = Math.abs(L[5]) * 1.4 * (c === 2 ? r.pick([0.2, 1, 2.5]) : 1);
+      xs.forEach(function (x, j) { pts.push([x, Math.round((L[4] + L[5] * (x - L[2])) / (Math.abs(L[5]) < 1 ? 1 : 1) + r.int(-1, 1) * noise) ]); });
+      var R = lsq(pts); need(Math.abs(R.r) > 0.3 && Math.abs(R.r) < 0.999 && safeRound(R.m, 2) && safeRound(R.b, 2) && safeRound(R.r, 2));
+      var fig = { kind: 'table', vertical: true, head: [L[0], L[1]], rows: pts.map(function (p) { return [p[0], p[1]]; }) };
+      var calc = ' Use a calculator.', ln = lineTex(R.m, R.b, 2);
+      if (c === 1) { var xg = L[2] + r.int(1, n) * L[3] + L[3] / 2, mm = rTo(R.m, 2), bb = rTo(R.b, 2), y1 = mm * xg + bb; need(safeRound(y1, 1));
+        steps.push(step('Substitute ⟨x=' + xg + '⟩ into the regression line.', 'y=' + mm + '(' + xg + ')' + (bb < 0 ? '-' : '+') + Math.abs(bb) + '\\approx ' + rTo(y1, 1), 3));
+        return out('ls-use', 'The least-squares regression line for the data is ' + M(ln) + '. Predict ⟨y⟩ when ' + M('x=' + xg) + '. Round to the nearest tenth.', [{ answer: 'y ≈ ' + M(String(rTo(y1, 1))), check: { type: 'lsrl', want: 'use', line: ln, at: 'x=' + xg, round: 1 } }], steps, fig); }
+      if (c === 2) { var rv = rTo(R.r, 2); need(Math.abs(Math.abs(rv) - 0.8) > 0.02 && Math.abs(Math.abs(rv) - 0.5) > 0.02);
+        steps.push(step('The sign of r gives the direction; how close |r| is to 1 gives the strength.', '', 2), step('|r| ≥ 0.8 strong, 0.5–0.8 moderate, below 0.5 weak.', '', 1));
+        return out('ls-desc', 'The correlation coefficient for the data is ' + M('r=' + fmtN(rv, 2)) + '. Describe the strength and direction of the correlation (strong: |r| ≥ 0.8, moderate: 0.5 ≤ |r| < 0.8, weak: |r| < 0.5).',
+          [{ answer: strength(rv).charAt(0).toUpperCase() + strength(rv).slice(1) + ' correlation', check: { type: 'lsrl', want: 'describe', r: 'r=' + fmtN(rv, 2) } }], steps, fig); }
+      if (c === 3) { steps.push(step('Enter the data in two lists and run linear regression (LinReg).', '', 2), step('Read r.', 'r\\approx ' + fmtN(R.r, 2), 2));
+        return out('ls-r', 'Find the correlation coefficient ⟨r⟩ for the data.' + calc + ' Round to the nearest hundredth.', [{ answer: 'r ≈ ' + M(fmtN(R.r, 2)), check: { type: 'lsrl', want: 'r', round: 2 } }], steps, fig); }
+      if (c === 4) { steps.push(step('Enter the data and run linear regression.', '', 2), step('Write ⟨y=ax+b⟩ with a and b rounded.', ln, 2));
+        return out('ls-line', 'Find the least-squares regression line for the data.' + calc + ' Round the slope and the y-intercept to the nearest hundredth.', [{ answer: M(ln), check: { type: 'lsrl', want: 'line', round: 2 } }], steps, fig); }
+      var x5 = xs[xs.length - 1] + L[3], mm5 = rTo(R.m, 2), bb5 = rTo(R.b, 2), y5 = mm5 * x5 + bb5; need(safeRound(y5, 1));
+      if (c === 5) { steps.push(step('Find the regression line.', ln, 2), step('Substitute ⟨x=' + x5 + '⟩.', 'y\\approx ' + rTo(y5, 1), 2));
+        return out('ls-pred', 'Find the least-squares regression line for the data (round the slope and intercept to the nearest hundredth), then use it to predict ⟨y⟩ when ' + M('x=' + x5) + '. Round the prediction to the nearest tenth.' + calc,
+          [{ label: 'a', answer: M(ln), check: { type: 'lsrl', want: 'line', round: 2 } }, { label: 'b', answer: 'y ≈ ' + M(String(rTo(y5, 1))), check: { type: 'lsrl', want: 'predict', at: 'x=' + x5, round: 1 } }], steps, fig); }
+      var pi = r.int(0, pts.length - 1), P0 = pts[pi], res = P0[1] - (mm5 * P0[0] + bb5); need(safeRound(res, 2) && Math.abs(res) > 0.05);
+      var parts = [{ label: 'a', answer: M(ln), check: { type: 'lsrl', want: 'line', round: 2 } }, { label: 'b', answer: M(fmtN(res, 2)), check: { type: 'lsrl', want: 'residual', at: 'x=' + P0[0], round: 2 } }];
+      steps.push(step('Find the regression line.', ln, 2), step('Predicted value at ⟨x=' + P0[0] + '⟩, then residual = actual − predicted.', String(P0[1]) + '-' + rTo(mm5 * P0[0] + bb5, 2) + '\\approx ' + fmtN(res, 2), 2));
+      if (c === 7) { parts.push({ label: 'c', answer: 'r ≈ ' + M(fmtN(R.r, 2)) + ': a ' + strength(rTo(R.r, 2)) + ' correlation', check: { type: 'lsrl', want: 'r', round: 2, describe: true } }); steps.push(step('Find r and describe it.', 'r\\approx ' + fmtN(R.r, 2), 2)); }
+      return out('ls-res' + c, 'Find the least-squares regression line for the data (round the slope and intercept to the nearest hundredth). Then find the residual for the point with ' + M('x=' + P0[0]) + ', using the rounded line. Round to the nearest hundredth.' + (c === 7 ? ' Also find ⟨r⟩ to the nearest hundredth and describe the strength and direction of the correlation (strong: |r| ≥ 0.8, moderate: 0.5 ≤ |r| < 0.8, weak: |r| < 0.5).' : '') + calc, parts, steps, fig);
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-statistics-data-modeling', course: 'algebra1', courseName: 'Algebra 1', unit: 'statistics-data-modeling', unitName: 'Statistics and Data Modeling',
     title: 'The Data Deli',
-    tags: { CENTER: 'Measures of center', SPREAD: 'Spread and outliers', DISPLAY: 'Box plots', TWOWAY: 'Two-way tables', SCATTER: 'Scatter plots and lines of fit' },
+    tags: { CENTER: 'Measures of center', SPREAD: 'Spread and outliers', DISPLAY: 'Box plots and histograms', TWOWAY: 'Two-way tables', SCATTER: 'Scatter plots and lines of fit' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Center</h4><p>Mean = sum ÷ count. Median = middle value (mean of the two middle values for an even count). Mode = most frequent.</p></section>' +
@@ -235,7 +354,7 @@
       '<section><h4>Box plots</h4><p>Each of the four parts holds about 25% of the data.</p></section>' +
       '<section><h4>Two-way tables</h4><p>Joint: cell ÷ grand total. Marginal: row or column total ÷ grand total. Conditional: cell ÷ the total of the given group.</p></section>' +
       '<section><h4>Lines of fit</h4><p>Residual = actual − predicted. Positive: the line underestimates. Negative: it overestimates.</p></section></div>',
-    gaps: ['Standard deviation, histograms and computing a least-squares regression line are not generated; use "Write your own".'],
+    gaps: [],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

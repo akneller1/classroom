@@ -21,8 +21,8 @@
 */
 window.LIBRARY = {
   "title": "Mr. K's Classroom",
-  "tagline": "Interactive math games and practice for Algebra 1, Algebra 2, and Geometry. Pick a course, choose a unit, and open an activity on any device.",
-  "footer": "Activities open in a new tab and run in any modern browser. Saved activities are kept in this browser only.",
+  "tagline": "Interactive math games, generators and printables for Algebra 1 (Geometry and Algebra 2 coming soon). Choose a unit and open an activity on any device.",
+  "footer": "Activities run in any modern browser. Saved activities are kept in this browser only.",
   "newDays": 30,
   "courses": [
     {
@@ -4274,7 +4274,8 @@ window.LIBRARY = {
             }
           ]
         }
-      ]
+      ],
+      "comingSoon": true
     },
     {
       "id": "geometry",
@@ -6076,7 +6077,8 @@ window.LIBRARY = {
             }
           ]
         }
-      ]
+      ],
+      "comingSoon": true
     }
   ]
 };

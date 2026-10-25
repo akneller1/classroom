@@ -37,7 +37,7 @@ test('every unit, level and seed: a full test with checked multiple-choice quest
 test('versions reshuffle the letters and use different numbers', () => {
   const st = build('algebra1-systems-of-equations', 'cp1', 77, 3), keys = st.versions.map(v => v.sections[0].items.map(it => it.mc ? it.mc.key : -1).join(''));
   ok(new Set(keys).size > 1, 'the answer letters differ between versions');
-  ok(st.versions[0].sections[0].items[0].prompt !== st.versions[1].sections[0].items[0].prompt, 'different problems');
+  const sig = it => it.prompt + JSON.stringify(it.fig || null); ok(sig(st.versions[0].sections[0].items[0]) !== sig(st.versions[1].sections[0].items[0]), 'different problems');
 });
 test('moving a question between parts changes its format', () => {
   const st = build('algebra1-polynomials', 'cp1', 5, 1), mcQ = st.versions[0].sections[0].items[0], saQ = st.versions[0].sections[1].items[0];

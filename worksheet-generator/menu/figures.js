@@ -280,10 +280,32 @@
     return { cols: head, rows: rows };
   }
 
-  NS.fig = { numberLine: numberLine, readNumberLine: readNumberLine, windowFor: windowFor, plane: plane, readPlane: readPlane, table: table, readTable: readTable, mapping: mapping, readMapping: readMapping, dotplot: dotplot, readDotplot: readDotplot, boxplot: boxplot, readBoxplot: readBoxplot, scatter: scatter, readScatter: readScatter, twoway: twoway, readTwoway: readTwoway };
+  /* ---------- histograms: equal-width bins starting at spec.start; counts per bin ---------- */
+  function histogram(spec) {
+    var W = 400, H = 250, L = 46, R = W - 16, T = 14, B = H - 44, n = spec.counts.length, maxc = Math.max.apply(null, spec.counts);
+    var yStep = maxc <= 8 ? 1 : maxc <= 16 ? 2 : maxc <= 40 ? 5 : 10, yMax = Math.ceil(maxc / yStep) * yStep, ux = (R - L) / n, uy = (B - T) / yMax;
+    var h = ['<svg class="mm-hist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="4in" role="img" aria-label="histogram" data-start="' + spec.start + '" data-width="' + spec.width + '" data-l="' + L + '" data-b="' + B + '" data-ux="' + ux.toFixed(6) + '" data-uy="' + uy.toFixed(6) + '">'];
+    for (var t = 0; t <= yMax; t += yStep) { var y = +(B - t * uy).toFixed(2); h.push('<path d="M' + L + ' ' + y + 'H' + R + '" stroke="#d0d4dc" stroke-width="1"/><text x="' + (L - 6) + '" y="' + (y + 3.5) + '" text-anchor="end" font-size="10" ' + FONT + '>' + t + '</text>'); }
+    spec.counts.forEach(function (c, i) { if (!c) return; var x = +(L + i * ux).toFixed(2), y = +(B - c * uy).toFixed(2); h.push('<rect class="hg-bar" x="' + x + '" y="' + y + '" width="' + ux.toFixed(2) + '" height="' + (c * uy).toFixed(2) + '" fill="#bcd2ff" stroke="#111" stroke-width="1.4"/>'); });
+    h.push('<path d="M' + L + ' ' + B + 'H' + R + 'M' + L + ' ' + T + 'V' + B + '" stroke="#111" stroke-width="1.4"/>');
+    for (var k = 0; k <= n; k++) h.push('<text x="' + (L + k * ux).toFixed(2) + '" y="' + (B + 15) + '" text-anchor="middle" font-size="10" ' + FONT + '>' + numTxt(spec.start + k * spec.width) + '</text>');
+    if (spec.label) h.push('<text x="' + ((L + R) / 2) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="11" ' + FONT + '>' + spec.label + '</text>');
+    h.push('<text x="12" y="' + ((T + B) / 2) + '" text-anchor="middle" font-size="11" transform="rotate(-90 12 ' + ((T + B) / 2) + ')" ' + FONT + '>Frequency</text>');
+    h.push('</svg>'); return h.join('');
+  }
+  /* reads the drawn bars back: [{lo, hi, count}] for every bin (empty bins count 0) */
+  function readHistogram(svg) {
+    var root = /<svg[^>]*>/.exec(svg)[0], st = +attr(root, 'data-start'), wd = +attr(root, 'data-width'), L = +attr(root, 'data-l'), ux = +attr(root, 'data-ux'), uy = +attr(root, 'data-uy');
+    var bars = (svg.match(/<rect class="hg-bar"[^>]*>/g) || []).map(function (r) { return { i: Math.round((+attr(r, 'x') - L) / ux), c: Math.round(+attr(r, 'height') / uy) }; });
+    var n = Math.round((400 - 16 - L) / ux), out = [];
+    for (var i = 0; i < n; i++) out.push({ lo: st + i * wd, hi: st + (i + 1) * wd, count: 0 });
+    bars.forEach(function (b) { if (out[b.i]) out[b.i].count = b.c; });
+    return out;
+  }
+  NS.fig = { numberLine: numberLine, readNumberLine: readNumberLine, windowFor: windowFor, plane: plane, readPlane: readPlane, table: table, readTable: readTable, mapping: mapping, readMapping: readMapping, dotplot: dotplot, readDotplot: readDotplot, boxplot: boxplot, readBoxplot: readBoxplot, scatter: scatter, readScatter: readScatter, twoway: twoway, readTwoway: readTwoway, histogram: histogram, readHistogram: readHistogram };
   NS.figHtml = function (spec) {
     if (!spec) return '';
-    var inner = spec.kind === 'numberline' ? numberLine(spec) : spec.kind === 'plane' ? plane(spec) : spec.kind === 'table' ? table(spec) : spec.kind === 'mapping' ? mapping(spec) : spec.kind === 'dotplot' ? dotplot(spec) : spec.kind === 'boxplot' ? boxplot(spec) : spec.kind === 'scatter' ? scatter(spec) : spec.kind === 'twoway' ? twoway(spec) : '';
+    var inner = spec.kind === 'numberline' ? numberLine(spec) : spec.kind === 'plane' ? plane(spec) : spec.kind === 'table' ? table(spec) : spec.kind === 'mapping' ? mapping(spec) : spec.kind === 'dotplot' ? dotplot(spec) : spec.kind === 'boxplot' ? boxplot(spec) : spec.kind === 'scatter' ? scatter(spec) : spec.kind === 'twoway' ? twoway(spec) : spec.kind === 'histogram' ? histogram(spec) : '';
     return inner ? '<div class="mm-fig mm-fig-' + spec.kind + '">' + inner + '</div>' : '';
   };
 })(typeof window !== 'undefined' ? window : globalThis);

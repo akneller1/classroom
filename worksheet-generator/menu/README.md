@@ -340,8 +340,14 @@ median when the count is odd (as on the TI-84). Rounding is accepted only when t
 Correlation is judged from the drawn points (r ≥ 0.6 positive, r ≤ −0.6 negative, |r| ≤ 0.3 none; anything in between is refused).
 An association answer must quote both conditional percents; tables whose percents differ by 5–15 points are refused as too close to call.
 
-**Gaps (not generated, use "Write your own"):** Statistics: standard deviation, histograms and computing least-squares regression.  Factoring: two variables (x² − 9y²) and sums/differences of cubes.  Exponential Functions: compound interest with several periods per year and continuous growth.  Relations and Functions: describing a curved graph in words.  Linear Inequalities: absolute-value *equations*. Foundations & Solving Linear Equations: error-analysis ("find the mistake") problems; percent
-and absolute-value equations. A skill that cannot produce a verified problem at a requested difficulty is
+**Skills added to close the earlier gaps (2026-10-25):** Foundations and Solving Linear Equations: percent problems, find-the-mistake for
+expressions and for equations, absolute-value equations (also in Linear Inequalities). Relations and Functions: describing a curved graph
+(increasing, decreasing, maximum and minimum). Systems: graphing a system or shading inequalities by hand (the key shows the graph, which the
+verifier reads back). Exponents: simplifying square roots. Exponential Functions: compound interest n times a year and continuously.
+Polynomials: dividing by a binomial. Factoring: two variables and sums/differences of cubes. Quadratics: graphing by hand, transformations in
+words, quadratic models and regression. Statistics: standard deviation, histograms, least-squares regression and r. Answers that depend on a
+calculator are computed by the verifier from the printed data and must match the printed rounding instruction.
+A skill that cannot produce a verified problem at a requested difficulty is
 flagged in red with a reason; it is never silently replaced.
 
 ## Tests

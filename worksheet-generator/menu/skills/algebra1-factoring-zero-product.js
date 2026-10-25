@@ -192,6 +192,72 @@
     }
   });
 
+  /* ================= SPECIAL · sums and differences of cubes ================= */
+  function cubeFactors(a, b, sgn, v) {   // a³x³ ± b³ = (ax ± b)(a²x² ∓ abx + b²)
+    return f1(a, sgn * b, v) + '(' + poly([b * b, -sgn * a * b, a * a], v) + ')';
+  }
+  skill({
+    id: 'cubes', print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'SPECIAL', name: 'Sums and differences of cubes',
+    blurb: 'x³ − 8 and x³ + 27 (CP2) → 8x³ − 27, a common factor first (CP1) → a GCF with x, x⁶ − 64 (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, v = letter(r), sgn = r.sign(), steps = [], a = 1, b, g = 1, gx = 0, expr, ans;
+      if (c === 7 && r.chance(0.5)) {   // x⁶ − b⁶: difference of squares first, then a sum and a difference of cubes
+        b = r.int(1, 2); var b3 = b * b * b;
+        expr = poly([-b3 * b3, 0, 0, 0, 0, 0, 1], v);
+        ans = f1(1, -b, v) + '(' + poly([b * b, b, 1], v) + ')' + f1(1, b, v) + '(' + poly([b * b, -b, 1], v) + ')';
+        steps.push(step('Difference of squares first.', '(' + poly([-b3, 0, 0, 1], v) + ')(' + poly([b3, 0, 0, 1], v) + ')', 2), step('Factor each cube.', ans, 3));
+        return { variant: 'cube6', prompt: FACTOR + M(expr), parts: [{ answer: M(ans), check: { type: 'factor', expr: expr, v: v } }], steps: steps, space: [1.1, 1.3, 1.5] };
+      }
+      b = c <= 2 ? r.int(1, c === 1 ? 4 : 6) : r.int(1, 5);
+      if (c >= 3) { a = r.int(2, c === 3 ? 3 : 4); need(gcd(a, b) === 1); }
+      if (c >= 4) g = r.int(2, 5) * (c === 7 && r.chance(0.3) ? -1 : 1);
+      if (c === 6 || c === 7) gx = 1;
+      var cs = [sgn * b * b * b * g, 0, 0, a * a * a * g]; if (gx) cs.unshift(0);
+      expr = poly(cs, v);
+      var gcfTex = g === 1 && !gx ? '' : mono(g, gx, v);
+      ans = gcfTex + cubeFactors(a, b, sgn, v);
+      if (gcfTex) steps.push(step('Factor out the GCF ' + M(gcfTex) + '.', gcfTex + '(' + poly(gx ? [sgn * b * b * b, 0, 0, a * a * a] : [sgn * b * b * b, 0, 0, a * a * a], v) + ')', 2));
+      steps.push(step('Write each term as a cube: ' + M('(' + (a === 1 ? v : a + v) + ')^3') + ' and ' + M(b + '^3') + '.', '', 1));
+      steps.push(step(sgn < 0 ? 'Difference of cubes: ⟨a^3-b^3=(a-b)(a^2+ab+b^2)⟩.' : 'Sum of cubes: ⟨a^3+b^3=(a+b)(a^2-ab+b^2)⟩.', ans, 3));
+      return { variant: 'cube' + c + (sgn < 0 ? 'd' : 's'), prompt: FACTOR + M(expr), parts: [{ answer: M(ans), check: { type: 'factor', expr: expr, v: v } }], steps: steps, space: [0.9, 1.1, 1.3] };
+    }
+  });
+
+  /* ================= TRI · two variables ================= */
+  function t2(a, b, c) { return lin([[a, 'x^2'], [b, 'xy'], [c, 'y^2']]); }
+  function f2(p, q) { return '(' + lin([[p, 'x'], [q, 'y']]) + ')'; }
+  skill({
+    id: 'two-var', print: ['maze', 'color', 'tarsia', 'error', 'who', 'stations'], best: [1, 2], tag: 'TRI', name: 'Factor with two variables',
+    blurb: 'x² − 9y² and x² + 5xy + 6y² (CP2) → negative middle terms, a common factor such as 3xy (CP1) → leading coefficients other than 1, a GCF and a trinomial, x⁴ − 16y⁴ (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], expr, ans, g = 1;
+      if (c === 1 || (c === 7 && r.chance(0.35))) {
+        var b = r.int(2, c === 7 ? 3 : 15);
+        if (c === 7) { expr = lin([[1, 'x^4'], [-b * b * b * b, 'y^4']]); ans = '(' + lin([[1, 'x^2'], [b * b, 'y^2']]) + ')' + f2(1, b) + f2(1, -b);
+          steps.push(step('Difference of squares.', '(' + lin([[1, 'x^2'], [b * b, 'y^2']]) + ')(' + lin([[1, 'x^2'], [-b * b, 'y^2']]) + ')', 2), step('The second factor is a difference of squares again.', ans, 2)); }
+        else { var sw = r.chance(0.5), U = sw ? 'y' : 'x', V = sw ? 'x' : 'y'; expr = lin([[1, U + '^2'], [-b * b, V + '^2']]); ans = '(' + lin([[1, U], [b, V]]) + ')(' + lin([[1, U], [-b, V]]) + ')'; steps.push(step('Difference of squares: ⟨a^2-b^2=(a+b)(a-b)⟩.', ans, 3)); }
+      } else if (c === 4) {   // a monomial GCF such as 3xy
+        var k = r.int(2, 6), p4 = nz(r, -7, 7), q4 = nz(r, -7, 7), ex = r.pick([[1, 0], [0, 1], [1, 1]]); need(gcd(Math.abs(p4), Math.abs(q4)) === 1);
+        var gm = (k === 1 ? '' : k) + (ex[0] ? 'x' : '') + (ex[1] ? 'y' : '');
+        expr = lin([[k * p4, 'x^' + (1 + ex[0]) + (ex[1] ? 'y' : '')], [k * q4, (ex[0] ? 'x' : '') + 'y^' + (1 + ex[1])]]).replace(/\^1(?!\d)/g, '');
+        ans = gm + f2(p4, q4); steps.push(step('Factor out the GCF ' + M(gm) + '.', ans, 3));
+        return { variant: 'gcf2', prompt: FACTOR + M(expr), parts: [{ answer: M(ans), check: { type: 'factor', expr: expr, v: 'x', v2: 'y' } }], steps: steps, space: [0.8, 1.0, 1.2] };
+      } else {
+        var p = nz(r, c <= 2 ? 1 : -9, 9), q = nz(r, c <= 2 ? 1 : -9, 9), A = c >= 5 ? r.int(2, 4) : 1, B = 1;
+        if (c >= 5) need(gcd(A, Math.abs(q)) === 1);
+        if (c === 6 || c === 7) g = r.int(2, 5);
+        if (c === 3) need(p < 0 || q < 0);
+        // (A·x + p·y)(B·x + q·y) = AB x² + (Aq + Bp) xy + pq y²
+        var a = A * B, bb = A * q + B * p, cc = p * q; need(bb !== 0);
+        expr = t2(g * a, g * bb, g * cc);
+        ans = (g === 1 ? '' : String(g)) + f2(A, p) + f2(B, q);
+        if (g !== 1) steps.push(step('Factor out the GCF ' + g + '.', g + '(' + t2(a, bb, cc) + ')', 2));
+        steps.push(step(a === 1 ? 'Find two numbers that multiply to ' + cc + ' and add to ' + bb + '; use ' + M('y') + ' with each.' : 'Use the ac method with ⟨ac=' + a * cc + '⟩.', ans, 3));
+      }
+      return { variant: 'two' + c, prompt: FACTOR + M(expr), parts: [{ answer: M(ans), check: { type: 'factor', expr: expr, v: 'x', v2: 'y' } }], steps: steps, space: [0.9, 1.1, 1.3] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-factoring-zero-product', course: 'algebra1', courseName: 'Algebra 1', unit: 'factoring-zero-product', unitName: 'Factoring and Zero Product Property',
     title: 'The Factor Factory Café',
@@ -204,7 +270,7 @@
       '<section><h4>Grouping</h4><p>Group two terms at a time, factor each group, then factor out the common binomial.</p></section>' +
       '<section><h4>Zero product property</h4><p>If ⟨ab=0⟩, then ⟨a=0⟩ or ⟨b=0⟩. Get 0 on one side first; never divide by the variable.</p></section>' +
       '<section><h4>Word problems</h4><p>Falling objects: ⟨h=-16t^2+vt+h_0⟩ (feet). Keep only answers that make sense (positive lengths and times).</p></section></div>',
-    gaps: ['Factoring with two variables (such as x² − 9y²) and sums or differences of cubes are not generated; use "Write your own".'],
+    gaps: [],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

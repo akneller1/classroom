@@ -95,6 +95,8 @@
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
     if (!lim.fig && q.fig) return null;
+    // boxes on a color-by-number page, a partner check or an error analysis are small: no histograms, long data tables or graphs to draw
+    if ((kind === 'color' || kind === 'partner' || kind === 'error') && (q.fig && (q.fig.kind === 'histogram' || (q.fig.kind === 'table' && q.fig.rows.length > 5)) || p.parts.some(function (pt) { return pt.answerFig && pt.answerFig.kind === 'plane'; }))) return null;
     if ((q.parts[0].prompt || '') && !lim.fig) return null;
     if (plain(key).length > lim.answer) return null;
     if (kind === 'maze' && (plain(key).match(/,/g) || []).length > 2) return null;   // long lists do not fit on a door
@@ -117,6 +119,7 @@
   var capCache = {};
   PR.capable = function (unitId, skill, kind) {
     var k = unitId + '|' + skill + '|' + kind; if (capCache[k] !== undefined) return capCache[k];
+    var sd = NS.skillSets[unitId] && NS.skillSets[unitId].byId[skill]; if (sd && sd.print && sd.print.indexOf(kind) < 0) return (capCache[k] = false);   // a skill may list the printables it suits
     var hits = 0, cfg = { unitId: unitId, level: 'cp1', answers: 'auto' };
     [2, 3, 4, 5, 6].forEach(function (c) { for (var i = 0; i < 3; i++) if (makeItem(cfg, skill, c, 'cap|' + c + '|' + i, null, kind)) { hits++; break; } });
     return (capCache[k] = hits >= 2);
@@ -271,7 +274,7 @@
     var lv = NS.LEVELS[cfg.level] || NS.LEVELS.cp1, skills = PR.skillsFor(cfg), rng = rngOf(cfg.seed, vIdx, 'partner');
     if (!skills.length) return { error: 'None of the selected skills can make partner problems.' };
     var want = 8, pool = [], used = { keys: new Set(), sigs: new Set() };
-    for (var i = 0; i < 900 && pool.length < (i < 360 ? 340 : 800); i++) {
+    for (var i = 0; i < 1600 && pool.length < (i < 360 ? 340 : 1200); i++) {
       if (i === 360 && countPairs(pool) >= want + 2) break;   // most units find enough pairs quickly
       var sk = skills[i % skills.length], c = lv.tiers[i % 3];
       var it = makeItem(cfg, sk, c, [cfg.seed, vIdx, 'pc', i].join('|'), used, 'partner');

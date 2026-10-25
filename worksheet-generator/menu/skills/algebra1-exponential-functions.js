@@ -276,6 +276,44 @@
     }
   });
 
+  /* ================= APPLY · compound interest and continuous growth ================= */
+  var PER = { annually: 1, semiannually: 2, quarterly: 4, monthly: 12, daily: 365 };
+  var SAVERS = ['Maya', 'Jordan', 'Luis', 'Priya', 'Sam', 'Avery', 'Noah', 'Zoe', 'Elena', 'Marcus'];
+  function dollars(x) { var cents = Math.round(x * 100), d = Math.floor(cents / 100), c2 = cents % 100; return '$' + String(d).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + (c2 ? '.' + (c2 < 10 ? '0' : '') + c2 : '.00'); }
+  function whole(x) { return '$' + String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function grow(P, rate, how, t) { return how === 'continuously' ? P * Math.exp(rate / 100 * t) : P * Math.pow(1 + rate / 100 / PER[how], PER[how] * t); }
+  function safeCents(x) { var f = x * 100 - Math.floor(x * 100); return Math.abs(f - 0.5) > 1e-4; }
+  skill({
+    id: 'compound', best: [1, 2], tag: 'APPLY', name: 'Compound interest and continuous growth',
+    blurb: 'Interest compounded once a year (CP2) → several times a year, interest earned (CP1) → compounded continuously, comparing two accounts (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, who = r.pick(SAVERS), P = r.int(c <= 2 ? 5 : 10, c <= 2 ? 40 : 100) * 100, rate = c <= 2 ? r.int(2, 8) : r.pick([2, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7]), steps = [];
+      var t = c === 1 ? r.int(2, 3) : c === 2 ? r.int(4, 10) : r.int(3, 20);
+      var how = c <= 2 ? 'annually' : c === 3 ? r.pick(['semiannually', 'quarterly']) : c === 4 ? r.pick(['monthly', 'quarterly']) : c === 5 ? 'continuously' : r.pick(['monthly', 'daily', 'continuously']);
+      var formula = how === 'continuously' ? 'A=Pe^{rt}' : how === 'annually' ? 'A=P(1+r)^{t}' : 'A=P\\left(1+\\frac{r}{n}\\right)^{nt}';
+      if (c === 7) {
+        var r1 = r.pick([3, 3.5, 4, 4.5, 5]), r2 = r1 + r.pick([-0.25, -0.1, 0.1, 0.25]), h1 = r.pick(['quarterly', 'monthly', 'annually']), h2 = 'continuously';
+        var A1 = grow(P, r1, h1, t), A2 = grow(P, r2, h2, t); need(safeCents(A1) && safeCents(A2));
+        var c1 = Math.round(A1 * 100), c2 = Math.round(A2 * 100); need(c1 !== c2);
+        var win = c1 > c2 ? 'A' : 'B', diff = Math.abs(c1 - c2) / 100;
+        steps.push(step('Account A: ⟨A=P\\left(1+\\frac{r}{n}\\right)^{nt}⟩ with ⟨r=' + r1 / 100 + '⟩, ⟨n=' + PER[h1] + '⟩.', '', 1), step('Account A balance: ' + dollars(A1) + '.', '', 2));
+        steps.push(step('Account B: ⟨A=Pe^{rt}⟩ with ⟨r=' + r2 / 100 + '⟩.', '', 1), step('Account B balance: ' + dollars(A2) + '.', '', 2), step('Account ' + win + ' has ' + dollars(diff) + ' more.', '', 1));
+        return { variant: 'cmp-' + h1, prompt: 'Account A pays ' + r1 + '% interest compounded ' + h1 + '. Account B pays ' + r2 + '% interest compounded ' + h2 + '. ' + who + ' deposits ' + whole(P) + ' in one of them for ' + t + ' years. Which account gives more money, and how much more? Round each balance to the nearest cent.',
+          parts: [{ answer: 'Account ' + win + ', by ' + dollars(diff), check: { type: 'compound', want: 'compare' } }], steps: steps, space: [1.3, 1.6, 1.9] };
+      }
+      var A = grow(P, rate, how, t), want = (c === 4 || c === 6) && r.chance(0.5) ? 'interest' : 'balance', val = want === 'interest' ? A - P : A;
+      need(safeCents(A));
+      var nTxt = how === 'continuously' ? '' : how === 'annually' ? '' : ', ⟨n=' + PER[how] + '⟩';
+      steps.push(step('Use ⟨' + formula + '⟩ with ⟨P=' + P + '⟩, ⟨r=' + rate / 100 + '⟩' + nTxt + ', ⟨t=' + t + '⟩.', '', 2));
+      steps.push(step('Balance: ' + dollars(A) + '.', '', 2));
+      if (want === 'interest') steps.push(step('Interest earned = balance − deposit = ' + dollars(A) + ' − ' + whole(P) + '.', '', 1));
+      return { variant: 'ci-' + how + '-' + want,
+        prompt: who + ' deposits ' + whole(P) + ' in an account that pays ' + rate + '% interest compounded ' + how + '. ' + (want === 'interest' ? 'How much interest does the account earn in ' + t + ' years?' : 'How much is in the account after ' + t + ' years?') + ' Round to the nearest cent.',
+        parts: [{ answer: dollars(Math.round(A * 100) / 100 - (want === 'interest' ? P : 0)), check: { type: 'compound', want: want } }], steps: steps, space: [0.9, 1.1, 1.3] };
+      void val;
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-exponential-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponential-functions', unitName: 'Exponential Functions',
     title: 'The Exponential Eatery',
@@ -288,7 +326,7 @@
       '<section><h4>Graphs</h4><p>⟨y=a\\cdot b^{x}+k⟩ has the horizontal asymptote ⟨y=k⟩.</p><p>Domain: all real numbers. Range: above (or below) the asymptote.</p></section>' +
       '<section><h4>Linear or exponential?</h4><p>Equal differences: linear. Equal ratios: exponential.</p></section>' +
       '<section><h4>Geometric sequences</h4><p>Explicit: ⟨a_n=a_1\\cdot r^{n-1}⟩. Recursive: ⟨a_n=r\\cdot a_{n-1}⟩.</p></section></div>',
-    gaps: ['Compound interest with n periods per year and continuous growth are not generated; use "Write your own".'],
+    gaps: [],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

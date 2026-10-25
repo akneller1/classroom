@@ -186,18 +186,73 @@
     }
   });
 
+  /* ================= RADICAL ================= */
+  var SQF = [2, 3, 5, 6, 7, 10, 11, 13, 14, 15];
+  function sqrtOf(n) { return '\\sqrt{' + n + '}'; }
+  function kRoot(k, m) { return m === 1 ? String(k) : (k === 1 ? '' : k === -1 ? '-' : String(k)) + sqrtOf(m); }
+  /* a + b√m in simplest form (b may be 0, a may be 0) */
+  function surd(a, b, m) { if (!b) return String(a); var t = kRoot(b, m); return a ? String(a) + (b < 0 ? t : '+' + t) : t; }
+  skill({
+    id: 'radicals', best: [0, 1, 2], tag: 'RADICAL', name: 'Simplify square roots',
+    blurb: 'Perfect-square factors such as √12 and √72 (CP2) → a number times a root, products of roots, adding like roots (CP1) → quotients, rationalizing the denominator, products of binomials with roots (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], expr, ans, m = r.pick(SQF.slice(0, c <= 2 ? 6 : 10));
+      if (c <= 2) {
+        var k = c === 1 ? r.int(2, 6) : r.int(5, Math.max(5, Math.floor(Math.sqrt(600 / m)))); var n = k * k * m; need(n <= 600);
+        expr = sqrtOf(n); ans = kRoot(k, m);
+        steps.push(step('Find the largest perfect-square factor.', sqrtOf(k * k) + '\\cdot ' + sqrtOf(m), 2), step('Take its square root.', ans, 2));
+      } else if (c === 3) {
+        var a3 = r.int(2, 6) * (r.chance(0.25) ? -1 : 1), k3 = r.int(2, 6); need(k3 * k3 * m <= 300);
+        expr = a3 + sqrtOf(k3 * k3 * m); ans = kRoot(a3 * k3, m);
+        steps.push(step('Simplify the root.', a3 + '\\cdot ' + k3 + sqrtOf(m), 2), step('Multiply the numbers outside.', ans, 1));
+      } else if (c === 4) {
+        var p = r.pick([2, 3, 5, 6, 7]), q = r.pick([2, 3, 5, 6, 7, 10, 15]), s4 = r.int(1, 3), u4 = r.int(1, 3), A = p * s4 * s4, B = q * u4 * u4, prod = A * B;
+        need(A !== B && A <= 60 && B <= 60);
+        var big = 1; for (var d = 1; d * d <= prod; d++) if (prod % (d * d) === 0) big = d; var rest = prod / (big * big); need(big > 1);
+        expr = sqrtOf(A) + '\\cdot ' + sqrtOf(B); ans = kRoot(big, rest);
+        steps.push(step('Multiply under one root.', sqrtOf(prod), 1), step('Take out the perfect square ' + big * big + '.', ans, 2));
+      } else if (c === 5) {
+        var k1 = r.int(1, 5), k2 = r.int(1, 5), c1 = r.int(1, 4), c2 = r.int(1, 4) * r.sign(); need(k1 !== k2 && (k1 > 1 || k2 > 1));
+        var tot = c1 * k1 + c2 * k2; need(tot !== 0);
+        expr = kRoot(c1, k1 * k1 * m).replace(/^1\\/, '\\') + (c2 < 0 ? '-' : '+') + kRoot(Math.abs(c2), k2 * k2 * m); expr = expr.replace(/^1(?=\\sqrt)/, '');
+        need(k1 * k1 * m <= 200 && k2 * k2 * m <= 200);
+        ans = kRoot(tot, m);
+        steps.push(step('Simplify each root.', kRoot(c1 * k1, m) + (c2 < 0 ? '-' : '+') + kRoot(Math.abs(c2 * k2), m), 2), step('Add the like roots.', ans, 1));
+      } else if (c === 6) {
+        if (r.chance(0.5)) {   // rationalize a / √m
+          var a6 = r.int(1, 6) * m * (r.chance(0.5) ? 1 : 1), g = r.pick([1, 2, 3]); a6 = m * g;
+          expr = '\\frac{' + a6 + '}{' + sqrtOf(m) + '}'; ans = kRoot(g, m);
+          steps.push(step('Multiply the top and bottom by ' + M(sqrtOf(m)) + '.', '\\frac{' + a6 + sqrtOf(m) + '}{' + m + '}', 2), step('Reduce.', ans, 1));
+        } else {               // √A / √B
+          var k6 = r.int(2, 5), B6 = r.pick([2, 3, 5, 6, 7]), A6 = B6 * k6 * k6 * m; need(A6 <= 400);
+          expr = '\\frac{' + sqrtOf(A6) + '}{' + sqrtOf(B6) + '}'; ans = kRoot(k6, m);
+          steps.push(step('Divide under one root.', sqrtOf(A6 / B6), 1), step('Simplify.', ans, 2));
+        }
+      } else {
+        var a7 = r.int(1, 6), b7 = r.int(1, 4) * r.sign(), c7 = r.int(1, 6), d7 = r.int(1, 4) * r.sign();
+        // (a + b√m)(c + d√m) = ac + bd·m + (ad + bc)√m
+        var cst = a7 * c7 + b7 * d7 * m, rt = a7 * d7 + b7 * c7; need(cst !== 0 || rt !== 0);
+        expr = '(' + surd(a7, b7, m) + ')(' + surd(c7, d7, m) + ')'; ans = surd(cst, rt, m);
+        steps.push(step('Multiply every term (FOIL).', a7 * c7 + '+' + a7 * d7 + sqrtOf(m) + '+' + b7 * c7 + sqrtOf(m) + '+' + b7 * d7 + '\\cdot ' + m, 2), step('Combine like terms.', ans, 2));
+        steps[0].m = steps[0].m.replace(/\+-/g, '-');
+      }
+      return { variant: 'rad' + c, prompt: 'Simplify ' + M(expr) + '.', parts: [{ answer: M(ans), check: { type: 'radical-simplify', expr: expr } }], steps: steps, space: [0.6, 0.8, 1.0] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-exponents-scientific-notation', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponents-exponential-functions', unitName: 'Exponents and Scientific Notation',
     title: 'The Power Pantry',
-    tags: { PRODUCT: 'Product and power rules', QUOTIENT: 'Quotient, zero and negative exponents', EVAL: 'Evaluate powers', SCI: 'Scientific notation', SCIOPS: 'Operations in scientific notation' },
+    tags: { PRODUCT: 'Product and power rules', QUOTIENT: 'Quotient, zero and negative exponents', EVAL: 'Evaluate powers', SCI: 'Scientific notation', SCIOPS: 'Operations in scientific notation', RADICAL: 'Square roots' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Product and power</h4><p>⟨a^{m}\\cdot a^{n}=a^{m+n}⟩, ⟨(a^{m})^{n}=a^{mn}⟩, ⟨(ab)^{n}=a^{n}b^{n}⟩.</p></section>' +
       '<section><h4>Quotient</h4><p>⟨\\frac{a^{m}}{a^{n}}=a^{m-n}⟩, ⟨a^{0}=1⟩, ⟨a^{-n}=\\frac{1}{a^{n}}⟩.</p></section>' +
       '<section><h4>Rational exponents</h4><p>⟨a^{\\frac{1}{n}}=\\sqrt[n]{a}⟩, ⟨a^{\\frac{m}{n}}=(\\sqrt[n]{a})^{m}⟩.</p></section>' +
+      '<section><h4>Square roots</h4><p>⟨\\sqrt{ab}=\\sqrt{a}\\cdot\\sqrt{b}⟩: ⟨\\sqrt{72}=\\sqrt{36}\\cdot\\sqrt{2}=6\\sqrt{2}⟩. Rationalize: ⟨\\frac{6}{\\sqrt{3}}=\\frac{6\\sqrt{3}}{3}=2\\sqrt{3}⟩.</p></section>' +
       '<section><h4>Scientific notation</h4><p>⟨a\\times10^{n}⟩ with ⟨1\\le a<10⟩. Large numbers: ⟨n>0⟩; small numbers: ⟨n<0⟩.</p></section>' +
       '</div>',
-    gaps: ['Simplifying radicals (such as ⟨\\sqrt{72}⟩) and variables with rational exponents are not generated.'],
+    gaps: ['Variables with rational exponents are not generated.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

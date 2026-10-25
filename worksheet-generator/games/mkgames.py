@@ -2,8 +2,8 @@
 import sys, os
 repo, unit_dir, set_id, unit_label = sys.argv[1:5]
 skills = sys.argv[5] if len(sys.argv) > 5 else ''
-V = 'games-13'
-MV = 'menu-ws-1'   # cache string of the menu scripts (keep equal to menu-assessment.html)
+V = 'games-14'
+MV = 'menu-gaps-1'   # cache string of the menu scripts (keep equal to menu-assessment.html)
 FILES = {'algebra1-foundations': 'algebra1-expressions-equations'}   # skill sets registered inside another set's file
 GAMES = [('flashcards', 'Flashcards'), ('showdown', 'Showdown'), ('connect-four', 'Connect Four'), ('tic-tac-toe', 'Tic-Tac-Toe'), ('picture-reveal', 'Picture Reveal')]
 skill_file = 'skills/' + FILES.get(set_id, set_id) + '.js'
