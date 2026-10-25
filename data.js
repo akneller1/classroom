@@ -37,6 +37,121 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
+              "title": "Expressions & Equations Worksheet Generator",
+              "path": "worksheet-generator/algebra1-expressions-equations.html",
+              "thumb": "thumbs/algebra1-expressions-equations-generator.svg",
+              "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Expressions & Equations",
+                "Units 1–2"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations",
+              "thumb": "thumbs/menu-assessment-generator.svg",
+              "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Expressions & Equations",
+                "Units 1–2"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Equations Four",
+              "path": "artifacts/expressions-equations-connect-four/index.html",
+              "thumb": "thumbs/expressions-equations-connect-four.jpg",
+              "description": "Connect Four for two teams. Simplify, evaluate, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Multi-step equations",
+                "Literal equations",
+                "Units 1–2"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Flashcards",
+              "path": "artifacts/expressions-equations-flashcards/index.html",
+              "thumb": "thumbs/expressions-equations-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for vocabulary, evaluating, simplifying, solving equations, proportions and applications. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Evaluating expressions",
+                "Simplifying",
+                "Solving equations",
+                "Proportions",
+                "Units 1–2"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Picture Reveal",
+              "path": "artifacts/expressions-equations-picture-reveal/index.html",
+              "thumb": "thumbs/expressions-equations-picture-reveal.jpg",
+              "description": "Evaluate, simplify and solve 10 problems to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Evaluating expressions",
+                "Simplifying",
+                "Solving equations",
+                "Proportions",
+                "Units 1–2"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Equations Showdown",
+              "path": "artifacts/expressions-equations-jeopardy/index.html",
+              "thumb": "thumbs/expressions-equations-jeopardy.jpg",
+              "description": "A game board for Expressions and Equations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "type": "Game",
+              "topics": [
+                "Combining like terms",
+                "Distributive property",
+                "Multi-step equations",
+                "Literal equations",
+                "Units 1–2"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Expressions & Equations Stations",
+              "path": "artifacts/algebra-expressions-equations-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-expressions-equations-stations.svg",
+              "description": "Printable Algebra station work for Expressions & Equations. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Expressions & Equations",
+                "Units 1–2"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Expressions & Equations Cheat Sheet",
+              "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/expressions-equations-cheat-sheet.svg",
+              "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Expressions & Equations",
+                "Units 1–2"
+              ],
+              "added": "2026-10-19"
+            },
+            {
               "title": "Partner Check 2: Simplifying & Evaluating Expressions",
               "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
@@ -742,6 +857,19 @@ window.LIBRARY = {
           "name": "Linear Functions and Graphing",
           "artifacts": [
             {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-linear-equations-slope",
+              "thumb": "thumbs/menu-assessment-generator-linear-equations-slope.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Linear Functions and Graphing. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes slope from points, graphs and tables (zero and undefined slopes, missing coordinates, collinear points), slope-intercept, point-slope and standard form, intercepts, writing equations of lines from a slope, points or a graph, horizontal and vertical lines, parallel and perpendicular lines, and linear models with rate of change. Prints student menus (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every line is rebuilt from what is printed and checked for the right form.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Linear functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
               "title": "Linear Functions Worksheet Generator",
               "path": "artifacts/worksheet-generator/index.html",
               "thumb": "thumbs/linear-functions-worksheet-generator.svg",
@@ -992,6 +1120,81 @@ window.LIBRARY = {
                 "Writing Equations of Lines"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Linear Functions Flashcards",
+              "path": "artifacts/linear-functions-flashcards/index.html",
+              "thumb": "thumbs/linear-functions-flashcards.jpg",
+              "description": "A fresh deck of linear functions flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Slope",
+                "Linear equations",
+                "Parallel and perpendicular lines",
+                "Linear models"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Linear Functions Showdown",
+              "path": "artifacts/linear-functions-showdown/index.html",
+              "thumb": "thumbs/linear-functions-showdown.jpg",
+              "description": "A game board for linear functions review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Slope",
+                "Linear equations",
+                "Parallel and perpendicular lines",
+                "Linear models",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Linear Functions Connect Four",
+              "path": "artifacts/linear-functions-connect-four/index.html",
+              "thumb": "thumbs/linear-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice linear functions problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Slope",
+                "Linear equations",
+                "Parallel and perpendicular lines",
+                "Linear models",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Linear Functions Tic-Tac-Toe",
+              "path": "artifacts/linear-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/linear-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice linear functions problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Slope",
+                "Linear equations",
+                "Parallel and perpendicular lines",
+                "Linear models",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Linear Functions: Picture Reveal",
+              "path": "artifacts/linear-functions-picture-reveal/index.html",
+              "thumb": "thumbs/linear-functions-picture-reveal.jpg",
+              "description": "Solve 10 linear functions problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Slope",
+                "Linear equations",
+                "Parallel and perpendicular lines",
+                "Linear models"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -999,6 +1202,19 @@ window.LIBRARY = {
           "id": "systems-of-equations",
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
+            {
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-systems-of-equations",
+              "thumb": "thumbs/menu-assessment-generator-systems-of-equations.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Systems of Equations and Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes checking solutions, solving by graphing, how many solutions a system has (from a graph or the equations, and the value of k that makes none or infinitely many), substitution, elimination (multiplying one or both equations, decimals, special systems), word problems (tickets, prices, plans, mixtures, boats in a current, writing the system), and linear inequalities in two variables: checking points, writing an inequality or a system from a shaded graph, and systems of inequalities from a situation. Prints student menus (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every system is solved again from what is printed or drawn.",
+              "type": "Printable",
+              "topics": [
+                "Assessment generator",
+                "Choice menu",
+                "Systems of equations"
+              ],
+              "added": "2026-10-24"
+            },
             {
               "title": "Systems of Equations Worksheet Generator",
               "path": "worksheet-generator/algebra1-systems-of-equations.html",
@@ -1448,6 +1664,81 @@ window.LIBRARY = {
                 "Writing Inequalities from Graphs & Situations"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Systems Flashcards",
+              "path": "artifacts/systems-flashcards/index.html",
+              "thumb": "thumbs/systems-flashcards.jpg",
+              "description": "A fresh deck of systems flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Systems of equations",
+                "Substitution",
+                "Elimination",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Systems Showdown",
+              "path": "artifacts/systems-showdown/index.html",
+              "thumb": "thumbs/systems-showdown.jpg",
+              "description": "A game board for systems review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Systems of equations",
+                "Substitution",
+                "Elimination",
+                "Systems of inequalities",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Systems Connect Four",
+              "path": "artifacts/systems-connect-four/index.html",
+              "thumb": "thumbs/systems-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice systems problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Systems of equations",
+                "Substitution",
+                "Elimination",
+                "Systems of inequalities",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Systems Tic-Tac-Toe",
+              "path": "artifacts/systems-tic-tac-toe/index.html",
+              "thumb": "thumbs/systems-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice systems problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Systems of equations",
+                "Substitution",
+                "Elimination",
+                "Systems of inequalities",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Systems: Picture Reveal",
+              "path": "artifacts/systems-picture-reveal/index.html",
+              "thumb": "thumbs/systems-picture-reveal.jpg",
+              "description": "Solve 10 systems problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Systems of equations",
+                "Substitution",
+                "Elimination",
+                "Systems of inequalities"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -1455,6 +1746,79 @@ window.LIBRARY = {
           "id": "exponents-exponential-functions",
           "name": "Exponents and Scientific Notation",
           "artifacts": [
+            {
+              "title": "Exponents & Exponential Functions Worksheet Generator",
+              "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
+              "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
+              "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Exponents & Exponential Functions",
+                "Units 7–8"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponents Four",
+              "path": "artifacts/exponents-exponential-functions-connect-four/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Use exponent rules, scientific notation, and exponential growth and decay to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Exponential growth and decay",
+                "Units 7–8"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Flashcards",
+              "path": "artifacts/exponents-exponential-functions-flashcards/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for exponent rules, zero and negative exponents, scientific notation, exponential functions, growth and decay, and compound-growth word problems. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Exponential growth and decay",
+                "Units 7–8"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Picture Reveal",
+              "path": "artifacts/exponents-exponential-functions-picture-reveal/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-picture-reveal.jpg",
+              "description": "Use exponent rules, scientific notation, exponential equations and growth and decay to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Scientific notation",
+                "Exponential equations",
+                "Growth and decay",
+                "Units 7–8"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents Showdown",
+              "path": "artifacts/exponents-exponential-functions-jeopardy/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-jeopardy.jpg",
+              "description": "A game board for Exponents and Exponential Functions. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Zero and negative exponents",
+                "Scientific notation",
+                "Exponential growth and decay",
+                "Units 7–8"
+              ],
+              "added": "2026-10-18"
+            },
             {
               "title": "Exponent Rules Maze",
               "path": "artifacts/exponents-exponential-functions-maze/worksheet.pdf",
@@ -1469,6 +1833,77 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
+              "title": "Exponents & Exponential Functions Error Analysis",
+              "path": "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Negative and zero exponents",
+                "Exponential growth and decay",
+                "Units 7–8"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Exponents & Exponential Functions Color By Number",
+              "path": "artifacts/exponents-exponential-functions-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the butterfly on a flower. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Color by number",
+                "Self-checking",
+                "Units 7–8"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Great Pumpkin Snatch",
+              "path": "artifacts/exponents-exponential-functions-great-pumpkin-snatch/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-great-pumpkin-snatch.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Detective game",
+                "Typed answers",
+                "Units 7–8"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Exponents Tic-Tac-Toe",
+              "path": "artifacts/exponents-exponential-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Team game",
+                "Multiple choice",
+                "Units 7–8"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Great Pumpkin Snatch (Printable)",
+              "path": "artifacts/exponents-exponential-functions-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking",
+                "Units 7–8"
+              ],
+              "added": "2026-10-21"
+            },
+            {
               "title": "Exponent Rules Tarsia Puzzle",
               "path": "artifacts/exponents-exponential-functions-tarsia/worksheet.pdf",
               "thumb": "thumbs/exponents-exponential-functions-tarsia.jpg",
@@ -1480,6 +1915,62 @@ window.LIBRARY = {
                 "Self-checking"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "The Exponent Bistro: Assessment Menu",
+              "path": "artifacts/exponents-exponential-functions-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Exponent rules",
+                "Assessment",
+                "Choice menu",
+                "Units 7–8"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Dr. Petri’s Growth Lab",
+              "path": "artifacts/exponents-exponential-functions-escape-room/index.html",
+              "thumb": "thumbs/exponents-exponential-functions-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Escape room",
+                "Teamwork",
+                "Units 7–8"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Exponents & Exponential Functions Stations",
+              "path": "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-exponents-exponential-functions-stations.svg",
+              "description": "Printable Algebra station work for Exponents & Exponential Functions. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Exponents & Exponential Functions",
+                "Units 7–8"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Exponents & Exponential Functions Cheat Sheet",
+              "path": "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to exponent rules, scientific notation, exponential growth and decay, and worked examples.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Exponents & Exponential Functions",
+                "Units 7–8"
+              ],
+              "added": "2026-10-19"
             },
             {
               "title": "Partner Check 1: Exponent Rules",
@@ -1805,6 +2296,193 @@ window.LIBRARY = {
           "id": "polynomials-factoring",
           "name": "Polynomials",
           "artifacts": [
+            {
+              "title": "Polynomials & Factoring Worksheet Generator",
+              "path": "worksheet-generator/algebra1-polynomials-factoring.html",
+              "thumb": "thumbs/algebra1-polynomials-factoring-generator.svg",
+              "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
+              "type": "Practice",
+              "topics": [
+                "Worksheet generator",
+                "Polynomials & Factoring",
+                "Units 9–10"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Factoring Four",
+              "path": "artifacts/polynomials-factoring-connect-four/index.html",
+              "thumb": "thumbs/polynomials-factoring-connect-four.jpg",
+              "description": "Connect Four for two teams. Multiply, factor, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "GCF and trinomial factoring",
+                "Difference of squares",
+                "Zero-product property",
+                "Units 9–10"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Flashcards",
+              "path": "artifacts/polynomials-factoring-flashcards/index.html",
+              "thumb": "thumbs/polynomials-factoring-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for classifying, adding, subtracting and multiplying polynomials, then factoring with GCF, trinomials, difference of squares and factoring completely. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "GCF and trinomial factoring",
+                "Difference of squares",
+                "Factoring completely",
+                "Units 9–10"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Picture Reveal",
+              "path": "artifacts/polynomials-factoring-picture-reveal/index.html",
+              "thumb": "thumbs/polynomials-factoring-picture-reveal.jpg",
+              "description": "Add, multiply and factor polynomials, then use factoring to solve area problems and uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Factoring trinomials",
+                "Factoring completely",
+                "Units 9–10"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials Showdown",
+              "path": "artifacts/polynomials-factoring-jeopardy/index.html",
+              "thumb": "thumbs/polynomials-factoring-jeopardy.jpg",
+              "description": "A game board for Polynomials and Factoring. Add, subtract, and multiply polynomials, factor every way you know, and use the zero-product property.",
+              "type": "Game",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "GCF and trinomial factoring",
+                "Difference of squares",
+                "Zero-product property",
+                "Units 9–10"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Polynomials & Factoring Error Analysis",
+              "path": "artifacts/polynomials-factoring-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-error-analysis.jpg",
+              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Adding and subtracting polynomials",
+                "Multiplying polynomials",
+                "Factoring",
+                "Zero product property",
+                "Units 9–10"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "The Castle Crown Caper",
+              "path": "artifacts/polynomials-factoring-castle-crown-caper/index.html",
+              "thumb": "thumbs/polynomials-factoring-castle-crown-caper.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Factoring",
+                "Detective game",
+                "Typed answers",
+                "Units 9–10"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Polynomials & Factoring Tic-Tac-Toe",
+              "path": "artifacts/polynomials-factoring-tic-tac-toe/index.html",
+              "thumb": "thumbs/polynomials-factoring-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Factoring",
+                "Team game",
+                "Multiple choice",
+                "Units 9–10"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Castle Crown Caper (Printable)",
+              "path": "artifacts/polynomials-factoring-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Factoring",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking",
+                "Units 9–10"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Polynomial Bistro: Assessment Menu",
+              "path": "artifacts/polynomials-factoring-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "Assessment",
+                "Choice menu",
+                "Units 9–10"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "The Wizard’s Spell Library",
+              "path": "artifacts/polynomials-factoring-escape-room/index.html",
+              "thumb": "thumbs/polynomials-factoring-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Adding, subtracting and multiplying polynomials",
+                "Escape room",
+                "Teamwork",
+                "Units 9–10"
+              ],
+              "added": "2026-10-21"
+            },
+            {
+              "title": "Polynomials & Factoring Stations",
+              "path": "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra-polynomials-factoring-stations.svg",
+              "description": "Printable Algebra station work for Polynomials & Factoring. Students rotate through problem sets to practice and review unit skills.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Polynomials & Factoring",
+                "Units 9–10"
+              ],
+              "added": "2026-10-20"
+            },
+            {
+              "title": "Polynomials & Factoring Cheat Sheet",
+              "path": "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/polynomials-factoring-cheat-sheet.svg",
+              "description": "Colorful two-page printable guide to polynomial operations, multiplication, special products, factoring methods, and solving by factoring.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Polynomials & Factoring",
+                "Units 9–10"
+              ],
+              "added": "2026-10-19"
+            },
             {
               "title": "Partner Check 1: Operations with Polynomials",
               "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
