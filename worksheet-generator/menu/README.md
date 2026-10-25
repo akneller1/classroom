@@ -45,10 +45,18 @@ CP2/CP1/Honors, up to three versions and an answer key with worked solutions.
 
 * **Rule for every kind:** two problems on one printable never accept each other's answer (`PR.clash`), and every
   wrong label is an answer the verifier rejects for its problem.
-* **Maze** – 4 × 4 rooms, a 10–13-room path from START to FINISH; each wall has one door. A path room has exactly
-  one door that accepts its answer (to the next room); a dead end has none. The key shades and numbers the path.
-* **Color by Number** – pixel pictures in `PR.PICTURES` (12 × 14, original designs); 10–12 problems, each color has
-  at least one; every problem number appears in the picture. Colored key.
+* **Maze** – laid out like the hand-made mazes (landscape, 4 × 4 rounded rooms, doors between neighbors and one
+  diagonal door in each corner, an answer grid page). The path from START to FINISH visits 10–12 rooms and may use
+  diagonal doors; a path room has exactly one door that accepts its answer (to the next room); a dead end has none.
+  Wrong door labels must look like real answers (`PR.natural`: no ±0, 1√5, denominators of 1, repeated roots).
+  The key draws the path, numbers the rooms in order and outlines the path doors; the answer-grid key shows the work.
+* **Color by Number** – like the hand-made pages: original line drawings in `menu/printables-scenes.js`
+  (`PR.SCENES`: balloon, sailboat, house, rocket, under the sea, lighthouse), each with exactly 10 color groups. One
+  problem per color; a 10-color code where students write the problem number on each color's blank; a page of
+  problem boxes with "Color: ____" lines. Colored key.
+* Error Analysis, Partner Check and Tarsia pages copy the layout of the hand-made ones (two problems per page with
+  "A. Explain the mistake / B. Show correct work"; blue partner header with the A/B badge; Tarsia title, directions
+  box and 3 × 5 work grid).
 * **Tarsia** – hexagon (24 triangles, 30 matches) or, when a unit has fewer short problems, a triangle (16, 18).
   Edges show short wording (`PR.tarsiaEdge`); the work pages show the full problem. Border edges get decoy answers
   that match no problem. The student copy shuffles and turns the pieces. Statistics has too few short problems

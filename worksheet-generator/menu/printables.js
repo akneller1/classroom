@@ -6,7 +6,7 @@
    Needs: core/rng.js, menu engine + skills, games/bank.js (distractors and the answer checker). */
 (function (G) {
   'use strict';
-  var NS = G.MKMENU, WS = G.MKWS, PR = NS.printables = {};
+  var NS = G.MKMENU, WS = G.MKWS, PR = NS.printables = NS.printables || {};
   function GB() { return G.MKGAMES; }
 
   PR.KINDS = [
@@ -43,10 +43,17 @@
     if (m.fail || !m.derived) return null;
     return { p: m.derived, m: m };
   }
+  /* A wrong answer must still look like something a student could write: no ±0, 1√5, 0√5, a denominator of 1, + 0. */
+  function natural(d) {
+    var t = String(d).replace(/\s+/g, ''), sn = snippetsOf(t);
+    if (sn.length === 2 && sn[0] === sn[1]) return false;   // "x = 6 and x = 6"
+    return !/\\pm0(?![\d.])|(^|[^\d.])[01]\\sqrt|\\frac\{.*\}\{1\}|[+-]0(?![\d.])|\\sqrt\{[01]\}|(^|[^\d.])1[a-z]/.test(t);
+  }
+  PR.natural = natural;
   /* Wrong answers the verifier rejects for this problem (distinct, up to `want`). */
   function wrongs(p, want, seed) {
     var ds; try { ds = GB().distractors(p, 0, rngOf('w', seed, nrm(p.parts[0].answer)), want); } catch (e) { ds = []; }
-    return ds.filter(function (d) { return !ok(p, d); });
+    return ds.filter(function (d) { return !ok(p, d) && natural(d); });
   }
   /* Tarsia edges show only the math: "Verb ⟨expr⟩." prompts. */
   /* Shorter wording for a Tarsia edge (the work pages show the full problem). */
@@ -71,7 +78,7 @@
   PR.tarsiaEdge = tarsiaEdge;
   var TARSIA_VERB = /^(Solve|Simplify|Factor completely|Factor|Evaluate|Multiply|Expand|Add|Subtract|Divide|Write in scientific notation|Write in standard form|Find the slope of)\s*:?\s*⟨([^⟩]+)⟩\s*\.?$/;
   PR.MODES = {
-    maze: { prompt: 92, answer: 19, fig: false, wrong: 4, snippet: 24 },
+    maze: { prompt: 92, answer: 14, fig: false, wrong: 4, snippet: 26 },
     tarsia: { prompt: 28, answer: 15, fig: false, wrong: 2, verb: true },
     color: { prompt: 170, answer: 30, fig: true, wrong: 0 },
     error: { prompt: 170, answer: 40, fig: true, wrong: 2, steps: true },
@@ -86,6 +93,7 @@
     if (!lim.fig && q.fig) return null;
     if ((q.parts[0].prompt || '') && !lim.fig) return null;
     if (plain(key).length > lim.answer) return null;
+    if (kind === 'maze' && (plain(key).match(/,/g) || []).length > 2) return null;   // long lists do not fit on a door
     if (lim.snippet && snippetsOf(q.prompt).some(function (m) { return plain('⟨' + m + '⟩').length > lim.snippet; })) return null;
     var it = { p: q, key: key, skill: skill, c: c, tag: set.byId[skill].tag, wrong: [] };
     if (lim.verb) {
@@ -144,71 +152,87 @@
   };
 
   /* =========================== MAZE =========================== */
-  /* A 4 × 4 grid of rooms. The path from START (top left) to FINISH (bottom right) goes through 9–13 rooms;
-     every other room is a dead end whose answer is on none of its doors. Each wall between two rooms has
-     one door: on the path it shows the answer of the room it leaves; elsewhere it shows a wrong answer that
-     BOTH rooms' verifiers reject. */
+  /* Like the hand-made mazes: a 4 × 4 grid of rooms, doors between side-by-side rooms, rooms above/below, and
+     one diagonal door in each corner where four rooms meet (either "\" or "/"). The path from START (top left)
+     to FINISH (bottom right) visits 10–12 rooms and may use diagonal doors; every other room is a dead end whose
+     answer is on none of its doors. A door on the path shows the answer of the room it leaves; every other door
+     shows a wrong answer that BOTH of its rooms' verifiers reject. */
+  var DIRS = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]];
+  function blockOf(a, b) {   // diagonal step a -> b: the corner block (top-left cell) and its kind
+    var r = Math.min(a[0], b[0]), c = Math.min(a[1], b[1]);
+    return { key: r + ',' + c, kind: (b[0] - a[0]) * (b[1] - a[1]) > 0 ? 'd' : 'a' };   // d = "\" , a = "/"
+  }
   function mazePath(rng, R, C, minLen, maxLen) {
-    for (var tries = 0; tries < 400; tries++) {
-      var path = [[0, 0]], seen = {}; seen['0,0'] = 1;
-      var target = rng.int(minLen, maxLen), stuck = false;
-      while (!stuck) {
+    for (var tries = 0; tries < 600; tries++) {
+      var path = [[0, 0]], seen = { '0,0': 1 }, blocks = {}, target = rng.int(minLen, maxLen), stuck = false;
+      while (true) {
         var cur = path[path.length - 1];
         if (cur[0] === R - 1 && cur[1] === C - 1) break;
-        var nb = [[1, 0], [0, 1], [-1, 0], [0, -1]].map(function (d) { return [cur[0] + d[0], cur[1] + d[1]]; })
-          .filter(function (q) { return q[0] >= 0 && q[1] >= 0 && q[0] < R && q[1] < C && !seen[q[0] + ',' + q[1]]; });
-        // keep the finish reachable and do not arrive too early
-        nb = nb.filter(function (q) { return !(q[0] === R - 1 && q[1] === C - 1) || path.length + 1 >= target; });
-        if (!nb.length) { stuck = true; break; }
-        var q = rng.pick(nb); path.push(q); seen[q[0] + ',' + q[1]] = 1;
-        if (path.length > maxLen) { stuck = true; break; }
+        var nb = DIRS.map(function (d) { return [cur[0] + d[0], cur[1] + d[1]]; }).filter(function (q) {
+          if (q[0] < 0 || q[1] < 0 || q[0] >= R || q[1] >= C || seen[q[0] + ',' + q[1]]) return false;
+          if (q[0] === R - 1 && q[1] === C - 1 && path.length + 1 < target) return false;
+          if (q[0] !== cur[0] && q[1] !== cur[1]) { var b = blockOf(cur, q); if (blocks[b.key] && blocks[b.key] !== b.kind) return false; }
+          return true;
+        });
+        // prefer side and up/down moves (diagonals about one move in four, as in the hand-made mazes)
+        var straight = nb.filter(function (q) { return q[0] === cur[0] || q[1] === cur[1]; });
+        if (straight.length && rng.next() < 0.65) nb = straight;
+        if (!nb.length || path.length > maxLen) { stuck = true; break; }
+        var q = rng.pick(nb);
+        if (q[0] !== cur[0] && q[1] !== cur[1]) { var bb = blockOf(cur, q); blocks[bb.key] = bb.kind; }
+        path.push(q); seen[q[0] + ',' + q[1]] = 1;
       }
-      var end = path[path.length - 1];
-      if (!stuck && end[0] === R - 1 && end[1] === C - 1 && path.length >= minLen && path.length <= maxLen) return path;
+      var diag = path.slice(1).filter(function (q, i) { return q[0] !== path[i][0] && q[1] !== path[i][1]; }).length;
+      if (!stuck && path.length >= minLen && path.length <= maxLen && diag >= 1 && diag <= 3) return { path: path, blocks: blocks };
     }
     return null;
   }
   PR.buildMaze = function (cfg, vIdx) {
     var R = 4, C = 4, rng = rngOf(cfg.seed, vIdx, 'maze');
-    var path = mazePath(rng, R, C, 10, 13);
+    var mp = mazePath(rng, R, C, 10, 12), path = mp.path;
+    for (var br = 0; br < R - 1; br++) for (var bc = 0; bc < C - 1; bc++) if (!mp.blocks[br + ',' + bc]) mp.blocks[br + ',' + bc] = rng.next() < 0.5 ? 'd' : 'a';
     var nItems = R * C - 1, items = gather(cfg, vIdx, nItems, 'maze');
     if (items.length < nItems) return { error: 'Not enough different maze problems for these skills and level (' + items.length + ' of ' + nItems + '). Choose more skills.' };
     var onPath = {}; path.forEach(function (q, i) { onPath[q[0] + ',' + q[1]] = i; });
-    // easier problems early on the path; dead ends get the rest
-    var pathItems = items.slice(0, path.length - 1), deadItems = rng.shuffle(items.slice(path.length - 1));
+    // spread the difficulty along the path; the dead ends get the rest
+    var nP = path.length - 1, pick = [];
+    for (var k = 0; k < nP; k++) pick.push(Math.round(k * (nItems - 1) / Math.max(1, nP - 1)));
+    var pathItems = pick.map(function (i) { return items[i]; }), deadItems = rng.shuffle(items.filter(function (_, i) { return pick.indexOf(i) < 0; }));
     var rooms = [];
     for (var r = 0; r < R; r++) for (var c = 0; c < C; c++) {
-      var key = r + ',' + c, step = onPath[key];
-      if (r === R - 1 && c === C - 1) rooms.push({ r: r, c: c, finish: true, step: path.length - 1 });
+      var step = onPath[r + ',' + c];
+      if (r === R - 1 && c === C - 1) rooms.push({ r: r, c: c, finish: true, step: nP });
       else if (step !== undefined) rooms.push({ r: r, c: c, item: pathItems[step], step: step });
       else rooms.push({ r: r, c: c, item: deadItems.pop(), step: null });
     }
     var roomAt = function (r, c) { return rooms[r * C + c]; };
+    var pairs = [];
+    for (r = 0; r < R; r++) for (c = 0; c < C; c++) {
+      if (c + 1 < C) pairs.push({ a: [r, c], b: [r, c + 1], kind: 'h' });
+      if (r + 1 < R) pairs.push({ a: [r, c], b: [r + 1, c], kind: 'v' });
+      if (r + 1 < R && c + 1 < C) pairs.push(mp.blocks[r + ',' + c] === 'd' ? { a: [r, c], b: [r + 1, c + 1], kind: 'd' } : { a: [r, c + 1], b: [r + 1, c], kind: 'a' });
+    }
     var labels = [], doors = [], spare = [];
     items.forEach(function (it) { it.wrong.forEach(function (w) { spare.push({ w: w, from: it }); }); });
-    function labelOk(lbl, a, b) {
+    function labelOk(lbl, A, B) {
       if (labels.some(function (l) { return nrm(l) === nrm(lbl); })) return false;
-      return [a, b].every(function (rm) { return rm.finish || !ok(rm.item.p, lbl); });
+      return [A, B].every(function (rm) { return rm.finish || !ok(rm.item.p, lbl); });
     }
-    for (r = 0; r < R; r++) for (c = 0; c < C; c++) [[0, 1], [1, 0]].forEach(function (d) {
-      var r2 = r + d[0], c2 = c + d[1]; if (r2 >= R || c2 >= C) return;
-      var A = roomAt(r, c), B = roomAt(r2, c2), sa = onPath[r + ',' + c], sb = onPath[r2 + ',' + c2], door = { a: [r, c], b: [r2, c2] };
+    pairs.forEach(function (d) {
+      var A = roomAt(d.a[0], d.a[1]), B = roomAt(d.b[0], d.b[1]), sa = onPath[d.a.join(',')], sb = onPath[d.b.join(',')];
       if (sa !== undefined && sb !== undefined && Math.abs(sa - sb) === 1) {
-        var from = sa < sb ? A : B; door.label = from.item.key; door.correct = true; door.step = Math.min(sa, sb);
-        door.dir = sa < sb ? 'ab' : 'ba';
+        var from = sa < sb ? A : B; d.label = from.item.key; d.correct = true; d.step = Math.min(sa, sb);
       } else {
-        // a tempting wrong answer: from the earlier path room if there is one, else either room
         var pref = [A, B].filter(function (x) { return !x.finish; }).sort(function (x, y) { return (x.step === null ? 99 : x.step) - (y.step === null ? 99 : y.step); });
-        var pick = null;
-        pref.forEach(function (rm) { if (pick) return; rm.item.wrong.forEach(function (w) { if (!pick && labelOk(w, A, B)) pick = w; }); });
-        if (!pick) rng.shuffle(spare.slice()).forEach(function (s) { if (!pick && labelOk(s.w, A, B)) pick = s.w; });
-        if (!pick) { var extra = []; pref.forEach(function (rm) { extra = extra.concat(wrongs(rm.item.p, 8, cfg.seed + '|x' + r + c)); }); extra.forEach(function (w) { if (!pick && labelOk(w, A, B)) pick = w; }); }
-        if (!pick) return;   // no safe label: the wall stays closed
-        door.label = pick; door.correct = false;
+        var got = null;
+        pref.forEach(function (rm) { if (got) return; rm.item.wrong.forEach(function (w) { if (!got && labelOk(w, A, B)) got = w; }); });
+        if (!got) rng.shuffle(spare.slice()).forEach(function (s2) { if (!got && labelOk(s2.w, A, B)) got = s2.w; });
+        if (!got) { var extra = []; pref.forEach(function (rm) { extra = extra.concat(wrongs(rm.item.p, 8, cfg.seed + '|x' + d.a + d.b)); }); extra.forEach(function (w) { if (!got && labelOk(w, A, B)) got = w; }); }
+        if (!got) return;   // no safe label: no door here
+        d.label = got; d.correct = false;
       }
-      labels.push(door.label); doors.push(door);
+      labels.push(d.label); doors.push(d);
     });
-    // final safety check: each path room has exactly one door that accepts its answer, and it is the next step
     var problems = [];
     rooms.forEach(function (rm) {
       if (rm.finish) return;
@@ -222,48 +246,18 @@
   };
 
   /* =========================== COLOR BY NUMBER =========================== */
-  var COLORS = {
-    '.': ['Light blue', '#bfe3ff'], R: ['Red', '#e0393e'], W: ['White (leave blank)', '#ffffff'], A: ['Gray', '#a9b0ba'], B: ['Blue', '#2f6fd6'],
-    O: ['Orange', '#f39a2b'], Y: ['Yellow', '#f6d53f'], N: ['Brown', '#8b5a2b'], G: ['Green', '#3aa655'], D: ['Dark green', '#1f6e3a'],
-    P: ['Pink', '#f39bc4'], V: ['Purple', '#8a55c9'], K: ['Black', '#222222'], T: ['Tan', '#e3c58f']
-  };
-  PR.PICTURES = {
-    rocket: { name: 'Rocket', rows: ['.....RR.....', '....RWWR....', '....WWWW....', '...WWBBWW...', '...WWBBWW...', '...WWWWWW...', '...WWWWWW...', '...WWRRWW...', '..RWWWWWWR..', '.RRWWWWWWRR.', '.RR.WWWW.RR.', '....OYYO....', '.....OO.....', '.....YY.....'] },
-    house: { name: 'House', rows: ['.Y..........', '.....RR.....', '....RRRR....', '...RRRRRR...', '..RRRRRRRR..', '.RRRRRRRRRR.', '..TTTTTTTT..', '..TBBTTBBT..', '..TBBTTBBT..', '..TTTNNTTT..', '..TTTNNTTT..', '..TTTNNTTT..', 'GGGGGGGGGGGG', 'GGGGGGGGGGGG'] },
-    tree: { name: 'Apple tree', rows: ['............', '....GGGG....', '..GGGGGGGG..', '.GGGGRGGGGG.', '.GGGGGGGRGG.', 'GGRGGGGGGGGG', '.GGGGGGGGGG.', '..GGGRGGGG..', '....GNNG....', '.....NN.....', '.....NN.....', '.....NN.....', 'DDDDDDDDDDDD', 'DDDDDDDDDDDD'] },
-    boat: { name: 'Sailboat', rows: ['............', '.....W......', '.....WW.....', '.....WWW....', '.....WWWW...', '.....WWWWW..', '.....WWWWWW.', '.....N......', '.RRRRRRRRRR.', '..RRRRRRRR..', '...RRRRRR...', 'BBBBBBBBBBBB', 'BBBBBBBBBBBB', 'BBBBBBBBBBBB'] },
-    balloon: { name: 'Hot-air balloon', rows: ['....RRRR....', '..RRYYYYRR..', '.RYYRRRRYYR.', '.RYRRRRRRYR.', 'RYRRRRRRRRYR', 'RYRRRRRRRRYR', '.RYRRRRRRYR.', '..RYRRRRYR..', '...RYRRYR...', '....N..N....', '....N..N....', '....NNNN....', '....NNNN....', '............'] },
-    fish: { name: 'Fish', rows: ['............', '..........W.', '.....OOO....', '...OOOOOO..O', '..OOWKOOOOOO', '.OOOWWOOOOO.', '.OOOOOOOOOO.', '..OOOOOOOOOO', '...OOOOOO..O', '.....OOO....', '.W..........', '............', 'TTTTTTTTTTTT', 'TTTTTTTTTTTT'] },
-    cactus: { name: 'Cactus', rows: ['Y...........', '.....GG.....', '....GGGG....', '....GGGG....', '.GG.GGGG....', '.GG.GGGG.GG.', '.GGGGGGG.GG.', '..GGGGGGGGG.', '....GGGGGG..', '....GGGG....', '....GGGG....', '...RRRRRR...', 'TTTRRRRRRTTT', 'TTTTRRRRTTTT'] },
-    heart: { name: 'Heart', rows: ['............', '.RRR....RRR.', 'RRRRR..RRRRR', 'RRWRRRRRRRRR', 'RRRRRRRRRRRR', 'RRRRRRRRRRRR', '.RRRRRRRRRR.', '..RRRRRRRR..', '...RRRRRR...', '....RRRR....', '.....RR.....', '............', 'PPPPPPPPPPPP', 'PPPPPPPPPPPP'] }
-  };
+  /* A line drawing from PR.SCENES (menu/printables-scenes.js) with 10 color groups. Problem k colors one group:
+     every region of that group shows k. The color code lists each color with the answer of its problem. */
   PR.buildColor = function (cfg, vIdx) {
-    var rng = rngOf(cfg.seed, vIdx, 'color');
-    var picId = cfg.picture && PR.PICTURES[cfg.picture] ? cfg.picture : rng.pick(Object.keys(PR.PICTURES));
-    var pic = PR.PICTURES[picId], grid = pic.rows.map(function (r) { return r.split(''); });
-    var count = {}; grid.forEach(function (row) { row.forEach(function (ch) { count[ch] = (count[ch] || 0) + 1; }); });
-    var chars = Object.keys(count).sort(function (a, b) { return count[b] - count[a]; });
-    var N = Math.max(10, Math.min(12, chars.length * 2)), items = gather(cfg, vIdx, N, 'color');
-    if (items.length < chars.length + 2) return { error: 'Not enough different problems for these skills and level (' + items.length + '). Choose more skills.' };
-    N = items.length;
-    // every color gets at least one problem; the rest go to the colors with the most squares
-    var byColor = {}; chars.forEach(function (ch) { byColor[ch] = []; });
-    var order = rng.shuffle(items.map(function (_, i) { return i; }));
-    chars.forEach(function (ch, k) { byColor[ch].push(order[k]); });
-    for (var k = chars.length; k < N; k++) {
-      var best = chars.slice().sort(function (a, b) { return count[b] / byColor[b].length - count[a] / byColor[a].length; })[0];
-      byColor[best].push(order[k]);
-    }
-    var colorOf = []; chars.forEach(function (ch) { byColor[ch].forEach(function (i) { colorOf[i] = ch; }); });
-    var cells = grid.map(function (row) { return row.map(function (ch) { return byColor[ch][rng.int(0, byColor[ch].length - 1)] + 1; }); });
-    // every problem number appears in the picture
-    chars.forEach(function (ch) { byColor[ch].forEach(function (i) {
-      var has = cells.some(function (row) { return row.indexOf(i + 1) >= 0; }); if (has) return;
-      var spots = []; grid.forEach(function (row, r) { row.forEach(function (x, c) { if (x === ch) spots.push([r, c]); }); });
-      var s = rng.pick(spots); cells[s[0]][s[1]] = i + 1;
-    }); });
-    var code = chars.map(function (ch) { return { ch: ch, name: COLORS[ch][0], hex: COLORS[ch][1], answers: rng.shuffle(byColor[ch].map(function (i) { return items[i].key; })) }; });
-    return { kind: 'color', picture: picId, pictureName: pic.name, grid: grid, cells: cells, items: items, colorOf: colorOf, code: rng.shuffle(code), colors: COLORS };
+    var rng = rngOf(cfg.seed, vIdx, 'color'), ids = Object.keys(PR.SCENES || {});
+    if (!ids.length) return { error: 'The pictures did not load.' };
+    var sid = cfg.picture && PR.SCENES[cfg.picture] ? cfg.picture : ids[(Math.abs(WS.rng.hash(String(cfg.seed))) + vIdx) % ids.length];
+    var sc = PR.SCENES[sid], n = sc.groups.length, items = gather(cfg, vIdx, n, 'color');
+    if (items.length < n) return { error: 'Not enough different problems for these skills and level (' + items.length + ' of ' + n + '). Choose more skills.' };
+    var order = rng.shuffle(items.map(function (_, i) { return i; }));   // group g gets problem order[g]
+    var colorOf = []; sc.groups.forEach(function (g, gi) { colorOf[order[gi]] = g.color; });
+    var code = rng.shuffle(sc.groups.map(function (g, gi) { return { color: g.color, hex: PR.SCENE_COLORS[g.color], num: order[gi] + 1, answer: items[order[gi]].key }; }));
+    return { kind: 'color', scene: sid, sceneName: sc.name, groupNum: sc.groups.map(function (_, gi) { return order[gi] + 1; }), items: items, colorOf: colorOf, code: code };
   };
 
   /* =========================== PARTNER CHECK =========================== */

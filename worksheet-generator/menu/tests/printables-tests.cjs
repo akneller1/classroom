@@ -3,7 +3,7 @@
 'use strict';
 const assert = require('node:assert/strict');
 const load = require('./load.cjs');
-const env = load(['games/bank.js', 'menu/printables.js']), M = env.MKMENU, PR = M.printables, GB = env.MKGAMES;
+const env = load(['games/bank.js', 'menu/printables.js', 'menu/printables-scenes.js']), M = env.MKMENU, PR = M.printables, GB = env.MKGAMES;
 const SEEDS = +(process.env.SEEDS || 2);
 let checks = 0, builds = 0; const ok = (c, m) => { checks++; assert.ok(c, m); };
 const accepts = (p, a) => GB.answerOk(p, 0, a).ok;
@@ -17,7 +17,10 @@ function verified(it, tag) {
 const CHECK = {
   maze(B, tag) {
     const at = (r, c) => B.rooms.find(x => x.r === r && x.c === c);
-    ok(B.path.length >= 10 && B.path.length <= 13, tag + ': path of 10–13 rooms');
+    ok(B.path.length >= 10 && B.path.length <= 12, tag + ': path of 10–12 rooms');
+    for (let i = 1; i < B.path.length; i++) ok(Math.max(Math.abs(B.path[i][0] - B.path[i - 1][0]), Math.abs(B.path[i][1] - B.path[i - 1][1])) === 1, tag + ': each step goes to a neighboring room');
+    const blocks = {}; B.doors.filter(d => d.kind === 'd' || d.kind === 'a').forEach(d => { const k = Math.min(d.a[0], d.b[0]) + ',' + Math.min(d.a[1], d.b[1]); ok(!blocks[k], tag + ': one diagonal door per corner'); blocks[k] = 1; });
+    B.doors.forEach(d => ok(PR.natural(d.label), tag + ': door labels look like real answers (' + d.label + ')'));
     ok(B.path[0].join() === '0,0' && B.path[B.path.length - 1].join() === '3,3', tag + ': START to FINISH');
     B.rooms.forEach(rm => {
       if (rm.finish) return;
@@ -36,11 +39,12 @@ const CHECK = {
     void at;
   },
   color(B, tag) {
-    const N = B.items.length;
+    const sc = PR.SCENES[B.scene], N = B.items.length;
+    ok(N === sc.groups.length, tag + ': one problem per color');
     B.items.forEach(it => verified(it, tag));
-    for (let n = 1; n <= N; n++) ok(B.cells.some(row => row.includes(n)), tag + ': problem ' + n + ' is in the picture');
-    B.cells.forEach((row, r) => row.forEach((n, c) => ok(B.colorOf[n - 1] === B.grid[r][c], tag + ': square color matches its problem')));
-    B.code.forEach(k => k.answers.forEach(a => { const i = B.items.findIndex(it => it.key === a); ok(i >= 0 && B.colorOf[i] === k.ch, tag + ': color code lists the right answers'); }));
+    ok(new Set(B.groupNum).size === N && B.groupNum.every(n => n >= 1 && n <= N), tag + ': every problem colors exactly one group');
+    B.code.forEach(k => { const i = k.num - 1; ok(B.items[i].key === k.answer && B.colorOf[i] === k.color, tag + ': color code lists the right answer for each color'); });
+    ok(new Set(B.code.map(k => k.color)).size === N, tag + ': ten different colors');
     B.items.forEach((a, i) => B.items.forEach((b, j) => { if (i < j) ok(!accepts(a.p, b.key) && !accepts(b.p, a.key), tag + ': answers are all different'); }));
   },
   partner(B, tag) {

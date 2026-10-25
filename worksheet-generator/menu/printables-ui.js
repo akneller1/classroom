@@ -21,46 +21,92 @@
   function dirs(t) { return '<div class="mm-box mm-dirs pr-dirs"><b>Directions:</b> ' + t + '</div>'; }
 
   /* =========================== MAZE =========================== */
-  var MZ = { W: 7.5, H: 8.05, g: 0.36 };
-  /* long math in a small room: a smaller font so it does not run past the walls */
-  function roomFont(t) { var m = (String(t).match(/⟨[^⟩]*⟩/g) || []).map(function (x) { return PR.plain(x).length; }); var L = Math.max.apply(null, [0].concat(m)); return (9.6 * Math.min(1, 17 / Math.max(17, L))).toFixed(1); }
+  /* Landscape, like the hand-made mazes: rounded rooms, door labels on the walls and in the corners, an
+     answer grid; the key draws the path, numbers the rooms in order and outlines the doors on the path. */
+  var MZ = { W: 10.15, H: 6.72, gx: 0.46, gy: 0.48 };
+  function classicHead(cfg, nV, v, key, ttl, line, nameHtml) {
+    return '<div class="pc-head"><div class="pc-title">' + esc(ttl) + (key ? ' <span class="pc-key">ANSWER KEY</span>' : '') + (nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '') + '</div>' +
+      (nameHtml === undefined ? '<div class="pc-name">Name <i class="ln long"></i> &nbsp; Period <i class="ln short"></i></div>' : nameHtml) + '</div>' + (line ? '<p class="pc-line">' + line + '</p>' : '');
+  }
+  /* "Find the slope of the line through ⟨…⟩." → a small instruction and the math in large type */
+  function roomParts(p) {
+    var t = String(p.prompt || ''), sn = t.match(/⟨[^⟩]*⟩/g) || [];
+    var two = /^([^⟨]*?)[\s:]*(⟨[^⟩]*⟩) and (⟨[^⟩]*⟩)\s*\.?\s*$/.exec(t);   // "Solve the system by elimination: ⟨A⟩ and ⟨B⟩."
+    if (two && !p.parts[0].prompt && PR.plain(two[2]).length <= 22 && PR.plain(two[3]).length <= 22) return { small: two[1] + ':', big: two[2] + '\n' + two[3] };
+    if (sn.length !== 1 || p.parts[0].prompt || PR.plain(sn[0]).length > 30) return null;
+    var at = t.indexOf(sn[0]), after = t.slice(at + sn[0].length).trim();
+    if (after && after !== '.') return null;   // the math is in the middle of the sentence: print it as written
+    var small = t.slice(0, at).replace(/[\s:]+$/, '');
+    if (!small) return { small: '', big: sn[0] };
+    return { small: small + (/\s/.test(small) ? ':' : '.'), big: sn[0] };
+  }
+  function roomHtml(p) {
+    var rp = roomParts(p);
+    if (rp) {
+      var L = Math.max.apply(null, rp.big.split('\n').map(function (x) { return PR.plain(x).length; })), fz = Math.max(7, Math.min(13, 13 * 15 / Math.max(15, L)));
+      return (rp.small ? '<div class="pm-small">' + mathSafe(rp.small.charAt(0).toUpperCase() + rp.small.slice(1)) + '</div>' : '') + '<div class="pm-big" style="font-size:' + fz.toFixed(1) + 'pt">' + rp.big.split('\n').map(mathSafe).join('<br>') + '</div>';
+    }
+    var Lm = Math.max.apply(null, [0].concat((String(p.prompt).match(/⟨[^⟩]*⟩/g) || []).map(function (x) { return PR.plain(x).length; })));
+    return '<div class="pm-text" style="font-size:' + (10 * Math.min(1, 22 / Math.max(22, Lm))).toFixed(1) + 'pt">' + mathSafe(p.prompt) + (p.parts[0].prompt ? ' ' + mathSafe(p.parts[0].prompt) : '') + '</div>';
+  }
+  function mazeGeom(B) {
+    var rw = (MZ.W - (B.C - 1) * MZ.gx) / B.C, rh = (MZ.H - (B.R - 1) * MZ.gy) / B.R;
+    var X = function (c) { return c * (rw + MZ.gx); }, Y = function (r) { return r * (rh + MZ.gy); };
+    return { rw: rw, rh: rh, X: X, Y: Y,
+      center: function (r, c) { return [X(c) + rw / 2, Y(r) + rh * 0.45]; },
+      door: function (d) {
+        var r = Math.min(d.a[0], d.b[0]), c = Math.min(d.a[1], d.b[1]);
+        if (d.kind === 'h') return { x: X(c) + rw + MZ.gx / 2, y: Y(r) + rh / 2, rot: -90, max: rh - 0.3 };   // door labels lie in the corridors, clear of the rooms
+        if (d.kind === 'v') return { x: X(c) + rw / 2, y: Y(r) + rh + MZ.gy / 2, rot: 0, max: rw - 0.5 };
+        return { x: X(c) + rw + MZ.gx / 2, y: Y(r) + rh + MZ.gy / 2, rot: d.kind === 'd' ? 45 : -45, max: 1.0 };
+      } };
+  }
   function mazeHtml(B, key) {
-    var rw = (MZ.W - (B.C - 1) * MZ.g) / B.C, rh = (MZ.H - (B.R - 1) * MZ.g) / B.R, h = '<div class="pr-maze" style="width:' + MZ.W + 'in;height:' + MZ.H + 'in">';
+    var g = mazeGeom(B), h = '<div class="pm-maze" style="width:' + MZ.W + 'in;height:' + MZ.H + 'in">';
+    if (key) {   // the path: room centers through the doors on the path
+      var pts = [];
+      B.path.forEach(function (q, i) {
+        pts.push(g.center(q[0], q[1]));
+        var nx = B.path[i + 1]; if (!nx) return;
+        var d = B.doors.filter(function (x) { return x.correct && ((x.a.join() === q.join() && x.b.join() === nx.join()) || (x.b.join() === q.join() && x.a.join() === nx.join())); })[0];
+        if (d) { var dp = g.door(d); pts.push([dp.x, dp.y]); }
+      });
+      h += '<svg class="pm-path" width="' + MZ.W + 'in" height="' + MZ.H + 'in" viewBox="0 0 ' + MZ.W * 96 + ' ' + MZ.H * 96 + '"><polyline points="' + pts.map(function (p) { return (p[0] * 96).toFixed(1) + ',' + (p[1] * 96).toFixed(1); }).join(' ') + '"/></svg>';
+    }
     B.rooms.forEach(function (rm) {
-      var x = rm.c * (rw + MZ.g), y = rm.r * (rh + MZ.g), cls = 'pr-room' + (rm.finish ? ' fin' : '') + (key && rm.step !== null ? ' path' : '');
-      h += '<div class="' + cls + '" style="left:' + x + 'in;top:' + y + 'in;width:' + rw + 'in;height:' + rh + 'in">' +
-        (rm.r === 0 && rm.c === 0 ? '<span class="pr-start">START</span>' : '') +
-        (key && rm.step !== null && !rm.finish ? '<span class="pr-step">' + (rm.step + 1) + '</span>' : '') +
-        (rm.finish ? '<b>FINISH</b><small>You made it!</small>' : '<div class="pr-rq" style="font-size:' + roomFont(rm.item.p.prompt) + 'pt">' + prompt(rm.item.p) + '</div>') + '</div>';
+      h += '<div class="pm-room' + (rm.finish ? ' fin' : '') + '" style="left:' + g.X(rm.c) + 'in;top:' + g.Y(rm.r) + 'in;width:' + g.rw + 'in;height:' + g.rh + 'in">' +
+        (rm.r === 0 && rm.c === 0 ? '<span class="pm-start">START</span>' : '') +
+        (rm.finish ? '<b>FINISH</b><small>You made it!</small>' : '<div class="pm-q">' + roomHtml(rm.item.p) + '</div>') + '</div>';
+      if (key && rm.step !== null && !rm.finish) h += '<span class="pm-num" style="left:' + g.X(rm.c) + 'in;top:' + (g.Y(rm.r) + g.rh * 0.36) + 'in">' + (rm.step + 1) + '</span>';
     });
     B.doors.forEach(function (d) {
-      var vert = d.a[0] === d.b[0], cls = 'pr-door' + (vert ? ' v' : '') + (key && d.correct ? ' ok' : '');
-      var cx, cy, w;
-      if (vert) { cx = d.a[1] * (rw + MZ.g) + rw + MZ.g / 2; cy = d.a[0] * (rh + MZ.g) + rh / 2; w = rh * 0.84; }
-      else { cx = d.a[1] * (rw + MZ.g) + rw / 2; cy = d.a[0] * (rh + MZ.g) + rh + MZ.g / 2; w = rw * 0.9; }
-      var len = PR.plain(d.label).length + (/\\frac/.test(d.label) ? 3 : 0), fz = Math.max(5.6, 8.4 * Math.min(1, 15 / Math.max(1, len)));
-      h += '<div class="' + cls + '" style="left:' + (cx - w / 2) + 'in;top:' + (cy - 0.18) + 'in;width:' + w + 'in;font-size:' + fz.toFixed(1) + 'pt"><span>' + mathSafe(d.label) + '</span></div>';
+      var dp = g.door(d), L = PR.plain(d.label).length + (/\\frac/.test(d.label) ? 2 : 0) + 1.5, fz = Math.max(6, Math.min(8.8, dp.max * 72 / (L * 0.6)));
+      h += '<div class="pm-door' + (key && d.correct ? ' ok' : '') + '" style="left:' + dp.x + 'in;top:' + dp.y + 'in;font-size:' + fz.toFixed(1) + 'pt;transform:translate(-50%,-50%) rotate(' + dp.rot + 'deg)"><span>' + mathSafe(d.label) + '</span></div>';
     });
     return h + '</div>';
   }
+  function stepsInline(p) {
+    var ms = (p.steps || []).filter(function (s) { return s.m; }).map(function (s) { return mathSafe('⟨' + s.m + '⟩'); });
+    if (!ms.length) ms = (p.steps || []).map(function (s) { return mathSafe(s.t); });
+    return ms.join(' <span class="pm-arrow">→</span> ');
+  }
   function mazePages(cfg, B, v, nV, key) {
-    var P = [];
-    P.push(page(cfg, nV, v, key, head(cfg, nV, v, key) + (key ? '<p class="pr-note">The path is shaded and numbered; the doors on the path are highlighted. Unshaded rooms are dead ends: their answers are on none of their doors.</p>'
-      : dirs('Start in the room marked START. Solve its problem, then leave through the door labeled with your answer. Keep going until you reach FINISH. If your answer is not on any door, check your work. Show your work on the next page.')) + mazeHtml(B, key)));
-    if (!key) {
-      var boxes = ''; for (var i = 1; i <= 15; i++) boxes += '<div class="pr-wbox"><b>Room ' + i + '</b></div>';
-      P.push(page(cfg, nV, v, false, '<div class="mm-head"><div><div class="mm-title mm-t2">Show your work</div><div class="mm-sub">Number the rooms in the order you visit them.</div></div>' + verTag(nV, v) + '</div><div class="pr-wgrid">' + boxes + '</div>'));
-    } else {
-      var rows = B.rooms.filter(function (r) { return r.step !== null && !r.finish; }).sort(function (a, b) { return a.step - b.step; });
+    var ttl = title(cfg), line = 'Start in the top-left room. Solve the problem, find the door with your answer, and go through it. Show your work on your answer grid.';
+    var P = [{ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, key, ttl, line) + mazeHtml(B, key) + '</div>' }];
+    var rows = B.rooms.filter(function (r) { return r.step !== null && !r.finish; }).sort(function (a, b) { return a.step - b.step; });
+    var rh = Math.min(0.78, 6.9 / rows.length);
+    P.push({ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, key, ttl + ': Answer Grid', 'Write each answer in the order you found it, and show your work for that room.', key ? '' : undefined) +
+      '<table class="pm-grid">' + rows.map(function (r, i) {
+        return '<tr style="height:' + rh + 'in"><td class="pm-gn"><span>' + (i + 1) + '</span></td><td class="pm-ga"><small>Answer:</small><div class="pm-gl">' + (key ? '<b class="pc-red">' + mathSafe(r.item.key) + '</b>' : '') + '</div></td>' +
+          '<td class="pm-gw">' + (key ? '<div class="pc-red pm-gs">' + stepsInline(r.item.p) + '</div>' : '<small>Work:</small>') + '</td></tr>';
+      }).join('') + '</table></div>' });
+    if (key) {
       var dead = B.rooms.filter(function (r) { return r.step === null; });
-      var tbl = function (list, lab) { return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>' + lab + '</th><th>Problem</th><th>Answer and solution</th></tr></thead><tbody>' + list.map(function (r) {
-        return '<tr><td><b>' + (r.step !== null ? r.step + 1 : '—') + '</b></td><td>' + prompt(r.item.p) + '</td><td><div class="mm-ans"><b>Answer:</b> ' + mathSafe(r.item.key) + '</div><ol class="mm-steps">' + steps(r.item.p) + '</ol></td></tr>'; }).join('') + '</tbody></table>'; };
-      P = P.concat(chunkPages(cfg, nV, v, true, 'Path in order', rows, 6, function (l) { return tbl(l, 'Step'); }));
-      if (dead.length) P = P.concat(chunkPages(cfg, nV, v, true, 'Dead-end rooms (not on the path)', dead, 6, function (l) { return tbl(l, ''); }));
+      P.push({ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, true, ttl + ': Dead-End Rooms', 'These rooms are not on the path. Their answers are on none of their doors.', '') +
+        '<table class="pm-grid">' + dead.map(function (r) { return '<tr style="height:' + Math.min(1.1, 6.9 / dead.length) + 'in"><td class="pm-ga" style="width:3.6in">' + roomHtml(r.item.p) + '</td><td class="pm-ga"><b class="pc-red">' + mathSafe(r.item.key) + '</b></td><td class="pm-gw"><div class="pc-red pm-gs">' + stepsInline(r.item.p) + '</div></td></tr>'; }).join('') + '</table></div>' });
     }
     return P;
   }
-  /* Pages for a long list: as many items per page as fit (measured when the pages are drawn), at most `per`. */
   function chunkPages(cfg, nV, v, key, label, list, per, fn) {
     var headFor = function (i) { return '<div class="mm-head"><div><div class="mm-title mm-t2">' + esc(label) + (i ? ' (continued)' : '') + '</div><div class="mm-sub">' + esc(title(cfg)) + '</div></div>' + verTag(nV, v, key) + '</div>'; };
     return [{ flow: true, cfg: cfg, nV: nV, v: v, key: key, list: list, per: per, html: function (from, to) { return headFor(from) + fn(list.slice(from, to), from); } }];
@@ -74,7 +120,7 @@
       while (i < p.list.length) {
         var n = Math.min(p.per, p.list.length - i), pg;
         for (; n >= 1; n--) {
-          pg = page(p.cfg, p.nV, p.v, p.key, p.html(i, i + n));
+          pg = p.raw ? { html: p.html(i, i + n), nofoot: true } : page(p.cfg, p.nV, p.v, p.key, p.html(i, i + n));
           var e = doc.createElement('div'); e.className = 'page mm-page pr-page'; e.innerHTML = pg.html; stage.appendChild(e);
           var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight + 1; stage.removeChild(e);
           if (fits || n === 1) break;
@@ -87,45 +133,68 @@
   }
 
   /* =========================== COLOR BY NUMBER =========================== */
-  function colorGrid(B, key) {
-    var cols = B.grid[0].length, cell = Math.min(6.2 / cols, 5.1 / B.grid.length);
-    var h = '<div class="pr-cgrid" style="grid-template-columns:repeat(' + cols + ',' + cell + 'in);grid-auto-rows:' + cell + 'in">';
-    B.cells.forEach(function (row, r) { row.forEach(function (n, c) { var ch = B.grid[r][c]; h += '<div' + (key ? ' style="background:' + B.colors[ch][1] + ';color:' + (/[KNVBD]/.test(ch) ? '#fff' : '#000') + '"' : '') + '>' + n + '</div>'; }); });
-    return h + '</div>';
+  /* Like the hand-made pages: a line drawing with numbered regions, a 10-color code (students write the problem
+     number on each color's blank), and a page of problem boxes with "Color: ____" lines. */
+  function sceneSvg(B, key) {
+    var sc = PR.SCENES[B.scene], out = '<svg class="pc-scene" viewBox="0 0 600 560" xmlns="http://www.w3.org/2000/svg">';
+    sc.groups.forEach(function (g) { out += '<g fill="' + (key ? PR.SCENE_COLORS[g.color] : '#fff') + '" stroke="#000" stroke-width="2.6" stroke-linejoin="round">' + g.shapes.join('') + '</g>'; });
+    out += '<g fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round">' + (sc.extra || '') + '</g>';
+    sc.groups.forEach(function (g, gi) {
+      var light = !key || !/^(Black|Blue|Purple|Brown|Red|Green)$/.test(g.color);
+      g.labels.forEach(function (pt) { out += '<text x="' + pt[0] + '" y="' + pt[1] + '" text-anchor="middle" dominant-baseline="middle" font-size="17" font-family="DejaVu Sans,Verdana,sans-serif" fill="' + (light ? '#000' : '#fff') + '">' + B.groupNum[gi] + '</text>'; });
+    });
+    return out + '</svg>';
   }
+  function nameDate(key) { return '<div class="pc-nd"><span>Name: ' + (key ? '<b class="pc-redk">ANSWER KEY</b>' : '') + '<i class="ln long"></i></span><span>Date: <i class="ln mid"></i></span></div>'; }
   function colorCode(B, key) {
-    return '<div class="pr-code"><div class="pr-codeh">Color code</div>' + B.code.map(function (k) {
-      return '<div class="pr-ck"><div class="pr-ckn"><span class="pr-sw" style="' + (key ? 'background:' + k.hex : '') + '"></span>' + esc(k.name) + '</div><div>' + k.answers.map(function (a) { return '<span class="pr-cans">' + mathSafe(a) + '</span>'; }).join('') + '</div></div>'; }).join('') + '</div>';
-  }
-  function probBoxes(items, start, opts) {
-    return '<div class="pr-pgrid' + (opts && opts.match ? ' tight' : '') + '">' + items.map(function (it, i) { return '<div class="pr-pbox"><div class="pr-pq"><b>' + (start + i + 1) + '.</b> ' + prompt(it.p) + '</div><div class="pr-ans">Answer: <i class="ln long"></i>' + (opts && opts.match ? ' <span class="pr-match">Match? ☐ Yes ☐ No</span>' : '') + '</div></div>'; }).join('') + '</div>';
+    return '<div class="pc-codeh">Color Code:</div><table class="pc-code"><tbody>' + [0, 1].map(function (row) {
+      return '<tr>' + B.code.slice(row * 5, row * 5 + 5).map(function (k) {
+        return '<td><div><span class="pc-blank">' + (key ? '<b class="pc-redk">' + k.num + '</b>' : '') + '</span> ' + esc(k.color) + '</div><div class="pc-ans">' + mathSafe(k.answer) + '</div></td>';
+      }).join('') + '</tr>';
+    }).join('') + '</tbody></table>';
   }
   function colorPages(cfg, B, v, nV, key) {
-    var P = [];
+    var ttl = unitName(cfg) + ': Color By Number' + (nV > 1 ? ' (Version ' + 'ABC'[v] + ')' : '');
+    var P = [{ nofoot: true, brand: true, html: '<div class="mm-body pc">' + nameDate(key) + '<div class="pc-ctitle">' + esc(ttl) + '</div><div class="pc-sbox">' + sceneSvg(B, key) + '</div>' + colorCode(B, key) + '</div>' }];
     if (!key) {
-      P.push(page(cfg, nV, v, false, head(cfg, nV, v, false) + dirs('Solve each numbered problem on the next pages. Find your answer in the color code, then color every square with that problem’s number in that color. If your answer is not in the code, check your work.') + colorGrid(B, false) + colorCode(B, false)));
-      for (var i = 0; i < B.items.length; i += 8) P.push(page(cfg, nV, v, false, '<div class="mm-head"><div><div class="mm-title mm-t2">Problems' + (i ? ' (continued)' : '') + '</div><div class="mm-sub">' + esc(title(cfg)) + ' · show your work</div></div>' + verTag(nV, v) + '</div>' + probBoxes(B.items.slice(i, i + 8), i)));
+      P.push({ nofoot: true, brand: true, html: '<div class="mm-body pc">' + nameDate(false) + '<div class="pc-ctitle">' + esc(ttl) + '</div>' +
+        '<p class="pc-dirs"><b>Directions:</b> Solve each problem and show your work in the box. Your answer matches one of the answers in the Color Code on the coloring sheet. Write the problem number on that color’s blank, then write the color on the line below. Color every part of the picture with that number. Watch out: some answers look alike!</p>' +
+        '<div class="pc-boxes">' + B.items.map(function (it, i) {
+          return '<div class="pc-box"><div class="pc-bq"><b>' + (i + 1) + '.</b><div>' + prompt(it.p) + '</div></div><div class="pc-bc">' + (i + 1) + '. Color: <i class="ln mid"></i></div></div>';
+        }).join('') + '</div></div>' });
     } else {
-      P.push(page(cfg, nV, v, true, head(cfg, nV, v, true, lvName(cfg) + ' · picture: ' + B.pictureName) + colorGrid(B, true) + colorCode(B, true)));
-      var list = B.items.map(function (it, i) { return { it: it, i: i }; });
-      P = P.concat(chunkPages(cfg, nV, v, true, 'Answers and solutions', list, 6, function (l) {
+      P = P.concat(chunkPages(cfg, nV, v, true, 'Answers and solutions', B.items.map(function (it, i) { return { it: it, i: i }; }), 10, function (l) {
         return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Problem</th><th>Answer and solution</th><th>Color</th></tr></thead><tbody>' + l.map(function (x) {
-          var ch = B.colorOf[x.i]; return '<tr><td><b>' + (x.i + 1) + '</b></td><td>' + prompt(x.it.p) + '</td><td><div class="mm-ans"><b>Answer:</b> ' + mathSafe(x.it.key) + '</div><ol class="mm-steps">' + steps(x.it.p) + '</ol></td><td><span class="pr-sw" style="background:' + B.colors[ch][1] + '"></span>' + esc(B.colors[ch][0]) + '</td></tr>'; }).join('') + '</tbody></table>';
+          var c = B.colorOf[x.i]; return '<tr><td><b>' + (x.i + 1) + '</b></td><td>' + prompt(x.it.p) + '</td><td><div class="mm-ans"><b>Answer:</b> ' + mathSafe(x.it.key) + '</div><ol class="mm-steps">' + steps(x.it.p) + '</ol></td><td><span class="pr-sw" style="background:' + PR.SCENE_COLORS[c] + '"></span>' + esc(c) + '</td></tr>'; }).join('') + '</tbody></table>';
       }));
     }
     return P;
   }
 
   /* =========================== PARTNER CHECK =========================== */
+  function unitNo(cfg) {
+    var lab = ''; NS.CATALOG.forEach(function (g) { g.units.forEach(function (u) { if (u[0] === cfg.unitId) lab = u[1]; }); });
+    var m = /Units?\s+([\d–-]+)/.exec(lab); return m ? m[1] : '';
+  }
+  function partnerHead(cfg, nV, v, who, key) {
+    var no = unitNo(cfg);
+    return '<div class="pp-head"><div><div class="pp-unit">' + (no ? 'UNIT ' + no + ' • ' : '') + esc(unitName(cfg).toUpperCase()) + '</div><div class="pp-title">Partner Check: ' + esc(unitName(cfg)) +
+      (key ? ' <span class="pc-key">ANSWER KEY</span>' : '') + (nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '') + '</div></div>' + (who ? '<span class="pp-who">' + who + '</span>' : '') + '</div>';
+  }
   function partnerPages(cfg, B, v, nV, key) {
-    var P = [];
+    var P = [], no = unitNo(cfg), foot = 'Algebra Partner Check • ' + (no ? 'Unit ' + no + ': ' : '') + unitName(cfg);
     if (!key) ['A', 'B'].forEach(function (who) {
       var items = B.rows.map(function (r) { return r[who]; });
-      P = P.concat(flow(cfg, nV, v, false, items, 8, function (from, to) { return (from ? '<div class="mm-head"><div><div class="mm-title mm-t2">Partner ' + who + ' (continued)</div><div class="mm-sub">' + esc(unitName(cfg)) + ': Partner Check</div></div>' + verTag(nV, v) + '</div>' : '<div class="mm-head"><div><div class="mm-title">' + esc(unitName(cfg)) + ': Partner Check</div><div class="mm-sub">' + esc(lvName(cfg)) + '</div></div><span class="pr-who">' + who + '</span>' + verTag(nV, v) + '</div>' +
-        '<div class="mm-name"><span>Name <i class="ln long"></i></span><span>Partner <i class="ln long"></i></span><span>Date <i class="ln mid"></i></span></div>' +
-        dirs('You are <b>Partner ' + who + '</b>. Your partner has different problems, but each one has the <b>same answer</b> as yours. Solve one problem, then compare answers. If they do not match, find the mistake together before you go on.')) + probBoxes(items.slice(from, to), from, { match: true }); }));
+      var fl = flow(cfg, nV, v, false, items, 8, function (from, to) { return '<div class="mm-body pc pp">' + partnerHead(cfg, nV, v, who) + (from ? '' :
+        '<div class="pp-names"><span>Name: <i class="ln long"></i></span><span>Partner’s name: <i class="ln long"></i></span><span>Date: <i class="ln mid"></i></span></div>' +
+        '<div class="pp-dirs"><b>Directions:</b> Solve each problem. <i>Work on your own. Then compare answers with your partner after each problem. You have different problems with the same answers: if yours don’t match, find the mistake together before moving on.</i></div>' +
+        '') + '<div class="pp-grid">' + items.slice(from, to).map(function (it, i0) {
+          var i = from + i0;
+          return '<div class="pp-box"><span class="pp-n">' + (i + 1) + '</span><div class="pp-q">' + prompt(it.p) + '</div><div class="pp-ans"><b>Answer:</b> <i class="ln long"></i><span>Match? ☐ Yes ☐ No</span></div></div>';
+        }).join('') + '</div><div class="pp-foot"><span>' + esc(foot) + '</span><span>Partner ' + who + '</span></div></div>'; });
+      fl[0].nofoot = true; fl[0].raw = true; P = P.concat(fl);
     });
-    else P = chunkPages(cfg, nV, v, true, 'Partner Check answers', B.rows.map(function (r, i) { return { r: r, i: i }; }), 4, function (l) {
+    else P = chunkPages(cfg, nV, v, true, 'Partner Check: Answer Key', B.rows.map(function (r, i) { return { r: r, i: i }; }), 8, function (l) {
       return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Partner A</th><th>Partner B</th></tr></thead><tbody>' + l.map(function (x) {
         var cell = function (it) { return prompt(it.p) + '<div class="mm-ans"><b>Answer:</b> ' + mathSafe(it.key) + '</div><ol class="mm-steps">' + steps(it.p) + '</ol>'; };
         return '<tr><td><b>' + (x.i + 1) + '</b></td><td>' + cell(x.r.A) + '</td><td>' + cell(x.r.B) + '</td></tr>'; }).join('') + '</tbody></table>';
@@ -134,22 +203,30 @@
   }
 
   /* =========================== ERROR ANALYSIS =========================== */
+  /* Like the hand-made pages: two problems per page, each with the original problem and the incorrect worked
+     solution on the left, "A. Explain the mistake" and "B. Show correct work" on the right. */
   function workHtml(cs) {
-    return '<ol class="pr-swork">' + cs.work.map(function (l) { return '<li>' + mathSafe(l.t) + (l.m ? ' ' + mathSafe('⟨' + l.m + '⟩') : '') + (l.ans ? ' ' + mathSafe(l.ans) : '') + '</li>'; }).join('') + '</ol><div class="pr-sans"><b>' + esc(cs.name) + '’s answer:</b> ' + mathSafe(cs.wrong) + '</div>';
+    return '<div class="pe-lines">' + cs.work.map(function (l) { return '<div>' + mathSafe(l.t) + (l.m ? ' ' + mathSafe('⟨' + l.m + '⟩') : '') + '</div>'; }).join('') +
+      (cs.work.some(function (l) { return l.bad; }) ? '' : '<div>' + (cs.work.length ? 'So the answer is ' : '') + mathSafe(cs.wrong) + '</div>') + '</div>';
   }
+  function badLine(cs) { var k = -1; cs.work.forEach(function (l, i) { if (l.bad) k = i; }); return k; }
   function errorPages(cfg, B, v, nV, key) {
-    var list = B.cases.map(function (cs, i) { return { cs: cs, i: i }; });
-    if (!key) {
-      return flow(cfg, nV, v, false, list, 3, function (from, to) { return (from ? '<div class="mm-head"><div><div class="mm-title mm-t2">' + esc(title(cfg)) + ' (continued)</div></div>' + verTag(nV, v) + '</div>' : head(cfg, nV, v, false) + dirs('Each student made one mistake. <b>A.</b> Circle the line with the mistake and explain what went wrong. <b>B.</b> Solve the problem correctly.')) +
-        list.slice(from, to).map(function (x) {
-          return '<div class="pr-ea"><div class="pr-ea-l"><div class="pr-eah">' + (x.i + 1) + '. ' + esc(x.cs.name) + '’s work</div><div class="pr-pq">' + prompt(x.cs.item.p) + '</div>' + workHtml(x.cs) + '</div>' +
-            '<div class="pr-ea-r"><div class="pr-eah">A. What is the mistake?</div><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i><div class="pr-eah">B. Correct solution</div></div></div>';
-        }).join(''); });
+    var set = NS.skillSets[cfg.unitId], n = B.cases.length, pages = Math.ceil(n / 2), P = [];
+    for (var pg = 0; pg < pages; pg++) {
+      var h = '<div class="mm-body pc pe"><div class="pe-top"><div class="pe-title">' + esc(unitName(cfg)) + ' Error Analysis' + (key ? ' <span class="pe-badge">TEACHER KEY</span>' : '') + (nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '') + '</div><span class="pe-pg">Page ' + (pg + 1) + ' of ' + pages + '</span></div>' +
+        '<div class="pe-sub">Find the mistake. Explain it. Fix it.</div><div class="pe-names"><span>Name: <i class="ln long"></i></span><span>Period: <i class="ln short"></i></span><span>Date: <i class="ln mid"></i></span></div>';
+      B.cases.slice(pg * 2, pg * 2 + 2).forEach(function (cs, k) {
+        var no = pg * 2 + k + 1, bl = badLine(cs), sk = set.byId[cs.item.skill];
+        h += '<div class="pe-box"><div class="pe-h">' + no + '. ' + esc(sk ? sk.name : 'Problem') + '</div><div class="pe-cols"><div class="pe-l">' +
+          '<div class="pe-cap">Original problem</div><div class="pe-q">' + prompt(cs.item.p) + '</div><div class="pe-cap">' + esc(cs.name) + '’s incorrect worked solution</div>' + workHtml(cs) + '</div><div class="pe-r">' +
+          '<div class="pe-cap">A. Explain the mistake (1 point)</div>' + (key ? '<div class="pe-green">' + (bl >= 0 ? 'Step ' + (bl + 1) + ' is wrong: it should give ' : 'The final answer is wrong; it should be ') + mathSafe(cs.item.key) + ', not ' + mathSafe(cs.wrong) + '.</div>' : '<div class="pe-hint">Describe exactly which step is wrong and why.</div><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i>') +
+          '<div class="pe-cap">B. Show correct work (1 point)</div>' + (key ? '<div class="pe-green"><ol class="mm-steps">' + steps(cs.item.p) + '</ol><b>Answer:</b> ' + mathSafe(cs.item.key) + '</div>' : '<i class="ln full"></i><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i>') +
+          '</div></div></div>';
+      });
+      h += '<div class="pe-foot">Scoring: Explanation = 1 point • Correct work/answer = 1 point • Total = ' + 2 * n + ' points</div></div>';
+      P.push({ nofoot: true, html: h });
     }
-    return chunkPages(cfg, nV, v, true, 'Error Analysis answers', list, 3, function (l) {
-      return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Problem and the student’s work</th><th>Correct answer and solution</th></tr></thead><tbody>' + l.map(function (x) {
-        return '<tr><td><b>' + (x.i + 1) + '</b></td><td>' + prompt(x.cs.item.p) + workHtml(x.cs) + '<div class="pr-flag">The mistake is in the circled line: ' + esc(x.cs.name) + '’s answer ' + mathSafe(x.cs.wrong) + ' does not check.</div></td><td><div class="mm-ans"><b>Answer:</b> ' + mathSafe(x.cs.item.key) + '</div><ol class="mm-steps">' + steps(x.cs.item.p) + '</ol></td></tr>'; }).join('') + '</tbody></table>';
-    });
+    return P;
   }
 
   /* =========================== TARSIA =========================== */
@@ -180,18 +257,22 @@
     });
     return out + '</svg>';
   }
+  function tarsiaHead(cfg, nV, v, ttl, sub, nameOn) {
+    return '<div class="pt-head"><div class="pt-title">' + esc(ttl) + (nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '') + '</div><div class="pt-subrow"><span>' + esc(sub) + '</span>' + (nameOn ? '<span>Name: <i class="ln long"></i></span>' : '') + '</div></div>';
+  }
   function tarsiaPages(cfg, B, v, nV, key) {
-    var P = [], n = B.items.length;
+    var P = [], n = B.items.length, ttl = unitName(cfg) + ' Tarsia', shape = B.shape === 'hexagon' ? 'Hexagon' : 'Triangle';
     if (!key) {
-      P.push(page(cfg, nV, v, false, head(cfg, nV, v, false, lvName(cfg) + ' · ' + B.pieces.length + ' triangles, ' + n + ' matches') +
-        dirs('Cut out the triangles. Each numbered problem matches exactly one answer. Put matching edges together to rebuild a <b>' + B.shape + '</b>. Some outside edges have answers that match nothing. Show your work for every problem on the work pages.') + '<div class="pr-tbox">' + tarsiaSvg(B, false) + '</div>'));
+      P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl, 'Mr. K’s Classroom · ' + shape + ' of ' + B.pieces.length + ' triangles, ' + n + ' matches', true) +
+        '<div class="pt-dirs"><b>Directions:</b> Solve each problem. Cut out the ' + B.pieces.length + ' triangles. Match each problem to its answer so that touching edges fit, and build a <b>' + B.shape + '</b>. Glue it on a sheet of paper. Show your work for every problem on the work pages (the number before each problem tells you where).</div>' +
+        '<div class="pr-tbox">' + tarsiaSvg(B, false) + '</div></div>' });
       var sorted = B.items.slice().sort(function (a, b) { return a.num - b.num; });
-      for (var i = 0; i < n; i += 15) P.push(page(cfg, nV, v, false, '<div class="mm-head"><div><div class="mm-title mm-t2">Show your work</div><div class="mm-sub">' + esc(title(cfg)) + ' · problems ' + (i + 1) + '–' + Math.min(n, i + 15) + '</div></div>' + verTag(nV, v) + '</div><div class="pr-twork">' +
-        sorted.slice(i, i + 15).map(function (it) { return '<div class="pr-wbox"><b>' + it.num + '.</b> ' + mathSafe(it.p.prompt) + '</div>'; }).join('') + '</div>'));
+      for (var i = 0; i < n; i += 15) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, 'Show Your Work', ttl + ' · Problems ' + (i + 1) + '–' + Math.min(n, i + 15), true) +
+        '<div class="pt-grid">' + sorted.slice(i, i + 15).map(function (it) { return '<div><b>' + it.num + '.</b><div>' + mathSafe(it.p.prompt) + '</div></div>'; }).join('') + '</div></div>' });
     } else {
-      P.push(page(cfg, nV, v, true, head(cfg, nV, v, true) + '<p class="pr-note">The solved ' + esc(B.shape) + '. Problems are in bold.</p><div class="pr-tbox">' + tarsiaSvg(B, true) + '</div>'));
+      P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl + ': Answer Key', 'Solved ' + B.shape + '. Each shared edge pairs a problem with its answer.', false) + '<div class="pr-tbox">' + tarsiaSvg(B, true) + '</div></div>' });
       var list = B.items.slice().sort(function (a, b) { return a.num - b.num; });
-      P = P.concat(chunkPages(cfg, nV, v, true, 'Answers', list, 12, function (l) {
+      P = P.concat(chunkPages(cfg, nV, v, true, 'Answers', list, 15, function (l) {
         return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Problem</th><th>Answer</th><th>Solution</th></tr></thead><tbody>' + l.map(function (it) {
           return '<tr><td><b>' + it.num + '</b></td><td>' + mathSafe(it.p.prompt) + '</td><td>' + mathSafe(it.key) + '</td><td><ol class="mm-steps">' + steps(it.p) + '</ol></td></tr>'; }).join('') + '</tbody></table>';
       }));
@@ -205,8 +286,8 @@
   PR.pageEls = function (cfg, B, v, nV, key) {
     var P = expandFlow(PR.pages(cfg, B, v, nV, key));
     return P.map(function (p, i) {
-      var e = doc.createElement('div'); e.className = 'page mm-page pr-page';
-      e.innerHTML = p.html + '<div class="mm-foot"><span>' + p.foot + '</span><span>Page ' + (i + 1) + ' of ' + P.length + '</span></div>';
+      var e = doc.createElement('div'); e.className = 'page mm-page pr-page' + (p.land ? ' pr-land' : '') + (p.cls ? ' ' + p.cls : '');
+      e.innerHTML = p.html + (p.nofoot ? (p.brand ? '<div class="pc-brand">Mr. K\'s Classroom</div>' : '') : '<div class="mm-foot"><span>' + p.foot + '</span><span>Page ' + (i + 1) + ' of ' + P.length + '</span></div>');
       return e;
     });
   };
@@ -238,7 +319,7 @@
     h += '<section class="card"><h2>Level and skills</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
       '<p class="hint">Skills this printable cannot use are greyed out (for example, problems answered with a graph cannot go on a maze door).</p>' +
       set.skills.map(function (s) { var cap = PR.capable(unit, s.id, kind); return '<label class="chk' + (cap ? '' : ' off') + '"><input type="checkbox" class="prSkill" value="' + s.id + '"' + (cfg.skills[s.id] && cap ? ' checked' : '') + (cap ? '' : ' disabled') + '><span>' + esc(s.name) + (cap ? '' : '<small>Not available for a ' + esc(k.name.toLowerCase()) + '</small>') + '</span></label>'; }).join('') + '</section>';
-    h += '<section class="card"><h2>Options</h2>' + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.PICTURES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.PICTURES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
+    h += '<section class="card"><h2>Options</h2>' + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.SCENES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.SCENES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
       '<label class="field"><span class="lbl">Versions</span><select id="prVer">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((cfg.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
       '<p><button type="button" class="btn" id="prNew">↻ New problems</button></p><p class="hint">Every answer is checked independently. Every wrong label (a maze door, a Tarsia edge, a student’s wrong answer) is checked to be wrong.</p></section>';
     return h;
@@ -276,7 +357,7 @@
     PR.pageEls(cfg, built[ui.v], ui.v, built.length, ui.doc === 'key').forEach(function (p) { var w = doc.createElement('div'); w.className = 'pr-pwrap'; w.appendChild(p); box.appendChild(w); });
     fit(); bindTools();
   }
-  function fit() { var box = $('.pr-pages'); if (!box) return; var z = Math.min(1, (box.clientWidth - 8) / (8.5 * 96)); $$('.pr-pwrap', box).forEach(function (w) { w.style.zoom = z; }); }
+  function fit() { var box = $('.pr-pages'); if (!box) return; $$('.pr-pwrap', box).forEach(function (w) { var pw = w.firstChild && w.firstChild.classList.contains('pr-land') ? 11 : 8.5; w.style.zoom = Math.min(1, (box.clientWidth - 8) / (pw * 96)); }); }
   function bindTools() {
     $$('[data-doc]').forEach(function (b) { b.onclick = function () { ui.doc = b.getAttribute('data-doc'); drawPreview(); }; });
     $$('[data-ver]').forEach(function (b) { b.onclick = function () { ui.v = +b.getAttribute('data-ver'); drawPreview(); }; });

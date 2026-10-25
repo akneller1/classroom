@@ -24,11 +24,11 @@ let n = 0; const ok = name => { n++; console.log('  ✓ ' + name); };
   await page.waitForSelector('.pr-page', { timeout: 60000 });
   // controls: kind, level, versions, key tab
   assert.match(await page.textContent('#prCrumb'), /Maze/);
-  await page.check('input[name=prKind][value=partner]'); await page.waitForSelector('.pr-who', { timeout: 60000 });
+  await page.check('input[name=prKind][value=partner]'); await page.waitForSelector('.pp-who', { timeout: 60000 });
   assert.match(await page.evaluate(() => location.hash), /kind=partner/);
   await page.check('input[name=prLevel][value=honors]'); await page.waitForSelector('.pr-page', { timeout: 60000 });
   await page.selectOption('#prVer', '2'); await page.waitForSelector('[data-ver="1"]', { timeout: 60000 });
-  await page.click('[data-doc=key]'); await page.waitForSelector('.mm-keytag');
+  await page.click('[data-doc=key]'); await page.waitForSelector('.pc-key, .mm-keytag');
   await page.click('[data-ver="1"]'); assert.match(await page.textContent('.pr-pages'), /Version B/);
   assert.equal(await page.isDisabled('#prPrintS'), false);
   ok('controls: printable, level, versions, student/key preview and print buttons');
@@ -43,7 +43,7 @@ let n = 0; const ok = name => { n++; console.log('  ✓ ' + name); };
         const els = PR.pageEls(cfg, B, 0, 1, key), r = document.createElement('div'); r.style.cssText = 'position:absolute;left:-9999px;top:0'; document.body.appendChild(r); els.forEach(e => r.appendChild(e));
         els.forEach((e, i) => {
           const bd = e.querySelector('.mm-body'); if (bd.scrollHeight > bd.clientHeight + 2) out.push(unit + ' ' + kind + ' ' + level + (key ? ' key' : '') + ' page ' + (i + 1) + ' runs past the page');
-          e.querySelectorAll('.pr-door,.pr-room,.pr-pbox,.pr-ea-l').forEach(x => { if (x.scrollHeight > x.clientHeight + 5 || x.scrollWidth > x.clientWidth + 5) out.push(unit + ' ' + kind + ' ' + level + (key ? ' key' : '') + ': text runs past a ' + x.className); });
+          e.querySelectorAll('.pm-room,.pm-q,.pm-big,.pc-box,.pp-box,.pe-box,.pt-grid>div,.pc-code td').forEach(x => { if (x.scrollHeight > x.clientHeight + 5 || x.scrollWidth > x.clientWidth + 5) out.push(unit + ' ' + kind + ' ' + level + (key ? ' key' : '') + ': text runs past a ' + x.className); });
           if (/NaN|\[object|\bundefined\b(?! \(a vertical)/.test(e.textContent)) out.push(unit + ' ' + kind + ' ' + level + ': bad text on page ' + (i + 1));
           if (!key && /Answer key|TEACHER KEY/.test(e.textContent)) out.push(unit + ' ' + kind + ': key text on a student page');
         });
