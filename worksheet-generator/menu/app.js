@@ -22,6 +22,8 @@
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); return true; } catch (e) { return false; } }
   function cfg() { return S ? S.config : draft; }
+  function isTest() { return NS.isTest(cfg()); }
+  function noun() { return isTest() ? 'test' : 'menu'; }
   function autosave() {
     var unit = cfg().unitId;
     var ok = lsSet(curKey(unit), S ? NS.serialize(S) : JSON.stringify({ draft: draft })); lsSet(KEY_LAST, unit);
@@ -37,7 +39,7 @@
   /* Run a change: snapshot first so it can be undone, then re-render and autosave. */
   function change(fn, msg) {
     snapshot();
-    var r; try { r = fn(); } catch (e) { console.error(e); toast('Something went wrong: ' + e.message); }
+    var r; try { r = fn(); if (S) NS.ensureFormats(S); } catch (e) { console.error(e); toast('Something went wrong: ' + e.message); }
     render(); autosave(); if (msg) toast(typeof msg === 'function' ? msg(r) : msg);
     return r;
   }
@@ -56,7 +58,7 @@
     ['setup', '5', 'Build', 'mmBuild'], ['review', '6', 'Review & edit', null], ['preview', '7', 'Preview', null], ['export', '8', 'Print & save', null]];
   function renderSteps() {
     $('.mm-stepnav').innerHTML = STEPS.map(function (s, i) {
-      var dis = !S && i >= 5;
+      var dis = !S && i >= 5; if (i === 2 && isTest()) s = [s[0], s[1], 'Test parts', s[3]];
       var cur = ui.view === s[0] && (s[0] !== 'setup' || i === 0);
       return '<button type="button" class="mm-stepbtn' + (ui.view === s[0] ? ' on' : '') + '" data-step="' + i + '"' + (dis ? ' disabled' : '') + (cur ? ' aria-current="step"' : '') + '><span class="step">' + s[1] + '</span>' + esc(s[2]) + '</button>';
     }).join('');
@@ -68,8 +70,8 @@
   function renderSummary() {
     var c = cfg(), rules = NS.checkRules(c, S), box = $('#mmSummary');
     var bits = [];
-    bits.push('<span><b>' + rules.totalOffered + '</b> offered</span>');
-    bits.push('<span><b>' + rules.totalRequired + '</b> students complete</span>');
+    if (NS.isTest(c)) bits.push('<span><b>' + rules.totalOffered + '</b> questions</span>');
+    else { bits.push('<span><b>' + rules.totalOffered + '</b> offered</span>'); bits.push('<span><b>' + rules.totalRequired + '</b> students complete</span>'); }
     bits.push('<span><b>' + rules.maxScore + '</b> points possible</span>');
     if (S) {
       var cnt = NS.counts(S);
@@ -98,7 +100,10 @@
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
       '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
       '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. The ready-to-print Assessment Menu PDFs for every unit are still on each unit page.</p>' +
-      '<label class="field"><span class="lbl">Menu title</span><input type="text" id="mmTitle" value="' + esc(c.title) + '" maxlength="80"></label>' +
+      '<fieldset class="field mm-mode"><legend class="lbl">Format</legend>' +
+      '<label class="chk"><input type="radio" name="mmMode" value="menu"' + (NS.isTest(c) ? '' : ' checked') + '><span>Choice menu<small>Students choose problems from Appetizers, Entrées and Chef’s Specials.</small></span></label>' +
+      '<label class="chk"><input type="radio" name="mmMode" value="test"' + (NS.isTest(c) ? ' checked' : '') + '><span>Standard test<small>Everyone answers every question: multiple-choice and short-answer parts, easier to harder.</small></span></label></fieldset>' +
+      '<label class="field"><span class="lbl">' + (NS.isTest(c) ? 'Test' : 'Menu') + ' title</span><input type="text" id="mmTitle" value="' + esc(c.title) + '" maxlength="80"></label>' +
       '<label class="field"><span class="lbl">Subtitle</span><input type="text" id="mmSubtitle" value="' + esc(c.subtitle) + '" maxlength="120"></label></section>';
     // 2
     h += '<section class="card mm-card" id="mmLevel"><h2><span class="step">2</span>Class level</h2><div class="mm-levels" role="radiogroup" aria-label="Class level">' +
@@ -108,6 +113,7 @@
       '<label class="field"><span class="lbl">Answers</span><select id="mmAnswers">' +
       [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']].map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
     // 3
+    if (NS.isTest(c)) h += testPartsHtml(c, rules); else
     h += '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>Menu sections and rules</h2>' +
       '<div class="mm-presets"><span class="lbl">Start from:</span> <button type="button" class="btn ghost sm" data-preset="std">Standard menu (100 pts)</button> <button type="button" class="btn ghost sm" data-preset="quiz">Short quiz</button> <button type="button" class="btn ghost sm" data-preset="big">Unit test</button></div>' +
       '<div class="mm-tablewrap"><table class="mm-sectbl"><thead><tr><th>Section name</th><th>Points each</th><th>Offered</th><th>Students complete</th><th>Difficulty</th><th>Skills</th><th><span class="sr">Remove</span></th></tr></thead><tbody>' +
@@ -130,7 +136,7 @@
       }).join('') + '<small class="hint">Leave all checked to require every category that appears on the menu.</small></div>' : '') +
       rulesHtml(rules) + '</section>';
     // 4
-    h += '<section class="card mm-card" id="mmSkills"><h2><span class="step">4</span>Skills and topics</h2><p class="hint">Uncheck a skill to leave it off the menu. Each skill gets harder with the difficulty number (1–7); the examples show what changes.</p>' +
+    h += '<section class="card mm-card" id="mmSkills"><h2><span class="step">4</span>Skills and topics</h2><p class="hint">Uncheck a skill to leave it off the ' + noun() + '. Each skill gets harder with the difficulty number (1–7); the examples show what changes.</p>' +
       Object.keys(set.tags).map(function (t) {
         var list = set.skills.filter(function (s) { return s.tag === t; });
         return '<fieldset class="mm-skillgrp"><legend><span class="mm-chip">' + esc(t) + '</span> ' + esc(set.tags[t]) + '</legend>' + list.map(function (s) {
@@ -139,16 +145,38 @@
       }).join('') +
       '<div class="mm-gaps"><b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul></div></section>';
     // 5
-    h += '<section class="card mm-card" id="mmBuild"><h2><span class="step">5</span>Build the menu</h2>' +
+    h += '<section class="card mm-card" id="mmBuild"><h2><span class="step">5</span>Build the ' + noun() + '</h2>' +
       '<label class="field"><span class="lbl">Versions</span><select id="mmVersions">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((c.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
-      '<p class="hint">Versions share the same skills, difficulty and menu layout, with different numbers.</p>' +
-      (S ? '<p><button type="button" class="btn" id="mmGoReview">Review my menu →</button> <button type="button" class="btn ghost" id="mmRebuild">Rebuild with these settings</button></p><p class="hint">Rebuilding keeps every pinned or edited problem and replaces the rest.</p>'
-         : '<p><button type="button" class="btn" id="mmBuildBtn"' + (rules.errors.length ? ' disabled' : '') + '>Build my menu</button></p>' + (rules.errors.length ? '<p class="hint bad">Fix the rule problems in step 3 first.</p>' : '')) +
+      '<p class="hint">Versions share the same skills, difficulty and layout, with different numbers' + (isTest() ? ' (multiple-choice letters are reshuffled).' : '.') + '</p>' +
+      (S ? '<p><button type="button" class="btn" id="mmGoReview">Review my ' + noun() + ' →</button> <button type="button" class="btn ghost" id="mmRebuild">Rebuild with these settings</button></p><p class="hint">Rebuilding keeps every pinned or edited problem and replaces the rest.</p>'
+         : '<p><button type="button" class="btn" id="mmBuildBtn"' + (rules.errors.length ? ' disabled' : '') + '>Build my ' + noun() + '</button></p>' + (rules.errors.length ? '<p class="hint bad">Fix the rule problems in step 3 first.</p>' : '')) +
       '</section>';
     return h;
   }
+  /* Step 3 for a standard test: parts with a question format; everyone answers every question. */
+  var TIERS_TEST = [['ramp', 'Easier → harder'], [0, 'Easier'], [1, 'Middle'], [2, 'Harder']];
+  function testPartsHtml(c, rules) {
+    return '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>Test parts</h2>' +
+      '<div class="mm-presets"><span class="lbl">Start from:</span> ' + [['std', 'Standard test (100 pts)'], ['quiz', 'Short quiz (50 pts)'], ['mc', 'All multiple choice'], ['open', 'All short answer']].map(function (x) { return '<button type="button" class="btn ghost sm" data-tpreset="' + x[0] + '">' + x[1] + '</button>'; }).join(' ') + '</div>' +
+      '<div class="mm-tablewrap"><table class="mm-sectbl"><thead><tr><th>Part name</th><th>Points each</th><th>Questions</th><th>Question format</th><th>Difficulty</th><th>Skills</th><th><span class="sr">Remove</span></th></tr></thead><tbody>' +
+      c.sections.map(function (s, si) {
+        var skillsTxt = s.skills && s.skills.length ? s.skills.length + ' chosen' : 'All selected', tierV = s.tier === undefined ? 'ramp' : s.tier, cs = [0, 1, 2].map(function (k) { return NS.itemC(c, si, k, 3); });
+        var cTxt = tierV === 'ramp' ? cs[0] + '–' + cs[2] : String(NS.sectionC(c, si));
+        return '<tr data-si="' + si + '"><td><input type="text" class="mmSecName" value="' + esc(s.name) + '" aria-label="Part ' + (si + 1) + ' name" maxlength="40"><input type="text" class="mmSecNote" value="' + esc(s.note || '') + '" aria-label="Part ' + (si + 1) + ' directions" placeholder="Directions (optional)" maxlength="60"></td>' +
+          '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>' +
+          '<td><input type="number" class="mmSecOff" min="1" max="30" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"></td>' +
+          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
+          '<td><select class="mmSecTier" aria-label="' + esc(s.name) + ' difficulty">' + TIERS_TEST.map(function (t) { return '<option value="' + t[0] + '"' + (String(tierV) === String(t[0]) ? ' selected' : '') + '>' + t[1] + '</option>'; }).join('') + '</select>' +
+          '<span class="mm-adj"><button type="button" class="step-btn mmAdj" data-d="-1" aria-label="Make ' + esc(s.name) + ' easier">−</button><span class="mm-cval" title="Difficulty (1 to 7)">' + cTxt + '</span><button type="button" class="step-btn mmAdj" data-d="1" aria-label="Make ' + esc(s.name) + ' harder">+</button></span></td>' +
+          '<td><button type="button" class="btn ghost sm mmSecSkills">' + skillsTxt + '</button></td>' +
+          '<td><button type="button" class="btn ghost sm mmSecDel" aria-label="Remove part ' + esc(s.name) + '"' + (c.sections.length < 2 ? ' disabled' : '') + '>✕</button></td></tr>';
+      }).join('') + '</tbody></table></div>' +
+      '<p><button type="button" class="btn ghost sm" id="mmAddSec">+ Add a part</button></p>' +
+      '<p class="hint">Every student answers every question. Within each part the questions go from easier to harder inside the class level, unless you choose one difficulty. Multiple-choice answers are checked: the right answer is verified and every wrong choice is a checked mistake.</p>' +
+      rulesHtml(rules) + '</section>';
+  }
   function rulesHtml(rules) {
-    return '<div class="mm-rules" aria-live="polite"><div class="mm-max">Maximum score: <b>' + rules.maxScore + '</b> points · students complete <b>' + rules.totalRequired + '</b> of <b>' + rules.totalOffered + '</b></div>' +
+    return '<div class="mm-rules" aria-live="polite"><div class="mm-max">Maximum score: <b>' + rules.maxScore + '</b> points · ' + (isTest() ? '<b>' + rules.totalOffered + '</b> questions' : 'students complete <b>' + rules.totalRequired + '</b> of <b>' + rules.totalOffered + '</b>') + '</div>' +
       rules.errors.map(function (e) { return '<p class="mm-err">✕ ' + esc(e) + '</p>'; }).join('') +
       rules.warnings.map(function (w) { return '<p class="mm-warn">! ' + esc(w) + '</p>'; }).join('') + '</div>';
   }
@@ -161,10 +189,18 @@
     var c = cfg();
     function upd(fn, rerender) { return function (e) { if (S) snapshot(); fn(e); afterConfigChange(rerender); }; }
     $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (!NS.skillSets[id]) return; snapshot(); autosave(); loadUnit(id, c.level); try { G.history.replaceState(null, '', '#unit=' + id); } catch (er) { /* ignore */ } render(); autosave(); };
+    $$('input[name=mmMode]').forEach(function (r) { r.onchange = function () {
+      if (S) { change(function () { NS.setMode(S.config, r.value); S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }, r.value === 'test' ? 'Switched to a standard test. New questions were made for the test parts.' : 'Switched to a choice menu. New problems were made for the menu sections.'); }
+      else { NS.setMode(draft, r.value); autosave(); render(); }
+    }; });
     $('#mmTitle').oninput = function (e) { c.title = e.target.value; autosave(); };
     $('#mmSubtitle').oninput = function (e) { c.subtitle = e.target.value; autosave(); };
     $$('input[name=mmLevel]').forEach(function (r) { r.onchange = upd(function () { c.level = r.value; if (S) levelChanged(); }, true); });
     $('#mmAnswers').onchange = upd(function (e) { c.answers = e.target.value; if (S) levelChanged(); }, true);
+    $$('[data-tpreset]').forEach(function (b) { b.onclick = upd(function () {
+      c.sections = NS.testSections(b.getAttribute('data-tpreset'));
+      if (S) { S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }
+    }, true); });
     $$('[data-preset]').forEach(function (b) { b.onclick = upd(function () {
       c.sections = PRESETS[b.getAttribute('data-preset')].map(function (p, i) { return { id: NS.uid('sec'), name: p[0], note: p[1], points: p[2], offered: p[3], required: p[4], tier: p[5], adjust: 0, skills: null }; });
       if (S) { S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }
@@ -175,14 +211,15 @@
       $('.mmSecNote', tr).onchange = upd(function (e) { s.note = e.target.value; }, false);
       $('.mmSecPts', tr).onchange = upd(function (e) { var v = Math.round(parseFloat(e.target.value) * 2) / 2; s.points = v > 0 ? v : s.points; }, true);
       $('.mmSecOff', tr).onchange = upd(function (e) { var v = Math.max(1, Math.min(20, parseInt(e.target.value, 10) || 1)); s.offered = v; if (S) NS.syncStructure(S); }, true);
-      $('.mmSecReq', tr).onchange = upd(function (e) { var v = Math.max(0, Math.min(20, parseInt(e.target.value, 10) || 0)); s.required = v; }, true);
-      $('.mmSecTier', tr).onchange = upd(function (e) { s.tier = +e.target.value; if (S) sectionDifficultyChanged(si); }, true);
-      $$('.mmAdj', tr).forEach(function (b) { b.onclick = upd(function () { var before = NS.sectionC(c, si); s.adjust = (s.adjust || 0) + (+b.getAttribute('data-d')); if (NS.sectionC(c, si) === before) s.adjust -= (+b.getAttribute('data-d')); if (S) sectionDifficultyChanged(si); }, true); });
+      if ($('.mmSecReq', tr)) $('.mmSecReq', tr).onchange = upd(function (e) { var v = Math.max(0, Math.min(20, parseInt(e.target.value, 10) || 0)); s.required = v; }, true);
+      if ($('.mmSecFmt', tr)) $('.mmSecFmt', tr).onchange = upd(function (e) { s.qformat = e.target.value; if (S) { NS.rebuild(S); NS.ensureFormats(S); } }, true);
+      $('.mmSecTier', tr).onchange = upd(function (e) { s.tier = e.target.value === 'ramp' ? 'ramp' : +e.target.value; if (S) sectionDifficultyChanged(si); }, true);
+      $$('.mmAdj', tr).forEach(function (b) { b.onclick = upd(function () { var d = +b.getAttribute('data-d'), sig = function () { return [0, 1, 2].map(function (k) { return NS.itemC(c, si, k, 3); }).join(',') + NS.sectionC(c, si); }, before = sig(); s.adjust = (s.adjust || 0) + d; if (sig() === before) s.adjust -= d; if (S) sectionDifficultyChanged(si); }, true); });
       $('.mmSecSkills', tr).onclick = function () { sectionSkillsDialog(si); };
       $('.mmSecDel', tr).onclick = upd(function () { c.sections.splice(si, 1); if (S) S.versions.forEach(function (v) { v.sections.splice(si, 1); }); }, true);
     });
-    $('#mmAddSec').onclick = upd(function () { c.sections.push({ id: NS.uid('sec'), name: 'Dessert', note: 'Bonus', points: 5, offered: 2, required: 1, tier: 2, adjust: 0, skills: null }); if (S) NS.syncStructure(S); }, true);
-    $('#mmCov').onchange = upd(function (e) { c.coverage.on = e.target.checked; }, true);
+    $('#mmAddSec').onclick = upd(function () { c.sections.push(NS.isTest(c) ? { id: NS.uid('sec'), name: 'Part ' + (c.sections.length + 1), note: 'Show your work.', points: 10, offered: 3, required: 3, tier: 'ramp', adjust: 0, skills: null, qformat: 'open' } : { id: NS.uid('sec'), name: 'Dessert', note: 'Bonus', points: 5, offered: 2, required: 1, tier: 2, adjust: 0, skills: null }); if (S) NS.syncStructure(S); }, true);
+    if ($('#mmCov')) $('#mmCov').onchange = upd(function (e) { c.coverage.on = e.target.checked; }, true);
     $$('.mmCovTag').forEach(function (b) { b.onchange = upd(function () {
       var on = $$('.mmCovTag').filter(function (x) { return x.checked; }).map(function (x) { return x.value; });
       c.coverage.tags = on.length === $$('.mmCovTag').length ? null : on;
@@ -204,10 +241,11 @@
   /* Level changed after building: move every unpinned, unedited slot to its section's new difficulty. */
   function levelChanged() { S.config.sections.forEach(function (s, si) { sectionDifficultyChanged(si); }); }
   function sectionDifficultyChanged(si) {
-    var c = S.config, target = NS.sectionC(c, si);
-    S.versions[0].sections[si].items.slice().forEach(function (a) {
+    var c = S.config, all = S.versions[0].sections[si].items.slice();
+    all.forEach(function (a, i) {
+      var target = NS.itemC(c, si, i, all.length);
       var locked = S.versions.some(function (v) { return v.sections[si].items.some(function (it) { return it.slot === a.slot && (it.pinned || it.edited || it.manual); }); });
-      if (!locked) NS.setDifficulty(S, 0, a.uid, target);
+      if (!locked && a.c !== target) NS.setDifficulty(S, 0, a.uid, target);
     });
     S.versions.forEach(function (v) { v.sections[si].items.forEach(function (it) { if (!it.pinned && !it.edited && !it.manual && it.verify && it.verify.status === 'verified') { /* policy may have changed */ var r = NS.verifyProblem(it, NS.policyOf(c)); if (!r.ok) NS.regenerate(S, S.versions.indexOf(v), it.uid); } }); });
   }
@@ -221,7 +259,7 @@
       $('#mmView').classList.remove('busy');
       render(); autosave();
       var cnt = NS.counts(S);
-      toast(cnt.failed ? cnt.failed + ' problem slot(s) could not be filled with a verified problem — they are marked in red.' : 'Menu built. Every answer was checked independently.');
+      toast(cnt.failed ? cnt.failed + ' problem slot(s) could not be filled with a verified problem — they are marked in red.' : (isTest() ? 'Test' : 'Menu') + ' built. Every answer was checked independently.');
     }, 20);
   }
 
@@ -261,7 +299,7 @@
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig) h += NS.figHtml(p.fig);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
-    if (parts.length) h += '<div class="mm-cparts">' + parts.map(function (pt) { return '<div><b>(' + esc(pt.label) + ')</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
+    if (parts.length) h += '<div class="mm-cparts">' + parts.map(function (pt) { return '<div>' + (pt.label ? '<b>(' + esc(pt.label) + ')</b> ' : '') + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;
   }
   function answerBlock(p) {
@@ -281,10 +319,14 @@
     var sk = set.byId[p.skill];
     var head = '<div class="mm-ch"><span class="mm-clab">' + lab + '</span>' + (p.tag ? '<span class="mm-chip">' + esc(p.tag) + '</span>' : '') +
       '<span class="mm-cdiff" title="Difficulty ' + p.c + ' of 7">Lv ' + p.c + ' · ' + NS.DIFF_NAMES[p.c] + '</span>' + badge(p) +
-      (p.pinned ? '<span class="mm-badge pin">📌 Pinned</span>' : '') + (p.required ? '<span class="mm-badge req">★ Everyone must do</span>' : '') +
+      (p.pinned ? '<span class="mm-badge pin">📌 Pinned</span>' : '') + (p.required && !NS.isTest(c) ? '<span class="mm-badge req">★ Everyone must do</span>' : '') +
       (p.nearRepeat ? '<span class="mm-badge warn" title="This skill ran out of fresh variety at this difficulty">similar to another</span>' : '') + '</div>';
     var skillName = sk ? sk.name : (p.manual ? 'Teacher-written problem' : p.skill);
     var body = p.failed ? '<p class="mm-failmsg">' + esc(p.reason) + '</p>' : promptBlock(p);
+    if (!p.failed && NS.sectionFormat(c, si) === 'mc') {
+      if (p.mc) body += '<ol class="mm-cchoices' + (p.mc.opts.some(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx').length > 24; }) ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li' + (show && k === p.mc.key ? ' class="ok"' : '') + '><b>' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && k === p.mc.key ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>' + (p.mcNote ? '<p class="mm-fmtnote">' + esc(p.mcNote) + '</p>' : '');
+      else body += '<p class="mm-fmtnote bad">Prints as short answer: ' + esc(p.mcFail || 'no choices could be made') + ' Try ↻ New problem, or move it to a short-answer part.</p>';
+    }
     var issues = (!p.failed && p.verify && p.verify.status !== 'verified') ? '<div class="mm-issues">' + (p.verify.issues || []).map(function (x) { return '<div>' + esc(x) + '</div>'; }).join('') +
       '<label class="chk"><input type="checkbox" class="mmApprove"' + (p.approved ? ' checked' : '') + '><span>I checked this answer myself and approve it for the key.</span></label></div>' : '';
     var secOpts = c.sections.map(function (s, k) { return '<option value="' + k + '"' + (k === si ? ' disabled' : '') + '>' + esc(s.name) + '</option>'; }).join('');
@@ -302,7 +344,7 @@
       '<label><span class="sr">Move to section</span><select data-act="move" aria-label="Move ' + lab + ' to another section"><option value="">Move to…</option>' + secOpts + '</select></label>' +
       '<button type="button" class="btn sm ghost" data-act="up" aria-label="Move ' + lab + ' up"' + (i === 0 ? ' disabled' : '') + '>↑</button>' +
       '<button type="button" class="btn sm ghost" data-act="down" aria-label="Move ' + lab + ' down"' + (i === S.versions[ui.version].sections[si].items.length - 1 ? ' disabled' : '') + '>↓</button>' +
-      '<button type="button" class="btn sm ghost" data-act="required" aria-pressed="' + !!p.required + '">' + (p.required ? '★ Required' : '☆ Make required') + '</button>' +
+      (NS.isTest(c) ? '' : '<button type="button" class="btn sm ghost" data-act="required" aria-pressed="' + !!p.required + '">' + (p.required ? '★ Required' : '☆ Make required') + '</button>') +
       '<button type="button" class="btn sm ghost danger" data-act="delete" aria-label="Delete ' + lab + '">🗑 Delete</button></span></div>';
     return '<article class="mm-dcard' + (p.failed ? ' failed' : '') + (p.pinned ? ' pinned' : '') + '" data-uid="' + p.uid + '" aria-label="' + lab + ' ' + esc(skillName) + '">' + head +
       '<div class="mm-cskill">' + esc(skillName) + lockedNote + '</div>' + body + issues + (show && !p.failed ? answerBlock(p) : '') + tools + '</article>';
@@ -319,7 +361,7 @@
     h += '<div class="mm-revgrid' + (ui.bankOpen ? ' withbank' : '') + '"><div class="mm-sections">';
     c.sections.forEach(function (sec, si) {
       var items = v.sections[si].items, req = items.filter(function (x) { return x.required; }).length;
-      h += '<section class="mm-secblock" aria-labelledby="mmsec' + si + '"><div class="mm-sechd"><h2 id="mmsec' + si + '">' + esc(sec.name) + '</h2><span class="mm-secinfo">' + items.length + ' offered · students complete ' + sec.required + ' · ' + sec.points + ' pts each' + (req ? ' · ' + req + ' required' : '') + '</span></div>' +
+      h += '<section class="mm-secblock" aria-labelledby="mmsec' + si + '"><div class="mm-sechd"><h2 id="mmsec' + si + '">' + esc(sec.name) + '</h2><span class="mm-secinfo">' + (NS.isTest(c) ? items.length + ' questions · ' + esc(NS.FORMATS[NS.sectionFormat(c, si)]) + ' · ' + sec.points + ' pts each' : items.length + ' offered · students complete ' + sec.required + ' · ' + sec.points + ' pts each' + (req ? ' · ' + req + ' required' : '')) + '</span></div>' +
         '<div class="mm-cards">' + items.map(function (p, i) { return dishCard(p, si, i); }).join('') + '</div>' +
         '<div class="mm-addrow"><label>Add a problem: <select class="mmAddSkill" data-si="' + si + '">' + set.skills.map(function (s) { return '<option value="' + s.id + '">' + esc(s.name) + '</option>'; }).join('') + '</select></label>' +
         '<label>Difficulty <select class="mmAddC" data-si="' + si + '">' + [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<option value="' + k + '"' + (k === NS.sectionC(c, si) ? ' selected' : '') + '>' + k + ' · ' + NS.DIFF_NAMES[k] + '</option>'; }).join('') + '</select></label>' +
@@ -340,7 +382,7 @@
       '<button type="button" class="btn" id="mmBankGo">Generate</button>' +
       '<div class="mm-bankitems">' + (b.items || []).map(function (p, k) {
         return '<article class="mm-bcard" data-buid="' + p.uid + '"><div class="mm-ch"><b>#' + (k + 1) + '</b> <span class="mm-cdiff">Lv ' + p.c + '</span>' + badge(p) + '</div>' + promptBlock(p) + answerBlock(p) +
-          '<div class="mm-tools"><label>Add to <select class="mmBankTo">' + c.sections.map(function (s, si) { return '<option value="' + si + '">' + esc(s.name) + '</option>'; }).join('') + '</select></label><button type="button" class="btn sm" data-use="' + p.uid + '">Add to menu</button></div></article>';
+          '<div class="mm-tools"><label>Add to <select class="mmBankTo">' + c.sections.map(function (s, si) { return '<option value="' + si + '">' + esc(s.name) + '</option>'; }).join('') + '</select></label><button type="button" class="btn sm" data-use="' + p.uid + '">Add</button></div></article>';
       }).join('') + '</div></aside>';
   }
   function bindReview() {
@@ -490,14 +532,14 @@
     var L = S.config.layout;
     function seg(name, opts, val) { return '<div class="seg" role="radiogroup" aria-label="' + name + '">' + opts.map(function (o, i) { var id = 'mmL' + name.replace(/\W/g, '') + i; return '<input type="radio" id="' + id + '" name="mmL' + name.replace(/\W/g, '') + '" value="' + o[0] + '"' + (val === o[0] ? ' checked' : '') + '><label for="' + id + '">' + o[1] + '</label>'; }).join('') + '</div>'; }
     return '<div class="card mm-layout"><h2>Print layout</h2>' +
-      '<div class="field"><span class="lbl">Format</span>' + seg('Format', [['together', 'Problems with workspace'], ['menu-only', 'Menu + separate work pages']], L.format) + '</div>' +
+      (isTest() ? '' : '<div class="field"><span class="lbl">Format</span>' + seg('Format', [['together', 'Problems with workspace'], ['menu-only', 'Menu + separate work pages']], L.format) + '</div>') +
       '<div class="field"><span class="lbl">Spacing</span>' + seg('Spacing', [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious']], L.density) + '</div>' +
       '<div class="field"><span class="lbl">Workspace</span>' + seg('Workspace', [['none', 'Blank'], ['graph', 'Graph paper'], ['coordinate', 'Coordinate plane']], L.grid) + '</div>' +
       '<label class="chk"><input type="checkbox" id="mmLRef"' + (L.reference ? ' checked' : '') + '><span>Add a reference page for students</span></label>' +
       '<label class="chk"><input type="checkbox" id="mmLGuide"' + (L.guide !== false ? ' checked' : '') + '><span>Include the teacher guide page in the key</span></label></div>';
   }
   function viewPreview() {
-    return '<div class="mm-prevgrid"><div>' + layoutControls() + '</div><div><div class="ptool"><div class="grp" role="group" aria-label="Document"><button type="button" class="tab" data-doc="student" aria-pressed="' + (ui.preview === 'student') + '">Student menu</button><button type="button" class="tab" data-doc="key" aria-pressed="' + (ui.preview === 'key') + '">Teacher key</button></div>' +
+    return '<div class="mm-prevgrid"><div>' + layoutControls() + '</div><div><div class="ptool"><div class="grp" role="group" aria-label="Document"><button type="button" class="tab" data-doc="student" aria-pressed="' + (ui.preview === 'student') + '">Student ' + noun() + '</button><button type="button" class="tab" data-doc="key" aria-pressed="' + (ui.preview === 'key') + '">Teacher key</button></div>' +
       (S.versions.length > 1 ? '<div class="grp" role="group" aria-label="Version">' + S.versions.map(function (x, i) { return '<button type="button" class="tab" data-pver="' + i + '" aria-pressed="' + (i === ui.version) + '">' + x.label + '</button>'; }).join('') + '</div>' : '') +
       '<span class="sp"></span><span id="mmPStatus" role="status"></span><select id="mmZoom" aria-label="Zoom">' + [['fit', 'Fit width'], ['0.6', '60%'], ['0.8', '80%'], ['1', '100%']].map(function (z) { return '<option value="' + z[0] + '"' + (ui.zoom === z[0] ? ' selected' : '') + '>' + z[1] + '</option>'; }).join('') + '</select>' +
       '<button type="button" class="btn" id="mmToExport">Print & save →</button></div><div id="pagesWrap"><div id="pages"></div></div></div></div>';
@@ -537,15 +579,15 @@
     var blockers = NS.blockers(S), saves = listSaves();
     return '<div class="mm-exgrid"><section class="card mm-card"><h2><span class="step">8</span>Print or save as PDF</h2>' +
       (blockers.length ? '<div class="mm-block"><b>Before you print:</b><ul>' + blockers.slice(0, 12).map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + (blockers.length > 12 ? '<li>…and ' + (blockers.length - 12) + ' more</li>' : '') + '</ul></div>' : '<p class="ok">✓ Ready to print. Every answer in the key was checked against the printed problem.</p>') +
-      '<div class="mm-printbtns">' + S.versions.map(function (v, i) { return '<button type="button" class="btn" data-print="student" data-pv="' + i + '">Student menu' + (S.versions.length > 1 ? ' · Version ' + v.label : '') + '</button>'; }).join('') +
+      '<div class="mm-printbtns">' + S.versions.map(function (v, i) { return '<button type="button" class="btn" data-print="student" data-pv="' + i + '">Student ' + noun() + (S.versions.length > 1 ? ' · Version ' + v.label : '') + '</button>'; }).join('') +
       (S.versions.length > 1 ? '<button type="button" class="btn ghost" data-print="student" data-pv="all">All student versions</button>' : '') + '</div>' +
       '<div class="mm-printbtns">' + S.versions.map(function (v, i) { return '<button type="button" class="btn sec2" data-print="key" data-pv="' + i + '">Teacher key' + (S.versions.length > 1 ? ' · Version ' + v.label : '') + '</button>'; }).join('') +
       (S.versions.length > 1 ? '<button type="button" class="btn ghost" data-print="key" data-pv="all">All keys</button>' : '') + '</div>' +
       '<p class="hint">In the print dialog choose <b>Save as PDF</b> (or your printer), paper <b>Letter</b>, margins <b>None</b>, scale <b>100%</b>, and turn <b>headers and footers off</b>. Student menus never contain answers; keys are printed separately.</p>' +
       '<p class="hint"><b>About answer keys:</b> keys you print stay on your computer. If you post a key online, a code prompt on a web page is only a convenience, not real security, so do not treat a publicly hosted key as private.</p></section>' +
-      '<section class="card mm-card"><h2>Save this assessment</h2><p class="hint">Your current menu is saved in this browser automatically. Save a named copy to come back to it, or download a file to move it to another computer or share it with a colleague.</p>' +
+      '<section class="card mm-card"><h2>Save this assessment</h2><p class="hint">Your current menu or test is saved in this browser automatically. Save a named copy to come back to it, or download a file to move it to another computer or share it with a colleague.</p>' +
       '<div class="mm-saverow"><input type="text" id="mmSaveName" value="' + esc(S.config.title + ' · ' + NS.LEVELS[S.config.level].name) + '" aria-label="Name for this saved assessment"><button type="button" class="btn" id="mmSaveNamed">Save in this browser</button></div>' +
-      '<div class="mm-saverow"><button type="button" class="btn ghost" id="mmDownload">Download file (.json)</button><label class="btn ghost mm-filebtn">Open a file…<input type="file" id="mmOpenFile" accept=".json,application/json"></label><button type="button" class="btn ghost" id="mmDup">Duplicate as a new menu</button><button type="button" class="btn ghost danger" id="mmNew">Start over</button></div>' +
+      '<div class="mm-saverow"><button type="button" class="btn ghost" id="mmDownload">Download file (.json)</button><label class="btn ghost mm-filebtn">Open a file…<input type="file" id="mmOpenFile" accept=".json,application/json"></label><button type="button" class="btn ghost" id="mmDup">Duplicate as a new copy</button><button type="button" class="btn ghost danger" id="mmNew">Start over</button></div>' +
       (saves.length ? '<h3>Saved in this browser</h3><ul class="mm-saves">' + saves.map(function (s) { return '<li><span><b>' + esc(s.name) + '</b><small>' + esc(new Date(s.saved).toLocaleString()) + '</small></span><span><button type="button" class="btn sm" data-load="' + s.id + '">Open</button><button type="button" class="btn sm ghost" data-dupsave="' + s.id + '">Duplicate</button><button type="button" class="btn sm ghost danger" data-delsave="' + s.id + '">Delete</button></span></li>'; }).join('') + '</ul>' : '') +
       '</section></div>';
   }
@@ -577,7 +619,7 @@
       }; rd.readAsText(f);
     };
     $('#mmDup').onclick = function () { snapshot(); S = NS.duplicate(S); render(); autosave(); toast('Duplicated. You are now editing the copy.'); };
-    $('#mmNew').onclick = function () { if (!G.confirm('Start a new menu? (You can undo this.)')) return; snapshot(); draft = NS.defaultConfig(S.config.unitId); S = null; ui.view = 'setup'; render(); autosave(); };
+    $('#mmNew').onclick = function () { if (!G.confirm('Start over? (You can undo this.)')) return; snapshot(); draft = NS.defaultConfig(S.config.unitId, S.config.mode); S = null; ui.view = 'setup'; render(); autosave(); };
     $$('[data-load]').forEach(function (b) { b.onclick = function () { var s = listSaves().filter(function (x) { return x.id === b.getAttribute('data-load'); })[0]; if (!s) return; try { snapshot(); S = NS.deserialize(s.data); draft = null; ui.view = 'review'; ui.version = 0; render(); autosave(); toast('Opened “' + s.name + '”.'); } catch (e) { toast('Could not open: ' + e.message); } }; });
     $$('[data-dupsave]').forEach(function (b) { b.onclick = function () { var list = listSaves(), s = list.filter(function (x) { return x.id === b.getAttribute('data-dupsave'); })[0]; if (!s) return; list.push({ id: NS.uid('save'), name: s.name + ' (copy)', saved: new Date().toISOString(), data: s.data }); writeSaves(list); render(); }; });
     $$('[data-delsave]').forEach(function (b) { b.onclick = function () { if (!G.confirm('Delete this saved menu from this browser?')) return; writeSaves(listSaves().filter(function (x) { return x.id !== b.getAttribute('data-delsave'); })); render(); }; });
@@ -631,14 +673,14 @@
         else if (o.format === 'mk-menu-assessment' && o.config.unitId === unit) { S = NS.deserialize(o); ui.view = 'review'; }
       } catch (e) { draft = null; S = null; }
     }
-    if (!draft && !S) { draft = NS.defaultConfig(unit); if (level) draft.level = level; }
+    if (!draft && !S) { draft = NS.defaultConfig(unit, /mode=test/.test(G.location.hash || '') ? 'test' : 'menu'); if (level) draft.level = level; }
     return !!S;
   }
   (function restore() {
     var unit = hashUnit() || (NS.skillSets[lsGet(KEY_LAST)] ? lsGet(KEY_LAST) : null) || (NS.skillSets[defaultUnit] ? defaultUnit : Object.keys(NS.skillSets)[0]);
     var restored = loadUnit(unit);
     render();
-    if (restored) toast('Welcome back. Your last ' + NS.skillSets[unit].unitName + ' menu was restored from this browser.');
+    if (restored) toast('Welcome back. Your last ' + NS.skillSets[unit].unitName + ' ' + noun() + ' was restored from this browser.');
   })();
   G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { autosave(); loadUnit(u); render(); } });
   NS.app = { state: function () { return S; }, render: render, ui: ui };   // for tests

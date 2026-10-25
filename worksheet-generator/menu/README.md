@@ -1,5 +1,20 @@
 # Menu Assessment Generator
 
+
+## Standard tests (Format: Standard test)
+Step 1 has a **Format** switch: *Choice menu* (Appetizers / Entrées / Chef’s Specials, students choose) or *Standard test*
+(everyone answers every question). A test is built from **parts**; each part has a question format (Multiple choice or
+Short answer), points per question, a number of questions and a difficulty (default *Easier → harder*: the questions in
+the part go from the level’s easiest tier to its hardest). Presets: Standard test (10 MC × 4 + 6 short answer × 10 =
+100), Short quiz, All multiple choice, All short answer. Questions are numbered straight through; the key starts with a
+quick key of the multiple-choice letters.
+
+**Multiple choice** uses the games’ question bank: the key plus three wrong answers that the verifier rejects for that
+exact printed problem. Only one-part, verified, non-graph answers become choices. A multi-part problem can be asked as
+one of its parts (that part is verified again on its own), and a "Solve … and graph" problem is asked without the graph;
+"Graph …" problems stay short answer. In a multiple-choice part the planner prefers skills that make good choices at each
+difficulty. Moving a question into or out of a multiple-choice part, editing it, or loading a file rebuilds and re-checks
+the choices. Tests: `tests/test-mode-tests.cjs` (every unit × level × seed; every choice re-checked).
 A browser-only builder for restaurant-style choice assessments ("Assessment Menus"). It has no server, no
 accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-generator/menu-assessment.html`.
 

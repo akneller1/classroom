@@ -236,3 +236,17 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-twoway th{font-style:normal;text-align:left;padding:2px 8px}.mm-twoway thead th{text-align:center}
 .mm-fig-dotplot svg,.mm-fig-boxplot svg{width:3.6in}.mm-fig-scatter svg{width:3in}
 .mm-key .mm-fig-dotplot svg,.mm-key .mm-fig-boxplot svg{width:2.6in}.mm-key .mm-fig-scatter svg{width:2.4in}
+/* standard tests: questions without boxes, multiple-choice options */
+.mm-dish.mm-tq{border:none;border-top:1px solid #999;padding:.06in .04in}
+.mm-pts{font-size:8pt;color:#333}
+.mm-choices{list-style:none;margin:.06in 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.04in .2in}
+.mm-choices.one{grid-template-columns:1fr}
+.mm-choices li{display:flex;align-items:baseline;gap:.08in;break-inside:avoid}
+.mm-bubble{display:inline-flex;align-items:center;justify-content:center;width:.2in;height:.2in;border:1.4px solid #000;border-radius:50%;font-size:8pt;font-weight:700;flex:none}
+.mm-letter{display:inline-block;border:1.5px solid #000;border-radius:50%;width:1.6em;text-align:center;margin-right:4px}
+.mm-quick td{text-align:center;white-space:nowrap}
+.mm-cchoices{list-style:none;padding:0;margin:.4rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.25rem .8rem}
+.mm-cchoices li{display:flex;gap:.4rem;align-items:baseline}
+.mm-cchoices li.ok{font-weight:700;color:var(--ok,#15803d)}
+.mm-fmtnote{font-size:.8rem;color:var(--muted,#555);margin:.2rem 0}
+.mm-cchoices.one{grid-template-columns:1fr}

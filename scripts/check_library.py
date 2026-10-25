@@ -83,7 +83,7 @@ def main():
             for a in u['artifacts']:
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
-            if len(paths) > 1 and t != 'menu assessment generator':
+            if len(paths) > 1 and t not in ('menu assessment generator', 'test & menu generator'):
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))
         for u in c['units']:
             for a in u['artifacts']:

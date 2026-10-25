@@ -34,7 +34,10 @@
     });
     return out[si];
   };
-  function dishLabel(cfg, si, i) { return NS.sectionLetter(cfg, si) + (i + 1); }
+  function dishLabel(cfg, si, i) {
+    if (NS.isTest(cfg)) { var n = i + 1; for (var k = 0; k < si; k++) n += cfg.sections[k].offered | 0; return String(n); }   // a test numbers its questions straight through
+    return NS.sectionLetter(cfg, si) + (i + 1);
+  }
   NS.dishLabel = dishLabel;
   function ptsText(n) { n = Math.round(n * 100) / 100; return n + (n === 1 ? ' pt' : ' pts'); }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
@@ -132,8 +135,64 @@
       promptHtml(p) + workspace(p, cfg) + '</div>';
   }
 
+  /* ---------- standard test ---------- */
+  var LET = 'ABCDEFGH';
+  function choicesHtml(p) {
+    var txt = p.mc.opts.map(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx'); }), long = txt.some(function (t) { return t.length > 34; });
+    return '<ol class="mm-choices' + (long ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li><span class="mm-bubble">' + LET[k] + '</span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>';
+  }
+  NS.choicesHtml = choicesHtml;
+  function testDirections(state, rules) {
+    var cfg = state.config, nQ = cfg.sections.reduce(function (n, s) { return n + (s.offered | 0); }, 0);
+    var li = ['Answer <b>all ' + nQ + ' questions</b>. The test is worth <b>' + rules.maxScore + ' points</b>.'];
+    cfg.sections.forEach(function (s, si) {
+      var fm = NS.sectionFormat(cfg, si) === 'mc' ? 'circle the letter of the best answer' : 'show your work; points are given for correct steps as well as the answer';
+      li.push('<b>Part ' + (si + 1) + ' · ' + esc(s.name) + '</b> (' + ptsText(+s.points) + ' each): ' + fm + '.');
+    });
+    return '<div class="mm-box mm-dirs"><h3>Directions</h3><ol>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol></div>';
+  }
+  function testScoreTable(state, rules) {
+    var cfg = state.config;
+    return '<table class="mm-tbl mm-score"><thead><tr><th>Part</th><th>Questions</th><th>Points each</th><th>Possible</th><th>Score (teacher)</th></tr></thead><tbody>' +
+      cfg.sections.map(function (s, si) { return '<tr><td>' + (si + 1) + ' · ' + esc(s.name) + '</td><td>' + s.offered + '</td><td>' + (+s.points) + '</td><td>' + (s.offered * s.points) + '</td><td></td></tr>'; }).join('') +
+      '<tr class="mm-tot"><td>Total</td><td>' + rules.totalOffered + '</td><td></td><td>' + rules.maxScore + '</td><td></td></tr></tbody></table>';
+  }
+  function testQHtml(p, cfg, si, i, sec) {
+    var lab = dishLabel(cfg, si, i);
+    if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '.</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
+    var mc = NS.sectionFormat(cfg, si) === 'mc' && p.mc;
+    var space = mc ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: cfg.layout.density, grid: cfg.layout.grid } });
+    return '<div class="mm-dish mm-tq' + (isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span><span class="mm-pts">' + ptsText(+sec.points) + '</span></div>' +
+      promptHtml(p) + (mc ? choicesHtml(p) : '') + space + '</div>';
+  }
+  function testStudentBlocks(state, vIdx) {
+    var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), B = [];
+    B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + '</div><div class="mm-sub">' + esc(cfg.subtitle || '') + '</div></div>' + verTag(state, vIdx, 'student') + '</div>' + nameLines(cfg) });
+    B.push({ html: testDirections(state, rules) + testScoreTable(state, rules) });
+    cfg.sections.forEach(function (sec, si) {
+      var items = ver.sections[si].items;
+      var head = '<div class="mm-sechead"><div><div class="mm-sectitle">Part ' + (si + 1) + ' · ' + esc(sec.name) + '</div><div class="mm-secsub">' + ptsText(+sec.points) + ' each' + (sec.note ? ' · ' + esc(sec.note) : '') + '</div></div></div>';
+      B.push({ html: head, keep: true, sectionHead: si });
+      var row = [];
+      function flush() { if (row.length) { B.push({ cls: 'tight', html: '<div class="mm-row">' + row.join('') + (row.length === 1 ? '<div></div>' : '') + '</div>', sec: si }); row = []; } }
+      items.forEach(function (it, i) {
+        var h = testQHtml(it, cfg, si, i, sec);
+        if (/mm-tq wide/.test(h)) { flush(); B.push({ cls: 'tight', html: h, sec: si }); }
+        else { row.push(h); if (row.length === 2) flush(); }
+      });
+      flush();
+    });
+    if (cfg.layout.reference) {
+      var set = NS.skillSets[cfg.unitId];
+      B.push({ html: '<div class="mm-sechead"><div><div class="mm-sectitle">Reference page</div><div class="mm-secsub">' + esc(set.unitName) + '</div></div></div>', keep: true, page: 'new' });
+      B.push({ html: '<div class="mm-ref">' + math(set.reference || '') + '</div>' });
+    }
+    return B;
+  }
+
   /* Blocks for one version of the student document. Each block: {html, cls, page:'new'?, keep:true?} */
   function studentBlocks(state, vIdx) {
+    if (NS.isTest(state.config)) return testStudentBlocks(state, vIdx);
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), B = [];
     B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + '</div><div class="mm-sub">' + esc(cfg.subtitle || '') + '</div></div>' + verTag(state, vIdx, 'student') + '</div>' + nameLines(cfg) });
     B.push({ html: directions(state, vIdx, rules) });
@@ -178,10 +237,13 @@
   function keyRow(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<tr><td><b>' + lab + '</b></td><td colspan="3">' + statusBadge(p) + '</td></tr>';
-    var ans = (p.parts || []).map(function (pt) { return (pt.label ? '(' + esc(pt.label) + ') ' : '') + mathSafe(pt.answer) + (pt.answerFig && NS.figHtml ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
+    var mcOn = NS.sectionFormat(cfg, si) === 'mc' && p.mc;
+    var ans = mcOn ? '<b class="mm-letter">' + 'ABCDEFGH'[p.mc.key] + '</b> ' + mathSafe(p.parts[0].answer) + (p.mcNote ? '<div class="mm-flag warn">' + esc(p.mcNote) + '</div>' : '')
+      : (p.parts || []).map(function (pt) { return (pt.label ? '(' + esc(pt.label) + ') ' : '') + mathSafe(pt.answer) + (pt.answerFig && NS.figHtml ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
     var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
-    var rub = NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
-    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + statusBadge(p) + '</td>' +
+    var rub = mcOn ? '<li><b>' + ptsText(+sec.points) + '</b>: choice ' + 'ABCDEFGH'[p.mc.key] + '. No partial credit.</li>' : NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
+    if (NS.sectionFormat(cfg, si) === 'mc' && !p.mc && !p.failed) rub = '<li><span class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</span></li>' + rub;
+    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : '') + statusBadge(p) + '</td>' +
       '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td><td><ul class="mm-rub">' + rub + '</ul></td></tr>';
   }
   function guideBlocks(state, vIdx) {
@@ -206,13 +268,24 @@
       new Array(7).join('<tr><td></td>' + cfg.sections.map(function () { return '<td></td>'; }).join('') + '<td></td><td></td></tr>') + '</tbody></table>' });
     return B;
   }
+  function testGuideBlocks(state, vIdx) {
+    var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), set = NS.skillSets[cfg.unitId], B = [];
+    B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + ': Teacher Key</div><div class="mm-sub">' + esc(NS.LEVELS[cfg.level].long) + ' · ' + rules.totalOffered + ' questions · ' + rules.maxScore + ' points</div></div>' + verTag(state, vIdx, 'key') + '</div>' });
+    var quick = [];
+    ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { if (NS.sectionFormat(cfg, si) === 'mc' && it.mc) quick.push('<td><b>' + dishLabel(cfg, si, i) + '.</b> ' + 'ABCDEFGH'[it.mc.key] + '</td>'); }); });
+    if (quick.length) { var rows = []; for (var k = 0; k < quick.length; k += 10) rows.push('<tr>' + quick.slice(k, k + 10).join('') + '</tr>'); B.push({ html: '<div class="mm-box"><h3>Quick key: multiple choice</h3><table class="mm-tbl mm-quick"><tbody>' + rows.join('') + '</tbody></table></div>' }); }
+    var groups = {}; ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { (groups[it.tag] = groups[it.tag] || []).push(dishLabel(cfg, si, i)); }); });
+    B.push({ html: '<table class="mm-tbl"><thead><tr><th>Skill group</th><th>What it covers</th><th>Questions</th></tr></thead><tbody>' + Object.keys(groups).map(function (t) {
+      return '<tr><td><b>' + esc(t) + '</b></td><td>' + esc(set.tags[t] || '') + '</td><td>' + groups[t].join(', ') + '</td></tr>'; }).join('') + '</tbody></table>' });
+    return B;
+  }
   function keyBlocks(state, vIdx) {
-    var cfg = state.config, ver = state.versions[vIdx], B = [];
-    if (cfg.layout.guide !== false) B = guideBlocks(state, vIdx);
+    var cfg = state.config, ver = state.versions[vIdx], B = [], test = NS.isTest(cfg);
+    if (cfg.layout.guide !== false) B = test ? testGuideBlocks(state, vIdx) : guideBlocks(state, vIdx);
     cfg.sections.forEach(function (sec, si) {
-      B.push({ html: '<div class="mm-head"><div><div class="mm-title mm-t2">Answer Key: ' + esc(sec.name) + ' (' + ptsText(+sec.points) + ' each)</div><div class="mm-sub">Every offered dish, with worked solutions and a suggested partial-credit rubric.</div></div>' + verTag(state, vIdx, 'key') + '</div>', keep: true, page: si === 0 && cfg.layout.guide === false ? null : 'new' });
+      B.push({ html: '<div class="mm-head"><div><div class="mm-title mm-t2">Answer Key: ' + (test ? 'Part ' + (si + 1) + ' · ' : '') + esc(sec.name) + ' (' + ptsText(+sec.points) + ' each)</div><div class="mm-sub">' + (test ? 'Every question, with the answer and a worked solution' + (NS.sectionFormat(cfg, si) === 'mc' ? '.' : ' and a suggested partial-credit rubric.') : 'Every offered dish, with worked solutions and a suggested partial-credit rubric.') + '</div></div>' + verTag(state, vIdx, 'key') + '</div>', keep: true, page: si === 0 && cfg.layout.guide === false ? null : (test && si > 0 ? null : 'new') });
       ver.sections[si].items.forEach(function (it, i) {
-        B.push({ cls: 'tight', html: '<table class="mm-tbl mm-key"><colgroup><col style="width:.82in"><col style="width:2.1in"><col><col style="width:2.05in"></colgroup>' + (i === 0 ? '<thead><tr><th>Dish</th><th>Problem</th><th>Answer and solution</th><th>Rubric</th></tr></thead>' : '') + '<tbody>' + keyRow(it, cfg, si, i, sec) + '</tbody></table>' });
+        B.push({ cls: 'tight', html: '<table class="mm-tbl mm-key"><colgroup><col style="width:.82in"><col style="width:2.1in"><col><col style="width:2.05in"></colgroup>' + (i === 0 ? '<thead><tr><th>' + (test ? 'Question' : 'Dish') + '</th><th>Problem</th><th>Answer and solution</th><th>Rubric</th></tr></thead>' : '') + '<tbody>' + keyRow(it, cfg, si, i, sec) + '</tbody></table>' });
       });
     });
     return B;

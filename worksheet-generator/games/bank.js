@@ -167,6 +167,10 @@
       var qp = /=(-?\d+)\\pm\s*(\d*)\\sqrt\{(\d+)\}/.exec(key);
       if (qp) { cands.push({ a: key.replace(qp[0], '=' + (-qp[1]) + '\\pm ' + qp[2] + '\\sqrt{' + qp[3] + '}'), w: 5 }); }
     }
+    // one / no / infinitely many solutions (one-variable equations)
+    if (ch0.type === 'classify') ['No solution', 'Infinitely many solutions', '⟨x=0⟩', '⟨x=1⟩'].forEach(function (a) { cands.push({ a: a, w: 3 }); });
+    // a plain list of whole numbers ("24, 25, 26, 27"): shift every number
+    if (!snippets(key).length && /^\s*-?\d+(\s*,\s*-?\d+)+\s*$/.test(key)) [1, -1, 2].forEach(function (d) { cands.push({ a: key.replace(/-?\d+/g, function (n) { return String(+n + d); }), w: 3 }); });
     if (ch0.type === 'stat-line' && ch0.want === 'over-under') cands.push({ a: key.replace(/under|over/, function (m) { return m === 'under' ? 'over' : 'under'; }), w: 5 });
     // a classic slip: the answer to another part of the same problem (the range given as the domain)
     p.parts.forEach(function (o, j) {

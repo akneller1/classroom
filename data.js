@@ -143,13 +143,13 @@ window.LIBRARY = {
               "added": "2026-10-22"
             },
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/menu-assessment-generator.svg",
-              "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
+              "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Expressions & Equations",
                 "Units 1–2"
@@ -381,13 +381,13 @@ window.LIBRARY = {
               "added": "2026-10-22"
             },
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-inequalities",
               "thumb": "thumbs/menu-assessment-generator-inequalities.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Linear Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes solving, compound and absolute value inequalities, graphing and reading number lines, find-the-mistake problems and word problems. Prints student menus (Versions A–C) and teacher keys with number lines, worked solutions and rubrics. Every answer and graph is checked independently.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Linear Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes solving, compound and absolute value inequalities, graphing and reading number lines, find-the-mistake problems and word problems. Prints student copies (Versions A–C) and teacher keys with number lines, worked solutions and rubrics. Every answer and graph is checked independently.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Inequalities"
               ],
@@ -621,13 +621,13 @@ window.LIBRARY = {
           "name": "Relations and Functions",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions",
               "thumb": "thumbs/menu-assessment-generator-relations-functions.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Relations and Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes domain and range, deciding whether a relation is a function (pairs, tables, mapping diagrams, graphs and equations), function notation, reading tables and graphs, writing rules, rate of change, increasing and decreasing intervals and arithmetic sequences. Prints student menus (Versions A–C) and teacher keys with tables, graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Relations and Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes domain and range, deciding whether a relation is a function (pairs, tables, mapping diagrams, graphs and equations), function notation, reading tables and graphs, writing rules, rate of change, increasing and decreasing intervals and arithmetic sequences. Prints student copies (Versions A–C) and teacher keys with tables, graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Functions"
               ],
@@ -715,13 +715,13 @@ window.LIBRARY = {
           "name": "Linear Functions and Graphing",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-linear-equations-slope",
               "thumb": "thumbs/menu-assessment-generator-linear-equations-slope.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Linear Functions and Graphing. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes slope from points, graphs and tables (zero and undefined slopes, missing coordinates, collinear points), slope-intercept, point-slope and standard form, intercepts, writing equations of lines from a slope, points or a graph, horizontal and vertical lines, parallel and perpendicular lines, and linear models with rate of change. Prints student menus (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every line is rebuilt from what is printed and checked for the right form.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Linear Functions and Graphing. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes slope from points, graphs and tables (zero and undefined slopes, missing coordinates, collinear points), slope-intercept, point-slope and standard form, intercepts, writing equations of lines from a slope, points or a graph, horizontal and vertical lines, parallel and perpendicular lines, and linear models with rate of change. Prints student copies (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every line is rebuilt from what is printed and checked for the right form.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Linear functions"
               ],
@@ -1048,13 +1048,13 @@ window.LIBRARY = {
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-systems-of-equations",
               "thumb": "thumbs/menu-assessment-generator-systems-of-equations.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Systems of Equations and Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes checking solutions, solving by graphing, how many solutions a system has (from a graph or the equations, and the value of k that makes none or infinitely many), substitution, elimination (multiplying one or both equations, decimals, special systems), word problems (tickets, prices, plans, mixtures, boats in a current, writing the system), and linear inequalities in two variables: checking points, writing an inequality or a system from a shaded graph, and systems of inequalities from a situation. Prints student menus (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every system is solved again from what is printed or drawn.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Systems of Equations and Inequalities. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes checking solutions, solving by graphing, how many solutions a system has (from a graph or the equations, and the value of k that makes none or infinitely many), substitution, elimination (multiplying one or both equations, decimals, special systems), word problems (tickets, prices, plans, mixtures, boats in a current, writing the system), and linear inequalities in two variables: checking points, writing an inequality or a system from a shaded graph, and systems of inequalities from a situation. Prints student copies (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Every system is solved again from what is printed or drawn.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Systems of equations"
               ],
@@ -1566,13 +1566,13 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/menu-assessment-generator-exponents-scientific-notation.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Exponents and Scientific Notation. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes the product, power and quotient rules with coefficients and two variables, zero and negative exponents, negative powers of monomials, evaluating powers (negative bases, fraction bases, rational exponents), converting to and from scientific notation, fixing numbers that are not in scientific notation, comparing, and multiplying, dividing, adding and subtracting in scientific notation with “how many times” contexts and rounding. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every simplified answer is checked for equivalence and for being fully simplified (positive exponents, each variable once, reduced numbers).",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Exponents and Scientific Notation. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes the product, power and quotient rules with coefficients and two variables, zero and negative exponents, negative powers of monomials, evaluating powers (negative bases, fraction bases, rational exponents), converting to and from scientific notation, fixing numbers that are not in scientific notation, comparing, and multiplying, dividing, adding and subtracting in scientific notation with “how many times” contexts and rounding. Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every simplified answer is checked for equivalence and for being fully simplified (positive exponents, each variable once, reduced numbers).",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Exponents",
                 "Scientific notation"
@@ -1724,13 +1724,13 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/menu-assessment-generator-exponential-functions.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Exponential Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes evaluating exponential functions, growth and decay, percent rates, key features of graphs (intercept, asymptote, domain and range), linear vs. exponential tables, writing y = a·bˣ, equations with a common base, geometric sequences and growth/decay word problems. Prints student menus (Versions A–C) and teacher keys with graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Exponential Functions. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes evaluating exponential functions, growth and decay, percent rates, key features of graphs (intercept, asymptote, domain and range), linear vs. exponential tables, writing y = a·bˣ, equations with a common base, geometric sequences and growth/decay word problems. Prints student copies (Versions A–C) and teacher keys with graphs, worked solutions and rubrics. Every answer is checked independently against the printed problem.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Exponential functions"
               ],
@@ -1986,13 +1986,13 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-polynomials",
               "thumb": "thumbs/menu-assessment-generator-polynomials.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Polynomials. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes degree and naming polynomials, standard form and leading coefficients, adding and subtracting (missing terms, two variables, multiples), multiplying (monomials, binomials, a binomial times a trinomial, three binomials, two variables), special products, dividing by a monomial, and perimeter, area, shaded-region and volume expressions. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked for equivalence and for standard form.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Polynomials. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes degree and naming polynomials, standard form and leading coefficients, adding and subtracting (missing terms, two variables, multiples), multiplying (monomials, binomials, a binomial times a trinomial, three binomials, two variables), special products, dividing by a monomial, and perimeter, area, shaded-region and volume expressions. Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked for equivalence and for standard form.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Polynomials"
               ],
@@ -2087,13 +2087,13 @@ window.LIBRARY = {
           "name": "Factoring and Zero Product Property",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-factoring-zero-product",
               "thumb": "thumbs/menu-assessment-generator-factoring-zero-product.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Factoring and the Zero Product Property. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes GCF and grouping, x² + bx + c, ax² + bx + c, differences of squares and perfect squares, prime polynomials, solving by factoring and word problems (consecutive integers, rectangles, borders, falling objects). Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every factorization is multiplied back out and checked for complete factoring, and every equation is solved independently.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Factoring and the Zero Product Property. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes GCF and grouping, x² + bx + c, ax² + bx + c, differences of squares and perfect squares, prime polynomials, solving by factoring and word problems (consecutive integers, rectangles, borders, falling objects). Prints student copies (Versions A–C) and teacher keys with worked solutions and rubrics. Every factorization is multiplied back out and checked for complete factoring, and every equation is solved independently.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Factoring"
               ],
@@ -2405,13 +2405,13 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-quadratics",
               "thumb": "thumbs/menu-assessment-generator-quadratics.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Quadratic Functions and Equations. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes vertex, axis of symmetry, zeros, maximum or minimum and range from graphs and equations, writing the equation of a graphed parabola, solving by square roots and factoring, the discriminant and the quadratic formula (rounded and exact answers), completing the square and vertex form, and projectile models (height, maximum height, landing time). Prints student menus (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Exact answers must be in simplest radical form, and rounding is accepted only when the problem asks for it.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Quadratic Functions and Equations. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes vertex, axis of symmetry, zeros, maximum or minimum and range from graphs and equations, writing the equation of a graphed parabola, solving by square roots and factoring, the discriminant and the quadratic formula (rounded and exact answers), completing the square and vertex form, and projectile models (height, maximum height, landing time). Prints student copies (Versions A–C) and teacher keys with every graph, worked solutions and rubrics. Exact answers must be in simplest radical form, and rounding is accepted only when the problem asks for it.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Quadratics"
               ],
@@ -2723,13 +2723,13 @@ window.LIBRARY = {
           "name": "Statistics and Data Modeling",
           "artifacts": [
             {
-              "title": "Menu Assessment Generator",
+              "title": "Test & Menu Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=algebra1-statistics-data-modeling",
               "thumb": "thumbs/menu-assessment-generator-statistics-data-modeling.svg",
-              "description": "Build your own choice-based restaurant-menu assessment for Statistics and Data Modeling. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes mean, median, mode and MAD (including dot plots), quartiles, IQR and outliers, reading and comparing box plots, two-way tables with joint, marginal and conditional relative frequencies, and scatter plots with correlation, lines of fit, predictions and residuals. Prints student menus (Versions A–C) and teacher keys with every display, worked solutions and rubrics. Every answer is recomputed from the printed data or the drawn display.",
+              "description": "Build a standard unit test (multiple choice and short answer, numbered, everyone answers everything) or a choice-based restaurant-menu assessment for Statistics and Data Modeling. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes mean, median, mode and MAD (including dot plots), quartiles, IQR and outliers, reading and comparing box plots, two-way tables with joint, marginal and conditional relative frequencies, and scatter plots with correlation, lines of fit, predictions and residuals. Prints student copies (Versions A–C) and teacher keys with every display, worked solutions and rubrics. Every answer is recomputed from the printed data or the drawn display.",
               "type": "Printable",
               "topics": [
-                "Assessment generator",
+                "Test generator",
                 "Choice menu",
                 "Statistics"
               ],
