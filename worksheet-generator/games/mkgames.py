@@ -2,12 +2,14 @@
 import sys, os
 repo, unit_dir, set_id, unit_label = sys.argv[1:5]
 skills = sys.argv[5] if len(sys.argv) > 5 else ''
-V = 'games-10'
+V = 'games-12'
+MV = 'menu-ws-1'   # cache string of the menu scripts (keep equal to menu-assessment.html)
+FILES = {'algebra1-foundations': 'algebra1-expressions-equations'}   # skill sets registered inside another set's file
 GAMES = [('flashcards', 'Flashcards'), ('showdown', 'Showdown'), ('connect-four', 'Connect Four'), ('tic-tac-toe', 'Tic-Tac-Toe'), ('picture-reveal', 'Picture Reveal')]
-skill_file = 'skills/' + set_id + '.js'
+skill_file = 'skills/' + FILES.get(set_id, set_id) + '.js'
 core = ['core/rng.js', 'core/frac.js', 'core/tex.js', 'core/graph.js?v=full-audit-v2', 'core/framework.js', 'core/render.js',
-        'menu/mathcheck.js?v=menu-quad-1', 'menu/figures.js?v=menu-quad-1', 'menu/verify.js?v=menu-quad-1', 'menu/engine.js?v=menu-quad-1',
-        'menu/skills/kit.js?v=menu-quad-1', 'menu/' + skill_file + '?v=menu-quad-1', 'menu/render.js?v=menu-quad-1', 'games/bank.js?v=' + V, 'games/games.js?v=' + V]
+        'menu/mathcheck.js?v=' + MV + '', 'menu/figures.js?v=' + MV + '', 'menu/verify.js?v=' + MV + '', 'menu/engine.js?v=' + MV + '',
+        'menu/skills/kit.js?v=' + MV + '', 'menu/' + skill_file + '?v=' + MV + '', 'menu/render.js?v=' + MV + '', 'games/bank.js?v=' + V, 'games/games.js?v=' + V]
 for g, name in GAMES:
     title = unit_label + ' ' + name if g != 'picture-reveal' else unit_label + ': Picture Reveal'
     d = os.path.join(repo, 'artifacts', unit_dir + '-' + g); os.makedirs(d, exist_ok=True)

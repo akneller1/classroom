@@ -22,7 +22,24 @@ banks (`worksheet-generator/menu/skills/`). They look and play like the hand-bui
   ("Yes, because…") are multiple choice only.
 
 ## Units with games
-- Relations and Functions (`relations-functions-*`), Foundations of Algebra (`foundations-algebra-*`, expression skills), Exponential Functions (`exponential-functions-*`), Factoring (`factoring-zero-product-*`), Statistics (`statistics-data-modeling-*`), Linear Functions (`linear-functions-*`; the older hand-made `linear-equations-slope-*` games stay), Systems (`systems-*`; the hand-made `systems-of-equations-*` games stay), Exponents (`exponents-*`; the hand-made `exponents-exponential-functions-*` games stay), Polynomials (`polynomials-*`, titled “Polynomial Practice …”), Quadratics (`quadratic-practice-*`, “Quadratic Practice …”).
+Every Algebra 1 unit has exactly these five generated games and no other flashcards, showdown/jeopardy,
+connect-four, tic-tac-toe or picture-reveal games (`scripts/check_library.py` enforces it; the older hand-made
+copies were unlisted 2026-10-25 because the generated Showdown lets teachers add teams).
+
+| Unit | Folder prefix | Skill set | Title |
+|---|---|---|---|
+| 1 | `foundations-algebra` | algebra1-foundations | Foundations of Algebra |
+| 2 | `solving-equations` | algebra1-expressions-equations (equation skills only) | Solving Equations |
+| 3 | `linear-inequalities` | algebra1-inequalities | Linear Inequalities |
+| 4 | `relations-functions` | algebra1-relations-functions | Relations and Functions |
+| 5 | `linear-functions` | algebra1-linear-equations-slope | Linear Functions |
+| 6 | `systems` | algebra1-systems-of-equations | Systems of Equations |
+| 7 | `exponents` | algebra1-exponents-scientific-notation | Exponents |
+| 8 | `exponential-functions` | algebra1-exponential-functions | Exponential Functions |
+| 9 | `polynomials` | algebra1-polynomials | Polynomials |
+| 10 | `factoring-zero-product` | algebra1-factoring-zero-product | Factoring |
+| 11 | `quadratic-practice` | algebra1-quadratics | Quadratics |
+| 12 | `statistics-data-modeling` | algebra1-statistics-data-modeling | Statistics |
 
 ## Adding a unit
 1. The unit needs a menu skill set (`worksheet-generator/menu/skills/<set>.js`).

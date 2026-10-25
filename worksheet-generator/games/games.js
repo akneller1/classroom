@@ -77,7 +77,7 @@
     var S = { level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false };
     GB._state = function () { return S; };
     function build() {
-      deck(levelSlots(S.level, skillIds, skillIds.length * 3 < 20 ? 2 : 1), { msg: 'Shuffling a fresh deck…' }, function (its) {
+      deck(levelSlots(S.level, skillIds, Math.max(1, Math.ceil(20 / (skillIds.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
         S.cards = its; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render();
       });
     }
@@ -136,11 +136,13 @@
     var NAMES = { cp2: 'CP2', cp1: 'CP1', honors: 'Honors', mixed: 'Mixed (100 easy → 500 Honors)' };
     var S = { preset: saved.preset || 'cp1', teams: saved.teams || ['Team 1', 'Team 2'], score: [], cells: {}, open: null, showOpts: false, showAns: false };
     GB._state = function () { return S; };
-    var cols = tags.slice(0, 6), VALUES = [100, 200, 300, 400, 500];
+    /* one category per skill group; a unit with fewer than three groups gets one category per skill instead */
+    var cols = (tags.length >= 3 ? tags.slice(0, 6).map(function (t) { return { name: SET.tags[t], skills: skillIds.filter(function (id) { return SET.byId[id].tag === t; }) }; })
+      : skillIds.slice(0, 6).map(function (id) { return { name: SET.byId[id].name, skills: [id] }; })), VALUES = [100, 200, 300, 400, 500];
     function build() {
       var slots = [];
       cols.forEach(function (t, ci) {
-        var sk = rng.shuffle(skillIds.filter(function (id) { return SET.byId[id].tag === t; }));
+        var sk = rng.shuffle(t.skills.slice());
         VALUES.forEach(function (v, ri) { slots.push({ skill: sk[ri % sk.length], c: PRESETS[S.preset][ri], col: ci, row: ri }); });
       });
       deck(slots, { msg: 'Setting up the board…' }, function (its) {
@@ -153,7 +155,7 @@
       var h = '<h1 class="sd-title">' + esc(TITLE).replace(/Showdown/, '<b>Showdown</b>') + '</h1><p class="sd-sub">' + esc(SET.unitName) + ' review · pick a category and a value</p>' +
         '<div class="gm-ctl"><label for="sdPreset">Board:</label><select class="gm-sel" id="sdPreset">' + Object.keys(PRESETS).map(function (k) { return '<option value="' + k + '"' + (k === S.preset ? ' selected' : '') + '>' + NAMES[k] + '</option>'; }).join('') + '</select>' +
         '<button class="gm-btn" id="sdNew">New board</button><button class="gm-btn" id="sdAddT"' + (S.teams.length >= 4 ? ' disabled' : '') + '>Add team</button><button class="gm-btn" id="sdRemT"' + (S.teams.length <= 1 ? ' disabled' : '') + '>Remove team</button></div>' +
-        '<div class="sd-board" style="grid-template-columns:repeat(' + cols.length + ',1fr)">' + cols.map(function (t) { return '<div class="sd-cat">' + esc(SET.tags[t]) + '</div>'; }).join('');
+        '<div class="sd-board" style="grid-template-columns:repeat(' + cols.length + ',1fr)">' + cols.map(function (t) { return '<div class="sd-cat">' + esc(t.name) + '</div>'; }).join('');
       VALUES.forEach(function (v, ri) { cols.forEach(function (t, ci) {
         var cell = S.cells[ci + ',' + ri];
         h += cell ? '<button class="sd-cell" data-cell="' + ci + ',' + ri + '"' + (cell.used ? ' disabled aria-label="used"' : ' aria-label="' + esc(SET.tags[t]) + ' for ' + v + '"') + '>' + (cell.used ? '' : v) + '</button>' : '<button class="sd-cell err" disabled>No verified problem</button>';
@@ -172,7 +174,7 @@
     function persist() { save({ preset: S.preset, teams: S.teams }); }
     function renderQ() {
       var it = S.open.it, v = VALUES[it.slot.row];
-      var h = '<div class="sd-q"><div class="gm-row"><span class="sd-val">' + esc(SET.tags[cols[it.slot.col]]) + ' · ' + v + '</span><span class="gm-sp"></span><button class="gm-btn" id="sdBack">Back to board (Esc)</button></div>' + qHtml(it) +
+      var h = '<div class="sd-q"><div class="gm-row"><span class="sd-val">' + esc(cols[it.slot.col].name) + ' · ' + v + '</span><span class="gm-sp"></span><button class="gm-btn" id="sdBack">Back to board (Esc)</button></div>' + qHtml(it) +
         (S.showOpts ? optsHtml(it, { reveal: S.showAns }) : '') +
         '<div class="gm-row" style="margin-top:14px">' + (S.showOpts ? '' : '<button class="gm-btn" id="sdOpts">Show choices</button>') + (S.showAns ? '' : '<button class="gm-btn primary" id="sdAns">Show answer (Space)</button>') + '</div>' +
         (S.showAns ? solHtml(it) + '<div class="gm-row"><b>Award:</b>' + S.teams.map(function (n, i) { return '<button class="gm-btn" data-aw="' + i + '" data-s="1">+' + v + ' ' + esc(n) + '</button><button class="gm-btn" data-aw="' + i + '" data-s="-1">−' + v + '</button>'; }).join('') + '</div>' : '') + '</div>' + teamsHtml();

@@ -82,7 +82,10 @@
       [ti - 1, ti + 1].forEach(function (j) { if (j >= 0 && j < 4) out.push({ a: nm[1] ? nm[1] + ' ' + TN[j] : cap(TN[j]), w: 3 }); });
       if (di >= 0) [di - 1, di + 1].forEach(function (j) { if (j >= 0 && j < 5) out.push({ a: DN[j] + ' ' + nm[2].toLowerCase(), w: 3 }); }); }
     var CW = [['One solution', 'One solution: the slopes are different.'], ['No solution', 'No solution: the lines are parallel.'], ['Infinitely many solutions', 'Infinitely many solutions: the equations describe the same line.']];
-    if (/^\s*(One solution|No solution|Infinitely many solutions)\b/.test(ans)) CW.forEach(function (cw) { if (ans.indexOf(cw[0]) !== 0) out.push({ a: cw[1], w: 4 }); });
+    // systems words only for systems answers ("No solution: the lines are parallel."), never for one-variable or inequality answers
+    if (/^\s*(One solution|No solution|Infinitely many solutions)\s*:/.test(ans) && !/⟨\s*[a-z]\s*=/.test(ans)) CW.forEach(function (cw) { if (ans.indexOf(cw[0]) !== 0) out.push({ a: cw[1], w: 4 }); });
+    if (/^\s*All real numbers\s*$/.test(ans)) out.push({ a: 'No solution', w: 5 });
+    if (/^\s*No solution\s*$/.test(ans)) out.push({ a: 'All real numbers', w: 5 });
     if (/^\s*Undefined\b/.test(ans)) { out.push({ a: '⟨m=0⟩', w: 5 }); out.push({ a: '⟨m=1⟩', w: 1 }); }
     if (/^⟨m=0⟩$/.test(ans.trim())) out.push({ a: 'Undefined', w: 5 });
     ['Parallel', 'Perpendicular', 'Neither'].forEach(function (wd) { if (new RegExp('^\\s*(Parallel|Perpendicular|Neither)\\s*$').test(ans) && ans.trim() !== wd) out.push({ a: wd, w: 4 }); });
@@ -338,12 +341,16 @@
     opts = opts || {}; var used = { keys: new Set(), sigs: new Set() }, out = [], i = 0, seed = opts.seed || String(Date.now()) + Math.random();
     var rng = G.MKWS.rng.make(G.MKWS.rng.hash(seed + '|deck'));
     function one(slot, n) {
-      var policy = { intOnly: slot.c <= 5, level: 'game' };
-      for (var tries = 0; tries < 10; tries++) {
-        var its = GB.makeItems(setId, slot.skill, slot.c, policy, seed + '|' + n + '|' + tries, used);
-        if (opts.typedOnly) its = its.filter(function (it) { return it.typed; });
-        if (opts.preferTyped && its.some(function (it) { return it.typed; })) its = its.filter(function (it) { return it.typed; });
-        if (its.length) return rng.pick(its);
+      // the slot's difficulty first; if that skill makes no game items there, the nearest difficulty (so no card is missing)
+      var cs = [slot.c, slot.c - 1, slot.c + 1, slot.c - 2, slot.c + 2].filter(function (c) { return c >= 1 && c <= 7; });
+      for (var k = 0; k < cs.length; k++) {
+        var policy = { intOnly: cs[k] <= 5, level: 'game' };
+        for (var tries = 0; tries < (k ? 6 : 10); tries++) {
+          var its = GB.makeItems(setId, slot.skill, cs[k], policy, seed + '|' + n + '|' + k + '|' + tries, used);
+          if (opts.typedOnly) its = its.filter(function (it) { return it.typed; });
+          if (opts.preferTyped && its.some(function (it) { return it.typed; })) its = its.filter(function (it) { return it.typed; });
+          if (its.length) return rng.pick(its);
+        }
       }
       return null;
     }

@@ -5,7 +5,7 @@
 const assert = require('assert');
 const { chromium } = require(process.env.PW || 'playwright');
 const BASE = process.env.BASE || 'http://localhost:8765';
-const UNITS = (process.env.UNITS || "relations-functions,foundations-algebra,exponential-functions,factoring-zero-product,statistics-data-modeling,linear-functions,systems,exponents,polynomials,quadratic-practice").split(',');
+const UNITS = (process.env.UNITS || "foundations-algebra,solving-equations,linear-inequalities,relations-functions,exponential-functions,factoring-zero-product,statistics-data-modeling,linear-functions,systems,exponents,polynomials,quadratic-practice").split(',');
 let passed = 0;
 function ok(m) { passed++; console.log('  ✓ ' + m); }
 
@@ -24,7 +24,7 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
 
     /* ---- flashcards ---- */
     await page.goto(url('flashcards')); await ready('#fcCard');
-    let S = await st(); const nSkills = new Set(S.cards.map(c => c.skill)).size; assert.equal(S.cards.length % (3 * nSkills), 0, 'a CP1 deck has every skill at three difficulties'); assert.ok(S.cards.length >= 20); assert.ok(nSkills >= 4);
+    let S = await st(); const nSkills = new Set(S.cards.map(c => c.skill)).size; assert.equal(S.cards.length % (3 * nSkills), 0, 'a CP1 deck has every skill at three difficulties'); assert.ok(S.cards.length >= 20); assert.ok(nSkills >= 3);
     assert.deepEqual([...new Set(S.cards.map(c => c.c))].sort(), [3, 4, 5]);
     assert.equal(await page.locator('.gm-sol').count(), 0, 'the answer is hidden on the question side');
     await page.keyboard.press(' '); await ready('.gm-sol');
