@@ -122,6 +122,7 @@
     if (STAT_TYPES.indexOf(t) >= 0) return checkStatPart(p, part, policy);
     if (LINE_TYPES.indexOf(t) >= 0) return checkLinePart(p, part, policy);
     if (SYS_TYPES.indexOf(t) >= 0) return checkSysPart(p, part, policy);
+    if (POW_TYPES.indexOf(t) >= 0) return checkPowPart(p, part, policy);
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -1254,6 +1255,91 @@
         return all ? { status: 'verified' } : { status: 'mismatch', msg: 'That is a different region (check the boundary, the side and solid vs dashed).' };
       }
       throw new C.CheckError('unknown want');
+    }
+    return { status: 'manual', msg: 'Unknown check ' + t };
+  }
+
+  /* ---------- exponents and scientific notation (Algebra 1 Unit 7) ---------- */
+  var POW_TYPES = ['pow-simplify', 'pow-eval', 'sci'];
+  function unGrp(n) { while (n && n.k === 'grp') n = n.a; return n; }
+  /* one monomial: an optional number and each variable once, with exponents 2, 3, … (no 0, 1 or negatives) */
+  function powMono(n) {
+    var neg = false; n = unGrp(n); if (n.k === 'neg') { neg = true; n = unGrp(n.a); }
+    var fs = []; (function f(x) { if (x.k === 'mul') { f(x.a); f(x.b); } else fs.push(x); })(n);
+    var coef = null, vars = {}, ok = true;
+    fs.forEach(function (x) {
+      if (x.k === 'neg' && x.a.k === 'num' && coef === null) { coef = x.a.v.neg(); }
+      else if (x.k === 'num' || (x.k === 'div' && x.a.k === 'num' && x.b.k === 'num')) { if (coef !== null) ok = false; coef = x.k === 'num' ? x.v : x.a.v.div(x.b.v); }
+      else if (x.k === 'var') { if (vars[x.v]) ok = false; vars[x.v] = 1; }
+      else if (x.k === 'pow' && x.a.k === 'var' && x.e >= 2) { if (vars[x.a.v]) ok = false; vars[x.a.v] = x.e; }
+      else ok = false;
+    });
+    if (!ok) return null;
+    if (coef !== null && coef.eq(Q.ONE) && Object.keys(vars).length) return null;   // "1x"
+    return { coef: coef === null ? Q.ONE : coef, vars: vars, neg: neg, hasNum: coef !== null };
+  }
+  function powSimplified(src) {
+    var n = unGrp(C.parseExpr(src)), top = n;
+    if (top.k === 'neg') top = unGrp(top.a);
+    if (top.k === 'div') {
+      var A = powMono(top.a), B = powMono(top.b); if (!A || !B) return 'write one fraction with a single term on top and bottom';
+      if (!Object.keys(B.vars).length && B.coef.eq(Q.ONE)) return 'denominator 1';
+      if (B.neg || C.cmpQ(B.coef, Q.ZERO) < 0) return 'negative denominator';
+      if (!A.coef.isInt() || !B.coef.isInt()) return 'fractions inside a fraction';
+      if (Object.keys(A.vars).some(function (v) { return B.vars[v]; })) return 'a variable is in both the numerator and the denominator';
+      var g = bigGcd(A.coef.n < 0n ? -A.coef.n : A.coef.n, B.coef.n); if (g !== 1n) return 'the numbers are not reduced';
+      if (!Object.keys(B.vars).length && !Object.keys(A.vars).length) return 'a number fraction';
+      return null;
+    }
+    return powMono(n) ? null : 'not a single simplified monomial (positive exponents, each variable once)';
+  }
+  function sciParts(src) {   // a × 10^n with 1 ≤ |a| < 10
+    var n = unGrp(C.parseExpr(src)), neg = false; if (n.k === 'neg') { neg = true; n = unGrp(n.a); }
+    var a = Q.ONE, pw = n;
+    if (n.k === 'mul') { if (n.a.k !== 'num') return null; a = n.a.v; pw = n.b; }
+    if (pw.k !== 'pow' || pw.a.k !== 'num' || !pw.a.v.eq(new Q(10n))) return null;
+    if (C.cmpQ(a, Q.ONE) < 0 || C.cmpQ(a, new Q(10n)) >= 0) return null;
+    return { a: neg ? a.neg() : a, e: pw.e };
+  }
+  function lastMath(ans) { var s = C.snippets(ans); return s.length ? s[s.length - 1] : null; }
+  function plainNumber(src) { var n = unGrp(C.parseExpr(src)); if (n.k === 'neg') n = unGrp(n.a); return n.k === 'num' || (n.k === 'div' && n.a.k === 'num' && n.b.k === 'num' && n.frac) ? true : false; }
+  function checkPowPart(p, part, policy) {
+    var chk = part.check, ans = part.answer || '', t = chk.type, w = chk.want, am = lastMath(ans);
+    if (t === 'pow-simplify') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+      if (am === null) return { status: 'mismatch', msg: 'No expression in the answer.' };
+      var eq; try { eq = C.equivalent(chk.expr, am); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (!eq) return { status: 'mismatch', msg: 'Not equivalent to the expression.' };
+      var why = powSimplified(am); return why ? { status: 'mismatch', msg: 'Not fully simplified: ' + why + '.' } : { status: 'verified' };
+    }
+    if (t === 'pow-eval') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed.' };
+      var v = C.evalNode(C.parseExpr(chk.expr), {}); if (am === null) return { status: 'mismatch', msg: 'Give a number.' };
+      if (!plainNumber(am)) return { status: 'mismatch', msg: 'Write the value as a number or a fraction (no exponents).' };
+      var got = C.evalNode(C.parseExpr(am), {}); if (got.isInt() === false && !/\\frac/.test(am) && !/\./.test(am)) return { status: 'mismatch', msg: 'Write a fraction.' };
+      return got.eq(v) ? { status: 'verified', computed: qText(v) } : { status: 'mismatch', msg: 'Correct: ' + qText(v) + '.' };
+    }
+    if (t === 'sci') {
+      var val = function (src) { if (!shown(p, src)) throw new C.CheckError('a number is not printed: ' + src); return C.evalNode(C.parseExpr(src), {}); };
+      var target, form = 'sci';
+      if (w === 'to-sci') target = val(chk.expr);
+      else if (w === 'to-std') { target = val(chk.expr); form = 'std'; }
+      else if (w === 'op') target = val(chk.expr);
+      else if (w === 'apply' || w === 'ratio') { var A = val(chk.terms[0]), B = val(chk.terms[1]), op = chk.op || 'div';
+        target = op === 'mul' ? A.mul(B) : op === 'add' ? A.add(B) : op === 'sub' ? A.sub(B) : A.div(B); if (chk.scale) target = target.mul(C.readNumber(String(chk.scale))); form = chk.form || 'sci'; }
+      else if (w === 'compare') { var vals = chk.terms.map(val), best = 0; vals.forEach(function (x, i) { if (C.cmpQ(x, vals[best]) > 0) best = i; });
+        var first = C.snippets(ans)[0]; return first && norm(first) === norm(chk.terms[best]) ? { status: 'verified', computed: chk.terms[best] } : { status: 'mismatch', msg: 'The largest is ' + chk.terms[best] + '.' }; }
+      else throw new C.CheckError('unknown want');
+      if (am === null) return { status: 'mismatch', msg: 'Give a number.' };
+      var gv; try { gv = C.evalNode(C.parseExpr(am), {}); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (chk.round !== undefined) { var sp = sciParts(am); if (!sp) return { status: 'mismatch', msg: 'Write the answer in scientific notation.' };
+        var tp = target, ex = 0, ten = new Q(10n), at = C.cmpQ(tp, Q.ZERO) < 0 ? tp.neg() : tp; while (C.cmpQ(at, ten) >= 0) { at = at.div(ten); ex++; } while (C.cmpQ(at, Q.ONE) < 0) { at = at.mul(ten); ex--; }
+        var scale = Math.pow(10, chk.round), rd = Math.round(Number(at.n) / Number(at.d) * scale + 1e-9) / scale; if (rd >= 10) { rd = rd / 10; ex++; }
+        var want = C.readNumber(String(rd)); return sp.e === ex && sp.a.eq(C.cmpQ(tp, Q.ZERO) < 0 ? want.neg() : want) ? { status: 'verified', computed: rd + '\\times10^{' + ex + '}' } : { status: 'mismatch', msg: 'Correct: ' + rd + ' × 10^' + ex + '.' }; }
+      if (!gv.eq(target)) return { status: 'mismatch', msg: 'Correct value: ' + qText(target) + '.' };
+      if (form === 'sci' && !sciParts(am)) return { status: 'mismatch', msg: 'Write the answer in scientific notation (1 ≤ a < 10).' };
+      if (form === 'std' && !plainNumber(am)) return { status: 'mismatch', msg: 'Write the number in standard form.' };
+      return { status: 'verified', computed: qText(target) };
     }
     return { status: 'manual', msg: 'Unknown check ' + t };
   }

@@ -37,121 +37,6 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
-              "title": "Expressions & Equations Worksheet Generator",
-              "path": "worksheet-generator/algebra1-expressions-equations.html",
-              "thumb": "thumbs/algebra1-expressions-equations-generator.svg",
-              "description": "Create custom Expressions & Equations worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Expressions & Equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-22"
-            },
-            {
-              "title": "Menu Assessment Generator",
-              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations",
-              "thumb": "thumbs/menu-assessment-generator.svg",
-              "description": "Build your own choice-based restaurant-menu assessment. Pick skills and CP2, CP1 or Honors difficulty, set the menu rules and point values, then review, edit, pin and regenerate every problem. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every answer is checked independently.",
-              "type": "Printable",
-              "topics": [
-                "Assessment generator",
-                "Choice menu",
-                "Expressions & Equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-24"
-            },
-            {
-              "title": "Equations Four",
-              "path": "artifacts/expressions-equations-connect-four/index.html",
-              "thumb": "thumbs/expressions-equations-connect-four.jpg",
-              "description": "Connect Four for two teams. Simplify, evaluate, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Combining like terms",
-                "Distributive property",
-                "Multi-step equations",
-                "Literal equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Flashcards",
-              "path": "artifacts/expressions-equations-flashcards/index.html",
-              "thumb": "thumbs/expressions-equations-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for vocabulary, evaluating, simplifying, solving equations, proportions and applications. Mark cards you need to practice and review them again.",
-              "type": "Practice",
-              "topics": [
-                "Evaluating expressions",
-                "Simplifying",
-                "Solving equations",
-                "Proportions",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Picture Reveal",
-              "path": "artifacts/expressions-equations-picture-reveal/index.html",
-              "thumb": "thumbs/expressions-equations-picture-reveal.jpg",
-              "description": "Evaluate, simplify and solve 10 problems to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Evaluating expressions",
-                "Simplifying",
-                "Solving equations",
-                "Proportions",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Equations Showdown",
-              "path": "artifacts/expressions-equations-jeopardy/index.html",
-              "thumb": "thumbs/expressions-equations-jeopardy.jpg",
-              "description": "A game board for Expressions and Equations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Combining like terms",
-                "Distributive property",
-                "Multi-step equations",
-                "Literal equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Expressions & Equations Stations",
-              "path": "artifacts/algebra-expressions-equations-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-expressions-equations-stations.svg",
-              "description": "Printable Algebra station work for Expressions & Equations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Expressions & Equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Expressions & Equations Cheat Sheet",
-              "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Expressions & Equations",
-                "Units 1–2"
-              ],
-              "added": "2026-10-19"
-            },
-            {
               "title": "Partner Check 2: Simplifying & Evaluating Expressions",
               "path": "artifacts/expressions-equations-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/expressions-equations-partner-check-2.jpg",
@@ -1666,7 +1551,7 @@ window.LIBRARY = {
               "added": "2026-10-23"
             },
             {
-              "title": "Systems Flashcards",
+              "title": "Systems Practice Flashcards",
               "path": "artifacts/systems-flashcards/index.html",
               "thumb": "thumbs/systems-flashcards.jpg",
               "description": "A fresh deck of systems flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
@@ -1680,7 +1565,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Showdown",
+              "title": "Systems Practice Showdown",
               "path": "artifacts/systems-showdown/index.html",
               "thumb": "thumbs/systems-showdown.jpg",
               "description": "A game board for systems review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
@@ -1695,7 +1580,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Connect Four",
+              "title": "Systems Practice Connect Four",
               "path": "artifacts/systems-connect-four/index.html",
               "thumb": "thumbs/systems-connect-four.jpg",
               "description": "Connect Four for two teams. Answer a multiple-choice systems problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
@@ -1711,7 +1596,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems Tic-Tac-Toe",
+              "title": "Systems Practice Tic-Tac-Toe",
               "path": "artifacts/systems-tic-tac-toe/index.html",
               "thumb": "thumbs/systems-tic-tac-toe.jpg",
               "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice systems problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
@@ -1727,7 +1612,7 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-              "title": "Systems: Picture Reveal",
+              "title": "Systems Practice: Picture Reveal",
               "path": "artifacts/systems-picture-reveal/index.html",
               "thumb": "thumbs/systems-picture-reveal.jpg",
               "description": "Solve 10 systems problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
@@ -1747,32 +1632,18 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
-              "title": "Exponents & Exponential Functions Worksheet Generator",
-              "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
-              "thumb": "thumbs/algebra1-exponents-exponential-functions-generator.svg",
-              "description": "Create custom Exponents & Exponential Functions worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
+              "title": "Menu Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=algebra1-exponents-scientific-notation",
+              "thumb": "thumbs/menu-assessment-generator-exponents-scientific-notation.svg",
+              "description": "Build your own choice-based restaurant-menu assessment for Exponents and Scientific Notation. Pick skills and CP2, CP1 or Honors difficulty, then review, edit, pin and regenerate every problem. Includes the product, power and quotient rules with coefficients and two variables, zero and negative exponents, negative powers of monomials, evaluating powers (negative bases, fraction bases, rational exponents), converting to and from scientific notation, fixing numbers that are not in scientific notation, comparing, and multiplying, dividing, adding and subtracting in scientific notation with “how many times” contexts and rounding. Prints student menus (Versions A–C) and teacher keys with worked solutions and rubrics. Every simplified answer is checked for equivalence and for being fully simplified (positive exponents, each variable once, reduced numbers).",
+              "type": "Printable",
               "topics": [
-                "Worksheet generator",
-                "Exponents & Exponential Functions",
-                "Units 7–8"
+                "Assessment generator",
+                "Choice menu",
+                "Exponents",
+                "Scientific notation"
               ],
-              "added": "2026-10-22"
-            },
-            {
-              "title": "Exponents Four",
-              "path": "artifacts/exponents-exponential-functions-connect-four/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-connect-four.jpg",
-              "description": "Connect Four for two teams. Use exponent rules, scientific notation, and exponential growth and decay to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Zero and negative exponents",
-                "Scientific notation",
-                "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
+              "added": "2026-10-24"
             },
             {
               "title": "Exponents & Exponential Functions Flashcards",
@@ -1785,21 +1656,6 @@ window.LIBRARY = {
                 "Zero and negative exponents",
                 "Scientific notation",
                 "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Exponents & Exponential Functions Picture Reveal",
-              "path": "artifacts/exponents-exponential-functions-picture-reveal/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-picture-reveal.jpg",
-              "description": "Use exponent rules, scientific notation, exponential equations and growth and decay to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Scientific notation",
-                "Exponential equations",
-                "Growth and decay",
                 "Units 7–8"
               ],
               "added": "2026-10-18"
@@ -1833,77 +1689,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Exponents & Exponential Functions Error Analysis",
-              "path": "artifacts/exponents-exponential-functions-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Negative and zero exponents",
-                "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Exponents & Exponential Functions Color By Number",
-              "path": "artifacts/exponents-exponential-functions-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the butterfly on a flower. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Color by number",
-                "Self-checking",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Great Pumpkin Snatch",
-              "path": "artifacts/exponents-exponential-functions-great-pumpkin-snatch/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-great-pumpkin-snatch.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Detective game",
-                "Typed answers",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Exponents Tic-Tac-Toe",
-              "path": "artifacts/exponents-exponential-functions-tic-tac-toe/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Team game",
-                "Multiple choice",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Great Pumpkin Snatch (Printable)",
-              "path": "artifacts/exponents-exponential-functions-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Exponent Rules Tarsia Puzzle",
               "path": "artifacts/exponents-exponential-functions-tarsia/worksheet.pdf",
               "thumb": "thumbs/exponents-exponential-functions-tarsia.jpg",
@@ -1931,48 +1716,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Dr. Petri’s Growth Lab",
-              "path": "artifacts/exponents-exponential-functions-escape-room/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Escape room",
-                "Teamwork",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Exponents & Exponential Functions Stations",
-              "path": "artifacts/algebra-exponents-exponential-functions-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-exponents-exponential-functions-stations.svg",
-              "description": "Printable Algebra station work for Exponents & Exponential Functions. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Exponents & Exponential Functions",
-                "Units 7–8"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Exponents & Exponential Functions Cheat Sheet",
-              "path": "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to exponent rules, scientific notation, exponential growth and decay, and worked examples.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Exponents & Exponential Functions",
-                "Units 7–8"
-              ],
-              "added": "2026-10-19"
-            },
-            {
               "title": "Partner Check 1: Exponent Rules",
               "path": "artifacts/exponents-exponential-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/exponents-exponential-functions-partner-check-1.jpg",
@@ -1983,6 +1726,76 @@ window.LIBRARY = {
                 "Exponent Rules"
               ],
               "added": "2026-10-23"
+            },
+            {
+              "title": "Exponent Practice Flashcards",
+              "path": "artifacts/exponents-flashcards/index.html",
+              "thumb": "thumbs/exponents-flashcards.jpg",
+              "description": "A fresh deck of exponents flashcards at CP2, CP1 or Honors level, every skill at three difficulties. Flip for the answer and a worked solution, mark cards to practice again, and press “New cards” for brand-new problems. Every answer is checked independently.",
+              "type": "Practice",
+              "topics": [
+                "Exponent rules",
+                "Negative exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponent Practice Showdown",
+              "path": "artifacts/exponents-showdown/index.html",
+              "thumb": "thumbs/exponents-showdown.jpg",
+              "description": "A game board for exponents review: five categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Open a problem, show choices if you want them, then reveal the worked solution and award points to up to four teams. A new board is generated every time.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Negative exponents",
+                "Scientific notation",
+                "Team game"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponent Practice Connect Four",
+              "path": "artifacts/exponents-connect-four/index.html",
+              "thumb": "thumbs/exponents-connect-four.jpg",
+              "description": "Connect Four for two teams. Answer a multiple-choice exponents problem to earn a disc; a wrong answer shows the worked solution and passes the turn. CP2/CP1/Honors levels and an optional timer. Every wrong choice is a checked mistake, never a second right answer.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Negative exponents",
+                "Scientific notation",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponent Practice Tic-Tac-Toe",
+              "path": "artifacts/exponents-tic-tac-toe/index.html",
+              "thumb": "thumbs/exponents-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice exponents problem to claim a square; a wrong answer lets the other team steal. CP2/CP1/Honors levels and an optional timer. Fresh problems every game.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Negative exponents",
+                "Scientific notation",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Exponent Practice: Picture Reveal",
+              "path": "artifacts/exponents-picture-reveal/index.html",
+              "thumb": "thumbs/exponents-picture-reveal.jpg",
+              "description": "Solve 10 exponents problems to uncover a mystery picture. Students type most answers (the checker accepts any correct form), with instant feedback and worked solutions. Choose CP2, CP1 or Honors; “New game” makes new problems and a new picture.",
+              "type": "Game",
+              "topics": [
+                "Exponent rules",
+                "Negative exponents",
+                "Scientific notation"
+              ],
+              "added": "2026-10-24"
             }
           ]
         },
@@ -2032,21 +1845,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Exponents & Exponential Functions Flashcards",
-              "path": "artifacts/exponents-exponential-functions-flashcards/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for exponent rules, zero and negative exponents, scientific notation, exponential functions, growth and decay, and compound-growth word problems. Mark cards you need to practice and review them again.",
-              "type": "Practice",
-              "topics": [
-                "Exponent rules",
-                "Zero and negative exponents",
-                "Scientific notation",
-                "Exponential growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Exponents & Exponential Functions Picture Reveal",
               "path": "artifacts/exponents-exponential-functions-picture-reveal/index.html",
               "thumb": "thumbs/exponents-exponential-functions-picture-reveal.jpg",
@@ -2057,21 +1855,6 @@ window.LIBRARY = {
                 "Scientific notation",
                 "Exponential equations",
                 "Growth and decay",
-                "Units 7–8"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Exponents Showdown",
-              "path": "artifacts/exponents-exponential-functions-jeopardy/index.html",
-              "thumb": "thumbs/exponents-exponential-functions-jeopardy.jpg",
-              "description": "A game board for Exponents and Exponential Functions. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
-              "type": "Game",
-              "topics": [
-                "Exponent rules",
-                "Zero and negative exponents",
-                "Scientific notation",
-                "Exponential growth and decay",
                 "Units 7–8"
               ],
               "added": "2026-10-18"
@@ -2143,20 +1926,6 @@ window.LIBRARY = {
                 "Whodunnit",
                 "Multiple choice",
                 "Self-checking",
-                "Units 7–8"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Exponent Bistro: Assessment Menu",
-              "path": "artifacts/exponents-exponential-functions-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Exponent rules",
-                "Assessment",
-                "Choice menu",
                 "Units 7–8"
               ],
               "added": "2026-10-21"
@@ -2296,193 +2065,6 @@ window.LIBRARY = {
           "id": "polynomials-factoring",
           "name": "Polynomials",
           "artifacts": [
-            {
-              "title": "Polynomials & Factoring Worksheet Generator",
-              "path": "worksheet-generator/algebra1-polynomials-factoring.html",
-              "thumb": "thumbs/algebra1-polynomials-factoring-generator.svg",
-              "description": "Create custom Polynomials & Factoring worksheets with selectable skills, multiple versions, and answer keys. Initial template-based release.",
-              "type": "Practice",
-              "topics": [
-                "Worksheet generator",
-                "Polynomials & Factoring",
-                "Units 9–10"
-              ],
-              "added": "2026-10-22"
-            },
-            {
-              "title": "Factoring Four",
-              "path": "artifacts/polynomials-factoring-connect-four/index.html",
-              "thumb": "thumbs/polynomials-factoring-connect-four.jpg",
-              "description": "Connect Four for two teams. Multiply, factor, or solve to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "GCF and trinomial factoring",
-                "Difference of squares",
-                "Zero-product property",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials & Factoring Flashcards",
-              "path": "artifacts/polynomials-factoring-flashcards/index.html",
-              "thumb": "thumbs/polynomials-factoring-flashcards.jpg",
-              "description": "25 flashcards with worked solutions for classifying, adding, subtracting and multiplying polynomials, then factoring with GCF, trinomials, difference of squares and factoring completely. Mark cards you need to practice and review them again.",
-              "type": "Practice",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "GCF and trinomial factoring",
-                "Difference of squares",
-                "Factoring completely",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials & Factoring Picture Reveal",
-              "path": "artifacts/polynomials-factoring-picture-reveal/index.html",
-              "thumb": "thumbs/polynomials-factoring-picture-reveal.jpg",
-              "description": "Add, multiply and factor polynomials, then use factoring to solve area problems and uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Adding and subtracting polynomials",
-                "Multiplying polynomials",
-                "Factoring trinomials",
-                "Factoring completely",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials Showdown",
-              "path": "artifacts/polynomials-factoring-jeopardy/index.html",
-              "thumb": "thumbs/polynomials-factoring-jeopardy.jpg",
-              "description": "A game board for Polynomials and Factoring. Add, subtract, and multiply polynomials, factor every way you know, and use the zero-product property.",
-              "type": "Game",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "GCF and trinomial factoring",
-                "Difference of squares",
-                "Zero-product property",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Polynomials & Factoring Error Analysis",
-              "path": "artifacts/polynomials-factoring-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Adding and subtracting polynomials",
-                "Multiplying polynomials",
-                "Factoring",
-                "Zero product property",
-                "Units 9–10"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "The Castle Crown Caper",
-              "path": "artifacts/polynomials-factoring-castle-crown-caper/index.html",
-              "thumb": "thumbs/polynomials-factoring-castle-crown-caper.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Factoring",
-                "Detective game",
-                "Typed answers",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Polynomials & Factoring Tic-Tac-Toe",
-              "path": "artifacts/polynomials-factoring-tic-tac-toe/index.html",
-              "thumb": "thumbs/polynomials-factoring-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Factoring",
-                "Team game",
-                "Multiple choice",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Castle Crown Caper (Printable)",
-              "path": "artifacts/polynomials-factoring-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Factoring",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Polynomial Bistro: Assessment Menu",
-              "path": "artifacts/polynomials-factoring-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "Assessment",
-                "Choice menu",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Wizard’s Spell Library",
-              "path": "artifacts/polynomials-factoring-escape-room/index.html",
-              "thumb": "thumbs/polynomials-factoring-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Adding, subtracting and multiplying polynomials",
-                "Escape room",
-                "Teamwork",
-                "Units 9–10"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Polynomials & Factoring Stations",
-              "path": "artifacts/algebra-polynomials-factoring-stations/worksheet.pdf",
-              "thumb": "thumbs/algebra-polynomials-factoring-stations.svg",
-              "description": "Printable Algebra station work for Polynomials & Factoring. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Polynomials & Factoring",
-                "Units 9–10"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Polynomials & Factoring Cheat Sheet",
-              "path": "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to polynomial operations, multiplication, special products, factoring methods, and solving by factoring.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Polynomials & Factoring",
-                "Units 9–10"
-              ],
-              "added": "2026-10-19"
-            },
             {
               "title": "Partner Check 1: Operations with Polynomials",
               "path": "artifacts/polynomials-factoring-partner-check-1/worksheet.pdf",
@@ -4797,20 +4379,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Triangles & Congruence Flashcards",
-              "path": "artifacts/triangles-congruence-flashcards/index.html",
-              "thumb": "thumbs/triangles-congruence-flashcards.jpg",
-              "description": "25 flashcards with worked solutions on triangle angles, isosceles triangles, the triangle inequality, SSS, SAS, ASA, AAS, HL, CPCTC and proof planning. Mark cards you need to practice and review them again.",
-              "type": "Practice",
-              "topics": [
-                "Triangle angle sum and exterior angles",
-                "Isosceles triangles and the triangle inequality",
-                "SSS, SAS, ASA, AAS, HL",
-                "CPCTC and proof planning"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Triangles & Congruence Picture Reveal",
               "path": "artifacts/triangles-congruence-picture-reveal/index.html",
               "thumb": "thumbs/triangles-congruence-picture-reveal.jpg",
@@ -4835,33 +4403,6 @@ window.LIBRARY = {
                 "SSS, SAS, ASA, AAS, HL",
                 "Corresponding parts and CPCTC",
                 "Solving for x with congruent parts"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Triangle Angles Maze",
-              "path": "artifacts/triangles-congruence-maze/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-maze.jpg",
-              "description": "Printable 4-page worksheet: use the triangle angle sum, the exterior angle theorem, and isosceles and equilateral triangle facts to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Triangle angle sum",
-                "Exterior angle theorem",
-                "Isosceles & equilateral triangles"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Triangles & Congruence Error Analysis",
-              "path": "artifacts/triangles-congruence-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Angle sum and exterior angles",
-                "Triangle inequality",
-                "Congruence shortcuts",
-                "CPCTC proofs"
               ],
               "added": "2026-10-18"
             },
@@ -4919,19 +4460,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Congruence Bistro: Assessment Menu",
-              "path": "artifacts/triangles-congruence-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Triangle inequality and angle sums",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Lockdown at the Robot Factory",
               "path": "artifacts/triangles-congruence-escape-room/index.html",
               "thumb": "thumbs/triangles-congruence-escape-room.jpg",
@@ -4945,32 +4473,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Triangles & Congruence Stations",
-              "path": "artifacts/geometry-triangles-congruence-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-stations.svg",
-              "description": "Printable Geometry station work for Triangles & Congruence. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Triangles & Congruence"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Triangles & Congruence Cheat Sheet",
-              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Triangle angle facts, triangle classifications, and triangle congruence criteria.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Geometry",
-                "Reference"
-              ],
-              "added": "2026-10-19"
-            },
-            {
               "title": "Partner Check 1: Proving Triangles Congruent",
               "path": "artifacts/geometry-triangles-congruence-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/geometry-triangles-congruence-partner-check-1.jpg",
@@ -4979,18 +4481,6 @@ window.LIBRARY = {
               "topics": [
                 "Partner Check",
                 "Proving Triangles Congruent"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Triangle Properties",
-              "path": "artifacts/geometry-triangles-congruence-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-partner-check-2.jpg",
-              "description": "Partners solve different problems on triangle properties and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Triangle Properties"
               ],
               "added": "2026-10-23"
             }
@@ -5001,20 +4491,6 @@ window.LIBRARY = {
           "name": "Triangle Relationships",
           "artifacts": [
             {
-              "title": "Congruence Four",
-              "path": "artifacts/triangles-congruence-connect-four/index.html",
-              "thumb": "thumbs/triangles-congruence-connect-four.jpg",
-              "description": "Connect Four for two teams. Triangle inequality, missing angles, congruence criteria and corresponding parts. A wrong answer lets the other team steal. Three levels and an optional timer.",
-              "type": "Game",
-              "topics": [
-                "Triangle inequality and angle sums",
-                "SSS, SAS, ASA, AAS, HL",
-                "Corresponding parts and CPCTC",
-                "Solving for x with congruent parts"
-              ],
-              "added": "2026-10-18"
-            },
-            {
               "title": "Triangles & Congruence Flashcards",
               "path": "artifacts/triangles-congruence-flashcards/index.html",
               "thumb": "thumbs/triangles-congruence-flashcards.jpg",
@@ -5025,34 +4501,6 @@ window.LIBRARY = {
                 "Isosceles triangles and the triangle inequality",
                 "SSS, SAS, ASA, AAS, HL",
                 "CPCTC and proof planning"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Triangles & Congruence Picture Reveal",
-              "path": "artifacts/triangles-congruence-picture-reveal/index.html",
-              "thumb": "thumbs/triangles-congruence-picture-reveal.jpg",
-              "description": "Use the triangle angle sum, exterior angles, isosceles triangles, corresponding parts and the congruence shortcuts to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Triangle angle sum and exterior angles",
-                "Isosceles triangles",
-                "Corresponding parts (CPCTC)",
-                "SAS, ASA and HL"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Triangles Showdown",
-              "path": "artifacts/triangles-congruence-jeopardy/index.html",
-              "thumb": "thumbs/triangles-congruence-jeopardy.jpg",
-              "description": "A game board for Triangles and Congruence. Triangle facts, proving triangles congruent with SSS, SAS, ASA, AAS and HL, and using corresponding parts.",
-              "type": "Game",
-              "topics": [
-                "Triangle inequality and angle sums",
-                "SSS, SAS, ASA, AAS, HL",
-                "Corresponding parts and CPCTC",
-                "Solving for x with congruent parts"
               ],
               "added": "2026-10-18"
             },
@@ -5084,59 +4532,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Triangles & Congruence Color By Number",
-              "path": "artifacts/triangles-congruence-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the sailboats on a lake. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Congruence rules",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Pyramid Puzzle",
-              "path": "artifacts/triangles-congruence-pyramid-puzzle/index.html",
-              "thumb": "thumbs/triangles-congruence-pyramid-puzzle.jpg",
-              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
-              "type": "Game",
-              "topics": [
-                "Congruence rules",
-                "Detective game",
-                "Typed answers"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Triangles & Congruence Tic-Tac-Toe",
-              "path": "artifacts/triangles-congruence-tic-tac-toe/index.html",
-              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
-              "type": "Game",
-              "topics": [
-                "Congruence rules",
-                "Team game",
-                "Multiple choice"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Pyramid Puzzle (Printable)",
-              "path": "artifacts/triangles-congruence-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Congruence rules",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Congruence Bistro: Assessment Menu",
               "path": "artifacts/triangles-congruence-assessment-menu/worksheet.pdf",
               "thumb": "thumbs/triangles-congruence-assessment-menu.jpg",
@@ -5146,19 +4541,6 @@ window.LIBRARY = {
                 "Triangle inequality and angle sums",
                 "Assessment",
                 "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Lockdown at the Robot Factory",
-              "path": "artifacts/triangles-congruence-escape-room/index.html",
-              "thumb": "thumbs/triangles-congruence-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
-              "type": "Game",
-              "topics": [
-                "Triangle inequality and angle sums",
-                "Escape room",
-                "Teamwork"
               ],
               "added": "2026-10-21"
             },
@@ -5187,18 +4569,6 @@ window.LIBRARY = {
                 "Reference"
               ],
               "added": "2026-10-19"
-            },
-            {
-              "title": "Partner Check 1: Proving Triangles Congruent",
-              "path": "artifacts/geometry-triangles-congruence-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-partner-check-1.jpg",
-              "description": "Partners solve different problems on proving triangles congruent and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Proving Triangles Congruent"
-              ],
-              "added": "2026-10-23"
             },
             {
               "title": "Partner Check 2: Triangle Properties",

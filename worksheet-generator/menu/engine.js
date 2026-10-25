@@ -26,7 +26,7 @@
     { course: 'Algebra 1', units: [   // follows the 180-day roadmap (units 1–12)
       ['algebra1-expressions-equations', 'Units 1–2 · Foundations & Solving Linear Equations'], ['algebra1-inequalities', 'Unit 3 · Linear Inequalities'],
       ['algebra1-relations-functions', 'Unit 4 · Relations and Functions'], ['algebra1-linear-equations-slope', 'Unit 5 · Linear Functions and Graphing'],
-      ['algebra1-systems-of-equations', 'Unit 6 · Systems of Equations and Inequalities'], ['algebra1-exponents-exponential-functions', 'Unit 7 · Exponents and Scientific Notation'],
+      ['algebra1-systems-of-equations', 'Unit 6 · Systems of Equations and Inequalities'], ['algebra1-exponents-scientific-notation', 'Unit 7 · Exponents and Scientific Notation'],
       ['algebra1-exponential-functions', 'Unit 8 · Exponential Functions'], ['algebra1-polynomials-factoring', 'Unit 9 · Polynomials'],
       ['algebra1-factoring-zero-product', 'Unit 10 · Factoring and Zero Product Property'], ['algebra1-quadratics', 'Unit 11 · Quadratic Functions and Equations'],
       ['algebra1-statistics-data-modeling', 'Unit 12 · Statistics and Data Modeling']] },

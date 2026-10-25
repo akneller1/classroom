@@ -164,6 +164,16 @@ function complexity(p) {
       if (t === 'ineq2') { const nH = (ck.ineqs || ck.hrows || (p.fig && p.fig.halfplanes) || []).length; score += w0 === 'is-solution' ? 2 * nH : w0 === 'point-in' ? 10 : 10 * nH; if (ck.hrows) score += 4; }
       if (/\\frac/.test(pt.answer)) score += 5;
     }
+    // exponents: the rules a question needs
+    if (/^(pow-simplify|pow-eval|sci)$/.test(t || '')) {
+      const ck = pt.check, ex = ck.expr || '', ans = pt.answer;
+      const negs = (ex.match(/\^\{-/g) || []).length, zeros = (ex.match(/\^\{0\}/g) || []).length, grpPow = (ex.match(/\\right\)\^\{/g) || []).length, vars = new Set((ex.replace(/\\[a-z]+/g, '').match(/[a-z]/g) || [])).size;
+      if (t === 'pow-simplify') { score += 3 * negs + 2 * zeros + 4 * grpPow + (/\\frac/.test(ex) ? 3 : 0) + 2 * vars + (/\\frac/.test(ans) ? 3 : 0) + (/-/.test(ans) ? 1 : 0) + (/\\right\)\^\{-/.test(ex) ? 10 : 0); }
+      if (t === 'pow-eval') { score += 3 * negs + 2 * zeros + (/\^\{-?\\frac/.test(ex) ? 9 : 0) + (/\^\{-?\\frac\{[2-9]/.test(ex) ? 3 : 0) + (/\\left\(\\frac/.test(ex) ? 8 : 0) + (/\+/.test(ex) ? 4 : 0) + (/\\frac/.test(ans) ? 2 : 0) + (/\(-/.test(ex) ? 2 : 0); }
+      if (t === 'sci') { const w = ck.want; score += ({ 'to-sci': 3, 'to-std': 4, compare: 6, op: 4, ratio: 14 })[w] || 0; if (w === 'to-sci' || w === 'to-std') score += 0.5 * (ex.replace(/\^\{[^}]*\}/g, '').match(/0/g) || []).length + 4 * (ex + ans).replace(/[^-]/g, '').length; if (ck.round !== undefined) score += 4;
+        const all = ex + ' ' + (ck.terms || []).join(' ') + ' ' + ans; score += 2 * (all.match(/\^\{-/g) || []).length; if (/\\frac/.test(ex)) score += 3; if (/[+]|[^{(]-\d/.test(ex.replace(/\^\{-/g, ''))) score += 9;
+        score += 0.6 * (C.snippets(ans).join('').replace(/\^\{[^}]*\}/g, '').match(/\d/g) || []).length; if (w === 'op' && /^-?[\d.]+\\times10\^\{-?\d+\}$/.test(ex)) score += 6; }
+    }
     if (!/domain-range|is-function|func-|read-fig|linear-rule|table-fill|rate|graph-behavior|sequence|exp-|factor|quad-/.test(t || '')) return;
     C.snippets(pt.answer).forEach(sn => {
       const rhs = sn.slice(sn.lastIndexOf('=') + 1);

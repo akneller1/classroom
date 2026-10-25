@@ -143,6 +143,16 @@
       if (fm) { var rec = fm[2] === '1' ? fm[3] : '\\frac{' + fm[3] + '}{' + fm[2] + '}', opp = fm[1] ? '' : '-';
         cands.push({ a: key.replace(fm[0], fm[1] + rec), w: 5 }); cands.push({ a: key.replace(fm[0], opp + rec), w: 5 }); cands.push({ a: key.replace(fm[0], opp + '\\frac{' + fm[2] + '}{' + fm[3] + '}'), w: 4 }); }
     }
+    // exponents: the classic slips are in the exponents themselves (added instead of multiplied, off by one, wrong sign)
+    if (ch0.type === 'pow-simplify' || ch0.type === 'sci' || ch0.type === 'pow-eval') {
+      var re2 = /\^\{(-?\d+)\}/g, m2, kk = 0;
+      while ((m2 = re2.exec(key)) && kk < 4) { kk++; var e0 = +m2[1], at = m2.index;
+        [e0 + 1, e0 - 1, -e0, ch0.type === 'sci' ? e0 + 2 : e0 * 2].forEach(function (v) { if (v === e0 || (ch0.type !== 'sci' && v < 2)) return; cands.push({ a: key.slice(0, at) + '^{' + v + '}' + key.slice(at + m2[0].length), w: v === -e0 ? 4 : 3 }); });
+      }
+      var uf = /^⟨(-?)\\frac\{1\}\{(\d+)\}⟩$/.exec(key.trim()); if (uf) { cands.push({ a: '⟨' + uf[2] + '⟩', w: 4 }); cands.push({ a: '⟨-' + uf[2] + '⟩', w: 3 }); cands.push({ a: '⟨' + (uf[1] ? '' : '-') + '\\frac{1}{' + uf[2] + '}⟩', w: 3 }); }
+      var lv = /^⟨([a-z])⟩$/.exec(key.trim()); if (lv) { cands.push({ a: '⟨' + lv[1] + '^{2}⟩', w: 3 }); cands.push({ a: '⟨1⟩', w: 2 }); cands.push({ a: '⟨\\frac{1}{' + lv[1] + '}⟩', w: 3 }); }
+      if (ch0.type === 'pow-simplify') { var fr = /\\frac\{([^{}]*)\}\{([^{}]*)\}/.exec(key); if (fr) cands.push({ a: key.replace(fr[0], '\\frac{' + fr[2] + '}{' + fr[1] + '}'), w: 3 }); }
+    }
     if (ch0.type === 'stat-line' && ch0.want === 'over-under') cands.push({ a: key.replace(/under|over/, function (m) { return m === 'under' ? 'over' : 'under'; }), w: 5 });
     // a classic slip: the answer to another part of the same problem (the range given as the domain)
     p.parts.forEach(function (o, j) {
@@ -173,6 +183,9 @@
     if (t === 'factor' && /^\s*prime\b/i.test(part.answer)) return 'factor';
     if (/^\s*-?\d+(\.\d+)?%\s*$/.test(part.answer)) return 'percent';
     if (t === 'stat' && /better|compare/.test(ch.want) || t === 'scatter-corr' || (t === 'stat-box' && ch.want === 'compare') || (t === 'twoway' && ch.want === 'assoc') || (t === 'stat-line' && /over|slope|intercept/.test(ch.want))) return null;
+    if (t === 'pow-simplify') return 'pexpr';
+    if (t === 'pow-eval') return 'number';
+    if (t === 'sci') return ch.want === 'to-std' ? 'number' : 'sci';
     if (t === 'system') return ch.want === 'is-solution' || ch.want === 'count' || !snippets(part.answer).length ? null : ch.want === 'param' ? 'number' : 'point';
     if (t === 'sys-apply') return ch.want === 'model' ? 'eqs' : ch.want === 'x' || ch.want === 'y' ? 'number' : 'list';
     if (t === 'ineq2') return ch.want === 'is-solution' ? null : ch.want === 'point-in' ? 'point' : snippets(part.answer).length > 1 ? 'ineqs' : 'ineq';
@@ -221,6 +234,8 @@
     literal: 'Type the formula, like h = (A - 2b)/3.',
     solve: 'Type the solution, like x = 4 (or just 4).',
     point: 'Type a point, like (0, -3).',
+    pexpr: 'Type like 4x^6 or (3x^2)/(4y^3). Use ^ for powers and positive exponents only.',
+    sci: 'Type scientific notation like 4.2 x 10^-4 (or 4.2*10^-4).',
     eqs: 'Type both equations separated by “and”, like x + y = 10 and 2x + 3y = 24.',
     ineqs: 'Type both inequalities separated by “and”, like y > 2x - 1 and y <= -x + 4 (use <= for ≤ and >= for ≥).'
   };
@@ -236,6 +251,7 @@
     if (kind === 'factor' && /^prime$/i.test(s)) return 'Prime';
     if (kind === 'percent') return '⟨' + texOf(s.replace(/%/g, '')) + '⟩%';
     if (kind === 'ineq' && /\s(or|and)\s/.test(s)) return s.split(/\s+(or|and)\s+/).map(function (x, i) { return i % 2 ? x : '⟨' + texOf(x) + '⟩'; }).join(' ');
+    if (kind === 'sci') return '⟨' + s.replace(/\s*(?:x|×|\*|\\times|\\cdot)\s*10\s*\^\s*\(?\s*\{?(-?\s*\d+)\}?\s*\)?/i, function (w, e) { return '\\times10^{' + e.replace(/\s/g, '') + '}'; }).replace(/^\s*10\s*\^\s*\(?(-?\d+)\)?/, '10^{$1}').trim() + '⟩';
     if (kind === 'eqs' || kind === 'ineqs') return s.split(/\s*(?:\band\b|;)\s*/).filter(Boolean).map(function (x) { return '⟨' + texOf(x) + '⟩'; }).join(' and ');
     if (kind === 'list') return s.split(/\s*(?:,|;|\band\b|\bor\b)\s*/).filter(Boolean).map(function (x) { return '⟨' + texOf(x) + '⟩'; }).join(' and ');
     if (kind === 'set') { var body = s.replace(/^\{|\}$/g, '').replace(/^\\\{|\\\}$/g, ''); return '⟨\\{' + body.split(/\s*,\s*/).map(texOf).join(',\\ ') + '\\}⟩'; }
@@ -245,7 +261,7 @@
   // the key written the way a student would type it (used by the tests and the "show me" button)
   GB.typedForm = function (part) {
     function plain(t) {
-      return t.replace(/\\text\{\s*(or|and)\s*\}/g, ' $1 ').replace(/\\left|\\right/g, '').replace(/\\le\s*/g, '<=').replace(/\\ge\s*/g, '>=').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g, '$1/$2').replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)').replace(/\\cdot\s*/g, '*').replace(/\^\{([^{}]*)\}/g, '^($1)').replace(/\\\{/g, '{').replace(/\\\}/g, '}')
+      return t.replace(/\\text\{\s*(or|and)\s*\}/g, ' $1 ').replace(/\\left|\\right/g, '').replace(/\\le\s*/g, '<=').replace(/\\ge\s*/g, '>=').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g, '$1/$2').replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '($1)/($2)').replace(/\\times\s*/g, ' x ').replace(/\\cdot\s*/g, '*').replace(/\^\{([^{}]*)\}/g, '^($1)').replace(/\\\{/g, '{').replace(/\\\}/g, '}')
         .replace(/\\[ ,;!]/g, ' ').replace(/\s+/g, ' ').trim();
     }
     // keep the connecting words "or"/"and" between answers; drop labels and units

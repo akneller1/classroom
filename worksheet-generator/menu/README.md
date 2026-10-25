@@ -9,6 +9,7 @@ accounts and no paid services, so it runs on GitHub Pages. Open `worksheet-gener
 - Unit 4 · Relations and Functions (`algebra1-relations-functions`)
 - Unit 5 · Linear Functions and Graphing (`algebra1-linear-equations-slope`)
 - Unit 6 · Systems of Equations and Inequalities (`algebra1-systems-of-equations`)
+- Unit 7 · Exponents and Scientific Notation (`algebra1-exponents-scientific-notation`)
 - Unit 8 · Exponential Functions (`algebra1-exponential-functions`)
 - Unit 10 · Factoring and Zero Product Property (`algebra1-factoring-zero-product`)
 - Unit 12 · Statistics and Data Modeling (`algebra1-statistics-data-modeling`)
@@ -180,6 +181,19 @@ polynomials. Equations are solved by finding every rational root (rational root 
 problems whose roots are not all rational are refused. Word problems are re-solved from the printed numbers and
 wording (“consecutive even integers”, “3 feet less than twice its width”, “uniform width”) and keep only the
 answer that makes sense.
+
+### Exponents and Scientific Notation skills (tags PRODUCT · QUOTIENT · EVAL · SCI · SCIOPS)
+| Tag | Skill | Level 1 → 7 |
+|-----|-------|-------------|
+| PRODUCT | Product and power rules | multiply powers → power of a power → with coefficients → power of a product → two-variable products → combined powers and products → with negative coefficients |
+| QUOTIENT | Quotient, zero and negative exponents | divide powers → with coefficients → zero and negative exponents → quotient leaving a fraction → two variables → products with negative exponents → a negative power of a monomial |
+| EVAL | Evaluate powers | products of powers → zero and negative exponents → quotients → negative bases and sums → fraction bases → unit rational exponents → rational exponents m/n, negative |
+| SCI | Scientific notation | large numbers → back to standard form → small numbers → negative exponents to standard form → fix a first factor over 10 → fix a first factor under 1 → which is largest |
+| SCIOPS | Operations | multiply → divide → multiply and rewrite → divide with negative exponents → add or subtract → "how many times" → "how many times", rounded |
+
+A simplified answer must be equivalent to the printed expression and fully simplified: one term (or one fraction of two
+terms), each variable once, exponents 2 or more (positive only), reduced numbers and no variable on both levels.
+Scientific notation answers must have a first factor with 1 ≤ a < 10; values are recomputed exactly from the printed numbers.
 
 ### Systems of Equations and Inequalities skills (tags GRAPH · SUBST · ELIM · APPLY · INEQ)
 | Tag | Skill | Level 1 → 7 |

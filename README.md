@@ -19,6 +19,13 @@ A static website: no server and no build step. Open `index.html` in a browser to
           added: "2026-11-01"
         }
 
+List each activity in **one** unit only, and give it a title no other activity in the course uses.
+An activity that covers two units goes in the unit it is mainly about; an even mix goes in the later unit.
+`python3 scripts/check_library.py` reports duplicates, repeated titles and missing files, and
+`python3 scripts/check_library.py --fix` removes duplicate listings using the decisions in
+`scripts/library-placement.json`. The same check runs on GitHub after every change to `data.js`
+(the "Library check" action) and at the start of the menu generator tests.
+
 Rename, reorder, add, or remove units in `data.js`, too. Units with no activities show as "Coming soon".
 Course colors are "blue", "orange", "green", or "purple". Type and level filters appear on their own
 once a unit has activities with different values.

@@ -1,4 +1,6 @@
 #!/bin/sh
+# The library first: every activity in exactly one unit, distinct titles, files present
+python3 "$(dirname "$0")/../../../scripts/check_library.py" | tail -1
 # Menu Assessment Generator tests. Browser tests need Playwright + Chromium (skipped if unavailable).
 set -e
 cd "$(dirname "$0")"
