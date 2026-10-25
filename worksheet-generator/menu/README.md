@@ -35,6 +35,30 @@ Other units appear in the unit list as "not yet supported" until they have gener
 verification tests (see *Adding a unit*). Open a unit directly with `menu-assessment.html#unit=<id>`. Each
 unit keeps its own autosave. Units that have this generator no longer list the old fixed Assessment Menu PDFs (the files are still in `artifacts/` but unlisted); Geometry and Algebra 2 keep theirs.
 
+## Printable generators (`worksheet-generator/printables.html#unit=<set>&kind=<kind>`)
+
+Maze, Color by Number, Tarsia, Error Analysis and Partner Check for every Algebra 1 unit, built from the same
+verified skill generators (`menu/printables.js` = builders, no DOM; `menu/printables-ui.js` = pages + teacher
+controls; `menu/printables.css`). They replace the fixed maze / Tarsia / color / error-analysis / partner-check
+PDFs (unlisted 2026-10-25; `scripts/check_library.py` reports one if it comes back). Every printable has
+CP2/CP1/Honors, up to three versions and an answer key with worked solutions.
+
+* **Rule for every kind:** two problems on one printable never accept each other's answer (`PR.clash`), and every
+  wrong label is an answer the verifier rejects for its problem.
+* **Maze** – 4 × 4 rooms, a 10–13-room path from START to FINISH; each wall has one door. A path room has exactly
+  one door that accepts its answer (to the next room); a dead end has none. The key shades and numbers the path.
+* **Color by Number** – pixel pictures in `PR.PICTURES` (12 × 14, original designs); 10–12 problems, each color has
+  at least one; every problem number appears in the picture. Colored key.
+* **Tarsia** – hexagon (24 triangles, 30 matches) or, when a unit has fewer short problems, a triangle (16, 18).
+  Edges show short wording (`PR.tarsiaEdge`); the work pages show the full problem. Border edges get decoy answers
+  that match no problem. The student copy shuffles and turns the pieces. Statistics has too few short problems
+  (listed in the tests and the library check as the one gap).
+* **Error Analysis** – the worked steps with a checked wrong answer written into the step that produces the answer.
+* **Partner Check** – pairs of different problems whose answers each verifier accepts for the other.
+* Honors problems that are too long for a maze door or a Tarsia edge fall back to CP1 problems (the page says so).
+* Tests: `tests/printables-tests.cjs` (every unit × kind × level, checked independently of the builders) and
+  `tests/printables-browser.cjs` (every page fits; controls; site links).
+
 ## Practice worksheets (`worksheet-generator/worksheet.html`)
 
 The Worksheet Generator is the same app and the same verified problem generators, locked to `mode: 'worksheet'`

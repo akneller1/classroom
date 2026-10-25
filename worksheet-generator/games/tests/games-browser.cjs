@@ -46,6 +46,11 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
     await page.click('[data-aw="1"][data-s="1"]'); S = await st(); assert.equal(S.score[1], 500);
     await page.keyboard.press('Escape'); await ready('.sd-board');
     assert.ok(await page.locator('.sd-cell[data-cell="0,4"]').isDisabled(), 'a used value is closed');
+    if (unit === UNITS[0]) {   // teams: add up to eight, then the button turns off
+      for (let k = 0; k < 10; k++) if (!(await page.isDisabled('#sdAddT'))) await page.click('#sdAddT');
+      assert.equal(await page.locator('.sd-team').count(), 8, 'up to eight teams'); assert.ok(await page.isDisabled('#sdAddT'));
+      for (let k = 0; k < 6; k++) await page.click('#sdRemT');
+    }
     ok(unit + ' showdown: ' + ncat + '×5 board by category, choices and answer on demand, scoring, used cells close');
 
     /* ---- connect four ---- */

@@ -154,7 +154,7 @@
       if (S.open) return renderQ();
       var h = '<h1 class="sd-title">' + esc(TITLE).replace(/Showdown/, '<b>Showdown</b>') + '</h1><p class="sd-sub">' + esc(SET.unitName) + ' review · pick a category and a value</p>' +
         '<div class="gm-ctl"><label for="sdPreset">Board:</label><select class="gm-sel" id="sdPreset">' + Object.keys(PRESETS).map(function (k) { return '<option value="' + k + '"' + (k === S.preset ? ' selected' : '') + '>' + NAMES[k] + '</option>'; }).join('') + '</select>' +
-        '<button class="gm-btn" id="sdNew">New board</button><button class="gm-btn" id="sdAddT"' + (S.teams.length >= 4 ? ' disabled' : '') + '>Add team</button><button class="gm-btn" id="sdRemT"' + (S.teams.length <= 1 ? ' disabled' : '') + '>Remove team</button></div>' +
+        '<button class="gm-btn" id="sdNew">New board</button><button class="gm-btn" id="sdAddT"' + (S.teams.length >= 8 ? ' disabled' : '') + '>Add team</button><button class="gm-btn" id="sdRemT"' + (S.teams.length <= 1 ? ' disabled' : '') + '>Remove team</button></div>' +
         '<div class="sd-board" style="grid-template-columns:repeat(' + cols.length + ',1fr)">' + cols.map(function (t) { return '<div class="sd-cat">' + esc(t.name) + '</div>'; }).join('');
       VALUES.forEach(function (v, ri) { cols.forEach(function (t, ci) {
         var cell = S.cells[ci + ',' + ri];

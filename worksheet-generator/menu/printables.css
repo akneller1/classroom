@@ -1,0 +1,69 @@
+/* Printable Generators — screen layout + paper styles (builds on core/app.css and menu/menu.css). */
+.pr-app{padding:14px 20px 40px;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(270px,340px) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:900px){.pr-app{grid-template-columns:1fr}}
+.pr-app .card{margin-bottom:12px}
+.pr-app .card h2{margin:0 0 8px;font-size:1.05rem}
+.pr-kinds .chk,.pr-app .chk{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+.pr-app .chk small{display:block;color:var(--ink2);font-weight:400;font-size:.82rem}
+.pr-app .chk.off{opacity:.55}
+.pr-levels{display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:6px}
+.pr-pages{display:flex;flex-direction:column;gap:14px;align-items:center}
+.pr-pwrap .page{margin:0 auto}
+.pr-busy,.pr-err{padding:24px;background:var(--card);border:2px solid var(--line);border-radius:12px}
+.pr-err{border-color:#c0392b;color:#c0392b;font-weight:700}
+/* paper */
+.pr-page .mm-body{display:flex;flex-direction:column;gap:.08in}
+.pr-dirs{font-size:9.5pt}
+.pr-note{margin:0;font-size:9.5pt}
+.pr-maze{position:relative;margin:.04in auto 0}
+.pr-room{position:absolute;border:2.2px solid #000;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:.12in .1in;font-size:9.6pt;line-height:1.3;box-sizing:border-box;background:#fff}
+.pr-room.path{background:#e7efff}
+.pr-room.fin{flex-direction:column;font-size:17pt}
+.pr-room.fin small{font-size:8pt;font-weight:400}
+.pr-rq .katex{font-size:1.02em}
+.pr-start{position:absolute;top:-.11in;left:50%;transform:translateX(-50%);background:#000;color:#fff;font-weight:700;font-size:8pt;padding:1px 9px;border-radius:9px}
+.pr-step{position:absolute;top:3px;left:5px;background:#1d4ed8;color:#fff;font-weight:700;font-size:8pt;border-radius:50%;width:.2in;height:.2in;line-height:.2in;text-align:center}
+.pr-door{position:absolute;height:.36in;display:flex;align-items:center;justify-content:center;background:#fff;border:1.6px solid #000;border-radius:4px;font-size:8.4pt;white-space:nowrap;overflow:hidden;box-sizing:border-box;z-index:2;padding:0 3px}
+.pr-door.v{transform:rotate(-90deg)}
+.pr-door.ok{background:#ffe48a;border-width:2.6px;font-weight:700}
+.pr-wgrid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1.7in;gap:.08in;flex:1}
+.pr-twork{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1.68in;gap:.07in}
+.pr-wbox{border:1.6px solid #000;border-radius:6px;padding:.05in .08in;font-size:9.5pt}
+.pr-cgrid{display:grid;margin:.04in auto;border:2px solid #000}
+.pr-cgrid div{border:.6px solid #555;display:flex;align-items:center;justify-content:center;font-size:8pt;font-weight:700}
+.pr-code{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;border:1.6px solid #000;border-radius:7px;padding:.05in .08in;font-size:9pt}
+.pr-codeh{grid-column:1/-1;font-weight:700;font-size:9.5pt}
+.pr-ck{display:grid;grid-template-columns:1.25in 1fr;align-items:center;border-top:1px solid #bbb;padding-top:2px}
+.pr-ckn{display:flex;align-items:center;font-weight:700}
+.pr-sw{display:inline-block;width:.22in;height:.16in;border:1.4px solid #000;border-radius:3px;margin-right:6px;vertical-align:middle}
+.pr-cans{display:inline-block;margin:1px 14px 1px 0}
+.pr-pgrid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:2.12in;gap:.08in}
+.pr-pgrid.tight{grid-auto-rows:minmax(1.84in,auto)}
+.pr-pbox{border:1.6px solid #000;border-radius:7px;padding:.06in .09in;display:flex;flex-direction:column;font-size:9.8pt}
+.pr-pq{line-height:1.35}
+.pr-ans{margin-top:auto;font-size:9.5pt;display:flex;align-items:flex-end;gap:4px;flex-wrap:wrap}
+.pr-ans .ln.long{width:1.6in}
+.pr-match{margin-left:auto;font-size:8.5pt}
+.pr-who{width:.42in;height:.42in;border-radius:50%;background:#000;color:#fff;font-weight:700;font-size:17pt;display:flex;align-items:center;justify-content:center;margin-left:auto;margin-right:.1in}
+.pr-ea{display:grid;grid-template-columns:1.15fr 1fr;border:1.8px solid #000;border-radius:8px;min-height:2.82in}
+.pr-ea-l{padding:.06in .1in;border-right:1.4px solid #000;font-size:9.5pt;overflow:hidden}
+.pr-ea-r{padding:.06in .1in;display:flex;flex-direction:column;gap:.1in;font-size:9.5pt}
+.pr-ea-r .ln.full{display:block;width:100%;height:.22in}
+.pr-eah{font-weight:700;font-size:9pt;text-transform:uppercase;letter-spacing:.02em;margin-bottom:2px}
+.pr-swork{margin:.04in 0 0;padding-left:.2in;line-height:1.45;font-size:9.2pt}
+.pr-sans{margin-top:.03in;font-size:9.4pt}
+.pr-flag{margin-top:4px;font-size:8.5pt;font-style:italic}
+.pr-tbox{display:flex;justify-content:center;margin-top:.06in}
+.pr-tsvg{display:block;overflow:visible}
+.pr-tt{width:100%;height:100%;display:flex;align-items:center;justify-content:center;white-space:nowrap;line-height:1;color:#000;font-family:var(--body,system-ui)}
+.pr-tt.q{font-weight:700}
+.pr-ktbl td{vertical-align:top}
+.pr-ktbl th:first-child,.pr-ktbl td:first-child{width:.42in}
+/* figures inside problem boxes stay small */
+.pr-pbox .mm-fig,.pr-ea-l .mm-fig{margin:2px 0}
+.pr-pbox .mm-fig svg,.pr-ea-l .mm-fig svg{max-height:1.15in;width:auto;max-width:100%}
+.pr-pbox .mm-fig table,.pr-ea-l .mm-fig table{font-size:8pt}
+.pr-ktbl .mm-fig svg{max-height:1.3in;width:auto;max-width:100%}
+.pr-pgrid.tight .mm-fig svg{max-height:.82in}
+.pr-pgrid.tight .mm-fig table{font-size:7pt}
+.pr-pgrid.tight .mm-fig table td,.pr-pgrid.tight .mm-fig table th{padding:0 3px}

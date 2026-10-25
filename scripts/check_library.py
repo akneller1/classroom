@@ -13,6 +13,8 @@ Problems reported:
     unit the generators do not know (#unit=<id> must be a registered skill set)
   * an Algebra 1 unit without exactly one of each generated game (Flashcards, Showdown, Connect Four,
     Tic-Tac-Toe, Picture Reveal), or with an older hand-made copy of one of those games
+  * an Algebra 1 unit without the printable generators (Maze, Color by Number, Tarsia, Error Analysis,
+    Partner Check; worksheet-generator/printables.html#unit=<set>&kind=<kind>), or with an older fixed PDF of one
 
 Usage:
   python3 scripts/check_library.py          # report; exit code 1 if anything is wrong
@@ -125,12 +127,29 @@ def main():
                     for p in found:
                         if p not in gen:
                             problems.append('%s/%s: older hand-made %s "%s" duplicates the generated one (remove it)' % (c['id'], u['id'], kind, p))
+        if c['id'] == 'algebra':   # the printable generators replace the fixed maze / Tarsia / color / error / partner PDFs
+            PKINDS = [('maze', 'Maze', r'maze'), ('color', 'Color by Number', r'color-by-number'), ('tarsia', 'Tarsia', r'tarsia'),
+                      ('error', 'Error Analysis', r'error-analysis'), ('partner', 'Partner Check', r'partner-check')]
+            GAPS = {'statistics-data-modeling': ['tarsia']}   # too few short problems for a Tarsia (see menu/tests/printables-tests.cjs)
+            for u in c['units']:
+                for kind, name, rx in PKINDS:
+                    gens = [a['path'] for a in u['artifacts'] if re.match(r'worksheet-generator/printables\.html#unit=[a-z0-9-]+&kind=' + kind + '$', a['path'])]
+                    if kind in GAPS.get(u['id'], []):
+                        if gens: problems.append('%s/%s: lists a %s generator, but this unit cannot make one' % (c['id'], u['id'], name))
+                    elif len(gens) != 1:
+                        problems.append('%s/%s: needs exactly one %s generator (found %d)' % (c['id'], u['id'], name, len(gens)))
+                    for g in gens:
+                        sid = g.split('#unit=')[1].split('&')[0]
+                        if sid not in skill_sets(): problems.append('%s/%s: %s generator points at unknown skill set "%s"' % (c['id'], u['id'], name, sid))
+                    for a in u['artifacts']:
+                        if a['path'].startswith('artifacts/') and a['path'].endswith('.pdf') and re.search(rx, a['path']):
+                            problems.append('%s/%s: older fixed %s "%s" duplicates the %s generator (remove it)' % (c['id'], u['id'], name, a['title'], name))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
-            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator'):
+            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator'):
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))
         for u in c['units']:
             for a in u['artifacts']:

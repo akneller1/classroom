@@ -6,7 +6,7 @@ banks (`worksheet-generator/menu/skills/`). They look and play like the hand-bui
 | Game | Folder name | How it plays |
 |------|-------------|--------------|
 | Flashcards | `<unit>-flashcards` | every skill at the level's three difficulties; flip for answer + worked solution; rate cards; practice missed; new deck |
-| Showdown | `<unit>-showdown` | one column per skill category, 100–500 points; CP2/CP1/Honors/Mixed boards; choices and answers on demand; up to four teams |
+| Showdown | `<unit>-showdown` | one column per skill category, 100–500 points; CP2/CP1/Honors/Mixed boards; choices and answers on demand; up to eight teams |
 | Connect Four | `<unit>-connect-four` | two teams; a correct multiple-choice answer earns a disc; a miss shows the solution and passes the turn; optional timer |
 | Tic-Tac-Toe | `<unit>-tic-tac-toe` | two teams; claim a square with a correct answer; a miss lets the other team steal; optional timer |
 | Picture Reveal | `<unit>-picture-reveal` | 10 problems, mostly typed; each correct answer uncovers a piece of an original picture |
