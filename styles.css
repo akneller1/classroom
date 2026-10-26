@@ -531,3 +531,8 @@ body { background:var(--paper); }
 .browse-filters { grid-template-columns:repeat(3,minmax(0,1fr)); }
 @media(max-width:900px) { .browse-filters { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:540px) { .browse-filters { grid-template-columns:1fr; } }
+
+/* Expanded topics appear before the collapse control, not after it. */
+.unit-lesson-details[open] { display:flex; flex-direction:column; }
+.unit-lesson-details[open] > .unit-skills { order:0; }
+.unit-lesson-details[open] > summary { order:1; margin-top:.35rem; }
