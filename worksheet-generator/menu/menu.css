@@ -250,3 +250,9 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-cchoices li.ok{font-weight:700;color:var(--ok,#15803d)}
 .mm-fmtnote{font-size:.8rem;color:var(--muted,#555);margin:.2rem 0}
 .mm-cchoices.one{grid-template-columns:1fr}
+
+/* Worksheet spacing adjustment */
+.mm-spacing-stepper{display:flex;align-items:center;gap:.65rem;margin:.45rem 0}
+.mm-spacing-stepper button{min-width:2.7rem;min-height:2.6rem;font-size:1.45rem;font-weight:800;padding:.25rem .6rem}
+.mm-spacing-stepper output{min-width:4rem;text-align:center;font-variant-numeric:tabular-nums;font-weight:750}
+.mm-spacing-stepper button:disabled{opacity:.4;cursor:not-allowed}
