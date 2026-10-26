@@ -494,3 +494,15 @@ body { background:var(--paper); }
 .hero-generator-panel .generator-shortcut-copy small { font-size:.8rem; line-height:1.35; }
 @media (max-width:900px) { .hero > .wrap { grid-template-columns:1fr; } .hero-copy { max-width:680px; } .hero-generator-panel .generator-shortcut { min-height:125px; } }
 @media (max-width:480px) { .hero-generator-panel .generator-shortcut { min-height:135px; padding:.75rem; } .hero-generator-panel .generator-shortcut-copy strong { font-size:.93rem; } }
+
+/* Simplified site header: branding takes priority over search. */
+.site-header .search[hidden] { display:none !important; }
+.site-header .bar { gap: .75rem 1.5rem; padding-block: .85rem; }
+.site-header .brand { font-size:clamp(1.38rem, 2vw, 1.85rem); font-weight:800; letter-spacing:-.035em; gap:.7rem; white-space:nowrap; }
+.site-header .brand svg { width:2.7rem; height:2.7rem; }
+.site-header .main-nav { margin-left:auto; }
+@media (max-width:700px) {
+  .site-header .brand { font-size:1.4rem; }
+  .site-header .brand svg { width:2rem; height:2rem; }
+  .site-header .main-nav { margin-left:0; }
+}
