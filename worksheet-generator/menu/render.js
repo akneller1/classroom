@@ -320,7 +320,7 @@
         if (b.page === 'new' && cur.body.childNodes.length) start();
         // keep a heading together with the next block
         var group = [b]; if (b.keep && blocks[i + 1]) group.push(blocks[i + 1]);
-        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); if (kind === 'student' && NS.isWorksheet(state.config) && g.cls === 'tight') e.style.paddingTop = (Math.max(0, Math.min(10, +state.config.layout.spaceAdjust || 0)) * 6) + 'px'; cur.body.appendChild(e); return e; });
+        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); if (kind === 'student' && NS.isWorksheet(state.config) && g.cls === 'tight' && cur.body.querySelector('.mm-blk.tight')) e.style.paddingTop = (Math.max(0, Math.min(10, +state.config.layout.spaceAdjust || 0)) * 6) + 'px'; cur.body.appendChild(e); return e; });
         if (cur.body.scrollHeight > cur.body.clientHeight + 1) {
           els.forEach(function (e) { cur.body.removeChild(e); });
           if (cur.body.childNodes.length) {
@@ -331,6 +331,8 @@
               if (sh) { var hc = el('div', 'mm-blk mm-cont', sh.html.replace('</div><div class="mm-secsub">', ' <span class="mm-contd">(continued)</span></div><div class="mm-secsub">')); cur.body.appendChild(hc); }
             }
           }
+          // A row moved to a new page must not inherit inter-row spacing.
+          if (!cur.body.querySelector('.mm-blk.tight')) els.forEach(function (e) { if (e.classList.contains('tight')) e.style.paddingTop = ''; });
           els.forEach(function (e) { cur.body.appendChild(e); });
           if (cur.body.scrollHeight > cur.body.clientHeight + 1) overflow.push(i);
         }
