@@ -101,11 +101,10 @@
         var part = rows.slice(start, start + 10);
         P.push({ nofoot: true, html: '<div class="mm-body pc">' +
           classicHead(cfg, nV, v, false, ttl + ': Answer Grid' + (start ? ' (continued)' : ''),
-            'Write the answer and show your work for each numbered room.') +
+            'Show your work in each numbered box.') +
           '<div class="pm-answer-cards">' + part.map(function (r, i) {
-            return '<section class="pm-answer-card"><div class="pm-answer-number">' + (start + i + 1) +
-              '</div><div class="pm-answer-line"><strong>Answer:</strong><span></span></div>' +
-              '<div class="pm-answer-work">Show your work:</div></section>';
+            return '<section class="pm-answer-card"><span class="pm-answer-number">' + (start + i + 1) +
+              '</span></section>';
           }).join('') + '</div></div>' });
       }
     } else {
