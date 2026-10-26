@@ -15,6 +15,13 @@
     return;
   }
   var match = null;
+  function shareableActivity(activity) {
+    if (!activity || /^worksheet-generator\//i.test(activity.path || '')) return false;
+    var name = ((activity.path || '') + ' ' + (activity.title || '')).toLowerCase();
+    var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
+    return types.some(function (type) { return /^game$/i.test(type); }) ||
+      /flashcard|cheat.sheet|study.guide|picture.reveal|connect.four|jeopardy|showdown|tic.tac.toe|escape.room|detective|mini.golf|zombie.fence/.test(name);
+  }
   var library = window.LIBRARY;
   if (library && Array.isArray(library.courses)) {
     library.courses.forEach(function (course) {
@@ -31,13 +38,18 @@
     message.textContent = 'This activity could not be found. Choose Home to browse the available activities.';
     return;
   }
+  if (studentFocus && !shareableActivity(match)) {
+    title.textContent = 'Student link unavailable';
+    message.textContent = 'This link is not a student game or study guide.';
+    return;
+  }
   title.textContent = match.title;
   document.title = match.title + ' | Mr. K’s Classroom';
   original.href = match.path;
   original.textContent = /\.pdf$/i.test(match.path) ? 'Open / print PDF ↗' : 'Open full page ↗';
   original.setAttribute('aria-label', original.textContent + ' (opens in a new tab)');
   original.hidden = studentFocus;
-  if (!studentFocus) {
+  if (!studentFocus && shareableActivity(match)) {
     var share = document.getElementById('share-student');
     share.hidden = false;
     share.addEventListener('click', function () {
