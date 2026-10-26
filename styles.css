@@ -369,3 +369,20 @@ html { scroll-padding-top: 12rem; }
 .back-btn:focus-visible { outline: 3px solid var(--blue-bg); outline-offset: 2px; }
 @media (max-width: 560px) { .back-btn { padding: .35rem .55rem; } }
 .unit-num { display: block; font-size: .78rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: .15rem; }
+
+/* Algebra 1 streamlined unit landing pages. Other courses retain their existing layout. */
+.algebra-unit-layout { display: grid; gap: 2.25rem; }
+.algebra-generator-section { padding: 1.35rem; border: 2px solid var(--line); background: var(--wash); border-radius: 18px; }
+.algebra-generator-section > h2, .algebra-unit-section > h2 { font-family: var(--display); font-size: clamp(1.5rem, 2.5vw, 2rem); margin: 0 0 .5rem; }
+.algebra-section-intro { margin: 0 0 1.25rem; color: var(--ink-soft); }
+.algebra-tool-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; padding: 0; margin: 0; list-style: none; }
+.algebra-tool-card { min-width: 0; }
+.algebra-tool-link { display: flex; flex-direction: column; align-items: flex-start; gap: .65rem; height: 100%; padding: 1.3rem; background: var(--card); border: 1px solid var(--line); border-radius: 14px; text-decoration: none; color: var(--ink); transition: border-color .15s, transform .15s; }
+.algebra-tool-link:hover { border-color: var(--blue-text); transform: translateY(-2px); }
+.algebra-tool-link:focus-visible { outline: 3px solid var(--blue-text); outline-offset: 3px; }
+.algebra-tool-link img { width: 145px; max-width: 100%; height: 87px; object-fit: cover; background: white; border: 1px solid var(--line); border-radius: 8px; }
+.algebra-tool-title { font: 800 clamp(1.16rem,2vw,1.42rem)/1.2 var(--display); }
+.algebra-tool-desc { color: var(--ink-soft); line-height: 1.5; }
+.algebra-tool-action { color: var(--blue-text); font-weight: 800; margin-top: auto; padding-top: .4rem; }
+.algebra-unit-section > h2 { padding-bottom: .65rem; border-bottom: 1px solid var(--line); margin-bottom: 1.1rem; }
+@media (max-width: 600px) { .algebra-tool-grid { grid-template-columns: 1fr; } .algebra-generator-section { padding: 1rem; } }
