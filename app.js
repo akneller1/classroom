@@ -600,12 +600,12 @@
 
   function browseState(defaultFormat) {
     var params = new URLSearchParams(token.split('?')[1] || '');
-    return { subject: params.get('subject') || '', unit: params.get('unit') || '',
+    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '',
       format: params.get('format') || defaultFormat || '', page: Math.max(1, parseInt(params.get('page'), 10) || 1) };
   }
   function browseToken(state) {
     var params = new URLSearchParams();
-    ['subject', 'unit', 'format'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    ['subject', 'unit', 'category', 'format'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
     if (state.page > 1) params.set('page', state.page);
     return 'activities' + (params.toString() ? '?' + params.toString() : '');
   }
@@ -613,6 +613,7 @@
     return everything().filter(function (it) {
       return (!state.subject || it.c.id === state.subject) &&
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
+        (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
         (!state.format || activityFormat(it.a) === state.format);
     });
   }
@@ -647,6 +648,7 @@
     var controls = '<div class="browse-filters" role="group" aria-label="Filter activities">' +
       browseSelect('subject', 'Subject', L.courses, state.subject, 'All subjects') +
       browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
+      browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
       browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
       '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
     var pager = '';
