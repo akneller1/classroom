@@ -53,11 +53,11 @@
     var i;
     for (i = xmin; i <= xmax; i++) {
       var major = (i % 5 === 0);
-      o.push('<line x1="' + X(i) + '" y1="' + PAD.t + '" x2="' + X(i) + '" y2="' + (PAD.t + H) + '" stroke="' + (major ? '#555d68' : '#88929d') + '" stroke-width="' + (major ? 1.2 : 0.85) + '"/>');
+      o.push('<line x1="' + X(i) + '" y1="' + PAD.t + '" x2="' + X(i) + '" y2="' + (PAD.t + H) + '" stroke="' + (major ? '#454545' : '#858585') + '" stroke-width="' + (major ? 1.35 : 1.1) + '"/>');
     }
     for (i = ymin; i <= ymax; i++) {
       var majorY = (i % 5 === 0);
-      o.push('<line x1="' + PAD.l + '" y1="' + Y(i) + '" x2="' + (PAD.l + W) + '" y2="' + Y(i) + '" stroke="' + (majorY ? '#555d68' : '#88929d') + '" stroke-width="' + (majorY ? 1.2 : 0.85) + '"/>');
+      o.push('<line x1="' + PAD.l + '" y1="' + Y(i) + '" x2="' + (PAD.l + W) + '" y2="' + Y(i) + '" stroke="' + (majorY ? '#454545' : '#858585') + '" stroke-width="' + (majorY ? 1.35 : 1.1) + '"/>');
     }
     o.push('<rect x="' + PAD.l + '" y="' + PAD.t + '" width="' + W + '" height="' + H + '" fill="none" stroke="#303741" stroke-width="1.15"/>');
     // axes with arrows
