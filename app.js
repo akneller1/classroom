@@ -125,6 +125,15 @@
     if (toArr(a.type).indexOf('Game') >= 0) return 'topic-games';
     return 'other';
   }
+  /* Teaching mode metadata: derived from game mechanics, not the generic 'Game' type. */
+  function gameMode(a) {
+    var f = activityFormat(a);
+    if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
+    if (f === 'escape-rooms') return 'Collaborative Challenges';
+    if (['picture-reveal', 'detective-games', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
+    return '';
+  }
+  var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges'];
   function formatItems(format) {
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
@@ -267,6 +276,7 @@
         (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(unitLabel(it.c, it.u)) + '</p>' : '') +
         '<h3><a href="' + esc(activityUrl(a)) + '">' + esc(a.title) +
           '</a></h3>' +
+        (gameMode(a) ? '<span class="game-mode-tag">' + esc(gameMode(a)) + '</span>' : '') +
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
           saveBtnHtml(a.path) + '</div>' +
@@ -616,12 +626,12 @@
 
   function browseState(defaultFormat) {
     var params = new URLSearchParams(token.split('?')[1] || '');
-    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '',
+    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || '',
       format: params.get('format') || defaultFormat || '', page: Math.max(1, parseInt(params.get('page'), 10) || 1) };
   }
   function browseToken(state) {
     var params = new URLSearchParams();
-    ['subject', 'unit', 'category', 'format'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    ['subject', 'unit', 'category', 'format', 'gameMode'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
     if (state.page > 1) params.set('page', state.page);
     return 'activities' + (params.toString() ? '?' + params.toString() : '');
   }
@@ -630,7 +640,8 @@
       return (!state.subject || it.c.id === state.subject) &&
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
         (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
-        (!state.format || activityFormat(it.a) === state.format);
+        (!state.format || activityFormat(it.a) === state.format) &&
+        (!state.gameMode || gameMode(it.a) === state.gameMode);
     });
   }
   function browseSelect(id, label, choices, selected, allLabel) {
@@ -666,6 +677,7 @@
       browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
       browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
       browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
+      ((state.category === 'games' || state.gameMode) ? browseSelect('gameMode', 'Game Mode', GAME_MODES.map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game modes') : '') +
       '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
     var pager = '';
     if (pages > 1) {
