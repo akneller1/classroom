@@ -256,15 +256,20 @@
     var pts = []; B.pieces.forEach(function (p) { p.pts.forEach(function (q) { pts.push(q); }); });
     var X = function (q) { return q[0] + q[1] / 2; }, Y = function (q) { return -q[1] * S3 / 2; };
     var minX = Math.min.apply(null, pts.map(X)), maxX = Math.max.apply(null, pts.map(X)), minY = Math.min.apply(null, pts.map(Y)), maxY = Math.max.apply(null, pts.map(Y));
-    var large = layout === 'large', sIn = large ? 2.3 : Math.min((layout === 'compact' ? 6.65 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.85 : 6.5) / (maxY - minY)), s = sIn * 96, W = large ? 5.2 * 96 : (maxX - minX) * s, H = large ? 6.55 * 96 : (maxY - minY) * s;
+    var large = layout === 'large';
+    var sIn = large ? 2.15 : Math.min((layout === 'compact' ? 6.5 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.8 : 6.5) / (maxY - minY));
+    var s = sIn * 96, W = large ? 5.45 * 96 : (maxX - minX) * s, H = large ? 6.65 * 96 : (maxY - minY) * s;
     var px = function (q) { return [(X(q) - minX) * s, (Y(q) - minY) * s]; };
-    var fs = large ? 10.2 : (layout === 'compact' ? 7.2 : 8.1);
+    var fs = large ? 10 : (sIn > 1.6 ? 7.6 : 6.8);
     var out = '<svg class="pr-tsvg" width="' + (W / 96) + 'in" height="' + (H / 96) + 'in" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
     var slots = key ? B.pieces.map(function (_, i) { return { piece: i, slot: i, turn: 0 }; }) : B.scrambled;
     if (large) slots = slots.slice((section || 0) * 6, ((section || 0) + 1) * 6);
     slots.forEach(function (sl, si) {
       var slot = B.pieces[sl.slot].pts, pc = B.pieces[sl.piece], P = slot.map(px);
-      if (large) { var lx = Math.min.apply(null, P.map(function (q) { return q[0]; })), ly = Math.min.apply(null, P.map(function (q) { return q[1]; })); P = P.map(function (q) { return [q[0] - lx + (si % 2) * 2.75 * 96 + 12, q[1] - ly + Math.floor(si / 2) * 2.18 * 96 + 8]; }); }
+      if (large) {
+        var bx = Math.min.apply(null, P.map(function (q) { return q[0]; })), by = Math.min.apply(null, P.map(function (q) { return q[1]; }));
+        P = P.map(function (q) { return [q[0] - bx + (si % 2) * 2.75 * 96 + 8, q[1] - by + Math.floor(si / 2) * 2.22 * 96 + 4]; });
+      }
       var cx = (P[0][0] + P[1][0] + P[2][0]) / 3, cy = (P[0][1] + P[1][1] + P[2][1]) / 3;
       out += '<polygon points="' + P.map(function (q) { return q.join(','); }).join(' ') + '" fill="#fff" stroke="#000" stroke-width="1.2"/>';
       var po = orient(pc.pts), so = orient(slot), E = [[0, 1], [1, 2], [2, 0]];
@@ -272,11 +277,11 @@
         var txt = pc.text[po[k]]; if (!txt) continue;
         var e = E[so[(k + sl.turn) % 3]], A = P[e[0]], Bp = P[e[1]], mx = (A[0] + Bp[0]) / 2, my = (A[1] + Bp[1]) / 2;
         var nx = cx - mx, ny = cy - my, nl = Math.sqrt(nx * nx + ny * ny); nx /= nl; ny /= nl;
-        var edgeLength = Math.hypot(Bp[0] - A[0], Bp[1] - A[1]);
-        var len = edgeLength * 0.62, d = edgeLength * 0.19, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
+        var edge = Math.hypot(Bp[0] - A[0], Bp[1] - A[1]);
+        var len = edge * 0.68, d = edge * 0.15, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
         // Stacked fractions need substantially more vertical room than plain text.
-        var ox = mx + nx * d, oy = my + ny * d, hh = edgeLength * 0.17;
-        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + fs.toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
+        var ox = mx + nx * d, oy = my + ny * d, hh = edge * 0.19;
+        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + Math.max(5.5, fs * Math.min(1, 22 / Math.max(1, PR.plain(txt).length))).toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
       }
     });
     return out + '</svg>';
