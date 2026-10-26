@@ -2,7 +2,7 @@
 (function(G){
 'use strict';
 var C=G.MKMENU&&G.MKMENU.check, A=(G.MKPRACTICE=G.MKPRACTICE||{});
-function clean(s){return String(s||'').replace(/[−–]/g,'-').replace(/≤/g,'<=').replace(/≥/g,'>=').trim();}
+function clean(s){return String(s||'').replace(/[−–]/g,'-').replace(/≤/g,'<=').replace(/≥/g,'\\ge ').replace(/≤/g,'\\le ').replace(/>=/g,'\\ge ').replace(/<=/g,'\\le ').trim();}
 function onlyMath(s){var m=/^⟨([\s\S]+)⟩$/.exec(s);return m?m[1]:s;}
 function single(p){
  return !!(p&&p.parts&&p.parts.length===1&&!p.parts[0].answerFig);
