@@ -357,6 +357,127 @@
     }).join('') + '</div>';
   }
 
+  var ALGEBRA_UNIT_SUBSKILLS = {
+  "foundations-algebra": [
+    "Combine like terms",
+    "Distribute and simplify",
+    "Evaluate expressions",
+    "Classify real numbers",
+    "Write expressions from words",
+    "Percent problems",
+    "Find and fix expression errors"
+  ],
+  "expressions-equations": [
+    "One- and two-step equations",
+    "Multi-step equations",
+    "Variables on both sides",
+    "Equations with fractions and decimals",
+    "One, none, or infinitely many solutions",
+    "Proportions",
+    "Literal equations and formulas",
+    "Word problems",
+    "Error analysis"
+  ],
+  "inequalities": [
+    "One- and two-step inequalities",
+    "Multi-step inequalities",
+    "Graph inequalities on number lines",
+    "Compound AND and OR inequalities",
+    "Absolute value inequalities",
+    "Identify solutions",
+    "Write inequalities from words",
+    "Error analysis"
+  ],
+  "relations-functions": [
+    "Domain and range",
+    "Identify functions",
+    "Function notation",
+    "Functions from tables and graphs",
+    "Write rules from representations",
+    "Rates of change",
+    "Increasing and decreasing intervals",
+    "Arithmetic sequences"
+  ],
+  "linear-equations-slope": [
+    "Find slope",
+    "Slope-intercept, point-slope, and standard form",
+    "Write linear equations",
+    "Graph linear functions",
+    "Parallel and perpendicular lines",
+    "Linear models and rates of change",
+    "Transformations of linear functions"
+  ],
+  "systems-of-equations": [
+    "Graph systems and find intersections",
+    "Solve by substitution",
+    "Solve by elimination",
+    "Classify systems by solutions",
+    "Systems word problems",
+    "Graph linear inequalities",
+    "Systems of linear inequalities"
+  ],
+  "exponents-exponential-functions": [
+    "Evaluate powers",
+    "Product and power rules",
+    "Quotient rule",
+    "Zero and negative exponents",
+    "Scientific notation",
+    "Operations with scientific notation",
+    "Simplify square roots"
+  ],
+  "exponential-functions": [
+    "Evaluate exponential functions",
+    "Identify growth and decay",
+    "Initial values and growth factors",
+    "Graph exponential functions",
+    "Compare linear and exponential models",
+    "Write exponential functions",
+    "Exponential equations",
+    "Geometric sequences",
+    "Growth and decay applications"
+  ],
+  "polynomials-factoring": [
+    "Classify polynomials",
+    "Add and subtract polynomials",
+    "Multiply monomials and polynomials",
+    "Special products",
+    "Divide by monomials",
+    "Polynomial applications"
+  ],
+  "factoring-zero-product": [
+    "Factor out the GCF",
+    "Factor trinomials with leading coefficient 1",
+    "Factor trinomials with leading coefficient greater than 1",
+    "Difference of squares and perfect squares",
+    "Solve using the zero-product property",
+    "Factoring word problems"
+  ],
+  "quadratics": [
+    "Features of parabolas",
+    "Graph parabolas",
+    "Vertex and axis of symmetry",
+    "Solve by square roots and factoring",
+    "Completing the square",
+    "Quadratic formula and discriminant",
+    "Transformations of quadratic functions",
+    "Projectile applications"
+  ],
+  "statistics-data-modeling": [
+    "Mean, median, mode, and MAD",
+    "Range, quartiles, and IQR",
+    "Outliers and box plots",
+    "Two-way tables",
+    "Relative frequency",
+    "Scatter plots",
+    "Lines of fit and residuals",
+    "Correlation and causation"
+  ]
+};
+  function subskillsHtml(u) {
+    var skills = ALGEBRA_UNIT_SUBSKILLS[u.id] || [];
+    return '<span class="unit-skills">' + skills.map(function (skill) { return '<span class="unit-skill">' + esc(skill) + '</span>'; }).join('') + '</span>';
+  }
+
   function courseView(c) {
     var n = courseCount(c);
     var inner =
@@ -364,7 +485,7 @@
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon') + '</p>' +
+        '<p class="band-meta">' + (c.id === 'algebra' ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
@@ -380,7 +501,7 @@
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
-            '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
+            '<div class="unit-meta">' + (c.id === 'algebra' ? subskillsHtml(u) : '<span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '')) + '</div></a></li>';
         }).join('') + '</ul></div></section>'
     };
   }
@@ -617,6 +738,8 @@
       var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
     }).join('') + SOON.map(function (c) { return '<span class="soon-link" title="Coming soon">' + esc(c.name) + ' <small>Coming soon</small></span>'; }).join('');
+    var curSaved = r && r.name === 'saved' ? ' aria-current="page"' : '';
+    html += '<a href="#saved"' + curSaved + '>Saved Activities' + (saved.length ? ' <span class="badge" aria-label="' + saved.length + ' saved">' + saved.length + '</span>' : '') + '</a>';
     nav.innerHTML = html;
   }
 
