@@ -94,12 +94,32 @@
     var ttl = title(cfg), line = 'Start in the top-left room. Solve the problem, find the door with your answer, and go through it. Show your work on your answer grid.';
     var P = [{ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, key, ttl, line) + mazeHtml(B, key) + '</div>' }];
     var rows = B.rooms.filter(function (r) { return r.step !== null && !r.finish; }).sort(function (a, b) { return a.step - b.step; });
-    var rh = Math.min(0.78, 6.9 / rows.length);
-    P.push({ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, key, ttl + ': Answer Grid', 'Write each answer in the order you found it, and show your work for that room.', key ? '' : undefined) +
-      '<table class="pm-grid">' + rows.map(function (r, i) {
-        return '<tr style="height:' + rh + 'in"><td class="pm-gn"><span>' + (i + 1) + '</span></td><td class="pm-ga"><small>Answer:</small><div class="pm-gl">' + (key ? '<b class="pc-red">' + mathSafe(r.item.key) + '</b>' : '') + '</div></td>' +
-          '<td class="pm-gw">' + (key ? '<div class="pc-red pm-gs">' + stepsInline(r.item.p) + '</div>' : '<small>Work:</small>') + '</td></tr>';
-      }).join('') + '</table></div>' });
+    if (!key) {
+      // A roomy 2-column × 5-row work grid. Longer mazes continue onto a second
+      // answer page instead of squeezing boxes or omitting any room.
+      for (var start = 0; start < rows.length; start += 10) {
+        var part = rows.slice(start, start + 10);
+        P.push({ nofoot: true, html: '<div class="mm-body pc">' +
+          classicHead(cfg, nV, v, false, ttl + ': Answer Grid' + (start ? ' (continued)' : ''),
+            'Write the answer and show your work for each numbered room.') +
+          '<div class="pm-answer-cards">' + part.map(function (r, i) {
+            return '<section class="pm-answer-card"><div class="pm-answer-number">' + (start + i + 1) +
+              '</div><div class="pm-answer-line"><strong>Answer:</strong><span></span></div>' +
+              '<div class="pm-answer-work">Show your work:</div></section>';
+          }).join('') + '</div></div>' });
+      }
+    } else {
+      var rh = Math.min(0.78, 6.9 / rows.length);
+      P.push({ land: true, nofoot: true, html: '<div class="mm-body pc">' +
+        classicHead(cfg, nV, v, true, ttl + ': Answer Grid',
+          'Answers and worked solutions for rooms on the correct path.', '') +
+        '<table class="pm-grid">' + rows.map(function (r, i) {
+          return '<tr style="height:' + rh + 'in"><td class="pm-gn"><span>' + (i + 1) +
+            '</span></td><td class="pm-ga"><small>Answer:</small><div class="pm-gl"><b class="pc-red">' +
+            mathSafe(r.item.key) + '</b></div></td><td class="pm-gw"><div class="pc-red pm-gs">' +
+            stepsInline(r.item.p) + '</div></td></tr>';
+        }).join('') + '</table></div>' });
+    }
     if (key) {
       var dead = B.rooms.filter(function (r) { return r.step === null; });
       P.push({ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, true, ttl + ': Dead-End Rooms', 'These rooms are not on the path. Their answers are on none of their doors.', '') +
