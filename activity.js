@@ -17,6 +17,7 @@
   var match = null;
   function shareableActivity(activity) {
     if (!activity || /^worksheet-generator\//i.test(activity.path || '')) return false;
+    if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path || '')) return false;
     var name = ((activity.path || '') + ' ' + (activity.title || '')).toLowerCase();
     var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
     return types.some(function (type) { return /^game$/i.test(type); }) ||
