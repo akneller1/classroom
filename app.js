@@ -315,16 +315,16 @@
       title: L.title,
       html:
         '<section class="hero"><div class="wrap">' +
-          '<div class="hero-copy"><h1 tabindex="-1">' + esc(L.title).replace(/&#39;/g, '’') + '</h1>' +
-          '<p class="lede">' + esc(L.tagline) + '</p></div>' +
+          '<div class="hero-copy"><p class="hero-eyebrow">MR. K’S CLASSROOM · BUILT FOR TEACHERS</p><h1 tabindex="-1">Less planning.<br><span>More teaching.</span></h1>' +
+          '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
         '</div></section>' +
         '<section class="section generator-home-section"><div class="wrap">' + generatorLinks(null, null, false) + '</div></section>' +
-        '<section class="section"><div class="wrap"><h2 class="sr">Courses</h2><ul class="courses">' +
+        '<section class="section explore-courses"><div class="wrap"><div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2>Explore by subject</h2><p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses">' +
           L.courses.map(function (c) {
             var n = courseCount(c);
             return '<li><a class="course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
               '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
-              '<p class="count">' + (n ? acts(n) + ' in ' + units(unitsWithActivities(c)) : 'First activities coming soon') + '</p>' +
+              '<p class="count">' + (n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
               artFor(c) + '</a></li>';
           }).join('') + SOON.map(function (c) {
             return '<li><div class="course soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
@@ -537,7 +537,7 @@
         var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
-          '<span class="generator-shortcut-icon" aria-hidden="true">' + tool.icon + '</span>' +
+          '<span class="generator-shortcut-icon" aria-hidden="true">' + ({'lesson-planner':'▤','worksheet-generator':'≡','printable-generator':'✦','assessment-generator':'☑'}[tool.format]) + '</span>' +
           '<span class="generator-shortcut-copy"><strong>' + (compact ? esc(tool.title) : 'Create a ' + esc(tool.title)) + '</strong>' +
           (!compact ? '<small>' + esc(tool.description) + '</small>' : '') +
           '</span></a></li>';
