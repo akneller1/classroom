@@ -422,3 +422,10 @@ html { scroll-padding-top: 12rem; }
 .generator-banner.compact .generator-shortcut-copy strong { font-family: var(--body); font-size: .94rem; }
 @media(max-width:900px) { .generator-shortcuts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media(max-width:520px) { .generator-shortcut { padding: .9rem; } .generator-banner.compact .generator-shortcut { flex-direction: column; align-items: flex-start; } }
+
+/* Support link belongs beneath the content, quietly inside the footer. */
+.site-footer .support-banner { margin-top: 1rem; border-top: 1px solid var(--line); border-bottom: 0; background: transparent; }
+.site-footer .support-row { padding-block: 1.15rem .35rem; }
+.site-footer .support-row p { margin: 0; }
+.site-footer .support-heading { margin-bottom: .15rem; }
+.site-footer .support-button { flex-shrink: 0; }
