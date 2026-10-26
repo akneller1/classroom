@@ -487,7 +487,7 @@
 };
   function subskillsHtml(u) {
     var skills = ALGEBRA_UNIT_SUBSKILLS[u.id] || [];
-    return '<ul class="unit-skills">' + skills.map(function (skill) { return '<li class="unit-skill">' + esc(skill) + '</li>'; }).join('') + '</ul>';
+    return '<ul class="unit-skills">' + skills.slice(0, 4).map(function (skill) { return '<li class="unit-skill">' + esc(skill) + '</li>'; }).join('') + '</ul>' + (skills.length > 4 ? '<span class="unit-skill-more">+' + (skills.length - 4) + ' more topics · View unit</span>' : '');
   }
 
   function courseView(c) {
