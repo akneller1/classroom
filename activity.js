@@ -4,7 +4,11 @@
   var message = document.getElementById('activity-message');
   var original = document.getElementById('original-link');
   var content = document.getElementById('activity-content');
-  var path = new URLSearchParams(window.location.search).get('path');
+  var params = new URLSearchParams(window.location.search);
+  var path = params.get('path');
+  // Presentation-only focus mode. This is NOT authentication or a security boundary.
+  var studentFocus = params.get('student') === '1';
+  if (studentFocus) document.body.classList.add('student-focus');
   // Keep previously shared viewer links working after the worksheet move.
   if (path === 'Mr_Ks_Algebra_Inequalities_Cheat_Sheet.pdf') {
     window.location.replace('activity.html?path=' + encodeURIComponent('artifacts/inequalities-cheat-sheet/worksheet.pdf'));
@@ -32,7 +36,19 @@
   original.href = match.path;
   original.textContent = /\.pdf$/i.test(match.path) ? 'Open / print PDF ↗' : 'Open full page ↗';
   original.setAttribute('aria-label', original.textContent + ' (opens in a new tab)');
-  original.hidden = false;
+  original.hidden = studentFocus;
+  if (!studentFocus) {
+    var share = document.getElementById('share-student');
+    share.hidden = false;
+    share.addEventListener('click', function () {
+      var url = new URL('activity.html', window.location.href);
+      url.search = new URLSearchParams({path: match.path, student: '1'}).toString();
+      var value = url.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () { share.textContent = 'Student link copied!'; }, function () { window.prompt('Copy student link:', value); });
+      } else { window.prompt('Copy student link:', value); }
+    });
+  }
   var details = (window.RESOURCE_DETAILS || {})[match.path];
   var info = document.getElementById('resource-details');
   if (details) {
@@ -41,7 +57,7 @@
     if (details.studentOnly) labels.push('Student worksheets only');
     if (details.referenceSheet) labels.push('Reference sheet');
     info.textContent = labels.join(' · ');
-    if (details.answerKey) {
+    if (details.answerKey && !studentFocus) {
       var key = document.createElement('a');
       key.href = '#teacher-key';
       key.setAttribute('aria-haspopup', 'dialog');
@@ -71,7 +87,7 @@
   var report = document.getElementById('report-problem');
   report.href = 'https://github.com/akneller1/classroom/issues/new?title=' + encodeURIComponent('Resource problem: ' + match.title) +
     '&body=' + encodeURIComponent('Activity: ' + match.title + '\nLink: https://akneller1.github.io/classroom/activity.html?path=' + encodeURIComponent(match.path) + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n');
-  report.hidden = false;
+  report.hidden = studentFocus;
   var frame = document.createElement('iframe');
   frame.className = 'activity-frame';
   frame.title = match.title;
