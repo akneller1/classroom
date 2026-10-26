@@ -60,7 +60,7 @@
   /* Tarsia edges show only the math: "Verb ⟨expr⟩." prompts. */
   /* Shorter wording for a Tarsia edge (the work pages show the full problem). */
   var SHORTEN = [[/^Solve the system( by (substitution|elimination|graphing))?:\s*/, 'Solve '], [/^For (⟨[^⟩]*⟩), find (⟨[^⟩]*⟩)\.?$/, '$1; $2'],
-    [/^Find the slope of the line through /, 'Slope through '], [/^Find the (\d+)(st|nd|rd|th) term of (the (geometric|arithmetic) sequence )?/, 'Term $1: '],
+    [/^Find the slope of the line through /, 'Slope: '], [/^Find the slope through /, 'Slope: '], [/^Find the slope of /, 'Slope: '], [/^Find the (\d+)(st|nd|rd|th) term of (the (geometric|arithmetic) sequence )?/, 'Term $1: '],
     [/^Find the (mean|median|range|mode) of /, '$1: '], [/^Find the mean absolute deviation \(MAD\) of /, 'MAD: '], [/^Find the interquartile range \(IQR\) of /, 'IQR: '],
     [/^Write the equation of the line with slope (⟨[^⟩]*⟩) through (⟨[^⟩]*⟩),? in slope-intercept form\.?$/, 'Line: slope $1, through $2'],
     [/^Write the equation of the line through (⟨[^⟩]*⟩) in slope-intercept form\.?$/, 'Line through $1'],
@@ -70,6 +70,7 @@
   function tarsiaEdge(prompt) {
     var mt = TARSIA_VERB.exec(prompt);
     if (mt && mt[1] === 'Factor completely') mt[1] = 'Factor fully';
+    if (mt && mt[1] === 'Find the slope of') mt[1] = 'Slope:';
     if (mt) return (mt[1] === 'Solve' && /=|<|>|\\le|\\ge/.test(mt[2]) ? '' : mt[1] + ' ') + '⟨' + mt[2] + '⟩';
     var t = prompt;
     SHORTEN.forEach(function (r) { t = t.replace(r[0], r[1]); });
