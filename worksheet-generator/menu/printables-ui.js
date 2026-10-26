@@ -251,17 +251,20 @@
   /* =========================== TARSIA =========================== */
   var S3 = Math.sqrt(3);
   function orient(t) { var a = t[0], b = t[1], c = t[2]; var ax = a[0] + a[1] / 2, ay = a[1] * S3 / 2, bx = b[0] + b[1] / 2, by = b[1] * S3 / 2, cx = c[0] + c[1] / 2, cy = c[1] * S3 / 2; return (bx - ax) * (cy - ay) - (by - ay) * (cx - ax) > 0 ? [0, 1, 2] : [2, 1, 0]; }
-  function tarsiaSvg(B, key) {
+  function tarsiaSvg(B, key, layout, section) {
+    layout = layout || 'standard';
     var pts = []; B.pieces.forEach(function (p) { p.pts.forEach(function (q) { pts.push(q); }); });
     var X = function (q) { return q[0] + q[1] / 2; }, Y = function (q) { return -q[1] * S3 / 2; };
     var minX = Math.min.apply(null, pts.map(X)), maxX = Math.max.apply(null, pts.map(X)), minY = Math.min.apply(null, pts.map(Y)), maxY = Math.max.apply(null, pts.map(Y));
-    var sIn = Math.min(7.3 / (maxX - minX), 6.5 / (maxY - minY)), s = sIn * 96, W = (maxX - minX) * s, H = (maxY - minY) * s;   // drawing units are CSS px
+    var large = layout === 'large', sIn = large ? 2.3 : Math.min((layout === 'compact' ? 6.65 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.85 : 6.5) / (maxY - minY)), s = sIn * 96, W = large ? 5.2 * 96 : (maxX - minX) * s, H = large ? 6.55 * 96 : (maxY - minY) * s;
     var px = function (q) { return [(X(q) - minX) * s, (Y(q) - minY) * s]; };
-    var fs = sIn > 1.6 ? 7.6 : 6.8;
+    var fs = large ? 10.2 : (layout === 'compact' ? 7.2 : 8.1);
     var out = '<svg class="pr-tsvg" width="' + (W / 96) + 'in" height="' + (H / 96) + 'in" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
     var slots = key ? B.pieces.map(function (_, i) { return { piece: i, slot: i, turn: 0 }; }) : B.scrambled;
-    slots.forEach(function (sl) {
+    if (large) slots = slots.slice((section || 0) * 6, ((section || 0) + 1) * 6);
+    slots.forEach(function (sl, si) {
       var slot = B.pieces[sl.slot].pts, pc = B.pieces[sl.piece], P = slot.map(px);
+      if (large) { var lx = Math.min.apply(null, P.map(function (q) { return q[0]; })), ly = Math.min.apply(null, P.map(function (q) { return q[1]; })); P = P.map(function (q) { return [q[0] - lx + (si % 2) * 2.75 * 96 + 12, q[1] - ly + Math.floor(si / 2) * 2.18 * 96 + 8]; }); }
       var cx = (P[0][0] + P[1][0] + P[2][0]) / 3, cy = (P[0][1] + P[1][1] + P[2][1]) / 3;
       out += '<polygon points="' + P.map(function (q) { return q.join(','); }).join(' ') + '" fill="#fff" stroke="#000" stroke-width="1.2"/>';
       var po = orient(pc.pts), so = orient(slot), E = [[0, 1], [1, 2], [2, 0]];
@@ -269,10 +272,11 @@
         var txt = pc.text[po[k]]; if (!txt) continue;
         var e = E[so[(k + sl.turn) % 3]], A = P[e[0]], Bp = P[e[1]], mx = (A[0] + Bp[0]) / 2, my = (A[1] + Bp[1]) / 2;
         var nx = cx - mx, ny = cy - my, nl = Math.sqrt(nx * nx + ny * ny); nx /= nl; ny /= nl;
-        var len = Math.sqrt(Math.pow(Bp[0] - A[0], 2) + Math.pow(Bp[1] - A[1], 2)) * 0.79, d = 19, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
+        var edgeLength = Math.hypot(Bp[0] - A[0], Bp[1] - A[1]);
+        var len = edgeLength * 0.62, d = edgeLength * 0.19, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
         // Stacked fractions need substantially more vertical room than plain text.
-        var ox = mx + nx * d, oy = my + ny * d, hh = /\\frac|\\dfrac|\\tfrac|\\binom/.test(txt) ? 43 : 35;
-        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + Math.max(7, fs * Math.min(1, 27 / Math.max(1, PR.plain(txt).length))).toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
+        var ox = mx + nx * d, oy = my + ny * d, hh = edgeLength * 0.17;
+        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + fs.toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
       }
     });
     return out + '</svg>';
@@ -281,16 +285,19 @@
     return '<div class="pt-head"><div class="pt-title">' + esc(ttl) + (nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '') + '</div><div class="pt-subrow"><span>' + esc(sub) + '</span>' + (nameOn ? '<span>Name: <i class="ln long"></i></span>' : '') + '</div></div>';
   }
   function tarsiaPages(cfg, B, v, nV, key) {
+    var layout = cfg.tarsiaLayout || 'standard', large = layout === 'large';
     var P = [], n = B.items.length, ttl = unitName(cfg) + ' Tarsia', shape = B.shape === 'hexagon' ? 'Hexagon' : 'Triangle';
     if (!key) {
       P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl, 'Mr. K’s Classroom · ' + shape + ' of ' + B.pieces.length + ' triangles, ' + n + ' matches', true) +
         '<div class="pt-dirs"><b>Directions:</b> Solve each problem. Cut out the ' + B.pieces.length + ' triangles. Match each problem to its answer so that touching edges fit, and build a <b>' + B.shape + '</b>. Glue it on a sheet of paper. Show your work for every problem on the work pages (the number before each problem tells you where).</div>' +
-        '<div class="pr-tbox">' + tarsiaSvg(B, false) + '</div></div>' });
+        '<div class="pr-tbox">' + tarsiaSvg(B, false, layout, 0) + '</div></div>' });
+      if (large) for (var ls = 1; ls < Math.ceil(B.pieces.length / 6); ls++) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl, 'Large print · Cut-out sheet ' + (ls + 1), false) + '<div class="pr-tbox">' + tarsiaSvg(B, false, layout, ls) + '</div></div>' });
       var sorted = B.items.slice().sort(function (a, b) { return a.num - b.num; });
       for (var i = 0; i < n; i += 15) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, 'Show Your Work', ttl + ' · Problems ' + (i + 1) + '–' + Math.min(n, i + 15), true) +
         '<div class="pt-grid">' + sorted.slice(i, i + 15).map(function (it) { return '<div><b>' + it.num + '.</b><div>' + mathSafe(it.p.prompt) + '</div></div>'; }).join('') + '</div></div>' });
     } else {
-      P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl + ': Answer Key', 'Solved ' + B.shape + '. Each shared edge pairs a problem with its answer.', false) + '<div class="pr-tbox">' + tarsiaSvg(B, true) + '</div></div>' });
+      P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl + ': Answer Key', 'Solved ' + B.shape + '. Each shared edge pairs a problem with its answer.', false) + '<div class="pr-tbox">' + tarsiaSvg(B, true, layout, 0) + '</div></div>' });
+      if (large) for (var ks = 1; ks < Math.ceil(B.pieces.length / 6); ks++) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl + ': Answer Key', 'Large print · Solution sheet ' + (ks + 1), false) + '<div class="pr-tbox">' + tarsiaSvg(B, true, layout, ks) + '</div></div>' });
       var list = B.items.slice().sort(function (a, b) { return a.num - b.num; });
       P = P.concat(chunkPages(cfg, nV, v, true, 'Answers', list, 15, function (l) {
         return '<table class="mm-tbl mm-key pr-ktbl"><thead><tr><th>#</th><th>Problem</th><th>Answer</th><th>Solution</th></tr></thead><tbody>' + l.map(function (it) {
@@ -408,7 +415,7 @@
     try { var o = JSON.parse(raw); if (o && o.unitId === unit && o.kind === kind) cfg = o; } catch (e) { cfg = null; }
     if (!cfg) cfg = PR.defaultConfig(unit, kind);
     NS.skillSets[unit].skills.forEach(function (s) { if (cfg.skills[s.id] === undefined) cfg.skills[s.id] = true; });
-    var d = PR.defaultConfig(unit, kind); ['story', 'stations', 'perStation'].forEach(function (k) { if (cfg[k] === undefined) cfg[k] = d[k]; });
+    var d = PR.defaultConfig(unit, kind); ['story', 'stations', 'perStation', 'tarsiaLayout'].forEach(function (k) { if (cfg[k] === undefined) cfg[k] = d[k]; });
   }
   function save() { lsSet(KEY + ':' + unit + ':' + kind, JSON.stringify(cfg)); }
   function setHash() { try { G.history.replaceState(null, '', '#unit=' + unit + '&kind=' + kind); } catch (e) { /* ignore */ } }
@@ -425,7 +432,7 @@
     var story = kind === 'who' ? '<label class="field"><span class="lbl">Case</span><select id="prStory"><option value="auto">Surprise me</option>' + Object.keys(PR.CASES).map(function (id) { return '<option value="' + id + '"' + (cfg.story === id ? ' selected' : '') + '>' + esc(PR.CASES[id].name) + '</option>'; }).join('') + '</select></label><p class="hint">The culprit, place and method change with every new set of problems.</p>' : '';
     var st = kind === 'stations' ? '<label class="field"><span class="lbl">Stations</span><select id="prSt">' + [2, 3, 4, 5, 6].map(function (n) { return '<option value="' + n + '"' + ((cfg.stations | 0 || 4) === n ? ' selected' : '') + '>' + n + ' stations</option>'; }).join('') + '</select></label>' +
       '<label class="field"><span class="lbl">Problems per station</span><select id="prPer">' + [6, 8, 10].map(function (n) { return '<option value="' + n + '"' + ((cfg.perStation | 0 || 8) === n ? ' selected' : '') + '>' + n + ' problems</option>'; }).join('') + '</select></label><p class="hint">The checked skills are split, in order, across the stations (never more stations than skills).</p>' : '';
-    h += '<section class="card"><h2>Options</h2>' + story + st + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.SCENES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.SCENES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
+    h += '<section class="card"><h2>Options</h2>' + story + st + (kind === 'tarsia' ? '<label class="field"><span class="lbl">Print layout</span><select id="prTarsiaLayout">' + [['standard','Standard · full puzzle'],['large','Large Print · 6 pieces per page'],['compact','Compact · smaller full puzzle']].map(function (x) { return '<option value="' + x[0] + '"' + ((cfg.tarsiaLayout || 'standard') === x[0] ? ' selected' : '') + '>' + x[1] + '</option>'; }).join('') + '</select></label>' : '') + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.SCENES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.SCENES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
       '<label class="field"><span class="lbl">Versions</span><select id="prVer">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((cfg.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
       '<p><button type="button" class="btn" id="prNew">↻ New problems</button></p><p class="hint">Every answer is checked independently. Every wrong label (a maze door, a Tarsia edge, a student’s wrong answer) is checked to be wrong.</p></section>';
     return h;
@@ -436,6 +443,7 @@
     $$('input[name=prKind]').forEach(function (r) { r.onchange = function () { kind = r.value; load(); setHash(); rebuild(); }; });
     $$('input[name=prLevel]').forEach(function (r) { r.onchange = function () { cfg.level = r.value; save(); rebuild(); }; });
     $$('.prSkill').forEach(function (b) { b.onchange = function () { cfg.skills[b.value] = b.checked; save(); rebuild(); }; });
+    if ($('#prTarsiaLayout')) $('#prTarsiaLayout').onchange = function (e) { cfg.tarsiaLayout = e.target.value; save(); drawPreview(); };
     if ($('#prStory')) $('#prStory').onchange = function (e) { cfg.story = e.target.value; save(); rebuild(); };
     if ($('#prSt')) $('#prSt').onchange = function (e) { cfg.stations = +e.target.value; save(); rebuild(); };
     if ($('#prPer')) $('#prPer').onchange = function (e) { cfg.perStation = +e.target.value; save(); rebuild(); };
