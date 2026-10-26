@@ -536,3 +536,9 @@ body { background:var(--paper); }
 .unit-lesson-details[open] { display:flex; flex-direction:column; }
 .unit-lesson-details[open] > .unit-skills { order:0; }
 .unit-lesson-details[open] > summary { order:1; margin-top:.35rem; }
+
+/* Seamless expanded lesson bullets: no vertical break between items 4 and 5. */
+.algebra-unit-card .unit-lesson-details[open] { margin-top:0; }
+.algebra-unit-card .unit-meta > .unit-skills { margin-bottom:0; }
+.algebra-unit-card .unit-lesson-details[open] > .unit-skills { margin-top:0; margin-bottom:0; }
+.algebra-unit-card .unit-lesson-details[open] > summary { margin-top:.4rem; }
