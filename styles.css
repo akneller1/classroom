@@ -398,3 +398,27 @@ html { scroll-padding-top: 12rem; }
 
 /* Keep Algebra 1 lesson bullets directly beneath the unit heading, not pinned to the card bottom. */
 .unit-meta[data-lesson-list="true"] { margin-top: 0; display: block; }
+
+/* Shared generator shortcut bar: large on home, compact and unit-linked in Algebra 1. */
+.generator-home-section { padding-top: 1.1rem; padding-bottom: .7rem; }
+.generator-banner { background: var(--wash); border: 2px solid var(--line); border-radius: 18px; padding: clamp(1.1rem, 2.6vw, 2rem); }
+.generator-banner-heading { margin-bottom: 1.25rem; }
+.generator-banner-heading h2 { font-family: var(--display); font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.25; margin: 0 0 .4rem; }
+.generator-banner-heading p { color: var(--ink-soft); margin: 0; }
+.generator-shortcuts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .8rem; }
+.generator-shortcuts li { min-width: 0; }
+.generator-shortcut { display: flex; flex-direction: column; gap: .8rem; height: 100%; padding: 1.15rem; text-decoration: none; color: var(--ink); border-radius: 12px; background: var(--card); border: 1px solid var(--line); }
+.generator-shortcut:hover { border-color: var(--blue-text); background: var(--paper); }
+.generator-shortcut:focus-visible { outline: 3px solid var(--blue-text); outline-offset: 3px; }
+.generator-shortcut-icon { font-size: 1.75rem; line-height: 1; }
+.generator-shortcut-copy { display: grid; gap: .35rem; }
+.generator-shortcut-copy strong { font-family: var(--display); font-size: 1.1rem; }
+.generator-shortcut-copy small { color: var(--ink-soft); font-size: .87rem; line-height: 1.45; }
+.generator-banner.compact { padding: 1rem 1.25rem; }
+.generator-banner.compact .generator-banner-heading { margin-bottom: .85rem; }
+.generator-banner.compact .generator-banner-heading h2 { font-size: 1.4rem; margin: 0; }
+.generator-banner.compact .generator-shortcut { flex-direction: row; align-items: center; gap: .55rem; padding: .9rem; }
+.generator-banner.compact .generator-shortcut-icon { font-size: 1.35rem; }
+.generator-banner.compact .generator-shortcut-copy strong { font-family: var(--body); font-size: .94rem; }
+@media(max-width:900px) { .generator-shortcuts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:520px) { .generator-shortcut { padding: .9rem; } .generator-banner.compact .generator-shortcut { flex-direction: column; align-items: flex-start; } }
