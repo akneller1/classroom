@@ -25,7 +25,7 @@ function grade(p,typed){
  if(input.length>140)return {status:'invalid',message:'Answer is too long; enter the final answer only.'};
  try{
    if(/^x\s*(?:<|>|\\le|\\ge|≤|≥)/.test(target)||/^(?:-?\d+(?:\.\d+)?|\\frac\{[^{}]+\}\{[^{}]+\})\s*(?:<|>|\\le|\\ge)/.test(target)){
-     if(!/(?:<|>|<=|>=|≤|≥)/.test(input))return {status:'invalid',message:'Enter an inequality such as x < 3.'};
+     if(!/(?:<|>|\\le|\\ge|≤|≥)/.test(input))return {status:'invalid',message:'Enter an inequality such as x < 3.'};
      if(!C.solvedForm('⟨'+input+'⟩','x'))return {status:'invalid',message:'Solve the inequality for x before checking.'};
      return {status:C.setEqual(C.solutionSet(target,'x'),C.solutionSet(input,'x'))?'correct':'incorrect'};
    }
