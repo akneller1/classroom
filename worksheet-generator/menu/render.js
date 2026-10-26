@@ -320,7 +320,7 @@
         if (b.page === 'new' && cur.body.childNodes.length) start();
         // keep a heading together with the next block
         var group = [b]; if (b.keep && blocks[i + 1]) group.push(blocks[i + 1]);
-        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); cur.body.appendChild(e); return e; });
+        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); if (kind === 'student' && NS.isWorksheet(state.config) && g.cls === 'tight' && (+state.config.layout.spaceAdjust || 0) > 0) e.style.paddingTop = (Math.min(10, Math.max(0, +state.config.layout.spaceAdjust)) * 9) + 'px'; cur.body.appendChild(e); return e; });
         if (cur.body.scrollHeight > cur.body.clientHeight + 1) {
           els.forEach(function (e) { cur.body.removeChild(e); });
           if (cur.body.childNodes.length) {
