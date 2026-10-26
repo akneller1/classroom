@@ -269,9 +269,10 @@
         var txt = pc.text[po[k]]; if (!txt) continue;
         var e = E[so[(k + sl.turn) % 3]], A = P[e[0]], Bp = P[e[1]], mx = (A[0] + Bp[0]) / 2, my = (A[1] + Bp[1]) / 2;
         var nx = cx - mx, ny = cy - my, nl = Math.sqrt(nx * nx + ny * ny); nx /= nl; ny /= nl;
-        var len = Math.sqrt(Math.pow(Bp[0] - A[0], 2) + Math.pow(Bp[1] - A[1], 2)) * 0.76, d = 13, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
-        var ox = mx + nx * d, oy = my + ny * d, hh = 21;
-        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + Math.max(6.2, fs * Math.min(1, 22 / Math.max(1, PR.plain(txt).length))).toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
+        var len = Math.sqrt(Math.pow(Bp[0] - A[0], 2) + Math.pow(Bp[1] - A[1], 2)) * 0.79, d = 19, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
+        // Stacked fractions need substantially more vertical room than plain text.
+        var ox = mx + nx * d, oy = my + ny * d, hh = /\\frac|\\dfrac|\\tfrac|\\binom/.test(txt) ? 43 : 35;
+        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + Math.max(7, fs * Math.min(1, 27 / Math.max(1, PR.plain(txt).length))).toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
       }
     });
     return out + '</svg>';
