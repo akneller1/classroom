@@ -16,13 +16,17 @@
     });
   });
 </script>
+<style>
+body.student-focus .activity-bar{justify-content:center}body.student-focus #back-button,body.student-focus .activity-bar a,body.student-focus #share-student,body.student-focus .resource-toolbar,body.student-focus #teacher-key-dialog{display:none!important}body.student-focus .activity-bar h1{text-align:center}body.student-focus .activity-frame{min-height:calc(100vh - 90px)}
+</style>
 </head>
 <body>
-<header class="activity-bar">
+<header class="activity-bar" id="activity-header">
   <button type="button" class="home-button back-button" id="back-button" aria-label="Back to the previous page"><span aria-hidden="true">←</span> Back</button>
   <a class="home-button" href="./" aria-label="Home — Mr. K’s Classroom"><span aria-hidden="true">⌂</span> Home</a>
   <h1 id="activity-title">Mr. K’s Classroom</h1>
   <a class="original-link" id="original-link" target="_blank" rel="noopener" hidden>Open original</a>
+  <button type="button" class="home-button" id="share-student" hidden>Copy student link</button>
 </header>
 <div class="resource-toolbar"><p id="resource-details"></p><a id="report-problem" target="_blank" rel="noopener" hidden>Report a problem (GitHub account required) ↗</a></div>
 <main id="activity-content">
