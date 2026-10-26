@@ -486,9 +486,11 @@
       var el = fo.querySelector('.pr-tt'), span = el && el.querySelector('span');
       if (!span) return;
       span.style.transform = 'none';
-      var rect = span.getBoundingClientRect(), w = +fo.getAttribute('width'), h = +fo.getAttribute('height');
-      var sx = Math.min(1, Math.max(0.1, (w - 8) / Math.max(rect.width, 1)));
-      var sy = Math.min(1, Math.max(0.1, (h - 4) / Math.max(rect.height, 1)));
+      var w = +fo.getAttribute('width'), h = +fo.getAttribute('height');
+      // scrollWidth/scrollHeight are unrotated; getBoundingClientRect includes the SVG edge rotation.
+      var textWidth = Math.max(span.scrollWidth, span.offsetWidth, 1), textHeight = Math.max(span.scrollHeight, span.offsetHeight, 1);
+      var sx = Math.min(1, (w - 8) / textWidth);
+      var sy = Math.min(1, (h - 4) / textHeight);
       var scale = Math.min(sx, sy);
       span.style.transform = 'scale(' + scale.toFixed(4) + ')';
     });
