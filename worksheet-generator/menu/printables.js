@@ -81,10 +81,10 @@
   /* Edge labels share tiny triangles. Reject dense math rather than printing unreadable text. */
   function tarsiaSafe(s, max) {
     var t = plain(s).replace(/\s+/g, '');
-    var fractions = (String(s).match(/\\\\(?:dfrac|frac|tfrac)/g) || []).length;
-    var tokens = (String(s).match(/\\\\(?:sqrt|binom|sum|int)/g) || []).length;
+    var fractions = (String(s).match(/\\(?:dfrac|frac|tfrac)/g) || []).length;
+    var tokens = (String(s).match(/\\(?:sqrt|binom|sum|int)/g) || []).length;
     return t.length + fractions * 4 + tokens * 4 <= max &&
-      !/\\\\(?:begin|matrix|cases|underbrace|overbrace)/.test(s);
+      !/\\(?:begin|matrix|cases|underbrace|overbrace)/.test(s);
   }
   PR.tarsiaSafe = tarsiaSafe;
   PR.tarsiaEdge = tarsiaEdge;
