@@ -101,6 +101,7 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources.' }
   ];
   function activityFormat(a) {
+    if (/worksheet-generator\/practice-test\.html/i.test(a.path || '')) return 'interactive-practice-test';
     if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
     if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
     if (/worksheet-generator\/menu-assessment/i.test(a.path || '')) return 'assessment-generator';
@@ -140,7 +141,7 @@
   var RESOURCE_GROUPS = [
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
-    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards'] },
+    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards', 'interactive-practice-test'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
@@ -244,6 +245,7 @@
     if (format === 'worksheet-generator') return 'Create worksheet';
     if (format === 'assessment-generator') return 'Build assessment';
     if (format === 'cheat-sheets') return 'View study guide';
+    if (format === 'interactive-practice-test') return 'Take practice test';
     if (format === 'flashcards') return 'Study flashcards';
     if (/\.pdf$/i.test(a.path)) return 'Open PDF';
     return toArr(a.type).indexOf('Game') >= 0 ? 'Play' : 'Open activity';
