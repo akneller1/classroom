@@ -261,3 +261,8 @@
 .pm-answer-line{display:flex;align-items:baseline;gap:.12in;font-size:10pt}
 .pm-answer-line span{flex:1;border-bottom:1px solid #111;min-width:0;height:.17in}
 .pm-answer-work{font-size:8pt;color:#555;margin-top:.13in}
+
+/* Maximize writing room: numbers are small corner markers, not content rows. */
+.pm-answer-cards{grid-template-rows:repeat(5,1.62in);gap:.075in;margin-top:.065in}
+.pm-answer-card{padding:.075in .09in}
+.pm-answer-number{position:absolute;top:.055in;left:.075in;width:.2in;height:.2in;font-size:7pt;line-height:1;margin:0;border-radius:4px}
