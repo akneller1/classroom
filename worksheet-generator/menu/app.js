@@ -545,7 +545,7 @@
     function seg(name, opts, val) { return '<div class="seg" role="radiogroup" aria-label="' + name + '">' + opts.map(function (o, i) { var id = 'mmL' + name.replace(/\W/g, '') + i; return '<input type="radio" id="' + id + '" name="mmL' + name.replace(/\W/g, '') + '" value="' + o[0] + '"' + (val === o[0] ? ' checked' : '') + '><label for="' + id + '">' + o[1] + '</label>'; }).join('') + '</div>'; }
     return '<div class="card mm-layout"><h2>Print layout</h2>' +
       (isTest() ? '' : '<div class="field"><span class="lbl">Format</span>' + seg('Format', [['together', 'Problems with workspace'], ['menu-only', 'Menu + separate work pages']], L.format) + '</div>') +
-      '<div class="field"><span class="lbl">Spacing</span>' + seg('Spacing', [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious'], ['fill', 'Fill the page']], L.density) + '</div>' +
+      '<div class="field"><span class="lbl">Spacing</span>' + seg('Spacing', (NS.isWorksheet(S.config) ? [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious'], ['fill', 'Fill the page']] : [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious']]), L.density) + '</div>' +
       '<div class="field"><span class="lbl">Workspace</span>' + seg('Workspace', [['none', 'Blank'], ['graph', 'Graph paper'], ['coordinate', 'Coordinate plane']], L.grid) + '</div>' +
       '<label class="chk"><input type="checkbox" id="mmLRef"' + (L.reference ? ' checked' : '') + '><span>Add a reference page for students</span></label>' +
       '<label class="chk"><input type="checkbox" id="mmLGuide"' + (L.guide !== false ? ' checked' : '') + '><span>Include the teacher guide page in the key</span></label></div>';
