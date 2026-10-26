@@ -336,6 +336,23 @@
         }
         i += group.length;
       }
+      // Fill-page mode is applied only after normal browser-measured pagination.
+      // Increase spacing between question rows without resizing text, splitting blocks,
+      // altering the answer key or generating an extra page.
+      if (kind === 'student' && NS.isWorksheet(state.config) && state.config.layout.density === 'fill') {
+        pages.forEach(function (p) {
+          var rows = Array.prototype.slice.call(p.body.querySelectorAll(':scope > .mm-blk.tight'));
+          var spare = p.body.clientHeight - p.body.scrollHeight;
+          if (rows.length < 2 || spare < 12) return;
+          // A cap avoids huge empty areas on a final page with only a few questions.
+          var pad = Math.min(76, Math.max(0, (spare - 5) / rows.length));
+          rows.forEach(function (row) { row.style.paddingTop = pad.toFixed(2) + 'px'; });
+          // Browsers can round fractional pixels differently: undo if anything clips.
+          if (p.body.scrollHeight > p.body.clientHeight + 1) {
+            rows.forEach(function (row) { row.style.paddingTop = ''; });
+          }
+        });
+      }
       pages.forEach(function (p, k) { p.page.querySelector('.mm-pno').textContent = 'Page ' + (k + 1) + ' of ' + pages.length; stage.removeChild(p.page); });
       doc.body.removeChild(stage);
       var out = pages.map(function (p) { return p.page; });
