@@ -279,3 +279,8 @@
 .pr-tt>span{display:block;max-width:100%;overflow:visible}
 .pr-tt .katex{line-height:1.2;white-space:nowrap}
 .pr-tsvg foreignObject{overflow:visible}
+
+/* Tarsia edge labels: centered, measured math; never spill into neighboring strips. */
+.pr-tt{width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden!important;padding:0 2px;line-height:1;box-sizing:border-box}
+.pr-tt>span{display:inline-block;flex:none;width:max-content;max-width:none;white-space:nowrap;transform-origin:center center}
+.pr-tsvg foreignObject{overflow:visible}
