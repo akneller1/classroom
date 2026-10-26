@@ -524,3 +524,10 @@ body { background:var(--paper); }
 .unit-lesson-details[open] .unit-skills { margin-top:.6rem; }
 .algebra-unit-card .unit-open-link { margin-top:auto; padding-top:.75rem; font-weight:800; font-size:.9rem; color:var(--blue-text); text-decoration:none; }
 .algebra-unit-card .unit-open-link:hover { text-decoration:underline; text-underline-offset:3px; }
+
+/* Teaching-mode chips for game discovery and lesson planning. */
+.game-mode-tag { display:inline-flex; align-items:center; align-self:flex-start; width:max-content; max-width:100%; padding:.3rem .65rem; margin:.2rem 0 .55rem; border:1px solid #cad8f7; border-radius:999px; color:#294b90; background:#edf3ff; font-size:.78rem; line-height:1.3; font-weight:800; }
+@media (prefers-color-scheme:dark) { .game-mode-tag { border-color:#566ba2; color:#d7e3ff; background:#263558; } }
+.browse-filters { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media(max-width:900px) { .browse-filters { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:540px) { .browse-filters { grid-template-columns:1fr; } }
