@@ -266,3 +266,10 @@
 .pm-answer-cards{grid-template-rows:repeat(5,1.62in);gap:.075in;margin-top:.065in}
 .pm-answer-card{padding:.075in .09in}
 .pm-answer-number{position:absolute;top:.055in;left:.075in;width:.2in;height:.2in;font-size:7pt;line-height:1;margin:0;border-radius:4px}
+
+/* Print readability: Partner Check graphs get more of each problem box.
+   Keep SVG proportions intact and allow pagination to reduce problems per page. */
+.pp-grid{grid-auto-rows:minmax(1.92in,auto)}
+.pp-box .mm-fig:not(.mm-fig-table):not(.mm-fig-twoway):not(.mm-fig-mapping){max-width:68%;float:right;margin:0 0 .06in .1in}
+.pp-box .mm-fig svg{max-height:1.38in;width:auto;max-width:100%;height:auto}
+.pp-box .mm-fig-plane svg{max-height:1.48in}
