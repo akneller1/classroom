@@ -492,7 +492,16 @@
 };
   function subskillsHtml(u) {
     var skills = ALGEBRA_UNIT_SUBSKILLS[u.id] || [];
-    return '<ul class="unit-skills">' + skills.slice(0, 4).map(function (skill) { return '<li class="unit-skill">' + esc(skill) + '</li>'; }).join('') + '</ul>' + (skills.length > 4 ? '<span class="unit-skill-more">+' + (skills.length - 4) + ' more topics · View unit</span>' : '');
+    function lines(list) {
+      return '<ul class="unit-skills">' + list.map(function (skill) {
+        return '<li class="unit-skill">' + esc(skill) + '</li>';
+      }).join('') + '</ul>';
+    }
+    if (skills.length <= 4) return lines(skills);
+    return lines(skills.slice(0, 4)) +
+      '<details class="unit-lesson-details"><summary><span class="show-label">Show all ' + skills.length + ' lessons</span>' +
+      '<span class="hide-label">Show fewer lessons</span></summary>' +
+      lines(skills.slice(4)) + '</details>';
   }
 
   function courseView(c) {
@@ -517,8 +526,15 @@
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
+          if (c.id === 'algebra') {
+            return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
+              '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
+              '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
+              '<div class="unit-meta" data-lesson-list="true">' + subskillsHtml(u) + '</div>' +
+              '<a class="unit-open-link" href="' + href(unitToken(c, u)) + '">Open unit →</a></div></li>';
+          }
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
-            '<div class="unit-meta"' + (c.id === 'algebra' ? ' data-lesson-list="true"' : '') + '>' + (c.id === 'algebra' ? subskillsHtml(u) : '<span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '')) + '</div></a></li>';
+            '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
         }).join('') + '</ul></div></section>'
     };
   }
