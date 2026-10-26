@@ -359,123 +359,134 @@
 
   var ALGEBRA_UNIT_SUBSKILLS = {
   "foundations-algebra": [
-    "Combine like terms",
-    "Distribute and simplify",
-    "Evaluate expressions",
-    "Classify real numbers",
-    "Write expressions from words",
-    "Percent problems",
-    "Find and fix expression errors"
+    "Variables, Expressions, and Verbal Phrases",
+    "Order of Operations and Evaluating Expressions",
+    "The Real Number System",
+    "Operations with Real Numbers",
+    "Properties of Real Numbers",
+    "Distributive Property and Combining Like Terms",
+    "Interpreting Expressions in Context"
   ],
   "expressions-equations": [
-    "One- and two-step equations",
-    "Multi-step equations",
-    "Variables on both sides",
-    "Equations with fractions and decimals",
-    "One, none, or infinitely many solutions",
-    "Proportions",
-    "Literal equations and formulas",
-    "Word problems",
-    "Error analysis"
+    "Solving One-Step Equations",
+    "Solving Two-Step Equations",
+    "Solving Multi-Step Equations",
+    "Equations with Variables on Both Sides",
+    "Special Solutions: No Solution and Infinitely Many",
+    "Writing and Solving Equations from Context",
+    "Ratios, Proportions, and Percent Equations",
+    "Literal Equations and Formulas",
+    "Units and Dimensional Analysis"
   ],
   "inequalities": [
-    "One- and two-step inequalities",
-    "Multi-step inequalities",
-    "Graph inequalities on number lines",
-    "Compound AND and OR inequalities",
-    "Absolute value inequalities",
-    "Identify solutions",
-    "Write inequalities from words",
-    "Error analysis"
+    "Writing and Graphing Inequalities",
+    "Solving One- and Two-Step Inequalities",
+    "Multi-Step Inequalities",
+    "Compound Inequalities",
+    "Absolute Value Equations and Inequalities",
+    "Inequalities in Context"
   ],
   "relations-functions": [
-    "Domain and range",
-    "Identify functions",
-    "Function notation",
-    "Functions from tables and graphs",
-    "Write rules from representations",
-    "Rates of change",
-    "Increasing and decreasing intervals",
-    "Arithmetic sequences"
+    "Representing Relations",
+    "Domain and Range",
+    "Identifying Functions",
+    "Function Notation and Evaluating Functions",
+    "Key Features of Function Graphs",
+    "Sketching Graphs from Verbal Descriptions",
+    "Discrete vs. Continuous Functions and Domain in Context",
+    "Arithmetic Sequences as Functions"
   ],
   "linear-equations-slope": [
-    "Find slope",
-    "Slope-intercept, point-slope, and standard form",
-    "Write linear equations",
-    "Graph linear functions",
-    "Parallel and perpendicular lines",
-    "Linear models and rates of change",
-    "Transformations of linear functions"
+    "Rate of Change and Slope",
+    "Slope from Graphs, Tables, and Two Points",
+    "Slope-Intercept Form",
+    "Graphing Lines in Slope-Intercept Form",
+    "Standard Form and Intercepts",
+    "Point-Slope Form",
+    "Writing Linear Equations from Graphs, Tables, and Points",
+    "Parallel and Perpendicular Lines",
+    "Transformations of Linear Functions",
+    "Linear Models in Context",
+    "Comparing Linear Functions in Different Representations"
   ],
   "systems-of-equations": [
-    "Graph systems and find intersections",
-    "Solve by substitution",
-    "Solve by elimination",
-    "Classify systems by solutions",
-    "Systems word problems",
-    "Graph linear inequalities",
-    "Systems of linear inequalities"
+    "Solving Systems by Graphing",
+    "Solving Systems by Substitution",
+    "Solving Systems by Elimination (Add/Subtract)",
+    "Elimination with Multiplication",
+    "Special Systems: No Solution and Infinitely Many",
+    "Choosing a Method and Writing Systems from Context",
+    "Systems Applications",
+    "Graphing Linear Inequalities in Two Variables",
+    "Systems of Linear Inequalities",
+    "Modeling with Constraints"
   ],
   "exponents-exponential-functions": [
-    "Evaluate powers",
-    "Product and power rules",
-    "Quotient rule",
-    "Zero and negative exponents",
-    "Scientific notation",
-    "Operations with scientific notation",
-    "Simplify square roots"
+    "Product and Power Rules",
+    "Quotient Rule, Zero and Negative Exponents",
+    "Simplifying with Multiple Exponent Rules",
+    "Rational Exponents and Radicals",
+    "Scientific Notation",
+    "Operations with Scientific Notation in Context"
   ],
   "exponential-functions": [
-    "Evaluate exponential functions",
-    "Identify growth and decay",
-    "Initial values and growth factors",
-    "Graph exponential functions",
-    "Compare linear and exponential models",
-    "Write exponential functions",
-    "Exponential equations",
-    "Geometric sequences",
-    "Growth and decay applications"
+    "Linear vs. Exponential Patterns",
+    "Exponential Functions: Graphs and Key Features",
+    "Exponential Growth",
+    "Exponential Decay",
+    "Writing Exponential Functions",
+    "Compound Interest and Percent Rate of Change",
+    "Geometric Sequences",
+    "Comparing Linear and Exponential Models",
+    "Solving Exponential Equations"
   ],
   "polynomials-factoring": [
-    "Classify polynomials",
-    "Add and subtract polynomials",
-    "Multiply monomials and polynomials",
-    "Special products",
-    "Divide by monomials",
-    "Polynomial applications"
+    "Classifying Polynomials",
+    "Adding and Subtracting Polynomials",
+    "Multiplying a Monomial by a Polynomial",
+    "Multiplying Binomials",
+    "Multiplying Polynomials and Special Products",
+    "Polynomials in Context and Closure"
   ],
   "factoring-zero-product": [
-    "Factor out the GCF",
-    "Factor trinomials with leading coefficient 1",
-    "Factor trinomials with leading coefficient greater than 1",
-    "Difference of squares and perfect squares",
-    "Solve using the zero-product property",
-    "Factoring word problems"
+    "Factoring the Greatest Common Factor",
+    "Factoring by Grouping",
+    "Factoring x² + bx + c",
+    "Factoring ax² + bx + c",
+    "Special Factoring Patterns",
+    "Factoring Completely",
+    "The Zero Product Property",
+    "Solving Quadratic Equations by Factoring",
+    "Factoring Applications"
   ],
   "quadratics": [
-    "Features of parabolas",
-    "Graph parabolas",
-    "Vertex and axis of symmetry",
-    "Solve by square roots and factoring",
-    "Completing the square",
-    "Quadratic formula and discriminant",
-    "Transformations of quadratic functions",
-    "Projectile applications"
+    "Key Features of Quadratic Graphs",
+    "Graphing Quadratics in Standard Form",
+    "Vertex Form and Transformations",
+    "Factored Form and Connecting Forms",
+    "Solving Quadratics by Graphing",
+    "Solving by Square Roots",
+    "Completing the Square",
+    "The Quadratic Formula",
+    "The Discriminant",
+    "Choosing a Solution Method",
+    "Quadratic Models: Projectiles and Area",
+    "Comparing Linear, Exponential, and Quadratic Models"
   ],
   "statistics-data-modeling": [
-    "Mean, median, mode, and MAD",
-    "Range, quartiles, and IQR",
-    "Outliers and box plots",
-    "Two-way tables",
-    "Relative frequency",
-    "Scatter plots",
-    "Lines of fit and residuals",
-    "Correlation and causation"
+    "Dot Plots, Histograms, and Box Plots",
+    "Measures of Center and Spread",
+    "Comparing Distributions: Shape and Outliers",
+    "Two-Way Frequency Tables",
+    "Scatter Plots and Association",
+    "Lines of Fit",
+    "Correlation Coefficient and Causation",
+    "Residuals and Regression with Technology"
   ]
 };
   function subskillsHtml(u) {
     var skills = ALGEBRA_UNIT_SUBSKILLS[u.id] || [];
-    return '<span class="unit-skills">' + skills.map(function (skill) { return '<span class="unit-skill">' + esc(skill) + '</span>'; }).join('') + '</span>';
+    return '<ul class="unit-skills">' + skills.map(function (skill) { return '<li class="unit-skill">' + esc(skill) + '</li>'; }).join('') + '</ul>';
   }
 
   function courseView(c) {
