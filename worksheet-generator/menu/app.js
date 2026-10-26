@@ -546,6 +546,7 @@
     return '<div class="card mm-layout"><h2>Print layout</h2>' +
       (isTest() ? '' : '<div class="field"><span class="lbl">Format</span>' + seg('Format', [['together', 'Problems with workspace'], ['menu-only', 'Menu + separate work pages']], L.format) + '</div>') +
       '<div class="field"><span class="lbl">Spacing</span>' + seg('Spacing', [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious']], L.density) + '</div>' +
+      (NS.isWorksheet(S.config) ? '<div class="field"><span class="lbl">Fine-tune spacing</span><div class="mm-spacing-stepper">' + '<button type="button" id="mmSpaceMinus" aria-label="Decrease spacing">−</button>' + '<output id="mmSpaceValue">' + (+L.spaceAdjust || 0) + ' / 10</output>' + '<button type="button" id="mmSpacePlus" aria-label="Increase spacing">+</button></div></div>' : '') +
       '<div class="field"><span class="lbl">Workspace</span>' + seg('Workspace', [['none', 'Blank'], ['graph', 'Graph paper'], ['coordinate', 'Coordinate plane']], L.grid) + '</div>' +
       '<label class="chk"><input type="checkbox" id="mmLRef"' + (L.reference ? ' checked' : '') + '><span>Add a reference page for students</span></label>' +
       '<label class="chk"><input type="checkbox" id="mmLGuide"' + (L.guide !== false ? ' checked' : '') + '><span>Include the teacher guide page in the key</span></label></div>';
@@ -561,6 +562,16 @@
     var L = S.config.layout;
     $$('input[name=mmLFormat]').forEach(function (r) { r.onchange = function () { snapshot(); L.format = r.value; autosave(); drawPreview(); }; });
     $('input[name=mmLSpacing]').forEach(function (r) { r.onchange = function () { snapshot(); L.density = r.value; autosave(); drawPreview(); }; });
+    function changeSpacing(amount) {
+      var next = Math.max(0, Math.min(10, (+L.spaceAdjust || 0) + amount));
+      if (next === (+L.spaceAdjust || 0)) return;
+      snapshot(); L.spaceAdjust = next; autosave();
+      var output = $('#mmSpaceValue');
+      if (output) output.textContent = next + ' / 10';
+      drawPreview();
+    }
+    if ($('#mmSpaceMinus')) $('#mmSpaceMinus').onclick = function () { changeSpacing(-1); };
+    if ($('#mmSpacePlus')) $('#mmSpacePlus').onclick = function () { changeSpacing(1); };
     $$('input[name=mmLWorkspace]').forEach(function (r) { r.onchange = function () { snapshot(); L.grid = r.value; autosave(); drawPreview(); }; });
     $('#mmLRef').onchange = function (e) { snapshot(); L.reference = e.target.checked; autosave(); drawPreview(); };
     $('#mmLGuide').onchange = function (e) { snapshot(); L.guide = e.target.checked; autosave(); drawPreview(); };
