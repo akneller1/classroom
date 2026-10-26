@@ -158,6 +158,11 @@ def main():
                     problems.append('%s/%s: needs exactly one Daily Lesson Planner (found %d)' % (c['id'], u['id'], len(links)))
                 elif links[0].split('#unit=')[-1] not in skill_sets():
                     problems.append('%s/%s: Daily Lesson Planner points at unknown skill set "%s"' % (c['id'], u['id'], links[0].split('#unit=')[-1]))
+        for u in c['units']:   # every cheat sheet is built by scripts/cheat-sheets (one style; Andrey 2026-10-25)
+            for a in u['artifacts']:
+                m = re.match(r'artifacts/(.+)-cheat-sheet/worksheet\.pdf$', a['path'])
+                if m and not os.path.exists(os.path.join(ROOT, 'scripts', 'cheat-sheets', 'content', m.group(1) + '.cjs')):
+                    problems.append('%s/%s: cheat sheet "%s" has no content file scripts/cheat-sheets/content/%s.cjs (build it in the shared style)' % (c['id'], u['id'], a['title'], m.group(1)))
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:

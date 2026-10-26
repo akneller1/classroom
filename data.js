@@ -278,7 +278,7 @@ window.LIBRARY = {
               "title": "Foundations of Algebra Cheat Sheet",
               "path": "artifacts/foundations-algebra-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/foundations-algebra-cheat-sheet.jpg",
-              "description": "Colorful two-page printable study guide: vocabulary, order of operations, evaluating, the real numbers, properties, like terms, the distributive property, words to algebra and integers.",
+              "description": "Two-page printable cheat sheet. Front: variables, order of operations, real numbers, properties and simplifying. Back: like terms, the distributive property, words to algebra and integers. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
@@ -457,18 +457,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Expressions & Equations Cheat Sheet",
+              "title": "Solving Linear Equations Cheat Sheet",
               "path": "artifacts/expressions-equations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/expressions-equations-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Expressions, equations, order of operations, combining like terms, multi-step solving, proportions and formulas.",
+              "thumb": "thumbs/expressions-equations-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: solving one-step, two-step and multi-step equations, and checking solutions. Back: writing equations from words, proportions, percents and literal equations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Expressions & Equations",
-                "Units 1–2"
+                "Solving Linear Equations",
+                "Unit 2"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Solving Equations Flashcards",
@@ -710,18 +710,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Inequalities Cheat Sheet",
+              "title": "Linear Inequalities Cheat Sheet",
               "path": "artifacts/inequalities-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/inequalities-cheat-sheet.svg",
-              "description": "Colorful, two-page printable reference sheet covering inequality vocabulary and symbols, number-line graphs, solving and checking inequalities, compound inequalities, and common mistakes.",
+              "thumb": "thumbs/inequalities-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: writing, solving and graphing inequalities. Back: compound inequalities, absolute value and inequalities in context. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
-                "Inequality symbols and vocabulary",
-                "Number-line graphs",
-                "Solving inequalities",
-                "Compound inequalities"
+                "Cheat sheet",
+                "Reference",
+                "Linear Inequalities",
+                "Unit 3"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Linear Inequalities Flashcards",
@@ -1042,7 +1042,7 @@ window.LIBRARY = {
               "title": "Relations and Functions Cheat Sheet",
               "path": "artifacts/relations-functions-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/relations-functions-cheat-sheet.jpg",
-              "description": "Colorful two-page printable study guide: vocabulary, is it a function, domain and range, function notation, solving f(x) = k, rate of change, linear vs. nonlinear, arithmetic sequences and reading graphs.",
+              "description": "Two-page printable cheat sheet. Front: relations, functions, domain and range, and function notation. Back: rate of change, linear vs. nonlinear, sequences and reading graphs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
@@ -1225,17 +1225,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Linear Equations & Slope Cheat Sheet",
+              "title": "Linear Functions and Graphing Cheat Sheet",
               "path": "artifacts/linear-equations-slope-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/linear-equations-slope-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Slope, rate of change, linear equation forms, intercepts, graphing, and parallel and perpendicular lines.",
+              "thumb": "thumbs/linear-equations-slope-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: slope, rate of change, slope-intercept form and graphing lines. Back: writing equations of lines, intercepts, parallel and perpendicular lines. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Linear Equations & Slope"
+                "Linear Functions and Graphing",
+                "Unit 5"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Linear Functions Flashcards",
@@ -1474,15 +1475,16 @@ window.LIBRARY = {
             {
               "title": "Systems of Equations Cheat Sheet",
               "path": "artifacts/systems-of-equations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/systems-of-equations-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Solving systems by graphing, substitution and elimination, with corrected graphs and applications.",
+              "thumb": "thumbs/systems-of-equations-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: solving systems by graphing, substitution and elimination. Back: special systems, choosing a method and word problems. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Systems of Equations"
+                "Systems of Equations",
+                "Unit 6"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Zombie Fence",
@@ -1524,17 +1526,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Graphing Inequalities Cheat Sheet",
+              "title": "Graphing Linear Inequalities Cheat Sheet",
               "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/graphing-inequalities-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Graphing linear inequalities on the coordinate plane, boundary lines, shading, and systems.",
+              "thumb": "thumbs/graphing-inequalities-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: graphing linear inequalities in two variables. Back: systems of inequalities and feasible regions. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Graphing Inequalities"
+                "Graphing Linear Inequalities",
+                "Unit 6"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Systems of Equations Flashcards",
@@ -1857,7 +1860,7 @@ window.LIBRARY = {
               "title": "Exponents and Scientific Notation Cheat Sheet",
               "path": "artifacts/exponents-scientific-notation-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/exponents-scientific-notation-cheat-sheet.jpg",
-              "description": "Colorful two-page printable study guide: vocabulary, the exponent rules, powers of products, negative exponents, evaluating powers, scientific notation, multiplying and dividing in scientific notation and powers of 10.",
+              "description": "Two-page printable cheat sheet. Front: exponent rules, zero and negative exponents, and evaluating powers. Back: scientific notation and operations with it. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
@@ -2029,18 +2032,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Exponents & Exponential Functions Cheat Sheet",
+              "title": "Exponential Functions Cheat Sheet",
               "path": "artifacts/exponents-exponential-functions-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to exponent rules, scientific notation, exponential growth and decay, and worked examples.",
+              "thumb": "thumbs/exponents-exponential-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: exponential functions, growth and decay. Back: writing models, compound interest, geometric sequences and solving equations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Exponents & Exponential Functions",
-                "Units 7–8"
+                "Exponential Functions",
+                "Unit 8"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Exponential Functions Flashcards",
@@ -2356,7 +2359,7 @@ window.LIBRARY = {
               "title": "Polynomials Cheat Sheet",
               "path": "artifacts/polynomials-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/polynomials-cheat-sheet.jpg",
-              "description": "Colorful two-page printable study guide: vocabulary, naming polynomials, adding, subtracting, standard form, distributing, FOIL, special products, dividing by a monomial, and area and perimeter.",
+              "description": "Two-page printable cheat sheet. Front: vocabulary, classifying, adding and subtracting polynomials. Back: multiplying, special products and dividing by a monomial. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
@@ -2528,18 +2531,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Polynomials & Factoring Cheat Sheet",
+              "title": "Factoring and Zero Product Cheat Sheet",
               "path": "artifacts/polynomials-factoring-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/polynomials-factoring-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to polynomial operations, multiplication, special products, factoring methods, and solving by factoring.",
+              "thumb": "thumbs/polynomials-factoring-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: factoring GCF, trinomials, special patterns and grouping. Back: factoring completely and solving quadratics with the Zero Product Property. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Polynomials & Factoring",
-                "Units 9–10"
+                "Factoring and Zero Product",
+                "Unit 10"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Factoring Flashcards",
@@ -2776,17 +2779,18 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Quadratics Cheat Sheet",
+              "title": "Quadratic Functions Cheat Sheet",
               "path": "artifacts/quadratics-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/quadratics-cheat-sheet.svg",
-              "description": "Colorful two-page printable study guide: Parabolas, vertex and intercepts, factoring, quadratic formula, and discriminant.",
+              "thumb": "thumbs/quadratics-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: graphing quadratic functions and their key features. Back: solving quadratic equations: factoring, square roots, completing the square and the formula. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Quadratics"
+                "Quadratic Functions",
+                "Unit 11"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Quadratics Flashcards",
@@ -3095,7 +3099,7 @@ window.LIBRARY = {
               "title": "Statistics and Data Modeling Cheat Sheet",
               "path": "artifacts/statistics-data-modeling-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/statistics-data-modeling-cheat-sheet.jpg",
-              "description": "Colorful two-page printable study guide: vocabulary, MAD, quartiles and IQR, box plots, outliers, two-way tables, correlation, lines of fit, residuals and the shape of data.",
+              "description": "Two-page printable cheat sheet. Front: center, spread, box plots and outliers. Back: two-way tables, scatter plots, lines of fit and residuals. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
@@ -3151,16 +3155,16 @@ window.LIBRARY = {
             {
               "title": "Functions & Transformations Cheat Sheet",
               "path": "artifacts/functions-transformations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/functions-transformations-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to function notation, domain and range, the vertical line test, a graphed gallery of the six parent functions, transformation rules with a worked graph, operations and composition, piecewise functions, inverses, and common mistakes.",
+              "thumb": "thumbs/functions-transformations-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: function notation, domain and range, parent functions and transformations. Back: operations, composition, piecewise functions and inverses. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Functions",
-                "Transformations"
+                "Functions & Transformations",
+                "Unit 1"
               ],
-              "added": "2026-10-22"
+              "added": "2026-10-25"
             },
             {
               "title": "Functions Four",
@@ -3388,16 +3392,16 @@ window.LIBRARY = {
             {
               "title": "Linear Functions & Systems Cheat Sheet",
               "path": "artifacts/linear-functions-systems-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/linear-functions-systems-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to slope and rate of change, slope-intercept, point-slope and standard forms, parallel and perpendicular lines, lines of best fit and residuals, linear inequalities, systems of equations and inequalities, linear programming, three-variable systems, and common mistakes.",
+              "thumb": "thumbs/linear-functions-systems-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: slope, forms of a line, parallel and perpendicular lines, and linear models. Back: inequalities, systems, linear programming and three variables. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Linear functions",
-                "Systems"
+                "Linear Functions & Systems",
+                "Unit 2"
               ],
-              "added": "2026-10-22"
+              "added": "2026-10-25"
             },
             {
               "title": "Crossroads Four",
@@ -3623,18 +3627,18 @@ window.LIBRARY = {
               "added": "2026-10-22"
             },
             {
-              "title": "Quadratic Functions & Complex Numbers Cheat Sheet",
+              "title": "Quadratics & Complex Numbers Cheat Sheet",
               "path": "artifacts/quadratic-functions-complex-numbers-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/quadratic-functions-complex-numbers-cheat-sheet.svg",
-              "description": "Colorful two-page printable guide to vertex, standard and factored forms of parabolas, transformations of y = x², completing the square, the quadratic formula and discriminant, imaginary numbers and the powers of i cycle, complex number operations and complex roots, quadratic inequalities, linear-quadratic systems, quadratic modeling, and common mistakes.",
+              "thumb": "thumbs/quadratic-functions-complex-numbers-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: parabola forms, completing the square, the quadratic formula and the discriminant. Back: complex numbers, quadratic inequalities, linear-quadratic systems and modeling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Quadratic functions",
-                "Complex numbers"
+                "Quadratics & Complex Numbers",
+                "Unit 3"
               ],
-              "added": "2026-10-22"
+              "added": "2026-10-25"
             },
             {
               "title": "Parabola Four",
@@ -4085,18 +4089,18 @@ window.LIBRARY = {
               "added": "2026-10-22"
             },
             {
-              "title": "Exponential & Logarithmic Functions Cheat Sheet",
+              "title": "Exponential & Log Functions Cheat Sheet",
               "path": "artifacts/exponential-logarithmic-functions-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/exponential-logarithmic-functions-cheat-sheet.jpg",
-              "description": "Colorful two-page printable guide to exponential growth and decay, e and compound interest, logarithm definition, graphs and properties, change of base, solving equations with a check step, modeling formulas, and common mistakes.",
+              "description": "Two-page printable cheat sheet. Front: exponential functions, the number e and the logarithm. Back: log properties, solving equations and modeling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
                 "Reference",
-                "Exponential Functions",
-                "Logarithms"
+                "Exponential & Log Functions",
+                "Unit 6"
               ],
-              "added": "2026-10-22"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Exponential & Log Basics",
@@ -4464,17 +4468,18 @@ window.LIBRARY = {
               "added": "2026-10-20"
             },
             {
-              "title": "Geometry Basics Cheat Sheet",
+              "title": "Foundations of Geometry Cheat Sheet",
               "path": "artifacts/geometry-basics-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Points, lines, rays, segments, angles, midpoints, coordinate distance, and angle relationships.",
+              "thumb": "thumbs/geometry-basics-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: points, lines, planes, segments, rays and angles. Back: segment and angle addition, midpoints, distance and angle pairs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Foundations of Geometry",
+                "Unit 1"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Segments, Midpoints & Angle Basics",
@@ -4682,17 +4687,18 @@ window.LIBRARY = {
               "added": "2026-10-20"
             },
             {
-              "title": "Angles & Parallel Lines Cheat Sheet",
+              "title": "Angles and Parallel Lines Cheat Sheet",
               "path": "artifacts/geometry-angles-parallel-lines-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Transversals, corresponding and alternate angles, linear pairs, and parallel-line relationships.",
+              "thumb": "thumbs/geometry-angles-parallel-lines-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: angle pairs and parallel lines cut by a transversal. Back: proving lines parallel, triangle angle sums and angle chasing. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Angles and Parallel Lines",
+                "Unit 2"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Angle Pairs & Transversals",
@@ -4920,15 +4926,16 @@ window.LIBRARY = {
             {
               "title": "Triangles & Congruence Cheat Sheet",
               "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Triangle angle facts, triangle classifications, and triangle congruence criteria.",
+              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: classifying triangles, angle sums, isosceles triangles and side–angle relationships. Back: congruence shortcuts, CPCTC and two-column proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Triangles & Congruence",
+                "Unit 3–4"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 2: Triangle Properties",
@@ -5126,15 +5133,16 @@ window.LIBRARY = {
             {
               "title": "Similarity Cheat Sheet",
               "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Similar figures, proportional side lengths, scale factor, dilations, and similar triangles.",
+              "thumb": "thumbs/geometry-similarity-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: scale factors, similar figures and proportions. Back: similarity criteria, dilations, area and indirect measurement. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Similarity",
+                "Unit 5"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Similar Figures & Proportions",
@@ -5355,17 +5363,18 @@ window.LIBRARY = {
               "added": "2026-10-20"
             },
             {
-              "title": "Right Triangles & Trigonometry Cheat Sheet",
+              "title": "Right Triangles and Trigonometry Cheat Sheet",
               "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Pythagorean theorem, special right triangles, SOH-CAH-TOA, and inverse trigonometry.",
+              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: the Pythagorean Theorem, special right triangles and trig ratios. Back: finding sides and angles with SOH-CAH-TOA, elevation and depression. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Right Triangles and Trigonometry",
+                "Unit 6"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Pythagorean Theorem & Special Triangles",
@@ -5580,15 +5589,16 @@ window.LIBRARY = {
             {
               "title": "Coordinate Geometry & Transformations Cheat Sheet",
               "path": "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Coordinate formulas, translations, reflections, rotations, dilations and transformation sequences.",
+              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: distance, midpoint, slope and translations. Back: reflections, rotations, dilations and sequences of transformations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Coordinate Geometry & Transformations",
+                "Unit 8"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Coordinate Geometry",
@@ -5811,15 +5821,16 @@ window.LIBRARY = {
             {
               "title": "Circles Cheat Sheet",
               "path": "artifacts/geometry-circles-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Circle parts, circumference, area, arcs, sectors, inscribed angles, chords and tangents.",
+              "thumb": "thumbs/geometry-circles-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: parts of a circle, circumference, area, arcs and sectors. Back: inscribed angles, chords, tangents and angles inside and outside a circle. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Circles",
+                "Unit 9"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Arcs, Angles & Segments in Circles",
@@ -6039,17 +6050,18 @@ window.LIBRARY = {
               "added": "2026-10-20"
             },
             {
-              "title": "Area, Surface Area & Volume Cheat Sheet",
+              "title": "Area, Surface Area and Volume Cheat Sheet",
               "path": "artifacts/geometry-area-surface-area-volume-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-cheat-sheet.svg",
-              "description": "Colorful two-page printable geometry reference guide: Area of plane figures, nets, surface area, and volume of solids.",
+              "thumb": "thumbs/geometry-area-surface-area-volume-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: area formulas, composite figures and units. Back: surface area and volume of prisms, cylinders, pyramids, cones and spheres. Key vocabulary, worked examples with every answer checked, and common mistakes.",
               "type": "Printable",
               "topics": [
                 "Cheat sheet",
-                "Geometry",
-                "Reference"
+                "Reference",
+                "Area, Surface Area and Volume",
+                "Unit 10"
               ],
-              "added": "2026-10-19"
+              "added": "2026-10-25"
             },
             {
               "title": "Partner Check 1: Area of Polygons & Circles",

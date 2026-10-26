@@ -9,14 +9,43 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice';
+  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits';
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
   function $(s) { return doc.querySelector(s); }
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var ms = function (s) { return NS.mathSafe(s); };
 
-  var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null };
+  var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
+  if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
+  /* Minutes the teacher typed, remembered per day type (a Lesson-day timing applies to every Lesson day). */
+  var minutesStore = (function () { try { return JSON.parse(lsGet(KEY_MIN) || '{}') || {}; } catch (e) { return {}; } })();
+  function minutesFor(d) { return minutesStore[d.day_type] || null; }
+  function saveMinutes(d, secId, v) {
+    var m = minutesStore[d.day_type] = minutesStore[d.day_type] || {};
+    if (v === null) delete m[secId]; else m[secId] = v;
+    if (!Object.keys(m).length) delete minutesStore[d.day_type];
+    lsSet(KEY_MIN, JSON.stringify(minutesStore));
+  }
+  function filled(plan) { return plan.notesMode === 'filled'; }
+  /* Notes the teacher edited, per lesson, kept in this browser (MKPLAN.noteEdits is read by define/keyIdea/vocab). */
+  P.noteEdits = (function () { try { return JSON.parse(lsGet(KEY_NOTE_EDITS) || '{}') || {}; } catch (e) { return {}; } })();
+  function saveNoteEdits() { lsSet(KEY_NOTE_EDITS, JSON.stringify(P.noteEdits)); }
+  function editRecord(d) {   // the first edit copies the current notes so later edits change one field at a time
+    if (!P.noteEdits[d.lesson_id]) { var n = P.lessonNotes(d); P.noteEdits[d.lesson_id] = { words: n.words.map(function (w) { return w.slice(); }), idea: n.idea, watch: n.watch, extra: n.extra }; }
+    return P.noteEdits[d.lesson_id];
+  }
+  function notesEditor(plan) {
+    var d = plan.day, n = P.lessonNotes(d);
+    return '<div class="pl-noted" id="plNoted"><div class="pl-noted-hd"><b>Notes</b> <span class="pl-hint">Edit anything below. Your changes are saved in this browser and used on the handout, the key and the slides.</span>' +
+      ' <button type="button" class="link" id="plNotesReset"' + (P.notesEdited(d) ? '' : ' hidden') + '>Reset to the original notes</button></div>' +
+      '<label class="pl-nl">Key idea<textarea data-n="idea" rows="2">' + esc(n.idea) + '</textarea></label>' +
+      '<div class="pl-nl">Vocabulary</div><table class="pl-ntbl"><thead><tr><th>Word</th><th>What it means / example</th><th></th></tr></thead><tbody>' +
+      n.words.map(function (w, i) { return '<tr><td><input type="text" data-n="w" data-i="' + i + '" value="' + esc(w[0]) + '" aria-label="Word ' + (i + 1) + '"></td><td><textarea data-n="d" data-i="' + i + '" rows="2" aria-label="Meaning of ' + esc(w[0]) + '">' + esc(w[1]) + '</textarea></td><td><button type="button" class="btn ghost sm pl-delword" data-i="' + i + '" aria-label="Remove ' + esc(w[0]) + '">✕</button></td></tr>'; }).join('') +
+      '</tbody></table><button type="button" class="btn ghost sm" id="plAddWord">+ Add a word</button>' +
+      '<label class="pl-nl">Watch out (common mistake)<textarea data-n="watch" rows="2">' + esc(n.watch) + '</textarea></label>' +
+      '<label class="pl-nl">My notes <small>(printed on the handout and the slides; leave blank for none)</small><textarea data-n="extra" rows="3" placeholder="Anything else students should write down: a rule, a diagram description, a reminder…">' + esc(n.extra) + '</textarea></label></div>';
+  }
   if (!NS.LEVELS[ui.level]) ui.level = 'cp1';
 
   /* ---------- groups of days for the picker ---------- */
@@ -82,12 +111,14 @@
     var meta = [['Standards', esc(d.standards)], ['Content objective', esc(d.content_objective)], ['Language objective', esc(d.language_objective)]];
     if (d.sentence_frame) meta.push(['Sentence frame', '<i>' + frameHtml(d.sentence_frame) + '</i>']);
     if (d.key_vocabulary) meta.push(['Key vocabulary', P.vocab(d).map(function (v) { return '<span class="pl-chip">' + esc(v) + '</span>'; }).join(' ')]);
-    if (d.common_misconception) meta.push(['Watch for', esc(d.common_misconception)]);
+    if (P.watchOut(d)) meta.push(['Watch for', esc(P.watchOut(d))]);
     if (d.notes_style) meta.push(['Notes style', esc(d.notes_style)]);
     if (d.do_now_strategy) meta.push(['Do Now strategy', esc(d.do_now_strategy) + ((d.do_now_source_ids || []).length ? ' — from ' + d.do_now_source_ids.map(function (id) { return '<span class="pl-chip" title="' + esc(lessonTitle(id)) + '">' + esc(id) + '</span>'; }).join(' ') : '') + ((d.spiral_review_ids || []).length ? '; spiral ' + d.spiral_review_ids.map(function (id) { return '<span class="pl-chip" title="' + esc(lessonTitle(id)) + '">' + esc(id) + '</span>'; }).join(' ') : '')]);
-    var agenda = '<table class="pl-agenda"><thead><tr><th>Part</th><th>Min</th><th>What happens</th></tr></thead><tbody>' + plan.sections.map(function (s) {
-      return '<tr><td><b>' + esc(s.title) + '</b></td><td>' + (s.minutes || '') + '</td><td>' + esc(s.template || '') + '</td></tr>';
-    }).join('') + '</tbody></table>';
+    var changed = plan.sections.some(function (s) { return s.minutes !== s.defaultMinutes; });
+    var agenda = '<table class="pl-agenda"><thead><tr><th>Part</th><th>Minutes</th><th>What happens</th></tr></thead><tbody>' + plan.sections.map(function (s, si) {
+      return '<tr><td><b>' + esc(s.title) + '</b></td><td><input type="number" class="pl-mins" min="0" max="180" step="1" data-s="' + si + '" value="' + (s.minutes || 0) + '" aria-label="Minutes for ' + esc(s.title) + '"></td><td>' + esc(s.template || '') + '</td></tr>';
+    }).join('') + '<tr class="pl-total"><td><b>Total</b></td><td><b id="plTotal">' + P.totalMinutes(plan) + '</b> min</td><td>' +
+      '<span class="pl-hint">Times you change are kept for every ' + esc(d.day_type) + ' day.</span>' + ' <button type="button" class="link" id="plResetMin"' + (changed ? '' : ' hidden') + '>Reset to the planned times</button>' + '</td></tr></tbody></table>';
     var cov = plan.coverage.filter(function (c) { return c.cover !== 'full'; });
     var covHtml = cov.length ? '<div class="pl-cover"><b>Generator coverage</b>' + cov.map(function (c) { return '<div><span class="pl-chip ' + c.cover + '">' + esc(c.id) + ' · ' + (c.cover === 'none' ? 'not covered' : 'partly covered') + '</span> ' + esc(c.note) + '</div>'; }).join('') + '</div>' : '';
     var res = resourceLinks(plan);
@@ -113,7 +144,7 @@
   function planView(plan) {
     var h = planInfo(plan);
     plan.sections.forEach(function (s, si) {
-      h += '<section class="pl-sec card"><div class="pl-sechd"><h2>' + esc(s.title) + '</h2>' + (s.minutes ? '<span class="pl-min">' + s.minutes + ' min</span>' : '') + '<span class="pl-tpl">' + esc(s.template || '') + '</span></div>';
+      h += '<section class="pl-sec card"><div class="pl-sechd"><h2>' + esc(s.title) + '</h2>' + '<span class="pl-min" data-min="' + si + '">' + (s.minutes ? s.minutes + ' min' : '') + '</span>' + '<span class="pl-tpl">' + esc(s.template || '') + '</span></div>';
       h += sectionTeacherExtras(plan, s);
       s.groups.forEach(function (g, gi) {
         if (g.name || g.note) h += '<h3 class="pl-grp">' + esc(g.name) + (g.note ? ' <small>' + esc(g.note) + '</small>' : '') + '</h3>';
@@ -131,7 +162,9 @@
     var d = plan.day, out = '';
     if (s.prompt) out += '<p class="pl-prompt">Prompt: <i>' + esc(s.prompt) + '</i></p>';
     if (s.id === 'notes' && d.day_type === 'Lesson') {
-      if (d.common_misconception) out += '<p class="pl-watch"><b>Watch for:</b> ' + esc(d.common_misconception) + '</p>';
+      out += notesEditor(plan);
+      out += '<p class="pl-hint">Student notes: <b>' + (filled(plan) ? 'pre-filled' : 'students write them in') + '</b> (change under Options).</p>';
+
       out += '<p class="pl-hint">Examples go from the level’s easiest to hardest: Example 1 I do, Example 2 we do' + (s.groups[0] && s.groups[0].items.length > 2 ? ', Example 3 you try' : '') + '.</p>';
     }
     if (s.frame) out += '<p class="pl-prompt">Summary frame: <i>' + frameHtml(s.frame) + '</i></p>';
@@ -141,17 +174,7 @@
   }
 
   /* ---------- fixed text for non-problem parts ---------- */
-  function launchTask(d) {
-    if (d.lesson_id === 'LAUNCH-1') return { title: 'Four 4s', student: 'Use exactly four 4s and any operations (+, −, ×, ÷, exponents, parentheses) to make each number from 1 to 10. Work with your group; record one expression for each number.', teacher: 'Groups of 3–4. Rotate roles (recorder, checker, reporter, materials). Share-out: which numbers were hardest, and how did order of operations matter?' };
-    return { title: 'Handshake problem', student: 'Everyone in a group of 10 shakes hands with everyone else once. How many handshakes are there? Solve it for groups of 2, 3, 4 and 5 first. Look for a pattern, then predict 10 and 30.', teacher: 'Model a productive struggle: draw, make a table, find a pattern. Celebrate different strategies before anyone shows a formula.' };
-  }
-  function routines(d) {
-    if (d.lesson_id === 'LAUNCH-1') return [['Do Now', 'Starts when the bell rings: 3–5 problems on the board, about 5 minutes, done silently.'], ['Notes', 'Guided notes with blanks to fill in, plus worked examples (I do, we do, you try).'], ['Practice', 'We do problems together, then you do problems from easier to harder.'], ['Exit ticket', 'A summary sentence and 2–3 problems; hand it in on the way out.'], ['Getting help', 'Ask three before me; use your notes; flag a problem with a star.']];
-    return [['When I am stuck', 'Reread, draw a picture, try a simpler number, make a table.'], ['In my group', 'Everyone talks, everyone writes, nobody is done until everyone is done.'], ['Mistakes', 'Mistakes show where to learn next; circle them, do not erase them.']];
-  }
-  function projectCheckpoints(d) {
-    return { 'END-6': ['Choose a question', 'Collect at least 10 data points', 'Make a scatter plot'], 'END-7': ['Choose a linear, exponential or quadratic model', 'Write the equation', 'Check residuals'], 'END-8': ['Prepare 3-minute presentation', 'Explain why your model fits', 'Answer one audience question'] }[d.lesson_id] || ['Set a goal', 'Work', 'Log progress'];
-  }
+  var launchTask = P.launchTask, routines = P.routines, projectCheckpoints = P.projectCheckpoints;
 
   /* Two problems per row; a row is a block that never splits across pages (grid items do not page-break reliably). */
   function rows(list) {
@@ -167,6 +190,9 @@
     var space = p.failed ? 1 : Math.max(0.6, (p.space || [1, 1.3, 1.6])[1]);
     return '<div class="pl-p"><div class="pl-ph"><b>' + esc(label || (p.num + '.')) + '</b></div>' + (p.failed ? '<div class="pl-q">&nbsp;</div>' : promptHtml(p)) + '<div class="pl-space" style="height:' + space.toFixed(2) + 'in"></div></div>';
   }
+  function workedProblem(p, label) {
+    return '<div class="pl-p pl-worked"><div class="pl-ph"><b>' + esc(label) + '</b></div>' + promptHtml(p) + stepsHtml(p) + answerHtml(p) + '</div>';
+  }
   function sheetHead(plan, kind) {
     var d = plan.day, u = d.unit ? 'Unit ' + d.unit + ': ' + d.unit_title : d.unit_title;
     return '<div class="pl-head"><div><div class="pl-title">' + esc(d.title) + '</div><div class="pl-sub">Algebra 1 · Day ' + d.day + ' · ' + esc(u) + (d.unit ? ' · day ' + esc(d.unit_day) : '') + ' · ' + esc(d.day_type) + '</div></div>' +
@@ -178,7 +204,7 @@
     if (d.content_objective && !/Exam$|Assessment/.test(d.day_type)) h += '<div class="pl-ican"><b>Today:</b> ' + esc(P.iCan(d.content_objective)) + '</div>';
     plan.sections.forEach(function (s) {
       if (s.id === 'exit') return;
-      h += '<div class="pl-sbox pl-s-' + s.id + '"><div class="pl-shd">' + esc(s.title) + (s.minutes ? '<span>' + s.minutes + ' min</span>' : '') + '</div>';
+      h += '<div class="pl-sbox pl-s-' + s.id + '"><div class="pl-shd">' + esc(s.title) + (s.id === 'notes' && plan.day.day_type === 'Lesson' && !filled(plan) ? ' <small>· fill in as we go</small>' : '') + (s.minutes ? '<span>' + s.minutes + ' min</span>' : '') + '</div>';
       h += studentSectionBody(plan, s);
       h += '</div>';
     });
@@ -219,23 +245,37 @@
       var groups = s.byUnit ? P.byUnit(s.reference) : [{ ids: s.reference }];
       return groups.map(function (g) {
         return (g.unit ? '<div class="pl-gh">Unit ' + g.unit + ': ' + esc(g.title) + '</div>' : '') + '<table class="pl-tbl pl-ref"><thead><tr><th>Lesson</th><th>Key vocabulary</th><th>' + (s.myExample ? 'My example' : 'Key idea / example') + '</th></tr></thead><tbody>' +
-          g.ids.map(function (id) { var l = P.lessonById(id); return '<tr><td><b>' + esc(l ? l.title : id) + '</b></td><td>' + esc(l ? l.key_vocabulary : '') + '</td><td></td></tr>'; }).join('') + '</tbody></table>';
+          g.ids.map(function (id) { var l = P.lessonById(id); return '<tr><td><b>' + esc(l ? l.title : id) + '</b></td><td>' + esc(l ? l.key_vocabulary : '') + '</td><td>' + (filled(plan) && !s.myExample ? esc(P.keyIdea(id)) : '') + '</td></tr>'; }).join('') + '</tbody></table>';
       }).join('');
     }
-    if (voc.length) h += '<table class="pl-tbl pl-vocab"><thead><tr><th>Word</th><th>What it means / example</th></tr></thead><tbody>' + voc.map(function (v) { return '<tr><td><b>' + esc(v) + '</b></td><td></td></tr>'; }).join('') + '</tbody></table>';
-    if (/exploration/i.test(d.notes_style || '')) h += '<div class="pl-two"><div><div class="pl-gh">I notice…</div>' + lines(2) + '</div><div><div class="pl-gh">I wonder…</div>' + lines(2) + '</div></div>';
-    if (/guided|exploration/i.test(d.notes_style || '')) h += '<div class="pl-gh">Key idea</div>' + lines(2);
-    if (/pre-filled/i.test(d.notes_style || '') && d.common_misconception) h += '<p class="pl-watchout"><b>Watch out:</b> ' + esc(d.common_misconception) + '</p>';
+    var full = filled(plan), idea = P.keyIdea(d.lesson_id);
+    if (voc.length) h += '<table class="pl-tbl pl-vocab' + (full ? ' filled' : '') + '"><thead><tr><th>Word</th><th>What it means / example</th></tr></thead><tbody>' + voc.map(function (v) { return '<tr><td><b>' + esc(v) + '</b></td><td>' + (full ? esc(P.define(v, d)) : '') + '</td></tr>'; }).join('') + '</tbody></table>';
+    if (full) {
+      if (idea) h += '<div class="pl-gh">Key idea</div><p class="pl-idea">' + esc(idea) + '</p>';
+      if (P.watchOut(d)) h += '<p class="pl-watchout"><b>Watch out:</b> ' + esc(P.watchOut(d)) + '</p>';
+    } else {
+      if (/exploration/i.test(d.notes_style || '')) h += '<div class="pl-two"><div><div class="pl-gh">I notice…</div>' + lines(2) + '</div><div><div class="pl-gh">I wonder…</div>' + lines(2) + '</div></div>';
+      h += '<div class="pl-gh">Key idea</div>' + lines(2);
+    }
+    if (P.myNotes(d)) h += '<div class="pl-mynotes">' + esc(P.myNotes(d)).replace(/\n/g, '<br>') + '</div>';
     var labels = ['Example 1 · I do', 'Example 2 · We do', 'Example 3 · You try'];
-    s.groups.forEach(function (g) { h += rows(g.items.map(function (p, i) { return { wide: wide(p), html: studentProblem(p, labels[i] || 'Example ' + (i + 1)) }; })); });
+    s.groups.forEach(function (g) {
+      h += rows(g.items.map(function (p, i) {
+        var last = i === g.items.length - 1 && g.items.length > 2;   // "You try" stays for students to work
+        return { wide: wide(p), html: full && !last && !p.failed ? workedProblem(p, labels[i] || 'Example ' + (i + 1)) : studentProblem(p, labels[i] || 'Example ' + (i + 1)) };
+      }));
+    });
     return h;
   }
 
   /* ---------- teacher key (paper) ---------- */
   function keySheet(plan) {
     var d = plan.day, h = sheetHead(plan, 'key');
-    var info = [['Standards', d.standards], ['Content objective', d.content_objective], ['Language objective', d.language_objective], ['Sentence frame', d.sentence_frame], ['Key vocabulary', d.key_vocabulary], ['Watch for', d.common_misconception], ['Notes style', d.notes_style], ['Do Now', d.do_now_strategy]].filter(function (r) { return r[1]; });
-    h += '<table class="pl-tbl pl-keyinfo"><tbody>' + info.map(function (r) { return '<tr><th>' + r[0] + '</th><td>' + (r[0] === 'Sentence frame' ? frameHtml(r[1]) : esc(r[1])) + '</td></tr>'; }).join('') + '</tbody></table>';
+    var info = [['Standards', d.standards], ['Content objective', d.content_objective], ['Language objective', d.language_objective], ['Sentence frame', d.sentence_frame], ['Key vocabulary', d.key_vocabulary], ['Watch for', P.watchOut(d)], ['My notes', P.myNotes(d)], ['Notes style', d.notes_style], ['Do Now', d.do_now_strategy]].filter(function (r) { return r[1]; });
+    if (P.keyIdea(d.lesson_id)) info.splice(4, 0, ['Key idea', P.keyIdea(d.lesson_id)]);
+    var kv = P.vocab(d);
+    if (kv.length && d.day_type === 'Lesson') info = info.map(function (r) { return r[0] === 'Key vocabulary' ? ['Key vocabulary', r[1], kv.map(function (v) { return '<b>' + esc(v) + '</b>: ' + esc(P.define(v, d)); }).join('<br>')] : r; });
+    h += '<table class="pl-tbl pl-keyinfo"><tbody>' + info.map(function (r) { return '<tr><th>' + r[0] + '</th><td>' + (r[2] ? r[2] : r[0] === 'Sentence frame' ? frameHtml(r[1]) : esc(r[1])) + '</td></tr>'; }).join('') + '</tbody></table>';
     h += '<table class="pl-tbl pl-keyagenda"><thead><tr><th>Part</th><th>Min</th><th>What happens</th></tr></thead><tbody>' + plan.sections.map(function (s) { return '<tr><td><b>' + esc(s.title) + '</b></td><td>' + (s.minutes || '') + '</td><td>' + esc(s.template) + (s.prompt ? ' <i>Prompt: ' + esc(s.prompt) + '</i>' : '') + (s.launch ? ' ' + esc(launchTask(d).teacher) : '') + '</td></tr>'; }).join('') + '</tbody></table>';
     var cov = plan.coverage.filter(function (c) { return c.cover !== 'full'; });
     if (cov.length) h += '<div class="pl-keycov"><b>Add your own:</b> ' + cov.map(function (c) { return esc(c.note); }).join(' ') + '</div>';
@@ -265,14 +305,18 @@
   function controls() {
     var lv = ['cp2', 'cp1', 'honors'].map(function (id) { var L = NS.LEVELS[id]; return '<label class="pl-lv' + (ui.level === id ? ' on' : '') + '"><input type="radio" name="plLevel" value="' + id + '"' + (ui.level === id ? ' checked' : '') + '> <span><b>' + L.name + '</b> <small>' + esc(L.long.split('·')[1] || '') + '</small></span></label>'; }).join('');
     return '<fieldset class="pl-levels"><legend class="pl-lab">Class level</legend>' + lv + '</fieldset>' +
+      '<fieldset class="pl-levels"><legend class="pl-lab">Student notes</legend>' + [['lesson', 'As planned', 'Pre-filled only where the scope says so'], ['fill', 'Students write them in', 'Blank definitions and key idea'], ['filled', 'Pre-filled', 'Definitions, key idea and worked examples printed']].map(function (o) {
+        return '<label class="pl-lv' + (ui.notes === o[0] ? ' on' : '') + '"><input type="radio" name="plNotes" value="' + o[0] + '"' + (ui.notes === o[0] ? ' checked' : '') + '> <span><b>' + o[1] + '</b> <small>' + o[2] + '</small></span></label>';
+      }).join('') + '</fieldset>' +
       '<label class="pl-lab" for="plN">Practice problems (lesson and practice days)</label><input id="plN" type="number" min="4" max="20" value="' + ui.practice + '">' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
+      '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptx">Download PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
       '<p class="hint">Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.</p>';
   }
   function render() {
     var d = P.day(ui.day);
-    ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice });
+    ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d) });
     $('#plPick').innerHTML = picker();
     $('#plCtl').innerHTML = controls();
     var prev = P.day(ui.day - 1), next = P.day(ui.day + 1), sum = P.summary(ui.plan);
@@ -309,16 +353,51 @@
     if (t.id === 'plNew') { ui.seed = Math.random().toString(36).slice(2, 7); render(); return; }
     if (t.id === 'plPrintS') { doPrint('student'); return; }
     if (t.id === 'plPrintK') { doPrint('key'); return; }
+    if (t.id === 'plAddWord') { editRecord(ui.plan.day).words.push(['', '']); saveNoteEdits(); rerenderKeep(); var ins = doc.querySelectorAll('#plNoted input[data-n="w"]'); if (ins.length) ins[ins.length - 1].focus(); return; }
+    if (t.classList.contains('pl-delword')) { editRecord(ui.plan.day).words.splice(+t.getAttribute('data-i'), 1); saveNoteEdits(); rerenderKeep(); return; }
+    if (t.id === 'plNotesReset') { delete P.noteEdits[ui.plan.day.lesson_id]; saveNoteEdits(); rerenderKeep(); return; }
+    if (t.id === 'plResetMin') { delete minutesStore[ui.plan.day.day_type]; lsSet(KEY_MIN, JSON.stringify(minutesStore)); P.applyMinutes(ui.plan, null); var y0 = G.scrollY; renderView(); G.scrollTo(0, y0); return; }
+    if (t.id === 'plPptx') {
+      var msg = $('#plPptxMsg'); t.disabled = true; msg.textContent = 'Building slides…';
+      P.exportPptx(ui.plan).then(function () { msg.textContent = 'Downloaded ' + P.deckFileName(ui.plan) + '.'; }, function (err) { msg.textContent = 'Could not build the PowerPoint: ' + (err && err.message || err); }).then(function () { t.disabled = false; });
+      return;
+    }
     if (t.classList.contains('tab') && t.getAttribute('data-view')) { ui.view = t.getAttribute('data-view'); renderView(); writeHash(); return; }
     if (t.classList.contains('pl-regen')) {
       P.regenerate(ui.plan, +t.getAttribute('data-s'), +t.getAttribute('data-g'), +t.getAttribute('data-i'));
       var y = G.scrollY; renderView(); G.scrollTo(0, y); return;
     }
   });
+  var noteTimer = null;
+  doc.addEventListener('input', function (e) {
+    var t = e.target, k = t.getAttribute && t.getAttribute('data-n');
+    if (!k || !ui.plan) return;
+    var rec = editRecord(ui.plan.day), i = +t.getAttribute('data-i');
+    if (k === 'idea' || k === 'watch' || k === 'extra') rec[k] = t.value;
+    else if (k === 'w') rec.words[i][0] = t.value;
+    else if (k === 'd') rec.words[i][1] = t.value;
+    $('#plNotesReset').hidden = false;
+    clearTimeout(noteTimer); noteTimer = setTimeout(saveNoteEdits, 300);
+  });
+  function rerenderKeep() { var y = G.scrollY; renderView(); G.scrollTo(0, y); }
   doc.addEventListener('change', function (e) {
     var t = e.target;
     if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
+    if (t.name === 'plNotes') {   // the notes setting changes only the printed notes, not the problems
+      ui.notes = t.value; lsSet(KEY_NOTES, ui.notes);
+      ui.plan.notesMode = ui.notes === 'lesson' ? P.lessonNotesMode(ui.plan.day) : ui.notes;
+      $('#plCtl').innerHTML = controls(); var y1 = G.scrollY; renderView(); G.scrollTo(0, y1); return;
+    }
+    if (t.classList && t.classList.contains('pl-mins')) {   // a minute box: keeps the problems, updates every view
+      var si = +t.getAttribute('data-s'), sec = ui.plan.sections[si], v = Math.max(0, Math.min(180, Math.round(+t.value || 0)));
+      sec.minutes = v; t.value = v;
+      saveMinutes(ui.plan.day, sec.id, v === sec.defaultMinutes ? null : v);
+      var hd = doc.querySelector('.pl-min[data-min="' + si + '"]'); if (hd) hd.textContent = v ? v + ' min' : '';
+      $('#plTotal').textContent = P.totalMinutes(ui.plan);
+      $('#plResetMin').hidden = !ui.plan.sections.some(function (x) { return x.minutes !== x.defaultMinutes; });
+      return;   // the handout, key and slides read the minutes when they are shown or built
+    }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
   G.addEventListener('hashchange', function () { readHash(); render(); });

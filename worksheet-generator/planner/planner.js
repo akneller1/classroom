@@ -25,7 +25,7 @@
     var m = s.match(/^Students will be able to\s+(.*)$/i);
     return m ? 'I can ' + m[1] : s;
   };
-  P.vocab = function (d) { return String(d.key_vocabulary || '').split(/\s*,\s*/).filter(Boolean); };
+  P.vocab = P.vocab || function (d) { return String(d.key_vocabulary || '').split(/\s*,\s*/).filter(Boolean); };   // notes-content.js replaces it to apply teacher edits
   P.template = function (d) { return d.components || scope().day_types[d.day_type] || {}; };
   P.coverOf = function (id) { return map().lessons[id] || null; };
 
@@ -185,6 +185,9 @@
         pr = sec('practice', 'Launch Task', { minutes: 25, launch: true });
         ex = sec('exit', 'Reflection', { minutes: 5, frame: d.sentence_frame });
     }
+    plan.notesMode = opts.notes === 'filled' || opts.notes === 'fill' ? opts.notes : P.lessonNotesMode(d);
+    plan.sections.forEach(function (s) { s.defaultMinutes = s.minutes; });
+    if (opts.minutes) P.applyMinutes(plan, opts.minutes);
     plan.sections.forEach(function (s) { s.template = T[{ donow: 'do_now', notes: 'notes', practice: 'practice', exit: 'exit_ticket' }[s.id]] || ''; });
     plan.coverage = uniq(cov.concat(d.day_type === 'Diagnostic' ? ['LAUNCH-2'] : [])).map(function (id) { var m = P.coverOf(id) || { cover: 'none', note: 'Not in the skill map.' }, l = P.lessonById(id); return { id: id, title: l ? l.title : id, cover: m.cover, note: m.note || '' }; });
     plan.unitSet = d.unit ? P.unitSetId(d.unit) : null;
@@ -214,6 +217,30 @@
     plan.sections[si].groups[gi].items[ii] = p;
     return p;
   };
+  /* Fixed text for days without generated problems (launch tasks, routines, project checkpoints). */
+  P.launchTask = function (d) {
+    if (d.lesson_id === 'LAUNCH-1') return { title: 'Four 4s', student: 'Use exactly four 4s and any operations (+, −, ×, ÷, exponents, parentheses) to make each number from 1 to 10. Work with your group; record one expression for each number.', teacher: 'Groups of 3–4. Rotate roles (recorder, checker, reporter, materials). Share-out: which numbers were hardest, and how did order of operations matter?' };
+    return { title: 'Handshake problem', student: 'Everyone in a group of 10 shakes hands with everyone else once. How many handshakes are there? Solve it for groups of 2, 3, 4 and 5 first. Look for a pattern, then predict 10 and 30.', teacher: 'Model a productive struggle: draw, make a table, find a pattern. Celebrate different strategies before anyone shows a formula.' };
+  };
+  P.routines = function (d) {
+    if (d.lesson_id === 'LAUNCH-1') return [['Do Now', 'Starts when the bell rings: 3–5 problems on the board, about 5 minutes, done silently.'], ['Notes', 'Guided notes with blanks to fill in, plus worked examples (I do, we do, you try).'], ['Practice', 'We do problems together, then you do problems from easier to harder.'], ['Exit ticket', 'A summary sentence and 2–3 problems; hand it in on the way out.'], ['Getting help', 'Ask three before me; use your notes; flag a problem with a star.']];
+    return [['When I am stuck', 'Reread, draw a picture, try a simpler number, make a table.'], ['In my group', 'Everyone talks, everyone writes, nobody is done until everyone is done.'], ['Mistakes', 'Mistakes show where to learn next; circle them, do not erase them.']];
+  };
+  P.projectCheckpoints = function (d) {
+    return { 'END-6': ['Choose a question', 'Collect at least 10 data points', 'Make a scatter plot'], 'END-7': ['Choose a linear, exponential or quadratic model', 'Write the equation', 'Check residuals'], 'END-8': ['Prepare 3-minute presentation', 'Explain why your model fits', 'Answer one audience question'] }[d.lesson_id] || ['Set a goal', 'Work', 'Log progress'];
+  };
+  /* Notes: 'filled' (definitions, key idea and worked examples printed) or 'fill' (students write them in).
+     The scope's notes_style decides the default: "Pre-filled reference notes" → filled, anything else → fill. */
+  P.lessonNotesMode = function (d) { return /pre-filled/i.test(d.notes_style || '') ? 'filled' : 'fill'; };
+  /* Minutes per part: {donow: 5, notes: 20, …}; a part not listed keeps its default. 0–180 minutes. */
+  P.applyMinutes = function (plan, m) {
+    plan.sections.forEach(function (s) {
+      var v = m && m[s.id];
+      s.minutes = v === undefined || v === null || v === '' || isNaN(+v) ? s.defaultMinutes : Math.max(0, Math.min(180, Math.round(+v)));
+    });
+    return plan;
+  };
+  P.totalMinutes = function (plan) { return plan.sections.reduce(function (n, s) { return n + (s.minutes || 0); }, 0); };
   P.summary = function (plan) {
     var all = P.allItems(plan);
     return { problems: all.length, failed: all.filter(function (p) { return p.failed; }).length, unverified: all.filter(function (p) { return !p.failed && (!p.verify || p.verify.status !== 'verified'); }).length };

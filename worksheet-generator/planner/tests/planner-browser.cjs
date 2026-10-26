@@ -5,7 +5,7 @@
 const { chromium } = require(process.env.PW || 'playwright');
 const BASE = process.env.BASE || 'http://localhost:8765';
 (async () => {
-  const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: 1280, height: 900 } });
+  const b = await chromium.launch(); const pg = await (await b.newContext({ acceptDownloads: true, viewport: { width: 1280, height: 900 } })).newPage();
   const errs = []; pg.on('pageerror', e => errs.push(e.message));
   let checks = 0, fails = [];
   const ok = (c, m) => { checks++; if (!c) fails.push(m); };
@@ -41,6 +41,37 @@ const BASE = process.env.BASE || 'http://localhost:8765';
   ok(/level=honors/.test(pg.url()), 'level not in the URL');
   await pg.goto(BASE + '/worksheet-generator/lesson-planner.html#unit=algebra1-quadratics'); await pg.waitForTimeout(200);
   ok(/day=141\b/.test(pg.url()), '#unit= did not open the unit\'s first day: ' + pg.url());
+  // editable minutes (kept for the day type, problems unchanged), notes setting, PowerPoint download
+  await pg.goto(BASE + '/worksheet-generator/lesson-planner.html#day=30&view=plan'); await pg.waitForSelector('.pl-mins');
+  const q0 = await pg.$eval('.pl-card .pl-q', e => e.textContent);
+  await pg.fill('.pl-mins[data-s="1"]', '22'); await pg.press('.pl-mins[data-s="1"]', 'Tab');
+  ok(await pg.textContent('.pl-min[data-min="1"]') === '22 min', 'edited minutes not shown in the section header');
+  ok(q0 === await pg.$eval('.pl-card .pl-q', e => e.textContent), 'editing minutes changed the problems');
+  await pg.goto(BASE + '/worksheet-generator/lesson-planner.html#day=31&view=student'); await pg.waitForSelector('.pl-sheet');
+  ok(/22 min/.test(await pg.textContent('.pl-s-notes .pl-shd')), 'edited minutes not kept for the next Lesson day');
+  await pg.check('input[name=plNotes][value=filled]'); await pg.waitForTimeout(50);
+  ok(await pg.$$eval('.pl-worked', x => x.length) >= 1 && await pg.$$eval('.pl-vocab.filled', x => x.length) === 1, 'pre-filled notes not shown');
+  await pg.check('input[name=plNotes][value=fill]'); await pg.waitForTimeout(50);
+  ok(await pg.$$eval('.pl-worked', x => x.length) === 0, 'fill-in notes still show worked examples');
+  await pg.evaluate(() => { location.hash = '#day=31&view=plan'; }); await pg.waitForSelector('#plResetMin');
+  await pg.click('#plResetMin');
+  ok(await pg.$eval('.pl-mins[data-s="1"]', e => e.value) === '15', 'reset did not restore the planned minutes');
+  const [dl] = await Promise.all([pg.waitForEvent('download', { timeout: 60000 }), pg.click('#plPptx')]);
+  ok(/^Algebra1-Day031-.*\.pptx$/.test(dl.suggestedFilename()), 'PowerPoint file name: ' + dl.suggestedFilename());
+  await pg.check('input[name=plNotes][value=lesson]');
+  // editable notes: saved per lesson, used on the handout, reset restores the original
+  await pg.evaluate(() => { location.hash = '#day=30&view=plan'; }); await pg.waitForSelector('#plNoted');
+  await pg.fill('#plNoted textarea[data-n="idea"]', 'Edited key idea.');
+  await pg.click('#plAddWord'); await pg.fill('#plNoted input[data-n="w"]:last-of-type >> nth=-1', 'my word'); await pg.fill('#plNoted textarea[data-n="d"] >> nth=-1', 'my meaning');
+  await pg.fill('#plNoted textarea[data-n="extra"]', 'Teacher note line.'); await pg.waitForTimeout(400);
+  await pg.reload(); await pg.waitForSelector('#plNoted');
+  ok(await pg.$eval('#plNoted textarea[data-n="idea"]', e => e.value) === 'Edited key idea.', 'edited key idea not kept after reload');
+  await pg.check('input[name=plNotes][value=filled]'); await pg.click('.tab[data-view=student]');
+  const hs = await pg.textContent('.pl-s-notes');
+  ok(/Edited key idea\./.test(hs) && /my word/.test(hs) && /my meaning/.test(hs) && /Teacher note line/.test(hs), 'edited notes not on the handout');
+  await pg.click('.tab[data-view=plan]'); await pg.click('#plNotesReset');
+  ok(await pg.$eval('#plNoted textarea[data-n="idea"]', e => e.value) !== 'Edited key idea.', 'reset did not restore the notes');
+  await pg.check('input[name=plNotes][value=lesson]');
   await pg.setViewportSize({ width: 390, height: 844 }); await pg.waitForTimeout(100);
   ok(await pg.evaluate(() => document.documentElement.scrollWidth <= 391), 'phone width scrolls sideways');
   errs.forEach(e => fails.push('script error: ' + e));

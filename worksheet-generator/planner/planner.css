@@ -131,3 +131,29 @@
   body.printing #printRoot .pl-sheet{box-shadow:none;padding:0;width:auto;margin:0;max-width:none}
   .pl-shd{background:#000!important;color:#fff!important}
 }
+
+/* editable minutes, definitions, pre-filled notes */
+.pl-mins{width:4.2em;padding:3px 6px;border:2px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink)}
+.pl-total td{border-bottom:0}
+.pl-defs{display:grid;grid-template-columns:max-content 1fr;gap:3px 12px;margin:4px 0 8px;font-size:.93rem}
+.pl-defs dt{font-weight:700}.pl-defs dd{margin:0}
+@media (max-width:600px){.pl-defs{grid-template-columns:1fr}.pl-defs dd{margin-bottom:4px}}
+.pl-shd small{font-family:var(--body);font-weight:400;font-size:9pt}
+.pl-vocab.filled td:last-child{height:auto;font-size:9.5pt}
+.pl-idea{margin:2px 0 6px;border:1.2px solid #000;border-radius:6px;padding:4px 8px;background:#f2f6ff}
+.pl-worked .pl-steps{font-size:9.5pt}
+.pl-worked .pl-ans{background:#f2f6ff;border-radius:4px;padding:2px 6px;margin-top:3px}
+
+/* notes editor (plan view) and teacher's own notes on the handout */
+.pl-noted{border:2px dashed var(--muted);border-radius:10px;padding:8px 12px;margin:6px 0 10px;display:flex;flex-direction:column;gap:6px}
+.pl-noted-hd{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.pl-nl{display:flex;flex-direction:column;gap:3px;font-weight:700;font-size:.92rem}
+.pl-nl small{font-weight:400;color:var(--ink2)}
+.pl-noted textarea,.pl-noted input[type=text]{width:100%;font:inherit;font-weight:400;border:2px solid var(--line);border-radius:7px;padding:4px 7px;background:var(--card);color:var(--ink);resize:vertical}
+.pl-ntbl{border-collapse:collapse;width:100%}
+.pl-ntbl th{text-align:left;font-size:.82rem;color:var(--ink2);padding:2px 4px}
+.pl-ntbl td{padding:3px 4px;vertical-align:top}
+.pl-ntbl td:first-child{width:28%}.pl-ntbl td:last-child{width:2.4em}
+#plAddWord{align-self:flex-start}
+.pl-mynotes{border:1.2px solid #000;border-radius:6px;padding:4px 8px;margin:4px 0 6px;font-size:10pt}
+@media (max-width:600px){.pl-ntbl,.pl-ntbl tbody,.pl-ntbl tr,.pl-ntbl td{display:block;width:100%!important}.pl-ntbl thead{display:none}.pl-ntbl tr{border-bottom:1px dashed var(--muted);padding:4px 0}}
