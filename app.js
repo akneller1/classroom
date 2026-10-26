@@ -385,7 +385,57 @@
     };
   }
 
+  /* Algebra 1 unit pages prioritize the four creation tools; legacy printables remain
+     in the library, global search, and activity browser rather than being duplicated here. */
+  function algebraUnitView(c, u) {
+    var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
+    var choices = [
+      { format: 'lesson-planner', title: 'Create a Lesson Plan', description: 'Build a lesson with objectives, notes, examples, practice, and an exit ticket.' },
+      { format: 'worksheet-generator', title: 'Create a Worksheet', description: 'Select skills and difficulty to generate differentiated practice and answer keys.' },
+      { format: 'printable-generator', title: 'Create an Activity', description: 'Generate mazes, color-by-number, Tarsia puzzles, partner checks, and more.' },
+      { format: 'assessment-generator', title: 'Create an Assessment', description: 'Make a test or menu assessment with selectable skills and answer keys.' }
+    ];
+    var generators = choices.map(function (choice) {
+      var it = items.filter(function (entry) { return activityFormat(entry.a) === choice.format; })[0];
+      if (!it) return '';
+      var a = it.a;
+      return '<li class="algebra-tool-card">' +
+        '<a class="algebra-tool-link" href="' + esc(activityUrl(a)) + '">' +
+          (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') +
+          '<span class="algebra-tool-title">' + esc(choice.title) + '</span>' +
+          '<span class="algebra-tool-desc">' + esc(choice.description) + '</span>' +
+          '<span class="algebra-tool-action">Open generator →</span>' +
+        '</a></li>';
+    }).filter(Boolean);
+    var gameFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'games'; })[0].formats;
+    var guideFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'study-guides'; })[0].formats;
+    function category(id, title, formats) {
+      var matches = items.filter(function (it) { return formats.indexOf(activityFormat(it.a)) >= 0; });
+      if (!matches.length) return '';
+      return '<section class="algebra-unit-section" aria-labelledby="algebra-' + id + '">' +
+        '<h2 id="algebra-' + id + '">' + esc(title) + '</h2>' +
+        '<ul class="cards grouped-cards">' + matches.map(function (it) { return cardHtml(it, false, true); }).join('') + '</ul>' +
+        '</section>';
+    }
+    var inner = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
+      '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
+      '<p class="band-meta">Create custom resources or explore games and study guides for this unit.</p>';
+    return {
+      title: unitLabel(c, u) + ', ' + c.name,
+      html: bandHtml(c, inner) +
+        '<section class="section"><div class="wrap algebra-unit-layout">' +
+        '<section class="algebra-generator-section" aria-labelledby="algebra-generators">' +
+        '<h2 id="algebra-generators">Generators</h2>' +
+        '<p class="algebra-section-intro">Choose what you want to create for this unit.</p>' +
+        '<ul class="algebra-tool-grid">' + generators.join('') + '</ul></section>' +
+        category('games', 'Games', gameFormats) +
+        category('study-guides', 'Study Guides', guideFormats) +
+        '</div></section>'
+    };
+  }
+
   function unitView(c, u) {
+    if (c.id === 'algebra') return algebraUnitView(c, u);
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var planner = u.artifacts.filter(function (a) { return activityFormat(a) === 'lesson-planner'; })[0];
     var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];
