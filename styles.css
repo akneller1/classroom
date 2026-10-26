@@ -386,3 +386,8 @@ html { scroll-padding-top: 12rem; }
 .algebra-tool-action { color: var(--blue-text); font-weight: 800; margin-top: auto; padding-top: .4rem; }
 .algebra-unit-section > h2 { padding-bottom: .65rem; border-bottom: 1px solid var(--line); margin-bottom: 1.1rem; }
 @media (max-width: 600px) { .algebra-tool-grid { grid-template-columns: 1fr; } .algebra-generator-section { padding: 1rem; } }
+
+/* Algebra 1 unit cards now summarize curriculum skills instead of activity totals. */
+.unit-skills { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .36rem; width: 100%; }
+.unit-skill { display: inline-block; max-width: 100%; padding: .22rem .48rem; font-size: .78rem; line-height: 1.4; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 7px; background: var(--card); }
+.unit[data-color] .unit-skills { margin-top: .45rem; }
