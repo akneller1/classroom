@@ -545,11 +545,7 @@
     function seg(name, opts, val) { return '<div class="seg" role="radiogroup" aria-label="' + name + '">' + opts.map(function (o, i) { var id = 'mmL' + name.replace(/\W/g, '') + i; return '<input type="radio" id="' + id + '" name="mmL' + name.replace(/\W/g, '') + '" value="' + o[0] + '"' + (val === o[0] ? ' checked' : '') + '><label for="' + id + '">' + o[1] + '</label>'; }).join('') + '</div>'; }
     return '<div class="card mm-layout"><h2>Print layout</h2>' +
       (isTest() ? '' : '<div class="field"><span class="lbl">Format</span>' + seg('Format', [['together', 'Problems with workspace'], ['menu-only', 'Menu + separate work pages']], L.format) + '</div>') +
-      (NS.isWorksheet(S.config) ? '<div class="field"><span class="lbl">Problem spacing</span><div class="mm-spacing-stepper" role="group" aria-label="Adjust problem spacing">' +
-        '<button type="button" class="btn" id="mmSpaceMinus" aria-label="Decrease spacing"' + (!(+L.spaceAdjust > 0) ? ' disabled' : '') + '>−</button>' +
-        '<output id="mmSpaceValue" aria-live="polite">' + (+L.spaceAdjust || 0) + ' / 10</output>' +
-        '<button type="button" class="btn" id="mmSpacePlus" aria-label="Increase spacing"' + ((+L.spaceAdjust || 0) >= 10 ? ' disabled' : '') + '>+</button></div><small>Increase or decrease the space between problems. Preview updates automatically.</small></div>' :
-        '<div class="field"><span class="lbl">Spacing</span>' + seg('Spacing', [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious']], L.density) + '</div>') +
+      '<div class="field"><span class="lbl">Spacing</span>' + seg('Spacing', [['compact', 'Compact'], ['standard', 'Standard'], ['spacious', 'Spacious']], L.density) + '</div>' +
       '<div class="field"><span class="lbl">Workspace</span>' + seg('Workspace', [['none', 'Blank'], ['graph', 'Graph paper'], ['coordinate', 'Coordinate plane']], L.grid) + '</div>' +
       '<label class="chk"><input type="checkbox" id="mmLRef"' + (L.reference ? ' checked' : '') + '><span>Add a reference page for students</span></label>' +
       '<label class="chk"><input type="checkbox" id="mmLGuide"' + (L.guide !== false ? ' checked' : '') + '><span>Include the teacher guide page in the key</span></label></div>';
@@ -565,17 +561,6 @@
     var L = S.config.layout;
     $$('input[name=mmLFormat]').forEach(function (r) { r.onchange = function () { snapshot(); L.format = r.value; autosave(); drawPreview(); }; });
     $('input[name=mmLSpacing]').forEach(function (r) { r.onchange = function () { snapshot(); L.density = r.value; autosave(); drawPreview(); }; });
-    function adjustProblemSpacing(delta) {
-      var next = Math.min(10, Math.max(0, (+L.spaceAdjust || 0) + delta));
-      if (next === (+L.spaceAdjust || 0)) return;
-      snapshot(); L.spaceAdjust = next; autosave();
-      $('#mmSpaceValue').textContent = next + ' / 10';
-      $('#mmSpaceMinus').disabled = next === 0;
-      $('#mmSpacePlus').disabled = next === 10;
-      drawPreview();
-    }
-    if ($('#mmSpaceMinus')) $('#mmSpaceMinus').onclick = function () { adjustProblemSpacing(-1); };
-    if ($('#mmSpacePlus')) $('#mmSpacePlus').onclick = function () { adjustProblemSpacing(1); };
     $$('input[name=mmLWorkspace]').forEach(function (r) { r.onchange = function () { snapshot(); L.grid = r.value; autosave(); drawPreview(); }; });
     $('#mmLRef').onchange = function (e) { snapshot(); L.reference = e.target.checked; autosave(); drawPreview(); };
     $('#mmLGuide').onchange = function (e) { snapshot(); L.guide = e.target.checked; autosave(); drawPreview(); };
