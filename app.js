@@ -168,7 +168,7 @@
     'other': 'Explore more practice resources.'
   };
   function activityDirectoryHtml() {
-    return '<div class="resource-columns">' + RESOURCE_GROUPS.map(function (group) {
+    return '<div class="resource-columns">' + RESOURCE_GROUPS.filter(function (group) { return group.id !== 'worksheets'; }).map(function (group) {
       var formats = group.formats.map(function (id) {
         return ACTIVITY_FORMATS.filter(function (format) { return format.id === id; })[0];
       });
