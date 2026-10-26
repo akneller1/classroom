@@ -64,7 +64,8 @@ function results(){var qs=state.questions,graded=qs.filter(q=>q.correct!==null),
  root.querySelector('#pt-retry').onclick=()=>build();root.querySelector('#pt-print').onclick=()=>print();root.querySelector('#pt-new').onclick=()=>{state=null;save();setup();};
  root.querySelectorAll('[data-self]').forEach(b=>b.onclick=()=>{qs[+b.dataset.self].correct=b.dataset.val==='yes';save();results();});
 }
-read();if(!N.skillSets[config.unit])config.unit=units()[0][0];
+read();var requested=/unit=([a-z0-9-]+)/.exec(G.location.hash||'');if(requested&&N.skillSets[requested[1]]&&(!state||state.done)){config.unit=requested[1];config.skills=N.skillSets[config.unit].skills.map(s=>s.id);state=null;}
+if(!N.skillSets[config.unit])config.unit=units()[0][0];
 if(state&&!state.done){root.innerHTML='<section class="pt-card"><h1>Continue your practice test?</h1><p>Your previous assessment is saved in this browser.</p><div class="pt-actions"><button id="resume">Resume test</button><button id="fresh" class="pt-secondary">Start fresh</button></div></section>';root.querySelector('#resume').onclick=show;root.querySelector('#fresh').onclick=()=>{state=null;save();setup();};}
 else if(state&&state.done)results();else setup();
 })(window);
