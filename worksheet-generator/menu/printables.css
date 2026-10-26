@@ -273,3 +273,9 @@
 .pp-box .mm-fig:not(.mm-fig-table):not(.mm-fig-twoway):not(.mm-fig-mapping){max-width:68%;float:right;margin:0 0 .06in .1in}
 .pp-box .mm-fig svg{max-height:1.38in;width:auto;max-width:100%;height:auto}
 .pp-box .mm-fig-plane svg{max-height:1.48in}
+
+/* Tarsia labels: preserve full stacked fractions in both preview and print. */
+.pr-tt{white-space:normal;line-height:1.2;overflow:visible;text-align:center;padding:2px 3px;box-sizing:border-box}
+.pr-tt>span{display:block;max-width:100%;overflow:visible}
+.pr-tt .katex{line-height:1.2;white-space:nowrap}
+.pr-tsvg foreignObject{overflow:visible}
