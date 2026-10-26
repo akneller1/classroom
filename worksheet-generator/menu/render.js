@@ -320,7 +320,7 @@
         if (b.page === 'new' && cur.body.childNodes.length) start();
         // keep a heading together with the next block
         var group = [b]; if (b.keep && blocks[i + 1]) group.push(blocks[i + 1]);
-        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); if (kind === 'student' && NS.isWorksheet(state.config) && g.cls === 'tight' && (+state.config.layout.spaceAdjust || 0) > 0) e.style.paddingTop = (Math.min(10, Math.max(0, +state.config.layout.spaceAdjust)) * 9) + 'px'; cur.body.appendChild(e); return e; });
+        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); cur.body.appendChild(e); return e; });
         if (cur.body.scrollHeight > cur.body.clientHeight + 1) {
           els.forEach(function (e) { cur.body.removeChild(e); });
           if (cur.body.childNodes.length) {
@@ -335,23 +335,6 @@
           if (cur.body.scrollHeight > cur.body.clientHeight + 1) overflow.push(i);
         }
         i += group.length;
-      }
-      // Fill-page mode is applied only after normal browser-measured pagination.
-      // Increase spacing between question rows without resizing text, splitting blocks,
-      // altering the answer key or generating an extra page.
-      if (kind === 'student' && NS.isWorksheet(state.config) && state.config.layout.density === 'fill') {
-        pages.forEach(function (p) {
-          var rows = Array.prototype.slice.call(p.body.querySelectorAll(':scope > .mm-blk.tight'));
-          var spare = p.body.clientHeight - p.body.scrollHeight;
-          if (rows.length < 2 || spare < 12) return;
-          // A cap avoids huge empty areas on a final page with only a few questions.
-          var pad = Math.min(76, Math.max(0, (spare - 5) / rows.length));
-          rows.forEach(function (row) { row.style.paddingTop = pad.toFixed(2) + 'px'; });
-          // Browsers can round fractional pixels differently: undo if anything clips.
-          if (p.body.scrollHeight > p.body.clientHeight + 1) {
-            rows.forEach(function (row) { row.style.paddingTop = ''; });
-          }
-        });
       }
       pages.forEach(function (p, k) { p.page.querySelector('.mm-pno').textContent = 'Page ' + (k + 1) + ' of ' + pages.length; stage.removeChild(p.page); });
       doc.body.removeChild(stage);
