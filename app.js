@@ -400,7 +400,7 @@
       if (!it) return '';
       var a = it.a;
       return '<li class="algebra-tool-card">' +
-        '<a class="algebra-tool-link" href="' + esc(activityUrl(a)) + '">' +
+        '<a class="algebra-tool-link" href="' + esc(choice.format === 'printable-generator' ? activityUrl(a).replace(/&kind=[a-z]+$/, '') : activityUrl(a)) + '">' +
           (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') +
           '<span class="algebra-tool-title">' + esc(choice.title) + '</span>' +
           '<span class="algebra-tool-desc">' + esc(choice.description) + '</span>' +
