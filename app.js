@@ -317,8 +317,8 @@
         '<section class="hero"><div class="wrap">' +
           '<div class="hero-copy"><p class="hero-eyebrow">MR. K’S CLASSROOM · BUILT FOR TEACHERS</p><h1 tabindex="-1">Less planning.<br><span>More teaching.</span></h1>' +
           '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
+          '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
         '</div></section>' +
-        '<section class="section generator-home-section"><div class="wrap">' + generatorLinks(null, null, false) + '</div></section>' +
         '<section class="section explore-courses"><div class="wrap"><div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2>Explore by subject</h2><p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses">' +
           L.courses.map(function (c) {
             var n = courseCount(c);
@@ -535,7 +535,7 @@
     var items = u ? u.artifacts : [];
     var unitId = u ? 'algebra1-' + u.id : '';
     return '<div class="generator-banner' + (compact ? ' compact' : '') + '">' +
-      '<div class="generator-banner-heading"><h2>' + (compact ? 'Create Resources for This Unit' : 'What would you like to create today?') + '</h2>' +
+      '<div class="generator-banner-heading"><h2>' + (compact ? 'Create Resources for This Unit' : 'What would you like to do today?') + '</h2>' +
       (!compact ? '<p>Choose a generator, select your unit, and make classroom-ready resources.</p>' : '') + '</div>' +
       '<ul class="generator-shortcuts">' + GENERATOR_ACTIONS.map(function (tool) {
         var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
