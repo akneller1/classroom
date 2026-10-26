@@ -593,6 +593,11 @@
       box.innerHTML = ''; pages.forEach(function (pg) { box.appendChild(pg); });
       $('#mmPStatus').textContent = pages.length + ' page' + (pages.length > 1 ? 's' : '') + (pages.overflow.length ? ' · ⚠ a block is taller than one page' : '');
       fitZoom();
+    }).catch(function (err) {
+      if (tok !== previewToken) return;
+      var status = $('#mmPStatus');
+      if (status) status.textContent = 'Preview could not be generated. Try changing a setting or rebuilding the worksheet.';
+      if (G.console && G.console.error) G.console.error('Worksheet preview failed:', err);
     });
   }
   function fitZoom() {
