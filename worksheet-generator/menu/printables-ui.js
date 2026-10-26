@@ -472,7 +472,21 @@
     pv.innerHTML = tools + (built[ui.v].levelNote ? '<div class="pr-busy">' + esc(built[ui.v].levelNote) + '</div>' : '') + '<div class="pr-pages"></div>';
     var box = $('.pr-pages', pv);
     PR.pageEls(cfg, built[ui.v], ui.v, built.length, ui.doc === 'key').forEach(function (p) { var w = doc.createElement('div'); w.className = 'pr-pwrap'; w.appendChild(p); box.appendChild(w); });
-    fit(); bindTools();
+    fit(); fitTarsiaLabels(pv); bindTools();
+  }
+  /* Fit the rendered KaTeX, not a character-count estimate. Keep each label inside
+     its own edge strip, including rotated labels and stacked fractions. */
+  function fitTarsiaLabels(root) {
+    $('.pr-tsvg foreignObject', root).forEach(function (fo) {
+      var el = fo.querySelector('.pr-tt'), span = el && el.querySelector('span');
+      if (!span) return;
+      span.style.transform = 'none';
+      var rect = span.getBoundingClientRect(), w = +fo.getAttribute('width'), h = +fo.getAttribute('height');
+      var sx = Math.min(1, Math.max(0.1, (w - 8) / Math.max(rect.width, 1)));
+      var sy = Math.min(1, Math.max(0.1, (h - 4) / Math.max(rect.height, 1)));
+      var scale = Math.min(sx, sy);
+      span.style.transform = 'scale(' + scale.toFixed(4) + ')';
+    });
   }
   function fit() { var box = $('.pr-pages'); if (!box) return; $$('.pr-pwrap', box).forEach(function (w) { var pw = w.firstChild && w.firstChild.classList.contains('pr-land') ? 11 : 8.5; w.style.zoom = Math.min(1, (box.clientWidth - 8) / (pw * 96)); }); }
   function bindTools() {
@@ -485,6 +499,7 @@
     var root = $('#printRoot'); root.innerHTML = '';
     built.forEach(function (B, v) { PR.pageEls(cfg, B, v, built.length, key).forEach(function (p) { root.appendChild(p); }); });
     doc.body.classList.add('printing');
+    fitTarsiaLabels(root);
     var done = function () { doc.body.classList.remove('printing'); root.innerHTML = ''; G.removeEventListener('afterprint', done); };
     G.addEventListener('afterprint', done);
     setTimeout(function () { G.print(); setTimeout(function () { if (doc.body.classList.contains('printing') && !G.matchMedia('print').matches) done(); }, 1500); }, 60);
