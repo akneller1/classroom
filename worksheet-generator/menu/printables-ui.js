@@ -260,7 +260,7 @@
     var sIn = large ? 2.15 : Math.min((layout === 'compact' ? 6.5 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.8 : 6.5) / (maxY - minY));
     var s = sIn * 96, W = large ? 5.45 * 96 : (maxX - minX) * s, H = large ? 6.65 * 96 : (maxY - minY) * s;
     var px = function (q) { return [(X(q) - minX) * s, (Y(q) - minY) * s]; };
-    var fs = large ? 10 : (sIn > 1.6 ? 7.6 : 6.8);
+    var fs = large ? 11 : (sIn > 1.6 ? 8 : 7.4);
     var out = '<svg class="pr-tsvg" width="' + (W / 96) + 'in" height="' + (H / 96) + 'in" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
     var slots = key ? B.pieces.map(function (_, i) { return { piece: i, slot: i, turn: 0 }; }) : B.scrambled;
     if (large) slots = slots.slice((section || 0) * 6, ((section || 0) + 1) * 6);
@@ -278,10 +278,10 @@
         var e = E[so[(k + sl.turn) % 3]], A = P[e[0]], Bp = P[e[1]], mx = (A[0] + Bp[0]) / 2, my = (A[1] + Bp[1]) / 2;
         var nx = cx - mx, ny = cy - my, nl = Math.sqrt(nx * nx + ny * ny); nx /= nl; ny /= nl;
         var edge = Math.hypot(Bp[0] - A[0], Bp[1] - A[1]);
-        var len = edge * 0.56, d = edge * 0.105, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
+        var len = edge * 0.58, d = edge * 0.12, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
         // Stacked fractions need substantially more vertical room than plain text.
-        var ox = mx + nx * d, oy = my + ny * d, hh = edge * 0.105;
-        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + Math.max(5.5, fs * Math.min(1, 22 / Math.max(1, PR.plain(txt).length))).toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
+        var ox = mx + nx * d, oy = my + ny * d, hh = edge * 0.13;
+        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + fs.toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
       }
     });
     return out + '</svg>';
@@ -482,17 +482,19 @@
   /* Fit the rendered KaTeX, not a character-count estimate. Keep each label inside
      its own edge strip, including rotated labels and stacked fractions. */
   function fitTarsiaLabels(root) {
-    $('.pr-tsvg foreignObject', root).forEach(function (fo) {
+    // Measure content in the edge's own unrotated coordinate system.
+    $$('.pr-tsvg foreignObject', root).forEach(function (fo) {
       var el = fo.querySelector('.pr-tt'), span = el && el.querySelector('span');
       if (!span) return;
       span.style.transform = 'none';
-      var w = +fo.getAttribute('width'), h = +fo.getAttribute('height');
-      // scrollWidth/scrollHeight are unrotated; getBoundingClientRect includes the SVG edge rotation.
-      var textWidth = Math.max(span.scrollWidth, span.offsetWidth, 1), textHeight = Math.max(span.scrollHeight, span.offsetHeight, 1);
-      var sx = Math.min(1, (w - 8) / textWidth);
-      var sy = Math.min(1, (h - 4) / textHeight);
-      var scale = Math.min(sx, sy);
-      span.style.transform = 'scale(' + scale.toFixed(4) + ')';
+      var w = +fo.getAttribute('width') - 8, h = +fo.getAttribute('height') - 5;
+      var naturalW = Math.max(span.scrollWidth, span.offsetWidth, 1);
+      var naturalH = Math.max(span.scrollHeight, span.offsetHeight, 1);
+      var scale = Math.min(1, w / naturalW, h / naturalH);
+      span.style.transform = 'scale(' + Math.max(0.01, scale).toFixed(4) + ')';
+      // Expose problematic labels so development tests can detect them.
+      fo.setAttribute('data-fit-scale', scale.toFixed(3));
+      fo.setAttribute('data-readable', scale >= 0.72 ? 'true' : 'false');
     });
   }
   function fit() { var box = $('.pr-pages'); if (!box) return; $$('.pr-pwrap', box).forEach(function (w) { var pw = w.firstChild && w.firstChild.classList.contains('pr-land') ? 11 : 8.5; w.style.zoom = Math.min(1, (box.clientWidth - 8) / (pw * 96)); }); }
