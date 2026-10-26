@@ -78,11 +78,20 @@
     if (t === prompt.replace(/\s*\.\s*$/, '') && !/^(Solve|Simplify|Factor|Evaluate)\b/.test(t)) return null;
     return t;
   }
+  /* Edge labels share tiny triangles. Reject dense math rather than printing unreadable text. */
+  function tarsiaSafe(s, max) {
+    var t = plain(s).replace(/\s+/g, '');
+    var fractions = (String(s).match(/\\\\(?:dfrac|frac|tfrac)/g) || []).length;
+    var tokens = (String(s).match(/\\\\(?:sqrt|binom|sum|int)/g) || []).length;
+    return t.length + fractions * 4 + tokens * 4 <= max &&
+      !/\\\\(?:begin|matrix|cases|underbrace|overbrace)/.test(s);
+  }
+  PR.tarsiaSafe = tarsiaSafe;
   PR.tarsiaEdge = tarsiaEdge;
   var TARSIA_VERB = /^(Solve|Simplify|Factor completely|Factor|Evaluate|Multiply|Expand|Add|Subtract|Divide|Write in scientific notation|Write in standard form|Find the slope of)\s*:?\s*⟨([^⟩]+)⟩\s*\.?$/;
   PR.MODES = {
     maze: { prompt: 92, answer: 14, fig: false, wrong: 4, snippet: 26 },
-    tarsia: { prompt: 28, answer: 15, fig: false, wrong: 2, verb: true },
+    tarsia: { prompt: 22, answer: 12, fig: false, wrong: 2, verb: true },
     color: { prompt: 170, answer: 30, fig: true, wrong: 0 },
     error: { prompt: 170, answer: 40, fig: true, wrong: 2, steps: true },
     partner: { prompt: 170, answer: 40, fig: true, wrong: 0 },
@@ -104,12 +113,12 @@
     if (lim.snippet && snippetsOf(q.prompt).some(function (m) { return plain('⟨' + m + '⟩').length > lim.snippet; })) return null;
     var it = { p: q, key: key, skill: skill, c: c, tag: set.byId[skill].tag, wrong: [] };
     if (lim.verb) {
-      var edge = tarsiaEdge(q.prompt); if (!edge || plain(edge).length > lim.prompt) return null;
+      var edge = tarsiaEdge(q.prompt); if (!edge || !tarsiaSafe(edge, lim.prompt) || !tarsiaSafe(key, lim.answer)) return null;
       it.edge = edge;
     } else if (plain(q.prompt).length + (q.parts[0].prompt ? plain(q.parts[0].prompt).length : 0) > lim.prompt) return null;
     if (lim.steps && !(q.steps || []).some(function (s) { return s.m; })) return null;
     if (lim.wrong) {
-      it.wrong = wrongs(q, Math.max(lim.wrong, 3), seed).filter(function (w) { return plain(w).length <= lim.answer + 4; });
+      it.wrong = wrongs(q, Math.max(lim.wrong, 3), seed).filter(function (w) { return kind === 'tarsia' ? tarsiaSafe(w, lim.answer) : plain(w).length <= lim.answer + 4; });
       if (it.wrong.length < Math.min(lim.wrong, 2)) return null;
     }
     return it;
@@ -138,7 +147,7 @@
     var used = { keys: new Set(), sigs: new Set() };
     for (var i = 0; i < n; i++) {
       var c = lv.tiers[Math.min(2, Math.floor(3 * i / n))];
-      for (var t = 0, T = kind === 'stations' ? 70 : 34; t < T; t++) {
+      for (var t = 0, T = kind === 'stations' ? 70 : kind === 'tarsia' ? 90 : 34; t < T; t++) {
         // the planned difficulty first, then the level's other tiers, then one or two steps easier
         var sk = order[(i + t) % order.length], cc = t < 12 ? c : t < 22 ? lv.tiers[t % 3] : Math.max(1, lv.tiers[0] - 1 - (t % 2));
         var it = makeItem(cfg, sk, cc, [cfg.seed, vIdx, kind, i, t].join('|'), used, kind);
