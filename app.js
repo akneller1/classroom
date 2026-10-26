@@ -749,8 +749,6 @@
       var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
     }).join('') + SOON.map(function (c) { return '<span class="soon-link" title="Coming soon">' + esc(c.name) + ' <small>Coming soon</small></span>'; }).join('');
-    var curSaved = r && r.name === 'saved' ? ' aria-current="page"' : '';
-    html += '<a href="#saved"' + curSaved + '>Saved Activities' + (saved.length ? ' <span class="badge" aria-label="' + saved.length + ' saved">' + saved.length + '</span>' : '') + '</a>';
     nav.innerHTML = html;
   }
 
