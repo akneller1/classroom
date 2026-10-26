@@ -512,7 +512,7 @@
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
-            '<div class="unit-meta">' + (c.id === 'algebra' ? subskillsHtml(u) : '<span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '')) + '</div></a></li>';
+            '<div class="unit-meta"' + (c.id === 'algebra' ? ' data-lesson-list="true"' : '') + '>' + (c.id === 'algebra' ? subskillsHtml(u) : '<span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '')) + '</div></a></li>';
         }).join('') + '</ul></div></section>'
     };
   }
