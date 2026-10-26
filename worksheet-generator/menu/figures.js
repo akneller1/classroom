@@ -100,8 +100,8 @@
     var X = function (x) { return +(PAD + (x - xmin) * unit).toFixed(2); }, Y = function (y) { return +(PAD + (ymax - y) * unit).toFixed(2); };
     var step = Math.max(1, Math.ceil((xmax - xmin) / 12));
     var h = ['<svg class="mm-plane-fig" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="' + (W / 96 * 0.78).toFixed(2) + 'in" role="img" aria-label="coordinate graph" data-xmin="' + xmin + '" data-ymax="' + ymax + '" data-pad="' + PAD + '" data-unit="' + unit.toFixed(6) + '">'];
-    for (var gx = xmin; gx <= xmax; gx++) h.push('<path d="M' + X(gx) + ' ' + Y(ymin) + 'V' + Y(ymax) + '" stroke="#d6d6d6" stroke-width="0.8"/>');
-    for (var gy = ymin; gy <= ymax; gy++) h.push('<path d="M' + X(xmin) + ' ' + Y(gy) + 'H' + X(xmax) + '" stroke="#d6d6d6" stroke-width="0.8"/>');
+    for (var gx = xmin; gx <= xmax; gx++) h.push('<path d="M' + X(gx) + ' ' + Y(ymin) + 'V' + Y(ymax) + '" stroke="#929292" stroke-width="1.1"/>');
+    for (var gy = ymin; gy <= ymax; gy++) h.push('<path d="M' + X(xmin) + ' ' + Y(gy) + 'H' + X(xmax) + '" stroke="#929292" stroke-width="1.1"/>');
     if (ymin <= 0 && ymax >= 0) h.push('<path d="M' + (X(xmin) - 6) + ' ' + Y(0) + 'H' + (X(xmax) + 6) + '" stroke="#111" stroke-width="1.4"/><text x="' + (X(xmax) + 4) + '" y="' + (Y(0) - 5) + '" font-size="11" font-style="italic" font-family="Georgia,serif">x</text>');
     if (xmin <= 0 && xmax >= 0) h.push('<path d="M' + X(0) + ' ' + (Y(ymin) + 6) + 'V' + (Y(ymax) - 6) + '" stroke="#111" stroke-width="1.4"/><text x="' + (X(0) + 5) + '" y="' + (Y(ymax) - 4) + '" font-size="11" font-style="italic" font-family="Georgia,serif">y</text>');
     for (var tx = Math.ceil(xmin / step) * step; tx <= xmax; tx += step) if (tx !== 0) h.push('<text x="' + X(tx) + '" y="' + (Math.min(Math.max(Y(0), Y(ymax)), Y(ymin)) + 12) + '" text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" fill="#333">' + numTxt(tx) + '</text>');
@@ -255,8 +255,8 @@
     var W = 360, H = 300, L = 46, B = H - 38, T = 12, R = W - 14;
     var ux = (R - L) / (spec.xmax - spec.xmin), uy = (B - T) / (spec.ymax - spec.ymin), X = function (x) { return +(L + (x - spec.xmin) * ux).toFixed(2); }, Y = function (y) { return +(B - (y - spec.ymin) * uy).toFixed(2); };
     var h = ['<svg class="mm-scatter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="3.4in" role="img" aria-label="scatter plot" data-xmin="' + spec.xmin + '" data-ymin="' + spec.ymin + '" data-l="' + L + '" data-b="' + B + '" data-ux="' + ux.toFixed(6) + '" data-uy="' + uy.toFixed(6) + '">'];
-    for (var gx = spec.xmin; gx <= spec.xmax + 1e-9; gx += spec.xstep) h.push('<path d="M' + X(gx) + ' ' + T + 'V' + B + '" stroke="#ddd"/><text x="' + X(gx) + '" y="' + (B + 13) + '" text-anchor="middle" font-size="9.5" ' + FONT + '>' + numTxt(gx) + '</text>');
-    for (var gy = spec.ymin; gy <= spec.ymax + 1e-9; gy += spec.ystep) h.push('<path d="M' + L + ' ' + Y(gy) + 'H' + R + '" stroke="#ddd"/><text x="' + (L - 5) + '" y="' + (Y(gy) + 3) + '" text-anchor="end" font-size="9.5" ' + FONT + '>' + numTxt(gy) + '</text>');
+    for (var gx = spec.xmin; gx <= spec.xmax + 1e-9; gx += spec.xstep) h.push('<path d="M' + X(gx) + ' ' + T + 'V' + B + '" stroke="#929292" stroke-width="1.1"/><text x="' + X(gx) + '" y="' + (B + 13) + '" text-anchor="middle" font-size="9.5" ' + FONT + '>' + numTxt(gx) + '</text>');
+    for (var gy = spec.ymin; gy <= spec.ymax + 1e-9; gy += spec.ystep) h.push('<path d="M' + L + ' ' + Y(gy) + 'H' + R + '" stroke="#929292" stroke-width="1.1"/><text x="' + (L - 5) + '" y="' + (Y(gy) + 3) + '" text-anchor="end" font-size="9.5" ' + FONT + '>' + numTxt(gy) + '</text>');
     h.push('<path d="M' + L + ' ' + T + 'V' + B + 'H' + R + '" stroke="#111" stroke-width="1.4" fill="none"/>');
     if (spec.xlabel) h.push('<text x="' + ((L + R) / 2) + '" y="' + (H - 4) + '" text-anchor="middle" font-size="10.5" ' + FONT + '>' + spec.xlabel + '</text>');
     if (spec.ylabel) h.push('<text transform="translate(11 ' + ((T + B) / 2) + ') rotate(-90)" text-anchor="middle" font-size="10.5" ' + FONT + '>' + spec.ylabel + '</text>');
@@ -285,7 +285,7 @@
     var W = 400, H = 250, L = 46, R = W - 16, T = 14, B = H - 44, n = spec.counts.length, maxc = Math.max.apply(null, spec.counts);
     var yStep = maxc <= 8 ? 1 : maxc <= 16 ? 2 : maxc <= 40 ? 5 : 10, yMax = Math.ceil(maxc / yStep) * yStep, ux = (R - L) / n, uy = (B - T) / yMax;
     var h = ['<svg class="mm-hist" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="4in" role="img" aria-label="histogram" data-start="' + spec.start + '" data-width="' + spec.width + '" data-l="' + L + '" data-b="' + B + '" data-ux="' + ux.toFixed(6) + '" data-uy="' + uy.toFixed(6) + '">'];
-    for (var t = 0; t <= yMax; t += yStep) { var y = +(B - t * uy).toFixed(2); h.push('<path d="M' + L + ' ' + y + 'H' + R + '" stroke="#d0d4dc" stroke-width="1"/><text x="' + (L - 6) + '" y="' + (y + 3.5) + '" text-anchor="end" font-size="10" ' + FONT + '>' + t + '</text>'); }
+    for (var t = 0; t <= yMax; t += yStep) { var y = +(B - t * uy).toFixed(2); h.push('<path d="M' + L + ' ' + y + 'H' + R + '" stroke="#929292" stroke-width="1.2"/><text x="' + (L - 6) + '" y="' + (y + 3.5) + '" text-anchor="end" font-size="10" ' + FONT + '>' + t + '</text>'); }
     spec.counts.forEach(function (c, i) { if (!c) return; var x = +(L + i * ux).toFixed(2), y = +(B - c * uy).toFixed(2); h.push('<rect class="hg-bar" x="' + x + '" y="' + y + '" width="' + ux.toFixed(2) + '" height="' + (c * uy).toFixed(2) + '" fill="#bcd2ff" stroke="#111" stroke-width="1.4"/>'); });
     h.push('<path d="M' + L + ' ' + B + 'H' + R + 'M' + L + ' ' + T + 'V' + B + '" stroke="#111" stroke-width="1.4"/>');
     for (var k = 0; k <= n; k++) h.push('<text x="' + (L + k * ux).toFixed(2) + '" y="' + (B + 15) + '" text-anchor="middle" font-size="10" ' + FONT + '>' + numTxt(spec.start + k * spec.width) + '</text>');
