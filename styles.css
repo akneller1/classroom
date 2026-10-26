@@ -506,3 +506,21 @@ body { background:var(--paper); }
   .site-header .brand svg { width:2rem; height:2rem; }
   .site-header .main-nav { margin-left:0; }
 }
+
+/* Inline expandable lesson outlines; links remain separate accessible controls. */
+.algebra-unit-card .unit-title-link { color:inherit; text-decoration:none; display:block; }
+.algebra-unit-card .unit-title-link:hover { color:var(--blue-text); text-decoration:underline; text-underline-offset:3px; }
+.algebra-unit-card .unit-title-link:focus-visible,
+.algebra-unit-card .unit-open-link:focus-visible,
+.unit-lesson-details summary:focus-visible { outline:3px solid var(--blue-text); outline-offset:3px; border-radius:4px; }
+.algebra-unit-card .unit-meta { display:block; margin-top:0; }
+.algebra-unit-card .unit-skills { margin:.35rem 0 .2rem; }
+.unit-lesson-details { margin-top:.45rem; }
+.unit-lesson-details summary { cursor:pointer; color:var(--blue-text); font-size:.88rem; font-weight:800; padding:.35rem 0; }
+.unit-lesson-details summary:hover { text-decoration:underline; text-underline-offset:3px; }
+.unit-lesson-details .hide-label,
+.unit-lesson-details[open] .show-label { display:none; }
+.unit-lesson-details[open] .hide-label { display:inline; }
+.unit-lesson-details[open] .unit-skills { margin-top:.6rem; }
+.algebra-unit-card .unit-open-link { margin-top:auto; padding-top:.75rem; font-weight:800; font-size:.9rem; color:var(--blue-text); text-decoration:none; }
+.algebra-unit-card .unit-open-link:hover { text-decoration:underline; text-underline-offset:3px; }
