@@ -329,7 +329,12 @@
           }).join('') + SOON.map(function (c) {
             return '<li><div class="course soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
               '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
-          }).join('') + '</ul></div></section>'
+          }).join('') + '</ul></div></section>' +
+        '<section class="section more-resources-section"><div class="wrap"><div class="more-resources-heading"><div><p class="section-kicker">BEYOND THE GENERATORS</p><h2>Explore more resources</h2><p>Ready-to-use ways to practice, review, and reinforce skills.</p></div><a class="more-resources-all" href="#activities?subject=algebra">Browse all resources →</a></div>' +
+        '<div class="more-resource-links">' +
+          '<a class="more-resource-link" href="#activities?subject=algebra&category=games"><span class="more-resource-symbol" aria-hidden="true">◈</span><span><strong>Games</strong><small>Interactive challenges, team competitions, and engaging review.</small></span><span class="more-resource-arrow" aria-hidden="true">→</span></a>' +
+          '<a class="more-resource-link" href="#activities?subject=algebra&category=study-guides"><span class="more-resource-symbol" aria-hidden="true">▤</span><span><strong>Study Guides</strong><small>Helpful reference sheets, worked examples, and review resources.</small></span><span class="more-resource-arrow" aria-hidden="true">→</span></a>' +
+        '</div></div></section>'
     };
   }
 
