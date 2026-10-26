@@ -253,3 +253,11 @@
 .pw-cq svg{max-height:1.45in;width:auto}
 .ps-q{min-height:.55in}
 .ps-q svg{max-height:1.55in;width:auto}
+
+/* Maze student work sheet: 10 generously sized boxes, two across by five down. */
+.pm-answer-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,1.58in);gap:.1in;margin-top:.12in}
+.pm-answer-card{border:1.5px solid #111;border-radius:7px;padding:.1in .13in;min-width:0;break-inside:avoid;position:relative}
+.pm-answer-number{display:inline-flex;align-items:center;justify-content:center;width:.31in;height:.31in;border-radius:50%;background:#111;color:#fff;font-size:10pt;font-weight:800;margin-bottom:.08in}
+.pm-answer-line{display:flex;align-items:baseline;gap:.12in;font-size:10pt}
+.pm-answer-line span{flex:1;border-bottom:1px solid #111;min-width:0;height:.17in}
+.pm-answer-work{font-size:8pt;color:#555;margin-top:.13in}
