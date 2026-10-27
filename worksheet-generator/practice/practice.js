@@ -101,10 +101,10 @@ function solutionMath(value){
  if(G.katex&&typeof G.katex.renderToString==='function'){
    try{return G.katex.renderToString(source,{throwOnError:false,output:'html',trust:false});}catch(e){}
  }
- var plain=source.replace(/\\\\cdot/g,' × ').replace(/\\\\times/g,' × ')
-   .replace(/\\\\div/g,' ÷ ').replace(/\\\\pm/g,' ± ')
-   .replace(/\\^\\{([^{}]*)\\}/g,'^($1)')
-   .replace(/\\\\frac\\{([^{}]*)\\}\\{([^{}]*)\\}/g,'($1)/($2)');
+ var plain=source.replace(/\\cdot/g,' × ').replace(/\\times/g,' × ')
+   .replace(/\\div/g,' ÷ ').replace(/\\pm/g,' ± ')
+   .replace(/\^\{([^{}]*)\}/g,'^($1)')
+   .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g,'($1)/($2)');
  return esc(plain);
 }
 function feedback(q){var p=q.problem,part=p.parts[0];var lines=(p.steps||[]).map(x=>'<li>'+(x.t?fmt(x.t):'')+(x.m?'<div class="pt-step-math">'+solutionMath(x.m)+'</div>':'')+'</li>').join('');return '<div class="pt-explain"><strong>Answer:</strong> '+(p.parts||[]).map(x=>fmt(x.answer)).join(' · ')+(lines?'<h3>Worked solution</h3><ol>'+lines+'</ol>':'<p>Compare your process with the verified answer above.</p>')+(p.parts||[]).map(x=>x.answerFig&&N.figHtml?N.figHtml(x.answerFig):'').join('')+'</div>';}
