@@ -504,8 +504,120 @@
     "Residuals and Regression with Technology"
   ]
 };
-  function subskillsHtml(u) {
-    var skills = ALGEBRA_UNIT_SUBSKILLS[u.id] || [];
+var GEOMETRY_UNIT_SUBSKILLS = {
+  "foundations-geometry": [
+    "Points, Lines, Planes, and Space",
+    "Segments, Rays, and Geometric Notation",
+    "Measuring and Adding Segments",
+    "Midpoints and Segment Bisectors",
+    "Angles and Angle Classification",
+    "Angle Addition and Angle Bisectors",
+    "Distance and Midpoint on the Coordinate Plane",
+    "Geometric Reasoning and Basic Constructions"
+  ],
+  "angles-parallel-lines": [
+    "Complementary and Supplementary Angles",
+    "Vertical Angles and Linear Pairs",
+    "Parallel and Perpendicular Lines",
+    "Transversals and Angle Pairs",
+    "Corresponding and Alternate Interior Angles",
+    "Alternate Exterior and Same-Side Interior Angles",
+    "Solving Algebraic Angle Relationships",
+    "Proving Lines Parallel",
+    "Slopes of Parallel and Perpendicular Lines"
+  ],
+  "triangle-congruence": [
+    "Classifying Triangles",
+    "Triangle Angle Sum and Exterior Angles",
+    "Corresponding Parts of Triangles",
+    "Congruent Figures and Rigid Motions",
+    "SSS and SAS Triangle Congruence",
+    "ASA and AAS Triangle Congruence",
+    "Hypotenuse–Leg (HL) Congruence",
+    "CPCTC",
+    "Writing Triangle Congruence Proofs"
+  ],
+  "triangle-relationships": [
+    "Isosceles and Equilateral Triangle Properties",
+    "Triangle Inequality Theorem",
+    "Ordering Sides and Angles",
+    "Perpendicular and Angle Bisectors",
+    "Medians, Altitudes, and Triangle Centers",
+    "Midsegments of Triangles",
+    "Indirect Proof and Triangle Inequalities",
+    "Algebraic Applications of Triangle Relationships"
+  ],
+  "similarity": [
+    "Ratios, Rates, and Proportions",
+    "Similar Polygons and Corresponding Parts",
+    "Scale Factors and Dilations",
+    "AA Triangle Similarity",
+    "SAS and SSS Triangle Similarity",
+    "Finding Missing Side Lengths",
+    "Triangle Proportionality and Side-Splitter Theorems",
+    "Indirect Measurement and Scale Drawings",
+    "Similarity in Right Triangles"
+  ],
+  "right-triangles-trigonometry": [
+    "Pythagorean Theorem",
+    "Converse of the Pythagorean Theorem",
+    "Special Right Triangles: 45–45–90",
+    "Special Right Triangles: 30–60–90",
+    "Geometric Mean and Right-Triangle Altitudes",
+    "Sine, Cosine, and Tangent Ratios",
+    "Finding Missing Sides with Trigonometry",
+    "Finding Missing Angles with Inverse Trigonometry",
+    "Angles of Elevation and Depression",
+    "Right-Triangle Word Problems"
+  ],
+  "quadrilaterals-polygons": [
+    "Interior and Exterior Angles of Polygons",
+    "Properties of Parallelograms",
+    "Proving a Quadrilateral Is a Parallelogram",
+    "Rectangles and Their Properties",
+    "Rhombi and Squares",
+    "Trapezoids and Midsegments",
+    "Kites and Special Quadrilaterals",
+    "Classifying Quadrilaterals",
+    "Quadrilaterals on the Coordinate Plane"
+  ],
+  "transformations": [
+    "Translations on the Coordinate Plane",
+    "Reflections over Axes and Lines",
+    "Rotations about the Origin",
+    "Compositions of Transformations",
+    "Rigid Motions and Congruence",
+    "Dilations and Scale Factor",
+    "Similarity Transformations",
+    "Symmetry and Invariant Properties",
+    "Coordinate Proofs Using Transformations"
+  ],
+  "circles": [
+    "Parts of a Circle: Radius, Diameter, Chord, and Arc",
+    "Central Angles and Arc Measures",
+    "Inscribed Angles and Intercepted Arcs",
+    "Angles Formed by Chords, Secants, and Tangents",
+    "Tangents and Radius Properties",
+    "Chord Lengths and Distances from the Center",
+    "Arc Length and Sector Area",
+    "Segment Relationships in Circles",
+    "Equations of Circles on the Coordinate Plane"
+  ],
+  "area-surface-area-volume": [
+    "Perimeter and Area of Polygons",
+    "Area of Triangles, Trapezoids, and Regular Polygons",
+    "Area of Composite Figures",
+    "Circumference and Area of Circles",
+    "Arc Length and Sector Area Applications",
+    "Nets and Surface Area of Prisms and Pyramids",
+    "Volume of Prisms, Cylinders, Pyramids, and Cones",
+    "Surface Area and Volume of Spheres",
+    "Composite Solids",
+    "Effects of Scale Factor on Area and Volume"
+  ]
+};
+    function subskillsHtml(u, courseId) {
+    var skills = (courseId === 'geometry' ? GEOMETRY_UNIT_SUBSKILLS : ALGEBRA_UNIT_SUBSKILLS)[u.id] || [];
     function lines(list) {
       return '<ul class="unit-skills">' + list.map(function (skill) {
         return '<li class="unit-skill">' + esc(skill) + '</li>';
@@ -544,7 +656,7 @@
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
-              '<div class="unit-meta" data-lesson-list="true">' + subskillsHtml(u) + '</div>' +
+              '<div class="unit-meta" data-lesson-list="true">' + subskillsHtml(u, c.id) + '</div>' +
               '<a class="unit-open-link" href="' + href(unitToken(c, u)) + '">Open unit →</a></div></li>';
           }
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
