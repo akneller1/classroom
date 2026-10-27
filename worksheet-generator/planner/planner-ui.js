@@ -19,8 +19,8 @@
   var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
   if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
 
-  var sectionLabels = { donow:'Do Now', notes:'Notes / examples', practice:'Practice', mixed:'Mixed Review', exit:'Exit ticket', summary:'Lesson Summary' };
-  var sectionChoices = { donow:true, notes:true, practice:true, mixed:false, exit:true, summary:false };
+  var sectionLabels = { donow:'Do Now', mixed:'Mixed Review', notes:'Notes', examples:'Examples', practice:'Practice', summary:'Lesson Summary', exit:'Exit Ticket' };
+  var sectionChoices = { donow:true, mixed:false, notes:true, examples:true, practice:true, summary:false, exit:true };
   try { var savedSections = JSON.parse(lsGet(KEY_SECTIONS) || '{}'); Object.keys(sectionChoices).forEach(function(k) { if (typeof savedSections[k] === 'boolean') sectionChoices[k] = savedSections[k]; }); } catch(e) {}
   var sectionOrder = (function() {
     var base = Object.keys(sectionChoices);
@@ -257,8 +257,8 @@
     if (s.quiz) h += '<p class="pl-dir">Show your work for every problem. Box your final answer.</p>';
     s.groups.forEach(function (g) {
       if (g.name && s.id !== 'notes') h += '<div class="pl-gh">' + esc(g.name) + (g.note ? ' <small>' + esc(g.note) + '</small>' : '') + '</div>';
-      if (s.id === 'notes') return;   // examples are drawn inside notesBody
-      h += rows(g.items.map(function (p) { return { wide: wide(p), html: studentProblem(p) }; }));
+      if (s.id === 'notes') return;   // notes are drawn inside notesBody
+      h += rows(g.items.map(function (p, i) { return { wide: wide(p), html: s.id === 'examples' && filled(plan) && i < g.items.length - 1 && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, s.id === 'examples' ? displayProblemLabel(p, 'Example ' + (i + 1)) : undefined) }; }));
     });
     if (s.frame) h += '<p class="pl-frame"><b>Summary:</b> ' + frameHtml(s.frame) + '</p>';
     if (s.selfAssess) h += rateTable(s.selfAssess, 'How sure am I?');
@@ -294,12 +294,6 @@
       h += '<div class="pl-gh">Key idea</div>' + lines(2);
     }
     if (P.myNotes(d)) h += '<div class="pl-mynotes">' + esc(P.myNotes(d)).replace(/\n/g, '<br>') + '</div>';
-    s.groups.forEach(function (g) {
-      h += rows(g.items.map(function (p, i) {
-        var last = i === g.items.length - 1 && g.items.length > 2;   // "You try" stays for students to work
-        return { wide: wide(p), html: full && !last && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) };
-      }));
-    });
     return h;
   }
 
