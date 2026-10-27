@@ -68,3 +68,16 @@ test('save and load keep the worksheet mode', () => {
   ok(back.versions[0].sections[0].items.every(x => !x.mc || M.checkChoices(x)), 'choices still check');
 });
 console.log(n + ' worksheet tests passed (' + checks + ' checks).');
+
+
+test('Inequalities excludes absolute value equations and migrates old saved worksheets', () => {
+  const set=M.skillSets['algebra1-inequalities'];
+  ok(!set.byId['abs-eq'], 'absolute value equations must not be in inequalities bank');
+  const st=build('algebra1-inequalities','cp1',8137,'mixed');
+  const old=st.versions[0].sections[0].items[0];
+  old.skill='abs-eq';old.prompt='Solve an absolute value equation.';
+  st.config.skills['abs-eq']=true;
+  M.syncStructure(st);
+  ok(!st.config.skills['abs-eq'],'retired skill removed from config');
+  ok(st.versions[0].sections[0].items.every(it => it.skill !== 'abs-eq'),'old questions replaced');
+});
