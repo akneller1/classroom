@@ -88,6 +88,7 @@ function structuredProof(ctx){
  }
  var lead=flow?'Complete the following flow proof.':'Complete the following two-column proof.';
  return {variant:'geo-structured-proof-'+(shared?'shared':'vertical')+'-'+(flow?'flow':'columns')+'-'+c,
+  fig:{kind:'geo-proof',case:shared?'shared':'vertical'},
   prompt:givens+' '+consequence+'. '+lead+' Establish: (1) '+first+'; (2) '+triangles+'; (3) the listed corresponding angles are congruent. Supply the reason for each step, then find x using '+M(eq)+'.',
   parts:[
    {prompt:'Reason for step 1:',answer:shared?'REFLEXIVE PROPERTY':'VERTICAL ANGLES THEOREM',check:{type:'geo-proof-reason',stage:'first'}},
