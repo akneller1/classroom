@@ -20,7 +20,7 @@ function thirdAngle(ctx){
 }
 function perimeter(ctx){
  var r=ctx.rng,c=ctx.c,x=r.int(3,18),a=r.int(2,12),b=r.int(2,12),p=x+a+b,eq='x+'+a+'+'+b+'='+p;
- return {variant:'geo-congruence-perimeter-'+c,prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x.',
+ return {variant:'geo-congruence-perimeter-'+c,prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Use '+M(eq)+' to find x.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Congruent triangles have equal perimeters.',M(eq)),step('Solve for the unknown side.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
