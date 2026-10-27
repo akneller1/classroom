@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1';
+  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1';
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
   function $(s) { return doc.querySelector(s); }
@@ -32,6 +32,20 @@
     if (v === null) delete m[secId]; else m[secId] = v;
     if (!Object.keys(m).length) delete minutesStore[d.day_type];
     lsSet(KEY_MIN, JSON.stringify(minutesStore));
+  }
+  var problemLabels = (function () { try { return JSON.parse(lsGet(KEY_PROBLEM_LABELS) || '{}') || {}; } catch(e) { return {}; } })();
+  function labelKey(day, section, group, index) { return day + ':' + section + ':' + group + ':' + index; }
+  function applyProblemLabels(plan) {
+    plan.sections.forEach(function(s) { s.groups.forEach(function(g, gi) { g.items.forEach(function(p, pi) {
+      p.teacherLabel = problemLabels[labelKey(plan.day.day, s.id, gi, pi)] || '';
+    }); }); });
+  }
+  function displayProblemLabel(p, fallback) { return fallback + (p.teacherLabel ? ' · ' + p.teacherLabel : ''); }
+  function problemLabelPicker(plan, p, s, gi, pi) {
+    var values = ['', 'I do', 'We do', 'You do'];
+    return '<label class="pl-problem-label">Instructional label <select data-problem-label="' + esc(s.id) + '" data-group="' + gi + '" data-item="' + pi + '" aria-label="Label for ' + esc(s.title) + ' problem ' + p.num + '">' +
+      values.map(function(v) { return '<option value="' + esc(v) + '"' + (p.teacherLabel === v ? ' selected' : '') + '>' + (v ? esc(v) : 'No label') + '</option>'; }).join('') +
+      '</select></label>';
   }
   function filled(plan) { return plan.notesMode === 'filled'; }
   /* Notes the teacher edited, per lesson, kept in this browser (MKPLAN.noteEdits is read by define/keyIdea/vocab). */
@@ -157,7 +171,7 @@
         h += '<div class="pl-cards">' + g.items.map(function (p, ii) {
           return '<article class="pl-card' + (p.failed ? ' failed' : '') + '"><div class="pl-chd"><b>' + p.num + '.</b> <span class="pl-skill">' + esc(p.skillName) + ' · ' + esc(p.lesson) + (p.spiral ? ' · spiral' : '') + '</span>' +
             (p.failed ? '<span class="pl-badge bad">not verified</span>' : '<span class="pl-badge ok" title="Answer re-derived from the printed problem">✓ checked</span>') + '<span class="pl-diff">c' + (p.c || '') + '</span></div>' +
-            promptHtml(p) + answerHtml(p) + '<button type="button" class="btn ghost sm pl-regen" data-s="' + si + '" data-g="' + gi + '" data-i="' + ii + '">New problem</button></article>';
+            promptHtml(p) + answerHtml(p) + problemLabelPicker(plan, p, s, gi, ii) + '<button type="button" class="btn ghost sm pl-regen" data-s="' + si + '" data-g="' + gi + '" data-i="' + ii + '">New problem</button></article>';
         }).join('') + '</div>';
       });
       h += '</section>';
@@ -264,11 +278,10 @@
       h += '<div class="pl-gh">Key idea</div>' + lines(2);
     }
     if (P.myNotes(d)) h += '<div class="pl-mynotes">' + esc(P.myNotes(d)).replace(/\n/g, '<br>') + '</div>';
-    var labels = ['Example 1 · I do', 'Example 2 · We do', 'Example 3 · You try'];
     s.groups.forEach(function (g) {
       h += rows(g.items.map(function (p, i) {
         var last = i === g.items.length - 1 && g.items.length > 2;   // "You try" stays for students to work
-        return { wide: wide(p), html: full && !last && !p.failed ? workedProblem(p, labels[i] || 'Example ' + (i + 1)) : studentProblem(p, labels[i] || 'Example ' + (i + 1)) };
+        return { wide: wide(p), html: full && !last && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) };
       }));
     });
     return h;
@@ -292,7 +305,7 @@
       s.groups.forEach(function (g) {
         if (!g.items.length) return;
         if (g.name && s.id !== 'notes') h += '<div class="pl-gh">' + esc(g.name) + '</div>';
-        h += rows(g.items.map(function (p) { return { wide: wide(p) && !!p.fig && /plane|twoway/.test(p.fig.kind), html: '<div class="pl-kitem"><div class="pl-ph"><b>' + (s.id === 'notes' ? 'Example ' + p.num : p.num + '.') + '</b> <small>' + esc(p.skillName) + ' · c' + (p.c || '') + '</small></div>' + promptHtml(p) + answerHtml(p) + stepsHtml(p) + '</div>' }; }));
+        h += rows(g.items.map(function (p) { return { wide: wide(p) && !!p.fig && /plane|twoway/.test(p.fig.kind), html: '<div class="pl-kitem"><div class="pl-ph"><b>' + (s.id === 'notes' ? displayProblemLabel(p, 'Example ' + p.num) : displayProblemLabel(p, p.num + '.')) + '</b> <small>' + esc(p.skillName) + ' · c' + (p.c || '') + '</small></div>' + promptHtml(p) + answerHtml(p) + stepsHtml(p) + '</div>' }; }));
       });
     });
     return '<div class="pl-sheet pl-key">' + h + '</div>';
@@ -326,6 +339,7 @@
     var d = P.day(ui.day);
     ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d) });
     applySectionChoices(ui.plan);
+    applyProblemLabels(ui.plan);
     $('#plPick').innerHTML = picker();
     $('#plCtl').innerHTML = controls();
     var prev = P.day(ui.day - 1), next = P.day(ui.day + 1), sum = P.summary(ui.plan);
@@ -397,6 +411,18 @@
       sectionChoices[k] = t.checked;
       lsSet(KEY_SECTIONS, JSON.stringify(sectionChoices));
       render(); return;
+    }
+    if (t.hasAttribute && t.hasAttribute('data-problem-label')) {
+      var sectionId = t.getAttribute('data-problem-label'), gi = +t.getAttribute('data-group'), pi = +t.getAttribute('data-item');
+      var sec = ui.plan.sections.find(function(s) { return s.id === sectionId; });
+      if (sec && sec.groups[gi] && sec.groups[gi].items[pi]) {
+        var value = ['I do','We do','You do'].indexOf(t.value) >= 0 ? t.value : '';
+        sec.groups[gi].items[pi].teacherLabel = value;
+        var key = labelKey(ui.plan.day.day, sectionId, gi, pi);
+        if (value) problemLabels[key] = value; else delete problemLabels[key];
+        lsSet(KEY_PROBLEM_LABELS, JSON.stringify(problemLabels));
+      }
+      return;
     }
     if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
