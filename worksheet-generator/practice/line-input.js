@@ -59,7 +59,7 @@ function svg(d){
  (d&&d.points||[]).forEach(p=>h+='<circle cx="'+(170+p[0]*15)+'" cy="'+(170-p[1]*15)+'" r="6" fill="#e77529" stroke="white" stroke-width="2"/>');
  return h+'</svg>';
 }
-function content(q,i){var d=read(q)||{points:[],dashed:false,shade:null};var t=target(q);return '<div class="pt-line-editor" data-line="'+i+'"><strong>Draw the line by selecting two points.</strong><p class="pt-muted">Tap two grid intersections. To replace the line choose New line. For inequalities, tap a side to shade.</p>'+svg(d)+'<div class="pt-interval-row"><label>Boundary line<select data-boundary><option value="solid" '+(!d.dashed?'selected':'')+'>Solid</option><option value="dashed" '+(d.dashed?'selected':'')+'>Dashed</option></select></label><button type="button" data-clear-line class="pt-secondary">New line / erase</button>'+(t.op!=='='?'<button type="button" data-clear-shade class="pt-secondary">Clear shading</button>':'')+'</div><p class="pt-muted" data-line-message>'+d.points.length+'/2 points selected'+(t.op!=='='?(d.shade===null?' · choose a side to shade':' · shaded region selected'):'')+'</p></div>';}
+function content(q,i){var d=read(q)||{points:[],dashed:false,shade:null};var t=target(q);return '<div class="pt-line-editor" data-line="'+i+'"><strong>Draw the line by selecting two points.</strong><p class="pt-muted">Tap two points on the grid. To change your line, use Undo point or Start over. For inequalities, tap the side you want shaded.</p>'+svg(d)+'<div class="pt-interval-row">'+(t.op!=='='?'<label>Boundary line<select data-boundary><option value="solid" '+(!d.dashed?'selected':'')+'>Solid</option><option value="dashed" '+(d.dashed?'selected':'')+'>Dashed</option></select></label>':'')+'<button type="button" data-undo-line class="pt-secondary">Undo point</button><button type="button" data-clear-line class="pt-secondary">Start over</button>'+(t.op!=='='?'<button type="button" data-clear-shade class="pt-secondary">Clear shading</button>':'')+'</div><p class="pt-muted" data-line-message>'+d.points.length+'/2 points selected'+(t.op!=='='?(d.shade===null?' · choose a side to shade':' · shaded region selected'):'')+'</p></div>';}
 API.render=content;
 API.grade=function(q){var t=target(q),d=read(q);if(!t||!d||d.points.length!==2)return {status:'incorrect'};var p=d.points[0],r=d.points[1];if(p[0]===r[0]&&p[1]===r[1])return {status:'incorrect'};
  var a=p[1]-r[1],b=r[0]-p[0],c=-a*p[0]-b*p[1];
@@ -83,7 +83,8 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-line]').forEach(
  else if(t.op!=='='){var p=d.points[0],r=d.points[1],f=(r[0]-p[0])*(y-p[1])-(r[1]-p[1])*(x-p[0]);if(Math.abs(f)>0.01)d.shade=f>0?1:-1;}
  refresh(d);
  };
- box.querySelector('[data-boundary]').onchange=e=>{d.dashed=e.target.value==='dashed';refresh(d);};
+ var boundary=box.querySelector('[data-boundary]');if(boundary)boundary.onchange=e=>{d.dashed=e.target.value==='dashed';refresh(d);};
+ box.querySelector('[data-undo-line]').onclick=()=>{d.points.pop();d.shade=null;refresh(d);};
  box.querySelector('[data-clear-line]').onclick=()=>refresh({points:[],dashed:false,shade:null});
  var sh=box.querySelector('[data-clear-shade]');if(sh)sh.onclick=()=>{d.shade=null;refresh(d);};
  });};
