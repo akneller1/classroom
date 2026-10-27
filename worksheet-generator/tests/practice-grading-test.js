@@ -83,3 +83,13 @@ assert.strictEqual(NG.grade(numberlineQ([{lo:2,hi:null,loC:false,hiC:false}],[{l
 assert.strictEqual(NG.grade(numberlineQ([{lo:2,hi:null,loC:true,hiC:false}],[{lo:2,hi:null,loC:false,hiC:false}])).status,'incorrect');
 assert.strictEqual(NG.grade(numberlineQ([{lo:null,hi:-3,loC:false,hiC:false},{lo:2,hi:null,loC:true,hiC:false}],[{lo:2,hi:null,loC:true,hiC:false},{lo:null,hi:-3,loC:false,hiC:false}])).status,'correct');
 console.log('Number-line rays: direction, open/closed endpoints, and compound intervals checked.');
+
+/* Student-facing assessment UX: responses live in each question card. */
+const uxSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
+assert(uxSource.includes("function assessmentHTML(){"),'Every question should have an inline response surface');
+assert(uxSource.includes("problemHTML(q)+'<div class=\"pt-inline-control\">'+answerControl(q,i)"),'Inline response immediately follows question');
+assert(uxSource.includes("q.choices.opts.map(function(opt,j)"),'Multiple-choice buttons show the actual choice text');
+assert(uxSource.includes("function updateProgress(){"),'Student progress needs an update handler');
+assert(uxSource.includes("data-review-toggle"),'Students need mark-for-review controls');
+assert(uxSource.includes("id=\"pt-print-paper\""),'Printable assessment remains separate');
+console.log('Direct-answer student UX static regression assertions passed.');
