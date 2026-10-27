@@ -220,8 +220,8 @@
       if (chk.variant === 'reasoning') {
         if(unit==='algebra1-foundations' && nums.length===3)
           expected=[a*b,a*d,a*(b-d),a*(b-2*d)];
-        else if(unit==='algebra1-expressions-equations' && nums.length===4 && a>0 && (e-d)%a===0)
-          expected=[e-d,(e-d)/a,a,e+a];
+        else if(unit==='algebra1-expressions-equations' && nums.length===3 && b>0 && (d-a)%b===0)
+          expected=[d-a,(d-a)/b,b,d+b];
         else if(unit==='algebra1-inequalities' && nums.length===3 && d>0) {
           var free=a-b;
           expected=[free,Math.floor(free/d),free%d,free%d>=d?1:0];
