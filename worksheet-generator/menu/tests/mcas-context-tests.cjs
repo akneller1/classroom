@@ -68,3 +68,24 @@ for (const unit of Object.keys(M.contextApplied)) for (const c of [2,4,6]) {
   checkedApplied++;
 }
 console.log('Verified '+checkedApplied+' applied family samples and '+checkedApplied*3+' wrong answers.');
+
+/* The worksheet preset must never print old labels or invalid Open Response items. */
+for (const unit of units) {
+  const cfg=M.defaultConfig(unit,'worksheet');
+  cfg.seed=12345;cfg.sections=M.worksheetSections('mcas',cfg);
+  cfg.sections[0].offered=2;cfg.sections[0].required=2;
+  const st=M.newAssessment(cfg);
+  assert.equal(st.config.sections[0].name,'Open Response');
+  st.versions[0].sections[0].items.forEach((p)=>{
+    assert.ok(!p.failed,unit+' failed to generate an Open Response item: '+(p.reason||''));
+    assert.ok(p.parts.length>=4,unit+' generated fewer than four parts');
+    assert.ok(M.verifyProblem(p,{intOnly:true}).ok,unit+' generated invalid response');
+  });
+  const saved=JSON.parse(M.serialize(st));
+  saved.config.sections[0].name='MCAS Open Response';
+  saved.versions[0].sections[0].items[0].parts.pop();
+  const restored=M.deserialize(saved);
+  assert.equal(restored.config.sections[0].name,'Open Response');
+  assert.ok(restored.versions[0].sections[0].items[0].parts.length>=4,unit+' legacy item not repaired');
+}
+console.log('Verified two-item Open Response preset and legacy migration for all Algebra units.');
