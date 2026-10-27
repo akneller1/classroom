@@ -22,13 +22,8 @@ function make(ctx,kind){
    eq='2x+'+vertex+'=180';
    prompt='An isosceles triangle has two congruent base angles, each measuring '+M('x^\\circ')+'. Its vertex angle measures '+vertex+'°. Find x.';
    reason='The two base angles are congruent, and all three angles total 180°.';
- } else {
-   x=r.int(28,86);var other=r.int(14,Math.min(100,165-x)),third=180-x-other;
-   eq='x+'+other+'+'+third+'=180';
-   prompt='A triangle contains a right or obtuse angle? No: its three interior angles are '+M('x^\\circ')+', '+other+'° and '+third+'°. Find x.';
-   reason='The interior angle sum is 180°.';
  }
- return {variant:'geo-triangle-'+kind+'-'+c,prompt,
+ return {variant:'geo-triangle-'+kind+'-'+c,prompt:prompt+' Use '+M(eq)+' to find x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq,v:'x'}}],
   steps:[step(reason,M(eq)),step('Solve for the unknown angle.',M('x='+x))],
   space:[1.1,1.4,1.7]};
