@@ -245,7 +245,7 @@
           if (Number.isInteger(root)) expected=[(a-root)/2,(a+root)/2,a];
         }
         else if (unit === 'algebra1-quadratics' && nums.length===2)
-          expected=[a,b,1];
+          expected=[Math.abs(a),b,1];
         else if (unit === 'algebra1-statistics-data-modeling' && nums.length===5) {
           var sorted=nums.slice().sort(function(x,y){return x-y;});
           expected=[sorted[2],sorted[4]-sorted[0],sorted.reduce(function(x,y){return x+y;},0)/5];
