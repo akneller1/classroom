@@ -1,7 +1,7 @@
 /* Geometry Unit 5: independently verifiable starter questions on similarity. */
 (function(G){'use strict';
 var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
-function make(variant,prompt,eq,x,rule){return {variant:variant,prompt:prompt,parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(rule,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function make(variant,prompt,eq,x,rule){return {variant:variant,prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(rule,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function missingSide(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?6:4),a=r.int(3,12),b=r.int(3,12),x=k*b;
 return make('geo-sim-side-'+c,'Triangles ABC and DEF are similar with A corresponding to D, B to E, and C to F. AB = '+a+', DE = '+(k*a)+', BC = '+b+', and EF = x. Find x.',a+'*x='+(k*a*b),x,'Corresponding side lengths have the same ratio.');}
 function scale(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:5),a=r.int(3,14),x=k;
