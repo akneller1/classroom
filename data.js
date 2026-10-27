@@ -295,6 +295,15 @@ window.LIBRARY = {
           "name": "Solving Linear Equations",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-expressions-equations",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/lesson-planner.svg",
@@ -557,6 +566,15 @@ window.LIBRARY = {
           "name": "Linear Inequalities",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-inequalities",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-inequalities",
               "thumb": "thumbs/lesson-planner.svg",
@@ -804,6 +822,15 @@ window.LIBRARY = {
           "id": "relations-functions",
           "name": "Relations and Functions",
           "artifacts": [
+            {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-relations-functions",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-relations-functions",
@@ -1058,6 +1085,15 @@ window.LIBRARY = {
           "id": "linear-equations-slope",
           "name": "Linear Functions and Graphing",
           "artifacts": [
+            {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-linear-equations-slope",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-linear-equations-slope",
@@ -1319,6 +1355,15 @@ window.LIBRARY = {
           "id": "systems-of-equations",
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
+            {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-systems-of-equations",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-systems-of-equations",
@@ -1621,6 +1666,15 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-exponents-scientific-notation",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/lesson-planner.svg",
@@ -1877,6 +1931,15 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-exponential-functions",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/lesson-planner.svg",
@@ -2127,6 +2190,15 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-polynomials",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-polynomials",
               "thumb": "thumbs/lesson-planner.svg",
@@ -2375,6 +2447,15 @@ window.LIBRARY = {
           "id": "factoring-zero-product",
           "name": "Factoring and Zero Product Property",
           "artifacts": [
+            {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-factoring-zero-product",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-factoring-zero-product",
@@ -2626,6 +2707,15 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-quadratics",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-quadratics",
               "thumb": "thumbs/lesson-planner.svg",
@@ -2873,6 +2963,15 @@ window.LIBRARY = {
           "id": "statistics-data-modeling",
           "name": "Statistics and Data Modeling",
           "artifacts": [
+            {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-statistics-data-modeling",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "type": "Study Guide",
+              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "added": "2026-10-26"
+            },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-statistics-data-modeling",
