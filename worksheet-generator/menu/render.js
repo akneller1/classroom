@@ -135,6 +135,7 @@
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; }).length;
     return parts > 0 || txt.length > 150;
   }
+  NS.isWideProblem = isWide;
   function workspace(p, cfg) {
     // The proof table or flowchart already provides every writing space.
     // An additional 1-3 inch blank workspace can push the figure off the page.
@@ -147,6 +148,7 @@
     if (grid === 'coordinate') h = Math.max(h, 2.15);
     return '<div class="mm-work' + (grid === 'graph' ? ' mm-graph' : '') + '" style="height:' + h.toFixed(2) + 'in">' + inner + '</div>';
   }
+  NS.workspaceHtml = workspace;
   function dishHtml(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
