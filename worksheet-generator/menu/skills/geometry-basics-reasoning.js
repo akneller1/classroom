@@ -49,7 +49,7 @@
  function coordinateInvestigation(ctx) {
    // Four connected, fully checked parts; no illustrative diagram is required.
    // Coordinate order A(0) < B(x) < C(t). Divisibility makes every midpoint integral.
-   var r=ctx.rng,c=ctx.c,x=4*r.int(2,c>=5?8:5),b=4*r.int(2,c>=5?8:5),t=x+b;
+   var r=ctx.rng,c=ctx.c,x=4*r.int(2,c>=5?25:20),b=4*r.int(2,c>=5?25:20),t=x+b;
    var m=x/2,n=(x+t)/2,w=(m+n)/2;
    var e1='x+'+b+'='+t,e2='2y='+x,e3='2z='+(x+t),e4='2w='+(m+n);
    return {
