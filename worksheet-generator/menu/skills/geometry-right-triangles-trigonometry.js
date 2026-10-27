@@ -86,10 +86,26 @@ function inverseTrigDecimal(ctx){
   steps:[step('Apply inverse '+kind+' in degree mode.',M('x='+x+'^\\circ'))],
   space:[1.3,1.7,2]};
 }
+function specialRadical(ctx){
+ var r=ctx.rng,c=ctx.c,n=r.int(2,c>=5?24:12),is45=r.int(0,1)===0;
+ var rad=is45?2:3,answer='x='+n+'\\sqrt{'+rad+'}';
+ return {variant:'geo-right-radical-'+(is45?'45':'30')+'-'+c,
+ fig:{kind:'geo-right-triangle',case:is45?'45':'30'},
+ prompt:is45?'A 45°-45°-90° triangle has a leg of length '+n+' units. Find the hypotenuse x in simplest radical form.':
+ 'A 30°-60°-90° triangle has a short leg of length '+n+' units. Find the long leg x in simplest radical form.',
+ parts:[{answer:M(answer),check:{type:'geo-special-radical'}}],
+ steps:[step('Apply the special right triangle side ratio.',M(answer))],space:[1.4,1.7,2]};
+}
+function depression(ctx){
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?14:8),drop=3*k,horizontal=4*k,eq=horizontal+'*x='+drop+'*'+horizontal;
+ return make('geo-right-depression-'+c,
+ 'From the top of a cliff, an observer looks down at a boat at angle of depression θ. The horizontal distance to the boat is '+horizontal+' feet, and tan θ = '+drop+'/'+horizontal+'. Find the vertical drop x in feet.',
+ eq,drop,'Use the tangent ratio for the angle of depression.');
+}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
-tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
+tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
-gaps:['Starter bank only: radical-valued special triangle sides, angle of depression, non-integer trig answers, and additional non-integer trigonometry applications remain pending.'],
+gaps:['Starter bank only: non-integer trig answers, and additional non-integer trigonometry applications remain pending.'],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1,2],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1,2],generate:leg},
@@ -102,6 +118,8 @@ skills:[
 {id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation},
 {id:'right-honors-survey',tag:'HONORS',name:'Four-part surveying and similar triangles investigation',best:[2],generate:honorsSurvey},
 {id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
-{id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal}
+{id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal},
+{id:'right-special-radical',tag:'SPECIAL',name:'Exact radical sides in special right triangles',best:[1,2],generate:specialRadical},
+{id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression and vertical drop',best:[1,2],generate:depression}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
