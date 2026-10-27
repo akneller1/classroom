@@ -512,6 +512,12 @@
   /* absolute value EQUATIONS: the shared generator from the Expressions & Equations file */
   skill(NS.absEqSkill('COMPOUND'));
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="graph-read";});if(!base)return;
+    skill({id:"graph-number-line",best:base.best,tag:base.tag,name:"Graph solution sets on a number line",blurb:"Show solutions using endpoints, open/closed circles and arrows.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-inequalities', course: 'algebra1', courseName: 'Algebra 1', unit: 'inequalities', unitName: 'Linear Inequalities',
     title: 'The Inequalities Bistro',
