@@ -238,6 +238,46 @@
     }
   });
 
+  skill({
+    id: 'graph-from-points',best:[0,1],tag:'GRAPHLINE',name:'Graph a line through two points',
+    blurb:'Plot two points, then draw their line; includes positive, negative and zero slope.',
+    generate:function(ctx){
+      var r=ctx.rng,c=ctx.c,x=r.int(-5,3),y=r.int(-5,5),dx=r.pick([2,3,4]),dy=r.pick([-3,-2,0,2,3]),xx=x+dx,yy=y+dy;
+      need(Math.abs(xx)<=8&&Math.abs(yy)<=8);
+      var a=[x,y],b=[xx,yy],eq=si(F(dy,dx),F(y).sub(F(dy,dx).mul(x)));
+      return {variant:'gpts'+c,prompt:'Graph the line through '+M(pt(x,y))+' and '+M(pt(xx,yy))+'. Plot both points and draw the line.',
+        fig:plane([-10,10,-10,10]),parts:[{answer:M(eq),check:{type:'line-eq',form:'any',src:{pairs:two(a,b)}},
+          answerFig:plane([-10,10,-10,10],{segs:[{a:a,b:b,aEnd:'arrow',bEnd:'arrow'}]})}],
+        steps:[step('Plot the two given points.',M(two(a,b)),1),step('Connect with a straight line.',eq,1)],space:[1,1.2,1.5]};
+    }
+  });
+  skill({
+    id:'graph-special-lines',best:[0,1],tag:'GRAPHLINE',name:'Graph horizontal and vertical lines',
+    blurb:'Draw x = a and y = b, including negative intercepts.',
+    generate:function(ctx){
+      var r=ctx.rng,k=nz(r,-7,7),vertical=r.chance(.5),eq=(vertical?'x=':'y=')+k;
+      var a=vertical?[k,-5]:[-5,k],b=vertical?[k,5]:[5,k];
+      return {variant:'gspecial'+(vertical?'v':'h'),prompt:'Graph '+M(eq)+' on the coordinate plane. Plot two points.',
+        fig:plane([-10,10,-10,10]),parts:[{answer:M(eq),check:{type:'line-eq',form:'any',src:{eq:eq}},
+          answerFig:plane([-10,10,-10,10],{segs:[{a:a,b:b,aEnd:'arrow',bEnd:'arrow'}]})}],
+        steps:[step(vertical?'Every point has the same x-coordinate.':'Every point has the same y-coordinate.',eq,1),
+        step('Plot two points and connect.',M(two(a,b)),1)],space:[1,1.2,1.5]};
+    }
+  });
+  skill({
+    id:'graph-standard-form',best:[1,2],tag:'GRAPHLINE',name:'Graph linear equations in standard form',
+    blurb:'Rearrange Ax + By = C to slope-intercept form and graph using two points.',
+    generate:function(ctx){
+      var r=ctx.rng,m=F(r.pick([-3,-2,-1,1,2,3])),b=F(r.int(-5,5)),eq=stdForm(m,b);
+      var p0=[0,b.n],p1=[1,b.n+m.n];need(Math.abs(p1[1])<=9);
+      return {variant:'gstd',prompt:'Graph '+M(eq)+' using two points. Draw the complete line.',
+        fig:plane([-10,10,-10,10]),parts:[{answer:M(si(m,b)),check:{type:'line-eq',form:'any',src:{eq:eq}},
+          answerFig:plane([-10,10,-10,10],{segs:[{a:p0,b:p1,aEnd:'arrow',bEnd:'arrow'}]})}],
+        steps:[step('Rewrite in slope-intercept form.',si(m,b),2),
+        step('Plot the intercept and use slope for a second point.',M(two(p0,p1)),1)],space:[1,1.2,1.5]};
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-linear-equations-slope', course: 'algebra1', courseName: 'Algebra 1', unit: 'linear-equations-slope', unitName: 'Linear Functions and Graphing',
     title: 'The Slope Shack',
