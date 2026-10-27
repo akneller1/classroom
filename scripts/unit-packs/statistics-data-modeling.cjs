@@ -5,7 +5,7 @@ module.exports = {
   unit: 'statistics-data-modeling', unitNo: 12, unitName: 'Statistics and Data Modeling', course: 'Algebra 1',
 
   mystery: {
-    skills: 'mean, median, mode, range, MAD, IQR and outliers, two-way tables, lines of fit and residuals.',
+    skills: 'mean, median, mode, range, IQR and outliers, two-way tables, lines of fit and residuals.',
     slug: 'stadium-scoreboard-scandal', title: 'The Stadium Scoreboard Scandal', eyebrow: 'Case file No. 12',
     tagline: 'The championship trophy vanished from Riverside Stadium at halftime. Solve each problem to earn a clue.',
     palette: { navy: '#10283a', accent: '#4fd1a5' },
@@ -38,8 +38,8 @@ module.exports = {
         steps: ['Count each value: 7 appears three times.', 'The mode is ⟨7⟩'], clue: { m: 1, text: 'The hot dog cart is too small. It barely holds the buns.' } },
       { instr: 'Find the interquartile range (IQR) of the data:', tex: '2,\\ 4,\\ 5,\\ 7,\\ 8,\\ 10,\\ 12,\\ 15', answer: { t: 'num', v: '6.5' }, check: { num: '(10+12)/2-(4+5)/2', is: 6.5 },
         steps: ['Lower half ⟨2, 4, 5, 7⟩: ⟨Q_1 = 4.5⟩. Upper half ⟨8, 10, 12, 15⟩: ⟨Q_3 = 11⟩', '⟨IQR = 11 - 4.5 = 6.5⟩'], clue: { p: 3, l: 3, text: 'Jada Brooks was leading the band in the Band Section. She never put down her baton.' } },
-      { instr: 'Find the mean absolute deviation (MAD) of the data:', tex: '2,\\ 4,\\ 6,\\ 8', answer: { t: 'num', v: '2' }, check: { num: '(3+1+1+3)/4', is: 2 },
-        steps: ['Mean = 5. Distances from 5: ⟨3, 1, 1, 3⟩', 'MAD = ⟨\\dfrac{3 + 1 + 1 + 3}{4} = 2⟩'], clue: { m: 3, text: 'The confetti cannons fired at halftime. Only confetti came out.' } },
+      { instr: 'Find the mode of the data:', tex: '2,\\ 4,\\ 4,\\ 6,\\ 8', answer: { t: 'num', v: '4' }, check: { num: '4', is: 4 },
+        steps: ['Count the frequency of each value.', '4 appears twice, more than any other value.'], clue: { m: 3, text: 'The confetti cannons fired at halftime. Only confetti came out.' } },
       { instr: 'What percent of the 9th graders have a dog?', text: 'Survey of students:', html: T([['', 'Dog', 'No dog', 'Total'], ['8th grade', '12', '13', '25'], ['9th grade', '6', '19', '25']]), answer: { t: 'num', v: '24' }, check: { num: '6/25*100', is: 24 },
         steps: ['Use only the 9th grade row: 6 of 25.', '⟨\\dfrac{6}{25} = 0.24 = 24\\%⟩'], clue: { p: 4, l: 2, text: 'Sal Romano was selling hot dogs at the Snack Stand. The line was 30 people long all halftime.' } },
       { instr: 'The line of fit y = 2.5x + 10 models the data. Predict y when x = 8.', tex: 'y = 2.5(8) + 10', answer: { t: 'num', v: '30' }, check: { num: '2.5*8+10', is: 30 },
@@ -96,8 +96,8 @@ module.exports = {
         ['mean', 'Add the values, divide by how many.', '⟨2, 4, 9⟩: 5'], ['median', 'The middle value of the ordered data.', '⟨2, 4, 9⟩: 4'],
         ['mode', 'The value that appears most often.', '⟨1, 3, 3⟩: 3'], ['range', 'Maximum minus minimum.', '⟨9 - 2 = 7⟩'],
         ['outlier', 'A value far away from the rest of the data.', '⟨2, 3, 4, 40⟩']] },
-      { title: 'Spread: MAD', color: 'blue', kind: 'example', text: 'The mean absolute deviation is the average distance from the mean.',
-        example: 'Find the MAD of ⟨2, 4, 6, 8⟩.', steps: [['Mean:', '⟨20 \\div 4 = 5⟩'], ['Distances:', '⟨3, 1, 1, 3⟩'], ['Average:', '⟨8 \\div 4 = 2⟩']], answer: 'MAD ⟨= 2⟩' },
+      { title: 'Measures of Center', color: 'blue', kind: 'example', text: 'Mean is the average, median is the middle value after sorting, and mode is the most frequent value.',
+        example: 'Find the mean, median and mode of ⟨2, 4, 4, 6, 9⟩.', steps: [['Mean:', '⟨25 \\div 5 = 5⟩'], ['Median:', '⟨4⟩'], ['Mode:', '⟨4⟩']], answer: 'Mean 5; median 4; mode 4' },
       { title: 'Quartiles and IQR', color: 'green', kind: 'example', text: 'Q1 is the median of the lower half, Q3 the median of the upper half. IQR = Q3 − Q1.',
         example: '⟨2, 4, 5, 7, 8, 10, 12, 15⟩', steps: [['Halves:', '⟨2, 4, 5, 7⟩ and ⟨8, 10, 12, 15⟩'], ['Quartiles:', '⟨Q_1 = 4.5,\\ Q_3 = 11⟩'], ['IQR:', '⟨11 - 4.5 = 6.5⟩']], answer: 'IQR ⟨= 6.5⟩' },
       { title: 'Box Plots', color: 'orange', kind: 'list', items: [
@@ -106,7 +106,7 @@ module.exports = {
       { title: 'Outliers', color: 'pink', kind: 'example', text: 'A value is an outlier if it is below Q1 − 1.5·IQR or above Q3 + 1.5·IQR.',
         example: '⟨Q_1 = 10,\\ Q_3 = 18⟩. Is 31 an outlier?', steps: [['IQR:', '⟨18 - 10 = 8⟩'], ['Fences:', '⟨10 - 12 = -2⟩ and ⟨18 + 12 = 30⟩']], answer: '31 > 30: yes' },
       { title: 'Quick Reminders & Common Mistakes', color: 'teal', kind: 'mistakes',
-        good: ['Put the data in order before finding the median or quartiles.', 'Outliers pull the mean, not the median.', 'Use median and IQR for skewed data; mean and MAD for symmetric data.'],
+        good: ['Put the data in order before finding the median or quartiles.', 'Outliers pull the mean, not the median.', 'Use median and IQR for skewed data; mean for roughly symmetric data.'],
         bad: [['median of unordered data', 'order it first!'], ['two middle values', 'average them'], ['range', 'is max − min, not the biggest number']] }
     ],
     back: [
