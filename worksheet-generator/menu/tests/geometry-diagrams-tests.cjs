@@ -39,3 +39,29 @@ for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']) 
 console.log('Both formal and practice pools supply verified Geometry questions, including SVG figures.');
 
 console.log('Verified Geometry starter skills and SVG diagrams across CP2/CP1/Honors difficulty values.');
+
+
+// Geometry choose-all must use three independently true equations and two false
+// equations; never instruct students to solve an inequality.
+for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']) {
+  const set=NS.skillSets[id];
+  for (const skill of set.skills) {
+    const item=NS.generateProblem(id,skill.id,3,{intOnly:true,level:'cp1',questionPool:'formal'},'select-all-geometry-'+skill.id,{keys:new Set(),sigs:new Set()});
+    assert.equal(item.failed,undefined,'Could not generate '+skill.id);
+    const multi=NS.makeMultiSelect(item);
+    assert.equal(multi.fail,undefined,'Could not make select-all for '+skill.id+': '+multi.fail);
+    assert.equal(multi.keys.length,3,'Expected three correct Geometry statements');
+    assert.equal(multi.opts.length,5,'Expected two distractors');
+    assert.match(multi.direction,/Geometry problem/);
+    const C=NS.check;
+    const variable=item.parts[0].check.v||'x';
+    const solved=C.solveLinear(item.parts[0].check.eq,variable);
+    for(let k=0;k<multi.opts.length;k++) {
+      const rel=C.parseRelation(multi.opts[k].slice(1,-1));
+      const vars={};vars[variable]=solved.value;
+      const trueStatement=C.evalNode(rel.lhs,vars).eq(C.evalNode(rel.rhs,vars));
+      assert.equal(trueStatement,multi.keys.includes(k),'Incorrect Geometry select-all answer key');
+    }
+  }
+}
+console.log('Geometry choose-all key verification passed.');
