@@ -30,24 +30,54 @@ function makeQuestion(skill,seed,index,used){
 }
 function build(overrides){
  config.mode='test';
- if(!skills().length&&!(overrides&&overrides.length)){alert('Select at least one skill.');return;}
- var selected=overrides&&overrides.length?chosen().skills.filter(s=>overrides.includes(s.id)):skills();
- if(!selected.length){alert('No supported skill is selected.');return;}
- selected=selected.slice().sort((a,b)=>a.id.localeCompare(b.id));
- var seed=Date.now()+Math.floor(Math.random()*1000000),used={keys:new Set(),sigs:new Set()},questions=[],failures=0;
- for(var i=0;i<config.count;i++){
-   var q=null;
-   for(var k=0;k<selected.length*3&&!q;k++)q=makeQuestion(selected[(i+k)%selected.length],seed+i*1009+k,i,used);
-   if(q)questions.push(q);else failures++;
- }
- if(!questions.length){alert('No verified problems could be generated for these skills and requested format. Choose other skills or another format.');return;}
- if(failures){alert('Generated '+questions.length+' verified questions. '+failures+' question slots could not be filled with the selected skills and format.');}
- state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,generationErrors:failures,mode:'test',previousScore:overrides&&overrides.length?state&&state.done?state.questions.filter(q=>q.correct===true).length+'/'+state.questions.length:null:null};save();show();
+ var chosenSkills=overrides&&overrides.length?chosen().skills.filter(x=>overrides.includes(x.id)):skills();
+ if(!chosenSkills.length){alert('Select at least one skill.');return;}
+ // This is the actual Assessment Generator's standard-test engine, not a duplicate question generator.
+ var ac=N.defaultConfig(config.unit,'test');
+ ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.skills={};
+ chosenSkills.forEach(x=>ac.skills[x.id]=true);
+ var mcCount=config.format==='self'?0:config.format==='mc'?config.count:Math.ceil(config.count/2);
+ var writtenCount=config.count-mcCount;
+ ac.sections=N.testSections('std');
+ ac.sections[0].offered=ac.sections[0].required=mcCount;
+ ac.sections[1].offered=ac.sections[1].required=writtenCount;
+ ac.sections=ac.sections.filter(x=>x.offered>0);
+ var generated=N.newAssessment(ac);
+ var questions=[];
+ generated.versions[0].sections.forEach(function(sec){
+   sec.items.forEach(function(p){
+      if(p.failed||!p.parts||!p.parts.length)return;
+      var sk=chosen().byId[p.skill],choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
+      var kind=choice?'mc':G.MKPRACTICE&&G.MKPRACTICE.supports(p)?'auto':'self';
+      questions.push({id:p.uid,skill:p.skill,skillName:sk?sk.name:p.tag,problem:p,kind:kind,choices:choice,response:null,checked:false,correct:null,review:false});
+   });
+ });
+ if(!questions.length){alert('The assessment generator could not create verified questions for this selection.');return;}
+ var previous=state&&state.done?state.questions.filter(q=>q.correct===true).length+'/'+state.questions.length:null;
+ state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true};
+ save();show();
 }
 function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(p.prompt)+(p.fig&&N.figHtml?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
 function solutionMath(value){var source=String(value==null?'':value).trim();if(!source)return '';if(source.indexOf('⟨')>=0)return fmt(source);try{return G.katex.renderToString(source.replace(/\\frac/g,'\\dfrac'),{throwOnError:false,output:'html',trust:false});}catch(e){return esc(source);}}
 function feedback(q){var p=q.problem,part=p.parts[0];var lines=(p.steps||[]).map(x=>'<li>'+(x.t?fmt(x.t):'')+(x.m?'<div class="pt-step-math">'+solutionMath(x.m)+'</div>':'')+'</li>').join('');return '<div class="pt-explain"><strong>Answer:</strong> '+(p.parts||[]).map(x=>fmt(x.answer)).join(' · ')+(lines?'<h3>Worked solution</h3><ol>'+lines+'</ol>':'<p>Compare your process with the verified answer above.</p>')+(p.parts||[]).map(x=>x.answerFig&&N.figHtml?N.figHtml(x.answerFig):'').join('')+'</div>';}
 function item(q,i){var answered=q.response!==null&&q.response!=='';var visible=state.done||state.mode==='practice'&&q.checked;return '<section class="pt-card"><div class="pt-top"><span class="pt-eyebrow">'+esc(q.skillName)+'</span><strong>Question '+(i+1)+' of '+state.questions.length+'</strong></div>'+problemHTML(q)+(q.kind==='mc'?'<div class="pt-options">'+q.choices.opts.map((v,j)=>'<label class="pt-option"><input type="radio" name="pt-answer-'+i+'" value="'+j+'" '+(+q.response===j&&answered?'checked':'')+' '+(visible?'disabled':'')+'> '+fmt(v)+'</label>').join('')+'</div>':'<label class="pt-response">Show your work and enter your response<textarea id="pt-written" rows="4" '+(visible?'disabled':'')+' placeholder="Explain your solution...">'+esc(q.response||'')+'</textarea></label>')+(visible?'<div class="pt-status '+(q.correct===true?'pt-good':q.correct===false?'pt-bad':'')+'">'+(q.correct===true?'Correct':q.correct===false?'Needs review':'Compare your work')+'</div>'+feedback(q)+(q.kind==='self'&&q.correct===null?'<div class="pt-actions"><button data-grade="yes">My work is correct</button><button data-grade="no" class="pt-secondary">I need more practice</button></div>':''):'')+'</section>';}
+function paperHTML(){
+ if(!state)return '';
+ var ABC='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ return '<div class="pt-paper-head"><span>MR. K’S CLASSROOM · ASSESSMENT READINESS</span><h2>'+esc(chosen().unitName||'Algebra 1')+'</h2><p>Name: ______________________________ Date: ______________</p><p><strong>Directions:</strong> Show all work on separate paper. Read the test below or print/save it as a PDF. Enter only your final answers into the numbered answer sheet on this page. Do not include your work in the answer boxes.</p></div>'+
+ state.questions.map(function(q,i){return '<section class="pt-paper-question"><div class="pt-paper-number">'+(i+1)+'.</div><div class="pt-paper-content">'+problemHTML(q)+(q.kind==='mc'?'<div class="pt-paper-choices">'+q.choices.opts.map((v,j)=>'<div>'+ABC[j]+'. '+fmt(v)+'</div>').join('')+'</div>':'')+'</div></section>';}).join('');
+}
+function answerSheetHTML(){
+ return '<section class="pt-card pt-answer-sheet" id="pt-answer-sheet"><h2>Student answer sheet</h2><p class="pt-muted">Work on paper. Enter the final response for each numbered question below. Multiple-choice: select A, B, C, or D.</p><div class="pt-answer-grid">'+state.questions.map(function(q,i){
+  var value=q.response===null?'':q.kind==='mc'?'ABCD'[q.response]||'':q.response;
+  return '<label class="pt-answer-row"><span>'+(i+1)+'.</span><input aria-label="Answer for question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" placeholder="'+(q.kind==='mc'?'A–D':'Answer')+'" value="'+esc(value)+'"></label>';
+ }).join('')+'</div></section>';
+}
+function printPaper(){
+ var holder=G.document.createElement('div');holder.className='pt-print-standalone';holder.innerHTML=paperHTML();G.document.body.appendChild(holder);G.document.body.classList.add('pt-printing-paper');
+ G.print();
+ G.document.body.classList.remove('pt-printing-paper');holder.remove();
+}
 function tickTimer(){
  if(!state||state.done||!state.deadline)return;
  var remain=Math.max(0,state.deadline-Date.now()),el=root.querySelector('#pt-timer');
@@ -56,41 +86,26 @@ function tickTimer(){
 }
 var timerHandle=G.setInterval(tickTimer,1000);
 function show(){
- if(state&&!state.done)state.mode='test';
  if(!state){setup();return;}
  if(state.done){results();return;}
  if(state.deadline&&Date.now()>=state.deadline){submit(true);return;}
- var test=state.mode==='test',i=state.index,q=state.questions[i];
- var body=test?state.questions.map(function(question,j){return '<div id="pt-question-'+j+'" class="pt-test-question">'+item(question,j)+'</div>';}).join(''):item(q,i);
- root.innerHTML='<section class="pt-header"><div><span class="pt-eyebrow">'+esc(chosen().unitName||'Algebra 1')+'</span><h1>'+(test?'Assessment Readiness Check':'Guided Practice')+'</h1><p class="pt-muted" id="pt-timer">'+(state.deadline?'Timed assessment':'Untimed assessment')+'</p></div><button id="pt-exit" class="pt-secondary">Save & exit</button></section><div class="pt-progress"><div style="width:'+Math.round(100*state.questions.filter(x=>x.response!==null&&x.response!=='').length/state.questions.length)+'%"></div></div><nav class="pt-nav" aria-label="Jump to question">'+state.questions.map((x,j)=>'<button class="'+(j===i&&!test?'active ':'')+(x.response!==null?'answered':'')+'" data-jump="'+j+'" aria-label="Go to question '+(j+1)+'">'+(j+1)+(x.review?' ★':'')+'</button>').join('')+'</nav>'+body+'<div class="pt-actions">'+(test?'<button id="pt-submit">Review and submit assessment</button>':'<button id="pt-prev" class="pt-secondary" '+(!i?'disabled':'')+'>Previous</button><button id="pt-mark" class="pt-secondary">'+(q.review?'Unmark':'Mark for review')+'</button>'+(q.checked?'':'<button id="pt-check">Check answer</button>')+'<button id="pt-next">'+(i===state.questions.length-1?'Submit assessment':'Next →')+'</button>')+'</div><p class="pt-muted">'+state.questions.filter(x=>x.response!==null&&x.response!=='').length+' answered of '+state.questions.length+' · '+state.questions.filter(x=>x.review).length+' marked for review</p>';
- function bindAnswer(question,holder){
-   holder.querySelectorAll('input[type="radio"][name^="pt-answer-"]').forEach(e=>e.onchange=()=>{question.response=+e.value;save();});
-   var t=holder.querySelector('#pt-written');if(t)t.oninput=e=>{question.response=e.target.value;save();};
- }
- if(test){
-   state.questions.forEach((question,j)=>{var holder=root.querySelector('#pt-question-'+j);bindAnswer(question,holder);
-      var top=holder.querySelector('.pt-top');var mark=docButton('Mark for review',()=>{question.review=!question.review;save();show();G.document.getElementById('pt-question-'+j).scrollIntoView({block:'start'});});top.appendChild(mark);});
-   root.querySelector('#pt-submit').onclick=()=>submit();
- }else{
-   bindAnswer(q,root);
-   root.querySelector('#pt-prev').onclick=()=>go(i-1);
-   root.querySelector('#pt-next').onclick=()=>i===state.questions.length-1?submit():go(i+1);
-   root.querySelector('#pt-mark').onclick=()=>{q.review=!q.review;save();show();};
-   var check=root.querySelector('#pt-check');if(check)check.onclick=()=>{
-     if(q.response===null||q.response===''){alert('Enter an answer first.');return;}
-     if(q.kind==='auto'){var result=G.MKPRACTICE.grade(q.problem,q.response);if(['invalid','empty'].includes(result.status)){alert(result.message||'Enter your final answer.');return;}if(result.status==='self'){q.kind='self';q.correct=null;}else q.correct=result.status==='correct';}
-     if(q.kind==='mc')q.correct=q.response===q.choices.key;
-     q.checked=true;save();show();
-   };
-   root.querySelectorAll('[data-grade]').forEach(b=>b.onclick=()=>{q.correct=b.dataset.grade==='yes';save();show();});
- }
- root.querySelectorAll('[data-jump]').forEach(b=>b.onclick=()=>{var n=+b.dataset.jump;if(test){root.querySelector('#pt-question-'+n).scrollIntoView({block:'start'});}else go(n);});
+ state.mode='test';
+ root.innerHTML='<header class="pt-header"><div><span class="pt-eyebrow">ASSESSMENT READINESS · PRINT & RESPOND</span><h1>'+esc(chosen().unitName||'Algebra 1')+' Unit Test</h1><p class="pt-muted" id="pt-timer">'+(state.deadline?'Timed assessment':'Untimed assessment')+'</p></div><button class="pt-secondary" id="pt-exit">Save & exit</button></header><div class="pt-actions"><button id="pt-print-paper">Print / Save Test as PDF</button><button class="pt-secondary" id="pt-jump-answers">Go to answer sheet</button></div><div class="pt-paper" id="pt-paper">'+paperHTML()+'</div>'+answerSheetHTML()+'<div class="pt-actions"><button id="pt-submit">Submit answers for grading</button></div>';
+ root.querySelector('#pt-print-paper').onclick=printPaper;
+ root.querySelector('#pt-jump-answers').onclick=()=>root.querySelector('#pt-answer-sheet').scrollIntoView({behavior:'smooth'});
  root.querySelector('#pt-exit').onclick=()=>{state.paused=true;save();setup();};
+ root.querySelectorAll('[data-answer]').forEach(function(el){
+  el.oninput=function(){
+   var i=+el.dataset.answer,q=state.questions[i],v=el.value.trim();
+   q.response=q.kind==='mc'?(v?/^[ABCD]$/i.test(v)?'ABCD'.indexOf(v.toUpperCase()):v:null):(v||null);
+   save();
+  };
+ });
+ root.querySelector('#pt-submit').onclick=()=>submit();
  tickTimer();
 }
-function docButton(label,action){var b=G.document.createElement('button');b.type='button';b.className='pt-secondary pt-review-btn';b.textContent=label;b.onclick=action;return b;}
 function go(i){state.index=Math.max(0,Math.min(state.questions.length-1,i));save();show();}
-function submit(forced){var missing=state.questions.filter(q=>q.response===null||q.response==='').length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='mc')q.correct=q.response===null?false:q.response===q.choices.key;if(q.kind==='auto'){var g=G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct'?true:g.status==='incorrect'?false:null;if(g.status==='self')q.kind='self';q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
+function submit(forced){var missing=state.questions.filter(q=>q.response===null||q.response==='').length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='mc')q.correct=typeof q.response==='number'&&q.response===q.choices.key;if(q.kind==='auto'){var g=G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct'?true:g.status==='incorrect'?false:null;if(g.status==='self')q.kind='self';q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
 function stats(){var buckets={};state.questions.forEach(q=>{var b=buckets[q.skill]||(buckets[q.skill]={name:q.skillName,correct:0,graded:0,missing:0});if(q.correct===null)b.missing++;else{b.graded++;if(q.correct)b.correct++;}});return Object.entries(buckets).map(([id,b])=>Object.assign({id:id},b));}
 function recommendations(){
  var list=stats().filter(b=>b.graded>0).sort((a,b)=>a.correct/a.graded-b.correct/b.graded);
