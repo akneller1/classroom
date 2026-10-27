@@ -71,10 +71,25 @@ function inverseTrig(ctx){
       M('x='+angle+'^\\circ'))],
   space:[1.3,1.6,2]};
 }
+/* Calculator-based inverse trig with a stated rounding convention. */
+function inverseTrigDecimal(ctx){
+ var r=ctx.rng,c=ctx.c,t=triples[r.int(0,c>=5?triples.length-1:7)];
+ var kind=['sin','cos','tan'][r.int(0,2)],a=t[0],b=t[1],h=t[2];
+ var num=kind==='sin'?a:kind==='cos'?b:a;
+ var den=kind==='tan'?b:h;
+ var angle=Math[{'sin':'asin','cos':'acos','tan':'atan'}[kind]](num/den)*180/Math.PI;
+ var x=(Math.round(angle*10)/10).toFixed(1);
+ return {variant:'geo-right-inverse-decimal-'+kind+'-'+c,
+  fig:{kind:'geo-right-triangle',case:kind},
+  prompt:'Find the acute angle x in degrees if '+kind+' x = '+num+'/'+den+'. Round your answer to the nearest tenth of a degree. Use a calculator in degree mode.',
+  parts:[{answer:M('x='+x),check:{type:'geo-inverse-trig',roundTo:1}}],
+  steps:[step('Apply inverse '+kind+' in degree mode.',M('x='+x+'^\\circ'))],
+  space:[1.3,1.7,2]};
+}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
-tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles'},
+tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
-gaps:['Starter bank only: radical-valued special triangle sides, general inverse trig with non-integer angles, angle of depression, non-integer trig answers, and additional non-integer trigonometry applications remain pending.'],
+gaps:['Starter bank only: radical-valued special triangle sides, angle of depression, non-integer trig answers, and additional non-integer trigonometry applications remain pending.'],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1,2],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1,2],generate:leg},
@@ -86,6 +101,7 @@ skills:[
 {id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1,2],generate:special30},
 {id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation},
 {id:'right-honors-survey',tag:'HONORS',name:'Four-part surveying and similar triangles investigation',best:[2],generate:honorsSurvey},
-{id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig}
+{id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
+{id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
