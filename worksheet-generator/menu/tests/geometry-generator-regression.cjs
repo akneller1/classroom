@@ -21,6 +21,28 @@ for (const unit of units) {
     }
   }
 }
+// Unit 5 similarity must retain criterion coverage and printable figures.
+const simUnit = menu.skillSets['geometry-similarity'];
+for(const [id,figureCase] of [
+  ['similarity-missing-side','sides'],
+  ['similarity-angle','sides'],
+  ['similarity-aa-criterion','aa'],
+  ['similarity-sas-criterion','sas'],
+  ['similarity-sss-criterion','sss']
+]){
+  assert.ok(simUnit.skills.some(skill=>skill.id===id),'Missing similarity skill '+id);
+  for(const c of [1,3,5,7]){
+    const p=menu.generateProblem('geometry-similarity',id,c,
+      {intOnly:true,level:'game'},'similarity-diagram:'+id+':'+c,
+      {keys:new Set(),sigs:new Set()});
+    assert.ok(!p.failed,'Similarity question must generate: '+id+' c'+c);
+    assert.equal(p.verify.status,'verified');
+    assert.equal(p.fig && p.fig.kind,'geo-similar-pair');
+    assert.equal(p.fig.case,figureCase);
+    assert.ok(menu.geoDiagram.validate(p.fig),'Similarity diagram must validate');
+    assert.ok(menu.geoDiagram.render(p.fig).includes('<svg'),'Similarity diagram must render');
+  }
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
