@@ -1,0 +1,100 @@
+/* Original MCAS-style contextual question bank for all 12 Algebra 1 units.
+   Each scene generates linked, multi-part questions. A separate verifier
+   reconstructs the mathematics from the numeric data in the printed stem. */
+(function(G) {
+  'use strict';
+  var M=G.MKMENU;
+  var scenes={
+    'algebra1-foundations':function(r,c){
+      var n=r.int(2,6+c),price=r.int(2,5+c),fee=r.int(2,7+c);
+      return ['A class orders '+n+' notebooks at $'+price+' each. Shipping costs $'+fee+' per order.',
+        ['What is the cost of the notebooks before shipping?','What is the total cost including shipping?','If the class places two identical orders, what is the combined total cost?'],
+        [n*price,n*price+fee,2*(n*price+fee)]];
+    },
+    'algebra1-expressions-equations':function(r,c){
+      var fee=r.int(5,18+c),rate=r.int(3,9+c),visits=r.int(3,9+c),total=fee+rate*visits;
+      return ['A recreation center charges a $'+fee+' registration fee and $'+rate+' per visit. A member paid $'+total+' in total.',
+        ['How much of the payment was for visits, excluding the registration fee?','How many visits did the member make?','What would the total cost be for one additional visit?'],
+        [total-fee,visits,total+rate]];
+    },
+    'algebra1-inequalities':function(r,c){
+      var start=r.int(8,30+c*3),each=r.int(4,11+c),need=r.int(3,8+c),goal=start+each*need;
+      return ['A club has $'+start+' saved. Each ticket sold raises $'+each+'. The club must have at least $'+goal+' for a trip.',
+        ['How much more money does the club need?','What is the minimum number of tickets that must be sold?','How much money will the club have after selling one fewer ticket than that minimum?'],
+        [goal-start,need,start+each*(need-1)]];
+    },
+    'algebra1-relations-functions':function(r,c){
+      var m=r.int(2,6+c),b=r.int(3,14+c),x=r.int(2,6+c);
+      return ['A custom-print shop charges a $'+b+' setup fee plus $'+m+' for each shirt. A customer orders '+x+' shirts.',
+        ['What is the total cost for the order?','What would the total cost be for one more shirt?','By how many dollars does the cost increase when the quantity increases by one?'],
+        [b+m*x,b+m*(x+1),m]];
+    },
+    'algebra1-linear-equations-slope':function(r,c){
+      var rate=r.int(2,6+c),hours=r.int(2,5+c),capacity=rate*r.int(hours+2,hours+7+c);
+      return ['A tank starts with '+capacity+' gallons and drains at '+rate+' gallons per hour. A technician checks it after '+hours+' hours.',
+        ['How many gallons remain when the technician checks?','What is the slope of the amount-versus-time graph? Use a negative value for draining.','How many hours after draining starts will the tank be empty?'],
+        [capacity-rate*hours,-rate,capacity/rate]];
+    },
+    'algebra1-systems-of-equations':function(r,c){
+      var adult=r.int(3,9+c),student=r.int(4,10+c),pa=r.int(10,19+c),ps=r.int(3,9+c);if(pa===ps)pa++;
+      var count=adult+student, revenue=adult*pa+student*ps;
+      return ['A school show sells '+count+' tickets for $'+revenue+'. Adult tickets cost $'+pa+' and student tickets cost $'+ps+'.',
+        ['How many adult tickets were sold?','How many student tickets were sold?','How much money came from adult tickets?'],
+        [adult,student,adult*pa]];
+    },
+    'algebra1-exponents-scientific-notation':function(r,c){
+      var base=r.int(2,8+c),power=r.int(2,3+(c>4?2:0)),copies=r.int(2,6+c),q=base*Math.pow(10,power);
+      return ['A lab measures '+base+' times ten to the power of '+power+' particles in one sample. It collects '+copies+' identical samples.',
+        ['How many particles are in one sample in standard notation?','How many particles are in all the samples?','What is the exponent of ten in the original measurement?'],
+        [q,q*copies,power]];
+    },
+    'algebra1-exponential-functions':function(r,c){
+      var initial=r.int(2,8+c),time=r.int(2,4+(c>4?2:0));
+      return ['A culture starts with '+initial+' cells and doubles every hour. A scientist checks the culture after '+time+' hours.',
+        ['How many cells are present at that time?','How many cells are present one hour later?','By how many cells does the population increase during that final hour?'],
+        [initial*Math.pow(2,time),initial*Math.pow(2,time+1),initial*Math.pow(2,time)]];
+    },
+    'algebra1-polynomials':function(r,c){
+      var a=r.int(1,5+c),b=r.int(1,5+c),x=r.int(2,6+c);
+      return ['A rectangle has side lengths (x + '+a+') feet and (x + '+b+') feet. For this design, x = '+x+'.',
+        ['What is the numerical area of the rectangle in square feet?','What is the coefficient of x in the expanded area expression?','What is the constant term of that expanded expression?'],
+        [(x+a)*(x+b),a+b,a*b]];
+    },
+    'algebra1-factoring-zero-product':function(r,c){
+      var a=r.int(2,7+c),b=r.int(a+1,a+6+c),sum=a+b,product=a*b;
+      return ['A polynomial is x squared plus '+sum+'x plus '+product+'. It factors into two linear expressions with integer constants.',
+        ['What is the smaller zero of the polynomial?','What is the larger zero of the polynomial?','What is the product of the two zeros?'],
+        [-b,-a,product]];
+    },
+    'algebra1-quadratics':function(r,c){
+      var peakTime=r.int(2,5+c),flight=2*peakTime,height=peakTime*peakTime;
+      return ['The height of a ball, in meters, is modeled by h(t) = -t squared + '+flight+'t, where t is seconds after launch.',
+        ['After how many seconds does the ball return to the ground?','At what time does the ball reach its maximum height?','What is that maximum height in meters?'],
+        [flight,peakTime,height]];
+    },
+    'algebra1-statistics-data-modeling':function(r,c){
+      var start=r.int(3,13+c),step=r.int(2,6+c);var a=[0,1,2,3,4].map(i=>start+i*step);
+      return ['Five students report study times of '+a.join(', ')+' minutes, listed in order.',
+        ['What is the mean study time in minutes?','What is the median study time in minutes?','What is the range in minutes?'],
+        [a[2],a[2],a[4]-a[0]]];
+    }
+  };
+  M.contextScenes=scenes;
+  M.makeContextProblem=function(unit, ctx) {
+    var fn=scenes[unit];if(!fn)return {failed:true,reason:'No contextual bank for '+unit};
+    var x=fn(ctx.rng,ctx.c),parts=x[1].map(function(t,i){
+      return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
+        check:{type:'mcas-context',unit:unit,index:i}};
+    });
+    return {variant:'mcas-context-'+unit,prompt:x[0]+' Answer all three parts and show your reasoning.',
+      parts:parts,steps:[],space:[2.4,3.0,3.7]};
+  };
+  Object.keys(scenes).forEach(function(unit){
+    var set=M.skillSets[unit];if(!set)return;
+    var first=set.skills[0];
+    var skill={id:'mcas-context',name:'MCAS contextual open response',tag:first.tag,
+      best:[1,2],blurb:'Original multi-part applied scenario with separately verified answers.',
+      generate:function(ctx){return M.makeContextProblem(unit,ctx);}};
+    set.skills.push(skill);set.byId[skill.id]=skill;
+  });
+})(typeof window!=='undefined'?window:globalThis);
