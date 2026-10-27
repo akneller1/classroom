@@ -221,7 +221,7 @@
         if (unit === 'algebra1-foundations' && nums.length===3)
           expected=[a*b,(a-d)*b,d*b];
         else if (unit === 'algebra1-expressions-equations' && nums.length===3)
-          expected=[a*b,a*b+d,(a+1)*b+d];
+          expected=[a*b,a*b+d,a*(b+1)+d];
         else if (unit === 'algebra1-inequalities' && nums.length===3 && d>0) {
           var remaining=a-b;
           expected=[remaining,Math.floor(remaining/d),remaining%d];
