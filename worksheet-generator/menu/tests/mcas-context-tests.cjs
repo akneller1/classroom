@@ -45,3 +45,26 @@ for(const unit of units)for(const c of [2,4,6]){
   alternatives++;
 }
 console.log('Verified '+alternatives+' explicit second-family samples with wrong-answer rejection.');
+
+/* Force every new applied family, independent of random variant selection. */
+let checkedApplied=0;
+for (const unit of Object.keys(M.contextApplied)) for (const c of [2,4,6]) {
+  const base=env.MKWS.rng.make('applied-'+unit+'-'+c);
+  let first=true;
+  const rng={next:()=>base.next(),pick:a=>base.pick(a),int:(lo,hi)=>{
+    if(first){first=false;return 3;}
+    return base.int(lo,hi);
+  }};
+  const p=M.makeContextProblem(unit,{rng,c,intOnly:true,level:'cp1'});
+  assert.match(p.variant,/-applied$/,unit);
+  assert.equal(p.parts.length,3);
+  const v=M.verifyProblem(p,{intOnly:true,level:'cp1'});
+  assert.ok(v.ok,unit+' applied: '+v.issues.join('; ')+' | '+p.prompt);
+  for(const pt of p.parts) {
+    const original=pt.answer;pt.answer=String(Number(original)+1);
+    assert.ok(!M.verifyProblem(p,{intOnly:true,level:'cp1'}).ok,unit+' accepts wrong answer');
+    pt.answer=original;
+  }
+  checkedApplied++;
+}
+console.log('Verified '+checkedApplied+' applied family samples and '+checkedApplied*3+' wrong answers.');
