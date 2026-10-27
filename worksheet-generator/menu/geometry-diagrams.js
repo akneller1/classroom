@@ -11,7 +11,16 @@ D.render=function(spec){
  if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark','geo-similar-pair'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
  if(spec.kind==='geo-similar-pair'){
-   if(!['aa','sas','sss','sides'].includes(spec.case))return '';
+   if(!['aa','sas','sss','sides','parallel'].includes(spec.case))return '';
+   if(spec.case==='parallel'){
+     var figure='<path d="M215 17 L70 131 L360 131 Z M166.67 55 L263.33 55" stroke="#111" stroke-width="2.5" fill="none"/>'+
+       tx(215,14,'A')+tx(58,145,'B')+tx(372,145,'C')+
+       tx(151,56,'D')+tx(278,56,'E')+
+       tx(215,49,'DE')+tx(215,148,'BC');
+     return '<div class="mm-geometry-figure" style="break-inside:avoid">'+
+       svg(figure,'Triangle ABC with D on AB, E on AC, and DE parallel to BC')+
+       '<div style="font-size:10px;color:#555">DE is parallel to BC. Schematic, not to scale; use the given measurements.</div></div>';
+   }
    var left=[[70,26],[45,128],[186,128]],right=[[270,22],[242,130],[390,130]];
    function edge(p,q){return '<path d="M'+p[0]+' '+p[1]+' L'+q[0]+' '+q[1]+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
    function triangle(t){return edge(t[0],t[1])+edge(t[1],t[2])+edge(t[2],t[0]);}
