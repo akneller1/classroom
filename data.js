@@ -37,6 +37,15 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
+              "title": "Interactive Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=algebra1-foundations",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "Take a Foundations of Algebra practice test with worked solutions, skill feedback and fresh review questions at CP2, CP1 or Honors levels.",
+              "type": "Study Guide",
+              "topics": ["Foundations of Algebra", "Test readiness", "Self-assessment"],
+              "added": "2026-10-26"
+            },
+            {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=algebra1-foundations",
               "thumb": "thumbs/lesson-planner.svg",
