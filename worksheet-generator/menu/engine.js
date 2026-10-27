@@ -590,6 +590,26 @@
     state.versions.forEach(function (v) {
       v.sections = cfg.sections.map(function (s) { var old = v.sections.filter(function (x) { return x.id === s.id; })[0]; return old || { id: s.id, items: [] }; });
     });
+    // Retire a cross-listed absolute-value EQUATION skill from the inequalities unit.
+    if(cfg.unitId==='algebra1-inequalities') {
+      delete cfg.skills['abs-eq'];
+      cfg.sections.forEach(function(sec){
+        if(sec.skills)sec.skills=sec.skills.filter(function(id){return id!=='abs-eq';});
+      });
+      state.versions.forEach(function(v,vi){
+        v.sections.forEach(function(sec,si){
+          sec.items.forEach(function(it,k){
+            if(it.skill!=='abs-eq')return;
+            var allowed=NS.sectionSkills(cfg,si);
+            var replacement=allowed.find(function(id){return sets[cfg.unitId].byId[id]&&id!=='abs-eq';});
+            if(!replacement){it.failed=true;it.reason='Retired out-of-unit equation: select an inequality skill.';return;}
+            var fixed=makeItem(state,it.slot||uid('s'),replacement,it.c||NS.sectionC(cfg,si),'retired-abs-eq-'+k,vi,si);
+            if(!fixed.failed)sec.items[k]=fixed;
+            else{it.failed=true;it.reason='Retired out-of-unit equation; regenerate an inequality question.';}
+          });
+        });
+      });
+    }
     cfg.sections.forEach(function(sec,si) {
       if(NS.sectionFormat(cfg,si)==='mcas') {
         if(/mcas/i.test(sec.name||'')) sec.name='Open Response';
