@@ -61,6 +61,19 @@ for(const id of ['similarity-parallel-segment','similarity-parallel-honors']){
     }
   }
 }
+// Unit 6 must retain exact special-triangle and elevation applications.
+const rightUnit=menu.skillSets['geometry-right-triangles-trigonometry'];
+for(const id of ['right-special-45-45-90','right-special-30-60-90','right-angle-elevation']){
+  assert.ok(rightUnit.skills.some(skill=>skill.id===id),'Missing right-triangle skill '+id);
+  for(const c of [1,3,5,7]){
+    const p=menu.generateProblem('geometry-right-triangles-trigonometry',id,c,
+      {intOnly:true,level:'game'},'right-special:'+id+':'+c,
+      {keys:new Set(),sigs:new Set()});
+    assert.ok(!p.failed,'Special right-triangle question must generate: '+id+' c'+c);
+    assert.equal(p.verify.status,'verified');
+    assert.equal(p.parts.length,1);
+  }
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
