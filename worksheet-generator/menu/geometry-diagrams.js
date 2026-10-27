@@ -8,7 +8,7 @@ function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-transversal'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
  if(spec.kind==='geo-segment'){
    if(a.length!==3||m.length!==3||!m.every(x=>typeof x==='string'&&x.length<50))return '';
@@ -16,18 +16,6 @@ D.render=function(spec){
      '<circle cx="54" cy="76" r="4" fill="#111"/><circle cx="198" cy="76" r="4" fill="#111"/><circle cx="376" cy="76" r="4" fill="#111"/>'+
      tx(54,105,a[0])+tx(198,105,a[1])+tx(376,105,a[2])+
      tx(125,59,m[0])+tx(287,59,m[1])+tx(215,139,m[2]);
- }else if(spec.kind==='geo-transversal'){
-   if(!['corresponding','alternate-interior','alternate-exterior','same-side'].includes(spec.relationship))return '';
-   var points={
-     corresponding:[[203,42],[294,102]],
-     'alternate-interior':[[203,82],[226,102]],
-     'alternate-exterior':[[202,42],[224,145]],
-     'same-side':[[203,82],[294,102]]
-   }[spec.relationship];
-   h='<path d="M40 56 H391 M40 116 H391 M127 12 L327 152" fill="none" stroke="#111" stroke-width="2.7"/>'+
-     '<path d="M351 49 l12 7 -12 7 M351 109 l12 7 -12 7" fill="none" stroke="#111" stroke-width="1.6"/>'+
-     tx(24,52,'ℓ')+tx(24,112,'m')+tx(points[0][0],points[0][1],'1')+tx(points[1][0],points[1][1],'2')+
-     tx(361,23,'ℓ ∥ m');
  }else if(spec.kind==='geo-angle'){
    if(a.length!==3||m.length!==3)return '';
    h='<path d="M68 125 L215 125 L356 37 M215 125 L239 29" fill="none" stroke="#111" stroke-width="2.5"/>'+
@@ -46,7 +34,6 @@ D.render=function(spec){
 };
 D.validate=function(spec){
  if(!spec||!D.render(spec))return false;
- if(spec.kind==='geo-transversal')return ['corresponding','alternate-interior','alternate-exterior','same-side'].indexOf(spec.relationship)>=0;
  if(spec.kind==='geo-segment')return spec.labels.length===3&&spec.labels.every(x=>/^[A-Z]$/.test(x))&&spec.labels[0]!==spec.labels[1]&&spec.labels[1]!==spec.labels[2]&&spec.labels[0]!==spec.labels[2];
  return true;
 };
