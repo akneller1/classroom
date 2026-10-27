@@ -10,6 +10,7 @@
   function GB() { return G.MKGAMES; }
 
   PR.KINDS = [
+    { id: 'vocabulary', name: 'Vocabulary Builder', blurb: 'Build matching, definition, diagram, example, and crossword vocabulary sheets with mastery levels and teacher keys.' },
     { id: 'maze', name: 'Maze', blurb: 'Solve the problem in each room and leave through the door with your answer. Wrong answers lead to dead ends.' },
     { id: 'color', name: 'Color by Number', blurb: 'Solve the numbered problems, find each answer in the color code, and color the matching squares to reveal a picture.' },
     { id: 'tarsia', name: 'Tarsia Puzzle', blurb: 'Cut out the triangles and match every problem to its answer to rebuild the shape.' },
