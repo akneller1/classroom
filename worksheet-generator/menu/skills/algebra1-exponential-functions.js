@@ -314,6 +314,12 @@
     }
   });
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="exp-graph";});if(!base)return;
+    skill({id:"exponential-graph-features",best:base.best,tag:base.tag,name:"Read exponential graph features",blurb:"Determine domain, range and growth/decay from exponential graphs.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-exponential-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponential-functions', unitName: 'Exponential Functions',
     title: 'The Exponential Eatery',
