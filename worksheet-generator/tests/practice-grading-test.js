@@ -111,7 +111,7 @@ console.log('Individual graphing mistake diagnostics verified.');
 const padSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
 assert(padSource.includes('data-math-pad'), 'student short-answer keypad missing');
 assert(padSource.includes('data-math-insert'), 'math keypad buttons missing');
-assert(padSource.includes("input.setRangeText(value,at,end,'end')"),'keys must insert at cursor, not overwrite answers');
+assert(padSource.includes('G.MKMATHINPUT.insert(input.value,at,end,kind)'),'keys must use selection-aware math input helper');
 assert(padSource.includes("input.dispatchEvent(new Event('input',{bubbles:true}))"),'keypad must notify autosave/grading');
 assert(padSource.includes("['−','-']"), 'signed answer key missing');
 assert(padSource.includes("['≤','<=']")&&padSource.includes("['≥','>=']"), 'inequality symbols missing');
@@ -146,3 +146,16 @@ const liveSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
 assert(liveSource.includes('data-preview='), 'inline preview slot missing');
 assert(liveSource.includes('G.MKMATHPREVIEW.update(el'), 'live input handler missing');
 console.log('Live math preview formatting and safe fallback checks passed.');
+
+/* Editable templates: cursor selection, fraction denominator, square-root and powers. */
+vm.runInContext(fs.readFileSync(path.join(base,'practice/math-input.js'),'utf8'),context,{filename:'practice/math-input.js'});
+const MI=context.MKMATHINPUT;
+const f0=MI.insert('',0,0,'fraction');assert.equal(f0.text,'0/1');assert.equal(f0.start,0);assert.equal(f0.end,1);
+const f1=MI.insert('3',0,1,'fraction');assert.equal(f1.text,'3/1');assert.equal(f1.start,2);assert.equal(f1.end,3);
+const next=MI.insert('3/1',1,1,'next');assert.equal(next.start,2);assert.equal(next.end,3);
+const sq=MI.insert('',0,0,'sqrt');assert.equal(sq.text,'sqrt(0)');assert.equal(sq.start,5);assert.equal(sq.end,6);
+const pw=MI.insert('x',1,1,'power');assert.equal(pw.text,'x^(2)');assert.equal(pw.start,3);assert.equal(pw.end,4);
+const exp=MI.insert('x',1,1,'square');assert.equal(exp.text,'x^2');
+assert.equal(MI.insert('1/2',3,3,'backspace').text,'1/');
+assert.equal(MI.insert('x',1,1,'<=')['text'],'x<=');
+console.log('Editable math fraction/radical/exponent caret and next-slot tests passed.');
