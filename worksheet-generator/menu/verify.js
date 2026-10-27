@@ -227,6 +227,7 @@
         if (!m) return {status:'invalid',msg:'Missing printed coordinates.'};
         squared = (+m[1])**2 + (+m[2])**2;
       } else return {status:'invalid',msg:'Unknown Pythagorean problem type.'};
+      if (!shown(p, chk.eq)) return {status:'invalid',msg:'Printed Pythagorean equation differs from the checked equation.'};
       var length = Math.sqrt(squared);
       if (!(squared > 0) || !Number.isSafeInteger(squared) || !Number.isSafeInteger(length))
         return {status:'invalid',msg:'Expected an exact positive integer length.'};
