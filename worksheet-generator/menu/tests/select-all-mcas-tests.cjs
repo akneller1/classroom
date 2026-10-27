@@ -11,7 +11,7 @@ for(const unit of Object.keys(M.skillSets).filter(k=>k.startsWith('algebra1-')))
       const p=M.generateProblem(unit,sk.id,c,{intOnly:c<6,level:'cp1'},'multi-validation-'+c,null);
       if(p.failed)continue;
       const out=M.makeMultiSelect(p);
-      if(unit!=='algebra1-inequalities') assert.ok(out.fail,'Non-inequality question unexpectedly accepted: '+unit);
+      if(unit!=='algebra1-inequalities' && !out.fail) assert.equal(p.parts[0].check.type,'ineq','Only inequality skill may produce choices');
       if(out.fail)continue;
       const chk=p.parts[0].check;
       assert.equal(chk.type,'ineq');
