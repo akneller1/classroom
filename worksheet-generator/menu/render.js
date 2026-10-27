@@ -110,13 +110,13 @@
     var flow = /-flow-/.test(p.variant || '');
     var first = isShared ? 'AB is congruent to AB' : 'Angle AOB is congruent to angle COD';
     var second = isShared ? 'Triangle ABC is congruent to triangle ABD' : 'Triangle AOB is congruent to triangle COD';
-    var rows = [first,second,'Corresponding angles are congruent','Solve the printed equation for x'];
+    var rows = Array.isArray(p.proofStatements) && p.proofStatements.length === 4 ? p.proofStatements : [first,second,'Corresponding angles are congruent','Solve the printed equation for x'];
     var blanks = ['Reason: __________________','Reason: __________________','Reason: __________________','x = __________'];
     if (forKey) blanks = (p.parts || []).map(function (pt,i) { return (i === 3 ? '' : 'Reason: ') + mathSafe(pt.answer || ''); });
     if (flow) return '<div class="mm-proof-flow" style="display:flex;flex-direction:column;align-items:center;gap:7px;margin:12px 0;break-inside:avoid">' +
-      rows.map(function (st,i) { return '<div style="width:94%;border:1.5px solid #222;border-radius:5px;padding:9px 12px;background:white;box-sizing:border-box"><b>Step '+(i+1)+':</b> '+esc(st)+'<div style="border-top:1px solid #aaa;margin-top:7px;padding-top:6px">'+blanks[i]+'</div></div>'+(i<3?'<div style="font-size:19px;line-height:15px">↓</div>':''); }).join('')+'</div>';
+      rows.map(function (st,i) { return '<div style="width:94%;border:1.5px solid #222;border-radius:5px;padding:9px 12px;background:white;box-sizing:border-box"><b>Step '+(i+1)+':</b> '+mathSafe(st)+'<div style="border-top:1px solid #aaa;margin-top:7px;padding-top:6px">'+blanks[i]+'</div></div>'+(i<3?'<div style="font-size:19px;line-height:15px">↓</div>':''); }).join('')+'</div>';
     return '<table class="mm-proof-table" style="width:100%;border-collapse:collapse;margin:12px 0;break-inside:avoid"><thead><tr><th style="border:1px solid #333;text-align:left;padding:8px;background:#eee;width:54%">Statements</th><th style="border:1px solid #333;text-align:left;padding:8px;background:#eee">Reasons</th></tr></thead><tbody>'+
-      rows.map(function (st,i) { return '<tr><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+(i+1)+'. '+esc(st)+'</td><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+blanks[i]+'</td></tr>'; }).join('')+'</tbody></table>';
+      rows.map(function (st,i) { return '<tr><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+(i+1)+'. '+mathSafe(st)+'</td><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+blanks[i]+'</td></tr>'; }).join('')+'</tbody></table>';
   }
   NS.proofLayout = proofLayout;
   function promptHtml(p, forKey) {
