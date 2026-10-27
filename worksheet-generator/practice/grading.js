@@ -16,6 +16,7 @@ function inequality(s){return /(?:<|>|\\le|\\ge|≤|≥)/.test(s);}
 function solutionSet(s){return C.solutionSet(s,'x');}
 function classify(s){
  s=normalize(unwrap(s));
+ if(G.MKRADICAL&&G.MKRADICAL.supports(s))return 'radical';
  if(special(s))return 'special';
  if(isPair(s)){pair(s);return 'pair';}
  if(/\s+(?:or|and)\s+|[,;]\s*(?=x\s*=)/i.test(s)&&roots(s))return 'roots';
@@ -37,6 +38,7 @@ function grade(problem,typed){
  if(input.length>180)return {status:'invalid',message:'Enter only your final answer (180 characters maximum).'};
  var kind=classify(answer);
  try{
+   if(kind==='radical')return G.MKRADICAL.grade(answer,input);
    if(kind==='special'){var sp=special(input);return sp?{status:sp===special(answer)?'correct':'incorrect'}:{status:'invalid',message:'Enter “No solution” or “All real numbers” as appropriate.'};}
    if(kind==='pair'){var a=pair(answer),b=pair(input);return {status:a[0].eq(b[0])&&a[1].eq(b[1])?'correct':'incorrect'};}
    if(kind==='roots'){var aRoots=roots(answer),bRoots=roots(input);if(!bRoots)return {status:'invalid',message:'List all solutions, such as x = 2 or x = -3.'};return {status:sameRoots(aRoots,bRoots)?'correct':'incorrect'};}
