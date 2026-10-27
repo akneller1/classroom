@@ -20,7 +20,7 @@ API.render=controls;
 API.bind=function(root,state,save){root.querySelectorAll('[data-graph]').forEach(function(box){var i=+box.dataset.graph,q=state.questions[i];function collect(){var rows=[...box.querySelectorAll('[data-interval]')].map(function(row){function number(end){var v=row.querySelector('[data-end="'+end+'"]').value.trim().replace(/−/g,"-");if(v==="")return null;if(!/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(v))throw Error("Enter a valid number");return Number(v);}return {lo:number('lo'),hi:number('hi'),loC:row.querySelector('[data-end="loC"]').checked,hiC:row.querySelector('[data-end="hiC"]').checked};});q.response=serialize(rows);save();box.querySelector('svg').outerHTML=draw(q);}box.querySelectorAll('[data-pick-end]').forEach(function(btn){btn.onclick=function(){var active=box.dataset.pickEnd===btn.dataset.pickEnd?'':btn.dataset.pickEnd;box.dataset.pickEnd=active;box.querySelectorAll('[data-pick-end]').forEach(b=>{b.classList.toggle('pt-selected-tool',b.dataset.pickEnd===active);b.setAttribute('aria-pressed',String(b.dataset.pickEnd===active));});};});
  var board=box.querySelector('svg');
  var dragSelect=box.querySelector('[data-drag-circle]'),oldParts=parse(q.response)||[];
- if(dragSelect&&oldParts.length===1){var ep=oldParts[0];dragSelect.value=(ep.lo!==null?ep.loC:ep.hiC)?'closed':'open';}
+ if(dragSelect&&oldParts.length){var ep=oldParts[oldParts.length-1];dragSelect.value=(ep.lo!==null?ep.loC:ep.hiC)?'closed':'open';}
  function frameFromEvent(ev){
    var rect=board.getBoundingClientRect(),fig=q.problem.parts[0].answerFig,lo=Number(fig.min),hi=Number(fig.max);
    if(!Number.isFinite(lo)||!Number.isFinite(hi)||hi<=lo){lo=-10;hi=10;}
@@ -36,9 +36,9 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-graph]').forEach
    return direction==='left'?{lo:null,hi:startValue,loC:false,hiC:closed}:{lo:startValue,hi:null,loC:closed,hiC:false};
  }
  function repaint(){box.outerHTML=controls(q,i);API.bind(root,state,save);}
- function commitRay(part){
-   var parts=parse(q.response)||[];
-   if(parts.length)parts[0]=part;else parts=[part];
+ function commitRay(part,slot){
+   var parts=parse(q.response)||[],index=Number.isInteger(slot)?slot:(parts.length?0:0);
+   parts[index]=part;
    q.response=serialize(parts);save();repaint();
  }
  if(board){
@@ -47,9 +47,12 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-graph]').forEach
      if(ev.button!==undefined&&ev.button!==0)return;
      ev.preventDefault();
      var v=frameFromEvent(ev);
-     drag={id:ev.pointerId,value:v,direction:'right'};
+     var existing=parse(q.response)||[];
+     var slot=existing.findIndex(p=>p.lo===null&&p.hi===null);
+     if(slot<0)slot=existing.length>1?existing.length-1:0;
+     drag={id:ev.pointerId,value:v,direction:'right',slot:slot};
      if(board.setPointerCapture)board.setPointerCapture(ev.pointerId);
-     renderPreview([dragPart(v,'right')]);
+     var preview=parse(q.response)||[];preview[drag.slot]=dragPart(v,'right');renderPreview(preview);
    });
    board.addEventListener('pointermove',function(ev){
      if(!drag||ev.pointerId!==drag.id)return;
@@ -57,7 +60,7 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-graph]').forEach
      var v=frameFromEvent(ev);
      if(v<drag.value)drag.direction='left';
      if(v>drag.value)drag.direction='right';
-     renderPreview([dragPart(drag.value,drag.direction)]);
+     var preview=parse(q.response)||[];preview[drag.slot]=dragPart(drag.value,drag.direction);renderPreview(preview);
    });
    board.addEventListener('pointerup',function(ev){
      if(!drag||ev.pointerId!==drag.id)return;
@@ -66,24 +69,24 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-graph]').forEach
      if(v<drag.value)drag.direction='left';
      if(v>drag.value)drag.direction='right';
      var part=dragPart(drag.value,drag.direction);
-     drag=null;commitRay(part);
+     var slot=drag.slot;drag=null;commitRay(part,slot);
    });
    board.addEventListener('pointercancel',function(){drag=null;repaint();});
  }
  if(dragSelect)dragSelect.onchange=function(){
-   var p=(parse(q.response)||[])[0];
+   var parts=parse(q.response)||[],idx=parts.length-1,p=parts[idx];
    if(!p)return;
    var closed=dragSelect.value==='closed';
    if(p.lo!==null)p.loC=closed;
    if(p.hi!==null)p.hiC=closed;
-   commitRay(p);
+   commitRay(p,idx);
  };
  var reverse=box.querySelector('[data-reverse-ray]');
  if(reverse)reverse.onclick=function(){
-   var p=(parse(q.response)||[])[0];
+   var parts=parse(q.response)||[],idx=parts.length-1,p=parts[idx];
    if(!p)return;
-   if(p.lo!==null&&p.hi===null)commitRay({lo:null,hi:p.lo,loC:false,hiC:p.loC});
-   else if(p.hi!==null&&p.lo===null)commitRay({lo:p.hi,hi:null,loC:p.hiC,hiC:false});
+   if(p.lo!==null&&p.hi===null)commitRay({lo:null,hi:p.lo,loC:false,hiC:p.loC},idx);
+   else if(p.hi!==null&&p.lo===null)commitRay({lo:p.hi,hi:null,loC:p.hiC,hiC:false},idx);
  };
  box.querySelectorAll('[data-pick-end]').forEach(function(btn){
    btn.onclick=function(){
@@ -92,7 +95,7 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-graph]').forEach
      p[end]=v;q.response=serialize([p]);save();repaint();
    };
  });
- box.querySelectorAll('[data-sign]').forEach(btn=>btn.onclick=function(){var el=btn.parentNode.querySelector('input');el.value=el.value.trim().startsWith('-')?el.value.trim().slice(1):'-'+el.value.trim();el.dispatchEvent(new Event('change',{bubbles:true}));});box.querySelectorAll('input').forEach(el=>{el.addEventListener('input',function(){try{collect();}catch(e){/* An unfinished minus sign is valid while typing. */}});el.addEventListener('change',function(){try{collect();}catch(e){el.setCustomValidity('Please enter a valid signed number.');el.reportValidity();el.setCustomValidity('');}});});box.querySelector('[data-add-interval]').onclick=function(){collect();var parts=parse(q.response)||[];parts.push({lo:null,hi:null,loC:false,hiC:false});q.response=serialize(parts);save();box.outerHTML=controls(q,i);API.bind(root,state,save);};box.querySelectorAll('[data-remove]').forEach(btn=>btn.onclick=function(){var parts=parse(q.response)||[];parts.splice(+btn.dataset.remove,1);q.response=serialize(parts);save();box.outerHTML=controls(q,i);API.bind(root,state,save);});box.querySelector('[data-empty-graph]').onclick=function(){q.response=serialize([]);save();box.outerHTML=controls(q,i);API.bind(root,state,save);};box.querySelector('[data-all-graph]').onclick=function(){q.response=serialize([{lo:null,hi:null,loC:false,hiC:false}]);save();box.outerHTML=controls(q,i);API.bind(root,state,save);};});};
+ box.querySelectorAll('[data-sign]').forEach(btn=>btn.onclick=function(){var el=btn.parentNode.querySelector('input');el.value=el.value.trim().startsWith('-')?el.value.trim().slice(1):'-'+el.value.trim();el.dispatchEvent(new Event('change',{bubbles:true}));});box.querySelectorAll('input').forEach(el=>{el.addEventListener('input',function(){try{collect();}catch(e){/* An unfinished minus sign is valid while typing. */}});el.addEventListener('change',function(){try{collect();}catch(e){el.setCustomValidity('Please enter a valid signed number.');el.reportValidity();el.setCustomValidity('');}});});box.querySelector('[data-add-interval]').onclick=function(){var parts=parse(q.response)||[];if(parts.length>=4){alert('Up to four intervals are supported.');return;}parts.push({lo:null,hi:null,loC:false,hiC:false});q.response=serialize(parts);save();box.outerHTML=controls(q,i);API.bind(root,state,save);};box.querySelectorAll('[data-remove]').forEach(btn=>btn.onclick=function(){var parts=parse(q.response)||[];parts.splice(+btn.dataset.remove,1);q.response=serialize(parts);save();box.outerHTML=controls(q,i);API.bind(root,state,save);});box.querySelector('[data-empty-graph]').onclick=function(){q.response=serialize([]);save();box.outerHTML=controls(q,i);API.bind(root,state,save);};box.querySelector('[data-all-graph]').onclick=function(){q.response=serialize([{lo:null,hi:null,loC:false,hiC:false}]);save();box.outerHTML=controls(q,i);API.bind(root,state,save);};});};
 
 /* Plot-a-point questions: store the plotted coordinate and grade both axes exactly. */
 function pointTarget(q){var p=q.problem;if(!p||!p.parts||p.parts.length!==1||!/(plot|graph)\s+(?:the\s+)?(?:point|ordered pair)/i.test(p.prompt||''))return null;var a=String(p.parts[0].answer||'').replace(/[⟨⟩]/g,'').trim();var m=/^\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)$/.exec(a);return m?[+m[1],+m[2]]:null;}
