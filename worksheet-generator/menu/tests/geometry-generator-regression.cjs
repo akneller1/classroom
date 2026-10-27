@@ -35,6 +35,20 @@ for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','r
   assert.equal(menu.verifyProblem(tampered,{intOnly:true,level:'game'}).ok,false,
     skillId+' must reject a modified printed equation');
 }
+// Inspect actual SVG markings, not just the generator's claimed theorem.
+// Tick counts include one/two/three stroke marks on each matching side pair.
+const expectedMarks = {
+  sss:[12,0], sas:[6,2], asa:[2,4], aas:[2,4],
+  hl:[6,0], ssa:[6,2], aaa:[0,6]
+};
+for (const [criterion, expected] of Object.entries(expectedMarks)) {
+  const fig = {kind:'geo-triangle-pair',criterion};
+  const svg = menu.geoDiagram.render(fig);
+  assert.ok(menu.geoDiagram.validate(fig),criterion+' diagram should be valid');
+  const ticks = (svg.match(/stroke-width="1\\.7"/g)||[]).length;
+  const arcs = (svg.match(/stroke-width="1\\.5"/g)||[]).length;
+  assert.deepEqual([ticks,arcs],expected,criterion+' side/angle markings must match givens');
+}
 // Proof diagrams and independently checked reasons must agree with the printed givens.
 for (const scenario of ['shared','vertical']) {
   let sample;
