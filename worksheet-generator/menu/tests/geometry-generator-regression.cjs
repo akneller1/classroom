@@ -120,7 +120,7 @@ for(const c of [1,3,5,7]){
   assert.equal(p.verify.status,'verified');
   assert.equal(p.parts[0].check.type,'geo-inverse-trig');
   assert.ok(menu.geoDiagram.validate(p.fig));
-  const changed=Object.assign({},p,{prompt:p.prompt.replace(/x = (\\d+)\\/(\\d+)/,
+  const changed=Object.assign({},p,{prompt:p.prompt.replace(/x = (\d+)\/(\d+)/,
     (_,a,b)=>'x = '+(Number(a)+1)+'/'+b)});
   assert.notEqual(menu.verifyProblem(changed).status,'verified',
     'Changing the printed inverse-trig ratio must invalidate the answer');
