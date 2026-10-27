@@ -26,3 +26,34 @@
 .pt-advanced-interval{border:1px solid #d6e2ee;border-radius:10px;padding:10px 12px;margin:10px 0}
 .pt-advanced-interval summary{cursor:pointer;font-weight:650;color:#29587e;min-height:30px}
 .pt-advanced-interval[open] summary{margin-bottom:10px}
+
+/* Direct-answer student assessment layout */
+.pt-student-intro{margin:16px 0;padding:16px 20px;background:#eaf3fd;border:1px solid #bdd4ed;border-radius:12px;line-height:1.55}
+.pt-student-question{scroll-margin-top:185px;margin:20px 0;padding:clamp(18px,3vw,30px)}
+.pt-student-qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-weight:800;color:#295c91}
+.pt-qskill{font-size:12px;font-weight:650;color:#52728c}
+.pt-student-question .pt-problem{margin:16px 0 14px}
+.pt-inline-control{margin-top:18px}
+.pt-inline-control .pt-graph-editor,.pt-inline-control .pt-line-editor,.pt-inline-control .pt-parabola-editor,.pt-inline-control .pt-system-editor,.pt-inline-control .pt-exp-editor{max-width:100%}
+.pt-mc-inline{border:0;padding:0;background:transparent}
+.pt-mc-inline legend{padding:0 0 10px;font-size:14px}
+.pt-mc-inline .pt-mc-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pt-mc-inline .pt-mc-choice{display:flex;align-items:center;text-align:left;gap:12px;min-height:64px;padding:12px;font-size:16px}
+.pt-choice-letter{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:#e2eefa;color:#225b97;font-weight:900;flex:none}
+.pt-mc-choice.selected .pt-choice-letter{background:#fff;color:#245eab}
+.pt-choice-text{min-width:0;overflow-wrap:anywhere;font-weight:600}
+.pt-inline-answer{display:block;max-width:580px;font-weight:700}
+.pt-inline-answer input{display:block;width:100%;margin-top:8px;padding:14px;border:1px solid #afc7dc;border-radius:10px;font:inherit;font-size:18px;min-height:52px}
+.pt-question-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;border-top:1px solid #edf0f3;padding-top:14px}
+.pt-review-toggle{background:white;color:#3b678b;border:1px solid #b9cfdf;border-radius:8px;padding:10px 14px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.pt-review-toggle.pt-marked{background:#fff4df;border-color:#c99543;color:#835710}
+.pt-saved-label{font-size:12px;color:#52728a}
+.pt-sticky-progress{position:sticky;top:0;z-index:6;background:rgba(248,251,254,.97);backdrop-filter:blur(8px);border:1px solid #d3e0ec;border-radius:12px;padding:12px 16px;box-shadow:0 4px 14px #17324c12}
+.pt-student-progress-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:#42627c}
+.pt-sticky-progress .pt-progress{margin:8px 0}
+.pt-sticky-progress .pt-nav{margin:9px 0 0;max-height:100px;overflow-y:auto}
+.pt-sticky-progress .pt-nav button{min-width:36px;min-height:36px;padding:7px 9px}
+.pt-sticky-progress .pt-nav button.flagged{background:#fff2d5;border-color:#c99a47;color:#75520c}
+.pt-finish{text-align:center}
+.pt-finish button{background:#245eab;color:#fff;border:0;border-radius:10px;padding:14px 26px;font:inherit;font-weight:800;min-height:50px;cursor:pointer}
+@media(max-width:650px){.pt-student-question{scroll-margin-top:225px}.pt-mc-inline .pt-mc-buttons{grid-template-columns:1fr}.pt-sticky-progress{padding:10px}.pt-sticky-progress .pt-nav{max-height:80px}.pt-mc-inline .pt-mc-choice{min-height:58px}.pt-student-progress-row{font-size:12px}}
