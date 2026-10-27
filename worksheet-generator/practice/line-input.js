@@ -59,8 +59,18 @@ function svg(d){
  (d&&d.points||[]).forEach(p=>h+='<circle cx="'+(170+p[0]*15)+'" cy="'+(170-p[1]*15)+'" r="6" fill="#e77529" stroke="white" stroke-width="2"/>');
  return h+'</svg>';
 }
-function content(q,i){var d=read(q)||{points:[],dashed:false,shade:null};var t=target(q);return '<div class="pt-line-editor" data-line="'+i+'"><strong>Draw the line by selecting two points.</strong><p class="pt-muted">Tap two points on the grid. To change your line, use Undo point or Start over. For inequalities, tap the side you want shaded.</p>'+svg(d)+'<div class="pt-interval-row">'+(t.op!=='='?'<label>Boundary line<select data-boundary><option value="solid" '+(!d.dashed?'selected':'')+'>Solid</option><option value="dashed" '+(d.dashed?'selected':'')+'>Dashed</option></select></label>':'')+'<button type="button" data-undo-line class="pt-secondary">Undo point</button><button type="button" data-clear-line class="pt-secondary">Start over</button>'+(t.op!=='='?'<button type="button" data-clear-shade class="pt-secondary">Clear shading</button>':'')+'</div><p class="pt-muted" data-line-message>'+d.points.length+'/2 points selected'+(t.op!=='='?(d.shade===null?' · choose a side to shade':' · shaded region selected'):'')+'</p></div>';}
+function content(q,i){var d=read(q)||{points:[],dashed:false,shade:null};var t=target(q);return '<div class="pt-line-editor" data-line="'+i+'"><strong>Draw the line by selecting two points.</strong><p class="pt-muted">Tap two points on the grid. To move a point, tap it and then tap its new position. Undo or Start over also work. For inequalities, tap the side you want shaded.</p>'+svg(d)+'<div class="pt-interval-row">'+(t.op!=='='?'<label>Boundary line<select data-boundary><option value="solid" '+(!d.dashed?'selected':'')+'>Solid</option><option value="dashed" '+(d.dashed?'selected':'')+'>Dashed</option></select></label>':'')+'<button type="button" data-undo-line class="pt-secondary">Undo point</button><button type="button" data-clear-line class="pt-secondary">Start over</button>'+(t.op!=='='?'<button type="button" data-clear-shade class="pt-secondary">Clear shading</button>':'')+'</div><p class="pt-muted" data-line-message>'+d.points.length+'/2 points selected'+(d.editing!==undefined?' · move point '+(d.editing+1):'')+(t.op!=='='?(d.shade===null?' · choose a side to shade':' · shaded region selected'):'')+'</p></div>';}
 API.render=content;
+API.diagnose=function(q){
+ var t=target(q),d=read(q);if(!t||!d||d.points.length!==2)return 'Plot two different points to define your line.';
+ var p=d.points[0],r=d.points[1];if(p[0]===r[0]&&p[1]===r[1])return 'Use two different points to define the line.';
+ var a=p[1]-r[1],b=r[0]-p[0],c=-a*p[0]-b*p[1];
+ if(Math.abs(a*t.b-b*t.a)>1e-7)return 'Check the slope or direction of your line. The two plotted points define the wrong slope.';
+ if(Math.abs(a*t.c-c*t.a)>1e-7||Math.abs(b*t.c-c*t.b)>1e-7)return 'Your slope is correct, but the line is shifted. Check the intercept or the points it passes through.';
+ if(t.op!=='='&&d.dashed!==(t.op==='<'||t.op==='>'))return 'The boundary is correct, but check solid versus dashed: strict inequalities use dashed lines.';
+ if(t.op!=='='&&d.shade===null)return 'Your boundary line is correct. Choose the half-plane to shade.';
+ return 'Your boundary line and style are correct, but the shaded side needs to be reversed.';
+};
 API.grade=function(q){var t=target(q),d=read(q);if(!t||!d||d.points.length!==2)return {status:'incorrect'};var p=d.points[0],r=d.points[1];if(p[0]===r[0]&&p[1]===r[1])return {status:'incorrect'};
  var a=p[1]-r[1],b=r[0]-p[0],c=-a*p[0]-b*p[1];
  var det=a*t.b-b*t.a;
@@ -79,12 +89,17 @@ API.bind=function(root,state,save){root.querySelectorAll('[data-line]').forEach(
  var d=read(q)||{points:[],dashed:false,shade:null};
  var board=box.querySelector('svg');
  board.onclick=function(ev){var b=board.getBoundingClientRect(),x=Math.round(((ev.clientX-b.left)/b.width*340-170)/15),y=Math.round((170-(ev.clientY-b.top)/b.height*340)/15);x=Math.max(-10,Math.min(10,x));y=Math.max(-10,Math.min(10,y));
- if(d.points.length<2){if(d.points.length===1&&d.points[0][0]===x&&d.points[0][1]===y)return;d.points.push([x,y]);}
+ var hit=d.points.findIndex(p=>p[0]===x&&p[1]===y);
+ if(d.editing!==undefined){
+   if(hit>=0&&hit!==d.editing)return;
+   d.points[d.editing]=[x,y];delete d.editing;d.shade=null;
+ }else if(hit>=0){d.editing=hit;}
+ else if(d.points.length<2){d.points.push([x,y]);}
  else if(t.op!=='='){var p=d.points[0],r=d.points[1],f=(r[0]-p[0])*(y-p[1])-(r[1]-p[1])*(x-p[0]);if(Math.abs(f)>0.01)d.shade=f>0?1:-1;}
  refresh(d);
  };
  var boundary=box.querySelector('[data-boundary]');if(boundary)boundary.onchange=e=>{d.dashed=e.target.value==='dashed';refresh(d);};
- box.querySelector('[data-undo-line]').onclick=()=>{d.points.pop();d.shade=null;refresh(d);};
+ box.querySelector('[data-undo-line]').onclick=()=>{if(d.editing!==undefined)delete d.editing;else d.points.pop();d.shade=null;refresh(d);};
  box.querySelector('[data-clear-line]').onclick=()=>refresh({points:[],dashed:false,shade:null});
  var sh=box.querySelector('[data-clear-shade]');if(sh)sh.onclick=()=>{d.shade=null;refresh(d);};
  });};
