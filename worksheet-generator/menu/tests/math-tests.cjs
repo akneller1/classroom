@@ -263,7 +263,7 @@ for (const set of SETS) for (const sk of set.skills) {
         });
         // answers must not be printed in the student text
         p.parts.forEach(pt => C.snippets(pt.answer).forEach(a => {
-          if (/^[a-zA-Z]=/.test(a.replace(/\s/g, ''))) ok(M.studentText(p).replace(/\s/g, '').indexOf('⟨' + a.replace(/\s/g, '') + '⟩') < 0 || pt.check.type === 'literal-eval', tag + ' answer appears in the question: ' + a);
+          if (/^[a-zA-Z]=/.test(a.replace(/\s/g, ''))) ok(M.studentText(p).replace(/\s/g, '').indexOf('⟨' + a.replace(/\s/g, '') + '⟩') < 0 || pt.check.type === 'literal-eval' || (pt.answerFig && /^Graph\b/i.test(p.prompt)), tag + ' answer appears in the question: ' + a);
         }));
         // CP2/CP1 difficulty range (1–5) keeps whole-number answers even when fractions are allowed
         if (c <= 5) p.parts.forEach(pt => { if (pt.check && /solve|evaluate|literal-eval|^ineq$|read-graph/.test(pt.check.type)) { const comp = v.computed[p.parts.indexOf(pt)]; if (comp) ok(!/frac/.test(comp), tag + ' non-integer answer at difficulty ' + c + ': ' + comp); } });
