@@ -95,12 +95,39 @@
     'algebra1-quadratics':function(r,c){var a=r.int(2,7+c),b=r.int(2,7+c);return ['The height of a toy is h(t) = -(t - '+a+') squared + '+b*b+' meters.',['When is the maximum height reached?','What is the maximum height?','How far below the maximum is the height one second after the peak?'],[a,b*b,1]];},
     'algebra1-statistics-data-modeling':function(r,c){var a=r.int(4,14+c),b=r.int(2,7+c),v=[a,a+b,a+2*b,a+3*b,a+4*b];return ['Five training distances are '+v.join(', ')+' kilometers.',['What is the median?','What is the range?','What is the mean?'],[v[2],v[4]-v[0],v[2]]];}
   };
+  /* Third-family interpretation bank: tables, paired observations and model checks.
+     More structurally varied than the two straightforward word-problem families. */
+  var interpretations={
+    'algebra1-relations-functions':function(r,c){
+      var start=r.int(2,12+c),step=r.int(2,7+c),x=r.int(2,6+c);
+      return ['A machine produces a table of input-output pairs: input 0, output '+start+'; input 1, output '+(start+step)+'; input 2, output '+(start+2*step)+'. The output changes at a constant rate. Find its value at input '+x+'.',
+        ['What is the rate of change?','What is the output at the requested input?','What is the output at the next input?'],[step,start+step*x,start+step*(x+1)]];
+    },
+    'algebra1-linear-equations-slope':function(r,c){
+      var start=r.int(5,20+c),m=r.int(2,7+c),x=r.int(3,8+c);
+      return ['A table records time and distance for constant-speed travel: at time 0 hours, '+start+' miles; at time 1 hour, '+(start+m)+' miles; at time 2 hours, '+(start+2*m)+' miles. Predict the distance at time '+x+' hours.',
+        ['What is the slope in miles per hour?','What is the predicted distance at the requested time?','How far does the traveler go during the first two hours?'],[m,start+m*x,2*m]];
+    },
+    'algebra1-exponential-functions':function(r,c){
+      var first=r.int(2,6+c),factor=r.int(2,3+(c>5?1:0)),time=r.int(2,5+c);
+      return ['A table shows a population pattern: at hour 0, '+first+' organisms; at hour 1, '+(first*factor)+'; at hour 2, '+(first*factor*factor)+'. Assume the same multiplicative pattern until hour '+time+'.',
+        ['What is the growth factor per hour?','What is the population at the requested hour?','How much larger is the population at the next hour?'],[factor,first*Math.pow(factor,time),first*Math.pow(factor,time)*(factor-1)]];
+    },
+    'algebra1-statistics-data-modeling':function(r,c){
+      var a=r.int(5,16+c),d=r.int(2,6+c),values=[a,a+d,a+2*d,a+3*d,a+4*d];
+      return ['Five ordered scores are shown in a table: '+values.join(', ')+'. The team wants to compare typical performance and spread.',
+        ['What is the median score?','What is the interquartile range using medians of the lower and upper halves?','What is the mean score?'],[values[2],3*d,values[2]]];
+    }
+  };
   M.contextScenes=scenes;
   M.contextExtensions=extensions;
+  M.contextInterpretations=interpretations;
   M.makeContextProblem=function(unit, ctx) {
     var fn=scenes[unit];if(!fn)return {failed:true,reason:'No contextual bank for '+unit};
-    var variant=ctx.rng.int(0,1)===1?'extension':'original';
+    var draw=ctx.rng.int(0,interpretations[unit]?2:1);
+    var variant=draw===2?'interpret':draw===1?'extension':'original';
     if (variant==='extension' && extensions[unit]) fn=extensions[unit];
+    if (variant==='interpret' && interpretations[unit]) fn=interpretations[unit];
     var x=fn(ctx.rng,ctx.c),parts=x[1].map(function(t,i){
       return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
         check:{type:'mcas-context',unit:unit,index:i,variant:variant}};
