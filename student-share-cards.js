@@ -131,6 +131,11 @@
     });
   }
 
+  document.addEventListener('click', function (event) {
+    var btn = event.target.closest && event.target.closest('.unit-readiness-share[data-readiness-unit]');
+    if (btn) { event.preventDefault(); openAssessmentSetup(btn.getAttribute('data-readiness-unit')); }
+  });
+
   var main = document.getElementById('main');
   if (!main) return;
   enhanceCards();
