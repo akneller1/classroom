@@ -37,10 +37,10 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-foundations",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Take a Foundations of Algebra practice test with worked solutions, skill feedback and fresh review questions at CP2, CP1 or Honors levels.",
+              "description": "Measure Foundations of Algebra readiness with a mixed-topic test, diagnostic skill report, and fresh targeted reassessment.",
               "type": "Study Guide",
               "topics": ["Foundations of Algebra", "Test readiness", "Self-assessment"],
               "added": "2026-10-26"
@@ -304,10 +304,10 @@ window.LIBRARY = {
           "name": "Solving Linear Equations",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -575,10 +575,10 @@ window.LIBRARY = {
           "name": "Linear Inequalities",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-inequalities",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -832,10 +832,10 @@ window.LIBRARY = {
           "name": "Relations and Functions",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-relations-functions",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -1095,10 +1095,10 @@ window.LIBRARY = {
           "name": "Linear Functions and Graphing",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-linear-equations-slope",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -1365,10 +1365,10 @@ window.LIBRARY = {
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-systems-of-equations",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -1675,10 +1675,10 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -1940,10 +1940,10 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -2199,10 +2199,10 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-polynomials",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -2457,10 +2457,10 @@ window.LIBRARY = {
           "name": "Factoring and Zero Product Property",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-factoring-zero-product",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -2716,10 +2716,10 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-quadratics",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
@@ -2973,10 +2973,10 @@ window.LIBRARY = {
           "name": "Statistics and Data Modeling",
           "artifacts": [
             {
-              "title": "Interactive Practice Test",
+              "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-statistics-data-modeling",
               "thumb": "thumbs/practice-test.svg",
-              "description": "Complete an online practice test with worked solutions, skill feedback and targeted retakes. CP2, CP1 and Honors; Practice or Test mode.",
+              "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
               "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
               "added": "2026-10-26"
