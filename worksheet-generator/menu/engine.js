@@ -74,7 +74,7 @@
   /* A standard test and a practice worksheet both have every student answer every question. */
   NS.isTest = function (cfg) { return !!cfg && (cfg.mode === 'test' || cfg.mode === 'worksheet'); };
   NS.isWorksheet = function (cfg) { return !!cfg && cfg.mode === 'worksheet'; };
-  NS.sectionFormat = function (cfg, si) { return (cfg.sections[si] && cfg.sections[si].qformat) || 'open'; };
+  NS.sectionFormat = function (cfg, si) { var f=(cfg.sections[si] && cfg.sections[si].qformat) || 'open'; return f === 'multi' && !NS.multiUnitSupported(cfg.unitId) ? 'open' : f; };
   NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice', multi: 'Choose all that apply', mcas: 'MCAS-style open response (multi-part)' };
 
   /* ---------------- configuration ---------------- */
