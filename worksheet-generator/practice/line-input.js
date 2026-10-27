@@ -5,23 +5,27 @@ var API=G.MKLINE={};
 function parseNumber(s){if(s===''||s==='+')return 1;if(s==='-')return -1;var n=Number(s);return Number.isFinite(n)?n:null;}
 function target(q){
  var p=q.problem;if(!p||!p.parts||p.parts.length!==1)return null;
- if(!/\b(graph|plot|draw)\b/i.test(p.prompt||''))return null;
- var s=String(p.parts[0].answer||'').replace(/[⟨⟩]/g,'').replace(/\\(?:leq?|geq?)/g,a=>a.startsWith('\\l')?'<=':'>=').replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/\s+/g,'').replace(/−/g,'-');
+ if(!/\b(graph|plot|draw|shade)\b/i.test((p.prompt||'')+' '+(p.parts[0].prompt||'')))return null;
+ var raw=String(p.parts[0].answer||'');
+ var s=raw.replace(/[⟨⟩]/g,'').replace(/\\(?:leq?|geq?)/g,a=>a.startsWith('\\l')?'<=':'>=')
+ .replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/\\left|\\right|\\,/g,'')
+ .replace(/−/g,'-').replace(/\s+/g,'').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g,(_,n,d)=>String(Number(n)/Number(d)));
  var m=/^([xy])(<=|>=|=|<|>)(.+)$/.exec(s);if(!m)return null;
  var variable=m[1],op=m[2],rhs=m[3],a,b,c;
  if(variable==='x'){
-   c=Number(rhs);if(!Number.isFinite(c))return null;
-   a=1;b=0;c=-c;
+   var k=Number(rhs);if(!Number.isFinite(k))return null;
+   a=1;b=0;c=-k;
  }else{
-   var match=/^([+-]?(?:(?:\d+(?:\.\d+)?)?)x)?([+-]\d+(?:\.\d+)?)?$/.exec(rhs);if(!match&&Number.isFinite(Number(rhs)))match=[rhs,'',rhs];
-   if(!match)return null;
-   var xterm=match[1]||'',constant=match[2]||'';
-   if(!xterm&&!constant&&!/^\d+(?:\.\d+)?$/.test(rhs))return null;
-   if(xterm){a=-parseNumber(xterm.slice(0,-1));c=-(constant?Number(constant):0);}
-   else{a=0;c=-Number(rhs);}
-   b=1;
+   var direct=Number(rhs);
+   if(rhs!==''&&Number.isFinite(direct)){a=0;b=1;c=-direct;}
+   else{
+     var linear=/^([+-]?(?:\d+(?:\.\d+)?|\.\d+)?)x([+-](?:\d+(?:\.\d+)?|\.\d+))?$/.exec(rhs);
+     if(!linear)return null;
+     var slope=parseNumber(linear[1]),intercept=Number(linear[2]||0);
+     if(slope===null||!Number.isFinite(intercept))return null;
+     a=-slope;b=1;c=-intercept;
+   }
  }
- if(!Number.isFinite(a)||!Number.isFinite(c))return null;
  return {a:a,b:b,c:c,op:op};
 }
 API.target=target;
