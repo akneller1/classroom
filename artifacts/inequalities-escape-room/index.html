@@ -39,7 +39,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .q{margin:8px 0 2px}
 #key{display:none;max-width:1050px;margin:0 auto 30px;padding:0 16px}
 </style></head><body>
-<header><h1>🚀 Code Red: Station Nimbus</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">30:00</span></div></header>
+<header><h1>🚀 Code Red: Station Nimbus</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
 <script>
@@ -48,7 +48,7 @@ const sup=e=>`<sup>${e}</sup>`;
 const sub=e=>`<sub>${e}</sub>`;
 const ROOM={
  id:'inequalities', title:'Code Red: Station Nimbus', emoji:'🚀', endEmoji:'🛸🌍',
- intro:'Station Nimbus is slowly losing oxygen thanks to a leaky valve and an overly curious robot. The escape pod is at the far end of the station and every door is locked by a math puzzle. Reach the pod in <b>30 minutes</b> before the air runs thin.',
+ intro:'Station Nimbus is slowly losing oxygen thanks to a leaky valve and an overly curious robot. The escape pod is at the far end of the station and every door is locked by a math puzzle. Reach the pod in <b>10 minutes</b> before the air runs thin.',
  finalStory:'The pod hatch hisses open. Its flight computer asks for a destination: “Stack your key cards from the smallest stamp to the largest. The letters spell where the pod is headed.”',
  finalAsk:'Pod destination?', word:'ORBIT',
  outro:'The pod detaches with a whoosh and settles into a calm ORBIT. Mission Control cheers, the robot is forgiven, and the station gets patched. Fresh air never tasted so good.',
@@ -82,7 +82,7 @@ const ROOM={
   hints:['For A, get all the x terms on one side first.','A: 2x > 16 gives x > 8. Since 8 itself is NOT allowed, the smallest whole number is next.','For B, add 1 to all three parts, then divide all parts by 2. List the integers.'],key:'A: 2x > 16, x > 8, so smallest whole number is 9. B: −2 < 2y ≤ 10 gives −1 < y ≤ 5, integers 0, 1, 2, 3, 4, 5, so 6.'}
  ]};
 
-const TOTAL=30*60, HINT_COST=90, STAGES=ROOM.stages;
+const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;
 let t=TOTAL, used=0, stage=-1, timer=null, cards=[], hintsShown={}, st={};
 const $=s=>document.querySelector(s);
 const ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -141,7 +141,7 @@ function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.ran
 function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():say('Nothing happens. Re-check the order of the cards.',false)}
 function victory(){$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
 function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
-function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>30 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
+function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
 if(location.hash=='#key'){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
 intro();
 </script></body></html>
