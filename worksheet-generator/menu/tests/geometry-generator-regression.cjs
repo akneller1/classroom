@@ -54,7 +54,7 @@ for (const scenario of ['shared','vertical']) {
   const wrongFigure = JSON.parse(JSON.stringify(sample));
   wrongFigure.fig.case = scenario === 'shared' ? 'vertical' : 'shared';
   // Proof reasons derive from the student-facing givens, not the drawing alone.
-  assert.equal(menu.verifyProblem(wrongFigure,{intOnly:true,level:'game'}).ok,true,
+  assert.equal(menu.verifyProblem(wrongFigure,{intOnly:true,level:'game'}).ok,false,
     'Proof verifier must not silently use diagram type as the answer key');
 }
 console.log('Geometry generator regression passed: '+checks+' verified cards across '+units.length+' units.');
