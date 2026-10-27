@@ -216,6 +216,19 @@
       var vertical = /Lines AC and BD intersect at O/.test(words);
       if (shared === vertical) return {status:'invalid',msg:'Unrecognized or ambiguous proof givens.'};
       if (!p.fig || p.fig.kind !== 'geo-proof' || p.fig.case !== (shared ? 'shared' : 'vertical') || !NS.geoDiagram || !NS.geoDiagram.validate(p.fig)) return {status:'invalid',msg:'Proof diagram conflicts with the printed givens.'};
+      // The print renderer uses proofStatements instead of repeating the prompt.
+      // Check that the displayed scaffold has not drifted from the givens.
+      if (Array.isArray(p.proofStatements)) {
+        var expectedStatements = shared ?
+          ['AB is congruent to AB','triangle ABC is congruent to triangle ABD','Angle ACB is congruent to angle ADB'] :
+          ['angle AOB is congruent to angle COD','triangle AOB is congruent to triangle COD','Angle OAB is congruent to angle OCD'];
+        var matchEq = /using ⟨([^⟩]+)⟩/.exec(p.prompt || '');
+        if (p.proofStatements.length !== 4 || !matchEq ||
+            expectedStatements.some(function(st,i){return p.proofStatements[i].toLowerCase() !== st.toLowerCase();}) ||
+            p.proofStatements[3] !== 'Solve ⟨'+matchEq[1]+'⟩ for x') {
+          return {status:'invalid',msg:'Printed proof statements conflict with the givens or equation.'};
+        }
+      }
       var stage = chk.stage, expected;
       if (stage === 'first') expected = shared ? 'REFLEXIVE PROPERTY' : 'VERTICAL ANGLES THEOREM';
       else if (stage === 'congruence') expected = shared ? 'SSS' : 'SAS';
