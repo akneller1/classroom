@@ -35,10 +35,45 @@ function sssCriterion(ctx){
   'Triangles ABC and DEF have corresponding sides AB = '+a+', DE = '+(k*a)+', BC = '+b+', EF = '+(k*b)+', AC = '+d+', and DF = x. All three side pairs must have the same ratio for SSS similarity. Find x and state why the triangles are similar.',
   eq,x,'SSS similarity requires equality of all three corresponding side ratios.');
 }
+/* Triangle proportionality: DE parallel BC, with D on AB and E on AC. */
+function parallelSegment(ctx){
+ var r=ctx.rng,c=ctx.c,ad=r.int(3,9),db=r.int(2,7),factor=r.int(2,c>=5?6:4);
+ var ae=ad*factor,x=db*factor,eq=ad+'*x='+(db*ae);
+ return {variant:'geo-sim-parallel-'+c,
+  fig:{kind:'geo-similar-pair',case:'parallel'},
+  prompt:'In triangle ABC, D lies on AB and E lies on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', and AE = '+ae+'. Find EC = x. Explain why the two sides are divided proportionally.',
+  parts:[{prompt:'Find EC.',answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
+  steps:[step('Triangle proportionality theorem: AD/DB = AE/EC.',M(ad+'/'+db+'='+ae+'/x')),
+         step('Cross multiply.',M(eq)),step('Solve.',M('x='+x))],
+  space:[1.5,1.8,2]};
+}
+/* Four connected answers, each computed from independent equations.
+   No final-answer equation is displayed in the student question. */
+function parallelHonors(ctx){
+ var r=ctx.rng,c=ctx.c,ad=r.int(3,8),db=r.int(2,7),factor=r.int(2,5);
+ var ae=ad*factor,ec=db*factor,ab=ad+db,ac=ae+ec;
+ var de=r.int(4,12),bc=de*ab/ad;
+ var p=ab+ac+bc;
+ return {variant:'geo-sim-parallel-honors-'+c,
+  fig:{kind:'geo-similar-pair',case:'parallel'},
+  prompt:'Honors investigation: In triangle ABC, D is on AB and E is on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', AE = '+ae+', and DE = '+de+'. Answer all four parts. Show proportional reasoning and justify each result.',
+  parts:[
+   {prompt:'(a) Find EC = x using the triangle proportionality theorem.',answer:M('x='+ec),check:{type:'solve',eq:ad+'*x='+(db*ae),v:'x'}},
+   {prompt:'(b) Find the full side AC = y.',answer:M('y='+ac),check:{type:'solve',eq:'y='+ae+'+'+ec,v:'y'}},
+   {prompt:'(c) Find BC = z using similarity of triangles ADE and ABC.',answer:M('z='+bc),check:{type:'solve',eq:ad+'*z='+(de*ab),v:'z'}},
+   {prompt:'(d) Find the perimeter of triangle ABC = w.',answer:M('w='+p),check:{type:'solve',eq:'w='+ab+'+'+ac+'+'+bc,v:'w'}}
+  ],
+  steps:[
+   step('Parallel lines divide sides proportionally.',M(ad+'*x='+(db*ae))),
+   step('Find the full side AC.',M('y='+ae+'+'+ec)),
+   step('Corresponding sides in similar triangles are proportional.',M(ad+'*z='+(de*ab))),
+   step('Add the three sides of ABC.',M('w='+ab+'+'+ac+'+'+bc))
+  ],space:[2.1,2.6,3.1]};
+}
 NS.registerSkillSet({id:'geometry-similarity',course:'geometry',courseName:'Geometry',unit:'similarity',unitName:'Similarity',title:'Similarity Foundations',
-tags:{RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity'},
+tags:{RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity',PARALLEL:'Triangle proportionality and parallel segments'},
 reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section></div>',
-gaps:['Starter bank only. Proportionality theorems, coordinate dilations, diagrams, and formal proofs remain pending.'],
+gaps:['Starter bank only. Coordinate dilations and formal proofs remain pending.'],
 skills:[
 {id:'similarity-missing-side',tag:'RATIOS',name:'Find a corresponding side',best:[0,1,2],generate:missingSide},
 {id:'similarity-scale-factor',tag:'DILATION',name:'Find a dilation scale factor',best:[0,1,2],generate:scale},
@@ -47,6 +82,8 @@ skills:[
 {id:'similarity-angle',tag:'ANGLES',name:'Corresponding angle in similar triangles',best:[0,1,2],generate:angle},
 {id:'similarity-aa-criterion',tag:'CRITERIA',name:'AA similarity and third-angle correspondence',best:[0,1,2],generate:aaCriterion},
 {id:'similarity-sas-criterion',tag:'CRITERIA',name:'SAS similarity with included angles',best:[1,2],generate:sasCriterion},
-{id:'similarity-sss-criterion',tag:'CRITERIA',name:'SSS similarity from three side ratios',best:[1,2],generate:sssCriterion}
+{id:'similarity-sss-criterion',tag:'CRITERIA',name:'SSS similarity from three side ratios',best:[1,2],generate:sssCriterion},
+{id:'similarity-parallel-segment',tag:'PARALLEL',name:'Triangle proportionality theorem',best:[0,1,2],generate:parallelSegment},
+{id:'similarity-parallel-honors',tag:'PARALLEL',name:'Four-part Honors proportionality investigation',best:[2],generate:parallelHonors}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
