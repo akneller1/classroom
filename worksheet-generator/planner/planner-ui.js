@@ -19,8 +19,8 @@
   var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
   if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
 
-  var sectionLabels = { donow:'Do Now', notes:'Notes / examples', practice:'Practice', exit:'Exit ticket' };
-  var sectionChoices = { donow:true, notes:true, practice:true, exit:true };
+  var sectionLabels = { donow:'Do Now', notes:'Notes / examples', practice:'Practice', mixed:'Mixed Review', exit:'Exit ticket', summary:'Lesson Summary' };
+  var sectionChoices = { donow:true, notes:true, practice:true, mixed:false, exit:true, summary:false };
   try { var savedSections = JSON.parse(lsGet(KEY_SECTIONS) || '{}'); Object.keys(sectionChoices).forEach(function(k) { if (typeof savedSections[k] === 'boolean') sectionChoices[k] = savedSections[k]; }); } catch(e) {}
   function applySectionChoices(plan) { plan.sections = plan.sections.filter(function(s) { return sectionChoices[s.id] !== false; }); }
 
@@ -223,13 +223,15 @@
     var d = plan.day, h = sheetHead(plan, 'student');
     if (d.content_objective && !/Exam$|Assessment/.test(d.day_type)) h += '<div class="pl-ican"><b>Today:</b> ' + esc(P.iCan(d.content_objective)) + '</div>';
     plan.sections.forEach(function (s) {
-      if (s.id === 'exit') return;
+      if (s.id === 'exit' || s.id === 'summary') return;
       h += '<div class="pl-sbox pl-s-' + s.id + '"><div class="pl-shd">' + esc(s.title) + (s.id === 'notes' && plan.day.day_type === 'Lesson' && !filled(plan) ? ' <small>· fill in as we go</small>' : '') + (s.minutes ? '<span>' + s.minutes + ' min</span>' : '') + '</div>';
       h += studentSectionBody(plan, s);
       h += '</div>';
     });
     var ex = plan.sections.filter(function (s) { return s.id === 'exit'; })[0];
     if (ex) h += '<div class="pl-exit"><div class="pl-cut">✂ cut here</div><div class="pl-shd">' + esc(ex.title) + '<span>Name ______________________</span></div>' + studentSectionBody(plan, ex) + '</div>';
+    var summary = plan.sections.filter(function(s) { return s.id === 'summary'; })[0];
+    if (summary) h += '<div class="pl-sbox pl-s-summary"><div class="pl-shd">' + esc(summary.title) + '</div>' + studentSectionBody(plan, summary) + '</div>';
     return '<div class="pl-sheet">' + h + '</div>';
   }
   function studentSectionBody(plan, s) {
@@ -337,7 +339,7 @@
   }
   function render() {
     var d = P.day(ui.day);
-    ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d) });
+    ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d), include: sectionChoices });
     applySectionChoices(ui.plan);
     applyProblemLabels(ui.plan);
     $('#plPick').innerHTML = picker();
