@@ -185,6 +185,18 @@
         pr = sec('practice', 'Launch Task', { minutes: 25, launch: true });
         ex = sec('exit', 'Reflection', { minutes: 5, frame: d.sentence_frame });
     }
+    // Optional sections are generated only when requested; summary is an alternative to an exit ticket.
+    if (opts.include && opts.include.mixed) {
+      var mixed = sec('mixed', 'Mixed Review', { minutes: 10, prompt: 'Review previously learned skills. Show your reasoning.' });
+      group(mixed, '', doNow(plan, d, 4, t));
+      var exitIndex = plan.sections.findIndex(function(s) { return s.id === 'exit'; });
+      plan.sections.splice(plan.sections.indexOf(mixed), 1);
+      plan.sections.splice(exitIndex >= 0 ? exitIndex : plan.sections.length, 0, mixed);
+    }
+    if (opts.include && opts.include.summary) {
+      var summary = sec('summary', 'Lesson Summary', { minutes: 5, frame: 'Today I learned ___. An important step or idea is ___. I can use this when ___.' });
+      summary.prompt = 'In your own words, explain the key idea from today. Include an example, a strategy, or a question you still have.';
+    }
     plan.notesMode = opts.notes === 'filled' || opts.notes === 'fill' ? opts.notes : P.lessonNotesMode(d);
     plan.sections.forEach(function (s) { s.defaultMinutes = s.minutes; });
     if (opts.minutes) P.applyMinutes(plan, opts.minutes);
