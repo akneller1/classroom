@@ -198,6 +198,9 @@ test('a generator that produces wrong keys is never used: the slot is flagged fo
     { id: 'wrong-key', tag: 'SOLVE', name: 'Wrong key', generate: ctx => { const a = ctx.rng.int(1, 50); return { variant: 'w', prompt: 'Solve ⟨x+' + a + '=' + (a + 2) + '⟩.', parts: [{ answer: '⟨x=5⟩', check: { type: 'solve', eq: 'x+' + a + '=' + (a + 2), v: 'x' } }], steps: [{ t: '', m: 'x=5', w: 1 }] }; } }
   ] });
   const c = M.defaultConfig('test-broken'); c.coverage.on = false;
+  // This test isolates the independent key verifier from the practice/formal
+  // question-pool partition, so a rejected wrong answer must be the cause.
+  c.questionPool = 'unrestricted';
   const st = M.newAssessment(c), items = allItems(st, 0);
   assert.ok(items.length > 0);
   items.forEach(it => { assert.equal(it.failed, true); assert.match(it.reason, /verifier/); });
