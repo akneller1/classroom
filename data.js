@@ -4449,6 +4449,34 @@ window.LIBRARY = {
           "name": "Foundations of Geometry",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-basics-reasoning",
+              "description": "Customize and generate assessment readiness check resources for this Geometry unit.",
+              "type": "Study Guide",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-basics-reasoning",
+              "description": "Customize and generate daily lesson planner resources for this Geometry unit.",
+              "type": "Planning",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-basics-reasoning",
+              "description": "Customize and generate worksheet generator resources for this Geometry unit.",
+              "type": "Practice",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-basics-reasoning",
+              "description": "Customize and generate assessment generator resources for this Geometry unit.",
+              "type": "Printable",
+              "added": "2026-10-27"
+            },
+            {
               "title": "Reasoning Four",
               "path": "artifacts/basics-reasoning-connect-four/index.html",
               "thumb": "thumbs/basics-reasoning-connect-four.jpg",
@@ -4549,6 +4577,34 @@ window.LIBRARY = {
           "id": "angles-parallel-lines",
           "name": "Angles and Parallel Lines",
           "artifacts": [
+            {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-angles-parallel-lines",
+              "description": "Customize and generate assessment readiness check resources for this Geometry unit.",
+              "type": "Study Guide",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-angles-parallel-lines",
+              "description": "Customize and generate daily lesson planner resources for this Geometry unit.",
+              "type": "Planning",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-angles-parallel-lines",
+              "description": "Customize and generate worksheet generator resources for this Geometry unit.",
+              "type": "Practice",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-angles-parallel-lines",
+              "description": "Customize and generate assessment generator resources for this Geometry unit.",
+              "type": "Printable",
+              "added": "2026-10-27"
+            },
             {
               "title": "Angles Four",
               "path": "artifacts/angles-parallel-lines-connect-four/index.html",
