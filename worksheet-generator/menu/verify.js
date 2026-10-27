@@ -211,11 +211,12 @@
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
     if(t==='exp-graph-points'){
-      var a=Number(chk.a),n=Number(chk.n),d=Number(chk.d);
+      var a=Number(chk.a),n=Number(chk.n),d=Number(chk.d),k=Number(chk.k);
+      if(!Number.isInteger(k)||k<-6||k>5)return {status:'invalid',msg:'Invalid vertical shift.'};
       if(!Number.isInteger(a)||!Number.isInteger(n)||!Number.isInteger(d)||a<=0||n<=0||d<=0||n===d)return {status:'invalid',msg:'Invalid exponential graph parameters.'};
       if(p.prompt.indexOf(chk.eq)<0||!/Graph/.test(p.prompt))return {status:'invalid',msg:'Graph equation does not match the printed problem.'};
-      if(a*d%n!==0||a*n%d!==0)return {status:'invalid',msg:'The expected plot coordinates are not whole numbers.'};
-      return String(ans).replace(/[⟨⟩]/g,'').trim()===String(a)?{status:'verified'}:{status:'mismatch',msg:'The y-intercept must equal the initial value.'};
+      if(a*d%n!==0||a*n%d!==0||[a*d/n+k,a+k,a*n/d+k].some(v=>Math.abs(v)>9))return {status:'invalid',msg:'The expected plot coordinates are not in the grid.'};
+      return String(ans).replace(/[⟨⟩]/g,'').trim()===String(a+k)?{status:'verified'}:{status:'mismatch',msg:'The y-intercept must equal the initial value.'};
     }
     if(t === 'discrete-continuous'){
       var scenarios={
