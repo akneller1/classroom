@@ -23,4 +23,19 @@ for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']){
   assert.equal(verified,20);
  }
 }
+
+// Regression: assessment pools must never starve figure-backed Geometry skills.
+// The previous FNV low-bit selector assigned entire skill families to one pool.
+for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']) {
+ const set=NS.skillSets[id];
+ for(const skill of set.skills)for(const pool of ['formal','practice']) {
+  for(const c of [3,4,5]) {
+   const item=NS.generateProblem(id,skill.id,c,{intOnly:true,level:'cp1',questionPool:pool},'geo-pool-'+id+'-'+skill.id+'-'+c+'-'+pool,{keys:new Set(),sigs:new Set()});
+   assert.equal(item.failed,undefined,'Pool starvation: '+id+'/'+skill.id+' '+pool+' c'+c+': '+item.reason);
+   assert.equal(item.verify.status,'verified');
+  }
+ }
+}
+console.log('Both formal and practice pools supply verified Geometry questions, including SVG figures.');
+
 console.log('Verified Geometry starter skills and SVG diagrams across CP2/CP1/Honors difficulty values.');
