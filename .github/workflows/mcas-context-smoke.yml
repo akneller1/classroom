@@ -1,0 +1,24 @@
+name: Algebra 1 contextual question bank smoke tests
+on:
+  push:
+    paths:
+      - 'worksheet-generator/menu/**'
+      - 'worksheet-generator/games/bank.js'
+      - '.github/workflows/mcas-context-smoke.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/menu/**'
+      - '.github/workflows/mcas-context-smoke.yml'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original contextual scenarios and answer mutations
+        run: node worksheet-generator/menu/tests/mcas-context-tests.cjs
+      - name: Select-all independent truth tests
+        run: node worksheet-generator/menu/tests/select-all-mcas-tests.cjs
