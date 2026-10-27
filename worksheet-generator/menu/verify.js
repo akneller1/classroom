@@ -262,6 +262,17 @@
       else if(m[1]==='cos')rad=Math.acos(ratio);
       else rad=Math.atan(ratio);
       var degrees=rad*180/Math.PI,nearest=Math.round(degrees);
+      if(chk.roundTo===1){
+        if(!/nearest tenth of a degree/.test(raw))
+          return {status:'invalid',msg:'Missing student-facing rounding instruction.'};
+        if(!Number.isFinite(degrees)||degrees<=0||degrees>=90)
+          return {status:'invalid',msg:'Expected an acute inverse-trig angle.'};
+        var rounded=Math.round(degrees*10)/10;
+        var roundedAnswer=valueFromAnswer(ans,'x');
+        var expected=C.readNumber(rounded.toFixed(1));
+        return roundedAnswer.eq(expected)?{status:'verified',computed:'x='+rounded.toFixed(1)}
+          :{status:'mismatch',msg:'Incorrect rounded inverse-trig angle.',computed:'x='+rounded.toFixed(1)};
+      }
       if(!Number.isFinite(degrees)||nearest<=0||nearest>=90||
          Math.abs(degrees-nearest)>1e-9)
         return {status:'invalid',msg:'Expected an exact integer acute angle.'};
