@@ -74,21 +74,24 @@ function structuredProof(ctx){
  var r=ctx.rng,c=ctx.c,shared=r.int(0,1)===0,flow=r.int(0,1)===0;
  var x=r.int(5,c>=5?48:30),a=c>=5?r.int(2,5):1,b=r.int(1,19),v=a*x+b;
  var expression=(a===1?'x':a+'x')+'+'+b,eq=expression+'='+v;
- var givens,first,triangles,consequence;
+ var givens,first,triangles,consequence,angleEquality;
  if(shared){
   givens='Triangles ABC and ABD share side AB. Given AC = AD and BC = BD.';
   first='AB is congruent to AB';
   triangles='triangle ABC is congruent to triangle ABD';
   consequence='angle ACB = '+M(expression)+' degrees and angle ADB = '+v+' degrees';
+  angleEquality='Angle ACB is congruent to angle ADB';
  }else{
   givens='Lines AC and BD intersect at O. Given AO = CO and BO = DO.';
   first='angle AOB is congruent to angle COD';
   triangles='triangle AOB is congruent to triangle COD';
   consequence='angle OAB = '+M(expression)+' degrees and angle OCD = '+v+' degrees';
+  angleEquality='Angle OAB is congruent to angle OCD';
  }
  var lead=flow?'Complete the following flow proof.':'Complete the following two-column proof.';
  return {variant:'geo-structured-proof-'+(shared?'shared':'vertical')+'-'+(flow?'flow':'columns')+'-'+c,
   fig:{kind:'geo-proof',case:shared?'shared':'vertical'},
+  proofStatements:[first,triangles,angleEquality,'Solve '+M(eq)+' for x'],
   prompt:givens+' '+consequence+'. '+lead+' Establish: (1) '+first+'; (2) '+triangles+'; (3) the listed corresponding angles are congruent. Supply the reason for each step, then find x using '+M(eq)+'.',
   parts:[
    {prompt:'Reason for step 1:',answer:shared?'REFLEXIVE PROPERTY':'VERTICAL ANGLES THEOREM',check:{type:'geo-proof-reason',stage:'first'}},
