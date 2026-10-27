@@ -49,6 +49,17 @@ for (const [criterion, expected] of Object.entries(expectedMarks)) {
   const arcs = svg.split('stroke-width="1.5"').length - 1;
   assert.deepEqual([ticks,arcs],expected,criterion+' side/angle markings must match givens');
 }
+// Diagram-classification answers must fail if the labeled theorem is wrong.
+for (let n = 0; n < 30; n++) {
+  const p = menu.generateProblem('geometry-triangles-congruence','congruence-identify',5,
+    {intOnly:true,level:'game'},'criterion-mutation:'+n,
+    {keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Diagram classification should generate');
+  const wrong = JSON.parse(JSON.stringify(p));
+  wrong.parts[0].answer = p.parts[0].answer === 'SSS' ? 'SAS' : 'SSS';
+  assert.equal(menu.verifyProblem(wrong,{intOnly:true,level:'game'}).ok,false,
+    'Incorrect theorem must be rejected');
+}
 // Proof diagrams and independently checked reasons must agree with the printed givens.
 for (const scenario of ['shared','vertical']) {
   let sample;
