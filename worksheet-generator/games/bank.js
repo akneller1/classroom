@@ -135,6 +135,13 @@
     seen[norm(key)] = 1;
     var negOk = /-/.test(snippets(NS.studentText(p)).join(' ') + snippets(key).join(' '));
     var cands = mutations(key, negOk);
+    // Triangle-congruence labels are words, so numeric mutations yield no
+    // distractors. Offer the other theorem names, independently verified below.
+    if ((p.parts[k].check || {}).type === 'geo-congruence-criterion') {
+      ['SSS','SAS','ASA','AAS','HL','NOT SUFFICIENT'].forEach(function(label){
+        if (label !== key) cands.push({a:label,w:3});
+      });
+    }
     // a "prime" key: offer factorizations a student might try (each one is checked and rejected)
     var ch0 = p.parts[k].check || {};
     if (ch0.type === 'factor' && /^\s*prime/i.test(key)) {
