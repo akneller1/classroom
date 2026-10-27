@@ -215,7 +215,7 @@
       // exclusively from the STUDENT'S printed scenario, not check metadata.
       var raw = C.plainText(p.prompt || ''), nums = (raw.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
-      if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 2)
+      if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 3)
         return {status:'invalid',msg:'Invalid scenario part.'};
       if (chk.variant === 'applied') {
         if (unit === 'algebra1-foundations' && nums.length===3)
@@ -312,6 +312,7 @@
         expected=[a,a/2,a*a/4];
       else if (unit === 'algebra1-statistics-data-modeling' && nums.length === 5)
         { var z=nums.slice().sort(function(x,y){return x-y;});expected=[z.reduce(function(x,y){return x+y;},0)/5,z[2],z[4]-z[0]]; }
+      if(expected && expected.length===3) expected.push(2*expected[0]);
       if(!expected || expected.some(function(v){return !Number.isFinite(v);}))
         return {status:'invalid',msg:'Scenario inputs could not be independently verified.'};
       var given=String(C.plainText(ans)).trim().replace(/,/g,'');
