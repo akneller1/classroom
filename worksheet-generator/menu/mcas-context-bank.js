@@ -86,8 +86,17 @@
       return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
         check:{type:'mcas-context',unit:unit,index:i}};
     });
-    return {variant:'mcas-context-'+unit,prompt:x[0]+' Answer all three parts and show your reasoning.',
-      parts:parts,steps:[],space:[2.4,3.0,3.7]};
+    // Vary the framing as well as the numbers so 25-question batches can
+    // generate distinct verified prompts even for constrained CP2 values.
+    var audiences=['a teacher','a coach','a student','a club adviser','a principal','a volunteer',
+      'a technician','a mentor','a project leader','a parent','a counselor','a coordinator'];
+    var purposes=['a class report','a project summary','a team presentation','a budget meeting',
+      'a planning session','a math journal','a school newsletter','a progress report',
+      'a small-group discussion','a homework review','a study guide','an investigation'];
+    var frame='Present your findings to '+ctx.rng.pick(audiences)+' for '+ctx.rng.pick(purposes)+'. ';
+    return {variant:'mcas-context-'+unit,prompt:x[0]+' '+frame+'Answer all three parts and show your reasoning.',
+      parts:parts,steps:parts.map(function(part){return {t:'Part ('+part.label+'): '+part.answer,w:1};}),
+      space:[2.4,3.0,3.7]};
   };
   Object.keys(scenes).forEach(function(unit){
     var set=M.skillSets[unit];if(!set)return;
