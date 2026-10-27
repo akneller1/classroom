@@ -27,13 +27,22 @@
     id: 'center', best: [0, 1], tag: 'CENTER', name: 'Mean, median, and mode',
     blurb: 'Mean, median, and mode (CP2) → missing values and dot plots (CP1) → changes to data sets and interpreting measures of center (Honors).',
     generate: function (ctx) {
-      var r = ctx.rng, c = [0, 1, 2, 4, 3, 4, 5, 3][ctx.c], steps = [], cx = r.pick(CTX), data, D;
+      var r = ctx.rng, c = [0, 1, 2, 8, 3, 4, 5, 3][ctx.c], steps = [], cx = r.pick(CTX), data, D;
       if (c === 1) { data = rnd(r, 4, 2, 20); var m1 = r.int(5, 15), l1 = 5 * m1 - sum(data); need(l1 >= 1 && l1 <= 25); data.push(l1); data = r.shuffle(data); D = list(data);
         steps.push(step('Add the values: ' + sum(data) + '.', '', 1), step('Divide by how many values there are (5).', String(sum(data) / 5), 2));
         return out('ce1', 'Find the mean of the ' + cx[0] + ': ' + M(D) + '.', [{ answer: M(String(sum(data) / 5)), check: { type: 'stat', want: 'mean', data: D } }], steps); }
       if (c === 2) { var n2 = r.pick([6, 8]); data = rnd(r, n2, 1, 30); D = list(data); var md = median(data);
         steps.push(step('Order the values.', list(sorted(data)), 1), step('With an even count, the median is the mean of the two middle values.', dec(md), 2));
         return out('ce2', 'Find the median of the ' + cx[0] + ': ' + M(D) + '.', [{ answer: M(dec(md)), check: { type: 'stat', want: 'median', data: D } }], steps); }
+      if (c === 8) {
+        var modeValue = r.int(2, 15);
+        data = r.shuffle([modeValue, modeValue, modeValue + 2, modeValue + 4, modeValue + 6]);
+        D = list(data);
+        steps.push(step('Count how often each value occurs.', '', 1),
+          step('The mode is the value that occurs most often.', String(modeValue), 2));
+        return out('ce8', 'Find the mode of the data set: ' + M(D) + '.',
+          [{ answer: M(String(modeValue)), check: { type: 'stat', want: 'mode', data: D } }], steps);
+      }
       if (c === 3) { var n3 = r.int(5, 7), m3 = r.int(70, 92); data = rnd(r, n3 - 1, 60, 100); var miss = m3 * n3 - sum(data); need(miss >= 50 && miss <= 100); D = list(data);
         steps.push(step('The total of all ' + n3 + ' scores is ' + n3 + ' × ' + m3 + ' = ' + n3 * m3 + '.', '', 2), step('Subtract the scores you know (' + sum(data) + ').', String(miss), 2));
         return out('ce3', 'The mean of ' + n3 + ' test scores is ' + m3 + '. Here are ' + (n3 - 1) + ' of the scores: ' + M(D) + '. What is the missing score?', [{ answer: M(String(miss)), check: { type: 'stat', want: 'missing', data: D, count: 0, mean: 1 } }], steps); }
