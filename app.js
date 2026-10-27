@@ -494,8 +494,8 @@
     "Comparing Linear, Exponential, and Quadratic Models"
   ],
   "statistics-data-modeling": [
+    "Mean, Median, and Mode",
     "Dot Plots, Histograms, and Box Plots",
-    "Measures of Center and Spread",
     "Comparing Distributions: Shape and Outliers",
     "Two-Way Frequency Tables",
     "Scatter Plots and Association",
