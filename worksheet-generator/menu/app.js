@@ -336,7 +336,7 @@
     var skillName = sk ? sk.name : (p.manual ? 'Teacher-written problem' : p.skill);
     var body = p.failed ? '<p class="mm-failmsg">' + esc(p.reason) + '</p>' : promptBlock(p);
     if (!p.failed && NS.sectionFormat(c, si) === 'multi') {
-      if (p.multi) body += '<p class="mm-fmtnote">Select all true statements.</p><ol class="mm-cchoices one">' + p.multi.opts.map(function (o, k) { return '<li' + (show && p.multi.keys.indexOf(k) >= 0 ? ' class="ok"' : '') + '><b>□ ' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && p.multi.keys.indexOf(k) >= 0 ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>';
+      if (p.multi) body += '<p class="mm-fmtnote">Select all values satisfying the inequality.</p><ol class="mm-cchoices one">' + p.multi.opts.map(function (o, k) { return '<li' + (show && p.multi.keys.indexOf(k) >= 0 ? ' class="ok"' : '') + '><b>□ ' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && p.multi.keys.indexOf(k) >= 0 ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>';
       else body += '<p class="mm-fmtnote bad">No valid select-all problem: ' + esc(p.multiFail || 'try another skill') + '</p>';
     }
     if (!p.failed && NS.sectionFormat(c, si) === 'mcas' && p.mcasFail) body += '<p class="mm-fmtnote bad">Not a verified multi-part problem: ' + esc(p.mcasFail) + '</p>';
