@@ -43,7 +43,8 @@ console.log('Verified Geometry starter skills and SVG diagrams across CP2/CP1/Ho
 
 // Geometry choose-all must use three independently true equations and two false
 // equations; never instruct students to solve an inequality.
-for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines','geometry-triangle-relationships']) {
+// Select-all currently supports Foundations and Angles; Triangle Relationships is short-answer only.
+for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']) {
   const set=NS.skillSets[id];
   for (const skill of set.skills) {
     const item=NS.generateProblem(id,skill.id,3,{intOnly:true,level:'cp1',questionPool:'formal'},'select-all-geometry-'+skill.id,{keys:new Set(),sigs:new Set()});
