@@ -22,6 +22,9 @@ for (const scenario of ['shared','vertical']) {
     const p = {
       variant:'geo-structured-proof-'+scenario+'-'+format+'-5',
       fig:{kind:'geo-proof',case:scenario},
+      proofStatements: scenario === 'shared' ?
+        ['AB is congruent to AB','Triangle ABC is congruent to triangle ABD','Angle ACB is congruent to angle ADB','Solve ⟨2x+3=49⟩ for x'] :
+        ['Angle AOB is congruent to angle COD','Triangle AOB is congruent to triangle COD','Angle OAB is congruent to angle OCD','Solve ⟨2x+3=49⟩ for x'],
       parts:[
         {answer:scenario==='shared'?'REFLEXIVE PROPERTY':'VERTICAL ANGLES THEOREM'},
         {answer:scenario==='shared'?'SSS':'SAS'},
@@ -36,6 +39,8 @@ for (const scenario of ['shared','vertical']) {
     assert.ok(student.includes('<figure data-case="'+scenario+'"'),'Student question must include diagram');
     assert.ok(teacher.includes('<figure data-case="'+scenario+'"'),'Teacher question must include diagram');
     assert.ok(student.includes('__________________'),'Student proof must contain answer blanks');
+    assert.ok(student.includes(scenario === 'shared' ? 'Angle ACB is congruent to angle ADB' : 'Angle OAB is congruent to angle OCD'),'Corresponding angles must be explicit');
+    assert.ok(student.includes('2x+3=49'),'Actual equation must appear in scaffold');
     assert.ok(!student.includes('CPCTC'),'Student layout must not reveal the proof reasons');
     assert.ok(!student.includes('x=23'),'Student layout must not reveal x');
     assert.ok(teacher.includes('CPCTC'),'Teacher layout must contain proof reasons');
