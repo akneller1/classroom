@@ -210,6 +210,18 @@
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if (t === 'geo-congruence-criterion') {
+      var kinds = ['sss','sas','asa','aas','hl','ssa','aaa'];
+      var kind = p.fig && p.fig.kind === 'geo-triangle-pair' && p.fig.criterion;
+      if (kinds.indexOf(kind) < 0 || !NS.geoDiagram || !NS.geoDiagram.validate(p.fig))
+        return {status:'invalid',msg:'Missing or invalid triangle markings.'};
+      if (!/Use the marked triangle pairs/.test(C.plainText(p.prompt || '')))
+        return {status:'invalid',msg:'Student question does not refer to the diagram.'};
+      var expected = (kind === 'ssa' || kind === 'aaa') ? 'NOT SUFFICIENT' : kind.toUpperCase();
+      return String(ans).trim().toUpperCase() === expected
+        ? {status:'verified',comp:expected}
+        : {status:'mismatch',msg:'Congruence classification does not match the marked sides and angles.'};
+    }
     if (t === 'geo-pythagorean') {
       // Derive the length independently from the student-facing dimensions.
       // Never use a generator-provided answer or a quadratic linear-solver.
