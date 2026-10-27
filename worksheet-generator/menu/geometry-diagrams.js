@@ -8,8 +8,30 @@ function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark','geo-similar-pair'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark','geo-similar-pair','geo-right-triangle'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
+ if(spec.kind==='geo-right-triangle'){
+   if(!['hyp','leg','sin','cos','tan','45','30','elevation'].includes(spec.case))return '';
+   var q=spec.case, elevation=q==='elevation';
+   var a=elevation?[105,125]:[100,125],b=elevation?[345,125]:[100,30],c=elevation?[345,30]:[345,125];
+   function ln(p,v){return '<path d="M'+p[0]+' '+p[1]+' L'+v[0]+' '+v[1]+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
+   var out=ln(a,b)+ln(b,c)+ln(c,a);
+   if(elevation){
+     out+='<path d="M333 125 V113 H345" stroke="#111" stroke-width="1.5" fill="none"/>'+
+       tx(355,77,'height')+tx(225,145,'horizontal distance')+tx(140,116,'θ');
+   }else{
+     out+='<path d="M100 113 H112 V125" stroke="#111" stroke-width="1.5" fill="none"/>'+
+       tx(87,77,q==='leg'?'leg':'opposite')+
+       tx(226,145,q==='hyp'?'leg':'adjacent')+
+       tx(240,69,q==='hyp'?'x':'hypotenuse');
+     if(['sin','cos','tan'].includes(q))out+=tx(332,116,'θ');
+     if(q==='45')out+=tx(335,116,'45°')+tx(118,43,'45°');
+     if(q==='30')out+=tx(335,116,'30°')+tx(119,43,'60°');
+   }
+   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+
+     svg(out,elevation?'Right-triangle angle of elevation diagram':'Right triangle showing '+q+' relationship')+
+     '<div style="font-size:10px;color:#555">Schematic, not to scale. Use the numerical measurements stated in the question.</div></div>';
+ }
  if(spec.kind==='geo-similar-pair'){
    if(!['aa','sas','sss','sides','parallel'].includes(spec.case))return '';
    if(spec.case==='parallel'){
