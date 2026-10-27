@@ -181,7 +181,11 @@
     if (variant==='extension' && extensions[unit]) fn=extensions[unit];
     if (variant==='interpret' && interpretations[unit]) fn=interpretations[unit];
     if (variant==='applied' && applied[unit]) fn=applied[unit];
-    var x=fn(ctx.rng,ctx.c),parts=x[1].map(function(t,i){
+    var x=fn(ctx.rng,ctx.c);
+    // Fourth part requires interpreting the calculation, not just returning a scalar.
+    x[1].push('A classmate doubles your numerical answer to part (a). What number would that produce? Explain whether doubling that quantity makes sense for this situation.');
+    x[2].push(2*x[2][0]);
+    var parts=x[1].map(function(t,i){
       return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
         check:{type:'mcas-context',unit:unit,index:i,variant:variant}};
     });
@@ -193,14 +197,14 @@
       'a planning session','a math journal','a school newsletter','a progress report',
       'a small-group discussion','a homework review','a study guide','an investigation'];
     var frame='Present your findings to '+ctx.rng.pick(audiences)+' for '+ctx.rng.pick(purposes)+'. ';
-    return {variant:'mcas-context-'+unit+'-'+variant,prompt:x[0]+' '+frame+'Answer all three parts and show your reasoning.',
+    return {variant:'mcas-context-'+unit+'-'+variant,prompt:x[0]+' '+frame+'Answer all four parts and show your reasoning.',
       parts:parts,steps:parts.map(function(part){return {t:'Part ('+part.label+'): '+part.answer,w:1};}),
       space:[2.4,3.0,3.7]};
   };
   Object.keys(scenes).forEach(function(unit){
     var set=M.skillSets[unit];if(!set)return;
     var first=set.skills[0];
-    var skill={id:'mcas-context',name:'MCAS contextual open response',tag:first.tag,
+    var skill={id:'mcas-context',name:'Open Response contextual scenario',tag:first.tag,
       best:[1,2],blurb:'Original multi-part applied scenario with separately verified answers.',
       generate:function(ctx){return M.makeContextProblem(unit,ctx);}};
     set.skills.push(skill);set.byId[skill.id]=skill;
