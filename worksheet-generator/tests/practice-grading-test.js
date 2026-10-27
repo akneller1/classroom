@@ -130,3 +130,19 @@ for(const key of ['level','count','format','minutes','skills']){
 }
 assert(shareSource.includes("root.querySelector('#pt-print-paper')")&&shareSource.includes('bindShare();root.querySelector'), 'share action should appear during the live test too');
 console.log('Student link sharing and configurable assessment URL checks passed.');
+
+
+/* Live preview is a display-only representation of submitted input. */
+vm.runInContext(fs.readFileSync(path.join(base,'practice/math-preview.js'),'utf8'),context,{filename:'practice/math-preview.js'});
+const PV=context.MKMATHPREVIEW;
+assert.match(PV.toTex('3/4'),/\\frac\{3\}\{4\}/);
+assert.match(PV.toTex('x^2'),/x\^\{2\}/);
+assert.match(PV.toTex('x<=-2'),/\\le/);
+assert.match(PV.toTex('sqrt(9)'),/\\sqrt\{9\}/);
+assert.match(PV.toTex('2*3'),/\\cdot/);
+assert.strictEqual(PV.preview('').empty,true);
+assert(PV.preview('<img src=x onerror=alert(1)>').html.includes('&lt;img'), 'must escape fallback HTML');
+const liveSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
+assert(liveSource.includes('data-preview='), 'inline preview slot missing');
+assert(liveSource.includes('G.MKMATHPREVIEW.update(el'), 'live input handler missing');
+console.log('Live math preview formatting and safe fallback checks passed.');
