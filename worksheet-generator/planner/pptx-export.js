@@ -12,7 +12,7 @@
   'use strict';
   var P = (G.MKPLAN = G.MKPLAN || {});
   var INK = '16202E', INK2 = '46536A', BLUE = '2B5FD9', SOFT = 'E3EBFF', YELLOW = 'FFD84D', WHITE = 'FFFFFF', LINE = 'C9D3DB', ANS = '1D5FBF';
-  var SEC = { donow: { c: 'B7791F', bg: 'FFF3C4' }, notes: { c: BLUE, bg: SOFT }, practice: { c: '2F7A50', bg: 'DFF2E5' }, exit: { c: '6B3FA0', bg: 'EDE4FA' } };
+  var SEC = { donow: { c: 'B7791F', bg: 'FFF3C4' }, notes: { c: BLUE, bg: SOFT }, practice: { c: '2F7A50', bg: 'DFF2E5' }, mixed: { c: '267F86', bg: 'E1F4F4' }, summary: { c: '6446A9', bg: 'F2EDFC' }, exit: { c: '6B3FA0', bg: 'EDE4FA' } };
   var HEAD = 'Arial', BODY = 'Calibri';
   var W = 13.333, H = 7.5, MX = 0.6, TOP = 1.45, BOTTOM = 6.85;
 
@@ -251,7 +251,7 @@
           await problemSlides(sec, title, g.items, { note: g.note || '', extraNotes: g.note ? [g.note] : [], steps: g.name === 'Practice set 1' || /Tier 1/.test(g.name) });
         }
       }
-      if (sec.id === 'exit') {
+      if (sec.id === 'exit' || sec.id === 'summary') {
         if (sec.frame) textSlide(sec, 'Summary', [{ text: frameText(sec.frame), size: 30 }], { notes: ['Students write the summary sentence on their exit ticket.'] });
         if (sec.selfAssess || sec.confidence) tableSlides(sec, sec.confidence ? 'How confident am I?' : 'How sure am I?', ['Topic', '1', '2', '3', '4'], (sec.selfAssess || sec.confidence).map(function (id) { return [id === 'LAUNCH-2' ? 'Pre-algebra skills' : lessonTitle(id), '', '', '', '']; }), { colW: [W - 2 * MX - 3.2, 0.8, 0.8, 0.8, 0.8], notes: ['1 = not yet, 4 = I could teach it.'] });
         if (sec.iCan) tableSlides(sec, 'I can…', ['', 'I can'], sec.iCan.map(function (id) { var l = P.lessonById(id); return ['☐', l ? P.iCan(l.content_objective) : id]; }), { colW: [0.6, W - 2 * MX - 0.6], rowH: 0.5, fontSize: 15, per: 8 });
