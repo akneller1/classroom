@@ -12,15 +12,41 @@ function shadow(ctx){var r=ctx.rng,c=ctx.c,h=r.int(3,8),s=r.int(2,6),k=r.int(2,c
 return make('geo-sim-shadow-'+c,'At the same time of day, a vertical pole '+h+' feet tall casts a '+s+'-foot shadow. A nearby tree casts a '+(s*k)+'-foot shadow on level ground. Assuming parallel sun rays, find the tree height x in feet.',s+'*x='+(h*s*k),x,'The height-to-shadow ratios are equal for the similar right triangles.');}
 function angle(ctx){var r=ctx.rng,c=ctx.c,x=r.int(30,90),a=r.int(25,Math.min(75,155-x)),b=180-x-a;
 return make('geo-sim-angle-'+c,'Triangles ABC and DEF are similar, with A corresponding to D, B to E, and C to F. In ABC, angle A = '+a+'° and angle B = '+b+'°. Find angle F, called x.', 'x+'+a+'+'+b+'=180',x,'Corresponding angles match; angles in a triangle sum to 180°.');}
+/* Similarity criteria: the hypotheses are explicitly stated so students
+   must distinguish AA, SAS and SSS rather than infer similarity from a sketch. */
+function aaCriterion(ctx){
+ var r=ctx.rng,c=ctx.c,a=r.int(25,60),b=r.int(25,Math.min(75,145-a)),x=180-a-b;
+ var eq='x+'+a+'+'+b+'=180';
+ return make('geo-sim-aa-'+c,
+  'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angles A and B measure '+a+'° and '+b+'°. By AA, the triangles are similar. Find the measure x of angle F and explain the correspondence.',
+  eq,x,'Two pairs of equal angles establish AA similarity; corresponding third angles are equal.');
+}
+function sasCriterion(ctx){
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:4),a=r.int(3,11),b=r.int(4,12),x=k*b;
+ var eq=a+'*x='+(a*x);
+ return make('geo-sim-sas-'+c,
+  'Triangles ABC and DEF have congruent included angles A and D. The sides enclosing those angles are AB = '+a+', AC = '+b+', DE = '+(a*k)+', and DF = x. The two enclosing side pairs are proportional, establishing SAS similarity. Find x and name the criterion.',
+  eq,x,'SAS similarity requires proportional sides surrounding a congruent included angle.');
+}
+function sssCriterion(ctx){
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:4),a=r.int(5,11),b=r.int(5,11),d=r.int(5,11),x=k*d;
+ var eq=d+'*x='+(d*x);
+ return make('geo-sim-sss-'+c,
+  'Triangles ABC and DEF have corresponding sides AB = '+a+', DE = '+(k*a)+', BC = '+b+', EF = '+(k*b)+', AC = '+d+', and DF = x. All three side pairs must have the same ratio for SSS similarity. Find x and state why the triangles are similar.',
+  eq,x,'SSS similarity requires equality of all three corresponding side ratios.');
+}
 NS.registerSkillSet({id:'geometry-similarity',course:'geometry',courseName:'Geometry',unit:'similarity',unitName:'Similarity',title:'Similarity Foundations',
-tags:{RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles'},
+tags:{RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity'},
 reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section></div>',
-gaps:['Starter bank only. AA/SAS/SSS similarity criteria, proportionality theorems, coordinate dilations, diagrams, and formal proofs remain pending.'],
+gaps:['Starter bank only. Proportionality theorems, coordinate dilations, diagrams, and formal proofs remain pending.'],
 skills:[
 {id:'similarity-missing-side',tag:'RATIOS',name:'Find a corresponding side',best:[0,1,2],generate:missingSide},
 {id:'similarity-scale-factor',tag:'DILATION',name:'Find a dilation scale factor',best:[0,1,2],generate:scale},
 {id:'similarity-perimeter',tag:'PERIMETER',name:'Scale a perimeter',best:[0,1,2],generate:perimeter},
 {id:'similarity-shadow',tag:'APPLICATION',name:'Indirect measurement using shadows',best:[0,1,2],generate:shadow},
-{id:'similarity-angle',tag:'ANGLES',name:'Corresponding angle in similar triangles',best:[0,1,2],generate:angle}
+{id:'similarity-angle',tag:'ANGLES',name:'Corresponding angle in similar triangles',best:[0,1,2],generate:angle},
+{id:'similarity-aa-criterion',tag:'CRITERIA',name:'AA similarity and third-angle correspondence',best:[0,1,2],generate:aaCriterion},
+{id:'similarity-sas-criterion',tag:'CRITERIA',name:'SAS similarity with included angles',best:[1,2],generate:sasCriterion},
+{id:'similarity-sss-criterion',tag:'CRITERIA',name:'SSS similarity from three side ratios',best:[1,2],generate:sssCriterion}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
