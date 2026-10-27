@@ -221,7 +221,7 @@
 
   /* Explicit graphical response skills for the online Assessment Readiness Check. */
   skill({
-    id: 'graph-slope-intercept', best: [0, 1, 2], tag: 'GRAPHLINE', name: 'Graph lines in slope-intercept form',
+    id: 'graph-slope-intercept', difficultyProfile:'focused',best: [0, 1, 2], tag: 'GRAPHLINE', name: 'Graph lines in slope-intercept form',
     blurb: 'Plot the y-intercept and use rise/run (CP2) → negative and fractional slopes (CP1) → horizontal and steep lines (Honors).',
     generate: function (ctx) {
       var r=ctx.rng,c=ctx.c,steps=[],m,b;
@@ -239,7 +239,7 @@
   });
 
   skill({
-    id: 'graph-from-points',best:[0,1],tag:'GRAPHLINE',name:'Graph a line through two points',
+    id: 'graph-from-points',difficultyProfile:'focused',best:[0,1],tag:'GRAPHLINE',name:'Graph a line through two points',
     blurb:'Plot two points, then draw their line; includes positive, negative and zero slope.',
     generate:function(ctx){
       var r=ctx.rng,c=ctx.c,x=r.int(-5,3),y=r.int(-5,5),dx=r.pick([2,3,4]),dy=r.pick([-3,-2,0,2,3]),xx=x+dx,yy=y+dy;
@@ -252,7 +252,7 @@
     }
   });
   skill({
-    id:'graph-special-lines',best:[0,1],tag:'GRAPHLINE',name:'Graph horizontal and vertical lines',
+    id:'graph-special-lines',difficultyProfile:'focused',best:[0,1],tag:'GRAPHLINE',name:'Graph horizontal and vertical lines',
     blurb:'Draw x = a and y = b, including negative intercepts.',
     generate:function(ctx){
       var r=ctx.rng,k=nz(r,-7,7),vertical=r.chance(.5),eq=(vertical?'x=':'y=')+k;
@@ -265,7 +265,7 @@
     }
   });
   skill({
-    id:'graph-standard-form',best:[1,2],tag:'GRAPHLINE',name:'Graph linear equations in standard form',
+    id:'graph-standard-form',difficultyProfile:'focused',best:[1,2],tag:'GRAPHLINE',name:'Graph linear equations in standard form',
     blurb:'Rearrange Ax + By = C to slope-intercept form and graph using two points.',
     generate:function(ctx){
       var r=ctx.rng,m=F(r.pick([-3,-2,-1,1,2,3])),b=F(r.int(-5,5)),eq=stdForm(m,b);
