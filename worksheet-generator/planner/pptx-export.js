@@ -248,7 +248,7 @@
           var g = sec.groups[gi];
           if (!g.items.length) continue;
           var title = sec.groups.length > 1 && g.name ? (sec.id === 'practice' && /^(We do|You do|Level|Tier|Enrichment|Station|Unit)/.test(g.name) ? g.name : sec.title + ': ' + g.name) : sec.title;
-          await problemSlides(sec, title, g.items, { note: g.note || '', extraNotes: g.note ? [g.note] : [], steps: g.name === 'We do' || /Tier 1/.test(g.name) });
+          await problemSlides(sec, title, g.items, { note: g.note || '', extraNotes: g.note ? [g.note] : [], steps: g.name === 'Practice set 1' || /Tier 1/.test(g.name) });
         }
       }
       if (sec.id === 'exit') {
