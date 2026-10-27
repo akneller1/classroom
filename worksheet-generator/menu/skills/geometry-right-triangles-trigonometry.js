@@ -45,7 +45,7 @@ function honorsSurvey(ctx){
  var eq4=run+'*w='+rise+'*'+shadow;
  return {variant:'geo-right-honors-survey-'+c,
   fig:{kind:'geo-right-triangle',case:'elevation'},
-  prompt:'Honors survey investigation. A surveyor stands '+run+' feet horizontally from a building whose roof is '+rise+' feet above the surveyor. The line of sight forms a right triangle. A second building is viewed at the same angle of elevation from '+shadow+' feet away on level ground. Show your reasoning for all four parts.',
+  prompt:'Honors survey investigation. A right triangle has legs '+rise+' and '+run+' units. A surveyor stands '+run+' feet horizontally from a building whose roof is '+rise+' feet above the surveyor. The line of sight forms that right triangle. A second building is viewed at the same angle of elevation from '+shadow+' feet away on level ground. Show your reasoning for all four parts.',
   parts:[
    {prompt:'(a) Find the direct line-of-sight distance x. Use '+M(eq1)+' to find x.',answer:M('x='+hyp),check:{type:'geo-pythagorean',kind:'hyp',eq:eq1}},
    {prompt:'(b) Find the area y of the first right triangle. Use '+M(eq2)+' to find y.',answer:M('y='+area),check:{type:'solve',eq:eq2,v:'y'}},
