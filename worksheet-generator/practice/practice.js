@@ -166,9 +166,9 @@ function answerControl(q,i){
  return '<div class="pt-math-response"><label class="pt-inline-answer" for="pt-answer-'+i+'">Final answer<input id="pt-answer-'+i+'" aria-label="Answer to question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" inputmode="text" placeholder="Type or use the keypad" value="'+esc(value)+'"></label>'+
  '<div class="pt-live-preview"><div class="pt-preview-heading">Live math preview <span>Display only — not a correctness check</span></div><div class="pt-preview-content" data-preview="'+i+'" aria-label="Formatted preview of your answer"></div></div>'+ 
  '<div class="pt-math-pad" data-math-pad="'+i+'" role="group" aria-label="Math symbols for question '+(i+1)+'">'+[
- ['−','-'],['/','/'],['x²','^2'],['xⁿ','^'],['√','sqrt('],['≤','<='],['≥','>='],['=','='],['(', '('],[')',')'],['+','+'],['⌫','backspace']
+ ['−','-'],['a/b','fraction'],['x²','square'],['xⁿ','power'],['√','sqrt'],['Next','next'],['≤','<='],['≥','>='],['=','='],['(', '('],[')',')'],['+','+'],['⌫','backspace']
  ].map(function(k){return '<button type="button" data-math-insert="'+esc(k[1])+'" aria-label="'+esc(k[0]==='⌫'?'Delete previous character':'Insert '+k[0])+'">'+k[0]+'</button>';}).join('')+'</div>'+
- '<p class="pt-muted pt-pad-hint">Use / for fractions (for example 3/4), ^ for powers, and √ for a square-root expression. Type numbers and variables normally; the grader accepts supported answer formats.</p></div>';
+ '<p class="pt-muted pt-pad-hint">Tap a/b, √ or xⁿ to insert an editable template. Selected digits are placeholders; type to replace them, then use Next to jump to a denominator. Type numbers and variables normally; the grader accepts supported answer formats.</p></div>';
 }
 function assessmentHTML(){
  return '<div class="pt-student-intro"><strong>Directions:</strong> Do your work on paper, then enter or select your answer directly below each question. Use Print / Save PDF for a paper copy.</div>'+
@@ -219,13 +219,11 @@ function show(){
   pad.querySelectorAll('[data-math-insert]').forEach(function(button){
    button.onclick=function(){
     var input=root.querySelector('#pt-answer-'+pad.dataset.mathPad);if(!input)return;
-    var value=button.dataset.mathInsert,at=input.selectionStart==null?input.value.length:input.selectionStart,end=input.selectionEnd==null?at:input.selectionEnd;
-    if(value==='backspace'){
-      if(at===end&&at>0)at--;
-      input.setRangeText('',at,end,'end');
-    }else{
-      input.setRangeText(value,at,end,'end');
-    }
+    var kind=button.dataset.mathInsert,at=input.selectionStart==null?input.value.length:input.selectionStart,end=input.selectionEnd==null?at:input.selectionEnd;
+    var change=G.MKMATHINPUT.insert(input.value,at,end,kind);
+    input.value=change.text;
+    input.focus();
+    input.setSelectionRange(change.start,change.end);
     input.dispatchEvent(new Event('input',{bubbles:true}));
     input.focus();
    };
