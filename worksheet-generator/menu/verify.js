@@ -229,7 +229,7 @@
         'A bathtub drains steadily. The input is the volume of water remaining in gallons.':2
       };
       var want=scenarios[chk.scenario];
-      if(!want||p.prompt.indexOf(chk.scenario)<0)return {status:'invalid',msg:'Unknown or unprinted context.'};
+      if(!want||p.prompt.indexOf(chk.scenario)<0||!Number.isInteger(chk.sample)||chk.sample<2||chk.sample>999||!['During the morning','During the afternoon','Yesterday','Last week'].includes(chk.subject)||p.prompt.indexOf(chk.subject+', a sample recorded input was '+chk.sample+'.')<0)return {status:'invalid',msg:'Unknown or unprinted context.'};
       return String(ans).trim()===String(want)?{status:'verified'}:{status:'mismatch',msg:'This context has a different domain type.'};
     }
     if (t === 'ineq' || t === 'read-graph' || t === 'ineq-members' || t === 'error-line' || t === 'iscenario' || t === 'model-ineq') return checkIneqPart(p, part, policy);
