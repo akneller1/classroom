@@ -186,6 +186,38 @@
         pr = sec('practice', 'Launch Task', { minutes: 25, launch: true });
         ex = sec('exit', 'Reflection', { minutes: 5, frame: d.sentence_frame });
     }
+    // Challenge Problems pair verified high-tier mathematics with a reasoning extension.
+    // These are never mere additional routine exercises.
+    if (opts.include && opts.include.challenge) {
+      var challenge = sec('challenge', 'Challenge Problems', {
+        minutes: 10,
+        prompt: 'Go beyond solving: justify your reasoning, compare approaches, or investigate what changes. More than one method may work.'
+      });
+      var challengeEntries = interleave(cov);
+      if (challengeEntries.length) {
+        var howMany = opts.counts && Object.prototype.hasOwnProperty.call(opts.counts, 'challenge')
+          ? Math.max(0, Math.min(12, Math.round(Number(opts.counts.challenge)) || 0)) : 2;
+        var challengeItems = items(plan, 'challenge-', challengeEntries, howMany, fixed(t[2]));
+        var extensions = [
+          'Change one number or condition so the answer changes in a surprising way. Explain and verify.',
+          'Find a second method or representation. Why does it produce the same result?',
+          'Create a similar-looking problem that has a different type of answer. Explain the difference.',
+          'A classmate claims the method always works. Test the claim, then justify or disprove it.',
+          'Work backward: construct a new problem with a chosen answer and prove it meets the conditions.',
+          'What happens in an extreme or boundary case? Give evidence and describe a general rule.'
+        ];
+        challengeItems.forEach(function(p, i) {
+          p.challengeQuestion = extensions[(i + d.day) % extensions.length];
+        });
+        group(challenge, 'Think deeper — show and explain', challengeItems);
+      } else {
+        challenge.prompt = 'Create a non-routine problem connected to today’s lesson. Solve it, justify your reasoning, and explain a second possible approach.';
+      }
+      var challengePos = plan.sections.indexOf(challenge);
+      plan.sections.splice(challengePos, 1);
+      var practicePos = plan.sections.findIndex(function(s) { return s.id === 'practice'; });
+      plan.sections.splice(practicePos < 0 ? plan.sections.length : practicePos + 1, 0, challenge);
+    }
     // Optional sections are generated only when requested; summary is an alternative to an exit ticket.
     if (opts.include && opts.include.mixed) {
       var mixed = sec('mixed', 'Mixed Review', { minutes: 10 });
@@ -200,7 +232,7 @@
     }
     // Per-section problem counts. No override means retain the lesson type's original count.
     var requestedCounts = opts.counts || {};
-    ['donow', 'mixed', 'examples', 'practice', 'exit'].forEach(function(id) {
+    ['donow', 'mixed', 'examples', 'practice', 'challenge', 'exit'].forEach(function(id) {
       if (!Object.prototype.hasOwnProperty.call(requestedCounts, id)) return;
       var target = Math.max(0, Math.min(30, Math.round(Number(requestedCounts[id]))));
       if (!isFinite(target)) return;
@@ -256,7 +288,7 @@
     var old = plan.sections[si].groups[gi].items[ii];
     var salt = (old.salt || 0) + 1;
     var p = makeProblem(plan, old.slot, old.entry, old.c || old.entry.cmin, salt);
-    p.salt = salt; p.spiral = old.spiral; p.num = old.num;
+    p.salt = salt; p.spiral = old.spiral; p.num = old.num; p.challengeQuestion = old.challengeQuestion;
     plan.sections[si].groups[gi].items[ii] = p;
     return p;
   };
