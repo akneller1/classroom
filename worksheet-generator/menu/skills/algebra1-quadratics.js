@@ -260,9 +260,9 @@
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="q-graph";});if(!base)return;
     skill({id:"quadratic-graphing",best:base.best,tag:base.tag,name:"Plot a quadratic from its equation",blurb:"Graph a quadratic with its vertex and symmetric points.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
+      difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
   })();
-  (function(){var parent=skills.find(function(s){return s.id==="q-roots";});if(parent)skill({id:"quadratic-solve-factoring",best:parent.best,tag:parent.tag,name:"Solve quadratics by factoring",blurb:"Factor a quadratic equation and use the zero product property.",generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:5}));}});})();
+  (function(){var parent=skills.find(function(s){return s.id==="q-roots";});if(parent)skill({id:"quadratic-solve-factoring",best:parent.best,tag:parent.tag,name:"Solve quadratics by factoring",blurb:"Factor a quadratic equation and use the zero product property.",difficultyProfile:'focused',fixedDifficulty:5,generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:5}));}});})();
   NS.registerSkillSet({
     id: 'algebra1-quadratics', course: 'algebra1', courseName: 'Algebra 1', unit: 'quadratics', unitName: 'Quadratic Functions and Equations',
     title: 'The Parabola Bakery',
