@@ -52,7 +52,7 @@ function criterion(ctx,kind){
   target='BC = '+M(expression)+' units and EF = '+measure+' units.';
   why='HL establishes congruence of right triangles; corresponding legs are equal.';
  }
- return {variant:'geo-criterion-'+kind+'-'+c,
+ return {variant:'geo-criterion-'+kind+'-'+c,fig:{kind:'geo-triangle-pair',criterion:kind},
   prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then use '+M(eq)+' to find x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
