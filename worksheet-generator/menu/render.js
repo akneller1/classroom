@@ -128,6 +128,7 @@
     if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;
   }
+  NS.promptHtml = promptHtml;
   function isWide(p) {
     var txt = WS.render ? (p.prompt || '').replace(/⟨[^⟩]*⟩/g, 'xxxxxxxxxx') : '';
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; }).length;
