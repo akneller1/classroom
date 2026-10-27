@@ -210,6 +210,45 @@
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if(t === 'mcas-context') {
+      // Independent from the scenario generator: recover numerical inputs
+      // exclusively from the STUDENT'S printed scenario, not check metadata.
+      var raw = C.plainText(p.prompt || ''), nums = (raw.match(/-?\\d+(?:\\.\\d+)?/g) || []).map(Number);
+      var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
+      if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 2)
+        return {status:'invalid',msg:'Invalid scenario part.'};
+      if (unit === 'algebra1-foundations' && nums.length === 3) expected=[a*b,a*b+d,2*(a*b+d)];
+      else if (unit === 'algebra1-expressions-equations' && nums.length === 3 && b>0 && (d-a)%b===0)
+        expected=[d-a,(d-a)/b,d+b];
+      else if (unit === 'algebra1-inequalities' && nums.length === 3 && b>0)
+        expected=[d-a,Math.ceil((d-a)/b),a+b*(Math.ceil((d-a)/b)-1)];
+      else if (unit === 'algebra1-relations-functions' && nums.length === 3)
+        expected=[a+b*d,a+b*(d+1),b];
+      else if (unit === 'algebra1-linear-equations-slope' && nums.length === 3 && b>0)
+        expected=[a-b*d,-b,a/b];
+      else if (unit === 'algebra1-systems-of-equations' && nums.length === 4 && d!==e)
+        { var adults=(b-e*a)/(d-e), students=a-adults; if(Number.isInteger(adults)&&Number.isInteger(students)&&adults>=0&&students>=0) expected=[adults,students,adults*d]; }
+      else if (unit === 'algebra1-exponents-scientific-notation' && nums.length === 3 && b>=0 && b<=9)
+        expected=[a*Math.pow(10,b),a*Math.pow(10,b)*d,b];
+      else if (unit === 'algebra1-exponential-functions' && nums.length === 2 && b>=0 && b<=12)
+        expected=[a*Math.pow(2,b),a*Math.pow(2,b+1),a*Math.pow(2,b)];
+      else if (unit === 'algebra1-polynomials' && nums.length === 3)
+        expected=[(d+a)*(d+b),a+b,a*b];
+      else if (unit === 'algebra1-factoring-zero-product' && nums.length === 2) {
+        var discriminant=a*a-4*b, sq=Math.sqrt(discriminant);
+        if(Number.isInteger(sq)) expected=[(-a-sq)/2,(-a+sq)/2,b];
+      } else if (unit === 'algebra1-quadratics' && nums.length === 1 && a>0)
+        expected=[a,a/2,a*a/4];
+      else if (unit === 'algebra1-statistics-data-modeling' && nums.length === 5)
+        { var z=nums.slice().sort(function(x,y){return x-y;});expected=[z.reduce(function(x,y){return x+y;},0)/5,z[2],z[4]-z[0]]; }
+      if(!expected || expected.some(function(v){return !Number.isFinite(v);}))
+        return {status:'invalid',msg:'Scenario inputs could not be independently verified.'};
+      var given=String(C.plainText(ans)).trim().replace(/,/g,'');
+      if(!/^-?\\d+(?:\\.\\d+)?$/.test(given)) return {status:'mismatch',msg:'The answer should be a single numeric value.'};
+      return Math.abs(Number(given)-expected[chk.index]) < 1e-9 ?
+        {status:'verified',computed:String(expected[chk.index])} :
+        {status:'mismatch',msg:'Recalculate this part using the scenario values.'};
+    }
     if(t==='exp-graph-points'){
       var a=Number(chk.a),n=Number(chk.n),d=Number(chk.d),k=Number(chk.k);
       if(!Number.isInteger(k)||k<-6||k>5)return {status:'invalid',msg:'Invalid vertical shift.'};
