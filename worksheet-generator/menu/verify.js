@@ -213,7 +213,7 @@
     if(t === 'mcas-context') {
       // Independent from the scenario generator: recover numerical inputs
       // exclusively from the STUDENT'S printed scenario, not check metadata.
-      var raw = C.plainText(p.prompt || ''), nums = (raw.match(/-?\\d+(?:\\.\\d+)?/g) || []).map(Number);
+      var raw = C.plainText(p.prompt || ''), nums = (raw.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
       if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 2)
         return {status:'invalid',msg:'Invalid scenario part.'};
@@ -244,7 +244,7 @@
       if(!expected || expected.some(function(v){return !Number.isFinite(v);}))
         return {status:'invalid',msg:'Scenario inputs could not be independently verified.'};
       var given=String(C.plainText(ans)).trim().replace(/,/g,'');
-      if(!/^-?\\d+(?:\\.\\d+)?$/.test(given)) return {status:'mismatch',msg:'The answer should be a single numeric value.'};
+      if(!/^-?\d+(?:\.\d+)?$/.test(given)) return {status:'mismatch',msg:'The answer should be a single numeric value.'};
       return Math.abs(Number(given)-expected[chk.index]) < 1e-9 ?
         {status:'verified',computed:String(expected[chk.index])} :
         {status:'mismatch',msg:'Recalculate this part using the scenario values.'};
