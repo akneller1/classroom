@@ -1,5 +1,5 @@
 /* Menu Assessment Generator — Algebra 1 · Unit 12 Statistics and Data Modeling (roadmap days 163–174).
-   Skill groups: CENTER (mean, median, mode, MAD), SPREAD (range, quartiles, IQR, outliers), DISPLAY (dot plots and
+   Skill groups: CENTER (mean, median, mode), SPREAD (range, quartiles, IQR, outliers), DISPLAY (dot plots and
    box plots), TWOWAY (two-way tables and relative frequency), SCATTER (correlation, lines of fit, residuals).
    Dot plots, box plots, scatter plots and two-way tables are drawn from specs; the verifier reads them back.
    Quartiles use the medians of the lower and upper halves, leaving out the median when the count is odd. */
@@ -22,12 +22,12 @@
   function r1(x) { return Math.round(x * 10 + 1e-9) / 10; }
   var CTX = [['quiz scores', ''], ['minutes spent on homework', ' minutes'], ['points scored in a game', ' points'], ['hours of sleep', ' hours'], ['books read this year', ' books']];
 
-  /* ================= CENTER · mean, median, mode, MAD ================= */
+  /* ================= CENTER · mean, median, mode ================= */
   skill({
-    id: 'center', best: [0, 1], tag: 'CENTER', name: 'Mean, median, mode and MAD',
-    blurb: 'Mean and median (CP2) → MAD, a missing value, dot plots (CP1) → a new value added, comparing two groups by MAD (Honors).',
+    id: 'center', best: [0, 1], tag: 'CENTER', name: 'Mean, median, and mode',
+    blurb: 'Mean, median, and mode (CP2) → missing values and dot plots (CP1) → changes to data sets and interpreting measures of center (Honors).',
     generate: function (ctx) {
-      var r = ctx.rng, c = [0, 1, 2, 6, 3, 4, 5, 7][ctx.c], steps = [], cx = r.pick(CTX), data, D;
+      var r = ctx.rng, c = [0, 1, 2, 4, 3, 4, 5, 3][ctx.c], steps = [], cx = r.pick(CTX), data, D;
       if (c === 1) { data = rnd(r, 4, 2, 20); var m1 = r.int(5, 15), l1 = 5 * m1 - sum(data); need(l1 >= 1 && l1 <= 25); data.push(l1); data = r.shuffle(data); D = list(data);
         steps.push(step('Add the values: ' + sum(data) + '.', '', 1), step('Divide by how many values there are (5).', String(sum(data) / 5), 2));
         return out('ce1', 'Find the mean of the ' + cx[0] + ': ' + M(D) + '.', [{ answer: M(String(sum(data) / 5)), check: { type: 'stat', want: 'mean', data: D } }], steps); }
@@ -47,15 +47,7 @@
       if (c === 5) { data = rnd(r, r.pick([4, 9]), 10, 40); var add = r.int(41, 80); var nm = mean(data.concat([add])); need(exact(nm, 1)); D = list(data);
         steps.push(step('Old total: ' + sum(data) + '. New total: ' + (sum(data) + add) + '.', '', 1), step('Divide by the new count (' + (data.length + 1) + ').', dec(nm), 2));
         return out('ce5', 'The data set is ' + M(D) + '. The value ' + add + ' is added to the data set.', [{ label: 'a', prompt: 'Find the new mean.', answer: M(dec(nm)), check: { type: 'stat', want: 'newmean', data: D, add: 0 } }, { label: 'b', prompt: 'Find the new median.', answer: M(dec(median(data.concat([add])))), check: { type: 'stat', want: 'newmean', stat: 'median', data: D, add: 0 } }], steps); }
-      if (c === 6) { var n6 = r.pick([4, 5, 8]), m6 = r.int(8, 22); data = rnd(r, n6 - 1, 2, 30); var l6 = n6 * m6 - sum(data); need(l6 >= 1 && l6 <= 35); data.push(l6); data = r.shuffle(data); need(exact(mad(data), 2)); D = list(data); var mm = mean(data), mv = mad(data), rnd1 = !exact(mv, 1);
-        steps.push(step('Mean: ' + mm + '.', '', 1), step('Distances from the mean: ' + M(list(data.map(function (x) { return Math.abs(x - mm); }))) + '.', '', 2), step('MAD = mean of the distances.', dec(rnd1 ? r1(mv) : mv), 2));
-        return out('ce6', 'Find the mean absolute deviation (MAD) of ' + M(D) + '.' + (rnd1 ? ' Round to the nearest tenth.' : ''), [{ answer: M(dec(rnd1 ? r1(mv) : mv)), check: rnd1 ? { type: 'stat', want: 'mad', data: D, round: 1 } : { type: 'stat', want: 'mad', data: D } }], steps); }
-      var mk7 = function (lo, hi) { var a = rnd(r, 4, lo, hi), mm7 = r.int(70, 90), l = 5 * mm7 - sum(a); need(l >= 55 && l <= 100); a.push(l); return r.shuffle(a); }, A = mk7(60, 100), Bd = mk7(75, 92); if (r.chance(0.5)) { var tmp = A; A = Bd; Bd = tmp; } need(Math.abs(mad(A) - mad(Bd)) >= 2);
-      var DA = list(A), DB = list(Bd), lab = r.pick([['Class A', 'Class B'], ['Team Red', 'Team Blue'], ['Monday', 'Friday']]), more = mad(A) > mad(Bd) ? lab[0] : lab[1];
-      steps.push(step('Find each mean, then each MAD: ' + lab[0] + ' ' + dec(mad(A)) + ', ' + lab[1] + ' ' + dec(mad(Bd)) + '.', '', 3), step('The greater MAD means the values are more spread out.', '', 1));
-      return out('ce7', 'Scores for ' + lab[0] + ': ' + M(DA) + '. Scores for ' + lab[1] + ': ' + M(DB) + '.', [{ label: 'a', prompt: 'Find the MAD for ' + lab[0] + '.', answer: M(dec(mad(A))), check: { type: 'stat', want: 'mad', data: DA } },
-        { label: 'b', prompt: 'Find the MAD for ' + lab[1] + '.', answer: M(dec(mad(Bd))), check: { type: 'stat', want: 'mad', data: DB } },
-        { label: 'c', prompt: 'Which group’s scores are more spread out? Give both MADs.', answer: more + ' (MADs ' + M(dec(mad(A))) + ' and ' + M(dec(mad(Bd))) + ')', check: { type: 'stat', want: 'compare-mad', data: DA, data2: DB, labels: lab } }], steps);
+
     }
   });
   function sum(a) { return a.reduce(function (x, y) { return x + y; }, 0); }
@@ -406,7 +398,7 @@
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Center</h4><p>Mean = sum ÷ count. Median = middle value (mean of the two middle values for an even count). Mode = most frequent.</p></section>' +
-      '<section><h4>Spread</h4><p>Range = max − min. Q1 and Q3 are the medians of the lower and upper halves (leave out the median when the count is odd). ⟨IQR=Q3-Q1⟩.</p><p>MAD = mean of the distances from the mean.</p></section>' +
+      '<section><h4>Spread</h4><p>Range = max − min. Q1 and Q3 are the medians of the lower and upper halves (leave out the median when the count is odd). ⟨IQR=Q3-Q1⟩.</p></section>' +
       '<section><h4>Outliers</h4><p>Outside ⟨Q1-1.5\\cdot IQR⟩ or ⟨Q3+1.5\\cdot IQR⟩. With outliers, the median describes the center better than the mean.</p></section>' +
       '<section><h4>Box plots</h4><p>Each of the four parts holds about 25% of the data.</p></section>' +
       '<section><h4>Two-way tables</h4><p>Joint: cell ÷ grand total. Marginal: row or column total ÷ grand total. Conditional: cell ÷ the total of the given group.</p></section>' +
