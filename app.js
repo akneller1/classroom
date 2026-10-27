@@ -541,12 +541,14 @@
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
           if (c.id === 'algebra') {
+            var readinessArtifact = u.artifacts.find(function (a) { return /practice-test\\.html#unit=algebra1-[a-z0-9-]+/i.test(a.path || ''); });
+            var readinessId = readinessArtifact ? /#unit=([a-z0-9-]+)/i.exec(readinessArtifact.path)[1] : '';
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
               '<div class="unit-meta" data-lesson-list="true">' + subskillsHtml(u) + '</div>' +
               '<div class="unit-card-actions"><a class="unit-open-link" href="' + href(unitToken(c, u)) + '">Open unit →</a>' +
-              '<button type="button" class="btn btn-ghost unit-readiness-share" data-readiness-unit="algebra1-' + esc(u.id === 'exponents-exponential-functions' ? 'exponents-scientific-notation' : u.id) + '">Copy student link</button></div></div></li>';
+              '<button type="button" class="btn btn-ghost unit-readiness-share" data-readiness-unit="' + esc(readinessId) + '">Copy student link</button></div></div></li>';
           }
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
             '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
