@@ -6,7 +6,8 @@ function parseNumber(s){if(s===''||s==='+')return 1;if(s==='-')return -1;var n=N
 function target(q){
  var p=q.problem;if(!p||!p.parts||p.parts.length!==1)return null;
  if(!/\b(graph|plot|draw|shade)\b/i.test((p.prompt||'')+' '+(p.parts[0].prompt||'')))return null;
- var raw=String(p.parts[0].answer||'');
+ var check=p.parts[0].check||{};
+ var raw=(check.type==='graph-key'&&Array.isArray(check.ineqs)&&check.ineqs.length===1)?check.ineqs[0]:String(p.parts[0].answer||'');
  var s=raw.replace(/[⟨⟩]/g,'').replace(/\\(?:leq?|geq?)/g,a=>a.startsWith('\\l')?'<=':'>=')
  .replace(/≤/g,'<=').replace(/≥/g,'>=').replace(/\\left|\\right|\\,/g,'')
  .replace(/−/g,'-').replace(/\s+/g,'').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g,(_,n,d)=>String(Number(n)/Number(d)));
