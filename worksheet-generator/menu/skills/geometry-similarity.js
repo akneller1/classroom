@@ -41,7 +41,7 @@ function parallelSegment(ctx){
  var ae=ad*factor,x=db*factor,eq=ad+'*x='+(db*ae);
  return {variant:'geo-sim-parallel-'+c,
   fig:{kind:'geo-similar-pair',case:'parallel'},
-  prompt:'In triangle ABC, D lies on AB and E lies on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', and AE = '+ae+'. Find EC = x. Explain why the two sides are divided proportionally.',
+  prompt:'In triangle ABC, D lies on AB and E lies on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', and AE = '+ae+'. Find EC = x. Explain why the two sides are divided proportionally. Use '+M(eq)+' to find x.',
   parts:[{prompt:'Find EC.',answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('Triangle proportionality theorem: AD/DB = AE/EC.',M(ad+'/'+db+'='+ae+'/x')),
          step('Cross multiply.',M(eq)),step('Solve.',M('x='+x))],
