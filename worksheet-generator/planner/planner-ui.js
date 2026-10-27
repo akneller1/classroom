@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits';
+  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1';
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
   function $(s) { return doc.querySelector(s); }
@@ -308,6 +308,8 @@
       '<fieldset class="pl-levels"><legend class="pl-lab">Student notes</legend>' + [['lesson', 'As planned', 'Pre-filled only where the scope says so'], ['fill', 'Students write them in', 'Blank definitions and key idea'], ['filled', 'Pre-filled', 'Definitions, key idea and worked examples printed']].map(function (o) {
         return '<label class="pl-lv' + (ui.notes === o[0] ? ' on' : '') + '"><input type="radio" name="plNotes" value="' + o[0] + '"' + (ui.notes === o[0] ? ' checked' : '') + '> <span><b>' + o[1] + '</b> <small>' + o[2] + '</small></span></label>';
       }).join('') + '</fieldset>' +
+      '<fieldset class="pl-levels pl-section-options"><legend class="pl-lab">Include in lesson</legend><p class="pl-hint">Unchecked sections are omitted from the lesson preview, handout, teacher key, and PowerPoint.</p>' +
+      Object.keys(sectionChoices).map(function(k) { return '<label class="pl-section-choice"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>'; }).join('') + '</fieldset>' +
       '<label class="pl-lab" for="plN">Practice problems (lesson and practice days)</label><input id="plN" type="number" min="4" max="20" value="' + ui.practice + '">' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
@@ -317,6 +319,7 @@
   function render() {
     var d = P.day(ui.day);
     ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d) });
+    applySectionChoices(ui.plan);
     $('#plPick').innerHTML = picker();
     $('#plCtl').innerHTML = controls();
     var prev = P.day(ui.day - 1), next = P.day(ui.day + 1), sum = P.summary(ui.plan);
@@ -382,6 +385,12 @@
   function rerenderKeep() { var y = G.scrollY; renderView(); G.scrollTo(0, y); }
   doc.addEventListener('change', function (e) {
     var t = e.target;
+    if (t.hasAttribute && t.hasAttribute('data-section-toggle')) {
+      var k = t.getAttribute('data-section-toggle'); if (!(k in sectionChoices)) return;
+      sectionChoices[k] = t.checked;
+      lsSet(KEY_SECTIONS, JSON.stringify(sectionChoices));
+      render(); return;
+    }
     if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
     if (t.name === 'plNotes') {   // the notes setting changes only the printed notes, not the problems
