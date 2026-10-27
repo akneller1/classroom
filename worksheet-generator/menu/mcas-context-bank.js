@@ -170,21 +170,76 @@
        [h,k,k-1]];
     }
   };
+  /* Fourth family: separate real-world modeling contexts with four meaningful parts. */
+  var reasoning={
+    'algebra1-foundations':function(r,c) {
+      var teams=r.int(3,7+c),players=r.int(4,9+c),absent=r.int(1,players-1);
+      return ['A sports clinic registers '+teams+' teams with '+players+' players on each team. Each team has '+absent+' players absent.',
+        ['How many players registered in total?','How many players are absent altogether?','How many registered players attend?','How many more players attend than are absent?'],
+        [teams*players,teams*absent,teams*(players-absent),teams*(players-2*absent)]];
+    },
+    'algebra1-expressions-equations':function(r,c) {
+      var lessons=r.int(4,9+c),fee=r.int(6,15+c),base=r.int(12,28+c),total=base+fee*lessons;
+      return ['A music teacher charges a one-time '+base+' dollar registration fee and '+fee+' dollars per lesson. A family paid '+total+' dollars.',
+        ['How much was spent on lessons, excluding registration?','How many lessons did the family purchase?','What is the price of one more lesson?','What would the total cost be after purchasing one more lesson?'],
+        [total-base,lessons,fee,total+fee]];
+    },
+    'algebra1-inequalities':function(r,c) {
+      var spaces=r.int(35,75+c),used=r.int(9,20+c),size=r.int(3,8+c),available=spaces-used;
+      return ['A parking lot has '+spaces+' spaces and '+used+' are occupied. Each arriving group needs '+size+' spaces.',
+        ['How many spaces are available now?','What is the largest number of complete groups that can park?','How many spaces remain after those groups park?','Would one additional complete group fit? Enter 1 for yes or 0 for no.'],
+        [available,Math.floor(available/size),available%size,(available%size>=size?1:0)]];
+    },
+    'algebra1-systems-of-equations':function(r,c) {
+      var x=r.int(4,10+c),y=r.int(4,9+c),a=r.int(11,17+c),b=r.int(3,8+c),count=x+y,revenue=x*a+y*b;
+      return ['A school sells '+count+' concert tickets for '+revenue+' dollars. Adult tickets cost '+a+' dollars and student tickets cost '+b+' dollars.',
+        ['How many adult tickets were sold?','How many student tickets were sold?','How much adult-ticket revenue was collected?','How much student-ticket revenue was collected?'],
+        [x,y,x*a,y*b]];
+    },
+    'algebra1-exponents-scientific-notation':function(r,c) {
+      var coefficient=r.int(2,8+c),power=r.int(2,5),samples=r.int(3,7+c),one=coefficient*10**power;
+      return ['A sensor records '+coefficient+' times ten to the power of '+power+' data points per day. Researchers operate '+samples+' sensors for one day.',
+        ['How many data points does one sensor record?','How many data points do all sensors record?','How many data points do two sensors record?','How many additional data points come from adding a sensor?'],
+        [one,one*samples,2*one,one]];
+    },
+    'algebra1-polynomials':function(r,c) {
+      var a=r.int(2,8+c),b=r.int(2,8+c),x=r.int(2,7+c);
+      return ['A rectangular garden has length (x + '+a+') and width (x + '+b+') meters. Let x = '+x+'.',
+        ['What is the coefficient of x in its expanded area expression?','What is the constant term of the expanded expression?','What is the garden area for the given x?','What is the garden perimeter for the given x?'],
+        [a+b,a*b,(x+a)*(x+b),4*x+2*a+2*b]];
+    },
+    'algebra1-factoring-zero-product':function(r,c) {
+      var a=r.int(2,7+c),b=r.int(a+2,a+7+c);
+      return ['The polynomial x squared minus '+(a+b)+'x plus '+a*b+' has two positive integer zeros.',
+        ['What is the smaller zero?','What is the larger zero?','What is the sum of the zeros?','What is the distance between the two zeros on a number line?'],
+        [a,b,a+b,b-a]];
+    },
+    'algebra1-quadratics':function(r,c) {
+      var time=r.int(2,6+c),height=r.int(5,14+c);
+      return ['A ball follows h(t) = -(t - '+time+') squared + '+height+' meters.',
+        ['At what time is its maximum height reached?','What is its maximum height?','What is its height one second after the maximum?','How many meters below the maximum is it two seconds after the maximum?'],
+        [time,height,height-1,4]];
+    }
+  };
   M.contextScenes=scenes;
   M.contextExtensions=extensions;
   M.contextInterpretations=interpretations;
   M.contextApplied=applied;
+  M.contextReasoning=reasoning;
   M.makeContextProblem=function(unit, ctx) {
     var fn=scenes[unit];if(!fn)return {failed:true,reason:'No contextual bank for '+unit};
-    var draw=ctx.rng.int(0,applied[unit]?3:interpretations[unit]?2:1);
-    var variant=draw===3?'applied':draw===2?'interpret':draw===1?'extension':'original';
+    var draw=ctx.rng.int(0,reasoning[unit]?4:applied[unit]?3:interpretations[unit]?2:1);
+    var variant=draw===4?'reasoning':draw===3?'applied':draw===2?'interpret':draw===1?'extension':'original';
     if (variant==='extension' && extensions[unit]) fn=extensions[unit];
     if (variant==='interpret' && interpretations[unit]) fn=interpretations[unit];
     if (variant==='applied' && applied[unit]) fn=applied[unit];
+    if (variant==='reasoning' && reasoning[unit]) fn=reasoning[unit];
     var x=fn(ctx.rng,ctx.c);
     // Fourth part requires interpreting the calculation, not just returning a scalar.
-    x[1].push('A classmate doubles your numerical answer to part (a). What number would that produce? Explain whether doubling that quantity makes sense for this situation.');
-    x[2].push(2*x[2][0]);
+    if (x[1].length===3) {
+      x[1].push('A classmate doubles your numerical answer to part (a). What number would that produce? Explain whether doubling that quantity makes sense for this situation.');
+      x[2].push(2*x[2][0]);
+    }
     var parts=x[1].map(function(t,i){
       return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
         check:{type:'mcas-context',unit:unit,index:i,variant:variant}};
