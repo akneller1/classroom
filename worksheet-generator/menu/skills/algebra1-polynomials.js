@@ -234,11 +234,11 @@
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="poly-mult";});if(!base)return;
     skill({id:"multiply-monomials-polynomials",best:base.best,tag:base.tag,name:"Distribute a monomial into a polynomial",blurb:"Multiply each polynomial term by a monomial.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
+      difficultyProfile:'focused',fixedDifficulty:1,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
   })();
   (function(){var base=skills.find(function(s){return s.id==="poly-mult";});if(!base)return;
     skill({id:"multiply-binomials",best:base.best,tag:base.tag,name:"Multiply two binomials",blurb:"Use distribution/FOIL to multiply binomials.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
+      difficultyProfile:'focused',fixedDifficulty:4,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
   })();
   NS.registerSkillSet({
     id: 'algebra1-polynomials', course: 'algebra1', courseName: 'Algebra 1', unit: 'polynomials-factoring', unitName: 'Polynomials',
