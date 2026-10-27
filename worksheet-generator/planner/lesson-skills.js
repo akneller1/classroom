@@ -128,8 +128,8 @@
     'U11-L11': full([['Q', 'q-apply', 1, 7], ['Z', 'factor-apply', 3, 5]]),
     'U11-L12': part([['P', 'lin-vs-exp', 1, 7]], 'Quadratic patterns (constant second differences) are not generated; add one table that is quadratic.'),
     /* Unit 12 · Statistics and Data Modeling */
-    'U12-L1': full([['D', 'boxplot', 1, 4], ['D', 'center', 5, 5], ['D', 'histogram', 1, 7]]),
-    'U12-L2': full([['D', 'center', 1, 7], ['D', 'spread', 1, 4], ['D', 'stdev', 1, 7]]),
+    'U12-L1': full([['D', 'center', 1, 5]]),
+    'U12-L2': full([['D', 'boxplot', 1, 7], ['D', 'histogram', 1, 7]]),
     'U12-L3': full([['D', 'boxplot', 5, 7], ['D', 'spread', 4, 7]]),
     'U12-L4': full([['D', 'twoway', 1, 7]]),
     'U12-L5': full([['D', 'scatter', 1, 1]]),
