@@ -8,7 +8,7 @@ assert.equal(D.validate(seg),true);
 assert.match(NS.figHtml(seg),/<svg/);
 assert.match(NS.figHtml(seg),/2x/);
 assert.equal(D.validate({...seg,labels:['A','A','C']}),false);
-for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']){
+for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines','geometry-triangle-relationships']){
  const set=NS.skillSets[id];assert.ok(set,id+' registered');
  for(const skill of set.skills)for(let c=1;c<=7;c++){
   let verified=0;
@@ -26,7 +26,7 @@ for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']){
 
 // Regression: assessment pools must never starve figure-backed Geometry skills.
 // The previous FNV low-bit selector assigned entire skill families to one pool.
-for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']) {
+for(const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines','geometry-triangle-relationships']) {
  const set=NS.skillSets[id];
  for(const skill of set.skills)for(const pool of ['formal','practice']) {
   for(const c of [3,4,5]) {
@@ -43,7 +43,7 @@ console.log('Verified Geometry starter skills and SVG diagrams across CP2/CP1/Ho
 
 // Geometry choose-all must use three independently true equations and two false
 // equations; never instruct students to solve an inequality.
-for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines']) {
+for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines','geometry-triangle-relationships']) {
   const set=NS.skillSets[id];
   for (const skill of set.skills) {
     const item=NS.generateProblem(id,skill.id,3,{intOnly:true,level:'cp1',questionPool:'formal'},'select-all-geometry-'+skill.id,{keys:new Set(),sigs:new Set()});
