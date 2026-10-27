@@ -19,8 +19,8 @@
   var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
   if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
 
-  var sectionLabels = { donow:'Do Now', mixed:'Mixed Review', notes:'Notes', examples:'Examples', practice:'Practice', summary:'Lesson Summary', exit:'Exit Ticket' };
-  var sectionChoices = { donow:true, mixed:false, notes:true, examples:true, practice:true, summary:false, exit:true };
+  var sectionLabels = { donow:'Do Now', mixed:'Mixed Review', notes:'Notes', examples:'Examples', practice:'Practice', challenge:'Challenge Problems', summary:'Lesson Summary', exit:'Exit Ticket' };
+  var sectionChoices = { donow:true, mixed:false, notes:true, examples:true, practice:true, challenge:false, summary:false, exit:true };
   try { var savedSections = JSON.parse(lsGet(KEY_SECTIONS) || '{}'); Object.keys(sectionChoices).forEach(function(k) { if (typeof savedSections[k] === 'boolean') sectionChoices[k] = savedSections[k]; }); } catch(e) {}
   var sectionOrder = (function() {
     var base = Object.keys(sectionChoices);
@@ -46,7 +46,7 @@
     return section ? section.groups.reduce(function(n, g) { return n + g.items.length; }, 0) : null;
   }
   function problemCountInput(id) {
-    if (['donow','mixed','examples','practice','exit'].indexOf(id) < 0) return '';
+    if (['donow','mixed','examples','practice','challenge','exit'].indexOf(id) < 0) return '';
     var section = ui.plan && ui.plan.sections.find(function(s) { return s.id === id; });
     var count = Object.prototype.hasOwnProperty.call(problemCounts,id) ? problemCounts[id] : totalProblems(section);
     var unavailable = !section || (!totalProblems(section) && !Object.prototype.hasOwnProperty.call(problemCounts,id));
@@ -202,7 +202,7 @@
         h += '<div class="pl-cards">' + g.items.map(function (p, ii) {
           return '<article class="pl-card' + (p.failed ? ' failed' : '') + '"><div class="pl-chd"><b>' + p.num + '.</b> <span class="pl-skill">' + esc(p.skillName) + ' · ' + esc(p.lesson) + (p.spiral ? ' · spiral' : '') + '</span>' +
             (p.failed ? '<span class="pl-badge bad">not verified</span>' : '<span class="pl-badge ok" title="Answer re-derived from the printed problem">✓ checked</span>') + '<span class="pl-diff">c' + (p.c || '') + '</span></div>' +
-            promptHtml(p) + answerHtml(p) + problemLabelPicker(plan, p, s, gi, ii) + '<button type="button" class="btn ghost sm pl-regen" data-s="' + si + '" data-g="' + gi + '" data-i="' + ii + '">New problem</button></article>';
+            promptHtml(p) + (p.challengeQuestion ? '<p class="pl-prompt"><b>Go further:</b> ' + esc(p.challengeQuestion) + '</p>' : '') + answerHtml(p) + problemLabelPicker(plan, p, s, gi, ii) + '<button type="button" class="btn ghost sm pl-regen" data-s="' + si + '" data-g="' + gi + '" data-i="' + ii + '">New problem</button></article>';
         }).join('') + '</div>';
       });
       h += '</section>';
@@ -275,7 +275,7 @@
     s.groups.forEach(function (g) {
       if (g.name && s.id !== 'notes') h += '<div class="pl-gh">' + esc(g.name) + (g.note ? ' <small>' + esc(g.note) + '</small>' : '') + '</div>';
       if (s.id === 'notes') return;   // notes are drawn inside notesBody
-      h += rows(g.items.map(function (p, i) { return { wide: wide(p), html: s.id === 'examples' && filled(plan) && i < g.items.length - 1 && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, s.id === 'examples' ? displayProblemLabel(p, 'Example ' + (i + 1)) : undefined) }; }));
+      h += rows(g.items.map(function (p, i) { return { wide: wide(p), html: s.id === 'examples' && filled(plan) && i < g.items.length - 1 && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, s.id === 'examples' ? displayProblemLabel(p, 'Example ' + (i + 1)) : undefined) + (p.challengeQuestion ? '<p class="pl-sprompt"><b>Go further:</b> ' + esc(p.challengeQuestion) + '</p>' + lines(3) : '') }; }));
     });
     if (s.frame) h += '<p class="pl-frame"><b>Summary:</b> ' + frameHtml(s.frame) + '</p>';
     if (s.selfAssess) h += rateTable(s.selfAssess, 'How sure am I?');
@@ -444,7 +444,7 @@
     var t = e.target;
     if (t.hasAttribute && t.hasAttribute('data-problem-count')) {
       var sectionId = t.getAttribute('data-problem-count');
-      if (['donow','mixed','examples','practice','exit'].indexOf(sectionId) < 0) return;
+      if (['donow','mixed','examples','practice','challenge','exit'].indexOf(sectionId) < 0) return;
       var v = Math.max(0, Math.min(30, Math.round(Number(t.value))));
       if (!isFinite(v) || t.value.trim() === '') return;
       problemCounts[sectionId] = v;
