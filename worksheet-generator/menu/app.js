@@ -164,7 +164,7 @@
   function testPartsHtml(c, rules) {
     var ws = NS.isWorksheet(c);
     return '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>' + (ws ? 'Worksheet parts' : 'Test parts') + '</h2>' +
-      '<div class="mm-presets"><span class="lbl">Start from:</span> ' + (ws ? WS_PRESETS.map(function (x) { return '<button type="button" class="btn ghost sm" data-wpreset="' + x[0] + '">' + x[1] + '</button>'; }).join(' ') :
+      '<div class="mm-presets"><span class="lbl">Start from:</span> ' + (ws ? WS_PRESETS.map(function (x) { var disabled=x[0]==='multi' && !NS.multiUnitSupported(c.unitId); return '<button type="button" class="btn ghost sm" data-wpreset="' + x[0] + '"' + (disabled ? ' disabled title="Choose all that apply is currently available only for inequalities with multiple solutions."' : '') + '>' + x[1] + '</button>'; }).join(' ') :
         [['std', 'Standard test (100 pts)'], ['quiz', 'Short quiz (50 pts)'], ['mc', 'All multiple choice'], ['open', 'All short answer']].map(function (x) { return '<button type="button" class="btn ghost sm" data-tpreset="' + x[0] + '">' + x[1] + '</button>'; }).join(' ')) + '</div>' +
       '<div class="mm-tablewrap"><table class="mm-sectbl"><thead><tr><th>Part name</th>' + (ws ? '' : '<th>Points each</th>') + '<th>Questions</th><th>Question format</th><th>Difficulty</th><th>Skills</th><th><span class="sr">Remove</span></th></tr></thead><tbody>' +
       c.sections.map(function (s, si) {
@@ -173,7 +173,7 @@
         return '<tr data-si="' + si + '"><td><input type="text" class="mmSecName" value="' + esc(s.name) + '" aria-label="Part ' + (si + 1) + ' name" maxlength="40"><input type="text" class="mmSecNote" value="' + esc(s.note || '') + '" aria-label="Part ' + (si + 1) + ' directions" placeholder="Directions (optional)" maxlength="60"></td>' +
           (ws ? '' : '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>') +
           '<td><input type="number" class="mmSecOff" min="1" max="30" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"></td>' +
-          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
+          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + (k === 'multi' && !NS.multiUnitSupported(c.unitId) ? ' disabled' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
           '<td><select class="mmSecTier" aria-label="' + esc(s.name) + ' difficulty">' + TIERS_TEST.map(function (t) { return '<option value="' + t[0] + '"' + (String(tierV) === String(t[0]) ? ' selected' : '') + '>' + t[1] + '</option>'; }).join('') + '</select>' +
           '<span class="mm-adj"><button type="button" class="step-btn mmAdj" data-d="-1" aria-label="Make ' + esc(s.name) + ' easier">−</button><span class="mm-cval" title="Difficulty (1 to 7)">' + cTxt + '</span><button type="button" class="step-btn mmAdj" data-d="1" aria-label="Make ' + esc(s.name) + ' harder">+</button></span></td>' +
           '<td><button type="button" class="btn ghost sm mmSecSkills">' + skillsTxt + '</button></td>' +
