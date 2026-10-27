@@ -509,8 +509,7 @@
     }
   });
 
-  /* absolute value EQUATIONS: the shared generator from the Expressions & Equations file */
-  skill(NS.absEqSkill('COMPOUND'));
+  /* Absolute value equations belong in Expressions & Equations, not this unit. */
 
 
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
