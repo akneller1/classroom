@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1';
+  var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_SECTION_ORDER = 'mk-planner-section-order-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1';
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
   function $(s) { return doc.querySelector(s); }
@@ -22,7 +22,21 @@
   var sectionLabels = { donow:'Do Now', notes:'Notes / examples', practice:'Practice', mixed:'Mixed Review', exit:'Exit ticket', summary:'Lesson Summary' };
   var sectionChoices = { donow:true, notes:true, practice:true, mixed:false, exit:true, summary:false };
   try { var savedSections = JSON.parse(lsGet(KEY_SECTIONS) || '{}'); Object.keys(sectionChoices).forEach(function(k) { if (typeof savedSections[k] === 'boolean') sectionChoices[k] = savedSections[k]; }); } catch(e) {}
-  function applySectionChoices(plan) { plan.sections = plan.sections.filter(function(s) { return sectionChoices[s.id] !== false; }); }
+  var sectionOrder = (function() {
+    var base = Object.keys(sectionChoices);
+    try {
+      var stored = JSON.parse(lsGet(KEY_SECTION_ORDER) || 'null');
+      if (Array.isArray(stored)) {
+        var valid = stored.filter(function(k, i) { return base.indexOf(k) >= 0 && stored.indexOf(k) === i; });
+        return valid.concat(base.filter(function(k) { return valid.indexOf(k) < 0; }));
+      }
+    } catch(e) {}
+    return base;
+  })();
+  function applySectionChoices(plan) {
+    plan.sections = plan.sections.filter(function(s) { return sectionChoices[s.id] !== false; });
+    plan.sections.sort(function(a, b) { return sectionOrder.indexOf(a.id) - sectionOrder.indexOf(b.id); });
+  }
 
   /* Minutes the teacher typed, remembered per day type (a Lesson-day timing applies to every Lesson day). */
   var minutesStore = (function () { try { return JSON.parse(lsGet(KEY_MIN) || '{}') || {}; } catch (e) { return {}; } })();
@@ -330,7 +344,7 @@
         return '<label class="pl-lv' + (ui.notes === o[0] ? ' on' : '') + '"><input type="radio" name="plNotes" value="' + o[0] + '"' + (ui.notes === o[0] ? ' checked' : '') + '> <span><b>' + o[1] + '</b> <small>' + o[2] + '</small></span></label>';
       }).join('') + '</fieldset>' +
       '<fieldset class="pl-levels pl-section-options"><legend class="pl-lab">Include in lesson</legend><p class="pl-hint">Unchecked sections are omitted from the lesson preview, handout, teacher key, and PowerPoint.</p>' +
-      Object.keys(sectionChoices).map(function(k) { return '<label class="pl-section-choice"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>'; }).join('') + '</fieldset>' +
+      sectionOrder.map(function(k, i) { return '<div class="pl-section-choice" style="display:flex;align-items:center;gap:8px;margin:7px 0"><label style="flex:1;display:flex;gap:7px;align-items:center"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label><button type="button" class="btn ghost sm" data-move-section="' + k + '" data-direction="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' up">↑</button><button type="button" class="btn ghost sm" data-move-section="' + k + '" data-direction="1"' + (i === sectionOrder.length - 1 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' down">↓</button></div>'; }).join('') + '<p class="pl-hint">Use arrows to change the sequence. The order is saved and used in all exports.</p></fieldset>' +
       '<label class="pl-lab" for="plN">Practice problems (lesson and practice days)</label><input id="plN" type="number" min="4" max="20" value="' + ui.practice + '">' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
@@ -373,6 +387,16 @@
   doc.addEventListener('click', function (e) {
     var t = e.target.closest ? e.target.closest('button') : null; if (!t) return;
     if (t.classList.contains('pl-daybtn')) { ui.day = +t.getAttribute('data-day'); render(); $('#plView').scrollIntoView ? G.scrollTo(0, 0) : 0; return; }
+    if (t.hasAttribute('data-move-section')) {
+      var id = t.getAttribute('data-move-section'), from = sectionOrder.indexOf(id), to = from + Number(t.getAttribute('data-direction'));
+      if (from >= 0 && to >= 0 && to < sectionOrder.length) {
+        sectionOrder.splice(from, 1);
+        sectionOrder.splice(to, 0, id);
+        lsSet(KEY_SECTION_ORDER, JSON.stringify(sectionOrder));
+        render();
+      }
+      return;
+    }
     if (t.id === 'plPrev') { ui.day--; render(); return; }
     if (t.id === 'plNext') { ui.day++; render(); return; }
     if (t.id === 'plNew') { ui.seed = Math.random().toString(36).slice(2, 7); render(); return; }
