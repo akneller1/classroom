@@ -11,7 +11,7 @@ D.render=function(spec){
  if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
  if(spec.kind==='geo-triangle-pair'){
-   if(!['sss','sas','asa','aas','hl'].includes(spec.criterion))return '';
+   if(!['sss','sas','asa','aas','hl','ssa','aaa'].includes(spec.criterion))return '';
    var right=spec.criterion==='hl';
    var A=[65,30],B=right?[65,122]:[48,122],C=[187,122];
    var D=[253,30],E=right?[253,122]:[236,122],F=[375,122];
@@ -24,10 +24,15 @@ D.render=function(spec){
    if(k==='sss'||k==='sas'||k==='hl')h+=mark(A,C,2)+mark(D,F,2);
    if(k==='sss')h+=mark(B,C,3)+mark(E,F,3);
    if(k==='asa'||k==='aas')h+=mark(A,C,1)+mark(D,F,1);
+   if(k==='ssa')h+=mark(A,B,1)+mark(D,E,1)+mark(B,C,2)+mark(E,F,2);
    if(k==='asa')h+=mark(A,B,2)+mark(D,E,2);
+   function arc(p,q,v,rank){var ux=(p[0]-v[0])/Math.hypot(p[0]-v[0],p[1]-v[1]),uy=(p[1]-v[1])/Math.hypot(p[0]-v[0],p[1]-v[1]);var vx=(q[0]-v[0])/Math.hypot(q[0]-v[0],q[1]-v[1]),vy=(q[1]-v[1])/Math.hypot(q[0]-v[0],q[1]-v[1]);var rr=17+rank*5;return '<path d="M'+(v[0]+rr*ux)+' '+(v[1]+rr*uy)+' A'+rr+' '+rr+' 0 0 1 '+(v[0]+rr*vx)+' '+(v[1]+rr*vy)+'" fill="none" stroke="#111" stroke-width="1.5"/>';}
+   if(['sas','asa','aas','ssa','aaa'].includes(k))h+=arc(B,C,A,0)+arc(E,F,D,0);
+   if(['asa','aas','aaa'].includes(k))h+=arc(A,C,B,1)+arc(D,F,E,1);
+   if(k==='aaa')h+=arc(A,B,C,2)+arc(D,E,F,2);
    if(right)h+='<path d="M65 110 H77 V122 M253 110 H265 V122" stroke="#111" fill="none" stroke-width="1.6"/>';
    h+=tx(65,20,'A')+tx(B[0]-12,139,'B')+tx(193,139,'C')+tx(253,20,'D')+tx(E[0]-12,139,'E')+tx(381,139,'F');
-   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,'Two triangles ABC and DEF; the given congruence relationships are stated in the question')+'<div style="font-size:10px;color:#555">Schematic, not to scale. Use the stated givens; markings show selected equal sides.</div></div>';
+   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,'Two triangles ABC and DEF; the given congruence relationships are stated in the question')+'<div style="font-size:10px;color:#555">Schematic, not to scale. Matching marks indicate equal corresponding sides or angles.</div></div>';
  }
  if(spec.kind==='geo-segment'){
    if(a.length!==3||m.length!==3||!m.every(x=>typeof x==='string'&&x.length<50))return '';
