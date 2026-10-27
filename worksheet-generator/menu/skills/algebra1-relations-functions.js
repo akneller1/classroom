@@ -400,6 +400,29 @@
       generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
   })();
   (function(){var parent=skills.find(function(s){return s.id==="sequence";});if(parent)skill({id:"arithmetic-nth",best:parent.best,tag:parent.tag,name:"Find a specified arithmetic sequence term",blurb:"Use the common difference to calculate the nth term.",generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:3}));}});})();
+  /* A discrete/continuous lesson-specific bank with verifiable numeric choice answers. */
+  skill({
+    id:'discrete-continuous',best:[0,1],tag:'RELATIONS',name:'Discrete versus continuous functions',
+    blurb:'Choose whether the input can take every value in an interval or only separate whole-number values.',
+    generate:function(ctx){
+      var cases=[
+        ['A student buys individual notebooks. The input is the number of notebooks purchased.',1],
+        ['The height of a plant is measured over elapsed time. The input is elapsed time in hours.',2],
+        ['Tickets sold for a school game are counted. The input is the number of tickets.',1],
+        ['Water flows into a tank. The input is the number of minutes elapsed.',2],
+        ['A classroom counts the number of students present. The input is the number of students.',1],
+        ['A cyclist travels along a trail. The input is the distance ridden in miles.',2],
+        ['A store charges per individual bag of apples. The input is the number of bags.',1],
+        ['A bathtub drains steadily. The input is the volume of water remaining in gallons.',2]
+      ];
+      var item=ctx.rng.pick(cases),answer=item[1];
+      return {variant:'dc'+answer,prompt:item[0]+' Is this input discrete or continuous? Enter 1 for discrete or 2 for continuous.',
+        parts:[{answer:String(answer),check:{type:'discrete-continuous',scenario:item[0]}}],
+        steps:[step(answer===1?'Individual objects are counted in whole numbers.':'A measured quantity can vary through values between whole numbers.',String(answer),1)],
+        space:[0.5,0.7,0.9]};
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-relations-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'relations-functions', unitName: 'Relations and Functions',
     title: 'The Function Diner',
