@@ -45,6 +45,26 @@
     steps:[st('For points on a horizontal line, subtract their x-coordinates.',M(eq)),st('Solve for x.',M('x='+right))],
     space:[1,1.3,1.6]};
  }
+
+ function coordinateInvestigation(ctx) {
+   // Four connected, fully checked parts; no illustrative diagram is required.
+   // Coordinate order A(0) < B(x) < C(t). Divisibility makes every midpoint integral.
+   var r=ctx.rng,c=ctx.c,x=4*r.int(2,c>=5?8:5),b=4*r.int(2,c>=5?8:5),t=x+b;
+   var m=x/2,n=(x+t)/2,w=(m+n)/2;
+   var e1='x+'+b+'='+t,e2='2y='+x,e3='2z='+(x+t),e4='2w='+(m+n);
+   return {
+     variant:'geo-coordinate-investigation-'+c,
+     prompt:'Four-part coordinate geometry investigation. Points A, B, and C lie in that order on a horizontal number line. A is at 0, B is at x, C is at '+t+', and BC is '+b+' units. For each part, use the stated geometric relationship and explain your calculation.',
+     parts:[
+       {label:'a',prompt:'Use segment addition to find coordinate x of B: '+M(e1)+'.',answer:M('x='+x),check:{type:'solve',eq:e1,v:'x'}},
+       {label:'b',prompt:'M is the midpoint of AB. Find its coordinate y using the result from (a): '+M(e2)+'.',answer:M('y='+m),check:{type:'solve',eq:e2,v:'y'}},
+       {label:'c',prompt:'N is the midpoint of BC. Find its coordinate z: '+M(e3)+'.',answer:M('z='+n),check:{type:'solve',eq:e3,v:'z'}},
+       {label:'d',prompt:'P is the midpoint of MN. Find its coordinate w: '+M(e4)+'.',answer:M('w='+w),check:{type:'solve',eq:e4,v:'w'}}
+     ],
+     steps:[st('Segment addition',M(e1)),st('Midpoint of AB',M(e2)),st('Midpoint of BC',M(e3)),st('Midpoint of MN',M(e4))],
+     space:[2.8,3.5,4.3]
+   };
+ }
  NS.registerSkillSet({id:'geometry-basics-reasoning',course:'geometry',courseName:'Geometry',unit:'basics-reasoning',unitName:'Foundations of Geometry',title:'Geometry Foundations',
  tags:{SEGMENT:'Segment addition and lengths',ANGLE:'Angle addition and measures',MIDPOINT:'Midpoints',BISECTOR:'Angle bisectors',COORD:'Coordinate geometry'},
  reference:'<div class="mm-refgrid"><section><h4>Segment addition</h4><p>When B is between A and C, AB + BC = AC.</p></section><section><h4>Angle addition</h4><p>Adjacent angles add to the measure of their whole angle.</p></section></div>',
@@ -54,6 +74,7 @@
  {id:'midpoint',tag:'MIDPOINT',name:'Midpoint and equal segments',best:[0,1,2],generate:midpoint},
  {id:'angle-bisector',tag:'BISECTOR',name:'Angle bisectors',best:[0,1,2],generate:bisector},
  {id:'coordinate-midpoint',tag:'COORD',name:'Midpoint with missing endpoint coordinate',best:[0,1,2],generate:coordinateMidpoint},
- {id:'coordinate-distance',tag:'COORD',name:'Horizontal distance and missing coordinate',best:[0,1,2],generate:distanceCoordinate}
+ {id:'coordinate-distance',tag:'COORD',name:'Horizontal distance and missing coordinate',best:[0,1,2],generate:distanceCoordinate},
+ {id:'coordinate-investigation',tag:'COORD',name:'Four-part coordinate midpoint investigation',best:[2],generate:coordinateInvestigation}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
