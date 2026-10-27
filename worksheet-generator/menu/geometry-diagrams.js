@@ -8,8 +8,29 @@ function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark','geo-similar-pair'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
+ if(spec.kind==='geo-similar-pair'){
+   if(!['aa','sas','sss','sides'].includes(spec.case))return '';
+   var left=[[70,26],[45,128],[186,128]],right=[[270,22],[242,130],[390,130]];
+   function edge(p,q){return '<path d="M'+p[0]+' '+p[1]+' L'+q[0]+' '+q[1]+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
+   function triangle(t){return edge(t[0],t[1])+edge(t[1],t[2])+edge(t[2],t[0]);}
+   var out=triangle(left)+triangle(right);
+   out+=tx(70,16,'A')+tx(35,145,'B')+tx(194,145,'C')+
+     tx(270,14,'D')+tx(232,147,'E')+tx(398,147,'F');
+   // Angular arc indicators are used only for AA, never equal-side tick marks
+   // (similar sides are proportional, not necessarily congruent).
+   if(spec.case==='aa'){
+     out+='<path d="M66 45 Q73 51 81 44 M266 43 Q273 49 281 42" fill="none" stroke="#111" stroke-width="1.5"/>';
+     out+='<path d="M48 109 Q60 113 69 124 M245 111 Q257 116 268 126" fill="none" stroke="#111" stroke-width="1.5"/>';
+   }
+   if(spec.case==='sas'){
+     out+='<path d="M66 45 Q73 51 81 44 M266 43 Q273 49 281 42" fill="none" stroke="#111" stroke-width="1.5"/>';
+   }
+   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+
+     svg(out,'Corresponding triangles ABC and DEF; similarity '+spec.case)+
+     '<div style="font-size:10px;color:#555">Schematic, not to scale. Use the measurements and correspondence stated in the question.</div></div>';
+ }
  if(spec.kind==='geo-triangle-landmark'){
    var type=spec.case;
    if(!['midsegment','centroid','altitude','bisector'].includes(type))return '';
