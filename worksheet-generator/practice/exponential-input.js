@@ -13,10 +13,11 @@ function graphic(q){
  pts.forEach(function(p){h+='<circle cx="'+(170+p[0]*15)+'" cy="'+(170-p[1]*15)+'" r="6" fill="#286ab6" stroke="white" stroke-width="2"/>';});
  if(pts.length===3){
    var y0=+answers[0],y1=+answers[1],ym=+answers[-1];
-   var b=y0!==0?y1/y0:0;
-   if(b>0&&Math.abs(ym-y0/b)<1e-6){
+   var chk=target(q),k=chk?Number(chk.k||0):0;
+   var b=y0!==k?(y1-k)/(y0-k):0;
+   if(b>0&&Math.abs(ym-(y0-k)/b-k)<1e-6){
       var path='';
-      for(var x=-10;x<=10;x+=.06){var y=y0*Math.pow(b,x);if(y<-10||y>10||!Number.isFinite(y))continue;path+=(path?'L':'M')+(170+15*x)+' '+(170-15*y)+' ';}
+      for(var x=-10;x<=10;x+=.06){var y=(y0-k)*Math.pow(b,x)+k;if(y<-10||y>10||!Number.isFinite(y))continue;path+=(path?'L':'M')+(170+15*x)+' '+(170-15*y)+' ';}
       h+='<path d="'+path+'" stroke="#286ab6" fill="none" stroke-width="2.5"/>';
    }
  }
@@ -28,7 +29,7 @@ API.render=function(q,i){
 };
 API.grade=function(q){
  var chk=target(q),a=get(q);if(!chk)return {status:'incorrect'};
- for(var x of [-1,0,1]){var want=chk.a*Math.pow(chk.n/chk.d,x);if(a[x]===undefined||!Number.isFinite(+a[x])||Math.abs(+a[x]-want)>1e-7)return {status:'incorrect'};}
+ for(var x of [-1,0,1]){var want=chk.a*Math.pow(chk.n/chk.d,x)+Number(chk.k||0);if(a[x]===undefined||!Number.isFinite(+a[x])||Math.abs(+a[x]-want)>1e-7)return {status:'incorrect'};}
  return {status:'correct'};
 };
 API.bind=function(root,state,save){root.querySelectorAll('[data-expgraph]').forEach(function(box){var i=+box.dataset.expgraph,q=state.questions[i];
