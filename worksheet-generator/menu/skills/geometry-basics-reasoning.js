@@ -9,7 +9,7 @@
   var text=kind==='segment'
     ? 'Point B lies between A and C on a straight segment. The sum of AB and BC equals AC. Find x using '
     : 'A ray divides a larger angle into two adjacent angles. Their measures add to the whole angle. Find x using ';
-  return {variant:'geo-'+kind+'-'+c,prompt:text+M(eq)+'.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('Apply the '+(kind==='segment'?'segment addition postulate':'angle addition postulate')+'.',M(eq)),st('Subtract the known part, then divide by the coefficient.',M('x='+x))],space:[1,1.3,1.6]};
+  return {variant:'geo-'+kind+'-'+c,prompt:text+M(eq)+'.',fig:kind==='segment'?{kind:'geo-segment',labels:['A','B','C'],measures:[(a===1?'x':a+'x'),String(b),String(total)],description:'Collinear points A, B, C with algebraic segment lengths'}:{kind:'geo-angle',labels:['A','B','C'],measures:[(a===1?'x':a+'x')+'°',b+'°',total+'°'],description:'Adjacent angles whose measures sum to the whole angle'},parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('Apply the '+(kind==='segment'?'segment addition postulate':'angle addition postulate')+'.',M(eq)),st('Subtract the known part, then divide by the coefficient.',M('x='+x))],space:[1,1.3,1.6]};
  }
  NS.registerSkillSet({id:'geometry-basics-reasoning',course:'geometry',courseName:'Geometry',unit:'basics-reasoning',unitName:'Foundations of Geometry',title:'Geometry Foundations',
  tags:{SEGMENT:'Segment addition and lengths',ANGLE:'Angle addition and measures'},
