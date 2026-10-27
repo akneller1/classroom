@@ -191,57 +191,15 @@
     if (opts.include && opts.include.challenge) {
       var challenge = sec('challenge', 'Challenge Problems', {
         minutes: 10,
-        prompt: 'Go beyond solving: justify your reasoning, compare approaches, or investigate what changes. More than one method may work.'
+        prompt: 'Solve the problem, then complete its specific challenge. Show your reasoning.'
       });
       var challengeEntries = interleave(cov);
       if (challengeEntries.length) {
         var howMany = opts.counts && Object.prototype.hasOwnProperty.call(opts.counts, 'challenge')
           ? Math.max(0, Math.min(12, Math.round(Number(opts.counts.challenge)) || 0)) : 2;
         var challengeItems = items(plan, 'challenge-', challengeEntries, howMany, fixed(t[2]));
-        var extensions = [
-          'Change one number or condition so the answer changes in a surprising way. Explain and verify.',
-          'Find a second method or representation. Why does it produce the same result?',
-          'Create a similar-looking problem that has a different type of answer. Explain the difference.',
-          'A classmate claims the method always works. Test the claim, then justify or disprove it.',
-          'Work backward: construct a new problem with a chosen answer and prove it meets the conditions.',
-          'What happens in an extreme or boundary case? Give evidence and describe a general rule.'
-        ];
-        var themedExtensions = [
-          [/slope|linear|rate|intercept/i, [
-            'Can two different equations describe the same line? Construct an example and justify it.',
-            'Change one condition to make the relationship non-linear. Explain how the graph reveals the change.',
-            'Find a real situation where the intercept cannot be interpreted literally. Explain why.'
-          ]],
-          [/system|elimination|substitution/i, [
-            'Change one coefficient so the system has infinitely many solutions. Explain your reasoning.',
-            'Change the system to have no solution without changing the slope of either line.',
-            'Find two solution methods and explain when each is more efficient.'
-          ]],
-          [/inequal|absolute value/i, [
-            'Change a boundary condition so exactly one endpoint changes from included to excluded. Explain.',
-            'Create a case where an inequality has no solutions or all real numbers as solutions. Prove it.',
-            'Give a counterexample to a tempting but incorrect shortcut for this problem.'
-          ]],
-          [/quadratic|parabola|factoring|polynomial/i, [
-            'Change one coefficient to change the number of real zeros. Explain why.',
-            'Find two representations of the same relationship that reveal different features.',
-            'Design a related problem with a repeated root. Explain how you know.'
-          ]],
-          [/exponent|growth|decay/i, [
-            'Compare repeated addition and repeated multiplication in a context. When do they diverge?',
-            'Change the rate or starting value so two models eventually cross. Justify your prediction.',
-            'Explain why the model may stop being realistic even when its calculations are correct.'
-          ]],
-          [/function|domain|range|mapping/i, [
-            'Construct a relation that passes one test of being a function but fails another proposed test.',
-            'Change the domain so the possible outputs change. Explain what is lost and retained.',
-            'Give two distinct inputs producing the same output, or explain why that is impossible here.'
-          ]]
-        ];
         challengeItems.forEach(function(p, i) {
-          var match = themedExtensions.filter(function(pair) { return pair[0].test((p.skillName || '') + ' ' + (d.lesson_title || d.title || '')); })[0];
-          var bank = match ? match[1] : extensions;
-          p.challengeQuestion = bank[(i + d.day) % bank.length];
+          p.challengeQuestion = P.challengeExtension(p, d.day + i);
         });
         group(challenge, 'Think deeper — show and explain', challengeItems);
       } else {
@@ -290,7 +248,9 @@
         for (var j = current.length; j < target; j++) {
           var entry = rotation[(j - current.length) % rotation.length];
           var tier = t[Math.min(2, Math.floor(j * 3 / Math.max(1, target)))];
-          last.items.push(makeProblem(plan, prefix + j, entry, tier));
+          var added = makeProblem(plan, prefix + j, entry, tier);
+          if (id === 'challenge') added.challengeQuestion = P.challengeExtension(added, d.day + j);
+          last.items.push(added);
         }
       }
     });
@@ -318,11 +278,54 @@
     plan.sections.forEach(function (s) { var n = 0; s.groups.forEach(function (g) { g.items.forEach(function (p) { p.num = ++n; }); }); });
   }
   P.allItems = function (plan) { var out = []; plan.sections.forEach(function (s) { s.groups.forEach(function (g) { g.items.forEach(function (p) { out.push(p); }); }); }); return out; };
+  // Challenge prompts must refer to the actual generated exercise. Avoid
+  // unrelated generic talk of boundary cases, chosen answers, or conditions.
+  P.challengeExtension = function(p, variation) {
+    var q = String(p.prompt || '').toLowerCase();
+    var skill = String(p.skillName || '').toLowerCase();
+    var v = variation || 0;
+    if (/square of (the )?sum|square of .* and /.test(q)) {
+      return 'A student squares each term separately instead of squaring the entire sum. Write both expressions. Choose a value of the variable that shows they are different, and explain why.';
+    }
+    if (/square of (the )?difference/.test(q)) {
+      return 'A student squares each term separately instead of squaring the entire difference. Write both expressions and give a value that shows the error.';
+    }
+    if (/evaluat|substitut/.test(q + ' ' + skill) && /[a-z]\\s*=\\s*[-−]?\\d/.test(q)) {
+      return 'Find a different value for the variable that makes the original expression equal to 0, if possible. Write and solve an equation, then check your result.';
+    }
+    if (/write (an? )?(algebraic )?expression|translat|verbal phrase|writing expressions/.test(q + ' ' + skill)) {
+      return 'Create a new verbal phrase by changing the order of two operations in the original phrase. Write both expressions and find an input where their values differ.';
+    }
+    if (/simplif|combine like terms|distribut|equivalent expression/.test(q + ' ' + skill)) {
+      return 'Write a different-looking expression equivalent to your simplified answer. Show with the distributive property or like terms why they are always equal.';
+    }
+    if (/system|elimination|substitution method/.test(q + ' ' + skill)) {
+      return 'Change one number in one original equation to give the system a different number of solutions. Explain how you know.';
+    }
+    if (/inequal|absolute value/.test(q + ' ' + skill)) {
+      return 'Change one number in the original problem. Solve both versions and describe exactly how the solution set changes.';
+    }
+    if (/quadratic|parabola|factor|polynomial/.test(q + ' ' + skill)) {
+      return 'Change one coefficient in the original problem. Predict and verify how the roots, factors, or graph change.';
+    }
+    if (/exponent|growth|decay/.test(q + ' ' + skill)) {
+      return 'Change the initial value or growth factor in the original problem. Compare the two models at two inputs and explain the pattern.';
+    }
+    if (/slope|linear|rate|intercept/.test(q + ' ' + skill)) {
+      return 'Change one number in the original relationship. Show how that changes its slope, intercept, or output, using an equation or graph.';
+    }
+    if (/function|domain|range|mapping/.test(q + ' ' + skill)) {
+      return 'Change one input or ordered pair in the original relation. Explain whether it is still a function and show how the outputs change.';
+    }
+    return v % 2
+      ? 'Change one number in your original problem so the answer changes. Solve both versions and explain exactly why the results differ.'
+      : 'Create a second problem of the same type with a different answer. Solve both and explain which change caused the different result.';
+  };
   P.regenerate = function (plan, si, gi, ii) {
     var old = plan.sections[si].groups[gi].items[ii];
     var salt = (old.salt || 0) + 1;
     var p = makeProblem(plan, old.slot, old.entry, old.c || old.entry.cmin, salt);
-    p.salt = salt; p.spiral = old.spiral; p.num = old.num; p.challengeQuestion = old.challengeQuestion;
+    p.salt = salt; p.spiral = old.spiral; p.num = old.num; p.challengeQuestion = old.challengeQuestion ? P.challengeExtension(p, salt + plan.day.day) : undefined;
     plan.sections[si].groups[gi].items[ii] = p;
     return p;
   };
