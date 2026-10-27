@@ -4,14 +4,23 @@
 var API=G.MKPARABOLA={};
 function number(s){if(s===''||s==='+')return 1;if(s==='-')return -1;if(!/^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(s))return null;var n=Number(s);return Number.isFinite(n)?n:null;}
 function target(q){
- var p=q.problem;if(!p||!p.parts||p.parts.length!==1||!/\b(graph|plot|draw)\b/i.test(p.prompt||''))return null;
- var s=String(p.parts[0].answer||'').replace(/[⟨⟩]/g,'').replace(/\\left|\\right/g,'').replace(/\\,/g,'').replace(/\\cdot/g,'').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g,(_,a,b)=>String(Number(a)/Number(b))).replace(/\s+/g,'').replace(/−/g,'-').replace(/\^\{2\}/g,'^2');
- var m=/^y=([+-]?(?:\d+(?:\.\d+)?|\.\d+)?)\((?:x)([+-]\d+(?:\.\d+)?)\)\^2([+-]\d+(?:\.\d+)?)?$/.exec(s);
- if(m){var a=number(m[1]),shift=Number(m[2]),k=Number(m[3]||0);if(a===null||a===0||!Number.isFinite(k))return null;var h=-shift;return {a:a,h:h,k:k};}
- // Polynomial ax²+bx+c with numeric coefficients.
- m=/^y=([+-]?(?:\d+(?:\.\d+)?|\.\d+)?)x\^2([+-](?:\d+(?:\.\d+)?|\.\d+)?)x([+-]\d+(?:\.\d+)?)?$/.exec(s);
- if(m){var a2=number(m[1]),b=number(m[2]),c=Number(m[3]||0);if(a2===null||b===null||a2===0||!Number.isFinite(c))return null;var h2=-b/(2*a2);return {a:a2,h:h2,k:a2*h2*h2+b*h2+c};}
- return null;
+ var p=q.problem;if(!p||!p.parts||p.parts.length!==1||!/\b(graph|plot|draw)\b/i.test((p.prompt||'')+' '+(p.parts[0].prompt||'')))return null;
+ var s=String(p.parts[0].answer||'').replace(/[⟨⟩]/g,'').replace(/\\left|\\right|\\,/g,'')
+ .replace(/\\cdot/g,'').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g,(_,a,b)=>String(Number(a)/Number(b)))
+ .replace(/\s+/g,'').replace(/−/g,'-').replace(/\^\{2\}/g,'^2');
+ if(!s.startsWith('y='))return null;
+ var rhs=s.slice(2),m,coef,h,k;
+ // a(x-h)^2+k (also a(x)^2+k and (x+h)^2)
+ m=/^([+-]?(?:\d+(?:\.\d+)?|\.\d+)?)\((x(?:[+-]\d+(?:\.\d+)?)?)\)\^2([+-]\d+(?:\.\d+)?)?$/.exec(rhs);
+ if(m){coef=number(m[1]);h=-(Number(m[2].slice(1))||0);k=Number(m[3]||0);if(coef&&Number.isFinite(h)&&Number.isFinite(k))return {a:coef,h:h,k:k};}
+ // ax^2+bx+c where either b or c may be absent.
+ m=/^([+-]?(?:\d+(?:\.\d+)?|\.\d+)?)x\^2((?:[+-](?:\d+(?:\.\d+)?|\.\d+)?)x)?([+-]\d+(?:\.\d+)?)?$/.exec(rhs);
+ if(!m)return null;
+ coef=number(m[1]);if(!coef)return null;
+ var term=m[2]||'',b=term?number(term.slice(0,-1)):0,c=Number(m[3]||0);
+ if(b===null||!Number.isFinite(c))return null;
+ h=-b/(2*coef);k=coef*h*h+b*h+c;
+ return Number.isFinite(h)&&Number.isFinite(k)?{a:coef,h:h,k:k}:null;
 }
 API.target=target;
 function read(q){if(typeof q.response!=='string'||!q.response.startsWith('parabola:'))return [];try{var p=JSON.parse(q.response.slice(9));return Array.isArray(p)?p:[];}catch(e){return [];}}
