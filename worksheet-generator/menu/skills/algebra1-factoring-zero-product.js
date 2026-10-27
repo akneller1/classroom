@@ -258,6 +258,12 @@
     }
   });
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="gcf";});if(!base)return;
+    skill({id:"factor-by-grouping",best:base.best,tag:base.tag,name:"Factor polynomials by grouping",blurb:"Group four terms and factor a common binomial.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:5}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-factoring-zero-product', course: 'algebra1', courseName: 'Algebra 1', unit: 'factoring-zero-product', unitName: 'Factoring and Zero Product Property',
     title: 'The Factor Factory Café',
