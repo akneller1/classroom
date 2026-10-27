@@ -21,7 +21,9 @@ for(const unit of Object.keys(M.skillSets).filter(k=>k.startsWith('algebra1-')))
       assert.ok(out.keys.length>=2,'At least two solutions required');
       assert.ok(out.keys.length<5,'At least one non-solution required');
       out.opts.forEach((v,i)=>{
-        const value=Number(v.split(' = ')[1]);
+        const match=/^⟨[a-zA-Z]+=(-?\\d+)⟩$/.exec(v);
+        assert.ok(match,'Expected math-formatted equality, got '+v);
+        const value=Number(match[1]);
         assert.equal(C.truth(cond,chk.v||'x',new C.Q(value)),out.keys.includes(i),'Wrong inequality choice '+v);
       });
       tested++;
