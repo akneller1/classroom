@@ -142,12 +142,13 @@
     return '<ol class="mm-choices' + (long ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li><span class="mm-bubble">' + LET[k] + '</span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>';
   }
   NS.choicesHtml = choicesHtml;
+  function multiHtml(p) { return '<div class="mm-multidir">Select <b>all</b> true statements.</div><ol class="mm-choices one">' + p.multi.opts.map(function (o, k) { return '<li><span class="mm-bubble">□ ' + LET[k] + '</span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>'; }
   function testDirections(state, rules) {
     var cfg = state.config, nQ = cfg.sections.reduce(function (n, s) { return n + (s.offered | 0); }, 0);
     var ws = NS.isWorksheet(cfg);
     var li = [ws ? 'Answer <b>all ' + nQ + ' questions</b>.' : 'Answer <b>all ' + nQ + ' questions</b>. The test is worth <b>' + rules.maxScore + ' points</b>.'];
     cfg.sections.forEach(function (s, si) {
-      var fm = NS.sectionFormat(cfg, si) === 'mc' ? 'circle the letter of the best answer' : ws ? 'show your work' : 'show your work; points are given for correct steps as well as the answer';
+      var fmt = NS.sectionFormat(cfg, si), fm = fmt === 'mc' ? 'circle the letter of the best answer' : fmt === 'multi' ? 'select all true statements (more than one answer)' : fmt === 'mcas' ? 'answer every part and explain your reasoning' : ws ? 'show your work' : 'show your work; points are given for correct steps as well as the answer';
       li.push('<b>Part ' + (si + 1) + ' · ' + esc(s.name) + '</b>' + (ws ? '' : ' (' + ptsText(+s.points) + ' each)') + ': ' + fm + '.');
     });
     return '<div class="mm-box mm-dirs"><h3>Directions</h3><ol>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol></div>';
@@ -161,10 +162,10 @@
   function testQHtml(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '.</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
-    var mc = NS.sectionFormat(cfg, si) === 'mc' && p.mc;
-    var space = mc ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: cfg.layout.density, grid: cfg.layout.grid } });
-    return '<div class="mm-dish mm-tq' + (isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span>' + (NS.isWorksheet(cfg) ? '' : '<span class="mm-pts">' + ptsText(+sec.points) + '</span>') + '</div>' +
-      promptHtml(p) + (mc ? choicesHtml(p) : '') + space + '</div>';
+    var fmt = NS.sectionFormat(cfg, si), mc = fmt === 'mc' && p.mc, multi = fmt === 'multi' && p.multi, mcas = fmt === 'mcas';
+    var space = mc || multi ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: mcas ? 'spacious' : cfg.layout.density, grid: cfg.layout.grid } });
+    return '<div class="mm-dish mm-tq' + (mcas || multi || isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span>' + (NS.isWorksheet(cfg) ? '' : '<span class="mm-pts">' + ptsText(+sec.points) + '</span>') + '</div>' +
+      promptHtml(p) + (mc ? choicesHtml(p) : multi ? multiHtml(p) : '') + (fmt === 'multi' && !multi ? '<p class="mm-flag bad">Cannot make verified choices: ' + esc(p.multiFail || 'Try another skill') + '</p>' : '') + (mcas && p.mcasFail ? '<p class="mm-flag bad">Cannot make a verified multi-part problem: ' + esc(p.mcasFail) + '</p>' : '') + space + '</div>';
   }
   function testStudentBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), B = [];
@@ -240,14 +241,14 @@
   function keyRow(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<tr><td><b>' + lab + '</b></td><td colspan="3">' + statusBadge(p) + '</td></tr>';
-    var mcOn = NS.sectionFormat(cfg, si) === 'mc' && p.mc;
-    var ans = mcOn ? '<b class="mm-letter">' + 'ABCDEFGH'[p.mc.key] + '</b> ' + mathSafe(p.parts[0].answer) + (p.mcNote ? '<div class="mm-flag warn">' + esc(p.mcNote) + '</div>' : '')
+    var fmt = NS.sectionFormat(cfg, si), mcOn = fmt === 'mc' && p.mc, multiOn = fmt === 'multi' && p.multi;
+    var ans = multiOn ? '<b>' + p.multi.keys.map(function (k) { return 'ABCDEFGH'[k]; }).join(', ') + '</b> · ' + p.multi.keys.map(function (k) { return mathSafe(p.multi.opts[k]); }).join('; ') : mcOn ? '<b class="mm-letter">' + 'ABCDEFGH'[p.mc.key] + '</b> ' + mathSafe(p.parts[0].answer) + (p.mcNote ? '<div class="mm-flag warn">' + esc(p.mcNote) + '</div>' : '')
       : (p.parts || []).map(function (pt) { return (pt.label ? '(' + esc(pt.label) + ') ' : '') + mathSafe(pt.answer) + (pt.answerFig && NS.figHtml ? NS.figHtml(pt.answerFig) : ''); }).join('<br>');
     var steps = (p.steps || []).filter(function (s) { return s.t || (s.m && s.w > 0); }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join('');
-    var rub = mcOn ? '<li><b>' + ptsText(+sec.points) + '</b>: choice ' + 'ABCDEFGH'[p.mc.key] + '. No partial credit.</li>' : NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
+    var rub = multiOn ? '<li><b>' + ptsText(+sec.points) + '</b>: select every correct statement and no incorrect statements.</li>' : mcOn ? '<li><b>' + ptsText(+sec.points) + '</b>: choice ' + 'ABCDEFGH'[p.mc.key] + '. No partial credit.</li>' : NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
     if (NS.sectionFormat(cfg, si) === 'mc' && !p.mc && !p.failed) rub = '<li><span class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</span></li>' + rub;
     var ws = NS.isWorksheet(cfg), fallback = NS.sectionFormat(cfg, si) === 'mc' && !p.mc ? '<div class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</div>' : '';
-    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : '') + statusBadge(p) + '</td>' +
+    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : multiOn ? multiHtml(p) : '') + statusBadge(p) + '</td>' +
       '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (ws ? fallback : '') + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td>' + (ws ? '' : '<td><ul class="mm-rub">' + rub + '</ul></td>') + '</tr>';
   }
   function guideBlocks(state, vIdx) {
@@ -276,7 +277,7 @@
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), set = NS.skillSets[cfg.unitId], B = [];
     B.push({ html: '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + ': ' + (NS.isWorksheet(cfg) ? 'Answer Key' : 'Teacher Key') + '</div><div class="mm-sub">' + esc(NS.LEVELS[cfg.level].long) + ' · ' + rules.totalOffered + ' questions' + (NS.isWorksheet(cfg) ? '' : ' · ' + rules.maxScore + ' points') + '</div></div>' + verTag(state, vIdx, 'key') + '</div>' });
     var quick = [];
-    ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { if (NS.sectionFormat(cfg, si) === 'mc' && it.mc) quick.push('<td><b>' + dishLabel(cfg, si, i) + '.</b> ' + 'ABCDEFGH'[it.mc.key] + '</td>'); }); });
+    ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { if (NS.sectionFormat(cfg, si) === 'mc' && it.mc) quick.push('<td><b>' + dishLabel(cfg, si, i) + '.</b> ' + 'ABCDEFGH'[it.mc.key] + '</td>'); else if (NS.sectionFormat(cfg, si) === 'multi' && it.multi) quick.push('<td><b>' + dishLabel(cfg, si, i) + '.</b> ' + it.multi.keys.map(function (k) { return 'ABCDEFGH'[k]; }).join(', ') + '</td>'); }); });
     if (quick.length) { var rows = []; for (var k = 0; k < quick.length; k += 10) rows.push('<tr>' + quick.slice(k, k + 10).join('') + '</tr>'); B.push({ html: '<div class="mm-box"><h3>Quick key: multiple choice</h3><table class="mm-tbl mm-quick"><tbody>' + rows.join('') + '</tbody></table></div>' }); }
     var groups = {}; ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { (groups[it.tag] = groups[it.tag] || []).push(dishLabel(cfg, si, i)); }); });
     B.push({ html: '<table class="mm-tbl"><thead><tr><th>Skill group</th><th>What it covers</th><th>Questions</th></tr></thead><tbody>' + Object.keys(groups).map(function (t) {
