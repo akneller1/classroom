@@ -103,7 +103,7 @@
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
       '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
-      (PAGE_MODE ? '<p class="hint">Every problem is made fresh and its answer is checked by a separate verifier. Choose short answer or multiple choice for each part in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
+      (PAGE_MODE ? '<p class="hint">Every problem is made fresh and its answer is checked by a separate verifier. Choose short answer, multiple choice, choose all that apply, or MCAS-style multi-part open response for each section in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
        : '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. For practice, use the <a href="worksheet.html#unit=' + esc(c.unitId) + '">Worksheet Generator</a>.</p>' +
       '<fieldset class="field mm-mode"><legend class="lbl">Format</legend>' +
       '<label class="chk"><input type="radio" name="mmMode" value="test"' + (NS.isTest(c) ? ' checked' : '') + '><span>Standard test<small>Everyone answers every question: multiple-choice and short-answer parts, easier to harder.</small></span></label>' +
@@ -160,7 +160,7 @@
   }
   /* Step 3 for a standard test: parts with a question format; everyone answers every question. */
   var TIERS_TEST = [['ramp', 'Easier → harder'], [0, 'Easier'], [1, 'Middle'], [2, 'Harder']];
-  var WS_PRESETS = [['mixed', 'Mixed practice (short answer)'], ['mc', 'All multiple choice'], ['both', 'Multiple choice + show your work'], ['skill', 'One part per skill']];
+  var WS_PRESETS = [['mixed', 'Mixed practice (short answer)'], ['mc', 'All multiple choice'], ['multi', 'Choose all that apply'], ['mcas', 'MCAS open response'], ['both', 'Multiple choice + show your work'], ['skill', 'One part per skill']];
   function testPartsHtml(c, rules) {
     var ws = NS.isWorksheet(c);
     return '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>' + (ws ? 'Worksheet parts' : 'Test parts') + '</h2>' +
@@ -180,7 +180,7 @@
           '<td><button type="button" class="btn ghost sm mmSecDel" aria-label="Remove part ' + esc(s.name) + '"' + (c.sections.length < 2 ? ' disabled' : '') + '>✕</button></td></tr>';
       }).join('') + '</tbody></table></div>' +
       '<p><button type="button" class="btn ghost sm" id="mmAddSec">+ Add a part</button></p>' +
-      '<p class="hint">' + (ws ? 'Students answer every question; the answer key has each answer and a worked solution.' : 'Every student answers every question.') + ' Within each part the questions go from easier to harder inside the class level, unless you choose one difficulty. Multiple-choice answers are checked: the right answer is verified and every wrong choice is a checked mistake.</p>' +
+      '<p class="hint">' + (ws ? 'Students answer every question; the answer key has each answer and a worked solution.' : 'Every student answers every question.') + ' Within each part the questions go from easier to harder inside the class level, unless you choose one difficulty. Multiple-choice answers are verified. Select-all questions have multiple mathematically checked true statements; MCAS-style questions require at least two connected parts. Unsupported skills are flagged rather than silently changed.</p>' +
       rulesHtml(rules) + '</section>';
   }
   function rulesHtml(rules) {
@@ -335,6 +335,11 @@
       (p.nearRepeat ? '<span class="mm-badge warn" title="This skill ran out of fresh variety at this difficulty">similar to another</span>' : '') + '</div>';
     var skillName = sk ? sk.name : (p.manual ? 'Teacher-written problem' : p.skill);
     var body = p.failed ? '<p class="mm-failmsg">' + esc(p.reason) + '</p>' : promptBlock(p);
+    if (!p.failed && NS.sectionFormat(c, si) === 'multi') {
+      if (p.multi) body += '<p class="mm-fmtnote">Select all true statements.</p><ol class="mm-cchoices one">' + p.multi.opts.map(function (o, k) { return '<li' + (show && p.multi.keys.indexOf(k) >= 0 ? ' class="ok"' : '') + '><b>□ ' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && p.multi.keys.indexOf(k) >= 0 ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>';
+      else body += '<p class="mm-fmtnote bad">No valid select-all problem: ' + esc(p.multiFail || 'try another skill') + '</p>';
+    }
+    if (!p.failed && NS.sectionFormat(c, si) === 'mcas' && p.mcasFail) body += '<p class="mm-fmtnote bad">Not a verified multi-part problem: ' + esc(p.mcasFail) + '</p>';
     if (!p.failed && NS.sectionFormat(c, si) === 'mc') {
       if (p.mc) body += '<ol class="mm-cchoices' + (p.mc.opts.some(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx').length > 24; }) ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li' + (show && k === p.mc.key ? ' class="ok"' : '') + '><b>' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && k === p.mc.key ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>' + (p.mcNote ? '<p class="mm-fmtnote">' + esc(p.mcNote) + '</p>' : '');
       else body += '<p class="mm-fmtnote bad">Prints as short answer: ' + esc(p.mcFail || 'no choices could be made') + ' Try ↻ New problem, or move it to a short-answer part.</p>';
