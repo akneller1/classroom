@@ -56,7 +56,8 @@ test('build: every slot verified, distinct, coverage satisfied', () => {
   assert.equal(items.length, 15);
   items.forEach(it => { assert.ok(!it.failed, it.reason); assert.equal(it.verify.status, 'verified'); });
   assert.equal(new Set(items.map(i => i.key)).size, 15);
-  const tags = new Set(items.map(i => i.tag)); ['SIMPLIFY', 'DISTRIB', 'SOLVE', 'LITERAL', 'MODEL'].forEach(t => assert.ok(tags.has(t), 'missing ' + t));
+  const tags = new Set(items.map(i => i.tag)); assert.ok(tags.size >= 4, 'Expected a varied mix of at least four skill categories');
+  const coverage = M.coverageTags(st.config, st); coverage.forEach(t => assert.ok(tags.has(t), 'missing configured coverage ' + t));
   deq(M.checkRules(st.config, st).errors, []);
 });
 test('levels change the mathematics: CP2 < CP1 < Honors difficulty per section', () => {
