@@ -142,7 +142,7 @@
     return '<ol class="mm-choices' + (long ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li><span class="mm-bubble">' + LET[k] + '</span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>';
   }
   NS.choicesHtml = choicesHtml;
-  function multiHtml(p) { return '<div class="mm-multidir">Select <b>all</b> values that satisfy the inequality.</div><ol class="mm-choices one">' + p.multi.opts.map(function (o, k) { return '<li><span style="display:inline-flex;align-items:center;gap:7px;margin-right:9px;white-space:nowrap;"><span style="display:inline-block;width:15px;height:15px;border:1.5px solid currentColor;border-radius:2px;box-sizing:border-box;"></span><b>' + LET[k] + '</b></span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>'; }
+  function multiHtml(p) { return '<div class="mm-multidir">' + esc(p.multi.direction || 'Select all values that satisfy the inequality.') + '</div><ol class="mm-choices one">' + p.multi.opts.map(function (o, k) { return '<li><span style="display:inline-flex;align-items:center;gap:7px;margin-right:9px;white-space:nowrap;"><span style="display:inline-block;width:15px;height:15px;border:1.5px solid currentColor;border-radius:2px;box-sizing:border-box;"></span><b>' + LET[k] + '</b></span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>'; }
   function testDirections(state, rules) {
     var cfg = state.config, nQ = cfg.sections.reduce(function (n, s) { return n + (s.offered | 0); }, 0);
     var ws = NS.isWorksheet(cfg);
