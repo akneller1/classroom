@@ -4822,17 +4822,10 @@ window.LIBRARY = {
               "added": "2026-10-27"
             },
             {
-              "title": "Triangles & Congruence Flashcards",
-              "path": "artifacts/triangles-congruence-flashcards/index.html",
-              "thumb": "thumbs/triangles-congruence-flashcards.jpg",
-              "description": "25 flashcards with worked solutions on triangle angles, isosceles triangles, the triangle inequality, SSS, SAS, ASA, AAS, HL, CPCTC and proof planning. Mark cards you need to practice and review them again.",
+              "title": "Triangle Relationships Flashcards",
+              "path": "artifacts/triangle-relationships-flashcards/index.html",
+              "description": "Generated triangle angle-sum, exterior-angle, and isosceles-angle flashcards with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
               "type": "Practice",
-              "topics": [
-                "Triangle angle sum and exterior angles",
-                "Isosceles triangles and the triangle inequality",
-                "SSS, SAS, ASA, AAS, HL",
-                "CPCTC and proof planning"
-              ],
               "added": "2026-10-18"
             }
           ]
@@ -5042,7 +5035,15 @@ window.LIBRARY = {
         {
           "id": "quadrilaterals-polygons",
           "name": "Quadrilaterals and Polygons",
-          "artifacts": []
+          "artifacts": [
+            {
+              "title": "Quadrilaterals & Polygons Flashcards",
+              "path": "artifacts/quadrilaterals-polygons-flashcards/index.html",
+              "description": "Generated polygon-angle and parallelogram flashcards with Easy, Medium, and Hard difficulty, skill selection, and practice tracking.",
+              "type": "Practice",
+              "added": "2026-10-27"
+            }
+          ]
         },
         {
           "id": "transformations",
