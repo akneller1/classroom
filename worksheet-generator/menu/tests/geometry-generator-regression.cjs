@@ -57,4 +57,5 @@ for (const scenario of ['shared','vertical']) {
   assert.equal(menu.verifyProblem(wrongFigure,{intOnly:true,level:'game'}).ok,false,
     'Proof verifier must not silently use diagram type as the answer key');
 }
+require('./proof-print-layout.cjs');
 console.log('Geometry generator regression passed: '+checks+' verified cards across '+units.length+' units.');
