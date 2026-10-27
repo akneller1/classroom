@@ -36,3 +36,26 @@ check('⟨x\\ge -2⟩','x >= -2','correct');
 assert.strictEqual(checker.grade({parts:[{answer:'⟨x=3⟩'}]},'x=abc').status,'invalid');
 assert.strictEqual(checker.grade({parts:[{answer:'⟨x=3⟩'}]},'').status,'empty');
 console.log('Practice grader: '+passed+' exact-math assertions passed; unsupported formats remain self-checked.');
+
+
+/* Regression tests for interactive graph answer checkers, not just numeric responses. */
+for(const file of ['practice/graph-input.js','practice/line-input.js','practice/parabola-input.js','practice/exponential-input.js','practice/system-input.js'])
+  vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context,{filename:file});
+function graphProblem(answer,check){return {prompt:'Graph the given function or inequality.',parts:[{answer,check}]};}
+const L=context.MKLINE,P=context.MKPARABOLA,E=context.MKEXPGRAPH,S=context.MKSYSTEM;
+const lq={problem:graphProblem('y=2x+1'),response:'line:'+JSON.stringify({points:[[0,1],[1,3]],dashed:false,shade:null})};
+assert.strictEqual(L.target(lq).a,-2);
+assert.strictEqual(L.grade(lq).status,'correct');passed++;
+const li={problem:graphProblem('y<2x+1'),response:'line:'+JSON.stringify({points:[[0,1],[1,3]],dashed:true,shade:-1})};
+assert.strictEqual(L.grade(li).status,'correct');passed++;
+assert.strictEqual(L.grade({...li,response:'line:'+JSON.stringify({points:[[0,1],[1,3]],dashed:true,shade:1})}).status,'incorrect');passed++;
+const pq={problem:graphProblem('y=(x-1)^2+2'),response:'parabola:'+JSON.stringify([[1,2],[-1,6],[0,3],[2,3],[3,6]])};
+assert.strictEqual(P.grade(pq).status,'correct');passed++;
+assert.strictEqual(P.grade({...pq,response:'parabola:'+JSON.stringify([[1,2],[-1,6],[0,3],[2,4],[3,6]])}).status,'incorrect');passed++;
+const expq={problem:graphProblem('⟨y=4\cdot 2^{x}+1⟩',{type:'exp-graph-points',a:4,n:2,d:1,k:1}),response:'expplot:'+JSON.stringify({'-1':3,0:5,1:9})};
+assert.strictEqual(E.grade(expq).status,'correct');passed++;
+assert.strictEqual(E.grade({...expq,response:'expplot:'+JSON.stringify({'-1':2,0:5,1:9})}).status,'incorrect');passed++;
+const sq={problem:graphProblem('',{type:'graph-key',eqs:['y=2x+1','y=-x+4']}),response:'system:'+JSON.stringify([[[0,1],[1,3]],[[0,4],[1,3]]])};
+assert.strictEqual(S.grade(sq).status,'correct');passed++;
+assert.strictEqual(S.grade({...sq,response:'system:'+JSON.stringify([[[0,1],[1,3]],[[0,4],[1,4]]])}).status,'incorrect');passed++;
+console.log('Interactive graph graders: 9 additional exact-check assertions passed.');
