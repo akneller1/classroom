@@ -93,3 +93,15 @@ assert(uxSource.includes("function updateProgress(){"),'Student progress needs a
 assert(uxSource.includes("data-review-toggle"),'Students need mark-for-review controls');
 assert(uxSource.includes("id=\"pt-print-paper\""),'Printable assessment remains separate');
 console.log('Direct-answer student UX static regression assertions passed.');
+
+
+/* Diagnostic feedback tests: distinguish slope, intercept, boundary and vertex errors. */
+const lineBase={problem:graphProblem('y=2x+1'),response:'line:'+JSON.stringify({points:[[0,1],[1,3]],dashed:false,shade:null})};
+assert.match(L.diagnose({...lineBase,response:'line:'+JSON.stringify({points:[[0,2],[1,4]],dashed:false,shade:null})}),/shifted/);
+assert.match(L.diagnose({...lineBase,response:'line:'+JSON.stringify({points:[[0,1],[1,4]],dashed:false,shade:null})}),/slope/);
+const parabolaBase={problem:graphProblem('y=(x-1)^2+2'),response:'parabola:'+JSON.stringify([[2,2],[-1,6],[0,3],[3,6],[4,11]])};
+assert.match(P.diagnose(parabolaBase),/vertex/);
+const feedbackSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
+assert(feedbackSource.includes('function diagnosticFeedback(q){'));
+assert(feedbackSource.includes("return diagnosticFeedback(q)+'<div class="));
+console.log('Individual graphing mistake diagnostics verified.');
