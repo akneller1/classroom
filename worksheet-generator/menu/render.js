@@ -118,6 +118,7 @@
     return '<table class="mm-proof-table" style="width:100%;border-collapse:collapse;margin:12px 0;break-inside:avoid"><thead><tr><th style="border:1px solid #333;text-align:left;padding:8px;background:#eee;width:54%">Statements</th><th style="border:1px solid #333;text-align:left;padding:8px;background:#eee">Reasons</th></tr></thead><tbody>'+
       rows.map(function (st,i) { return '<tr><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+(i+1)+'. '+esc(st)+'</td><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+blanks[i]+'</td></tr>'; }).join('')+'</tbody></table>';
   }
+  NS.proofLayout = proofLayout;
   function promptHtml(p, forKey) {
     var h = '<div class="mm-q">' + mathSafe(p.prompt || '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
