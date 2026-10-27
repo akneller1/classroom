@@ -431,6 +431,7 @@
     var set = NS.skillSets[unit], k = PR.kind(kind);
     var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
       '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { return '<label class="chk"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + '><span>' + esc(x.name) + '<small>' + esc(x.blurb) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+    if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
     h += '<section class="card"><h2>Level and skills</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
       '<p class="hint">Skills this printable cannot use are greyed out (for example, problems answered with a graph cannot go on a maze door).</p>' +
       set.skills.map(function (s) { var cap = PR.capable(unit, s.id, kind); return '<label class="chk' + (cap ? '' : ' off') + '"><input type="checkbox" class="prSkill" value="' + s.id + '"' + (cfg.skills[s.id] && cap ? ' checked' : '') + (cap ? '' : ' disabled') + '><span>' + esc(s.name) + (cap ? '' : '<small>Not available for a ' + esc(k.name.toLowerCase()) + '</small>') + '</span></label>'; }).join('') + '</section>';
@@ -453,6 +454,7 @@
     if ($('#prSt')) $('#prSt').onchange = function (e) { cfg.stations = +e.target.value; save(); rebuild(); };
     if ($('#prPer')) $('#prPer').onchange = function (e) { cfg.perStation = +e.target.value; save(); rebuild(); };
     if ($('#prPic')) $('#prPic').onchange = function (e) { cfg.picture = e.target.value; save(); rebuild(); };
+    if (kind === 'vocabulary') { doc.title = 'Vocabulary Builder · Mr. K\'s Classroom'; $('#prCrumb').textContent = 'Printable Generator · Vocabulary Builder'; return; }
     $('#prVer').onchange = function (e) { cfg.versions = +e.target.value; save(); rebuild(); };
     $('#prNew').onclick = function () { cfg.seed = Math.floor(Math.random() * 1e9); save(); rebuild(); };
     doc.title = PR.kind(kind).name + ' Generator · Mr. K\'s Classroom';
@@ -460,6 +462,7 @@
   }
   function rebuild() {
     render();
+    if (kind === 'vocabulary') { built = []; $('#prPreview').innerHTML = '<iframe title="Vocabulary Builder: worksheet settings and printable preview" src="vocabulary.html?embedded=1&unit=' + encodeURIComponent(unit) + '" style="width:100%;min-height:1420px;border:1px solid #d4dfea;border-radius:12px;background:white" loading="eager"></iframe>'; return; }
     var pv = $('#prPreview'); pv.innerHTML = '<div class="pr-busy">Making and checking problems…</div>';
     setTimeout(function () {
       built = [];
