@@ -1061,6 +1061,12 @@
     }
   });
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="both-sides";});if(!base)return;
+    skill({id:"solve-equations-variables-both-sides",best:base.best,tag:base.tag,name:"Equations with variables on both sides",blurb:"Solve multi-step equations with variable terms on both sides.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-expressions-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'expressions-equations', unitName: 'Solving Linear Equations',
     title: 'The Equation Bistro',
