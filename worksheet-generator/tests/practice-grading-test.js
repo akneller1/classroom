@@ -161,14 +161,14 @@ assert.equal(MI.insert('x',1,1,'<=')['text'],'x<=');
 console.log('Editable math fraction/radical/exponent caret and next-slot tests passed.');
 
 /* Exact radical grading — no decimal approximation or accepting unequal surds. */
-check('⟨\sqrt{12}⟩','2sqrt(3)','correct');
-check('⟨2\sqrt{3}⟩','sqrt(12)','correct');
-check('⟨\sqrt{12}⟩','sqrt(13)','incorrect');
-check('⟨\sqrt{8}⟩','2sqrt(2)','correct');
-check('⟨\sqrt{8}⟩','sqrt(8)/2','incorrect');
-check('⟨\sqrt{9}⟩','3','correct');
-check('⟨\sqrt{1/4}⟩','1/2','correct');
-check('⟨1+\sqrt{12}⟩','1+2sqrt(3)','correct');
-check('⟨\sqrt{12}⟩','2.5','incorrect');
-assert.strictEqual(checker.grade({parts:[{answer:'⟨\sqrt{12}⟩'}]},'sqrt(-3)').status,'invalid');
+check('⟨\\sqrt{12}⟩','2sqrt(3)','correct');
+check('⟨2\\sqrt{3}⟩','sqrt(12)','correct');
+check('⟨\\sqrt{12}⟩','sqrt(13)','incorrect');
+check('⟨\\sqrt{8}⟩','2sqrt(2)','correct');
+check('⟨\\sqrt{8}⟩','sqrt(8)/2','incorrect');
+check('⟨\\sqrt{9}⟩','3','correct');
+check('⟨\\sqrt{1/4}⟩','1/2','correct');
+check('⟨1+\\sqrt{12}⟩','1+2sqrt(3)','correct');
+check('⟨\\sqrt{12}⟩','2.5','incorrect');
+assert.strictEqual(checker.grade({parts:[{answer:'⟨\\sqrt{12}⟩'}]},'sqrt(-3)').status,'invalid');
 console.log('Exact radical grading checks passed.');
