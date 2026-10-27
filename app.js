@@ -545,7 +545,8 @@
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
               '<div class="unit-meta" data-lesson-list="true">' + subskillsHtml(u) + '</div>' +
-              '<a class="unit-open-link" href="' + href(unitToken(c, u)) + '">Open unit →</a></div></li>';
+              '<div class="unit-card-actions"><a class="unit-open-link" href="' + href(unitToken(c, u)) + '">Open unit →</a>' +
+              '<button type="button" class="btn btn-ghost unit-readiness-share" data-readiness-unit="algebra1-' + esc(u.id === 'exponents-exponential-functions' ? 'exponents-scientific-notation' : u.id) + '">Copy student link</button></div></div></li>';
           }
           return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
             '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
