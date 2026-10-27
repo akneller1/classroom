@@ -217,7 +217,31 @@
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
       if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 3)
         return {status:'invalid',msg:'Invalid scenario part.'};
-      if (chk.variant === 'applied') {
+      if (chk.variant === 'reasoning') {
+        if(unit==='algebra1-foundations' && nums.length===3)
+          expected=[a*b,a*d,a*(b-d),a*(b-2*d)];
+        else if(unit==='algebra1-expressions-equations' && nums.length===3 && a>0 && (d-b)%a===0)
+          expected=[d-b,(d-b)/a,a,d+a];
+        else if(unit==='algebra1-inequalities' && nums.length===3 && d>0) {
+          var free=a-b;
+          expected=[free,Math.floor(free/d),free%d,free%d>=d?1:0];
+        }
+        else if(unit==='algebra1-systems-of-equations' && nums.length===4 && d!==e){
+          var nAdult=(b-e*a)/(d-e),nStudent=a-nAdult;
+          if(Number.isInteger(nAdult)&&Number.isInteger(nStudent)&&nAdult>=0&&nStudent>=0)
+            expected=[nAdult,nStudent,nAdult*d,nStudent*e];
+        }
+        else if(unit==='algebra1-exponents-scientific-notation' && nums.length===3 && b>=0 && b<=8)
+          expected=[a*10**b,a*10**b*d,2*a*10**b,a*10**b];
+        else if(unit==='algebra1-polynomials' && nums.length===3)
+          expected=[a+b,a*b,(d+a)*(d+b),4*d+2*a+2*b];
+        else if(unit==='algebra1-factoring-zero-product' && nums.length===2){
+          var delta=a*a-4*b,rt=Math.sqrt(delta);
+          if(Number.isInteger(rt))expected=[(a-rt)/2,(a+rt)/2,a,rt];
+        }
+        else if(unit==='algebra1-quadratics' && nums.length===2)
+          expected=[Math.abs(a),b,b-1,4];
+      } else       if (chk.variant === 'applied') {
         if (unit === 'algebra1-foundations' && nums.length===3)
           expected=[a*b,(a-d)*b,d*b];
         else if (unit === 'algebra1-expressions-equations' && nums.length===3)
