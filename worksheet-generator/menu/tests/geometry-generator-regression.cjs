@@ -74,6 +74,31 @@ for(const id of ['right-special-45-45-90','right-special-30-60-90','right-angle-
     assert.equal(p.parts.length,1);
   }
 }
+// Unit 6 diagrams must be printable and correspond to the generated skill.
+for(const [id,kind] of [
+ ['right-pythagorean-hypotenuse','hyp'],
+ ['right-pythagorean-leg','leg'],
+ ['right-sine-side','sin'],
+ ['right-cosine-side','cos'],
+ ['right-tangent-side','tan'],
+ ['right-special-45-45-90','45'],
+ ['right-special-30-60-90','30'],
+ ['right-angle-elevation','elevation']
+]){
+  for(const c of [1,3,5,7]){
+    const p=menu.generateProblem('geometry-right-triangles-trigonometry',id,c,
+      {intOnly:true,level:'game'},'right-diagram:'+id+':'+c,
+      {keys:new Set(),sigs:new Set()});
+    assert.ok(!p.failed,'Right-triangle diagram fixture must generate: '+id+' c'+c);
+    assert.equal(p.verify.status,'verified');
+    assert.equal(p.fig && p.fig.kind,'geo-right-triangle');
+    assert.equal(p.fig.case,kind);
+    assert.ok(menu.geoDiagram.validate(p.fig));
+    const markup=menu.geoDiagram.render(p.fig);
+    assert.ok(markup.includes('<svg')&&markup.includes('fill="white"'),
+      'Right-triangle figure must be printable');
+  }
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
