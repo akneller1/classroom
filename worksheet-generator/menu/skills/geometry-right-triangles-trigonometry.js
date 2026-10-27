@@ -14,7 +14,7 @@ return make('geo-right-'+kind+'-'+ctx.c,prompt,eq,x,'Use the definition of '+(ki
 /* Exact-value special triangles with integer missing sides.
    Radical-valued targets are deferred until symbolic radical checks are supported. */
 function special45(ctx){
- var r=ctx.rng,c=ctx.c,n=r.int(3,c>=5?35:18),eq='x='+n;
+ var r=ctx.rng,c=ctx.c,n=r.int(3,c>=5?35:18),eq='2*x='+(2*n);
  return make('geo-right-45-'+c,
   'A 45°-45°-90° triangle has one leg of length '+n+' units. Find the other leg x. Explain why the two legs are congruent.',
   eq,n,'The legs opposite equal 45° angles are equal.');
