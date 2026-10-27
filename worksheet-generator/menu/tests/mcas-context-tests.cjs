@@ -89,3 +89,26 @@ for (const unit of units) {
   assert.ok(restored.versions[0].sections[0].items[0].parts.length>=4,unit+' legacy item not repaired');
 }
 console.log('Verified two-item Open Response preset and legacy migration for all Algebra units.');
+
+/* Exercise every new four-part reasoning scenario with positive and negative key mutations. */
+let reasoningChecked=0;
+for(const unit of Object.keys(M.contextReasoning)) for(const c of [2,4,6]) {
+  const base=env.MKWS.rng.make('reason-'+unit+'-'+c);
+  let first=true;
+  const rng={next:()=>base.next(),pick:a=>base.pick(a),int:(lo,hi)=>{
+    if(first){first=false;return 4;}
+    return base.int(lo,hi);
+  }};
+  const p=M.makeContextProblem(unit,{rng,c,intOnly:true,level:'cp1'});
+  assert.match(p.variant,/-reasoning$/);
+  assert.equal(p.parts.length,4);
+  const result=M.verifyProblem(p,{intOnly:true,level:'cp1'});
+  assert.ok(result.ok,unit+' reasoning check: '+result.issues.join('; '));
+  for(const part of p.parts) {
+    const save=part.answer;part.answer=String(Number(save)+1);
+    assert.ok(!M.verifyProblem(p,{intOnly:true,level:'cp1'}).ok,unit+' accepted wrong part');
+    part.answer=save;
+  }
+  reasoningChecked++;
+}
+console.log('Verified '+reasoningChecked+' four-part reasoning cases and incorrect answers.');
