@@ -113,32 +113,13 @@
     document.body.style.overflow = 'hidden';
     close.focus();
   }
-  function enhanceUnitCards() {
-    document.querySelectorAll('#main .algebra-unit-card').forEach(function(card) {
-      if (card.querySelector('.unit-readiness-share')) return;
-      var link = card.querySelector('.unit-title-link');
-      if (!link) return;
-      var match = /#algebra\.([a-z0-9-]+)/i.exec(link.getAttribute('href') || '');
-      var unitId = match && readinessUnits[match[1]];
-      if (!unitId) return;
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'btn btn-ghost unit-readiness-share';
-      button.textContent = 'Copy self-assessment student link';
-      button.setAttribute('aria-label', 'Configure and copy self-assessment link for ' + link.textContent.trim());
-      button.addEventListener('click', function() { openAssessmentSetup(unitId); });
-      card.appendChild(button);
-    });
-  }
-
   document.addEventListener('click', function (event) {
-    var btn = event.target.closest && event.target.closest('.unit-readiness-share[data-readiness-unit]');
+    var btn = event.target.closest && event.target.closest('.readiness-activity-share[data-readiness-unit]');
     if (btn) { event.preventDefault(); openAssessmentSetup(btn.getAttribute('data-readiness-unit')); }
   });
 
   var main = document.getElementById('main');
   if (!main) return;
   enhanceCards();
-  enhanceUnitCards();
-  new MutationObserver(function(){ enhanceCards(); enhanceUnitCards(); }).observe(main, { childList: true, subtree: true });
+  new MutationObserver(enhanceCards).observe(main, { childList: true, subtree: true });
 })();
