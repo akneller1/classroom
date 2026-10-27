@@ -54,6 +54,18 @@ for (const [id,caseName] of [
     assert.ok(menu.geoDiagram.render(p.fig).includes('<svg'),'Unit 4 diagram must render');
   }
 }
+// Honors triangle investigation must be one connected four-part problem.
+for (const c of [5,6,7]) {
+  const p = menu.generateProblem('geometry-triangle-relationships',
+    'triangle-honors-connected-investigation',c,{intOnly:false,level:'honors'},
+    'honors-triangle-chain:'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Honors investigation must generate at tier '+c);
+  assert.equal(p.parts.length,4,'Honors investigation needs four parts');
+  assert.equal(p.verify.status,'verified','All Honors steps must verify');
+  for (const part of p.parts) {
+    assert.equal(part.check.type,'solve','Each part must have an independent answer check');
+  }
+}
 // A changed printed equation must never pass simply because the original
 // dimensions still imply the saved answer.
 for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','right-distance-formula']) {
