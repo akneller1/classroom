@@ -130,11 +130,15 @@
   }
   NS.promptHtml = promptHtml;
   function isWide(p) {
+    if (/^geo-structured-proof-/.test(p.variant || '')) return true;
     var txt = WS.render ? (p.prompt || '').replace(/⟨[^⟩]*⟩/g, 'xxxxxxxxxx') : '';
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; }).length;
     return parts > 0 || txt.length > 150;
   }
   function workspace(p, cfg) {
+    // The proof table or flowchart already provides every writing space.
+    // An additional 1-3 inch blank workspace can push the figure off the page.
+    if (/^geo-structured-proof-/.test(p.variant || '')) return '';
     var d = DENS[cfg.layout.density]; if (d === undefined) d = 1;
     if (cfg.layout.format === 'menu-only') return '';
     var h = (p.space || [1, 1.3, 1.6])[d];
