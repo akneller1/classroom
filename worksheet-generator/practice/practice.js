@@ -1,7 +1,7 @@
 /* Interactive Practice Test — shares the menu generator's independently checked questions. */
 (function(G){
 'use strict';
-var N=G.MKMENU, W=G.MKWS, root=document.getElementById('practice'), STORE='mk-readiness-v2';
+var N=G.MKMENU, W=G.MKWS, root=document.getElementById('practice'), STORE='mk-readiness-auto-v3';
 var state=null,config={unit:'algebra1-expressions-equations',level:'cp1',count:10,mode:'test',format:'mixed',minutes:0,skills:[]};
 var esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 var fmt=s=>N.mathSafe(String(s||''));
