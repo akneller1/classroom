@@ -22,7 +22,7 @@ function copyStudentLink(){
  if(G.navigator.clipboard&&G.navigator.clipboard.writeText)G.navigator.clipboard.writeText(url).then(()=>{var b=root.querySelector('#pt-share');if(b)b.textContent='Copied student link';}).catch(()=>{if(field){field.focus();field.select();}});
  else if(field){field.focus();field.select();}
 }
-function controls(){return '<section class="pt-card"><span class="pt-eyebrow">ASSESSMENT READINESS · VERSION 2</span><h1>Assessment Readiness Check</h1><p>Take a unit-style assessment, review your performance by skill, and generate a targeted reassessment.</p><div class="pt-fields"><label>Unit<select id="pt-unit">'+units().map(u=>'<option value="'+esc(u[0])+'" '+(config.unit===u[0]?'selected':'')+'>'+esc(u[1])+'</option>').join('')+'</select></label><label>Level<select id="pt-level">'+['cp2','cp1','honors'].map(l=>'<option value="'+l+'" '+(config.level===l?'selected':'')+'>'+l.toUpperCase()+'</option>').join('')+'</select></label><label>Questions<select id="pt-count">'+[5,10,15,20,25].map(n=>'<option '+(config.count===n?'selected':'')+'>'+n+'</option>').join('')+'</select></label><label>Time limit<select id="pt-minutes">'+[0,20,30,45].map(n=>'<option value="'+n+'" '+(config.minutes===n?'selected':'')+'>'+(n?n+' minutes':'Untimed')+'</option>').join('')+'</select></label><label>Format<select id="pt-format"><option value="mixed" '+(config.format==='mixed'?'selected':'')+'>Mixed</option><option value="mc" '+(config.format==='mc'?'selected':'')+'>Multiple choice</option><option value="self" '+(config.format==='self'?'selected':'')+'>Short answer / auto-check where supported</option></select></label></div><h2>Choose skills</h2><div class="pt-skills">'+chosen().skills.map(s=>'<label><input type="checkbox" data-skill="'+esc(s.id)+'" '+(config.skills.includes(s.id)?'checked':'')+'> '+esc(s.name)+'</label>').join('')+'</div><div class="pt-actions"><button id="pt-all" class="pt-secondary">Select all</button><button id="pt-build">Generate printable assessment</button><button id="pt-share" class="pt-secondary">Copy student link</button></div><label class="pt-share-label">Student link (opens this unit with your selected settings)<input id="pt-student-link" readonly value="'+esc(studentURL())+'"></label><p class="pt-muted">Results stay on this device. Numeric answers and supported inequalities are graded exactly; complex written responses use self-check.</p></section>';}
+function controls(){return '<section class="pt-card"><span class="pt-eyebrow">ASSESSMENT READINESS · VERSION 2</span><h1>Assessment Readiness Check</h1><p>Take a unit-style assessment, review your performance by skill, and generate a targeted reassessment.</p><div class="pt-fields"><label>Unit<select id="pt-unit">'+units().map(u=>'<option value="'+esc(u[0])+'" '+(config.unit===u[0]?'selected':'')+'>'+esc(u[1])+'</option>').join('')+'</select></label><label>Level<select id="pt-level">'+['cp2','cp1','honors'].map(l=>'<option value="'+l+'" '+(config.level===l?'selected':'')+'>'+l.toUpperCase()+'</option>').join('')+'</select></label><label>Questions<select id="pt-count">'+[5,10,15,20,25].map(n=>'<option '+(config.count===n?'selected':'')+'>'+n+'</option>').join('')+'</select></label><label>Time limit<select id="pt-minutes">'+[0,20,30,45].map(n=>'<option value="'+n+'" '+(config.minutes===n?'selected':'')+'>'+(n?n+' minutes':'Untimed')+'</option>').join('')+'</select></label><label>Format<select id="pt-format"><option value="mixed" '+(config.format==='mixed'?'selected':'')+'>Mixed</option><option value="mc" '+(config.format==='mc'?'selected':'')+'>Multiple choice</option><option value="self" '+(config.format==='self'?'selected':'')+'>Automatically graded short answer</option></select></label></div><h2>Choose skills</h2><div class="pt-skills">'+chosen().skills.map(s=>'<label><input type="checkbox" data-skill="'+esc(s.id)+'" '+(config.skills.includes(s.id)?'checked':'')+'> '+esc(s.name)+'</label>').join('')+'</div><div class="pt-actions"><button id="pt-all" class="pt-secondary">Select all</button><button id="pt-build">Generate printable assessment</button><button id="pt-share" class="pt-secondary">Copy student link</button></div><label class="pt-share-label">Student link (opens this unit with your selected settings)<input id="pt-student-link" readonly value="'+esc(studentURL())+'"></label><p class="pt-muted">Results stay on this device. Every included question supports automatic grading; unsupported question formats are excluded.</p></section>';}
 function setup(){config.mode='test';if(state&&!state.done){root.innerHTML='<section class="pt-card"><h1>Assessment saved</h1><p>Your unfinished assessment is saved in this browser.</p><div class="pt-actions"><button id="pt-resume">Resume assessment</button><button id="pt-discard" class="pt-secondary">Discard and create new</button></div></section>';root.querySelector('#pt-resume').onclick=show;root.querySelector('#pt-discard').onclick=()=>{if(confirm('Discard your saved assessment?')){state=null;save();setup();}};return;}if(!N.skillSets[config.unit])config.unit=units()[0][0];root.innerHTML=controls();root.querySelector('#pt-unit').onchange=e=>{config.unit=e.target.value;config.skills=chosen().skills.map(s=>s.id);save();setup();};['level','count','format','minutes'].forEach(f=>root.querySelector('#pt-'+f).onchange=e=>{config[f]=(f==='count'||f==='minutes')?+e.target.value:e.target.value;save();});root.querySelectorAll('[data-skill]').forEach(x=>x.onchange=()=>{config.skills=Array.from(root.querySelectorAll('[data-skill]:checked')).map(el=>el.dataset.skill);save();});root.querySelector('#pt-all').onclick=()=>{config.skills=chosen().skills.map(s=>s.id);save();setup();};root.querySelector('#pt-build').onclick=()=>build();root.querySelector('#pt-share').onclick=copyStudentLink;}
 function makeQuestion(skill,seed,index,used){
  var policy={level:config.level,intOnly:config.level!=='honors'}, tier=levels[config.level]+(index%3===0?-1:index%3===2?1:0);
@@ -39,35 +39,52 @@ function makeQuestion(skill,seed,index,used){
  if(mode==='self'&&G.MKPRACTICE&&G.MKPRACTICE.supports(p))mode='auto';
  return {id:config.unit+'-'+seed+'-'+index,skill:skill.id,skillName:skill.name,problem:p,kind:mode,choices:choices,response:null,checked:false,correct:null,review:false};
 }
+function autoKind(p,choice){
+ if(!p||p.failed||!p.parts||p.parts.length!==1)return null;
+ var graph={problem:p,kind:'auto'};
+ if(G.MKGRAPH&&(G.MKGRAPH.supports(graph)||G.MKGRAPH.pointTarget(graph)))return 'auto';
+ if(choice&&choice.opts&&choice.opts.length===4&&Number.isInteger(choice.key)&&choice.key>=0&&choice.key<4)return 'mc';
+ if(G.MKPRACTICE&&G.MKPRACTICE.supports(p))return 'auto';
+ return null;
+}
 function build(overrides){
  config.mode='test';
- var chosenSkills=overrides&&overrides.length?chosen().skills.filter(x=>overrides.includes(x.id)):skills();
- if(!chosenSkills.length){alert('Select at least one skill.');return;}
- // This is the actual Assessment Generator's standard-test engine, not a duplicate question generator.
- var ac=N.defaultConfig(config.unit,'test');
- ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.questionPool='practice';ac.skills={};
- chosenSkills.forEach(x=>ac.skills[x.id]=true);
- var mcCount=config.format==='self'?0:config.format==='mc'?config.count:Math.ceil(config.count/2);
- var writtenCount=config.count-mcCount;
- ac.sections=N.testSections('std');
- ac.sections[0].offered=ac.sections[0].required=mcCount;
- ac.sections[1].offered=ac.sections[1].required=writtenCount;
- ac.sections=ac.sections.filter(x=>x.offered>0);
- var generated=N.newAssessment(ac);
- var questions=[];
- generated.versions[0].sections.forEach(function(sec){
-   sec.items.forEach(function(p){
-      if(p.failed||!p.parts||!p.parts.length)return;
-      var sk=chosen().byId[p.skill],choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
-      var graphable=p.parts.length===1&&p.parts[0].answerFig&&p.parts[0].answerFig.kind==='numberline';
-      if(graphable||(G.MKGRAPH&&G.MKGRAPH.pointTarget({problem:p})))choice=null;
-      var kind=(graphable||(G.MKGRAPH&&G.MKGRAPH.pointTarget({problem:p})))?'auto':choice?'mc':G.MKPRACTICE&&G.MKPRACTICE.supports(p)?'auto':'self';
-      questions.push({id:p.uid,skill:p.skill,skillName:sk?sk.name:p.tag,problem:p,kind:kind,choices:choice,response:null,checked:false,correct:null,review:false});
+ var selected=overrides&&overrides.length?chosen().skills.filter(x=>overrides.includes(x.id)):skills();
+ if(!selected.length){alert('Select at least one skill.');return;}
+ var questions=[],seen=new Set(),skipped=0,requested=config.count;
+ // Use the same verified teacher Assessment Generator, but accept ONLY fully gradeable questions.
+ for(var attempt=0;attempt<7&&questions.length<requested;attempt++){
+   var ac=N.defaultConfig(config.unit,'test');
+   ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.questionPool='practice';ac.skills={};
+   selected.forEach(x=>ac.skills[x.id]=true);
+   var remaining=requested-questions.length;
+   var mcCount=config.format==='self'?0:config.format==='mc'?remaining*2:remaining;
+   var openCount=config.format==='mc'?0:config.format==='self'?remaining*2:remaining;
+   ac.sections=N.testSections('std');
+   ac.sections[0].offered=ac.sections[0].required=mcCount;
+   ac.sections[1].offered=ac.sections[1].required=openCount;
+   ac.sections=ac.sections.filter(x=>x.offered>0);
+   var generated=N.newAssessment(ac);
+   generated.versions[0].sections.forEach(function(sec){
+     sec.items.forEach(function(p){
+       if(questions.length>=requested)return;
+       var fingerprint=p.key||N.studentText(p).replace(/\s+/g,'');
+       if(p.failed||seen.has(fingerprint)){skipped++;return;}
+       var choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
+       var graph={problem:p,kind:'auto'};
+       if(G.MKGRAPH&&(G.MKGRAPH.supports(graph)||G.MKGRAPH.pointTarget(graph)))choice=null;
+       var kind=autoKind(p,choice);
+       if(!kind){skipped++;return;}
+       var sk=chosen().byId[p.skill];
+       seen.add(fingerprint);
+       questions.push({id:p.uid,skill:p.skill,skillName:sk?sk.name:p.tag,problem:p,kind:kind,choices:kind==='mc'?choice:null,response:null,checked:false,correct:null,review:false});
+     });
    });
- });
- if(!questions.length){alert('The assessment generator could not create verified questions for this selection.');return;}
+ }
+ if(!questions.length){alert('No fully auto-gradable questions could be generated. Try a different skill selection or choose Multiple Choice.');return;}
+ if(questions.length<requested)alert('Only '+questions.length+' of '+requested+' requested questions could be generated with reliable automatic grading. Unsupported questions were excluded; no self-graded questions were included.');
  var previous=state&&state.done?state.questions.filter(q=>q.correct===true).length+'/'+state.questions.length:null;
- state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true};
+ state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true,autoGraded:true,unsupportedExcluded:skipped};
  save();show();
 }
 function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(p.prompt)+(p.fig&&N.figHtml?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
@@ -121,7 +138,7 @@ function show(){
  tickTimer();
 }
 function go(i){state.index=Math.max(0,Math.min(state.questions.length-1,i));save();show();}
-function submit(forced){var missing=state.questions.filter(q=>q.response===null||q.response==='').length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='mc')q.correct=typeof q.response==='number'&&q.response===q.choices.key;if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q)){var gg=G.MKGRAPH.pointGrade(q);q.correct=gg.status==='correct'?true:gg.status==='incorrect'?false:null;}else if(G.MKGRAPH&&G.MKGRAPH.supports(q)){var gg=G.MKGRAPH.grade(q);q.correct=gg.status==='correct'?true:gg.status==='incorrect'?false:null;}else if(q.kind==='auto'){var g=G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct'?true:g.status==='incorrect'?false:null;if(g.status==='self')q.kind='self';q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
+function submit(forced){var missing=state.questions.filter(q=>q.response===null||q.response==='').length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='mc')q.correct=typeof q.response==='number'&&q.response===q.choices.key;if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q)){var gg=G.MKGRAPH.pointGrade(q);q.correct=gg.status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.supports(q)){var gg=G.MKGRAPH.grade(q);q.correct=gg.status==='correct';}else if(q.kind==='auto'){var g=G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct';if(g.status==='self')q.invalidResponse='This response could not be graded automatically.';else q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
 function stats(){var buckets={};state.questions.forEach(q=>{var b=buckets[q.skill]||(buckets[q.skill]={name:q.skillName,correct:0,graded:0,missing:0});if(q.correct===null)b.missing++;else{b.graded++;if(q.correct)b.correct++;}});return Object.entries(buckets).map(([id,b])=>Object.assign({id:id},b));}
 function recommendations(){
  var list=stats().filter(b=>b.graded>0).sort((a,b)=>a.correct/a.graded-b.correct/b.graded);
