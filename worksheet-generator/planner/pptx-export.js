@@ -291,11 +291,11 @@
       if (P.watchOut(d)) paras.push({ text: 'Watch out: ' + P.watchOut(d), size: 24, color: 'A33A1D' });
       if (P.myNotes(d)) P.myNotes(d).split(/\n+/).filter(Boolean).forEach(function (line) { paras.push({ text: line, size: 22, bullet: true }); });
       if (paras.length) textSlide(sec, 'Key idea', paras, { notes: ['Model the sentence frame aloud before Example 1.'] });
-      var labels = ['Example 1 · I do', 'Example 2 · We do', 'Example 3 · You try'];
+      var labels = [];
       var ex = [];
       sec.groups.forEach(function (g) { g.items.forEach(function (p) { ex.push(p); }); });
       for (var i = 0; i < ex.length; i++) {
-        var p = ex[i], t = labels[i] || 'Example ' + (i + 1);
+        var p = ex[i], t = 'Example ' + (i + 1) + (p.teacherLabel ? ' · ' + p.teacherLabel : '');
         await problemSlides(sec, t, [p], { onePer: true, steps: true, labels: function () { return String(i + 1); } });
       }
     }
