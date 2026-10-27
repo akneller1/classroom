@@ -99,6 +99,18 @@ for(const [id,kind] of [
       'Right-triangle figure must be printable');
   }
 }
+// Connected Honors surveying: four verified parts, with a matching figure.
+for(const c of [1,3,5,7]){
+  const p=menu.generateProblem('geometry-right-triangles-trigonometry',
+    'right-honors-survey',c,{intOnly:true,level:'game'},
+    'honors-survey-regression:'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Honors surveying investigation must generate at tier '+c);
+  assert.equal(p.verify.status,'verified');
+  assert.equal(p.parts.length,4,'Honors surveying requires four parts');
+  assert.equal(p.fig.kind,'geo-right-triangle');
+  assert.equal(p.fig.case,'elevation');
+  assert.ok(menu.geoDiagram.validate(p.fig));
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
