@@ -39,7 +39,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .q{margin:8px 0 2px}
 #key{display:none;max-width:1050px;margin:0 auto 30px;padding:0 16px}
 </style></head><body>
-<header><h1>🚂 Crossing Tracks: Rail Yard Escape</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">30:00</span></div></header>
+<header><h1>🚂 Crossing Tracks: Rail Yard Escape</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
 <script>
@@ -61,7 +61,7 @@ const YARD_FIG=(th,top,bot)=>{
 
 const ROOM={
  id:'angles-parallel-lines', title:'Crossing Tracks: Rail Yard Escape', emoji:'🚂', endEmoji:'🚆🎉',
- intro:'You and your team are stuck in the Maple Street rail yard. The last train of the night leaves in <b>30 minutes</b>, and the signal tower has locked every gate and switch. Solve the puzzle at each station, collect the key cards, and get to the platform before the train pulls out.',
+ intro:'You and your team are stuck in the Maple Street rail yard. The last train of the night leaves in <b>10 minutes</b>, and the signal tower has locked every gate and switch. Solve the puzzle at each station, collect the key cards, and get to the platform before the train pulls out.',
  finalStory:'The platform gate hums. A sign reads: “Put your key cards in order from the smallest stamp to the largest. The letters name what you need to board.”',
  finalAsk:'What do you board?', word:'TRAIN',
  outro:'The gate rolls open, the signal turns green, and you leap aboard just as the whistle blows. The conductor punches your tickets and says, “Nice work, crew. Those tracks never did cross you.”',
@@ -103,7 +103,7 @@ const ROOM={
   key:'Corresponding: 7x + 3 = 5x + 15 → x = 6, angle = 45°. Linear pair: 45 + 15y = 180 → y = 9.'}
  ]};
 
-const TOTAL=30*60, HINT_COST=90, STAGES=ROOM.stages;
+const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;
 let t=TOTAL, used=0, stage=-1, timer=null, cards=[], hintsShown={}, st={};
 const $=s=>document.querySelector(s);
 const ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -162,7 +162,7 @@ function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.ran
 function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():say('Nothing happens. Re-check the order of the cards.',false)}
 function victory(){$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
 function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
-function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>30 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
+function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
 if(location.hash=='#key'){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
 intro();
 </script></body></html>
