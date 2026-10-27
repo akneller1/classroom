@@ -210,6 +210,30 @@
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if (t === 'geo-pythagorean') {
+      // Derive the length independently from the student-facing dimensions.
+      // Never use a generator-provided answer or a quadratic linear-solver.
+      var raw = C.plainText(p.prompt || ''), m, squared;
+      if (chk.kind === 'hyp') {
+        m = /right triangle has legs (\\d+) and (\\d+) units/.exec(raw);
+        if (!m) return {status:'invalid',msg:'Missing printed leg lengths.'};
+        squared = (+m[1])**2 + (+m[2])**2;
+      } else if (chk.kind === 'leg') {
+        m = /hypotenuse (\\d+) units and one leg (\\d+) units/.exec(raw);
+        if (!m) return {status:'invalid',msg:'Missing printed hypotenuse and leg.'};
+        squared = (+m[1])**2 - (+m[2])**2;
+      } else if (chk.kind === 'distance') {
+        m = /Points A\\(0, 0\\) and B\\((\\d+), (\\d+)\\)/.exec(raw);
+        if (!m) return {status:'invalid',msg:'Missing printed coordinates.'};
+        squared = (+m[1])**2 + (+m[2])**2;
+      } else return {status:'invalid',msg:'Unknown Pythagorean problem type.'};
+      var length = Math.sqrt(squared);
+      if (!(squared > 0) || !Number.isSafeInteger(squared) || !Number.isSafeInteger(length))
+        return {status:'invalid',msg:'Expected an exact positive integer length.'};
+      var got = valueFromAnswer(ans,'x');
+      return got.eq(new Q(length)) ? {status:'verified',computed:'x='+length}
+        : {status:'mismatch',msg:'Correct length is '+length+'.',computed:'x='+length};
+    }
     if(t === 'mcas-context') {
       // Independent from the scenario generator: recover numerical inputs
       // exclusively from the STUDENT'S printed scenario, not check metadata.
