@@ -409,8 +409,8 @@ if (fails.length) {
   // Group failures across all skills; printing only the first 40 concealed the actual causes.
   const grouped=new Map();
   fails.forEach(f=>{
-    const skill=(f.match(/(?:algebra1-[\\w-]+\\/)?[\\w-]+ c\\d+ (?:int|frac) #\\d+/)||[])[0]||f.slice(0,100);
-    const key=skill.replace(/ c\\d+ (?:int|frac) #\\d+/,'')+' :: '+(f.includes('failed to generate')?'generation':f.includes('not verified')?'verification':f.includes('format:')?'format':f.includes('difficulty')?'difficulty':'other');
+    const skill=f.includes(' c')?f.split(' c')[0]:f.slice(0,100);
+    const key=skill+' :: '+(f.includes('failed to generate')?'generation':f.includes('not verified')?'verification':f.includes('format:')?'format':f.includes('difficulty')?'difficulty':'other');
     const a=grouped.get(key)||{count:0,example:f};a.count++;grouped.set(key,a);
   });
   [...grouped].sort((a,b)=>b[1].count-a[1].count).slice(0,35).forEach(([key,v])=>console.log('  '+v.count+' × '+key+' | '+v.example));
