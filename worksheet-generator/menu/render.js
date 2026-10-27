@@ -105,10 +105,23 @@
     if (!rules.tags.length) return '';
     return '<div class="mm-box mm-skillchk"><b>My skill check</b> (circle each skill you have covered): ' + rules.tags.map(esc).join(' · ') + '</div>';
   }
+  function proofLayout(p) {
+    var isShared = p.fig && p.fig.case === 'shared';
+    var flow = /-flow-/.test(p.variant || '');
+    var first = isShared ? 'AB is congruent to AB' : 'Angle AOB is congruent to angle COD';
+    var second = isShared ? 'Triangle ABC is congruent to triangle ABD' : 'Triangle AOB is congruent to triangle COD';
+    var rows = [first,second,'Corresponding angles are congruent','Solve the printed equation for x'];
+    var blanks = ['Reason: __________________','Reason: __________________','Reason: __________________','x = __________'];
+    if (flow) return '<div class="mm-proof-flow" style="display:flex;flex-direction:column;align-items:center;gap:7px;margin:12px 0;break-inside:avoid">' +
+      rows.map(function (st,i) { return '<div style="width:94%;border:1.5px solid #222;border-radius:5px;padding:9px 12px;background:white;box-sizing:border-box"><b>Step '+(i+1)+':</b> '+esc(st)+'<div style="border-top:1px solid #aaa;margin-top:7px;padding-top:6px">'+blanks[i]+'</div></div>'+(i<3?'<div style="font-size:19px;line-height:15px">↓</div>':''); }).join('')+'</div>';
+    return '<table class="mm-proof-table" style="width:100%;border-collapse:collapse;margin:12px 0;break-inside:avoid"><thead><tr><th style="border:1px solid #333;text-align:left;padding:8px;background:#eee;width:54%">Statements</th><th style="border:1px solid #333;text-align:left;padding:8px;background:#eee">Reasons</th></tr></thead><tbody>'+
+      rows.map(function (st,i) { return '<tr><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+(i+1)+'. '+esc(st)+'</td><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+blanks[i]+'</td></tr>'; }).join('')+'</tbody></table>';
+  }
   function promptHtml(p, forKey) {
     var h = '<div class="mm-q">' + mathSafe(p.prompt || '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
+    if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;
