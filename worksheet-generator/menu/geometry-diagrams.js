@@ -8,8 +8,27 @@ function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
+ if(spec.kind==='geo-triangle-pair'){
+   if(!['sss','sas','asa','aas','hl'].includes(spec.criterion))return '';
+   var right=spec.criterion==='hl';
+   var A=[65,30],B=right?[65,122]:[48,122],C=[187,122];
+   var D=[253,30],E=right?[253,122]:[236,122],F=[375,122];
+   function line(p,q){return '<path d="M'+p[0]+' '+p[1]+' L'+q[0]+' '+q[1]+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
+   function mark(p,q,n){var mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2,dx=q[0]-p[0],dy=q[1]-p[1],len=Math.hypot(dx,dy),nx=-dy/len,ny=dx/len,out='';
+     for(var j=0;j<n;j++){var t=j-(n-1)/2,xx=mx+t*6*dx/len,yy=my+t*6*dy/len;out+='<path d="M'+(xx-6*nx)+' '+(yy-6*ny)+' L'+(xx+6*nx)+' '+(yy+6*ny)+'" stroke="#111" stroke-width="1.7"/>';}return out;}
+   h=line(A,B)+line(B,C)+line(C,A)+line(D,E)+line(E,F)+line(F,D);
+   var k=spec.criterion;
+   if(k==='sss'||k==='sas'||k==='hl')h+=mark(A,B,1)+mark(D,E,1);
+   if(k==='sss'||k==='sas')h+=mark(A,C,2)+mark(D,F,2);
+   if(k==='sss')h+=mark(B,C,3)+mark(E,F,3);
+   if(k==='asa'||k==='aas')h+=mark(A,C,1)+mark(D,F,1);
+   if(k==='asa')h+=mark(A,B,2)+mark(D,E,2);
+   if(right)h+='<path d="M65 110 H77 V122 M253 110 H265 V122" stroke="#111" fill="none" stroke-width="1.6"/>';
+   h+=tx(65,20,'A')+tx(B[0]-12,139,'B')+tx(193,139,'C')+tx(253,20,'D')+tx(E[0]-12,139,'E')+tx(381,139,'F');
+   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,'Two triangles ABC and DEF; the given congruence relationships are stated in the question')+'<div style="font-size:10px;color:#555">Schematic, not to scale. Use the stated givens; markings show selected equal sides.</div></div>';
+ }
  if(spec.kind==='geo-segment'){
    if(a.length!==3||m.length!==3||!m.every(x=>typeof x==='string'&&x.length<50))return '';
    h='<path d="M54 76 H376" fill="none" stroke="#111" stroke-width="2.5"/>'+
