@@ -34,7 +34,7 @@ function build(overrides){
  if(!chosenSkills.length){alert('Select at least one skill.');return;}
  // This is the actual Assessment Generator's standard-test engine, not a duplicate question generator.
  var ac=N.defaultConfig(config.unit,'test');
- ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.skills={};
+ ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.questionPool='practice';ac.skills={};
  chosenSkills.forEach(x=>ac.skills[x.id]=true);
  var mcCount=config.format==='self'?0:config.format==='mc'?config.count:Math.ceil(config.count/2);
  var writtenCount=config.count-mcCount;
