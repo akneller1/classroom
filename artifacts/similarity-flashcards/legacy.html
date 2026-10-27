@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Similarity Flashcards</title>
+<style>
+:root{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color-scheme:light;
+  --ink:#14213d; --muted:#52627a; --accent:#3658d4; --accent-2:#eef3ff; --bg:#f3f6fd; --paper:#fffef9;
+  --line:#d9e2f2; --good:#1f7a4d; --bad:#9e2a2b; --shadow:#1d346517;
+  --fg:#14213d; --acc:#3658d4; --acc2:#d9780f; --fillc:rgba(54,88,212,.16); --fillc2:rgba(217,120,15,.16); --gridc:rgba(20,33,61,.14); --bgc:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+main{max-width:980px;margin:30px auto;padding:18px}
+h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.5rem)}
+.sub{color:var(--muted);margin:0 0 22px}
+.toolbar,.actions,.stats{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.toolbar{margin-bottom:14px}
+.stats{justify-content:space-between;color:var(--muted);font-size:.93rem;margin-bottom:12px}
+select,button{font:inherit;border-radius:10px;padding:10px 14px}
+select{border:1px solid #c9d3e8;background:white;color:var(--ink)}
+button{border:1px solid #bdcae8;background:white;color:var(--ink);cursor:pointer}
+button:hover{background:#e7ecfb}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,select:focus-visible,.card:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.primary:hover{background:#2846b2}
+.correct{background:#e1f7e8;border-color:#6ebc84}
+.missed{background:#ffe8e8;border-color:#e19a9a}
+.progress{height:9px;border-radius:9px;background:#dce4f4;overflow:hidden;margin:0 0 14px}
+.bar{background:var(--accent);height:100%;width:0;transition:width .2s}
+.card{min-height:430px;background:white;border:2px solid #d2dcf0;border-radius:22px;padding:28px 24px;box-shadow:0 9px 24px var(--shadow);display:flex;flex-direction:column;gap:18px;cursor:pointer}
+.card-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.tag{font-size:.82rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.mode-pill{font-size:.8rem;background:var(--accent-2);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:650}
+.prompt-wrap{display:grid;gap:10px}
+.prompt-label{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.instr{font-size:clamp(1.1rem,2.6vw,1.45rem);font-weight:600;line-height:1.5}
+.story{font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.5;color:var(--ink)}
+.display{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:600;line-height:1.5;padding:4px 0}
+.figbox{display:flex;justify-content:center;padding:6px 0}
+.figbox svg{max-width:100%;height:auto}
+.answer-box{background:#f6f8fe;border:1px solid #d8e2f5;border-radius:14px;padding:14px 16px}
+.answer-title,.panel-title{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.answer{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700}
+.reveal-area{display:grid;grid-template-columns:1.15fr .95fr;gap:18px;align-items:start;margin-top:18px}
+.reveal-area.single{grid-template-columns:1fr}
+.notebook{background:linear-gradient(to bottom,var(--paper),var(--paper)) padding-box,linear-gradient(to bottom,#f3d57f,#e9bf4f) border-box;border:2px solid transparent;border-radius:18px;padding:16px 16px 12px}
+.problem-copy{font-weight:700;margin:0 0 10px;font-size:1.05rem}
+.steps{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.step{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}
+.step-num{width:28px;height:28px;border-radius:50%;background:#e8eefc;color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem;margin-top:2px}
+.step-main{display:grid;gap:4px}
+.step-say{font-size:.98rem;color:var(--muted);line-height:1.45}
+.step-m{font-size:1.25rem;font-weight:600;color:var(--ink)}
+.visual-panel,.explanation-panel{background:#fbfcff;border:1px solid #d9e3f6;border-radius:18px;padding:16px}
+.explanation-panel{margin-top:12px}
+.explanation{color:var(--muted);line-height:1.55}
+.graph-holder{background:white;border:1px solid #e2e8f6;border-radius:14px;padding:10px;text-align:center}
+.graph-holder svg{max-width:100%;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.86rem;margin-top:10px}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--accent);background:white}
+.legend-dot.closed{background:var(--accent)}
+.tip{margin-top:12px;background:#fff6e0;border:1px solid #efd28a;border-radius:12px;padding:10px 14px;color:#5a4410;line-height:1.5}
+.hint{color:var(--muted);font-size:.9rem;text-align:center;margin-top:auto}
+.notice{padding:13px 15px;background:white;border-radius:10px;border:1px solid #d2dcf0;margin-top:20px;color:var(--muted)}
+.actions{justify-content:center;margin-top:18px}
+[hidden]{display:none!important}
+@media (max-width:860px){.reveal-area{grid-template-columns:1fr}}
+@media (max-width:560px){.card{padding:20px 16px}.step{grid-template-columns:26px 1fr;gap:8px}.step-num{width:24px;height:24px;font-size:.8rem}}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style>
+</head>
+<body>
+<main>
+  <h1>Similarity Flashcards</h1>
+  <p class="sub">Geometry · Flip each card for the answer, the worked steps, and why it works</p>
+
+  <div class="toolbar">
+    <label for="skill">Skill:</label>
+    <select id="skill"><option value="All">All skills</option></select>
+    <button id="shuffle">Shuffle</button>
+    <button id="missedOnly">Practice missed</button>
+    <button id="reset">Reset progress</button>
+  </div>
+
+  <div class="stats"><span id="counter" aria-live="polite"></span><span id="score" aria-live="polite"></span></div>
+  <div class="progress" aria-label="Card position"><div class="bar" id="bar"></div></div>
+
+  <div class="card" id="card" role="button" tabindex="0" aria-label="Flashcard: click or press Space to flip">
+    <div class="card-top">
+      <div class="tag" id="tag"></div>
+      <div class="mode-pill" id="modePill">Question side</div>
+    </div>
+
+    <div class="prompt-wrap">
+      <div class="prompt-label">Problem</div>
+      <div class="instr" id="instr"></div>
+      <div class="story" id="story" hidden></div>
+      <div class="display m" id="display" hidden></div>
+      <div class="figbox" id="figbox" hidden></div>
+    </div>
+
+    <div id="revealArea" hidden>
+      <div class="answer-box">
+        <div class="answer-title">Answer</div>
+        <div class="answer m" id="answer"></div>
+      </div>
+      <div class="reveal-area" id="revealGrid">
+        <div>
+          <div class="notebook">
+            <div class="panel-title">Show your work</div>
+            <ol class="steps" id="steps"></ol>
+          </div>
+          <div class="explanation-panel">
+            <div class="panel-title">Why this works</div>
+            <div class="explanation" id="explanation"></div>
+          </div>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <div class="visual-panel" id="visualPanel" hidden>
+          <div class="panel-title" id="visualTitle">Visual</div>
+          <div class="graph-holder" id="graphHolder"></div>
+          <div class="legend" id="legend" hidden>
+            <div class="legend-item"><span class="legend-dot"></span><span>Open circle: endpoint not included</span></div>
+            <div class="legend-item"><span class="legend-dot closed"></span><span>Closed circle: endpoint included</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint" id="hint">Click the card or press Space to reveal the answer and the worked solution.</div>
+  </div>
+
+  <div class="actions">
+    <button id="prev">← Previous</button>
+    <button id="flip" class="primary">Reveal answer</button>
+    <button id="again" class="missed" hidden>Need practice</button>
+    <button id="known" class="correct" hidden>Got it!</button>
+    <button id="next">Next →</button>
+  </div>
+
+  <p class="notice">Your progress is stored in this browser only. Keyboard: ←/→ to navigate, Space to flip, 1 = need practice, 2 = got it.</p>
+</main>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+const CARDS = [{"skill": "Similar figures & scale factor", "p": "What is true about the angles and the sides of similar polygons?", "s": "{{△ABC ∼ △DEF}} (see the figure).", "a": "Matching angles are congruent; matching sides are proportional.", "fig": {"vb": [-3.0, -3.0, 18.0, 11.0], "px": 470, "alt": "Triangle ABC with sides 3, 4, 5 and triangle DEF with sides 6, 8, 10; matching angles are marked (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [3.0, 0.0], [3.0, 4.0]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [3.0, 0.0], [3.0, 4.0]], "k": "none"}, {"t": "arc", "c": [0.0, 0.0], "r": 18, "from": 0.0, "to": 53.13010235415598, "k": "acc2"}, {"t": "arc", "c": [3.0, 4.0], "r": 18, "from": -126.86989764584402, "to": -90.0, "k": "acc2"}, {"t": "arc", "c": [3.0, 4.0], "r": 24, "from": -126.86989764584402, "to": -90.0, "k": "acc2"}, {"t": "ra", "p": [3.0, 0.0], "d1": 90.0, "d2": 180.0, "s": 11}, {"t": "tx", "p": [1.5, 0.0], "s": "3", "dx": 0, "dy": 20}, {"t": "tx", "p": [3.0, 2.0], "s": "4", "dx": 15, "dy": 5}, {"t": "tx", "p": [1.5, 2.0], "s": "5", "dx": -12, "dy": -4}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -12, "dy": 13, "k": "b"}, {"t": "tx", "p": [3.0, 0.0], "s": "B", "dx": 9, "dy": 17, "k": "b"}, {"t": "tx", "p": [3.0, 4.0], "s": "C", "dx": 5, "dy": -9, "k": "b"}, {"t": "p", "pts": [[9.0, 0.0], [15.0, 0.0], [15.0, 8.0]], "k": "fill"}, {"t": "p", "pts": [[9.0, 0.0], [15.0, 0.0], [15.0, 8.0]], "k": "none"}, {"t": "arc", "c": [9.0, 0.0], "r": 18, "from": 0.0, "to": 53.13010235415598, "k": "acc2"}, {"t": "arc", "c": [15.0, 8.0], "r": 18, "from": -126.86989764584402, "to": -90.0, "k": "acc2"}, {"t": "arc", "c": [15.0, 8.0], "r": 24, "from": -126.86989764584402, "to": -90.0, "k": "acc2"}, {"t": "ra", "p": [15.0, 0.0], "d1": 90.0, "d2": 180.0, "s": 11}, {"t": "tx", "p": [12.0, 0.0], "s": "6", "dx": 0, "dy": 20}, {"t": "tx", "p": [15.0, 4.0], "s": "8", "dx": 15, "dy": 5}, {"t": "tx", "p": [12.0, 4.0], "s": "10", "dx": -12, "dy": -4}, {"t": "tx", "p": [9.0, 0.0], "s": "D", "dx": -12, "dy": 13, "k": "b"}, {"t": "tx", "p": [15.0, 0.0], "s": "E", "dx": 9, "dy": 17, "k": "b"}, {"t": "tx", "p": [15.0, 8.0], "s": "F", "dx": 5, "dy": -9, "k": "b"}]}, "steps": [{"say": "Compare the angles. The right angles match, and the other marked angles match too.", "m": "∠A ≅ ∠D,  ∠B ≅ ∠E,  ∠C ≅ ∠F"}, {"say": "Compare the matching sides. Each side of {{△DEF}} is 2 times its partner in {{△ABC}}.", "m": "[[6 ; 3]] = [[8 ; 4]] = [[10 ; 5]] = 2"}, {"say": "Same angles plus sides in the same ratio means the same shape, only a different size. That is what similar means."}], "why": "Similar figures are enlargements or reductions of each other: the shape stays the same and every length is multiplied by one scale factor.", "tip": "Congruent figures have scale factor 1. Similar figures can have any scale factor.", "id": 1}, {"skill": "Similar figures & scale factor", "p": "Find the scale factor from {{△ABC}} to {{△DEF}}.", "s": "{{△ABC ∼ △DEF}}. {{AB = 6}}, {{BC = 8}}, {{AC = 10}} and {{DE = 9}}.", "a": "[[3 ; 2]]", "fig": {"vb": [-4.2, -4.2, 25.2, 16.2], "px": 470, "alt": "Two similar triangles; AB is 6 in the first and the matching side DE is 9 in the second (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [6.0, 0.0], [6.0, 8.0]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [6.0, 0.0], [6.0, 8.0]], "k": "none"}, {"t": "tx", "p": [3.0, 0.0], "s": "6", "dx": 0, "dy": 20}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -12, "dy": 13, "k": "b"}, {"t": "tx", "p": [6.0, 0.0], "s": "B", "dx": 9, "dy": 17, "k": "b"}, {"t": "tx", "p": [6.0, 8.0], "s": "C", "dx": 5, "dy": -9, "k": "b"}, {"t": "p", "pts": [[12.0, 0.0], [21.0, 0.0], [21.0, 12.0]], "k": "fill"}, {"t": "p", "pts": [[12.0, 0.0], [21.0, 0.0], [21.0, 12.0]], "k": "none"}, {"t": "tx", "p": [16.5, 0.0], "s": "9", "dx": 0, "dy": 20}, {"t": "tx", "p": [12.0, 0.0], "s": "D", "dx": -12, "dy": 13, "k": "b"}, {"t": "tx", "p": [21.0, 0.0], "s": "E", "dx": 9, "dy": 17, "k": "b"}, {"t": "tx", "p": [21.0, 12.0], "s": "F", "dx": 5, "dy": -9, "k": "b"}]}, "steps": [{"say": "Scale factor from {{△ABC}} to {{△DEF}} is a ratio of matching sides, new over old. {{DE}} matches {{AB}}.", "m": "[[DE ; AB]] = [[9 ; 6]]"}, {"say": "Simplify the fraction by dividing top and bottom by 3.", "m": "[[9 ; 6]] = [[3 ; 2]]"}, {"say": "The scale factor is {{[[3 ; 2]]}}, or 1.5. Every side of {{△DEF}} is 1.5 times its match in {{△ABC}}."}], "why": "Scale factor compares one figure to the other, so the order matters: new over old.", "tip": "Check another pair: {{8 × [[3 ; 2]] = 12}}, so {{EF = 12}}.", "id": 2}, {"skill": "Similar figures & scale factor", "p": "The rectangles are similar. Find the height of rectangle {{EFGH}}.", "s": "Rectangle {{ABCD}} is 6 wide and 9 tall. Rectangle {{EFGH}} is 8 wide and {{x}} tall.", "a": "12", "fig": {"vb": [-3.6, -3.6, 20.1, 15.6], "px": 440, "alt": "Two similar rectangles. ABCD is 6 wide and 9 tall. EFGH is 8 wide and its height is unknown (drawn to scale)", "items": [{"t": "p", "pts": [[0, 0], [6, 0], [6, 9], [0, 9]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [6, 0], [6, 9], [0, 9]], "k": "none"}, {"t": "tx", "p": [0, 0], "s": "A", "dx": -10, "dy": 14, "k": "b"}, {"t": "tx", "p": [6, 0], "s": "B", "dx": 10, "dy": 14, "k": "b"}, {"t": "tx", "p": [6, 9], "s": "C", "dx": 10, "dy": -6, "k": "b"}, {"t": "tx", "p": [0, 9], "s": "D", "dx": -10, "dy": -6, "k": "b"}, {"t": "tx", "p": [3.0, 9], "s": "6", "dy": -8}, {"t": "tx", "p": [6, 4.5], "s": "9", "dx": 16, "dy": 4}, {"t": "p", "pts": [[8.5, 0], [16.5, 0], [16.5, 12], [8.5, 12]], "k": "fill"}, {"t": "p", "pts": [[8.5, 0], [16.5, 0], [16.5, 12], [8.5, 12]], "k": "none"}, {"t": "tx", "p": [8.5, 0], "s": "E", "dx": -10, "dy": 14, "k": "b"}, {"t": "tx", "p": [16.5, 0], "s": "F", "dx": 10, "dy": 14, "k": "b"}, {"t": "tx", "p": [16.5, 12], "s": "G", "dx": 10, "dy": -6, "k": "b"}, {"t": "tx", "p": [8.5, 12], "s": "H", "dx": -10, "dy": -6, "k": "b"}, {"t": "tx", "p": [12.5, 12], "s": "8", "dy": -8}, {"t": "tx", "p": [16.5, 6.0], "s": "?", "dx": 16, "dy": 4}]}, "steps": [{"say": "Corresponding sides of similar figures are proportional. Match width to width and height to height.", "m": "[[6 ; 8]] = [[9 ; x]]"}, {"say": "Cross-multiply.", "m": "6x = 72"}, {"say": "Divide both sides by 6.", "m": "x = 12"}], "why": "In similar figures, every pair of matching lengths has the same ratio.", "tip": "Check: {{[[6 ; 8]] = 0.75}} and {{[[9 ; 12]] = 0.75}}.", "id": 3}, {"skill": "Similar figures & scale factor", "p": "Are the two rectangles similar? Show why.", "s": "Rectangle {{ABCD}} is 3 by 5. Rectangle {{EFGH}} is 9 by 12.", "a": "No", "fig": {"vb": [-3.2, -3.2, 17.7, 15.2], "px": 440, "alt": "A 3 by 5 rectangle ABCD and a 9 by 12 rectangle EFGH (drawn to scale)", "items": [{"t": "p", "pts": [[0, 0], [3, 0], [3, 5], [0, 5]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [3, 0], [3, 5], [0, 5]], "k": "none"}, {"t": "tx", "p": [0, 0], "s": "A", "dx": -10, "dy": 14, "k": "b"}, {"t": "tx", "p": [3, 0], "s": "B", "dx": 10, "dy": 14, "k": "b"}, {"t": "tx", "p": [3, 5], "s": "C", "dx": 10, "dy": -6, "k": "b"}, {"t": "tx", "p": [0, 5], "s": "D", "dx": -10, "dy": -6, "k": "b"}, {"t": "tx", "p": [1.5, 5], "s": "3", "dy": -8}, {"t": "tx", "p": [3, 2.5], "s": "5", "dx": 16, "dy": 4}, {"t": "p", "pts": [[5.5, 0], [14.5, 0], [14.5, 12], [5.5, 12]], "k": "fill"}, {"t": "p", "pts": [[5.5, 0], [14.5, 0], [14.5, 12], [5.5, 12]], "k": "none"}, {"t": "tx", "p": [5.5, 0], "s": "E", "dx": -10, "dy": 14, "k": "b"}, {"t": "tx", "p": [14.5, 0], "s": "F", "dx": 10, "dy": 14, "k": "b"}, {"t": "tx", "p": [14.5, 12], "s": "G", "dx": 10, "dy": -6, "k": "b"}, {"t": "tx", "p": [5.5, 12], "s": "H", "dx": -10, "dy": -6, "k": "b"}, {"t": "tx", "p": [10.0, 12], "s": "9", "dy": -8}, {"t": "tx", "p": [14.5, 6.0], "s": "12", "dx": 16, "dy": 4}]}, "steps": [{"say": "All rectangle angles are 90°, so the angles always match. Only the sides can fail. Compare width to width.", "m": "[[9 ; 3]] = 3"}, {"say": "Compare height to height.", "m": "[[12 ; 5]] = 2.4"}, {"say": "The two ratios are not equal (3 and 2.4), so the sides are not proportional. The rectangles are not similar."}], "why": "Similar needs BOTH: congruent angles and one scale factor for every side.", "tip": "Same angles alone are not enough for rectangles. A long thin rectangle and a square have matching angles but different shapes.", "id": 4}, {"skill": "Missing sides with proportions", "p": "Find {{x}}.", "s": "{{△ABC ∼ △DEF}}. {{AB = 6}}, {{BC = 10}}, {{DE = 9}} and {{EF = x}}.", "a": "x = 15", "fig": {"vb": [-5.0, -5.0, 30.0, 19.97], "px": 470, "alt": "Triangle ABC with AB 6 and BC 10, and a similar triangle DEF with DE 9 and EF unknown (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [6.0, 0.0], [6.666666666666667, 9.977753031397176]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [6.0, 0.0], [6.666666666666667, 9.977753031397176]], "k": "none"}, {"t": "tx", "p": [3.0, 0.0], "s": "6", "dx": 0, "dy": 20}, {"t": "tx", "p": [6.333333333333334, 4.988876515698588], "s": "10", "dx": 15, "dy": 6}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -12, "dy": 14, "k": "b"}, {"t": "tx", "p": [6.0, 0.0], "s": "B", "dx": 7, "dy": 18, "k": "b"}, {"t": "tx", "p": [6.666666666666667, 9.977753031397176], "s": "C", "dx": 5, "dy": -9, "k": "b"}, {"t": "p", "pts": [[15.0, 0.0], [24.0, 0.0], [25.0, 14.966629547095764]], "k": "fill"}, {"t": "p", "pts": [[15.0, 0.0], [24.0, 0.0], [25.0, 14.966629547095764]], "k": "none"}, {"t": "tx", "p": [19.5, 0.0], "s": "9", "dx": 0, "dy": 20}, {"t": "tx", "p": [24.5, 7.483314773547882], "s": "x", "dx": 15, "dy": 6}, {"t": "tx", "p": [15.0, 0.0], "s": "D", "dx": -12, "dy": 14, "k": "b"}, {"t": "tx", "p": [24.0, 0.0], "s": "E", "dx": 7, "dy": 18, "k": "b"}, {"t": "tx", "p": [25.0, 14.966629547095764], "s": "F", "dx": 5, "dy": -9, "k": "b"}]}, "steps": [{"say": "List matching sides in the same order. {{AB}} matches {{DE}}, and {{BC}} matches {{EF}}.", "m": "[[6 ; 9]] = [[10 ; x]]"}, {"say": "Cross-multiply.", "m": "6x = 90"}, {"say": "Divide both sides by 6.", "m": "x = 15"}], "why": "Matching sides come from the order of the letters in {{△ABC ∼ △DEF}}.", "tip": "Check the scale factor: {{[[9 ; 6]] = 1.5}} and {{[[15 ; 10]] = 1.5}}.", "id": 5}, {"skill": "Missing sides with proportions", "p": "Find {{x}}.", "s": "Two triangles are similar. In the first triangle, side {{x + 3}} corresponds to side 4 of the second triangle, and side 9 corresponds to side 6.", "a": "x = 3", "steps": [{"say": "Write a proportion with the first triangle on top and the second on the bottom.", "m": "[[x + 3 ; 4]] = [[9 ; 6]]"}, {"say": "Cross-multiply. Keep {{x + 3}} in parentheses.", "m": "6(x + 3) = 36"}, {"say": "Divide both sides by 6.", "m": "x + 3 = 6"}, {"say": "Subtract 3 from both sides.", "m": "x = 3"}], "why": "A proportion with an expression becomes an ordinary equation after cross-multiplying.", "tip": "Check: {{x + 3 = 6}}, and {{[[6 ; 4]] = [[9 ; 6]] = 1.5}}.", "id": 6}, {"skill": "Missing sides with proportions", "p": "Write a correct proportion that uses {{AB}}, {{BC}}, {{XY}} and {{YZ}}.", "s": "{{△ABC ∼ △XYZ}}", "a": "[[AB ; XY]] = [[BC ; YZ]]", "steps": [{"say": "The letters match in order: {{A ↔ X}}, {{B ↔ Y}}, {{C ↔ Z}}.", "m": "A ↔ X,  B ↔ Y,  C ↔ Z"}, {"say": "So side {{AB}} matches {{XY}}, and side {{BC}} matches {{YZ}}.", "m": "AB ↔ XY,  BC ↔ YZ"}, {"say": "Put the first triangle on top and the second on the bottom, both ratios in the same order.", "m": "[[AB ; XY]] = [[BC ; YZ]]"}], "why": "A proportion is correct when each fraction compares the same two triangles in the same order.", "tip": "An equivalent form is {{[[AB ; BC]] = [[XY ; YZ]]}}.", "id": 7}, {"skill": "Proving triangles similar", "p": "Are the triangles similar? If so, which rule shows it?", "s": "In {{△ABC}}, {{m∠A = 50°}} and {{m∠B = 60°}}. In {{△DEF}}, {{m∠D = 50°}} and {{m∠F = 70°}}.", "a": "Yes, by AA", "fig": {"vb": [-3.26, -3.26, 19.56, 8.77], "px": 470, "alt": "Triangle ABC with angles 50 and 60 degrees, and triangle DEF with angles 50 and 70 degrees (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [6.0, 0.0], [3.5543775927122865, 4.235942265551227]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [6.0, 0.0], [3.5543775927122865, 4.235942265551227]], "k": "none"}, {"t": "arc", "c": [0.0, 0.0], "r": 18, "from": 0.0, "to": 50.0, "k": "acc2"}, {"t": "arc", "c": [6.0, 0.0], "r": 18, "from": 119.99999999999999, "to": 180.0, "k": "acc2"}, {"t": "arc", "c": [6.0, 0.0], "r": 24, "from": 119.99999999999999, "to": 180.0, "k": "acc2"}, {"t": "tx", "p": [0.0, 0.0], "s": "50°", "dx": 31, "dy": -9}, {"t": "tx", "p": [6.0, 0.0], "s": "60°", "dx": -30, "dy": -10}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -14, "dy": 11, "k": "b"}, {"t": "tx", "p": [6.0, 0.0], "s": "B", "dx": 13, "dy": 12, "k": "b"}, {"t": "tx", "p": [3.5543775927122865, 4.235942265551227], "s": "C", "dx": 2, "dy": -10, "k": "b"}, {"t": "p", "pts": [[8.5, 0.0], [16.3, 0.0], [13.120690870525973, 5.506724945216594]], "k": "fill"}, {"t": "p", "pts": [[8.5, 0.0], [16.3, 0.0], [13.120690870525973, 5.506724945216594]], "k": "none"}, {"t": "arc", "c": [8.5, 0.0], "r": 18, "from": 0.0, "to": 49.99999999999999, "k": "acc2"}, {"t": "arc", "c": [13.120690870525973, 5.506724945216594], "r": 18, "from": -130.0, "to": -59.99999999999999, "k": "acc2"}, {"t": "arc", "c": [13.120690870525973, 5.506724945216594], "r": 24, "from": -130.0, "to": -59.99999999999999, "k": "acc2"}, {"t": "arc", "c": [13.120690870525973, 5.506724945216594], "r": 30, "from": -130.0, "to": -59.99999999999999, "k": "acc2"}, {"t": "tx", "p": [8.5, 0.0], "s": "50°", "dx": 31, "dy": -9}, {"t": "tx", "p": [13.120690870525973, 5.506724945216594], "s": "70°", "dx": -4, "dy": 39}, {"t": "tx", "p": [8.5, 0.0], "s": "D", "dx": -14, "dy": 11, "k": "b"}, {"t": "tx", "p": [16.3, 0.0], "s": "E", "dx": 13, "dy": 12, "k": "b"}, {"t": "tx", "p": [13.120690870525973, 5.506724945216594], "s": "F", "dx": 2, "dy": -10, "k": "b"}]}, "steps": [{"say": "Find the missing angle in each triangle. The angles add to 180°.", "m": "m∠C = 180 - 50 - 60 = 70°,  m∠E = 180 - 50 - 70 = 60°"}, {"say": "Compare. {{∠A ≅ ∠D}} (both 50°), {{∠B ≅ ∠E}} (both 60°), and {{∠C ≅ ∠F}} (both 70°).", "m": "50°, 60°, 70° in both"}, {"say": "Two pairs of congruent angles are enough. The triangles are similar by AA.", "m": "△ABC ∼ △DEF"}], "why": "If two angles match, the third angle must match too (angles add to 180°), so the triangles have the same shape (similar), though not necessarily the same size.", "tip": "AA needs only two pairs of angles.", "id": 8}, {"skill": "Proving triangles similar", "p": "Are the triangles similar? If so, which rule shows it?", "s": "In {{△ABC}}: {{AB = 4}}, {{AC = 6}}, {{m∠A = 50°}}. In {{△DEF}}: {{DE = 6}}, {{DF = 9}}, {{m∠D = 50°}}.", "a": "Yes, by SAS∼", "fig": {"vb": [-2.8, -2.8, 16.8, 9.69], "px": 470, "alt": "Triangle ABC with AB 4, AC 6 and angle A 50 degrees; triangle DEF with DE 6, DF 9 and angle D 50 degrees (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [4.0, 0.0], [3.8567256581192364, 4.596266658713868]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [4.0, 0.0], [3.8567256581192364, 4.596266658713868]], "k": "none"}, {"t": "arc", "c": [0.0, 0.0], "r": 18, "from": 0.0, "to": 50.0, "k": "acc2"}, {"t": "tx", "p": [2.0, 0.0], "s": "4", "dx": 0, "dy": 20}, {"t": "tx", "p": [1.9283628290596182, 2.298133329356934], "s": "6", "dx": -11, "dy": -5}, {"t": "tx", "p": [0.0, 0.0], "s": "50°", "dx": 29, "dy": -12}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -13, "dy": 13, "k": "b"}, {"t": "tx", "p": [4.0, 0.0], "s": "B", "dx": 10, "dy": 16, "k": "b"}, {"t": "tx", "p": [3.8567256581192364, 4.596266658713868], "s": "C", "dx": 6, "dy": -9, "k": "b"}, {"t": "p", "pts": [[8.0, 0.0], [14.0, 0.0], [13.785088487178854, 6.894399988070802]], "k": "fill"}, {"t": "p", "pts": [[8.0, 0.0], [14.0, 0.0], [13.785088487178854, 6.894399988070802]], "k": "none"}, {"t": "arc", "c": [8.0, 0.0], "r": 18, "from": 0.0, "to": 50.0, "k": "acc2"}, {"t": "tx", "p": [11.0, 0.0], "s": "6", "dx": 0, "dy": 20}, {"t": "tx", "p": [10.892544243589427, 3.447199994035401], "s": "9", "dx": -11, "dy": -5}, {"t": "tx", "p": [8.0, 0.0], "s": "50°", "dx": 29, "dy": -12}, {"t": "tx", "p": [8.0, 0.0], "s": "D", "dx": -13, "dy": 13, "k": "b"}, {"t": "tx", "p": [14.0, 0.0], "s": "E", "dx": 10, "dy": 16, "k": "b"}, {"t": "tx", "p": [13.785088487178854, 6.894399988070802], "s": "F", "dx": 6, "dy": -9, "k": "b"}]}, "steps": [{"say": "Compare the two sides around the 50° angle.", "m": "[[DE ; AB]] = [[6 ; 4]] = [[3 ; 2]],   [[DF ; AC]] = [[9 ; 6]] = [[3 ; 2]]"}, {"say": "The ratios are equal, and the angle between those sides is the same: {{∠A ≅ ∠D}}.", "m": "m∠A = m∠D = 50°,  so  ∠A ≅ ∠D"}, {"say": "Two proportional sides with the included angle congruent: {{△ABC ∼ △DEF}} by {{SAS∼}}.", "m": "△ABC ∼ △DEF"}], "why": "The angle is the same and the two sides around it are scaled by the same factor, so the third side is scaled the same way.", "tip": "The angle must be BETWEEN the two proportional sides.", "id": 9}, {"skill": "Proving triangles similar", "p": "Are the triangles similar? If so, which rule shows it?", "s": "{{△ABC}} has sides 4, 6 and 8. {{△DEF}} has sides 6, 9 and 12.", "a": "Yes, by SSS∼", "fig": {"vb": [-3.55, -3.55, 21.3, 12.26], "px": 470, "alt": "Triangle ABC with sides 4, 6, 8 and triangle DEF with sides 6, 9, 12 (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [4.0, 0.0], [5.5, 5.809475019311125]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [4.0, 0.0], [5.5, 5.809475019311125]], "k": "none"}, {"t": "tx", "p": [2.0, 0.0], "s": "4", "dx": 0, "dy": 20}, {"t": "tx", "p": [4.75, 2.9047375096555625], "s": "6", "dx": 15, "dy": 9}, {"t": "tx", "p": [2.75, 2.9047375096555625], "s": "8", "dx": -11, "dy": -5}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -13, "dy": 13, "k": "b"}, {"t": "tx", "p": [4.0, 0.0], "s": "B", "dx": 6, "dy": 19, "k": "b"}, {"t": "tx", "p": [5.5, 5.809475019311125], "s": "C", "dx": 8, "dy": -8, "k": "b"}, {"t": "p", "pts": [[9.5, 0.0], [15.5, 0.0], [17.75, 8.714212528966687]], "k": "fill"}, {"t": "p", "pts": [[9.5, 0.0], [15.5, 0.0], [17.75, 8.714212528966687]], "k": "none"}, {"t": "tx", "p": [12.5, 0.0], "s": "6", "dx": 0, "dy": 20}, {"t": "tx", "p": [16.625, 4.357106264483344], "s": "9", "dx": 15, "dy": 9}, {"t": "tx", "p": [13.625, 4.357106264483344], "s": "12", "dx": -11, "dy": -5}, {"t": "tx", "p": [9.5, 0.0], "s": "D", "dx": -13, "dy": 13, "k": "b"}, {"t": "tx", "p": [15.5, 0.0], "s": "E", "dx": 6, "dy": 19, "k": "b"}, {"t": "tx", "p": [17.75, 8.714212528966687], "s": "F", "dx": 8, "dy": -8, "k": "b"}]}, "steps": [{"say": "Match the shortest sides, the middle sides and the longest sides. Divide each pair, small triangle into large.", "m": "[[6 ; 4]] = [[3 ; 2]],   [[9 ; 6]] = [[3 ; 2]],   [[12 ; 8]] = [[3 ; 2]]"}, {"say": "All three ratios are equal, so the sides are proportional. The triangles are similar by {{SSS∼}}.", "m": "△ABC ∼ △DEF"}], "why": "If all three sides are scaled by the same factor, the angles cannot change.", "tip": "Always pair shortest with shortest and longest with longest.", "id": 10}, {"skill": "Proving triangles similar", "p": "Are the triangles similar? Show why.", "s": "{{△ABC}} has sides 5, 7 and 9. {{△DEF}} has sides 10, 14 and 20.", "a": "No", "fig": {"vb": [-5.24, -5.24, 31.44, 18.24], "px": 500, "alt": "Triangle ABC with sides 5, 7, 9 and triangle DEF with sides 10, 14, 20 (drawn to scale)", "items": [{"t": "p", "pts": [[0.0, 0.0], [5.0, 0.0], [5.7, 6.964912059746339]], "k": "fill"}, {"t": "p", "pts": [[0.0, 0.0], [5.0, 0.0], [5.7, 6.964912059746339]], "k": "none"}, {"t": "tx", "p": [2.5, 0.0], "s": "5", "dx": 0, "dy": 20}, {"t": "tx", "p": [5.35, 3.4824560298731697], "s": "7", "dx": 15, "dy": 6}, {"t": "tx", "p": [2.85, 3.4824560298731697], "s": "9", "dx": -12, "dy": -4}, {"t": "tx", "p": [0.0, 0.0], "s": "A", "dx": -13, "dy": 13, "k": "b"}, {"t": "tx", "p": [5.0, 0.0], "s": "B", "dx": 8, "dy": 18, "k": "b"}, {"t": "tx", "p": [5.7, 6.964912059746339], "s": "C", "dx": 6, "dy": -9, "k": "b"}, {"t": "p", "pts": [[11.0, 0.0], [21.0, 0.0], [26.2, 12.998461447417537]], "k": "fill"}, {"t": "p", "pts": [[11.0, 0.0], [21.0, 0.0], [26.2, 12.998461447417537]], "k": "none"}, {"t": "tx", "p": [16.0, 0.0], "s": "10", "dx": 0, "dy": 20}, {"t": "tx", "p": [23.6, 6.499230723708768], "s": "14", "dx": 14, "dy": 11}, {"t": "tx", "p": [18.6, 6.499230723708768], "s": "20", "dx": -10, "dy": -6}, {"t": "tx", "p": [11.0, 0.0], "s": "D", "dx": -13, "dy": 12, "k": "b"}, {"t": "tx", "p": [21.0, 0.0], "s": "E", "dx": 5, "dy": 19, "k": "b"}, {"t": "tx", "p": [26.2, 12.998461447417537], "s": "F", "dx": 9, "dy": -7, "k": "b"}]}, "steps": [{"say": "Match the shortest, middle and longest sides and compare the ratios.", "m": "[[10 ; 5]] = 2,   [[14 ; 7]] = 2,   [[20 ; 9]] ≈ 2.2"}, {"say": "The third ratio is different, so the sides are not all proportional. Similar triangles must have all three side ratios equal, so these triangles are NOT similar."}], "why": "Two matching ratios are not enough. All three pairs of sides must have the same ratio.", "tip": "Three equal ratios would prove similarity. One different ratio disproves it.", "id": 11}, {"skill": "Triangles inside triangles", "p": "Name the triangle similar to {{△ADE}} and give the reason.", "s": "In {{△ABC}}, {{D}} is on {{AB}}, {{E}} is on {{AC}} and {{DE ∥ BC}}.", "a": "△ABC, by AA", "fig": {"vb": [-3.7, -3.7, 19.7, 9.51], "px": 360, "alt": "Triangle ABC with segment DE parallel to BC (drawn to scale)", "items": [{"t": "p", "pts": [[5.5, 5.809475019311125], [0.0, 0.0], [16.0, 0.0]], "k": "fill"}, {"t": "p", "pts": [[5.5, 5.809475019311125], [0.0, 0.0], [16.0, 0.0]], "k": "none"}, {"t": "l", "a": [3.4375, 3.6309218870694533], "b": [9.4375, 3.6309218870694533], "k": "acc2"}, {"t": "par", "a": [3.4375, 3.6309218870694533], "b": [9.4375, 3.6309218870694533], "n": 1}, {"t": "par", "a": [0.0, 0.0], "b": [16.0, 0.0], "n": 1}, {"t": "tx", "p": [5.5, 5.809475019311125], "s": "A", "dx": 0, "dy": -9, "k": "b"}, {"t": "tx", "p": [0.0, 0.0], "s": "B", "dx": -12, "dy": 8, "k": "b"}, {"t": "tx", "p": [16.0, 0.0], "s": "C", "dx": 12, "dy": 8, "k": "b"}, {"t": "tx", "p": [3.4375, 3.6309218870694533], "s": "D", "dx": -12, "dy": 3, "k": "b"}, {"t": "tx", "p": [9.4375, 3.6309218870694533], "s": "E", "dx": 12, "dy": 3, "k": "b"}]}, "steps": [{"say": "Both triangles contain angle {{A}}, so they share it.", "m": "∠A ≅ ∠A"}, {"say": "Because {{DE ∥ BC}}, the line {{AB}} crosses two parallel lines. Corresponding angles are congruent.", "m": "∠ADE ≅ ∠ABC"}, {"say": "Two pairs of congruent angles prove the triangles similar by AA. Keep the letters in matching order.", "m": "△ADE ∼ △ABC"}], "why": "A line parallel to one side cuts off a smaller triangle with the same angles as the big one.", "tip": "The shared angle is a free pair. Look for it whenever triangles overlap.", "id": 12}, {"skill": "Triangles inside triangles", "p": "Find {{BC}}.", "s": "{{DE ∥ BC}}. {{AD = 3}}, {{DB = 5}} and {{DE = 6}}.", "a": "16", "fig": {"vb": [-3.7, -3.7, 19.7, 9.51], "px": 360, "alt": "Triangle ABC with DE parallel to BC. AD is 3, DB is 5, DE is 6 and BC is unknown (drawn to scale)", "items": [{"t": "p", "pts": [[5.5, 5.809475019311125], [0.0, 0.0], [16.0, 0.0]], "k": "fill"}, {"t": "p", "pts": [[5.5, 5.809475019311125], [0.0, 0.0], [16.0, 0.0]], "k": "none"}, {"t": "l", "a": [3.4375, 3.6309218870694533], "b": [9.4375, 3.6309218870694533], "k": "acc2"}, {"t": "par", "a": [3.4375, 3.6309218870694533], "b": [9.4375, 3.6309218870694533], "n": 1}, {"t": "par", "a": [0.0, 0.0], "b": [16.0, 0.0], "n": 1}, {"t": "tx", "p": [5.5, 5.809475019311125], "s": "A", "dx": 0, "dy": -9, "k": "b"}, {"t": "tx", "p": [0.0, 0.0], "s": "B", "dx": -12, "dy": 8, "k": "b"}, {"t": "tx", "p": [16.0, 0.0], "s": "C", "dx": 12, "dy": 8, "k": "b"}, {"t": "tx", "p": [3.4375, 3.6309218870694533], "s": "D", "dx": -12, "dy": 3, "k": "b"}, {"t": "tx", "p": [9.4375, 3.6309218870694533], "s": "E", "dx": 12, "dy": 3, "k": "b"}, {"t": "tx", "p": [4.46875, 4.720198453190289], "s": "3", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [1.71875, 1.8154609435347266], "s": "5", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [6.4375, 3.6309218870694533], "s": "6", "dx": 0, "dy": -8, "a": "middle"}, {"t": "tx", "p": [8.0, 0.0], "s": "x", "dx": 0, "dy": 20, "a": "middle"}]}, "steps": [{"say": "{{△ADE ∼ △ABC}} by AA (shared {{∠A}}, and corresponding angles from {{DE ∥ BC}}).", "m": "△ADE ∼ △ABC"}, {"say": "The whole side {{AB}} is the two pieces added together.", "m": "AB = 3 + 5 = 8"}, {"say": "Set up the proportion with the small triangle on top.", "m": "[[AD ; AB]] = [[DE ; BC]]  →  [[3 ; 8]] = [[6 ; x]]"}, {"say": "Cross-multiply and solve.", "m": "3x = 48"}, {"say": "Divide both sides by 3. {{BC = 16}}.", "m": "x = 16"}], "why": "Similar triangles have proportional sides, so the small triangle's parts compare to the whole triangle's parts.", "tip": "Common mistake: using {{DB = 5}} instead of the whole side {{AB = 8}}.", "id": 13}, {"skill": "Triangles inside triangles", "p": "Find {{CE}}.", "s": "{{AB ∥ DE}}. {{AE}} and {{BD}} cross at {{C}}. {{AB = 8}}, {{DE = 12}} and {{AC = 6}}.", "a": "9", "fig": {"vb": [-13.2, -13.61, 17.46, 10.63], "px": 440, "alt": "Segments AE and BD cross at C. Segment AB is parallel to DE. AB is 8, DE is 12 and AC is 6 (drawn to scale)", "items": [{"t": "p", "pts": [[-5.79555495773441, -1.5529142706151244], [-8.53171610433976, 5.964626695672142], [0.0, 0.0]], "k": "fill"}, {"t": "p", "pts": [[8.693332436601615, 2.3293714059226867], [12.79757415650964, -8.946940043508214], [0.0, 0.0]], "k": "fill2"}, {"t": "l", "a": [-5.79555495773441, -1.5529142706151244], "b": [8.693332436601615, 2.3293714059226867]}, {"t": "l", "a": [-8.53171610433976, 5.964626695672142], "b": [12.79757415650964, -8.946940043508214]}, {"t": "l", "a": [-5.79555495773441, -1.5529142706151244], "b": [-8.53171610433976, 5.964626695672142]}, {"t": "l", "a": [8.693332436601615, 2.3293714059226867], "b": [12.79757415650964, -8.946940043508214]}, {"t": "par", "a": [-5.79555495773441, -1.5529142706151244], "b": [-8.53171610433976, 5.964626695672142], "n": 1}, {"t": "par", "a": [8.693332436601615, 2.3293714059226867], "b": [12.79757415650964, -8.946940043508214], "n": 1}, {"t": "tx", "p": [-5.79555495773441, -1.5529142706151244], "s": "A", "dx": -12, "dy": 2, "k": "b"}, {"t": "tx", "p": [-8.53171610433976, 5.964626695672142], "s": "B", "dx": -4, "dy": 16, "k": "b"}, {"t": "tx", "p": [8.693332436601615, 2.3293714059226867], "s": "E", "dx": 12, "dy": 2, "k": "b"}, {"t": "tx", "p": [12.79757415650964, -8.946940043508214], "s": "D", "dx": 4, "dy": 16, "k": "b"}, {"t": "tx", "p": [0.0, 0.0], "s": "C", "dx": 6, "dy": -9, "k": "b"}, {"t": "tx", "p": [-7.163635531037085, 2.205856212528509], "s": "8", "dx": -14, "dy": 4}, {"t": "tx", "p": [10.745453296555628, -3.3087843187927635], "s": "12", "dx": 14, "dy": 4}, {"t": "tx", "p": [-2.897777478867205, -0.7764571353075622], "s": "6", "dx": -4, "dy": -10}]}, "steps": [{"say": "The angles at {{C}} are vertical angles, so they are congruent.", "m": "∠ACB ≅ ∠ECD"}, {"say": "{{AB ∥ DE}}, so alternate interior angles are congruent. Two pairs of angles give {{△ABC ∼ △EDC}} by AA (note the order: {{A ↔ E}}, {{B ↔ D}}).", "m": "∠A ≅ ∠E,  △ABC ∼ △EDC"}, {"say": "Match {{AB}} with {{ED}}, and {{AC}} with {{EC}}.", "m": "[[AB ; ED]] = [[AC ; EC]]  →  [[8 ; 12]] = [[6 ; x]]"}, {"say": "Cross-multiply, then divide by 8.", "m": "8x = 72"}, {"say": "{{CE = 9}}.", "m": "x = 9"}], "why": "Two crossing lines and a pair of parallel lines make two similar triangles that point at each other.", "tip": "Check the ratio: {{[[8 ; 12]] = [[2 ; 3]]}} and {{[[6 ; 9]] = [[2 ; 3]]}}.", "id": 14}, {"skill": "Triangle proportionality theorem", "p": "Find {{EC}}.", "s": "{{DE ∥ BC}}. {{AD = 6}}, {{DB = 4}} and {{AE = 9}}.", "a": "6", "fig": {"vb": [-2.9, -2.9, 14.9, 12.87], "px": 360, "alt": "Triangle ABC with DE parallel to BC. AD is 6, DB is 4, AE is 9 and EC is unknown (drawn to scale)", "items": [{"t": "p", "pts": [[0.7916666666666666, 9.968613940206978], [0.0, 0.0], [12.0, 0.0]], "k": "fill"}, {"t": "p", "pts": [[0.7916666666666666, 9.968613940206978], [0.0, 0.0], [12.0, 0.0]], "k": "none"}, {"t": "l", "a": [0.31666666666666665, 3.9874455760827914], "b": [7.5166666666666675, 3.9874455760827914], "k": "acc2"}, {"t": "par", "a": [0.31666666666666665, 3.9874455760827914], "b": [7.5166666666666675, 3.9874455760827914], "n": 1}, {"t": "par", "a": [0.0, 0.0], "b": [12.0, 0.0], "n": 1}, {"t": "tx", "p": [0.7916666666666666, 9.968613940206978], "s": "A", "dx": 0, "dy": -9, "k": "b"}, {"t": "tx", "p": [0.0, 0.0], "s": "B", "dx": -12, "dy": 8, "k": "b"}, {"t": "tx", "p": [12.0, 0.0], "s": "C", "dx": 12, "dy": 8, "k": "b"}, {"t": "tx", "p": [0.31666666666666665, 3.9874455760827914], "s": "D", "dx": -12, "dy": 3, "k": "b"}, {"t": "tx", "p": [7.5166666666666675, 3.9874455760827914], "s": "E", "dx": 12, "dy": 3, "k": "b"}, {"t": "tx", "p": [0.5541666666666667, 6.978029758144885], "s": "6", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [0.15833333333333333, 1.9937227880413957], "s": "4", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [4.154166666666667, 6.978029758144885], "s": "9", "dx": 8, "dy": 0, "a": "start"}, {"t": "tx", "p": [9.758333333333333, 1.9937227880413957], "s": "x", "dx": 8, "dy": 0, "a": "start"}]}, "steps": [{"say": "The Triangle Proportionality Theorem: a line parallel to one side splits the other two sides in the same ratio.", "m": "[[AD ; DB]] = [[AE ; EC]]"}, {"say": "Substitute the lengths.", "m": "[[6 ; 4]] = [[9 ; x]]"}, {"say": "Cross-multiply.", "m": "6x = 36"}, {"say": "Divide both sides by 6. {{EC = 6}}.", "m": "x = 6"}], "why": "The parallel line makes {{△ADE ∼ △ABC}}, and the pieces of the sides stay in proportion.", "tip": "Check: {{[[6 ; 4]] = 1.5}} and {{[[9 ; 6]] = 1.5}}.", "id": 15}, {"skill": "Triangle proportionality theorem", "p": "Find {{x}}.", "s": "{{DE ∥ BC}}. {{AD = x}}, {{DB = 6}}, {{AE = 8}} and {{EC = 12}}.", "a": "x = 4", "fig": {"vb": [-6.5, -4.0, 19.0, 13.68], "px": 360, "alt": "Triangle ABC with DE parallel to BC. AD is x, DB is 6, AE is 8 and EC is 12 (drawn to scale for x = 4)", "items": [{"t": "p", "pts": [[-2.5, 9.682458365518542], [0.0, 0.0], [15.0, 0.0]], "k": "fill"}, {"t": "p", "pts": [[-2.5, 9.682458365518542], [0.0, 0.0], [15.0, 0.0]], "k": "none"}, {"t": "l", "a": [-1.5, 5.809475019311125], "b": [4.5, 5.809475019311125], "k": "acc2"}, {"t": "par", "a": [-1.5, 5.809475019311125], "b": [4.5, 5.809475019311125], "n": 1}, {"t": "par", "a": [0.0, 0.0], "b": [15.0, 0.0], "n": 1}, {"t": "tx", "p": [-2.5, 9.682458365518542], "s": "A", "dx": 0, "dy": -9, "k": "b"}, {"t": "tx", "p": [0.0, 0.0], "s": "B", "dx": -12, "dy": 8, "k": "b"}, {"t": "tx", "p": [15.0, 0.0], "s": "C", "dx": 12, "dy": 8, "k": "b"}, {"t": "tx", "p": [-1.5, 5.809475019311125], "s": "D", "dx": -12, "dy": 3, "k": "b"}, {"t": "tx", "p": [4.5, 5.809475019311125], "s": "E", "dx": 12, "dy": 3, "k": "b"}, {"t": "tx", "p": [-2.0, 7.745966692414834], "s": "x", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [-0.75, 2.9047375096555625], "s": "6", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [1.0, 7.745966692414834], "s": "8", "dx": 8, "dy": 0, "a": "start"}, {"t": "tx", "p": [9.75, 2.9047375096555625], "s": "12", "dx": 8, "dy": 0, "a": "start"}]}, "steps": [{"say": "A line parallel to a side cuts the other two sides in the same ratio.", "m": "[[x ; 6]] = [[8 ; 12]]"}, {"say": "Cross-multiply.", "m": "12x = 48"}, {"say": "Divide both sides by 12.", "m": "x = 4"}], "why": "Parallel lines make a small triangle similar to the big one, so the cut pieces are proportional.", "tip": "Check: {{[[4 ; 6]] = [[2 ; 3]]}} and {{[[8 ; 12]] = [[2 ; 3]]}}.", "id": 16}, {"skill": "Triangle proportionality theorem", "p": "Is {{DE ∥ BC}}? Explain.", "s": "{{D}} is on {{AB}} and {{E}} is on {{AC}}. {{AD = 3}}, {{DB = 6}}, {{AE = 4}} and {{EC = 8}}.", "a": "Yes", "fig": {"vb": [-3.3, -3.3, 17.3, 10.94], "px": 360, "alt": "Triangle ABC with D on AB and E on AC. AD is 3, DB is 6, AE is 4 and EC is 8 (drawn to scale)", "items": [{"t": "p", "pts": [[4.75, 7.644442425710328], [0.0, 0.0], [14.0, 0.0]], "k": "fill"}, {"t": "p", "pts": [[4.75, 7.644442425710328], [0.0, 0.0], [14.0, 0.0]], "k": "none"}, {"t": "l", "a": [3.166666666666667, 5.096294950473553], "b": [7.833333333333333, 5.096294950473553], "k": "acc2"}, {"t": "tx", "p": [4.75, 7.644442425710328], "s": "A", "dx": 0, "dy": -9, "k": "b"}, {"t": "tx", "p": [0.0, 0.0], "s": "B", "dx": -12, "dy": 8, "k": "b"}, {"t": "tx", "p": [14.0, 0.0], "s": "C", "dx": 12, "dy": 8, "k": "b"}, {"t": "tx", "p": [3.166666666666667, 5.096294950473553], "s": "D", "dx": -12, "dy": 3, "k": "b"}, {"t": "tx", "p": [7.833333333333333, 5.096294950473553], "s": "E", "dx": 12, "dy": 3, "k": "b"}, {"t": "tx", "p": [3.9583333333333335, 6.37036868809194], "s": "3", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [1.5833333333333335, 2.5481474752367763], "s": "6", "dx": -8, "dy": 0, "a": "end"}, {"t": "tx", "p": [6.291666666666666, 6.37036868809194], "s": "4", "dx": 8, "dy": 0, "a": "start"}, {"t": "tx", "p": [10.916666666666666, 2.5481474752367763], "s": "8", "dx": 8, "dy": 0, "a": "start"}]}, "steps": [{"say": "Use the converse of the Triangle Proportionality Theorem: if a segment splits two sides in the same ratio, it is parallel to the third side. Compare the ratios.", "m": "[[AD ; DB]] = [[3 ; 6]] = [[1 ; 2]]"}, {"say": "Find the ratio on the other side.", "m": "[[AE ; EC]] = [[4 ; 8]] = [[1 ; 2]]"}, {"say": "The ratios are equal, so {{DE ∥ BC}}."}], "why": "If the cut is in the same ratio on both sides, the small triangle is similar to the big one, which forces the parallel sides.", "tip": "If the ratios were different, the segment would NOT be parallel.", "id": 17}, {"skill": "Perimeter & area ratios", "p": "Find the perimeter of the larger triangle.", "s": "Two triangles are similar with a scale factor of {{2 : 3}} (small to large). The small triangle has perimeter 20 cm.", "a": "30 cm", "steps": [{"say": "Perimeters of similar figures have the same ratio as the sides.", "m": "[[2 ; 3]] = [[20 ; P]]"}, {"say": "Cross-multiply.", "m": "2P = 60"}, {"say": "Divide both sides by 2. The larger perimeter is 30 cm.", "m": "P = 30"}], "why": "Every side is multiplied by the scale factor, so their sum is too.", "tip": "Sense check: {{20 × 1.5 = 30}}.", "id": 18}, {"skill": "Perimeter & area ratios", "p": "What is the ratio of their areas?", "s": "Two similar polygons have a scale factor of {{3 : 5}}.", "a": "[[9 ; 25]]", "steps": [{"say": "The ratio of areas is the scale factor squared.", "m": "([[3 ; 5]])^2"}, {"say": "Square the top and the bottom.", "m": "[[9 ; 25]]"}], "why": "Area is length times length, so both dimensions are scaled and the factor gets used twice.", "tip": "Lengths use {{3 : 5}}. Areas use {{9 : 25}}.", "id": 19}, {"skill": "Perimeter & area ratios", "p": "Find the area of the larger triangle.", "s": "Two triangles are similar. The scale factor from the smaller to the larger is {{[[3 ; 2]]}}. The smaller triangle has area 24 cm².", "a": "54 cm^2", "steps": [{"say": "The ratio of areas is the square of the scale factor.", "m": "([[3 ; 2]])^2 = [[9 ; 4]]"}, {"say": "Multiply the small area by that ratio.", "m": "24 × [[9 ; 4]] = 54"}, {"say": "The larger triangle has area 54 square centimeters."}], "why": "Doubling the lengths makes the area 4 times as big, so a scale factor of {{k}} makes the area {{k^2}} times as big.", "tip": "Common mistake: multiplying the area by {{[[3 ; 2]]}} instead of {{[[9 ; 4]]}}.", "id": 20}, {"skill": "Perimeter & area ratios", "p": "Find the ratio of corresponding side lengths.", "s": "Two similar figures have areas 50 cm² and 18 cm². (Give the ratio of the larger to the smaller.)", "a": "[[5 ; 3]]", "steps": [{"say": "Write the ratio of the areas.", "m": "[[50 ; 18]] = [[25 ; 9]]"}, {"say": "The area ratio is the scale factor squared, so take the square root to get the scale factor.", "m": "rt{[[25 ; 9]]} = [[5 ; 3]]"}, {"say": "The sides are in the ratio {{5 : 3}}."}], "why": "Areas use the scale factor twice, so going from areas back to lengths means taking a square root.", "tip": "Check: {{([[5 ; 3]])^2 = [[25 ; 9]]}}.", "id": 21}, {"skill": "Indirect measurement", "p": "How tall is the tree?", "s": "At the same time of day, a 2 meter tall person casts a 3 meter shadow and a tree casts a 15 meter shadow.", "a": "10 meters", "fig": {"vb": [-4.2, -4.2, 25.2, 14.2], "px": 460, "alt": "A tree and a person with their shadows, forming two right triangles, drawn to scale: the tree shadow is 15 m, the person is 2 m tall with a 3 m shadow", "items": [{"t": "p", "pts": [[0, 0], [15, 0], [0, 10]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [15, 0], [0, 10]], "k": "none"}, {"t": "ra", "p": [0, 0], "d1": 0.0, "d2": 90.0, "s": 11}, {"t": "tx", "p": [7.5, 0.0], "s": "15", "dx": 0, "dy": 20}, {"t": "p", "pts": [[18, 0], [21, 0], [18, 2]], "k": "fill"}, {"t": "p", "pts": [[18, 0], [21, 0], [18, 2]], "k": "none"}, {"t": "ra", "p": [18, 0], "d1": 0.0, "d2": 90.0, "s": 11}, {"t": "tx", "p": [19.5, 0.0], "s": "3", "dx": 0, "dy": 20}, {"t": "tx", "p": [0, 5], "s": "h", "dx": -12, "dy": 4}, {"t": "tx", "p": [18, 1], "s": "2", "dx": -12, "dy": 4}]}, "steps": [{"say": "The sun's rays make the same angle for both, and both objects stand straight up. That gives two similar right triangles (AA)."}, {"say": "Put height over shadow on both sides.", "m": "[[2 ; 3]] = [[h ; 15]]"}, {"say": "Cross-multiply.", "m": "3h = 30"}, {"say": "Divide both sides by 3. The tree is 10 meters tall.", "m": "h = 10"}], "why": "The sun makes the same angle with the ground for both, so the triangles are similar.", "tip": "Sense check: the tree's shadow is 5 times as long as the person's, so the tree is 5 times as tall: {{2 × 5 = 10}}.", "id": 22}, {"skill": "Indirect measurement", "p": "A scale drawing of a rectangular room uses {{1 cm : 50 cm}}. The room is 6 meters by 4.5 meters. Find the size of the room in the drawing.", "a": "12 cm by 9 cm", "steps": [{"say": "Change the room to centimeters so the units match the scale. 1 meter is 100 cm.", "m": "6 meters = 600 cm,  4.5 meters = 450 cm"}, {"say": "Divide each length by 50, because 50 real centimeters are drawn as 1 cm.", "m": "[[600 ; 50]] = 12,   [[450 ; 50]] = 9"}, {"say": "The drawing is 12 cm by 9 cm."}], "why": "A scale drawing is similar to the real room. Every length is divided by the same scale factor.", "tip": "Check: {{12 × 50 = 600}} cm and {{9 × 50 = 450}} cm.", "id": 23}, {"skill": "Indirect measurement", "p": "How tall is the building?", "s": "A mirror lies flat on the ground. A student 1.6 meters tall stands 2 meters from the mirror and sees the top of a building in it. The mirror is 6 meters from the building. In the figure, lengths are in meters. Light reflects off a mirror at equal angles.", "a": "4.8 meters", "fig": {"vb": [-5.3, -2.3, 9.3, 7.1], "px": 470, "alt": "A student looks into a mirror on the ground and sees the top of a building. The student is 1.6 m tall and 2 m from the mirror; the building is 6 m from the mirror (drawn to scale)", "items": [{"t": "l", "a": [-3, 0], "b": [7, 0], "k": "thin"}, {"t": "p", "pts": [[-2, 0], [-2, 1.6], [0, 0]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [6, 0], [6, 4.8]], "k": "fill2"}, {"t": "l", "a": [-2, 0], "b": [-2, 1.6]}, {"t": "l", "a": [6, 0], "b": [6, 4.8]}, {"t": "l", "a": [-2, 1.6], "b": [0, 0], "k": "acc2"}, {"t": "l", "a": [0, 0], "b": [6, 4.8], "k": "acc2"}, {"t": "d", "p": [0, 0], "k": "acc", "r": 4}, {"t": "ra", "p": [-2, 0], "d1": 0, "d2": 90, "s": 9}, {"t": "ra", "p": [6, 0], "d1": 180, "d2": 90, "s": 9}, {"t": "tx", "p": [-2, 0.8], "s": "1.6", "dx": -8, "dy": 4, "a": "end"}, {"t": "tx", "p": [-1, 0], "s": "2", "dy": 18}, {"t": "tx", "p": [3, 0], "s": "6", "dy": 18}, {"t": "tx", "p": [6, 2.4], "s": "h", "dx": 12, "dy": 4}]}, "steps": [{"say": "Equal angles at the mirror and a right angle at the ground in each triangle make two similar right triangles (AA).", "m": "student triangle ∼ building triangle"}, {"say": "Compare height to distance from the mirror.", "m": "[[1.6 ; 2]] = [[h ; 6]]"}, {"say": "Cross-multiply.", "m": "2h = 9.6"}, {"say": "Divide both sides by 2. The building is 4.8 meters tall.", "m": "h = 4.8"}], "why": "A mirror turns a tall, hard-to-measure height into two similar triangles with easy lengths.", "tip": "Sense check: the building is 3 times as far from the mirror as the student, so it is 3 times as tall: {{1.6 × 3 = 4.8}}.", "id": 24}, {"skill": "Indirect measurement", "p": "How tall is the lamp post?", "s": "A 1.8 meter tall person stands 4 meters from the base of a lamp post. The person's shadow is 2 meters long and reaches from the person's feet to the end of the shadow.", "a": "5.4 meters", "fig": {"vb": [-2.9, -1.9, 8.9, 7.3], "px": 420, "alt": "A lamp post of unknown height h, a 1.8 m person standing 4 m from its base, and the person's 2 m shadow, drawn to scale", "items": [{"t": "l", "a": [-1, 0], "b": [7, 0], "k": "thin"}, {"t": "l", "a": [0, 0], "b": [0, 5.4]}, {"t": "l", "a": [4, 0], "b": [4, 1.8], "k": "acc"}, {"t": "l", "a": [0, 5.4], "b": [6, 0], "k": "acc2", "dash": true}, {"t": "d", "p": [0, 5.4], "k": "acc2", "r": 5}, {"t": "tx", "p": [0, 2.7], "s": "h", "dx": -12, "dy": 4}, {"t": "tx", "p": [4, 0.9], "s": "1.8", "dx": -20, "dy": 4}, {"t": "tx", "p": [2, 0], "s": "4", "dy": 18}, {"t": "tx", "p": [5, 0], "s": "2", "dy": 18}, {"t": "tx", "p": [0, 5.4], "s": "lamp", "dx": 28, "dy": -8}]}, "steps": [{"say": "The lamp post and the person are both vertical, and they share the angle at the tip of the shadow. That gives two similar right triangles (AA).", "m": "small triangle: 1.8 tall and 2 wide"}, {"say": "The big triangle's base runs from the post to the end of the shadow: {{4 + 2 = 6}} meters. Compare height to base.", "m": "[[h ; 6]] = [[1.8 ; 2]]"}, {"say": "Cross-multiply.", "m": "2h = 10.8"}, {"say": "Divide both sides by 2. The lamp post is 5.4 meters tall.", "m": "h = 5.4"}], "why": "The small triangle sits inside the big one and shares its angle at the shadow's tip.", "tip": "Common mistake: using 4, not {{4 + 2 = 6}}, as the big triangle's base.", "id": 25}];
+const STORAGE_KEY='mrk-cards-similarity';
+let ratings={};
+try{ratings=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{}}catch(e){ratings={}}
+const byId=id=>document.getElementById(id);
+let deck=[],position=0,revealed=false,missedMode=false;
+const skills=[...new Set(CARDS.map(c=>c.skill))];
+skills.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;byId('skill').append(o)});
+
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings))}catch(e){}}
+function selectDeck(shuffle){
+  const skill=byId('skill').value;
+  deck=CARDS.filter(c=>(skill==='All'||c.skill===skill)&&(!missedMode||ratings[c.id]==='missed'));
+  if(shuffle){for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}}
+  position=0;
+  render();
+}
+function render(){
+  const c=deck[position];
+  revealed=false;
+  byId('counter').textContent=c?`Card ${position+1} of ${deck.length}`:'No matching cards';
+  byId('score').textContent=`Got it: ${Object.values(ratings).filter(v=>v==='known').length} • Need practice: ${Object.values(ratings).filter(v=>v==='missed').length}`;
+  byId('bar').style.width=deck.length?`${(position+1)/deck.length*100}%`:'0%';
+  byId('tag').textContent=c?c.skill:'';
+  const ins=byId('instr'), st=byId('story'), dq=byId('display'), fg=byId('figbox');
+  if(!c){ins.textContent='No cards match this filter. Choose another skill or leave missed-only mode.';st.hidden=dq.hidden=fg.hidden=true;}
+  else{
+    ins.innerHTML=inl(c.p||''); ins.hidden=!c.p;
+    st.hidden=!c.s; st.innerHTML=c.s?inl(c.s):'';
+    dq.hidden=!c.q; dq.innerHTML=c.q?fm(c.q):'';
+    fg.hidden=!c.fig; fg.innerHTML=c.fig?figSvg(c.fig):'';
+  }
+  byId('answer').innerHTML=c?fm(c.a):'';
+  const steps=byId('steps'); steps.innerHTML='';
+  (c&&c.steps||[]).forEach((s,idx)=>{
+    const li=document.createElement('li'); li.className='step';
+    li.innerHTML=`<div class="step-num">${idx+1}</div><div class="step-main"><div class="step-say">${inl(s.say)}</div>${s.m?`<div class="step-m m">${fm(s.m)}</div>`:''}</div>`;
+    steps.append(li);
+  });
+  byId('explanation').innerHTML=c&&c.why?inl(c.why):'';
+  const tp=byId('tip'); tp.hidden=!(c&&c.tip); tp.innerHTML=c&&c.tip?'<b>Tip:</b> '+inl(c.tip):'';
+  renderVisual(c);
+  updateVisibility();
+}
+function renderVisual(c){
+  const panel=byId('visualPanel'), holder=byId('graphHolder'), legend=byId('legend'), grid=byId('revealGrid');
+  holder.innerHTML=''; legend.hidden=true;
+  let has=false;
+  if(c&&c.nl){ has=true; holder.innerHTML=numberLineSvg(c.nl); legend.hidden=!!(c.nl.none||c.nl.allReal)||!c.nl.regions||!c.nl.regions.length; byId('visualTitle').textContent='Number line'; }
+  else if(c&&c.afig){ has=true; holder.innerHTML=figSvg(c.afig); byId('visualTitle').textContent='Picture'; }
+  panel.hidden=!has; grid.classList.toggle('single',!has);
+}
+function updateVisibility(){
+  const active=Boolean(deck[position]);
+  byId('revealArea').hidden=!revealed;
+  byId('hint').hidden=revealed||!active;
+  byId('flip').hidden=revealed||!active;
+  byId('again').hidden=!revealed;
+  byId('known').hidden=!revealed;
+  byId('prev').disabled=!active||position===0;
+  byId('next').disabled=!active||position===deck.length-1;
+  byId('modePill').textContent=revealed?'Answer side':'Question side';
+}
+function flip(){ if(!deck.length) return; revealed=!revealed; updateVisibility(); }
+function move(d){ if(position+d<0||position+d>=deck.length) return; position+=d; render(); }
+function rate(v){
+  const c=deck[position];
+  if(!c||!revealed) return;
+  ratings[c.id]=v; save();
+  if(missedMode&&v==='known'){ deck.splice(position,1); position=Math.max(0,Math.min(position,deck.length-1)); render(); }
+  else if(position<deck.length-1){ position++; render(); }
+  else { render(); }
+}
+function numberLineSvg(g){
+  const W=520,H=130,pad=32,Y=70,min=g.min,max=g.max,step=g.step||1;
+  const X=v=>pad+((v-min)/(max-min))*(W-2*pad);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${g.alt||'Number line graph'}">`;
+  s+=`<defs><marker id="arw" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3658d4"/></marker></defs>`;
+  s+=`<line x1="${pad-14}" y1="${Y}" x2="${W-pad+14}" y2="${Y}" stroke="#23395d" stroke-width="3"/>`;
+  s+=`<path d="M${pad-20},${Y} l9,-5 v10 z" fill="#23395d"/><path d="M${W-pad+20},${Y} l-9,-5 v10 z" fill="#23395d"/>`;
+  for(let t=min;t<=max+1e-9;t+=step){const x=X(t);s+=`<line x1="${x}" y1="${Y-8}" x2="${x}" y2="${Y+8}" stroke="#23395d" stroke-width="1.4"/><text x="${x}" y="${Y+26}" text-anchor="middle" font-size="12" fill="#52627a">${String(t).replace('-','−')}</text>`;}
+  if(g.none){ s+=`<text x="${W/2}" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#9e2a2b">No solution (nothing is shaded)</text></svg>`; return s; }
+  if(g.allReal){ s+=`<line x1="${pad-14}" y1="${Y}" x2="${W-pad+14}" y2="${Y}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"/><text x="${W/2}" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1f7a4d">Every real number works</text></svg>`; return s; }
+  (g.regions||[]).forEach(r=>{
+    const x1=r.from==null?pad-14:X(r.from), x2=r.to==null?W-pad+14:X(r.to);
+    s+=`<line x1="${x1}" y1="${Y}" x2="${x2}" y2="${Y}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"/>`;
+    if(r.from!=null) s+=`<circle cx="${X(r.from)}" cy="${Y}" r="7" fill="${r.includeFrom?'#3658d4':'#fff'}" stroke="#3658d4" stroke-width="3"/>`;
+    if(r.to!=null) s+=`<circle cx="${X(r.to)}" cy="${Y}" r="7" fill="${r.includeTo?'#3658d4':'#fff'}" stroke="#3658d4" stroke-width="3"/>`;
+  });
+  return s+`</svg>`;
+}
+byId('card').addEventListener('click',e=>{ if(['BUTTON','SELECT','OPTION'].includes(e.target.tagName)) return; flip(); });
+byId('card').addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } });
+byId('flip').onclick=flip;
+byId('prev').onclick=()=>move(-1);
+byId('next').onclick=()=>move(1);
+byId('again').onclick=()=>rate('missed');
+byId('known').onclick=()=>rate('known');
+byId('skill').onchange=()=>selectDeck();
+byId('shuffle').onclick=()=>selectDeck(true);
+byId('missedOnly').onclick=()=>{ missedMode=!missedMode; byId('missedOnly').textContent=missedMode?'Show all cards':'Practice missed'; selectDeck(); };
+byId('reset').onclick=()=>{ if(confirm('Clear all saved flashcard progress?')){ ratings={}; save(); selectDeck(); } };
+document.addEventListener('keydown',e=>{
+  const t=document.activeElement&&document.activeElement.tagName;
+  if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(t)) return;
+  if(e.key==='ArrowLeft') move(-1);
+  else if(e.key==='ArrowRight') move(1);
+  else if(e.key===' '){ e.preventDefault(); flip(); }
+  else if(e.key==='1') rate('missed');
+  else if(e.key==='2') rate('known');
+});
+selectDeck();
+</script>
+</body>
+</html>
