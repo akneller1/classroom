@@ -318,11 +318,11 @@
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="exp-graph";});if(!base)return;
     skill({id:"exponential-graph-features",best:base.best,tag:base.tag,name:"Read exponential graph features",blurb:"Determine domain, range and growth/decay from exponential graphs.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
+      difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
   })();
   /* Student-ready exponential graphing with three integer-coordinate anchor points. */
   skill({
-    id:'exp-graph-hand',best:[0,1],tag:'GROWTH',name:'Graph an exponential function by plotting points',
+    id:'exp-graph-hand',difficultyProfile:'focused',best:[0,1],tag:'GROWTH',name:'Graph an exponential function by plotting points',
     blurb:'Plot points for x = −1, 0 and 1, then see the growth/decay curve.',
     generate:function(ctx){
       var r=ctx.rng,pick=r.pick([[2,2,1],[4,2,1],[3,3,1],[4,1,2],[3,1,3]]);
