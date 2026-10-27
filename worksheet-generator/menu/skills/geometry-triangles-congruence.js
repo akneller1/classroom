@@ -69,10 +69,43 @@ function identify(ctx){
   steps:[step(kind==='ssa'?'SSA is not a valid general triangle congruence theorem.':kind==='aaa'?'AAA establishes similarity, not necessarily congruence.':'The marked corresponding parts establish '+answer+' congruence.',answer)],
   space:[1.2,1.5,1.8]};
 }
+
+function structuredProof(ctx){
+ var r=ctx.rng,c=ctx.c,shared=r.int(0,1)===0,flow=r.int(0,1)===0;
+ var x=r.int(5,c>=5?48:30),a=c>=5?r.int(2,5):1,b=r.int(1,19),v=a*x+b;
+ var expression=(a===1?'x':a+'x')+'+'+b,eq=expression+'='+v;
+ var givens,first,triangles,consequence;
+ if(shared){
+  givens='Triangles ABC and ABD share side AB. Given AC = AD and BC = BD.';
+  first='AB is congruent to AB';
+  triangles='triangle ABC is congruent to triangle ABD';
+  consequence='angle ACB = '+M(expression)+' degrees and angle ADB = '+v+' degrees';
+ }else{
+  givens='Lines AC and BD intersect at O. Given AO = CO and BO = DO.';
+  first='angle AOB is congruent to angle COD';
+  triangles='triangle AOB is congruent to triangle COD';
+  consequence='angle OAB = '+M(expression)+' degrees and angle OCD = '+v+' degrees';
+ }
+ var lead=flow?'Complete the following flow proof.':'Complete the following two-column proof.';
+ return {variant:'geo-structured-proof-'+(shared?'shared':'vertical')+'-'+(flow?'flow':'columns')+'-'+c,
+  prompt:givens+' '+consequence+'. '+lead+' Establish: (1) '+first+'; (2) '+triangles+'; (3) the listed corresponding angles are congruent. Supply the reason for each step, then find x using '+M(eq)+'.',
+  parts:[
+   {prompt:'Reason for step 1:',answer:shared?'REFLEXIVE PROPERTY':'VERTICAL ANGLES THEOREM',check:{type:'geo-proof-reason',stage:'first'}},
+   {prompt:'Reason for step 2:',answer:shared?'SSS':'SAS',check:{type:'geo-proof-reason',stage:'congruence'}},
+   {prompt:'Reason for step 3:',answer:'CPCTC',check:{type:'geo-proof-reason',stage:'consequence'}},
+   {prompt:'Find x:',answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}
+  ],
+  steps:[
+   step('Step 1: '+first,shared?'Reflexive Property':'Vertical Angles Theorem'),
+   step('Step 2: '+triangles,shared?'SSS':'SAS'),
+   step('Step 3: Corresponding angles are congruent.','CPCTC'),
+   step('Step 4: Solve the corresponding angle equation.',M(eq)+' '+M('x='+x))
+  ],space:[1.8,2.2,2.6]};
+}
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
- tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL'},
+ tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
- gaps:['Still needs structured formal proofs and more advanced diagram-driven applications.'],
+ gaps:['More advanced proof structures and fully labeled proof diagrams remain to be developed.'],
  skills:[
  {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:ctx=>corresponding(ctx,'side')},
  {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:ctx=>corresponding(ctx,'angle')},
@@ -83,6 +116,7 @@ NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',course
  {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'asa')},
  {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'aas')},
  {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'hl')},
- {id:'congruence-identify',tag:'CRITERIA',name:'Identify valid and invalid triangle congruence criteria from markings',best:[0,1,2],generate:identify}
+ {id:'congruence-identify',tag:'CRITERIA',name:'Identify valid and invalid triangle congruence criteria from markings',best:[0,1,2],generate:identify},
+ {id:'congruence-structured-proof',tag:'PROOFS',name:'Complete a two-column or flow proof',best:[0,1,2],generate:structuredProof}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
