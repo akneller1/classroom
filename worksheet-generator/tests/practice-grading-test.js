@@ -73,3 +73,13 @@ assert.strictEqual(responseLabel({response:'line:{"points":[]}'}),'Drawn line an
 assert.strictEqual(responseLabel({response:'point:-2,3'}),'Plotted point -2,3');
 assert(practiceSource.includes("if(q.kind==='mc'){q.correct="),'Multiple-choice must not be graded again as a free-response question');
 console.log('Report and multiple-choice regression assertions passed.');
+
+
+/* Number-line answer semantics: direction, endpoint inclusion, and compound rays. */
+const NG=context.MKGRAPH;
+function numberlineQ(pieces,response){return {kind:'auto',problem:{parts:[{answerFig:{kind:'numberline',min:-10,max:10,pieces}}]},response:'graph:'+JSON.stringify(response)};}
+assert.strictEqual(NG.grade(numberlineQ([{lo:2,hi:null,loC:false,hiC:false}],[{lo:2,hi:null,loC:false,hiC:false}])).status,'correct');
+assert.strictEqual(NG.grade(numberlineQ([{lo:2,hi:null,loC:false,hiC:false}],[{lo:null,hi:2,loC:false,hiC:false}])).status,'incorrect');
+assert.strictEqual(NG.grade(numberlineQ([{lo:2,hi:null,loC:true,hiC:false}],[{lo:2,hi:null,loC:false,hiC:false}])).status,'incorrect');
+assert.strictEqual(NG.grade(numberlineQ([{lo:null,hi:-3,loC:false,hiC:false},{lo:2,hi:null,loC:true,hiC:false}],[{lo:2,hi:null,loC:true,hiC:false},{lo:null,hi:-3,loC:false,hiC:false}])).status,'correct');
+console.log('Number-line rays: direction, open/closed endpoints, and compound intervals checked.');
