@@ -393,6 +393,12 @@
     }
   });
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="sequence";});if(!base)return;
+    skill({id:"arithmetic-explicit",best:base.best,tag:base.tag,name:"Write an explicit arithmetic sequence formula",blurb:"Use the first term and common difference to write a_n.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-relations-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'relations-functions', unitName: 'Relations and Functions',
     title: 'The Function Diner',
