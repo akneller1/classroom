@@ -45,8 +45,8 @@ for (const [criterion, expected] of Object.entries(expectedMarks)) {
   const fig = {kind:'geo-triangle-pair',criterion};
   const svg = menu.geoDiagram.render(fig);
   assert.ok(menu.geoDiagram.validate(fig),criterion+' diagram should be valid');
-  const ticks = (svg.match(/stroke-width="1\\.7"/g)||[]).length;
-  const arcs = (svg.match(/stroke-width="1\\.5"/g)||[]).length;
+  const ticks = svg.split('stroke-width="1.7"').length - 1;
+  const arcs = svg.split('stroke-width="1.5"').length - 1;
   assert.deepEqual([ticks,arcs],expected,criterion+' side/angle markings must match givens');
 }
 // Proof diagrams and independently checked reasons must agree with the printed givens.
