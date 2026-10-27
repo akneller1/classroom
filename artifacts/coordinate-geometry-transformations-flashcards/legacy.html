@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Coordinate Geometry &amp; Transformations Flashcards</title>
+<style>
+:root{
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color-scheme:light;
+  --ink:#14213d; --muted:#52627a; --accent:#3658d4; --accent-2:#eef3ff; --bg:#f3f6fd; --paper:#fffef9;
+  --line:#d9e2f2; --good:#1f7a4d; --bad:#9e2a2b; --shadow:#1d346517;
+  --fg:#14213d; --acc:#3658d4; --acc2:#d9780f; --fillc:rgba(54,88,212,.16); --fillc2:rgba(217,120,15,.16); --gridc:rgba(20,33,61,.14); --bgc:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink)}
+main{max-width:980px;margin:30px auto;padding:18px}
+h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.5rem)}
+.sub{color:var(--muted);margin:0 0 22px}
+.toolbar,.actions,.stats{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.toolbar{margin-bottom:14px}
+.stats{justify-content:space-between;color:var(--muted);font-size:.93rem;margin-bottom:12px}
+select,button{font:inherit;border-radius:10px;padding:10px 14px}
+select{border:1px solid #c9d3e8;background:white;color:var(--ink)}
+button{border:1px solid #bdcae8;background:white;color:var(--ink);cursor:pointer}
+button:hover{background:#e7ecfb}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,select:focus-visible,.card:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.primary:hover{background:#2846b2}
+.correct{background:#e1f7e8;border-color:#6ebc84}
+.missed{background:#ffe8e8;border-color:#e19a9a}
+.progress{height:9px;border-radius:9px;background:#dce4f4;overflow:hidden;margin:0 0 14px}
+.bar{background:var(--accent);height:100%;width:0;transition:width .2s}
+.card{min-height:430px;background:white;border:2px solid #d2dcf0;border-radius:22px;padding:28px 24px;box-shadow:0 9px 24px var(--shadow);display:flex;flex-direction:column;gap:18px;cursor:pointer}
+.card-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.tag{font-size:.82rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.mode-pill{font-size:.8rem;background:var(--accent-2);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:650}
+.prompt-wrap{display:grid;gap:10px}
+.prompt-label{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.instr{font-size:clamp(1.1rem,2.6vw,1.45rem);font-weight:600;line-height:1.5}
+.story{font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.5;color:var(--ink)}
+.display{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:600;line-height:1.5;padding:4px 0}
+.figbox{display:flex;justify-content:center;padding:6px 0}
+.figbox svg{max-width:100%;height:auto}
+.answer-box{background:#f6f8fe;border:1px solid #d8e2f5;border-radius:14px;padding:14px 16px}
+.answer-title,.panel-title{font-size:.86rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.answer{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700}
+.reveal-area{display:grid;grid-template-columns:1.15fr .95fr;gap:18px;align-items:start;margin-top:18px}
+.reveal-area.single{grid-template-columns:1fr}
+.notebook{background:linear-gradient(to bottom,var(--paper),var(--paper)) padding-box,linear-gradient(to bottom,#f3d57f,#e9bf4f) border-box;border:2px solid transparent;border-radius:18px;padding:16px 16px 12px}
+.problem-copy{font-weight:700;margin:0 0 10px;font-size:1.05rem}
+.steps{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.step{display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}
+.step-num{width:28px;height:28px;border-radius:50%;background:#e8eefc;color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:.9rem;margin-top:2px}
+.step-main{display:grid;gap:4px}
+.step-say{font-size:.98rem;color:var(--muted);line-height:1.45}
+.step-m{font-size:1.25rem;font-weight:600;color:var(--ink)}
+.visual-panel,.explanation-panel{background:#fbfcff;border:1px solid #d9e3f6;border-radius:18px;padding:16px}
+.explanation-panel{margin-top:12px}
+.explanation{color:var(--muted);line-height:1.55}
+.graph-holder{background:white;border:1px solid #e2e8f6;border-radius:14px;padding:10px;text-align:center}
+.graph-holder svg{max-width:100%;height:auto}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.86rem;margin-top:10px}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--accent);background:white}
+.legend-dot.closed{background:var(--accent)}
+.tip{margin-top:12px;background:#fff6e0;border:1px solid #efd28a;border-radius:12px;padding:10px 14px;color:#5a4410;line-height:1.5}
+.hint{color:var(--muted);font-size:.9rem;text-align:center;margin-top:auto}
+.notice{padding:13px 15px;background:white;border-radius:10px;border:1px solid #d2dcf0;margin-top:20px;color:var(--muted)}
+.actions{justify-content:center;margin-top:18px}
+[hidden]{display:none!important}
+@media (max-width:860px){.reveal-area{grid-template-columns:1fr}}
+@media (max-width:560px){.card{padding:20px 16px}.step{grid-template-columns:26px 1fr;gap:8px}.step-num{width:24px;height:24px;font-size:.8rem}}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style>
+</head>
+<body>
+<main>
+  <h1>Coordinate Geometry &amp; Transformations Flashcards</h1>
+  <p class="sub">Geometry · Flip each card for the answer, the worked steps, and why it works</p>
+
+  <div class="toolbar">
+    <label for="skill">Skill:</label>
+    <select id="skill"><option value="All">All skills</option></select>
+    <button id="shuffle">Shuffle</button>
+    <button id="missedOnly">Practice missed</button>
+    <button id="reset">Reset progress</button>
+  </div>
+
+  <div class="stats"><span id="counter" aria-live="polite"></span><span id="score" aria-live="polite"></span></div>
+  <div class="progress" aria-label="Card position"><div class="bar" id="bar"></div></div>
+
+  <div class="card" id="card" role="button" tabindex="0" aria-label="Flashcard: click or press Space to flip">
+    <div class="card-top">
+      <div class="tag" id="tag"></div>
+      <div class="mode-pill" id="modePill">Question side</div>
+    </div>
+
+    <div class="prompt-wrap">
+      <div class="prompt-label">Problem</div>
+      <div class="instr" id="instr"></div>
+      <div class="story" id="story" hidden></div>
+      <div class="display m" id="display" hidden></div>
+      <div class="figbox" id="figbox" hidden></div>
+    </div>
+
+    <div id="revealArea" hidden>
+      <div class="answer-box">
+        <div class="answer-title">Answer</div>
+        <div class="answer m" id="answer"></div>
+      </div>
+      <div class="reveal-area" id="revealGrid">
+        <div>
+          <div class="notebook">
+            <div class="panel-title">Show your work</div>
+            <ol class="steps" id="steps"></ol>
+          </div>
+          <div class="explanation-panel">
+            <div class="panel-title">Why this works</div>
+            <div class="explanation" id="explanation"></div>
+          </div>
+          <div class="tip" id="tip" hidden></div>
+        </div>
+        <div class="visual-panel" id="visualPanel" hidden>
+          <div class="panel-title" id="visualTitle">Visual</div>
+          <div class="graph-holder" id="graphHolder"></div>
+          <div class="legend" id="legend" hidden>
+            <div class="legend-item"><span class="legend-dot"></span><span>Open circle: endpoint not included</span></div>
+            <div class="legend-item"><span class="legend-dot closed"></span><span>Closed circle: endpoint included</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint" id="hint">Click the card or press Space to reveal the answer and the worked solution.</div>
+  </div>
+
+  <div class="actions">
+    <button id="prev">← Previous</button>
+    <button id="flip" class="primary">Reveal answer</button>
+    <button id="again" class="missed" hidden>Need practice</button>
+    <button id="known" class="correct" hidden>Got it!</button>
+    <button id="next">Next →</button>
+  </div>
+
+  <p class="notice">Your progress is stored in this browser only. Keyboard: ←/→ to navigate, Space to flip, 1 = need practice, 2 = got it.</p>
+</main>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+const CARDS = [{"skill": "Distance, midpoint & slope", "p": "Find the midpoint of the segment.", "s": "The endpoints are {{A(-4, 3)}} and {{B(6, -1)}}.", "a": "(1, 1)", "fig": {"vb": [-5, -2, 7, 4], "px": 300, "alt": "Segment AB from (-4, 3) to (6, -1)", "items": [{"t": "grid", "step": 1, "lstep": 2}, {"t": "l", "a": [-4, 3], "b": [6, -1], "k": "acc"}, {"t": "d", "p": [-4, 3], "k": "acc", "r": 3.5}, {"t": "d", "p": [6, -1], "k": "acc", "r": 3.5}, {"t": "tx", "p": [-4, 3], "s": "A", "dx": -12, "dy": -1, "k": "b"}, {"t": "tx", "p": [6, -1], "s": "B", "dx": 12, "dy": 9, "k": "b"}]}, "steps": [{"say": "Average the {{x}}-coordinates and average the {{y}}-coordinates.", "m": "M = ([[x_1 + x_2 ; 2]], [[y_1 + y_2 ; 2]])"}, {"say": "Substitute.", "m": "M = ([[-4 + 6 ; 2]], [[3 + (-1) ; 2]])"}, {"say": "Simplify.", "m": "M = ([[2 ; 2]], [[2 ; 2]]) = (1, 1)"}], "why": "The midpoint is exactly halfway between the endpoints in both directions, so it is the average of the coordinates.", "id": 1}, {"skill": "Distance, midpoint & slope", "p": "Find the distance between the two points. Give an exact answer.", "s": "The points are {{A(-2, 1)}} and {{B(4, 5)}}.", "a": "2rt{13}", "fig": {"vb": [-3, -1, 5, 6], "px": 300, "alt": "Segment AB with horizontal change 6 and vertical change 4", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "l", "a": [-2, 1], "b": [4, 5], "k": "acc"}, {"t": "d", "p": [-2, 1], "k": "acc", "r": 3.5}, {"t": "d", "p": [4, 5], "k": "acc", "r": 3.5}, {"t": "tx", "p": [-2, 1], "s": "A", "dx": -11, "dy": 11, "k": "b"}, {"t": "tx", "p": [4, 5], "s": "B", "dx": 11, "dy": -3, "k": "b"}, {"t": "l", "a": [-2, 1], "b": [4, 1], "k": "thin"}, {"t": "l", "a": [4, 1], "b": [4, 5], "k": "thin"}]}, "steps": [{"say": "Use the distance formula.", "m": "d = rt{(x_2 - x_1)^2 + (y_2 - y_1)^2}"}, {"say": "Substitute. The horizontal change is 6 and the vertical change is 4.", "m": "d = rt{(4 - (-2))^2 + (5 - 1)^2} = rt{6^2 + 4^2}"}, {"say": "Square and add.", "m": "d = rt{36 + 16} = rt{52}"}, {"say": "Simplify the radical: {{52 = 4 · 13}}.", "m": "d = 2rt{13}"}], "why": "The distance formula is the Pythagorean Theorem applied to the horizontal and vertical changes.", "tip": "{{2rt{13}}} is about 7.2 units.", "id": 2}, {"skill": "Distance, midpoint & slope", "p": "Find the slope of the line through the two points.", "s": "The points are {{A(-2, -3)}} and {{B(4, 5)}}.", "a": "[[4 ; 3]]", "fig": {"vb": [-3, -4, 5, 6], "px": 300, "alt": "Line through (-2, -3) and (4, 5)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "l", "a": [-2, -3], "b": [4, 5], "k": "acc"}, {"t": "d", "p": [-2, -3], "k": "acc", "r": 3.5}, {"t": "d", "p": [4, 5], "k": "acc", "r": 3.5}, {"t": "tx", "p": [-2, -3], "s": "A", "dx": -8, "dy": 14, "k": "b"}, {"t": "tx", "p": [4, 5], "s": "B", "dx": 8, "dy": -6, "k": "b"}, {"t": "L", "p": [-2, -3], "q": [4, 5], "k": "thin"}]}, "steps": [{"say": "Slope is rise over run.", "m": "m = [[y_2 - y_1 ; x_2 - x_1]]"}, {"say": "Substitute. Subtract in the same order on top and bottom.", "m": "m = [[5 - (-3) ; 4 - (-2)]]"}, {"say": "Subtract.", "m": "m = [[8 ; 6]]"}, {"say": "Simplify the fraction.", "m": "m = [[4 ; 3]]"}], "why": "Slope compares how far the line rises with how far it runs. A positive slope goes up to the right.", "tip": "Rise 8 and run 6 gives {{[[8 ; 6]] = [[4 ; 3]]}}, so the line goes up to the right, as in the graph.", "id": 3}, {"skill": "Distance, midpoint & slope", "p": "Find the coordinates of endpoint B.", "s": "{{M(2, -1)}} is the midpoint of segment {{AB}}. Endpoint {{A}} is at {{(-3, 4)}}.", "a": "B(7, -6)", "fig": {"vb": [-4, -2, 3, 5], "px": 300, "alt": "Points A(-3, 4) and midpoint M(2, -1)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "d", "p": [-3, 4], "k": "acc", "r": 3.5}, {"t": "tx", "p": [-3, 4], "s": "A", "dx": 9, "dy": -5, "k": "b"}, {"t": "d", "p": [2, -1], "k": "acc", "r": 3.5}, {"t": "tx", "p": [2, -1], "s": "M", "dx": 9, "dy": -5, "k": "b"}]}, "steps": [{"say": "The midpoint is the average of the endpoints, so write one equation for each coordinate.", "m": "[[-3 + x ; 2]] = 2  and  [[4 + y ; 2]] = -1"}, {"say": "Multiply both sides by 2.", "m": "-3 + x = 4  and  4 + y = -2"}, {"say": "Solve each equation.", "m": "x = 7  and  y = -6"}, {"say": "Check: the average of {{-3}} and {{7}} is {{2}}, and the average of {{4}} and {{-6}} is {{-1}}.", "m": "B = (7, -6)"}], "why": "From the start, A moves the same distance to M as M moves to B: right 5 and down 5, so B is at {{(2 + 5, -1 - 5)}}.", "id": 4}, {"skill": "Distance, midpoint & slope", "p": "Find the value of {{k}}.", "s": "The line through {{(2, k)}} and {{(6, 9)}} has slope 2.", "a": "k = 1", "steps": [{"say": "Write the slope formula with the given points.", "m": "[[9 - k ; 6 - 2]] = 2"}, {"say": "Simplify the denominator.", "m": "[[9 - k ; 4]] = 2"}, {"say": "Multiply both sides by 4.", "m": "9 - k = 8"}, {"say": "Subtract 9 from both sides, then multiply by {{-1}}.", "m": "k = 1"}], "why": "A slope given as a number is an equation. Write the slope formula and solve for the unknown.", "tip": "Check: the slope from {{(2, 1)}} to {{(6, 9)}} is {{[[9 - 1 ; 6 - 2]] = [[8 ; 4]] = 2}}.", "id": 5}, {"skill": "Classifying figures", "p": "Classify the triangle by its sides: scalene, isosceles or equilateral.", "s": "The vertices are {{A(0, 0)}}, {{B(6, 0)}} and {{C(3, 4)}}.", "a": "Isosceles (AC = BC = 5)", "fig": {"vb": [-1, -1, 7, 5], "px": 300, "alt": "Triangle with vertices (0, 0), (6, 0) and (3, 4)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[0, 0], [6, 0], [3, 4]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [6, 0], [3, 4]], "k": "none"}, {"t": "tx", "p": [0, 0], "s": "A", "dx": -12, "dy": 9, "k": "b"}, {"t": "tx", "p": [6, 0], "s": "B", "dx": 12, "dy": 9, "k": "b"}, {"t": "tx", "p": [3, 4], "s": "C", "dx": 0, "dy": -9, "k": "b"}]}, "steps": [{"say": "Find each side length with the distance formula.", "m": "AB = 6"}, {"say": "Side {{AC}} has horizontal change 3 and vertical change 4.", "m": "AC = rt{3^2 + 4^2} = rt{25} = 5"}, {"say": "Side {{BC}} has horizontal change 3 and vertical change 4.", "m": "BC = rt{3^2 + 4^2} = 5"}, {"say": "Two sides are equal and the third is different, so the triangle is isosceles."}], "why": "Classifying a figure on the plane means computing its side lengths (distance formula) or slopes.", "tip": "Isosceles needs at least two equal sides. Equilateral needs all three.", "id": 6}, {"skill": "Classifying figures", "p": "Is triangle {{PQR}} a right triangle? If so, where is the right angle?", "s": "The vertices are {{P(1, 1)}}, {{Q(5, 3)}} and {{R(3, 7)}}.", "a": "Yes, the right angle is at Q", "fig": {"vb": [-1, -1, 6, 8], "px": 300, "alt": "Triangle PQR with vertices (1, 1), (5, 3), (3, 7)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 1], [5, 3], [3, 7]], "k": "fill"}, {"t": "p", "pts": [[1, 1], [5, 3], [3, 7]], "k": "none"}, {"t": "tx", "p": [1, 1], "s": "P", "dx": -8, "dy": 14, "k": "b"}, {"t": "tx", "p": [5, 3], "s": "Q", "dx": 12, "dy": 8, "k": "b"}, {"t": "tx", "p": [3, 7], "s": "R", "dx": 0, "dy": -9, "k": "b"}]}, "steps": [{"say": "A right angle is formed by perpendicular sides, whose slopes multiply to {{-1}}. Find the slope of each side at {{Q}}.", "m": "slope PQ = [[3 - 1 ; 5 - 1]] = [[1 ; 2]]"}, {"say": "Find the slope of {{QR}}.", "m": "slope QR = [[7 - 3 ; 3 - 5]] = [[4 ; -2]] = -2"}, {"say": "Multiply the two slopes.", "m": "[[1 ; 2]] · (-2) = -1"}, {"say": "The product is {{-1}}, so {{PQ}} is perpendicular to {{QR}} and the right angle is at {{Q}}."}], "why": "Perpendicular lines have slopes that are opposite reciprocals.", "tip": "You can also check with the Pythagorean Theorem: {{PQ^2 + QR^2 = 20 + 20 = 40 = PR^2}}.", "id": 7}, {"skill": "Classifying figures", "p": "Is quadrilateral {{ABCD}} a parallelogram? Use the midpoints of its diagonals.", "s": "The vertices are {{A(0, 0)}}, {{B(5, 1)}}, {{C(7, 4)}} and {{D(2, 3)}}.", "a": "Yes, it is @{a} parallelogram", "fig": {"vb": [-1, -1, 8, 5], "px": 300, "alt": "Quadrilateral ABCD with its diagonals", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[0, 0], [5, 1], [7, 4], [2, 3]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [5, 1], [7, 4], [2, 3]], "k": "none"}, {"t": "tx", "p": [0, 0], "s": "A", "dx": -11, "dy": 10, "k": "b"}, {"t": "tx", "p": [5, 1], "s": "B", "dx": 11, "dy": 11, "k": "b"}, {"t": "tx", "p": [7, 4], "s": "C", "dx": 11, "dy": -2, "k": "b"}, {"t": "tx", "p": [2, 3], "s": "D", "dx": -11, "dy": -3, "k": "b"}, {"t": "l", "a": [0, 0], "b": [7, 4], "k": "thin"}, {"t": "l", "a": [5, 1], "b": [2, 3], "k": "thin"}]}, "steps": [{"say": "In a parallelogram the diagonals bisect each other, so they share a midpoint. Find the midpoint of diagonal {{AC}}.", "m": "([[0 + 7 ; 2]], [[0 + 4 ; 2]]) = (3.5, 2)"}, {"say": "Find the midpoint of diagonal {{BD}}.", "m": "([[5 + 2 ; 2]], [[1 + 3 ; 2]]) = (3.5, 2)"}, {"say": "The midpoints are the same, so the diagonals bisect each other and {{ABCD}} is a parallelogram."}], "why": "If a quadrilateral's diagonals bisect each other, it must be a parallelogram.", "tip": "Another check: opposite sides have equal slopes. {{AB}} and {{DC}} both have slope {{[[1 ; 5]]}}.", "id": 8}, {"skill": "Classifying figures", "p": "Give the most specific name for the quadrilateral.", "s": "The vertices are {{A(1, 1)}}, {{B(4, 2)}}, {{C(3, 5)}} and {{D(0, 4)}}.", "a": "Square", "fig": {"vb": [-1, -1, 5, 6], "px": 300, "alt": "Quadrilateral ABCD that looks like a tilted square", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 1], [4, 2], [3, 5], [0, 4]], "k": "fill"}, {"t": "p", "pts": [[1, 1], [4, 2], [3, 5], [0, 4]], "k": "none"}, {"t": "tx", "p": [1, 1], "s": "A", "dx": -6, "dy": 16, "k": "b"}, {"t": "tx", "p": [4, 2], "s": "B", "dx": 12, "dy": 10, "k": "b"}, {"t": "tx", "p": [3, 5], "s": "C", "dx": 6, "dy": -8, "k": "b"}, {"t": "tx", "p": [0, 4], "s": "D", "dx": -12, "dy": -2, "k": "b"}]}, "steps": [{"say": "Find each side length. Every side has a horizontal and vertical change of 3 and 1 (in some order).", "m": "AB = BC = CD = DA = rt{3^2 + 1^2} = rt{10}"}, {"say": "All four sides are equal, so it is a rhombus. Now check for a right angle with slopes at {{B}}.", "m": "slope AB = [[1 ; 3]],   slope BC = [[3 ; -1]] = -3"}, {"say": "The slopes multiply to {{-1}}, so the angle at {{B}} is a right angle.", "m": "[[1 ; 3]] · (-3) = -1"}, {"say": "A rhombus with a right angle is a square."}], "why": "A rhombus has four equal sides. A rectangle has four right angles. A square is both.", "tip": "Equal sides alone would only prove a rhombus.", "id": 9}, {"skill": "Translations & reflections", "p": "Translate triangle {{ABC}} using the rule {{(x, y) → (x + 5, y + 3)}}. Give the coordinates of {{A'}}, {{B'}} and {{C'}}.", "s": "{{A(-4, -1)}}, {{B(-1, -1)}}, {{C(-2, 2)}}", "a": "A'(1, 2), B'(4, 2), C'(3, 5)", "fig": {"vb": [-5, -2, 1, 3], "px": 300, "alt": "Triangle ABC with vertices (-4, -1), (-1, -1), (-2, 2)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[-4, -1], [-1, -1], [-2, 2]], "k": "fill"}, {"t": "p", "pts": [[-4, -1], [-1, -1], [-2, 2]], "k": "none"}, {"t": "tx", "p": [-4, -1], "s": "A", "dx": -11, "dy": 11, "k": "b"}, {"t": "tx", "p": [-1, -1], "s": "B", "dx": 10, "dy": 12, "k": "b"}, {"t": "tx", "p": [-2, 2], "s": "C", "dx": 2, "dy": -9, "k": "b"}]}, "afig": {"vb": [-5, -2, 5, 6], "px": 300, "alt": "Triangle ABC and its image after moving right 5 and up 3", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[-4, -1], [-1, -1], [-2, 2]], "k": "fill"}, {"t": "p", "pts": [[-4, -1], [-1, -1], [-2, 2]], "k": "none"}, {"t": "tx", "p": [-4, -1], "s": "A", "dx": -11, "dy": 11, "k": "b"}, {"t": "tx", "p": [-1, -1], "s": "B", "dx": 10, "dy": 12, "k": "b"}, {"t": "tx", "p": [-2, 2], "s": "C", "dx": 2, "dy": -9, "k": "b"}, {"t": "p", "pts": [[1, 2], [4, 2], [3, 5]], "k": "fill2"}, {"t": "tx", "p": [1, 2], "s": "A'", "dx": -11, "dy": 11, "k": "b"}, {"t": "tx", "p": [4, 2], "s": "B'", "dx": 10, "dy": 12, "k": "b"}, {"t": "tx", "p": [3, 5], "s": "C'", "dx": 2, "dy": -9, "k": "b"}]}, "steps": [{"say": "The rule says to add 5 to every {{x}}-coordinate (move right 5) and add 3 to every {{y}}-coordinate (move up 3)."}, {"say": "Apply the rule to each vertex.", "m": "A(-4, -1) → (-4 + 5, -1 + 3) = (1, 2)"}, {"say": "Do the same for {{B}} and {{C}}.", "m": "B' = (4, 2),   C' = (3, 5)"}], "why": "A translation slides every point the same distance in the same direction, so the shape and size do not change.", "id": 10}, {"skill": "Translations & reflections", "p": "A translation moves {{A(-3, 2)}} to {{A'(2, -1)}}. Write the rule as {{(x, y) → (x + a, y + b)}}.", "a": "(x, y) → (x + 5, y - 3)", "steps": [{"say": "Find how far the {{x}}-coordinate changed.", "m": "2 - (-3) = 5"}, {"say": "Find how far the {{y}}-coordinate changed.", "m": "-1 - 2 = -3"}, {"say": "Write the rule using these changes: right 5 and down 3.", "m": "(x, y) → (x + 5, y - 3)"}], "why": "Subtract the starting coordinates from the ending coordinates. The same change applies to every point.", "tip": "Check on another point: {{B(1, 4)}} would move to {{(6, 1)}}.", "id": 11}, {"skill": "Translations & reflections", "p": "Reflect triangle {{ABC}} over the {{x}}-axis. Give the coordinates of {{A'}}, {{B'}} and {{C'}}.", "s": "{{A(1, 2)}}, {{B(4, 3)}}, {{C(2, 5)}}", "a": "A'(1, -2), B'(4, -3), C'(2, -5)", "fig": {"vb": [-1, -1, 5, 6], "px": 300, "alt": "Triangle ABC in the first quadrant", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 2], [4, 3], [2, 5]], "k": "fill"}, {"t": "p", "pts": [[1, 2], [4, 3], [2, 5]], "k": "none"}, {"t": "tx", "p": [1, 2], "s": "A", "dx": -9, "dy": 13, "k": "b"}, {"t": "tx", "p": [4, 3], "s": "B", "dx": 13, "dy": 7, "k": "b"}, {"t": "tx", "p": [2, 5], "s": "C", "dx": -3, "dy": -9, "k": "b"}]}, "afig": {"vb": [-1, -6, 5, 6], "px": 300, "alt": "Triangle ABC and its reflection over the x-axis", "items": [{"t": "grid", "step": 1, "lstep": 2}, {"t": "p", "pts": [[1, 2], [4, 3], [2, 5]], "k": "fill"}, {"t": "p", "pts": [[1, 2], [4, 3], [2, 5]], "k": "none"}, {"t": "tx", "p": [1, 2], "s": "A", "dx": -9, "dy": 13, "k": "b"}, {"t": "tx", "p": [4, 3], "s": "B", "dx": 13, "dy": 7, "k": "b"}, {"t": "tx", "p": [2, 5], "s": "C", "dx": -3, "dy": -9, "k": "b"}, {"t": "p", "pts": [[1, -2], [4, -3], [2, -5]], "k": "fill2"}, {"t": "tx", "p": [1, -2], "s": "A'", "dx": -9, "dy": -5, "k": "b"}, {"t": "tx", "p": [4, -3], "s": "B'", "dx": 13, "dy": 1, "k": "b"}, {"t": "tx", "p": [2, -5], "s": "C'", "dx": -3, "dy": 17, "k": "b"}]}, "steps": [{"say": "A reflection over the {{x}}-axis flips each point to the other side of the axis. The {{x}}-coordinate stays the same and the {{y}}-coordinate changes sign.", "m": "(x, y) → (x, -y)"}, {"say": "Apply the rule to each vertex.", "m": "A' = (1, -2),   B' = (4, -3),   C' = (2, -5)"}], "why": "Each point and its image are the same distance from the mirror line, on opposite sides.", "tip": "Over the {{x}}-axis, the {{y}} changes sign. Over the {{y}}-axis, the {{x}} changes sign.", "id": 12}, {"skill": "Translations & reflections", "p": "Reflect triangle {{DEF}} over the {{y}}-axis. Give the coordinates of {{D'}}, {{E'}} and {{F'}}.", "s": "{{D(2, 1)}}, {{E(6, 1)}}, {{F(6, 4)}}", "a": "D'(-2, 1), E'(-6, 1), F'(-6, 4)", "fig": {"vb": [-1, -1, 7, 5], "px": 300, "alt": "Triangle DEF in the first quadrant", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[2, 1], [6, 1], [6, 4]], "k": "fill"}, {"t": "p", "pts": [[2, 1], [6, 1], [6, 4]], "k": "none"}, {"t": "tx", "p": [2, 1], "s": "D", "dx": -12, "dy": 9, "k": "b"}, {"t": "tx", "p": [6, 1], "s": "E", "dx": 10, "dy": 12, "k": "b"}, {"t": "tx", "p": [6, 4], "s": "F", "dx": 7, "dy": -7, "k": "b"}]}, "afig": {"vb": [-7, -1, 7, 5], "px": 300, "alt": "Triangle DEF and its reflection over the y-axis", "items": [{"t": "grid", "step": 1, "lstep": 2}, {"t": "p", "pts": [[2, 1], [6, 1], [6, 4]], "k": "fill"}, {"t": "p", "pts": [[2, 1], [6, 1], [6, 4]], "k": "none"}, {"t": "tx", "p": [2, 1], "s": "D", "dx": -12, "dy": 9, "k": "b"}, {"t": "tx", "p": [6, 1], "s": "E", "dx": 10, "dy": 12, "k": "b"}, {"t": "tx", "p": [6, 4], "s": "F", "dx": 7, "dy": -7, "k": "b"}, {"t": "p", "pts": [[-2, 1], [-6, 1], [-6, 4]], "k": "fill2"}, {"t": "tx", "p": [-2, 1], "s": "D'", "dx": 12, "dy": 9, "k": "b"}, {"t": "tx", "p": [-6, 1], "s": "E'", "dx": -10, "dy": 12, "k": "b"}, {"t": "tx", "p": [-6, 4], "s": "F'", "dx": -7, "dy": -7, "k": "b"}]}, "steps": [{"say": "A reflection over the {{y}}-axis keeps the {{y}}-coordinate and changes the sign of the {{x}}-coordinate.", "m": "(x, y) → (-x, y)"}, {"say": "Apply the rule to each vertex.", "m": "D' = (-2, 1),   E' = (-6, 1),   F' = (-6, 4)"}], "why": "The {{y}}-axis is the mirror, so each point moves across it horizontally by twice its distance from the axis.", "id": 13}, {"skill": "Translations & reflections", "p": "Reflect triangle {{GHJ}} over the line {{y = x}}. Give the coordinates of {{G'}}, {{H'}} and {{J'}}.", "s": "{{G(-3, 1)}}, {{H(-1, 1)}}, {{J(-1, 4)}}", "a": "G'(1, -3), H'(1, -1), J'(4, -1)", "fig": {"vb": [-4, -1, 1, 5], "px": 300, "alt": "Triangle GHJ and the line y = x", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[-3, 1], [-1, 1], [-1, 4]], "k": "fill"}, {"t": "p", "pts": [[-3, 1], [-1, 1], [-1, 4]], "k": "none"}, {"t": "tx", "p": [-3, 1], "s": "G", "dx": -10, "dy": 12, "k": "b"}, {"t": "tx", "p": [-1, 1], "s": "H", "dx": 7, "dy": 15, "k": "b"}, {"t": "tx", "p": [-1, 4], "s": "J", "dx": 4, "dy": -8, "k": "b"}, {"t": "L", "m": 1, "b": 0, "k": "thin"}]}, "afig": {"vb": [-4, -4, 5, 5], "px": 300, "alt": "Triangle GHJ and its reflection over y = x", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[-3, 1], [-1, 1], [-1, 4]], "k": "fill"}, {"t": "p", "pts": [[-3, 1], [-1, 1], [-1, 4]], "k": "none"}, {"t": "tx", "p": [-3, 1], "s": "G", "dx": -10, "dy": 12, "k": "b"}, {"t": "tx", "p": [-1, 1], "s": "H", "dx": 7, "dy": 15, "k": "b"}, {"t": "tx", "p": [-1, 4], "s": "J", "dx": 4, "dy": -8, "k": "b"}, {"t": "p", "pts": [[1, -3], [1, -1], [4, -1]], "k": "fill2"}, {"t": "tx", "p": [1, -3], "s": "G'", "dx": -8, "dy": 14, "k": "b"}, {"t": "tx", "p": [1, -1], "s": "H'", "dx": -11, "dy": -3, "k": "b"}, {"t": "tx", "p": [4, -1], "s": "J'", "dx": 12, "dy": 0, "k": "b"}, {"t": "L", "m": 1, "b": 0, "k": "thin"}]}, "steps": [{"say": "Reflecting over the line {{y = x}} swaps the two coordinates.", "m": "(x, y) → (y, x)"}, {"say": "Apply the rule to each vertex.", "m": "G(-3, 1) → (1, -3)"}, {"say": "Do the same for {{H}} and {{J}}.", "m": "H' = (1, -1),   J' = (4, -1)"}], "why": "The line {{y = x}} is the set of points whose coordinates are equal. Swapping coordinates flips a point across it.", "tip": "Do not confuse this with the {{x}}-axis or {{y}}-axis reflections, where only one sign changes.", "id": 14}, {"skill": "Rotations & dilations", "p": "Rotate triangle {{ABC}} 90° counterclockwise about the origin. Give the coordinates of {{A'}}, {{B'}} and {{C'}}.", "s": "{{A(1, -2)}}, {{B(4, -2)}}, {{C(4, -4)}}", "a": "A'(2, 1), B'(2, 4), C'(4, 4)", "fig": {"vb": [-1, -5, 5, 1], "px": 300, "alt": "Triangle ABC in the fourth quadrant", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, -2], [4, -2], [4, -4]], "k": "fill"}, {"t": "p", "pts": [[1, -2], [4, -2], [4, -4]], "k": "none"}, {"t": "tx", "p": [1, -2], "s": "A", "dx": -12, "dy": 0, "k": "b"}, {"t": "tx", "p": [4, -2], "s": "B", "dx": 11, "dy": -3, "k": "b"}, {"t": "tx", "p": [4, -4], "s": "C", "dx": 8, "dy": 14, "k": "b"}]}, "afig": {"vb": [-1, -5, 5, 5], "px": 300, "alt": "Triangle ABC and its image after a 90 degree counterclockwise rotation", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, -2], [4, -2], [4, -4]], "k": "fill"}, {"t": "p", "pts": [[1, -2], [4, -2], [4, -4]], "k": "none"}, {"t": "tx", "p": [1, -2], "s": "A", "dx": -12, "dy": 0, "k": "b"}, {"t": "tx", "p": [4, -2], "s": "B", "dx": 11, "dy": -3, "k": "b"}, {"t": "tx", "p": [4, -4], "s": "C", "dx": 8, "dy": 14, "k": "b"}, {"t": "p", "pts": [[2, 1], [2, 4], [4, 4]], "k": "fill2"}, {"t": "tx", "p": [2, 1], "s": "A'", "dx": -4, "dy": 16, "k": "b"}, {"t": "tx", "p": [2, 4], "s": "B'", "dx": -7, "dy": -7, "k": "b"}, {"t": "tx", "p": [4, 4], "s": "C'", "dx": 10, "dy": -4, "k": "b"}]}, "steps": [{"say": "For a 90° counterclockwise rotation about the origin, swap the coordinates and change the sign of the new {{x}}.", "m": "(x, y) → (-y, x)"}, {"say": "Apply the rule to each vertex.", "m": "A(1, -2) → (2, 1)"}, {"say": "Do the same for {{B}} and {{C}}.", "m": "B(4, -2) → (2, 4),   C(4, -4) → (4, 4)"}], "why": "A quarter turn counterclockwise takes a point on the positive {{x}}-axis to the positive {{y}}-axis.", "tip": "Check one point with the picture: {{A}} is below the {{x}}-axis, and its image is to the right of the origin.", "id": 15}, {"skill": "Rotations & dilations", "p": "Rotate triangle {{ABC}} 180° about the origin. Give the coordinates of {{A'}}, {{B'}} and {{C'}}.", "s": "{{A(-4, 1)}}, {{B(-1, 1)}}, {{C(-1, 4)}}", "a": "A'(4, -1), B'(1, -1), C'(1, -4)", "fig": {"vb": [-5, -1, 1, 5], "px": 300, "alt": "Triangle ABC in the second quadrant", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[-4, 1], [-1, 1], [-1, 4]], "k": "fill"}, {"t": "p", "pts": [[-4, 1], [-1, 1], [-1, 4]], "k": "none"}, {"t": "tx", "p": [-4, 1], "s": "A", "dx": -12, "dy": 10, "k": "b"}, {"t": "tx", "p": [-1, 1], "s": "B", "dx": 9, "dy": 13, "k": "b"}, {"t": "tx", "p": [-1, 4], "s": "C", "dx": 6, "dy": -8, "k": "b"}]}, "afig": {"vb": [-5, -5, 5, 5], "px": 300, "alt": "Triangle ABC and its image after a 180 degree rotation", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[-4, 1], [-1, 1], [-1, 4]], "k": "fill"}, {"t": "p", "pts": [[-4, 1], [-1, 1], [-1, 4]], "k": "none"}, {"t": "tx", "p": [-4, 1], "s": "A", "dx": -12, "dy": 10, "k": "b"}, {"t": "tx", "p": [-1, 1], "s": "B", "dx": 9, "dy": 13, "k": "b"}, {"t": "tx", "p": [-1, 4], "s": "C", "dx": 6, "dy": -8, "k": "b"}, {"t": "p", "pts": [[4, -1], [1, -1], [1, -4]], "k": "fill2"}, {"t": "tx", "p": [4, -1], "s": "A'", "dx": 12, "dy": -2, "k": "b"}, {"t": "tx", "p": [1, -1], "s": "B'", "dx": -9, "dy": -5, "k": "b"}, {"t": "tx", "p": [1, -4], "s": "C'", "dx": -6, "dy": 16, "k": "b"}]}, "steps": [{"say": "A 180° rotation about the origin changes the sign of both coordinates.", "m": "(x, y) → (-x, -y)"}, {"say": "Apply the rule to each vertex.", "m": "A' = (4, -1),   B' = (1, -1),   C' = (1, -4)"}], "why": "A half turn sends each point straight through the origin to the opposite side, the same distance away.", "tip": "Rotating 180° clockwise or counterclockwise gives the same result.", "id": 16}, {"skill": "Rotations & dilations", "p": "Rotate point {{P(4, -3)}} 270° counterclockwise about the origin. Find {{P'}}.", "a": "P'(-3, -4)", "fig": {"vb": [-1, -4, 5, 1], "px": 300, "alt": "Point P at (4, -3)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "d", "p": [4, -3], "k": "acc", "r": 3.5}, {"t": "tx", "p": [4, -3], "s": "P", "dx": 9, "dy": -5, "k": "b"}]}, "afig": {"vb": [-4, -5, 5, 1], "px": 300, "alt": "Point P(4, -3) and its image P'(-3, -4)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "d", "p": [4, -3], "k": "acc", "r": 3.5}, {"t": "tx", "p": [4, -3], "s": "P", "dx": 9, "dy": -5, "k": "b"}, {"t": "d", "p": [-3, -4], "k": "acc2", "r": 3.5}, {"t": "tx", "p": [-3, -4], "s": "P'", "dx": 9, "dy": -5, "k": "b"}]}, "steps": [{"say": "For a 270° counterclockwise rotation about the origin (the same as 90° clockwise), the rule is:", "m": "(x, y) → (y, -x)"}, {"say": "Substitute {{x = 4}} and {{y = -3}}.", "m": "(4, -3) → (-3, -4)"}], "why": "Three quarter turns counterclockwise equal one quarter turn clockwise.", "tip": "Check the distance from the origin: {{rt{4^2 + 3^2} = 5}} and {{rt{3^2 + 4^2} = 5}}. Rotations keep distances from the center.", "id": 17}, {"skill": "Rotations & dilations", "p": "Dilate triangle {{ABC}} by a scale factor of 3 about the origin. Give the coordinates of {{A'}}, {{B'}} and {{C'}}.", "s": "{{A(1, 1)}}, {{B(3, 1)}}, {{C(1, 2)}}", "a": "A'(3, 3), B'(9, 3), C'(3, 6)", "fig": {"vb": [-1, -1, 4, 3], "px": 300, "alt": "Small triangle ABC near the origin", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 1], [3, 1], [1, 2]], "k": "fill"}, {"t": "p", "pts": [[1, 1], [3, 1], [1, 2]], "k": "none"}, {"t": "tx", "p": [1, 1], "s": "A", "dx": -12, "dy": 10, "k": "b"}, {"t": "tx", "p": [3, 1], "s": "B", "dx": 13, "dy": 7, "k": "b"}, {"t": "tx", "p": [1, 2], "s": "C", "dx": -9, "dy": -5, "k": "b"}]}, "afig": {"vb": [-1, -1, 10, 7], "px": 300, "alt": "Triangle ABC and its dilation by 3 about the origin", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 1], [3, 1], [1, 2]], "k": "fill"}, {"t": "p", "pts": [[1, 1], [3, 1], [1, 2]], "k": "none"}, {"t": "tx", "p": [1, 1], "s": "A", "dx": -12, "dy": 10, "k": "b"}, {"t": "tx", "p": [3, 1], "s": "B", "dx": 13, "dy": 7, "k": "b"}, {"t": "tx", "p": [1, 2], "s": "C", "dx": -9, "dy": -5, "k": "b"}, {"t": "p", "pts": [[3, 3], [9, 3], [3, 6]], "k": "fill2"}, {"t": "tx", "p": [3, 3], "s": "A'", "dx": -12, "dy": 10, "k": "b"}, {"t": "tx", "p": [9, 3], "s": "B'", "dx": 13, "dy": 7, "k": "b"}, {"t": "tx", "p": [3, 6], "s": "C'", "dx": -9, "dy": -5, "k": "b"}]}, "steps": [{"say": "A dilation about the origin with scale factor {{k}} multiplies both coordinates by {{k}}.", "m": "(x, y) → (3x, 3y)"}, {"say": "Multiply each coordinate by 3.", "m": "A(1, 1) → (3, 3)"}, {"say": "Do the same for {{B}} and {{C}}.", "m": "B' = (9, 3),   C' = (3, 6)"}], "why": "A dilation keeps the shape and angles but changes the size. Each image point is {{k}} times as far from the center.", "id": 18}, {"skill": "Rotations & dilations", "p": "A triangle has perimeter 12 cm and area 6 cm². It is dilated by a scale factor of 3. Find the perimeter and area of the image.", "a": "perimeter 36 cm;  area 54 cm^2", "steps": [{"say": "Lengths are multiplied by the scale factor 3, so the perimeter is too.", "m": "12 · 3 = 36 cm"}, {"say": "Area is multiplied by the scale factor squared.", "m": "3^2 = 9"}, {"say": "Multiply the original area by 9.", "m": "6 · 9 = 54 cm^2"}], "why": "Perimeter is a length, so it scales by {{k}}. Area is two-dimensional, so it scales by {{k^2}}.", "tip": "Check with a right triangle with legs 2 and 3 (area 3). After scale factor 3 the legs are 6 and 9, and the area is 27, which is {{9 · 3}}.", "id": 19}, {"skill": "Compositions & congruence", "p": "Triangle {{ABC}} is reflected over the {{x}}-axis, then translated by {{(x, y) → (x + 2, y + 3)}}. Give the final image {{A''}}, {{B''}}, {{C''}}.", "s": "{{A(1, 1)}}, {{B(3, 1)}}, {{C(3, 4)}}", "a": "A''(3, 2), B''(5, 2), C''(5, -1)", "fig": {"vb": [-1, -1, 4, 5], "px": 300, "alt": "Triangle ABC in the first quadrant", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 1], [3, 1], [3, 4]], "k": "fill"}, {"t": "p", "pts": [[1, 1], [3, 1], [3, 4]], "k": "none"}, {"t": "tx", "p": [1, 1], "s": "A", "dx": -10, "dy": 12, "k": "b"}, {"t": "tx", "p": [3, 1], "s": "B", "dx": 7, "dy": 15, "k": "b"}, {"t": "tx", "p": [3, 4], "s": "C", "dx": 4, "dy": -8, "k": "b"}]}, "afig": {"vb": [-1, -5, 6, 5], "px": 300, "alt": "Triangle ABC, its reflection over the x-axis (outline) and the final image after the translation", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[1, 1], [3, 1], [3, 4]], "k": "fill"}, {"t": "p", "pts": [[1, 1], [3, 1], [3, 4]], "k": "none"}, {"t": "tx", "p": [1, 1], "s": "A", "dx": -10, "dy": 12, "k": "b"}, {"t": "tx", "p": [3, 1], "s": "B", "dx": 7, "dy": 15, "k": "b"}, {"t": "tx", "p": [3, 4], "s": "C", "dx": 4, "dy": -8, "k": "b"}, {"t": "p", "pts": [[1, -1], [3, -1], [3, -4]], "k": "none"}, {"t": "p", "pts": [[1, -1], [3, -1], [3, -4]], "k": "none"}, {"t": "p", "pts": [[3, 2], [5, 2], [5, -1]], "k": "fill2"}, {"t": "tx", "p": [3, 2], "s": "A''", "dx": -10, "dy": -4, "k": "b"}, {"t": "tx", "p": [5, 2], "s": "B''", "dx": 7, "dy": -7, "k": "b"}, {"t": "tx", "p": [5, -1], "s": "C''", "dx": 4, "dy": 16, "k": "b"}]}, "steps": [{"say": "Do the transformations in order. First reflect over the {{x}}-axis by changing the sign of each {{y}}.", "m": "A(1, 1) → (1, -1),   B → (3, -1),   C → (3, -4)"}, {"say": "Now translate each reflected point 2 right and 3 up.", "m": "(1, -1) → (3, 2)"}, {"say": "Do the same for the other two points.", "m": "(3, -1) → (5, 2),   (3, -4) → (5, -1)"}], "why": "In a composition, the output of the first transformation becomes the input of the second.", "tip": "Check the image: it keeps the same size and shape as {{ABC}}, only flipped and moved.", "id": 20}, {"skill": "Compositions & congruence", "p": "Point {{P(2, 1)}} is rotated 90° counterclockwise about the origin, then reflected over the {{x}}-axis. Find the final image {{P''}}.", "a": "P''(-1, -2)", "fig": {"vb": [-1, -1, 3, 2], "px": 300, "alt": "Point P at (2, 1)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "d", "p": [2, 1], "k": "acc", "r": 3.5}, {"t": "tx", "p": [2, 1], "s": "P", "dx": 9, "dy": -5, "k": "b"}]}, "afig": {"vb": [-2, -3, 3, 3], "px": 300, "alt": "Point P(2, 1), then P'(-1, 2), then P''(-1, -2)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "d", "p": [2, 1], "k": "acc", "r": 3.5}, {"t": "tx", "p": [2, 1], "s": "P", "dx": 9, "dy": -5, "k": "b"}, {"t": "d", "p": [-1, 2], "k": "acc2", "r": 3.5}, {"t": "tx", "p": [-1, 2], "s": "P'", "dx": 9, "dy": -5, "k": "b"}, {"t": "d", "p": [-1, -2], "k": "acc2", "r": 3.5}, {"t": "tx", "p": [-1, -2], "s": "P''", "dx": 9, "dy": -5, "k": "b"}]}, "steps": [{"say": "First rotate 90° counterclockwise: {{(x, y) → (-y, x)}}.", "m": "(2, 1) → (-1, 2)"}, {"say": "Then reflect the result over the {{x}}-axis: {{(x, y) → (x, -y)}}.", "m": "(-1, 2) → (-1, -2)"}], "why": "The order of a composition matters.", "tip": "Reverse the order (reflect first, then rotate) and you get {{(1, 2)}}, a different point.", "id": 21}, {"skill": "Compositions & congruence", "p": "Which of these does NOT always produce an image congruent to the original figure: translation, reflection, rotation, or dilation with scale factor 2?", "a": "Dilation with scale factor 2", "steps": [{"say": "Translations, reflections and rotations are rigid motions. They keep every side length and angle the same, so the image is congruent."}, {"say": "A dilation with scale factor 2 doubles every side length. For example, a side of length 3 becomes length 6.", "m": "3 → 6"}, {"say": "The image has the same shape but a different size, so it is similar, not congruent."}], "why": "Congruent figures have the same size and shape. Rigid motions only move a figure. A dilation resizes it.", "tip": "A dilation with scale factor 1 would be congruent, but a scale factor of 2 never is.", "id": 22}, {"skill": "Applications", "p": "On a town map (each unit is one block), Maya lives at {{(2, -3)}} and Jo lives at {{(10, 5)}}. They meet at the point halfway between their homes. Where do they meet?", "a": "(6, 1)", "fig": {"vb": [-1, -4, 11, 6], "px": 300, "alt": "Maya at (2, -3) and Jo at (10, 5) on a grid", "items": [{"t": "grid", "step": 1, "lstep": 2}, {"t": "l", "a": [2, -3], "b": [10, 5], "k": "acc"}, {"t": "d", "p": [2, -3], "k": "acc", "r": 3.5}, {"t": "d", "p": [10, 5], "k": "acc", "r": 3.5}, {"t": "tx", "p": [2, -3], "s": "Maya", "dx": -9, "dy": 13, "k": "b"}, {"t": "tx", "p": [10, 5], "s": "Jo", "dx": 9, "dy": -5, "k": "b"}]}, "steps": [{"say": "The halfway point is the midpoint of the segment between the two homes.", "m": "M = ([[2 + 10 ; 2]], [[-3 + 5 ; 2]])"}, {"say": "Add and divide.", "m": "M = ([[12 ; 2]], [[2 ; 2]]) = (6, 1)"}], "why": "Halfway in both directions means averaging the {{x}}-values and averaging the {{y}}-values.", "id": 23}, {"skill": "Applications", "p": "On a map, each grid unit is 2 km. Town {{A}} is at {{(1, 2)}} and town {{B}} is at {{(7, 10)}}. How many kilometers apart are the towns in a straight line?", "a": "20 km", "fig": {"vb": [-1, -1, 8, 11], "px": 300, "alt": "Towns A(1, 2) and B(7, 10) on a grid", "items": [{"t": "grid", "step": 1, "lstep": 2}, {"t": "l", "a": [1, 2], "b": [7, 10], "k": "acc"}, {"t": "d", "p": [1, 2], "k": "acc", "r": 3.5}, {"t": "d", "p": [7, 10], "k": "acc", "r": 3.5}, {"t": "tx", "p": [1, 2], "s": "A", "dx": -8, "dy": 14, "k": "b"}, {"t": "tx", "p": [7, 10], "s": "B", "dx": 8, "dy": -6, "k": "b"}]}, "steps": [{"say": "Use the distance formula to find the distance in grid units.", "m": "d = rt{(7 - 1)^2 + (10 - 2)^2} = rt{36 + 64}"}, {"say": "Simplify.", "m": "d = rt{100} = 10 units"}, {"say": "Each unit is 2 km, so multiply.", "m": "10 · 2 = 20 km"}], "why": "The distance formula gives the answer in map units. Convert to real distance with the scale.", "tip": "Do not forget the last step. The answer 10 would be in grid units, not kilometers.", "id": 24}, {"skill": "Applications", "p": "A photo is a rectangle with corners {{(0, 0)}}, {{(4, 0)}}, {{(4, 3)}} and {{(0, 3)}}. It is enlarged by a dilation with scale factor 3 about the origin. Find the length of the diagonal of the enlarged photo.", "a": "15", "fig": {"vb": [-1, -1, 5, 4], "px": 300, "alt": "Rectangle with corners (0, 0), (4, 0), (4, 3), (0, 3)", "items": [{"t": "grid", "step": 1, "lstep": 1}, {"t": "p", "pts": [[0, 0], [4, 0], [4, 3], [0, 3]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [4, 0], [4, 3], [0, 3]], "k": "none"}, {"t": "tx", "p": [0, 0], "s": "A", "dx": -10, "dy": 12, "k": "b"}, {"t": "tx", "p": [4, 0], "s": "B", "dx": 10, "dy": 12, "k": "b"}, {"t": "tx", "p": [4, 3], "s": "C", "dx": 10, "dy": -4, "k": "b"}, {"t": "tx", "p": [0, 3], "s": "D", "dx": -10, "dy": -4, "k": "b"}]}, "afig": {"vb": [-1, -1, 13, 10], "px": 320, "alt": "Rectangle and its dilation by 3 with the diagonal of the large one drawn", "items": [{"t": "grid", "step": 1, "lstep": 2}, {"t": "p", "pts": [[0, 0], [4, 0], [4, 3], [0, 3]], "k": "fill"}, {"t": "p", "pts": [[0, 0], [4, 0], [4, 3], [0, 3]], "k": "none"}, {"t": "p", "pts": [[0, 0], [12, 0], [12, 9], [0, 9]], "k": "fill2"}, {"t": "l", "a": [0, 0], "b": [12, 9], "k": "thin"}]}, "steps": [{"say": "A dilation about the origin multiplies each coordinate by 3. The far corner moves.", "m": "(4, 3) → (12, 9)"}, {"say": "The diagonal runs from {{(0, 0)}} to {{(12, 9)}}. Use the distance formula.", "m": "d = rt{12^2 + 9^2} = rt{144 + 81}"}, {"say": "Add and take the square root.", "m": "d = rt{225} = 15"}], "why": "Dilating multiplies every length by the scale factor. The original diagonal is {{rt{4^2 + 3^2} = 5}}, and {{3 · 5 = 15}}.", "id": 25}];
+const STORAGE_KEY='mrk-cards-coordinate-geometry-transformations';
+let ratings={};
+try{ratings=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')||{}}catch(e){ratings={}}
+const byId=id=>document.getElementById(id);
+let deck=[],position=0,revealed=false,missedMode=false;
+const skills=[...new Set(CARDS.map(c=>c.skill))];
+skills.forEach(s=>{const o=document.createElement('option');o.value=s;o.textContent=s;byId('skill').append(o)});
+
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(ratings))}catch(e){}}
+function selectDeck(shuffle){
+  const skill=byId('skill').value;
+  deck=CARDS.filter(c=>(skill==='All'||c.skill===skill)&&(!missedMode||ratings[c.id]==='missed'));
+  if(shuffle){for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}}
+  position=0;
+  render();
+}
+function render(){
+  const c=deck[position];
+  revealed=false;
+  byId('counter').textContent=c?`Card ${position+1} of ${deck.length}`:'No matching cards';
+  byId('score').textContent=`Got it: ${Object.values(ratings).filter(v=>v==='known').length} • Need practice: ${Object.values(ratings).filter(v=>v==='missed').length}`;
+  byId('bar').style.width=deck.length?`${(position+1)/deck.length*100}%`:'0%';
+  byId('tag').textContent=c?c.skill:'';
+  const ins=byId('instr'), st=byId('story'), dq=byId('display'), fg=byId('figbox');
+  if(!c){ins.textContent='No cards match this filter. Choose another skill or leave missed-only mode.';st.hidden=dq.hidden=fg.hidden=true;}
+  else{
+    ins.innerHTML=inl(c.p||''); ins.hidden=!c.p;
+    st.hidden=!c.s; st.innerHTML=c.s?inl(c.s):'';
+    dq.hidden=!c.q; dq.innerHTML=c.q?fm(c.q):'';
+    fg.hidden=!c.fig; fg.innerHTML=c.fig?figSvg(c.fig):'';
+  }
+  byId('answer').innerHTML=c?fm(c.a):'';
+  const steps=byId('steps'); steps.innerHTML='';
+  (c&&c.steps||[]).forEach((s,idx)=>{
+    const li=document.createElement('li'); li.className='step';
+    li.innerHTML=`<div class="step-num">${idx+1}</div><div class="step-main"><div class="step-say">${inl(s.say)}</div>${s.m?`<div class="step-m m">${fm(s.m)}</div>`:''}</div>`;
+    steps.append(li);
+  });
+  byId('explanation').innerHTML=c&&c.why?inl(c.why):'';
+  const tp=byId('tip'); tp.hidden=!(c&&c.tip); tp.innerHTML=c&&c.tip?'<b>Tip:</b> '+inl(c.tip):'';
+  renderVisual(c);
+  updateVisibility();
+}
+function renderVisual(c){
+  const panel=byId('visualPanel'), holder=byId('graphHolder'), legend=byId('legend'), grid=byId('revealGrid');
+  holder.innerHTML=''; legend.hidden=true;
+  let has=false;
+  if(c&&c.nl){ has=true; holder.innerHTML=numberLineSvg(c.nl); legend.hidden=!!(c.nl.none||c.nl.allReal)||!c.nl.regions||!c.nl.regions.length; byId('visualTitle').textContent='Number line'; }
+  else if(c&&c.afig){ has=true; holder.innerHTML=figSvg(c.afig); byId('visualTitle').textContent='Picture'; }
+  panel.hidden=!has; grid.classList.toggle('single',!has);
+}
+function updateVisibility(){
+  const active=Boolean(deck[position]);
+  byId('revealArea').hidden=!revealed;
+  byId('hint').hidden=revealed||!active;
+  byId('flip').hidden=revealed||!active;
+  byId('again').hidden=!revealed;
+  byId('known').hidden=!revealed;
+  byId('prev').disabled=!active||position===0;
+  byId('next').disabled=!active||position===deck.length-1;
+  byId('modePill').textContent=revealed?'Answer side':'Question side';
+}
+function flip(){ if(!deck.length) return; revealed=!revealed; updateVisibility(); }
+function move(d){ if(position+d<0||position+d>=deck.length) return; position+=d; render(); }
+function rate(v){
+  const c=deck[position];
+  if(!c||!revealed) return;
+  ratings[c.id]=v; save();
+  if(missedMode&&v==='known'){ deck.splice(position,1); position=Math.max(0,Math.min(position,deck.length-1)); render(); }
+  else if(position<deck.length-1){ position++; render(); }
+  else { render(); }
+}
+function numberLineSvg(g){
+  const W=520,H=130,pad=32,Y=70,min=g.min,max=g.max,step=g.step||1;
+  const X=v=>pad+((v-min)/(max-min))*(W-2*pad);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${g.alt||'Number line graph'}">`;
+  s+=`<defs><marker id="arw" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#3658d4"/></marker></defs>`;
+  s+=`<line x1="${pad-14}" y1="${Y}" x2="${W-pad+14}" y2="${Y}" stroke="#23395d" stroke-width="3"/>`;
+  s+=`<path d="M${pad-20},${Y} l9,-5 v10 z" fill="#23395d"/><path d="M${W-pad+20},${Y} l-9,-5 v10 z" fill="#23395d"/>`;
+  for(let t=min;t<=max+1e-9;t+=step){const x=X(t);s+=`<line x1="${x}" y1="${Y-8}" x2="${x}" y2="${Y+8}" stroke="#23395d" stroke-width="1.4"/><text x="${x}" y="${Y+26}" text-anchor="middle" font-size="12" fill="#52627a">${String(t).replace('-','−')}</text>`;}
+  if(g.none){ s+=`<text x="${W/2}" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#9e2a2b">No solution (nothing is shaded)</text></svg>`; return s; }
+  if(g.allReal){ s+=`<line x1="${pad-14}" y1="${Y}" x2="${W-pad+14}" y2="${Y}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"/><text x="${W/2}" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1f7a4d">Every real number works</text></svg>`; return s; }
+  (g.regions||[]).forEach(r=>{
+    const x1=r.from==null?pad-14:X(r.from), x2=r.to==null?W-pad+14:X(r.to);
+    s+=`<line x1="${x1}" y1="${Y}" x2="${x2}" y2="${Y}" stroke="#3658d4" stroke-width="7" stroke-linecap="round"/>`;
+    if(r.from!=null) s+=`<circle cx="${X(r.from)}" cy="${Y}" r="7" fill="${r.includeFrom?'#3658d4':'#fff'}" stroke="#3658d4" stroke-width="3"/>`;
+    if(r.to!=null) s+=`<circle cx="${X(r.to)}" cy="${Y}" r="7" fill="${r.includeTo?'#3658d4':'#fff'}" stroke="#3658d4" stroke-width="3"/>`;
+  });
+  return s+`</svg>`;
+}
+byId('card').addEventListener('click',e=>{ if(['BUTTON','SELECT','OPTION'].includes(e.target.tagName)) return; flip(); });
+byId('card').addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } });
+byId('flip').onclick=flip;
+byId('prev').onclick=()=>move(-1);
+byId('next').onclick=()=>move(1);
+byId('again').onclick=()=>rate('missed');
+byId('known').onclick=()=>rate('known');
+byId('skill').onchange=()=>selectDeck();
+byId('shuffle').onclick=()=>selectDeck(true);
+byId('missedOnly').onclick=()=>{ missedMode=!missedMode; byId('missedOnly').textContent=missedMode?'Show all cards':'Practice missed'; selectDeck(); };
+byId('reset').onclick=()=>{ if(confirm('Clear all saved flashcard progress?')){ ratings={}; save(); selectDeck(); } };
+document.addEventListener('keydown',e=>{
+  const t=document.activeElement&&document.activeElement.tagName;
+  if(['INPUT','SELECT','TEXTAREA','BUTTON'].includes(t)) return;
+  if(e.key==='ArrowLeft') move(-1);
+  else if(e.key==='ArrowRight') move(1);
+  else if(e.key===' '){ e.preventDefault(); flip(); }
+  else if(e.key==='1') rate('missed');
+  else if(e.key==='2') rate('known');
+});
+selectDeck();
+</script>
+</body>
+</html>
