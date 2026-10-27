@@ -11,16 +11,42 @@ if(kind==='sin'){x=opp;eq=hyp+'*x='+opp+'*'+hyp;prompt='A right triangle has hyp
 else if(kind==='cos'){x=adj;eq=hyp+'*x='+adj+'*'+hyp;prompt='A right triangle has hypotenuse '+hyp+' and an acute angle θ with cos θ = '+adj+'/'+hyp+'. Find the positive length x of the side adjacent to θ.';}
 else{x=opp;eq=adj+'*x='+opp+'*'+adj;prompt='A right triangle has an acute angle θ with tan θ = '+opp+'/'+adj+'. The adjacent leg is '+adj+'. Find the positive opposite leg length x.';}
 return make('geo-right-'+kind+'-'+ctx.c,prompt,eq,x,'Use the definition of '+(kind==='sin'?'sine (opposite/hypotenuse)':kind==='cos'?'cosine (adjacent/hypotenuse)':'tangent (opposite/adjacent)')+'.');}
+/* Exact-value special triangles with integer missing sides.
+   Radical-valued targets are deferred until symbolic radical checks are supported. */
+function special45(ctx){
+ var r=ctx.rng,c=ctx.c,n=r.int(3,c>=5?35:18),eq='x='+n;
+ return make('geo-right-45-'+c,
+  'A 45°-45°-90° triangle has one leg of length '+n+' units. Find the other leg x. Explain why the two legs are congruent.',
+  eq,n,'The legs opposite equal 45° angles are equal.');
+}
+function special30(ctx){
+ var r=ctx.rng,c=ctx.c,n=r.int(3,c>=5?32:16),whole=r.int(0,1)===0;
+ var x=whole?2*n:n,eq=whole?'x=2*'+n:'2*x='+(2*n);
+ return make('geo-right-30-'+(whole?'hyp-':'short-')+c,
+  whole?'A 30°-60°-90° triangle has a short leg opposite 30° of length '+n+' units. Find the hypotenuse x.':
+    'A 30°-60°-90° triangle has a hypotenuse of length '+(2*n)+' units. Find the short leg x opposite 30°.',
+  eq,x,'In a 30°-60°-90° triangle the hypotenuse is twice the short leg.');
+}
+function elevation(ctx){
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?15:8),rise=3*k,run=4*k,x=rise;
+ var eq=run+'*x='+rise+'*'+run;
+ return make('geo-right-elevation-'+c,
+  'A surveyor observes the top of a building at an angle of elevation θ. The horizontal distance is '+run+' feet and tan θ = '+rise+'/'+run+'. Assuming level ground, find the building height x in feet.',
+  eq,x,'Angle of elevation uses tangent = vertical rise / horizontal run.');
+}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
-tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios'},
+tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
-gaps:['Starter bank only: special right triangles, inverse trig, angle of elevation/depression, non-integer trig answers, diagrams, and multistep Honors applications remain pending.'],
+gaps:['Starter bank only: radical-valued special triangle sides, inverse trig, angle of depression, non-integer trig answers, diagrams, and multistep Honors applications remain pending.'],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1,2],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1,2],generate:leg},
 {id:'right-distance-formula',tag:'DISTANCE',name:'Distance on a coordinate plane',best:[0,1,2],generate:distance},
 {id:'right-sine-side',tag:'TRIG',name:'Sine: missing opposite side',best:[0,1,2],generate:ctx=>trig(ctx,'sin')},
 {id:'right-cosine-side',tag:'TRIG',name:'Cosine: missing adjacent side',best:[0,1,2],generate:ctx=>trig(ctx,'cos')},
-{id:'right-tangent-side',tag:'TRIG',name:'Tangent: missing opposite side',best:[0,1,2],generate:ctx=>trig(ctx,'tan')}
+{id:'right-tangent-side',tag:'TRIG',name:'Tangent: missing opposite side',best:[0,1,2],generate:ctx=>trig(ctx,'tan')},
+{id:'right-special-45-45-90',tag:'SPECIAL',name:'Equal legs of a 45-45-90 triangle',best:[0,1,2],generate:special45},
+{id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1,2],generate:special30},
+{id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
