@@ -399,6 +399,7 @@
     skill({id:"arithmetic-explicit",best:base.best,tag:base.tag,name:"Write an explicit arithmetic sequence formula",blurb:"Use the first term and common difference to write a_n.",
       generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
   })();
+  (function(){var parent=skills.find(function(s){return s.id==="sequence";});if(parent)skill({id:"arithmetic-nth",best:parent.best,tag:parent.tag,name:"Find a specified arithmetic sequence term",blurb:"Use the common difference to calculate the nth term.",generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:3}));}});})();
   NS.registerSkillSet({
     id: 'algebra1-relations-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'relations-functions', unitName: 'Relations and Functions',
     title: 'The Function Diner',
