@@ -18,6 +18,12 @@
 
   var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
   if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
+
+  var sectionLabels = { donow:'Do Now', notes:'Notes / examples', practice:'Practice', exit:'Exit ticket' };
+  var sectionChoices = { donow:true, notes:true, practice:true, exit:true };
+  try { var savedSections = JSON.parse(lsGet(KEY_SECTIONS) || '{}'); Object.keys(sectionChoices).forEach(function(k) { if (typeof savedSections[k] === 'boolean') sectionChoices[k] = savedSections[k]; }); } catch(e) {}
+  function applySectionChoices(plan) { plan.sections = plan.sections.filter(function(s) { return sectionChoices[s.id] !== false; }); }
+
   /* Minutes the teacher typed, remembered per day type (a Lesson-day timing applies to every Lesson day). */
   var minutesStore = (function () { try { return JSON.parse(lsGet(KEY_MIN) || '{}') || {}; } catch (e) { return {}; } })();
   function minutesFor(d) { return minutesStore[d.day_type] || null; }
