@@ -456,8 +456,8 @@
       return { status: 'verified', computed: qText(target) };
     }
     if (t === 'solve' && /^(geo-congruence-(side|angle)|geo-parallelogram-(sides|angles))-/.test(p.variant || '')) {
-      var given = firstMath(p.prompt), relation = C.parseRelation(chk.eq);
-      if (!given || !C.equivalent(given, relation.lhs)) return {status:'invalid',msg:'Displayed geometric measure differs from equation.'};
+      var given = firstMath(p.prompt), lhs = chk.eq.substring(0, chk.eq.indexOf('='));
+      if (!given || !C.equivalent(given, lhs)) return {status:'invalid',msg:'Displayed geometric measure differs from equation.'};
     }
     if (t === 'solve') {
       var s = C.solveLinear(chk.eq, chk.v);
