@@ -245,7 +245,7 @@
       var r=ctx.rng,c=ctx.c,x=r.int(-5,3),y=r.int(-5,5),dx=r.pick([2,3,4]),dy=r.pick([-3,-2,0,2,3]),xx=x+dx,yy=y+dy;
       need(Math.abs(xx)<=8&&Math.abs(yy)<=8);
       var a=[x,y],b=[xx,yy],eq=si(F(dy,dx),F(y).sub(F(dy,dx).mul(x)));
-      return {variant:'gpts'+c,prompt:'Graph the line through '+M(pt(x,y))+' and '+M(pt(xx,yy))+'. Plot both points and draw the line.',
+      return {variant:'gpts'+c,prompt:'Graph the line through '+M(two(a,b))+'. Plot both points and draw the line.',
         fig:plane([-10,10,-10,10]),parts:[{answer:M(eq),check:{type:'line-eq',form:'any',src:{pairs:two(a,b)}},
           answerFig:plane([-10,10,-10,10],{segs:[{a:a,b:b,aEnd:'arrow',bEnd:'arrow'}]})}],
         steps:[step('Plot the two given points.',M(two(a,b)),1),step('Connect with a straight line.',eq,1)],space:[1,1.2,1.5]};
