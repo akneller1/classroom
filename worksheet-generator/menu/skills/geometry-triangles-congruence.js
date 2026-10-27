@@ -24,14 +24,53 @@ function perimeter(ctx){
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Congruent triangles have equal perimeters.',M(eq)),step('Solve for the unknown side.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
+
+/* Criterion-specific CPCTC applications. Each question explicitly supplies the
+   included angle / corresponding side information required by its criterion. */
+function criterion(ctx,kind){
+ var r=ctx.rng,c=ctx.c,x=r.int(4,c>=5?42:28),a=c>=5?r.int(2,5):1,b=r.int(1,19);
+ var expression=(a===1?'x':a+'x')+'+'+b,measure=a*x+b,eq=expression+'='+measure;
+ var letters=['ABC','DEF'],fact='',target='',why='';
+ if(kind==='sss'){
+  fact='AB = DE, BC = EF, and AC = DF. Thus all three pairs of corresponding sides are equal (SSS).';
+  target='AB = '+M(expression)+' units and DE = '+measure+' units.';
+  why='SSS establishes triangle congruence; corresponding sides are equal.';
+ }else if(kind==='sas'){
+  fact='AB = DE and AC = DF, and included angles A and D are congruent (SAS).';
+  target='BC = '+M(expression)+' units and EF = '+measure+' units.';
+  why='SAS establishes congruence; the remaining corresponding sides are equal.';
+ }else if(kind==='asa'){
+  fact='Angles A and D are congruent, angles B and E are congruent, and the included sides AB and DE are equal (ASA).';
+  target='AC = '+M(expression)+' units and DF = '+measure+' units.';
+  why='ASA establishes congruence; corresponding sides are equal.';
+ }else if(kind==='aas'){
+  fact='Angles A and D are congruent, angles B and E are congruent, and non-included sides AC and DF are equal (AAS).';
+  target='BC = '+M(expression)+' units and EF = '+measure+' units.';
+  why='AAS establishes congruence; corresponding sides are equal.';
+ }else{
+  fact='Both triangles are right triangles with right angles at B and E. Their hypotenuses AC and DF are equal, and legs AB and DE are equal (HL).';
+  target='BC = '+M(expression)+' units and EF = '+measure+' units.';
+  why='HL establishes congruence of right triangles; corresponding legs are equal.';
+ }
+ return {variant:'geo-criterion-'+kind+'-'+c,
+  prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then use '+M(eq)+' to find x.',
+  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
+  steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
+  space:[1.2,1.5,1.8]};
+}
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
- tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters'},
+ tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
- gaps:['Starter bank does not yet assess SSS, SAS, ASA, AAS, HL, invalid SSA/AAA, formal proofs, or diagram-based congruence.'],
+ gaps:['Still needs independently verified classification of invalid SSA/AAA, formal proofs, and diagram-based congruence.'],
  skills:[
  {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:ctx=>corresponding(ctx,'side')},
  {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:ctx=>corresponding(ctx,'angle')},
  {id:'congruent-third-angle',tag:'THIRD',name:'Third angle theorem',best:[0,1,2],generate:thirdAngle},
- {id:'congruent-perimeters',tag:'PERIMETER',name:'Perimeters of congruent triangles',best:[0,1,2],generate:perimeter}
+ {id:'congruent-perimeters',tag:'PERIMETER',name:'Perimeters of congruent triangles',best:[0,1,2],generate:perimeter},
+ {id:'congruence-sss',tag:'CRITERIA',name:'SSS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'sss')},
+ {id:'congruence-sas',tag:'CRITERIA',name:'SAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'sas')},
+ {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'asa')},
+ {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'aas')},
+ {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'hl')}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
