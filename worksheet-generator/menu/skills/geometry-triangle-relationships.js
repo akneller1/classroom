@@ -126,10 +126,10 @@ function honorsChain(ctx) {
    {label:'d',prompt:'For the new triangle with sides BC and AM, determine the greatest integer third side w allowed by the triangle inequality. Use '+M(e4)+'.',answer:M('w='+max),check:{type:'solve',eq:e4,v:'w'}}
   ],
   steps:[
-   step('DE is half of BC.',M(e1)+' '+M('x='+side)),
-   step('GM is one-third of AM.',M(e2)+' '+M('y='+short)),
-   step('AG is twice GM.',M(e3)+' '+M('z='+long)),
-   step('The third side is strictly less than the sum of the two known sides.',M(e4)+' '+M('w='+max))
+   step('DE is half of BC.',M(e1)),
+   step('GM is one-third of AM.',M(e2)),
+   step('AG is twice GM.',M(e3)),
+   step('The third side is strictly less than the sum of the two known sides.',M(e4))
   ],space:[3,3.6,4.2]};
 }
 NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',courseName:'Geometry',
