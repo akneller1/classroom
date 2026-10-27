@@ -9,7 +9,7 @@ for (const unit of units) {
   for (const skill of menu.skillSets[unit].skills) {
     for (let c = 1; c <= 7; c++) {
       const used = {keys: new Set(), sigs: new Set()};
-      const count = [1,3,5,7].includes(c) ? 12 : 1;
+      const count = [1,3,5,7].includes(c) ? 25 : 1;
       for (let n = 0; n < count; n++) {
         const p = menu.generateProblem(unit, skill.id, c,
           {intOnly: true, level: 'game'},
