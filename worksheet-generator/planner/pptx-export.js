@@ -46,6 +46,7 @@
   P.buildDeck = async function (plan, PptxGenJS, opts) {
     opts = opts || {};
     var figImage = opts.figImage || function () { return null; };
+    var studentDeck = opts.audience === 'student';
     var d = plan.day, NSL = G.MKMENU.LEVELS[plan.level];
     var pres = new PptxGenJS();
     pres.layout = 'LAYOUT_WIDE';
@@ -74,7 +75,7 @@
       if (minutes && !minShown.has(sec)) minShown.add(sec), s.addText(minutes + ' min', { shape: pres.ShapeType.roundRect, x: W - MX - 1.5, y: 0.7, w: 1.5, h: 0.55, rectRadius: 0.27, fill: { color: st.bg }, line: { color: st.c, width: 1.5 }, fontFace: HEAD, fontSize: 18, bold: true, color: INK, align: 'center', valign: 'middle', objectName: 'Minutes' });
       return s;
     }
-    function notes(s, lines) { var t = lines.filter(Boolean).join('\n'); if (t) s.addNotes(t); }
+    function notes(s, lines) { if (studentDeck) return; var t = lines.filter(Boolean).join('\n'); if (t) s.addNotes(t); }
     function teacherNotes(sec) {
       var out = [];
       if (sec.template) out.push('PLAN: ' + sec.template);
@@ -164,12 +165,13 @@
         var list = pages[k], labels = o.labels ? list.map(function (p) { return o.labels(p); }) : null;
         var t = title + (pages.length > 1 && !o.onePer ? ' (' + (k + 1) + ' of ' + pages.length + ')' : '');
         var ansNotes = list.map(function (p) { return (labels ? labels[list.indexOf(p)] : p.num + '.') + ' ' + (p.failed ? '(write your own)' : answerText(p)); });
-        if (!o.answersOnly) {
+        if (!o.answersOnly || studentDeck) {
           var s = content(t, sec, k === 0 ? sec.minutes : 0);
           if (o.note && o.note.length < 40 && k === 0) s.addText(o.note, { x: MX + 4.6, y: 0.28, w: 6, h: 0.32, fontFace: BODY, fontSize: 13, italic: true, color: INK2, margin: 0, isTextBox: true });
           await grid(s, list, { sec: sec.id }, labels);
           notes(s, (k === 0 ? teacherNotes(sec).concat(o.extraNotes || []) : []).concat(['ANSWERS:'], ansNotes));
         }
+        if (studentDeck) continue;
         var a = content(t.replace(/^(.*?)( \(\d+ of \d+\))?$/, function (_, m1, m2) { return m1 + ' — Answers' + (m2 || ''); }), sec, 0);
         await grid(a, list, { sec: sec.id, answers: true, steps: !!o.steps }, labels);
         notes(a, ['Go over the answers. Ask students to explain a step before revealing the next.'].concat(list.map(function (p) { return p.failed ? '' : (p.num + '. ' + stepsText(p).join(' ')); })));
@@ -240,7 +242,7 @@
       if (sec.id === 'notes') continue;
       if (sec.quiz) {
         textSlide(sec, sec.title, [{ text: sec.test ? 'Show your work for every problem. Box your final answer.' : 'Show your work. Box your final answer.', size: 30 }, { text: items.length + ' problems · ' + (sec.minutes || '') + ' minutes', size: 22, color: INK2 }], { minutes: sec.minutes, notes: ['The problems are on the printed handout. The answer slides that follow are for going over the ' + (sec.test ? 'test' : 'quiz') + ' afterward.'] });
-        await problemSlides(sec, sec.title, items, { answersOnly: true });
+        if (!studentDeck) await problemSlides(sec, sec.title, items, { answersOnly: true });
       } else if (items.length) {
         for (var gi = 0; gi < sec.groups.length; gi++) {
           var g = sec.groups[gi];
@@ -329,13 +331,14 @@
       G.document.head.appendChild(s);
     });
   }
-  P.deckFileName = function (plan) {
+  P.deckFileName = function (plan, audience) {
     var d = plan.day, slug = d.title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50);
-    return 'Algebra1-Day' + (d.day < 10 ? '00' : d.day < 100 ? '0' : '') + d.day + '-' + slug + '-' + G.MKMENU.LEVELS[plan.level].name + '.pptx';
+    return 'Algebra1-Day' + (d.day < 10 ? '00' : d.day < 100 ? '0' : '') + d.day + '-' + slug + '-' + G.MKMENU.LEVELS[plan.level].name + '-' + (audience === 'student' ? 'Student' : 'Teacher') + '.pptx';
   };
-  P.exportPptx = async function (plan) {
+  P.exportPptx = async function (plan, audience) {
+    audience = audience === 'student' ? 'student' : 'teacher';
     var Lib = await loadLib();
-    var pres = await P.buildDeck(plan, Lib, { figImage: P.figToPng });
-    return pres.writeFile({ fileName: P.deckFileName(plan) });
+    var pres = await P.buildDeck(plan, Lib, { figImage: P.figToPng, audience: audience });
+    return pres.writeFile({ fileName: P.deckFileName(plan, audience) });
   };
 })(typeof window !== 'undefined' ? window : globalThis);
