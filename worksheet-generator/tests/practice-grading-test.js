@@ -105,3 +105,14 @@ const feedbackSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf
 assert(feedbackSource.includes('function diagnosticFeedback(q){'));
 assert(feedbackSource.includes("return diagnosticFeedback(q)+'<div class="));
 console.log('Individual graphing mistake diagnostics verified.');
+
+
+/* Inline math keypad must insert supported, readable input and update autosaved answers. */
+const padSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
+assert(padSource.includes('data-math-pad'), 'student short-answer keypad missing');
+assert(padSource.includes('data-math-insert'), 'math keypad buttons missing');
+assert(padSource.includes("input.setRangeText(value,at,end,'end')"),'keys must insert at cursor, not overwrite answers');
+assert(padSource.includes("input.dispatchEvent(new Event('input',{bubbles:true}))"),'keypad must notify autosave/grading');
+assert(padSource.includes("['−','-']"), 'signed answer key missing');
+assert(padSource.includes("['≤','<=']")&&padSource.includes("['≥','>=']"), 'inequality symbols missing');
+console.log('Math keypad insertion, signed answers and autosave integration checks passed.');
