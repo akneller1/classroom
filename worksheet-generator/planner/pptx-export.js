@@ -12,7 +12,7 @@
   'use strict';
   var P = (G.MKPLAN = G.MKPLAN || {});
   var INK = '16202E', INK2 = '46536A', BLUE = '2B5FD9', SOFT = 'E3EBFF', YELLOW = 'FFD84D', WHITE = 'FFFFFF', LINE = 'C9D3DB', ANS = '1D5FBF';
-  var SEC = { donow: { c: 'B7791F', bg: 'FFF3C4' }, notes: { c: BLUE, bg: SOFT }, practice: { c: '2F7A50', bg: 'DFF2E5' }, mixed: { c: '267F86', bg: 'E1F4F4' }, summary: { c: '6446A9', bg: 'F2EDFC' }, exit: { c: '6B3FA0', bg: 'EDE4FA' } };
+  var SEC = { donow: { c: 'B7791F', bg: 'FFF3C4' }, notes: { c: BLUE, bg: SOFT }, examples: { c: BLUE, bg: SOFT }, practice: { c: '2F7A50', bg: 'DFF2E5' }, mixed: { c: '267F86', bg: 'E1F4F4' }, summary: { c: '6446A9', bg: 'F2EDFC' }, exit: { c: '6B3FA0', bg: 'EDE4FA' } };
   var HEAD = 'Arial', BODY = 'Calibri';
   var W = 13.333, H = 7.5, MX = 0.6, TOP = 1.45, BOTTOM = 6.85;
 
@@ -237,9 +237,10 @@
       sec.groups.forEach(function (g) { g.items.forEach(function (p) { items.push(p); }); });
       if (sec.prompt) textSlide(sec, sec.title, [{ text: sec.prompt, size: 30 }].concat(items.length ? [] : [{ text: ' ', size: 12 }]), { minutes: sec.minutes });
       if (sec.id === 'notes') await notesSlides(sec);
+      if (sec.id === 'examples') await exampleSlides(sec);
       else if (sec.launch) { var lt = P.launchTask(d); textSlide(sec, lt.title, [{ text: lt.student, size: 28 }], { minutes: sec.minutes, notes: [lt.teacher] }); }
       else if (sec.project && sec.id === 'practice') textSlide(sec, 'Project checkpoints', P.projectCheckpoints(d).map(function (c) { return { text: '☐  ' + c, size: 28 }; }), { minutes: sec.minutes });
-      if (sec.id === 'notes') continue;
+      if (sec.id === 'notes' || sec.id === 'examples') continue;
       if (sec.quiz) {
         textSlide(sec, sec.title, [{ text: sec.test ? 'Show your work for every problem. Box your final answer.' : 'Show your work. Box your final answer.', size: 30 }, { text: items.length + ' problems · ' + (sec.minutes || '') + ' minutes', size: 22, color: INK2 }], { minutes: sec.minutes, notes: ['The problems are on the printed handout. The answer slides that follow are for going over the ' + (sec.test ? 'test' : 'quiz') + ' afterward.'] });
         if (!studentDeck) await problemSlides(sec, sec.title, items, { answersOnly: true });
@@ -291,7 +292,8 @@
       if (P.watchOut(d)) paras.push({ text: 'Watch out: ' + P.watchOut(d), size: 24, color: 'A33A1D' });
       if (P.myNotes(d)) P.myNotes(d).split(/\n+/).filter(Boolean).forEach(function (line) { paras.push({ text: line, size: 22, bullet: true }); });
       if (paras.length) textSlide(sec, 'Key idea', paras, { notes: ['Model the sentence frame aloud before Example 1.'] });
-      var labels = [];
+    }
+    async function exampleSlides(sec) {
       var ex = [];
       sec.groups.forEach(function (g) { g.items.forEach(function (p) { ex.push(p); }); });
       for (var i = 0; i < ex.length; i++) {
