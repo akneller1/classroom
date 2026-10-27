@@ -403,15 +403,15 @@
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="center";});if(!base)return;
     skill({id:"statistics-mean",best:base.best,tag:base.tag,name:"Find the mean",blurb:"Calculate the arithmetic mean of a data set.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
+      difficultyProfile:'focused',fixedDifficulty:1,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
   })();
   (function(){var base=skills.find(function(s){return s.id==="center";});if(!base)return;
     skill({id:"statistics-median",best:base.best,tag:base.tag,name:"Find the median",blurb:"Order data and identify the middle value.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
+      difficultyProfile:'focused',fixedDifficulty:2,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
   })();
   (function(){var base=skills.find(function(s){return s.id==="center";});if(!base)return;
     skill({id:"statistics-mode",best:base.best,tag:base.tag,name:"Find the mode",blurb:"Identify the value occurring most often.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
+      difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
   })();
   NS.registerSkillSet({
     id: 'algebra1-statistics-data-modeling', course: 'algebra1', courseName: 'Algebra 1', unit: 'statistics-data-modeling', unitName: 'Statistics and Data Modeling',
