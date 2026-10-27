@@ -59,3 +59,12 @@
 @media(max-width:650px){.pt-student-question{scroll-margin-top:225px}.pt-mc-inline .pt-mc-buttons{grid-template-columns:1fr}.pt-sticky-progress{padding:10px}.pt-sticky-progress .pt-nav{max-height:80px}.pt-mc-inline .pt-mc-choice{min-height:58px}.pt-student-progress-row{font-size:12px}}
 
 .pt-diagnostic{margin:14px 0;padding:13px 16px;border-left:4px solid #bb8534;background:#fff7e9;border-radius:8px;line-height:1.5;color:#614919}.pt-line-svg circle,.pt-parabola-svg circle{cursor:pointer}.pt-line-editor [data-line-message]{font-weight:600}
+
+/* On-screen algebra keypad: large targets without hiding native keyboard access */
+.pt-math-response{max-width:620px}
+.pt-math-pad{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-top:10px}
+.pt-math-pad button{min-width:0;min-height:46px;border:1px solid #a7c2da;border-radius:9px;background:#eef6ff;color:#1d5489;font:inherit;font-size:18px;font-weight:750;cursor:pointer;touch-action:manipulation}
+.pt-math-pad button:active{background:#d1e8fb}
+.pt-math-pad button:focus-visible{outline:3px solid #e9a33f;outline-offset:2px}
+.pt-pad-hint{margin:8px 0 0}
+@media(max-width:480px){.pt-math-pad{grid-template-columns:repeat(4,minmax(0,1fr))}}
