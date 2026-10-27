@@ -34,7 +34,7 @@
   function chunk(items, maxLight) {
     var out = [], cur = [];
     items.forEach(function (p) {
-      var cap = cur.concat([p]).some(heavy) ? 2 : maxLight;
+      var cap = cur.concat([p]).some(heavy) ? 1 : maxLight;
       if (cur.length && cur.length + 1 > cap) { out.push(cur); cur = []; }
       cur.push(p);
     });
@@ -112,12 +112,12 @@
       qSize = fitSize(problemText(p), tw, mode.answers ? Math.min(1.6, bottom - ty - 1) : bottom - ty, qSize, mode.answers ? 11 : 14);
       var qLines = Math.ceil(problemText(p).length * qSize * 0.0078 / tw) + (problemText(p).match(/\n/g) || []).length;
       var qH = mode.answers ? Math.min(bottom - ty - 0.9, Math.max(0.45, qLines * qSize / 72 * 1.25 + 0.1)) : bottom - ty;
-      s.addText(problemText(p), { x: tx, y: ty, w: tw, h: qH, fontFace: BODY, fontSize: qSize, color: mode.answers ? INK2 : INK, valign: 'top', margin: [2, 2, 2, 2], isTextBox: true, objectName: 'Problem' });
+      s.addText(problemText(p), { x: tx, y: ty, w: tw, h: Math.max(0.2, qH), fit: 'shrink', breakLine: false, fontFace: BODY, fontSize: qSize, color: mode.answers ? INK2 : INK, valign: 'top', margin: [2, 2, 2, 2], isTextBox: true, objectName: 'Problem' });
       if (mode.answers) {
         var ay = ty + qH + 0.1, aSize = one ? 28 : 22;
         var aLines = Math.ceil((ansLines.length + 8) * aSize * 0.0078 / tw), aH = aLines * aSize / 72 * 1.25 + 0.1;
-        s.addText([{ text: 'Answer: ', options: { bold: true, color: ANS } }, { text: ansLines, options: { bold: true, color: INK } }], { x: tx, y: ay, w: tw, h: aH, fontFace: BODY, fontSize: aSize, valign: 'top', margin: [2, 2, 2, 2], isTextBox: true, objectName: 'Answer' });
-        if (steps.length) s.addText(steps.map(function (t, i) { return { text: t, options: { breakLine: i < steps.length - 1 } }; }), { x: tx, y: ay + aH + 0.1, w: tw, h: Math.max(0.5, bottom - ay - aH - 0.1), fontFace: BODY, fontSize: one ? 18 : 15, color: INK, valign: 'top', margin: [2, 2, 2, 2], paraSpaceAfter: 4, isTextBox: true, objectName: 'Worked steps' });
+        s.addText([{ text: 'Answer: ', options: { bold: true, color: ANS } }, { text: ansLines, options: { bold: true, color: INK } }], { x: tx, y: ay, w: tw, h: Math.max(0.25, Math.min(aH, bottom - ay)), fit: 'shrink', fontFace: BODY, fontSize: aSize, valign: 'top', margin: [2, 2, 2, 2], isTextBox: true, objectName: 'Answer' });
+        if (steps.length) s.addText(steps.map(function (t, i) { return { text: t, options: { breakLine: i < steps.length - 1 } }; }), { x: tx, y: ay + aH + 0.1, w: tw, h: Math.max(0.2, bottom - ay - aH - 0.1), fit: 'shrink', fontFace: BODY, fontSize: one ? 18 : 15, color: INK, valign: 'top', margin: [2, 2, 2, 2], paraSpaceAfter: 4, isTextBox: true, objectName: 'Worked steps' });
       }
       if (spec && figBox) {
         if (isTable(spec)) addFigTable(s, spec, figBox);
@@ -145,7 +145,8 @@
       else if (spec.vertical) rows = [[cell(spec.head[0], true), cell(spec.head[1], true)]].concat(spec.rows.map(function (r) { return [cell(r[0]), cell(r[1])]; }));
       else rows = [[cell(spec.head[0], true)].concat(spec.rows.map(function (r) { return cell(r[0]); })), [cell(spec.head[1], true)].concat(spec.rows.map(function (r) { return cell(r[1]); }))];
       var cols = rows[0].length, cw = Math.min(0.9, box.w / cols);
-      s.addTable(rows, { x: box.x, y: box.y, w: cw * cols, colW: rows[0].map(function () { return cw; }), fontFace: BODY, fontSize: 14, color: INK, border: { type: 'solid', pt: 1, color: '555555' }, align: 'center', valign: 'middle', rowH: 0.36, objectName: 'Table' });
+      var rh = Math.min(0.46, Math.max(0.22, box.h / Math.max(1, rows.length)));
+      s.addTable(rows, { x: box.x, y: box.y, w: cw * cols, colW: rows[0].map(function () { return cw; }), fontFace: BODY, fontSize: Math.max(9, Math.min(14, rh * 26)), color: INK, border: { type: 'solid', pt: 1, color: '555555' }, align: 'center', valign: 'middle', rowH: rh, objectName: 'Table' });
     }
     async function grid(s, list, mode, labels) {
       var n = list.length, cols = n === 1 ? 1 : 2, rows = Math.ceil(n / cols), gap = 0.3;
@@ -158,7 +159,7 @@
     /* Problem slides, each followed by its answer slide. */
     async function problemSlides(sec, title, items, o) {
       o = o || {};
-      var pages = o.onePer ? items.map(function (p) { return [p]; }) : chunk(items, o.max || 4);
+      var pages = o.onePer || o.steps ? items.map(function (p) { return [p]; }) : chunk(items, Math.min(o.max || 4, 2));
       for (var k = 0; k < pages.length; k++) {
         var list = pages[k], labels = o.labels ? list.map(function (p) { return o.labels(p); }) : null;
         var t = title + (pages.length > 1 && !o.onePer ? ' (' + (k + 1) + ' of ' + pages.length + ')' : '');
@@ -212,7 +213,7 @@
 
     /* ---- 2. agenda ---- */
     var ag = content("Today's plan", { id: 'notes', title: 'Agenda' }, 0);
-    var n = plan.sections.length, gap = 0.3, cw = (W - 2 * MX - (n - 1) * gap) / n;
+    var n = plan.sections.length, gap = 0.3, cw = n ? (W - 2 * MX - (n - 1) * gap) / n : 0;
     plan.sections.forEach(function (sec, i) {
       var st = SEC[sec.id] || SEC.notes, x = MX + i * (cw + gap);
       ag.addShape(pres.ShapeType.roundRect, { x: x, y: TOP + 0.2, w: cw, h: 3.3, rectRadius: 0.15, fill: { color: st.bg }, line: { color: st.bg }, objectName: 'Agenda card' });
@@ -220,8 +221,9 @@
       ag.addText('min', { x: x + 0.3, y: TOP + 1.45, w: cw - 0.6, h: 0.35, fontFace: BODY, fontSize: 14, color: INK2, margin: 0, isTextBox: true });
       ag.addText(sec.title, { x: x + 0.3, y: TOP + 1.95, w: cw - 0.6, h: 1.3, fontFace: HEAD, fontSize: 20, bold: true, color: INK, valign: 'top', margin: 0, fit: 'shrink', isTextBox: true });
     });
+    if (!n) ag.addText('No lesson sections selected.', {x:MX,y:TOP+1,w:W-2*MX,h:0.7,fontFace:BODY,fontSize:26,color:INK2});
     var voc = P.vocab(d);
-    if (voc.length) {
+    if (voc.length && n) {
       ag.addText('Key vocabulary', { x: MX, y: 5.2, w: 4, h: 0.4, fontFace: HEAD, fontSize: 16, bold: true, color: INK, margin: 0, isTextBox: true });
       ag.addText(voc.join('   ·   '), { x: MX, y: 5.65, w: W - 2 * MX, h: 0.9, fontFace: BODY, fontSize: 20, color: INK, valign: 'top', margin: 0, fit: 'shrink', isTextBox: true });
     }
