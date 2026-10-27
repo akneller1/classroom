@@ -682,7 +682,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       '<ul class="generator-shortcuts">' + GENERATOR_ACTIONS.map(function (tool) {
         var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
         var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
-        if (c.id === 'geometry') {
+        if (c && c.id === 'geometry') {
           var supported = !!unitId && (tool.format === 'worksheet-generator' || tool.format === 'assessment-generator');
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
           url += '#unit=' + unitId;
