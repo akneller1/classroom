@@ -82,14 +82,21 @@
   /* Second distinct modeling task for every unit. These require the same
      independent printed-data verification as the first 12 families. */
   var extensions={
-    'algebra1-foundations':function(r,c){
-      var a=r.int(3,10+c),b=r.int(2,8+c),d=r.int(2,7+c);
-      return ['A field trip has '+a+' groups with '+b+' students per group. Each student receives '+d+' pencils.',
-        ['How many students attend?','How many pencils are needed?','How many pencils are needed if one more group attends?'],[a*b,a*b*d,(a+1)*b*d]];
-    },
-    'algebra1-expressions-equations':function(r,c){
-      var a=r.int(3,10+c),b=r.int(2,8+c),d=r.int(2,9+c);
-      return ['A student buys '+a+' identical folders and pays a one-time 
+    'algebra1-foundations':function(r,c){var a=r.int(3,10+c),b=r.int(2,8+c),d=r.int(2,7+c);return ['A field trip has '+a+' groups of '+b+' students. Each student gets '+d+' pencils.',['How many students?','How many pencils?','How many pencils if one more group joins?'],[a*b,a*b*d,(a+1)*b*d]];},
+    'algebra1-expressions-equations':function(r,c){var a=r.int(3,10+c),b=r.int(2,8+c),d=r.int(2,9+c);return ['A student buys '+a+' folders and pays '+b+' dollars as a one-time handling fee. The total is '+(a*d+b)+' dollars.',['How much is spent on folders alone?','How much does each folder cost?','How much would one additional folder cost in total, including the same fee?'],[a*d,d,(a+1)*d+b]];},
+    'algebra1-inequalities':function(r,c){var a=r.int(30,60+c*3),b=r.int(3,9+c),d=r.int(3,9+c),budget=a+b*d;return ['A club has '+budget+' dollars. The bus costs '+a+' dollars and each admission costs '+b+' dollars.',['How much remains after the bus?','What is the maximum number of admissions?','How much remains after purchasing one fewer admission?'],[budget-a,d,b]];},
+    'algebra1-relations-functions':function(r,c){var a=r.int(5,15+c),b=r.int(2,8+c),d=r.int(3,9+c);return ['A bike rental costs '+a+' dollars to start plus '+b+' dollars per hour for '+d+' hours.',['What is the total cost?','What would two more hours cost in total?','What is the increase in cost?'],[a+b*d,a+b*(d+2),2*b]];},
+    'algebra1-linear-equations-slope':function(r,c){var a=r.int(2,7+c),b=r.int(3,8+c),d=r.int(2,8+c);return ['A cyclist is '+a+' miles from home and travels farther away at '+b+' miles per hour for '+d+' hours.',['What is the ending distance?','What is the slope of distance against time?','How far from home after one additional hour?'],[a+b*d,b,a+b*(d+1)]];},
+    'algebra1-systems-of-equations':function(r,c){var a=r.int(4,12+c),b=r.int(3,10+c),d=r.int(2,6+c),e=d+r.int(2,6+c);return ['A fundraiser sells '+(a+b)+' items for '+(a*d+b*e)+' dollars. Small items cost '+d+' dollars and large items cost '+e+' dollars.',['How many small items?','How many large items?','How much revenue came from large items?'],[a,b,b*e]];},
+    'algebra1-exponents-scientific-notation':function(r,c){var a=r.int(2,9+c),b=r.int(2,4+(c>4?1:0)),d=r.int(2,7+c);return ['One image has '+a+' times ten to the power of '+b+' pixels. There are '+d+' identical images.',['How many pixels in one image?','How many pixels total?','How many more pixels than in one image?'],[a*10**b,a*10**b*d,a*10**b*(d-1)]];},
+    'algebra1-exponential-functions':function(r,c){var a=r.int(2,8+c),b=r.int(2,5+(c>4?1:0));return ['A video begins with '+a+' views and the view count triples daily for '+b+' days.',['How many views after the stated days?','How many views one day later?','What is the ratio of later views to earlier views?'],[a*3**b,a*3**(b+1),3]];},
+    'algebra1-polynomials':function(r,c){var a=r.int(2,8+c),b=r.int(2,8+c),d=r.int(2,7+c);return ['A garden has width (x + '+a+') and length (x + '+b+'). Take x = '+d+'.',['What is the garden area?','What is the coefficient of x in its expanded area expression?','What is the constant term?'],[(d+a)*(d+b),a+b,a*b]];},
+    'algebra1-factoring-zero-product':function(r,c){var a=r.int(2,8+c),b=r.int(a+1,a+6+c);return ['A polynomial is x squared minus '+(a+b)+'x plus '+(a*b)+'. Its zeros are positive integers.',['What is the smaller zero?','What is the larger zero?','What is the sum of the zeros?'],[a,b,a+b]];},
+    'algebra1-quadratics':function(r,c){var a=r.int(2,7+c),b=r.int(2,7+c);return ['The height of a toy is h(t) = -(t - '+a+') squared + '+b*b+' meters.',['When is the maximum height reached?','What is the maximum height?','How far below the maximum is the height one second after the peak?'],[a,b*b,1]];},
+    'algebra1-statistics-data-modeling':function(r,c){var a=r.int(4,14+c),b=r.int(2,7+c),v=[a,a+b,a+2*b,a+3*b,a+4*b];return ['Five training distances are '+v.join(', ')+' kilometers.',['What is the median?','What is the range?','What is the mean?'],[v[2],v[4]-v[0],v[2]]];}
+  };
+  M.contextScenes=scenes;
+  M.contextExtensions=extensions;
   M.makeContextProblem=function(unit, ctx) {
     var fn=scenes[unit];if(!fn)return {failed:true,reason:'No contextual bank for '+unit};
     var variant=ctx.rng.int(0,1)===1?'extension':'original';
