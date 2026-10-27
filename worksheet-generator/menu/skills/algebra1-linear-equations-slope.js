@@ -219,10 +219,29 @@
     }
   });
 
+  /* Explicit graphical response skills for the online Assessment Readiness Check. */
+  skill({
+    id: 'graph-slope-intercept', best: [0, 1, 2], tag: 'GRAPHLINE', name: 'Graph lines in slope-intercept form',
+    blurb: 'Plot the y-intercept and use rise/run (CP2) → negative and fractional slopes (CP1) → horizontal and steep lines (Honors).',
+    generate: function (ctx) {
+      var r=ctx.rng,c=ctx.c,steps=[],m,b;
+      if(c<=2)m=F(r.pick([-2,-1,1,2]));
+      else if(c<=5){var den=r.pick([1,2,3]),n=r.pick([-3,-2,-1,1,2,3]);m=F(n,den);}
+      else m=F(r.pick([-4,-3,-2,0,2,3,4]),r.pick([1,2]));
+      b=F(r.int(-5,5));var eq=si(m,b);
+      var run=m.d,dy=m.n;
+      need(Math.abs(dy)<=7&&Math.abs(b.n+dy)<=8&&run<=4);
+      var p0=[0,b.n],p1=[run,b.n+dy],fig=plane([-10,10,-10,10],{segs:[{a:p0,b:p1,aEnd:'arrow',bEnd:'arrow'}],points:[{x:p0[0],y:p0[1]},{x:p1[0],y:p1[1]}]});
+      steps.push(step('Start at the y-intercept.',pt(0,b.n),1),step('Use slope as rise over run to find a second point.',pt(p1[0],p1[1]),2),step('Draw one straight line through both points.',eq,1));
+      return {variant:'gsi'+c,prompt:'Graph '+M(eq)+' on the coordinate plane. Plot two points and draw the line.',
+        fig:plane([-10,10,-10,10]),parts:[{answer:M(eq),check:{type:'line-eq',form:'slope-intercept',src:{eq:eq}},answerFig:fig}],steps:steps,space:[1,1.2,1.5]};
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-linear-equations-slope', course: 'algebra1', courseName: 'Algebra 1', unit: 'linear-equations-slope', unitName: 'Linear Functions and Graphing',
     title: 'The Slope Shack',
-    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations' },
+    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations', GRAPHLINE: 'Graphing linear functions' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Slope</h4><p>⟨m=\\frac{y_2-y_1}{x_2-x_1}⟩ (rise over run). Horizontal: ⟨m=0⟩. Vertical: undefined.</p></section>' +
@@ -231,7 +250,7 @@
       '<section><h4>Parallel and perpendicular</h4><p>Parallel: equal slopes. Perpendicular: slopes multiply to ⟨-1⟩ (opposite reciprocals).</p></section>' +
       '<section><h4>Special lines</h4><p>Horizontal: ⟨y=k⟩. Vertical: ⟨x=h⟩.</p></section>' +
       '<section><h4>Models</h4><p>⟨y=mx+b⟩: m is the rate of change, b is the starting value.</p></section></div>',
-    gaps: ['Graphing a line by hand is not checked automatically; direct variation and absolute-value graphs are not generated.'],
+    gaps: ['Direct variation and absolute-value graphs are not generated.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);
