@@ -3,7 +3,7 @@
 (function(G){
 'use strict';
 var C=G.MKMENU&&G.MKMENU.check, API=(G.MKPRACTICE=G.MKPRACTICE||{});
-function unwrap(s){s=String(s||'').trim();var m=/^⟨([\s\S]+)⟩$/.exec(s);return m?m[1].trim():s;}
+function unwrap(s){s=String(s||'').trim();return s.replace(/⟨([^⟩]+)⟩/g,'$1').trim();}
 function normalize(s){return String(s||'').replace(/[−–]/g,'-').replace(/≥|>=/g,'\\ge ').replace(/≤|<=/g,'\\le ').replace(/\\text\s*\{\s*or\s*\}/gi,' or ').replace(/\\text\s*\{\s*and\s*\}/gi,' and ').trim();}
 function rational(s){return C.readNumber(normalize(s));}
 function isPair(s){return /^\(\s*[^(),]+\s*,\s*[^(),]+\s*\)$/.test(s);}
@@ -18,7 +18,7 @@ function classify(s){
  s=normalize(unwrap(s));
  if(special(s))return 'special';
  if(isPair(s)){pair(s);return 'pair';}
- if(roots(s))return 'roots';
+ if(/\s+(?:or|and)\s+|[,;]\s*(?=x\s*=)/i.test(s)&&roots(s))return 'roots';
  if(inequality(s)){solutionSet(s);return 'inequality';}
  if(relation(s)){C.parseExpr(relation(s));return 'function';}
  if(/^x\s*=/i.test(s)){rational(s.replace(/^x\s*=\s*/i,''));return 'number';}
