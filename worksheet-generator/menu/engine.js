@@ -75,7 +75,7 @@
   NS.isTest = function (cfg) { return !!cfg && (cfg.mode === 'test' || cfg.mode === 'worksheet'); };
   NS.isWorksheet = function (cfg) { return !!cfg && cfg.mode === 'worksheet'; };
   NS.sectionFormat = function (cfg, si) { return (cfg.sections[si] && cfg.sections[si].qformat) || 'open'; };
-  NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice' };
+  NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice', multi: 'Choose all that apply', mcas: 'MCAS-style open response (multi-part)' };
 
   /* ---------------- configuration ---------------- */
   var uidN = 0;
@@ -101,7 +101,9 @@
     }
     return { mixed: [part('Practice', 'Show your work.', 12, 'open')],
       mc: [part('Multiple Choice', 'Choose the best answer.', 12, 'mc')],
-      both: [part('Multiple Choice', 'Choose the best answer.', 8, 'mc'), part('Show Your Work', 'Show your work.', 6, 'open')] }[preset] || [part('Practice', 'Show your work.', 12, 'open')];
+      both: [part('Multiple Choice', 'Choose the best answer.', 8, 'mc'), part('Show Your Work', 'Show your work.', 6, 'open')],
+      multi: [part('Choose All That Apply', 'Select every true statement.', 8, 'multi')],
+      mcas: [part('MCAS Open Response', 'Answer every part. Explain your reasoning.', 4, 'mcas')] }[preset] || [part('Practice', 'Show your work.', 12, 'open')];
   };
   NS.menuSections = function () {
     return [
@@ -339,6 +341,44 @@
     }
     return { fail: cands.length ? 'There are not enough checked wrong answers for this problem, so it stays short answer.' : 'The answer is a graph, so it stays short answer.' };
   };
+  /* Additional worksheet-format bank: exact numeric truth statements, computed from
+     verified answers. Requires at least two true and two false choices; never guesses. */
+  function numberAnswer(a) {
+    a = String(a || '').trim().replace(/^⟨|⟩$/g, '');
+    var m = /^(-?\d+)(?:\/(\d+))?$/.exec(a);
+    if (m) return Number(m[1]) / Number(m[2] || 1);
+    if (/^-?\d+\.\d+$/.test(a)) return Number(a);
+    return null;
+  }
+  NS.makeMultiSelect = function (p) {
+    if (!p || p.failed || !p.verify || p.verify.status !== 'verified') return { fail: 'A verified problem is required.' };
+    var cands = mcCandidates(p);
+    for (var j = 0; j < cands.length; j++) {
+      var q = cands[j].p, a = q.parts[0] && q.parts[0].answer, n = numberAnswer(a);
+      if (n === null || !Number.isFinite(n)) continue;
+      if (q !== p && !NS.verifyProblem(q, { intOnly: false }).ok) continue;
+      var delta = Math.max(1, Math.ceil(Math.abs(n) / 3));
+      var statements = [
+        { text: 'The answer is ' + a + '.', correct: true },
+        { text: 'The answer is greater than ' + (n - delta) + '.', correct: true },
+        { text: 'The answer is less than ' + (n + delta) + '.', correct: true },
+        { text: 'The answer is ' + (n + delta) + '.', correct: false },
+        { text: 'The answer is less than ' + (n - delta) + '.', correct: false },
+        { text: 'The answer is greater than ' + (n + delta) + '.', correct: false }
+      ];
+      var rng = WS.rng.make(WS.rng.hash('multi|' + mcSource(q)));
+      var selected = rng.shuffle(statements.slice(0, 3)).slice(0, 2).concat(rng.shuffle(statements.slice(3)).slice(0, 3));
+      selected = rng.shuffle(selected);
+      return { opts: selected.map(function (x) { return x.text; }), keys: selected.map(function (x, k) { return x.correct ? k : -1; }).filter(function (x) { return x >= 0; }), src: mcSource(q), derived: q !== p ? q : undefined, note: q !== p ? cands[j].note : undefined };
+    }
+    return { fail: 'This skill needs a verified numeric answer for choose-all-that-apply. Choose another skill or use open response.' };
+  };
+  NS.makeMcas = function (p) {
+    if (!p || p.failed || !p.verify || p.verify.status !== 'verified') return { fail: 'A verified problem is required.' };
+    var parts = (p.parts || []).filter(function (x) { return x.prompt && x.answer; });
+    if (parts.length < 2) return { fail: 'The bank did not produce a connected problem with two or more answerable parts.' };
+    return { parts: parts.length };
+  };
   /* Use a derived one-part version in place of the original problem (same slot, uid and flags). */
   function adopt(p, m) {
     var q = m.derived; delete m.derived;
@@ -362,7 +402,11 @@
   };
   function applyFormat(p, fmt) {
     if (!p || p.failed) return p;
-    if (fmt !== 'mc') { delete p.mc; delete p.mcFail; return p; }
+    if (fmt !== 'mc') { delete p.mc; delete p.mcFail;
+      if (fmt === 'multi') { if (!p.multi || p.multi.src !== mcSource(p)) { var mm = NS.makeMultiSelect(p); if (mm.fail) { delete p.multi; p.multiFail = mm.fail; } else { if (mm.derived && !p.edited && !p.manual) { adopt(p, { derived: mm.derived, note: mm.note }); delete p.mc; } delete mm.derived; p.multi = mm; delete p.multiFail; } } }
+      else { delete p.multi; delete p.multiFail; }
+      if (fmt === 'mcas') { var mr = NS.makeMcas(p); p.mcasFail = mr.fail || null; } else delete p.mcasFail;
+      return p; }
     if (p.mc && p.mc.src === mcSource(p)) { delete p.mcFail; return p; }
     var m = NS.makeChoices(p);
     if (m.fail) { delete p.mc; p.mcFail = m.fail; } else if (m.derived) { if (p.edited || p.manual) { delete p.mc; p.mcFail = 'Edited problems must have one part to be multiple choice.'; } else adopt(p, m); } else { p.mc = m; delete p.mcFail; }
@@ -375,7 +419,21 @@
   /* Generate for a section: in a multiple-choice section, keep trying fresh problems until one makes good choices. */
   function formatted(state, si, gen) {
     var p = gen(0);
-    if (p.failed || si === undefined || si === null || NS.sectionFormat(state.config, si) !== 'mc') return p;
+    if (p.failed || si === undefined || si === null) return p;
+    var fmt = NS.sectionFormat(state.config, si);
+    if (fmt === 'multi' || fmt === 'mcas') {
+      var first = p;
+      for (var mi = 0; mi < 25; mi++) {
+        if (mi) { p = gen(mi); if (p.failed) break; }
+        var m = fmt === 'multi' ? NS.makeMultiSelect(p) : NS.makeMcas(p);
+        if (m.fail) { if (!mi) { if (fmt === 'multi') first.multiFail = m.fail; else first.mcasFail = m.fail; } continue; }
+        if (fmt === 'multi') { if (m.derived) { adopt(p, { derived: m.derived, note: m.note }); delete p.mc; } delete m.derived; p.multi = m; delete p.multiFail; }
+        else delete p.mcasFail;
+        return p;
+      }
+      return first;
+    }
+    if (fmt !== 'mc') return p;
     var best = p;
     for (var t = 0; t < 10; t++) {
       if (t > 0) { var q = gen(t); if (q.failed) break; p = q; }
