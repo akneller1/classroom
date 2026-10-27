@@ -415,9 +415,10 @@
         ['A store charges per individual bag of apples. The input is the number of bags.',1],
         ['A bathtub drains steadily. The input is the volume of water remaining in gallons.',2]
       ];
-      var item=ctx.rng.pick(cases),answer=item[1];
-      return {variant:'dc'+answer,prompt:item[0]+' Is this input discrete or continuous? Enter 1 for discrete or 2 for continuous.',
-        parts:[{answer:String(answer),check:{type:'discrete-continuous',scenario:item[0]}}],
+      var item=ctx.rng.pick(cases),answer=item[1],sample=ctx.rng.int(2,999),subject=ctx.rng.pick(['During the morning','During the afternoon','Yesterday','Last week']);
+      var context=item[0]+' '+subject+', a sample recorded input was '+sample+'.';
+      return {variant:'dc'+answer,prompt:context+' Is this input discrete or continuous? Enter 1 for discrete or 2 for continuous.',
+        parts:[{answer:String(answer),check:{type:'discrete-continuous',scenario:item[0],sample:sample,subject:subject}}],
         steps:[step(answer===1?'Individual objects are counted in whole numbers.':'A measured quantity can vary through values between whole numbers.',String(answer),1)],
         space:[0.5,0.7,0.9]};
     }
