@@ -675,13 +675,18 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   ];
   function generatorLinks(c, u, compact) {
     var items = u ? u.artifacts : [];
-    var unitId = u ? 'algebra1-' + u.id : '';
+    var unitId = u ? (c.id === 'geometry' ? ({'foundations-geometry':'geometry-basics-reasoning','angles-parallel-lines':'geometry-angles-parallel-lines'}[u.id] || '') : 'algebra1-' + u.id) : '';
     return '<div class="generator-banner' + (compact ? ' compact' : '') + '">' +
       '<div class="generator-banner-heading"><h2>' + (compact ? 'Create Resources for This Unit' : 'What would you like to do today?') + '</h2>' +
       (!compact ? '<p>Choose a generator, select your unit, and make classroom-ready resources.</p>' : '') + '</div>' +
       '<ul class="generator-shortcuts">' + GENERATOR_ACTIONS.map(function (tool) {
         var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
         var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
+        if (c.id === 'geometry') {
+          var supported = !!unitId && (tool.format === 'worksheet-generator' || tool.format === 'assessment-generator');
+          if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
+          url += '#unit=' + unitId;
+        }
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
           '<span class="generator-shortcut-icon" aria-hidden="true">' + ({'lesson-planner':'▤','worksheet-generator':'≡','printable-generator':'✦','assessment-generator':'☑'}[tool.format]) + '</span>' +
@@ -696,7 +701,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     var guideFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'study-guides'; })[0].formats;
     // Unit pages must expose the online practice test directly, just like the global directory.
     // Keep one card per unit even when older cached catalogs or format filters are in use.
-    var hasPractice = items.some(function(it){return /practice-test[.]html/i.test(it.a.path||'');});
+    var hasPractice = c.id === 'geometry' || items.some(function(it){return /practice-test[.]html/i.test(it.a.path||'');});
     if (!hasPractice) {
       var unitMap = {'foundations-algebra':'algebra1-foundations','expressions-equations':'algebra1-expressions-equations','inequalities':'algebra1-inequalities','relations-functions':'algebra1-relations-functions','linear-equations-slope':'algebra1-linear-equations-slope','systems-of-equations':'algebra1-systems-of-equations','exponents-exponential-functions':'algebra1-exponents-scientific-notation','exponential-functions':'algebra1-exponential-functions','polynomials-factoring':'algebra1-polynomials','factoring-zero-product':'algebra1-factoring-zero-product','quadratics':'algebra1-quadratics','statistics-data-modeling':'algebra1-statistics-data-modeling'};
       if(unitMap[u.id]) items.push({a:{title:'Interactive Practice Test',path:'worksheet-generator/practice-test.html#unit='+unitMap[u.id],thumb:'thumbs/practice-test.svg',description:'Online practice assessment with worked solutions and targeted skill review.',type:'Study Guide'},c:c,u:u});
@@ -730,7 +735,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   }
 
   function unitView(c, u) {
-    if (c.id === 'algebra') return algebraUnitView(c, u);
+    if (c.id === 'algebra' || c.id === 'geometry') return algebraUnitView(c, u);
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var planner = u.artifacts.filter(function (a) { return activityFormat(a) === 'lesson-planner'; })[0];
     var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];

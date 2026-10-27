@@ -42,7 +42,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Measure Foundations of Algebra readiness with a mixed-topic test, diagnostic skill report, and fresh targeted reassessment.",
               "type": "Study Guide",
-              "topics": ["Foundations of Algebra", "Test readiness", "Self-assessment"],
+              "topics": [
+                "Foundations of Algebra",
+                "Test readiness",
+                "Self-assessment"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -309,7 +313,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -580,7 +588,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -837,7 +849,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -1100,7 +1116,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -1370,7 +1390,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -1680,7 +1704,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -1945,7 +1973,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -2204,7 +2236,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -2462,7 +2498,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -2721,7 +2761,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -2978,7 +3022,11 @@ window.LIBRARY = {
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
               "type": "Study Guide",
-              "topics": ["Self-assessment", "Test readiness", "Interactive practice"],
+              "topics": [
+                "Self-assessment",
+                "Test readiness",
+                "Interactive practice"
+              ],
               "added": "2026-10-26"
             },
             {
@@ -4457,46 +4505,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Segments & Angles Maze",
-              "path": "artifacts/basics-reasoning-maze/worksheet.pdf",
-              "thumb": "thumbs/basics-reasoning-maze.jpg",
-              "description": "Printable 4-page worksheet: use segment addition, midpoints, angle addition, complementary and supplementary angles, and angle bisectors to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Segment addition and midpoints",
-                "Angle addition and angle bisectors",
-                "Complementary and supplementary angles"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Basics & Reasoning Error Analysis",
-              "path": "artifacts/basics-reasoning-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/basics-reasoning-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Segment addition and midpoints",
-                "Complementary and supplementary angles",
-                "Conditional statements",
-                "Logical reasoning"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Basics & Reasoning Color By Number",
-              "path": "artifacts/basics-reasoning-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/basics-reasoning-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the robot in a workshop. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Segments and angles",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Pirate Cove Puzzle",
               "path": "artifacts/basics-reasoning-pirate-cove-puzzle/index.html",
               "thumb": "thumbs/basics-reasoning-pirate-cove-puzzle.jpg",
@@ -4523,33 +4531,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Pirate Cove Puzzle (Printable)",
-              "path": "artifacts/basics-reasoning-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/basics-reasoning-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Segments and angles",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Reasoning Bistro: Assessment Menu",
-              "path": "artifacts/basics-reasoning-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/basics-reasoning-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Segment addition and midpoints",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Temple of Logic: Jungle Escape",
               "path": "artifacts/basics-reasoning-escape-room/index.html",
               "thumb": "thumbs/basics-reasoning-escape-room.jpg",
@@ -4561,57 +4542,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Basics & Reasoning Stations",
-              "path": "artifacts/geometry-basics-reasoning-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-reasoning-stations.svg",
-              "description": "Printable Geometry station work for Basics & Reasoning. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Basics & Reasoning"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Foundations of Geometry Cheat Sheet",
-              "path": "artifacts/geometry-basics-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: points, lines, planes, segments, rays and angles. Back: segment and angle addition, midpoints, distance and angle pairs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Foundations of Geometry",
-                "Unit 1"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Segments, Midpoints & Angle Basics",
-              "path": "artifacts/geometry-basics-reasoning-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-reasoning-partner-check-1.jpg",
-              "description": "Partners solve different problems on segments, midpoints & angle basics and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Segments, Midpoints & Angle Basics"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Logic & Reasoning",
-              "path": "artifacts/geometry-basics-reasoning-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-basics-reasoning-partner-check-2.jpg",
-              "description": "Partners solve different problems on logic & reasoning and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Logic & Reasoning"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -4676,46 +4606,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Angles & Parallel Lines Maze",
-              "path": "artifacts/angles-parallel-lines-maze/worksheet.pdf",
-              "thumb": "thumbs/angles-parallel-lines-maze.jpg",
-              "description": "Printable 4-page worksheet: use vertical angles, linear pairs, and parallel-line angle pairs to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Vertical angles & linear pairs",
-                "Parallel lines cut by a transversal",
-                "Solving for x and angle measures"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Angles & Parallel Lines Error Analysis",
-              "path": "artifacts/angles-parallel-lines-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/angles-parallel-lines-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Vertical angles and linear pairs",
-                "Parallel lines and transversals",
-                "Angle bisectors",
-                "Angles around a point"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Angles & Parallel Lines Color By Number",
-              "path": "artifacts/angles-parallel-lines-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/angles-parallel-lines-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the steam train on parallel rails. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Parallel lines and triangles",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Midnight Express Mystery",
               "path": "artifacts/angles-parallel-lines-midnight-express-mystery/index.html",
               "thumb": "thumbs/angles-parallel-lines-midnight-express-mystery.jpg",
@@ -4742,33 +4632,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Midnight Express Mystery (Printable)",
-              "path": "artifacts/angles-parallel-lines-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/angles-parallel-lines-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Parallel lines and triangles",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Transversal Bistro: Assessment Menu",
-              "path": "artifacts/angles-parallel-lines-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/angles-parallel-lines-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Vertical angles and linear pairs",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Crossing Tracks: Rail Yard Escape",
               "path": "artifacts/angles-parallel-lines-escape-room/index.html",
               "thumb": "thumbs/angles-parallel-lines-escape-room.jpg",
@@ -4780,57 +4643,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Angles & Parallel Lines Stations",
-              "path": "artifacts/geometry-angles-parallel-lines-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-stations.svg",
-              "description": "Printable Geometry station work for Angles & Parallel Lines. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Angles & Parallel Lines"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Angles and Parallel Lines Cheat Sheet",
-              "path": "artifacts/geometry-angles-parallel-lines-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: angle pairs and parallel lines cut by a transversal. Back: proving lines parallel, triangle angle sums and angle chasing. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Angles and Parallel Lines",
-                "Unit 2"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Angle Pairs & Transversals",
-              "path": "artifacts/geometry-angles-parallel-lines-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-partner-check-1.jpg",
-              "description": "Partners solve different problems on angle pairs & transversals and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Angle Pairs & Transversals"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Triangles, Polygons & Parallel Lines",
-              "path": "artifacts/geometry-angles-parallel-lines-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-angles-parallel-lines-partner-check-2.jpg",
-              "description": "Partners solve different problems on triangles, polygons & parallel lines and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Triangles, Polygons & Parallel Lines"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -4881,19 +4693,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Triangles & Congruence Color By Number",
-              "path": "artifacts/triangles-congruence-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the sailboats on a lake. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Congruence rules",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Pyramid Puzzle",
               "path": "artifacts/triangles-congruence-pyramid-puzzle/index.html",
               "thumb": "thumbs/triangles-congruence-pyramid-puzzle.jpg",
@@ -4920,20 +4719,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Pyramid Puzzle (Printable)",
-              "path": "artifacts/triangles-congruence-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Congruence rules",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Lockdown at the Robot Factory",
               "path": "artifacts/triangles-congruence-escape-room/index.html",
               "thumb": "thumbs/triangles-congruence-escape-room.jpg",
@@ -4945,18 +4730,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Partner Check 1: Proving Triangles Congruent",
-              "path": "artifacts/geometry-triangles-congruence-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-partner-check-1.jpg",
-              "description": "Partners solve different problems on proving triangles congruent and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Proving Triangles Congruent"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -4977,85 +4750,6 @@ window.LIBRARY = {
                 "CPCTC and proof planning"
               ],
               "added": "2026-10-18"
-            },
-            {
-              "title": "Triangle Angles Maze",
-              "path": "artifacts/triangles-congruence-maze/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-maze.jpg",
-              "description": "Printable 4-page worksheet: use the triangle angle sum, the exterior angle theorem, and isosceles and equilateral triangle facts to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Triangle angle sum",
-                "Exterior angle theorem",
-                "Isosceles & equilateral triangles"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Triangles & Congruence Error Analysis",
-              "path": "artifacts/triangles-congruence-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Angle sum and exterior angles",
-                "Triangle inequality",
-                "Congruence shortcuts",
-                "CPCTC proofs"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "The Congruence Bistro: Assessment Menu",
-              "path": "artifacts/triangles-congruence-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/triangles-congruence-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Triangle inequality and angle sums",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Triangles & Congruence Stations",
-              "path": "artifacts/geometry-triangles-congruence-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-stations.svg",
-              "description": "Printable Geometry station work for Triangles & Congruence. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Triangles & Congruence"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Triangles & Congruence Cheat Sheet",
-              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: classifying triangles, angle sums, isosceles triangles and side–angle relationships. Back: congruence shortcuts, CPCTC and two-column proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Triangles & Congruence",
-                "Unit 3–4"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 2: Triangle Properties",
-              "path": "artifacts/geometry-triangles-congruence-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-triangles-congruence-partner-check-2.jpg",
-              "description": "Partners solve different problems on triangle properties and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Triangle Properties"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -5120,46 +4814,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Similarity & Proportions Maze",
-              "path": "artifacts/similarity-maze/worksheet.pdf",
-              "thumb": "thumbs/similarity-maze.jpg",
-              "description": "Printable 4-page worksheet: solve proportions, find scale factors and missing sides of similar figures, and use the side-splitter theorem and shadows to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Solving proportions",
-                "Scale factor & similar triangles",
-                "Side-splitter & shadow problems"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Similarity Error Analysis",
-              "path": "artifacts/similarity-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/similarity-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Proportions",
-                "Scale factors",
-                "AA similarity",
-                "Area and volume ratios"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Similarity Color By Number",
-              "path": "artifacts/similarity-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/similarity-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the elephant and baby elephant. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Similar figures",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Toy Workshop Theft",
               "path": "artifacts/similarity-toy-workshop-theft/index.html",
               "thumb": "thumbs/similarity-toy-workshop-theft.jpg",
@@ -5186,33 +4840,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Toy Workshop Theft (Printable)",
-              "path": "artifacts/similarity-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/similarity-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Similar figures",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Similarity Bistro: Assessment Menu",
-              "path": "artifacts/similarity-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/similarity-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Ratios and proportions",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Shrink-Ray Workshop",
               "path": "artifacts/similarity-escape-room/index.html",
               "thumb": "thumbs/similarity-escape-room.jpg",
@@ -5224,57 +4851,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Similarity Stations",
-              "path": "artifacts/geometry-similarity-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-stations.svg",
-              "description": "Printable Geometry station work for Similarity. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Similarity"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Similarity Cheat Sheet",
-              "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: scale factors, similar figures and proportions. Back: similarity criteria, dilations, area and indirect measurement. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Similarity",
-                "Unit 5"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Similar Figures & Proportions",
-              "path": "artifacts/geometry-similarity-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-partner-check-1.jpg",
-              "description": "Partners solve different problems on similar figures & proportions and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Similar Figures & Proportions"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Similarity Rules, Right Triangles & Dilations",
-              "path": "artifacts/geometry-similarity-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-similarity-partner-check-2.jpg",
-              "description": "Partners solve different problems on similarity rules, right triangles & dilations and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Similarity Rules, Right Triangles & Dilations"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -5339,46 +4915,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Right Triangles Maze",
-              "path": "artifacts/right-triangles-trigonometry-maze/worksheet.pdf",
-              "thumb": "thumbs/right-triangles-trigonometry-maze.jpg",
-              "description": "Printable 4-page worksheet: use the Pythagorean theorem, special right triangles, and trig ratios to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Pythagorean theorem",
-                "45°-45°-90° and 30°-60°-90° triangles",
-                "Trig ratios (SOH CAH TOA)"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Error Analysis",
-              "path": "artifacts/right-triangles-trigonometry-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/right-triangles-trigonometry-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Pythagorean theorem",
-                "Sine, cosine and tangent",
-                "Special right triangles",
-                "Angles of depression"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Color By Number",
-              "path": "artifacts/right-triangles-trigonometry-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/right-triangles-trigonometry-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the snowy mountain with a summit flag. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Right triangle trig",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Lighthouse Lantern Mystery",
               "path": "artifacts/right-triangles-trigonometry-lighthouse-lantern-mystery/index.html",
               "thumb": "thumbs/right-triangles-trigonometry-lighthouse-lantern-mystery.jpg",
@@ -5405,46 +4941,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Lighthouse Lantern Mystery (Printable)",
-              "path": "artifacts/right-triangles-trigonometry-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/right-triangles-trigonometry-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Right triangle trig",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Right Triangles Tarsia Puzzle",
-              "path": "artifacts/right-triangles-trigonometry-tarsia/worksheet.pdf",
-              "thumb": "thumbs/right-triangles-trigonometry-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Pythagorean theorem",
-                "Tarsia puzzle",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Right Triangle Bistro: Assessment Menu",
-              "path": "artifacts/right-triangles-trigonometry-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/right-triangles-trigonometry-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Pythagorean Theorem and its converse",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Rotor Rescue: Summit Mission",
               "path": "artifacts/right-triangles-trigonometry-escape-room/index.html",
               "thumb": "thumbs/right-triangles-trigonometry-escape-room.jpg",
@@ -5456,57 +4952,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Right Triangles & Trigonometry Stations",
-              "path": "artifacts/geometry-right-triangles-trigonometry-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-stations.svg",
-              "description": "Printable Geometry station work for Right Triangles & Trigonometry. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Right Triangles & Trigonometry"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Right Triangles and Trigonometry Cheat Sheet",
-              "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: the Pythagorean Theorem, special right triangles and trig ratios. Back: finding sides and angles with SOH-CAH-TOA, elevation and depression. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Right Triangles and Trigonometry",
-                "Unit 6"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Pythagorean Theorem & Special Triangles",
-              "path": "artifacts/geometry-right-triangles-trigonometry-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-partner-check-1.jpg",
-              "description": "Partners solve different problems on pythagorean theorem & special triangles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Pythagorean Theorem & Special Triangles"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Trigonometric Ratios",
-              "path": "artifacts/geometry-right-triangles-trigonometry-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-right-triangles-trigonometry-partner-check-2.jpg",
-              "description": "Partners solve different problems on trigonometric ratios and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Trigonometric Ratios"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -5576,46 +5021,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Coordinate Geometry Maze",
-              "path": "artifacts/coordinate-geometry-transformations-maze/worksheet.pdf",
-              "thumb": "thumbs/coordinate-geometry-transformations-maze.jpg",
-              "description": "Printable 4-page worksheet: find midpoints, distances, parallel and perpendicular slopes, and images of points under transformations to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Midpoint and distance",
-                "Parallel and perpendicular slopes",
-                "Transformations of points"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Coordinate Geometry & Transformations Error Analysis",
-              "path": "artifacts/coordinate-geometry-transformations-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/coordinate-geometry-transformations-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Distance and midpoint",
-                "Reflections and rotations",
-                "Translations and dilations",
-                "Equation of a circle"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Coordinate Geometry & Transformations Color By Number",
-              "path": "artifacts/coordinate-geometry-transformations-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/coordinate-geometry-transformations-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the fox in an autumn forest. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Transformations",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Treasure Map Mystery",
               "path": "artifacts/coordinate-geometry-transformations-treasure-map-mystery/index.html",
               "thumb": "thumbs/coordinate-geometry-transformations-treasure-map-mystery.jpg",
@@ -5642,33 +5047,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Treasure Map Mystery (Printable)",
-              "path": "artifacts/coordinate-geometry-transformations-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/coordinate-geometry-transformations-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Transformations",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Transformations Bistro: Assessment Menu",
-              "path": "artifacts/coordinate-geometry-transformations-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/coordinate-geometry-transformations-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Distance, midpoint and slope",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Glitch World: Trapped in the Game",
               "path": "artifacts/coordinate-geometry-transformations-escape-room/index.html",
               "thumb": "thumbs/coordinate-geometry-transformations-escape-room.jpg",
@@ -5680,57 +5058,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Coordinate Geometry & Transformations Stations",
-              "path": "artifacts/geometry-coordinate-geometry-transformations-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-geometry-transformations-stations.svg",
-              "description": "Printable Geometry station work for Coordinate Geometry & Transformations. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Coordinate Geometry & Transformations"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Coordinate Geometry & Transformations Cheat Sheet",
-              "path": "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: distance, midpoint, slope and translations. Back: reflections, rotations, dilations and sequences of transformations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Coordinate Geometry & Transformations",
-                "Unit 8"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Coordinate Geometry",
-              "path": "artifacts/geometry-coordinate-geometry-transformations-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-geometry-transformations-partner-check-1.jpg",
-              "description": "Partners solve different problems on coordinate geometry and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Coordinate Geometry"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Transformations",
-              "path": "artifacts/geometry-coordinate-geometry-transformations-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-coordinate-geometry-transformations-partner-check-2.jpg",
-              "description": "Partners solve different problems on transformations and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Transformations"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -5795,46 +5122,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Circles Maze",
-              "path": "artifacts/circles-maze/worksheet.pdf",
-              "thumb": "thumbs/circles-maze.jpg",
-              "description": "Printable 4-page worksheet: find circumference, area, arc length, sector area, angle measures, and the center and radius of a circle to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Arc length and sector area",
-                "Central and inscribed angles",
-                "Equation of a circle"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Circles Error Analysis",
-              "path": "artifacts/circles-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/circles-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Arc length and sectors",
-                "Inscribed angles",
-                "Tangents",
-                "Intersecting chords"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Circles Color By Number",
-              "path": "artifacts/circles-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/circles-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the Ferris wheel. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Circle measures",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Carnival Caper",
               "path": "artifacts/circles-carnival-caper/index.html",
               "thumb": "thumbs/circles-carnival-caper.jpg",
@@ -5861,46 +5148,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Carnival Caper (Printable)",
-              "path": "artifacts/circles-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/circles-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Circle measures",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Circles Tarsia Puzzle",
-              "path": "artifacts/circles-tarsia/worksheet.pdf",
-              "thumb": "thumbs/circles-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Circle measures",
-                "Tarsia puzzle",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Circles Bistro: Assessment Menu",
-              "path": "artifacts/circles-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/circles-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Circumference, area, arcs and sectors",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "Carnival After Dark: Locked In the Midway",
               "path": "artifacts/circles-escape-room/index.html",
               "thumb": "thumbs/circles-escape-room.jpg",
@@ -5912,57 +5159,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Circles Stations",
-              "path": "artifacts/geometry-circles-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-stations.svg",
-              "description": "Printable Geometry station work for Circles. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Circles"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Circles Cheat Sheet",
-              "path": "artifacts/geometry-circles-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: parts of a circle, circumference, area, arcs and sectors. Back: inscribed angles, chords, tangents and angles inside and outside a circle. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Circles",
-                "Unit 9"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Arcs, Angles & Segments in Circles",
-              "path": "artifacts/geometry-circles-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-partner-check-1.jpg",
-              "description": "Partners solve different problems on arcs, angles & segments in circles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Arcs, Angles & Segments in Circles"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Circumference, Area & Equations of Circles",
-              "path": "artifacts/geometry-circles-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-circles-partner-check-2.jpg",
-              "description": "Partners solve different problems on circumference, area & equations of circles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Circumference, Area & Equations of Circles"
-              ],
-              "added": "2026-10-23"
             }
           ]
         },
@@ -6026,46 +5222,6 @@ window.LIBRARY = {
               "added": "2026-10-18"
             },
             {
-              "title": "Area & Volume Maze",
-              "path": "artifacts/area-surface-area-volume-maze/worksheet.pdf",
-              "thumb": "thumbs/area-surface-area-volume-maze.jpg",
-              "description": "Printable 4-page worksheet: find areas of polygons and the volume and surface area of prisms, cylinders, cones, pyramids, and spheres to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
-              "type": "Printable",
-              "topics": [
-                "Area of polygons",
-                "Volume of solids",
-                "Surface area of solids"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Area, Surface Area & Volume Error Analysis",
-              "path": "artifacts/area-surface-area-volume-error-analysis/worksheet.pdf",
-              "thumb": "thumbs/area-surface-area-volume-error-analysis.jpg",
-              "description": "Printable 5-page worksheet: 10 worked solutions that each hide one mistake. Students find the error, explain it, and show the correct work.",
-              "type": "Printable",
-              "topics": [
-                "Area of polygons",
-                "Surface area",
-                "Volumes of prisms, cylinders, cones and spheres",
-                "Unit conversion"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Area, Surface Area & Volume Color By Number",
-              "path": "artifacts/area-surface-area-volume-color-by-number/worksheet.pdf",
-              "thumb": "thumbs/area-surface-area-volume-color-by-number.jpg",
-              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the ice-cream cone, gift box and cupcake. Page 1 is the picture, page 2 is the work space.",
-              "type": "Printable",
-              "topics": [
-                "Area, surface area, volume",
-                "Color by number",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Candy Factory Caper",
               "path": "artifacts/area-surface-area-volume-candy-factory-caper/index.html",
               "thumb": "thumbs/area-surface-area-volume-candy-factory-caper.jpg",
@@ -6092,46 +5248,6 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "The Candy Factory Caper (Printable)",
-              "path": "artifacts/area-surface-area-volume-whodunnit/worksheet.pdf",
-              "thumb": "thumbs/area-surface-area-volume-whodunnit.jpg",
-              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
-              "type": "Printable",
-              "topics": [
-                "Area, surface area, volume",
-                "Whodunnit",
-                "Multiple choice",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "Area and Volume Tarsia Puzzle",
-              "path": "artifacts/area-surface-area-volume-tarsia/worksheet.pdf",
-              "thumb": "thumbs/area-surface-area-volume-tarsia.jpg",
-              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Includes a show-your-work page and a teacher key with the solved hexagon.",
-              "type": "Printable",
-              "topics": [
-                "Area and volume",
-                "Tarsia puzzle",
-                "Self-checking"
-              ],
-              "added": "2026-10-21"
-            },
-            {
-              "title": "The Volume Bistro: Assessment Menu",
-              "path": "artifacts/area-surface-area-volume-assessment-menu/worksheet.pdf",
-              "thumb": "thumbs/area-surface-area-volume-assessment-menu.jpg",
-              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
-              "type": "Printable",
-              "topics": [
-                "Area of polygons and composite figures",
-                "Assessment",
-                "Choice menu"
-              ],
-              "added": "2026-10-21"
-            },
-            {
               "title": "The Pharaoh’s Pyramid: Sealed Inside",
               "path": "artifacts/area-surface-area-volume-escape-room/index.html",
               "thumb": "thumbs/area-surface-area-volume-escape-room.jpg",
@@ -6143,57 +5259,6 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
-            },
-            {
-              "title": "Area, Surface Area & Volume Stations",
-              "path": "artifacts/geometry-area-surface-area-volume-stations/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-stations.svg",
-              "description": "Printable Geometry station work for Area, Surface Area & Volume. Students rotate through problem sets to practice and review unit skills.",
-              "type": "Printable",
-              "topics": [
-                "Stations",
-                "Station work",
-                "Area, Surface Area & Volume"
-              ],
-              "added": "2026-10-20"
-            },
-            {
-              "title": "Area, Surface Area and Volume Cheat Sheet",
-              "path": "artifacts/geometry-area-surface-area-volume-cheat-sheet/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-cheat-sheet.jpg",
-              "description": "Two-page printable cheat sheet. Front: area formulas, composite figures and units. Back: surface area and volume of prisms, cylinders, pyramids, cones and spheres. Key vocabulary, worked examples with every answer checked, and common mistakes.",
-              "type": "Printable",
-              "topics": [
-                "Cheat sheet",
-                "Reference",
-                "Area, Surface Area and Volume",
-                "Unit 10"
-              ],
-              "added": "2026-10-25"
-            },
-            {
-              "title": "Partner Check 1: Area of Polygons & Circles",
-              "path": "artifacts/geometry-area-surface-area-volume-partner-check-1/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-partner-check-1.jpg",
-              "description": "Partners solve different problems on area of polygons & circles and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Area of Polygons & Circles"
-              ],
-              "added": "2026-10-23"
-            },
-            {
-              "title": "Partner Check 2: Surface Area & Volume",
-              "path": "artifacts/geometry-area-surface-area-volume-partner-check-2/worksheet.pdf",
-              "thumb": "thumbs/geometry-area-surface-area-volume-partner-check-2.jpg",
-              "description": "Partners solve different problems on surface area & volume and compare matching answers. Includes A/B worksheets; shared Geometry teacher key available.",
-              "type": "Printable",
-              "topics": [
-                "Partner Check",
-                "Surface Area & Volume"
-              ],
-              "added": "2026-10-23"
             }
           ]
         }
