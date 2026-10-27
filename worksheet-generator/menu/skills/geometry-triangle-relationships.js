@@ -97,14 +97,14 @@ function triangleInvestigation(ctx) {
  var r=ctx.rng,c=ctx.c,a=r.int(7,14),b=r.int(7,14),hi=a+b,lo=Math.abs(a-b),third=hi-1;
  var half=2*r.int(4,c>=5?17:10),mid=half/2;
  var median=3*r.int(3,c>=5?15:9),near=median/3;
- var e1='x+1='+hi,e2='2y='+half,e3='3z='+median,e4='w='+hi;
+ var e1='x+1='+hi,e2='2y='+half,e3='3z='+median,e4='w+1='+(hi+1);
  return {variant:'geo-triangle-investigation-'+c,
   prompt:'Open Response: Investigate triangle side lengths, midsegments, and medians. Show the theorem or relationship used for every part.',
   parts:[
    {label:'a',prompt:'A triangle has sides '+a+' and '+b+' units. Find the greatest integer third side x. Use '+M(e1)+'.',answer:M('x='+third),check:{type:'solve',eq:e1,v:'x'}},
    {label:'b',prompt:'In a different triangle, a midsegment is parallel to a side measuring '+half+' units. Find midsegment length y. Use '+M(e2)+'.',answer:M('y='+mid),check:{type:'solve',eq:e2,v:'y'}},
    {label:'c',prompt:'A median has total length '+median+' units. Find the shorter segment z from the centroid to the midpoint. Use '+M(e3)+'.',answer:M('z='+near),check:{type:'solve',eq:e3,v:'z'}},
-   {label:'d',prompt:'For the triangle in (a), find the greatest possible integer third side w when one of the given sides increases by 1 unit. Use '+M(e4)+'.',answer:M('w='+hi),check:{type:'solve',eq:e4,v:'w'}}
+   {label:'d',prompt:'For the triangle in (a), find the greatest possible integer third side w when the side of length '+a+' increases by 1 unit. Use '+M(e4)+'.',answer:M('w='+hi),check:{type:'solve',eq:e4,v:'w'}}
   ],
   steps:[step('Triangle inequality',M(e1)),step('Midsegment theorem',M(e2)),step('Centroid ratio',M(e3)),step('Triangle inequality with the modified side',M(e4))],
   space:[2.5,3.1,3.8]};
