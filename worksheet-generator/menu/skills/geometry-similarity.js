@@ -58,10 +58,10 @@ function parallelHonors(ctx){
   fig:{kind:'geo-similar-pair',case:'parallel'},
   prompt:'Honors investigation: In triangle ABC, D is on AB and E is on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', AE = '+ae+', and DE = '+de+'. Answer all four parts. Show proportional reasoning and justify each result.',
   parts:[
-   {prompt:'(a) Find EC = x using the triangle proportionality theorem.',answer:M('x='+ec),check:{type:'solve',eq:ad+'*x='+(db*ae),v:'x'}},
-   {prompt:'(b) Find the full side AC = y.',answer:M('y='+ac),check:{type:'solve',eq:'y='+ae+'+'+ec,v:'y'}},
-   {prompt:'(c) Find BC = z using similarity of triangles ADE and ABC.',answer:M('z='+bc),check:{type:'solve',eq:ad+'*z='+(de*ab),v:'z'}},
-   {prompt:'(d) Find the perimeter of triangle ABC = w.',answer:M('w='+p),check:{type:'solve',eq:'w='+ab+'+'+ac+'+'+bc,v:'w'}}
+   {prompt:'(a) Find EC = x using the triangle proportionality theorem. Use '+M(ad+'*x='+(db*ae))+' to find x.',answer:M('x='+ec),check:{type:'solve',eq:ad+'*x='+(db*ae),v:'x'}},
+   {prompt:'(b) Find the full side AC = y. Use '+M('y='+ae+'+'+ec)+' to find y.',answer:M('y='+ac),check:{type:'solve',eq:'y='+ae+'+'+ec,v:'y'}},
+   {prompt:'(c) Find BC = z using similarity of triangles ADE and ABC. Use '+M(ad+'*z='+(de*ab))+' to find z.',answer:M('z='+bc),check:{type:'solve',eq:ad+'*z='+(de*ab),v:'z'}},
+   {prompt:'(d) Find the perimeter of triangle ABC = w. Use '+M('w='+ab+'+'+ac+'+'+bc)+' to find w.',answer:M('w='+p),check:{type:'solve',eq:'w='+ab+'+'+ac+'+'+bc,v:'w'}}
   ],
   steps:[
    step('Parallel lines divide sides proportionally.',M(ad+'*x='+(db*ae))),
