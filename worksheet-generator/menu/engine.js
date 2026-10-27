@@ -374,12 +374,11 @@
   NS.multiUnitSupported = function(unit) { return unit === 'algebra1-inequalities' || /^geometry-/.test(unit) && !!sets[unit]; };
   NS.makeMultiSelect = function(p) {
     if(!p || p.failed || !p.verify || p.verify.status !== 'verified')
-      return {fail:'A verified inequality is required.'};
+      return {fail:'A verified problem is required.'};
     var C=NS.check, part=(p.parts||[])[0], chk=part && part.check;
     // Geometry: independently checked equations can support more than one
     // mathematically true statement, even when x has a unique value.
-    if (p.skill && /^geometry-/.test((sets[p.setId] || {}).id || '') ||
-        (chk && chk.type === 'solve' && p.tag && ['SEGMENT','ANGLE','MIDPOINT','BISECTOR','COORD','COMPLEMENT','SUPPLEMENT','VERTICAL','LINEAR','TRANSVERSAL'].indexOf(p.tag)>=0)) {
+    if (chk && chk.type === 'solve' && p.tag && ['SEGMENT','ANGLE','MIDPOINT','BISECTOR','COORD','COMPLEMENT','SUPPLEMENT','VERTICAL','LINEAR','TRANSVERSAL'].indexOf(p.tag)>=0) {
       if (!chk || chk.type !== 'solve' || !chk.eq || !C || !C.solveLinear) return {fail:'A verified Geometry equation is required.'};
       var solved;
       try { solved=C.solveLinear(chk.eq,chk.v||'x'); } catch(e) {return {fail:'Could not verify the Geometry equation.'};}
