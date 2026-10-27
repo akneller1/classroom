@@ -5,7 +5,8 @@ var API=G.MKPARABOLA={};
 function number(s){if(s===''||s==='+')return 1;if(s==='-')return -1;if(!/^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(s))return null;var n=Number(s);return Number.isFinite(n)?n:null;}
 function target(q){
  var p=q.problem;if(!p||!p.parts||p.parts.length!==1||!/\b(graph|plot|draw)\b/i.test((p.prompt||'')+' '+(p.parts[0].prompt||'')))return null;
- var s=String(p.parts[0].answer||'').replace(/[⟨⟩]/g,'').replace(/\\left|\\right|\\,/g,'')
+ var source=(p.parts[0].check&&p.parts[0].check.type==='quad-graph'&&p.parts[0].check.eq)||p.parts[0].answer||'';
+ var s=String(source).replace(/[⟨⟩]/g,'').replace(/\\left|\\right|\\,/g,'')
  .replace(/\\cdot/g,'').replace(/\\frac\{(-?\d+)\}\{(\d+)\}/g,(_,a,b)=>String(Number(a)/Number(b)))
  .replace(/\s+/g,'').replace(/−/g,'-').replace(/\^\{2\}/g,'^2');
  if(!s.startsWith('y='))return null;
