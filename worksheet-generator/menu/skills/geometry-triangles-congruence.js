@@ -58,10 +58,21 @@ function criterion(ctx,kind){
   steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
   space:[1.2,1.5,1.8]};
 }
+
+function identify(ctx){
+ var r=ctx.rng,c=ctx.c,kinds=['sss','sas','asa','aas','hl','ssa','aaa'];
+ var kind=kinds[r.int(0,kinds.length-1)],answer=(kind==='ssa'||kind==='aaa')?'NOT SUFFICIENT':kind.toUpperCase();
+ return {variant:'geo-identify-criterion-'+kind+'-'+c,
+  fig:{kind:'geo-triangle-pair',criterion:kind},
+  prompt:'Use the marked triangle pairs to determine whether triangle congruence is established. Identify the criterion (SSS, SAS, ASA, AAS, or HL), or write NOT SUFFICIENT if the markings do not prove congruence. Matching tick marks and angle arcs indicate corresponding equal parts. The diagram is schematic and not to scale.',
+  parts:[{answer:answer,check:{type:'geo-congruence-criterion'}}],
+  steps:[step(kind==='ssa'?'SSA is not a valid general triangle congruence theorem.':kind==='aaa'?'AAA establishes similarity, not necessarily congruence.':'The marked corresponding parts establish '+answer+' congruence.',answer)],
+  space:[1.2,1.5,1.8]};
+}
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
- gaps:['Still needs independently verified classification of invalid SSA/AAA, formal proofs, and diagram-based congruence.'],
+ gaps:['Still needs structured formal proofs and more advanced diagram-driven applications.'],
  skills:[
  {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:ctx=>corresponding(ctx,'side')},
  {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:ctx=>corresponding(ctx,'angle')},
@@ -71,6 +82,7 @@ NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',course
  {id:'congruence-sas',tag:'CRITERIA',name:'SAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'sas')},
  {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'asa')},
  {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'aas')},
- {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'hl')}
+ {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'hl')},
+ {id:'congruence-identify',tag:'CRITERIA',name:'Identify valid and invalid triangle congruence criteria from markings',best:[0,1,2],generate:identify}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
