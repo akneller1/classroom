@@ -22,3 +22,26 @@ for(const unit of units)for(const level of ['cp2','cp1','honors'])for(let i=0;i<
   sampled++;
 }
 console.log('Verified '+sampled+' original MCAS scenario instances and '+sampled*3+' incorrect-answer mutations across 12 units.');
+
+
+/* Explicitly force the second family; random sampling alone might miss it. */
+let alternatives=0;
+for(const unit of units)for(const c of [2,4,6]){
+  const original=env.MKWS.rng.make('extension-'+unit+'-'+c),rng={
+    next:()=>original.next(),pick:a=>original.pick(a),
+    int:(function(){let first=true;return function(lo,hi){
+      if(first){first=false;return 1;}return original.int(lo,hi);
+    };})()
+  };
+  const p=M.makeContextProblem(unit,{rng,c,intOnly:true,level:'cp1'});
+  assert.match(p.variant,/-extension$/);
+  const verdict=M.verifyProblem(p,{intOnly:true,level:'cp1'});
+  assert.ok(verdict.ok,unit+' extension verifier: '+verdict.issues.join('; '));
+  p.parts.forEach(part=>{
+    const before=part.answer;part.answer=String(Number(before)+1);
+    assert.ok(!M.verifyProblem(p,{intOnly:true,level:'cp1'}).ok,unit+' extension incorrect answer');
+    part.answer=before;
+  });
+  alternatives++;
+}
+console.log('Verified '+alternatives+' explicit second-family samples with wrong-answer rejection.');
