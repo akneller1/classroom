@@ -15,7 +15,6 @@
   function median(s) { s = sorted(s); var n = s.length; return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2; }
   function quart(a) { var s = sorted(a), n = s.length, h = Math.floor(n / 2); return [s[0], median(s.slice(0, h)), median(s), median(s.slice(n - h)), s[n - 1]]; }
   function mean(a) { return a.reduce(function (x, y) { return x + y; }, 0) / a.length; }
-  function mad(a) { var m = mean(a); return mean(a.map(function (x) { return Math.abs(x - m); })); }
   function outl(a) { var q = quart(a), i = q[3] - q[1]; return a.filter(function (x) { return x < q[1] - 1.5 * i || x > q[3] + 1.5 * i; }); }
   function rnd(r, n, lo, hi) { var a = []; for (var i = 0; i < n; i++) a.push(r.int(lo, hi)); return a; }
   function exact(x, places) { return Math.abs(x * Math.pow(10, places) - Math.round(x * Math.pow(10, places))) < 1e-9; }
