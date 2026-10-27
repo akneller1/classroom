@@ -32,13 +32,15 @@ for (const scenario of ['shared','vertical']) {
         {answer:'⟨x=23⟩'}
       ]
     };
-    p.prompt = 'Complete the proof using the diagram.';
+    p.prompt = 'Given the labeled congruent sides. Complete the proof. Establish: (1) side or angle; (2) triangles; (3) corresponding angles. Supply reasons, then find x using ⟨2x+3=49⟩.';
     assert.equal(context.MKMENU.isWideProblem(p),true,'Proof must occupy the full printable width');
     assert.equal(context.MKMENU.workspaceHtml(p,{layout:{density:'standard',format:'worksheet',grid:'none'}}),'','Proof already provides writing space');
     const student = printQuestion(p,false),teacher = printQuestion(p,true);
     assert.ok(student.includes('<figure data-case="'+scenario+'"'),'Student question must include diagram');
     assert.ok(teacher.includes('<figure data-case="'+scenario+'"'),'Teacher question must include diagram');
     assert.ok(student.includes('__________________'),'Student proof must contain answer blanks');
+    assert.ok(!student.includes('Establish:'),'Printed proof should not duplicate the step list');
+    assert.equal(student.split('2x+3=49').length-1,1,'Equation should be printed once');
     assert.ok(student.includes(scenario === 'shared' ? 'Angle ACB is congruent to angle ADB' : 'Angle OAB is congruent to angle OCD'),'Corresponding angles must be explicit');
     assert.ok(student.includes('2x+3=49'),'Actual equation must appear in scaffold');
     assert.ok(!student.includes('CPCTC'),'Student layout must not reveal the proof reasons');
