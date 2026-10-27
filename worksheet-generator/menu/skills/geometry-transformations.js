@@ -2,11 +2,11 @@
 (function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
 function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function nz(r){var n=r.int(-9,9);return n===0?4:n;}
-function reflect(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),x=axis==='x'?-b:-a,eq='x+'+(axis==='x'?b:a)+'=0';
+function reflect(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),x=axis==='x'?-b:-a,eq='x'+((axis==='x'?b:a)>=0?'+':'')+(axis==='x'?b:a)+'=0';
 return make('geo-transform-reflect-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is reflected across the '+axis+'-axis. Find '+(axis==='x'?'the y-coordinate':'the x-coordinate')+' x of the image P′.',eq,x,'Reflection across the '+axis+'-axis changes the sign of the '+(axis==='x'?'y':'x')+'-coordinate.');}
-function translate(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),shift=nz(r),x=(axis==='x'?a:b)+shift,eq='x-'+shift+'='+(axis==='x'?a:b);
+function translate(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),shift=nz(r),x=(axis==='x'?a:b)+shift,eq='x'+(shift>=0?'-':'+')+Math.abs(shift)+'='+(axis==='x'?a:b);
 return make('geo-transform-translate-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is translated '+Math.abs(shift)+' units '+(axis==='x'?(shift>0?'right':'left'):(shift>0?'up':'down'))+'. Find the '+(axis==='x'?'x':'y')+'-coordinate x of P′.',eq,x,'A translation adds the signed displacement to the selected coordinate.');}
-function rotate(ctx,dir){var r=ctx.rng,a=nz(r),b=nz(r),x=dir==='cw'?b:-b,eq='x'+(dir==='cw'?'-'+b:'+'+b)+'=0';
+function rotate(ctx,dir){var r=ctx.rng,a=nz(r),b=nz(r),x=dir==='cw'?b:-b,eq='x'+((dir==='cw'?-b:b)>=0?'+':'')+(dir==='cw'?-b:b)+'=0';
 return make('geo-transform-rotate-'+dir+'-'+ctx.c,'Point P('+a+', '+b+') is rotated 90° '+(dir==='cw'?'clockwise':'counterclockwise')+' about the origin. Find the x-coordinate x of P′.',eq,x,'A 90° rotation maps (a,b) to '+(dir==='cw'?'(b,−a).':'(−b,a).'));}
 function dilate(ctx){var r=ctx.rng,a=nz(r),b=nz(r),k=r.int(2,ctx.c>=5?5:3),x=k*a,eq='x='+k+'*'+a;
 return make('geo-transform-dilate-'+ctx.c,'Point P('+a+', '+b+') is dilated about the origin by a scale factor of '+k+'. Find the x-coordinate x of P′.',eq,x,'Multiply each coordinate by the scale factor.');}
