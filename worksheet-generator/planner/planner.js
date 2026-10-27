@@ -116,8 +116,8 @@
         group(notes, 'Examples', items(plan, 'ex', interleave(cov), nEx, function (i) { return t[Math.min(2, i)]; }));
         pr = sec('practice', 'Practice', { minutes: 20 });
         var rot = interleave(cov);
-        group(pr, 'We do', items(plan, 'wd', rot, 2, fixed(t[0])), 'Work these together.');
-        group(pr, 'You do', items(plan, 'yd', rot.slice(1).concat(rot.slice(0, 1)), nPr - 2, ramp(t)), 'Easier to harder.');
+        group(pr, 'Practice set 1', items(plan, 'wd', rot, 2, fixed(t[0])));
+        group(pr, 'Practice set 2', items(plan, 'yd', rot.slice(1).concat(rot.slice(0, 1)), nPr - 2, ramp(t)));
         ex = sec('exit', 'Exit Ticket', { minutes: 5, frame: d.sentence_frame }); group(ex, '', items(plan, 'et', rot, 2, fixed(t[1])));
         break;
       case 'Practice':
