@@ -240,6 +240,12 @@
     }
   });
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="radicals";});if(!base)return;
+    skill({id:"simplify-radicals",best:base.best,tag:base.tag,name:"Simplify radicals using perfect-square factors",blurb:"Rewrite square roots in simplest radical form.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-exponents-scientific-notation', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponents-exponential-functions', unitName: 'Exponents and Scientific Notation',
     title: 'The Power Pantry',
