@@ -111,6 +111,20 @@ for(const c of [1,3,5,7]){
   assert.equal(p.fig.case,'elevation');
   assert.ok(menu.geoDiagram.validate(p.fig));
 }
+// Inverse-trig checks must derive the angle from the printed ratio.
+for(const c of [1,3,5,7]){
+  const p=menu.generateProblem('geometry-right-triangles-trigonometry',
+    'right-inverse-trig',c,{intOnly:true,level:'game'},
+    'inverse-trig-regression:'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Inverse trig must generate at tier '+c);
+  assert.equal(p.verify.status,'verified');
+  assert.equal(p.parts[0].check.type,'geo-inverse-trig');
+  assert.ok(menu.geoDiagram.validate(p.fig));
+  const changed=Object.assign({},p,{prompt:p.prompt.replace(/x = (\\d+)\\/(\\d+)/,
+    (_,a,b)=>'x = '+(Number(a)+1)+'/'+b)});
+  assert.notEqual(menu.verifyProblem(changed).status,'verified',
+    'Changing the printed inverse-trig ratio must invalidate the answer');
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
