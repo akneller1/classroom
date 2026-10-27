@@ -153,7 +153,7 @@ const MI=context.MKMATHINPUT;
 const f0=MI.insert('',0,0,'fraction');assert.equal(f0.text,'0/1');assert.equal(f0.start,0);assert.equal(f0.end,1);
 const f1=MI.insert('3',0,1,'fraction');assert.equal(f1.text,'3/1');assert.equal(f1.start,2);assert.equal(f1.end,3);
 const next=MI.insert('3/1',1,1,'next');assert.equal(next.start,2);assert.equal(next.end,3);
-const sq=MI.insert('',0,0,'sqrt');assert.equal(sq.text,'sqrt(0)');assert.equal(sq.start,5);assert.equal(sq.end,6);
+const sqrtInput=MI.insert('',0,0,'sqrt');assert.equal(sqrtInput.text,'sqrt(0)');assert.equal(sqrtInput.start,5);assert.equal(sqrtInput.end,6);
 const pw=MI.insert('x',1,1,'power');assert.equal(pw.text,'x^(2)');assert.equal(pw.start,3);assert.equal(pw.end,4);
 const exp=MI.insert('x',1,1,'square');assert.equal(exp.text,'x^2');
 assert.equal(MI.insert('1/2',3,3,'backspace').text,'1/');
