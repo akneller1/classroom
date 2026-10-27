@@ -59,7 +59,9 @@ function build(overrides){
    sec.items.forEach(function(p){
       if(p.failed||!p.parts||!p.parts.length)return;
       var sk=chosen().byId[p.skill],choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
-      var kind=choice?'mc':G.MKPRACTICE&&G.MKPRACTICE.supports(p)?'auto':'self';
+      var graphable=p.parts.length===1&&p.parts[0].answerFig&&p.parts[0].answerFig.kind==='numberline';
+      if(graphable)choice=null;
+      var kind=graphable?'auto':choice?'mc':G.MKPRACTICE&&G.MKPRACTICE.supports(p)?'auto':'self';
       questions.push({id:p.uid,skill:p.skill,skillName:sk?sk.name:p.tag,problem:p,kind:kind,choices:choice,response:null,checked:false,correct:null,review:false});
    });
  });
