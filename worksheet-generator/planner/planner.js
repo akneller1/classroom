@@ -198,6 +198,36 @@
       var summary = sec('summary', 'Lesson Summary', { minutes: 5, frame: 'Today I learned ___. An important step or idea is ___. I can use this when ___.' });
       summary.prompt = 'In your own words, explain the key idea from today. Include an example, a strategy, or a question you still have.';
     }
+    // Per-section problem counts. No override means retain the lesson type's original count.
+    var requestedCounts = opts.counts || {};
+    ['donow', 'mixed', 'examples', 'practice', 'exit'].forEach(function(id) {
+      if (!Object.prototype.hasOwnProperty.call(requestedCounts, id)) return;
+      var target = Math.max(0, Math.min(30, Math.round(Number(requestedCounts[id]))));
+      if (!isFinite(target)) return;
+      var section = plan.sections.find(function(s) { return s.id === id; });
+      if (!section) return;
+      var current = [];
+      section.groups.forEach(function(g) { g.items.forEach(function(p) { current.push(p); }); });
+      // No problem bank for purely reflective sessions; don't replace their written tasks.
+      if (!current.length) return;
+      if (target === current.length) return;
+      if (target < current.length) {
+        var remaining = target;
+        section.groups.forEach(function(g) { var kept = Math.min(remaining, g.items.length); g.items = g.items.slice(0, kept); remaining -= kept; });
+        section.groups = section.groups.filter(function(g) { return g.items.length > 0; });
+      } else {
+        var last = section.groups.filter(function(g) { return g.items.length; }).slice(-1)[0];
+        if (!last) return;
+        var rotation = current.map(function(p) { return p.entry; }).filter(Boolean);
+        if (!rotation.length) return;
+        var prefix = 'section-' + id + '-extra-';
+        for (var j = current.length; j < target; j++) {
+          var entry = rotation[(j - current.length) % rotation.length];
+          var tier = t[Math.min(2, Math.floor(j * 3 / Math.max(1, target)))];
+          last.items.push(makeProblem(plan, prefix + j, entry, tier));
+        }
+      }
+    });
     plan.notesMode = opts.notes === 'filled' || opts.notes === 'fill' ? opts.notes : P.lessonNotesMode(d);
     plan.sections.forEach(function (s) { s.defaultMinutes = s.minutes; });
     if (opts.minutes) P.applyMinutes(plan, opts.minutes);
