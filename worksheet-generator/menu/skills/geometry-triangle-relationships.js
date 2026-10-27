@@ -69,11 +69,47 @@ function sideAngleOrder(ctx) {
   steps:[step('The longest side lies opposite the largest angle.',M(eq)),step('Solve for x.',M('x='+x))],
   space:[1.3,1.8,2.2]};
 }
+
+function perpendicularBisector(ctx) {
+ var r=ctx.rng,c=ctx.c,x=r.int(3,c>=5?26:14),a=c>=5?r.int(2,4):1,b=r.int(1,9),distance=a*x+b;
+ var eq=(a===1?'x':a+'x')+'+'+b+'='+distance;
+ return {variant:'geo-triangle-perpendicular-bisector-'+c,
+  prompt:'Point P lies on the perpendicular bisector of segment AB. PA measures '+M((a===1?'x':a+'x')+'+'+b)+' units and PB measures '+distance+' units. Find x. State the perpendicular bisector theorem. Use '+M(eq)+' to find x.',
+  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
+  steps:[step('Every point on a perpendicular bisector is equidistant from the endpoints.',M(eq)),step('Solve for x.',M('x='+x))],
+  space:[1.2,1.7,2.2]};
+}
+function altitudeArea(ctx) {
+ var r=ctx.rng,c=ctx.c,base=2*r.int(3,c>=5?17:11),x=r.int(4,c>=5?28:17),area=base*x/2;
+ var eq='2*x='+2*area+'/'+base;
+ // The altitude is perpendicular to the base; it is not necessarily a side.
+ return {variant:'geo-triangle-altitude-area-'+c,
+  prompt:'Triangle ABC has base BC of '+base+' cm and area '+area+' square centimeters. Altitude AD is perpendicular to the line containing BC (D may lie outside segment BC). Find the altitude length x. Use '+M(eq)+' to find x.',
+  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
+  steps:[step('The perpendicular altitude determines the area even for an obtuse triangle.',M(area+'='+base+'x/2')),step('Solve for the height.',M('x='+x))],
+  space:[1.2,1.7,2.2]};
+}
+function triangleInvestigation(ctx) {
+ var r=ctx.rng,c=ctx.c,a=r.int(7,14),b=r.int(7,14),hi=a+b,lo=Math.abs(a-b),third=hi-1;
+ var half=2*r.int(4,c>=5?17:10),mid=half/2;
+ var median=3*r.int(3,c>=5?15:9),near=median/3;
+ var e1='x+1='+hi,e2='2y='+half,e3='3z='+median,e4='w+'+a+'='+hi;
+ return {variant:'geo-triangle-investigation-'+c,
+  prompt:'Open Response: Investigate triangle side lengths, midsegments, and medians. Show the theorem or relationship used for every part.',
+  parts:[
+   {label:'a',prompt:'A triangle has sides '+a+' and '+b+' units. Find the greatest integer third side x. Use '+M(e1)+'.',answer:M('x='+third),check:{type:'solve',eq:e1,v:'x'}},
+   {label:'b',prompt:'In a different triangle, a midsegment is parallel to a side measuring '+half+' units. Find midsegment length y. Use '+M(e2)+'.',answer:M('y='+mid),check:{type:'solve',eq:e2,v:'y'}},
+   {label:'c',prompt:'A median has total length '+median+' units. Find the shorter segment z from the centroid to the midpoint. Use '+M(e3)+'.',answer:M('z='+near),check:{type:'solve',eq:e3,v:'z'}},
+   {label:'d',prompt:'For the triangle in (a), find the greatest possible integer third side w when one of the given sides increases by 1 unit. Use '+M(e4)+'.',answer:M('w='+b),check:{type:'solve',eq:e4,v:'w'}}
+  ],
+  steps:[step('Triangle inequality',M(e1)),step('Midsegment theorem',M(e2)),step('Centroid ratio',M(e3)),step('Triangle inequality with the modified side',M(e4))],
+  space:[2.5,3.1,3.8]};
+}
 NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',courseName:'Geometry',
  unit:'triangle-relationships',unitName:'Triangle Relationships',title:'Triangle Angle Relationships',
- tags:{SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order'},
+ tags:{SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation'},
  reference:'<div class="mm-refgrid"><section><h4>Interior angle sum</h4><p>Every triangle has an angle sum of 180°.</p></section><section><h4>Exterior angle theorem</h4><p>An exterior angle equals the sum of the two remote interior angles.</p></section></div>',
- gaps:['Diagram-dependent problems, perpendicular bisectors, altitudes, richer inequality cases, and multistep Honors reasoning remain to be developed.'],
+ gaps:['Labeled diagrams, richer inequality cases, and non-routine multistep Honors reasoning remain to be developed.'],
  skills:[
   {id:'triangle-interior-sum',tag:'SUM',name:'Find a missing interior angle',best:[0,1,2],generate:ctx=>make(ctx,'sum')},
   {id:'triangle-exterior-angle',tag:'EXTERIOR',name:'Exterior angle theorem',best:[0,1,2],generate:ctx=>make(ctx,'exterior')},
@@ -81,6 +117,9 @@ NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',cour
   {id:'triangle-inequality-max-integer',tag:'INEQUALITY',name:'Triangle inequality: greatest possible integer side',best:[0,1,2],generate:triangleInequality},
   {id:'triangle-midsegment-length',tag:'MIDSEGMENT',name:'Triangle midsegment theorem',best:[0,1,2],generate:midsegment},
   {id:'triangle-centroid-median',tag:'CENTROID',name:'Centroid and median 2:1 ratio',best:[0,1,2],generate:centroid},
-  {id:'triangle-side-angle-order',tag:'ORDER',name:'Longest side opposite largest angle',best:[0,1,2],generate:sideAngleOrder}
+  {id:'triangle-side-angle-order',tag:'ORDER',name:'Longest side opposite largest angle',best:[0,1,2],generate:sideAngleOrder},
+  {id:'triangle-perpendicular-bisector',tag:'BISECTOR',name:'Perpendicular bisector equidistance',best:[0,1,2],generate:perpendicularBisector},
+  {id:'triangle-altitude-area',tag:'ALTITUDE',name:'Triangle altitude from area',best:[0,1,2],generate:altitudeArea},
+  {id:'triangle-open-response-investigation',tag:'INVESTIGATION',name:'Four-part triangle relationships investigation',best:[2],generate:triangleInvestigation}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
