@@ -455,6 +455,10 @@
       if (/^(what-pct|change)$/.test(chk.scenario) && !/%|percent/.test(low)) return { status: 'mismatch', msg: 'Write the answer as a percent.' };
       return { status: 'verified', computed: qText(target) };
     }
+    if (t === 'solve' && /^(geo-congruence-(side|angle)|geo-parallelogram-(sides|angles))-/.test(p.variant || '')) {
+      var given = firstMath(p.prompt), relation = C.parseRelation(chk.eq);
+      if (!given || !C.equivalent(given, relation.lhs)) return {status:'invalid',msg:'Displayed geometric measure differs from equation.'};
+    }
     if (t === 'solve') {
       var s = C.solveLinear(chk.eq, chk.v);
       if (s.kind !== 'one') return { status: 'invalid', msg: s.kind === 'none' ? 'This equation has no solution.' : 'Every number is a solution of this equation.' };
