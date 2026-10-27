@@ -124,7 +124,8 @@ function answerSheetHTML(){
   if(G.MKPARABOLA&&G.MKPARABOLA.target(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKPARABOLA.render(q,i)+'</div>';
   if(G.MKGRAPH&&G.MKGRAPH.supports(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKGRAPH.render(q,i)+'</div>';
   if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKGRAPH.pointHTML(q,i)+'</div>';
-  return '<label class="pt-answer-row"><span>'+(i+1)+'.</span><input aria-label="Answer for question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" placeholder="'+(q.kind==='mc'?'A–D':'Answer')+'" value="'+esc(value)+'"></label>';
+  if(q.kind==='mc')return '<fieldset class="pt-mc-row" data-mc-question="'+i+'"><legend>Question '+(i+1)+'</legend><div class="pt-mc-buttons">'+['A','B','C','D'].map((letter,j)=>'<button type="button" class="pt-mc-choice'+(q.response===j?' selected':'')+'" data-mc-answer="'+i+'" data-mc-choice="'+j+'" aria-label="Question '+(i+1)+': choice '+letter+'" aria-pressed="'+(q.response===j?'true':'false')+'">'+letter+'</button>').join('')+'</div></fieldset>';
+  return '<label class="pt-answer-row"><span>'+(i+1)+'.</span><input aria-label="Answer for question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" placeholder="Your answer" value="'+esc(value)+'"></label>';
  }).join('')+'</div></section>';
 }
 function printPaper(){
@@ -148,6 +149,18 @@ function show(){
  root.querySelector('#pt-print-paper').onclick=printPaper;
  root.querySelector('#pt-jump-answers').onclick=()=>root.querySelector('#pt-answer-sheet').scrollIntoView({behavior:'smooth'});
  root.querySelector('#pt-exit').onclick=()=>{state.paused=true;save();setup();};
+ root.querySelectorAll('[data-mc-answer]').forEach(function(btn){
+   btn.onclick=function(){
+     var i=+btn.dataset.mcAnswer,q=state.questions[i],choice=+btn.dataset.mcChoice;
+     q.response=q.response===choice?null:choice;
+     save();
+     var group=btn.closest('[data-mc-question]');
+     group.querySelectorAll('[data-mc-answer]').forEach(function(b){
+       var selected=q.response===+b.dataset.mcChoice;
+       b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));
+     });
+   };
+ });
  root.querySelectorAll('[data-answer]').forEach(function(el){
   el.oninput=function(){
    var i=+el.dataset.answer,q=state.questions[i],v=el.value.trim();
