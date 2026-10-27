@@ -215,15 +215,15 @@
       // Never use a generator-provided answer or a quadratic linear-solver.
       var raw = C.plainText(p.prompt || ''), m, squared;
       if (chk.kind === 'hyp') {
-        m = /right triangle has legs (\\d+) and (\\d+) units/.exec(raw);
+        m = /right triangle has legs (\d+) and (\d+) units/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed leg lengths.'};
         squared = (+m[1])**2 + (+m[2])**2;
       } else if (chk.kind === 'leg') {
-        m = /hypotenuse (\\d+) units and one leg (\\d+) units/.exec(raw);
+        m = /hypotenuse (\d+) units and one leg (\d+) units/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed hypotenuse and leg.'};
         squared = (+m[1])**2 - (+m[2])**2;
       } else if (chk.kind === 'distance') {
-        m = /Points A\\(0, 0\\) and B\\((\\d+), (\\d+)\\)/.exec(raw);
+        m = /Points A\(0, 0\) and B\((\d+), (\d+)\)/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed coordinates.'};
         squared = (+m[1])**2 + (+m[2])**2;
       } else return {status:'invalid',msg:'Unknown Pythagorean problem type.'};
