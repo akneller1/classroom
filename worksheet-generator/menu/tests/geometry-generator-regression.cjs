@@ -66,6 +66,36 @@ for (const c of [5,6,7]) {
     assert.equal(part.check.type,'solve','Each part must have an independent answer check');
   }
 }
+// A changed student-facing triangle measurement must invalidate the saved key.
+for (const id of ['triangle-midsegment-length','triangle-centroid-median',
+  'triangle-side-angle-order','triangle-perpendicular-bisector']) {
+  const p = menu.generateProblem('geometry-triangle-relationships',id,3,
+    {intOnly:true,level:'game'},'visible-triangle-mutation:'+id,
+    {keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Triangle mutation fixture must generate: '+id);
+  const changed = JSON.parse(JSON.stringify(p));
+  changed.prompt = changed.prompt.replace(/(⟨[^⟩]*?)(\d+)/,
+    (_,prefix,digits) => prefix + (Number(digits)+2));
+  assert.notEqual(changed.prompt,p.prompt,'Fixture must alter visible triangle expression');
+  assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
+    'Triangle verifier must reject a modified printed measure: '+id);
+}
+for (const scenario of ['shared','vertical']) {
+  let p;
+  for(let n=0;n<50&&!p;n++){
+    const candidate=menu.generateProblem('geometry-triangles-congruence',
+      'congruence-structured-proof',3,{intOnly:true,level:'game'},
+      'proof-visible-mutation:'+scenario+':'+n,{keys:new Set(),sigs:new Set()});
+    if(!candidate.failed&&candidate.fig.case===scenario)p=candidate;
+  }
+  assert.ok(p,'Proof mutation fixture must generate: '+scenario);
+  const changed=JSON.parse(JSON.stringify(p));
+  changed.prompt=changed.prompt.replace(/(⟨[^⟩]*?)(\d+)/,
+    (_,prefix,digits)=>prefix+(Number(digits)+2));
+  assert.notEqual(changed.prompt,p.prompt);
+  assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
+    'Proof verifier must reject changed angle expression: '+scenario);
+}
 // A changed printed equation must never pass simply because the original
 // dimensions still imply the saved answer.
 for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','right-distance-formula']) {
