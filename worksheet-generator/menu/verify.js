@@ -210,6 +210,20 @@
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if (t === 'geo-proof-reason') {
+      var words = C.plainText(p.prompt || '');
+      var shared = /Triangles ABC and ABD share side AB/.test(words);
+      var vertical = /Lines AC and BD intersect at O/.test(words);
+      if (shared === vertical) return {status:'invalid',msg:'Unrecognized or ambiguous proof givens.'};
+      var stage = chk.stage, expected;
+      if (stage === 'first') expected = shared ? 'REFLEXIVE PROPERTY' : 'VERTICAL ANGLES THEOREM';
+      else if (stage === 'congruence') expected = shared ? 'SSS' : 'SAS';
+      else if (stage === 'consequence') expected = 'CPCTC';
+      else return {status:'invalid',msg:'Unknown proof step.'};
+      return String(ans).trim().toUpperCase() === expected
+        ? {status:'verified',comp:expected}
+        : {status:'mismatch',msg:'Proof reason does not follow from the printed givens.'};
+    }
     if (t === 'geo-congruence-criterion') {
       var kinds = ['sss','sas','asa','aas','hl','ssa','aaa'];
       var kind = p.fig && p.fig.kind === 'geo-triangle-pair' && p.fig.criterion;
