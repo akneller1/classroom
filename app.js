@@ -584,7 +584,7 @@
     var guideFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'study-guides'; })[0].formats;
     // Unit pages must expose the online practice test directly, just like the global directory.
     // Keep one card per unit even when older cached catalogs or format filters are in use.
-    var hasPractice = items.some(function(it){return /worksheet-generator\\/practice-test\\.html/i.test(it.a.path||'');});
+    var hasPractice = items.some(function(it){return /practice-test[.]html/i.test(it.a.path||'');});
     if (!hasPractice && u.id !== 'foundations-algebra') {
       var unitMap = {'expressions-equations':'algebra1-expressions-equations','inequalities':'algebra1-inequalities','relations-functions':'algebra1-relations-functions','linear-equations-slope':'algebra1-linear-equations-slope','systems-of-equations':'algebra1-systems-of-equations','exponents-exponential-functions':'algebra1-exponents-scientific-notation','exponential-functions':'algebra1-exponential-functions','polynomials-factoring':'algebra1-polynomials','factoring-zero-product':'algebra1-factoring-zero-product','quadratics':'algebra1-quadratics','statistics-data-modeling':'algebra1-statistics-data-modeling'};
       if(unitMap[u.id]) items.push({a:{title:'Interactive Practice Test',path:'worksheet-generator/practice-test.html#unit='+unitMap[u.id],thumb:'thumbs/practice-test.svg',description:'Online practice assessment with worked solutions and targeted skill review.',type:'Study Guide'},c:c,u:u});
