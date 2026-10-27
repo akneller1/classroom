@@ -68,3 +68,12 @@
 .pt-math-pad button:focus-visible{outline:3px solid #e9a33f;outline-offset:2px}
 .pt-pad-hint{margin:8px 0 0}
 @media(max-width:480px){.pt-math-pad{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Read-only live typeset preview for written answers, separate from correctness feedback */
+.pt-live-preview{margin:14px 0 11px;border:1px solid #c8d8e8;background:#f8fbff;border-radius:11px;padding:12px 15px}
+.pt-preview-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:800;color:#2b5173}
+.pt-preview-heading span{font-size:11px;font-weight:500;color:#657d92}
+.pt-preview-content{min-height:49px;display:flex;align-items:center;overflow-x:auto;overflow-y:hidden;padding:8px 0 3px;font-size:21px}
+.pt-preview-empty,.pt-preview-plain{font-size:14px;color:#687c8f;overflow-wrap:anywhere}
+.pt-preview-plain{color:#243d53}
+.pt-preview-content .katex{max-width:100%}
