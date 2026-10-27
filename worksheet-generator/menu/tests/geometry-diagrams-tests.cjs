@@ -65,3 +65,14 @@ for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines'])
   }
 }
 console.log('Geometry choose-all key verification passed.');
+
+
+for(const c of [1,3,5,7])for(let seed=1;seed<=25;seed++){
+ const skill=NS.skillSets['geometry-basics-reasoning'].byId['coordinate-investigation'];
+ const p=skill.generate({rng:new env.MKWS.rng.RNG(seed*103+c),c,intOnly:true});
+ assert.equal(p.parts.length,4,'Open Response must have four related parts');
+ assert.ok(p.parts.every(part=>part.prompt&&part.check&&part.check.type==='solve'),'Each part must be independently checked');
+ assert.equal(NS.verifyProblem(p,{intOnly:true,level:'cp1'}).status,'verified','Coordinate investigation answer verification');
+ assert.equal(NS.makeMcas({...p,verify:{status:'verified'}}).fail,undefined,'Four-part format should be supported');
+}
+console.log('Four-part Geometry coordinate response verified.');
