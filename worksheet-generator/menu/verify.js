@@ -250,6 +250,25 @@
         ? {status:'verified',comp:expected}
         : {status:'mismatch',msg:'Congruence classification does not match the marked sides and angles.'};
     }
+    if (t === 'geo-inverse-trig') {
+      // Recover the ratio and trig function from student-visible text.
+      var raw = C.plainText(p.prompt || '');
+      var m = /Find the acute angle x in degrees if (sin|cos|tan) x = (\d+)\/(\d+)\./.exec(raw);
+      if (!m) return {status:'invalid',msg:'Missing printed inverse-trig ratio.'};
+      var numerator=+m[2],denominator=+m[3];
+      if (!(numerator>0 && denominator>0)) return {status:'invalid',msg:'Invalid trig ratio.'};
+      var ratio=numerator/denominator,rad;
+      if(m[1]==='sin')rad=Math.asin(ratio);
+      else if(m[1]==='cos')rad=Math.acos(ratio);
+      else rad=Math.atan(ratio);
+      var degrees=rad*180/Math.PI,nearest=Math.round(degrees);
+      if(!Number.isFinite(degrees)||nearest<=0||nearest>=90||
+         Math.abs(degrees-nearest)>1e-9)
+        return {status:'invalid',msg:'Expected an exact integer acute angle.'};
+      var got=valueFromAnswer(ans,'x');
+      return got.eq(new Q(nearest))?{status:'verified',computed:'x='+nearest}
+        :{status:'mismatch',msg:'Incorrect inverse-trig angle.',computed:'x='+nearest};
+    }
     if (t === 'geo-pythagorean') {
       // Derive the length independently from the student-facing dimensions.
       // Never use a generator-provided answer or a quadratic linear-solver.
