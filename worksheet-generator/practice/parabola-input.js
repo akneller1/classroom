@@ -41,7 +41,15 @@ function plotSVG(points){
  points.forEach(function(p,j){s+='<circle cx="'+(170+p[0]*15)+'" cy="'+(170-p[1]*15)+'" r="5.5" fill="'+(j===0?'#d86728':'#2362ab')+'" stroke="white" stroke-width="2"/>';});
  return s+'</svg>';
 }
-API.render=function(q,i){var pts=read(q);return '<div class="pt-parabola-editor" data-parabola="'+i+'"><strong>Plot five points: vertex first, then two on each side.</strong><p class="pt-muted">Click grid intersections or enter coordinates. Choose the vertex as point 1. Points may be entered in any order after the vertex.</p>'+plotSVG(pts)+'<div class="pt-actions"><button type="button" data-clear-parabola class="pt-secondary">Erase and start over</button><button type="button" data-undo-parabola class="pt-secondary">Undo point</button></div><p class="pt-muted">'+pts.length+' of 5 points plotted</p><div class="pt-interval-row"><label>x<input type="text" inputmode="decimal" data-px></label><label>y<input type="text" inputmode="decimal" data-py></label><button type="button" data-add-parabola-point>Add point</button></div></div>';};
+API.render=function(q,i){var pts=read(q);return '<div class="pt-parabola-editor" data-parabola="'+i+'"><strong>Plot five points: vertex first, then two on each side.</strong><p class="pt-muted">Tap an existing point, then tap its new location to move it. Choose the vertex as point 1. Points may be entered in any order after the vertex.</p>'+plotSVG(pts)+'<div class="pt-actions"><button type="button" data-clear-parabola class="pt-secondary">Erase and start over</button><button type="button" data-undo-parabola class="pt-secondary">Undo point</button></div><p class="pt-muted">'+pts.length+' of 5 points plotted</p><div class="pt-interval-row"><label>x<input type="text" inputmode="decimal" data-px></label><label>y<input type="text" inputmode="decimal" data-py></label><button type="button" data-add-parabola-point>Add point</button></div></div>';};
+API.diagnose=function(q){
+ var t=target(q),p=read(q);if(!t||!p.length)return 'Plot the vertex first, then two points on each side.';
+ if(p.length<5)return 'You plotted '+p.length+' of the five required points.';
+ var vertex=p[0];if(Math.abs(vertex[0]-t.h)>1e-7||Math.abs(vertex[1]-t.k)>1e-7)return 'Check the vertex. The first point should be at the turning point of the parabola.';
+ if(new Set(p.map(v=>v[0])).size!==5)return 'Choose five different x-coordinates for the plotted points.';
+ if(p.filter(v=>v[0]<t.h).length!==2||p.filter(v=>v[0]>t.h).length!==2)return 'Place two points to the left and two points to the right of the vertex.';
+ return 'The vertex and point distribution look right; check the y-value of each additional point using the quadratic equation.';
+};
 API.grade=function(q){var t=target(q),p=read(q);if(!t||p.length!==5)return {status:'incorrect'};if(!p.every(v=>Array.isArray(v)&&v.length===2&&v.every(Number.isFinite)))return {status:'incorrect'};
  var xs=p.map(v=>v[0]);if(new Set(xs).size!==5)return {status:'incorrect'};
  var vertex=p[0],tol=1e-7;if(Math.abs(vertex[0]-t.h)>tol||Math.abs(vertex[1]-t.k)>tol)return {status:'incorrect'};
@@ -52,7 +60,13 @@ API.bind=function(root,state,save){
  root.querySelectorAll('[data-parabola]').forEach(function(box){var i=+box.dataset.parabola,q=state.questions[i];
  function redraw(pts){q.response='parabola:'+JSON.stringify(pts);save();box.outerHTML=API.render(q,i);API.bind(root,state,save);}
  function add(x,y){var pts=read(q);if(pts.length>=5||pts.some(p=>p[0]===x))return;pts.push([x,y]);redraw(pts);}
- box.querySelector('svg').onclick=function(e){var rect=this.getBoundingClientRect(),x=Math.round(((e.clientX-rect.left)/rect.width*340-170)/15),y=Math.round((170-(e.clientY-rect.top)/rect.height*340)/15);add(Math.max(-10,Math.min(10,x)),Math.max(-10,Math.min(10,y)));};
+ box.querySelector('svg').onclick=function(e){
+   var rect=this.getBoundingClientRect(),x=Math.max(-10,Math.min(10,Math.round(((e.clientX-rect.left)/rect.width*340-170)/15))),y=Math.max(-10,Math.min(10,Math.round((170-(e.clientY-rect.top)/rect.height*340)/15)));
+   var pts=read(q),hit=pts.findIndex(p=>p[0]===x&&p[1]===y);
+   if(box.dataset.editPoint!==undefined){var j=+box.dataset.editPoint;if(pts.some((p,k)=>k!==j&&p[0]===x))return;pts[j]=[x,y];redraw(pts);}
+   else if(hit>=0){box.dataset.editPoint=hit;box.querySelector('.pt-muted').textContent='Point '+(hit+1)+' selected. Tap its new location.';}
+   else add(x,y);
+ };
  box.querySelector('[data-clear-parabola]').onclick=()=>redraw([]);
  box.querySelector('[data-undo-parabola]').onclick=()=>{var p=read(q);p.pop();redraw(p);};
  box.querySelectorAll('[data-negative]').forEach(btn=>btn.onclick=function(){var el=box.querySelector(btn.dataset.negative==='x'?'[data-px]':'[data-py]');el.value=el.value.startsWith('-')?el.value.slice(1):'-'+el.value;});box.querySelector('[data-add-parabola-point]').onclick=()=>{var x=box.querySelector('[data-px]').value,y=box.querySelector('[data-py]').value;if(x!==''&&y!==''&&Number.isFinite(+x)&&Number.isFinite(+y))add(+x,+y);};
