@@ -215,7 +215,7 @@
       var kind = p.fig && p.fig.kind === 'geo-triangle-pair' && p.fig.criterion;
       if (kinds.indexOf(kind) < 0 || !NS.geoDiagram || !NS.geoDiagram.validate(p.fig))
         return {status:'invalid',msg:'Missing or invalid triangle markings.'};
-      if (!/Use the marked triangle pairs/.test(C.plainText(p.prompt || '')))
+      if (!/Identify the criterion/.test(C.plainText(p.prompt || '')))
         return {status:'invalid',msg:'Student question does not refer to the diagram.'};
       var expected = (kind === 'ssa' || kind === 'aaa') ? 'NOT SUFFICIENT' : kind.toUpperCase();
       return String(ans).trim().toUpperCase() === expected
