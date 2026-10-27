@@ -13,7 +13,7 @@ function target(q){
    c=Number(rhs);if(!Number.isFinite(c))return null;
    a=1;b=0;c=-c;
  }else{
-   var match=/^([+-]?(?:(?:\d+(?:\.\d+)?)?)x)?([+-]\d+(?:\.\d+)?)?$/.exec(rhs);
+   var match=/^([+-]?(?:(?:\d+(?:\.\d+)?)?)x)?([+-]\d+(?:\.\d+)?)?$/.exec(rhs);if(!match&&Number.isFinite(Number(rhs)))match=[rhs,'',rhs];
    if(!match)return null;
    var xterm=match[1]||'',constant=match[2]||'';
    if(!xterm&&!constant&&!/^\d+(?:\.\d+)?$/.test(rhs))return null;
