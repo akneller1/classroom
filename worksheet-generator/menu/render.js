@@ -120,7 +120,12 @@
   }
   NS.proofLayout = proofLayout;
   function promptHtml(p, forKey) {
-    var h = '<div class="mm-q">' + mathSafe(p.prompt || '') + '</div>';
+    // Proof statements and the equation appear in the scaffold; do not print them twice.
+    var questionText = p.prompt || '';
+    if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
+      questionText = questionText.split(' Establish:')[0];
+    }
+    var h = '<div class="mm-q">' + mathSafe(questionText) + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p, forKey);
