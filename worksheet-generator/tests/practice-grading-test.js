@@ -32,7 +32,7 @@ assert.strictEqual(checker.grade({parts:[{answer:'⟨3⟩'}]},'not algebra').sta
 check('⟨x=2⟩ or ⟨x=-3⟩','x=2 or x=2','incorrect');
 check('⟨(2,-3)⟩','(2,-2)','incorrect');
 check('⟨y=2x+4⟩','y=2x+4','correct');
-check('⟨x\\\\ge -2⟩','x >= -2','correct');
+check('⟨x\\ge -2⟩','x >= -2','correct');
 assert.strictEqual(checker.grade({parts:[{answer:'⟨x=3⟩'}]},'x=abc').status,'invalid');
 assert.strictEqual(checker.grade({parts:[{answer:'⟨x=3⟩'}]},'').status,'empty');
 console.log('Practice grader: '+passed+' exact-math assertions passed; unsupported formats remain self-checked.');
