@@ -43,6 +43,24 @@ for(const [id,figureCase] of [
     assert.ok(menu.geoDiagram.render(p.fig).includes('<svg'),'Similarity diagram must render');
   }
 }
+// Parallel-segment proportionality and connected Honors investigation.
+for(const id of ['similarity-parallel-segment','similarity-parallel-honors']){
+  assert.ok(simUnit.skills.some(skill=>skill.id===id),'Missing similarity skill '+id);
+  for(const c of [1,3,5,7]){
+    const p=menu.generateProblem('geometry-similarity',id,c,
+      {intOnly:true,level:'game'},'parallel-similarity:'+id+':'+c,
+      {keys:new Set(),sigs:new Set()});
+    assert.ok(!p.failed,'Parallel similarity must generate: '+id+' c'+c);
+    assert.equal(p.verify.status,'verified');
+    assert.equal(p.fig.kind,'geo-similar-pair');
+    assert.equal(p.fig.case,'parallel');
+    assert.ok(menu.geoDiagram.validate(p.fig));
+    if(id==='similarity-parallel-honors'){
+      assert.equal(p.parts.length,4,'Honors investigation must have four parts');
+      assert.ok(p.parts.every(part=>part.check.type==='solve'));
+    }
+  }
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
