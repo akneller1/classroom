@@ -13,6 +13,9 @@ context.window = context;
 context.globalThis = context;
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','render.js'),'utf8'),context);
 const layout = context.MKMENU.proofLayout;
+const printQuestion = context.MKMENU.promptHtml;
+context.MKMENU.figHtml = function(fig){return '<figure data-case="'+fig.case+'"></figure>';};
+assert.equal(typeof printQuestion,'function','Full question renderer should be available');
 assert.equal(typeof layout,'function','Proof renderer should be available');
 for (const scenario of ['shared','vertical']) {
   for (const format of ['flow','columns']) {
@@ -26,7 +29,10 @@ for (const scenario of ['shared','vertical']) {
         {answer:'⟨x=23⟩'}
       ]
     };
-    const student = layout(p,false),teacher = layout(p,true);
+    p.prompt = 'Complete the proof using the diagram.';
+    const student = printQuestion(p,false),teacher = printQuestion(p,true);
+    assert.ok(student.includes('<figure data-case="'+scenario+'"'),'Student question must include diagram');
+    assert.ok(teacher.includes('<figure data-case="'+scenario+'"'),'Teacher question must include diagram');
     assert.ok(student.includes('__________________'),'Student proof must contain answer blanks');
     assert.ok(!student.includes('CPCTC'),'Student layout must not reveal the proof reasons');
     assert.ok(!student.includes('x=23'),'Student layout must not reveal x');
