@@ -1,0 +1,24 @@
+/* Geometry Unit 9: exact-answer, text-first circle relationships. */
+(function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
+function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function central(ctx){var r=ctx.rng,x=r.int(25,ctx.c>=5?170:140);return make('geo-circle-central-'+ctx.c,'A minor arc of a circle is intercepted by a central angle measuring '+x+'°. Find the measure x, in degrees, of that minor arc.','x='+x,x,'The measure of a minor arc equals its central angle.');}
+function inscribed(ctx){var r=ctx.rng,x=r.int(15,ctx.c>=5?85:65),arc=2*x;return make('geo-circle-inscribed-'+ctx.c,'An inscribed angle intercepts an arc measuring '+arc+'°. Find the inscribed angle measure x in degrees.','2*x='+arc,x,'An inscribed angle measures half its intercepted arc.');}
+function intercepted(ctx){var r=ctx.rng,a=r.int(15,75),x=2*a;return make('geo-circle-intercepted-'+ctx.c,'An inscribed angle measures '+a+'°. Find the measure x, in degrees, of its intercepted arc.','x=2*'+a,x,'An intercepted arc has twice the measure of its inscribed angle.');}
+function tangent(ctx){var r=ctx.rng,x=90;return make('geo-circle-tangent-'+ctx.c,'A tangent line touches a circle at point T. Radius OT meets the tangent at T. Find the angle x, in degrees, between radius OT and the tangent.','x=90',x,'A radius to a point of tangency is perpendicular to the tangent.');}
+function diameter(ctx){var r=ctx.rng,x=r.int(3,ctx.c>=5?35:20);return make('geo-circle-diameter-'+ctx.c,'A circle has radius '+x+' cm. Find its diameter x in cm.','x=2*'+x,2*x,'Diameter is twice the radius.');}
+function radius(ctx){var r=ctx.rng,x=r.int(3,ctx.c>=5?30:20),d=2*x;return make('geo-circle-radius-'+ctx.c,'A circle has diameter '+d+' cm. Find its radius x in cm.','2*x='+d,x,'Radius is half the diameter.');}
+function chord(ctx){var r=ctx.rng,x=r.int(20,80),arc=2*x;return make('geo-circle-semicircle-'+ctx.c,'A triangle is inscribed in a circle with one side as the diameter. Find the angle x opposite that diameter, in degrees.','x=90',90,'An angle inscribed in a semicircle is a right angle.');}
+NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
+tags:{CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle'},
+reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
+gaps:['Starter bank only. Circle equations, chord relationships, secants, intersecting chords, arc lengths, sectors, and diagram-based questions remain pending.'],
+skills:[
+{id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1,2],generate:central},
+{id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1,2],generate:inscribed},
+{id:'circle-intercepted-arc',tag:'INSCRIBED',name:'Intercepted arc from inscribed angle',best:[0,1,2],generate:intercepted},
+{id:'circle-tangent-radius',tag:'TANGENT',name:'Radius and tangent angle',best:[0,1,2],generate:tangent},
+{id:'circle-diameter',tag:'MEASURE',name:'Diameter from radius',best:[0,1,2],generate:diameter},
+{id:'circle-radius',tag:'MEASURE',name:'Radius from diameter',best:[0,1,2],generate:radius},
+{id:'circle-semicircle-angle',tag:'SEMICIRCLE',name:'Angle inscribed in a semicircle',best:[0,1,2],generate:chord}
+]});
+})(typeof window!=='undefined'?window:globalThis);
