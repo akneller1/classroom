@@ -1,0 +1,30 @@
+name: Interactive practice test checks
+on:
+  push:
+    paths:
+      - 'worksheet-generator/practice/**'
+      - 'worksheet-generator/practice-test.html'
+      - 'worksheet-generator/tests/practice-grading-test.js'
+      - 'worksheet-generator/menu/mathcheck.js'
+      - '.github/workflows/practice-test-checks.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/practice/**'
+      - 'worksheet-generator/practice-test.html'
+      - 'worksheet-generator/tests/practice-grading-test.js'
+      - 'worksheet-generator/menu/mathcheck.js'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Exact grading regression tests
+        run: node worksheet-generator/tests/practice-grading-test.js
+      - name: JavaScript syntax checks
+        run: |
+          node --check worksheet-generator/practice/practice.js
+          node --check worksheet-generator/practice/grading.js
