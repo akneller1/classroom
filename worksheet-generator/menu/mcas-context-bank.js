@@ -119,15 +119,68 @@
         ['What is the median score?','What is the interquartile range using medians of the lower and upper halves?','What is the mean score?'],[values[2],3*d,values[2]]];
     }
   };
+  /* Additional distinct multi-part families with modeling and comparison. */
+  var applied={
+    'algebra1-foundations':function(r,c){
+      var rows=r.int(3,7+c),columns=r.int(4,9+c),empty=r.int(1,rows-1);
+      return ['A theater has '+rows+' rows with '+columns+' seats in each row. '+empty+' entire rows are reserved and unavailable.',
+       ['How many seats are in the theater?','How many seats are available?','How many seats are unavailable?'],
+       [rows*columns,(rows-empty)*columns,empty*columns]];
+    },
+    'algebra1-expressions-equations':function(r,c){
+      var hours=r.int(3,7+c),rate=r.int(9,18+c),bonus=r.int(10,30+c);
+      return ['A student earns '+rate+' dollars per hour for '+hours+' hours of tutoring and also earns a '+bonus+' dollar bonus.',
+       ['How much is earned from hourly pay?','What is the total pay?','What would the total pay be after one additional hour at the same rate?'],
+       [hours*rate,hours*rate+bonus,(hours+1)*rate+bonus]];
+    },
+    'algebra1-inequalities':function(r,c){
+      var capacity=r.int(40,75+c),occupied=r.int(12,25+c),group=r.int(3,7+c);
+      return ['A room holds at most '+capacity+' people. There are already '+occupied+' people inside. Each arriving team has '+group+' people.',
+       ['How many more people can enter?','What is the greatest number of complete teams that can enter?','How many spaces remain after that many teams enter?'],
+       [capacity-occupied,Math.floor((capacity-occupied)/group),(capacity-occupied)%group]];
+    },
+    'algebra1-systems-of-equations':function(r,c){
+      var n=r.int(4,10+c),m=r.int(4,10+c),adult=r.int(10,18+c),child=r.int(3,8+c),total=n*adult+m*child;
+      return ['A museum sells '+(n+m)+' passes for '+total+' dollars. Adult passes cost '+adult+' dollars and child passes cost '+child+' dollars.',
+       ['How many adult passes were sold?','How many child passes were sold?','What revenue came from child passes?'],
+       [n,m,m*child]];
+    },
+    'algebra1-exponents-scientific-notation':function(r,c){
+      var base=r.int(2,7+c),power=r.int(3,5),machines=r.int(2,6+c);
+      return ['A sensor records '+base+' times ten to the power of '+power+' readings per day. '+machines+' identical sensors operate for one day.',
+       ['How many readings does one sensor record?','How many readings do all sensors record?','How many additional readings does adding one more sensor produce?'],
+       [base*10**power,base*10**power*machines,base*10**power]];
+    },
+    'algebra1-polynomials':function(r,c){
+      var a=r.int(2,7+c),b=r.int(2,6+c),x=r.int(2,6+c);
+      return ['A rectangle has dimensions (x + '+a+') and (x + '+b+'). Evaluate its area when x = '+x+'.',
+       ['What is the coefficient of x in the expanded area polynomial?','What is the constant term?','What is the numerical area for the stated x?'],
+       [a+b,a*b,(x+a)*(x+b)]];
+    },
+    'algebra1-factoring-zero-product':function(r,c){
+      var a=r.int(2,6+c),b=r.int(a+1,a+6+c);
+      return ['A polynomial is x squared minus '+(a+b)+'x plus '+a*b+'. A graph crosses the horizontal axis at its two zeros.',
+       ['What is the smaller zero?','What is the greater zero?','What is the distance between the zeros?'],
+       [a,b,b-a]];
+    },
+    'algebra1-quadratics':function(r,c){
+      var h=r.int(2,6+c),k=r.int(3,10+c);
+      return ['A parabola has equation y = -(x - '+h+') squared + '+k+'.',
+       ['What is the x-coordinate of its vertex?','What is its maximum y-value?','What is its y-value one unit to the right of the vertex?'],
+       [h,k,k-1]];
+    }
+  };
   M.contextScenes=scenes;
   M.contextExtensions=extensions;
   M.contextInterpretations=interpretations;
+  M.contextApplied=applied;
   M.makeContextProblem=function(unit, ctx) {
     var fn=scenes[unit];if(!fn)return {failed:true,reason:'No contextual bank for '+unit};
-    var draw=ctx.rng.int(0,interpretations[unit]?2:1);
-    var variant=draw===2?'interpret':draw===1?'extension':'original';
+    var draw=ctx.rng.int(0,applied[unit]?3:interpretations[unit]?2:1);
+    var variant=draw===3?'applied':draw===2?'interpret':draw===1?'extension':'original';
     if (variant==='extension' && extensions[unit]) fn=extensions[unit];
     if (variant==='interpret' && interpretations[unit]) fn=interpretations[unit];
+    if (variant==='applied' && applied[unit]) fn=applied[unit];
     var x=fn(ctx.rng,ctx.c),parts=x[1].map(function(t,i){
       return {label:String.fromCharCode(97+i),prompt:t,answer:String(x[2][i]),
         check:{type:'mcas-context',unit:unit,index:i,variant:variant}};
