@@ -386,6 +386,17 @@
     p.mcNote = m.note; p.key = NS.studentText(p).replace(/\s+/g, '') + (p.fig ? '|fig:' + JSON.stringify(p.fig) : '');
     m.src = mcSource(p); p.mc = m; delete p.mcFail; return p;
   }
+  var mcasCache = {};
+  NS.mcasCapable = function (setId, skillId, c) {
+    var key = setId + '|' + skillId + '|' + c;
+    if (mcasCache[key] !== undefined) return mcasCache[key];
+    var good = 0;
+    for (var k = 0; k < 8; k++) {
+      var p = NS.generateProblem(setId, skillId, c, { intOnly: c <= 5, level: 'x' }, 'mcas-bank-' + k, null);
+      if (!p.failed && !NS.makeMcas(p).fail) good++;
+    }
+    return (mcasCache[key] = good >= 2);
+  };
   /* Can this skill at this difficulty usually be asked as multiple choice? (sampled once, then cached) */
   var mcCache = {};
   NS.mcCapable = function (setId, skillId, c) {
@@ -478,7 +489,11 @@
       var order = good.concat(rest);
       // spread tags: avoid two dishes of the same category next to each other when possible
       for (var i = 0; i < n; i++) out.push(order[i % (good.length && n <= good.length * 2 ? good.length : order.length)]);
-      if (NS.sectionFormat(cfg, si) === 'mc' && G.MKGAMES) {   // multiple choice: use skills that make good choices at that difficulty
+      if (NS.sectionFormat(cfg, si) === 'mcas') {
+         var viable = order.filter(function (id) { return NS.mcasCapable(cfg.unitId, id, NS.sectionC(cfg, si)); });
+         if (viable.length) out = out.map(function (id, i) { return NS.mcasCapable(cfg.unitId, id, NS.itemC(cfg, si, i, n)) ? id : viable[i % viable.length]; });
+       }
+       if (NS.sectionFormat(cfg, si) === 'mc' && G.MKGAMES) {   // multiple choice: use skills that make good choices at that difficulty
         var rot = 0;
         out = out.map(function (id, i) {
           var ci = NS.itemC(cfg, si, i, n); if (NS.mcCapable(cfg.unitId, id, ci)) return id;
