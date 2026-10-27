@@ -121,6 +121,7 @@ function updateProgress(){
  var answered=state.questions.filter(isAnswered).length,total=state.questions.length;
  root.querySelector('#pt-progress-count').textContent=answered+' of '+total+' answered';
  root.querySelector('#pt-progress-fill').style.width=(total?100*answered/total:0)+'%';
+ var summary=root.querySelector('#pt-finish-summary');if(summary)summary.textContent=(total-answered)+' unanswered · '+state.questions.filter(q=>q.review).length+' marked for review. You can change answers until you submit.';
  root.querySelectorAll('[data-jump]').forEach(function(button){
    var q=state.questions[+button.dataset.jump];
    button.classList.toggle('answered',isAnswered(q));
