@@ -21,4 +21,18 @@ for (const unit of units) {
     }
   }
 }
+// A changed printed equation must never pass simply because the original
+// dimensions still imply the saved answer.
+for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','right-distance-formula']) {
+  const p = menu.generateProblem('geometry-right-triangles-trigonometry',skillId,1,
+    {intOnly:true,level:'game'},'mutation:'+skillId,
+    {keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed, skillId+' must generate');
+  const tampered = JSON.parse(JSON.stringify(p));
+  const original = tampered.parts[0].check.eq;
+  tampered.prompt = tampered.prompt.replace('⟨'+original+'⟩','⟨'+original.replace('^2','^4')+'⟩');
+  assert.notEqual(tampered.prompt,p.prompt,'Mutation must change the printed equation');
+  assert.equal(menu.verifyProblem(tampered,{intOnly:true,level:'game'}).ok,false,
+    skillId+' must reject a modified printed equation');
+}
 console.log('Geometry generator regression passed: '+checks+' verified cards across '+units.length+' units.');
