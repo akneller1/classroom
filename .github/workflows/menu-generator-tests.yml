@@ -26,3 +26,5 @@ jobs:
         run: N=25 node worksheet-generator/menu/tests/math-tests.cjs
       - name: Mathematics (independent verification, mutation and difficulty tests)
         run: N=300 node worksheet-generator/menu/tests/math-tests.cjs
+      - name: Verify select-all answer truth and MCAS bank coverage
+        run: node worksheet-generator/menu/tests/select-all-mcas-tests.cjs
