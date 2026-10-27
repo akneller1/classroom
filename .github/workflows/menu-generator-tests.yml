@@ -22,7 +22,7 @@ jobs:
           node-version: '22'
       - name: Fast mathematics regression check
         run: N=25 node worksheet-generator/menu/tests/math-tests.cjs
-      - name: Mathematics (independent verification, mutation and difficulty tests)
-        run: N=300 node worksheet-generator/menu/tests/math-tests.cjs
       - name: Menu rules, versions, editing, save/load
         run: node worksheet-generator/menu/tests/model-tests.cjs
+      - name: Mathematics (independent verification, mutation and difficulty tests)
+        run: N=300 node worksheet-generator/menu/tests/math-tests.cjs
