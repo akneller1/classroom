@@ -35,6 +35,20 @@ for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','r
   assert.equal(menu.verifyProblem(tampered,{intOnly:true,level:'game'}).ok,false,
     skillId+' must reject a modified printed equation');
 }
+// A visible side expression must agree with the equation used to verify x.
+for (const kind of ['sss','sas','asa','aas','hl']) {
+  const p = menu.generateProblem('geometry-triangles-congruence','congruence-'+kind,1,
+    {intOnly:true,level:'game'},'congruence-equation-mutation:'+kind,
+    {keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Expected verified '+kind+' congruence question');
+  const changed = JSON.parse(JSON.stringify(p));
+  changed.prompt = changed.prompt.replace(/⟨([^⟩]+)⟩/,function(_,expr){
+    return '⟨'+expr.replace(/[0-9]+/,function(n){return String(+n+2);})+'⟩';
+  });
+  assert.notEqual(changed.prompt,p.prompt,'Visible side length must change');
+  assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
+    'Verifier must reject mismatched printed side length for '+kind);
+}
 // Inspect actual SVG markings, not just the generator's claimed theorem.
 // Tick counts include one/two/three stroke marks on each matching side pair.
 const expectedMarks = {
