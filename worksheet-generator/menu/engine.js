@@ -382,7 +382,7 @@
     no.sort(function(a,b){return Math.abs(a)-Math.abs(b);});
     var selected=rng.shuffle(rng.shuffle(yes.slice(0,25)).slice(0,3).map(function(v){return {v:v,correct:true};})
       .concat(rng.shuffle(no.slice(0,25)).slice(0,2).map(function(v){return {v:v,correct:false};})));
-    return {opts:selected.map(function(x){return variable+' = '+x.v;}),
+    return {opts:selected.map(function(x){return '⟨'+variable+'='+x.v+'⟩';}),
       keys:selected.map(function(x,i){return x.correct?i:-1;}).filter(function(i){return i>=0;}),
       src:mcSource(p)};
   };
