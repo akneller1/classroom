@@ -371,11 +371,39 @@
      comparisons; always select two or three true and two or three false options. */
   /* Select-all is exclusively a multiple-solution inequality membership task.
      Never turn a single equation answer into artificial statements about that answer. */
-  NS.multiUnitSupported = function(unit) { return unit === 'algebra1-inequalities'; };
+  NS.multiUnitSupported = function(unit) { return unit === 'algebra1-inequalities' || /^geometry-/.test(unit) && !!sets[unit]; };
   NS.makeMultiSelect = function(p) {
     if(!p || p.failed || !p.verify || p.verify.status !== 'verified')
       return {fail:'A verified inequality is required.'};
     var C=NS.check, part=(p.parts||[])[0], chk=part && part.check;
+    // Geometry: independently checked equations can support more than one
+    // mathematically true statement, even when x has a unique value.
+    if (p.skill && /^geometry-/.test((sets[p.setId] || {}).id || '') ||
+        (chk && chk.type === 'solve' && p.tag && ['SEGMENT','ANGLE','MIDPOINT','BISECTOR','COORD','COMPLEMENT','SUPPLEMENT','VERTICAL','LINEAR','TRANSVERSAL'].indexOf(p.tag)>=0)) {
+      if (!chk || chk.type !== 'solve' || !chk.eq || !C || !C.solveLinear) return {fail:'A verified Geometry equation is required.'};
+      var solved;
+      try { solved=C.solveLinear(chk.eq,chk.v||'x'); } catch(e) {return {fail:'Could not verify the Geometry equation.'};}
+      if(solved.kind!=='one' || !solved.value.isInt()) return {fail:'This Geometry skill needs an integer solution for choose-all.'};
+      var n=Number(solved.value.n),v=chk.v||'x';
+      if(!Number.isSafeInteger(n))return {fail:'Solution outside supported range.'};
+      var candidates=[
+       {t:'⟨'+v+'='+n+'⟩',ok:true},
+       {t:'⟨'+v+'+'+2+'='+(n+2)+'⟩',ok:true},
+       {t:'⟨2'+v+'='+(2*n)+'⟩',ok:true},
+       {t:'⟨'+v+'='+(n+1)+'⟩',ok:false},
+       {t:'⟨2'+v+'='+(2*n+2)+'⟩',ok:false}
+      ];
+      // Every displayed statement is independently evaluated at the solution.
+      for(var gi=0;gi<candidates.length;gi++) {
+       var rel=C.parseRelation(candidates[gi].t.slice(1,-1));
+       var env={};env[v]=solved.value;
+       var isTrue=C.evalNode(rel.lhs,env).eq(C.evalNode(rel.rhs,env));
+       if(isTrue!==candidates[gi].ok) return {fail:'Geometry statement verification failed.'};
+      }
+      var rngGeo=WS.rng.make(WS.rng.hash('geometry-multi-v1|'+mcSource(p)));
+      candidates=rngGeo.shuffle(candidates);
+      return {opts:candidates.map(function(z){return z.t;}),keys:candidates.map(function(z,i){return z.ok?i:-1;}).filter(function(i){return i>=0;}),direction:'Select every statement that is true for the Geometry problem.',src:mcSource(p)};
+    }
     if(!chk || chk.type!=='ineq' || !chk.ineq || !C || !C.parseCondition || !C.truth)
       return {fail:'This problem is not a multiple-solution inequality.'};
     var variable=chk.v||'x', condition;
