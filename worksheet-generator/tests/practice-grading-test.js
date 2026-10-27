@@ -1,7 +1,7 @@
 /* Run: node worksheet-generator/tests/practice-grading-test.js */
 const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path');
 const base=path.join(__dirname,'..');const context={};context.window=context;vm.createContext(context);
-for(const file of ['menu/mathcheck.js','practice/grading.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context,{filename:file});
+for(const file of ['menu/mathcheck.js','practice/radical-grading.js','practice/grading.js'])vm.runInContext(fs.readFileSync(path.join(base,file),'utf8'),context,{filename:file});
 const checker=context.MKPRACTICE;let passed=0;
 function check(answer,input,expected){
  const problem={parts:[{answer}]};
@@ -159,3 +159,16 @@ const exp=MI.insert('x',1,1,'square');assert.equal(exp.text,'x^2');
 assert.equal(MI.insert('1/2',3,3,'backspace').text,'1/');
 assert.equal(MI.insert('x',1,1,'<=')['text'],'x<=');
 console.log('Editable math fraction/radical/exponent caret and next-slot tests passed.');
+
+/* Exact radical grading — no decimal approximation or accepting unequal surds. */
+check('⟨\sqrt{12}⟩','2sqrt(3)','correct');
+check('⟨2\sqrt{3}⟩','sqrt(12)','correct');
+check('⟨\sqrt{12}⟩','sqrt(13)','incorrect');
+check('⟨\sqrt{8}⟩','2sqrt(2)','correct');
+check('⟨\sqrt{8}⟩','sqrt(8)/2','incorrect');
+check('⟨\sqrt{9}⟩','3','correct');
+check('⟨\sqrt{1/4}⟩','1/2','correct');
+check('⟨1+\sqrt{12}⟩','1+2sqrt(3)','correct');
+check('⟨\sqrt{12}⟩','2.5','incorrect');
+assert.strictEqual(checker.grade({parts:[{answer:'⟨\sqrt{12}⟩'}]},'sqrt(-3)').status,'invalid');
+console.log('Exact radical grading checks passed.');
