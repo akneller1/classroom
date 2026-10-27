@@ -6,8 +6,8 @@ var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
 function make(ctx,kind){
  var r=ctx.rng,c=ctx.c,x,eq,prompt,reason;
  if(kind==='sum'){
-   x=r.int(c<=3?30:18,c<=3?85:115);
-   var a=r.int(18,Math.min(120-x,65)),b=180-x-a;
+   x=r.int(c<=3?30:18,c<=3?85:100);
+   var a=r.int(18,Math.min(155-x,65)),b=180-x-a;
    eq='x+'+a+'+'+b+'=180';
    prompt='A triangle has interior angles measuring '+M('x^\\circ')+', '+a+'° and '+b+'°. Find x.';
    reason='Interior angles of a triangle sum to 180°.';
