@@ -375,7 +375,7 @@
       catch(e){return {fail:'Could not check the solution set.'};}
       (valid?yes:no).push(i);
     }
-    if(yes.length<2 || no.length<2) return {fail:'This inequality does not have suitable multiple selections.'};
+    if(yes.length<3 || no.length<2) return {fail:'This inequality does not have suitable multiple selections.'};
     var rng=WS.rng.make(WS.rng.hash('multi-inequality-v1|'+mcSource(p)));
     // Prefer the numbers nearest zero so the options are readable.
     yes.sort(function(a,b){return Math.abs(a)-Math.abs(b);});
