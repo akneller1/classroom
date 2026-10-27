@@ -36,6 +36,24 @@ for (const c of [1,3,5,7]) {
   assert.equal(p.parts.length,4,'Open Response must contain four independently checked parts');
   assert.equal(p.verify.status,'verified','All four parts must verify');
 }
+// Unit 4 diagrams must remain attached, render as SVG, and match their skill.
+for (const [id,caseName] of [
+  ['triangle-midsegment-length','midsegment'],
+  ['triangle-centroid-median','centroid'],
+  ['triangle-perpendicular-bisector','bisector'],
+  ['triangle-altitude-area','altitude']
+]) {
+  for (const c of [1,3,5,7]) {
+    const p = menu.generateProblem('geometry-triangle-relationships',id,c,
+      {intOnly:true,level:'game'},'unit4-diagram:'+id+':'+c,
+      {keys:new Set(),sigs:new Set()});
+    assert.ok(!p.failed,'Expected valid '+id+' at tier '+c);
+    assert.equal(p.fig && p.fig.kind,'geo-triangle-landmark');
+    assert.equal(p.fig.case,caseName);
+    assert.ok(menu.geoDiagram.validate(p.fig),'Unit 4 diagram must validate');
+    assert.ok(menu.geoDiagram.render(p.fig).includes('<svg'),'Unit 4 diagram must render');
+  }
+}
 // A changed printed equation must never pass simply because the original
 // dimensions still imply the saved answer.
 for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','right-distance-formula']) {
