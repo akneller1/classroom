@@ -397,12 +397,12 @@
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="sequence";});if(!base)return;
     skill({id:"arithmetic-explicit",best:base.best,tag:base.tag,name:"Write an explicit arithmetic sequence formula",blurb:"Use the first term and common difference to write a_n.",
-      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
+      difficultyProfile:'focused',fixedDifficulty:4,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:4}));}});
   })();
-  (function(){var parent=skills.find(function(s){return s.id==="sequence";});if(parent)skill({id:"arithmetic-nth",best:parent.best,tag:parent.tag,name:"Find a specified arithmetic sequence term",blurb:"Use the common difference to calculate the nth term.",generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:3}));}});})();
+  (function(){var parent=skills.find(function(s){return s.id==="sequence";});if(parent)skill({id:"arithmetic-nth",best:parent.best,tag:parent.tag,name:"Find a specified arithmetic sequence term",blurb:"Use the common difference to calculate the nth term.",difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:3}));}});})();
   /* A discrete/continuous lesson-specific bank with verifiable numeric choice answers. */
   skill({
-    id:'discrete-continuous',best:[0,1],tag:'RELATIONS',name:'Discrete versus continuous functions',
+    id:'discrete-continuous',difficultyProfile:'focused',best:[0,1],tag:'RELATIONS',name:'Discrete versus continuous functions',
     blurb:'Choose whether the input can take every value in an interval or only separate whole-number values.',
     generate:function(ctx){
       var cases=[
