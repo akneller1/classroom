@@ -21,6 +21,21 @@ for (const unit of units) {
     }
   }
 }
+// Unit 4 must retain the expanded curriculum, including four-part Open Response.
+const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
+for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
+  'triangle-centroid-median','triangle-side-angle-order','triangle-perpendicular-bisector',
+  'triangle-altitude-area','triangle-open-response-investigation']) {
+  assert.ok(triangleUnit.skills.some(s => s.id === id),'Missing Unit 4 skill: '+id);
+}
+for (const c of [1,3,5,7]) {
+  const p = menu.generateProblem('geometry-triangle-relationships',
+    'triangle-open-response-investigation',c,{intOnly:true,level:'game'},
+    'unit4-open-response:'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Four-part triangle investigation must generate at tier '+c);
+  assert.equal(p.parts.length,4,'Open Response must contain four independently checked parts');
+  assert.equal(p.verify.status,'verified','All four parts must verify');
+}
 // A changed printed equation must never pass simply because the original
 // dimensions still imply the saved answer.
 for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','right-distance-formula']) {
