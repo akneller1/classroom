@@ -523,7 +523,12 @@
           return eligible.length?eligible[i%eligible.length]:id;
         });
       }
-      if (NS.sectionFormat(cfg, si) === 'mcas') {
+      if (NS.sectionFormat(cfg, si) === 'mcas' && set.byId['mcas-context']) {
+        // The dedicated bank guarantees four linked parts for every Algebra unit.
+        // Do not substitute ordinary short-answer skills, even when a saved
+        // configuration predates registration of this bank.
+        out = out.map(function () { return 'mcas-context'; });
+      } else if (NS.sectionFormat(cfg, si) === 'mcas') {
         // Choose a skill that is verified to generate multipart work at the
         // ACTUAL difficulty of this slot (not just the middle section tier).
         out = out.map(function (id, i) {
@@ -584,6 +589,23 @@
     // sections follow cfg.sections by id
     state.versions.forEach(function (v) {
       v.sections = cfg.sections.map(function (s) { var old = v.sections.filter(function (x) { return x.id === s.id; })[0]; return old || { id: s.id, items: [] }; });
+    });
+    cfg.sections.forEach(function(sec,si) {
+      if(NS.sectionFormat(cfg,si)==='mcas') {
+        if(/mcas/i.test(sec.name||'')) sec.name='Open Response';
+        if(/mcas/i.test(sec.note||'')) sec.note='Answer all four parts and explain your reasoning.';
+        // Upgrade obsolete three-part or invalid generated questions from older saves.
+        state.versions.forEach(function(v,vi) {
+          var items=v.sections[si].items;
+          items.forEach(function(it,index){
+            if(it.pinned || it.edited || it.manual) return;
+            if(!it.failed && !NS.makeMcas(it).fail) return;
+            var skill=sets[cfg.unitId].byId['mcas-context'] ? 'mcas-context' : it.skill;
+            var fixed=makeItem(state,it.slot||uid('s'),skill,it.c||NS.sectionC(cfg,si),'upgrade-'+index,vi,si);
+            if(!fixed.failed){fixed.required=it.required;items[index]=fixed;}
+          });
+        });
+      }
     });
     cfg.sections.forEach(function (sec, si) {
       var want = Math.max(0, sec.offered | 0), items = A.sections[si].items;
@@ -851,6 +873,8 @@
     if (!o || o.format !== 'mk-menu-assessment') throw new Error('This file is not a Menu Assessment save file.');
     if (!sets[o.config.unitId]) throw new Error('This save file is for a unit this generator does not support yet (' + o.config.unitId + ').');
     var state = { config: o.config, versions: o.versions || [], bank: { items: [] } };
+    // Legacy worksheet presets used an obsolete display label.
+    state.config.sections.forEach(function(sec){if(sec.qformat==='mcas' && /mcas/i.test(sec.name||'')){sec.name='Open Response';sec.note='Answer all four parts and explain your reasoning.';}});
     if (!state.config.mode) state.config.mode = 'menu';
     // re-verify everything on load: a hand-edited file cannot slip in a wrong key
     var pol = policyOf(state.config);
