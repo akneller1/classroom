@@ -241,7 +241,7 @@
   /* ---------- student handout (paper) ---------- */
   function studentProblem(p, label) {
     var space = p.failed ? 1 : Math.max(0.6, (p.space || [1, 1.3, 1.6])[1]);
-    return '<div class="pl-p"><div class="pl-ph"><b>' + esc(label || (p.num + '.')) + '</b></div>' + (p.failed ? '<div class="pl-q">&nbsp;</div>' : promptHtml(p)) + '<div class="pl-space" style="height:' + space.toFixed(2) + 'in"></div></div>';
+    return '<div class="pl-p"><div class="pl-ph"><b>' + esc(label || (p.num + '.')) + '</b></div>' + (p.failed ? '<div class="pl-q">&nbsp;</div>' : promptHtml(p)) + (p.challengeQuestion ? '<p class="pl-challenge"><b>Challenge:</b> ' + esc(p.challengeQuestion) + '</p><div class="pl-space" style="height:1.0in"></div>' : '<div class="pl-space" style="height:' + space.toFixed(2) + 'in"></div>') + '</div>';
   }
   function workedProblem(p, label) {
     return '<div class="pl-p pl-worked"><div class="pl-ph"><b>' + esc(label) + '</b></div>' + promptHtml(p) + stepsHtml(p) + answerHtml(p) + '</div>';
@@ -269,7 +269,7 @@
   }
   function studentSectionBody(plan, s) {
     var d = plan.day, h = '';
-    if (s.prompt) h += '<p class="pl-sprompt">' + esc(s.prompt) + '</p>' + lines(3);
+    if (s.prompt) h += '<p class="pl-sprompt">' + esc(s.prompt) + '</p>' + (s.id === 'challenge' ? '' : lines(3));
     if (s.id === 'notes') h += notesBody(plan, s);
     if (s.launch) { var lt = launchTask(d); h += '<p class="pl-sprompt"><b>' + esc(lt.title) + '.</b> ' + esc(lt.student) + '</p><div class="pl-space" style="height:3.2in"></div>'; }
     if (s.project && s.id === 'practice') h += '<table class="pl-tbl"><thead><tr><th>Checkpoint</th><th>Done?</th><th>Notes</th></tr></thead><tbody>' + projectCheckpoints(d).map(function (c) { return '<tr><td>' + esc(c) + '</td><td class="pl-chk">☐</td><td></td></tr>'; }).join('') + '</tbody></table><div class="pl-space" style="height:1.6in"></div>';
@@ -277,7 +277,7 @@
     s.groups.forEach(function (g) {
       if (g.name && s.id !== 'notes') h += '<div class="pl-gh">' + esc(g.name) + (g.note ? ' <small>' + esc(g.note) + '</small>' : '') + '</div>';
       if (s.id === 'notes') return;   // notes are drawn inside notesBody
-      h += rows(g.items.map(function (p, i) { return { wide: wide(p), html: s.id === 'examples' && filled(plan) && i < g.items.length - 1 && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, s.id === 'examples' ? displayProblemLabel(p, 'Example ' + (i + 1)) : undefined) + (p.challengeQuestion ? '<p class="pl-sprompt"><b>Go further:</b> ' + esc(p.challengeQuestion) + '</p>' + lines(3) : '') }; }));
+      h += rows(g.items.map(function (p, i) { return { wide: s.id === 'challenge' || wide(p), html: s.id === 'examples' && filled(plan) && i < g.items.length - 1 && !p.failed ? workedProblem(p, displayProblemLabel(p, 'Example ' + (i + 1))) : studentProblem(p, s.id === 'examples' ? displayProblemLabel(p, 'Example ' + (i + 1)) : undefined) }; }));
     });
     if (s.frame) h += '<p class="pl-frame"><b>Summary:</b> ' + frameHtml(s.frame) + '</p>';
     if (s.selfAssess) h += rateTable(s.selfAssess, 'How sure am I?');
