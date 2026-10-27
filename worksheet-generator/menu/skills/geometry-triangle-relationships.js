@@ -46,6 +46,7 @@ function midsegment(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(5,c>=5?35:18),a=c>=5?r.int(2,4):1,b=r.int(1,8);
  var small=a*x+b,full=2*small,eq=(a===1?'x':a+'x')+'+'+b+'='+full+'/2';
  return {variant:'geo-triangle-midsegment-'+c,
+  fig:{kind:'geo-triangle-landmark',case:'midsegment'},
   prompt:'In triangle ABC, D and E are the midpoints of AB and AC. Segment DE is parallel to BC. DE measures '+M((a===1?'x':a+'x')+'+'+b)+' units and BC measures '+full+' units. Find x and explain the midsegment relationship. Use '+M(eq)+' to find x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('A triangle midsegment is half the length of the third side.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -55,6 +56,7 @@ function centroid(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(4,c>=5?30:16),a=c>=5?r.int(2,3):1,b=r.int(1,8),near=a*x+b,whole=3*near;
  var eq='3*'+(a===1?'x':a+'x')+'+3*'+b+'='+whole;
  return {variant:'geo-triangle-centroid-'+c,
+  fig:{kind:'geo-triangle-landmark',case:'centroid'},
   prompt:'In triangle ABC, M is the midpoint of BC and G is the centroid on median AM. The shorter segment GM measures '+M((a===1?'x':a+'x')+'+'+b)+' units. The full median AM measures '+whole+' units. Find x. Explain the 2:1 centroid ratio. Use '+M(eq)+' to find x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('The centroid divides a median 2:1, so the shorter segment is one-third of the full median.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -74,6 +76,7 @@ function perpendicularBisector(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(3,c>=5?26:14),a=c>=5?r.int(2,4):1,b=r.int(1,9),distance=a*x+b;
  var eq=(a===1?'x':a+'x')+'+'+b+'='+distance;
  return {variant:'geo-triangle-perpendicular-bisector-'+c,
+  fig:{kind:'geo-triangle-landmark',case:'bisector'},
   prompt:'Point P lies on the perpendicular bisector of segment AB. PA measures '+M((a===1?'x':a+'x')+'+'+b)+' units and PB measures '+distance+' units. Find x. State the perpendicular bisector theorem. Use '+M(eq)+' to find x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('Every point on a perpendicular bisector is equidistant from the endpoints.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -84,6 +87,7 @@ function altitudeArea(ctx) {
  var eq='x='+2*area+'/'+base;
  // The altitude is perpendicular to the base; it is not necessarily a side.
  return {variant:'geo-triangle-altitude-area-'+c,
+  fig:{kind:'geo-triangle-landmark',case:'altitude'},
   prompt:'Triangle ABC has base BC of '+base+' cm and area '+area+' square centimeters. Altitude AD is perpendicular to the line containing BC (D may lie outside segment BC). Find the altitude length x. Use '+M(eq)+' to find x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('The perpendicular altitude determines the area even for an obtuse triangle.',M(area+'='+base+'x/2')),step('Solve for the height.',M('x='+x))],
