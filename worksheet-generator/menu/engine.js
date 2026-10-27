@@ -356,52 +356,35 @@
   /* Select-all bank: every statement is derived from a verified numeric value,
      with an explicit independent numeric truth check. Vary representations and
      comparisons; always select two or three true and two or three false options. */
-  NS.makeMultiSelect = function (p) {
-    if (!p || p.failed || !p.verify || p.verify.status !== 'verified') return { fail: 'A verified problem is required.' };
-    var cands = mcCandidates(p);
-    for (var j = 0; j < cands.length; j++) {
-      var q = cands[j].p, a = q.parts[0] && q.parts[0].answer, n = numberAnswer(a);
-      if (n === null || !Number.isFinite(n)) continue;
-      if (q !== p && !NS.verifyProblem(q, { intOnly: false }).ok) continue;
-      var rng = WS.rng.make(WS.rng.hash('multi-bank-v3|' + mcSource(q)));
-      var d = Math.max(1, Math.ceil(Math.abs(n) / 4));
-      var bank = [
-        { text: 'The answer equals ' + a + '.', op: 'eq', v: n },
-        { text: 'The answer is greater than ' + (n - d) + '.', op: 'gt', v: n - d },
-        { text: 'The answer is less than ' + (n + d) + '.', op: 'lt', v: n + d },
-        { text: 'The answer is at least ' + n + '.', op: 'ge', v: n },
-        { text: 'The answer is at most ' + n + '.', op: 'le', v: n },
-        { text: 'The answer equals ' + (n + d) + '.', op: 'eq', v: n + d },
-        { text: 'The answer is less than ' + (n - d) + '.', op: 'lt', v: n - d },
-        { text: 'The answer is greater than ' + (n + d) + '.', op: 'gt', v: n + d },
-        { text: 'The answer is at least ' + (n + d) + '.', op: 'ge', v: n + d },
-        { text: 'The answer is at most ' + (n - d) + '.', op: 'le', v: n - d },
-        { text: 'The answer does not equal ' + a + '.', op: 'ne', v: n }
-      ];
-      function truth(x) { switch (x.op) {
-        case 'eq': return n === x.v;
-        case 'ne': return n !== x.v;
-        case 'gt': return n > x.v;
-        case 'lt': return n < x.v;
-        case 'ge': return n >= x.v;
-        case 'le': return n <= x.v;
-      } return false; }
-      var t = rng.shuffle(bank.filter(truth)), f = rng.shuffle(bank.filter(function (x) { return !truth(x); }));
-      var selected = rng.shuffle(t.slice(0, 2 + (rng.int(0, 1))).concat(f.slice(0, 5 - (2 + 1)))); 
-      // Ensure exactly five unique, unambiguous statements.
-      var seen = {}, choices = [];
-      selected.concat(t, f).forEach(function (x) {
-        if (choices.length >= 5 || seen[x.text]) return;
-        seen[x.text] = true; choices.push(x);
-      });
-      if (choices.length < 5 || choices.filter(truth).length < 2 || choices.filter(function(x){return !truth(x);}).length < 2) continue;
-      choices = rng.shuffle(choices);
-      var m = { opts: choices.map(function (x) { return x.text; }),
-        keys: choices.map(function (x, i) { return truth(x) ? i : -1; }).filter(function (i) { return i >= 0; }),
-        src: mcSource(q), derived: q !== p ? q : undefined, note: q !== p ? cands[j].note : undefined };
-      return m;
+  /* Select-all is exclusively a multiple-solution inequality membership task.
+     Never turn a single equation answer into artificial statements about that answer. */
+  NS.multiUnitSupported = function(unit) { return unit === 'algebra1-inequalities'; };
+  NS.makeMultiSelect = function(p) {
+    if(!p || p.failed || !p.verify || p.verify.status !== 'verified')
+      return {fail:'A verified inequality is required.'};
+    var C=NS.check, part=(p.parts||[])[0], chk=part && part.check;
+    if(!chk || chk.type!=='ineq' || !chk.ineq || !C || !C.parseCondition || !C.truth)
+      return {fail:'This problem is not a multiple-solution inequality.'};
+    var variable=chk.v||'x', condition;
+    try { condition=C.parseCondition(chk.ineq); }
+    catch(e) { return {fail:'Could not read this inequality.'}; }
+    var yes=[],no=[];
+    for(var i=-100;i<=100;i++){
+      var valid;
+      try{ valid=!!C.truth(condition,variable,new C.Q(i));}
+      catch(e){return {fail:'Could not check the solution set.'};}
+      (valid?yes:no).push(i);
     }
-    return { fail: 'This skill needs a verified numeric answer for choose-all-that-apply. Choose another skill or use open response.' };
+    if(yes.length<2 || no.length<2) return {fail:'This inequality does not have suitable multiple selections.'};
+    var rng=WS.rng.make(WS.rng.hash('multi-inequality-v1|'+mcSource(p)));
+    // Prefer the numbers nearest zero so the options are readable.
+    yes.sort(function(a,b){return Math.abs(a)-Math.abs(b);});
+    no.sort(function(a,b){return Math.abs(a)-Math.abs(b);});
+    var selected=rng.shuffle(rng.shuffle(yes.slice(0,25)).slice(0,3).map(function(v){return {v:v,correct:true};})
+      .concat(rng.shuffle(no.slice(0,25)).slice(0,2).map(function(v){return {v:v,correct:false};})));
+    return {opts:selected.map(function(x){return variable+' = '+x.v;}),
+      keys:selected.map(function(x,i){return x.correct?i:-1;}).filter(function(i){return i>=0;}),
+      src:mcSource(p)};
   };
   NS.makeMcas = function (p) {
     if (!p || p.failed || !p.verify || p.verify.status !== 'verified') return { fail: 'A verified problem is required.' };
@@ -420,6 +403,7 @@
   NS.multiCapable=function(unit,skill,c){
     var key=unit+'|'+skill+'|'+c;
     if(multiCache[key]!==undefined)return multiCache[key];
+    if(!NS.multiUnitSupported(unit))return (multiCache[key]=false);
     var success=0;
     for(var i=0;i<4;i++){
       var p=NS.generateProblem(unit,skill,c,{intOnly:c<6,level:'cp1'},'multi-check-'+i,null);
@@ -531,7 +515,7 @@
       var order = good.concat(rest);
       // spread tags: avoid two dishes of the same category next to each other when possible
       for (var i = 0; i < n; i++) out.push(order[i % (good.length && n <= good.length * 2 ? good.length : order.length)]);
-      if (NS.sectionFormat(cfg, si) === 'multi') {
+      if (NS.sectionFormat(cfg, si) === 'multi' && NS.multiUnitSupported(cfg.unitId)) {
         out=out.map(function(id,i){
           var c=NS.itemC(cfg,si,i,n);
           if(NS.multiCapable(cfg.unitId,id,c))return id;
