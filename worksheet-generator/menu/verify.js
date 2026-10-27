@@ -217,7 +217,40 @@
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
       if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 2)
         return {status:'invalid',msg:'Invalid scenario part.'};
-      if (unit === 'algebra1-foundations' && nums.length === 3) expected=[a*b,a*b+d,2*(a*b+d)];
+      if (chk.variant === 'extension') {
+        if (unit === 'algebra1-foundations' && nums.length===3) expected=[a*b,a*b*d,(a+1)*b*d];
+        else if (unit === 'algebra1-expressions-equations' && nums.length===3 && a>0 && (d-b)%a===0)
+          expected=[d-b,(d-b)/a,d+(d-b)/a];
+        else if (unit === 'algebra1-inequalities' && nums.length===3 && d>0) {
+          var allowance=a-b, count=Math.floor(allowance/d);
+          expected=[allowance,count,allowance-(count-1)*d];
+        }
+        else if (unit === 'algebra1-relations-functions' && nums.length===3)
+          expected=[a+b*d,a+b*(d+2),2*b];
+        else if (unit === 'algebra1-linear-equations-slope' && nums.length===3)
+          expected=[a+b*d,b,a+b*(d+1)];
+        else if (unit === 'algebra1-systems-of-equations' && nums.length===4 && e!==d) {
+          var large=(b-a*d)/(e-d),small=a-large;
+          if (Number.isInteger(large)&&Number.isInteger(small)&&large>=0&&small>=0)
+            expected=[small,large,large*e];
+        }
+        else if (unit === 'algebra1-exponents-scientific-notation' && nums.length===3 && b>=0&&b<=8)
+          expected=[a*Math.pow(10,b),a*Math.pow(10,b)*d,a*Math.pow(10,b)*(d-1)];
+        else if (unit === 'algebra1-exponential-functions' && nums.length===2 && b>=0&&b<=10)
+          expected=[a*Math.pow(3,b),a*Math.pow(3,b+1),3];
+        else if (unit === 'algebra1-polynomials' && nums.length===3)
+          expected=[(d+a)*(d+b),a+b,a*b];
+        else if (unit === 'algebra1-factoring-zero-product' && nums.length===2) {
+          var disc=a*a-4*b,root=Math.sqrt(disc);
+          if (Number.isInteger(root)) expected=[(a-root)/2,(a+root)/2,a];
+        }
+        else if (unit === 'algebra1-quadratics' && nums.length===2)
+          expected=[a,b,1];
+        else if (unit === 'algebra1-statistics-data-modeling' && nums.length===5) {
+          var sorted=nums.slice().sort(function(x,y){return x-y;});
+          expected=[sorted[2],sorted[4]-sorted[0],sorted.reduce(function(x,y){return x+y;},0)/5];
+        }
+      } else       if (unit === 'algebra1-foundations' && nums.length === 3) expected=[a*b,a*b+d,2*(a*b+d)];
       else if (unit === 'algebra1-expressions-equations' && nums.length === 3 && b>0 && (d-a)%b===0)
         expected=[d-a,(d-a)/b,d+b];
       else if (unit === 'algebra1-inequalities' && nums.length === 3 && b>0)
