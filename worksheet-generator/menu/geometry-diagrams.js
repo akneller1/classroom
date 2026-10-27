@@ -8,8 +8,25 @@ function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
+ if(spec.kind==='geo-proof'){
+   if(spec.case!=='shared'&&spec.case!=='vertical')return '';
+   function segment(p,q){return '<path d="M'+p[0]+' '+p[1]+' L'+q[0]+' '+q[1]+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
+   function ticks(p,q,n){var mx=(p[0]+q[0])/2,my=(p[1]+q[1])/2,dx=q[0]-p[0],dy=q[1]-p[1],ll=Math.hypot(dx,dy),nx=-dy/ll,ny=dx/ll,h='';
+     for(var j=0;j<n;j++){var t=j-(n-1)/2,xx=mx+t*6*dx/ll,yy=my+t*6*dy/ll;h+='<path d="M'+(xx-5*nx)+' '+(yy-5*ny)+' L'+(xx+5*nx)+' '+(yy+5*ny)+'" stroke="#111" stroke-width="1.7"/>';}return h;}
+   if(spec.case==='shared'){
+     var A=[215,23],B=[215,132],C=[75,80],D=[355,80];
+     h=segment(A,B)+segment(A,C)+segment(B,C)+segment(A,D)+segment(B,D)+
+       ticks(A,C,1)+ticks(A,D,1)+ticks(B,C,2)+ticks(B,D,2)+
+       tx(215,15,'A')+tx(215,150,'B')+tx(59,84,'C')+tx(372,84,'D');
+   }else{
+     var A=[65,22],O=[215,78],C=[365,134],B=[65,134],D=[365,22];
+     h=segment(A,C)+segment(B,D)+ticks(A,O,1)+ticks(O,C,1)+ticks(B,O,2)+ticks(O,D,2)+
+       tx(51,20,'A')+tx(51,149,'B')+tx(379,149,'C')+tx(379,20,'D')+tx(215,69,'O');
+   }
+   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,spec.case==='shared'?'Two triangles ABC and ABD share side AB, with AC equal AD and BC equal BD':'Intersecting lines AC and BD, with AO equal CO and BO equal DO')+'<div style="font-size:10px;color:#555">Given side equalities are marked; schematic not to scale.</div></div>';
+ }
  if(spec.kind==='geo-triangle-pair'){
    if(!['sss','sas','asa','aas','hl','ssa','aaa'].includes(spec.criterion))return '';
    var right=spec.criterion==='hl';
