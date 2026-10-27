@@ -40,9 +40,9 @@ D.render=function(spec){
    if(k==='sss'||k==='sas'||k==='hl')h+=mark(A,B,1)+mark(D,E,1);
    if(k==='sss'||k==='sas'||k==='hl')h+=mark(A,C,2)+mark(D,F,2);
    if(k==='sss')h+=mark(B,C,3)+mark(E,F,3);
-   if(k==='asa'||k==='aas')h+=mark(A,C,1)+mark(D,F,1);
+   if(k==='aas')h+=mark(A,C,1)+mark(D,F,1);
    if(k==='ssa')h+=mark(A,B,1)+mark(D,E,1)+mark(B,C,2)+mark(E,F,2);
-   if(k==='asa')h+=mark(A,B,2)+mark(D,E,2);
+   if(k==='asa')h+=mark(A,B,1)+mark(D,E,1);
    function arc(p,q,v,rank){var ux=(p[0]-v[0])/Math.hypot(p[0]-v[0],p[1]-v[1]),uy=(p[1]-v[1])/Math.hypot(p[0]-v[0],p[1]-v[1]);var vx=(q[0]-v[0])/Math.hypot(q[0]-v[0],q[1]-v[1]),vy=(q[1]-v[1])/Math.hypot(q[0]-v[0],q[1]-v[1]);var rr=17+rank*5;return '<path d="M'+(v[0]+rr*ux)+' '+(v[1]+rr*uy)+' A'+rr+' '+rr+' 0 0 1 '+(v[0]+rr*vx)+' '+(v[1]+rr*vy)+'" fill="none" stroke="#111" stroke-width="1.5"/>';}
    if(['sas','asa','aas','ssa','aaa'].includes(k))h+=arc(B,C,A,0)+arc(E,F,D,0);
    if(['asa','aas','aaa'].includes(k))h+=arc(A,C,B,1)+arc(D,F,E,1);
