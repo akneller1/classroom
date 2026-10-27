@@ -206,8 +206,42 @@
           'Work backward: construct a new problem with a chosen answer and prove it meets the conditions.',
           'What happens in an extreme or boundary case? Give evidence and describe a general rule.'
         ];
+        var themedExtensions = [
+          [/slope|linear|rate|intercept/i, [
+            'Can two different equations describe the same line? Construct an example and justify it.',
+            'Change one condition to make the relationship non-linear. Explain how the graph reveals the change.',
+            'Find a real situation where the intercept cannot be interpreted literally. Explain why.'
+          ]],
+          [/system|elimination|substitution/i, [
+            'Change one coefficient so the system has infinitely many solutions. Explain your reasoning.',
+            'Change the system to have no solution without changing the slope of either line.',
+            'Find two solution methods and explain when each is more efficient.'
+          ]],
+          [/inequal|absolute value/i, [
+            'Change a boundary condition so exactly one endpoint changes from included to excluded. Explain.',
+            'Create a case where an inequality has no solutions or all real numbers as solutions. Prove it.',
+            'Give a counterexample to a tempting but incorrect shortcut for this problem.'
+          ]],
+          [/quadratic|parabola|factoring|polynomial/i, [
+            'Change one coefficient to change the number of real zeros. Explain why.',
+            'Find two representations of the same relationship that reveal different features.',
+            'Design a related problem with a repeated root. Explain how you know.'
+          ]],
+          [/exponent|growth|decay/i, [
+            'Compare repeated addition and repeated multiplication in a context. When do they diverge?',
+            'Change the rate or starting value so two models eventually cross. Justify your prediction.',
+            'Explain why the model may stop being realistic even when its calculations are correct.'
+          ]],
+          [/function|domain|range|mapping/i, [
+            'Construct a relation that passes one test of being a function but fails another proposed test.',
+            'Change the domain so the possible outputs change. Explain what is lost and retained.',
+            'Give two distinct inputs producing the same output, or explain why that is impossible here.'
+          ]]
+        ];
         challengeItems.forEach(function(p, i) {
-          p.challengeQuestion = extensions[(i + d.day) % extensions.length];
+          var match = themedExtensions.filter(function(pair) { return pair[0].test((p.skillName || '') + ' ' + (d.lesson_title || d.title || '')); })[0];
+          var bank = match ? match[1] : extensions;
+          p.challengeQuestion = bank[(i + d.day) % bank.length];
         });
         group(challenge, 'Think deeper — show and explain', challengeItems);
       } else {
