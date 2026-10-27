@@ -637,7 +637,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + (c.id === 'algebra' ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'algebra' || c.id === 'geometry') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
@@ -645,14 +645,14 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
-          if (!k) {
+          if (!k && c.id !== 'geometry') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          if (c.id === 'algebra') {
+          if (c.id === 'algebra' || c.id === 'geometry') {
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
