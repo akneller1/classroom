@@ -46,3 +46,16 @@ for (const unit of Object.keys(M.skillSets).filter(x => x.startsWith('algebra1-'
 }
 assert.ok(total >= 20, 'Need a substantive bank of selectable questions');
 console.log('Verified select-all samples: ' + total + '; units with existing multi-part bank: ' + multipart);
+
+
+/* Regression: ordinary 'Solve ...' items with x=number answers must
+   produce actual checkbox choices, not a printed format error. */
+for (const answer of ['⟨x=-3⟩', '⟨x=4⟩', '⟨x=\\frac{3}{2}⟩']) {
+  const p={prompt:'Solve ⟨2x+6=0⟩.',parts:[{answer}],verify:{status:'verified'}};
+  const m=M.makeMultiSelect(p);
+  assert.ok(!m.fail,'select-all needs choices for '+answer+': '+m.fail);
+  assert.equal(m.opts.length,5);
+  assert.ok(m.keys.length>=2 && m.keys.length<=3);
+  assert.equal(new Set(m.opts).size,5);
+}
+console.log('Verified select-all scalar solution regression cases.');
