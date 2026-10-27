@@ -10,7 +10,7 @@ for(const unit of units)for(const level of ['cp2','cp1','honors'])for(let i=0;i<
   const c={cp2:2,cp1:4,honors:6}[level];
   const p=M.generateProblem(unit,'mcas-context',c,{intOnly:true,level},'context-'+level+'-'+i,null);
   assert.ok(!p.failed,unit+': '+(p.reason||'generation failed'));
-  assert.equal(p.parts.length,3,unit+' has three linked parts');
+  assert.equal(p.parts.length,4,unit+' has three linked parts');
   let v=M.verifyProblem(p,{intOnly:true,level});
   assert.ok(v.ok,unit+' failed verification: '+v.issues.join('; '));
   p.parts.forEach((part,j)=>{
@@ -57,7 +57,7 @@ for (const unit of Object.keys(M.contextApplied)) for (const c of [2,4,6]) {
   }};
   const p=M.makeContextProblem(unit,{rng,c,intOnly:true,level:'cp1'});
   assert.match(p.variant,/-applied$/,unit);
-  assert.equal(p.parts.length,3);
+  assert.equal(p.parts.length,4);
   const v=M.verifyProblem(p,{intOnly:true,level:'cp1'});
   assert.ok(v.ok,unit+' applied: '+v.issues.join('; ')+' | '+p.prompt);
   for(const pt of p.parts) {
