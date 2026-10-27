@@ -4794,6 +4794,34 @@ window.LIBRARY = {
           "name": "Triangle Relationships",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
+              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "type": "Study Guide",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangle-relationships",
+              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "type": "Planning",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-triangle-relationships",
+              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "type": "Practice",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangle-relationships",
+              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "type": "Printable",
+              "added": "2026-10-27"
+            },
+            {
               "title": "Triangles & Congruence Flashcards",
               "path": "artifacts/triangles-congruence-flashcards/index.html",
               "thumb": "thumbs/triangles-congruence-flashcards.jpg",
