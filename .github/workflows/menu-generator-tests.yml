@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Geometry SVG diagrams and starter-bank mathematics
+        run: node worksheet-generator/menu/tests/geometry-diagrams-tests.cjs
       - name: Geometry unit coverage and curriculum alignment
         run: node worksheet-generator/menu/tests/geometry-curriculum-tests.cjs
       - name: Menu rules, versions, editing, save/load
