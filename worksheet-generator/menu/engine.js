@@ -457,6 +457,7 @@
   function makeItem(state, slot, skill, c, salt, vIdx, si) {
     var cfg = state.config, set = sets[cfg.unitId];
     var p = formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, skill, c, policyOf(cfg), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state)); });
+    if (p.multiFail || p.mcasFail) return placeholder(slot, skill, c, set.byId[skill] ? set.byId[skill].tag : '', 'This skill cannot currently make the requested question format: ' + (p.multiFail || p.mcasFail) + ' Try another skill.');
     if (p.failed) return placeholder(slot, skill, c, set.byId[skill] ? set.byId[skill].tag : '', 'Could not make a verified ' + (set.byId[skill] ? set.byId[skill].name.toLowerCase() : skill) + ' problem at this difficulty (' + p.reason + '). Write your own or pick another skill.');
     p.slot = slot; return p;
   }
