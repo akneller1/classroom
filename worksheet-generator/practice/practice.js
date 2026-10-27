@@ -158,9 +158,9 @@ function answerControl(q,i){
  }).join('')+'</div></fieldset>';
  return '<div class="pt-math-response"><label class="pt-inline-answer" for="pt-answer-'+i+'">Final answer<input id="pt-answer-'+i+'" aria-label="Answer to question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" inputmode="text" placeholder="Type or use the keypad" value="'+esc(value)+'"></label>'+
  '<div class="pt-math-pad" data-math-pad="'+i+'" role="group" aria-label="Math symbols for question '+(i+1)+'">'+[
- ['−','-'],['/','/'],['x²','^2'],['xⁿ','^'],['√','\\\\sqrt{'],['≤','<='],['≥','>='],['≠','!='],['(', '('],[')',')'],['±','±'],['⌫','backspace']
+ ['−','-'],['/','/'],['x²','^2'],['xⁿ','^'],['√','sqrt('],['≤','<='],['≥','>='],['=','='],['(', '('],[')',')'],['+','+'],['⌫','backspace']
  ].map(function(k){return '<button type="button" data-math-insert="'+esc(k[1])+'" aria-label="'+esc(k[0]==='⌫'?'Delete previous character':'Insert '+k[0])+'">'+k[0]+'</button>';}).join('')+'</div>'+
- '<p class="pt-muted pt-pad-hint">Use / for fractions (for example 3/4), ^ for powers, and the keyboard for other letters or numbers.</p></div>';
+ '<p class="pt-muted pt-pad-hint">Use / for fractions (for example 3/4), ^ for powers, and √ for a square-root expression. Type numbers and variables normally; the grader accepts supported answer formats.</p></div>';
 }
 function assessmentHTML(){
  return '<div class="pt-student-intro"><strong>Directions:</strong> Do your work on paper, then enter or select your answer directly below each question. Use Print / Save PDF for a paper copy.</div>'+
