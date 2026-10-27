@@ -8,8 +8,40 @@ function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
+ if(spec.kind==='geo-triangle-landmark'){
+   var type=spec.case;
+   if(!['midsegment','centroid','altitude','bisector'].includes(type))return '';
+   function ln(x1,y1,x2,y2){return '<path d="M'+x1+' '+y1+' L'+x2+' '+y2+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
+   function dash(x1,y1,x2,y2){return '<path d="M'+x1+' '+y1+' L'+x2+' '+y2+'" stroke="#111" stroke-width="2" stroke-dasharray="6 5" fill="none"/>';}
+   var h2='';
+   if(type==='midsegment'){
+     // A(215,20), B(65,130), C(365,130); D/E are actual midpoints.
+     h2=ln(215,20,65,130)+ln(215,20,365,130)+ln(65,130,365,130)+ln(140,75,290,75)+
+       tx(215,14,'A')+tx(53,143,'B')+tx(377,143,'C')+tx(127,72,'D')+tx(303,72,'E')+
+       tx(215,69,'DE')+tx(215,148,'BC');
+   }else if(type==='centroid'){
+     // G divides AM in the ratio AG:GM=2:1.
+     h2=ln(215,20,65,130)+ln(215,20,365,130)+ln(65,130,365,130)+ln(215,20,215,130)+
+       '<circle cx="215" cy="93.33" r="4" fill="#111"/>'+
+       tx(215,14,'A')+tx(53,143,'B')+tx(377,143,'C')+tx(228,96,'G')+tx(215,147,'M');
+   }else if(type==='altitude'){
+     // D lies outside BC; this is an obtuse-triangle altitude.
+     h2=ln(110,20,185,130)+ln(110,20,365,130)+ln(185,130,365,130)+
+       dash(110,20,110,130)+dash(110,130,185,130)+
+       '<path d="M110 118 H122 V130" stroke="#111" stroke-width="1.6" fill="none"/>'+
+       tx(110,14,'A')+tx(183,146,'B')+tx(372,146,'C')+tx(97,145,'D')+tx(93,77,'AD');
+   }else{
+     // P is on the perpendicular bisector of AB; PA=PB.
+     h2=ln(115,35,115,125)+ln(115,80,305,80)+ln(305,80,115,35)+ln(305,80,115,125)+
+       '<path d="M115 68 H127 V80" stroke="#111" stroke-width="1.6" fill="none"/>'+
+       tx(102,31,'A')+tx(102,142,'B')+tx(116,98,'M')+tx(318,84,'P');
+   }
+   return '<div class="mm-geometry-figure" style="break-inside:avoid">'+
+     svg(h2,'Triangle geometry diagram: '+type)+
+     '<div style="font-size:10px;color:#555">Schematic, not to scale. Use the stated geometric givens.</div></div>';
+ }
  if(spec.kind==='geo-proof'){
    if(spec.case!=='shared'&&spec.case!=='vertical')return '';
    function segment(p,q){return '<path d="M'+p[0]+' '+p[1]+' L'+q[0]+' '+q[1]+'" stroke="#111" stroke-width="2.5" fill="none"/>';}
