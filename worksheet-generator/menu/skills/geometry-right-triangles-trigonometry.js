@@ -34,10 +34,35 @@ function elevation(ctx){
   'A surveyor observes the top of a building at an angle of elevation θ. The horizontal distance is '+run+' feet and tan θ = '+rise+'/'+run+'. Assuming level ground, find the building height x in feet.',
   eq,x,'Angle of elevation uses tangent = vertical rise / horizontal run.');
 }
+/* Connected Honors investigation using an exact Pythagorean triple. */
+function honorsSurvey(ctx){
+ var r=ctx.rng,c=ctx.c,t=triples[r.int(0,Math.min(triples.length-1,8))],k=r.int(2,c>=5?8:4);
+ var rise=t[0]*k,run=t[1]*k,hyp=t[2]*k;
+ var area=rise*run/2,perimeter=rise+run+hyp,shadow=2*run,tree=2*rise;
+ var eq1='x^2='+rise+'^2+'+run+'^2';
+ var eq2='2*y='+rise+'*'+run;
+ var eq3='z='+rise+'+'+run+'+'+hyp;
+ var eq4=run+'*w='+rise+'*'+shadow;
+ return {variant:'geo-right-honors-survey-'+c,
+  fig:{kind:'geo-right-triangle',case:'elevation'},
+  prompt:'Honors survey investigation. A surveyor stands '+run+' feet horizontally from a building whose roof is '+rise+' feet above the surveyor. The line of sight forms a right triangle. A second building is viewed at the same angle of elevation from '+shadow+' feet away on level ground. Show your reasoning for all four parts.',
+  parts:[
+   {prompt:'(a) Find the direct line-of-sight distance x. Use '+M(eq1)+' to find x.',answer:M('x='+hyp),check:{type:'geo-pythagorean',kind:'hyp',eq:eq1}},
+   {prompt:'(b) Find the area y of the first right triangle. Use '+M(eq2)+' to find y.',answer:M('y='+area),check:{type:'solve',eq:eq2,v:'y'}},
+   {prompt:'(c) Find the perimeter z of the first right triangle. Use '+M(eq3)+' to find z.',answer:M('z='+perimeter),check:{type:'solve',eq:eq3,v:'z'}},
+   {prompt:'(d) Find the height w of the second building, using the equal angle of elevation. Use '+M(eq4)+' to find w.',answer:M('w='+tree),check:{type:'solve',eq:eq4,v:'w'}}
+  ],
+  steps:[
+   step('Use the Pythagorean theorem for line of sight.',M(eq1)),
+   step('Area is half the product of the perpendicular legs.',M(eq2)),
+   step('Perimeter is the sum of the three side lengths.',M(eq3)),
+   step('Equal angles of elevation produce similar triangles.',M(eq4))
+  ],space:[2,2.6,3.2]};
+}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
-tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation'},
+tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation',HONORS:'Multistep surveying investigation'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
-gaps:['Starter bank only: radical-valued special triangle sides, inverse trig, angle of depression, non-integer trig answers, diagrams, and multistep Honors applications remain pending.'],
+gaps:['Starter bank only: radical-valued special triangle sides, inverse trig, angle of depression, non-integer trig answers, and additional non-integer trigonometry applications remain pending.'],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1,2],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1,2],generate:leg},
@@ -47,6 +72,7 @@ skills:[
 {id:'right-tangent-side',tag:'TRIG',name:'Tangent: missing opposite side',best:[0,1,2],generate:ctx=>trig(ctx,'tan')},
 {id:'right-special-45-45-90',tag:'SPECIAL',name:'Equal legs of a 45-45-90 triangle',best:[0,1,2],generate:special45},
 {id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1,2],generate:special30},
-{id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation}
+{id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation},
+{id:'right-honors-survey',tag:'HONORS',name:'Four-part surveying and similar triangles investigation',best:[2],generate:honorsSurvey}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
