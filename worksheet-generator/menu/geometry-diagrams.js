@@ -21,7 +21,7 @@ D.render=function(spec){
    h=line(A,B)+line(B,C)+line(C,A)+line(D,E)+line(E,F)+line(F,D);
    var k=spec.criterion;
    if(k==='sss'||k==='sas'||k==='hl')h+=mark(A,B,1)+mark(D,E,1);
-   if(k==='sss'||k==='sas')h+=mark(A,C,2)+mark(D,F,2);
+   if(k==='sss'||k==='sas'||k==='hl')h+=mark(A,C,2)+mark(D,F,2);
    if(k==='sss')h+=mark(B,C,3)+mark(E,F,3);
    if(k==='asa'||k==='aas')h+=mark(A,C,1)+mark(D,F,1);
    if(k==='asa')h+=mark(A,B,2)+mark(D,E,2);
