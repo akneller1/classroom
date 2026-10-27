@@ -15,10 +15,8 @@ const names=published.units.map(u=>u.name);
 assert.deepEqual(Array.from(catalog.units,x=>x[1].replace(/^Unit \d+ · /,'')),names,'Generator unit names/order drift');
 const supported=catalog.units.filter(([id])=>!!menu.skillSets[id]);
 const unsupported=catalog.units.filter(([id])=>!menu.skillSets[id]);
-assert.ok(supported.length>0,'Existing Geometry skill sets must remain registered');
-assert.deepEqual(Array.from(unsupported,x=>x[0]),[
-  'geometry-triangle-relationships','geometry-quadrilaterals-polygons','geometry-transformations'
-],'Unimplemented Geometry units must stay unsupported, not misrouted');
+assert.equal(supported.length,0,'Do not claim Geometry generator support before independent skill banks are registered');
+assert.equal(unsupported.length,10,'All Geometry unit generators remain disabled until verified question banks are implemented');
 assert.ok(!catalog.units.some(x=>x[0]==='geometry-coordinate-geometry-transformations'),
   'Legacy coordinate-geometry bank must not be passed off as standalone Transformations');
-console.log('Geometry curriculum aligned: '+catalog.units.length+' units, '+supported.length+' with legacy banks, '+unsupported.length+' explicitly unsupported.');
+console.log('Geometry curriculum aligned: '+catalog.units.length+' units, '+supported.length+' with verified banks, '+unsupported.length+' explicitly unsupported.');
