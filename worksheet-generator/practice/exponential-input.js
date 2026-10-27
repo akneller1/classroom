@@ -23,7 +23,7 @@ function graphic(q){
  return h+'</svg>';
 }
 API.render=function(q,i){
- var a=get(q);return '<div class="pt-exp-editor" data-expgraph="'+i+'"><strong>Graph using three points</strong><p class="pt-muted">Plot the y-values at x = −1, 0, and 1. Enter each y-value, including negative values if needed.</p>'+graphic(q)+
+ var a=get(q);return '<div class="pt-exp-editor" data-expgraph="'+i+'"><strong>Graph using three points</strong><p class="pt-muted">Plot the y-values at x = −1, 0, and 1. Tap the grid at x = −1, 0, and 1 to plot points, or enter each y-value below.</p>'+graphic(q)+
  '<div class="pt-interval-row">'+[-1,0,1].map(x=>'<label>x = '+x+'<input inputmode="decimal" type="text" data-exp-x="'+x+'" value="'+(a[x]===undefined?'':a[x])+'" placeholder="y-value"></label>').join('')+'</div></div>';
 };
 API.grade=function(q){
@@ -31,7 +31,12 @@ API.grade=function(q){
  for(var x of [-1,0,1]){var want=chk.a*Math.pow(chk.n/chk.d,x);if(a[x]===undefined||!Number.isFinite(+a[x])||Math.abs(+a[x]-want)>1e-7)return {status:'incorrect'};}
  return {status:'correct'};
 };
-API.bind=function(root,state,save){root.querySelectorAll('[data-expgraph]').forEach(function(box){var i=+box.dataset.expgraph,q=state.questions[i];box.querySelectorAll('[data-exp-x]').forEach(function(el){
+API.bind=function(root,state,save){root.querySelectorAll('[data-expgraph]').forEach(function(box){var i=+box.dataset.expgraph,q=state.questions[i];
+ box.onclick=function(e){var svg=e.target.closest('svg');if(!svg||!box.contains(svg))return;
+ var rect=svg.getBoundingClientRect(),x=Math.max(-1,Math.min(1,Math.round(((e.clientX-rect.left)/rect.width*340-170)/15))),y=Math.round((170-(e.clientY-rect.top)/rect.height*340)/15);
+ var a=get(q);a[x]=Math.max(-10,Math.min(10,y));q.response='expplot:'+JSON.stringify(a);save();svg.outerHTML=graphic(q);box.querySelector('[data-exp-x="'+x+'"]').value=a[x];
+ };
+ box.querySelectorAll('[data-exp-x]').forEach(function(el){
   el.oninput=function(){var a=get(q),raw=el.value.trim().replace(/−/g,'-');if(raw===''||raw==='-'){delete a[el.dataset.expX];}else if(/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw)){a[el.dataset.expX]=+raw;}else return;
     q.response='expplot:'+JSON.stringify(a);save();box.querySelector('svg').outerHTML=graphic(q);};
  });});};
