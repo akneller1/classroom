@@ -7,14 +7,14 @@ function corresponding(ctx,kind){
  var feature=kind==='side'?'corresponding sides':'corresponding angles';
  var unit=kind==='side'?' units':' degrees';
  return {variant:'geo-congruence-'+kind+'-'+c,
- prompt:'Triangles ABC and DEF are congruent, with A corresponding to D, B to E, and C to F. '+(kind==='side'?'AB and DE':'angle B and angle E')+' are '+feature+'. Their measures are '+M((a===1?'x':a+'x')+'+'+b)+' and '+value+unit+'. Find x.',
+ prompt:'Triangles ABC and DEF are congruent, with A corresponding to D, B to E, and C to F. '+(kind==='side'?'AB and DE':'angle B and angle E')+' are '+feature+'. Their measures are '+M((a===1?'x':a+'x')+'+'+b)+' and '+value+unit+'. Find x. Use '+M(eq)+' to find x.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Corresponding parts of congruent triangles are congruent.',M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
 function thirdAngle(ctx){
  var r=ctx.rng,c=ctx.c,x=r.int(25,85),other=r.int(25,Math.min(85,150-x)),third=180-x-other;
  var eq='x+'+other+'+'+third+'=180';
- return {variant:'geo-congruence-third-angle-'+c,prompt:'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angle A is '+other+'° and angle C is '+third+'°. Find angle B, called x, and explain why angle F must equal angle C.',
+ return {variant:'geo-congruence-third-angle-'+c,prompt:'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angle A is '+other+'° and angle C is '+third+'°. Find angle B, called x, and explain why angle F must equal angle C. Use '+M(eq)+' to find x.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Use the triangle angle sum.',M(eq)),step('The third angles match because both triangles sum to 180°.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
