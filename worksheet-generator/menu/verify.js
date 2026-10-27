@@ -210,6 +210,21 @@
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if(t === 'discrete-continuous'){
+      var scenarios={
+        'A student buys individual notebooks. The input is the number of notebooks purchased.':1,
+        'The height of a plant is measured over elapsed time. The input is elapsed time in hours.':2,
+        'Tickets sold for a school game are counted. The input is the number of tickets.':1,
+        'Water flows into a tank. The input is the number of minutes elapsed.':2,
+        'A classroom counts the number of students present. The input is the number of students.':1,
+        'A cyclist travels along a trail. The input is the distance ridden in miles.':2,
+        'A store charges per individual bag of apples. The input is the number of bags.':1,
+        'A bathtub drains steadily. The input is the volume of water remaining in gallons.':2
+      };
+      var want=scenarios[chk.scenario];
+      if(!want||p.prompt.indexOf(chk.scenario)<0)return {status:'invalid',msg:'Unknown or unprinted context.'};
+      return String(ans).trim()===String(want)?{status:'verified'}:{status:'mismatch',msg:'This context has a different domain type.'};
+    }
     if (t === 'ineq' || t === 'read-graph' || t === 'ineq-members' || t === 'error-line' || t === 'iscenario' || t === 'model-ineq') return checkIneqPart(p, part, policy);
     if (FUNC_TYPES.indexOf(t) >= 0) return checkFuncPart(p, part, policy);
     if (t === 'compound') return checkCompound(p, part);
