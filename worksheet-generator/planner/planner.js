@@ -187,7 +187,7 @@
     }
     // Optional sections are generated only when requested; summary is an alternative to an exit ticket.
     if (opts.include && opts.include.mixed) {
-      var mixed = sec('mixed', 'Mixed Review', { minutes: 10, prompt: 'Review previously learned skills. Show your reasoning.' });
+      var mixed = sec('mixed', 'Mixed Review', { minutes: 10 });
       group(mixed, '', doNow(plan, d, 4, t));
       var exitIndex = plan.sections.findIndex(function(s) { return s.id === 'exit'; });
       plan.sections.splice(plan.sections.indexOf(mixed), 1);
