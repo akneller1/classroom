@@ -30,10 +30,17 @@
       ['algebra1-exponential-functions', 'Unit 8 · Exponential Functions'], ['algebra1-polynomials', 'Unit 9 · Polynomials'],
       ['algebra1-factoring-zero-product', 'Unit 10 · Factoring and Zero Product Property'], ['algebra1-quadratics', 'Unit 11 · Quadratic Functions and Equations'],
       ['algebra1-statistics-data-modeling', 'Unit 12 · Statistics and Data Modeling']] },
-    { course: 'Geometry', units: [
-      ['geometry-basics-reasoning', 'Basics & Reasoning'], ['geometry-angles-parallel-lines', 'Angles & Parallel Lines'], ['geometry-triangles-congruence', 'Triangles & Congruence'],
-      ['geometry-similarity', 'Similarity'], ['geometry-right-triangles-trigonometry', 'Right Triangles & Trigonometry'], ['geometry-circles', 'Circles'],
-      ['geometry-area-surface-area-volume', 'Area, Surface Area & Volume'], ['geometry-coordinate-geometry-transformations', 'Coordinate Geometry & Transformations']] },
+    { course: 'Geometry', units: [ // match the ten units published in data.js
+      ['geometry-basics-reasoning', 'Unit 1 · Foundations of Geometry'],
+      ['geometry-angles-parallel-lines', 'Unit 2 · Angles and Parallel Lines'],
+      ['geometry-triangles-congruence', 'Unit 3 · Triangle Congruence'],
+      ['geometry-triangle-relationships', 'Unit 4 · Triangle Relationships'],
+      ['geometry-similarity', 'Unit 5 · Similarity'],
+      ['geometry-right-triangles-trigonometry', 'Unit 6 · Right Triangles and Trigonometry'],
+      ['geometry-quadrilaterals-polygons', 'Unit 7 · Quadrilaterals and Polygons'],
+      ['geometry-transformations', 'Unit 8 · Transformations'],
+      ['geometry-circles', 'Unit 9 · Circles'],
+      ['geometry-area-surface-area-volume', 'Unit 10 · Area, Surface Area and Volume']] },
     { course: 'Algebra 2', units: [
       ['algebra2-functions-transformations', 'Functions & Transformations'], ['algebra2-linear-functions-systems', 'Linear Functions & Systems'], ['algebra2-quadratic-functions-complex-numbers', 'Quadratic Functions & Complex Numbers'],
       ['algebra2-polynomial-functions', 'Polynomial Functions'], ['algebra2-radicals-rational-exponents', 'Radicals & Rational Exponents'], ['algebra2-exponential-logarithmic-functions', 'Exponential & Logarithmic Functions'],
