@@ -75,7 +75,7 @@
   NS.isTest = function (cfg) { return !!cfg && (cfg.mode === 'test' || cfg.mode === 'worksheet'); };
   NS.isWorksheet = function (cfg) { return !!cfg && cfg.mode === 'worksheet'; };
   NS.sectionFormat = function (cfg, si) { var f=(cfg.sections[si] && cfg.sections[si].qformat) || 'open'; return f === 'multi' && !NS.multiUnitSupported(cfg.unitId) ? 'open' : f; };
-  NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice', multi: 'Choose all that apply', mcas: 'MCAS-style open response (multi-part)' };
+  NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice', multi: 'Choose all that apply', mcas: 'Open Response (4+ parts)' };
 
   /* ---------------- configuration ---------------- */
   var uidN = 0;
@@ -103,7 +103,7 @@
       mc: [part('Multiple Choice', 'Choose the best answer.', 12, 'mc')],
       both: [part('Multiple Choice', 'Choose the best answer.', 8, 'mc'), part('Show Your Work', 'Show your work.', 6, 'open')],
       multi: [part('Choose All That Apply', 'Select every true statement.', 8, 'multi')],
-      mcas: [part('MCAS Open Response', 'Answer every part. Explain your reasoning.', 4, 'mcas')] }[preset] || [part('Practice', 'Show your work.', 12, 'open')];
+      mcas: [part('Open Response', 'Answer every part. Explain your reasoning.', 4, 'mcas')] }[preset] || [part('Practice', 'Show your work.', 12, 'open')];
   };
   NS.menuSections = function () {
     return [
@@ -389,7 +389,7 @@
   NS.makeMcas = function (p) {
     if (!p || p.failed || !p.verify || p.verify.status !== 'verified') return { fail: 'A verified problem is required.' };
     var parts = (p.parts || []).filter(function (x) { return x.prompt && x.answer; });
-    if (parts.length < 2) return { fail: 'The bank did not produce a connected problem with two or more answerable parts.' };
+    if (parts.length < 4) return { fail: 'Open Response requires at least four connected, verified parts.' };
     return { parts: parts.length };
   };
   /* Use a derived one-part version in place of the original problem (same slot, uid and flags). */
