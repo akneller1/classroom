@@ -6,7 +6,7 @@ var state=null,config={unit:'algebra1-expressions-equations',level:'cp1',count:1
 var esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 var fmt=s=>N.mathSafe(String(s||''));
 var levels={cp2:2,cp1:4,honors:6};
-function save(){try{localStorage.setItem(STORE,JSON.stringify({state:state,config:config}));}catch(e){}}
+function save(){try{localStorage.setItem(STORE,JSON.stringify({state:state,config:config}));}catch(e){}if(state&&!state.done)updateProgress();}
 function read(){try{var d=JSON.parse(localStorage.getItem(STORE)||'null');if(d&&d.config){config=d.config;state=d.state||null;}}catch(e){}}
 function units(){return N.CATALOG[0].units.filter(u=>N.skillSets[u[0]]);}
 function chosen(){return N.skillSets[config.unit];}
@@ -115,18 +115,43 @@ function paperHTML(){
  return '<div class="pt-paper-head"><span>MR. K’S CLASSROOM · ASSESSMENT READINESS</span><h2>'+esc(chosen().unitName||'Algebra 1')+'</h2><p>Name: ______________________________ Date: ______________</p><p><strong>Directions:</strong> Show all work on separate paper. Read the test below or print/save it as a PDF. Enter only your final answers into the numbered answer sheet on this page. Do not include your work in the answer boxes.</p></div>'+
  state.questions.map(function(q,i){return '<section class="pt-paper-question"><div class="pt-paper-number">'+(i+1)+'.</div><div class="pt-paper-content">'+problemHTML(q)+(q.kind==='mc'?'<div class="pt-paper-choices">'+q.choices.opts.map((v,j)=>'<div>'+ABC[j]+'. '+fmt(v)+'</div>').join('')+'</div>':'')+'</div></section>';}).join('');
 }
-function answerSheetHTML(){
- return '<section class="pt-card pt-answer-sheet" id="pt-answer-sheet"><h2>Student answer sheet</h2><p class="pt-muted">Work on paper. Enter the final response for each numbered question below. Multiple-choice: select A, B, C, or D.</p><div class="pt-answer-grid">'+state.questions.map(function(q,i){
-  var value=q.response===null?'':q.kind==='mc'?'ABCD'[q.response]||'':q.response;
-  if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKEXPGRAPH.render(q,i)+'</div>';
-  if(G.MKSYSTEM&&G.MKSYSTEM.target(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKSYSTEM.render(q,i)+'</div>';
-  if(G.MKLINE&&G.MKLINE.target(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKLINE.render(q,i)+'</div>';
-  if(G.MKPARABOLA&&G.MKPARABOLA.target(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKPARABOLA.render(q,i)+'</div>';
-  if(G.MKGRAPH&&G.MKGRAPH.supports(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKGRAPH.render(q,i)+'</div>';
-  if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q))return '<div class="pt-graph-answer"><strong>Question '+(i+1)+'</strong>'+G.MKGRAPH.pointHTML(q,i)+'</div>';
-  if(q.kind==='mc')return '<fieldset class="pt-mc-row" data-mc-question="'+i+'"><legend>Question '+(i+1)+'</legend><div class="pt-mc-buttons">'+['A','B','C','D'].map((letter,j)=>'<button type="button" class="pt-mc-choice'+(q.response===j?' selected':'')+'" data-mc-answer="'+i+'" data-mc-choice="'+j+'" aria-label="Question '+(i+1)+': choice '+letter+'" aria-pressed="'+(q.response===j?'true':'false')+'">'+letter+'</button>').join('')+'</div></fieldset>';
-  return '<label class="pt-answer-row"><span>'+(i+1)+'.</span><input aria-label="Answer for question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" placeholder="Your answer" value="'+esc(value)+'"></label>';
- }).join('')+'</div></section>';
+function isAnswered(q){return q.response!==null&&q.response!==undefined&&q.response!=='';}
+function updateProgress(){
+ if(!state||state.done||!root.querySelector('#pt-progress-count'))return;
+ var answered=state.questions.filter(isAnswered).length,total=state.questions.length;
+ root.querySelector('#pt-progress-count').textContent=answered+' of '+total+' answered';
+ root.querySelector('#pt-progress-fill').style.width=(total?100*answered/total:0)+'%';
+ root.querySelectorAll('[data-jump]').forEach(function(button){
+   var q=state.questions[+button.dataset.jump];
+   button.classList.toggle('answered',isAnswered(q));
+   button.classList.toggle('flagged',!!q.review);
+   button.setAttribute('aria-label','Question '+(+button.dataset.jump+1)+(isAnswered(q)?', answered':', unanswered')+(q.review?', marked for review':''));
+ });
+ root.querySelectorAll('[data-review-toggle]').forEach(function(button){
+   var marked=!!state.questions[+button.dataset.reviewToggle].review;
+   button.classList.toggle('pt-marked',marked);button.setAttribute('aria-pressed',String(marked));
+   button.textContent=marked?'Marked for review':'Mark for review';
+ });
+}
+function answerControl(q,i){
+ var value=q.response===null?'':q.response;
+ if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q))return G.MKEXPGRAPH.render(q,i);
+ if(G.MKSYSTEM&&G.MKSYSTEM.target(q))return G.MKSYSTEM.render(q,i);
+ if(G.MKLINE&&G.MKLINE.target(q))return G.MKLINE.render(q,i);
+ if(G.MKPARABOLA&&G.MKPARABOLA.target(q))return G.MKPARABOLA.render(q,i);
+ if(G.MKGRAPH&&G.MKGRAPH.supports(q))return G.MKGRAPH.render(q,i);
+ if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q))return G.MKGRAPH.pointHTML(q,i);
+ if(q.kind==='mc')return '<fieldset class="pt-mc-row pt-mc-inline" data-mc-question="'+i+'"><legend>Choose your answer</legend><div class="pt-mc-buttons">'+q.choices.opts.map(function(opt,j){
+   return '<button type="button" class="pt-mc-choice'+(q.response===j?' selected':'')+'" data-mc-answer="'+i+'" data-mc-choice="'+j+'" aria-pressed="'+(q.response===j?'true':'false')+'"><span class="pt-choice-letter">'+('ABCD'[j])+'</span><span class="pt-choice-text">'+fmt(opt)+'</span></button>';
+ }).join('')+'</div></fieldset>';
+ return '<label class="pt-inline-answer" for="pt-answer-'+i+'">Final answer<input id="pt-answer-'+i+'" aria-label="Answer to question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" inputmode="text" placeholder="Type your final answer" value="'+esc(value)+'"></label>';
+}
+function assessmentHTML(){
+ return '<div class="pt-student-intro"><strong>Directions:</strong> Do your work on paper, then enter or select your answer directly below each question. Use Print / Save PDF for a paper copy.</div>'+
+ state.questions.map(function(q,i){return '<section class="pt-card pt-student-question" id="pt-question-'+(i+1)+'" aria-labelledby="pt-q-label-'+i+'">'+
+ '<div class="pt-student-qhead"><span id="pt-q-label-'+i+'">Question '+(i+1)+' of '+state.questions.length+'</span><span class="pt-qskill">'+esc(q.skillName)+'</span></div>'+
+ problemHTML(q)+'<div class="pt-inline-control">'+answerControl(q,i)+'</div>'+
+ '<div class="pt-question-footer"><button type="button" class="pt-review-toggle" data-review-toggle="'+i+'" aria-pressed="'+(q.review?'true':'false')+'">'+(q.review?'Marked for review':'Mark for review')+'</button><span class="pt-saved-label">Autosaved on this device</span></div></section>';}).join('');
 }
 function printPaper(){
  var holder=G.document.createElement('div');holder.className='pt-print-standalone';holder.innerHTML=paperHTML();G.document.body.appendChild(holder);G.document.body.classList.add('pt-printing-paper');
@@ -145,15 +170,20 @@ function show(){
  if(state.done){results();return;}
  if(state.deadline&&Date.now()>=state.deadline){submit(true);return;}
  state.mode='test';
- root.innerHTML='<header class="pt-header"><div><span class="pt-eyebrow">ASSESSMENT READINESS · PRINT & RESPOND</span><h1>'+esc(chosen().unitName||'Algebra 1')+' Unit Test</h1><p class="pt-muted" id="pt-timer">'+(state.deadline?'Timed assessment':'Untimed assessment')+'</p></div><button class="pt-secondary" id="pt-exit">Save & exit</button></header><div class="pt-actions"><button id="pt-print-paper">Print / Save Test as PDF</button><button class="pt-secondary" id="pt-jump-answers">Go to answer sheet</button></div><div class="pt-paper" id="pt-paper">'+paperHTML()+'</div>'+answerSheetHTML()+'<div class="pt-actions"><button id="pt-submit">Submit answers for grading</button></div>';
+ root.innerHTML='<header class="pt-header"><div><span class="pt-eyebrow">ASSESSMENT READINESS</span><h1>'+esc(chosen().unitName||'Algebra 1')+' Unit Test</h1><p class="pt-muted" id="pt-timer">'+(state.deadline?'Timed assessment':'Untimed assessment')+'</p></div><button class="pt-secondary" id="pt-exit">Save & exit</button></header>'+
+ '<div class="pt-sticky-progress"><div class="pt-student-progress-row"><strong id="pt-progress-count"></strong><span>Answers save automatically</span></div><div class="pt-progress"><div id="pt-progress-fill"></div></div><nav class="pt-nav" aria-label="Jump to question">'+state.questions.map((q,i)=>'<button type="button" data-jump="'+i+'">'+(i+1)+'</button>').join('')+'</nav></div>'+
+ '<div class="pt-actions"><button id="pt-print-paper">Print / Save Test as PDF</button></div>'+
+ assessmentHTML()+'<section class="pt-card pt-finish"><h2>Ready to submit?</h2><p id="pt-finish-summary">Review your answers before submitting.</p><button id="pt-submit">Submit answers for grading</button></section>';
+
  root.querySelector('#pt-print-paper').onclick=printPaper;
- root.querySelector('#pt-jump-answers').onclick=()=>root.querySelector('#pt-answer-sheet').scrollIntoView({behavior:'smooth'});
  root.querySelector('#pt-exit').onclick=()=>{state.paused=true;save();setup();};
+ root.querySelectorAll('[data-jump]').forEach(function(b){b.onclick=()=>root.querySelector('#pt-question-'+(+b.dataset.jump+1)).scrollIntoView({behavior:'smooth',block:'start'});});
+ root.querySelectorAll('[data-review-toggle]').forEach(function(b){b.onclick=function(){var q=state.questions[+b.dataset.reviewToggle];q.review=!q.review;save();updateProgress();};});
  root.querySelectorAll('[data-mc-answer]').forEach(function(btn){
    btn.onclick=function(){
      var i=+btn.dataset.mcAnswer,q=state.questions[i],choice=+btn.dataset.mcChoice;
      q.response=q.response===choice?null:choice;
-     save();
+     save();updateProgress();
      var group=btn.closest('[data-mc-question]');
      group.querySelectorAll('[data-mc-answer]').forEach(function(b){
        var selected=q.response===+b.dataset.mcChoice;
@@ -165,15 +195,16 @@ function show(){
   el.oninput=function(){
    var i=+el.dataset.answer,q=state.questions[i],v=el.value.trim();
    q.response=q.kind==='mc'?(v?(/^[ABCD]$/i.test(v)?'ABCD'.indexOf(v.toUpperCase()):v):null):(v||null);
-   save();
+   save();updateProgress();
   };
  });
  if(G.MKGRAPH){G.MKGRAPH.bind(root,state,save);G.MKGRAPH.bindPoints(root,state,save);}if(G.MKLINE)G.MKLINE.bind(root,state,save);if(G.MKSYSTEM)G.MKSYSTEM.bind(root,state,save);if(G.MKEXPGRAPH)G.MKEXPGRAPH.bind(root,state,save);if(G.MKPARABOLA)G.MKPARABOLA.bind(root,state,save);
  root.querySelector('#pt-submit').onclick=()=>submit();
+ updateProgress();
  tickTimer();
 }
 function go(i){state.index=Math.max(0,Math.min(state.questions.length-1,i));save();show();}
-function submit(forced){var missing=state.questions.filter(q=>q.response===null||q.response==='').length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='mc'){q.correct=typeof q.response==='number'&&q.response===q.choices.key;}else if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q)){q.correct=G.MKEXPGRAPH.grade(q).status==='correct';}else if(G.MKSYSTEM&&G.MKSYSTEM.target(q)){q.correct=G.MKSYSTEM.grade(q).status==='correct';}else if(G.MKLINE&&G.MKLINE.target(q)){q.correct=G.MKLINE.grade(q).status==='correct';}else if(G.MKPARABOLA&&G.MKPARABOLA.target(q)){q.correct=G.MKPARABOLA.grade(q).status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q)){var gg=G.MKGRAPH.pointGrade(q);q.correct=gg.status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.supports(q)){var gg=G.MKGRAPH.grade(q);q.correct=gg.status==='correct';}else if(q.kind==='auto'){var g=G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct';if(g.status==='self')q.invalidResponse='This response could not be graded automatically.';else q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
+function submit(forced){var missing=state.questions.filter(q=>!isAnswered(q)).length;if(!forced&&!confirm('Submit assessment now? '+missing+' question(s) are unanswered. '+state.questions.filter(q=>q.review).length+' marked for review.'))return;state.questions.forEach(q=>{if(q.kind==='mc'){q.correct=typeof q.response==='number'&&q.response===q.choices.key;}else if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q)){q.correct=G.MKEXPGRAPH.grade(q).status==='correct';}else if(G.MKSYSTEM&&G.MKSYSTEM.target(q)){q.correct=G.MKSYSTEM.grade(q).status==='correct';}else if(G.MKLINE&&G.MKLINE.target(q)){q.correct=G.MKLINE.grade(q).status==='correct';}else if(G.MKPARABOLA&&G.MKPARABOLA.target(q)){q.correct=G.MKPARABOLA.grade(q).status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q)){var gg=G.MKGRAPH.pointGrade(q);q.correct=gg.status==='correct';}else if(G.MKGRAPH&&G.MKGRAPH.supports(q)){var gg=G.MKGRAPH.grade(q);q.correct=gg.status==='correct';}else if(q.kind==='auto'){var g=G.MKPRACTICE.grade(q.problem,q.response);q.correct=g.status==='correct';if(g.status==='self')q.invalidResponse='This response could not be graded automatically.';else q.invalidResponse=g.status==='invalid'?g.message:null;}if(q.kind==='self'&&(q.response===null||q.response===''))q.correct=false;q.checked=true;});state.done=true;state.finished=Date.now();save();results();}
 function stats(){var buckets={};state.questions.forEach(q=>{var b=buckets[q.skill]||(buckets[q.skill]={name:q.skillName,correct:0,graded:0,missing:0});if(q.correct===null)b.missing++;else{b.graded++;if(q.correct)b.correct++;}});return Object.entries(buckets).map(([id,b])=>Object.assign({id:id},b));}
 function recommendations(){
  var list=stats().filter(b=>b.graded>0).sort((a,b)=>a.correct/a.graded-b.correct/b.graded);
