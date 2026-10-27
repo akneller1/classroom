@@ -28,7 +28,9 @@
       var stored = JSON.parse(lsGet(KEY_SECTION_ORDER) || 'null');
       if (Array.isArray(stored)) {
         var valid = stored.filter(function(k, i) { return base.indexOf(k) >= 0 && stored.indexOf(k) === i; });
-        return valid.concat(base.filter(function(k) { return valid.indexOf(k) < 0; }));
+        var ordered = valid.concat(base.filter(function(k) { return valid.indexOf(k) < 0; }));
+        if (valid.indexOf('challenge') < 0) { ordered.splice(ordered.indexOf('challenge'), 1); var afterPractice = ordered.indexOf('practice'); ordered.splice(afterPractice < 0 ? ordered.length : afterPractice + 1, 0, 'challenge'); }
+        return ordered;
       }
     } catch(e) {}
     return base;
