@@ -319,7 +319,7 @@
       '<label class="pl-lab" for="plN">Practice problems (lesson and practice days)</label><input id="plN" type="number" min="4" max="20" value="' + ui.practice + '">' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
-      '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptx">Download PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
+      '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
       '<p class="hint">Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.</p>';
   }
   function render() {
@@ -366,9 +366,10 @@
     if (t.classList.contains('pl-delword')) { editRecord(ui.plan.day).words.splice(+t.getAttribute('data-i'), 1); saveNoteEdits(); rerenderKeep(); return; }
     if (t.id === 'plNotesReset') { delete P.noteEdits[ui.plan.day.lesson_id]; saveNoteEdits(); rerenderKeep(); return; }
     if (t.id === 'plResetMin') { delete minutesStore[ui.plan.day.day_type]; lsSet(KEY_MIN, JSON.stringify(minutesStore)); P.applyMinutes(ui.plan, null); var y0 = G.scrollY; renderView(); G.scrollTo(0, y0); return; }
-    if (t.id === 'plPptx') {
+    if (t.id === 'plPptxStudent' || t.id === 'plPptxTeacher') {
+      var audience = t.id === 'plPptxStudent' ? 'student' : 'teacher';
       var msg = $('#plPptxMsg'); t.disabled = true; msg.textContent = 'Building slides…';
-      P.exportPptx(ui.plan).then(function () { msg.textContent = 'Downloaded ' + P.deckFileName(ui.plan) + '.'; }, function (err) { msg.textContent = 'Could not build the PowerPoint: ' + (err && err.message || err); }).then(function () { t.disabled = false; });
+      P.exportPptx(ui.plan, audience).then(function () { msg.textContent = 'Downloaded ' + P.deckFileName(ui.plan, audience) + '.'; }, function (err) { msg.textContent = 'Could not build the PowerPoint: ' + (err && err.message || err); }).then(function () { t.disabled = false; });
       return;
     }
     if (t.classList.contains('tab') && t.getAttribute('data-view')) { ui.view = t.getAttribute('data-view'); renderView(); writeHash(); return; }
