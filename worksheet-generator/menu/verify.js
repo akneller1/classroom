@@ -217,7 +217,21 @@
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
       if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 2)
         return {status:'invalid',msg:'Invalid scenario part.'};
-      if (chk.variant === 'extension') {
+      if (chk.variant === 'interpret') {
+        if (unit==='algebra1-relations-functions' && nums.length===7 && nums[0]===0 && nums[2]===1 && nums[4]===2) {
+          var m=nums[3]-nums[1];
+          if(nums[5]===nums[1]+2*m) expected=[m,nums[1]+m*nums[6],nums[1]+m*(nums[6]+1)];
+        } else if(unit==='algebra1-linear-equations-slope' && nums.length===7 && nums[0]===0 && nums[2]===1 && nums[4]===2) {
+          var sl=nums[3]-nums[1];
+          if(nums[5]===nums[1]+2*sl) expected=[sl,nums[1]+sl*nums[6],2*sl];
+        } else if(unit==='algebra1-exponential-functions' && nums.length===7 && nums[0]===0 && nums[2]===1 && nums[4]===2 && nums[1]!==0) {
+          var ratio=nums[3]/nums[1];
+          if(nums[5]===nums[3]*ratio) expected=[ratio,nums[1]*Math.pow(ratio,nums[6]),nums[1]*Math.pow(ratio,nums[6])*(ratio-1)];
+        } else if(unit==='algebra1-statistics-data-modeling' && nums.length===5) {
+          var a5=nums.slice().sort(function(x,y){return x-y;});
+          expected=[a5[2],(a5[3]+a5[4]-a5[0]-a5[1])/2,a5.reduce(function(x,y){return x+y;},0)/5];
+        }
+      } else       if (chk.variant === 'extension') {
         if (unit === 'algebra1-foundations' && nums.length===3) expected=[a*b,a*b*d,(a+1)*b*d];
         else if (unit === 'algebra1-expressions-equations' && nums.length===3 && a>0 && (d-b)%a===0)
           expected=[d-b,(d-b)/a,d+(d-b)/a];
