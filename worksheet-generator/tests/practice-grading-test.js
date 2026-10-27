@@ -116,3 +116,17 @@ assert(padSource.includes("input.dispatchEvent(new Event('input',{bubbles:true})
 assert(padSource.includes("['−','-']"), 'signed answer key missing');
 assert(padSource.includes("['≤','<=']")&&padSource.includes("['≥','>=']"), 'inequality symbols missing');
 console.log('Math keypad insertion, signed answers and autosave integration checks passed.');
+
+
+/* Share controls appear on every unit self-assessment phase and remain setting-aware. */
+const shareSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
+assert(shareSource.includes('function shareControls()'), 'missing reusable student link component');
+assert(shareSource.includes('function bindShare()'), 'student share must bind to clipboard');
+assert(shareSource.includes('function refreshStudentLink()'), 'changing skills and settings must update shared link');
+assert((shareSource.match(/shareControls\(\)/g)||[]).length>=6, 'student link is not present in all assessment screens');
+assert(shareSource.includes("params.set('unit'")||shareSource.includes("['unit',config.unit]"),'unit must be included in student URL');
+for(const key of ['level','count','format','minutes','skills']){
+ assert(shareSource.includes("['"+key+"',"), 'student URL missing '+key);
+}
+assert(shareSource.includes("root.querySelector('#pt-print-paper')")&&shareSource.includes('bindShare();root.querySelector'), 'share action should appear during the live test too');
+console.log('Student link sharing and configurable assessment URL checks passed.');
