@@ -76,6 +76,14 @@ for (const scenario of ['shared','vertical']) {
   changed.parts[0].answer = 'INCORRECT REASON';
   assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
     'Incorrect proof reason must be rejected');
+  const wrongScaffold = JSON.parse(JSON.stringify(sample));
+  wrongScaffold.proofStatements[2] = 'Angle ABC is congruent to angle ADB';
+  assert.equal(menu.verifyProblem(wrongScaffold,{intOnly:true,level:'game'}).ok,false,
+    'Incorrect corresponding angle labels must be rejected');
+  const wrongEquation = JSON.parse(JSON.stringify(sample));
+  wrongEquation.proofStatements[3] = 'Solve ⟨x+9=99⟩ for x';
+  assert.equal(menu.verifyProblem(wrongEquation,{intOnly:true,level:'game'}).ok,false,
+    'Scaffold equation must agree with the original question');
   const wrongFigure = JSON.parse(JSON.stringify(sample));
   wrongFigure.fig.case = scenario === 'shared' ? 'vertical' : 'shared';
   // Proof reasons derive from the student-facing givens, not the drawing alone.
