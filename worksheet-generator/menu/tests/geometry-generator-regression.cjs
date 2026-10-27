@@ -35,4 +35,26 @@ for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','r
   assert.equal(menu.verifyProblem(tampered,{intOnly:true,level:'game'}).ok,false,
     skillId+' must reject a modified printed equation');
 }
+// Proof diagrams and independently checked reasons must agree with the printed givens.
+for (const scenario of ['shared','vertical']) {
+  let sample;
+  for (let n = 0; n < 100 && !sample; n++) {
+    const p = menu.generateProblem('geometry-triangles-congruence','congruence-structured-proof',5,
+      {intOnly:true,level:'game'},'proof-regression:'+scenario+':'+n,
+      {keys:new Set(),sigs:new Set()});
+    if (!p.failed && p.fig && p.fig.case === scenario) sample = p;
+  }
+  assert.ok(sample,'Expected a '+scenario+' proof');
+  assert.ok(menu.geoDiagram.validate(sample.fig),'Proof diagram must render');
+  assert.equal(sample.verify.status,'verified','Proof must verify');
+  const changed = JSON.parse(JSON.stringify(sample));
+  changed.parts[0].answer = 'INCORRECT REASON';
+  assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
+    'Incorrect proof reason must be rejected');
+  const wrongFigure = JSON.parse(JSON.stringify(sample));
+  wrongFigure.fig.case = scenario === 'shared' ? 'vertical' : 'shared';
+  // Proof reasons derive from the student-facing givens, not the drawing alone.
+  assert.equal(menu.verifyProblem(wrongFigure,{intOnly:true,level:'game'}).ok,true,
+    'Proof verifier must not silently use diagram type as the answer key');
+}
 console.log('Geometry generator regression passed: '+checks+' verified cards across '+units.length+' units.');
