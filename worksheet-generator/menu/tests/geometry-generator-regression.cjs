@@ -125,6 +125,21 @@ for(const c of [1,3,5,7]){
   assert.notEqual(menu.verifyProblem(changed).status,'verified',
     'Changing the printed inverse-trig ratio must invalidate the answer');
 }
+// Calculator inverse trig: decimal answers and tamper resistance.
+for(const c of [1,3,5,7]){
+  const p=menu.generateProblem('geometry-right-triangles-trigonometry',
+    'right-inverse-trig-decimal',c,{intOnly:true,level:'game'},
+    'inverse-decimal-regression:'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Decimal inverse trig must generate at tier '+c);
+  assert.equal(p.verify.status,'verified');
+  assert.equal(p.parts[0].check.roundTo,1);
+  assert.match(p.prompt,/nearest tenth of a degree/);
+  assert.ok(menu.geoDiagram.validate(p.fig));
+  const changed=Object.assign({},p,{prompt:p.prompt.replace(/x = (\d+)\/(\d+)/,
+    (_,a,b)=>'x = '+(Number(a)+1)+'/'+b)});
+  assert.notEqual(menu.verifyProblem(changed).status,'verified',
+    'Changing the printed decimal inverse-trig ratio must invalidate the answer');
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
