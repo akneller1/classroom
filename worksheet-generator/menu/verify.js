@@ -217,7 +217,31 @@
       var expected, unit = chk.unit, a = nums[0], b = nums[1], d = nums[2], e = nums[3];
       if (!Number.isInteger(chk.index) || chk.index < 0 || chk.index > 2)
         return {status:'invalid',msg:'Invalid scenario part.'};
-      if (chk.variant === 'interpret') {
+      if (chk.variant === 'applied') {
+        if (unit === 'algebra1-foundations' && nums.length===3)
+          expected=[a*b,(a-d)*b,d*b];
+        else if (unit === 'algebra1-expressions-equations' && nums.length===3)
+          expected=[a*b,a*b+d,(a+1)*b+d];
+        else if (unit === 'algebra1-inequalities' && nums.length===3 && d>0) {
+          var remaining=a-b;
+          expected=[remaining,Math.floor(remaining/d),remaining%d];
+        }
+        else if (unit === 'algebra1-systems-of-equations' && nums.length===4 && d!==e) {
+          var adultCount=(b-a*e)/(d-e),kidCount=a-adultCount;
+          if (Number.isInteger(adultCount)&&Number.isInteger(kidCount)&&adultCount>=0&&kidCount>=0)
+            expected=[adultCount,kidCount,kidCount*e];
+        }
+        else if (unit === 'algebra1-exponents-scientific-notation' && nums.length===3 && b>=0 && b<=9)
+          expected=[a*Math.pow(10,b),a*Math.pow(10,b)*d,a*Math.pow(10,b)];
+        else if (unit === 'algebra1-polynomials' && nums.length===3)
+          expected=[a+b,a*b,(d+a)*(d+b)];
+        else if (unit === 'algebra1-factoring-zero-product' && nums.length===2) {
+          var discr=a*a-4*b,sqrt=Math.sqrt(discr);
+          if (Number.isInteger(sqrt)) expected=[(a-sqrt)/2,(a+sqrt)/2,sqrt];
+        }
+        else if (unit === 'algebra1-quadratics' && nums.length===2)
+          expected=[Math.abs(a),b,b-1];
+      } else       if (chk.variant === 'interpret') {
         if (unit==='algebra1-relations-functions' && nums.length===7 && nums[0]===0 && nums[2]===1 && nums[4]===2) {
           var m=nums[3]-nums[1];
           if(nums[5]===nums[1]+2*m) expected=[m,nums[1]+m*nums[6],nums[1]+m*(nums[6]+1)];
