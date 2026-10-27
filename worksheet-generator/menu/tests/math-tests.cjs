@@ -406,7 +406,15 @@ if (INEQ && SETS.indexOf(INEQ) >= 0) for (let i = 0; i < 300; i++) {
 /* ---------- results ---------- */
 if (fails.length) {
   console.log('FAIL: ' + fails.length + ' of ' + checks + ' checks');
-  fails.slice(0, 40).forEach(f => console.log('  - ' + f));
+  // Group failures across all skills; printing only the first 40 concealed the actual causes.
+  const grouped=new Map();
+  fails.forEach(f=>{
+    const skill=(f.match(/(?:algebra1-[\\w-]+\\/)?[\\w-]+ c\\d+ (?:int|frac) #\\d+/)||[])[0]||f.slice(0,100);
+    const key=skill.replace(/ c\\d+ (?:int|frac) #\\d+/,'')+' :: '+(f.includes('failed to generate')?'generation':f.includes('not verified')?'verification':f.includes('format:')?'format':f.includes('difficulty')?'difficulty':'other');
+    const a=grouped.get(key)||{count:0,example:f};a.count++;grouped.set(key,a);
+  });
+  [...grouped].sort((a,b)=>b[1].count-a[1].count).slice(0,35).forEach(([key,v])=>console.log('  '+v.count+' × '+key+' | '+v.example));
+  console.log('First 15 failures in original order:');fails.slice(0,15).forEach(f=>console.log('  - '+f));
   process.exit(1);
 }
 console.log('PASS: ' + checks + ' checks, ' + caught + ' wrong keys caught, N=' + N);
