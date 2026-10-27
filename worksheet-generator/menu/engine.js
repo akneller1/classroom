@@ -344,9 +344,12 @@
   /* Additional worksheet-format bank: exact numeric truth statements, computed from
      verified answers. Requires at least two true and two false choices; never guesses. */
   function numberAnswer(a) {
-    a = String(a || '').trim().replace(/^⟨|⟩$/g, '');
+    a = String(a || '').trim().replace(/^⟨|⟩$/g, '').replace(/\s+/g, '');
+    a = a.replace(/^[a-zA-Z][a-zA-Z0-9_]*=/, '');
+    var tex = /^(-?)\\frac\{(\d+)\}\{(\d+)\}$/.exec(a);
+    if (tex && +tex[3] !== 0) return (tex[1] ? -1 : 1) * (+tex[2]) / (+tex[3]);
     var m = /^(-?\d+)(?:\/(\d+))?$/.exec(a);
-    if (m) return Number(m[1]) / Number(m[2] || 1);
+    if (m && (!m[2] || +m[2] !== 0)) return Number(m[1]) / Number(m[2] || 1);
     if (/^-?\d+\.\d+$/.test(a)) return Number(a);
     return null;
   }
@@ -360,7 +363,7 @@
       var q = cands[j].p, a = q.parts[0] && q.parts[0].answer, n = numberAnswer(a);
       if (n === null || !Number.isFinite(n)) continue;
       if (q !== p && !NS.verifyProblem(q, { intOnly: false }).ok) continue;
-      var rng = WS.rng.make(WS.rng.hash('multi-bank-v2|' + mcSource(q)));
+      var rng = WS.rng.make(WS.rng.hash('multi-bank-v3|' + mcSource(q)));
       var d = Math.max(1, Math.ceil(Math.abs(n) / 4));
       var bank = [
         { text: 'The answer equals ' + a + '.', op: 'eq', v: n },
@@ -413,6 +416,17 @@
     p.mcNote = m.note; p.key = NS.studentText(p).replace(/\s+/g, '') + (p.fig ? '|fig:' + JSON.stringify(p.fig) : '');
     m.src = mcSource(p); p.mc = m; delete p.mcFail; return p;
   }
+  var multiCache={};
+  NS.multiCapable=function(unit,skill,c){
+    var key=unit+'|'+skill+'|'+c;
+    if(multiCache[key]!==undefined)return multiCache[key];
+    var success=0;
+    for(var i=0;i<4;i++){
+      var p=NS.generateProblem(unit,skill,c,{intOnly:c<6,level:'cp1'},'multi-check-'+i,null);
+      if(!p.failed && !NS.makeMultiSelect(p).fail)success++;
+    }
+    return (multiCache[key]=success>0);
+  };
   var mcasCache = {};
   NS.mcasCapable = function (setId, skillId, c) {
     var key = setId + '|' + skillId + '|' + c;
@@ -469,6 +483,7 @@
         else delete p.mcasFail;
         return p;
       }
+      first[fmt === 'multi' ? 'multiFail' : 'mcasFail'] = 'No verified problem with the requested response format.';
       return first;
     }
     if (fmt !== 'mc') return p;
@@ -516,6 +531,14 @@
       var order = good.concat(rest);
       // spread tags: avoid two dishes of the same category next to each other when possible
       for (var i = 0; i < n; i++) out.push(order[i % (good.length && n <= good.length * 2 ? good.length : order.length)]);
+      if (NS.sectionFormat(cfg, si) === 'multi') {
+        out=out.map(function(id,i){
+          var c=NS.itemC(cfg,si,i,n);
+          if(NS.multiCapable(cfg.unitId,id,c))return id;
+          var eligible=order.filter(function(other){return NS.multiCapable(cfg.unitId,other,c);});
+          return eligible.length?eligible[i%eligible.length]:id;
+        });
+      }
       if (NS.sectionFormat(cfg, si) === 'mcas') {
         // Choose a skill that is verified to generate multipart work at the
         // ACTUAL difficulty of this slot (not just the middle section tier).
