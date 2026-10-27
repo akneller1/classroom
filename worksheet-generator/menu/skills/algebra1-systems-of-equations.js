@@ -240,6 +240,16 @@
     }
   });
 
+
+  // Lesson-specific aliases of independently verified generators; these remain selectable skills.
+  (function(){var base=skills.find(function(s){return s.id==="graph-hand";});if(!base)return;
+    skill({id:"graph-coordinate-inequality",best:base.best,tag:base.tag,name:"Graph a linear inequality in two variables",blurb:"Plot the boundary line and choose the correct shaded half-plane.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:1}));}});
+  })();
+  (function(){var base=skills.find(function(s){return s.id==="graph-hand";});if(!base)return;
+    skill({id:"graph-dashed-inequality",best:base.best,tag:base.tag,name:"Graph strict linear inequalities in two variables",blurb:"Use a dashed line and shade the correct half-plane.",
+      generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
+  })();
   NS.registerSkillSet({
     id: 'algebra1-systems-of-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'systems-of-equations', unitName: 'Systems of Equations and Inequalities',
     title: 'The Intersection Inn',
