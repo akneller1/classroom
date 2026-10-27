@@ -215,6 +215,7 @@
       var shared = /Triangles ABC and ABD share side AB/.test(words);
       var vertical = /Lines AC and BD intersect at O/.test(words);
       if (shared === vertical) return {status:'invalid',msg:'Unrecognized or ambiguous proof givens.'};
+      if (!p.fig || p.fig.kind !== 'geo-proof' || p.fig.case !== (shared ? 'shared' : 'vertical') || !NS.geoDiagram || !NS.geoDiagram.validate(p.fig)) return {status:'invalid',msg:'Proof diagram conflicts with the printed givens.'};
       var stage = chk.stage, expected;
       if (stage === 'first') expected = shared ? 'REFLEXIVE PROPERTY' : 'VERTICAL ANGLES THEOREM';
       else if (stage === 'congruence') expected = shared ? 'SSS' : 'SAS';
