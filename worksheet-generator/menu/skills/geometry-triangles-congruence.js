@@ -61,10 +61,10 @@ function criterion(ctx,kind){
 
 function identify(ctx){
  var r=ctx.rng,c=ctx.c,kinds=['sss','sas','asa','aas','hl','ssa','aaa'];
- var kind=kinds[r.int(0,kinds.length-1)],answer=(kind==='ssa'||kind==='aaa')?'NOT SUFFICIENT':kind.toUpperCase();
+ var kind=kinds[r.int(0,kinds.length-1)],setting=r.int(0,5),answer=(kind==='ssa'||kind==='aaa')?'NOT SUFFICIENT':kind.toUpperCase();
  return {variant:'geo-identify-criterion-'+kind+'-'+c,
   fig:{kind:'geo-triangle-pair',criterion:kind},
-  prompt:'Use the marked triangle pairs to determine whether triangle congruence is established. Identify the criterion (SSS, SAS, ASA, AAS, or HL), or write NOT SUFFICIENT if the markings do not prove congruence. Matching tick marks and angle arcs indicate corresponding equal parts. The diagram is schematic and not to scale.',
+  prompt:['Use the marked triangle pairs to determine whether triangle congruence is established.','Examine the two marked triangles and decide whether their congruence is guaranteed.','A student claims the marked triangles must be congruent. Decide whether the markings justify that claim.','Determine what, if anything, the equal sides and angles establish about the triangles.','Inspect the given triangle markings and identify the applicable congruence rule, if one exists.','Consider only the marked information. Is triangle congruence guaranteed?'][setting]+' Identify the criterion (SSS, SAS, ASA, AAS, or HL), or write NOT SUFFICIENT if the markings do not prove congruence. Matching tick marks and angle arcs indicate corresponding equal parts. The diagram is schematic and not to scale.',
   parts:[{answer:answer,check:{type:'geo-congruence-criterion'}}],
   steps:[step(kind==='ssa'?'SSA is not a valid general triangle congruence theorem.':kind==='aaa'?'AAA establishes similarity, not necessarily congruence.':'The marked corresponding parts establish '+answer+' congruence.',answer)],
   space:[1.2,1.5,1.8]};
