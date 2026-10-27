@@ -113,7 +113,8 @@
         dn = sec('donow', 'Do Now', { minutes: 5 }); group(dn, '', doNow(plan, d, 4, t));
         notes = sec('notes', 'Notes', { minutes: 15 });
         var nEx = /pre-filled/i.test(d.notes_style || '') ? 2 : 3;
-        group(notes, 'Examples', items(plan, 'ex', interleave(cov), nEx, function (i) { return t[Math.min(2, i)]; }));
+        var examples = sec('examples', 'Examples', { minutes: 10 });
+        group(examples, '', items(plan, 'ex', interleave(cov), nEx, function (i) { return t[Math.min(2, i)]; }));
         pr = sec('practice', 'Practice', { minutes: 20 });
         var rot = interleave(cov);
         group(pr, 'Practice set 1', items(plan, 'wd', rot, 2, fixed(t[0])));
