@@ -11,7 +11,7 @@
   if(a>1){target=r.int(8,Math.floor((limit-10)/a));fixed=limit-a*target;}
   var left=a===1?'x':a+'x',eq=left+'+'+fixed+'='+limit;
   var description=kind==='complement'?'Two complementary angles':'Two supplementary angles';
-  var prompt=description+' measure '+M(left)+' degrees and '+fixed+' degrees. Find x. Use '+M(eq)+'.';
+  var prompt=description+' have measures that add to '+limit+' degrees. Find x using '+M(eq)+'.';
   return {variant:'geo-'+kind+'-'+c,prompt,parts:[{answer:M('x='+target),check:{type:'solve',eq,v:'x'}}],steps:[st('The two angles add to '+limit+' degrees.',M(eq)),st('Solve for x.',M('x='+target))],space:[1,1.3,1.6]};
  }
  NS.registerSkillSet({id:'geometry-angles-parallel-lines',course:'geometry',courseName:'Geometry',unit:'angles-parallel-lines',unitName:'Angles and Parallel Lines',title:'Angle Relationships',
