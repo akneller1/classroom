@@ -163,6 +163,9 @@
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '.</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
     var fmt = NS.sectionFormat(cfg, si), mc = fmt === 'mc' && p.mc, multi = fmt === 'multi' && p.multi, mcas = fmt === 'mcas';
+    if ((fmt === 'multi' && (!multi || !Array.isArray(p.multi.keys) || p.multi.keys.length < 2)) || (mcas && p.mcasFail)) {
+      return '<div class="mm-dish mm-missing"><div class="mm-q">[No valid question for this format. Regenerate or select another skill before printing.]</div></div>';
+    }
     var space = mc || multi ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: mcas ? 'spacious' : cfg.layout.density, grid: cfg.layout.grid } });
     return '<div class="mm-dish mm-tq' + (mcas || multi || isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span>' + (NS.isWorksheet(cfg) ? '' : '<span class="mm-pts">' + ptsText(+sec.points) + '</span>') + '</div>' +
       promptHtml(p) + (mc ? choicesHtml(p) : multi ? multiHtml(p) : '') + (fmt === 'multi' && !multi ? '<p class="mm-flag bad">Cannot make verified choices: ' + esc(p.multiFail || 'Try another skill') + '</p>' : '') + (mcas && p.mcasFail ? '<p class="mm-flag bad">Cannot make a verified multi-part problem: ' + esc(p.mcasFail) + '</p>' : '') + space + '</div>';
