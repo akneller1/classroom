@@ -591,6 +591,12 @@
     }
     function category(id, title, formats) {
       var matches = items.filter(function (it) { return formats.indexOf(activityFormat(it.a)) >= 0; });
+      // Include the practice test deterministically in each supported Algebra 1 unit.
+      // Use the same card renderer and thumbnail as the other study guides.
+      if (id === 'study-guides') {
+        var current = items.filter(function (it) { return /practice-test[.]html/i.test(it.a.path || ''); });
+        if (current.length && !matches.some(function (it) { return /practice-test[.]html/i.test(it.a.path || ''); })) matches.push(current[0]);
+      }
       if (!matches.length) return '';
       return '<section class="algebra-unit-section" aria-labelledby="algebra-' + id + '">' +
         '<h2 id="algebra-' + id + '">' + esc(title) + '</h2>' +
