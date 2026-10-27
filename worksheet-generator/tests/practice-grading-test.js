@@ -59,3 +59,17 @@ const sq={problem:graphProblem('',{type:'graph-key',eqs:['y=2x+1','y=-x+4']}),re
 assert.strictEqual(S.grade(sq).status,'correct');passed++;
 assert.strictEqual(S.grade({...sq,response:'system:'+JSON.stringify([[[0,1],[1,3]],[[0,4],[1,4]]])}).status,'incorrect');passed++;
 console.log('Interactive graph graders: 9 additional exact-check assertions passed.');
+
+
+/* Ensure the report never crashes on unanswered questions or serialized graph answers. */
+const practiceSource=fs.readFileSync(path.join(base,'practice/practice.js'),'utf8');
+const labelStart=practiceSource.indexOf('function responseLabel(q){');
+const labelEnd=practiceSource.indexOf('\nfunction results(){',labelStart);
+assert(labelStart>=0&&labelEnd>labelStart,'Response label helper must exist');
+const responseLabel=new Function(practiceSource.slice(labelStart,labelEnd)+';return responseLabel;')();
+assert.strictEqual(responseLabel({response:null}),'(blank)');
+assert.strictEqual(responseLabel({response:''}),'(blank)');
+assert.strictEqual(responseLabel({response:'line:{"points":[]}'}),'Drawn line and shading');
+assert.strictEqual(responseLabel({response:'point:-2,3'}),'Plotted point -2,3');
+assert(practiceSource.includes("if(q.kind==='mc'){q.correct="),'Multiple-choice must not be graded again as a free-response question');
+console.log('Report and multiple-choice regression assertions passed.');
