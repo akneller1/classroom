@@ -52,7 +52,8 @@ function parallelSegment(ctx){
 function parallelHonors(ctx){
  var r=ctx.rng,c=ctx.c,ad=r.int(3,8),db=r.int(2,7),factor=r.int(2,5);
  var ae=ad*factor,ec=db*factor,ab=ad+db,ac=ae+ec;
- var de=r.int(4,12),bc=de*ab/ad;
+ /* Keep all four answers integral, including BC and the perimeter, even at tier 1. */
+ var de=ad*r.int(2,4),bc=de*ab/ad;
  var p=ab+ac+bc;
  return {variant:'geo-sim-parallel-honors-'+c,
   fig:{kind:'geo-similar-pair',case:'parallel'},
