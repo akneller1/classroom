@@ -336,7 +336,7 @@
     var skillName = sk ? sk.name : (p.manual ? 'Teacher-written problem' : p.skill);
     var body = p.failed ? '<p class="mm-failmsg">' + esc(p.reason) + '</p>' : promptBlock(p);
     if (!p.failed && NS.sectionFormat(c, si) === 'multi') {
-      if (p.multi) body += '<p class="mm-fmtnote">Select all values satisfying the inequality.</p><ol class="mm-cchoices one">' + p.multi.opts.map(function (o, k) { return '<li' + (show && p.multi.keys.indexOf(k) >= 0 ? ' class="ok"' : '') + '><b>□ ' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && p.multi.keys.indexOf(k) >= 0 ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>';
+      if (p.multi) body += '<p class="mm-fmtnote">Select all values satisfying the inequality.</p><ol class="mm-cchoices one">' + p.multi.opts.map(function (o, k) { return '<li' + (show && p.multi.keys.indexOf(k) >= 0 ? ' class="ok"' : '') + '><b style="display:inline-flex;align-items:center;gap:7px;margin-right:8px;"><span style="display:inline-block;width:15px;height:15px;border:1.5px solid currentColor;border-radius:2px;box-sizing:border-box;"></span>' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && p.multi.keys.indexOf(k) >= 0 ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>';
       else body += '<p class="mm-fmtnote bad">No valid select-all problem: ' + esc(p.multiFail || 'try another skill') + '</p>';
     }
     if (!p.failed && NS.sectionFormat(c, si) === 'mcas' && p.mcasFail) body += '<p class="mm-fmtnote bad">Not a verified four-part Open Response problem: ' + esc(p.mcasFail) + '</p>';
