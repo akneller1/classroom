@@ -39,7 +39,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .q{margin:8px 0 2px}
 #key{display:none;max-width:1050px;margin:0 auto 30px;padding:0 16px}
 </style></head><body>
-<header><h1>🔬 The Shrink-Ray Workshop</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">30:00</span></div></header>
+<header><h1>🔬 The Shrink-Ray Workshop</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
 <script>
@@ -48,7 +48,7 @@ const sup=e=>`<sup>${e}</sup>`;
 const sub=e=>`<sub>${e}</sub>`;
 const ROOM={
  id:'similarity', title:'The Shrink-Ray Workshop', emoji:'🔬', endEmoji:'🏘️🔬',
- intro:'Professor Pico’s shrink ray just zapped your whole class. You are now 3 inches tall, trapped inside her miniature-model workshop. The grow-back machine needs a password, and the ray recharges in <b>30 minutes</b>. Use scale factors and similar triangles to find it.',
+ intro:'Professor Pico’s shrink ray just zapped your whole class. You are now 3 inches tall, trapped inside her miniature-model workshop. The grow-back machine needs a password, and the ray recharges in <b>10 minutes</b>. Use scale factors and similar triangles to find it.',
  finalStory:'The Grow-Back Machine glows. “Sort your key cards from the smallest stamp to the largest. The letters tell me what kind of town you were shrunk into.”',
  finalAsk:'What kind of town?', word:'MODEL',
  outro:'FWOOMP! You grow back to full size, with a tiny model town sitting safely on the table. Professor Pico gasps: “Perfect proportions!” and gives everyone extra credit.',
@@ -92,7 +92,7 @@ const ROOM={
   key:`AB = 4 + 2 = 6, so the scale factor is ${fr('4','6')} = ${fr('2','3')}. ${fr('6','BC')} = ${fr('2','3')} gives BC = 9. Area ratio = 2 squared : 3 squared = 4 : 9.`}
  ]};
 
-const TOTAL=30*60, HINT_COST=90, STAGES=ROOM.stages;
+const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;
 let t=TOTAL, used=0, stage=-1, timer=null, cards=[], hintsShown={}, st={};
 const $=s=>document.querySelector(s);
 const ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -151,7 +151,7 @@ function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.ran
 function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():say('Nothing happens. Re-check the order of the cards.',false)}
 function victory(){$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
 function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
-function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>30 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
+function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
 if(location.hash=='#key'){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
 intro();
 </script></body></html>
