@@ -320,6 +320,22 @@
     skill({id:"exponential-graph-features",best:base.best,tag:base.tag,name:"Read exponential graph features",blurb:"Determine domain, range and growth/decay from exponential graphs.",
       generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
   })();
+  /* Student-ready exponential graphing with three integer-coordinate anchor points. */
+  skill({
+    id:'exp-graph-hand',best:[0,1],tag:'GROWTH',name:'Graph an exponential function by plotting points',
+    blurb:'Plot points for x = −1, 0 and 1, then see the growth/decay curve.',
+    generate:function(ctx){
+      var r=ctx.rng,pick=r.pick([[2,2,1],[4,2,1],[3,3,1],[4,1,2],[3,1,3]]);
+      var a=pick[0],n=pick[1],d=pick[2],base=d===1?String(n):'\\left(\\frac{'+n+'}{'+d+'}\\right)';
+      var eq='y='+a+'\\cdot '+base+'^{x}',values=[a*d/n,a,a*n/d];
+      var steps=[step('Evaluate the rule at x = −1, 0, and 1.', '',2),
+        step('Plot the three points and draw a smooth growth or decay curve.', '',2)];
+      return {variant:'explot'+a+'-'+n+'-'+d,prompt:'Graph '+M(eq)+'. Plot points for '+M('x=-1')+', '+M('x=0')+', and '+M('x=1')+'.',
+        parts:[{answer:M(String(a)),check:{type:'exp-graph-points',a:a,n:n,d:d,eq:eq}}],
+        steps:steps,space:[0.8,1,1.2]};
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-exponential-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponential-functions', unitName: 'Exponential Functions',
     title: 'The Exponential Eatery',
