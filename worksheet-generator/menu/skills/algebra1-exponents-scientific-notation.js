@@ -246,6 +246,7 @@
     skill({id:"simplify-radicals",best:base.best,tag:base.tag,name:"Simplify radicals using perfect-square factors",blurb:"Rewrite square roots in simplest radical form.",
       generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
   })();
+  (function(){var parent=skills.find(function(s){return s.id==="pow-eval";});if(parent)skill({id:"rational-exponents",best:parent.best,tag:parent.tag,name:"Evaluate rational exponents",blurb:"Evaluate powers with fractional exponents using nth roots.",generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:6}));}});})();
   NS.registerSkillSet({
     id: 'algebra1-exponents-scientific-notation', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponents-exponential-functions', unitName: 'Exponents and Scientific Notation',
     title: 'The Power Pantry',
