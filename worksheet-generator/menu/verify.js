@@ -501,6 +501,14 @@
       if (!given || !C.equivalent(given, lhs)) return {status:'invalid',msg:'Displayed geometric measure differs from equation.'};
     }
     if (t === 'solve') {
+      // For congruence applications, the equation must follow from the
+      // side lengths the student actually sees, not just a hidden check.eq.
+      if (/^geo-criterion-/.test(p.variant || '')) {
+        var printed = /[A-Z]{2} = ⟨([^⟩]+)⟩ units and [A-Z]{2} = (\d+) units/.exec(p.prompt || '');
+        if (!printed || printed[1]+'='+printed[2] !== chk.eq) {
+          return {status:'invalid',msg:'Congruence equation conflicts with the printed side lengths.'};
+        }
+      }
       var s = C.solveLinear(chk.eq, chk.v);
       if (s.kind !== 'one') return { status: 'invalid', msg: s.kind === 'none' ? 'This equation has no solution.' : 'Every number is a solution of this equation.' };
       if (policy && policy.intOnly && !s.value.isInt()) return { status: 'invalid', msg: 'The solution is not a whole number.', computed: chk.v + '=' + qText(s.value) };
