@@ -325,16 +325,23 @@
     id:'exp-graph-hand',difficultyProfile:'focused',best:[0,1],tag:'GROWTH',name:'Graph an exponential function by plotting points',
     blurb:'Plot points for x = −1, 0 and 1, then see the growth/decay curve.',
     generate:function(ctx){
-      var r=ctx.rng,pick=r.pick([[2,2,1],[4,2,1],[3,3,1],[4,1,2],[3,1,3]]);
-      var a=pick[0],n=pick[1],d=pick[2],base=d===1?String(n):'\\left(\\frac{'+n+'}{'+d+'}\\right)';
-      var eq='y='+a+'\\cdot '+base+'^{x}',values=[a*d/n,a,a*n/d];
-      var pts=[];for(var x=-4;x<=4;x+=0.125){var y=a*Math.pow(n/d,x);if(y>=-10&&y<=10)pts.push([x,y]);}
+      var r=ctx.rng,n=r.int(1,4),d=r.int(1,4),a=r.int(1,8),k=r.int(-6,5);
+      need(n!==d && a*d%n===0 && a*n%d===0);
+      var base=d===1?String(n):'\\left(\\frac{'+n+'}{'+d+'}\\right)';
+      var suffix=k===0?'':(k>0?'+'+k:String(k));
+      var eq='y='+a+'\\cdot '+base+'^{x}'+suffix;
+      var values=[a*d/n+k,a+k,a*n/d+k];
+      need(values.every(function(v){return Number.isInteger(v)&&Math.abs(v)<=9;}));
+      var pts=[];
+      for(var x=-4;x<=4;x+=0.125){var y=a*Math.pow(n/d,x)+k;if(y>=-10&&y<=10)pts.push([x,y]);}
+      need(pts.length>=5);
       var key=plane([-10,10,-10,10],{curves:[pts],points:[{x:-1,y:values[0]},{x:0,y:values[1]},{x:1,y:values[2]}]});
-      var steps=[step('Evaluate the rule at x = −1, 0, and 1.', '',2),
+      var steps=[step('Evaluate the function at x = −1, 0, and 1.', '',2),
         step('Plot the three points and draw a smooth growth or decay curve.', '',2)];
-      return {variant:'explot'+a+'-'+n+'-'+d,prompt:'Graph '+M(eq)+'. Plot points for '+M('x=-1')+', '+M('x=0')+', and '+M('x=1')+'.',
-        fig:plane([-10,10,-10,10]),parts:[{answer:M(String(a)),answerFig:key,check:{type:'exp-graph-points',a:a,n:n,d:d,eq:eq}}],
+      return {variant:'explot'+a+'-'+n+'-'+d+'-'+k,prompt:'Graph '+M(eq)+'. Plot points for '+M('x=-1')+', '+M('x=0')+', and '+M('x=1')+'.',
+        fig:plane([-10,10,-10,10]),parts:[{answer:M(String(a+k)),answerFig:key,check:{type:'exp-graph-points',a:a,n:n,d:d,k:k,eq:eq}}],
         steps:steps,space:[0.8,1,1.2]};
+
     }
   });
 
