@@ -19,7 +19,7 @@
   function T(s) { return P.mathText(s || ''); }
   function lessonTitle(id) { var l = P.lessonById(id); return l ? l.title : id; }
   function problemText(p) {
-    var t = T(p.prompt || ''), parts = (p.parts || []).filter(function (x) { return x.prompt; });
+    var t = T(p.prompt || '') + (p.challengeQuestion ? '\nGO FURTHER: ' + T(p.challengeQuestion) : ''), parts = (p.parts || []).filter(function (x) { return x.prompt; });
     if (p.work && p.work.length) t += '\n' + p.work.map(function (w, i) { return 'Line ' + (i + 1) + ': ' + T('⟨' + w + '⟩'); }).join('\n');
     if (parts.length) t += '\n' + parts.map(function (x) { return (x.label ? '(' + x.label + ') ' : '') + T(x.prompt); }).join('\n');
     return t;
