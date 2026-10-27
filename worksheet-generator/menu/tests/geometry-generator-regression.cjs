@@ -140,6 +140,25 @@ for(const c of [1,3,5,7]){
   assert.notEqual(menu.verifyProblem(changed).status,'verified',
     'Changing the printed decimal inverse-trig ratio must invalidate the answer');
 }
+// Exact radical checks must reject tampered side lengths.
+for(const id of ['right-special-radical','right-angle-depression']){
+ for(const c of [1,3,5,7]){
+  const p=menu.generateProblem('geometry-right-triangles-trigonometry',id,c,
+   {intOnly:true,level:'game'},'special-radical:'+id+':'+c,
+   {keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'New right triangle skill must generate '+id);
+  assert.equal(p.verify.status,'verified');
+  assert.ok(menu.geoDiagram.validate(p.fig));
+  if(id==='right-special-radical'){
+   assert.equal(p.parts[0].check.type,'geo-special-radical');
+   assert.match(p.parts[0].answer,/sqrt/);
+   const changed=Object.assign({},p,{prompt:p.prompt.replace(/of length (\d+) units/,
+    (_,n)=>'of length '+(Number(n)+1)+' units')});
+   assert.notEqual(menu.verifyProblem(changed).status,'verified',
+    'Changing printed special-triangle side must invalidate radical answer');
+  }
+ }
+}
 // Unit 4 must retain the expanded curriculum, including four-part Open Response.
 const triangleUnit = menu.skillSets['geometry-triangle-relationships'];
 for (const id of ['triangle-inequality-max-integer','triangle-midsegment-length',
