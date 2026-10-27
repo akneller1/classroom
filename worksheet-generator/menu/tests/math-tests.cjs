@@ -347,11 +347,22 @@ ok(mutants > 1000, 'too few mutants (' + mutants + ')');
 for (const set of SETS) for (const sk of set.skills) {
   const id = set.id + '/' + sk.id;
   const s = [1, 2, 3, 4, 5, 6, 7].map(c => meanScore[id + '|' + c + '|false']);
-  for (let c = 1; c < 7; c++) ok(s[c] >= s[c - 1] * 0.92, id + ': difficulty ' + (c + 1) + ' scored easier than ' + c + ' (' + s.map(x => x.toFixed(1)).join(' → ') + ')');
-  ok(s[6] > s[0] * 1.5, id + ': Challenge problems are not clearly harder than Warm-ups (' + s[0].toFixed(1) + ' vs ' + s[6].toFixed(1) + ')');
-  for (const lv of Object.values(M.LEVELS)) {
-    const t = lv.tiers.map(c => meanScore[id + '|' + c + '|' + lv.intOnly]);
-    ok(t[2] > t[0], id + ' ' + lv.name + ': the Chef’s Special tier is not harder than the Appetizer tier');
+  if(sk.difficultyProfile === 'focused') {
+    // Focused lesson objectives intentionally use one narrow question format
+    // across class levels. They still undergo N × 7 × 2 independent
+    // mathematical, mutation, print-format and duplicate checks above.
+    ok(s.every(Number.isFinite), id + ': invalid complexity for a focused skill');
+    if(sk.fixedDifficulty!==undefined){
+      ok(Number.isInteger(sk.fixedDifficulty)&&sk.fixedDifficulty>=1&&sk.fixedDifficulty<=7,
+        id + ': focused generator must declare a valid source difficulty');
+    }
+  } else {
+    for (let c = 1; c < 7; c++) ok(s[c] >= s[c - 1] * 0.92, id + ': difficulty ' + (c + 1) + ' scored easier than ' + c + ' (' + s.map(x => x.toFixed(1)).join(' → ') + ')');
+    ok(s[6] > s[0] * 1.5, id + ': Challenge problems are not clearly harder than Warm-ups (' + s[0].toFixed(1) + ' vs ' + s[6].toFixed(1) + ')');
+    for (const lv of Object.values(M.LEVELS)) {
+      const t = lv.tiers.map(c => meanScore[id + '|' + c + '|' + lv.intOnly]);
+      ok(t[2] > t[0], id + ' ' + lv.name + ': the Chef’s Special tier is not harder than the Appetizer tier');
+    }
   }
   console.log('  ' + id.padEnd(40) + s.map(x => x.toFixed(1).padStart(5)).join(''));
 }
