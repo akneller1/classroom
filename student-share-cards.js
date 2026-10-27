@@ -50,8 +50,90 @@
     });
   }
 
+
+  /* Course unit cards: open assessment setup before copying a student URL. */
+  var readinessUnits = {
+    'foundations-algebra':'algebra1-foundations',
+    'expressions-equations':'algebra1-expressions-equations',
+    'inequalities':'algebra1-inequalities',
+    'relations-functions':'algebra1-relations-functions',
+    'linear-equations-slope':'algebra1-linear-equations-slope',
+    'systems-of-equations':'algebra1-systems-of-equations',
+    'exponents-exponential-functions':'algebra1-exponents-scientific-notation',
+    'exponential-functions':'algebra1-exponential-functions',
+    'polynomials-factoring':'algebra1-polynomials',
+    'factoring-zero-product':'algebra1-factoring-zero-product',
+    'quadratics':'algebra1-quadratics',
+    'statistics-data-modeling':'algebra1-statistics-data-modeling'
+  };
+  function openAssessmentSetup(unitId) {
+    var existing = document.getElementById('readiness-setup-modal');
+    if (existing) existing.remove();
+    var oldOverflow = document.body.style.overflow;
+    var overlay = document.createElement('div');
+    overlay.id = 'readiness-setup-modal';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Configure and copy self-assessment student link');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(10,22,38,.75);display:flex;align-items:center;justify-content:center;padding:12px;';
+    var panel = document.createElement('div');
+    panel.style.cssText = 'width:min(960px,100%);height:min(850px,94vh);background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 18px 70px rgba(0,0,0,.32);';
+    var bar = document.createElement('div');
+    bar.style.cssText = 'display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px 16px;background:#f3f6fc;border-bottom:1px solid #dbe2ef;';
+    var heading = document.createElement('strong');
+    heading.textContent = 'Set up self-assessment · then copy student link';
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.textContent = 'Close ✕';
+    close.className = 'btn btn-ghost';
+    var frame = document.createElement('iframe');
+    var url = new URL('worksheet-generator/practice-test.html', window.location.href);
+    url.hash = new URLSearchParams({unit:unitId,setup:'1'}).toString();
+    frame.src = url.href;
+    frame.title = 'Self-assessment setup';
+    frame.setAttribute('allow', 'clipboard-write');
+    frame.style.cssText = 'width:100%;flex:1;border:0;min-height:0;';
+    var previousFocus = document.activeElement;
+    function dismiss() {
+      document.removeEventListener('keydown', onKey);
+      overlay.remove();
+      document.body.style.overflow = oldOverflow;
+      if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+    }
+    function onKey(e) { if (e.key === 'Escape') dismiss(); }
+    close.addEventListener('click', dismiss);
+    overlay.addEventListener('click', function(e) { if (e.target === overlay) dismiss(); });
+    document.addEventListener('keydown', onKey);
+    bar.appendChild(heading);
+    bar.appendChild(close);
+    panel.appendChild(bar);
+    panel.appendChild(frame);
+    overlay.appendChild(panel);
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+    close.focus();
+  }
+  function enhanceUnitCards() {
+    document.querySelectorAll('#main .algebra-unit-card').forEach(function(card) {
+      if (card.querySelector('.unit-readiness-share')) return;
+      var link = card.querySelector('.unit-title-link');
+      if (!link) return;
+      var match = /#algebra\.([a-z0-9-]+)/i.exec(link.getAttribute('href') || '');
+      var unitId = match && readinessUnits[match[1]];
+      if (!unitId) return;
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn btn-ghost unit-readiness-share';
+      button.textContent = 'Copy self-assessment student link';
+      button.setAttribute('aria-label', 'Configure and copy self-assessment link for ' + link.textContent.trim());
+      button.addEventListener('click', function() { openAssessmentSetup(unitId); });
+      card.appendChild(button);
+    });
+  }
+
   var main = document.getElementById('main');
   if (!main) return;
   enhanceCards();
-  new MutationObserver(enhanceCards).observe(main, { childList: true, subtree: true });
+  enhanceUnitCards();
+  new MutationObserver(function(){ enhanceCards(); enhanceUnitCards(); }).observe(main, { childList: true, subtree: true });
 })();
