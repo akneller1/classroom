@@ -250,6 +250,18 @@
         ? {status:'verified',comp:expected}
         : {status:'mismatch',msg:'Congruence classification does not match the marked sides and angles.'};
     }
+    if (t === 'geo-special-radical') {
+      // Read the given side from the student prompt; do not trust generator metadata.
+      var raw=C.plainText(p.prompt||'');
+      var m=/A (45|30)°-(?:45°-90°|60°-90°) triangle has (?:a leg|a short leg|a long leg) of length (\d+) units/.exec(raw);
+      if(!m) return {status:'invalid',msg:'Missing printed special-triangle measurements.'};
+      var n=+m[2],degree=+m[1],radicand=degree===45?2:3;
+      if(!(n>0 && Number.isSafeInteger(n)))return {status:'invalid',msg:'Invalid special-triangle side.'};
+      var expected='x='+n+'\\sqrt{'+radicand+'}';
+      var actual=firstMath(ans);
+      return norm(actual)===norm(expected)?{status:'verified',computed:expected}
+        :{status:'mismatch',msg:'Incorrect exact radical length.',computed:expected};
+    }
     if (t === 'geo-inverse-trig') {
       // Recover the ratio and trig function from student-visible text.
       var raw = C.plainText(p.prompt || '');
