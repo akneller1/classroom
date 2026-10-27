@@ -510,6 +510,41 @@
           return {status:'invalid',msg:'Congruence equation conflicts with the printed side lengths.'};
         }
       }
+      // Independently re-derive the equation from the visible geometric
+      // measure and stated numerical dimension. Merely displaying chk.eq
+      // is insufficient: a student-visible measure may have been edited.
+      var variant = p.variant || '', visible = firstMath(p.prompt || '');
+      var tri = /^geo-triangle-(midsegment|centroid|side-angle-order|perpendicular-bisector)-/.exec(variant);
+      if (tri) {
+        var txt = C.plainText(p.prompt || ''), num, implied;
+        if (tri[1] === 'midsegment') {
+          num = /BC measures (\d+) units/.exec(txt);
+          if (num) implied = visible+'='+num[1]+'/2';
+        } else if (tri[1] === 'centroid') {
+          num = /full median AM measures (\d+) units/.exec(txt);
+          if (num) implied = '3*('+visible+')='+num[1];
+        } else if (tri[1] === 'side-angle-order') {
+          num = /longest side is (\d+) units/.exec(txt);
+          if (num) implied = visible+'='+num[1];
+        } else {
+          num = /PB measures (\d+) units/.exec(txt);
+          if (num) implied = visible+'='+num[1];
+        }
+        if (!visible || !num || !implied ||
+            !C.solveLinear(implied,chk.v).value.eq(C.solveLinear(chk.eq,chk.v).value)) {
+          return {status:'invalid',msg:'Visible triangle measurements do not agree with the solution equation.'};
+        }
+      }
+      if (/^geo-structured-proof-/.test(variant)) {
+        var proofMatch = /using ⟨([^⟩]+)⟩/.exec(p.prompt || '');
+        var proofNum = /degrees and angle [A-Z]{3} = (\d+) degrees/.exec(p.prompt || '');
+        var proofExpr = firstMath(p.prompt || '');
+        if (!proofMatch || !proofNum || !proofExpr ||
+            proofMatch[1] !== chk.eq ||
+            proofExpr+'='+proofNum[1] !== chk.eq) {
+          return {status:'invalid',msg:'Proof equation conflicts with the visible angle measures.'};
+        }
+      }
       var s = C.solveLinear(chk.eq, chk.v);
       if (s.kind !== 'one') return { status: 'invalid', msg: s.kind === 'none' ? 'This equation has no solution.' : 'Every number is a solution of this equation.' };
       if (policy && policy.intOnly && !s.value.isInt()) return { status: 'invalid', msg: 'The solution is not a whole number.', computed: chk.v + '=' + qText(s.value) };
