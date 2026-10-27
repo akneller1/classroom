@@ -517,9 +517,17 @@
       // spread tags: avoid two dishes of the same category next to each other when possible
       for (var i = 0; i < n; i++) out.push(order[i % (good.length && n <= good.length * 2 ? good.length : order.length)]);
       if (NS.sectionFormat(cfg, si) === 'mcas') {
-         var viable = order.filter(function (id) { return NS.mcasCapable(cfg.unitId, id, NS.sectionC(cfg, si)); });
-         if (viable.length) out = out.map(function (id, i) { return NS.mcasCapable(cfg.unitId, id, NS.itemC(cfg, si, i, n)) ? id : viable[i % viable.length]; });
-       }
+        // Choose a skill that is verified to generate multipart work at the
+        // ACTUAL difficulty of this slot (not just the middle section tier).
+        out = out.map(function (id, i) {
+          var difficulty = NS.itemC(cfg, si, i, n);
+          if (NS.mcasCapable(cfg.unitId, id, difficulty)) return id;
+          var candidates = rng.shuffle(order.filter(function (alt) {
+            return NS.mcasCapable(cfg.unitId, alt, difficulty);
+          }));
+          return candidates.length ? candidates[i % candidates.length] : id;
+        });
+      }
        if (NS.sectionFormat(cfg, si) === 'mc' && G.MKGAMES) {   // multiple choice: use skills that make good choices at that difficulty
         var rot = 0;
         out = out.map(function (id, i) {
