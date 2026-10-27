@@ -109,9 +109,32 @@ function triangleInvestigation(ctx) {
   steps:[step('Triangle inequality',M(e1)),step('Midsegment theorem',M(e2)),step('Centroid ratio',M(e3)),step('Triangle inequality with the modified side',M(e4))],
   space:[2.5,3.1,3.8]};
 }
+
+/* A single connected Honors investigation: each later result depends on
+   the geometry established in an earlier part. */
+function honorsChain(ctx) {
+ var r=ctx.rng,c=ctx.c,half=r.int(5,c>=5?22:13),side=2*half;
+ var median=3*r.int(4,c>=5?17:10),short=median/3,long=2*median/3;
+ var max=side+median-1;
+ var e1='x=2*'+half,e2='3y='+median,e3='z=2*'+short,e4='w+1='+side+'+'+median;
+ return {variant:'geo-triangle-honors-chain-'+c,
+  prompt:'Open Response — Connected triangle investigation. In triangle ABC, D and E are the midpoints of AB and AC, so DE is a midsegment parallel to BC. M is the midpoint of BC and G is the centroid on median AM. DE is '+half+' cm and AM is '+median+' cm. For part (d), consider a NEW triangle whose first two sides have lengths BC and AM from this figure. Show and explain your reasoning in all four parts.',
+  parts:[
+   {label:'a',prompt:'Determine the length x of BC using the midsegment theorem. Use '+M(e1)+'.',answer:M('x='+side),check:{type:'solve',eq:e1,v:'x'}},
+   {label:'b',prompt:'Determine the length y of GM using the centroid theorem. Use '+M(e2)+'.',answer:M('y='+short),check:{type:'solve',eq:e2,v:'y'}},
+   {label:'c',prompt:'Determine the length z of AG using your result from (b). Use '+M(e3)+'.',answer:M('z='+long),check:{type:'solve',eq:e3,v:'z'}},
+   {label:'d',prompt:'For the new triangle with sides BC and AM, determine the greatest integer third side w allowed by the triangle inequality. Use '+M(e4)+'.',answer:M('w='+max),check:{type:'solve',eq:e4,v:'w'}}
+  ],
+  steps:[
+   step('DE is half of BC.',M(e1)+' '+M('x='+side)),
+   step('GM is one-third of AM.',M(e2)+' '+M('y='+short)),
+   step('AG is twice GM.',M(e3)+' '+M('z='+long)),
+   step('The third side is strictly less than the sum of the two known sides.',M(e4)+' '+M('w='+max))
+  ],space:[3,3.6,4.2]};
+}
 NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',courseName:'Geometry',
  unit:'triangle-relationships',unitName:'Triangle Relationships',title:'Triangle Angle Relationships',
- tags:{SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation'},
+ tags:{SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation',HONORS:'Connected Honors triangle investigation'},
  reference:'<div class="mm-refgrid"><section><h4>Interior angle sum</h4><p>Every triangle has an angle sum of 180°.</p></section><section><h4>Exterior angle theorem</h4><p>An exterior angle equals the sum of the two remote interior angles.</p></section></div>',
  gaps:['Labeled diagrams, richer inequality cases, and non-routine multistep Honors reasoning remain to be developed.'],
  skills:[
@@ -124,6 +147,7 @@ NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',cour
   {id:'triangle-side-angle-order',tag:'ORDER',name:'Longest side opposite largest angle',best:[0,1,2],generate:sideAngleOrder},
   {id:'triangle-perpendicular-bisector',tag:'BISECTOR',name:'Perpendicular bisector equidistance',best:[0,1,2],generate:perpendicularBisector},
   {id:'triangle-altitude-area',tag:'ALTITUDE',name:'Triangle altitude from area',best:[0,1,2],generate:altitudeArea},
-  {id:'triangle-open-response-investigation',tag:'INVESTIGATION',name:'Four-part triangle relationships investigation',best:[2],generate:triangleInvestigation}
+  {id:'triangle-open-response-investigation',tag:'INVESTIGATION',name:'Four-part triangle relationships investigation',best:[2],generate:triangleInvestigation},
+  {id:'triangle-honors-connected-investigation',tag:'HONORS',name:'Honors: connected midsegment, centroid and inequality investigation',best:[2],generate:honorsChain}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
