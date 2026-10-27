@@ -17,5 +17,7 @@ jobs:
           node-version: '22'
       - name: Geometry curriculum
         run: node worksheet-generator/menu/tests/geometry-curriculum-tests.cjs
+      - name: Geometry generated-question regression
+        run: node worksheet-generator/menu/tests/geometry-generator-regression.cjs
       - name: Geometry flashcard bank all levels
         run: node worksheet-generator/games/tests/geometry-flashcard-parity.cjs
