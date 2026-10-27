@@ -28,3 +28,5 @@ jobs:
         run: N=300 node worksheet-generator/menu/tests/math-tests.cjs
       - name: Verify select-all answer truth and MCAS bank coverage
         run: node worksheet-generator/menu/tests/select-all-mcas-tests.cjs
+      - name: Verify all 12 original MCAS scenario families and wrong-answer rejection
+        run: node worksheet-generator/menu/tests/mcas-context-tests.cjs
