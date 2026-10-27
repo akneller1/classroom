@@ -15,8 +15,8 @@ const names=published.units.map(u=>u.name);
 assert.equal(JSON.stringify(Array.from(catalog.units,x=>x[1].replace(/^Unit \d+ · /,''))),JSON.stringify(names),'Generator unit names/order drift');
 const supported=catalog.units.filter(([id])=>!!menu.skillSets[id]);
 const unsupported=catalog.units.filter(([id])=>!menu.skillSets[id]);
-assert.equal(supported.length,9,'Nine starter Geometry question banks should be enabled');
-assert.equal(unsupported.length,1,'The remaining one Geometry units must stay disabled until verified banks exist');
+assert.equal(supported.length,10,'All ten starter Geometry question banks should be enabled');
+assert.equal(unsupported.length,0,'All Geometry units should have a starter bank');
 assert.ok(!catalog.units.some(x=>x[0]==='geometry-coordinate-geometry-transformations'),
   'Legacy coordinate-geometry bank must not be passed off as standalone Transformations');
 console.log('Geometry curriculum aligned: '+catalog.units.length+' units, '+supported.length+' with verified banks, '+unsupported.length+' explicitly unsupported.');
