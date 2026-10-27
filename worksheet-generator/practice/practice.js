@@ -107,7 +107,18 @@ function solutionMath(value){
    .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g,'($1)/($2)');
  return esc(plain);
 }
-function feedback(q){var p=q.problem,part=p.parts[0];var lines=(p.steps||[]).map(x=>'<li>'+(x.t?fmt(x.t):'')+(x.m?'<div class="pt-step-math">'+solutionMath(x.m)+'</div>':'')+'</li>').join('');return '<div class="pt-explain"><strong>Answer:</strong> '+(p.parts||[]).map(x=>fmt(x.answer)).join(' · ')+(lines?'<h3>Worked solution</h3><ol>'+lines+'</ol>':'<p>Compare your process with the verified answer above.</p>')+(p.parts||[]).map(x=>x.answerFig&&N.figHtml?N.figHtml(x.answerFig):'').join('')+'</div>';}
+function diagnosticFeedback(q){
+ if(q.correct!==false)return '';
+ var tip='';
+ if(G.MKLINE&&G.MKLINE.target(q)&&G.MKLINE.diagnose)tip=G.MKLINE.diagnose(q);
+ else if(G.MKPARABOLA&&G.MKPARABOLA.target(q)&&G.MKPARABOLA.diagnose)tip=G.MKPARABOLA.diagnose(q);
+ else if(G.MKEXPGRAPH&&G.MKEXPGRAPH.target(q))tip='Evaluate the function at each assigned x-value, remembering any vertical shift.';
+ else if(G.MKSYSTEM&&G.MKSYSTEM.target(q))tip='Check the slope and intercept of both lines; the intersection must satisfy both equations.';
+ else if(G.MKGRAPH&&G.MKGRAPH.supports(q))tip='Check the endpoints, open or closed circles, and which directions are shaded.';
+ if(!tip)return '';
+ return '<div class="pt-diagnostic"><strong>What to check:</strong> '+esc(tip)+'</div>';
+}
+function feedback(q){var p=q.problem,part=p.parts[0];var lines=(p.steps||[]).map(x=>'<li>'+(x.t?fmt(x.t):'')+(x.m?'<div class="pt-step-math">'+solutionMath(x.m)+'</div>':'')+'</li>').join('');return diagnosticFeedback(q)+'<div class="pt-explain"><strong>Answer:</strong> '+(p.parts||[]).map(x=>fmt(x.answer)).join(' · ')+(lines?'<h3>Worked solution</h3><ol>'+lines+'</ol>':'<p>Compare your process with the verified answer above.</p>')+(p.parts||[]).map(x=>x.answerFig&&N.figHtml?N.figHtml(x.answerFig):'').join('')+'</div>';}
 function item(q,i){var answered=q.response!==null&&q.response!=='';var visible=state.done||state.mode==='practice'&&q.checked;return '<section class="pt-card"><div class="pt-top"><span class="pt-eyebrow">'+esc(q.skillName)+'</span><strong>Question '+(i+1)+' of '+state.questions.length+'</strong></div>'+problemHTML(q)+(q.kind==='mc'?'<div class="pt-options">'+q.choices.opts.map((v,j)=>'<label class="pt-option"><input type="radio" name="pt-answer-'+i+'" value="'+j+'" '+(+q.response===j&&answered?'checked':'')+' '+(visible?'disabled':'')+'> '+fmt(v)+'</label>').join('')+'</div>':'<label class="pt-response">Show your work and enter your response<textarea id="pt-written" rows="4" '+(visible?'disabled':'')+' placeholder="Explain your solution...">'+esc(q.response||'')+'</textarea></label>')+(visible?'<div class="pt-status '+(q.correct===true?'pt-good':q.correct===false?'pt-bad':'')+'">'+(q.correct===true?'Correct':q.correct===false?'Needs review':'Compare your work')+'</div>'+feedback(q)+(q.kind==='self'&&q.correct===null?'<div class="pt-actions"><button data-grade="yes">My work is correct</button><button data-grade="no" class="pt-secondary">I need more practice</button></div>':''):'')+'</section>';}
 function paperHTML(){
  if(!state)return '';
