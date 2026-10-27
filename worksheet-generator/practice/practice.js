@@ -164,6 +164,7 @@ function answerControl(q,i){
    return '<button type="button" class="pt-mc-choice'+(q.response===j?' selected':'')+'" data-mc-answer="'+i+'" data-mc-choice="'+j+'" aria-pressed="'+(q.response===j?'true':'false')+'"><span class="pt-choice-letter">'+('ABCD'[j])+'</span><span class="pt-choice-text">'+fmt(opt)+'</span></button>';
  }).join('')+'</div></fieldset>';
  return '<div class="pt-math-response"><label class="pt-inline-answer" for="pt-answer-'+i+'">Final answer<input id="pt-answer-'+i+'" aria-label="Answer to question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" inputmode="text" placeholder="Type or use the keypad" value="'+esc(value)+'"></label>'+
+ '<div class="pt-live-preview"><div class="pt-preview-heading">Live math preview <span>Display only — not a correctness check</span></div><div class="pt-preview-content" data-preview="'+i+'" aria-label="Formatted preview of your answer"></div></div>'+ 
  '<div class="pt-math-pad" data-math-pad="'+i+'" role="group" aria-label="Math symbols for question '+(i+1)+'">'+[
  ['−','-'],['/','/'],['x²','^2'],['xⁿ','^'],['√','sqrt('],['≤','<='],['≥','>='],['=','='],['(', '('],[')',')'],['+','+'],['⌫','backspace']
  ].map(function(k){return '<button type="button" data-math-insert="'+esc(k[1])+'" aria-label="'+esc(k[0]==='⌫'?'Delete previous character':'Insert '+k[0])+'">'+k[0]+'</button>';}).join('')+'</div>'+
@@ -235,7 +236,9 @@ function show(){
    var i=+el.dataset.answer,q=state.questions[i],v=el.value.trim();
    q.response=q.kind==='mc'?(v?(/^[ABCD]$/i.test(v)?'ABCD'.indexOf(v.toUpperCase()):v):null):(v||null);
    save();updateProgress();
+   if(G.MKMATHPREVIEW)G.MKMATHPREVIEW.update(el,root.querySelector('[data-preview="'+i+'"]'));
   };
+  if(G.MKMATHPREVIEW)G.MKMATHPREVIEW.update(el,root.querySelector('[data-preview="'+el.dataset.answer+'"]'));
  });
  if(G.MKGRAPH){G.MKGRAPH.bind(root,state,save);G.MKGRAPH.bindPoints(root,state,save);}if(G.MKLINE)G.MKLINE.bind(root,state,save);if(G.MKSYSTEM)G.MKSYSTEM.bind(root,state,save);if(G.MKEXPGRAPH)G.MKEXPGRAPH.bind(root,state,save);if(G.MKPARABOLA)G.MKPARABOLA.bind(root,state,save);
  root.querySelector('#pt-submit').onclick=()=>submit();
