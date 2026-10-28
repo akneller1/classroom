@@ -64,6 +64,14 @@
       var dy = Math.abs(Number(coords[4])-Number(coords[2]));
       return dx > 0 && dy > 0 && chk.eq === 'x='+dx+'*'+dx+'+'+dy+'*'+dy;
     }
+    if (/^geo-circle-arc-length-inverse-/.test(p.variant || '')) {
+      var invArc=/radius ([0-9]+) cm.*exact length ([0-9]+) times pi centimeters/.exec(p.prompt || '');
+      return !!invArc && Number(invArc[1])>0 && Number(invArc[2])>0 && chk.eq==='2*'+invArc[1]+'*x=360*'+invArc[2] && 360*Number(invArc[2])<360*2*Number(invArc[1]);
+    }
+    if (/^geo-circle-sector-area-inverse-/.test(p.variant || '')) {
+      var invSector=/radius ([0-9]+) cm.*exact area ([0-9]+) times pi square centimeters/.exec(p.prompt || '');
+      return !!invSector && Number(invSector[1])>0 && Number(invSector[2])>0 && chk.eq===invSector[1]+'*'+invSector[1]+'*x=360*'+invSector[2] && Number(invSector[2])<Number(invSector[1])*Number(invSector[1]);
+    }
     if (/^geo-circle-arc-length-/.test(p.variant || '')) {
       var arc = /radius ([0-9]+) cm.*central angle ([0-9]+)°.*exact arc length is x times pi centimeters/.exec(p.prompt || '');
       return !!arc && Number(arc[2]) > 0 && Number(arc[2]) <= 180 && chk.eq === '360*x=2*'+arc[1]+'*'+arc[2];

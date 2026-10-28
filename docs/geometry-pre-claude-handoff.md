@@ -137,3 +137,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 ## Circles: radius from expanded equation (2026-10-28)
 - Added `circle-radius-expanded-equation`, a text-only completing-the-square skill that requires finding the radius (not radius squared) from X²−2hX+Y²−2kY+C=0.
 - Each generated equation has positive integer center coordinates and positive integer radius. The independent verifier parses all displayed coefficients and the signed constant, reconstructs r²=h²+k²−C, and requires the checked answer to be the positive integer square root. No diagrams or drawings were made. Circles now has 16 registered skills; CI pending.
+
+## Circles: tier-specific inverse reasoning (2026-10-28)
+- Difficulty audit found arc length and sector area used identical forward formulas at every tier, changing only numbers. Tiers 5–7 now reverse each relationship: given radius and exact arc length or sector area, solve for central angle and justify the circumference/area fraction.
+- Tiers 1–4 retain direct formula practice. Honors variants use independent student-visible inverse-equation verification and exact integer central angles. All 16 skill registrations remain intact; no diagrams created. CI pending.
