@@ -39,7 +39,7 @@
       return eq === chk.eq;
     }
     if (/^geo-(complement|supplement|linear-pair)-/.test(p.variant || '')) {
-      var a = /measures? ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
+      var a = /measures? (?:are )?⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
       var total = /^geo-complement-/.test(p.variant) ? 90 : 180;
       return !!a && a[1]+'+'+a[2]+'='+total === chk.eq;
     }
