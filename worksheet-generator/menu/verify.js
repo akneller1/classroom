@@ -35,6 +35,10 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-quad-diagonal-converse-/.test(p.variant || '')) {
+      var halves = /AE measures ⟨([^⟩]+)⟩ cm, EC measures ([0-9]+) cm, BE measures ([0-9]+) cm, and ED measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!halves && halves[3] === halves[4] && chk.eq === halves[1]+'='+halves[2];
+    }
     if (/^geo-quad-algebraic-consecutive-/.test(p.variant || '')) {
       var pair = /consecutive angle A measures ⟨([^⟩]+)⟩ degrees and angle B measures ⟨([^⟩]+)⟩ degrees/.exec(p.prompt || '');
       return !!pair && chk.eq === pair[1]+'+'+pair[2]+'=180';

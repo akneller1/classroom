@@ -100,3 +100,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added `parallelogram-algebraic-consecutive-angles`, requiring students to solve an equation from two algebraic adjacent-angle expressions, justify why they are supplementary, and distinguish the adjacent-angle rule from the opposite-angle congruence rule.
 - For higher complexity tiers both angle expressions have coefficients 2–3; all generated actual angles are positive and sum to 180°. The verifier independently reconstructs the equation from the two visible expressions. Quadrilaterals/Polygons now has 12 registered skills.
 - No figures, drawings, or diagram-based proof items added. Claude remains responsible for those. Confirm CI after this commit.
+
+## Text-only converse reasoning: parallelogram diagonals (2026-10-28)
+- Added `parallelogram-diagonal-bisection-converse`: students use both diagonals bisecting each other as a **sufficient** condition for a parallelogram, solve an algebraic half-diagonal equation, and justify the converse theorem.
+- The generator supplies BE and ED as matching positive lengths and constructs AE=EC with a positive integer x. The verifier independently checks **both** the displayed BE/ED equality and the algebraic AE/EC equation, preventing mutated printed givens from silently passing.
+- Unit now has 13 registered skills. No diagrams/drawings were created; Claude owns visual diagrams, figures and visual proof activities. CI pending after this commit.
