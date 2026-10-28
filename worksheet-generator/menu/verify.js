@@ -35,6 +35,13 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-expanded-radius-mixed-/.test(p.variant || '')) {
+      var mixed=/equation X\^2 \+ ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
+      if (!mixed) return false;
+      var mx=Number(mixed[1]), my=Number(mixed[2]), mc=(mixed[3]==='-'?-1:1)*Number(mixed[4]);
+      var mr2=(mx*mx+my*my)/4-mc, mr=Math.sqrt(mr2);
+      return mx>0 && my>0 && mx%2===0 && my%2===0 && mr2>0 && Number.isInteger(mr) && chk.eq==='x='+mr;
+    }
     if (/^geo-circle-expanded-radius-/.test(p.variant || '')) {
       var radiusEq = /equation X\^2 - ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
       if (!radiusEq) return false;
