@@ -4451,6 +4451,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Basics & Reasoning readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-27"
@@ -4458,6 +4459,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Basics & Reasoning: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-27"
@@ -4465,6 +4467,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/geometry-worksheet-generator-basics-reasoning.svg",
               "description": "Differentiated Basics & Reasoning worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-27"
@@ -4472,6 +4475,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Basics & Reasoning quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-27"
@@ -4592,6 +4596,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=color",
+              "thumb": "thumbs/geometry-color-generator-basics-reasoning.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -4603,6 +4608,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=error",
+              "thumb": "thumbs/geometry-error-generator-basics-reasoning.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -4614,6 +4620,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-basics-reasoning.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -4625,6 +4632,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=who",
+              "thumb": "thumbs/geometry-who-generator-basics-reasoning.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -4636,6 +4644,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-basics-reasoning.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -4653,6 +4662,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-angles-parallel-lines",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Angles & Parallel Lines readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-27"
@@ -4660,6 +4670,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-angles-parallel-lines",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Angles & Parallel Lines: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-27"
@@ -4667,6 +4678,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-angles-parallel-lines",
+              "thumb": "thumbs/geometry-worksheet-generator-angles-parallel-lines.svg",
               "description": "Differentiated Angles & Parallel Lines worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-27"
@@ -4674,6 +4686,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-angles-parallel-lines",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Angles & Parallel Lines quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-27"
@@ -4794,6 +4807,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=color",
+              "thumb": "thumbs/geometry-color-generator-angles-parallel-lines.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -4805,6 +4819,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=error",
+              "thumb": "thumbs/geometry-error-generator-angles-parallel-lines.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -4816,6 +4831,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-angles-parallel-lines.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -4827,6 +4843,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=who",
+              "thumb": "thumbs/geometry-who-generator-angles-parallel-lines.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -4838,6 +4855,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-angles-parallel-lines.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -4855,6 +4873,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Triangles & Congruence readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -4862,6 +4881,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Triangles & Congruence: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -4869,6 +4889,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/geometry-worksheet-generator-triangles-congruence.svg",
               "description": "Differentiated Triangles & Congruence worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -4876,9 +4897,18 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangles-congruence",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Triangles & Congruence quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
+            },
+            {
+              "title": "Triangles & Congruence Flashcards",
+              "path": "artifacts/triangles-congruence-flashcards/index.html",
+              "description": "Generated congruence flashcards (matching parts, SSS, SAS, ASA, AAS, HL and proofs) with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
+              "type": "Practice",
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangles-congruence-flashcards.jpg"
             },
             {
               "title": "Congruence Four",
@@ -4970,6 +5000,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-triangles-congruence.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -4987,6 +5018,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Triangle Relationships readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-27"
@@ -4994,6 +5026,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Triangle Relationships: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-27"
@@ -5001,6 +5034,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/geometry-worksheet-generator-triangle-relationships.svg",
               "description": "Differentiated Triangle Relationships worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-27"
@@ -5008,6 +5042,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangle-relationships",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Triangle Relationships quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-27"
@@ -5084,6 +5119,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=color",
+              "thumb": "thumbs/geometry-color-generator-triangle-relationships.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5095,6 +5131,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=error",
+              "thumb": "thumbs/geometry-error-generator-triangle-relationships.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -5106,6 +5143,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-triangle-relationships.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -5117,6 +5155,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=who",
+              "thumb": "thumbs/geometry-who-generator-triangle-relationships.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -5128,6 +5167,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-triangle-relationships.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5145,6 +5185,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-similarity",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Similarity readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -5152,6 +5193,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-similarity",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Similarity: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -5159,6 +5201,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-similarity",
+              "thumb": "thumbs/geometry-worksheet-generator-similarity.svg",
               "description": "Differentiated Similarity worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -5166,6 +5209,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-similarity",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Similarity quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
@@ -5286,6 +5330,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=color",
+              "thumb": "thumbs/geometry-color-generator-similarity.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5297,6 +5342,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=error",
+              "thumb": "thumbs/geometry-error-generator-similarity.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -5308,6 +5354,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-similarity.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -5319,6 +5366,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=who",
+              "thumb": "thumbs/geometry-who-generator-similarity.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -5330,6 +5378,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-similarity.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5347,6 +5396,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Right Triangles & Trigonometry readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -5354,6 +5404,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Right Triangles & Trigonometry: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -5361,6 +5412,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/geometry-worksheet-generator-right-triangles-trigonometry.svg",
               "description": "Differentiated Right Triangles & Trigonometry worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -5368,6 +5420,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-right-triangles-trigonometry",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Right Triangles & Trigonometry quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
@@ -5488,6 +5541,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=color",
+              "thumb": "thumbs/geometry-color-generator-right-triangles-trigonometry.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5499,6 +5553,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=error",
+              "thumb": "thumbs/geometry-error-generator-right-triangles-trigonometry.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -5510,6 +5565,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-right-triangles-trigonometry.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -5521,6 +5577,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=who",
+              "thumb": "thumbs/geometry-who-generator-right-triangles-trigonometry.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -5532,6 +5589,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-right-triangles-trigonometry.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5549,6 +5607,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Quadrilaterals & Polygons readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -5556,6 +5615,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Quadrilaterals & Polygons: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -5563,6 +5623,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/geometry-worksheet-generator-quadrilaterals-polygons.svg",
               "description": "Differentiated Quadrilaterals & Polygons worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -5570,6 +5631,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-quadrilaterals-polygons",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Quadrilaterals & Polygons quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
@@ -5646,6 +5708,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=color",
+              "thumb": "thumbs/geometry-color-generator-quadrilaterals-polygons.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5657,6 +5720,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=error",
+              "thumb": "thumbs/geometry-error-generator-quadrilaterals-polygons.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -5668,6 +5732,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-quadrilaterals-polygons.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -5679,6 +5744,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=who",
+              "thumb": "thumbs/geometry-who-generator-quadrilaterals-polygons.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -5690,6 +5756,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-quadrilaterals-polygons.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5707,6 +5774,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-transformations",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Transformations readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -5714,6 +5782,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-transformations",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Transformations: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -5721,6 +5790,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-transformations",
+              "thumb": "thumbs/geometry-worksheet-generator-transformations.svg",
               "description": "Differentiated Transformations worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -5728,6 +5798,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-transformations",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Transformations quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
@@ -5848,6 +5919,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=color",
+              "thumb": "thumbs/geometry-color-generator-transformations.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5859,6 +5931,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=error",
+              "thumb": "thumbs/geometry-error-generator-transformations.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -5870,6 +5943,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-transformations.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -5881,6 +5955,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=who",
+              "thumb": "thumbs/geometry-who-generator-transformations.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -5892,6 +5967,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-transformations.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -5909,6 +5985,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-circles",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Circles readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -5916,6 +5993,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-circles",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Circles: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -5923,6 +6001,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-circles",
+              "thumb": "thumbs/geometry-worksheet-generator-circles.svg",
               "description": "Differentiated Circles worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -5930,6 +6009,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-circles",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Circles quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
@@ -6050,6 +6130,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=color",
+              "thumb": "thumbs/geometry-color-generator-circles.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -6061,6 +6142,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=error",
+              "thumb": "thumbs/geometry-error-generator-circles.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -6072,6 +6154,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-circles.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -6083,6 +6166,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=who",
+              "thumb": "thumbs/geometry-who-generator-circles.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -6094,6 +6178,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-circles.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [
@@ -6111,6 +6196,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-area-surface-area-volume",
+              "thumb": "thumbs/practice-test.svg",
               "description": "A Area, Surface Area & Volume readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-28"
@@ -6118,6 +6204,7 @@ window.LIBRARY = {
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-area-surface-area-volume",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
               "description": "Day-by-day lesson plans for Geometry, including Area, Surface Area & Volume: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-28"
@@ -6125,6 +6212,7 @@ window.LIBRARY = {
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-area-surface-area-volume",
+              "thumb": "thumbs/geometry-worksheet-generator-area-surface-area-volume.svg",
               "description": "Differentiated Area, Surface Area & Volume worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-28"
@@ -6132,6 +6220,7 @@ window.LIBRARY = {
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-area-surface-area-volume",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
               "description": "Build Area, Surface Area & Volume quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-28"
@@ -6252,6 +6341,7 @@ window.LIBRARY = {
             {
               "title": "Color by Number Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=color",
+              "thumb": "thumbs/geometry-color-generator-area-surface-area-volume.svg",
               "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
               "type": "Printable",
               "topics": [
@@ -6263,6 +6353,7 @@ window.LIBRARY = {
             {
               "title": "Error Analysis Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=error",
+              "thumb": "thumbs/geometry-error-generator-area-surface-area-volume.svg",
               "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
               "type": "Printable",
               "topics": [
@@ -6274,6 +6365,7 @@ window.LIBRARY = {
             {
               "title": "Partner Check Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-area-surface-area-volume.svg",
               "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
               "type": "Printable",
               "topics": [
@@ -6285,6 +6377,7 @@ window.LIBRARY = {
             {
               "title": "Whodunnit Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=who",
+              "thumb": "thumbs/geometry-who-generator-area-surface-area-volume.svg",
               "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
               "type": "Printable",
               "topics": [
@@ -6296,6 +6389,7 @@ window.LIBRARY = {
             {
               "title": "Stations Generator",
               "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=stations",
+              "thumb": "thumbs/geometry-stations-generator-area-surface-area-volume.svg",
               "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
               "type": "Printable",
               "topics": [

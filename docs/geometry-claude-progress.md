@@ -138,3 +138,10 @@ Fixes made:
 - Trapezoid height label no longer crosses the slanted side; trapezoid bases are never equal; stack figure depth label sits outside its face.
 - Semicircle problems use angle A between 22° and 68° so the triangle is large enough to label; circle angle labels clear their arcs.
 - Outside angle labels in similar triangles get a leader line.
+
+## Parity check against Algebra 1 (2026-10-28)
+- All 161 Geometry catalog links load in a browser with no errors; no missing files or thumbnails remain.
+- Added thumbnails for the 86 Geometry generator cards (Readiness, Planner, Worksheet, Assessment, printables); the Planner and Assessment ones say Geometry instead of Algebra.
+- Added the missing Triangle Congruence Flashcards card (the page already existed).
+- All ten Geometry cheat-sheet PDFs were read page by page; every example and formula is correct.
+- Known gaps vs Algebra 1: no Maze or Tarsia; Triangle Congruence has only the Stations printable (its problems all need diagrams); Triangle Relationships and Quadrilaterals have no escape room or mystery game.
