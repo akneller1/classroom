@@ -32,6 +32,11 @@
       return !!measures && measures[1]+'='+measures[2] === chk.eq;
     }
     if (/^geo-vertical-/.test(p.variant || '')) return false;
+    if (/^geo-(complement|supplement|linear-pair)-/.test(p.variant || '')) {
+      var a = /measures? ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
+      var total = /^geo-complement-/.test(p.variant) ? 90 : 180;
+      return !!a && a[1]+'+'+a[2]+'='+total === chk.eq;
+    }
     return true;
   }
   function norm(s) { return String(s).replace(/\s+/g, ''); }
