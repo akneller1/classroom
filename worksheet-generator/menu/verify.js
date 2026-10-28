@@ -28,7 +28,7 @@
     // Keep strict equation matching so tampered printed values are rejected.
     if (/^geo-(segment|angle)-/.test(p.variant || '')) return false;
     if (/^geo-bisector-/.test(p.variant || '')) {
-      var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\\d+) degrees/.exec(p.prompt || '');
+      var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\d+) degrees/.exec(p.prompt || '');
       return !!measures && measures[1]+'='+measures[2] === chk.eq;
     }
     return true;
