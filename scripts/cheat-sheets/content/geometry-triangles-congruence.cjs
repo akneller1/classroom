@@ -11,7 +11,7 @@ const pair = (marks) => {
   return Gm.svg(230, 108, s, 1.9);
 };
 module.exports = {
-  name: 'geometry-triangles-congruence', course: 'Geometry', unitNo: '3–4', unitName: 'Triangles & Congruence',
+  name: 'geometry-triangles-congruence', course: 'Geometry', unitNo: 3, unitName: 'Triangles & Congruence',
   focus: 'classifying triangles, angle sums, isosceles triangles and side–angle relationships',
   morefocus: 'congruence shortcuts, CPCTC and two-column proofs',
   front: [
