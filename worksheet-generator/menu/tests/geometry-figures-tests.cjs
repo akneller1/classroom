@@ -32,6 +32,24 @@ assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[1, 2]] }, 
 assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[1, 2]] }, { id: 'img', of: 'pre', tx: { type: 'rotate-cw' }, pts: [[-2, 1]] }] }).ok, false, 'clockwise maps (1,2) to (2,-1)');
 assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[40, 2]] }] }).ok, false, 'point off the grid');
 assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'a', pts: [[1, 1]] }], lines: [{ x: 1, y: 2 }] }).ok, false, 'a mirror line is x=c or y=c');
+assert.equal(F.check({ kind: 'geo-rt', v: { a: 5, b: 12 }, show: ['a', 'b', 'c'] }).ok, true, '5-12-13');
+assert.equal(F.check({ kind: 'geo-rt', v: { a: 5, b: 12 }, lab: { c: '14' } }).ok, false, 'hypotenuse label 14 contradicts the legs');
+assert.equal(F.check({ kind: 'geo-rt', v: { a: 4, b: 5 }, show: ['c'] }).ok, false, 'hypotenuse is irrational: must be labelled');
+assert.equal(F.check({ kind: 'geo-rt', v: { a: 4, b: 5 }, lab: { c: 'x' } }).ok, true);
+assert.equal(F.check({ kind: 'geo-rt', v: { a: 1, b: 1 }, ang: { B: 30 } }).ok, false, 'a 45-degree angle labelled 30');
+assert.equal(F.check({ kind: 'geo-rt', v: { a: Math.sqrt(3), b: 1 }, ang: { B: 30, A: 60 } }).ok, true);
+assert.equal(F.check({ kind: 'geo-rt', v: { a: 3, b: 4 }, lab: { b: '2 x' } }).ok, false, 'number mixed with text');
+{ const bad = { variant: 'x', prompt: 'A right triangle has legs 5 and 12 units. Find the hypotenuse x.', parts: [{ answer: '13', check: { type: 'geo-pythagorean', kind: 'hyp', eq: 'x^2=5^2+12^2' } }], fig: { kind: 'geo-rt', v: { a: 5, b: 12 }, show: ['a', 'b'], lab: { c: 'x' } } };
+  assert.notEqual(NS.verifyProblem(Object.assign({}, bad, { fig: Object.assign({}, bad.fig, { v: { a: 5, b: 13 } }) })).status, 'verified', 'figure shows 13 but the question says 12'); }
+assert.equal(F.check({ kind: 'geo-sim', sides: [6, 8, 10], k: 2, show: ['AB', 'BC', 'DE'], lab: { EF: 'x' } }).ok, true, 'similar pair');
+assert.equal(F.check({ kind: 'geo-sim', sides: [6, 8, 10], k: 2, lab: { DE: '13' } }).ok, false, 'DE must be 12');
+assert.equal(F.check({ kind: 'geo-sim', sides: [3, 4, 9], k: 2 }).ok, false, 'triangle inequality');
+assert.equal(F.check({ kind: 'geo-sim', angles: [40, 60, 80], k: 2, ang: { A: 40, F: 80 } }).ok, true);
+assert.equal(F.check({ kind: 'geo-sim', angles: [40, 60, 80], k: 2, ang: { F: 70 } }).ok, false, 'angle F is 80');
+assert.equal(F.check({ kind: 'geo-sim', angles: [40, 60, 80], k: 2, show: ['AB'] }).ok, false, 'no side lengths from angles alone');
+assert.equal(F.check({ kind: 'geo-tri-par', v: { AD: 3, DB: 2, AE: 6, EC: 4 }, angA: 60 }).ok, true, 'AD/DB = AE/EC');
+assert.equal(F.check({ kind: 'geo-tri-par', v: { AD: 3, DB: 2, AE: 6, EC: 5 }, angA: 60 }).ok, false, 'DE would not be parallel to BC');
+assert.equal(F.check({ kind: 'geo-tri-par', v: { AD: 3, DB: 2, AE: 6, EC: 4 }, angA: 60, lab: { DE: '99' } }).ok, false, 'DE label must match the drawn length');
 assert.equal(F.check({ kind: 'geo-circle', pts: { A: [1, 1] }, onCircle: ['A'] }).ok, false, 'point off the circle');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], O2: [0.5, 0.5], T: [1, 1] }, right: [['P', 'O', 'T']] }).ok, true, 'radius to (1,0) is perpendicular to the vertical tangent');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], T: [1.5, 1] }, right: [['P', 'O', 'T']] }).ok, false, 'tangent mark on a slanted segment');
@@ -68,7 +86,7 @@ for (const set of Object.values(NS.skillSets).filter(s => s.id.startsWith('geome
     assert.ok(!dirty.test(html), sk.id + ' svg has NaN/undefined: ' + (html.match(dirty) || [])[0]);
     assert.ok(!/#[0-9a-f]{3,6}/i.test(html.replace(/#111|#555|#bbb|#fff(?![0-9a-f])/gi, '')), sk.id + ' uses non-print-safe colours');
     // transversal / adjacent / cross: the labelled expression equals the true angle at the solved x
-    const marks = p.fig.marks || p.fig.parts;
+    const marks = Array.isArray(p.fig.marks) && p.fig.marks.length && typeof p.fig.marks[0] === 'object' ? p.fig.marks : p.fig.parts;
     if (marks && p.parts[0].check && p.parts[0].check.type === 'solve') {
       const sol = C.solveLinear(p.parts[0].check.eq, p.parts[0].check.v || 'x');
       const x = Number(sol.value.n) / Number(sol.value.d);

@@ -2571,6 +2571,23 @@
       var fc = NS.geoFigures.check(p.fig);
       if (!fc.ok) { statuses.push('invalid'); issues.push('The figure is inconsistent: ' + fc.msg + '.'); }
       /* Measurement figures print their dimensions from the data: every printed number must be stated in the question too, and none may be the answer's unknown. */
+      else if (NS.geoFigures.printed && NS.geoFigures.printed(p.fig)) {
+        var gtext = String(p.prompt || '').replace(/[,]/g, '');
+        NS.geoFigures.printed(p.fig).forEach(function (pr) {
+          var gre2 = new RegExp('(^|[^0-9.])' + String(pr[1]).replace('.', '\\.') + '([^0-9]|$)');
+          if (!gre2.test(gtext)) { statuses.push('invalid'); issues.push('The figure shows ' + pr[0] + ' = ' + pr[1] + ', which the question does not state.'); }
+        });
+      }
+      else if (p.fig.v && p.fig.kind === 'geo-rt') {
+        var rtxt = String(p.prompt || '').replace(/[,]/g, ''), rv = p.fig.v, rc = Math.sqrt(rv.a * rv.a + rv.b * rv.b), printed = [], rk;
+        (p.fig.show || []).forEach(function (k) { if (!(p.fig.lab && p.fig.lab[k] !== undefined)) printed.push([k, k === 'c' ? Math.round(rc * 1000) / 1000 : rv[k]]); });
+        for (rk in (p.fig.lab || {})) { var rm = /^\s*(\d+(?:\.\d+)?)/.exec(p.fig.lab[rk]); if (rm) printed.push([rk, Number(rm[1])]); }
+        for (rk in (p.fig.ang || {})) if (typeof p.fig.ang[rk] === 'number') printed.push(['angle ' + rk, p.fig.ang[rk]]);
+        printed.forEach(function (pr) {
+          var re = new RegExp('(^|[^0-9.])' + String(pr[1]).replace('.', '\\.') + '([^0-9]|$)');
+          if (!re.test(rtxt)) { statuses.push('invalid'); issues.push('The figure shows ' + pr[0] + ' = ' + pr[1] + ', which the question does not state.'); }
+        });
+      }
       else if (p.fig.v && /^geo-(plane|solid)$/.test(p.fig.kind)) {
         var need = (p.fig.show || Object.keys(p.fig.v)), txt = String(p.prompt || '').replace(/[,]/g, '');
         need.forEach(function (k) {

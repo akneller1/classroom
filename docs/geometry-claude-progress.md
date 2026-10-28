@@ -29,11 +29,15 @@ GitHub Actions status was **not observable** from this session (GitHub not linke
 - Local results after changes: all scripts above pass; math audit PASS (528,310 checks).
 
 - Circles: 22 generator variants now carry figures (3 equation-of-circle variants stay text-only). 624 circle figures checked, including that numeric angle/arc labels equal the drawn angles.
-- Cache-busting `?v=` strings for verify.js and the three figure-bearing skill files bumped to `geo-grid-1`.
+- Cache-busting `?v=` strings for verify.js and the three figure-bearing skill files bumped to `geo-sim-2`.
 
 - Area, Surface Area & Volume: new `geo-plane` (rectangle, triangle, parallelogram, trapezoid with dashed heights and right-angle marks) and `geo-solid` (prism, cylinder, pyramid, cone, sphere) figures in `menu/geometry-measure-figures.js`, drawn from the true numbers; unknowns can be labelled `x`. 14 skills, all with figures (5 new: cone volume, sphere volume, sphere surface, prism height, cylinder height). Verifier rejects a figure that prints a number the question never states.
 
 - Transformations: new `geo-grid` coordinate-plane figure (`menu/geometry-grid-figures.js`); the checker recomputes every drawn image vertex from its preimage. The 7 point skills now show P on a grid; 4 new triangle skills (translate-read-from-grid, reflect across a mirror line, rotate, dilate). The verifier recomputes the asked coordinate from the figure and the printed transformation (tamper-tested).
+
+- Right Triangles & Trigonometry: new `geo-rt` figure (`menu/geometry-triangle-figures.js`), drawn to scale from the two legs; numeric side/angle labels are checked against the drawn triangle; used by Pythagorean, SOH-CAH-TOA, special-triangle, elevation/depression, inverse-trig and radical items (1,092 of 1,176 sampled items carry one).
+- Similarity: new `geo-sim` (pair of similar triangles from sides, angles or SAS) and `geo-tri-par` (DE ∥ BC, refused unless AD/DB = AE/EC) in `menu/geometry-similar-figures.js`. The verifier requires every number the figure prints to appear in the question.
+- Test: geometry-figures-tests now covers 3,678 generated figures across 12 figure kinds.
 
 ## Known issues found (not fixed)
 - `triangles-congruence` "third angle" prompt prints its own equation ("Use x+74+64=180 to find x").
@@ -45,7 +49,7 @@ GitHub Actions status was **not observable** from this session (GitHub not linke
 1. Push this work (needs GitHub linked) and confirm Actions are green; bump `?v=` strings.
 2. (done) Circles figures.
 3. (Area/SA/Volume figures done.) Still to do: composition of transformations, symmetry, nets, composite solids, cross-sections.
-4. Replace schematic triangle/similarity/trig figures with data-driven ones; finish Triangle Relationships/Congruence correspondence marks.
+4. (Trig and Similarity done.) Still schematic: Triangle Relationships landmarks (midsegment, centroid, bisector, altitude) and Congruence pairs/proofs; Similarity word problems (shadows, scale, perimeter) have no figure.
 5. Geometry Daily Lesson Planner scope and lesson-skills map.
 6. Generate the four Geometry games per unit with `mkgames.py` (needs figure scripts in the template), retire hand-built duplicates only after parity.
 7. Cheat sheets for Units 6–10; self-assessments review; live browser and print QA.
