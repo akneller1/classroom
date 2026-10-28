@@ -53,3 +53,9 @@ copies were unlisted 2026-10-25 because the generated Showdown lets teachers add
   typeable key is accepted in several student forms, wrong typed answers are rejected.
 - `node games/tests/games-browser.cjs` (Playwright, server at `BASE`): plays all five games for each unit
   (wins, steals, misses, scoring, all ten picture pieces).
+
+## Geometry
+- The ten Geometry units have the same five generated games. `python3 worksheet-generator/games/mkgeometrygames.py .` writes Showdown, Connect Four, Tic-Tac-Toe and Picture Reveal for every unit (the flashcards pages are separate). The pages load the unit's skill file and all Geometry figure scripts, so diagrams appear on every problem.
+- Folders: `<prefix>-showdown`, `-connect-four`, `-tic-tac-toe`, `-picture-reveal`. Prefixes: basics-reasoning, angles-parallel-lines, triangles-congruence, triangle-relationships, similarity, right-triangles-trigonometry, quadrilaterals-polygons, coordinate-geometry-transformations (Transformations), circles, area-surface-area-volume.
+- Older hand-built pages at the same path are kept as `legacy.html` in the folder and linked at the bottom of the new page. The old `<prefix>-jeopardy` folders are no longer listed in `data.js`.
+- `python3 scripts/sync_geometry_listings.py` keeps the Geometry units in `data.js` complete (tools, cheat sheet, flashcards and the four games).

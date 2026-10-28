@@ -566,7 +566,7 @@
   function bindPreview() {
     var L = S.config.layout;
     $$('input[name=mmLFormat]').forEach(function (r) { r.onchange = function () { snapshot(); L.format = r.value; autosave(); drawPreview(); }; });
-    $('input[name=mmLSpacing]').forEach(function (r) { r.onchange = function () { snapshot(); L.density = r.value; autosave(); drawPreview(); }; });
+    $$('input[name=mmLSpacing]').forEach(function (r) { r.onchange = function () { snapshot(); L.density = r.value; autosave(); drawPreview(); }; });
     function changeSpacing(amount) {
       var next = Math.max(0, Math.min(10, (+L.spaceAdjust || 0) + amount));
       if (next === (+L.spaceAdjust || 0)) return;

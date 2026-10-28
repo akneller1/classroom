@@ -8,7 +8,8 @@
 'use strict';
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const env = require('../../menu/tests/load.cjs')();
-['planner/scope-algebra1.js', 'planner/lesson-skills.js', 'planner/planner.js', 'planner/notes-content.js', 'planner/textmath.js', 'planner/pptx-export.js'].forEach(f =>
+env.location = { hash: process.env.COURSE === 'geometry' ? '#course=geometry' : '' };   // COURSE=geometry tests the Geometry planner
+['planner/scope-algebra1.js', 'planner/lesson-skills.js', 'planner/scope-geometry.js', 'planner/lesson-skills-geometry.js', 'planner/course.js', 'planner/planner.js', 'planner/notes-content.js', 'planner/notes-data-geometry.js', 'planner/notes-geometry.js', 'planner/textmath.js', 'planner/pptx-export.js'].forEach(f =>
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', '..', f), 'utf8'), env, { filename: f }));
 const P = env.MKPLAN, SC = env.MKPLAN_SCOPE;
 let checks = 0; const fails = [];

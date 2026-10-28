@@ -93,7 +93,7 @@
   PR.MODES = {
     maze: { prompt: 92, answer: 14, fig: false, wrong: 4, snippet: 26 },
     tarsia: { prompt: 22, answer: 12, fig: false, wrong: 2, verb: true },
-    color: { prompt: 170, answer: 30, fig: true, wrong: 0 },
+    color: { prompt: 170, answer: 30, fig: true, wrong: 0, figPrompt: 140 },
     error: { prompt: 170, answer: 40, fig: true, wrong: 2, steps: true },
     partner: { prompt: 170, answer: 40, fig: true, wrong: 0 },
     who: { prompt: 150, answer: 30, fig: true, wrong: 3 },
@@ -106,6 +106,7 @@
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
     if (!lim.fig && q.fig) return null;
+    if (q.fig && lim.figPrompt && /^geometry-/.test(cfg.unitId) && plain(q.prompt).length > lim.figPrompt) return null;   // a Geometry diagram shares a small box with the text
     // boxes on a color-by-number page, a partner check or an error analysis are small: no histograms, long data tables or graphs to draw
     if ((kind === 'color' || kind === 'partner' || kind === 'error') && (q.fig && (q.fig.kind === 'histogram' || (q.fig.kind === 'table' && q.fig.rows.length > 5)) || p.parts.some(function (pt) { return pt.answerFig && pt.answerFig.kind === 'plane'; }))) return null;
     if ((q.parts[0].prompt || '') && !lim.fig) return null;

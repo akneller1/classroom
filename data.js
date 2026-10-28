@@ -4451,44 +4451,45 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-basics-reasoning",
-              "description": "Customize and generate assessment readiness check resources for this Geometry unit.",
+              "description": "A Basics & Reasoning readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-27"
             },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-basics-reasoning",
-              "description": "Customize and generate daily lesson planner resources for this Geometry unit.",
+              "description": "Day-by-day lesson plans for Geometry, including Basics & Reasoning: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-27"
             },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-basics-reasoning",
-              "description": "Customize and generate worksheet generator resources for this Geometry unit.",
+              "description": "Differentiated Basics & Reasoning worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-27"
             },
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-basics-reasoning",
-              "description": "Customize and generate assessment generator resources for this Geometry unit.",
+              "description": "Build Basics & Reasoning quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-27"
             },
             {
               "title": "Reasoning Four",
               "path": "artifacts/basics-reasoning-connect-four/index.html",
-              "thumb": "thumbs/basics-reasoning-connect-four.jpg",
-              "description": "Connect Four for two teams. Use segment addition, midpoints, angle relationships, and conditional statements to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "description": "Connect Four for two teams on Basics & Reasoning. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
-                "Segment addition and midpoints",
+                "Segments, midpoints and distance",
                 "Angle addition and bisectors",
                 "Converse, inverse, contrapositive",
-                "Properties used in proofs"
+                "Reasoning and proof properties",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/basics-reasoning-connect-four.jpg"
             },
             {
               "title": "Basics & Reasoning Flashcards",
@@ -4507,30 +4508,31 @@ window.LIBRARY = {
             {
               "title": "Basics & Reasoning Picture Reveal",
               "path": "artifacts/basics-reasoning-picture-reveal/index.html",
-              "thumb": "thumbs/basics-reasoning-picture-reveal.jpg",
-              "description": "Use segment and angle addition, midpoints, angle pairs and logical reasoning to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "description": "Ten typed problems on Basics & Reasoning. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
-                "Segment addition and midpoints",
-                "Angle addition and angle pairs",
-                "Conditional statements",
-                "Properties used in proofs"
+                "Segments, midpoints and distance",
+                "Angle addition and bisectors",
+                "Converse, inverse, contrapositive",
+                "Reasoning and proof properties"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/basics-reasoning-picture-reveal.jpg"
             },
             {
               "title": "Reasoning Showdown",
-              "path": "artifacts/basics-reasoning-jeopardy/index.html",
-              "thumb": "thumbs/basics-reasoning-jeopardy.jpg",
-              "description": "A game board for Geometry basics and reasoning. Segments and angles with algebra, conditional statements, and the properties that justify steps in a proof.",
+              "path": "artifacts/basics-reasoning-showdown/index.html",
+              "description": "A game board for Basics & Reasoning: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
               "type": "Game",
               "topics": [
-                "Segment addition and midpoints",
+                "Segments, midpoints and distance",
                 "Angle addition and bisectors",
                 "Converse, inverse, contrapositive",
-                "Properties used in proofs"
+                "Reasoning and proof properties",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/basics-reasoning-showdown.jpg"
             },
             {
               "title": "The Pirate Cove Puzzle",
@@ -4548,15 +4550,17 @@ window.LIBRARY = {
             {
               "title": "Basics & Reasoning Tic-Tac-Toe",
               "path": "artifacts/basics-reasoning-tic-tac-toe/index.html",
-              "thumb": "thumbs/basics-reasoning-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Basics & Reasoning. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Segments and angles",
-                "Team game",
-                "Multiple choice"
+                "Segments, midpoints and distance",
+                "Angle addition and bisectors",
+                "Converse, inverse, contrapositive",
+                "Reasoning and proof properties",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/basics-reasoning-tic-tac-toe.jpg"
             },
             {
               "title": "Temple of Logic: Jungle Escape",
@@ -4570,6 +4574,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Basics & Reasoning Cheat Sheet",
+              "path": "artifacts/geometry-basics-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-basics-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Basics & Reasoning. Front: points, lines, planes, segments, rays and angles. Back: segment and angle addition, midpoints, distance and angle pairs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Basics & Reasoning",
+                "Unit 1"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-basics-reasoning&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Basics & Reasoning"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -4580,44 +4653,45 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-angles-parallel-lines",
-              "description": "Customize and generate assessment readiness check resources for this Geometry unit.",
+              "description": "A Angles & Parallel Lines readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-27"
             },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-angles-parallel-lines",
-              "description": "Customize and generate daily lesson planner resources for this Geometry unit.",
+              "description": "Day-by-day lesson plans for Geometry, including Angles & Parallel Lines: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-27"
             },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-angles-parallel-lines",
-              "description": "Customize and generate worksheet generator resources for this Geometry unit.",
+              "description": "Differentiated Angles & Parallel Lines worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-27"
             },
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-angles-parallel-lines",
-              "description": "Customize and generate assessment generator resources for this Geometry unit.",
+              "description": "Build Angles & Parallel Lines quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-27"
             },
             {
               "title": "Angles Four",
               "path": "artifacts/angles-parallel-lines-connect-four/index.html",
-              "thumb": "thumbs/angles-parallel-lines-connect-four.jpg",
-              "description": "Connect Four for two teams. Use angle pairs, parallel lines, and polygon angle sums to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "description": "Connect Four for two teams on Angles & Parallel Lines. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
                 "Vertical angles and linear pairs",
                 "Parallel lines and transversals",
+                "Proving lines parallel",
                 "Triangle and exterior angles",
-                "Interior and exterior angles of polygons"
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/angles-parallel-lines-connect-four.jpg"
             },
             {
               "title": "Angles & Parallel Lines Flashcards",
@@ -4636,30 +4710,31 @@ window.LIBRARY = {
             {
               "title": "Angles & Parallel Lines Picture Reveal",
               "path": "artifacts/angles-parallel-lines-picture-reveal/index.html",
-              "thumb": "thumbs/angles-parallel-lines-picture-reveal.jpg",
-              "description": "Find angle measures and solve for x with vertical angles, linear pairs and parallel lines cut by a transversal to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Vertical angles and linear pairs",
-                "Angles made by a transversal",
-                "Solving for x with parallel lines",
-                "Proving lines parallel"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Angles Showdown",
-              "path": "artifacts/angles-parallel-lines-jeopardy/index.html",
-              "thumb": "thumbs/angles-parallel-lines-jeopardy.jpg",
-              "description": "A game board for angle relationships. Angle pairs, parallel lines cut by a transversal, and angle sums in triangles and polygons.",
+              "description": "Ten typed problems on Angles & Parallel Lines. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
                 "Vertical angles and linear pairs",
                 "Parallel lines and transversals",
-                "Triangle and exterior angles",
-                "Interior and exterior angles of polygons"
+                "Proving lines parallel",
+                "Triangle and exterior angles"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/angles-parallel-lines-picture-reveal.jpg"
+            },
+            {
+              "title": "Angles Showdown",
+              "path": "artifacts/angles-parallel-lines-showdown/index.html",
+              "description": "A game board for Angles & Parallel Lines: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "Vertical angles and linear pairs",
+                "Parallel lines and transversals",
+                "Proving lines parallel",
+                "Triangle and exterior angles",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/angles-parallel-lines-showdown.jpg"
             },
             {
               "title": "The Midnight Express Mystery",
@@ -4677,15 +4752,17 @@ window.LIBRARY = {
             {
               "title": "Angles & Parallel Lines Tic-Tac-Toe",
               "path": "artifacts/angles-parallel-lines-tic-tac-toe/index.html",
-              "thumb": "thumbs/angles-parallel-lines-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Angles & Parallel Lines. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Parallel lines and triangles",
-                "Team game",
-                "Multiple choice"
+                "Vertical angles and linear pairs",
+                "Parallel lines and transversals",
+                "Proving lines parallel",
+                "Triangle and exterior angles",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/angles-parallel-lines-tic-tac-toe.jpg"
             },
             {
               "title": "Crossing Tracks: Rail Yard Escape",
@@ -4699,6 +4776,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Angles & Parallel Lines Cheat Sheet",
+              "path": "artifacts/geometry-angles-parallel-lines-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-angles-parallel-lines-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Angles & Parallel Lines. Front: angle pairs and parallel lines cut by a transversal. Back: proving lines parallel, triangle angle sums and angle chasing. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Angles & Parallel Lines",
+                "Unit 2"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Angles & Parallel Lines"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Angles & Parallel Lines"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Angles & Parallel Lines"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Angles & Parallel Lines"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-angles-parallel-lines&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Angles & Parallel Lines"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -4707,46 +4853,67 @@ window.LIBRARY = {
           "name": "Triangle Congruence",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-triangles-congruence",
+              "description": "A Triangles & Congruence readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangles-congruence",
+              "description": "Day-by-day lesson plans for Geometry, including Triangles & Congruence: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-triangles-congruence",
+              "description": "Differentiated Triangles & Congruence worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangles-congruence",
+              "description": "Build Triangles & Congruence quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Congruence Four",
               "path": "artifacts/triangles-congruence-connect-four/index.html",
-              "thumb": "thumbs/triangles-congruence-connect-four.jpg",
-              "description": "Connect Four for two teams. Triangle inequality, missing angles, congruence criteria and corresponding parts. A wrong answer lets the other team steal. Three levels and an optional timer.",
+              "description": "Connect Four for two teams on Triangles & Congruence. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
-                "Triangle inequality and angle sums",
-                "SSS, SAS, ASA, AAS, HL",
-                "Corresponding parts and CPCTC",
-                "Solving for x with congruent parts"
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangles-congruence-connect-four.jpg"
             },
             {
               "title": "Triangles & Congruence Picture Reveal",
               "path": "artifacts/triangles-congruence-picture-reveal/index.html",
-              "thumb": "thumbs/triangles-congruence-picture-reveal.jpg",
-              "description": "Use the triangle angle sum, exterior angles, isosceles triangles, corresponding parts and the congruence shortcuts to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "description": "Ten typed problems on Triangles & Congruence. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
-                "Triangle angle sum and exterior angles",
-                "Isosceles triangles",
-                "Corresponding parts (CPCTC)",
-                "SAS, ASA and HL"
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangles-congruence-picture-reveal.jpg"
             },
             {
               "title": "Triangles Showdown",
-              "path": "artifacts/triangles-congruence-jeopardy/index.html",
-              "thumb": "thumbs/triangles-congruence-jeopardy.jpg",
-              "description": "A game board for Triangles and Congruence. Triangle facts, proving triangles congruent with SSS, SAS, ASA, AAS and HL, and using corresponding parts.",
+              "path": "artifacts/triangles-congruence-showdown/index.html",
+              "description": "A game board for Triangles & Congruence: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
               "type": "Game",
               "topics": [
-                "Triangle inequality and angle sums",
-                "SSS, SAS, ASA, AAS, HL",
-                "Corresponding parts and CPCTC",
-                "Solving for x with congruent parts"
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangles-congruence-showdown.jpg"
             },
             {
               "title": "The Pyramid Puzzle",
@@ -4764,15 +4931,14 @@ window.LIBRARY = {
             {
               "title": "Triangles & Congruence Tic-Tac-Toe",
               "path": "artifacts/triangles-congruence-tic-tac-toe/index.html",
-              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Triangles & Congruence. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Congruence rules",
-                "Team game",
-                "Multiple choice"
+                "classifying triangles, angle sums, isosceles triangles and side–angle relationships",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/triangles-congruence-tic-tac-toe.jpg"
             },
             {
               "title": "Lockdown at the Robot Factory",
@@ -4786,6 +4952,31 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Triangles & Congruence Cheat Sheet",
+              "path": "artifacts/geometry-triangles-congruence-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangles-congruence-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Triangles & Congruence. Front: classifying triangles, angle sums, isosceles triangles and side–angle relationships. Back: congruence shortcuts, CPCTC and two-column proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Triangles & Congruence",
+                "Unit 3"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -4796,28 +4987,28 @@ window.LIBRARY = {
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
-              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "description": "A Triangle Relationships readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
               "type": "Study Guide",
               "added": "2026-10-27"
             },
             {
               "title": "Daily Lesson Planner",
               "path": "worksheet-generator/lesson-planner.html#unit=geometry-triangle-relationships",
-              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "description": "Day-by-day lesson plans for Geometry, including Triangle Relationships: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
               "type": "Planning",
               "added": "2026-10-27"
             },
             {
               "title": "Worksheet Generator",
               "path": "worksheet-generator/worksheet.html#unit=geometry-triangle-relationships",
-              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "description": "Differentiated Triangle Relationships worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
               "type": "Practice",
               "added": "2026-10-27"
             },
             {
               "title": "Assessment Generator",
               "path": "worksheet-generator/menu-assessment.html#unit=geometry-triangle-relationships",
-              "description": "Generate differentiated triangle angle-relationship problems; extended geometry skills and diagrams are still being developed.",
+              "description": "Build Triangle Relationships quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
               "type": "Printable",
               "added": "2026-10-27"
             },
@@ -4826,7 +5017,124 @@ window.LIBRARY = {
               "path": "artifacts/triangle-relationships-flashcards/index.html",
               "description": "Generated triangle angle-sum, exterior-angle, and isosceles-angle flashcards with Easy, Medium, and Hard settings, skill selection, and practice tracking.",
               "type": "Practice",
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/triangle-relationships-flashcards.jpg"
+            },
+            {
+              "title": "Triangle Relationships Showdown",
+              "path": "artifacts/triangle-relationships-showdown/index.html",
+              "description": "A game board for Triangle Relationships: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-showdown.jpg"
+            },
+            {
+              "title": "Triangle Relationships Four",
+              "path": "artifacts/triangle-relationships-connect-four/index.html",
+              "description": "Connect Four for two teams on Triangle Relationships. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-connect-four.jpg"
+            },
+            {
+              "title": "Triangle Relationships Tic-Tac-Toe",
+              "path": "artifacts/triangle-relationships-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Triangle Relationships. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-tic-tac-toe.jpg"
+            },
+            {
+              "title": "Triangle Relationships Picture Reveal",
+              "path": "artifacts/triangle-relationships-picture-reveal/index.html",
+              "description": "Ten typed problems on Triangle Relationships. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "angle facts, inequalities and special segments in triangles"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/triangle-relationships-picture-reveal.jpg"
+            },
+            {
+              "title": "Triangle Relationships Cheat Sheet",
+              "path": "artifacts/geometry-triangle-relationships-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-triangle-relationships-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Triangle Relationships. Front: angle facts, inequalities and special segments in triangles. Back: midsegments, medians, bisectors, altitudes and points of concurrency. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Triangle Relationships",
+                "Unit 4"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangle-relationships&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangle Relationships"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -4835,18 +5143,47 @@ window.LIBRARY = {
           "name": "Similarity",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-similarity",
+              "description": "A Similarity readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-similarity",
+              "description": "Day-by-day lesson plans for Geometry, including Similarity: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-similarity",
+              "description": "Differentiated Similarity worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-similarity",
+              "description": "Build Similarity quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Similarity Four",
               "path": "artifacts/similarity-connect-four/index.html",
-              "thumb": "thumbs/similarity-connect-four.jpg",
-              "description": "Connect Four for two teams. Proportions, scale factor, area and perimeter ratios, similar triangles, side-splitter, shadows and scale drawings. A wrong answer lets the other team steal. Three levels and an optional timer.",
+              "description": "Connect Four for two teams on Similarity. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
-                "Ratios and proportions",
-                "Scale factor and area ratio",
-                "AA, SSS∼ and SAS∼",
-                "Side-splitter and indirect measurement"
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/similarity-connect-four.jpg"
             },
             {
               "title": "Similarity Flashcards",
@@ -4865,30 +5202,31 @@ window.LIBRARY = {
             {
               "title": "Similarity Picture Reveal",
               "path": "artifacts/similarity-picture-reveal/index.html",
-              "thumb": "thumbs/similarity-picture-reveal.jpg",
-              "description": "Use proportions, scale factor, AA, SAS and SSS similarity, the Triangle Proportionality Theorem and shadows to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "description": "Ten typed problems on Similarity. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
-                "Proportions and scale factor",
-                "AA, SAS and SSS similarity",
-                "Triangle Proportionality Theorem",
-                "Area ratios and indirect measurement"
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/similarity-picture-reveal.jpg"
             },
             {
               "title": "Similarity Showdown",
-              "path": "artifacts/similarity-jeopardy/index.html",
-              "thumb": "thumbs/similarity-jeopardy.jpg",
-              "description": "A game board for Similarity. Ratios and proportions, similar figures with area and volume ratios, and similar triangles with AA, SSS, SAS, the side-splitter theorem and shadow problems.",
+              "path": "artifacts/similarity-showdown/index.html",
+              "description": "A game board for Similarity: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
               "type": "Game",
               "topics": [
-                "Ratios and proportions",
-                "Scale factor and area ratio",
-                "AA, SSS∼ and SAS∼",
-                "Side-splitter and indirect measurement"
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/similarity-showdown.jpg"
             },
             {
               "title": "The Toy Workshop Theft",
@@ -4906,15 +5244,17 @@ window.LIBRARY = {
             {
               "title": "Similarity Tic-Tac-Toe",
               "path": "artifacts/similarity-tic-tac-toe/index.html",
-              "thumb": "thumbs/similarity-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Similarity. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Similar figures",
-                "Team game",
-                "Multiple choice"
+                "Scale factor and proportions",
+                "AA, SAS~ and SSS~",
+                "Triangle proportionality theorem",
+                "Perimeter, area and indirect measurement",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/similarity-tic-tac-toe.jpg"
             },
             {
               "title": "The Shrink-Ray Workshop",
@@ -4928,6 +5268,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Similarity Cheat Sheet",
+              "path": "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-similarity-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Similarity. Front: scale factors, similar figures and proportions. Back: similarity criteria, dilations, area and indirect measurement. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Similarity",
+                "Unit 5"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-similarity&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Similarity"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -4936,18 +5345,47 @@ window.LIBRARY = {
           "name": "Right Triangles and Trigonometry",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
+              "description": "A Right Triangles & Trigonometry readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-right-triangles-trigonometry",
+              "description": "Day-by-day lesson plans for Geometry, including Right Triangles & Trigonometry: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-right-triangles-trigonometry",
+              "description": "Differentiated Right Triangles & Trigonometry worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-right-triangles-trigonometry",
+              "description": "Build Right Triangles & Trigonometry quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Trig Four",
               "path": "artifacts/right-triangles-trigonometry-connect-four/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-connect-four.jpg",
-              "description": "Connect Four for two teams. Use the Pythagorean Theorem, special right triangles and trig ratios to earn a disc. A wrong answer lets the other team steal. Three levels and an optional timer.",
+              "description": "Connect Four for two teams on Right Triangles & Trigonometry. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
                 "Pythagorean Theorem and its converse",
                 "Special right triangles",
                 "Sine, cosine and tangent",
-                "Angles of elevation and depression"
+                "Elevation and depression",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/right-triangles-trigonometry-connect-four.jpg"
             },
             {
               "title": "Right Triangles & Trigonometry Flashcards",
@@ -4966,30 +5404,31 @@ window.LIBRARY = {
             {
               "title": "Right Triangles & Trigonometry Picture Reveal",
               "path": "artifacts/right-triangles-trigonometry-picture-reveal/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-picture-reveal.jpg",
-              "description": "Use the Pythagorean Theorem, special right triangles, SOH-CAH-TOA and angles of depression to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "description": "Ten typed problems on Right Triangles & Trigonometry. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
                 "Pythagorean Theorem and its converse",
                 "Special right triangles",
                 "Sine, cosine and tangent",
-                "Angles of elevation and depression"
+                "Elevation and depression"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/right-triangles-trigonometry-picture-reveal.jpg"
             },
             {
               "title": "Right Triangles Showdown",
-              "path": "artifacts/right-triangles-trigonometry-jeopardy/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-jeopardy.jpg",
-              "description": "A game board for Right Triangles and Trigonometry. Pythagorean Theorem, special right triangles, sine, cosine and tangent, and real-world applications. Reveal each worked solution to check it.",
+              "path": "artifacts/right-triangles-trigonometry-showdown/index.html",
+              "description": "A game board for Right Triangles & Trigonometry: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
               "type": "Game",
               "topics": [
                 "Pythagorean Theorem and its converse",
                 "Special right triangles",
                 "Sine, cosine and tangent",
-                "Angles of elevation and depression"
+                "Elevation and depression",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/right-triangles-trigonometry-showdown.jpg"
             },
             {
               "title": "The Lighthouse Lantern Mystery",
@@ -5007,15 +5446,17 @@ window.LIBRARY = {
             {
               "title": "Right Triangles & Trig Tic-Tac-Toe",
               "path": "artifacts/right-triangles-trigonometry-tic-tac-toe/index.html",
-              "thumb": "thumbs/right-triangles-trigonometry-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Right Triangles & Trigonometry. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Right triangle trig",
-                "Team game",
-                "Multiple choice"
+                "Pythagorean Theorem and its converse",
+                "Special right triangles",
+                "Sine, cosine and tangent",
+                "Elevation and depression",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/right-triangles-trigonometry-tic-tac-toe.jpg"
             },
             {
               "title": "Rotor Rescue: Summit Mission",
@@ -5029,6 +5470,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Right Triangles & Trigonometry Cheat Sheet",
+              "path": "artifacts/geometry-right-triangles-trigonometry-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-right-triangles-trigonometry-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Right Triangles & Trigonometry. Front: the Pythagorean Theorem, special right triangles and trig ratios. Back: finding sides and angles with SOH-CAH-TOA, elevation and depression. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Right Triangles & Trigonometry",
+                "Unit 6"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-right-triangles-trigonometry&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Right Triangles & Trigonometry"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -5037,11 +5547,156 @@ window.LIBRARY = {
           "name": "Quadrilaterals and Polygons",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-quadrilaterals-polygons",
+              "description": "A Quadrilaterals & Polygons readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-quadrilaterals-polygons",
+              "description": "Day-by-day lesson plans for Geometry, including Quadrilaterals & Polygons: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-quadrilaterals-polygons",
+              "description": "Differentiated Quadrilaterals & Polygons worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-quadrilaterals-polygons",
+              "description": "Build Quadrilaterals & Polygons quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Quadrilaterals & Polygons Flashcards",
               "path": "artifacts/quadrilaterals-polygons-flashcards/index.html",
               "description": "Generated polygon-angle and parallelogram flashcards with Easy, Medium, and Hard difficulty, skill selection, and practice tracking.",
               "type": "Practice",
-              "added": "2026-10-27"
+              "added": "2026-10-27",
+              "thumb": "thumbs/quadrilaterals-polygons-flashcards.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Showdown",
+              "path": "artifacts/quadrilaterals-polygons-showdown/index.html",
+              "description": "A game board for Quadrilaterals & Polygons: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-showdown.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Four",
+              "path": "artifacts/quadrilaterals-polygons-connect-four/index.html",
+              "description": "Connect Four for two teams on Quadrilaterals & Polygons. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-connect-four.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Tic-Tac-Toe",
+              "path": "artifacts/quadrilaterals-polygons-tic-tac-toe/index.html",
+              "description": "Tic-Tac-Toe for two teams on Quadrilaterals & Polygons. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals",
+                "Team game"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-tic-tac-toe.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Picture Reveal",
+              "path": "artifacts/quadrilaterals-polygons-picture-reveal/index.html",
+              "description": "Ten typed problems on Quadrilaterals & Polygons. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "polygon angle sums and the properties of quadrilaterals"
+              ],
+              "added": "2026-10-28",
+              "thumb": "thumbs/quadrilaterals-polygons-picture-reveal.jpg"
+            },
+            {
+              "title": "Quadrilaterals & Polygons Cheat Sheet",
+              "path": "artifacts/geometry-quadrilaterals-polygons-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-quadrilaterals-polygons-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Quadrilaterals & Polygons. Front: polygon angle sums and the properties of quadrilaterals. Back: parallelograms, rectangles, rhombuses, trapezoids, kites and coordinate proofs. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Quadrilaterals & Polygons",
+                "Unit 7"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-quadrilaterals-polygons&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Quadrilaterals & Polygons"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -5050,18 +5705,47 @@ window.LIBRARY = {
           "name": "Transformations",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-transformations",
+              "description": "A Transformations readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-transformations",
+              "description": "Day-by-day lesson plans for Geometry, including Transformations: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-transformations",
+              "description": "Differentiated Transformations worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-transformations",
+              "description": "Build Transformations quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Transformations Four",
               "path": "artifacts/coordinate-geometry-transformations-connect-four/index.html",
-              "thumb": "thumbs/coordinate-geometry-transformations-connect-four.jpg",
-              "description": "Connect Four for two teams. Use distance, midpoint, slope and transformations on the coordinate plane to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "description": "Connect Four for two teams on Transformations. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
                 "Distance, midpoint and slope",
-                "Reflections, rotations, translations and dilations",
                 "Classifying figures from coordinates",
-                "Parallel and perpendicular lines"
+                "Translations, reflections, rotations and dilations",
+                "Compositions and congruence",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/coordinate-geometry-transformations-connect-four.jpg"
             },
             {
               "title": "Coordinate Geometry & Transformations Flashcards",
@@ -5080,30 +5764,31 @@ window.LIBRARY = {
             {
               "title": "Coordinate Geometry & Transformations Picture Reveal",
               "path": "artifacts/coordinate-geometry-transformations-picture-reveal/index.html",
-              "thumb": "thumbs/coordinate-geometry-transformations-picture-reveal.jpg",
-              "description": "Use distance, midpoint and slope, classify figures on the plane, and find images under translations, reflections, rotations, dilations and compositions to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "description": "Ten typed problems on Transformations. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
                 "Distance, midpoint and slope",
-                "Parallel and perpendicular lines",
-                "Classifying figures",
-                "Transformations and compositions"
+                "Classifying figures from coordinates",
+                "Translations, reflections, rotations and dilations",
+                "Compositions and congruence"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/coordinate-geometry-transformations-picture-reveal.jpg"
             },
             {
               "title": "Coordinate Showdown",
-              "path": "artifacts/coordinate-geometry-transformations-jeopardy/index.html",
-              "thumb": "thumbs/coordinate-geometry-transformations-jeopardy.jpg",
-              "description": "A game board for Coordinate Geometry and Transformations. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "path": "artifacts/coordinate-geometry-transformations-showdown/index.html",
+              "description": "A game board for Transformations: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
               "type": "Game",
               "topics": [
                 "Distance, midpoint and slope",
-                "Reflections, rotations, translations and dilations",
                 "Classifying figures from coordinates",
-                "Parallel and perpendicular lines"
+                "Translations, reflections, rotations and dilations",
+                "Compositions and congruence",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/coordinate-geometry-transformations-showdown.jpg"
             },
             {
               "title": "The Treasure Map Mystery",
@@ -5121,15 +5806,17 @@ window.LIBRARY = {
             {
               "title": "Transformations Tic-Tac-Toe",
               "path": "artifacts/coordinate-geometry-transformations-tic-tac-toe/index.html",
-              "thumb": "thumbs/coordinate-geometry-transformations-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Transformations. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Transformations",
-                "Team game",
-                "Multiple choice"
+                "Distance, midpoint and slope",
+                "Classifying figures from coordinates",
+                "Translations, reflections, rotations and dilations",
+                "Compositions and congruence",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/coordinate-geometry-transformations-tic-tac-toe.jpg"
             },
             {
               "title": "Glitch World: Trapped in the Game",
@@ -5143,6 +5830,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Transformations Cheat Sheet",
+              "path": "artifacts/geometry-coordinate-transformations-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-coordinate-transformations-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Transformations. Front: distance, midpoint, slope and translations. Back: reflections, rotations, dilations and sequences of transformations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Transformations",
+                "Unit 8"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-transformations&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Transformations"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -5151,18 +5907,47 @@ window.LIBRARY = {
           "name": "Circles",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-circles",
+              "description": "A Circles readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-circles",
+              "description": "Day-by-day lesson plans for Geometry, including Circles: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-circles",
+              "description": "Differentiated Circles worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-circles",
+              "description": "Build Circles quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Circles Four",
               "path": "artifacts/circles-connect-four/index.html",
-              "thumb": "thumbs/circles-connect-four.jpg",
-              "description": "Connect Four for two teams. Find lengths, areas, angle measures and circle equations to earn a disc. A wrong answer lets the other team steal. Three levels and an optional timer.",
+              "description": "Connect Four for two teams on Circles. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
                 "Circumference, area, arcs and sectors",
                 "Central and inscribed angles",
                 "Tangents and chords",
-                "Equations of circles"
+                "Equations of circles",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/circles-connect-four.jpg"
             },
             {
               "title": "Circles Flashcards",
@@ -5181,22 +5966,7 @@ window.LIBRARY = {
             {
               "title": "Circles Picture Reveal",
               "path": "artifacts/circles-picture-reveal/index.html",
-              "thumb": "thumbs/circles-picture-reveal.jpg",
-              "description": "Find arc lengths, sector areas, inscribed angles, tangent and chord lengths, and equations of circles to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
-              "type": "Game",
-              "topics": [
-                "Arc length and sector area",
-                "Central and inscribed angles",
-                "Tangents and chords",
-                "Equations of circles"
-              ],
-              "added": "2026-10-18"
-            },
-            {
-              "title": "Circles Showdown",
-              "path": "artifacts/circles-jeopardy/index.html",
-              "thumb": "thumbs/circles-jeopardy.jpg",
-              "description": "A game board for Circles. Circumference, area, arcs and sectors; central and inscribed angles, tangents and chords; and equations of circles. Reveal each worked solution to check it.",
+              "description": "Ten typed problems on Circles. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
                 "Circumference, area, arcs and sectors",
@@ -5204,7 +5974,23 @@ window.LIBRARY = {
                 "Tangents and chords",
                 "Equations of circles"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/circles-picture-reveal.jpg"
+            },
+            {
+              "title": "Circles Showdown",
+              "path": "artifacts/circles-showdown/index.html",
+              "description": "A game board for Circles: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "Circumference, area, arcs and sectors",
+                "Central and inscribed angles",
+                "Tangents and chords",
+                "Equations of circles",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/circles-showdown.jpg"
             },
             {
               "title": "The Carnival Caper",
@@ -5222,15 +6008,17 @@ window.LIBRARY = {
             {
               "title": "Circles Tic-Tac-Toe",
               "path": "artifacts/circles-tic-tac-toe/index.html",
-              "thumb": "thumbs/circles-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Circles. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Circle measures",
-                "Team game",
-                "Multiple choice"
+                "Circumference, area, arcs and sectors",
+                "Central and inscribed angles",
+                "Tangents and chords",
+                "Equations of circles",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/circles-tic-tac-toe.jpg"
             },
             {
               "title": "Carnival After Dark: Locked In the Midway",
@@ -5244,6 +6032,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Circles Cheat Sheet",
+              "path": "artifacts/geometry-circles-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-circles-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Circles. Front: parts of a circle, circumference, area, arcs and sectors. Back: inscribed angles, chords, tangents and angles inside and outside a circle. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Circles",
+                "Unit 9"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-circles&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Circles"
+              ],
+              "added": "2026-10-28"
             }
           ]
         },
@@ -5252,18 +6109,47 @@ window.LIBRARY = {
           "name": "Area, Surface Area and Volume",
           "artifacts": [
             {
+              "title": "Assessment Readiness Check",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-area-surface-area-volume",
+              "description": "A Area, Surface Area & Volume readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-area-surface-area-volume",
+              "description": "Day-by-day lesson plans for Geometry, including Area, Surface Area & Volume: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-area-surface-area-volume",
+              "description": "Differentiated Area, Surface Area & Volume worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-area-surface-area-volume",
+              "description": "Build Area, Surface Area & Volume quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-28"
+            },
+            {
               "title": "Volume Four",
               "path": "artifacts/area-surface-area-volume-connect-four/index.html",
-              "thumb": "thumbs/area-surface-area-volume-connect-four.jpg",
-              "description": "Connect Four for two teams. Find areas, volumes, surface areas, and missing dimensions to earn a disc. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "description": "Connect Four for two teams on Area, Surface Area & Volume. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
               "type": "Game",
               "topics": [
                 "Area of polygons and composite figures",
-                "Volume of prisms, cylinders, cones, pyramids and spheres",
-                "Surface area",
-                "Scaling dimensions"
+                "Volume and surface area of solids",
+                "Unit conversions and scale factors",
+                "Real-world volume problems",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/area-surface-area-volume-connect-four.jpg"
             },
             {
               "title": "Area, Surface Area & Volume Flashcards",
@@ -5282,29 +6168,31 @@ window.LIBRARY = {
             {
               "title": "Area, Surface Area & Volume Picture Reveal",
               "path": "artifacts/area-surface-area-volume-picture-reveal/index.html",
-              "thumb": "thumbs/area-surface-area-volume-picture-reveal.jpg",
-              "description": "Find areas of polygons and composite figures, then surface area and volume of cylinders, cones, pyramids and spheres to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "description": "Ten typed problems on Area, Surface Area & Volume. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
               "type": "Game",
               "topics": [
                 "Area of polygons and composite figures",
                 "Volume and surface area of solids",
-                "Scale factor effects"
+                "Unit conversions and scale factors",
+                "Real-world volume problems"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/area-surface-area-volume-picture-reveal.jpg"
             },
             {
               "title": "Measurement Showdown",
-              "path": "artifacts/area-surface-area-volume-jeopardy/index.html",
-              "thumb": "thumbs/area-surface-area-volume-jeopardy.jpg",
-              "description": "A game board for Area, Surface Area and Volume. Pick a category and a point value to open a problem, then reveal the worked solution to check it.",
+              "path": "artifacts/area-surface-area-volume-showdown/index.html",
+              "description": "A game board for Area, Surface Area & Volume: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
               "type": "Game",
               "topics": [
                 "Area of polygons and composite figures",
-                "Volume of prisms, cylinders, cones, pyramids and spheres",
-                "Surface area",
-                "Scaling dimensions"
+                "Volume and surface area of solids",
+                "Unit conversions and scale factors",
+                "Real-world volume problems",
+                "Team game"
               ],
-              "added": "2026-10-18"
+              "added": "2026-10-18",
+              "thumb": "thumbs/area-surface-area-volume-showdown.jpg"
             },
             {
               "title": "The Candy Factory Caper",
@@ -5322,15 +6210,17 @@ window.LIBRARY = {
             {
               "title": "Area, Surface Area & Volume Tic-Tac-Toe",
               "path": "artifacts/area-surface-area-volume-tic-tac-toe/index.html",
-              "thumb": "thumbs/area-surface-area-volume-tic-tac-toe.jpg",
-              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "description": "Tic-Tac-Toe for two teams on Area, Surface Area & Volume. Claim a square with a correct answer; a miss lets the other team steal. Verified problems with diagrams and an optional timer.",
               "type": "Game",
               "topics": [
-                "Area, surface area, volume",
-                "Team game",
-                "Multiple choice"
+                "Area of polygons and composite figures",
+                "Volume and surface area of solids",
+                "Unit conversions and scale factors",
+                "Real-world volume problems",
+                "Team game"
               ],
-              "added": "2026-10-21"
+              "added": "2026-10-21",
+              "thumb": "thumbs/area-surface-area-volume-tic-tac-toe.jpg"
             },
             {
               "title": "The Pharaoh’s Pyramid: Sealed Inside",
@@ -5344,6 +6234,75 @@ window.LIBRARY = {
                 "Teamwork"
               ],
               "added": "2026-10-21"
+            },
+            {
+              "title": "Area, Surface Area & Volume Cheat Sheet",
+              "path": "artifacts/geometry-area-surface-area-volume-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/geometry-area-surface-area-volume-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet for Area, Surface Area & Volume. Front: area formulas, composite figures and units. Back: surface area and volume of prisms, cylinders, pyramids, cones and spheres. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Area, Surface Area & Volume",
+                "Unit 10"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=color",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=error",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=partner",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=who",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Stations Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-area-surface-area-volume&kind=stations",
+              "description": "Make station pages for this unit: choose 2–6 stations and 6–10 problems each, and the chosen skills are split across the stations. CP2/CP1/Honors, up to three versions, a one-page answer key and worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Area, Surface Area & Volume"
+              ],
+              "added": "2026-10-28"
             }
           ]
         }

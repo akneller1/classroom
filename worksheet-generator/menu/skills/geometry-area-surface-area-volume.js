@@ -17,6 +17,12 @@ function sphereVolume(ctx){var r=ctx.rng,rad=3*r.int(1,ctx.c>=5?20:15),x=4*rad*r
 function sphereSurface(ctx){var r=ctx.rng,rad=r.int(2,ctx.c>=5?40:30),x=4*rad*rad;return make('geo-measure-sphere-surface-'+ctx.c,'A sphere has radius '+rad+' cm. Its surface area is xπ square centimeters. Find the coefficient x (do not include π).','x=4*'+rad+'*'+rad,x,'Sphere surface area is 4πr².',so('sphere',{r:rad},'cm'));}
 function prismHeight(ctx){var r=ctx.rng,a=r.int(2,9),b=r.int(3,10),x=r.int(2,ctx.c>=5?13:9),V=a*b*x;return make('geo-measure-prism-height-'+ctx.c,'A rectangular prism has length '+a+' cm, width '+b+' cm, and volume '+V+' cubic centimeters. Find its height x in centimeters.',a+'*'+b+'*x='+V,x,'Volume is length times width times height, so solve for the height.',so('prism',{l:a,w:b,h:x},'cm',['l','w','h'],{h:'x'}));}
 function cylinderHeight(ctx){var r=ctx.rng,rad=r.int(2,ctx.c>=5?10:7),x=r.int(3,12),V=rad*rad*x;return make('geo-measure-cylinder-height-'+ctx.c,'A right circular cylinder has radius '+rad+' cm and volume '+V+'π cubic centimeters. Find its height x in centimeters.',rad+'*'+rad+'*x='+V,x,'Cylinder volume is πr²h; divide out π, then solve for the height.',so('cylinder',{r:rad,h:x},'cm',['r','h'],{h:'x'}));}
+function netSurface(ctx){var r=ctx.rng,l=r.int(3,ctx.c>=5?12:8),w=r.int(2,ctx.c>=5?9:6),h=r.int(2,ctx.c>=5?10:7),x=2*(l*w+l*h+w*h);
+ return {variant:'geo-measure-net-'+ctx.c,fig:{kind:'geo-net',l:l,w:w,h:h,unit:'cm'},prompt:'The net shown folds into a closed rectangular prism. Find the total surface area x of the prism in square centimeters. Set up and solve an equation for x.',
+  parts:[{answer:M('x='+x),check:{type:'solve',eq:'x=2*('+l+'*'+w+'+'+l+'*'+h+'+'+w+'*'+h+')',v:'x'}}],steps:[step('The six faces of the net are the six faces of the prism: add their areas.',M('x=2('+l+'\\cdot '+w+'+'+l+'\\cdot '+h+'+'+w+'\\cdot '+h+')')),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function stackVolume(ctx){var r=ctx.rng,c=ctx.c,l1=r.int(6,c>=5?14:10),w1=r.int(4,c>=5?10:8),h1=r.int(2,c>=5?8:6),l2=r.int(2,l1-1),w2=r.int(2,w1-1),h2=r.int(2,c>=5?9:7),x=l1*w1*h1+l2*w2*h2;
+ return {variant:'geo-measure-stack-'+c,fig:{kind:'geo-stack',a:{l:l1,w:w1,h:h1},b:{l:l2,w:w2,h:h2},unit:'cm'},prompt:'The solid shown is made of two rectangular prisms, with the smaller prism centered on top of the larger one. Find the total volume x of the solid in cubic centimeters. Set up and solve an equation for x.',
+  parts:[{answer:M('x='+x),check:{type:'solve',eq:'x='+l1+'*'+w1+'*'+h1+'+'+l2+'*'+w2+'*'+h2,v:'x'}}],steps:[step('Add the volumes of the two prisms.',M('x='+l1+'\\cdot '+w1+'\\cdot '+h1+'+'+l2+'\\cdot '+w2+'\\cdot '+h2)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
 tags:{AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},
 reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section></div>',
@@ -34,6 +40,8 @@ skills:[
 {id:'measure-cone-volume',tag:'CIRCULAR',name:'Cone volume (coefficient of π)',best:[0,1,2],generate:coneVolume},
 {id:'measure-sphere-volume',tag:'CIRCULAR',name:'Sphere volume (coefficient of π)',best:[0,1,2],generate:sphereVolume},
 {id:'measure-sphere-surface',tag:'CIRCULAR',name:'Sphere surface area (coefficient of π)',best:[0,1,2],generate:sphereSurface},
+{id:'measure-net-surface',tag:'SURFACE',name:'Surface area from a net',best:[0,1,2],generate:netSurface},
+{id:'measure-composite-volume',tag:'VOLUME',name:'Volume of two stacked prisms',best:[0,1,2],generate:stackVolume},
 {id:'measure-prism-height',tag:'VOLUME',name:'Missing height of a prism from its volume',best:[0,1,2],generate:prismHeight},
 {id:'measure-cylinder-height',tag:'CIRCULAR',name:'Missing height of a cylinder from its volume',best:[0,1,2],generate:cylinderHeight}
 ]});

@@ -670,6 +670,14 @@ window.RESOURCE_DETAILS = {
     "pages": 2,
     "referenceSheet": true
   },
+  "artifacts/geometry-triangle-relationships-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/geometry-quadrilaterals-polygons-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
   "artifacts/area-surface-area-volume-maze/worksheet.pdf": {
     "pages": 2,
     "answerKey": "artifacts/area-surface-area-volume-maze/teacher-key.pdf",

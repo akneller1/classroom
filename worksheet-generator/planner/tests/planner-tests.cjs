@@ -8,7 +8,8 @@
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const load = require('../../menu/tests/load.cjs');
 const env = load();
-['planner/scope-algebra1.js', 'planner/lesson-skills.js', 'planner/planner.js'].forEach(f =>
+env.location = { hash: process.env.COURSE === 'geometry' ? '#course=geometry' : '' };   // COURSE=geometry tests the Geometry scope and skill map
+['planner/scope-algebra1.js', 'planner/lesson-skills.js', 'planner/scope-geometry.js', 'planner/lesson-skills-geometry.js', 'planner/course.js', 'planner/planner.js'].forEach(f =>
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', '..', f), 'utf8'), env, { filename: f }));
 const M = env.MKMENU, P = env.MKPLAN, SC = env.MKPLAN_SCOPE, MAP = env.MKPLAN_SKILLS;
 let checks = 0, fails = [];
@@ -52,7 +53,7 @@ SC.days.forEach(d => ['cp2', 'cp1', 'honors'].forEach(lv => { for (let s = 0; s 
     ok(p.entry.cmin <= p.c && p.c <= p.entry.cmax, 'day ' + d.day + ': c ' + p.c + ' outside ' + p.entry.cmin + '–' + p.entry.cmax);
   });
   const ids = plan.sections.map(x => x.id).join(',');
-  const want = { Lesson: 'donow,notes,practice,exit', Practice: 'donow,notes,practice,exit', Quiz: 'donow,practice,exit', Review: 'donow,notes,practice,exit', Assessment: 'donow,practice,exit', Flex: 'donow,notes,practice,exit', Diagnostic: 'practice,exit', 'Exam Review': 'donow,notes,practice,exit', Exam: 'practice', Project: 'donow,notes,practice,exit', Launch: 'donow,notes,practice,exit' }[d.day_type];
+  const want = { Lesson: 'donow,notes,examples,practice,exit', Practice: 'donow,notes,practice,exit', Quiz: 'donow,practice,exit', Review: 'donow,notes,practice,exit', Assessment: 'donow,practice,exit', Flex: 'donow,notes,practice,exit', Diagnostic: 'practice,exit', 'Exam Review': 'donow,notes,practice,exit', Exam: 'practice', Project: 'donow,notes,practice,exit', Launch: 'donow,notes,practice,exit' }[d.day_type];
   ok(ids === want, 'day ' + d.day + ' (' + d.day_type + ') sections ' + ids);
   const nProb = { Lesson: 1, Practice: 1, Quiz: 1, Review: 1, Assessment: 1, Flex: 1, Diagnostic: 1, 'Exam Review': 1, Exam: 1 }[d.day_type];
   if (nProb) ok(all.length > 0, 'day ' + d.day + ' has no problems');

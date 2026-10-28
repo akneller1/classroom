@@ -42,8 +42,68 @@
       if (/relevant angle measures/.test(p.prompt || '') && (p.prompt || '').indexOf('⟨' + lhs + '⟩ degrees and ' + nm[1] + ' degrees') < 0) return false;
       return want !== null && want === chk.eq;
     }
+    /* Shadow problems: x is recomputed from the printed heights and shadows (h/s = x/S), and the figure must show the same four numbers. */
+    if (/^geo-sim-shadow-/.test(p.variant || '')) {
+      var sw = C.plainText(p.prompt || ''), sm = /pole (\d+) feet tall casts a (\d+)-foot shadow\. A nearby tree casts a (\d+)-foot shadow/.exec(sw);
+      if (!sm || !p.fig || p.fig.kind !== 'geo-shadow') return false;
+      var sh = Number(sm[1]), ss = Number(sm[2]), sS = Number(sm[3]);
+      if (p.fig.h !== sh || p.fig.s !== ss || p.fig.S !== sS || !p.fig.lab || p.fig.lab.H !== 'x' || p.fig.H * ss !== sh * sS) return false;
+      var ssol = C.solveLinear(chk.eq, chk.v || 'x');
+      return !!ssol && ssol.value && Number(ssol.value.n) * ss === sh * sS * Number(ssol.value.d);
+    }
     /* Coordinate-grid transformations: the asked image coordinate is recomputed from the FIGURE (vertex positions, mirror line, drawn image)
        and the printed transformation, then compared with the solution of the checked equation. */
+    /* Area, surface area and volume: the answer is recomputed from the numbers printed in the question (or, for nets and stacked solids, from the figure alone). */
+    if (/^geo-measure-/.test(p.variant || '')) {
+      var mv = String(p.variant).replace(/^geo-measure-/, '').replace(/-\d+$/, ''), mt = C.plainText(p.prompt || ''), mn = (mt.match(/\d+(?:\.\d+)?/g) || []).map(Number), mf = p.fig, me = null, a0 = mn[0], b0 = mn[1], c0 = mn[2];
+      var need = { rectangle: 2, triangle: 2, parallelogram: 2, trapezoid: 3, 'prism-volume': 3, 'prism-surface': 3, 'cylinder-volume': 2, 'cylinder-surface': 2, pyramid: 3, 'cone-volume': 2, 'sphere-surface': 1, 'prism-height': 3, 'cylinder-height': 2 };
+      if (mv === 'net') {
+        if (!mf || mf.kind !== 'geo-net' || !NS.geoFigures.check(mf).ok || mn.length) return false;
+        me = [2 * (mf.l * mf.w + mf.l * mf.h + mf.w * mf.h), 1];
+      } else if (mv === 'stack') {
+        if (!mf || mf.kind !== 'geo-stack' || !NS.geoFigures.check(mf).ok || mn.length) return false;
+        me = [mf.a.l * mf.a.w * mf.a.h + mf.b.l * mf.b.w * mf.b.h, 1];
+      } else if (mv === 'sphere-volume') {
+        var sr = /diameter (\d+)/.exec(mt); if (mn.length !== 1) return false; me = sr ? [4 * (Number(sr[1]) / 2) * (Number(sr[1]) / 2) * (Number(sr[1]) / 2), 3] : [4 * a0 * a0 * a0, 3];
+      } else {
+        if (need[mv] === undefined || mn.length !== need[mv]) return false;
+        me = mv === 'rectangle' || mv === 'parallelogram' ? [a0 * b0, 1] : mv === 'triangle' ? [a0 * b0, 2] : mv === 'trapezoid' ? [(a0 + b0) * c0, 2]
+          : mv === 'prism-volume' ? [a0 * b0 * c0, 1] : mv === 'prism-surface' ? [2 * (a0 * b0 + a0 * c0 + b0 * c0), 1] : mv === 'cylinder-volume' ? [a0 * a0 * b0, 1]
+          : mv === 'cylinder-surface' ? [2 * a0 * (a0 + b0), 1] : mv === 'pyramid' ? [a0 * b0 * c0, 3] : mv === 'cone-volume' ? [a0 * a0 * b0, 3] : mv === 'sphere-surface' ? [4 * a0 * a0, 1]
+          : mv === 'prism-height' ? [c0, a0 * b0] : mv === 'cylinder-height' ? [b0, a0 * a0] : null;
+      }
+      if (!me) return false;
+      var msol; try { msol = C.solveLinear(chk.eq, 'x'); } catch (e) { return false; }
+      return !!msol && msol.kind === 'one' && Number(msol.value.n) * me[1] === me[0] * Number(msol.value.d);
+    }
+    /* Symmetry of a regular polygon: the number of sides is read from the FIGURE; x must equal n (lines) or satisfy n·x = 360 (rotation). */
+    if (/^geo-symmetry-(lines|rotation)-/.test(p.variant || '')) {
+      var yn = p.fig && p.fig.kind === 'geo-regular' ? p.fig.n : null; if (!(yn >= 3) || !NS.geoFigures.check(p.fig).ok) return false;
+      var yt = C.plainText(p.prompt || ''), ysol; try { ysol = C.solveLinear(chk.eq, 'x'); } catch (e) { return false; }
+      if (!ysol || ysol.kind !== 'one') return false;
+      var yv = Number(ysol.value.n) / Number(ysol.value.d), yl = /^geo-symmetry-lines-/.test(p.variant);
+      if (yl && !/lines of symmetry/.test(yt)) return false;
+      if (!yl && !/smallest positive rotation/.test(yt)) return false;
+      if (/\b\d+ sides\b/.test(yt) || /regular \d+-gon/.test(yt)) return false;
+      return yl ? (yv === yn && chk.eq === 'x=' + yn) : (Math.abs(yv - 360 / yn) < 1e-9 && chk.eq === yn + '*x=360');
+    }
+    if (/^geo-transform-fig-compose-/.test(p.variant || '') && p.fig && p.fig.kind === 'geo-grid' && NS.geoFigures && NS.geoFigures.grid) {
+      var cpre = p.fig.shapes && p.fig.shapes[0], cimg = p.fig.shapes && p.fig.shapes[2], ctx_ = String(p.prompt || ''), cm = /(x|y)-coordinate of ([A-Z])″/.exec(ctx_);
+      if (!cpre || !cimg || !cpre.labels || !cm || p.fig.shapes.length !== 3) return false;
+      var ci = cpre.labels.indexOf(cm[2]); if (ci < 0) return false;
+      var cre = /([A-Z])\((-?\d+), (-?\d+)\)/g, cv, cseen = 0;
+      while ((cv = cre.exec(ctx_))) { var cj = cpre.labels.indexOf(cv[1]); if (cj < 0 || cpre.pts[cj][0] !== Number(cv[2]) || cpre.pts[cj][1] !== Number(cv[3])) return false; cseen++; }
+      if (cseen !== cpre.pts.length) return false;
+      var c1 = /It is first (reflected across the x-axis|reflected across the y-axis|rotated 90° clockwise about the origin|rotated 90° counterclockwise about the origin) to form/.exec(ctx_), c2 = /and then translated (\d+) units? (right|left) and (\d+) units? (up|down) to form/.exec(ctx_);
+      if (!c1 || !c2) return false;
+      var ct = c1[1] === 'reflected across the x-axis' ? 'reflect-x' : c1[1] === 'reflected across the y-axis' ? 'reflect-y' : /counterclockwise/.test(c1[1]) ? 'rotate-ccw' : 'rotate-cw';
+      var cdx = (c2[2] === 'left' ? -1 : 1) * Number(c2[1]), cdy = (c2[4] === 'down' ? -1 : 1) * Number(c2[3]);
+      var cq = NS.geoFigures.grid.apply({ type: ct }, cpre.pts[ci]); cq = [cq[0] + cdx, cq[1] + cdy];
+      var cmid = p.fig.shapes[1]; if (!cmid || cmid.of !== 'pre' || cmid.tx.type !== ct || cimg.of !== 'mid' || cimg.tx.type !== 'translate' || cimg.tx.dx !== cdx || cimg.tx.dy !== cdy) return false;
+      if (cimg.pts[ci][0] !== cq[0] || cimg.pts[ci][1] !== cq[1]) return false;
+      var cs; try { cs = C.solveLinear(chk.eq, 'x'); } catch (e) { return false; }
+      return cs.kind === 'one' && String(cs.value.d) === '1' && String(cs.value.n) === String(cq[cm[1] === 'x' ? 0 : 1]);
+    }
     if (/^geo-transform-fig-/.test(p.variant || '') && p.fig && p.fig.kind === 'geo-grid' && NS.geoFigures && NS.geoFigures.grid) {
       var gpre = p.fig.shapes && p.fig.shapes[0], gtxt = String(p.prompt || ''), gm = /(x|y)-coordinate of ([A-Z])′/.exec(gtxt);
       if (!gpre || !gpre.labels || !gm) return false;

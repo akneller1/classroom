@@ -9,7 +9,9 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
+  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', CS = GEO ? '-geometry' : '';   // per-lesson saved data is kept separately for each course
   var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_SECTION_ORDER = 'mk-planner-section-order-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1', KEY_COUNTS = 'mk-planner-section-counts-v1';
+  KEY_NOTE_EDITS += CS; KEY_PROBLEM_LABELS += CS;
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
   function $(s) { return doc.querySelector(s); }
@@ -44,7 +46,7 @@
     } catch(e) {}
     return sectionOrder.slice();
   })();
-  var KEY_SECTION_CONFIG = 'mk-planner-occurrence-v1';
+  var KEY_SECTION_CONFIG = 'mk-planner-occurrence-v1' + CS;
   var sectionConfigs = (function() { try { return JSON.parse(lsGet(KEY_SECTION_CONFIG) || '{}') || {}; } catch(e) { return {}; } })();
   function saveConfigs() { lsSet(KEY_SECTION_CONFIG, JSON.stringify(sectionConfigs)); }
   function configureSection(plan,s,index) {
@@ -166,22 +168,27 @@
   if (!NS.LEVELS[ui.level]) ui.level = 'cp1';
 
   /* ---------- groups of days for the picker ---------- */
+  function isSem(d) { return /^SEM-/.test(d.lesson_id); }
+  function isFinal(d) { return /^END-/.test(d.lesson_id) || (!GEO && !d.unit && d.day >= 100); }
+  function span(f) { var a = SC.days.filter(f); return a.length ? ' (days ' + a[0].day + '–' + a[a.length - 1].day + ')' : ''; }
   function dayGroups() {
-    var out = [{ key: 'launch', name: 'Course launch (days 1–3)', days: [] }];
+    var launchDays = SC.days.filter(function (d) { return !d.unit && !isSem(d) && !isFinal(d); });
+    var out = [{ key: 'launch', name: 'Course launch' + (launchDays.length ? ' (days ' + launchDays[0].day + '–' + launchDays[launchDays.length - 1].day + ')' : ''), days: [] }];
     SC.units.forEach(function (u) { out.push({ key: 'u' + u.unit, name: 'Unit ' + u.unit + ': ' + u.title + ' (days ' + u.start_day + '–' + u.end_day + ')', days: [] }); });
-    out.push({ key: 'sem', name: 'Semester review & exam (days 87–90)', days: [] }, { key: 'final', name: 'Final review, exam & project (days 172–180)', days: [] });
+    out.push({ key: 'sem', name: 'Semester review & exam' + span(isSem), days: [] }, { key: 'final', name: 'Final review, exam' + (GEO ? '' : ' & project') + span(isFinal), days: [] });
     SC.days.forEach(function (d) {
-      var k = d.unit ? 'u' + d.unit : d.day <= 3 ? 'launch' : d.day < 100 ? 'sem' : 'final';
+      var k = groupKey(d);
       out.filter(function (g) { return g.key === k; })[0].days.push(d);
     });
     return out;
   }
-  function groupKey(d) { return d.unit ? 'u' + d.unit : d.day <= 3 ? 'launch' : d.day < 100 ? 'sem' : 'final'; }
+  function groupKey(d) { return d.unit ? 'u' + d.unit : isSem(d) ? 'sem' : isFinal(d) ? 'final' : 'launch'; }
   var TYPE_CLS = { Lesson: 'lesson', Practice: 'practice', Quiz: 'quiz', Review: 'review', Assessment: 'test', Flex: 'flex', Launch: 'launch', Diagnostic: 'launch', 'Exam Review': 'review', Exam: 'test', Project: 'project' };
 
   /* ---------- hash ---------- */
   function readHash() {
     var h = {}; (location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); });
+    if (h.course && /^(algebra1|geometry)$/.test(h.course) && h.course !== COURSE) { G.location.reload(); return; }
     if (h.unit) {
       var num = null; Object.keys(G.MKPLAN_SKILLS.UNIT_SET).forEach(function (n) { if (P.unitSetId(+n) === h.unit || String(n) === h.unit) num = +n; });
       var u = num && P.unitOf(num); if (u) ui.day = u.start_day;
@@ -192,7 +199,7 @@
     if (h.view && /^(plan|student|key)$/.test(h.view)) ui.view = h.view;
   }
   function writeHash() {
-    var h = '#day=' + ui.day + '&level=' + ui.level + (ui.seed !== 'A' ? '&seed=' + encodeURIComponent(ui.seed) : '') + (ui.view !== 'plan' ? '&view=' + ui.view : '');
+    var h = (GEO ? '#course=geometry&day=' : '#day=') + ui.day + '&level=' + ui.level + (ui.seed !== 'A' ? '&seed=' + encodeURIComponent(ui.seed) : '') + (ui.view !== 'plan' ? '&view=' + ui.view : '');
     if (location.hash !== h) history.replaceState(null, '', h);
   }
 
@@ -248,7 +255,7 @@
       links.push(['Worksheet Generator', 'worksheet.html#unit=' + set], ['Assessment Generator', 'menu-assessment.html#unit=' + set]);
       if (/Practice|Review|Flex/.test(d.day_type)) links.push(['Maze', 'printables.html#unit=' + set + '&kind=maze'], ['Partner Check', 'printables.html#unit=' + set + '&kind=partner'], ['Stations', 'printables.html#unit=' + set + '&kind=stations']);
       if (/Quiz/.test(d.day_type)) links.splice(2, 0, ['Short quiz (versions A–C)', 'menu-assessment.html#unit=' + set]);
-      links.push(['Unit page', '../index.html#algebra.' + unitPageId(d.unit)]);
+      if (!GEO) links.push(['Unit page', '../index.html#algebra.' + unitPageId(d.unit)]);
     } else if (/Exam/.test(d.day_type)) {
       links.push(['Assessment Generator', 'menu-assessment.html']);
     }
@@ -312,7 +319,7 @@
   }
   function sheetHead(plan, kind) {
     var d = plan.day, u = d.unit ? 'Unit ' + d.unit + ': ' + d.unit_title : d.unit_title;
-    return '<div class="pl-head"><div><div class="pl-title">' + esc(d.title) + '</div><div class="pl-sub">Algebra 1 · Day ' + d.day + ' · ' + esc(u) + (d.unit ? ' · day ' + esc(d.unit_day) : '') + ' · ' + esc(d.day_type) + '</div></div>' +
+    return '<div class="pl-head"><div><div class="pl-title">' + esc(d.title) + '</div><div class="pl-sub">' + esc(SC.meta.course || 'Algebra 1') + ' · Day ' + d.day + ' · ' + esc(u) + (d.unit ? ' · day ' + esc(d.unit_day) : '') + ' · ' + esc(d.day_type) + '</div></div>' +
       (kind === 'key' ? '<span class="pl-tag key">Teacher key · ' + levelName() + '</span>' : '<span class="pl-tag">' + levelName() + '</span>') + '</div>' +
       (kind === 'key' ? '' : '<div class="pl-name"><span>Name <i></i></span><span>Date <i class="s"></i></span><span>Period <i class="s"></i></span></div>');
   }
@@ -353,7 +360,7 @@
   }
   function rateTable(ids, head, raw) {
     return '<table class="pl-tbl pl-rate"><thead><tr><th>' + (raw ? 'Topic' : 'Lesson') + '</th><th colspan="4">' + esc(head) + '</th></tr></thead><tbody>' +
-      ids.map(function (id) { return '<tr><td>' + esc(raw ? id : (id === 'LAUNCH-2' ? 'Pre-algebra skills (expressions, equations, proportions)' : lessonTitle(id))) + '</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>'; }).join('') + '</tbody></table>';
+      ids.map(function (id) { return '<tr><td>' + esc(raw ? id : (id === 'LAUNCH-2' ? (SC.meta.diagnostic_label || 'Pre-algebra skills (expressions, equations, proportions)') : lessonTitle(id))) + '</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>'; }).join('') + '</tbody></table>';
   }
   function notesBody(plan, s, singleDay) {
     if (!singleDay && !s.lessonDay && plan.selectedDays && plan.selectedDays.length > 1 && !s.reference && !s.routines && !s.project && !s.corrections) {
@@ -413,7 +420,8 @@
   /* ---------- page ---------- */
   function picker() {
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
-    var sel = '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
+    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse"><option value="algebra1"' + (GEO ? '' : ' selected') + '>Algebra 1</option>' + (G.MKPLAN_SCOPE_GEOMETRY ? '<option value="geometry"' + (GEO ? ' selected' : '') + '>Geometry</option>' : '') + '</select>';
+    var sel = crs + '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
     var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
       return '<li>' + (d.day_type === 'Lesson' ? '<label style="display:inline-flex;align-items:center;margin-right:7px" title="Include this lesson"><input type="checkbox" data-lesson-day="' + d.day + '"' + (ui.selectedDays.indexOf(d.day) >= 0 ? ' checked' : '') + ' aria-label="Include ' + esc(d.title) + '"></label>' : '') + '<button type="button" class="pl-daybtn' + (d.day === ui.day ? ' on' : '') + '" data-day="' + d.day + '"' + (d.day === ui.day ? ' aria-current="true"' : '') + '><span class="pl-dnum">' + d.day + '</span><span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span><span class="pl-dtitle">' + esc(d.title) + '</span></button></li>';
@@ -594,6 +602,7 @@
       if (ui.selectedDays.indexOf(ui.day) < 0) ui.day = ui.selectedDays[0];
       render(); return;
     }
+    if (t.id === 'plCourse') { G.location.hash = '#course=' + t.value + '&day=1'; return; }
     if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; resetSelection(); render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
     if (t.name === 'plNotes') {   // the notes setting changes only the printed notes, not the problems
@@ -612,7 +621,7 @@
     }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
-  G.addEventListener('hashchange', function () { readHash(); resetSelection(); render(); });
+  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
 
   function applyTheme(t) { if (t) doc.documentElement.setAttribute('data-theme', t); else doc.documentElement.removeAttribute('data-theme'); }
   applyTheme(lsGet(KEY_THEME));
@@ -620,6 +629,7 @@
     var cur = doc.documentElement.getAttribute('data-theme') || (G.matchMedia && G.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     var nx = cur === 'dark' ? 'light' : 'dark'; applyTheme(nx); lsSet(KEY_THEME, nx);
   };
+  (function () { var cr = doc.querySelector('.crumb'); if (cr) cr.textContent = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1'); doc.title = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1') + ' · Mr. K\'s Classroom'; })();
   readHash();
   resetSelection();
   render();

@@ -59,6 +59,8 @@
     var p = NS.generateProblem(e.set, e.skill, cc, policy(plan), [plan.seed, plan.day.day, slot, salt || 0].join('|'), plan.used);
     var set = NS.skillSets[e.set], sk = set && set.byId[e.skill];
     if (p.failed) p = { failed: true, reason: p.reason, skill: e.skill, c: cc };
+    /* Geometry skills write a step's math as ⟨TeX⟩ (the generators' own convention); the planner wraps it itself, so keep the bare TeX. */
+    if (Array.isArray(p.steps)) p.steps = p.steps.map(function (st) { return st && typeof st.m === 'string' && /^⟨[\s\S]*⟩$/.test(st.m) ? Object.assign({}, st, { m: st.m.slice(1, -1) }) : st; });
     p.slot = slot; p.entry = e; p.lesson = e.lesson; p.skillName = sk ? sk.name : e.skill; p.setTitle = set ? set.unitName || set.title : e.set;
     return p;
   }

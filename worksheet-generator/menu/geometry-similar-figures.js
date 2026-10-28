@@ -217,6 +217,34 @@
     return H.wrap(o, Math.ceil(y0 + 26), 'Triangle ABC with segment DE parallel to BC', spec.note || '');
   }
 
+
+  /* geo-shadow: indirect measurement. Two vertical objects and their ground shadows, joined by parallel sun rays.
+     spec: { kind:'geo-shadow', h, s, H, S, names:['pole','tree'], unit:'ft', lab:{ H:'x' } }
+     h,s = first object height/shadow; H,S = second. All four are TRUE values (so the picture is to scale);
+     a lab entry replaces the printed text of one of them (the unknown). The checker requires h/s = H/S. */
+  function checkShadow(spec) {
+    var k, v = ['h', 's', 'H', 'S'];
+    for (k = 0; k < 4; k++) if (!(spec[v[k]] > 0) || !isFinite(spec[v[k]])) return { ok: false, msg: 'heights and shadows must be positive' };
+    if (Math.abs(spec.h * spec.S - spec.H * spec.s) > 1e-6) return { ok: false, msg: 'the two objects do not make similar triangles' };
+    for (k in (spec.lab || {})) { if (v.indexOf(k) < 0) return { ok: false, msg: 'unknown label ' + k }; var n = numOf(spec.lab[k]); if (n !== null && Math.abs(n - spec[k]) > 1e-6) return { ok: false, msg: k + ' is labelled ' + spec.lab[k] + ' but is drawn as ' + spec[k] }; if (n === null && /\d/.test(spec.lab[k])) return { ok: false, msg: 'label mixes number and text' }; }
+    return { ok: true };
+  }
+  function shadowText(spec, k) { var t = spec.lab && spec.lab[k] !== undefined ? spec.lab[k] : String(spec[k]); return /^\d/.test(t) && spec.unit ? t + ' ' + spec.unit : t; }
+  function renderShadow(spec) {
+    var gap = 40, sc = Math.min((W - 90 - gap) / (spec.s + spec.S), 118 / Math.max(spec.h, spec.H)), g0 = 36 + Math.max(spec.h, spec.H) * sc, x1 = 40, x2 = x1 + spec.s * sc + gap + 8, out = '', nm = spec.names || ['', ''];
+    out += L([14, g0], [W - 14, g0], 2) ;
+    function one(x, h, s, th, ts, name, side) {
+      var top = [x, g0 - h * sc], foot = [x, g0], tip = [x + s * sc, g0], o = L(foot, top, 2.6) + L(top, tip, 1.8, true) + H.rightMark(foot, 90, 0, 9) + dot(top, 3) + dot(tip, 3);
+      o += T(x - 8, (g0 + top[1]) / 2, th, 'end') + T((x + tip[0]) / 2, g0 + 16, ts);
+      if (name) o += T(x, top[1] - 12, name);
+      return o;
+    }
+    out += one(x1, spec.h, spec.s, shadowText(spec, 'h'), shadowText(spec, 's'), nm[0]) + one(x2, spec.H, spec.S, shadowText(spec, 'H'), shadowText(spec, 'S'), nm[1]);
+    return H.wrap(out, Math.ceil(g0 + 28), 'Two vertical objects and their shadows on level ground, with parallel sun rays', spec.note || 'Sun rays are parallel.');
+  }
+  function printedShadow(spec) { var out = [], k; ['h', 's', 'H', 'S'].forEach(function (key) { if (!(spec.lab && spec.lab[key] !== undefined)) out.push([key, spec[key]]); }); for (k in (spec.lab || {})) { var n = numOf(spec.lab[k]); if (n !== null) out.push([k, n]); } return out; }
+  var prevPrinted = F.printed; F.printed = function (spec) { return spec && spec.kind === 'geo-shadow' ? printedShadow(spec) : prevPrinted(spec); };
+  F.extend('geo-shadow', { render: renderShadow, check: checkShadow });
   F.extend('geo-sim', { render: renderSim, check: checkSim });
   F.extend('geo-tri-par', { render: renderPar, check: checkPar });
 })(typeof window !== 'undefined' ? window : globalThis);

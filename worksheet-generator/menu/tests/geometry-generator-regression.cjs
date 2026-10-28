@@ -53,6 +53,48 @@ for(const [id,figureCase] of [
     assert.ok(menu.geoDiagram.validate(p.fig),'Similarity diagram must validate');
   }
 }
+// Shadow word problems: the figure is a true picture and the answer is recomputed from the printed numbers.
+for(const c of [1,3,5,7]){
+  const p=menu.generateProblem('geometry-similarity','similarity-shadow',c,{intOnly:true,level:'game'},'shadow-regression:'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Shadow problem must generate at tier '+c);
+  okFig(p.fig,['geo-shadow'],'Shadow figure');
+  for(const re of [/(pole )(\d+)/,/(casts a )(\d+)(?=-foot shadow\.)/,/(nearby tree casts a )(\d+)/]){
+    const t=JSON.parse(JSON.stringify(p));t.prompt=t.prompt.replace(re,(_,a,n)=>a+(Number(n)+1));
+    assert.notEqual(t.prompt,p.prompt);
+    assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'Changed printed shadow measurement must be rejected');
+  }
+}
+// Two-step transformations: the key is recomputed from the printed vertices and both printed steps, and the three drawn triangles must agree.
+for(const c of [1,3,5,7])for(let n=0;n<10;n++){
+  const p=menu.generateProblem('geometry-transformations','compose-triangle-figure',c,{intOnly:true,level:'game'},'compose-regression:'+c+':'+n,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,'Composition must generate');
+  okFig(p.fig,['geo-grid'],'Composition figure');
+  assert.equal(p.fig.shapes.length,3,'Composition shows the original, the middle and the final triangle');
+  for(const re of [/\((-?\d+), /,/translated (\d+)/,/(\d+) units? (?:up|down)/]){
+    const t=JSON.parse(JSON.stringify(p));t.prompt=t.prompt.replace(re,(m0,d)=>m0.replace(d,String(Number(d)+1)));
+    assert.notEqual(t.prompt,p.prompt);
+    assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'Changed printed composition must be rejected');
+  }
+  const t=JSON.parse(JSON.stringify(p));t.fig.shapes[2].pts[0][0]+=1;
+  assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'A drawn final triangle that disagrees with the steps must be rejected');
+}
+// Symmetry: the side count is read from the drawing (never printed), and the key follows it.
+for(const id of ['symmetry-lines-regular','symmetry-rotation-regular'])for(const c of [1,3,5,7]){
+  const p=menu.generateProblem('geometry-transformations',id,c,{intOnly:true,level:'game'},'symmetry-regression:'+id+':'+c,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,id+' must generate');
+  okFig(p.fig,['geo-regular'],'Symmetry figure');
+  assert.ok(!/\d+[- ]?(sides|gon)/.test(p.prompt),'The side count must not be printed');
+  const t=JSON.parse(JSON.stringify(p));t.fig.n+=1;
+  assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,'A figure with a different number of sides must invalidate the key');
+}
+// Unit 10: every answer key is recomputed from the printed numbers (or, for nets and stacked solids, from the drawing alone).
+for(const sk of menu.skillSets['geometry-area-surface-area-volume'].skills)for(const c of [1,3,5,7])for(let n=0;n<4;n++){
+  const p=menu.generateProblem('geometry-area-surface-area-volume',sk.id,c,{intOnly:true,level:'game'},'measure-tamper:'+sk.id+':'+c+':'+n,{keys:new Set(),sigs:new Set()});
+  assert.ok(!p.failed,sk.id+' must generate');
+  const t=JSON.parse(JSON.stringify(p));
+  if(p.fig.kind==='geo-net')t.fig.l+=1;else if(p.fig.kind==='geo-stack')t.fig.a.l+=1;else t.prompt=t.prompt.replace(/\d+/,m0=>String(Number(m0)+1));
+  assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,sk.id+' must reject a changed printed or drawn measurement');
+}
 // Parallel-segment proportionality and connected Honors investigation.
 for(const id of ['similarity-parallel-segment','similarity-parallel-honors']){
   assert.ok(simUnit.skills.some(skill=>skill.id===id),'Missing similarity skill '+id);

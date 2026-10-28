@@ -414,6 +414,10 @@
   function hashArg(n) { var m = new RegExp(n + '=([a-z0-9\\-]+)').exec(G.location.hash || ''); return m ? m[1] : null; }
   var unit = hashArg('unit'); if (!NS.skillSets[unit]) unit = doc.body.getAttribute('data-unit') || Object.keys(NS.skillSets)[0];
   var kind = hashArg('kind'); if (!PR.kind(kind)) kind = 'maze';
+  /* A printable is offered for a unit only when at least one of its skills can fill it (Geometry problems carry diagrams, so Maze and Tarsia need none of them). */
+  function supported(u, k) { if (k === 'vocabulary' || !PR.MODES[k]) return true; return NS.skillSets[u].skills.some(function (sk) { return PR.capable(u, sk.id, k); }); }
+  function firstSupported(u, k) { if (supported(u, k)) return k; var f = PR.KINDS.filter(function (x) { return supported(u, x.id); })[0]; return f ? f.id : k; }
+  kind = firstSupported(unit, kind);
   var cfg = null, built = [], ui = { doc: 'student', v: 0 };
   function load() {
     var raw = lsGet(KEY + ':' + unit + ':' + kind); cfg = null;
@@ -430,7 +434,7 @@
   function controls() {
     var set = NS.skillSets[unit], k = PR.kind(kind);
     var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { return '<label class="chk"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + '><span>' + esc(x.name) + '<small>' + esc(x.blurb) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : 'Not available for this unit: its problems need a diagram, and this printable has no room for one.') + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
     h += '<section class="card"><h2>Level and skills</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
       '<p class="hint">Skills this printable cannot use are greyed out (for example, problems answered with a graph cannot go on a maze door).</p>' +
@@ -445,7 +449,7 @@
   }
   function render() {
     $('#prControls').innerHTML = controls();
-    $('#prUnit').onchange = function (e) { unit = e.target.value; load(); setHash(); rebuild(); };
+    $('#prUnit').onchange = function (e) { unit = e.target.value; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); };
     $$('input[name=prKind]').forEach(function (r) { r.onchange = function () { kind = r.value; load(); setHash(); rebuild(); }; });
     $$('input[name=prLevel]').forEach(function (r) { r.onchange = function () { cfg.level = r.value; save(); rebuild(); }; });
     $$('.prSkill').forEach(function (b) { b.onchange = function () { cfg.skills[b.value] = b.checked; save(); rebuild(); }; });

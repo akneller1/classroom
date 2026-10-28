@@ -287,3 +287,7 @@
 
 /* Edge strips must clip even when KaTeX produces a wide expression. */
 .pr-tsvg foreignObject{overflow:hidden!important}
+/* Geometry diagrams in the small boxes: under the text, short enough for the box */
+.pp-box .mm-geometry-figure,.pc-box .mm-geometry-figure,.pe-box .mm-geometry-figure,.pw-card .mm-geometry-figure{float:none;margin:2px 0 0;max-width:100%;text-align:center}
+.pp-box .mm-geometry-figure svg,.pc-box .mm-geometry-figure svg,.pe-box .mm-geometry-figure svg,.pw-card .mm-geometry-figure svg{height:.75in!important;width:auto!important;max-width:100%!important;display:inline-block}
+.pp-box .mm-geometry-figure div,.pc-box .mm-geometry-figure div,.pe-box .mm-geometry-figure div,.pw-card .mm-geometry-figure div{font-size:6.5pt!important;line-height:1.1;margin:0}

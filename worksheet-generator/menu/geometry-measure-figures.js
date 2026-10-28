@@ -137,6 +137,44 @@
     return H.wrap(out, cy + R2 + 20, 'A sphere with its radius labelled', 'Not drawn to scale.');
   }
 
+  /* geo-net: the cross-shaped net of a rectangular prism, drawn to scale from the true l, w, h.
+       spec: { kind:'geo-net', l, w, h, unit:'cm' }   (all three dimensions are printed on the net)
+     geo-stack: two rectangular prisms, the second centred on top of the first, in an oblique view.
+       spec: { kind:'geo-stack', a:{l,w,h}, b:{l,w,h}, unit:'cm' }   b must be strictly smaller than a in length and width
+     Every dimension is printed from the data, so the picture and the labels cannot disagree. */
+  function pos(spec, keys) { for (var i = 0; i < keys.length; i++) if (!(spec[keys[i]] > 0) || !isFinite(spec[keys[i]])) return false; return true; }
+  function checkNet(spec) { return pos(spec, ['l', 'w', 'h']) && spec.l <= 40 && spec.w <= 40 && spec.h <= 40 ? { ok: true } : { ok: false, msg: 'net dimensions must be positive numbers' }; }
+  function dim(spec, v) { return v + (spec.unit ? ' ' + spec.unit : ''); }
+  function renderNet(spec) {
+    var l = spec.l, w = spec.w, h = spec.h, sc = Math.min((W - 90) / (2 * l + 2 * w), 150 / (2 * w + h)), x0 = (W - (2 * l + 2 * w) * sc) / 2 + 14, y0 = 22, out = '';
+    function R(x, y, ww, hh) { return '<rect x="' + r1(x0 + x * sc) + '" y="' + r1(y0 + y * sc) + '" width="' + r1(ww * sc) + '" height="' + r1(hh * sc) + '" fill="#fff" stroke="' + H.INK + '" stroke-width="2"/>'; }
+    out += R(0, 0, l, w) + R(0, w, l, h) + R(l, w, w, h) + R(l + w, w, l, h) + R(2 * l + w, w, w, h) + R(0, w + h, l, w);
+    out += T(x0 + l * sc / 2, y0 - 8, dim(spec, l)) + T(x0 + l * sc + 8, y0 + w * sc / 2, dim(spec, w), 'start') + T(x0 - 8, y0 + (w + h / 2) * sc, dim(spec, h), 'end');
+    return H.wrap(out, Math.ceil(y0 + (2 * w + h) * sc + 18), 'The net of a rectangular prism with its three dimensions labelled', 'Net of a closed rectangular prism.');
+  }
+  function checkStack(spec) {
+    var a = spec.a, b = spec.b; if (!a || !b || !pos(a, ['l', 'w', 'h']) || !pos(b, ['l', 'w', 'h'])) return { ok: false, msg: 'both prisms need l, w and h' };
+    if (!(b.l < a.l) || !(b.w < a.w)) return { ok: false, msg: 'the top prism must sit inside the footprint of the bottom prism' };
+    return { ok: true };
+  }
+  function renderStack(spec) {
+    var a = spec.a, b = spec.b, kx = 0.4, ky = 0.25, tw = a.l + kx * a.w, th = a.h + b.h + ky * a.w, sc = Math.min(300 / tw, 125 / th), x0 = 62, y0 = 22 + th * sc, out = '';
+    function P(x, y, z) { return [x0 + (x + kx * z) * sc, y0 - (y + ky * z) * sc]; }
+    function poly(pts) { return '<path d="M' + pts.map(function (q) { return r1(q[0]) + ' ' + r1(q[1]); }).join(' L') + ' Z" fill="#fff" stroke="' + H.INK + '" stroke-width="2" stroke-linejoin="round"/>'; }
+    function box(ox, oy, oz, bx) { var x = ox, X = ox + bx.l, y = oy, Y = oy + bx.h, z = oz, Z = oz + bx.w; return poly([P(X, y, z), P(X, y, Z), P(X, Y, Z), P(X, Y, z)]) + poly([P(x, Y, z), P(X, Y, z), P(X, Y, Z), P(x, Y, Z)]) + poly([P(x, y, z), P(X, y, z), P(X, Y, z), P(x, Y, z)]); }
+    var bx = (a.l - b.l) / 2, bz = (a.w - b.w) / 2;
+    out += box(0, 0, 0, a) + box(bx, a.h, bz, b);
+    var q;
+    q = P(a.l / 2, 0, 0); out += T(q[0], q[1] + 16, dim(spec, a.l));
+    q = P(0, a.h / 2, 0); out += T(q[0] - 8, q[1], dim(spec, a.h), 'end');
+    q = P(a.l, 0, a.w / 2); out += T(q[0] + 10, q[1] + 8, dim(spec, a.w), 'start');
+    q = P(bx + b.l / 2, a.h + b.h, bz + b.w); out += T(q[0], q[1] - 11, dim(spec, b.l));
+    q = P(bx, a.h + b.h / 2, bz); out += T(q[0] - 8, q[1], dim(spec, b.h), 'end');
+    q = P(bx + b.l, a.h + b.h / 2, bz + b.w / 2); out += T(q[0] + 10, q[1] + 2, dim(spec, b.w), 'start');
+    return H.wrap(out, Math.ceil(y0 + 28), 'Two rectangular prisms stacked, with every dimension labelled', 'Not drawn to scale.');
+  }
+  F.extend('geo-net', { render: renderNet, check: checkNet });
+  F.extend('geo-stack', { render: renderStack, check: checkStack });
   F.extend('geo-plane', { render: plane, check: function (spec) { return baseCheck(spec, NEED.plane, 'shape'); } });
   F.extend('geo-solid', { render: solid, check: function (spec) { return baseCheck(spec, NEED.solid, 'solid'); } });
 })(typeof window !== 'undefined' ? window : globalThis);

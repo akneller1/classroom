@@ -48,3 +48,9 @@ Plans any of the 180 Algebra 1 days from the scope and sequence. Open `lesson-pl
 - `tests/planner-browser.cjs`: all 180 days in all three views, with no script errors, no unverified problems and no sideways scroll; also checks the controls, `#unit=`, and phone width.
 - `tests/pptx-tests.cjs`: every word has a definition and every lesson a key idea. Every problem converts to plain text with no TeX left (~55,000 strings). Minutes and notes settings work in the engine. Every day builds a deck with no TeX, a title slide, an agenda, answer slides and the key idea. Uses `pptxgenjs` from npm and skips the deck build without it.
 - All three run from `menu/tests/run-all.sh`.
+
+## Geometry
+- The same planner runs the Geometry course. Pick **Course → Geometry** in the sidebar, or open `lesson-planner.html#course=geometry`. Geometry unit links look like `#unit=geometry-circles`. The choice is made by `course.js`, which swaps in the Geometry scope and lesson→skill map; everything else (engine, handouts, keys, PowerPoint, notes editor) is shared with Algebra 1.
+- Source of truth is `scripts/build_geometry_planner.py` (units, lessons, vocabulary, key ideas, skill sets). Edit it and run it to regenerate `geometry_scope_sequence.json`, `scope-geometry.js`, `lesson-skills-geometry.js` and `notes-data-geometry.js`. The scope is a 180-day **draft** (version 0.1): reorder or retitle lessons to match your pacing guide.
+- Unit order: Foundations, Angles and Parallel Lines, Congruence, Triangle Relationships, Similarity, Right Triangles and Trig, Quadrilaterals, Transformations, Circles, Area / Surface Area / Volume.
+- Tests: `COURSE=geometry node tests/planner-tests.cjs`, `COURSE=geometry node tests/pptx-tests.cjs` and `COURSE=geometry node tests/planner-browser.cjs` (all 180 days; verified problems, no sideways scroll).

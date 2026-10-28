@@ -67,7 +67,7 @@ function inverseTrig(ctx){
  var ratio=kind==='tan'?'1/1':'1/2';
  return {variant:'geo-right-inverse-'+kind+'-'+c,
   fig:kind==='sin'?rt({a:R3,b:1},[],null,{B:'x'}):kind==='cos'?rt({a:1,b:R3},[],null,{B:'x'}):rt({a:1,b:1},[],null,{B:'x'}),
-  prompt:'Find the acute angle x in degrees if '+kind+' x = '+ratio+'. Use an inverse trigonometric function and explain why your answer is acute.',
+  prompt:['','In the right triangle shown, angle B is an acute angle x. ','A student studies the right triangle shown. ','Triangle ABC is a right triangle with its right angle at C. ','Work with the right triangle shown. ','Consider the acute angle x marked in the right triangle. ','Angle x is marked in the right triangle shown. ','Use the right triangle shown to help you. ','Look at the right triangle shown. '][r.int(0,8)]+'Find the acute angle x in degrees if '+kind+' x = '+ratio+'. Use an inverse trigonometric function and explain why your answer is acute.',
   parts:[{answer:M('x='+angle),check:{type:'geo-inverse-trig'}}],
   steps:[step('Use the inverse '+kind+' function on the given ratio.',
       M('x='+angle+'^\\circ'))],

@@ -38,7 +38,11 @@ let n = 0; const ok = name => { n++; console.log('  ✓ ' + name); };
     for (const unit of Object.keys(MKMENU.skillSets)) for (const kind of PR.KINDS.map(k => k.id)) for (const level of ['cp2', 'cp1', 'honors']) {
       const cfg = PR.defaultConfig(unit, kind); cfg.level = level; cfg.seed = 77;
       const B = PR.build(cfg, 0);
-      if (B.error) { if (!(unit === 'algebra1-statistics-data-modeling' && kind === 'tarsia')) out.push(unit + ' ' + kind + ' ' + level + ': ' + B.error); continue; }
+      if (B.error) {
+        // the Vocabulary Builder has its own builder; Geometry problems carry diagrams, so a printable with no room for one (maze, tarsia) is switched off for the unit
+        const off = kind === 'vocabulary' || (/^geometry-/.test(unit) && !MKMENU.skillSets[unit].skills.some(s => PR.capable(unit, s.id, kind)));
+        if (!off && !(unit === 'algebra1-statistics-data-modeling' && kind === 'tarsia')) out.push(unit + ' ' + kind + ' ' + level + ': ' + B.error); continue;
+      }
       for (const key of [false, true]) {
         const els = PR.pageEls(cfg, B, 0, 1, key), r = document.createElement('div'); r.style.cssText = 'position:absolute;left:-9999px;top:0'; document.body.appendChild(r); els.forEach(e => r.appendChild(e));
         els.forEach((e, i) => {

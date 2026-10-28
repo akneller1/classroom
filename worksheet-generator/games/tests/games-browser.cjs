@@ -5,7 +5,7 @@
 const assert = require('assert');
 const { chromium } = require(process.env.PW || 'playwright');
 const BASE = process.env.BASE || 'http://localhost:8765';
-const UNITS = (process.env.UNITS || "foundations-algebra,solving-equations,linear-inequalities,relations-functions,exponential-functions,factoring-zero-product,statistics-data-modeling,linear-functions,systems,exponents,polynomials,quadratic-practice").split(',');
+const UNITS = (process.env.UNITS || "foundations-algebra,solving-equations,linear-inequalities,relations-functions,exponential-functions,factoring-zero-product,statistics-data-modeling,linear-functions,systems,exponents,polynomials,quadratic-practice,basics-reasoning,angles-parallel-lines,triangles-congruence,triangle-relationships,similarity,right-triangles-trigonometry,quadrilaterals-polygons,coordinate-geometry-transformations,circles,area-surface-area-volume").split(',');
 let passed = 0;
 function ok(m) { passed++; console.log('  ✓ ' + m); }
 

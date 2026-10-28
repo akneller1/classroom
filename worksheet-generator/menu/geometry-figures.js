@@ -431,6 +431,7 @@
     var n = spec.n, R = 58, cx = 215, cy = 88, V = [], i, h = '';
     for (i = 0; i < n; i++) { var d = dir(90 + 360 * i / n); V.push([cx + R * d[0], cy + R * d[1]]); }
     for (i = 0; i < n; i++) { h += L(V[i], V[(i + 1) % n]) + (n <= 12 ? ticks(V[i], V[(i + 1) % n], 1) : ''); }
+    if (spec.plain) { for (i = 0; i < n; i++) h += dot(V[i], 3); return wrap(h, 160, 'A regular polygon', 'Regular polygon: all sides and angles are equal.'); }
     var v = V[0], prev = V[n - 1], ex = ang(prev, v), ext = [v[0] + 40 * dir(ex)[0], v[1] + 40 * dir(ex)[1]];
     h += L(v, ext, 2.2, true) + dot(v, 3);
     var side = ang(v, V[1]), w = shortWedge(ex, side);
@@ -440,7 +441,7 @@
     return wrap(h, 160, 'A regular polygon with ' + n + ' sides and one exterior angle marked', 'Regular polygon: all sides and angles are equal. Not drawn to scale.');
   }
   function checkRegular(spec) {
-    return (Number.isInteger(spec.n) && spec.n >= 3 && spec.n <= 24 && spec.label) ? { ok: true } : { ok: false, msg: 'regular polygon needs 3 to 24 sides and a label' };
+    return (Number.isInteger(spec.n) && spec.n >= 3 && spec.n <= 24 && (spec.label || spec.plain)) ? { ok: true } : { ok: false, msg: 'regular polygon needs 3 to 24 sides and a label' };
   }
 
   /* =====================================================================

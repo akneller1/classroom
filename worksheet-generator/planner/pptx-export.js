@@ -14,6 +14,7 @@
   var INK = '16202E', INK2 = '46536A', BLUE = '2B5FD9', SOFT = 'E3EBFF', YELLOW = 'FFD84D', WHITE = 'FFFFFF', LINE = 'C9D3DB', ANS = '1D5FBF';
   var SEC = { donow: { c: 'B7791F', bg: 'FFF3C4' }, notes: { c: BLUE, bg: SOFT }, examples: { c: BLUE, bg: SOFT }, practice: { c: '2F7A50', bg: 'DFF2E5' }, mixed: { c: '267F86', bg: 'E1F4F4' }, summary: { c: '6446A9', bg: 'F2EDFC' }, exit: { c: '6B3FA0', bg: 'EDE4FA' } };
   var HEAD = 'Arial', BODY = 'Calibri';
+  var GEOC = G.MKPLAN_COURSE === 'geometry', CNAME = GEOC ? 'Geometry' : 'Algebra 1', CFILE = GEOC ? 'Geometry' : 'Algebra1';
   var W = 13.333, H = 7.5, MX = 0.6, TOP = 1.45, BOTTOM = 6.85;
 
   function T(s) { return P.mathText(s || ''); }
@@ -52,9 +53,9 @@
     pres.layout = 'LAYOUT_WIDE';
     pres.author = "Mr. K's Classroom";
     pres.title = 'Day ' + d.day + ': ' + d.title;
-    pres.subject = 'Algebra 1 daily lesson';
+    pres.subject = CNAME + ' daily lesson';
     pres.theme = { headFontFace: HEAD, bodyFontFace: BODY };
-    var footer = 'Algebra 1 · Day ' + d.day + ' · ' + d.title + ' · ' + NSL.name;
+    var footer = CNAME + ' · Day ' + d.day + ' · ' + d.title + ' · ' + NSL.name;
     pres.defineSlideMaster({ title: 'TITLE', background: { color: INK }, objects: [] });
     pres.defineSlideMaster({
       title: 'CONTENT', background: { color: WHITE },
@@ -338,7 +339,7 @@
   }
   P.deckFileName = function (plan, audience) {
     var d = plan.day, slug = d.title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 50);
-    return 'Algebra1-Day' + (d.day < 10 ? '00' : d.day < 100 ? '0' : '') + d.day + '-' + slug + '-' + G.MKMENU.LEVELS[plan.level].name + '-' + (audience === 'student' ? 'Student' : 'Teacher') + '.pptx';
+    return CFILE + '-Day' + (d.day < 10 ? '00' : d.day < 100 ? '0' : '') + d.day + '-' + slug + '-' + G.MKMENU.LEVELS[plan.level].name + '-' + (audience === 'student' ? 'Student' : 'Teacher') + '.pptx';
   };
   P.exportPptx = async function (plan, audience) {
     audience = audience === 'student' ? 'student' : 'teacher';
