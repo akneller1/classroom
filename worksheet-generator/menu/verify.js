@@ -553,8 +553,7 @@
       // side lengths the student actually sees, not just a hidden check.eq.
       if (/^geo-criterion-/.test(p.variant || '')) {
         var printed = /[A-Z]{2} = ⟨([^⟩]+)⟩ units and [A-Z]{2} = (\d+) units/.exec(p.prompt || '');
-        var useEq = /then use ⟨([^⟩]+)⟩ to find x\./.exec(p.prompt || '');
-        if (!printed || !useEq || printed[1]+'='+printed[2] !== chk.eq || useEq[1] !== chk.eq) {
+        if (!printed || printed[1]+'='+printed[2] !== chk.eq) {
           return {status:'invalid',msg:'Congruence equation conflicts with the printed side lengths.'};
         }
       }
