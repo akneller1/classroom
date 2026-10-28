@@ -152,9 +152,9 @@
     if (!P.noteEdits[d.lesson_id]) { var n = P.lessonNotes(d); P.noteEdits[d.lesson_id] = { words: n.words.map(function (w) { return w.slice(); }), idea: n.idea, watch: n.watch, extra: n.extra }; }
     return P.noteEdits[d.lesson_id];
   }
-  function notesEditor(plan) {
-    var d = plan.day, n = P.lessonNotes(d);
-    return '<div class="pl-noted" id="plNoted"><div class="pl-noted-hd"><b>Notes</b> <span class="pl-hint">Edit anything below. Your changes are saved in this browser and used on the handout, the key and the slides.</span>' +
+  function notesEditor(plan, section) {
+    var d = section.lessonDay || plan.day, n = P.lessonNotes(d);
+    return '<div class="pl-noted" data-note-day="' + d.day + '"><div class="pl-noted-hd"><b>Notes</b> <span class="pl-hint">Edit anything below. Your changes are saved in this browser and used on the handout, the key and the slides.</span>' +
       ' <button type="button" class="link" id="plNotesReset"' + (P.notesEdited(d) ? '' : ' hidden') + '>Reset to the original notes</button></div>' +
       '<label class="pl-nl">Key idea<textarea data-n="idea" rows="2">' + esc(n.idea) + '</textarea></label>' +
       '<div class="pl-nl">Vocabulary</div><table class="pl-ntbl"><thead><tr><th>Word</th><th>What it means / example</th><th></th></tr></thead><tbody>' +
@@ -279,7 +279,7 @@
     var d = plan.day, out = '';
     if (s.prompt) out += '<p class="pl-prompt">Prompt: <i>' + esc(s.prompt) + '</i></p>';
     if (s.id === 'notes' && d.day_type === 'Lesson') {
-      out += notesEditor(plan);
+      out += notesEditor(plan, s);
       out += '<p class="pl-hint">Student notes: <b>' + (filled(plan) ? 'pre-filled' : 'students write them in') + '</b> (change under Options).</p>';
 
       out += '<p class="pl-hint">Examples go from the level’s easiest to hardest: Example 1 I do, Example 2 we do' + (s.groups[0] && s.groups[0].items.length > 2 ? ', Example 3 you try' : '') + '.</p>';
@@ -516,9 +516,9 @@
     if (t.id === 'plNew') { ui.seed = Math.random().toString(36).slice(2, 7); render(); return; }
     if (t.id === 'plPrintS') { doPrint('student'); return; }
     if (t.id === 'plPrintK') { doPrint('key'); return; }
-    if (t.id === 'plAddWord') { editRecord(ui.plan.day).words.push(['', '']); saveNoteEdits(); rerenderKeep(); var ins = doc.querySelectorAll('#plNoted input[data-n="w"]'); if (ins.length) ins[ins.length - 1].focus(); return; }
-    if (t.classList.contains('pl-delword')) { editRecord(ui.plan.day).words.splice(+t.getAttribute('data-i'), 1); saveNoteEdits(); rerenderKeep(); return; }
-    if (t.id === 'plNotesReset') { delete P.noteEdits[ui.plan.day.lesson_id]; saveNoteEdits(); rerenderKeep(); return; }
+    if (t.id === 'plAddWord') { editRecord(noteDayFor(t)).words.push(['', '']); saveNoteEdits(); rerenderKeep(); var ins = doc.querySelectorAll('.pl-noted input[data-n="w"]'); if (ins.length) ins[ins.length - 1].focus(); return; }
+    if (t.classList.contains('pl-delword')) { editRecord(noteDayFor(t)).words.splice(+t.getAttribute('data-i'), 1); saveNoteEdits(); rerenderKeep(); return; }
+    if (t.id === 'plNotesReset') { delete P.noteEdits[noteDayFor(t).lesson_id]; saveNoteEdits(); rerenderKeep(); return; }
     if (t.id === 'plResetMin') { delete minutesStore[ui.plan.day.day_type]; lsSet(KEY_MIN, JSON.stringify(minutesStore)); P.applyMinutes(ui.plan, null); var y0 = G.scrollY; renderView(); G.scrollTo(0, y0); return; }
     if (t.id === 'plPptxStudent' || t.id === 'plPptxTeacher') {
       var audience = t.id === 'plPptxStudent' ? 'student' : 'teacher';
@@ -532,15 +532,20 @@
       var y = G.scrollY; renderView(); G.scrollTo(0, y); return;
     }
   });
+  function noteDayFor(t) {
+    var editor = t.closest && t.closest('.pl-noted');
+    var day = editor && P.day(+editor.getAttribute('data-note-day'));
+    return day || ui.plan.day;
+  }
   var noteTimer = null;
   doc.addEventListener('input', function (e) {
     var t = e.target, k = t.getAttribute && t.getAttribute('data-n');
     if (!k || !ui.plan) return;
-    var rec = editRecord(ui.plan.day), i = +t.getAttribute('data-i');
+    var rec = editRecord(noteDayFor(t)), i = +t.getAttribute('data-i');
     if (k === 'idea' || k === 'watch' || k === 'extra') rec[k] = t.value;
     else if (k === 'w') rec.words[i][0] = t.value;
     else if (k === 'd') rec.words[i][1] = t.value;
-    $('#plNotesReset').hidden = false;
+    var reset = t.closest('.pl-noted').querySelector('#plNotesReset'); if (reset) reset.hidden = false;
     clearTimeout(noteTimer); noteTimer = setTimeout(saveNoteEdits, 300);
   });
   function rerenderKeep() { var y = G.scrollY; renderView(); G.scrollTo(0, y); }
