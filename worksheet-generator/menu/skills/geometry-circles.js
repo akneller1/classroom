@@ -22,8 +22,11 @@ return make('geo-circle-chord-distance-'+c,'A circle has radius '+radius+' cm. T
 
 function centerFromExpandedEquation(ctx){var r=ctx.rng,c=ctx.c,h=r.int(3,c>=5?70:48),k=r.int(3,c>=5?55:40),radius=r.int(3,c>=5?32:24),constant=h*h+k*k-radius*radius,sign=constant<0?' - ':' + ',eqText='X^2 - '+2*h+'X + Y^2 - '+2*k+'Y'+sign+Math.abs(constant)+' = 0';
 return make('geo-circle-expanded-center-'+c,'A circle has equation '+eqText+'. Find x, the X-coordinate of its center. Complete the square in X to explain how the linear coefficient determines the center.', '2*x='+2*h,h,'The coefficient of X is -2h, so the center has X-coordinate h. Completing the square gives (X-h)^2.');}
+
+function radiusFromExpandedEquation(ctx){var r=ctx.rng,c=ctx.c,h=r.int(3,c>=5?45:35),k=r.int(3,c>=5?45:35),radius=r.int(3,c>=5?65:48),constant=h*h+k*k-radius*radius,sign=constant<0?' - ':' + ',eqText='X^2 - '+2*h+'X + Y^2 - '+2*k+'Y'+sign+Math.abs(constant)+' = 0',square=radius*radius;
+return make('geo-circle-expanded-radius-'+c,'A circle has equation '+eqText+'. Complete the square in X and Y. Let x be the radius in units; find x, not the radius squared.', 'x='+radius,radius,'Completing the square gives (X-'+h+')^2+(Y-'+k+')^2='+square+'. Therefore the radius is the positive square root, '+radius+'.');}
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
-tags:{CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center from expanded equation'},
+tags:{CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
 gaps:['Intersecting chord products and two-secant products added. Further circle equations, advanced chord properties, more advanced arcs/sectors, and all diagrams remain pending.'],
 skills:[
@@ -41,6 +44,7 @@ skills:[
 {id:'circle-sector-area-exact',tag:'SECTOR',name:'Sector area in exact pi form',best:[0,1,2],generate:sectorArea},
 {id:'circle-radius-squared-from-point',tag:'COORD',name:'Radius squared from a center and point',best:[0,1,2],generate:circleRadiusSquared},
 {id:'circle-chord-length-from-distance',tag:'CHORDDIST',name:'Chord length from radius and center distance',best:[0,1,2],generate:chordLengthFromDistance},
-{id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1,2],generate:centerFromExpandedEquation}
+{id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1,2],generate:centerFromExpandedEquation},
+{id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1,2],generate:radiusFromExpandedEquation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

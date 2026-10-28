@@ -133,3 +133,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added `circle-center-expanded-equation`, identifying the X-coordinate of the center by completing the square in the expanded circle equation X²−2hX+Y²−2kY+C=0. Students must explain why the linear coefficient determines h.
 - Constructed using positive integer h,k and radius, with C=h²+k²−r². Independent verifier parses all displayed coefficients and the constant, ensures a positive perfect-square radius², and verifies 2x=2h. This adds a distinct algebraic reasoning format without drawings or diagrams.
 - Circles now has 15 registered skills. CI pending for this commit; Claude retains all figures and visual circle-equation representations.
+
+## Circles: radius from expanded equation (2026-10-28)
+- Added `circle-radius-expanded-equation`, a text-only completing-the-square skill that requires finding the radius (not radius squared) from X²−2hX+Y²−2kY+C=0.
+- Each generated equation has positive integer center coordinates and positive integer radius. The independent verifier parses all displayed coefficients and the signed constant, reconstructs r²=h²+k²−C, and requires the checked answer to be the positive integer square root. No diagrams or drawings were made. Circles now has 16 registered skills; CI pending.
