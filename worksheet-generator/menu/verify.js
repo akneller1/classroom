@@ -35,6 +35,14 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-quad-consecutive-/.test(p.variant || '')) {
+      var adjacent = /angle A measures ([0-9]+)°/.exec(p.prompt || '');
+      return !!adjacent && chk.eq === 'x+'+adjacent[1]+'=180';
+    }
+    if (/^geo-polygon-diagonals-/.test(p.variant || '')) {
+      var polygon = /convex polygon has ([0-9]+) sides/.exec(p.prompt || '');
+      return !!polygon && chk.eq === '2*x='+polygon[1]+'*('+polygon[1]+'-3)';
+    }
     if (/^geo-quad-rect-diagonal-/.test(p.variant || '')) {
       var rect = /Diagonal AC measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!rect && chk.eq === '2*x='+rect[1];

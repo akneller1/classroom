@@ -86,3 +86,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added three independently verified skills: rectangle diagonal congruence/bisection, rhombus diagonal bisection, and trapezoid midsegment theorem. Eight registered skills total in the unit (previously five).
 - All three use numerical givens in student prompts, with verifier-side reconstruction of the corresponding equation; the equation is not exposed in the question prompt. No existing Geometry skill IDs were changed.
 - These remain text-first; Claude handoff should prioritize diagrams, special-quadrilateral classification, and multistep Honors reasoning. CI status must be confirmed after this change.
+
+## Text-only Quadrilateral and Polygon skills (2026-10-28)
+- Added consecutive-angle relationships in parallelograms (supplementary angle reasoning) and diagonal counting in convex polygons (double-counting reasoning), increasing the unit to ten skills.
+- The generators have 131 and at least 70 unique numerical prompts, respectively, exceeding the 25-card capacity requirement. Both use independent checks of the student-visible givens. No figures or drawings were created; all visual/diagram work is reserved for Claude.
+- Next text-first opportunities: classification using verbal property descriptions and formal reasoning; all visual proof/diagram work remains in Claude's scope. CI needs confirmation on this commit.
