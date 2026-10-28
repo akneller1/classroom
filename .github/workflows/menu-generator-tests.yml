@@ -26,6 +26,9 @@ jobs:
         run: node worksheet-generator/menu/tests/geometry-curriculum-tests.cjs
       - name: Menu rules, versions, editing, save/load
         run: node worksheet-generator/menu/tests/model-tests.cjs
+      - name: Geometry question-bank capacity audit (diagnostic)
+        continue-on-error: true
+        run: node worksheet-generator/menu/tests/geometry-capacity-audit.cjs
       - name: Fast mathematics regression check
         run: N=25 node worksheet-generator/menu/tests/math-tests.cjs
       - name: Mathematics (independent verification, mutation and difficulty tests)
