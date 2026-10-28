@@ -55,7 +55,7 @@
       if (!invChord) return false;
       var ri=Number(invChord[1]), ci=Number(invChord[2]), hi=ci/2, ds=ri*ri-hi*hi;
       return ri>hi && hi>0 && ci%2===0 && ds>0 && Number.isInteger(Math.sqrt(ds)) &&
-        chk.eq==='x*x+'+hi+'*'+hi+'='+ri+'*'+ri;
+        chk.eq==='x='+Math.sqrt(ds);
     }
     if (/^geo-circle-chord-distance-/.test(p.variant || '')) {
       var chordDistance = /circle has radius ([0-9]+) cm.*perpendicular distance from the center to a chord is ([0-9]+) cm/.exec(p.prompt || '');
