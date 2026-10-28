@@ -19,7 +19,7 @@ function thirdAngle(ctx){
  steps:[step('Use the triangle angle sum.',M(eq)),step('The third angles match because both triangles sum to 180°.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
 function perimeter(ctx){
- var r=ctx.rng,c=ctx.c,x=r.int(3,18),a=r.int(2,12),b=r.int(2,12),p=x+a+b,eq='x+'+a+'+'+b+'='+p;
+ var r=ctx.rng,c=ctx.c,a=r.int(5,16),b=r.int(5,16),x=r.int(Math.abs(a-b)+1,a+b-1),p=x+a+b,eq='x+'+a+'+'+b+'='+p;
  return {variant:'geo-congruence-perimeter-'+c,prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Use '+M(eq)+' to find x.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Congruent triangles have equal perimeters.',M(eq)),step('Solve for the unknown side.',M('x='+x))],space:[1.2,1.5,1.8]};
@@ -72,7 +72,7 @@ function identify(ctx){
 
 function structuredProof(ctx){
  var r=ctx.rng,c=ctx.c,shared=r.int(0,1)===0,flow=r.int(0,1)===0;
- var x=r.int(5,c>=5?48:30),a=c>=5?r.int(2,5):1,b=r.int(1,19),v=a*x+b;
+ var a=c>=5?r.int(2,5):1,b=r.int(1,19),x=r.int(5,Math.min(c>=5?48:30,Math.floor((169-b)/a))),v=a*x+b;
  var expression=(a===1?'x':a+'x')+'+'+b,eq=expression+'='+v;
  var givens,first,triangles,consequence,angleEquality;
  if(shared){
