@@ -90,7 +90,7 @@
     });
     plan.sections.forEach(function(s,si) { configureSection(plan,s,si); });
     plan.sections.forEach(function(s, si) {
-      if (!/\\(\\d+\\)$/.test(s.title) && !sectionConfigs[si]) return;
+      if (!/\(\d+\)/.test(s.title) && !sectionConfigs[si]) return;
       s.groups.forEach(function(g, gi) { g.items.forEach(function(p, pi) {
         if (p.entry) P.regenerate(plan, si, gi, pi);
       }); });
