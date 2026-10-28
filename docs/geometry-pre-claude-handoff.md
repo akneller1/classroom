@@ -119,3 +119,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added `circle-arc-length-exact` and `circle-sector-area-exact` (12 registered Circles skills). Students determine the coefficient x of pi in exact arc length or sector area, with no decimal approximation.
 - Central angles are proper minor-arc angles (30°, 36°, 40°, 45°, 60°, 72°, 90°, 120°, or 180°); radius is chosen to give positive integer coefficients. The verifier independently reconstructs each formula from the student-visible radius and central angle.
 - No diagrams or drawings; Claude retains all figures and visual proofs. CI pending.
+
+## Circles: coordinate equation parameter from center and point (2026-10-28)
+- Added `circle-radius-squared-from-point` (13 registered Circles skills). Given a center (h,k) and a point on the circle, students compute the radius squared x in the standard circle equation (X-h)^2+(Y-k)^2=x. Includes negative coordinates, squared differences, and a justification based on distance.
+- The verifier independently derives the absolute coordinate differences from the displayed center and point, then checks the equation for x. All results are positive integers; no graph or drawing was created. Claude retains all visual coordinate-plane tasks.
+- Also note: the arc-length bank includes semicircle arcs of 180°, so the arc verifier should permit central angle 180° (currently it rejects this boundary). CI pending.

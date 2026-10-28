@@ -15,10 +15,12 @@ function tangentSecant(ctx){var r=ctx.rng,c=ctx.c,external=r.int(3,c>=5?35:25),m
 
 function arcLength(ctx){var r=ctx.rng,c=ctx.c,parts=[2,3,4,5,6,8,9,10,12],k=parts[r.int(0,parts.length-1)],angle=360/k,radius=k*r.int(2,c>=5?45:32),x=2*radius/k;return make('geo-circle-arc-length-'+c,'A circle has radius '+radius+' cm. An arc has central angle '+angle+'°. The exact arc length is x times pi centimeters. Find x without rounding.', '360*x=2*'+radius+'*'+angle,x,'Arc length is (central angle / 360) times the circumference 2 pi r. Divide out pi to find its coefficient.');}
 function sectorArea(ctx){var r=ctx.rng,c=ctx.c,parts=[2,3,4,5,6,8,9,10,12],k=parts[r.int(0,parts.length-1)],angle=360/k,radius=k*r.int(2,c>=5?36:28),x=radius*radius/k;return make('geo-circle-sector-area-'+c,'A circle has radius '+radius+' cm. A sector has central angle '+angle+'°. The exact sector area is x times pi square centimeters. Find x without rounding.', '360*x='+radius+'*'+radius+'*'+angle,x,'Sector area is (central angle / 360) times the circle area pi r squared. Divide out pi to find its coefficient.');}
+function circleRadiusSquared(ctx){var r=ctx.rng,c=ctx.c,h=r.int(-15,15),k=r.int(-15,15),dx=r.int(3,c>=5?25:18),dy=r.int(4,c>=5?26:19),sx=r.int(0,1)?1:-1,sy=r.int(0,1)?1:-1,px=h+sx*dx,py=k+sy*dy,answer=dx*dx+dy*dy;
+return make('geo-circle-coordinate-radius-squared-'+c,'A circle has center ('+h+', '+k+') and passes through point ('+px+', '+py+'). In the standard form (X-h)^2 + (Y-k)^2 = x, where (h, k) is the center, find x (the radius squared). Explain how the distance formula determines x.', 'x='+dx+'*'+dx+'+'+dy+'*'+dy,answer,'The radius squared is the sum of the squared horizontal and vertical distances between the center and the point.');}
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
-tags:{CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area'},
+tags:{CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
-gaps:['Intersecting chord products and two-secant products added. Circle equations, chord distance properties, more advanced arcs/sectors, and all diagrams remain pending.'],
+gaps:['Intersecting chord products and two-secant products added. Further circle equations, chord distance properties, more advanced arcs/sectors, and all diagrams remain pending.'],
 skills:[
 {id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1,2],generate:central},
 {id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1,2],generate:inscribed},
@@ -31,6 +33,7 @@ skills:[
 {id:'circle-two-secants',tag:'SECANTS',name:'Two secants from an exterior point',best:[0,1,2],generate:twoSecants},
 {id:'circle-tangent-secant',tag:'TANSEC',name:'Tangent and secant from an exterior point',best:[0,1,2],generate:tangentSecant},
 {id:'circle-arc-length-exact',tag:'ARC',name:'Arc length in exact pi form',best:[0,1,2],generate:arcLength},
-{id:'circle-sector-area-exact',tag:'SECTOR',name:'Sector area in exact pi form',best:[0,1,2],generate:sectorArea}
+{id:'circle-sector-area-exact',tag:'SECTOR',name:'Sector area in exact pi form',best:[0,1,2],generate:sectorArea},
+{id:'circle-radius-squared-from-point',tag:'COORD',name:'Radius squared from a center and point',best:[0,1,2],generate:circleRadiusSquared}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

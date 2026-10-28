@@ -35,9 +35,16 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-coordinate-radius-squared-/.test(p.variant || '')) {
+      var coords = /center \((-?[0-9]+), (-?[0-9]+)\) and passes through point \((-?[0-9]+), (-?[0-9]+)\)/.exec(p.prompt || '');
+      if (!coords) return false;
+      var dx = Math.abs(Number(coords[3])-Number(coords[1]));
+      var dy = Math.abs(Number(coords[4])-Number(coords[2]));
+      return dx > 0 && dy > 0 && chk.eq === 'x='+dx+'*'+dx+'+'+dy+'*'+dy;
+    }
     if (/^geo-circle-arc-length-/.test(p.variant || '')) {
       var arc = /radius ([0-9]+) cm.*central angle ([0-9]+)°.*exact arc length is x times pi centimeters/.exec(p.prompt || '');
-      return !!arc && Number(arc[2]) > 0 && Number(arc[2]) < 180 && chk.eq === '360*x=2*'+arc[1]+'*'+arc[2];
+      return !!arc && Number(arc[2]) > 0 && Number(arc[2]) <= 180 && chk.eq === '360*x=2*'+arc[1]+'*'+arc[2];
     }
     if (/^geo-circle-sector-area-/.test(p.variant || '')) {
       var sector = /radius ([0-9]+) cm.*central angle ([0-9]+)°.*exact sector area is x times pi square centimeters/.exec(p.prompt || '');
