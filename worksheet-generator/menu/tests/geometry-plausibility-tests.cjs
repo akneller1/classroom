@@ -24,7 +24,15 @@ for(const tier of [1,3,5,7]){
   assert.ok(!proof.failed,proof.reason);
   const angles=[...proof.prompt.matchAll(/= (\d+) degrees/g)].map(x=>Number(x[1]));
   assert.ok(angles.length>=1&&angles.every(x=>x>0&&x<180),'Invalid proof angle: '+angles);
-  checked+=3;
+  const honors=M.generateProblem('geometry-similarity','similarity-parallel-honors',tier,{intOnly:true,level:'test'},seed,{keys:new Set(),sigs:new Set()});
+  assert.ok(!honors.failed,honors.reason);
+  const h=honors.prompt.match(/AD = (\\d+), DB = (\\d+), AE = (\\d+), and DE = (\\d+)/);
+  assert.ok(h,'Unexpected parallel Honors prompt');
+  const [ad,db,ae,de]=h.slice(1).map(Number);
+  assert.ok(ad+ae>de&&ad+de>ae&&ae+de>ad,'Impossible ADE triangle: '+[ad,ae,de]);
+  const ab=ad+db,ac=ae+ae*db/ad,bc=de*ab/ad;
+  assert.ok(ab+ac>bc&&ab+bc>ac&&ac+bc>ab,'Impossible ABC triangle: '+[ab,ac,bc]);
+  checked+=4;
  }
 }
 console.log('Geometry plausibility: '+checked+' triangle/angle checks passed.');
