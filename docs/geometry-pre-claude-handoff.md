@@ -114,3 +114,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added `circle-tangent-secant`, raising the Circles menu bank to 10 registered skills. A tangent of length t and a secant with external segment e and whole secant x satisfy e·x=t². Questions explicitly distinguish the whole secant from the internal segment.
 - Constructed with e>0 and t=e·m for integer m≥2, giving x=e·m²>e. The verification equation remains linear in x, compatible with the existing independent linear solver. The verifier re-derives the equation from the visible tangent/external measurements.
 - No diagrams or drawings created; Claude owns visual figures and proofs. CI pending for this commit.
+
+## Circles: exact arc length and sector area (2026-10-28)
+- Added `circle-arc-length-exact` and `circle-sector-area-exact` (12 registered Circles skills). Students determine the coefficient x of pi in exact arc length or sector area, with no decimal approximation.
+- Central angles are proper minor-arc angles (30°, 36°, 40°, 45°, 60°, 72°, 90°, 120°, or 180°); radius is chosen to give positive integer coefficients. The verifier independently reconstructs each formula from the student-visible radius and central angle.
+- No diagrams or drawings; Claude retains all figures and visual proofs. CI pending.

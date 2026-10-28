@@ -35,6 +35,14 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-arc-length-/.test(p.variant || '')) {
+      var arc = /radius ([0-9]+) cm.*central angle ([0-9]+)°.*exact arc length is x times pi centimeters/.exec(p.prompt || '');
+      return !!arc && Number(arc[2]) > 0 && Number(arc[2]) < 180 && chk.eq === '360*x=2*'+arc[1]+'*'+arc[2];
+    }
+    if (/^geo-circle-sector-area-/.test(p.variant || '')) {
+      var sector = /radius ([0-9]+) cm.*central angle ([0-9]+)°.*exact sector area is x times pi square centimeters/.exec(p.prompt || '');
+      return !!sector && Number(sector[2]) > 0 && Number(sector[2]) < 360 && chk.eq === '360*x='+sector[1]+'*'+sector[1]+'*'+sector[2];
+    }
     if (/^geo-circle-intersecting-chords-/.test(p.variant || '')) {
       var chord = /PA measures ([0-9]+) cm, PB measures x cm, PC measures ([0-9]+) cm, and PD measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!chord && chk.eq === chord[1]+'*x='+chord[2]+'*'+chord[3];
