@@ -145,3 +145,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 ## Circles: Honors two-secant internal segments (2026-10-28)
 - Tiers 5–7 of the existing `circle-two-secants` skill now give *external* and *internal* secant segment lengths, requiring students to form each entire secant as their sum. They solve a(x+a)=b(b+c) for the unknown internal segment x.
 - Tiers 1–4 retain direct external×whole calculations. Generated positive integer solutions are guaranteed by construction. The verifier independently parses all three visible lengths and checks the compound equation. No new skill registrations or diagrams. CI pending.
+
+## Circles: Honors tangent–secant internal segment (2026-10-28)
+- Tiers 5–7 of `circle-tangent-secant` now give tangent and external secant lengths but ask for the *internal* secant segment x, requiring e(x+e)=t². Tiers 1–4 retain direct whole-secant calculation.
+- Values use t=e·m (m≥2), yielding positive integer x=e(m²−1). Independent verifier derives the compound equation from the student-visible tangent and external lengths. No diagrams created; all 16 registered skills preserved. CI pending.

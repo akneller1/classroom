@@ -84,6 +84,11 @@
       var chord = /PA measures ([0-9]+) cm, PB measures x cm, PC measures ([0-9]+) cm, and PD measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!chord && chk.eq === chord[1]+'*x='+chord[2]+'*'+chord[3];
     }
+    if (/^geo-circle-tangent-secant-inside-/.test(p.variant || '')) {
+      var tangentInside=/tangent PT has length ([0-9]+) cm.*external segment of ([0-9]+) cm and an internal segment of x cm/.exec(p.prompt || '');
+      return !!tangentInside && Number(tangentInside[1])>Number(tangentInside[2]) && Number(tangentInside[2])>0 &&
+        chk.eq===tangentInside[2]+'*(x+'+tangentInside[2]+')='+tangentInside[1]+'*'+tangentInside[1];
+    }
     if (/^geo-circle-tangent-secant-/.test(p.variant || '')) {
       var tangentSecant = /tangent PT has length ([0-9]+) cm.*external segment of ([0-9]+) cm and a total length of x cm/.exec(p.prompt || '');
       return !!tangentSecant && chk.eq === tangentSecant[2]+'*x='+tangentSecant[1]+'*'+tangentSecant[1];
