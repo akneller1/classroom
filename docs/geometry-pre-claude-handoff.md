@@ -124,3 +124,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added `circle-radius-squared-from-point` (13 registered Circles skills). Given a center (h,k) and a point on the circle, students compute the radius squared x in the standard circle equation (X-h)^2+(Y-k)^2=x. Includes negative coordinates, squared differences, and a justification based on distance.
 - The verifier independently derives the absolute coordinate differences from the displayed center and point, then checks the equation for x. All results are positive integers; no graph or drawing was created. Claude retains all visual coordinate-plane tasks.
 - Also note: the arc-length bank includes semicircle arcs of 180°, so the arc verifier should permit central angle 180° (currently it rejects this boundary). CI pending.
+
+## Circles: chord length from perpendicular center distance (2026-10-28)
+- Added `circle-chord-length-from-distance`, now 14 registered Circles skills. Given radius and perpendicular distance from the center to a chord, students use the Pythagorean theorem to calculate the half-chord and double it. Generated values come from integer Pythagorean triples, scaled to provide broad exact-answer variety.
+- Independent verifier reads the printed radius and distance, requires radius > distance > 0, checks that sqrt(r²−d²) is a positive integer, and verifies the displayed answer equation x=2·half-chord. No diagrams/drawings were made; Claude owns visual representations and proofs. CI pending.
