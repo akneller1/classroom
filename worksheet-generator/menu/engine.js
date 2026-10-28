@@ -630,6 +630,37 @@
     state.versions.forEach(function (v) {
       v.sections = cfg.sections.map(function (s) { var old = v.sections.filter(function (x) { return x.id === s.id; })[0]; return old || { id: s.id, items: [] }; });
     });
+    // Repair legacy saved worksheet slots whose skill IDs no longer exist in this unit.
+    // This includes old Relations & Functions saves carrying the retired "abs-eq" ID.
+    // Keep the same slot and response difficulty across versions; never display an
+    // unverifiable placeholder when a valid replacement skill is available.
+    var currentSet = sets[cfg.unitId];
+    if (currentSet) {
+      cfg.sections.forEach(function (section, si) {
+        if (section.skills) section.skills = section.skills.filter(function (id) { return !!currentSet.byId[id]; });
+        var allowed = NS.sectionSkills(cfg, si);
+        if (!allowed.length) allowed = currentSet.skills.filter(function (sk) { return cfg.skills[sk.id]; }).map(function (sk) { return sk.id; });
+        if (!allowed.length) allowed = currentSet.skills.map(function (sk) { return sk.id; });
+        var first = A.sections[si] && A.sections[si].items || [];
+        first.forEach(function (item, index) {
+          if (currentSet.byId[item.skill]) return;
+          var replacement = allowed[index % allowed.length];
+          if (!replacement) return;
+          state.versions.forEach(function (version, vi) {
+            var items = version.sections[si].items;
+            var pos = items.findIndex(function (entry) { return entry.slot === item.slot; });
+            if (pos < 0) return;
+            var previous = items[pos];
+            var corrected = makeItem(state, previous.slot, replacement, previous.c || NS.sectionC(cfg, si),
+              'legacy-skill-repair-' + index, vi, si);
+            if (!corrected.failed) {
+              corrected.required = previous.required;
+              items[pos] = corrected;
+            }
+          });
+        });
+      });
+    }
     // Retire a cross-listed absolute-value EQUATION skill from the inequalities unit.
     if(cfg.unitId==='algebra1-inequalities') {
       delete cfg.skills['abs-eq'];
