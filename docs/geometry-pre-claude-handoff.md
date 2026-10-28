@@ -95,3 +95,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 ## Text-only special-quadrilateral classification (2026-10-28)
 - Added `classify-square-rhombus`: given a rectangle or parallelogram with two algebraic adjacent-side expressions, students solve the equality condition that makes it a square or rhombus and justify why that property is sufficient. For higher tiers both sides have variable expressions, increasing algebraic reasoning.
 - The verifier independently reconstructs the equation from the two student-visible side expressions; no diagram or drawing is included. All visual classification examples remain assigned to Claude. The Quadrilaterals/Polygons menu bank now has 11 registered skills. CI requires confirmation on this commit.
+
+## Algebraic Honors reasoning without diagrams (2026-10-28)
+- Added `parallelogram-algebraic-consecutive-angles`, requiring students to solve an equation from two algebraic adjacent-angle expressions, justify why they are supplementary, and distinguish the adjacent-angle rule from the opposite-angle congruence rule.
+- For higher complexity tiers both angle expressions have coefficients 2–3; all generated actual angles are positive and sum to 180°. The verifier independently reconstructs the equation from the two visible expressions. Quadrilaterals/Polygons now has 12 registered skills.
+- No figures, drawings, or diagram-based proof items added. Claude remains responsible for those. Confirm CI after this commit.
