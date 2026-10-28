@@ -272,10 +272,12 @@
         });
         return;
       }
-      // Lesson notes: vocabulary, key idea / watch out, then worked examples (one per slide, each followed by its solution)
+      // Include notes for every selected lesson, not just the primary day.
+      var noteDays = plan.selectedDays && plan.selectedDays.length > 1 ? plan.selectedDays.map(function(n) { return P.day(n); }).filter(Boolean) : [d];
+      noteDays.forEach(function(d) {
       var voc = P.vocab(d);
       if (voc.length) {
-        var s = content('Key vocabulary', sec, sec.minutes), cols = voc.length > 4 ? 3 : 2, rows = Math.ceil(voc.length / cols), gp = 0.3;
+        var s = content(noteDays.length > 1 ? d.title + ' — Vocabulary' : 'Key vocabulary', sec, sec.minutes), cols = voc.length > 4 ? 3 : 2, rows = Math.ceil(voc.length / cols), gp = 0.3;
         var cw2 = (W - 2 * MX - (cols - 1) * gp) / cols, ch2 = Math.min(2.4, (BOTTOM - TOP - (rows - 1) * gp) / rows);
         voc.forEach(function (v, i) {
           var x = MX + (i % cols) * (cw2 + gp), y = TOP + Math.floor(i / cols) * (ch2 + gp);
@@ -291,7 +293,8 @@
       if (d.sentence_frame) paras.push({ text: 'Say it: ' + frameText(d.sentence_frame), size: 26 });
       if (P.watchOut(d)) paras.push({ text: 'Watch out: ' + P.watchOut(d), size: 24, color: 'A33A1D' });
       if (P.myNotes(d)) P.myNotes(d).split(/\n+/).filter(Boolean).forEach(function (line) { paras.push({ text: line, size: 22, bullet: true }); });
-      if (paras.length) textSlide(sec, 'Key idea', paras, { notes: ['Model the sentence frame aloud before Example 1.'] });
+      if (paras.length) textSlide(sec, noteDays.length > 1 ? d.title + ' — Key idea' : 'Key idea', paras, { notes: ['Model the sentence frame aloud before Example 1.'] });
+      });
     }
     async function exampleSlides(sec) {
       var ex = [];
