@@ -302,22 +302,25 @@
     if (t === 'geo-pythagorean') {
       // Derive the length independently from the student-facing dimensions.
       // Never use a generator-provided answer or a quadratic linear-solver.
-      var raw = C.plainText(p.prompt || ''), m, squared;
+      var raw = C.plainText(p.prompt || ''), m, squared, expectedEq;
       if (chk.kind === 'hyp') {
         m = /right triangle has legs (\d+) and (\d+) units/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed leg lengths.'};
         squared = (+m[1])**2 + (+m[2])**2;
+        expectedEq = 'x^2='+m[1]+'^2+'+m[2]+'^2';
       } else if (chk.kind === 'leg') {
         m = /hypotenuse (\d+) units and one leg (\d+) units/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed hypotenuse and leg.'};
         squared = (+m[1])**2 - (+m[2])**2;
+        expectedEq = m[2]+'^2+x^2='+m[1]+'^2';
       } else if (chk.kind === 'distance') {
         m = /Points A\(0, 0\) and B\((\d+), (\d+)\)/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed coordinates.'};
         squared = (+m[1])**2 + (+m[2])**2;
       } else return {status:'invalid',msg:'Unknown Pythagorean problem type.'};
-      // The independently parsed leg lengths/coordinates above determine the equation;
-      // students must formulate the Pythagorean relationship themselves.
+      // Independently validate the hidden equation against the printed givens,
+      // without showing the completed equation to students.
+      if (chk.eq !== expectedEq) return {status:'invalid',msg:'Pythagorean check disagrees with printed dimensions.'};
       var length = Math.sqrt(squared);
       if (!(squared > 0) || !Number.isSafeInteger(squared) || !Number.isSafeInteger(length))
         return {status:'invalid',msg:'Expected an exact positive integer length.'};
