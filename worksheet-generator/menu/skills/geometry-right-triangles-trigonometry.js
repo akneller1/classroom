@@ -87,7 +87,7 @@ function inverseTrigDecimal(ctx){
   space:[1.3,1.7,2]};
 }
 function specialRadical(ctx){
- var r=ctx.rng,c=ctx.c,n=r.int(2,c>=5?24:12),is45=r.int(0,1)===0;
+ var r=ctx.rng,c=ctx.c,n=r.int(2,c>=5?65:45),is45=r.int(0,1)===0;
  var rad=is45?2:3,answer='x='+n+'\\sqrt{'+rad+'}';
  return {variant:'geo-right-radical-'+(is45?'45':'30')+'-'+c,
  fig:{kind:'geo-right-triangle',case:is45?'45':'30'},
