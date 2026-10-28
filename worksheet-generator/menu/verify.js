@@ -32,6 +32,12 @@
       return !!measures && measures[1]+'='+measures[2] === chk.eq;
     }
     if (/^geo-vertical-/.test(p.variant || '')) return false;
+    if (/^geo-transversal-/.test(p.variant || '')) {
+      var b = /angle measures are ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
+      if (!b) return false;
+      var eq = /^geo-transversal-same-side-/.test(p.variant) ? b[1]+'+'+b[2]+'=180' : b[1]+'='+b[2];
+      return eq === chk.eq;
+    }
     if (/^geo-(complement|supplement|linear-pair)-/.test(p.variant || '')) {
       var a = /measures? ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
       var total = /^geo-complement-/.test(p.variant) ? 90 : 180;
