@@ -7,7 +7,7 @@ function corresponding(ctx,kind){
  var feature=kind==='side'?'corresponding sides':'corresponding angles';
  var unit=kind==='side'?' units':' degrees';
  return {variant:'geo-congruence-'+kind+'-'+c,
- prompt:'Triangles ABC and DEF are congruent, with A corresponding to D, B to E, and C to F. '+(kind==='side'?'AB and DE':'angle B and angle E')+' are '+feature+'. Their measures are '+M((a===1?'x':a+'x')+'+'+b)+' and '+value+unit+'. Find x. Use '+M(eq)+' to find x.',
+ prompt:'Triangles ABC and DEF are congruent, with A corresponding to D, B to E, and C to F. '+(kind==='side'?'AB and DE':'angle B and angle E')+' are '+feature+'. Their measures are '+M((a===1?'x':a+'x')+'+'+b)+' and '+value+unit+'. Find x. Set up an equation and show your reasoning.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Corresponding parts of congruent triangles are congruent.',M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
@@ -20,7 +20,7 @@ function thirdAngle(ctx){
 }
 function perimeter(ctx){
  var r=ctx.rng,c=ctx.c,a=r.int(5,16),b=r.int(5,16),x=r.int(Math.abs(a-b)+1,a+b-1),p=x+a+b,eq='x+'+a+'+'+b+'='+p;
- return {variant:'geo-congruence-perimeter-'+c,prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Use '+M(eq)+' to find x.',
+ return {variant:'geo-congruence-perimeter-'+c,prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Set up an equation and show your reasoning.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Congruent triangles have equal perimeters.',M(eq)),step('Solve for the unknown side.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
@@ -53,7 +53,7 @@ function criterion(ctx,kind){
   why='HL establishes congruence of right triangles; corresponding legs are equal.';
  }
  return {variant:'geo-criterion-'+kind+'-'+c,fig:{kind:'geo-triangle-pair',criterion:kind},
-  prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then use '+M(eq)+' to find x.',
+  prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
   space:[1.2,1.5,1.8]};
@@ -92,7 +92,7 @@ function structuredProof(ctx){
  return {variant:'geo-structured-proof-'+(shared?'shared':'vertical')+'-'+(flow?'flow':'columns')+'-'+c,
   fig:{kind:'geo-proof',case:shared?'shared':'vertical'},
   proofStatements:[first,triangles,angleEquality,'Solve '+M(eq)+' for x'],
-  prompt:givens+' '+consequence+'. '+lead+' Establish: (1) '+first+'; (2) '+triangles+'; (3) the listed corresponding angles are congruent. Supply the reason for each step, then find x using '+M(eq)+'.',
+  prompt:givens+' '+consequence+'. '+lead+' Establish: (1) '+first+'; (2) '+triangles+'; (3) the listed corresponding angles are congruent. Supply the reason for each step, then write and solve an equation for x.',
   parts:[
    {prompt:'Reason for step 1:',answer:shared?'REFLEXIVE PROPERTY':'VERTICAL ANGLES THEOREM',check:{type:'geo-proof-reason',stage:'first'}},
    {prompt:'Reason for step 2:',answer:shared?'SSS':'SAS',check:{type:'geo-proof-reason',stage:'congruence'}},
