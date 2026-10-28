@@ -236,19 +236,23 @@ for (const scenario of ['shared','vertical']) {
   assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
     'Proof verifier must reject changed angle expression: '+scenario);
 }
-// A changed printed equation must never pass simply because the original
-// dimensions still imply the saved answer.
+// A changed printed dimension must never pass simply because the
+// hidden check equation and saved answer have not changed.
 for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','right-distance-formula']) {
   const p = menu.generateProblem('geometry-right-triangles-trigonometry',skillId,1,
     {intOnly:true,level:'game'},'mutation:'+skillId,
     {keys:new Set(),sigs:new Set()});
   assert.ok(!p.failed, skillId+' must generate');
   const tampered = JSON.parse(JSON.stringify(p));
-  const original = tampered.parts[0].check.eq;
-  tampered.prompt = tampered.prompt.replace('⟨'+original+'⟩','⟨'+original.replace('^2','^4')+'⟩');
-  assert.notEqual(tampered.prompt,p.prompt,'Mutation must change the printed equation');
+  if (skillId === 'right-pythagorean-hypotenuse')
+    tampered.prompt = tampered.prompt.replace(/(has legs )(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
+  else if (skillId === 'right-pythagorean-leg')
+    tampered.prompt = tampered.prompt.replace(/(hypotenuse )(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
+  else
+    tampered.prompt = tampered.prompt.replace(/(and B\\()(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
+  assert.notEqual(tampered.prompt,p.prompt,'Mutation must change a printed measurement');
   assert.equal(menu.verifyProblem(tampered,{intOnly:true,level:'game'}).ok,false,
-    skillId+' must reject a modified printed equation');
+    skillId+' must reject a modified printed measurement');
 }
 // A visible side expression must agree with the equation used to verify x.
 for (const kind of ['sss','sas','asa','aas','hl']) {
