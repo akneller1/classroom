@@ -52,3 +52,10 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Fixed an overescaped regular expression in the Honors triangle plausibility test; earlier version would have failed matching legitimate numeric givens.
 - Updated `menu-assessment.html` cache-busting query parameters for corrected Congruence, Similarity and Circles skill scripts so deployed browsers fetch the latest source.
 - This proves shared configuration code paths, **not** UI feature parity in separate flashcard, self-assessment, lesson-planner, or vocabulary applications; those remain pending.
+
+## Student reasoning and difficulty calibration follow-up (2026-10-27)
+- Inspected actual Triangle Congruence and Similarity student-facing prompt builders and found equation scaffolding that undermined reasoning, including four-part Honors proportionality investigations.
+- Removed supplied worked equations from these prompts; left independently checked answers and full teacher solution steps intact. Students now establish equations, proportions, and segment relationships themselves.
+- Added `menu/tests/geometry-reasoning-prompts-tests.cjs` (360 generated instances: four tiers × 30 seeds × three question families) and wired it into Menu Assessment Generator CI.
+- Updated cache versions in `worksheet-generator/menu-assessment.html` so browsers receive revised question wording.
+- **Outstanding:** confirm green CI, inspect other eight Geometry banks for over-scaffolding, review actual rendered diagrams and PDFs, and compare separate Geometry/Algebra 1 interfaces. These source changes do not establish complete CP2/CP1/Honors instructional calibration.
