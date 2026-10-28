@@ -53,3 +53,8 @@ GitHub Actions status was **not observable** from this session (GitHub not linke
 5. Geometry Daily Lesson Planner scope and lesson-skills map.
 6. Generate the four Geometry games per unit with `mkgames.py` (needs figure scripts in the template), retire hand-built duplicates only after parity.
 7. Cheat sheets for Units 6–10; self-assessments review; live browser and print QA.
+
+## Triangle Relationships and Congruence figures (latest)
+- Unit 4 uses `geo-tri` (exact constructions: angles, exterior angle, isosceles ticks, midsegment, centroid, perpendicular bisector, altitude).
+- Unit 3 uses `geo-cong` (geometry-congruence-figures.js). Tick groups, arcs and right marks are checked against the drawn coordinates; the SSS/SAS/ASA/AAS/HL/SSA/AAA criterion is derived from the marks alone (`F.cong.derive`). Proof diagrams (`shared`, `cross`) are marked "Not drawn to scale" and verified by `F.cong.proofKind`.
+- CI fix: `geometry-generator-regression.cjs` asserted the retired schematic kinds (`geo-similar-pair`, `geo-right-triangle`, `geo-triangle-landmark`, `geo-triangle-pair`, `geo-proof`). It now requires the new data-driven kinds, runs each figure's own geometric check, checks print-safe colours, and keeps every tamper test. Nothing was weakened.

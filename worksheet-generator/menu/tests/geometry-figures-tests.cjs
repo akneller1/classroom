@@ -44,12 +44,35 @@ assert.equal(F.check({ kind: 'geo-rt', v: { a: 3, b: 4 }, lab: { b: '2 x' } }).o
 assert.equal(F.check({ kind: 'geo-sim', sides: [6, 8, 10], k: 2, show: ['AB', 'BC', 'DE'], lab: { EF: 'x' } }).ok, true, 'similar pair');
 assert.equal(F.check({ kind: 'geo-sim', sides: [6, 8, 10], k: 2, lab: { DE: '13' } }).ok, false, 'DE must be 12');
 assert.equal(F.check({ kind: 'geo-sim', sides: [3, 4, 9], k: 2 }).ok, false, 'triangle inequality');
+// geo-cong: markings must be true of the drawn coordinates, and the criterion is derived from the marks alone
+for (const k of ['sss','sas','asa','aas','hl','ssa','aaa']) for (const fl of [false,true]) {
+  const f = F.cong.pair(k, fl);
+  assert.equal(F.check(f).ok, true, k + ' pair is a valid figure');
+  assert.equal(F.cong.derive(f).toLowerCase(), k, k + ' derived from its marks');
+  const svg = F.render(f); assert.ok(svg.includes('<svg') && !/#(?!111|555|bbb|fff)[0-9a-f]{3,6}\b/i.test(svg), k + ' prints safely');
+}
+{ const f = JSON.parse(JSON.stringify(F.cong.pair('sss', false))); f.sides[0].s[1] = f.sides[1].s[1]; assert.equal(F.check(f).ok, false, 'unequal sides marked equal'); }
+{ const f = JSON.parse(JSON.stringify(F.cong.pair('asa', false))); f.angles[0].a[1] = f.angles[1].a[0]; assert.equal(F.check(f).ok, false, 'unequal angles marked equal'); }
+{ const f = JSON.parse(JSON.stringify(F.cong.pair('hl', false))); f.right = [['B', 'A', 'C']]; assert.equal(F.check(f).ok, false, 'right mark on a non-right angle'); }
+{ const f = F.cong.pair('sss', false); f.lab = { AB: '3+4' }; assert.equal(F.check(f).ok, false, 'arithmetic is not a valid label'); f.lab = { AB: '3x+6' }; assert.equal(F.check(f).ok, true, 'expression label is fine'); }
+assert.equal(F.cong.proofKind(F.cong.shared()), 'shared'); assert.equal(F.cong.proofKind(F.cong.cross()), 'vertical');
+assert.equal(F.check(Object.assign(F.cong.shared(), { angLab: [{ p: 'A', v: 'C', q: 'B', text: '70°' }] })).ok, false, 'numeric angle label must match unless the figure is not to scale');
+assert.equal(F.check(Object.assign(F.cong.shared(), { nts: true, angLab: [{ p: 'A', v: 'C', q: 'B', text: '70°' }] })).ok, true);
 assert.equal(F.check({ kind: 'geo-sim', angles: [40, 60, 80], k: 2, ang: { A: 40, F: 80 } }).ok, true);
 assert.equal(F.check({ kind: 'geo-sim', angles: [40, 60, 80], k: 2, ang: { F: 70 } }).ok, false, 'angle F is 80');
 assert.equal(F.check({ kind: 'geo-sim', angles: [40, 60, 80], k: 2, show: ['AB'] }).ok, false, 'no side lengths from angles alone');
 assert.equal(F.check({ kind: 'geo-tri-par', v: { AD: 3, DB: 2, AE: 6, EC: 4 }, angA: 60 }).ok, true, 'AD/DB = AE/EC');
 assert.equal(F.check({ kind: 'geo-tri-par', v: { AD: 3, DB: 2, AE: 6, EC: 5 }, angA: 60 }).ok, false, 'DE would not be parallel to BC');
 assert.equal(F.check({ kind: 'geo-tri-par', v: { AD: 3, DB: 2, AE: 6, EC: 4 }, angA: 60, lab: { DE: '99' } }).ok, false, 'DE label must match the drawn length');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'angles', angles: [50, 50, 80], lab: { A: 'x°', C: '80°' }, ticks: ['AC', 'BC'] }).ok, true, 'isosceles with equal base angles');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'angles', angles: [50, 60, 70], ticks: ['AC', 'BC'] }).ok, false, 'tick marks claim equal sides in a scalene triangle');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'angles', angles: [50, 60, 70], lab: { C: '71°' } }).ok, false, 'angle C is 70');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'angles', angles: [50, 60, 80] }).ok, false, 'angles must sum to 180');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'angles', angles: [30, 50, 100], ext: { vertex: 'B', lab: '130°' } }).ok, true, 'exterior angle = 180 - 50');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'angles', angles: [30, 50, 100], ext: { vertex: 'B', lab: '120°' } }).ok, false, 'exterior angle must be 130');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'sides', sides: [3, 4, 9] }).ok, false, 'triangle inequality');
+assert.equal(F.check({ kind: 'geo-tri', mode: 'sides', sides: [10, 16, 16], sideLab: { AB: '10', CA: 'x' } }).ok, true);
+assert.equal(F.check({ kind: 'geo-tri', mode: 'sides', sides: [10, 16, 16], sideLab: { AB: '12' } }).ok, false, 'AB is 10');
 assert.equal(F.check({ kind: 'geo-circle', pts: { A: [1, 1] }, onCircle: ['A'] }).ok, false, 'point off the circle');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], O2: [0.5, 0.5], T: [1, 1] }, right: [['P', 'O', 'T']] }).ok, true, 'radius to (1,0) is perpendicular to the vertical tangent');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], T: [1.5, 1] }, right: [['P', 'O', 'T']] }).ok, false, 'tangent mark on a slanted segment');

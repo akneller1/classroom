@@ -52,7 +52,9 @@ function criterion(ctx,kind){
   target='BC = '+M(expression)+' units and EF = '+measure+' units.';
   why='HL establishes congruence of right triangles; corresponding legs are equal.';
  }
- return {variant:'geo-criterion-'+kind+'-'+c,fig:{kind:'geo-triangle-pair',criterion:kind},
+ var cf=NS.geoFigures&&NS.geoFigures.cong?NS.geoFigures.cong.pair(kind,r.int(0,1)===1):{kind:'geo-triangle-pair',criterion:kind};
+ if(cf.kind==='geo-cong'){var tk=kind==='asa'?['AC','DF']:['BC','EF'];if(kind==='sss')tk=['AB','DE'];cf.lab={};cf.lab[tk[0]]=expression;cf.lab[tk[1]]=String(measure);}
+ return {variant:'geo-criterion-'+kind+'-'+c,fig:cf,
   prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
@@ -63,7 +65,7 @@ function identify(ctx){
  var r=ctx.rng,c=ctx.c,kinds=['sss','sas','asa','aas','hl','ssa','aaa'];
  var kind=kinds[r.int(0,kinds.length-1)],setting=r.int(0,5),answer=(kind==='ssa'||kind==='aaa')?'NOT SUFFICIENT':kind.toUpperCase();
  return {variant:'geo-identify-criterion-'+kind+'-'+c,
-  fig:{kind:'geo-triangle-pair',criterion:kind},
+  fig:NS.geoFigures&&NS.geoFigures.cong?NS.geoFigures.cong.pair(kind,r.int(0,1)===1):{kind:'geo-triangle-pair',criterion:kind},
   prompt:['Use the marked triangle pairs to determine whether triangle congruence is established.','Examine the two marked triangles and decide whether their congruence is guaranteed.','A student claims the marked triangles must be congruent. Decide whether the markings justify that claim.','Determine what, if anything, the equal sides and angles establish about the triangles.','Inspect the given triangle markings and identify the applicable congruence rule, if one exists.','Consider only the marked information. Is triangle congruence guaranteed?'][setting]+' Identify the criterion (SSS, SAS, ASA, AAS, or HL), or write NOT SUFFICIENT if the markings do not prove congruence. Matching tick marks and angle arcs indicate corresponding equal parts. The diagram is schematic and not to scale.',
   parts:[{answer:answer,check:{type:'geo-congruence-criterion'}}],
   steps:[step(kind==='ssa'?'SSA is not a valid general triangle congruence theorem.':kind==='aaa'?'AAA establishes similarity, not necessarily congruence.':'The marked corresponding parts establish '+answer+' congruence.',answer)],
@@ -90,7 +92,7 @@ function structuredProof(ctx){
  }
  var lead=flow?'Complete the following flow proof.':'Complete the following two-column proof.';
  return {variant:'geo-structured-proof-'+(shared?'shared':'vertical')+'-'+(flow?'flow':'columns')+'-'+c,
-  fig:{kind:'geo-proof',case:shared?'shared':'vertical'},
+  fig:(function(){var f=shared?NS.geoFigures.cong.shared():NS.geoFigures.cong.cross();f.nts=true;f.note='Not drawn to scale.';f.angLab=shared?[{p:'A',v:'C',q:'B',text:expression+'°'},{p:'A',v:'D',q:'B',text:v+'°'}]:[{p:'B',v:'A',q:'O',text:expression+'°'},{p:'D',v:'C',q:'O',text:v+'°'}];return f;})(),
   proofStatements:[first,triangles,angleEquality,'Solve '+M(eq)+' for x'],
   prompt:givens+' '+consequence+'. '+lead+' Establish: (1) '+first+'; (2) '+triangles+'; (3) the listed corresponding angles are congruent. Supply the reason for each step, then write and solve an equation for x.',
   parts:[

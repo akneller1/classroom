@@ -4,26 +4,27 @@
 'use strict';
 var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
 function make(ctx,kind){
- var r=ctx.rng,c=ctx.c,x,eq,prompt,reason;
+ var r=ctx.rng,c=ctx.c,x,eq,prompt,reason,a,b,remote,ext,vertex;
  if(kind==='sum'){
    x=r.int(c<=3?30:18,c<=3?85:100);
-   var a=r.int(18,Math.min(155-x,65)),b=180-x-a;
+   a=r.int(18,Math.min(155-x,65));b=180-x-a;
    eq='x+'+a+'+'+b+'=180';
    prompt='A triangle has interior angles measuring '+M('x^\\circ')+', '+a+'° and '+b+'°. Find x.';
    reason='Interior angles of a triangle sum to 180°.';
  } else if(kind==='exterior'){
    x=r.int(18,78);
-   var remote=r.int(15,84),ext=x+remote;
+   remote=r.int(15,84);ext=x+remote;
    eq='x+'+remote+'='+ext;
    prompt='An exterior angle of a triangle measures '+ext+'°. Its two remote interior angles measure '+M('x^\\circ')+' and '+remote+'°. Find x.';
    reason='An exterior angle equals the sum of its remote interior angles.';
  } else if(kind==='isosceles'){
-   x=r.int(31,77);var vertex=180-2*x;
+   x=r.int(31,77);vertex=180-2*x;
    eq='2x+'+vertex+'=180';
    prompt='An isosceles triangle has two congruent base angles, each measuring '+M('x^\\circ')+'. Its vertex angle measures '+vertex+'°. Find x.';
    reason='The two base angles are congruent, and all three angles total 180°.';
  }
- return {variant:'geo-triangle-'+kind+'-'+c,prompt:prompt+' Set up and solve an equation for x.',
+ var fig=kind==='sum'?{kind:'geo-tri',mode:'angles',angles:[x,a,b],lab:{A:'x°',B:a+'°',C:b+'°'}}:kind==='exterior'?{kind:'geo-tri',mode:'angles',angles:[x,180-ext,remote],lab:{A:'x°',C:remote+'°'},ext:{vertex:'B',lab:ext+'°'}}:{kind:'geo-tri',mode:'angles',angles:[x,x,vertex],lab:{A:'x°',B:'x°',C:vertex+'°'},ticks:['AC','BC']};
+ return {variant:'geo-triangle-'+kind+'-'+c,fig:fig,prompt:prompt+' Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq,v:'x'}}],
   steps:[step(reason,M(eq)),step('Solve for the unknown angle.',M('x='+x))],
   space:[1.1,1.4,1.7]};
@@ -37,6 +38,7 @@ function triangleInequality(ctx) {
  var x=hi-1;
  var eq='x+1='+hi;
  return {variant:'geo-triangle-inequality-'+c,
+  fig:{kind:'geo-tri',mode:'sides',sides:[a,b,Math.max(a,b)],sideLab:{AB:String(a),BC:String(b),CA:'x'}},
   prompt:'Two sides of a triangle measure '+a+' and '+b+' units. What is the greatest INTEGER length x that the third side can have? Explain why the triangle inequality is strict. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('The third side must be less than the sum of the other two and greater than their difference.',M(lo+'<x<'+hi)),step('The greatest possible integer is one less than the sum.',M('x='+x))],
@@ -46,7 +48,7 @@ function midsegment(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(5,c>=5?35:18),a=c>=5?r.int(2,4):1,b=r.int(1,8);
  var small=a*x+b,full=2*small,eq=(a===1?'x':a+'x')+'+'+b+'='+full+'/2';
  return {variant:'geo-triangle-midsegment-'+c,
-  fig:{kind:'geo-triangle-landmark',case:'midsegment'},
+  fig:{kind:'geo-tri',mode:'midseg',lab:{DE:(a===1?'x':a+'x')+'+'+b,BC:String(full)}},
   prompt:'In triangle ABC, D and E are the midpoints of AB and AC. Segment DE is parallel to BC. DE measures '+M((a===1?'x':a+'x')+'+'+b)+' units and BC measures '+full+' units. Find x and explain the midsegment relationship. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('A triangle midsegment is half the length of the third side.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -56,7 +58,7 @@ function centroid(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(4,c>=5?30:16),a=c>=5?r.int(2,3):1,b=r.int(1,8),near=a*x+b,whole=3*near;
  var eq='3*'+(a===1?'x':a+'x')+'+3*'+b+'='+whole;
  return {variant:'geo-triangle-centroid-'+c,
-  fig:{kind:'geo-triangle-landmark',case:'centroid'},
+  fig:{kind:'geo-tri',mode:'centroid',lab:{GM:(a===1?'x':a+'x')+'+'+b,AM:String(whole)}},
   prompt:'In triangle ABC, M is the midpoint of BC and G is the centroid on median AM. The shorter segment GM measures '+M((a===1?'x':a+'x')+'+'+b)+' units. The full median AM measures '+whole+' units. Find x. Explain the 2:1 centroid ratio. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('The centroid divides a median 2:1, so the shorter segment is one-third of the full median.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -65,7 +67,9 @@ function centroid(ctx) {
 function sideAngleOrder(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(7,c>=5?30:20),a=c>=5?r.int(2,4):1,b=r.int(1,9),largest=a*x+b;
  var eq=(a===1?'x':a+'x')+'+'+b+'='+largest;
+ var bigA=r.int(70,100),rest=180-bigA,angB=r.int(Math.ceil(rest*0.35),Math.floor(rest*0.65));
  return {variant:'geo-triangle-side-angle-order-'+c,
+  fig:{kind:'geo-tri',mode:'angles',angles:[bigA,angB,rest-angB],lab:{A:'largest'},sideLab:{BC:(a===1?'x':a+'x')+'+'+b}},
   prompt:'In triangle ABC, angle A is the largest angle. Side BC, opposite angle A, measures '+M((a===1?'x':a+'x')+'+'+b)+' units. The longest side is '+largest+' units. Find x and explain how the side-angle ordering theorem identifies BC. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('The longest side lies opposite the largest angle.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -76,7 +80,7 @@ function perpendicularBisector(ctx) {
  var r=ctx.rng,c=ctx.c,x=r.int(3,c>=5?26:14),a=c>=5?r.int(2,4):1,b=r.int(1,9),distance=a*x+b;
  var eq=(a===1?'x':a+'x')+'+'+b+'='+distance;
  return {variant:'geo-triangle-perpendicular-bisector-'+c,
-  fig:{kind:'geo-triangle-landmark',case:'bisector'},
+  fig:{kind:'geo-tri',mode:'perpbis',lab:{PA:(a===1?'x':a+'x')+'+'+b,PB:String(distance)}},
   prompt:'Point P lies on the perpendicular bisector of segment AB. PA measures '+M((a===1?'x':a+'x')+'+'+b)+' units and PB measures '+distance+' units. Find x. State the perpendicular bisector theorem. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('Every point on a perpendicular bisector is equidistant from the endpoints.',M(eq)),step('Solve for x.',M('x='+x))],
@@ -87,7 +91,7 @@ function altitudeArea(ctx) {
  var eq='x='+2*area+'/'+base;
  // The altitude is perpendicular to the base; it is not necessarily a side.
  return {variant:'geo-triangle-altitude-area-'+c,
-  fig:{kind:'geo-triangle-landmark',case:'altitude'},
+  fig:{kind:'geo-tri',mode:'altitude',obtuse:r.int(0,1)===1,lab:{BC:base+' cm',AD:'x'}},
   prompt:'Triangle ABC has base BC of '+base+' cm and area '+area+' square centimeters. Altitude AD is perpendicular to the line containing BC (D may lie outside segment BC). Find the altitude length x. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('The perpendicular altitude determines the area even for an obtuse triangle.',M(area+'='+base+'x/2')),step('Solve for the height.',M('x='+x))],

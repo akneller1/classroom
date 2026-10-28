@@ -4,6 +4,16 @@ const assert = require('node:assert/strict');
 const menu = require('./load.cjs')().MKMENU;
 const units = Object.keys(menu.skillSets).filter(id => id.startsWith('geometry-'));
 assert.equal(units.length, 10, 'Expected all ten Geometry units');
+const GF = menu.geoFigures;
+// A figure is acceptable only if it is a data-driven kind that passes its own geometric check and renders printable SVG.
+function okFig(fig, kinds, what) {
+  assert.ok(fig && kinds.includes(fig.kind), (what||'figure')+' must use one of '+kinds.join('/')+', got '+(fig&&fig.kind));
+  const c = GF.check(fig);
+  assert.ok(c.ok, (what||'figure')+' must pass its geometric check: '+c.msg);
+  const svg = GF.render(fig);
+  assert.ok(svg && svg.includes('<svg'), (what||'figure')+' must render');
+  assert.ok(!/#(?!111|555|bbb|fff)[0-9a-f]{3,6}\b/i.test(svg), (what||'figure')+' must be print-safe');
+}
 let checks = 0;
 for (const unit of units) {
   for (const skill of menu.skillSets[unit].skills) {
@@ -39,10 +49,8 @@ for(const [id,figureCase] of [
       {keys:new Set(),sigs:new Set()});
     assert.ok(!p.failed,'Similarity question must generate: '+id+' c'+c);
     assert.equal(p.verify.status,'verified');
-    assert.equal(p.fig && p.fig.kind,'geo-similar-pair');
-    assert.equal(p.fig.case,figureCase);
+    okFig(p.fig,['geo-sim'],'Similarity figure '+id);
     assert.ok(menu.geoDiagram.validate(p.fig),'Similarity diagram must validate');
-    assert.ok(menu.geoDiagram.render(p.fig).includes('<svg'),'Similarity diagram must render');
   }
 }
 // Parallel-segment proportionality and connected Honors investigation.
@@ -54,9 +62,7 @@ for(const id of ['similarity-parallel-segment','similarity-parallel-honors']){
       {keys:new Set(),sigs:new Set()});
     assert.ok(!p.failed,'Parallel similarity must generate: '+id+' c'+c);
     assert.equal(p.verify.status,'verified');
-    assert.equal(p.fig.kind,'geo-similar-pair');
-    assert.equal(p.fig.case,'parallel');
-    assert.ok(menu.geoDiagram.validate(p.fig));
+    okFig(p.fig,['geo-tri-par'],'Parallel-segment figure');
     if(id==='similarity-parallel-honors'){
       assert.equal(p.parts.length,4,'Honors investigation must have four parts');
       assert.ok(p.parts.every(part=>part.check.type==='solve'));
@@ -93,12 +99,11 @@ for(const [id,kind] of [
       {keys:new Set(),sigs:new Set()});
     assert.ok(!p.failed,'Right-triangle diagram fixture must generate: '+id+' c'+c);
     assert.equal(p.verify.status,'verified');
-    assert.equal(p.fig && p.fig.kind,'geo-right-triangle');
-    assert.equal(p.fig.case,kind);
-    assert.ok(menu.geoDiagram.validate(p.fig));
-    const markup=menu.geoDiagram.render(p.fig);
-    assert.ok(markup.includes('<svg')&&markup.includes('fill="white"'),
-      'Right-triangle figure must be printable');
+    okFig(p.fig,['geo-rt'],'Right-triangle figure '+id);
+    const markup=GF.render(p.fig);
+    assert.ok(markup.includes('<svg')&&markup.includes('#fff'),
+      'Right-triangle figure must be printable with a white label halo');
+    if(kind==='elevation')assert.ok(p.fig.ang&&p.fig.ang.B!==undefined,'Elevation figure must carry its angle');
   }
 }
 // Connected Honors surveying: four verified parts, with a matching figure.
@@ -109,9 +114,7 @@ for(const c of [1,3,5,7]){
   assert.ok(!p.failed,'Honors surveying investigation must generate at tier '+c);
   assert.equal(p.verify.status,'verified');
   assert.equal(p.parts.length,4,'Honors surveying requires four parts');
-  assert.equal(p.fig.kind,'geo-right-triangle');
-  assert.equal(p.fig.case,'elevation');
-  assert.ok(menu.geoDiagram.validate(p.fig));
+  okFig(p.fig,['geo-rt'],'Survey figure');
 }
 // Inverse-trig checks must derive the angle from the printed ratio.
 for(const c of [1,3,5,7]){
@@ -178,9 +181,9 @@ for (const c of [1,3,5,7]) {
 }
 // Unit 4 diagrams must remain attached, render as SVG, and match their skill.
 for (const [id,caseName] of [
-  ['triangle-midsegment-length','midsegment'],
+  ['triangle-midsegment-length','midseg'],
   ['triangle-centroid-median','centroid'],
-  ['triangle-perpendicular-bisector','bisector'],
+  ['triangle-perpendicular-bisector','perpbis'],
   ['triangle-altitude-area','altitude']
 ]) {
   for (const c of [1,3,5,7]) {
@@ -188,10 +191,8 @@ for (const [id,caseName] of [
       {intOnly:true,level:'game'},'unit4-diagram:'+id+':'+c,
       {keys:new Set(),sigs:new Set()});
     assert.ok(!p.failed,'Expected valid '+id+' at tier '+c);
-    assert.equal(p.fig && p.fig.kind,'geo-triangle-landmark');
-    assert.equal(p.fig.case,caseName);
-    assert.ok(menu.geoDiagram.validate(p.fig),'Unit 4 diagram must validate');
-    assert.ok(menu.geoDiagram.render(p.fig).includes('<svg'),'Unit 4 diagram must render');
+    okFig(p.fig,['geo-tri'],'Unit 4 figure '+id);
+    assert.equal(p.fig.mode,caseName,'Unit 4 figure must match its skill');
   }
 }
 // Honors triangle investigation must be one connected four-part problem.
@@ -226,7 +227,7 @@ for (const scenario of ['shared','vertical']) {
     const candidate=menu.generateProblem('geometry-triangles-congruence',
       'congruence-structured-proof',3,{intOnly:true,level:'game'},
       'proof-visible-mutation:'+scenario+':'+n,{keys:new Set(),sigs:new Set()});
-    if(!candidate.failed&&candidate.fig.case===scenario)p=candidate;
+    if(!candidate.failed&&GF.cong.proofKind(candidate.fig)===scenario)p=candidate;
   }
   assert.ok(p,'Proof mutation fixture must generate: '+scenario);
   const changed=JSON.parse(JSON.stringify(p));
@@ -268,19 +269,19 @@ for (const kind of ['sss','sas','asa','aas','hl']) {
   assert.equal(menu.verifyProblem(changed,{intOnly:true,level:'game'}).ok,false,
     'Verifier must reject mismatched printed side length for '+kind);
 }
-// Inspect actual SVG markings, not just the generator's claimed theorem.
-// Tick counts include one/two/three stroke marks on each matching side pair.
-const expectedMarks = {
-  sss:[12,0], sas:[6,2], asa:[2,4], aas:[2,4],
-  hl:[6,0], ssa:[6,2], aaa:[0,6]
-};
-for (const [criterion, expected] of Object.entries(expectedMarks)) {
-  const fig = {kind:'geo-triangle-pair',criterion};
-  const svg = menu.geoDiagram.render(fig);
-  assert.ok(menu.geoDiagram.validate(fig),criterion+' diagram should be valid');
-  const ticks = svg.split('stroke-width="1.7"').length - 1;
-  const arcs = svg.split('stroke-width="1.5"').length - 1;
-  assert.deepEqual([ticks,arcs],expected,criterion+' side/angle markings must match givens');
+// Inspect the actual markings: the criterion is derived from the marks, never from the generator's claim.
+for (const kind of ['sss','sas','asa','aas','hl','ssa','aaa']) {
+  for (const flip of [false,true]) {
+    const fig = GF.cong.pair(kind,flip);
+    okFig(fig,['geo-cong'],kind+' pair');
+    assert.equal(GF.cong.derive(fig).toLowerCase(),kind,kind+' markings must imply '+kind);
+  }
+}
+// Tampering with the marks must change the derived criterion or break the figure.
+{
+  const fig = JSON.parse(JSON.stringify(GF.cong.pair('sss',false)));
+  fig.sides[0].s[1] = fig.sides[1].s[1];   // claim two unequal sides are equal
+  assert.equal(GF.check(fig).ok,false,'False tick marks must be refused');
 }
 // Diagram-classification answers must fail if the labeled theorem is wrong.
 for (let n = 0; n < 30; n++) {
@@ -300,7 +301,7 @@ for (const scenario of ['shared','vertical']) {
     const p = menu.generateProblem('geometry-triangles-congruence','congruence-structured-proof',5,
       {intOnly:true,level:'game'},'proof-regression:'+scenario+':'+n,
       {keys:new Set(),sigs:new Set()});
-    if (!p.failed && p.fig && p.fig.case === scenario) sample = p;
+    if (!p.failed && p.fig && GF.cong.proofKind(p.fig) === scenario) sample = p;
   }
   assert.ok(sample,'Expected a '+scenario+' proof');
   assert.ok(menu.geoDiagram.validate(sample.fig),'Proof diagram must render');
@@ -318,7 +319,7 @@ for (const scenario of ['shared','vertical']) {
   assert.equal(menu.verifyProblem(wrongEquation,{intOnly:true,level:'game'}).ok,false,
     'Scaffold equation must agree with the original question');
   const wrongFigure = JSON.parse(JSON.stringify(sample));
-  wrongFigure.fig.case = scenario === 'shared' ? 'vertical' : 'shared';
+  wrongFigure.fig = scenario === 'shared' ? GF.cong.cross() : GF.cong.shared();
   // Proof reasons derive from the student-facing givens, not the drawing alone.
   assert.equal(menu.verifyProblem(wrongFigure,{intOnly:true,level:'game'}).ok,false,
     'Proof verifier must not silently use diagram type as the answer key');

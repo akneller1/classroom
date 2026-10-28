@@ -426,7 +426,10 @@
       var shared = /Triangles ABC and ABD share side AB/.test(words);
       var vertical = /Lines AC and BD intersect at O/.test(words);
       if (shared === vertical) return {status:'invalid',msg:'Unrecognized or ambiguous proof givens.'};
-      if (!p.fig || p.fig.kind !== 'geo-proof' || p.fig.case !== (shared ? 'shared' : 'vertical') || !NS.geoDiagram || !NS.geoDiagram.validate(p.fig)) return {status:'invalid',msg:'Proof diagram conflicts with the printed givens.'};
+      var figOk = false;
+      if (p.fig && p.fig.kind === 'geo-cong' && NS.geoFigures && NS.geoFigures.cong) figOk = NS.geoFigures.check(p.fig).ok && NS.geoFigures.cong.proofKind(p.fig) === (shared ? 'shared' : 'vertical');
+      else figOk = !!(p.fig && p.fig.kind === 'geo-proof' && p.fig.case === (shared ? 'shared' : 'vertical') && NS.geoDiagram && NS.geoDiagram.validate(p.fig));
+      if (!figOk) return {status:'invalid',msg:'Proof diagram conflicts with the printed givens.'};
       // The print renderer uses proofStatements instead of repeating the prompt.
       // Check that the displayed scaffold has not drifted from the givens.
       if (Array.isArray(p.proofStatements)) {
@@ -453,6 +456,7 @@
     if (t === 'geo-congruence-criterion') {
       var kinds = ['sss','sas','asa','aas','hl','ssa','aaa'];
       var kind = p.fig && p.fig.kind === 'geo-triangle-pair' && p.fig.criterion;
+      if (p.fig && p.fig.kind === 'geo-cong' && NS.geoFigures && NS.geoFigures.cong) { var dvc = NS.geoFigures.cong.derive(p.fig); kind = dvc === 'NONE' ? null : dvc.toLowerCase(); }
       if (kinds.indexOf(kind) < 0 || !NS.geoDiagram || !NS.geoDiagram.validate(p.fig))
         return {status:'invalid',msg:'Missing or invalid triangle markings.'};
       if (!/Identify the criterion/.test(C.plainText(p.prompt || '')))
@@ -2570,6 +2574,11 @@
     if (p.fig && NS.geoFigures && NS.geoFigures.owns(p.fig)) {
       var fc = NS.geoFigures.check(p.fig);
       if (!fc.ok) { statuses.push('invalid'); issues.push('The figure is inconsistent: ' + fc.msg + '.'); }
+      /* Congruence criteria: the marks on the figure must actually establish the criterion the question names. */
+      if (/^geo-criterion-/.test(p.variant || '') && p.fig.kind === 'geo-cong' && NS.geoFigures.cong) {
+        var cvk = /^geo-criterion-([a-z]+)-/.exec(p.variant)[1];
+        if (NS.geoFigures.cong.derive(p.fig).toLowerCase() !== cvk) { statuses.push('invalid'); issues.push('The marks on the figure do not establish ' + cvk.toUpperCase() + '.'); }
+      }
       /* Measurement figures print their dimensions from the data: every printed number must be stated in the question too, and none may be the answer's unknown. */
       else if (NS.geoFigures.printed && NS.geoFigures.printed(p.fig)) {
         var gtext = String(p.prompt || '').replace(/[,]/g, '');
