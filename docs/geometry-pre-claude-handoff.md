@@ -59,3 +59,11 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added `menu/tests/geometry-reasoning-prompts-tests.cjs` (360 generated instances: four tiers × 30 seeds × three question families) and wired it into Menu Assessment Generator CI.
 - Updated cache versions in `worksheet-generator/menu-assessment.html` so browsers receive revised question wording.
 - **Outstanding:** confirm green CI, inspect other eight Geometry banks for over-scaffolding, review actual rendered diagrams and PDFs, and compare separate Geometry/Algebra 1 interfaces. These source changes do not establish complete CP2/CP1/Honors instructional calibration.
+
+## Remaining eight question-bank reasoning pass (2026-10-27)
+- Reviewed prompt builders in Foundations, Angles/Parallel Lines, Triangle Relationships, Quadrilaterals, Right Triangles/Trigonometry, Transformations, Circles, and Area/Surface Area/Volume.
+- Removed explicit worked-equation scaffolding in student prompts where it substituted for setting up the geometric relationship; preserved teacher key equations and verifier metadata.
+- Fixed a substantive Foundations angle-bisector defect: the question previously supplied no numeric angle givens in the student prompt. It now states the two adjacent angle measures explicitly.
+- Added a regression assertion for the angle-bisector givens to the reasoning-prompt test (now 480 generated instances: four tiers × 30 seeds × four families).
+- Refreshed browser cache query strings for all eight updated Geometry scripts in the Menu Assessment Generator.
+- **Verification gate remains:** no confirmed green GitHub Actions result for the newest commits; do not claim the suite passed. A separate diagram and print preview inspection is still required.
