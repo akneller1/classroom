@@ -24,6 +24,9 @@
   // Never bypass the independent derivation checks for variants that require them.
   function geometryDerived(p, chk) {
     if (!chk || chk.type !== 'solve' || !/^geo-/.test(p.variant || '')) return false;
+    // These foundation prompts explicitly print their checked equation.
+    // Keep strict equation matching so tampered printed values are rejected.
+    if (/^geo-(segment|angle)-/.test(p.variant || '')) return false;
     return true;
   }
   function norm(s) { return String(s).replace(/\s+/g, ''); }
