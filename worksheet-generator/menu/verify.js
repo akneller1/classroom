@@ -35,6 +35,14 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-intersecting-chords-/.test(p.variant || '')) {
+      var chord = /PA measures ([0-9]+) cm, PB measures x cm, PC measures ([0-9]+) cm, and PD measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!chord && chk.eq === chord[1]+'*x='+chord[2]+'*'+chord[3];
+    }
+    if (/^geo-circle-two-secants-/.test(p.variant || '')) {
+      var secants = /external segment measures ([0-9]+) cm and the entire secant measures x cm.*external segment measures ([0-9]+) cm and the entire secant measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!secants && Number(secants[4]) > Number(secants[3]) && chk.eq === secants[1]+'*x='+secants[3]+'*'+secants[4];
+    }
     if (/^geo-quad-diagonal-converse-/.test(p.variant || '')) {
       var halves = /AE measures ⟨([^⟩]+)⟩ cm, EC measures ([0-9]+) cm, BE measures ([0-9]+) cm, and ED measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!halves && halves[3] === halves[4] && chk.eq === halves[1]+'='+halves[2];
