@@ -128,3 +128,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 ## Circles: chord length from perpendicular center distance (2026-10-28)
 - Added `circle-chord-length-from-distance`, now 14 registered Circles skills. Given radius and perpendicular distance from the center to a chord, students use the Pythagorean theorem to calculate the half-chord and double it. Generated values come from integer Pythagorean triples, scaled to provide broad exact-answer variety.
 - Independent verifier reads the printed radius and distance, requires radius > distance > 0, checks that sqrt(r²−d²) is a positive integer, and verifies the displayed answer equation x=2·half-chord. No diagrams/drawings were made; Claude owns visual representations and proofs. CI pending.
+
+## Circles: expanded equations (2026-10-28)
+- Added `circle-center-expanded-equation`, identifying the X-coordinate of the center by completing the square in the expanded circle equation X²−2hX+Y²−2kY+C=0. Students must explain why the linear coefficient determines h.
+- Constructed using positive integer h,k and radius, with C=h²+k²−r². Independent verifier parses all displayed coefficients and the constant, ensures a positive perfect-square radius², and verifies 2x=2h. This adds a distinct algebraic reasoning format without drawings or diagrams.
+- Circles now has 15 registered skills. CI pending for this commit; Claude retains all figures and visual circle-equation representations.

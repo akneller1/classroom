@@ -35,6 +35,13 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-expanded-center-/.test(p.variant || '')) {
+      var expanded = /equation X\^2 - ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
+      if (!expanded) return false;
+      var a=Number(expanded[1]), b=Number(expanded[2]), constant=(expanded[3]==='-'?-1:1)*Number(expanded[4]);
+      var radiusSquared=(a*a+b*b)/4-constant;
+      return a>0 && b>0 && a%2===0 && b%2===0 && radiusSquared>0 && Number.isInteger(Math.sqrt(radiusSquared)) && chk.eq==='2*x='+expanded[1];
+    }
     if (/^geo-circle-chord-distance-/.test(p.variant || '')) {
       var chordDistance = /circle has radius ([0-9]+) cm.*perpendicular distance from the center to a chord is ([0-9]+) cm/.exec(p.prompt || '');
       if (!chordDistance) return false;
