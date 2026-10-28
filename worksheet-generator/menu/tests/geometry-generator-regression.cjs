@@ -92,8 +92,9 @@ for(const sk of menu.skillSets['geometry-area-surface-area-volume'].skills)for(c
   const p=menu.generateProblem('geometry-area-surface-area-volume',sk.id,c,{intOnly:true,level:'game'},'measure-tamper:'+sk.id+':'+c+':'+n,{keys:new Set(),sigs:new Set()});
   assert.ok(!p.failed,sk.id+' must generate');
   const t=JSON.parse(JSON.stringify(p));
-  if(p.fig.kind==='geo-net')t.fig.l+=1;else if(p.fig.kind==='geo-stack')t.fig.a.l+=1;else t.prompt=t.prompt.replace(/\d+/,m0=>String(Number(m0)+1));
+  const fk=p.fig&&p.fig.kind;if(fk==='geo-net')t.fig.l+=1;else if(fk==='geo-stack')t.fig.a.l+=1;else if(fk==='geo-rotate'){t.fig.a+=1;if(p.fig.shape==='semi'&&false)t.fig.b=1;}else t.prompt=t.prompt.replace(/\d+/,m0=>String(Number(m0)+1));
   assert.equal(menu.verifyProblem(t,{intOnly:true,level:'game'}).ok,false,sk.id+' must reject a changed printed or drawn measurement');
+  if(fk==='geo-rotate'&&p.fig.shape!=='semi'){const u=JSON.parse(JSON.stringify(p));u.fig.b+=1;assert.equal(menu.verifyProblem(u,{intOnly:true,level:'game'}).ok,false,'rotate must reject a changed axis length');}
 }
 // Parallel-segment proportionality and connected Honors investigation.
 for(const id of ['similarity-parallel-segment','similarity-parallel-honors']){

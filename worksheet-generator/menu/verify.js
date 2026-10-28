@@ -42,6 +42,22 @@
       if (/relevant angle measures/.test(p.prompt || '') && (p.prompt || '').indexOf('⟨' + lhs + '⟩ degrees and ' + nm[1] + ' degrees') < 0) return false;
       return want !== null && want === chk.eq;
     }
+    /* Four-part Open Response investigations: each part's equation may use only numbers printed for students,
+       a standard constant, or an answer from an earlier part. A changed printed number therefore invalidates the key. */
+    if (/^geo-(angles|circles|polygons|transformations|solids)-investigation-/.test(p.variant || '')) {
+      var pts = p.parts || [], ix = -1; pts.forEach(function (pt, i) { if (pt.check === chk) ix = i; });
+      if (ix < 0 || pts.length < 4) return false;
+      if (/^geo-solids-/.test(p.variant)) {   // exact re-derivation from the printed dimensions
+        var sd = /length (\d+) cm, width (\d+) cm, and height (\d+) cm/.exec(C.plainText(p.prompt || '')), sb = /base area of (\d+) square/.exec(C.plainText(pts[3].prompt || ''));
+        if (!sd || !sb) return false;
+        var L0 = sd[1], W0 = sd[2], H0 = sd[3], want = ['x=' + L0 + '*' + W0, 'y=' + L0 + '*' + W0 + '*' + H0, 'z=2*' + L0 + '*' + W0 + '+2*' + L0 + '*' + H0 + '+2*' + W0 + '*' + H0, sb[1] + '*k=' + (L0 * W0 * H0)];
+        return chk.eq === want[ix];
+      }
+      var okNum = {}; (C.plainText(studentText(p)).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
+      [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; });
+      for (var pj = 0; pj < ix; pj++) { var am = /=\s*(-?\d+)/.exec(String(pts[pj].answer || '')); if (am) okNum[String(Math.abs(Number(am[1])))] = 1; }
+      return (chk.eq.match(/\d+/g) || []).every(function (n) { return okNum[String(Number(n))]; });
+    }
     /* Shadow problems: x is recomputed from the printed heights and shadows (h/s = x/S), and the figure must show the same four numbers. */
     if (/^geo-sim-shadow-/.test(p.variant || '')) {
       var sw = C.plainText(p.prompt || ''), sm = /pole (\d+) feet tall casts a (\d+)-foot shadow\. A nearby tree casts a (\d+)-foot shadow/.exec(sw);
@@ -63,6 +79,17 @@
       } else if (mv === 'stack') {
         if (!mf || mf.kind !== 'geo-stack' || !NS.geoFigures.check(mf).ok || mn.length) return false;
         me = [mf.a.l * mf.a.w * mf.a.h + mf.b.l * mf.b.w * mf.b.h, 1];
+      } else if (mv === 'rotate') {
+        if (!mf || mf.kind !== 'geo-rotate' || !NS.geoFigures.check(mf).ok || mn.length) return false;
+        me = mf.shape === 'rect' ? [mf.a * mf.a * mf.b, 1] : mf.shape === 'tri' ? [mf.a * mf.a * mf.b, 3] : mf.shape === 'semi' ? [4 * mf.a * mf.a * mf.a, 3] : null;
+      } else if (/^section-/.test(mv)) {
+        var sk = mv.slice(8), sn = { cylv: 2, cylh: 2, sph: 2, cone: 2, conev: 3 };
+        if (mf || sn[sk] === undefined || mn.length !== sn[sk]) return false;
+        if (sk === 'sph' && !(b0 > 0 && b0 < a0)) return false;
+        if (sk === 'conev' && !(c0 > 0 && c0 < b0)) return false;
+        me = sk === 'cylv' ? [2 * a0 * b0, 1] : sk === 'cylh' ? [a0 * a0, 1] : sk === 'sph' ? [a0 * a0 - b0 * b0, 1] : sk === 'cone' ? [a0 * a0, 4] : [a0 * a0 * c0 * c0, b0 * b0];
+        var wantText = sk === 'cylv' ? /perpendicular to its bases/ : sk === 'cylh' ? /parallel to the bases/ : sk === 'sph' ? /cuts the sphere \d+ cm from its center/ : sk === 'cone' ? /parallel to the base cuts the cone halfway up/ : /parallel to the base cuts the cone \d+ cm from the vertex/;
+        if (!wantText.test(mt)) return false;
       } else if (mv === 'sphere-volume') {
         var sr = /diameter (\d+)/.exec(mt); if (mn.length !== 1) return false; me = sr ? [4 * (Number(sr[1]) / 2) * (Number(sr[1]) / 2) * (Number(sr[1]) / 2), 3] : [4 * a0 * a0 * a0, 3];
       } else {

@@ -27,8 +27,19 @@ return make('geo-circle-expanded-center-'+c,'A circle has equation '+eqText+'. F
 
 function radiusFromExpandedEquation(ctx){var r=ctx.rng,c=ctx.c,h=r.int(3,c>=5?45:35),k=r.int(3,c>=5?45:35),radius=r.int(3,c>=5?65:48),constant=h*h+k*k-radius*radius,sign=constant<0?' - ':' + ',eqText='X^2 - '+2*h+'X + Y^2 - '+2*k+'Y'+sign+Math.abs(constant)+' = 0',square=radius*radius;
 if(c>=5){var mixedConstant=h*h+k*k-radius*radius,mixedSign=mixedConstant<0?' - ':' + ',mixedEq='X^2 + '+2*h+'X + Y^2 - '+2*k+'Y'+mixedSign+Math.abs(mixedConstant)+' = 0';return make('geo-circle-expanded-radius-mixed-'+c,'A circle has equation '+mixedEq+'. Complete the square in both variables. Find x, the positive radius in units, and explain why the X-coordinate of the center is negative.', 'x='+radius,radius,'Completing the square gives (X+'+h+')^2+(Y-'+k+')^2='+square+'. The center is (-'+h+', '+k+') and the radius is '+radius+'.');}return make('geo-circle-expanded-radius-'+c,'A circle has equation '+eqText+'. Complete the square in X and Y. Let x be the radius in units; find x, not the radius squared.', 'x='+radius,radius,'Completing the square gives (X-'+h+')^2+(Y-'+k+')^2='+square+'. Therefore the radius is the positive square root, '+radius+'.');}
+function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return step(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
+
+function circleInvestigation(ctx){var r=ctx.rng,c=ctx.c,m=r.int(20,c>=5?80:60),arc=2*m,major=360-arc,pa=r.int(3,c>=5?12:9),pb=r.int(3,c>=5?12:9),pc=r.int(2,8),pd=pa*pb/pc;
+ while(pa*pb%pc||pd===pa||pd===pb){pa=r.int(3,12);pb=r.int(3,12);pc=r.int(2,8);pd=pa*pb/pc;}
+ var t,d;do{t=r.int(4,c>=5?18:12);d=[];for(var k=2;k<t;k++)if(t*t%k===0)d.push(k);}while(!d.length);var a=d[r.int(0,d.length-1)],sec=t*t/a;
+ return four('geo-circles-investigation',c,'Open Response: Investigate arcs, chords, and tangents in one circle. Show the theorem you use in every part.',[
+ ['An inscribed angle in the circle measures '+m+' degrees. Find the measure x, in degrees, of the arc it intercepts.','x',arc,'x=2*'+m,'An inscribed angle is half its intercepted arc.'],
+ ['The arc from (a) is a minor arc. Find the measure y of the matching major arc.','y',major,'y+'+arc+'=360','A circle has 360 degrees of arc.'],
+ ['Two chords intersect inside the circle. One chord is split into segments '+pa+' and '+pb+'. The other chord is split into segments '+pc+' and z. Find z.','z',pd,pc+'*z='+pa+'*'+pb,'Products of the segments of intersecting chords are equal.'],
+ ['From an outside point, a tangent segment has length '+t+'. The secant from the same point has an outside part of '+a+'. Find the length w of the whole secant.','w',sec,'w*'+a+'='+t+'*'+t,'The tangent squared equals the outside part times the whole secant.']]);}
+
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
-tags:{CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
+tags:{INVEST:'Four-part circle investigation',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
 gaps:['Intersecting chord products and two-secant products added. Further circle equations, advanced chord properties, more advanced arcs/sectors, and all diagrams remain pending.'],
 skills:[
@@ -47,6 +58,7 @@ skills:[
 {id:'circle-radius-squared-from-point',tag:'COORD',name:'Radius squared from a center and point',best:[0,1,2],generate:circleRadiusSquared},
 {id:'circle-chord-length-from-distance',tag:'CHORDDIST',name:'Chord length from radius and center distance',best:[0,1,2],generate:chordLengthFromDistance},
 {id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1,2],generate:centerFromExpandedEquation},
-{id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1,2],generate:radiusFromExpandedEquation}
+{id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1,2],generate:radiusFromExpandedEquation},
+{id:'circle-open-response-investigation',tag:'INVEST',name:'Four-part circle investigation',best:[2],generate:circleInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

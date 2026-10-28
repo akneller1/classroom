@@ -507,7 +507,7 @@
         else delete p.mcasFail;
         return p;
       }
-      first[fmt === 'multi' ? 'multiFail' : 'mcasFail'] = 'No verified problem with the requested response format.';
+      first[fmt === 'multi' ? 'multiFail' : 'mcasFail'] = 'No verified problem with the requested response format. Pick a skill whose name starts with "Four-part" (or choose another question format).';
       return first;
     }
     if (fmt !== 'mc') return p;

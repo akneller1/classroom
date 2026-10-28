@@ -23,8 +23,36 @@ function netSurface(ctx){var r=ctx.rng,l=r.int(3,ctx.c>=5?12:8),w=r.int(2,ctx.c>
 function stackVolume(ctx){var r=ctx.rng,c=ctx.c,l1=r.int(6,c>=5?14:10),w1=r.int(4,c>=5?10:8),h1=r.int(2,c>=5?8:6),l2=r.int(2,l1-1),w2=r.int(2,w1-1),h2=r.int(2,c>=5?9:7),x=l1*w1*h1+l2*w2*h2;
  return {variant:'geo-measure-stack-'+c,fig:{kind:'geo-stack',a:{l:l1,w:w1,h:h1},b:{l:l2,w:w2,h:h2},unit:'cm'},prompt:'The solid shown is made of two rectangular prisms, with the smaller prism centered on top of the larger one. Find the total volume x of the solid in cubic centimeters. Set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:'x='+l1+'*'+w1+'*'+h1+'+'+l2+'*'+w2+'*'+h2,v:'x'}}],steps:[step('Add the volumes of the two prisms.',M('x='+l1+'\\cdot '+w1+'\\cdot '+h1+'+'+l2+'\\cdot '+w2+'\\cdot '+h2)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function rotateSolid(ctx){var r=ctx.rng,c=ctx.c,ks=c<=3?['rect']:c<=5?['rect','tri']:['rect','tri','semi'],k=ks[r.int(0,ks.length-1)],a,b,x,eq,why,fig;
+ if(k==='rect'){a=r.int(2,c>=5?9:6);b=r.int(2,c>=5?12:9);x=a*a*b;eq='x='+a+'*'+a+'*'+b;why='A rectangle turned about one side sweeps out a cylinder with radius '+a+' and height '+b+': V = πr²h.';}
+ else if(k==='tri'){a=r.int(2,c>=5?9:7);b=3*r.int(1,c>=5?5:4);x=a*a*b/3;eq='3*x='+a+'*'+a+'*'+b;why='A right triangle turned about a leg sweeps out a cone with radius '+a+' and height '+b+': V = (1/3)πr²h.';}
+ else{a=3*r.int(1,c>=7?6:4);b=0;x=4*a*a*a/3;eq='3*x=4*'+a+'*'+a+'*'+a;why='A half-disk turned about its diameter sweeps out a sphere with radius '+a+': V = (4/3)πr³.';}
+ fig={kind:'geo-rotate',shape:k,a:a,unit:'cm'};if(k!=='semi')fig.b=b;
+ var lead=['The shaded region is rotated one full turn about the dashed line. The solid it sweeps out has volume xπ cubic centimeters. Find the coefficient x (do not include π).','Spin the shaded region once around the dashed line. The solid formed has volume xπ cubic centimeters. Find the coefficient x (do not include π).','Imagine the shaded region turning completely around the dashed line. The solid that results has a volume of xπ cubic centimeters. Find x (do not include π).','A flat shaded region is revolved all the way around the dashed axis. The volume of the solid it makes is xπ cubic centimeters. Find the coefficient x (do not include π).','The dashed line is an axis. The shaded region is rotated about it through a full turn, forming a solid of volume xπ cubic centimeters. Find the coefficient x (do not include π).','Rotating the shaded region about the dashed line makes a solid. Its volume is xπ cubic centimeters. Find the coefficient x (do not include π).'];
+ return {variant:'geo-measure-rotate-'+c,fig:fig,prompt:lead[r.int(0,lead.length-1)]+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(why,M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function crossSection(ctx){var r=ctx.rng,c=ctx.c,ks=c<=3?['cylv','cylh']:c<=5?['cylv','cylh','sph','cone']:['cylv','cylh','sph','cone','conev'],k=ks[r.int(0,ks.length-1)],p,eq,x,why,id;
+ if(k==='cylv'){var R=r.int(2,c>=5?9:7),Hh=r.int(3,c>=5?14:10);x=2*R*Hh;eq='x=2*'+R+'*'+Hh;id='cylv';why='The cut through the axis is a rectangle 2r wide and h tall.';
+  p='A right circular cylinder has radius '+R+' cm and height '+Hh+' cm. A plane through the axis of the cylinder, perpendicular to its bases, cuts the cylinder. The cross-section is a rectangle. Find the area x of the cross-section in square centimeters.';}
+ else if(k==='cylh'){var R2=r.int(2,c>=5?12:8),H2=r.int(3,12);x=R2*R2;eq='x='+R2+'*'+R2;id='cylh';why='A cut parallel to the bases is a circle congruent to each base: area πr².';
+  p='A right circular cylinder has radius '+R2+' cm and height '+H2+' cm. A plane parallel to the bases cuts the cylinder. The cross-section is a circle with area xπ square centimeters. Find the coefficient x (do not include π).';}
+ else if(k==='sph'){var R3=r.int(5,c>=5?20:14),D=r.int(1,R3-1);x=R3*R3-D*D;eq='x='+R3+'*'+R3+'-'+D+'*'+D;id='sph';why='The cut circle has radius √(R² − d²), so its area is π(R² − d²).';
+  p='A sphere has radius '+R3+' cm. A plane cuts the sphere '+D+' cm from its center. The cross-section is a circle with area xπ square centimeters. Find the coefficient x (do not include π).';}
+ else if(k==='cone'){var R4=2*r.int(1,c>=5?8:6),H4=r.int(4,16);x=R4*R4/4;eq='4*x='+R4+'*'+R4;id='cone';why='Halfway up, the cut circle has half the base radius (similar triangles): area π(r/2)².';
+  p='A right circular cone has radius '+R4+' cm and height '+H4+' cm. A plane parallel to the base cuts the cone halfway up. The cross-section is a circle with area xπ square centimeters. Find the coefficient x (do not include π).';}
+ else{var kk=r.int(2,4),n=r.int(1,5),R5=kk*n,Hc=kk*r.int(2,6),Kc=Hc/kk;x=n*n;eq='x='+R5+'*'+R5+'*'+Kc+'*'+Kc+'/('+Hc+'*'+Hc+')';id='conev';why='The cut circle is similar to the base. Its radius is '+R5+'·'+Kc+'/'+Hc+' = '+n+'.';
+  p='A right circular cone has radius '+R5+' cm and height '+Hc+' cm. A plane parallel to the base cuts the cone '+Kc+' cm from the vertex. The cross-section is a circle with area xπ square centimeters. Find the coefficient x (do not include π).';}
+ var o=make('geo-measure-section-'+id+'-'+c,p,eq,x,why);return o;}
+function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return step(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
+
+function solidsInvestigation(ctx){var r=ctx.rng,c=ctx.c,l=r.int(3,c>=5?14:9),w=r.int(3,c>=5?12:8),h=2*r.int(2,c>=5?8:5),B=l*w,V=B*h,SA=2*(l*w+l*h+w*h),B2=2*B,h2=h/2;
+ return four('geo-solids-investigation',c,'Open Response: A rectangular prism has length '+l+' cm, width '+w+' cm, and height '+h+' cm. Investigate its area and volume. Show the formula you use.',[
+ ['Find the area x of the base, in square centimeters.','x',B,'x='+l+'*'+w,'Base area is length times width.'],
+ ['Use x from (a) to find the volume y, in cubic centimeters.','y',V,'y='+l+'*'+w+'*'+h,'Volume is base area times height.'],
+ ['Find the total surface area z, in square centimeters.','z',SA,'z=2*'+l+'*'+w+'+2*'+l+'*'+h+'+2*'+w+'*'+h,'Add the areas of all six faces.'],
+ ['A second prism has the same volume as the first (from (b)) and a base area of '+B2+' square centimeters. Find its height k.','k',h2,B2+'*k='+V,'Volume equals base area times height, so divide.']]);}
+
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
-tags:{AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},
+tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},
 reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section></div>',
 gaps:['Starter bank only. Composite figures, cones, spheres (figure support exists), nets, cross-sections, unit conversions, scale factors for area/volume, and diagram-based Honors tasks remain pending.'],
 skills:[
@@ -42,7 +70,10 @@ skills:[
 {id:'measure-sphere-surface',tag:'CIRCULAR',name:'Sphere surface area (coefficient of π)',best:[0,1,2],generate:sphereSurface},
 {id:'measure-net-surface',tag:'SURFACE',name:'Surface area from a net',best:[0,1,2],generate:netSurface},
 {id:'measure-composite-volume',tag:'VOLUME',name:'Volume of two stacked prisms',best:[0,1,2],generate:stackVolume},
+{id:'measure-rotate-solid',tag:'VOLUME',name:'Volume of a solid of revolution (coefficient of π)',best:[0,1,2],generate:rotateSolid},
+{id:'measure-cross-section',tag:'VOLUME',name:'Area of a cross-section of a solid',best:[0,1,2],generate:crossSection},
 {id:'measure-prism-height',tag:'VOLUME',name:'Missing height of a prism from its volume',best:[0,1,2],generate:prismHeight},
-{id:'measure-cylinder-height',tag:'CIRCULAR',name:'Missing height of a cylinder from its volume',best:[0,1,2],generate:cylinderHeight}
+{id:'measure-cylinder-height',tag:'CIRCULAR',name:'Missing height of a cylinder from its volume',best:[0,1,2],generate:cylinderHeight},
+{id:'solids-open-response-investigation',tag:'INVEST',name:'Four-part prism investigation',best:[2],generate:solidsInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

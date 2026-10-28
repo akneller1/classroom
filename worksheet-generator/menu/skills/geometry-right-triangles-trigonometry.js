@@ -104,6 +104,14 @@ function depression(ctx){
  'From the top of a cliff, an observer looks down at a boat at angle of depression θ. The horizontal distance to the boat is '+horizontal+' feet, and tan θ = '+drop+'/'+horizontal+'. Find the vertical drop x in feet.',
  eq,drop,'Use the tangent ratio for the angle of depression.',undefined,rt({a:horizontal,b:drop},['a'],{b:'x'},{A:'θ'},{scene:'depression',unit:'ft'}));
 }
+function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return step(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
+function trigInvestigation(ctx){var r=ctx.rng,c=ctx.c,t=triples[r.int(0,c>=5?5:2)],a=t[0],b=t[1],h=t[2],k=r.int(2,c>=5?9:6),H=h*k,X=a*k,Y=b*k,P=X+Y+H,A=X*Y/2,flip=r.int(0,1);
+ var o=flip?b:a,ad=flip?a:b,O=o*k,D=ad*k;
+ return four('geo-right-investigation',c,'Open Response: In right triangle ABC the right angle is at C, the hypotenuse AB is '+H+' units, and '+M('\\sin A=\\frac{'+o+'}{'+h+'}')+'. Investigate the triangle. Show the trigonometric ratio you use.',[
+ ['Find the length x of the side opposite angle A.','x',O,h+'*x='+o+'*'+H,'Sine is opposite over hypotenuse.'],
+ ['Use '+M('\\cos A=\\frac{'+ad+'}{'+h+'}')+' to find the length y of the side adjacent to angle A.','y',D,h+'*y='+ad+'*'+H,'Cosine is adjacent over hypotenuse.'],
+ ['Find the perimeter P of the triangle, using x and y from (a) and (b).','P',O+D+H,'P='+O+'+'+D+'+'+H,'Perimeter is the sum of the three sides.'],
+ ['Find the area w of the triangle, using x and y as the legs.','w',O*D/2,'2*w='+O+'*'+D,'Area of a right triangle is half the product of its legs.']]);}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
 tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
@@ -118,6 +126,7 @@ skills:[
 {id:'right-special-45-45-90',tag:'SPECIAL',name:'Equal legs of a 45-45-90 triangle',best:[0,1,2],generate:special45},
 {id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1,2],generate:special30},
 {id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation},
+{id:'right-trig-investigation',tag:'HONORS',name:'Four-part right triangle trigonometry investigation',best:[2],generate:trigInvestigation},
 {id:'right-honors-survey',tag:'HONORS',name:'Four-part surveying and similar triangles investigation',best:[2],generate:honorsSurvey},
 {id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
 {id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal},

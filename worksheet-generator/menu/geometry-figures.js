@@ -22,8 +22,9 @@
   function norm(d) { d = d % 360; return d < 0 ? d + 360 : d; }
   function dist(p, q) { return Math.hypot(p[0] - q[0], p[1] - q[1]); }
   function textW(s) { return String(s).length * FS * 0.56; }
-  function wrap(inner, h, desc, note) {
-    return '<div class="mm-geometry-figure" style="break-inside:avoid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + h + '" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="' + esc(desc) + '"><rect width="' + W + '" height="' + h + '" fill="white"/>' + inner + '</svg>' +
+  function wrap(inner, h, desc, note, vx, vw) {
+    vx = vx || 0; vw = vw || W;
+    return '<div class="mm-geometry-figure" style="break-inside:avoid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="' + r1(vx) + ' 0 ' + r1(vw) + ' ' + h + '" width="' + r1(4.1 * vw / W) + 'in" style="max-width:100%;height:auto" role="img" aria-label="' + esc(desc) + '"><rect x="' + r1(vx) + '" width="' + r1(vw) + '" height="' + h + '" fill="white"/>' + inner + '</svg>' +
       (note ? '<div style="font-size:10px;color:#555">' + esc(note) + '</div>' : '') + '</div>';
   }
   function T(x, y, s, anchor, italic, rot) {
@@ -65,7 +66,7 @@
   function placeInWedge(v, a1, a2, text, rays, used, poly) {
     var w = textW(text) + 9, h = FS + 7, span = norm(a2 - a1), mid = a1 + span / 2, offs = [0], k;
     for (k = 1; k <= 6; k++) { var o = k * span / 14; offs.push(o, -o); }      // bisector first, then toward either ray
-    for (var r = 26; r <= 64; r += 2) {
+    for (var r = 26; r <= 100; r += 2) {
       for (var j = 0; j < offs.length; j++) {
         var u = dir(mid + offs[j]), cx = v[0] + r * u[0], cy = v[1] + r * u[1], box = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], hit = false;
         (rays || [a1, a2]).forEach(function (d) {
@@ -452,7 +453,7 @@
              right:[['P','O','T']], labels:{ T:{dx,dy} }, hide:['X'] (points drawn without dot/label),
              note:'...' (override note), exact:bool }
      ===================================================================== */
-  var CX = 215, CY = 84, S = 56;
+  var CX = 215, CY = 99, S = 66;
   function C2P(p) { return [CX + S * p[0], CY - S * p[1]]; }
   F.on = function (deg) { return [Math.cos(rad(deg)), Math.sin(rad(deg))]; };
   function circlePoints(spec) {
@@ -496,7 +497,7 @@
     // segment labels avoid every drawn line, the circle and earlier labels
     (spec.segs || []).forEach(function (sg) {
       if (!sg.label) return;
-      var pos = placeBeside(Q[sg.p], Q[sg.q], sg.label, { t: sg.t, side: sg.side || 1, lines: lines, used: used });
+      var pos = placeBeside(Q[sg.p], Q[sg.q], sg.label, { t: sg.t, side: sg.side || 1, lines: lines, used: used, H: 200 });
       h += T(pos.x, pos.y, sg.label);
     });
     (spec.angles || []).forEach(function (a) {
@@ -504,7 +505,11 @@
       h += arcPath(v, w[0], w[1], 15, 1.6);
       if (a.label) { var pos = placeInWedge(v, w[0], w[1], a.label, [w[0], w[1]], used); h += TL(pos, a.label); }
     });
-    return wrap(h, 170, spec.alt || 'Circle with labelled points and segments', spec.note === undefined ? (spec.exact ? '' : 'Not drawn to scale.') : spec.note);
+    var lo = CX - S, hi = CX + S;
+    Object.keys(Q).forEach(function (n) { lo = Math.min(lo, Q[n][0]); hi = Math.max(hi, Q[n][0]); });
+    (spec.texts || []).forEach(function (t) { var p = C2P(t.at); lo = Math.min(lo, p[0] - textW(t.text) / 2); hi = Math.max(hi, p[0] + textW(t.text) / 2); });
+    lo -= 64; hi += 64; if (hi - lo < 300) { var mid = (lo + hi) / 2; lo = mid - 150; hi = mid + 150; }
+    return wrap(h, 200, spec.alt || 'Circle with labelled points and segments', spec.note === undefined ? (spec.exact ? '' : 'Not drawn to scale.') : spec.note, lo, hi - lo);
   }
 
   /* ---------- builders for the circle skills (all geometry computed exactly) ---------- */
@@ -523,7 +528,7 @@
     },
     tangentRadius: function (aDeg, aText, xText) {
       var T0 = [0, 1], q = mathDir(270 + aDeg);
-      return { kind: 'geo-circle', exact: true, showCenter: true, pts: { T: T0, R: [1.7, 1], L: [-1.7, 1], Q: [T0[0] + 0.9 * q[0], T0[1] + 0.9 * q[1]] }, onCircle: ['T'], hide: ['R', 'L', 'Q'], segs: [{ p: 'L', q: 'R' }, { p: 'O', q: 'T' }, { p: 'T', q: 'Q' }], right: [], angles: [{ v: 'T', a: 'O', b: 'Q', label: aText }, { v: 'T', a: 'Q', b: 'R', label: xText }], alt: 'Circle, radius OT and tangent at T with a ray between them' };
+      return { kind: 'geo-circle', exact: true, showCenter: true, pts: { T: T0, R: [1.7, 1], L: [-1.7, 1], Q: [T0[0] + 1.5 * q[0], T0[1] + 1.5 * q[1]] }, onCircle: ['T'], hide: ['R', 'L', 'Q'], segs: [{ p: 'L', q: 'R' }, { p: 'O', q: 'T' }, { p: 'T', q: 'Q' }], right: [], angles: [{ v: 'T', a: 'O', b: 'Q', label: aText }, { v: 'T', a: 'Q', b: 'R', label: xText }], alt: 'Circle, radius OT and tangent at T with a ray between them' };
     },
     diameter: function (radText, diaText, givenRadius) {
       var segs = givenRadius
@@ -535,9 +540,9 @@
       return { kind: 'geo-circle', exact: true, pts: { A: [-1, 0], B: [1, 0], C: F.on(2 * aDeg) }, onCircle: ['A', 'B', 'C'], segs: [{ p: 'A', q: 'B' }, { p: 'A', q: 'C' }, { p: 'B', q: 'C' }], right: [['C', 'A', 'B']], angles: [{ v: 'A', a: 'B', b: 'C', label: aText }, { v: 'B', a: 'A', b: 'C', label: xText }], alt: 'Triangle ABC inscribed in a circle with AB a diameter' };
     },
     chords: function (lab) {   // lab: {PA,PB,PC,PD}
-      var A = F.on(212), B = F.on(38), C = F.on(120), D = F.on(305), d = (A[0] - B[0]) * (C[1] - D[1]) - (A[1] - B[1]) * (C[0] - D[0]);
+      var A = F.on(200), B = F.on(30), C = F.on(125), D = F.on(300), d = (A[0] - B[0]) * (C[1] - D[1]) - (A[1] - B[1]) * (C[0] - D[0]);
       var a1 = A[0] * B[1] - A[1] * B[0], b1 = C[0] * D[1] - C[1] * D[0], Pp = [(a1 * (C[0] - D[0]) - (A[0] - B[0]) * b1) / d, (a1 * (C[1] - D[1]) - (A[1] - B[1]) * b1) / d];
-      return { kind: 'geo-circle', pts: { A: A, B: B, C: C, D: D, P: Pp }, onCircle: ['A', 'B', 'C', 'D'], segs: [{ p: 'A', q: 'P', label: lab.PA, t: 0.4 }, { p: 'P', q: 'B', label: lab.PB, t: 0.6 }, { p: 'C', q: 'P', label: lab.PC, t: 0.4 }, { p: 'P', q: 'D', label: lab.PD, t: 0.6 }], labels: { P: { dx: 4, dy: 4 } }, alt: 'Two chords intersecting inside a circle at P' };
+      return { kind: 'geo-circle', pts: { A: A, B: B, C: C, D: D, P: Pp }, onCircle: ['A', 'B', 'C', 'D'], segs: [{ p: 'P', q: 'A', label: lab.PA, t: 0.55 }, { p: 'P', q: 'B', label: lab.PB, t: 0.55 }, { p: 'P', q: 'C', label: lab.PC, t: 0.55 }, { p: 'P', q: 'D', label: lab.PD, t: 0.55 }], labels: { P: { dx: 10, dy: 0 } }, alt: 'Two chords intersecting inside a circle at P' };
     },
     secants: function (a) {   // a: {ext1, ext2, in1, in2, whole1, whole2} labels (text); whole* uses a dimension line
       var P = [-2.4, 0], u1 = mathDir(14), u2 = mathDir(-10), h1 = lineHits(P, u1), h2 = lineHits(P, u2);

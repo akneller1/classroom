@@ -173,6 +173,32 @@
     q = P(bx + b.l, a.h + b.h / 2, bz + b.w / 2); out += T(q[0] + 10, q[1] + 2, dim(spec, b.w), 'start');
     return H.wrap(out, Math.ceil(y0 + 28), 'Two rectangular prisms stacked, with every dimension labelled', 'Not drawn to scale.');
   }
+
+  /* geo-rotate: a shaded region beside a dashed axis, to be rotated about it.
+       spec: { kind:'geo-rotate', shape:'rect'|'tri'|'semi', a, b, unit:'cm' }
+       rect: a wide, b tall, one side on the axis      tri: right triangle, legs a (across) and b (along the axis)
+       semi: half-disk of radius a, diameter on the axis (b is not used)
+     The picture is drawn to scale from the numbers and prints them; it never names the solid. */
+  function checkRotate(spec) {
+    if (!/^(rect|tri|semi)$/.test(spec.shape) || !pos(spec, ['a']) || spec.a > 30) return { ok: false, msg: 'rotate figure needs shape rect|tri|semi and a positive a' };
+    if (spec.shape !== 'semi' && (!pos(spec, ['b']) || spec.b > 40)) return { ok: false, msg: 'rect and tri need a positive b' };
+    return { ok: true };
+  }
+  function renderRotate(spec) {
+    var a = spec.a, semi = spec.shape === 'semi', b = semi ? 2 * a : spec.b, sc = Math.min(130 / b, 160 / a), x0 = 96, y0 = 40, w = a * sc, h = b * sc, out = '';
+    if (spec.shape === 'rect') out += '<rect x="' + x0 + '" y="' + y0 + '" width="' + r1(w) + '" height="' + r1(h) + '" fill="#bbb" stroke="' + H.INK + '" stroke-width="2"/>';
+    else if (spec.shape === 'tri') out += '<path d="M' + x0 + ' ' + y0 + ' L' + x0 + ' ' + r1(y0 + h) + ' L' + r1(x0 + w) + ' ' + r1(y0 + h) + ' Z" fill="#bbb" stroke="' + H.INK + '" stroke-width="2" stroke-linejoin="round"/>';
+    else out += '<path d="M' + x0 + ' ' + y0 + ' A' + r1(h / 2) + ' ' + r1(h / 2) + ' 0 0 1 ' + x0 + ' ' + r1(y0 + h) + ' Z" fill="#bbb" stroke="' + H.INK + '" stroke-width="2"/>' +
+      '<line x1="' + x0 + '" y1="' + r1(y0 + h / 2) + '" x2="' + r1(x0 + w) + '" y2="' + r1(y0 + h / 2) + '" stroke="' + H.INK + '" stroke-width="1.5"/>';
+    out += '<line x1="' + x0 + '" y1="' + r1(y0 - 20) + '" x2="' + x0 + '" y2="' + r1(y0 + h + 20) + '" stroke="#555" stroke-width="2" stroke-dasharray="6 4"/>' + T(x0, y0 - 30, 'axis');
+    if (semi) out += T(x0 + w + 8, y0 + h / 2 + 4, 'radius ' + dim(spec, a), 'start');
+    else {
+      out += T(x0 + w / 2, y0 + h + 36, dim(spec, a));
+      out += spec.shape === 'rect' ? T(x0 + w + 8, y0 + h / 2 + 4, dim(spec, b), 'start') : T(x0 - 8, y0 + h / 2 + 4, dim(spec, b), 'end');
+    }
+    return H.wrap(out, Math.ceil(y0 + h + 52), 'A shaded flat region next to a dashed line, the axis of rotation, with its lengths labelled', 'Drawn to scale. The dashed line is the axis of rotation.');
+  }
+  F.extend('geo-rotate', { render: renderRotate, check: checkRotate });
   F.extend('geo-net', { render: renderNet, check: checkNet });
   F.extend('geo-stack', { render: renderStack, check: checkStack });
   F.extend('geo-plane', { render: plane, check: function (spec) { return baseCheck(spec, NEED.plane, 'shape'); } });

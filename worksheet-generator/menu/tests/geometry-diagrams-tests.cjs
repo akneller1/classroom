@@ -49,6 +49,7 @@ for (const id of ['geometry-basics-reasoning','geometry-angles-parallel-lines'])
   for (const skill of set.skills) {
     const item=NS.generateProblem(id,skill.id,3,{intOnly:true,level:'cp1',questionPool:'formal'},'select-all-geometry-'+skill.id,{keys:new Set(),sigs:new Set()});
     assert.equal(item.failed,undefined,'Could not generate '+skill.id);
+    if ((item.parts||[]).length>=4) continue;   // four-part Open Response skills are not choose-all items
     const multi=NS.makeMultiSelect(item);
     assert.equal(multi.fail,undefined,'Could not make select-all for '+skill.id+': '+multi.fail);
     assert.equal(multi.keys.length,3,'Expected three correct Geometry statements');

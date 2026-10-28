@@ -54,8 +54,18 @@ function symRotation(ctx){var r=ctx.rng,ns=ctx.c>=5?[3,4,5,6,8,9,10,12]:[3,4,5,6
   parts:[{answer:M('x='+x),check:{type:'solve',eq:n+'*x=360',v:'x'}}],steps:[step('Equal turns of 360\u00b0 divided among the n sides give the smallest rotation that maps the polygon onto itself.',M(n+'*x=360')),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function dilateTri(ctx){var r=ctx.rng,k=r.int(2,ctx.c>=5?4:3),p=triPts(r,Math.min(5,Math.floor(14/k))),a=ask(r),u=p[a.v][a.co],x=k*u;
  return make('geo-transform-fig-dilate-'+ctx.c,triText(p)+' It is dilated about the origin with a scale factor of '+k+'. Find x, the '+a.cn+'-coordinate of '+a.L+'\u2032.','x='+k+'*'+u,x,'Multiply each coordinate by the scale factor.',triFig(p,null,[],'Triangle ABC on the coordinate plane'));}
+function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return step(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
+
+function ad(v,n){return v+(n<0?'-'+(-n):'+'+n);}
+function transformInvestigation(ctx){var r=ctx.rng,c=ctx.c,a=nz(r),b=nz(r),h=nz(r),k=nz(r),x1=a+h,y1=b+k,x2=-x1,y2=y1,x3=-y2,y3=x2,s=r.int(2,c>=5?5:3),y4=s*y3,x4=s*x3;
+ return four('geo-transformations-investigation',c,'Open Response: Track point A('+a+', '+b+') through a sequence of transformations. Each part uses the image from the part before it.',[
+ ['Translate A by '+h+' in the x-direction and '+k+' in the y-direction to get A′. Find the x-coordinate x of A′.','x',x1,ad('x',-a)+'='+h,'Add the shift to the x-coordinate.'],
+ ['Reflect A′ across the y-axis to get A″. Find the x-coordinate y of A″.','y',x2,ad('y',x1)+'=0','A reflection across the y-axis changes the sign of x.'],
+ ['Rotate A″ 90° counterclockwise about the origin to get A‴, using (x, y) → (−y, x). The y-coordinate of A″ is '+y2+'. Find the x-coordinate z of A‴.','z',x3,ad('z',y2)+'=0','The new x-coordinate is the opposite of the old y-coordinate.'],
+ ['Dilate A‴ by scale factor '+s+' about the origin. The y-coordinate of A‴ is '+y3+'. Find the y-coordinate w of the image.','w',y4,'w='+s+'*'+(y3<0?'(0'+y3+')':y3),'A dilation multiplies each coordinate by the scale factor.']]);}
+
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
-tags:{REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},
+tags:{INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},
 reference:'<div class="mm-refgrid"><section><h4>Reflections</h4><p>x-axis: (x,y) → (x,−y); y-axis: (x,y) → (−x,y).</p></section><section><h4>90° rotations</h4><p>Clockwise: (x,y) → (y,−x); counterclockwise: (x,y) → (−y,x).</p></section></div>',
 gaps:['Coordinate-grid figures are drawn from the same coordinates as the question. Still pending: full ordered-pair responses, composition of transformations, rigid-motion proofs, symmetry, and diagram-based items remain pending.'],
 skills:[
@@ -72,6 +82,7 @@ skills:[
 {id:'compose-triangle-figure',tag:'COMPOSITION',name:'Transform a triangle in two steps',best:[1,2],generate:composeTri},
 {id:'symmetry-lines-regular',tag:'SYMMETRY',name:'Lines of symmetry of a regular polygon',best:[0,1,2],generate:symLines},
 {id:'symmetry-rotation-regular',tag:'SYMMETRY',name:'Rotational symmetry of a regular polygon',best:[0,1,2],generate:symRotation},
-{id:'dilate-triangle-figure',tag:'DILATION',name:'Dilate a triangle about the origin',best:[0,1,2],generate:dilateTri}
+{id:'dilate-triangle-figure',tag:'DILATION',name:'Dilate a triangle about the origin',best:[0,1,2],generate:dilateTri},
+{id:'transformations-open-response-investigation',tag:'INVEST',name:'Four-part transformation sequence',best:[2],generate:transformInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
