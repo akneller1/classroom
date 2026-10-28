@@ -26,6 +26,8 @@ jobs:
         run: node worksheet-generator/menu/tests/geometry-curriculum-tests.cjs
       - name: Menu rules, versions, editing, save/load
         run: node worksheet-generator/menu/tests/model-tests.cjs
+      - name: Algebra 1 and Geometry configuration parity
+        run: node worksheet-generator/menu/tests/geometry-config-parity-tests.cjs
       - name: Geometry geometric plausibility checks
         run: node worksheet-generator/menu/tests/geometry-plausibility-tests.cjs
       - name: Geometry question-bank capacity audit (diagnostic)
