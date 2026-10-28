@@ -228,10 +228,11 @@
         var expectedStatements = shared ?
           ['AB is congruent to AB','triangle ABC is congruent to triangle ABD','Angle ACB is congruent to angle ADB'] :
           ['angle AOB is congruent to angle COD','triangle AOB is congruent to triangle COD','Angle OAB is congruent to angle OCD'];
-        var matchEq = /using ⟨([^⟩]+)⟩/.exec(p.prompt || '');
-        if (p.proofStatements.length !== 4 || !matchEq ||
+        var proofVisible = /angle [A-Z]{3} = ⟨([^⟩]+)⟩ degrees and angle [A-Z]{3} = (\d+) degrees/.exec(p.prompt || '');
+        var proofEq = proofVisible && proofVisible[1]+'='+proofVisible[2];
+        if (p.proofStatements.length !== 4 || !proofEq ||
             expectedStatements.some(function(st,i){return p.proofStatements[i].toLowerCase() !== st.toLowerCase();}) ||
-            p.proofStatements[3] !== 'Solve ⟨'+matchEq[1]+'⟩ for x') {
+            p.proofStatements[3] !== 'Solve ⟨'+proofEq+'⟩ for x') {
           return {status:'invalid',msg:'Printed proof statements conflict with the givens or equation.'};
         }
       }
@@ -583,12 +584,8 @@
         }
       }
       if (/^geo-structured-proof-/.test(variant)) {
-        var proofMatch = /using ⟨([^⟩]+)⟩/.exec(p.prompt || '');
-        var proofNum = /degrees and angle [A-Z]{3} = (\d+) degrees/.exec(p.prompt || '');
-        var proofExpr = firstMath(p.prompt || '');
-        if (!proofMatch || !proofNum || !proofExpr ||
-            proofMatch[1] !== chk.eq ||
-            proofExpr+'='+proofNum[1] !== chk.eq) {
+        var proofMeasures = /angle [A-Z]{3} = ⟨([^⟩]+)⟩ degrees and angle [A-Z]{3} = (\d+) degrees/.exec(p.prompt || '');
+        if (!proofMeasures || proofMeasures[1]+'='+proofMeasures[2] !== chk.eq) {
           return {status:'invalid',msg:'Proof equation conflicts with the visible angle measures.'};
         }
       }
