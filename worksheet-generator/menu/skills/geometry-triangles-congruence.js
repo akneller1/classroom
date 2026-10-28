@@ -7,7 +7,7 @@ function corresponding(ctx,kind){
  var feature=kind==='side'?'corresponding sides':'corresponding angles';
  var unit=kind==='side'?' units':' degrees';
  var ex=(a===1?'x':a+'x')+'+'+b;
- return {variant:'geo-congruence-'+kind+'-'+c,
+ return {compactPrompt:'Triangle ABC ≅ triangle DEF. '+(kind==='side'?'AB = '+M(ex)+' and DE = '+value+'.':'m∠B = '+M(ex)+' and m∠E = '+value+' degrees.')+' Find x.',variant:'geo-congruence-'+kind+'-'+c,
  fig:kind==='side'?{kind:'geo-cong-pair',sides:{AB:ex,DE:String(value)},description:'Congruent triangles with corresponding sides AB and DE labelled'}:{kind:'geo-cong-pair',angles:{B:'('+ex+')°',E:value+'°'},arcs:{B:1,E:1},description:'Congruent triangles with corresponding angles B and E labelled'},
  prompt:'Triangles ABC and DEF are congruent, with A corresponding to D, B to E, and C to F. '+(kind==='side'?'AB and DE':'angle B and angle E')+' are '+feature+'. Their measures are '+M((a===1?'x':a+'x')+'+'+b)+' and '+value+unit+'. Find x. Set up an equation and show your reasoning.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
@@ -16,13 +16,13 @@ function corresponding(ctx,kind){
 function thirdAngle(ctx){
  var r=ctx.rng,c=ctx.c,x=r.int(25,85),other=r.int(25,Math.min(85,150-x)),third=180-x-other;
  var eq='x+'+other+'+'+third+'=180';
- return {variant:'geo-congruence-third-angle-'+c,fig:{kind:'geo-cong-pair',angles:{A:other+'°',B:'x°',C:third+'°'},arcs:{A:1,D:1,B:2,E:2},description:'Triangles ABC and DEF with matching marked angles at A, D and B, E'},prompt:'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angle A is '+other+'° and angle C is '+third+'°. Find angle B, called x, and explain why angle F must equal angle C. Use '+M(eq)+' to find x.',
+ return {compactPrompt:'Triangle ABC ≅ triangle DEF. m∠A = '+other+'° and m∠C = '+third+'°. Use '+M(eq)+' to find x, the measure of ∠B.',variant:'geo-congruence-third-angle-'+c,fig:{kind:'geo-cong-pair',angles:{A:other+'°',B:'x°',C:third+'°'},arcs:{A:1,D:1,B:2,E:2},description:'Triangles ABC and DEF with matching marked angles at A, D and B, E'},prompt:'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angle A is '+other+'° and angle C is '+third+'°. Find angle B, called x, and explain why angle F must equal angle C. Use '+M(eq)+' to find x.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Use the triangle angle sum.',M(eq)),step('The third angles match because both triangles sum to 180°.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
 function perimeter(ctx){
  var r=ctx.rng,c=ctx.c,a=r.int(5,16),b=r.int(5,16),x=r.int(Math.abs(a-b)+1,a+b-1),p=x+a+b,eq='x+'+a+'+'+b+'='+p;
- return {variant:'geo-congruence-perimeter-'+c,fig:{kind:'geo-cong-pair',sides:{AB:'x',BC:String(a),CA:String(b)},note:'The perimeter of triangle DEF is '+p+' units.',description:'Triangle ABC with side lengths x, '+a+' and '+b+', and congruent triangle DEF'},prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Set up an equation and show your reasoning.',
+ return {compactPrompt:'Triangle ABC ≅ triangle DEF. ABC has sides x, '+a+' and '+b+'. DEF has perimeter '+p+'. Find x.',variant:'geo-congruence-perimeter-'+c,fig:{kind:'geo-cong-pair',sides:{AB:'x',BC:String(a),CA:String(b)},note:'The perimeter of triangle DEF is '+p+' units.',description:'Triangle ABC with side lengths x, '+a+' and '+b+', and congruent triangle DEF'},prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Set up an equation and show your reasoning.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Congruent triangles have equal perimeters.',M(eq)),step('Solve for the unknown side.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
@@ -56,7 +56,7 @@ function criterion(ctx,kind){
  }
  var cf=NS.geoFigures&&NS.geoFigures.cong?NS.geoFigures.cong.pair(kind,r.int(0,1)===1):{kind:'geo-triangle-pair',criterion:kind};
  if(cf.kind==='geo-cong'){var tk=kind==='asa'?['AC','DF']:['BC','EF'];if(kind==='sss')tk=['AB','DE'];cf.lab={};cf.lab[tk[0]]=expression;cf.lab[tk[1]]=String(measure);}
- return {variant:'geo-criterion-'+kind+'-'+c,fig:cf,
+ return {compactPrompt:'Triangles ABC and DEF are congruent by '+kind.toUpperCase()+'. '+target+' Find x.',variant:'geo-criterion-'+kind+'-'+c,fig:cf,
   prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then set up and solve an equation for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
@@ -66,7 +66,7 @@ function criterion(ctx,kind){
 function identify(ctx){
  var r=ctx.rng,c=ctx.c,kinds=['sss','sas','asa','aas','hl','ssa','aaa'];
  var kind=kinds[r.int(0,kinds.length-1)],setting=r.int(0,5),answer=(kind==='ssa'||kind==='aaa')?'NOT SUFFICIENT':kind.toUpperCase();
- return {variant:'geo-identify-criterion-'+kind+'-'+c,
+ return {compactPrompt:'Do the markings prove the triangles congruent? Give the criterion (SSS, SAS, ASA, AAS, HL) or NOT SUFFICIENT.',variant:'geo-identify-criterion-'+kind+'-'+c,
   fig:NS.geoFigures&&NS.geoFigures.cong?NS.geoFigures.cong.pair(kind,r.int(0,1)===1):{kind:'geo-triangle-pair',criterion:kind},
   prompt:['Use the marked triangle pairs to determine whether triangle congruence is established.','Examine the two marked triangles and decide whether their congruence is guaranteed.','A student claims the marked triangles must be congruent. Decide whether the markings justify that claim.','Determine what, if anything, the equal sides and angles establish about the triangles.','Inspect the given triangle markings and identify the applicable congruence rule, if one exists.','Consider only the marked information. Is triangle congruence guaranteed?'][setting]+' Identify the criterion (SSS, SAS, ASA, AAS, or HL), or write NOT SUFFICIENT if the markings do not prove congruence. Matching tick marks and angle arcs indicate corresponding equal parts. The diagram is schematic and not to scale.',
   parts:[{answer:answer,check:{type:'geo-congruence-criterion'}}],
@@ -110,21 +110,23 @@ function structuredProof(ctx){
    step('Step 4: Solve the corresponding angle equation.',M(eq)+' '+M('x='+x))
   ],space:[1.8,2.2,2.6]};
 }
+/* Printables with small boxes ask for a compact prompt: the diagram carries the marks, so the text only needs the givens. */
+function C(g){return function(ctx){var p=g(ctx);if(ctx.compact&&p.compactPrompt)p.prompt=p.compactPrompt;delete p.compactPrompt;return p;};}
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
  gaps:['More advanced proof structures and fully labeled proof diagrams remain to be developed.'],
  skills:[
- {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:ctx=>corresponding(ctx,'side')},
- {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:ctx=>corresponding(ctx,'angle')},
- {id:'congruent-third-angle',tag:'THIRD',name:'Third angle theorem',best:[0,1,2],generate:thirdAngle},
- {id:'congruent-perimeters',tag:'PERIMETER',name:'Perimeters of congruent triangles',best:[0,1,2],generate:perimeter},
- {id:'congruence-sss',tag:'CRITERIA',name:'SSS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'sss')},
- {id:'congruence-sas',tag:'CRITERIA',name:'SAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'sas')},
- {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'asa')},
- {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'aas')},
- {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:ctx=>criterion(ctx,'hl')},
- {id:'congruence-identify',tag:'CRITERIA',name:'Identify valid and invalid triangle congruence criteria from markings',best:[0,1,2],generate:identify},
+ {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:C(ctx=>corresponding(ctx,'side'))},
+ {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:C(ctx=>corresponding(ctx,'angle'))},
+ {id:'congruent-third-angle',tag:'THIRD',name:'Third angle theorem',best:[0,1,2],generate:C(thirdAngle)},
+ {id:'congruent-perimeters',tag:'PERIMETER',name:'Perimeters of congruent triangles',best:[0,1,2],generate:C(perimeter)},
+ {id:'congruence-sss',tag:'CRITERIA',name:'SSS congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'sss'))},
+ {id:'congruence-sas',tag:'CRITERIA',name:'SAS congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'sas'))},
+ {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'asa'))},
+ {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'aas'))},
+ {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'hl'))},
+ {id:'congruence-identify',tag:'CRITERIA',name:'Identify valid and invalid triangle congruence criteria from markings',best:[0,1,2],generate:C(identify)},
  {id:'congruence-structured-proof',tag:'PROOFS',name:'Complete a two-column or flow proof',best:[0,1,2],generate:structuredProof}
  ]});
 })(typeof window!=='undefined'?window:globalThis);

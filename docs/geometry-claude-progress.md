@@ -157,3 +157,10 @@ Fixes made:
   - Built by `scripts/build_geometry_escape_rooms.py` and `scripts/build_geometry_mysteries.py` (figures from `scripts/geo_svg.py`). The mystery builder re-computes every answer and checks that exactly one suspect, place and method survive the clues.
   - All four were played through in Playwright (wrong answer rejected, cipher shift, final stamp order, key gate). Thumbnails in `thumbs/`, entries in `data.js` (cache tag `data.js?v=geo-games-20261028`).
 - Still open: Triangle Congruence printables (need text-only skills), a figure for `cross-section`, print-to-PDF QA.
+
+## Triangle Congruence printables (2026-10-28)
+
+- Color by Number, Error Analysis, Partner Check and Whodunnit now work for Triangle Congruence. They were "Not available" because every congruence prompt was longer than the small boxes allow, even though the diagram already carries the marks.
+- Fix: the engine passes `ctx.compact` (set by `printables.js` `makeItem` for every printable except Stations in Geometry units). Congruence skills return a `compactPrompt` (givens only, for example "Triangle ABC ≅ triangle DEF. AB = x + 12 and DE = 29. Find x.") and the `C()` wrapper swaps it in when `ctx.compact` is set. Worksheets, assessments, planner and games are unchanged. The verifier still sees the printed equation (third-angle prompt keeps it).
+- Catalog: four Printable cards and four thumbnails added for the unit. Cache tags: `geo-compact-2` (congruence skill, printables.js, engine in printables.html), `data.js?v=geo-cong-print-20261028`.
+- The Maze and Tarsia printables stay off for all Geometry units by design (problems need diagrams).

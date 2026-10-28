@@ -256,7 +256,7 @@
     var lastReason = 'no attempt succeeded', fallback = null;
     for (var attempt = 0; attempt < 500; attempt++) {
       var rng = WS.rng.make(WS.rng.hash([seed, skillId, c, attempt].join('|')));
-      var ctx = { rng: rng, c: c, intOnly: policy.intOnly, level: policy.level };
+      var ctx = { rng: rng, c: c, intOnly: policy.intOnly, level: policy.level, compact: !!policy.compact };
       var p;
       try { p = sk.generate(ctx); }
       catch (e) {

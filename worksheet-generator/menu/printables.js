@@ -102,7 +102,9 @@
   /* Make one printable item: {p, key, wrong[], skill, c, tag, expr?, verb?} or null. */
   function makeItem(cfg, skill, c, seed, used, kind) {
     var lim = PR.MODES[kind], set = NS.skillSets[cfg.unitId];
-    var p = NS.generateProblem(cfg.unitId, skill, c, NS.policyOf(cfg), seed, used);
+    var pol = NS.policyOf(cfg);
+    if (/^geometry-/.test(cfg.unitId) && kind !== 'stations') pol = Object.assign({}, pol, { compact: true });   // small boxes: skills may give a shorter prompt because the diagram carries the marks
+    var p = NS.generateProblem(cfg.unitId, skill, c, pol, seed, used);
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
     if (!lim.fig && q.fig) return null;

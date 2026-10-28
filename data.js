@@ -275,7 +275,7 @@ window.LIBRARY = {
               "title": "Night at the Number Museum",
               "path": "artifacts/foundations-algebra-escape-room/index.html",
               "thumb": "thumbs/foundations-algebra-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five galleries with a cipher, hidden clues, property plaques, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five galleries with a cipher, hidden clues, property plaques, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Order of operations",
@@ -473,7 +473,7 @@ window.LIBRARY = {
               "title": "The Great Rigged Bake-Off",
               "path": "artifacts/expressions-equations-escape-room/index.html",
               "thumb": "thumbs/expressions-equations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Combining like terms",
@@ -739,7 +739,7 @@ window.LIBRARY = {
               "title": "Code Red: Station Nimbus",
               "path": "artifacts/inequalities-escape-room/index.html",
               "thumb": "thumbs/inequalities-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Compound inequalities",
@@ -1078,7 +1078,7 @@ window.LIBRARY = {
               "title": "Escape the Function Factory",
               "path": "artifacts/relations-functions-escape-room/index.html",
               "thumb": "thumbs/relations-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a function machine, a cipher with a hidden shift, a function-or-not sorting belt, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a function machine, a cipher with a hidden shift, a function-or-not sorting belt, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Domain and range",
@@ -1280,7 +1280,7 @@ window.LIBRARY = {
               "title": "Avalanche Patrol: Race to the Lodge",
               "path": "artifacts/linear-equations-slope-escape-room/index.html",
               "thumb": "thumbs/linear-equations-slope-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Slope from points, tables, and graphs",
@@ -1541,7 +1541,7 @@ window.LIBRARY = {
               "title": "Locked In: Night at the Museum",
               "path": "artifacts/systems-of-equations-escape-room/index.html",
               "thumb": "thumbs/systems-of-equations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Checking and graphing solutions",
@@ -1594,7 +1594,7 @@ window.LIBRARY = {
               "title": "Treasure Island: The Feasible Region",
               "path": "artifacts/graphing-inequalities-escape-room/index.html",
               "thumb": "thumbs/graphing-inequalities-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Solid and dashed boundary lines",
@@ -1936,7 +1936,7 @@ window.LIBRARY = {
               "title": "Escape the Rocket Lab",
               "path": "artifacts/exponents-scientific-notation-escape-room/index.html",
               "thumb": "thumbs/exponents-scientific-notation-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with fuel gauges, a cipher with a hidden shift, a true-or-false airlock, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with fuel gauges, a cipher with a hidden shift, a true-or-false airlock, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Exponent rules",
@@ -2125,7 +2125,7 @@ window.LIBRARY = {
               "title": "Dr. Petri’s Growth Lab",
               "path": "artifacts/exponents-exponential-functions-escape-room/index.html",
               "thumb": "thumbs/exponents-exponential-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Exponent rules",
@@ -2460,7 +2460,7 @@ window.LIBRARY = {
               "title": "Escape the Toy Workshop",
               "path": "artifacts/polynomials-escape-room/index.html",
               "thumb": "thumbs/polynomials-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a block machine, a cipher with a hidden shift, monomial-binomial-trinomial sorting bins, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a block machine, a cipher with a hidden shift, monomial-binomial-trinomial sorting bins, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Classifying polynomials",
@@ -2650,7 +2650,7 @@ window.LIBRARY = {
               "title": "The Wizard’s Spell Library",
               "path": "artifacts/polynomials-factoring-escape-room/index.html",
               "thumb": "thumbs/polynomials-factoring-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Adding, subtracting and multiplying polynomials",
@@ -2912,7 +2912,7 @@ window.LIBRARY = {
               "title": "Thunder Bolt: Launch Gone Wrong",
               "path": "artifacts/quadratics-escape-room/index.html",
               "thumb": "thumbs/quadratics-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Solving quadratic equations",
@@ -3239,7 +3239,7 @@ window.LIBRARY = {
               "title": "Escape the Stats Lab",
               "path": "artifacts/statistics-data-modeling-escape-room/index.html",
               "thumb": "thumbs/statistics-data-modeling-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a data wall, a cipher with a hidden shift, a correlation sorting room, a step-ordering lock and dials, a 30-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a data wall, a cipher with a hidden shift, a correlation sorting room, a step-ordering lock and dials, a 10-minute timer, hints that cost time, and a final password. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Measures of center and spread",
@@ -3368,7 +3368,7 @@ window.LIBRARY = {
               "title": "Mirror Maze Mayhem",
               "path": "artifacts/functions-transformations-escape-room/index.html",
               "thumb": "thumbs/functions-transformations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a cipher, graph-reading locks, a combination-safe dial puzzle, a logic order lock, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, graph-reading locks, a combination-safe dial puzzle, a logic order lock, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Transformations of graphs",
@@ -3605,7 +3605,7 @@ window.LIBRARY = {
               "title": "Blizzard at Summit Lodge",
               "path": "artifacts/linear-functions-systems-escape-room/index.html",
               "thumb": "thumbs/linear-functions-systems-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a cipher, a scatter-plot trend line, a feasible-region check, a combination-vault dial puzzle (3 by 3 system), a linear programming order lock, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, a scatter-plot trend line, a feasible-region check, a combination-vault dial puzzle (3 by 3 system), a linear programming order lock, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Linear functions",
@@ -3842,7 +3842,7 @@ window.LIBRARY = {
               "title": "Lockdown at Fountain Park",
               "path": "artifacts/quadratic-functions-complex-numbers-escape-room/index.html",
               "thumb": "thumbs/quadratic-functions-complex-numbers-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with a cipher, a parabola graph to write in vertex form, a graphs-and-discriminants true/false panel, a valve-vault dial puzzle (discriminant, vertex, powers of i), a complex-solutions order lock, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with a cipher, a parabola graph to write in vertex form, a graphs-and-discriminants true/false panel, a valve-vault dial puzzle (discriminant, vertex, powers of i), a complex-solutions order lock, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Quadratic functions",
@@ -4123,7 +4123,7 @@ window.LIBRARY = {
               "title": "Pressure Drop: Escape the Deep",
               "path": "artifacts/exponential-logarithmic-functions-escape-room/index.html",
               "thumb": "thumbs/exponential-logarithmic-functions-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Exponential decay and half-life",
@@ -4570,7 +4570,7 @@ window.LIBRARY = {
               "title": "Temple of Logic: Jungle Escape",
               "path": "artifacts/basics-reasoning-escape-room/index.html",
               "thumb": "thumbs/basics-reasoning-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Segment addition and midpoints",
@@ -4781,7 +4781,7 @@ window.LIBRARY = {
               "title": "Crossing Tracks: Rail Yard Escape",
               "path": "artifacts/angles-parallel-lines-escape-room/index.html",
               "thumb": "thumbs/angles-parallel-lines-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Vertical angles and linear pairs",
@@ -4974,7 +4974,7 @@ window.LIBRARY = {
               "title": "Lockdown at the Robot Factory",
               "path": "artifacts/triangles-congruence-escape-room/index.html",
               "thumb": "thumbs/triangles-congruence-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Triangle inequality and angle sums",
@@ -4994,6 +4994,54 @@ window.LIBRARY = {
                 "Reference",
                 "Triangles & Congruence",
                 "Unit 3"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Color by Number Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=color",
+              "thumb": "thumbs/geometry-color-generator-triangles-congruence.svg",
+              "description": "Make a color-by-number page for this unit: students solve numbered problems, with the diagram beside each one, and color a picture using a code of answers. CP2/CP1/Honors, up to three versions, colored answer key with worked solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Error Analysis Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=error",
+              "thumb": "thumbs/geometry-error-generator-triangles-congruence.svg",
+              "description": "Make an error-analysis worksheet for this unit: each student’s worked solution has one mistake to find, explain and fix, with the diagram shown. CP2/CP1/Honors, up to three versions, answer key with the correct solution.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Partner Check Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=partner",
+              "thumb": "thumbs/geometry-partner-generator-triangles-congruence.svg",
+              "description": "Make a partner check for this unit: Partner A and Partner B solve different problems with the same answers, then compare. CP2/CP1/Honors, up to three versions, answer key with both partners’ solutions.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "Whodunnit Generator",
+              "path": "worksheet-generator/printables.html#unit=geometry-triangles-congruence&kind=who",
+              "thumb": "thumbs/geometry-who-generator-triangles-congruence.svg",
+              "description": "Make a printable whodunnit for this unit: 10 clue cards with four answer choices, a case board and a Show Your Work page. Every wrong choice is checked to be wrong. CP2/CP1/Honors, up to three versions, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Printable generator",
+                "Triangles & Congruence"
               ],
               "added": "2026-10-28"
             },
@@ -5330,7 +5378,7 @@ window.LIBRARY = {
               "title": "The Shrink-Ray Workshop",
               "path": "artifacts/similarity-escape-room/index.html",
               "thumb": "thumbs/similarity-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Ratios and proportions",
@@ -5541,7 +5589,7 @@ window.LIBRARY = {
               "title": "Rotor Rescue: Summit Mission",
               "path": "artifacts/right-triangles-trigonometry-escape-room/index.html",
               "thumb": "thumbs/right-triangles-trigonometry-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Pythagorean Theorem and its converse",
@@ -5945,7 +5993,7 @@ window.LIBRARY = {
               "title": "Glitch World: Trapped in the Game",
               "path": "artifacts/coordinate-geometry-transformations-escape-room/index.html",
               "thumb": "thumbs/coordinate-geometry-transformations-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Distance, midpoint and slope",
@@ -6156,7 +6204,7 @@ window.LIBRARY = {
               "title": "Carnival After Dark: Locked In the Midway",
               "path": "artifacts/circles-escape-room/index.html",
               "thumb": "thumbs/circles-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Circumference, area, arcs and sectors",
@@ -6367,7 +6415,7 @@ window.LIBRARY = {
               "title": "The Pharaoh’s Pyramid: Sealed Inside",
               "path": "artifacts/area-surface-area-volume-escape-room/index.html",
               "thumb": "thumbs/area-surface-area-volume-escape-room.jpg",
-              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 30-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
               "type": "Game",
               "topics": [
                 "Area of polygons and composite figures",
