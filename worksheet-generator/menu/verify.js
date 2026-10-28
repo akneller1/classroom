@@ -20,6 +20,12 @@
   function shown(p, tex) {
     return C.snippets(studentText(p)).some(function (s) { return norm(s) === norm(tex); });
   }
+  // Geometry word/figure prompts can require students to formulate the equation.
+  // Never bypass the independent derivation checks for variants that require them.
+  function geometryDerived(p, chk) {
+    if (!chk || chk.type !== 'solve' || !/^geo-/.test(p.variant || '')) return false;
+    return true;
+  }
   function norm(s) { return String(s).replace(/\s+/g, ''); }
   function qText(q) { return q.isInt() ? String(q.n) : (q.n < 0n ? '-' : '') + '\\frac{' + (q.n < 0n ? -q.n : q.n) + '}{' + q.d + '}'; }
   function firstMath(markup) { var s = C.snippets(markup); return s.length ? s[0] : null; }
@@ -486,7 +492,7 @@
     if (POW_TYPES.indexOf(t) >= 0) return checkPowPart(p, part, policy);
     if (POLY_TYPES.indexOf(t) >= 0) return checkPolyPart(p, part, policy);
     if (QUAD_TYPES.indexOf(t) >= 0) return checkQuadPart(p, part, policy);
-    if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
+    if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq) && !geometryDerived(p, chk)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
     if (t === 'num-class') return checkNumClass(p, part);
