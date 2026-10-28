@@ -27,6 +27,10 @@
     // These foundation prompts explicitly print their checked equation.
     // Keep strict equation matching so tampered printed values are rejected.
     if (/^geo-(segment|angle)-/.test(p.variant || '')) return false;
+    if (/^geo-bisector-/.test(p.variant || '')) {
+      var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\\d+) degrees/.exec(p.prompt || '');
+      return !!measures && measures[1]+'='+measures[2] === chk.eq;
+    }
     return true;
   }
   function norm(s) { return String(s).replace(/\s+/g, ''); }
