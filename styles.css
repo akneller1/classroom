@@ -542,3 +542,17 @@ body { background:var(--paper); }
 .algebra-unit-card .unit-meta > .unit-skills { margin-bottom:0; }
 .algebra-unit-card .unit-lesson-details[open] > .unit-skills { margin-top:0; margin-bottom:0; }
 .algebra-unit-card .unit-lesson-details[open] > summary { margin-top:.4rem; }
+
+/* Previous / next unit */
+.unit-pager { display: flex; justify-content: space-between; gap: 0.75rem; margin: 0 0 1.5rem; }
+.unit-pager:last-child { margin: 2rem 0 0; }
+.pager-spot { flex: 1; }
+.pager-link { display: inline-flex; align-items: center; gap: 0.75rem; min-width: 0; max-width: 100%; padding: 0.55rem 1rem; background: var(--card); color: var(--ink); border: 2px solid var(--edge); border-radius: 12px; box-shadow: 3px 3px 0 var(--shadow); text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+.pager-link:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--shadow); }
+.pager-next { margin-left: auto; text-align: right; }
+.pager-arrow { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border: 2px solid var(--edge); border-radius: 50%; background: var(--c-bg); color: var(--c-fg); font-size: 1.2rem; font-weight: 800; line-height: 1; }
+.pager-text { display: flex; flex-direction: column; min-width: 0; }
+.pager-dir { font-size: 0.8125rem; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+.pager-name { font-family: var(--display); font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
+@media (max-width: 640px) { .unit-pager { flex-direction: column; } .pager-next { margin-left: 0; text-align: left; } .pager-link { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .pager-link:hover { transform: none; } }

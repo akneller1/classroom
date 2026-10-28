@@ -700,6 +700,21 @@ var GEOMETRY_UNIT_SUBSKILLS = {
           '</span></a></li>';
       }).join('') + '</ul></div>';
   }
+  function unitPager(c, u) {
+    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry'; });
+    var i = list.indexOf(u);
+    if (list.length < 2) return '';
+    function link(t, dir) {
+      if (!t) return '<span class="pager-spot"></span>';
+      var arrow = '<span class="pager-arrow" aria-hidden="true">' + (dir === 'prev' ? '&larr;' : '&rarr;') + '</span>';
+      var text = '<span class="pager-text"><span class="pager-dir">' + (dir === 'prev' ? 'Previous unit' : 'Next unit') + '</span>' +
+        '<span class="pager-name">' + esc(unitLabel(c, t)) + '</span></span>';
+      return '<a class="pager-link pager-' + dir + '" href="' + href(unitToken(c, t)) + '" rel="' + dir + '">' +
+        (dir === 'prev' ? arrow + text : text + arrow) + '</a>';
+    }
+    return '<nav class="unit-pager" data-color="' + esc(c.color || '') + '" aria-label="Unit navigation">' +
+      link(list[i - 1], 'prev') + link(list[i + 1], 'next') + '</nav>';
+  }
   function algebraUnitView(c, u) {
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var gameFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'games'; })[0].formats;
@@ -731,11 +746,11 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     return {
       title: unitLabel(c, u) + ', ' + c.name,
       html: bandHtml(c, inner) +
-        '<section class="section"><div class="wrap algebra-unit-layout">' +
+        '<section class="section"><div class="wrap algebra-unit-layout">' + unitPager(c, u) +
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
-        '</div></section>'
+        unitPager(c, u) + '</div></section>'
     };
   }
 
@@ -755,10 +770,10 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     return {
       title: unitLabel(c, u) + ', ' + c.name,
       html: bandHtml(c, inner) +
-        '<section class="section"><div class="wrap">' +
+        '<section class="section"><div class="wrap">' + unitPager(c, u) +
         (items.length ? chipsHtml(items) + groupedCardsHtml(items, false)
                       : '<div class="empty"><h2>Coming soon</h2><p>No activities in this unit yet. <a href="' + href(courseToken(c)) + '">Back to ' + esc(c.name) + '</a></p></div>') +
-        '</div></section>'
+        unitPager(c, u) + '</div></section>'
     };
   }
 
