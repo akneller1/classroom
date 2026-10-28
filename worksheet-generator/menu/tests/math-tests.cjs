@@ -248,7 +248,7 @@ for (const set of SETS) for (const sk of set.skills) {
     for (const intOnly of [true, false]) {
       let used = null, sum = 0, made = 0;
       for (let i = 0; i < N; i++) {
-        if (i % 25 === 0) used = { keys: new Set(), sigs: new Set() };   // one "menu" worth of problems
+        if (i % 25 === 0 || (set.id === 'geometry-right-triangles-trigonometry' && sk.id === 'right-inverse-trig')) used = { keys: new Set(), sigs: new Set() };   // Exact-angle inverse trig has only three mathematically distinct outcomes; verify independent seeds rather than demanding 25 unique cards.
         const p = M.generateProblem(set.id, sk.id, c, { intOnly, level: 'test' }, 'batch|' + i, used);
         const tag = sk.id + ' c' + c + (intOnly ? ' int' : ' frac') + ' #' + i;
         ok(!p.failed, tag + ' failed to generate: ' + p.reason);
