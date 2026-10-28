@@ -101,3 +101,14 @@ GitHub Actions status was **not observable** from this session (GitHub not linke
 - `menu/app.js` line 569 called `$('input[name=mmLSpacing]').forEach(...)` (single-element helper), which threw "forEach is not a function" when the Preview step opened, so the Preview never showed pages for any course. Changed to `$$`. The menu browser test now runs through the PDF layout checks; it still stops at an Algebra-only "edited problem" assertion that was already failing.
 - N=300 `math-tests.cjs` passed: 6,588,340 checks, 122,453 wrong keys caught.
 - The eight hand-built Geometry escape rooms were re-solved stage by stage (all keys correct, 10 minutes and 30 s penalty defaults present); all 74 Geometry game pages load with no script errors.
+
+## Open Response for every Geometry unit and clearer circle figures
+
+User report: some circle skills showed "No verified problem" in Open Response sections, and chord/tangent labels were hard to read.
+
+- Open Response needs four connected, verified parts. Only 6 Geometry skills made four parts, so Circles, Angles, Quadrilaterals, Transformations and Area/Volume had none and defaulted to red cards. Each of those units now has a four-part investigation skill (tag INVEST): `circle-open-response-investigation`, `angles-open-response-investigation`, `polygon-open-response-investigation`, `transformations-open-response-investigation`, `solids-open-response-investigation`, and Right Triangles gained `right-trig-investigation` (second four-part skill, so selections rotate). Audit: all 10 units × test/worksheet × 3 seeds with every section set to Open Response → 840 items, 0 failures.
+- Verifier: `geometryDerived` re-derives these. The solids investigation recomputes every equation from the printed dimensions; the others require each equation number to be printed for students, a standard constant, or an earlier part's answer. Tamper test passes.
+- The red-card message now says to pick a "Four-part" skill.
+- Test change (not weakened): the Geometry choose-all test skips four-part skills, which are not choose-all items.
+- Circle figures: circle radius 56→66, viewBox cropped to the drawing (labels render about 1.4× larger on phones), chord labels sit in separate wedges (one per half-chord), the tangent ray is longer so the x° label fits between ray and tangent.
+- Pre-existing, unchanged: `right-inverse-trig-decimal` tier 1 has 24/25 distinct questions in the capacity audit.
