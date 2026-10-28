@@ -103,7 +103,12 @@
     var level = NS.LEVELS[opts.level] ? opts.level : P.DEFAULTS.level, lv = NS.LEVELS[level], t = lv.tiers;
     var nPr = Math.max(4, Math.min(20, opts.practice | 0 || P.DEFAULTS.practice));
     var plan = { day: d, level: level, seed: String(opts.seed || 'A'), practiceCount: nPr, used: { keys: new Set(), sigs: new Set() }, sections: [] };
-    var cov = d.lessons_covered || [], T = P.template(d);
+    var selectedDays = Array.isArray(opts.selectedDays) ? opts.selectedDays.map(function(n) { return P.day(+n); }).filter(function(x) { return x && x.unit === d.unit && x.day_type === 'Lesson'; }) : [];
+    if (selectedDays.length && d.day_type === 'Lesson' && !selectedDays.some(function(x) { return x.day === d.day; })) selectedDays.unshift(d);
+    var cov = selectedDays.length ? uniq(selectedDays.reduce(function(a, x) { return a.concat(x.lessons_covered || (x.lesson_id ? [x.lesson_id] : [])); }, [])) : (d.lessons_covered || []);
+    plan.selectedDays = selectedDays.length ? selectedDays.map(function(x) { return x.day; }) : [d.day];
+    plan.selectedLessonTitles = selectedDays.length ? selectedDays.map(function(x) { return x.title; }) : [d.title];
+    var T = P.template(d);
     var harder = Math.min(7, t[2] + 1);
     function sec(id, title, extra) { var s = { id: id, title: title, groups: [] }; for (var k in extra) s[k] = extra[k]; plan.sections.push(s); return s; }
     function group(s, name, list, note) { s.groups.push({ name: name, note: note || '', items: list }); }
