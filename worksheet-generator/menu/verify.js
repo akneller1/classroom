@@ -35,6 +35,14 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-central-expression-/.test(p.variant || '')) {
+      var centralExpr=/minor arc has measure \(2x\+([0-9]+)\) degrees, and its central angle measures ([0-9]+) degrees/.exec(p.prompt || '');
+      if (!centralExpr) return false;
+      var offsetCentral=Number(centralExpr[1]), angleCentral=Number(centralExpr[2]);
+      return offsetCentral>0 && angleCentral>offsetCentral && angleCentral<180 &&
+        (angleCentral-offsetCentral)%2===0 &&
+        chk.eq==='2*x+'+offsetCentral+'='+angleCentral;
+    }
     if (/^geo-circle-expanded-radius-mixed-/.test(p.variant || '')) {
       var mixed=/equation X\^2 \+ ([0-9]+)X \+ Y\^2 - ([0-9]+)Y ([+-]) ([0-9]+) = 0/.exec(p.prompt || '');
       if (!mixed) return false;
