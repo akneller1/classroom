@@ -18,6 +18,8 @@
 
   var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
   if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
+  ui.selectedDays = [ui.day];
+  function resetSelection() { ui.selectedDays = [ui.day]; }
 
   var sectionLabels = { donow:'Do Now', mixed:'Mixed Review', notes:'Notes', examples:'Examples', practice:'Practice', challenge:'Challenge Problems', summary:'Lesson Summary', exit:'Exit Ticket' };
   var sectionChoices = { donow:true, mixed:false, notes:true, examples:true, practice:true, challenge:false, summary:false, exit:true };
@@ -345,8 +347,8 @@
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
     var sel = '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
-    var list = '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
-      return '<li><button type="button" class="pl-daybtn' + (d.day === ui.day ? ' on' : '') + '" data-day="' + d.day + '"' + (d.day === ui.day ? ' aria-current="true"' : '') + '><span class="pl-dnum">' + d.day + '</span><span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span><span class="pl-dtitle">' + esc(d.title) + '</span></button></li>';
+    var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
+      return '<li>' + (d.day_type === 'Lesson' ? '<label style="display:inline-flex;align-items:center;margin-right:7px" title="Include this lesson"><input type="checkbox" data-lesson-day="' + d.day + '"' + (ui.selectedDays.indexOf(d.day) >= 0 ? ' checked' : '') + ' aria-label="Include ' + esc(d.title) + '"></label>' : '') + '<button type="button" class="pl-daybtn' + (d.day === ui.day ? ' on' : '') + '" data-day="' + d.day + '"' + (d.day === ui.day ? ' aria-current="true"' : '') + '><span class="pl-dnum">' + d.day + '</span><span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span><span class="pl-dtitle">' + esc(d.title) + '</span></button></li>';
     }).join('') + '</ol>';
     return sel + list;
   }
@@ -365,7 +367,8 @@
   }
   function render() {
     var d = P.day(ui.day);
-    ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d), include: sectionChoices, counts: problemCounts });
+    if (!ui.selectedDays.length || ui.selectedDays.some(function(n) { var x = P.day(n); return !x || x.unit !== d.unit; })) resetSelection();
+    ui.plan = P.buildDay(ui.day, { level: ui.level, seed: ui.seed, practice: ui.practice, selectedDays: ui.selectedDays, notes: ui.notes === 'lesson' ? null : ui.notes, minutes: minutesFor(d), include: sectionChoices, counts: problemCounts });
     applySectionChoices(ui.plan);
     applyProblemLabels(ui.plan);
     $('#plPick').innerHTML = picker();
@@ -373,6 +376,7 @@
     var prev = P.day(ui.day - 1), next = P.day(ui.day + 1), sum = P.summary(ui.plan);
     $('#plHead').innerHTML = '<div class="pl-nav"><button type="button" class="btn ghost sm" id="plPrev"' + (prev ? '' : ' disabled') + '>← Day ' + (ui.day - 1) + '</button>' +
       '<div class="pl-htitle"><div class="pl-kicker">Day ' + d.day + ' · Quarter ' + d.quarter + ' · Week ' + d.week + (d.unit ? ' · Unit ' + d.unit + ', day ' + esc(d.unit_day) : ' · ' + esc(d.unit_title)) + '</div><h1>' + esc(d.title) + ' <span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span></h1>' +
+      (ui.plan.selectedLessonTitles.length > 1 ? '<p class="pl-hint">Combined lessons: ' + ui.plan.selectedLessonTitles.map(esc).join(' · ') + '</p>' : '') +
       '<div class="pl-stat">' + sum.problems + ' problems' + (sum.failed ? ' · <b class="bad">' + sum.failed + ' need a new problem</b>' : sum.problems ? ' · all answers checked' : '') + '</div></div>' +
       '<button type="button" class="btn ghost sm" id="plNext"' + (next ? '' : ' disabled') + '>Day ' + (ui.day + 1) + ' →</button></div>' +
       '<div class="pl-tabs" role="tablist">' + [['plan', 'Plan'], ['student', 'Student handout'], ['key', 'Teacher key']].map(function (t) { return '<button type="button" role="tab" class="tab" data-view="' + t[0] + '" aria-selected="' + (ui.view === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
@@ -398,7 +402,7 @@
 
   doc.addEventListener('click', function (e) {
     var t = e.target.closest ? e.target.closest('button') : null; if (!t) return;
-    if (t.classList.contains('pl-daybtn')) { ui.day = +t.getAttribute('data-day'); render(); $('#plView').scrollIntoView ? G.scrollTo(0, 0) : 0; return; }
+    if (t.classList.contains('pl-daybtn')) { ui.day = +t.getAttribute('data-day'); resetSelection(); render(); $('#plView').scrollIntoView ? G.scrollTo(0, 0) : 0; return; }
     if (t.hasAttribute('data-move-section')) {
       var id = t.getAttribute('data-move-section'), from = sectionOrder.indexOf(id), to = from + Number(t.getAttribute('data-direction'));
       if (from >= 0 && to >= 0 && to < sectionOrder.length) {
@@ -409,8 +413,8 @@
       }
       return;
     }
-    if (t.id === 'plPrev') { ui.day--; render(); return; }
-    if (t.id === 'plNext') { ui.day++; render(); return; }
+    if (t.id === 'plPrev') { ui.day--; resetSelection(); render(); return; }
+    if (t.id === 'plNext') { ui.day++; resetSelection(); render(); return; }
     if (t.id === 'plNew') { ui.seed = Math.random().toString(36).slice(2, 7); render(); return; }
     if (t.id === 'plPrintS') { doPrint('student'); return; }
     if (t.id === 'plPrintK') { doPrint('key'); return; }
@@ -472,7 +476,16 @@
       }
       return;
     }
-    if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; render(); } return; }
+    if (t.hasAttribute && t.hasAttribute('data-lesson-day')) {
+      var dayNo = +t.getAttribute('data-lesson-day');
+      if (t.checked) { if (ui.selectedDays.indexOf(dayNo) < 0) ui.selectedDays.push(dayNo); }
+      else { ui.selectedDays = ui.selectedDays.filter(function(n) { return n !== dayNo; }); }
+      ui.selectedDays.sort(function(a,b) { return a-b; });
+      if (!ui.selectedDays.length) ui.selectedDays = [ui.day];
+      if (ui.selectedDays.indexOf(ui.day) < 0) ui.day = ui.selectedDays[0];
+      render(); return;
+    }
+    if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; resetSelection(); render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
     if (t.name === 'plNotes') {   // the notes setting changes only the printed notes, not the problems
       ui.notes = t.value; lsSet(KEY_NOTES, ui.notes);
@@ -490,7 +503,7 @@
     }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
-  G.addEventListener('hashchange', function () { readHash(); render(); });
+  G.addEventListener('hashchange', function () { readHash(); resetSelection(); render(); });
 
   function applyTheme(t) { if (t) doc.documentElement.setAttribute('data-theme', t); else doc.documentElement.removeAttribute('data-theme'); }
   applyTheme(lsGet(KEY_THEME));
@@ -499,6 +512,7 @@
     var nx = cur === 'dark' ? 'light' : 'dark'; applyTheme(nx); lsSet(KEY_THEME, nx);
   };
   readHash();
+  resetSelection();
   render();
   P.ui = ui;   // for tests
 })(window);
