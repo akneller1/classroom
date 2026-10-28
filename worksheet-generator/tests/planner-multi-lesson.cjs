@@ -56,7 +56,7 @@ const sectionConfigs = {
   4:{count:3}
 };
 const compose = new Function('P','sectionConfigs','sectionSequence','sectionChoices','lsSet','KEY_SEQUENCE',
-  composeSource+'\\nreturn applySectionChoices;')(P,sectionConfigs,sectionSequence,sectionChoices,()=>{},'test');
+  composeSource+'\nreturn applySectionChoices;')(P,sectionConfigs,sectionSequence,sectionChoices,()=>{},'test');
 function cloneSection(name) {
   return {id:name,title:name,groups:name==='notes'?[]:[{name:'',items:[{
     entry:P.entriesFor([ids[0]])[0],slot:name+'-initial',c:2,num:1
