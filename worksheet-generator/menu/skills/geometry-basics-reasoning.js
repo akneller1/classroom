@@ -15,11 +15,11 @@
  function midpoint(ctx){
   var r=ctx.rng,c=ctx.c,x=r.int(3,22),a=c>=5?r.int(2,4):1,b=r.int(1,10),left=a*x+b;
   var eq=(a===1?'x':a+'x')+'+'+b+'='+left;
-  return {variant:'geo-midpoint-'+c,prompt:'B is the midpoint of segment AC, so AB = BC. Find x using '+M(eq)+'.',fig:{kind:'geo-segment',labels:['A','B','C'],measures:[(a===1?'x':a+'x')+'+'+b,String(left),'AB = BC'],description:'B is midpoint of AC; two equal segments'},parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('A midpoint makes the adjacent segments congruent.',M(eq)),st('Solve the equation.',M('x='+x))],space:[1,1.3,1.6]};
+  return {variant:'geo-midpoint-'+c,prompt:'B is the midpoint of segment AC, so AB = BC. Find x by writing and solving an equation.',fig:{kind:'geo-segment',labels:['A','B','C'],measures:[(a===1?'x':a+'x')+'+'+b,String(left),'AB = BC'],description:'B is midpoint of AC; two equal segments'},parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('A midpoint makes the adjacent segments congruent.',M(eq)),st('Solve the equation.',M('x='+x))],space:[1,1.3,1.6]};
  }
  function bisector(ctx){
   var r=ctx.rng,c=ctx.c,x=r.int(3,22),a=c>=5?r.int(2,4):1,b=r.int(1,10),side=a*x+b,eq=(a===1?'x':a+'x')+'+'+b+'='+side;
-  return {variant:'geo-bisector-'+c,prompt:'Ray BD bisects angle ABC, so its two adjacent angles are congruent. Find x using '+M(eq)+'.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('An angle bisector creates two equal angles.',M(eq)),st('Solve.',M('x='+x))],space:[1,1.3,1.6]};
+  return {variant:'geo-bisector-'+c,prompt:'Ray BD bisects angle ABC, so its two adjacent angles are congruent. Find x by writing and solving an equation.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('An angle bisector creates two equal angles.',M(eq)),st('Solve.',M('x='+x))],space:[1,1.3,1.6]};
  }
 
  function coordinateMidpoint(ctx){
@@ -30,7 +30,7 @@
   var eq='x+'+a+'='+2*middle;
   if(a<0)eq='x'+a+'='+2*middle;
   return {variant:'geo-coordinate-midpoint-'+c,
-   prompt:'On a number line, point A has coordinate '+a+' and point M is the midpoint of segment AB at coordinate '+middle+'. Point B has coordinate x. Find x using '+M(eq)+'.',
+   prompt:'On a number line, point A has coordinate '+a+' and point M is the midpoint of segment AB at coordinate '+middle+'. Point B has coordinate x. Find x by writing and solving an equation.',
    parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
    steps:[st('Twice the midpoint coordinate equals the sum of endpoint coordinates.',M(eq)),st('Solve for the missing endpoint.',M('x='+x))],
    space:[1,1.3,1.6]};
@@ -40,7 +40,7 @@
   var eq='x-'+left+'='+distance;
   if(left<0)eq='x+'+(-left)+'='+distance;
   return {variant:'geo-coordinate-distance-'+c,
-    prompt:'Points A and B lie on a horizontal line at A = ('+left+', 3) and B = (x, 3). B lies to the right of A and AB = '+distance+' units. Find x using '+M(eq)+'.',
+    prompt:'Points A and B lie on a horizontal line at A = ('+left+', 3) and B = (x, 3). B lies to the right of A and AB = '+distance+' units. Find x by writing and solving an equation.',
     parts:[{answer:M('x='+right),check:{type:'solve',eq:eq,v:'x'}}],
     steps:[st('For points on a horizontal line, subtract their x-coordinates.',M(eq)),st('Solve for x.',M('x='+right))],
     space:[1,1.3,1.6]};
@@ -56,8 +56,8 @@
      variant:'geo-coordinate-investigation-'+c,
      prompt:'Four-part coordinate geometry investigation. Points A, B, and C lie in that order on a horizontal number line. A is at 0, B is at x, C is at '+t+', and BC is '+b+' units. For each part, use the stated geometric relationship and explain your calculation.',
      parts:[
-       {label:'a',prompt:'Use segment addition to find coordinate x of B: '+M(e1)+'.',answer:M('x='+x),check:{type:'solve',eq:e1,v:'x'}},
-       {label:'b',prompt:'M is the midpoint of AB. Find its coordinate y using the result from (a): '+M(e2)+'.',answer:M('y='+m),check:{type:'solve',eq:e2,v:'y'}},
+       {label:'a',prompt:'Use segment addition to find coordinate x of B. Show the segment-addition equation.',answer:M('x='+x),check:{type:'solve',eq:e1,v:'x'}},
+       {label:'b',prompt:'M is the midpoint of AB. Find its coordinate y using your result from (a).',answer:M('y='+m),check:{type:'solve',eq:e2,v:'y'}},
        {label:'c',prompt:'N is the midpoint of BC. Find its coordinate z: '+M(e3)+'.',answer:M('z='+n),check:{type:'solve',eq:e3,v:'z'}},
        {label:'d',prompt:'P is the midpoint of MN. Find its coordinate w: '+M(e4)+'.',answer:M('w='+w),check:{type:'solve',eq:e4,v:'w'}}
      ],
