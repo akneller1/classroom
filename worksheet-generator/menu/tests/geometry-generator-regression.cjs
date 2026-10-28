@@ -245,9 +245,9 @@ for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','r
   assert.ok(!p.failed, skillId+' must generate');
   const tampered = JSON.parse(JSON.stringify(p));
   if (skillId === 'right-pythagorean-hypotenuse')
-    tampered.prompt = tampered.prompt.replace(/(has legs )(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
+    tampered.prompt = tampered.prompt.replace(/(has legs )(\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
   else if (skillId === 'right-pythagorean-leg')
-    tampered.prompt = tampered.prompt.replace(/(hypotenuse )(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
+    tampered.prompt = tampered.prompt.replace(/(hypotenuse )(\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
   else
     tampered.prompt = tampered.prompt.replace(/(and B\()(\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
   assert.notEqual(tampered.prompt,p.prompt,'Mutation must change a printed measurement');
