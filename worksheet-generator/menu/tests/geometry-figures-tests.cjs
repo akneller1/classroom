@@ -26,6 +26,12 @@ assert.ok(/<svg/.test(F.render({ kind: 'geo-solid', solid: 'prism', v: { l: 4, w
 // a figure that prints a number the question never states must fail verification
 { const M2 = NS; const bad = { variant: 'x', prompt: 'A rectangle has width 4 cm and length 9 cm.', parts: [{ answer: '36', check: { type: 'solve', eq: 'x=4*9', v: 'x' } }], fig: { kind: 'geo-plane', shape: 'rectangle', v: { w: 4, l: 7 }, unit: 'cm' } };
   const r = M2.verifyProblem(bad); assert.notEqual(r.status, 'verified', 'figure shows 7 but the question says 9'); }
+assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[1, 2], [3, 1], [2, 4]] }, { id: 'img', of: 'pre', tx: { type: 'reflect-y' }, pts: [[-1, 2], [-3, 1], [-2, 4]] }] }).ok, true, 'correct image');
+assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[1, 2], [3, 1], [2, 4]] }, { id: 'img', of: 'pre', tx: { type: 'reflect-y' }, pts: [[-1, 2], [-3, 1], [2, -4]] }] }).ok, false, 'one image vertex is wrong');
+assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[1, 2]] }, { id: 'img', of: 'pre', tx: { type: 'translate', dx: 2, dy: -1 }, pts: [[3, 1]] }] }).ok, true);
+assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[1, 2]] }, { id: 'img', of: 'pre', tx: { type: 'rotate-cw' }, pts: [[-2, 1]] }] }).ok, false, 'clockwise maps (1,2) to (2,-1)');
+assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'pre', pts: [[40, 2]] }] }).ok, false, 'point off the grid');
+assert.equal(F.check({ kind: 'geo-grid', shapes: [{ id: 'a', pts: [[1, 1]] }], lines: [{ x: 1, y: 2 }] }).ok, false, 'a mirror line is x=c or y=c');
 assert.equal(F.check({ kind: 'geo-circle', pts: { A: [1, 1] }, onCircle: ['A'] }).ok, false, 'point off the circle');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], O2: [0.5, 0.5], T: [1, 1] }, right: [['P', 'O', 'T']] }).ok, true, 'radius to (1,0) is perpendicular to the vertical tangent');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], T: [1.5, 1] }, right: [['P', 'O', 'T']] }).ok, false, 'tangent mark on a slanted segment');
@@ -60,7 +66,7 @@ for (const set of Object.values(NS.skillSets).filter(s => s.id.startsWith('geome
     const html = NS.figHtml(p.fig);
     assert.match(html, /<svg[\s\S]*<\/svg>/, sk.id + ' did not render');
     assert.ok(!dirty.test(html), sk.id + ' svg has NaN/undefined: ' + (html.match(dirty) || [])[0]);
-    assert.ok(!/#[0-9a-f]{3,6}/i.test(html.replace(/#111|#555|#fff(?![0-9a-f])/gi, '')), sk.id + ' uses non-print-safe colours');
+    assert.ok(!/#[0-9a-f]{3,6}/i.test(html.replace(/#111|#555|#bbb|#fff(?![0-9a-f])/gi, '')), sk.id + ' uses non-print-safe colours');
     // transversal / adjacent / cross: the labelled expression equals the true angle at the solved x
     const marks = p.fig.marks || p.fig.parts;
     if (marks && p.parts[0].check && p.parts[0].check.type === 'solve') {

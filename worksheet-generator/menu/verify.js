@@ -42,6 +42,33 @@
       if (/relevant angle measures/.test(p.prompt || '') && (p.prompt || '').indexOf('⟨' + lhs + '⟩ degrees and ' + nm[1] + ' degrees') < 0) return false;
       return want !== null && want === chk.eq;
     }
+    /* Coordinate-grid transformations: the asked image coordinate is recomputed from the FIGURE (vertex positions, mirror line, drawn image)
+       and the printed transformation, then compared with the solution of the checked equation. */
+    if (/^geo-transform-fig-/.test(p.variant || '') && p.fig && p.fig.kind === 'geo-grid' && NS.geoFigures && NS.geoFigures.grid) {
+      var gpre = p.fig.shapes && p.fig.shapes[0], gtxt = String(p.prompt || ''), gm = /(x|y)-coordinate of ([A-Z])′/.exec(gtxt);
+      if (!gpre || !gpre.labels || !gm) return false;
+      var gi = gpre.labels.indexOf(gm[2]); if (gi < 0) return false;
+      var gre = /([A-Z])\((-?\d+), (-?\d+)\)/g, gv, gseen = 0;
+      while ((gv = gre.exec(gtxt))) { var gj = gpre.labels.indexOf(gv[1]); if (gj < 0 || gpre.pts[gj][0] !== Number(gv[2]) || gpre.pts[gj][1] !== Number(gv[3])) return false; gseen++; }
+      if (gseen !== gpre.pts.length) return false;
+      var gk = String(p.variant).split('-')[3], gq = null, gp0 = gpre.pts[gi], GA = NS.geoFigures.grid.apply;
+      if (gk === 'translate') {
+        var gimg = p.fig.shapes[1]; if (!gimg || !/translated/.test(gtxt)) return false;
+        var sdx = gimg.pts[0][0] - gpre.pts[0][0], sdy = gimg.pts[0][1] - gpre.pts[0][1];
+        for (var gz = 0; gz < gpre.pts.length; gz++) if (gimg.pts[gz][0] - gpre.pts[gz][0] !== sdx || gimg.pts[gz][1] - gpre.pts[gz][1] !== sdy) return false;
+        gq = gimg.pts[gi];
+      } else if (gk === 'reflect') {
+        var gl = p.fig.lines && p.fig.lines[0]; if (!gl || !/across the dashed line/.test(gtxt)) return false;
+        gq = GA({ type: 'reflect-line', line: gl }, gp0);
+      } else if (gk === 'rotate') {
+        var gt = /counterclockwise/.test(gtxt) ? 'rotate-ccw' : /clockwise/.test(gtxt) ? 'rotate-cw' : /180°/.test(gtxt) ? 'rotate-180' : null;
+        if (!gt) return false; gq = GA({ type: gt }, gp0);
+      } else if (gk === 'dilate') {
+        var gkm = /scale factor of (\d+)/.exec(gtxt); if (!gkm) return false; gq = GA({ type: 'dilate', k: Number(gkm[1]) }, gp0);
+      } else return false;
+      var gs; try { gs = C.solveLinear(chk.eq, 'x'); } catch (e) { return false; }
+      return gs.kind === 'one' && String(gs.value.d) === '1' && String(gs.value.n) === String(gq[gm[1] === 'x' ? 0 : 1]);
+    }
     if (/^geo-bisector-/.test(p.variant || '')) {
       var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\d+) degrees/.exec(p.prompt || '');
       return !!measures && measures[1]+'='+measures[2] === chk.eq;

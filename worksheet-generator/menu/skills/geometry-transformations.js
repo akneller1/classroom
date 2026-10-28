@@ -1,19 +1,45 @@
 /* Geometry Unit 8: coordinate transformations, text-first verified starter bank. */
 (function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
-function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function make(id,prompt,eq,x,reason,fig){var o={variant:id,prompt:prompt+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};if(fig)o.fig=fig;return o;}
 function nz(r){var n=r.int(-9,9);return n===0?4:n;}
 function reflect(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),x=axis==='x'?-b:-a,eq='x'+((axis==='x'?b:a)>=0?'+':'')+(axis==='x'?b:a)+'=0';
-return make('geo-transform-reflect-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is reflected across the '+axis+'-axis. Find '+(axis==='x'?'the y-coordinate':'the x-coordinate')+' x of the image P′.',eq,x,'Reflection across the '+axis+'-axis changes the sign of the '+(axis==='x'?'y':'x')+'-coordinate.');}
+return make('geo-transform-reflect-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is reflected across the '+axis+'-axis. Find '+(axis==='x'?'the y-coordinate':'the x-coordinate')+' x of the image P′.',eq,x,'Reflection across the '+axis+'-axis changes the sign of the '+(axis==='x'?'y':'x')+'-coordinate.',ptFig(a,b));}
 function translate(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),shift=nz(r),x=(axis==='x'?a:b)+shift,eq='x'+(shift>=0?'-':'+')+Math.abs(shift)+'='+(axis==='x'?a:b);
-return make('geo-transform-translate-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is translated '+Math.abs(shift)+' units '+(axis==='x'?(shift>0?'right':'left'):(shift>0?'up':'down'))+'. Find the '+(axis==='x'?'x':'y')+'-coordinate x of P′.',eq,x,'A translation adds the signed displacement to the selected coordinate.');}
+return make('geo-transform-translate-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is translated '+Math.abs(shift)+' units '+(axis==='x'?(shift>0?'right':'left'):(shift>0?'up':'down'))+'. Find the '+(axis==='x'?'x':'y')+'-coordinate x of P′.',eq,x,'A translation adds the signed displacement to the selected coordinate.',ptFig(a,b));}
 function rotate(ctx,dir){var r=ctx.rng,a=nz(r),b=nz(r),x=dir==='cw'?b:-b,eq='x'+((dir==='cw'?-b:b)>=0?'+':'')+(dir==='cw'?-b:b)+'=0';
-return make('geo-transform-rotate-'+dir+'-'+ctx.c,'Point P('+a+', '+b+') is rotated 90° '+(dir==='cw'?'clockwise':'counterclockwise')+' about the origin. Find the x-coordinate x of P′.',eq,x,'A 90° rotation maps (a,b) to '+(dir==='cw'?'(b,−a).':'(−b,a).'));}
+return make('geo-transform-rotate-'+dir+'-'+ctx.c,'Point P('+a+', '+b+') is rotated 90° '+(dir==='cw'?'clockwise':'counterclockwise')+' about the origin. Find the x-coordinate x of P′.',eq,x,'A 90° rotation maps (a,b) to '+(dir==='cw'?'(b,−a).':'(−b,a).'),ptFig(a,b));}
 function dilate(ctx){var r=ctx.rng,a=nz(r),b=nz(r),k=r.int(2,ctx.c>=5?5:3),x=k*a,eq='x='+k+'*'+a;
-return make('geo-transform-dilate-'+ctx.c,'Point P('+a+', '+b+') is dilated about the origin by a scale factor of '+k+'. Find the x-coordinate x of P′.',eq,x,'Multiply each coordinate by the scale factor.');}
+return make('geo-transform-dilate-'+ctx.c,'Point P('+a+', '+b+') is dilated about the origin by a scale factor of '+k+'. Find the x-coordinate x of P′.',eq,x,'Multiply each coordinate by the scale factor.',ptFig(a,b));}
+
+var GR=function(){return NS.geoFigures&&NS.geoFigures.grid;};
+function mn(n){return String(n).replace('-','\u2212');}
+function addTerm(n){return n>=0?'+'+n:'-'+(-n);}
+function ptFig(a,b){return {kind:'geo-grid',shapes:[{id:'pre',pts:[[a,b]],labels:['P('+mn(a)+', '+mn(b)+')']}],alt:'Coordinate plane with point P('+a+', '+b+')'};}
+function triPts(r,lim){for(var t=0;t<200;t++){var p=[];for(var i=0;i<3;i++)p.push([r.int(-lim,lim),r.int(-lim,lim)]);var A=p[0],B=p[1],C=p[2],ar=Math.abs((B[0]-A[0])*(C[1]-A[1])-(C[0]-A[0])*(B[1]-A[1]));
+ if(ar>=6&&!(A[0]===B[0]&&A[1]===B[1])&&Math.max(Math.abs(B[0]-A[0]),Math.abs(C[0]-A[0]),Math.abs(B[0]-C[0]))>=2)return p;}return [[-3,-2],[3,-2],[1,3]];}
+function triText(p){return 'Triangle ABC has vertices A('+p[0][0]+', '+p[0][1]+'), B('+p[1][0]+', '+p[1][1]+'), and C('+p[2][0]+', '+p[2][1]+').';}
+function triFig(p,extra,lines,alt){var sh=[{id:'pre',pts:p,labels:['A','B','C']}];if(extra)sh.push(extra);return {kind:'geo-grid',shapes:sh,lines:lines||[],alt:alt};}
+function ask(r){var v=r.int(0,2),co=r.int(0,1);return {v:v,co:co,L:'ABC'[v],cn:co?'y':'x'};}
+function translateTri(ctx){var r=ctx.rng,p=triPts(r,ctx.c>=5?6:5),dx=nz(r),dy=nz(r);if(ctx.c<5){dx=r.int(1,6)*(r.int(0,1)?1:-1);}
+ var img=p.map(function(q){return [q[0]+dx,q[1]+dy];}),a=ask(r),u=p[a.v][a.co],d=a.co?dy:dx,x=u+d;
+ return make('geo-transform-fig-translate-'+ctx.c,triText(p)+' It is translated to triangle A\u2032B\u2032C\u2032, shown on the grid. Find x, the '+a.cn+'-coordinate of '+a.L+'\u2032.','x='+u+(d>=0?'+':'-')+Math.abs(d),x,'Compare a vertex with its image to find the shift, then add the shift to the coordinate.',
+  triFig(p,{id:'img',pts:img,labels:['A\u2032','B\u2032','C\u2032'],of:'pre',tx:{type:'translate',dx:dx,dy:dy}},[],'Triangle ABC and its translated image'));}
+function reflectTri(ctx){var r=ctx.rng,p=triPts(r,5),c=ctx.c>=3?r.int(-3,3):0,vert=r.int(0,1)===1,ln=vert?{x:c}:{y:c},a=ask(r);a.co=vert?0:1;a.cn=vert?'x':'y';var u=p[a.v][a.co],x=2*c-u;
+ ln.text=(vert?'x':'y')+' = '+mn(c);
+ return make('geo-transform-fig-reflect-'+ctx.c,triText(p)+' It is reflected across the dashed line shown on the grid. Find x, the '+a.cn+'-coordinate of '+a.L+'\u2032.','x'+addTerm(u)+'='+(2*c),x,'A reflection puts each vertex the same distance from the mirror line on the opposite side, so the coordinates add to twice the mirror value.',
+  triFig(p,null,[ln],'Triangle ABC and a dashed mirror line '+ln.text));}
+function rotateTri(ctx){var r=ctx.rng,p=triPts(r,5),types=ctx.c>=5?['cw','ccw','half']:['cw','ccw'],t=types[r.int(0,types.length-1)],a=ask(r),f=function(q){return t==='cw'?[q[1],-q[0]]:t==='ccw'?[-q[1],q[0]]:[-q[0],-q[1]];},
+ q=f(p[a.v]),x=q[a.co],sgn,u;
+ if(t==='half'){u=p[a.v][a.co];sgn=-1;}else if(t==='cw'){u=a.co===0?p[a.v][1]:p[a.v][0];sgn=a.co===0?1:-1;}else{u=a.co===0?p[a.v][1]:p[a.v][0];sgn=a.co===0?-1:1;}
+ var eq='x'+addTerm(sgn===1?-u:u)+'=0';
+ return make('geo-transform-fig-rotate-'+ctx.c,triText(p)+' It is rotated '+(t==='half'?'180\u00b0':'90\u00b0 '+(t==='cw'?'clockwise':'counterclockwise'))+' about the origin. Find x, the '+a.cn+'-coordinate of '+a.L+'\u2032.',eq,x,t==='half'?'A 180\u00b0 rotation about the origin changes the sign of both coordinates.':t==='cw'?'A 90\u00b0 clockwise rotation maps (a, b) to (b, \u2212a).':'A 90\u00b0 counterclockwise rotation maps (a, b) to (\u2212b, a).',
+  triFig(p,null,[],'Triangle ABC on the coordinate plane'));}
+function dilateTri(ctx){var r=ctx.rng,k=r.int(2,ctx.c>=5?4:3),p=triPts(r,Math.min(5,Math.floor(14/k))),a=ask(r),u=p[a.v][a.co],x=k*u;
+ return make('geo-transform-fig-dilate-'+ctx.c,triText(p)+' It is dilated about the origin with a scale factor of '+k+'. Find x, the '+a.cn+'-coordinate of '+a.L+'\u2032.','x='+k+'*'+u,x,'Multiply each coordinate by the scale factor.',triFig(p,null,[],'Triangle ABC on the coordinate plane'));}
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
 tags:{REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},
 reference:'<div class="mm-refgrid"><section><h4>Reflections</h4><p>x-axis: (x,y) → (x,−y); y-axis: (x,y) → (−x,y).</p></section><section><h4>90° rotations</h4><p>Clockwise: (x,y) → (y,−x); counterclockwise: (x,y) → (−y,x).</p></section></div>',
-gaps:['Starter bank only. Full ordered-pair responses, graphing figures, composition of transformations, rigid-motion proofs, symmetry, and diagram-based items remain pending.'],
+gaps:['Coordinate-grid figures are drawn from the same coordinates as the question. Still pending: full ordered-pair responses, composition of transformations, rigid-motion proofs, symmetry, and diagram-based items remain pending.'],
 skills:[
 {id:'reflect-x-axis',tag:'REFLECTION',name:'Reflect over x-axis',best:[0,1,2],generate:ctx=>reflect(ctx,'x')},
 {id:'reflect-y-axis',tag:'REFLECTION',name:'Reflect over y-axis',best:[0,1,2],generate:ctx=>reflect(ctx,'y')},
@@ -21,6 +47,10 @@ skills:[
 {id:'translate-vertical',tag:'TRANSLATION',name:'Vertical translation',best:[0,1,2],generate:ctx=>translate(ctx,'y')},
 {id:'rotate-90-clockwise',tag:'ROTATION',name:'90° clockwise rotation',best:[0,1,2],generate:ctx=>rotate(ctx,'cw')},
 {id:'rotate-90-counterclockwise',tag:'ROTATION',name:'90° counterclockwise rotation',best:[0,1,2],generate:ctx=>rotate(ctx,'ccw')},
-{id:'dilate-origin',tag:'DILATION',name:'Dilation about origin',best:[0,1,2],generate:dilate}
+{id:'dilate-origin',tag:'DILATION',name:'Dilation about origin',best:[0,1,2],generate:dilate},
+{id:'translate-triangle-figure',tag:'TRANSLATION',name:'Translate a triangle (read from the grid)',best:[0,1,2],generate:translateTri},
+{id:'reflect-triangle-figure',tag:'REFLECTION',name:'Reflect a triangle across a mirror line',best:[0,1,2],generate:reflectTri},
+{id:'rotate-triangle-figure',tag:'ROTATION',name:'Rotate a triangle about the origin',best:[0,1,2],generate:rotateTri},
+{id:'dilate-triangle-figure',tag:'DILATION',name:'Dilate a triangle about the origin',best:[0,1,2],generate:dilateTri}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
