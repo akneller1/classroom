@@ -39,6 +39,10 @@
       var chord = /PA measures ([0-9]+) cm, PB measures x cm, PC measures ([0-9]+) cm, and PD measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!chord && chk.eq === chord[1]+'*x='+chord[2]+'*'+chord[3];
     }
+    if (/^geo-circle-tangent-secant-/.test(p.variant || '')) {
+      var tangentSecant = /tangent PT has length ([0-9]+) cm.*external segment of ([0-9]+) cm and a total length of x cm/.exec(p.prompt || '');
+      return !!tangentSecant && chk.eq === tangentSecant[2]+'*x='+tangentSecant[1]+'*'+tangentSecant[1];
+    }
     if (/^geo-circle-two-secants-/.test(p.variant || '')) {
       var secants = /external segment measures ([0-9]+) cm and the entire secant measures x cm.*external segment measures ([0-9]+) cm and the entire secant measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!secants && Number(secants[3]) > Number(secants[2]) && chk.eq === secants[1]+'*x='+secants[2]+'*'+secants[3];
