@@ -28,6 +28,8 @@ jobs:
         run: node worksheet-generator/menu/tests/model-tests.cjs
       - name: Algebra 1 and Geometry configuration parity
         run: node worksheet-generator/menu/tests/geometry-config-parity-tests.cjs
+      - name: Geometry student reasoning and answer-leak checks
+        run: node worksheet-generator/menu/tests/geometry-reasoning-prompts-tests.cjs
       - name: Geometry geometric plausibility checks
         run: node worksheet-generator/menu/tests/geometry-plausibility-tests.cjs
       - name: Geometry question-bank capacity audit (diagnostic)
