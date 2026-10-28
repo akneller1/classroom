@@ -1,6 +1,6 @@
 /* Geometry Unit 8: coordinate transformations, text-first verified starter bank. */
 (function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
-function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function nz(r){var n=r.int(-9,9);return n===0?4:n;}
 function reflect(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),x=axis==='x'?-b:-a,eq='x'+((axis==='x'?b:a)>=0?'+':'')+(axis==='x'?b:a)+'=0';
 return make('geo-transform-reflect-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is reflected across the '+axis+'-axis. Find '+(axis==='x'?'the y-coordinate':'the x-coordinate')+' x of the image P′.',eq,x,'Reflection across the '+axis+'-axis changes the sign of the '+(axis==='x'?'y':'x')+'-coordinate.');}
