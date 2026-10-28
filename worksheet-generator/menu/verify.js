@@ -41,7 +41,7 @@
     }
     if (/^geo-circle-two-secants-/.test(p.variant || '')) {
       var secants = /external segment measures ([0-9]+) cm and the entire secant measures x cm.*external segment measures ([0-9]+) cm and the entire secant measures ([0-9]+) cm/.exec(p.prompt || '');
-      return !!secants && Number(secants[4]) > Number(secants[3]) && chk.eq === secants[1]+'*x='+secants[3]+'*'+secants[4];
+      return !!secants && Number(secants[3]) > Number(secants[2]) && chk.eq === secants[1]+'*x='+secants[2]+'*'+secants[3];
     }
     if (/^geo-quad-diagonal-converse-/.test(p.variant || '')) {
       var halves = /AE measures ⟨([^⟩]+)⟩ cm, EC measures ([0-9]+) cm, BE measures ([0-9]+) cm, and ED measures ([0-9]+) cm/.exec(p.prompt || '');
