@@ -1,6 +1,6 @@
 /* Geometry Unit 10: text-first exact-answer area, surface area and volume. */
 (function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
-function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function make(id,prompt,eq,x,reason){return {variant:id,prompt:prompt+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function rect(ctx){var r=ctx.rng,w=r.int(3,14),h=r.int(3,ctx.c>=5?22:14),x=w*h;return make('geo-measure-rectangle-'+ctx.c,'A rectangle has width '+w+' cm and length '+h+' cm. Find its area x in square centimeters.', 'x='+w+'*'+h,x,'Area of a rectangle is length times width.');}
 function triangle(ctx){var r=ctx.rng,b=2*r.int(3,13),h=r.int(3,ctx.c>=5?20:13),x=b*h/2;return make('geo-measure-triangle-'+ctx.c,'A triangle has base '+b+' cm and perpendicular height '+h+' cm. Find its area x in square centimeters.','2*x='+b+'*'+h,x,'Area of a triangle is half the base times perpendicular height.');}
 function parallelogram(ctx){var r=ctx.rng,b=r.int(4,18),h=r.int(3,15),x=b*h;return make('geo-measure-parallelogram-'+ctx.c,'A parallelogram has base '+b+' m and perpendicular height '+h+' m. Find its area x in square meters.','x='+b+'*'+h,x,'Area of a parallelogram is base times perpendicular height.');}
