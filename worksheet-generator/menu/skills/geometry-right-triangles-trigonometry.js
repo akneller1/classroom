@@ -97,7 +97,7 @@ function specialRadical(ctx){
  steps:[step('Apply the special right triangle side ratio.',M(answer))],space:[1.4,1.7,2]};
 }
 function depression(ctx){
- var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?14:8),drop=3*k,horizontal=4*k,eq=horizontal+'*x='+drop+'*'+horizontal;
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?45:30),ratio=r.int(0,1)===0?[3,4]:[5,12],drop=ratio[0]*k,horizontal=ratio[1]*k,eq=horizontal+'*x='+drop+'*'+horizontal;
  return make('geo-right-depression-'+c,
  'From the top of a cliff, an observer looks down at a boat at angle of depression θ. The horizontal distance to the boat is '+horizontal+' feet, and tan θ = '+drop+'/'+horizontal+'. Find the vertical drop x in feet.',
  eq,drop,'Use the tangent ratio for the angle of depression.');
