@@ -91,7 +91,7 @@
     plan.sections.forEach(function(s,si) { configureSection(plan,s,si); });
     plan.sections.forEach(function(s, si) {
       var cfg = sectionConfigs[si] || {};
-      var nth = s.title.match(/\\((\\d+)\\)/);
+      var nth = s.title.match(/\((\d+)\)/);
       if (!nth && !cfg.lesson && cfg.count == null) return;
       s.groups.forEach(function(g,gi) { g.items.forEach(function(p,pi) {
         if (!p.entry) return;
