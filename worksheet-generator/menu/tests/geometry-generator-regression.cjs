@@ -249,7 +249,7 @@ for (const skillId of ['right-pythagorean-hypotenuse','right-pythagorean-leg','r
   else if (skillId === 'right-pythagorean-leg')
     tampered.prompt = tampered.prompt.replace(/(hypotenuse )(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
   else
-    tampered.prompt = tampered.prompt.replace(/(and B\\()(\\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
+    tampered.prompt = tampered.prompt.replace(/(and B\()(\d+)/,(_,prefix,n)=>prefix+(Number(n)+1));
   assert.notEqual(tampered.prompt,p.prompt,'Mutation must change a printed measurement');
   assert.equal(menu.verifyProblem(tampered,{intOnly:true,level:'game'}).ok,false,
     skillId+' must reject a modified printed measurement');
