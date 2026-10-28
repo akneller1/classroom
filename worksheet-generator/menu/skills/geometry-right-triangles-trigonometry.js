@@ -1,7 +1,7 @@
 /* Geometry Unit 6: integer-answer right triangle and trig starter bank. */
 (function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
 var triples=[[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29],[9,40,41],[12,35,37],[11,60,61],[28,45,53],[16,63,65],[33,56,65],[48,55,73]];
-function make(id,prompt,eq,x,reason,kind){var type=/^geo-right-(hyp|leg|sin|cos|tan|45|30|elevation)-/.exec(id);return {variant:id,fig:type?{kind:'geo-right-triangle',case:type[1]}:(id.indexOf('geo-right-depression-')===0?{kind:'geo-right-triangle',case:'elevation'}:null),prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:kind?{type:'geo-pythagorean',kind:kind,eq:eq}:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function make(id,prompt,eq,x,reason,kind){var type=/^geo-right-(hyp|leg|sin|cos|tan|45|30|elevation)-/.exec(id);return {variant:id,fig:type?{kind:'geo-right-triangle',case:type[1]}:(id.indexOf('geo-right-depression-')===0?{kind:'geo-right-triangle',case:'elevation'}:null),prompt:prompt+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:kind?{type:'geo-pythagorean',kind:kind,eq:eq}:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function triple(ctx){var r=ctx.rng,t=triples[r.int(0,ctx.c>=5?triples.length-1:8)],k=r.int(1,ctx.c>=5?12:8);return t.map(n=>n*k);}
 function hyp(ctx){var t=triple(ctx),a=t[0],b=t[1],x=t[2],eq='x^2='+a+'^2+'+b+'^2';return make('geo-right-hyp-'+ctx.c,'A right triangle has legs '+a+' and '+b+' units. Find the positive hypotenuse length x.',eq,x,'Apply the Pythagorean theorem.','hyp');}
 function leg(ctx){var t=triple(ctx),a=t[0],x=t[1],h=t[2],eq=a+'^2+x^2='+h+'^2';return make('geo-right-leg-'+ctx.c,'A right triangle has hypotenuse '+h+' units and one leg '+a+' units. Find the positive length x of the other leg.',eq,x,'Apply the Pythagorean theorem and take the positive root.','leg');}
@@ -47,10 +47,10 @@ function honorsSurvey(ctx){
   fig:{kind:'geo-right-triangle',case:'elevation'},
   prompt:'Honors survey investigation. A right triangle has legs '+rise+' and '+run+' units. A surveyor stands '+run+' feet horizontally from a building whose roof is '+rise+' feet above the surveyor. The line of sight forms that right triangle. A second building is viewed at the same angle of elevation from '+shadow+' feet away on level ground. Show your reasoning for all four parts.',
   parts:[
-   {prompt:'(a) Find the direct line-of-sight distance x. Use '+M(eq1)+' to find x.',answer:M('x='+hyp),check:{type:'geo-pythagorean',kind:'hyp',eq:eq1}},
-   {prompt:'(b) Find the area y of the first right triangle. Use '+M(eq2)+' to find y.',answer:M('y='+area),check:{type:'solve',eq:eq2,v:'y'}},
-   {prompt:'(c) Find the perimeter z of the first right triangle. Use '+M(eq3)+' to find z.',answer:M('z='+perimeter),check:{type:'solve',eq:eq3,v:'z'}},
-   {prompt:'(d) Find the height w of the second building, using the equal angle of elevation. Use '+M(eq4)+' to find w.',answer:M('w='+tree),check:{type:'solve',eq:eq4,v:'w'}}
+   {prompt:'(a) Find the direct line-of-sight distance x. Show your calculation to find x.',answer:M('x='+hyp),check:{type:'geo-pythagorean',kind:'hyp',eq:eq1}},
+   {prompt:'(b) Find the area y of the first right triangle. Show your calculation to find y.',answer:M('y='+area),check:{type:'solve',eq:eq2,v:'y'}},
+   {prompt:'(c) Find the perimeter z of the first right triangle. Show your calculation to find z.',answer:M('z='+perimeter),check:{type:'solve',eq:eq3,v:'z'}},
+   {prompt:'(d) Find the height w of the second building, using the equal angle of elevation. Show your calculation to find w.',answer:M('w='+tree),check:{type:'solve',eq:eq4,v:'w'}}
   ],
   steps:[
    step('Use the Pythagorean theorem for line of sight.',M(eq1)),
