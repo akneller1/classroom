@@ -141,3 +141,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 ## Circles: tier-specific inverse reasoning (2026-10-28)
 - Difficulty audit found arc length and sector area used identical forward formulas at every tier, changing only numbers. Tiers 5–7 now reverse each relationship: given radius and exact arc length or sector area, solve for central angle and justify the circumference/area fraction.
 - Tiers 1–4 retain direct formula practice. Honors variants use independent student-visible inverse-equation verification and exact integer central angles. All 16 skill registrations remain intact; no diagrams created. CI pending.
+
+## Circles: Honors two-secant internal segments (2026-10-28)
+- Tiers 5–7 of the existing `circle-two-secants` skill now give *external* and *internal* secant segment lengths, requiring students to form each entire secant as their sum. They solve a(x+a)=b(b+c) for the unknown internal segment x.
+- Tiers 1–4 retain direct external×whole calculations. Generated positive integer solutions are guaranteed by construction. The verifier independently parses all three visible lengths and checks the compound equation. No new skill registrations or diagrams. CI pending.

@@ -88,6 +88,11 @@
       var tangentSecant = /tangent PT has length ([0-9]+) cm.*external segment of ([0-9]+) cm and a total length of x cm/.exec(p.prompt || '');
       return !!tangentSecant && chk.eq === tangentSecant[2]+'*x='+tangentSecant[1]+'*'+tangentSecant[1];
     }
+    if (/^geo-circle-two-secants-inside-/.test(p.variant || '')) {
+      var insideSecants=/external segment measures ([0-9]+) cm and the segment inside the circle measures x cm.*external segment measures ([0-9]+) cm and the segment inside the circle measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!insideSecants && Number(insideSecants[1])>0 && Number(insideSecants[2])>0 && Number(insideSecants[3])>0 &&
+        chk.eq===insideSecants[1]+'*(x+'+insideSecants[1]+')='+insideSecants[2]+'*('+insideSecants[2]+'+'+insideSecants[3]+')';
+    }
     if (/^geo-circle-two-secants-/.test(p.variant || '')) {
       var secants = /external segment measures ([0-9]+) cm and the entire secant measures x cm.*external segment measures ([0-9]+) cm and the entire secant measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!secants && Number(secants[3]) > Number(secants[2]) && chk.eq === secants[1]+'*x='+secants[2]+'*'+secants[3];
