@@ -67,3 +67,9 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added a regression assertion for the angle-bisector givens to the reasoning-prompt test (now 480 generated instances: four tiers × 30 seeds × four families).
 - Refreshed browser cache query strings for all eight updated Geometry scripts in the Menu Assessment Generator.
 - **Verification gate remains:** no confirmed green GitHub Actions result for the newest commits; do not claim the suite passed. A separate diagram and print preview inspection is still required.
+
+## Green CI baseline and flashcard cache parity (2026-10-28)
+- GitHub Actions commit `f4e70f3` passed all five workflows: Menu Assessment Generator, Geometry Flashcard QA, Algebra 1 smoke tests, Worksheet Math Bank Audit, and Pages deployment.
+- Inspected all ten Geometry flashcard entrypoint HTML files. Each uses the same shared `games/games.js` and `games/bank.js` infrastructure as Algebra 1 flashcards, with shared level controls. This establishes shared code, not visual/browser parity of every generated skill.
+- All ten Geometry flashcard pages previously referenced older cache keys for `menu/verify.js` and their respective `menu/skills/geometry-*.js`. Updated those script cache keys together to the green-tested `f4e70f3` version so browsers fetch the verified code.
+- Remaining: inspect live desktop/mobile flashcard settings, all ten diagram renderings, PDF/print quality, and self-assessment/lesson-planner/vocabulary feature parity. CI for this cache-only change requires confirmation.
