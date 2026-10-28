@@ -293,8 +293,14 @@
     return '<table class="pl-tbl pl-rate"><thead><tr><th>' + (raw ? 'Topic' : 'Lesson') + '</th><th colspan="4">' + esc(head) + '</th></tr></thead><tbody>' +
       ids.map(function (id) { return '<tr><td>' + esc(raw ? id : (id === 'LAUNCH-2' ? 'Pre-algebra skills (expressions, equations, proportions)' : lessonTitle(id))) + '</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>'; }).join('') + '</tbody></table>';
   }
-  function notesBody(plan, s) {
-    var d = plan.day, h = '', voc = P.vocab(d);
+  function notesBody(plan, s, singleDay) {
+    if (!singleDay && plan.selectedDays && plan.selectedDays.length > 1 && !s.reference && !s.routines && !s.project && !s.corrections) {
+      return plan.selectedDays.map(function(n) {
+        var d = P.day(n);
+        return d ? '<div class="pl-gh">' + esc(d.title) + '</div>' + notesBody(plan, s, d) : '';
+      }).join('');
+    }
+    var d = singleDay || plan.day, h = '', voc = P.vocab(d);
     if (s.routines) return '<table class="pl-tbl"><tbody>' + routines(d).map(function (r) { return '<tr><th>' + esc(r[0]) + '</th><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table>';
     if (s.project) return '<table class="pl-tbl"><thead><tr><th>Model</th><th>Pattern in the data</th><th>Equation</th></tr></thead><tbody><tr><td>Linear</td><td>constant differences (same amount added)</td><td>⟨y = mx + b⟩</td></tr><tr><td>Exponential</td><td>constant ratios (same factor multiplied)</td><td>⟨y = a·b^x⟩</td></tr><tr><td>Quadratic</td><td>constant second differences; rises then falls (or falls then rises)</td><td>⟨y = ax^2 + bx + c⟩</td></tr></tbody></table>'.replace(/⟨[^⟩]*⟩/g, function (m) { return ms(m); }) + '<div class="pl-gh">Rubric: model choice · equation · graph · explanation · presentation (4 points each)</div>';
     if (s.corrections) return '<table class="pl-tbl pl-corr"><thead><tr><th>#</th><th>My error</th><th>Correct work</th></tr></thead><tbody>' + [1, 2, 3, 4].map(function () { return '<tr><td></td><td></td><td></td></tr>'; }).join('') + '</tbody></table>';
