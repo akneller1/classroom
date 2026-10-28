@@ -31,6 +31,10 @@
       var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\d+) degrees/.exec(p.prompt || '');
       return !!measures && measures[1]+'='+measures[2] === chk.eq;
     }
+    if (/^geo-congruence-third-angle-/.test(p.variant || '')) {
+      var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
+      return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
+    }
     if (/^geo-vertical-/.test(p.variant || '')) return false;
     if (/^geo-transversal-/.test(p.variant || '')) {
       var b = /angle measures are ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');
