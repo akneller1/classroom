@@ -5016,6 +5016,32 @@ window.LIBRARY = {
           "name": "Triangle Relationships",
           "artifacts": [
             {
+              "title": "Starlight Observatory: Locked Under the Stars",
+              "path": "artifacts/triangle-relationships-escape-room/index.html",
+              "thumb": "thumbs/triangle-relationships-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
+              "type": "Game",
+              "topics": [
+                "Triangle relationships",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "The Harbor Museum Compass Caper",
+              "path": "artifacts/triangle-relationships-harbor-museum-caper/index.html",
+              "thumb": "thumbs/triangle-relationships-harbor-museum-caper.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Triangle relationships",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-28"
+            },
+            {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
               "thumb": "thumbs/practice-test.svg",
@@ -5604,6 +5630,32 @@ window.LIBRARY = {
           "id": "quadrilaterals-polygons",
           "name": "Quadrilaterals and Polygons",
           "artifacts": [
+            {
+              "title": "Lockdown at the Tile Factory",
+              "path": "artifacts/quadrilaterals-polygons-escape-room/index.html",
+              "thumb": "thumbs/quadrilaterals-polygons-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key (code 205).",
+              "type": "Game",
+              "topics": [
+                "Quadrilaterals and polygons",
+                "Escape room",
+                "Teamwork"
+              ],
+              "added": "2026-10-28"
+            },
+            {
+              "title": "The Mosaic Gallery Heist",
+              "path": "artifacts/quadrilaterals-polygons-mosaic-gallery-heist/index.html",
+              "thumb": "thumbs/quadrilaterals-polygons-mosaic-gallery-heist.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers.",
+              "type": "Game",
+              "topics": [
+                "Quadrilaterals and polygons",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-28"
+            },
             {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-quadrilaterals-polygons",

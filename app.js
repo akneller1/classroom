@@ -675,7 +675,12 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   ];
   function generatorLinks(c, u, compact) {
     var items = u ? u.artifacts : [];
-    var unitId = u ? (c.id === 'geometry' ? ({'foundations-geometry':'geometry-basics-reasoning','angles-parallel-lines':'geometry-angles-parallel-lines'}[u.id] || '') : 'algebra1-' + u.id) : '';
+    var unitId = '';
+    if (u) {
+      if (c.id === 'geometry') {
+        items.some(function (a) { var m = /#unit=([a-z0-9-]+)/.exec(a.path || ''); if (m) { unitId = m[1]; return true; } return false; });
+      } else unitId = 'algebra1-' + u.id;
+    }
     return '<div class="generator-banner' + (compact ? ' compact' : '') + '">' +
       '<div class="generator-banner-heading"><h2>' + (compact ? 'Create Resources for This Unit' : 'What would you like to do today?') + '</h2>' +
       (!compact ? '<p>Choose a generator, select your unit, and make classroom-ready resources.</p>' : '') + '</div>' +
@@ -683,9 +688,9 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
         var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
         if (c && c.id === 'geometry') {
-          var supported = !!unitId && (tool.format === 'worksheet-generator' || tool.format === 'assessment-generator');
+          var supported = !u || !!unitId;
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
-          url += '#unit=' + unitId;
+          url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
         }
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +

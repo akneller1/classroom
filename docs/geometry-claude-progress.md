@@ -145,3 +145,15 @@ Fixes made:
 - Added the missing Triangle Congruence Flashcards card (the page already existed).
 - All ten Geometry cheat-sheet PDFs were read page by page; every example and formula is correct.
 - Known gaps vs Algebra 1: no Maze or Tarsia; Triangle Congruence has only the Stations printable (its problems all need diagrams); Triangle Relationships and Quadrilaterals have no escape room or mystery game.
+
+## Generator shortcuts and the last four games (2026-10-28)
+
+- **"Coming soon" generator buttons fixed.** `generatorLinks()` in `app.js` had a hard-coded map that only enabled 2 of the 10 geometry units, and only for Worksheet and Assessment. It now reads the unit id from the unit's own generator links in `data.js`, so every unit shows working Lesson Plan, Worksheet, Activity and Assessment buttons. Checked in a browser for all 10 units and all 40 generator-page/unit combinations. Cache tag: `app.js?v=geo-generators-20261028`.
+- **Four games added** (Geometry now has an escape room and a mystery in every unit):
+  - `artifacts/triangle-relationships-escape-room/`: Starlight Observatory, word COMET, stamps 14/27/41/58/70.
+  - `artifacts/quadrilaterals-polygons-escape-room/`: Lockdown at the Tile Factory, word TILES, stamps 11/24/39/52/67.
+  - `artifacts/triangle-relationships-harbor-museum-caper/` and `artifacts/quadrilaterals-polygons-mosaic-gallery-heist/`: typed-answer detective games.
+  - Both escape rooms use the shared engine with a 10 minute timer, 30 s wrong-answer penalty and the teacher key at `#key` behind code 205.
+  - Built by `scripts/build_geometry_escape_rooms.py` and `scripts/build_geometry_mysteries.py` (figures from `scripts/geo_svg.py`). The mystery builder re-computes every answer and checks that exactly one suspect, place and method survive the clues.
+  - All four were played through in Playwright (wrong answer rejected, cipher shift, final stamp order, key gate). Thumbnails in `thumbs/`, entries in `data.js` (cache tag `data.js?v=geo-games-20261028`).
+- Still open: Triangle Congruence printables (need text-only skills), a figure for `cross-section`, print-to-PDF QA.

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Starlight Observatory: Locked Under the Stars</title>
+<style>
+:root{--bg:#0f1226;--card:#1a1f3d;--ink:#f3efe2;--dim:#9aa0c3;--gold:#ffc857;--red:#ff5d6c;--green:#5de0a0;--blue:#6ec1ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% 0,#232859,#0f1226 60%);color:var(--ink);font-family:"Trebuchet MS",Verdana,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;background:#0a0c1c;border-bottom:2px solid #2b3166;flex-wrap:wrap}
+h1{font-size:1.15rem;margin:0;color:var(--gold);letter-spacing:.5px}
+#clock{font:700 1.6rem "Courier New",monospace;color:var(--green)}#clock.low{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.45}}
+#dots{display:flex;gap:8px}.dot{width:14px;height:14px;border-radius:50%;background:#2b3166;border:2px solid #4a529a}.dot.done{background:var(--gold);border-color:var(--gold)}.dot.now{border-color:var(--ink)}
+main{max-width:1050px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){main{grid-template-columns:1fr}}
+.panel{background:var(--card);border:2px solid #323a7a;border-radius:14px;padding:14px}
+.panel h2{margin:0 0 6px;color:var(--gold);font-size:1.1rem}
+.story{color:var(--dim);font-style:italic;margin:0 0 10px;line-height:1.4}
+svg.scene{width:100%;height:auto;background:#0b0e20;border-radius:10px;display:block}
+.hot{cursor:pointer}.hot:hover{filter:brightness(1.4)}
+.eq{font:700 1.1rem "Courier New",monospace;background:#0b0e20;border-radius:8px;padding:8px 12px;margin:6px 0;display:inline-block;line-height:1.5}
+input[type=number],input[type=text]{background:#0b0e20;color:var(--ink);border:2px solid #4a529a;border-radius:8px;padding:8px;font:700 1.1rem "Courier New",monospace;width:100px;text-align:center}
+input[type=text]{width:200px;letter-spacing:2px;text-transform:uppercase}
+button{background:var(--gold);color:#1a1530;border:0;border-radius:9px;padding:9px 16px;font:700 1rem inherit;cursor:pointer}
+button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}button:hover{filter:brightness(1.12)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.msg{min-height:1.4em;font-weight:700}.bad{color:var(--red)}.good{color:var(--green)}
+.shake{animation:shake .4s}@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.hint{background:#0b0e20;border-left:4px solid var(--blue);padding:7px 10px;margin:6px 0;border-radius:4px;color:#cfe8ff}
+.note{background:#fff3a8;color:#3a2f00;padding:12px;border-radius:4px;transform:rotate(-1.5deg);font:600 1.05rem "Comic Sans MS",cursive;box-shadow:3px 4px 8px #0008;margin:8px 0;line-height:1.5}
+.wheel{font:700 .9rem "Courier New",monospace;background:#0b0e20;padding:8px;border-radius:8px;overflow-x:auto;white-space:pre}
+.cipher{font:700 1.4rem "Courier New",monospace;letter-spacing:3px;word-break:break-word;margin:8px 0}
+.sw{display:flex;gap:6px;margin:5px 0 12px;align-items:center;flex-wrap:wrap}.sw button{background:#2b3166;color:var(--ink);padding:7px 12px}.sw button.on{background:var(--gold);color:#1a1530}
+.card{display:inline-block;background:var(--gold);color:#1a1530;border-radius:8px;padding:8px 12px;margin:4px;text-align:center;font-weight:700;box-shadow:2px 3px 6px #0008}.card b{display:block;font:700 1.7rem "Courier New",monospace}
+.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.1}.frac span:first-child{border-bottom:2px solid currentColor;padding:0 3px}
+.big{text-align:center;padding:30px}.big h2{font-size:2rem}
+#intro,#end{max-width:700px;margin:40px auto}
+.dialbox{display:flex;flex-direction:column;align-items:center;gap:4px}.dialbox button{padding:3px 14px}.dialbox .num{font:700 2rem "Courier New",monospace;background:#0b0e20;border:2px solid var(--gold);border-radius:8px;width:56px;text-align:center}
+.ord{display:flex;align-items:center;gap:8px;background:#0b0e20;border-radius:8px;padding:7px 10px;margin:5px 0}.ord span.t{flex:1}.ord button{padding:2px 10px;background:#2b3166;color:var(--ink)}
+.q{margin:8px 0 2px}
+#key{display:none;max-width:1050px;margin:0 auto 30px;padding:0 16px}
+</style></head><body>
+<header><h1>🔭 Starlight Observatory: Locked Under the Stars</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
+<div id="app"></div>
+<div id="key" class="panel"></div>
+<script>
+const fr=(a,b)=>`<span class="frac"><span>${a}</span><span>${b}</span></span>`;
+const sup=e=>`<sup>${e}</sup>`;
+const sub=e=>`<sub>${e}</sub>`;
+const ROOM={
+ id:'triangle-relationships', title:'Starlight Observatory: Locked Under the Stars', emoji:'🔭', endEmoji:'🌠🔭',
+ intro:'The observatory closed for the night, but your class is still inside. The dome door sealed itself, the telescope lights are blinking, and the night watchman is back in <b>10 minutes</b>. Solve the puzzle in each room, collect the key cards, and open the telescope to leave.',
+ finalStory:'The telescope controls have five slots. Insert your key cards in order from the smallest stamp to the largest. The letters name what you will see through the lens.',
+ finalAsk:'What do you see?', word:'COMET',
+ outro:'The telescope swings around and a bright comet glides into view. The dome door clicks open, and the watchman waves you out under the stars. Best field trip ever.',
+ stages:[
+ {name:'The Dome Door',type:'fields',stamp:14,letter:'C',ui:'dial',
+  story:'The dome door has two dials. A brass plaque shows a triangle and a note about another one. Set the dials to the answers.',
+  scene:{kind:'emoji',bg:'#0a0d2a',floor:'#1b1f4a',items:[{e:'🔭',x:150,y:190,s:110,msg:'The big telescope, pointing at nothing yet.'},{e:'🌙',x:330,y:80,s:50,msg:'A crescent moon is painted on the dome.'},{e:'⭐',x:80,y:80,s:34,msg:'A star sticker. Not useful.'}],caption:'dial A, then dial B'},
+  title:'The Plaque',prompt:`<div class="note">Triangle ABC is isosceles with AB = AC. Its base angles are ∠B = (7x + 3)° and ∠C = (5x + 9)°.</div><p>Dial A: find x.<br>Dial B: a different triangle has two sides of length 3 and 5. How many whole-number lengths could its third side have?</p>`,
+  fields:[{label:'A (x)',answer:3},{label:'B (how many)',answer:5}],button:'Open the door',
+  hints:['Base angles of an isosceles triangle are equal. Set 7x + 3 = 5x + 9.','x = 3. For dial B, the third side must be greater than 5 − 3 and less than 5 + 3.','The third side is between 2 and 8, not including 2 or 8. List the whole numbers.'],
+  key:'7x + 3 = 5x + 9 gives x = 3. The third side c satisfies 2 < c < 8, so c = 3, 4, 5, 6, 7: five values. A = 3, B = 5.'},
+ {name:'The Star Map Room',type:'cipher',stamp:27,letter:'O',
+  story:'A star map is rolled up in a cabinet, and its location is written in code. A sticky note on the lamp gives the shift. Click things to find it.',
+  scene:{kind:'emoji',bg:'#0c1030',floor:'#2a2060',items:[{e:'🗺️',x:130,y:190,s:90,msg:'A big sky chart. The name of the room is scribbled in code.'},{e:'💡',x:270,y:110,s:40,clue:'Stuck to the lamp:<br>An exterior angle of a triangle measures (6x + 4)°.<br>The two remote interior angles measure (2x + 10)° and (3x + 4)°.<br>Shift = x',msg:'You found a sticky note!'},{e:'🪐',x:340,y:170,s:50,msg:'A model of Saturn. It wobbles.'}],caption:'click things to inspect them'},
+  plain:'THE STAR MAP IS HIDDEN IN THE TOWER',shift:10,answer:'TOWER',askLabel:'Hiding place',
+  hints:['Click the lamp to read the note.','The exterior angle equals the sum of the two remote interior angles: 6x + 4 = (2x + 10) + (3x + 4).','6x + 4 = 5x + 14, so x = 10. Set the shift to 10.'],
+  key:'6x + 4 = (2x + 10) + (3x + 4) = 5x + 14, so x = 10. Shift 10. Hiding place: TOWER.'},
+ {name:'The Instrument Panel',type:'classify',stamp:41,letter:'M',
+  story:'The instrument panel wants the correct name for each marked segment in the sketch of the triangular support frame. Matching tick marks mean equal lengths, and a small square means a right angle.',
+  scene:{kind:'svg',viewBox:'0 0 400 300',svg:`<polygon points="60.0,240.0 340.0,240.0 100.0,40.0" fill="rgba(110,193,255,.08)" stroke="#6ec1ff" stroke-width="3"/><line x1="60.0" y1="240.0" x2="220.0" y2="140.0" stroke="#ff7ab8" stroke-width="3" stroke-linecap="round"/><line x1="276.8" y1="193.8" x2="283.2" y2="186.2" stroke="#fff" stroke-width="2.2"/><line x1="156.8" y1="93.8" x2="163.2" y2="86.2" stroke="#fff" stroke-width="2.2"/><line x1="340.0" y1="240.0" x2="70.8" y2="186.2" stroke="#7cf29a" stroke-width="3" stroke-linecap="round"/><polyline points="68.6,196.9 79.4,199.1 81.6,188.3" fill="none" stroke="#fff" stroke-width="2"/><line x1="100.0" y1="40.0" x2="170.6" y2="240.0" stroke="#ffc857" stroke-width="3" stroke-linecap="round"/><path d="M94.9 65.5 A26 26 0 0 0 108.7 64.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M110.3 69.2 A31 31 0 0 0 123.8 59.8" fill="none" stroke="#fff" stroke-width="2"/><line x1="80.0" y1="140.0" x2="200.0" y2="240.0" stroke="#c79bff" stroke-width="3" stroke-linecap="round"/><line x1="64.5" y1="192.0" x2="74.3" y2="193.9" stroke="#fff" stroke-width="2.2"/><line x1="65.7" y1="186.1" x2="75.5" y2="188.0" stroke="#fff" stroke-width="2.2"/><line x1="84.5" y1="92.0" x2="94.3" y2="93.9" stroke="#fff" stroke-width="2.2"/><line x1="85.7" y1="86.1" x2="95.5" y2="88.0" stroke="#fff" stroke-width="2.2"/><line x1="220.0" y1="140.0" x2="136.7" y2="240.0" stroke="#ff9a4d" stroke-width="3" stroke-dasharray="7 5" stroke-linecap="round"/><polyline points="228.5,147.0 221.4,155.5 213.0,148.5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="60.0" cy="240.0" r="3.5" fill="#fff"/><circle cx="340.0" cy="240.0" r="3.5" fill="#fff"/><circle cx="100.0" cy="40.0" r="3.5" fill="#fff"/><circle cx="220.0" cy="140.0" r="3.5" fill="#fff"/><circle cx="70.8" cy="186.2" r="3.5" fill="#fff"/><circle cx="170.6" cy="240.0" r="3.5" fill="#fff"/><circle cx="80.0" cy="140.0" r="3.5" fill="#fff"/><circle cx="200.0" cy="240.0" r="3.5" fill="#fff"/><circle cx="136.7" cy="240.0" r="3.5" fill="#fff"/><text x="42.0" y="246.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">A</text><text x="348.0" y="246.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">B</text><text x="96.0" y="30.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">C</text><text x="229.0" y="136.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">D</text><text x="78.8" y="184.2" fill="#fff" font-size="15" font-weight="700" text-anchor="start">E</text><text x="166.6" y="262.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">F</text><text x="62.0" y="138.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">G</text><text x="196.0" y="262.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">K</text><text x="120.7" y="260.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">P</text>`},
+  title:'The Name Panel',prompt:'<p style="color:var(--dim)">Choose the name for each one. D is the midpoint of BC, G and K are midpoints of AC and AB, and the two angles at C are equal.</p>',
+  items:['Segment <b>AD</b>','Segment <b>BE</b>','Segment <b>CF</b>','Segment <b>GK</b>','Line <b>DP</b> (BD = DC)'],
+  options:['Median','Altitude','Angle bisector','Midsegment','Perpendicular bisector'],answer:[0,1,2,3,4],
+  hints:['A median goes from a vertex to the midpoint of the opposite side. An altitude meets the opposite side at a right angle.','An angle bisector splits an angle into two equal angles. A midsegment joins the midpoints of two sides.','A perpendicular bisector crosses a side at its midpoint at a right angle, and it does not have to start at a vertex.'],
+  key:'AD is a median, BE is an altitude, CF is an angle bisector, GK is a midsegment, DP is a perpendicular bisector of BC.'},
+ {name:'The Calibration Log',type:'order',stamp:58,letter:'E',
+  story:'The telescope mount sits on a support beam. Point P lies on the perpendicular bisector of segment AB, with PA = 3x + 2 and PB = 5x − 6. Rebuild the calibration log that finds PA.',
+  scene:{kind:'emoji',bg:'#0b0e24',floor:'#1b2250',items:[{e:'🔭',x:200,y:180,s:100,msg:'The mount is shaking a little.'},{e:'📏',x:330,y:190,s:40,msg:'A ruler. The log is already measured.'}],caption:'PA = 3x + 2,  PB = 5x − 6'},
+  title:'The Log',prompt:'<p style="color:var(--dim)">Put the steps in the correct order, top to bottom.</p>',
+  steps:['Every point on the perpendicular bisector of a segment is the same distance from both endpoints, so PA = PB.','Set the expressions equal: 3x + 2 = 5x − 6.','Subtract 3x from both sides: 2 = 2x − 6.','Add 6 to both sides: 8 = 2x, so x = 4.','Substitute: PA = 3(4) + 2 = 14.'],
+  hints:['What do you know about a point on a perpendicular bisector and the two endpoints?','Use that fact first, then solve for x, then substitute.','The last step finds PA, not x.'],
+  key:'PA = PB, so 3x + 2 = 5x − 6, x = 4, and PA = 3(4) + 2 = 14.'},
+ {name:'The Telescope Mount',type:'fields',stamp:70,letter:'T',
+  story:'The mount has a triangular frame. Median AD is 24 long, and G is where the medians meet. D and E are midpoints of BC and AC, and AB = 30. Three readings are needed.',
+  scene:{kind:'svg',viewBox:'0 0 400 300',svg:`<polygon points="60.0,235.0 330.0,235.0 200.0,40.0" fill="rgba(110,193,255,.08)" stroke="#6ec1ff" stroke-width="3"/><line x1="60.0" y1="235.0" x2="265.0" y2="137.5" stroke="#ff7ab8" stroke-width="3" stroke-linecap="round"/><line x1="265.0" y1="137.5" x2="130.0" y2="137.5" stroke="#c79bff" stroke-width="3" stroke-linecap="round"/><line x1="293.3" y1="189.0" x2="301.7" y2="183.5" stroke="#fff" stroke-width="2.2"/><line x1="228.3" y1="91.5" x2="236.7" y2="86.0" stroke="#fff" stroke-width="2.2"/><line x1="89.2" y1="185.8" x2="97.3" y2="191.6" stroke="#fff" stroke-width="2.2"/><line x1="92.7" y1="180.9" x2="100.8" y2="186.7" stroke="#fff" stroke-width="2.2"/><line x1="159.2" y1="88.3" x2="167.3" y2="94.1" stroke="#fff" stroke-width="2.2"/><line x1="162.7" y1="83.4" x2="170.8" y2="89.2" stroke="#fff" stroke-width="2.2"/><circle cx="60.0" cy="235.0" r="3.5" fill="#fff"/><circle cx="330.0" cy="235.0" r="3.5" fill="#fff"/><circle cx="200.0" cy="40.0" r="3.5" fill="#fff"/><circle cx="265.0" cy="137.5" r="3.5" fill="#fff"/><circle cx="130.0" cy="137.5" r="3.5" fill="#fff"/><circle cx="196.7" cy="170.0" r="5" fill="#ffc857"/><text x="44.0" y="241.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">A</text><text x="338.0" y="241.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">B</text><text x="195.0" y="30.0" fill="#fff" font-size="15" font-weight="700" text-anchor="start">C</text><text x="274.0" y="137.5" fill="#fff" font-size="15" font-weight="700" text-anchor="start">D</text><text x="112.0" y="137.5" fill="#fff" font-size="15" font-weight="700" text-anchor="start">E</text><text x="202.7" y="188.0" fill="#ffc857" font-size="15" font-weight="700" text-anchor="start">G</text><text x="165.0" y="258.0" fill="#ffc857" font-size="14" font-weight="700" text-anchor="start">AB = 30</text><text x="176.0" y="214.0" fill="#ffc857" font-size="14" font-weight="700" text-anchor="start">AD = 24</text>`},
+  title:'The Mount Readings',prompt:'<p>Find AG, GD and DE.</p>',
+  fields:[{label:'AG',answer:16},{label:'GD',answer:8},{label:'DE',answer:15}],button:'Aim the telescope',
+  hints:['The medians meet at the centroid, which is two thirds of the way from each vertex to the midpoint of the opposite side.',`AG = ${fr('2','3')} × 24. Then GD is the rest of the median.`,'DE joins the midpoints of two sides, so it is half as long as the side it is parallel to, AB.'],
+  key:`AG = ${fr('2','3')}(24) = 16 and GD = 24 − 16 = 8. DE is a midsegment, so DE = ${fr('1','2')}(30) = 15.`}
+ ]};
+
+const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;
+let t=TOTAL, used=0, stage=-1, timer=null, cards=[], hintsShown={}, st={};
+const $=s=>document.querySelector(s);
+const ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const caesar=(s,k)=>s.replace(/[A-Z]/g,c=>ALPHA[(ALPHA.indexOf(c)+k+26)%26]);
+const fmt=s=>{s=Math.max(0,s);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+function tick(){t--;$('#clock').textContent=fmt(t);$('#clock').classList.toggle('low',t<300);if(t<=0){clearInterval(timer);timeUp()}}
+function dots(){$('#dots').innerHTML=STAGES.map((_,i)=>`<div class="dot ${i<stage?'done':''} ${i==stage?'now':''}"></div>`).join('')}
+function timeUp(){const el=document.createElement('div');el.className='panel';el.style.cssText='position:fixed;top:70px;left:50%;transform:translateX(-50%);z-index:9;border-color:var(--red)';el.innerHTML='⏰ Time is up! Keep going, but note how long your team takes.<br><button onclick="this.parentNode.remove()">Keep going</button>';document.body.appendChild(el)}
+function wrong(msg){t=Math.max(0,t-30);const clock=$('#clock');if(clock)clock.textContent=fmt(t);say(msg+' (−30 seconds)',false);if(t<=0&&timer){clearInterval(timer);timer=null;timeUp()}}
+function say(txt,ok){const m=$('#m');m.textContent=txt;m.className='msg '+(ok?'good':'bad');if(!ok){const p=m.closest('.panel');p.classList.remove('shake');void p.offsetWidth;p.classList.add('shake')}}
+function getHint(){const s=STAGES[stage];hintsShown[stage]=hintsShown[stage]||0;if(hintsShown[stage]>=s.hints.length)return;t-=HINT_COST;used++;$('#hu').textContent=used;$('#clock').textContent=fmt(t);hintsShown[stage]++;$('#hints').innerHTML=s.hints.slice(0,hintsShown[stage]).map(h=>`<div class="hint">💡 ${h}</div>`).join('')}
+function pass(){cards.push({stamp:STAGES[stage].stamp,letter:STAGES[stage].letter});stage++;dots();show()}
+/* ---- scenes ---- */
+function sceneEmoji(sc){
+ const items=(sc.items||[]).map((it,i)=>`<g class="hot" data-i="${i}" onclick="hot(${i})"><text x="${it.x}" y="${it.y}" font-size="${it.s||44}" text-anchor="middle">${it.e}</text></g>`).join('');
+ return `<svg class="scene" viewBox="0 0 400 300"><rect width="400" height="300" fill="${sc.bg||'#0b0e20'}"/><rect y="230" width="400" height="70" fill="${sc.floor||'#1b1f3f'}"/>${items}<text x="200" y="292" fill="#9aa0c3" font-size="12" text-anchor="middle">${sc.caption||'(click things to inspect them)'}</text></svg>`}
+function hot(i){const it=STAGES[stage].scene.items[i];if(it.clue){const n=$('#note');if(n)n.innerHTML=`<div class="note">${it.clue}</div>`;say(it.msg||'You found something!',true)}else say(it.msg||'Nothing useful here.',true)}
+function sceneGrid(sc){
+ const W=400,H=sc.h||400,pad=26,ux=(W-2*pad)/(sc.xmax-sc.xmin),uy=(H-2*pad)/(sc.ymax-sc.ymin),u=Math.min(ux,uy);
+ const X=x=>pad+(x-sc.xmin)*u,Y=y=>H-pad-(y-sc.ymin)*u,step=(sc.xmax-sc.xmin)>14?2:1;
+ let g='';
+ for(let x=sc.xmin;x<=sc.xmax;x++){g+=`<line x1="${X(x)}" y1="${Y(sc.ymin)}" x2="${X(x)}" y2="${Y(sc.ymax)}" stroke="#222a55"/>`;if(x%step==0&&x!=0)g+=`<text x="${X(x)}" y="${Y(Math.max(sc.ymin,Math.min(0,sc.ymax)))+13}" fill="#9aa0c3" font-size="10" text-anchor="middle">${x}</text>`}
+ for(let y=sc.ymin;y<=sc.ymax;y++){g+=`<line x1="${X(sc.xmin)}" y1="${Y(y)}" x2="${X(sc.xmax)}" y2="${Y(y)}" stroke="#222a55"/>`;if(y%step==0&&y!=0)g+=`<text x="${X(Math.max(sc.xmin,Math.min(0,sc.xmax)))-4}" y="${Y(y)+4}" fill="#9aa0c3" font-size="10" text-anchor="end">${y}</text>`}
+ const ax=Math.max(sc.xmin,Math.min(0,sc.xmax)),ay=Math.max(sc.ymin,Math.min(0,sc.ymax));
+ g+=`<line x1="${X(ax)}" y1="${Y(sc.ymin)}" x2="${X(ax)}" y2="${Y(sc.ymax)}" stroke="#6a72c0" stroke-width="2"/><line x1="${X(sc.xmin)}" y1="${Y(ay)}" x2="${X(sc.xmax)}" y2="${Y(ay)}" stroke="#6a72c0" stroke-width="2"/>`;
+ (sc.polys||[]).forEach(p=>{g+=`<polygon points="${p.pts.map(q=>X(q[0])+','+Y(q[1])).join(' ')}" fill="${p.fill||'none'}" fill-opacity=".25" stroke="${p.color||'#ffc857'}" stroke-width="3"/>`;if(p.label)g+=`<text x="${X(p.lx)}" y="${Y(p.ly)}" fill="${p.color||'#ffc857'}" font-size="13" font-weight="700">${p.label}</text>`});
+ (sc.lines||[]).forEach(l=>{g+=`<line x1="${X(l.a[0])}" y1="${Y(l.a[1])}" x2="${X(l.b[0])}" y2="${Y(l.b[1])}" stroke="${l.color||'#ff3d5a'}" stroke-width="4"/>`;if(l.label)g+=`<text x="${X(l.lx)}" y="${Y(l.ly)}" fill="${l.color||'#ff3d5a'}" font-size="13" font-weight="700">${l.label}</text>`});
+ (sc.points||[]).forEach(p=>{g+=`<circle cx="${X(p.x)}" cy="${Y(p.y)}" r="5" fill="${p.color||'#fff'}"/>`;if(p.label)g+=`<text x="${X(p.x)+7}" y="${Y(p.y)-7}" fill="#fff" font-size="13" font-weight="700">${p.label}</text>`});
+ return `<svg class="scene" viewBox="0 0 ${W} ${H}">${g}</svg>`}
+function scene(s){const sc=s.scene||{kind:'emoji',items:[]};return sc.kind=='grid'?sceneGrid(sc):sc.kind=='svg'?`<svg class="scene" viewBox="${sc.viewBox||'0 0 400 300'}"><rect width="100%" height="100%" fill="#0b0e20"/>${sc.svg}</svg>`:sceneEmoji(sc)}
+/* ---- puzzles ---- */
+const P={
+fields(s){return `<h2>${s.title||'Lock'}</h2><div>${s.prompt}</div><div class="row">${s.fields.map((f,i)=>s.ui=='dial'?`<div class="dialbox"><button onclick="dl(${i},1)">▲</button><div class="num" id="d${i}">0</div><button onclick="dl(${i},-1)">▼</button><small>${f.label}</small></div>`:`<span>${f.label}</span><input id="f${i}" type="number" step="any">`).join('')}<button id="go" onclick="chkFields()">${s.button||'Unlock'}</button></div>`},
+classify(s){return `<h2>${s.title||'Panels'}</h2><div>${s.prompt||''}</div>${s.items.map((it,i)=>`<div class="q">${it}</div><div class="sw" id="sw${i}">${s.options.map((o,j)=>`<button onclick="pv(${i},${j})">${o}</button>`).join('')}</div>`).join('')}<button id="go" onclick="chkClass()">${s.button||'Test the code'}</button>`},
+order(s){return `<h2>${s.title||'Put in order'}</h2><div>${s.prompt||''}</div><div id="ol"></div><button id="go" onclick="chkOrder()">${s.button||'Lock it in'}</button>`},
+cipher(s){return `<h2>${s.title||'The Cipher'}</h2><div id="note"></div><div class="cipher">${caesar(s.plain,s.shift)}</div><div>${s.prompt||'Each letter was moved FORWARD in the alphabet by the shift. Set the decoder to undo it.'}</div><div class="row"><label>Calculated shift: <input id="shiftGuess" type="number" min="0" max="25" step="1" style="width:85px"></label><button onclick="lockShift()">Lock shift (wrong: −0:30)</button></div><div id="shiftTools" style="display:none"><div class="row"><button class="ghost" onclick="sh(-1)">−</button><b id="kk">shift locked</b><button class="ghost" onclick="sh(1)">+</button></div></div><div class="wheel" id="wheel"></div><div class="cipher" id="dec" style="color:var(--blue)"></div><div class="row">${s.askLabel||'Answer word'}: <input type="text" id="w" maxlength="14"> <button id="go" onclick="chkCipher()">Open</button></div>`}};
+function show(){
+ if(stage>=STAGES.length){finalStage();return}
+ const s=STAGES[stage];st={};
+ $('#app').innerHTML=`<main><div class="panel"><h2>Room ${stage+1}: ${s.name}</h2><p class="story">${s.story}</p>${scene(s)}</div><div class="panel">${P[s.type](s)}<div class="msg" id="m"></div><div id="hints"></div><button class="ghost" onclick="getHint()">💡 Hint (−1:30)</button>${stage?`<div style="margin-top:8px">Key cards: ${cards.map(c=>`<span class="card">${c.stamp}</span>`).join('')}</div>`:''}</div></main>`;
+ if(s.type=='fields')st.dv=s.fields.map(()=>0);
+ if(s.type=='classify')st.pick=s.items.map(()=>-1);
+ if(s.type=='order'){let a=s.steps.map((_,i)=>i);do{a.sort(()=>Math.random()-.5)}while(a.every((v,i)=>v==i));st.ord=a;ordDraw()}
+ if(s.type=='cipher'){st.k=0;st.shiftLocked=false;}
+}
+function dl(i,d){st.dv[i]=(st.dv[i]+d+10)%10;$('#d'+i).textContent=st.dv[i]}
+function chkFields(){const s=STAGES[stage];const ok=s.fields.every((f,i)=>{const v=s.ui=='dial'?st.dv[i]:parseFloat($('#f'+i).value);const alts=[f.answer].concat(f.alts||[]);return alts.some(a=>Math.abs(v-a)<=(f.tol||1e-9))});ok?pass():wrong(s.fail||'Locked. Check your work and try again.' )}
+function pv(i,j){st.pick[i]=j;[...$('#sw'+i).children].forEach((b,x)=>b.classList.toggle('on',x==j))}
+function chkClass(){const s=STAGES[stage];s.answer.every((a,i)=>st.pick[i]==a)?pass():wrong(s.fail||'Alarm! At least one answer is wrong.' )}
+function ordDraw(){const s=STAGES[stage];$('#ol').innerHTML=st.ord.map((v,p)=>`<div class="ord"><span class="t">${s.steps[v]}</span><button onclick="mv(${p},-1)">▲</button><button onclick="mv(${p},1)">▼</button></div>`).join('')}
+function mv(p,d){const q=p+d;if(q<0||q>=st.ord.length)return;[st.ord[p],st.ord[q]]=[st.ord[q],st.ord[p]];ordDraw()}
+function chkOrder(){const s=STAGES[stage];st.ord.every((v,i)=>v==i)?pass():wrong(s.fail||'Not quite in order. Re-read the logic.' )}
+function lockShift(){const v=$('#shiftGuess').value.trim(),n=Number(v);if(!v||!Number.isInteger(n)||n<0||n>25){say('Enter a whole-number shift from 0 to 25.',false);return}if(n!==STAGES[stage].shift){wrong('Incorrect shift. Solve the clue before trying again.');return}st.shiftLocked=true;st.k=n;$('#shiftGuess').disabled=true;$('#shiftTools').style.display='block';sh(0);say('Shift locked. Decode the message and enter the password.',true)}
+function sh(d){if(!st.shiftLocked)return;const s=STAGES[stage];st.k=(st.k+d+26)%26;$('#kk').textContent='shift '+st.k;$('#wheel').textContent='written: '+ALPHA.split('').join(' ')+'\nreal   : '+ALPHA.split('').map(c=>caesar(c,-st.k)).join(' ');$('#dec').textContent=caesar(caesar(s.plain,s.shift),-st.k)}
+function chkCipher(){if(!st.shiftLocked){say('Lock the shift before submitting the code.',false);return}const s=STAGES[stage];$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():wrong('Still locked. Check your shift.' )}
+function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.random()-.5);
+ $('#app').innerHTML=`<main style="grid-template-columns:1fr"><div class="panel"><h2>The Final Door</h2><p class="story">${ROOM.finalStory}</p><div>${sh.map(c=>`<span class="card">${c.stamp}<b>${c.letter}</b></span>`).join('')}</div><div class="row">${ROOM.finalAsk} <input type="text" id="w" maxlength="12"> <button id="go" onclick="fin()">Open</button></div><div class="msg" id="m"></div></div></main>`}
+function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():wrong('Nothing happens. Re-check the order of the cards.' )}
+function victory(){$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
+function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
+function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
+if(location.hash=='#key'){const k=$('#key');k.style.display='block';k.innerHTML='<h2>Teacher answer key</h2><p>Teacher code: <input id="kc" type="password" style="width:90px"> <button onclick="unlockKey()">Show key</button></p><div id="kb"></div>'}
+function unlockKey(){if($('#kc').value.trim()!=='205'){$('#kb').textContent='Incorrect code.';return}$('#kb').innerHTML=STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
+intro();
+</script></body></html>
