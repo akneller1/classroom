@@ -20,7 +20,12 @@ for(const tier of [1,3,5,7]){
    assert.ok(!p.failed,p.reason);
    assert.doesNotMatch(p.prompt,/Use [^.!?]*=\d+[^.!?]* to find x/i,'Student prompt supplies the equation');
   }
-  count+=3;
+  const bisector=M.generateProblem('geometry-basics-reasoning','angle-bisector',tier,{intOnly:true,level:'test'},seed,{keys:new Set(),sigs:new Set()});
+  assert.ok(!bisector.failed,bisector.reason);
+  assert.match(bisector.prompt,/Angle ABD measures/,'Angle bisector must state first angle');
+  assert.match(bisector.prompt,/angle DBC measures/,'Angle bisector must state second angle');
+  assert.doesNotMatch(bisector.prompt,/Use .* to find x/,'Do not give worked equation');
+  count+=4;
  }
 }
 console.log('Geometry student reasoning: '+count+' generated prompts checked.');
