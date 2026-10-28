@@ -78,25 +78,27 @@
     var original = {};
     plan.sections.forEach(function(s) { original[s.id] = s; });
     var occurrences = {};
-    plan.sections = sectionSequence.filter(function(id) { return sectionChoices[id] && original[id]; }).map(function(id) {
+    plan.sections = sectionSequence.map(function(id, seqIndex) {
+      if (!sectionChoices[id] || !original[id]) return null;
       var n = occurrences[id] = (occurrences[id] || 0) + 1;
-      if (n === 1) return original[id];
-      var s = Object.assign({}, original[id]);
-      s.title = s.title + ' (' + n + ')';
-      s.groups = original[id].groups.map(function(g) {
+      var source = original[id];
+      var s = Object.assign({}, source);
+      s.occurrenceIndex = seqIndex;
+      if (n > 1) s.title += ' (' + n + ')';
+      s.groups = source.groups.map(function(g) {
         return Object.assign({}, g, {items:g.items.map(function(p) { return Object.assign({}, p); })});
       });
       return s;
-    });
-    plan.sections.forEach(function(s,si) { configureSection(plan,s,si); });
+    }).filter(Boolean);
+    plan.sections.forEach(function(s) { configureSection(plan,s,s.occurrenceIndex); });
     plan.sections.forEach(function(s, si) {
-      var cfg = sectionConfigs[si] || {};
+      var cfg = sectionConfigs[s.occurrenceIndex] || {};
       var nth = s.title.match(/\((\d+)\)/);
       if (!nth && !cfg.lesson && cfg.count == null) return;
       s.groups.forEach(function(g,gi) { g.items.forEach(function(p,pi) {
         if (!p.entry) return;
         // Different slots and salts prevent repeated questions from cloning the originals.
-        p.slot = p.slot + '-occ-' + si + '-item-' + pi;
+        p.slot = p.slot + '-occ-' + s.occurrenceIndex + '-item-' + pi;
         P.regenerate(plan,si,gi,pi);
       }); });
     });
