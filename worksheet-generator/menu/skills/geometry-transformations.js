@@ -58,11 +58,11 @@ function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.
 
 function ad(v,n){return v+(n<0?'-'+(-n):'+'+n);}
 function transformInvestigation(ctx){var r=ctx.rng,c=ctx.c,a=nz(r),b=nz(r),h=nz(r),k=nz(r),x1=a+h,y1=b+k,x2=-x1,y2=y1,x3=-y2,y3=x2,s=r.int(2,c>=5?5:3),y4=s*y3,x4=s*x3;
- return four('geo-transformations-investigation',c,'Open Response: Track point A('+a+', '+b+') through a sequence of transformations. Each part uses the image from the part before it.',[
+ var o7=four('geo-transformations-investigation',c,'Open Response: Track point A('+a+', '+b+') through a sequence of transformations. Each part uses the image from the part before it.',[
  ['Translate A by '+h+' in the x-direction and '+k+' in the y-direction to get A′. Find the x-coordinate x of A′.','x',x1,ad('x',-a)+'='+h,'Add the shift to the x-coordinate.'],
  ['Reflect A′ across the y-axis to get A″. Find the x-coordinate y of A″.','y',x2,ad('y',x1)+'=0','A reflection across the y-axis changes the sign of x.'],
  ['Rotate A″ 90° counterclockwise about the origin to get A‴, using (x, y) → (−y, x). The y-coordinate of A″ is '+y2+'. Find the x-coordinate z of A‴.','z',x3,ad('z',y2)+'=0','The new x-coordinate is the opposite of the old y-coordinate.'],
- ['Dilate A‴ by scale factor '+s+' about the origin. The y-coordinate of A‴ is '+y3+'. Find the y-coordinate w of the image.','w',y4,'w='+s+'*'+(y3<0?'(0'+y3+')':y3),'A dilation multiplies each coordinate by the scale factor.']]);}
+ ['Dilate A‴ by scale factor '+s+' about the origin. The y-coordinate of A‴ is '+y3+'. Find the y-coordinate w of the image.','w',y4,'w='+s+'*'+(y3<0?'(0'+y3+')':y3),'A dilation multiplies each coordinate by the scale factor.']]);o7.fig={kind:'geo-grid',shapes:[{id:'pre',pts:[[a,b]],labels:['A('+mn(a)+', '+mn(b)+')']}],alt:'Coordinate plane with point A('+a+', '+b+')'};return o7;}
 
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
 tags:{INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},

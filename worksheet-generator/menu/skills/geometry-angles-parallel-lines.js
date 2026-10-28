@@ -53,16 +53,18 @@
  }
 function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return st(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
 
- function angleInvestigation(ctx){var r=ctx.rng,c=ctx.c,x=r.int(4,c>=5?24:16),k=r.int(2,c>=5?5:3),b=r.int(1,12),M1=k*x+b,y=180-M1,cc=r.int(2,4),e=r.int(1,12),z;
+ function angleInvestigation(ctx){var r=ctx.rng,c=ctx.c,x=r.int(4,c>=5?24:16),k=r.int(2,c>=5?5:3),b=r.int(1,12),M1=k*x+b,y=180-M1,cc=r.int(2,4),e=r.int(1,12),z,ex='('+k+'x+'+b+')°';
   while((y-e)%cc)e++;
   z=(y-e)/cc;
-  var w=180-y;
-  return four('geo-angles-investigation',c,'Open Response: Parallel lines l and m are cut by transversal t. Use the angle relationship named in each part and show your reasoning.',[
-  ['Angle 1 measures ('+k+'x+'+b+') degrees. Its corresponding angle on the other parallel line measures '+M1+' degrees. Find x.','x',x,k+'*x+'+b+'='+M1,'Corresponding angles formed by parallel lines are equal.'],
-  ['Angle 2 forms a linear pair with angle 1 (so angle 1 measures '+M1+' degrees). Find the measure y of angle 2.','y',y,'y+'+M1+'=180','A linear pair adds to 180 degrees.'],
-  ['Angle 3 is alternate interior to angle 2 and measures ('+cc+'z+'+e+') degrees. Find z.','z',z,cc+'*z+'+e+'='+y,'Alternate interior angles are equal.'],
-  ['Angle 4 is same-side interior to angle 3. Find the measure w of angle 4.','w',w,'w+'+y+'=180','Same-side interior angles are supplementary.']]);}
-
+  var zx='('+cc+'z+'+e+')°',w=180-y;
+  return {fig:fig({kind:'geo-transversal',names:['ℓ','m'],marks:[{pos:1,text:ex,deg:M1},{pos:5,text:M1+'°',deg:M1},{pos:3,text:'y°',deg:y},{pos:6,text:zx,deg:y},{pos:4,text:'w°',deg:w}]}),
+  variant:'geo-angles-investigation-'+c,prompt:'Open Response: Lines ℓ and m are parallel and are cut by a transversal, as shown. Use the angle relationship named in each part and show your reasoning.',
+  parts:[
+  {label:'a',prompt:'The angles marked '+ex+' and '+M1+'° are corresponding angles. Find x.',answer:M('x='+x),check:{type:'solve',eq:k+'*x+'+b+'='+M1,v:'x'}},
+  {label:'b',prompt:'The angle marked y° and the angle marked '+ex+' form a linear pair. Use the angle measure from (a) to find y.',answer:M('y='+y),check:{type:'solve',eq:'y+'+M1+'=180',v:'y'}},
+  {label:'c',prompt:'The angle marked '+zx+' and the angle marked y° are alternate interior angles. Find z.',answer:M('z='+z),check:{type:'solve',eq:cc+'*z+'+e+'='+y,v:'z'}},
+  {label:'d',prompt:'The angle marked w° and the angle marked '+zx+' are same-side interior angles. Find w.',answer:M('w='+w),check:{type:'solve',eq:'w+'+y+'=180',v:'w'}}],
+  steps:[st('Corresponding angles are equal.',M(k+'*x+'+b+'='+M1)),st('A linear pair adds to 180 degrees.',M('y+'+M1+'=180')),st('Alternate interior angles are equal.',M(cc+'*z+'+e+'='+y)),st('Same-side interior angles are supplementary.',M('w+'+y+'=180'))],space:[2.6,3.2,3.9]};}
  NS.registerSkillSet({id:'geometry-angles-parallel-lines',course:'geometry',courseName:'Geometry',unit:'angles-parallel-lines',unitName:'Angles and Parallel Lines',title:'Angle Relationships',
  tags:{INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
  reference:'<div class="mm-refgrid"><section><h4>Complementary angles</h4><p>The measures sum to 90°.</p></section><section><h4>Supplementary angles</h4><p>The measures sum to 180°.</p></section></div>',

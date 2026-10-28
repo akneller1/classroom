@@ -34,8 +34,9 @@ parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
 steps:[step('When both diagonals bisect each other, the quadrilateral is a parallelogram. BE = ED is already given; set AE = EC.',M(eq)),step('Solve for x and cite the converse of the parallelogram diagonal theorem.',M('x='+x))],space:[1.5,1.8,2.2]};}
 function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return step(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
 
-function polygonInvestigation(ctx){var r=ctx.rng,c=ctx.c,ns=c>=5?[5,6,8,9,10,12,15,18,20,24,30,36]:[5,6,8,9,10,12,15],n=ns[r.int(0,ns.length-1)],S=(n-2)*180,ang=S/n,ext=180-ang,sd=r.int(3,c>=5?25:15),P=n*sd;
- return four('geo-polygons-investigation',c,'Open Response: A regular polygon has '+n+' sides, and each side measures '+sd+' cm. Investigate its angles and perimeter. Show the formula you use.',[
+function fourF(f,id,c,intro,rows){var o=four(id,c,intro,rows);o.fig=f;return o;}
+function polygonInvestigation(ctx){var r=ctx.rng,c=ctx.c,ns=c>=5?[5,6,8,9,10,12,15,18,20,24]:[5,6,8,9,10,12,15],n=ns[r.int(0,ns.length-1)],S=(n-2)*180,ang=S/n,ext=180-ang,sd=r.int(3,c>=5?25:15),P=n*sd;
+ return fourF(fig({kind:'geo-regular',n:n,label:'z°'}),'geo-polygons-investigation',c,'Open Response: A regular polygon has '+n+' sides, and each side measures '+sd+' cm. Investigate its angles and perimeter. Show the formula you use.',[
  ['Find the sum S of the interior angles of the regular polygon.','S',S,'S=('+n+'-2)*180','An n-sided polygon has interior angle sum (n-2)*180.'],
  ['Use S from (a) to find the measure x of one interior angle of the regular polygon.','x',ang,n+'*x='+S,'A regular polygon has equal angles, so divide the sum by n.'],
  ['Find the measure z of one exterior angle of the regular polygon, using x from (b).','z',ext,'z+'+ang+'=180','An exterior angle and its interior angle form a linear pair.'],

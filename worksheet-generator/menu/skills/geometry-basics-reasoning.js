@@ -19,17 +19,18 @@
  }
  function bisector(ctx){
   var r=ctx.rng,c=ctx.c,x=r.int(3,22),a=c>=5?r.int(2,4):1,b=r.int(1,10),side=a*x+b,eq=(a===1?'x':a+'x')+'+'+b+'='+side;
-  return {variant:'geo-bisector-'+c,prompt:'Ray BD bisects angle ABC. Angle ABD measures '+M((a===1?'x':a+'x')+'+'+b)+' degrees, and angle DBC measures '+side+' degrees. Find x by writing and solving an equation.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('An angle bisector creates two equal angles.',M(eq)),st('Solve.',M('x='+x))],space:[1,1.3,1.6]};
+  return {variant:'geo-bisector-'+c,fig:{kind:'geo-angle',labels:['A','B','C'],measures:['('+(a===1?'x':a+'x')+'+'+b+')°',side+'°',''],mid:'D',equal:true,description:'Ray BD bisects angle ABC into two equal angles'},prompt:'Ray BD bisects angle ABC. Angle ABD measures '+M((a===1?'x':a+'x')+'+'+b)+' degrees, and angle DBC measures '+side+' degrees. Find x by writing and solving an equation.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('An angle bisector creates two equal angles.',M(eq)),st('Solve.',M('x='+x))],space:[1,1.3,1.6]};
  }
 
  function coordinateMidpoint(ctx){
   var r=ctx.rng,c=ctx.c,a=r.int(-12,10),x=r.int(-12,16),middle=(a+x)/2;
   // Use a whole-number midpoint by giving endpoint coordinates of equal parity.
-  x=a+2*r.int(c>=5?-9:1,c>=5?9:12);
+  var off=0;while(!off)off=r.int(c>=5?-9:1,c>=5?9:12);x=a+2*off;
   middle=(a+x)/2;
   var eq='x+'+a+'='+2*middle;
   if(a<0)eq='x'+a+'='+2*middle;
   return {variant:'geo-coordinate-midpoint-'+c,
+   fig:{kind:'geo-numline',pts:[{n:'A',v:a,l:String(a)},{n:'M',v:middle,l:String(middle)},{n:'B',v:x,l:'x'}],ticks:[['A','M'],['M','B']],description:'Number line: M is the midpoint of AB'},
    prompt:'On a number line, point A has coordinate '+a+' and point M is the midpoint of segment AB at coordinate '+middle+'. Point B has coordinate x. Find x by writing and solving an equation.',
    parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
    steps:[st('Twice the midpoint coordinate equals the sum of endpoint coordinates.',M(eq)),st('Solve for the missing endpoint.',M('x='+x))],
@@ -40,6 +41,7 @@
   var eq='x-'+left+'='+distance;
   if(left<0)eq='x+'+(-left)+'='+distance;
   return {variant:'geo-coordinate-distance-'+c,
+    fig:{kind:'geo-numline',pts:[{n:'A',v:left,l:String(left)},{n:'B',v:right,l:'x'}],brackets:[{from:'A',to:'B',l:distance+' units'}],description:'Number line: A and B are '+distance+' units apart'},
     prompt:'Points A and B lie on a horizontal line at A = ('+left+', 3) and B = (x, 3). B lies to the right of A and AB = '+distance+' units. Find x by writing and solving an equation.',
     parts:[{answer:M('x='+right),check:{type:'solve',eq:eq,v:'x'}}],
     steps:[st('For points on a horizontal line, subtract their x-coordinates.',M(eq)),st('Solve for x.',M('x='+right))],
@@ -54,6 +56,7 @@
    var e1='x+'+b+'='+t,e2='2y='+x,e3='2z='+(x+t),e4='2w='+(m+n);
    return {
      variant:'geo-coordinate-investigation-'+c,
+     fig:{kind:'geo-numline',pts:[{n:'A',v:0,l:'0'},{n:'B',v:x,l:'x'},{n:'C',v:t,l:String(t)}],brackets:[{from:'B',to:'C',l:b+' units'}],description:'Number line with points A, B and C in order'},
      prompt:'Four-part coordinate geometry investigation. Points A, B, and C lie in that order on a horizontal number line. A is at 0, B is at x, C is at '+t+', and BC is '+b+' units. For each part, use the stated geometric relationship and explain your calculation.',
      parts:[
        {label:'a',prompt:'Use segment addition to find coordinate x of B. Show the segment-addition equation.',answer:M('x='+x),check:{type:'solve',eq:e1,v:'x'}},

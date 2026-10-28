@@ -112,3 +112,12 @@ User report: some circle skills showed "No verified problem" in Open Response se
 - Test change (not weakened): the Geometry choose-all test skips four-part skills, which are not choose-all items.
 - Circle figures: circle radius 56→66, viewBox cropped to the drawing (labels render about 1.4× larger on phones), chord labels sit in separate wedges (one per half-chord), the tangent ray is longer so the x° label fits between ray and tangent.
 - Pre-existing, unchanged: `right-inverse-trig-decimal` tier 1 has 24/25 distinct questions in the capacity audit.
+
+## Diagrams for four-part and coordinate problems (user request: "diagrams and pictures when appropriate")
+
+- New figure kinds in `menu/geometry-diagrams.js`: `geo-numline` (points placed in proportion, only given values printed), `geo-tri-chain` (midsegment DE, median AM, centroid G), `geo-cong-pair` (congruent triangles ABC/DEF with only the given labels). `geo-angle` gained `mid`, `equal`, and a drawn outer arc for the whole angle (the old figure printed the total as a floating number with no arc).
+- Figures added: angle bisector, coordinate midpoint/distance/investigation (number line), congruent sides/angles/third angle/perimeter (triangle pair), and every four-part investigation that has a single picture (honors triangle chain, parallel lines, regular polygon, right triangle, prism, chords, coordinate grid).
+- Adjacent-angle figure (complement/supplement/linear pair): labels now sit outside the arcs, so "68°" no longer sits on the right-angle mark.
+- Chord and tangent labels, circle size and cropping: see the previous section.
+- Verifier: the right-triangle investigation is re-derived from the printed hypotenuse and sin/cos ratios (a tampered ratio is rejected). Midpoint skill no longer produces B = A.
+- Not drawn: the first (mixed-triangle) four-part triangle investigation, whose parts use different triangles.

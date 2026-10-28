@@ -6,7 +6,9 @@ function corresponding(ctx,kind){
  var eq=(a===1?'x':a+'x')+'+'+b+'='+value;
  var feature=kind==='side'?'corresponding sides':'corresponding angles';
  var unit=kind==='side'?' units':' degrees';
+ var ex=(a===1?'x':a+'x')+'+'+b;
  return {variant:'geo-congruence-'+kind+'-'+c,
+ fig:kind==='side'?{kind:'geo-cong-pair',sides:{AB:ex,DE:String(value)},description:'Congruent triangles with corresponding sides AB and DE labelled'}:{kind:'geo-cong-pair',angles:{B:'('+ex+')°',E:value+'°'},arcs:{B:1,E:1},description:'Congruent triangles with corresponding angles B and E labelled'},
  prompt:'Triangles ABC and DEF are congruent, with A corresponding to D, B to E, and C to F. '+(kind==='side'?'AB and DE':'angle B and angle E')+' are '+feature+'. Their measures are '+M((a===1?'x':a+'x')+'+'+b)+' and '+value+unit+'. Find x. Set up an equation and show your reasoning.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Corresponding parts of congruent triangles are congruent.',M(eq)),step('Solve.',M('x='+x))],space:[1.2,1.5,1.8]};
@@ -14,13 +16,13 @@ function corresponding(ctx,kind){
 function thirdAngle(ctx){
  var r=ctx.rng,c=ctx.c,x=r.int(25,85),other=r.int(25,Math.min(85,150-x)),third=180-x-other;
  var eq='x+'+other+'+'+third+'=180';
- return {variant:'geo-congruence-third-angle-'+c,prompt:'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angle A is '+other+'° and angle C is '+third+'°. Find angle B, called x, and explain why angle F must equal angle C. Use '+M(eq)+' to find x.',
+ return {variant:'geo-congruence-third-angle-'+c,fig:{kind:'geo-cong-pair',angles:{A:other+'°',B:'x°',C:third+'°'},arcs:{A:1,D:1,B:2,E:2},description:'Triangles ABC and DEF with matching marked angles at A, D and B, E'},prompt:'Triangles ABC and DEF have angle A congruent to angle D and angle B congruent to angle E. In triangle ABC, angle A is '+other+'° and angle C is '+third+'°. Find angle B, called x, and explain why angle F must equal angle C. Use '+M(eq)+' to find x.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Use the triangle angle sum.',M(eq)),step('The third angles match because both triangles sum to 180°.',M('x='+x))],space:[1.2,1.5,1.8]};
 }
 function perimeter(ctx){
  var r=ctx.rng,c=ctx.c,a=r.int(5,16),b=r.int(5,16),x=r.int(Math.abs(a-b)+1,a+b-1),p=x+a+b,eq='x+'+a+'+'+b+'='+p;
- return {variant:'geo-congruence-perimeter-'+c,prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Set up an equation and show your reasoning.',
+ return {variant:'geo-congruence-perimeter-'+c,fig:{kind:'geo-cong-pair',sides:{AB:'x',BC:String(a),CA:String(b)},note:'The perimeter of triangle DEF is '+p+' units.',description:'Triangle ABC with side lengths x, '+a+' and '+b+', and congruent triangle DEF'},prompt:'Triangle ABC is congruent to triangle DEF. The side lengths of ABC are x, '+a+', and '+b+' units. The perimeter of DEF is '+p+' units. Find x. Set up an equation and show your reasoning.',
  parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
  steps:[step('Congruent triangles have equal perimeters.',M(eq)),step('Solve for the unknown side.',M('x='+x))],space:[1.2,1.5,1.8]};
 }

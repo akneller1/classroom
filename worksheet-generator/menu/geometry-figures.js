@@ -63,10 +63,10 @@
   /* Find a spot for text inside the wedge a1..a2 (math degrees, CCW) at vertex v, clear of the bounding rays.
      Steps outward until the text box (padded) touches neither ray. */
   function boxHit(a, b) { return a[0] < b[2] && a[2] > b[0] && a[1] < b[3] && a[3] > b[1]; }
-  function placeInWedge(v, a1, a2, text, rays, used, poly) {
+  function placeInWedge(v, a1, a2, text, rays, used, poly, rmin) {
     var w = textW(text) + 9, h = FS + 7, span = norm(a2 - a1), mid = a1 + span / 2, offs = [0], k;
     for (k = 1; k <= 6; k++) { var o = k * span / 14; offs.push(o, -o); }      // bisector first, then toward either ray
-    for (var r = 26; r <= 100; r += 2) {
+    for (var r = rmin || 26; r <= 100; r += 2) {
       for (var j = 0; j < offs.length; j++) {
         var u = dir(mid + offs[j]), cx = v[0] + r * u[0], cy = v[1] + r * u[1], box = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], hit = false;
         (rays || [a1, a2]).forEach(function (d) {
@@ -217,9 +217,9 @@
     if (tip[1] < 18) { var k = (O[1] - 18) / (O[1] - tip[1]); tip = [O[0] + (tip[0] - O[0]) * k, O[1] + (tip[1] - O[1]) * k]; }
     var h = L(O, right) + L(O, other) + L(O, tip) + dot(O, 3);
     var w2 = comp ? 90 : 180;
-    if (comp) h += rightMark(O, 0, 90, 11);
+    if (comp) h += rightMark(O, 0, 90, 9);
     h += arcPath(O, 0, d1, comp ? 24 : 22, 1.6) + arcPath(O, d1, w2, comp ? 24 : 22, 1.6);
-    var q1 = placeInWedge(O, 0, d1, p[0].text, [0, d1], used), q2 = placeInWedge(O, d1, w2, p[1].text, [d1, w2], used);
+    var q1 = placeInWedge(O, 0, d1, p[0].text, [0, d1], used, null, 38), q2 = placeInWedge(O, d1, w2, p[1].text, [d1, w2], used, null, 38);
     h += TL(q1, p[0].text) + TL(q2, p[1].text);
     return wrap(h, 160, comp ? 'A right angle split into two adjacent angles' : 'A straight angle split into two adjacent angles', c[1] ? '' : 'Not drawn to scale.');
   }

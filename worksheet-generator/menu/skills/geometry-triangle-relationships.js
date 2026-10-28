@@ -122,6 +122,7 @@ function honorsChain(ctx) {
  var max=side+median-1;
  var e1='x=2*'+half,e2='3y='+median,e3='z=2*'+short,e4='w+1='+side+'+'+median;
  return {variant:'geo-triangle-honors-chain-'+c,
+  fig:{kind:'geo-tri-chain',lab:{DE:half+' cm',BC:'x',GM:'y',AG:'z'},given:'DE = '+half+' cm and AM = '+median+' cm',description:'Triangle ABC with midsegment DE, median AM and centroid G'},
   prompt:'Open Response — Connected triangle investigation. In triangle ABC, D and E are the midpoints of AB and AC, so DE is a midsegment parallel to BC. M is the midpoint of BC and G is the centroid on median AM. DE is '+half+' cm and AM is '+median+' cm. For part (d), consider a NEW triangle whose first two sides have lengths BC and AM from this figure. Show and explain your reasoning in all four parts.',
   parts:[
    {label:'a',prompt:'Determine the length x of BC using the midsegment theorem. Show the relationship you use.',answer:M('x='+side),check:{type:'solve',eq:e1,v:'x'}},

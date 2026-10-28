@@ -45,11 +45,11 @@ function crossSection(ctx){var r=ctx.rng,c=ctx.c,ks=c<=3?['cylv','cylh']:c<=5?['
 function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return step(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
 
 function solidsInvestigation(ctx){var r=ctx.rng,c=ctx.c,l=r.int(3,c>=5?14:9),w=r.int(3,c>=5?12:8),h=2*r.int(2,c>=5?8:5),B=l*w,V=B*h,SA=2*(l*w+l*h+w*h),B2=2*B,h2=h/2;
- return four('geo-solids-investigation',c,'Open Response: A rectangular prism has length '+l+' cm, width '+w+' cm, and height '+h+' cm. Investigate its area and volume. Show the formula you use.',[
+ var o5=four('geo-solids-investigation',c,'Open Response: A rectangular prism has length '+l+' cm, width '+w+' cm, and height '+h+' cm. Investigate its area and volume. Show the formula you use.',[
  ['Find the area x of the base, in square centimeters.','x',B,'x='+l+'*'+w,'Base area is length times width.'],
  ['Use x from (a) to find the volume y, in cubic centimeters.','y',V,'y='+l+'*'+w+'*'+h,'Volume is base area times height.'],
  ['Find the total surface area z, in square centimeters.','z',SA,'z=2*'+l+'*'+w+'+2*'+l+'*'+h+'+2*'+w+'*'+h,'Add the areas of all six faces.'],
- ['A second prism has the same volume as the first (from (b)) and a base area of '+B2+' square centimeters. Find its height k.','k',h2,B2+'*k='+V,'Volume equals base area times height, so divide.']]);}
+ ['A second prism has the same volume as the first (from (b)) and a base area of '+B2+' square centimeters. Find its height k.','k',h2,B2+'*k='+V,'Volume equals base area times height, so divide.']]);o5.fig=so('prism',{l:l,w:w,h:h},'cm',['l','w','h']);return o5;}
 
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
 tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},

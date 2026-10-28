@@ -7,9 +7,59 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&am
 function positive(n){return Number.isFinite(n)&&n>0}
 function svg(inner,description){return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 155" width="4.1in" style="max-width:100%;height:auto" role="img" aria-label="'+esc(description)+'"><rect width="430" height="155" fill="white"/>'+inner+'</svg>'}
 function tx(x,y,s,anchor){return '<text x="'+x+'" y="'+y+'" text-anchor="'+(anchor||'middle')+'" font-family="Arial,sans-serif" font-size="15" fill="#111">'+esc(s)+'</text>'}
+
+/* Horizontal number line: points placed in proportion to their values, named above and valued below.
+   spec: {kind:'geo-numline', pts:[{n:'A',v:0,l:'0'}...], brackets:[{from:'B',to:'C',l:'84'}], ticks:[['A','M'],['M','B']]}
+   Unknown coordinates are labelled with a letter; only the labels given are printed, so the picture never states an answer. */
+function numline(spec){
+ var pts=spec.pts||[];if(pts.length<2||pts.length>4)return '';
+ var lo=Math.min.apply(null,pts.map(function(p){return p.v})),hi=Math.max.apply(null,pts.map(function(p){return p.v}));if(lo===hi)return '';
+ var X=function(v){return 48+(v-lo)/(hi-lo)*334},Y=88,h='',by={};
+ pts.forEach(function(p){by[p.n]=p});
+ h+='<path d="M24 '+Y+' H406" stroke="#111" stroke-width="2.5" fill="none"/><path d="M406 '+Y+' l-9 -5 M406 '+Y+' l-9 5" stroke="#111" stroke-width="2" fill="none"/>';
+ (spec.ticks||[]).forEach(function(t){var p=by[t[0]],q=by[t[1]];if(!p||!q)return;var mx=(X(p.v)+X(q.v))/2;h+='<path d="M'+(mx-3)+' '+(Y+9)+' L'+(mx+3)+' '+(Y-9)+'" stroke="#111" stroke-width="2"/>';});
+ (spec.brackets||[]).forEach(function(b){var p=by[b.from],q=by[b.to];if(!p||!q)return;var x1=X(p.v),x2=X(q.v),yb=36;
+  h+='<path d="M'+x1+' '+(yb+6)+' V'+yb+' H'+x2+' V'+(yb+6)+'" stroke="#111" stroke-width="1.4" fill="none"/>'+tx((x1+x2)/2,yb-7,b.l);});
+ pts.forEach(function(p){h+='<circle cx="'+X(p.v).toFixed(1)+'" cy="'+Y+'" r="4.5" fill="#111"/>'+tx(X(p.v),Y-17,p.n)+tx(X(p.v),Y+26,p.l);});
+ return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,spec.description||'Number line with labelled points')+'<div style="font-size:10px;color:#555">Schematic, not to scale.</div></div>';
+}
+/* Triangle ABC with midsegment DE, median AM and centroid G; the labels object says what is printed on each segment. */
+function triChain(spec){
+ var A=[190,24],B=[70,134],C=[365,134],L=spec.lab||{},mid=function(p,q){return [(p[0]+q[0])/2,(p[1]+q[1])/2]},Dd=mid(A,B),E=mid(A,C),M=mid(B,C),G=[(A[0]+B[0]+C[0])/3,(A[1]+B[1]+C[1])/3],h='';
+ var ln=function(p,q,w){return '<path d="M'+p[0].toFixed(1)+' '+p[1].toFixed(1)+' L'+q[0].toFixed(1)+' '+q[1].toFixed(1)+'" stroke="#111" stroke-width="'+(w||2.5)+'" fill="none"/>'},dt=function(p){return '<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="3.5" fill="#111"/>'};
+ h+=ln(A,B)+ln(B,C)+ln(C,A)+ln(Dd,E,2.2)+ln(A,M,2.2);
+ [A,Dd,E,M,G].forEach(function(p){h+=dt(p)});
+ h+=tx(A[0],A[1]-9,'A')+tx(B[0]-12,B[1]+5,'B')+tx(C[0]+12,C[1]+5,'C')+tx(Dd[0]-13,Dd[1]-2,'D')+tx(E[0]+13,E[1]-2,'E')+tx(M[0]+2,M[1]+17,'M')+tx(G[0]-11,G[1]+14,'G');
+ if(L.DE)h+=tx(Dd[0]+(E[0]-Dd[0])*0.25+4,Dd[1]-9,L.DE);
+  if(L.AG)h+=tx(A[0]+(G[0]-A[0])*0.5+9,A[1]+(G[1]-A[1])*0.5+2,L.AG,'start');
+ if(L.GM)h+=tx(G[0]+(M[0]-G[0])*0.5+9,G[1]+(M[1]-G[1])*0.5+2,L.GM,'start');
+ if(L.BC)h+=tx((B[0]+M[0])/2,B[1]+19,L.BC);
+ return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,spec.description||'Triangle with a midsegment, a median and the centroid')+'<div style="font-size:10px;color:#555">'+(spec.given?spec.given+'. ':'')+'Schematic, not to scale. D, E and M are midpoints; G is the centroid.</div></div>';
+}
+
+/* Two congruent triangles ABC and DEF drawn side by side. Only the labels the problem gives are printed.
+   spec: {kind:'geo-cong-pair', sides:{AB:'x+3',DE:'25'}, angles:{B:'(2x+1)°',E:'51°'}, arcs:{A:1,D:1,B:2,E:2}, note:'...'} */
+function congPair(spec){
+ var base=[[60,128],[200,128],[125,26]],off=200,pts={},nm=['A','B','C','D','E','F'];
+ base.forEach(function(p,i){pts[nm[i]]=p;pts[nm[i+3]]=[p[0]+off,p[1]];});
+ var halo=function(x,y,t,an){return tx(x,y,t,an).replace('<text ','<text stroke="#fff" stroke-width="4" paint-order="stroke" ');};
+ var h='',tris=[['A','B','C'],['D','E','F']],S=spec.sides||{},An=spec.angles||{},Ar=spec.arcs||{};
+ tris.forEach(function(t){var P=t.map(function(k){return pts[k]});h+='<path d="M'+P.map(function(p){return p[0]+' '+p[1]}).join(' L')+' Z" fill="none" stroke="#111" stroke-width="2.5" stroke-linejoin="round"/>';
+  var cx=(P[0][0]+P[1][0]+P[2][0])/3,cy=(P[0][1]+P[1][1]+P[2][1])/3;
+  t.forEach(function(k,i){var p=pts[k],q=pts[t[(i+1)%3]],m=[(p[0]+q[0])/2,(p[1]+q[1])/2],key=k+t[(i+1)%3],lab=S[key]||S[t[(i+1)%3]+k];
+   if(lab){var nx=m[0]-cx,ny=m[1]-cy,d=Math.hypot(nx,ny)||1;h+=halo(m[0]+nx/d*(14+lab.length*2.2),m[1]+ny/d*(10+4)+4,lab);}});
+  t.forEach(function(k,i){var p=pts[k],a=pts[t[(i+2)%3]],b=pts[t[(i+1)%3]],u=[a[0]-p[0],a[1]-p[1]],v=[b[0]-p[0],b[1]-p[1]],lu=Math.hypot(u[0],u[1]),lv=Math.hypot(v[0],v[1]);u=[u[0]/lu,u[1]/lu];v=[v[0]/lv,v[1]/lv];
+   var n=Ar[k]||0,j;for(j=0;j<n;j++){var r=15+j*4,p1=[p[0]+u[0]*r,p[1]+u[1]*r],p2=[p[0]+v[0]*r,p[1]+v[1]*r],cr=u[0]*v[1]-u[1]*v[0];h+='<path d="M'+p1[0].toFixed(1)+' '+p1[1].toFixed(1)+' A'+r+' '+r+' 0 0 '+(cr>0?1:0)+' '+p2[0].toFixed(1)+' '+p2[1].toFixed(1)+'" fill="none" stroke="#111" stroke-width="1.5"/>';}
+   var al=An[k];if(al){var bx=u[0]+v[0],by=u[1]+v[1],bl=Math.hypot(bx,by)||1;var ux=bx/bl;h+=halo(p[0]+ux*(ux<-0.3||ux>0.3?22:33),p[1]+by/bl*33+4,al,ux<-0.3?'end':ux>0.3?'start':'middle');}
+   var ox=p[0]-cx,oy=p[1]-cy,od=Math.hypot(ox,oy)||1;h+=tx(p[0]+ox/od*15,p[1]+oy/od*15+5,k);});});
+ return '<div class="mm-geometry-figure" style="break-inside:avoid">'+svg(h,spec.description||'Two congruent triangles ABC and DEF')+'<div style="font-size:10px;color:#555">'+(spec.note?spec.note+' ':'')+'Schematic, not to scale.</div></div>';
+}
 D.render=function(spec){
- if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark','geo-similar-pair','geo-right-triangle'].includes(spec.kind))return '';
+ if(!spec||!['geo-segment','geo-angle','geo-angle-pair','geo-triangle-pair','geo-proof','geo-triangle-landmark','geo-similar-pair','geo-right-triangle','geo-numline','geo-tri-chain','geo-cong-pair'].includes(spec.kind))return '';
  var h='',a=spec.labels||[],m=spec.measures||[];
+ if(spec.kind==='geo-numline')return numline(spec);
+ if(spec.kind==='geo-tri-chain')return triChain(spec);
+ if(spec.kind==='geo-cong-pair')return congPair(spec);
  if(spec.kind==='geo-right-triangle'){
    if(!['hyp','leg','sin','cos','tan','45','30','elevation'].includes(spec.case))return '';
    var q=spec.case, elevation=q==='elevation';
@@ -143,11 +193,18 @@ D.render=function(spec){
      tx(125,59,m[0])+tx(287,59,m[1])+tx(215,139,m[2]);
  }else if(spec.kind==='geo-angle'){
    if(a.length!==3||m.length!==3)return '';
-   h='<path d="M68 125 L215 125 L356 37 M215 125 L239 29" fill="none" stroke="#111" stroke-width="2.5"/>'+
-     '<path d="M184 125 A31 31 0 0 1 224 95" fill="none" stroke="#111" stroke-width="1.6"/>'+
-     '<path d="M244 107 A31 31 0 0 1 237 94" fill="none" stroke="#111" stroke-width="1.6"/>'+
-     tx(50,130,a[0])+tx(206,148,a[1])+tx(375,32,a[2])+
-     tx(165,88,m[0])+tx(275,88,m[1])+tx(362,111,m[2]);
+   /* Adjacent angles ABD and DBC inside the whole angle ABC. Wedge sizes follow the numbers when they are plain
+      degrees (kept readable), each part has its own arc and label, and the whole angle has its own outer arc. */
+   var V=[215,125],num=function(t){var q=/^(\d+)°$/.exec(String(t));return q?Number(q[1]):null;},T0=num(m[2]),P2=num(m[1]),
+     Tv=T0===null?110:Math.max(70,Math.min(115,T0)),f=(T0!==null&&P2!==null&&T0>0)?(T0-P2)/T0:0.55,
+     t1=Math.max(30,Math.min(Tv-30,f*Tv)),pt=function(ph,r){return [V[0]+r*Math.cos(ph*Math.PI/180),V[1]-r*Math.sin(ph*Math.PI/180)];},
+     P=function(q){return q[0].toFixed(1)+' '+q[1].toFixed(1);},arcp=function(p1,p2,r){return '<path d="M'+P(pt(p1,r))+' A'+r+' '+r+' 0 0 1 '+P(pt(p2,r))+'" fill="none" stroke="#111" stroke-width="1.6"/>';},
+     e1=180-t1,e2=180-Tv,rayEnd=pt(e1,spec.mid?98:98),cEnd=pt(e2,108),cLab=pt(e2,122),aEnd=pt(180,150),l1=pt(180-t1/2,62),l2=pt(180-t1-(Tv-t1)/2,62),lt=pt(180-Tv/2,114);
+   h='<path d="M'+P(aEnd)+' L'+P(V)+' L'+P(cEnd)+' M'+P(V)+' L'+P(rayEnd)+'" fill="none" stroke="#111" stroke-width="2.5"/>'+
+     arcp(180,e1,36)+arcp(e1,e2,44)+(spec.equal?arcp(180,e1,41)+arcp(e1,e2,49):'')+(m[2]===''?'':arcp(180,e2,86))+
+     '<circle cx="'+V[0]+'" cy="'+V[1]+'" r="3.5" fill="#111"/>'+
+     tx(aEnd[0]-14,aEnd[1]+5,a[0])+tx(V[0],V[1]+23,a[1])+tx(cLab[0],cLab[1]+5,a[2])+
+     tx(l1[0],l1[1],m[0])+tx(l2[0],l2[1],m[1])+(m[2]===''?'':tx(lt[0],lt[1],m[2]))+(spec.mid?tx(pt(e1,112)[0],pt(e1,112)[1]+5,spec.mid):'');
  }else{
    if(m.length!==3)return '';
    var right=spec.relationship==='complement';

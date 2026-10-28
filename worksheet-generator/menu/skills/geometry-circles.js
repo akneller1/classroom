@@ -32,11 +32,11 @@ function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.
 function circleInvestigation(ctx){var r=ctx.rng,c=ctx.c,m=r.int(20,c>=5?80:60),arc=2*m,major=360-arc,pa=r.int(3,c>=5?12:9),pb=r.int(3,c>=5?12:9),pc=r.int(2,8),pd=pa*pb/pc;
  while(pa*pb%pc||pd===pa||pd===pb){pa=r.int(3,12);pb=r.int(3,12);pc=r.int(2,8);pd=pa*pb/pc;}
  var t,d;do{t=r.int(4,c>=5?18:12);d=[];for(var k=2;k<t;k++)if(t*t%k===0)d.push(k);}while(!d.length);var a=d[r.int(0,d.length-1)],sec=t*t/a;
- return four('geo-circles-investigation',c,'Open Response: Investigate arcs, chords, and tangents in one circle. Show the theorem you use in every part.',[
+ var o6=four('geo-circles-investigation',c,'Open Response: Investigate arcs, chords, and tangents. Use the figure for part (c) and show the theorem you use in every part.',[
  ['An inscribed angle in the circle measures '+m+' degrees. Find the measure x, in degrees, of the arc it intercepts.','x',arc,'x=2*'+m,'An inscribed angle is half its intercepted arc.'],
  ['The arc from (a) is a minor arc. Find the measure y of the matching major arc.','y',major,'y+'+arc+'=360','A circle has 360 degrees of arc.'],
- ['Two chords intersect inside the circle. One chord is split into segments '+pa+' and '+pb+'. The other chord is split into segments '+pc+' and z. Find z.','z',pd,pc+'*z='+pa+'*'+pb,'Products of the segments of intersecting chords are equal.'],
- ['From an outside point, a tangent segment has length '+t+'. The secant from the same point has an outside part of '+a+'. Find the length w of the whole secant.','w',sec,'w*'+a+'='+t+'*'+t,'The tangent squared equals the outside part times the whole secant.']]);}
+ ['In the figure, chords AB and CD intersect at P. PA = '+pa+', PB = '+pb+', PC = '+pc+', and PD = z. Find z.','z',pd,pc+'*z='+pa+'*'+pb,'Products of the segments of intersecting chords are equal.'],
+ ['From an outside point, a tangent segment has length '+t+'. The secant from the same point has an outside part of '+a+'. Find the length w of the whole secant.','w',sec,'w*'+a+'='+t+'*'+t,'The tangent squared equals the outside part times the whole secant.']]);o6.fig=fig(CF().chords({PA:String(pa),PB:String(pb),PC:String(pc),PD:'z'}));return o6;}
 
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
 tags:{INVEST:'Four-part circle investigation',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},

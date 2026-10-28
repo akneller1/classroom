@@ -42,6 +42,16 @@
       if (/relevant angle measures/.test(p.prompt || '') && (p.prompt || '').indexOf('⟨' + lhs + '⟩ degrees and ' + nm[1] + ' degrees') < 0) return false;
       return want !== null && want === chk.eq;
     }
+    /* Right-triangle trig investigation: every equation is rebuilt from the printed hypotenuse and sine/cosine ratios. */
+    if (/^geo-right-investigation-/.test(p.variant || '')) {
+      var pr = p.parts || [], rix = -1; pr.forEach(function (pt, i) { if (pt.check === chk) rix = i; });
+      var hm = /hypotenuse (\d+) units/.exec(C.plainText(p.prompt || '')), fm = /\\sin\\theta=\\frac\{(\d+)\}\{(\d+)\}/.exec(p.prompt || ''), cm = pr[1] && /\\cos\\theta=\\frac\{(\d+)\}\{(\d+)\}/.exec(pr[1].prompt || '');
+      if (rix < 0 || pr.length !== 4 || !hm || !fm || !cm) return false;
+      var HH = Number(hm[1]), oo = Number(fm[1]), hh = Number(fm[2]), aa = Number(cm[1]);
+      if (Number(cm[2]) !== hh || hh <= 0 || oo >= hh || aa >= hh || oo * oo + aa * aa !== hh * hh || HH % hh) return false;
+      var kk = HH / hh, OO = oo * kk, DD = aa * kk;
+      return chk.eq === [hh + '*x=' + oo + '*' + HH, hh + '*y=' + aa + '*' + HH, 'P=' + OO + '+' + DD + '+' + HH, '2*w=' + OO + '*' + DD][rix];
+    }
     /* Four-part Open Response investigations: each part's equation may use only numbers printed for students,
        a standard constant, or an answer from an earlier part. A changed printed number therefore invalidates the key. */
     if (/^geo-(angles|circles|polygons|transformations|solids)-investigation-/.test(p.variant || '')) {
