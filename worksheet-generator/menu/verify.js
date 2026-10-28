@@ -27,6 +27,21 @@
     // These foundation prompts explicitly print their checked equation.
     // Keep strict equation matching so tampered printed values are rejected.
     if (/^geo-(segment|angle)-/.test(p.variant || '')) return false;
+    /* Parallel lines + transversal: the equation is rebuilt from the FIGURE (which pair of positions is marked, so
+       equal or supplementary) and the printed labels, never from the generator's own bookkeeping. */
+    if (/^geo-transversal-/.test(p.variant || '') && p.fig && p.fig.kind === 'geo-transversal' && NS.geoFigures) {
+      var mk = p.fig.marks || [], ex = null, nu = null;
+      if (mk.length !== 2) return false;
+      mk.forEach(function (m) { if (/x/.test(m.text)) ex = m; else nu = m; });
+      if (!ex || !nu) return false;
+      var em = /^\((\d*)x\+(\d+)\)°$/.exec(ex.text), nm = /^(\d+)°$/.exec(nu.text);
+      if (!em || !nm) return false;
+      var rel = NS.geoFigures.relationship(ex.pos, nu.pos), coef = em[1] === '' ? 1 : Number(em[1]), lhs = (coef === 1 ? 'x' : coef + 'x') + '+' + em[2];
+      var want = NS.geoFigures.relationEquals(rel) ? lhs + '=' + nm[1] : NS.geoFigures.relationSupplementary(rel) ? lhs + '+' + nm[1] + '=180' : null;
+      // when the prompt also prints the givens, they must agree with the figure
+      if (/relevant angle measures/.test(p.prompt || '') && (p.prompt || '').indexOf('⟨' + lhs + '⟩ degrees and ' + nm[1] + ' degrees') < 0) return false;
+      return want !== null && want === chk.eq;
+    }
     if (/^geo-bisector-/.test(p.variant || '')) {
       var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\d+) degrees/.exec(p.prompt || '');
       return !!measures && measures[1]+'='+measures[2] === chk.eq;
@@ -2524,6 +2539,11 @@
       if (res.msg && res.status !== 'verified') issues.push(((p.parts.length > 1 && part.label) ? '(' + part.label + ') ' : '') + res.msg);
     });
     if (!p.parts || !p.parts.length) { statuses.push('manual'); issues.push('No answer has been entered.'); }
+    /* A Geometry figure must be geometrically consistent with its own markings (equal ticks, right angles, parallel marks, angle sums). */
+    if (p.fig && NS.geoFigures && NS.geoFigures.owns(p.fig)) {
+      var fc = NS.geoFigures.check(p.fig);
+      if (!fc.ok) { statuses.push('invalid'); issues.push('The figure is inconsistent: ' + fc.msg + '.'); }
+    }
     if (!p.edited) issues = issues.concat(checkSteps(p));
     var status = statuses.indexOf('invalid') >= 0 ? 'invalid' : statuses.indexOf('mismatch') >= 0 ? 'mismatch'
       : statuses.indexOf('manual') >= 0 ? 'manual' : 'verified';
