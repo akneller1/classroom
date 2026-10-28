@@ -53,7 +53,7 @@ function parallelHonors(ctx){
  var r=ctx.rng,c=ctx.c,ad=r.int(3,8),db=r.int(2,7),factor=r.int(2,5);
  var ae=ad*factor,ec=db*factor,ab=ad+db,ac=ae+ec;
  /* Keep all four answers integral, including BC and the perimeter, even at tier 1. */
- var de=ad*r.int(2,4),bc=de*ab/ad;
+ var de=ae,bc=de*ab/ad; // ADE is isosceles (AD, AE, DE): strict triangle inequality always holds.
  var p=ab+ac+bc;
  return {variant:'geo-sim-parallel-honors-'+c,
   fig:{kind:'geo-similar-pair',case:'parallel'},
