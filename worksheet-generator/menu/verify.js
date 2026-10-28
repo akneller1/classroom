@@ -35,6 +35,18 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-quad-rect-diagonal-/.test(p.variant || '')) {
+      var rect = /Diagonal AC measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!rect && chk.eq === '2*x='+rect[1];
+    }
+    if (/^geo-quad-rhombus-diagonal-/.test(p.variant || '')) {
+      var rhom = /Segment AE measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!rhom && chk.eq === 'x=2*'+rhom[1];
+    }
+    if (/^geo-quad-trapezoid-midsegment-/.test(p.variant || '')) {
+      var trap = /parallel bases measuring ([0-9]+) cm and ([0-9]+) cm/.exec(p.prompt || '');
+      return !!trap && chk.eq === '2*x='+trap[1]+'+'+trap[2];
+    }
     if (/^geo-vertical-/.test(p.variant || '')) return false;
     if (/^geo-transversal-/.test(p.variant || '')) {
       var b = /angle measures are ⟨([^⟩]+)⟩ degrees and ([0-9]+) degrees/.exec(p.prompt || '');

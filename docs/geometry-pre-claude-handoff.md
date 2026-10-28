@@ -81,3 +81,8 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Area/Surface Area/Volume: nine skills; missing cones, spheres, composite solids, nets, cross-sections and scale-factor reasoning.
 - All four files are text-first and do not attach per-question `fig` payloads. Visual coverage is a priority for Claude, particularly Quadrilaterals and Transformations.
 - No claim of end-to-end Honors calibration or live visual verification. Run GitHub Actions after these correctness corrections before adding new skill families.
+
+## Quadrilateral skills expansion (2026-10-28)
+- Added three independently verified skills: rectangle diagonal congruence/bisection, rhombus diagonal bisection, and trapezoid midsegment theorem. Eight registered skills total in the unit (previously five).
+- All three use numerical givens in student prompts, with verifier-side reconstruction of the corresponding equation; the equation is not exposed in the question prompt. No existing Geometry skill IDs were changed.
+- These remain text-first; Claude handoff should prioritize diagrams, special-quadrilateral classification, and multistep Honors reasoning. CI status must be confirmed after this change.
