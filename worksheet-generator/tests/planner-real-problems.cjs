@@ -15,7 +15,17 @@ const scripts = [
  'core/rng.js','core/frac.js','core/tex.js','core/graph.js',
  'core/framework.js','menu/mathcheck.js','menu/figures.js',
  'menu/verify.js','menu/engine.js','menu/skills/kit.js',
+ 'menu/skills/algebra1-expressions-equations.js',
+ 'menu/skills/algebra1-inequalities.js',
+ 'menu/skills/algebra1-relations-functions.js',
+ 'menu/skills/algebra1-exponential-functions.js',
+ 'menu/skills/algebra1-factoring-zero-product.js',
+ 'menu/skills/algebra1-statistics-data-modeling.js',
  'menu/skills/algebra1-linear-equations-slope.js',
+ 'menu/skills/algebra1-systems-of-equations.js',
+ 'menu/skills/algebra1-exponents-scientific-notation.js',
+ 'menu/skills/algebra1-polynomials.js',
+ 'menu/skills/algebra1-quadratics.js',
  'planner/scope-algebra1.js','planner/lesson-skills.js','planner/planner.js'
 ];
 scripts.forEach(file => vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),g,{filename:file}));
