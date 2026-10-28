@@ -273,7 +273,7 @@
         return;
       }
       // Include notes for every selected lesson, not just the primary day.
-      var noteDays = plan.selectedDays && plan.selectedDays.length > 1 ? plan.selectedDays.map(function(n) { return P.day(n); }).filter(Boolean) : [d];
+      var noteDays = sec.lessonDay ? [sec.lessonDay] : plan.selectedDays && plan.selectedDays.length > 1 ? plan.selectedDays.map(function(n) { return P.day(n); }).filter(Boolean) : [d];
       noteDays.forEach(function(d) {
       var voc = P.vocab(d);
       if (voc.length) {
