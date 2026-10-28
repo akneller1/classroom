@@ -7,9 +7,9 @@ Latest baseline before this audit: Menu assessment generator #367, Geometry flas
 
 ## Objective corrections made
 - `geometry-triangles-congruence.js`: triangle perimeter generation now satisfies strict triangle inequality; structured proof angle values are limited to valid interior-angle measures.
-- `geometry-similarity.js`: SSS sides now satisfy strict triangle inequality.
+- `geometry-similarity.js`: SSS sides now satisfy strict triangle inequality; connected Honors parallel-segment problems now produce geometrically realizable triangles.
 - `geometry-circles.js`: radius, diameter, and arc prompts no longer ambiguously reuse x for both a given and an unknown.
-- `menu/tests/geometry-plausibility-tests.cjs`: new 1,200-case plausibility regression (100 seeds × four tiers × three families); invoked in Menu Assessment Generator CI.
+- `menu/tests/geometry-plausibility-tests.cjs`: new 1,600-case plausibility regression (100 seeds × four tiers × four families); invoked in Menu Assessment Generator CI.
 
 ## Prioritized content gaps (derived from actual skill-set gaps metadata)
 | Priority | Unit | Existing registered skills | Recommended Claude work |
@@ -42,3 +42,6 @@ Latest baseline before this audit: Menu assessment generator #367, Geometry flas
 - Run existing tests and new geometry-plausibility checks; provide screenshots/PDF previews for diagram-heavy changes.
 - Separate a question-bank's finite pedagogical variety from its mathematical correctness; do not force arbitrary 25-card uniqueness where mathematically inappropriate.
 - Do not begin broad redesign until new CI run is green.
+
+## Follow-up verification note
+The four-family plausibility test was wired to the workflow and its generator API was checked against `menu/engine.js`. CI status could not be confirmed from the available GitHub connector (commit status endpoint returned no statuses and workflow-run lookup only exposes PR-triggered runs). Treat the new test as **unverified until a green GitHub Actions run is observed**. A direct repository clone was also unavailable in this environment due to DNS restrictions.
