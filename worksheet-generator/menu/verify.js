@@ -35,6 +35,13 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-circle-inscribed-expression-/.test(p.variant || '')) {
+      var inscribedExpr=/inscribed angle has measure \(x\+([0-9]+)\) degrees and intercepts an arc measuring ([0-9]+) degrees/.exec(p.prompt || '');
+      if (!inscribedExpr) return false;
+      var ieOffset=Number(inscribedExpr[1]), ieArc=Number(inscribedExpr[2]);
+      return ieOffset>0 && ieArc>0 && ieArc<360 && ieArc%2===0 && ieArc/2>ieOffset &&
+        chk.eq==='2*(x+'+ieOffset+')='+ieArc;
+    }
     if (/^geo-circle-central-expression-/.test(p.variant || '')) {
       var centralExpr=/minor arc has measure \(2x\+([0-9]+)\) degrees, and its central angle measures ([0-9]+) degrees/.exec(p.prompt || '');
       if (!centralExpr) return false;
