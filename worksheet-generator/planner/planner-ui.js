@@ -44,6 +44,35 @@
     } catch(e) {}
     return sectionOrder.slice();
   })();
+  var KEY_SECTION_CONFIG = 'mk-planner-occurrence-v1';
+  var sectionConfigs = (function() { try { return JSON.parse(lsGet(KEY_SECTION_CONFIG) || '{}') || {}; } catch(e) { return {}; } })();
+  function saveConfigs() { lsSet(KEY_SECTION_CONFIG, JSON.stringify(sectionConfigs)); }
+  function configureSection(plan,s,index) {
+    var cfg = sectionConfigs[index] || {};
+    var day = (plan.selectedDays || []).map(function(n){return P.day(n);}).find(function(d){return d && d.lesson_id === cfg.lesson;});
+    if (day) {
+      s.lessonDay = day;
+      s.title += ' — ' + day.title;
+      if (s.id !== 'notes' && P.entriesFor) {
+        var entries = P.entriesFor([day.lesson_id]);
+        if (entries.length) s.groups.forEach(function(g) { g.items.forEach(function(p,i) {
+          if (p.entry) { p.entry = entries[i % entries.length]; p.slot += '-topic-' + index; }
+        }); });
+      }
+    }
+    if (cfg.count != null && s.id !== 'notes') {
+      var all = []; s.groups.forEach(function(g){all=all.concat(g.items);});
+      if (all.length) {
+        var target = Math.max(0,Math.min(30,Math.round(+cfg.count)));
+        var out = all.slice(0,target);
+        while (out.length < target) {
+          var p = all[out.length % all.length];
+          out.push(Object.assign({},p,{slot:p.slot+'-copy-'+index+'-'+out.length}));
+        }
+        s.groups = [{name:'',items:out}];
+      }
+    }
+  }
   function saveSequence() { lsSet(KEY_SEQUENCE, JSON.stringify(sectionSequence)); }
   function applySectionChoices(plan) {
     var original = {};
@@ -59,8 +88,9 @@
       });
       return s;
     });
+    plan.sections.forEach(function(s,si) { configureSection(plan,s,si); });
     plan.sections.forEach(function(s, si) {
-      if (!/\(\d+\)$/.test(s.title)) return;
+      if (!/\\(\\d+\\)$/.test(s.title) && !sectionConfigs[si]) return;
       s.groups.forEach(function(g, gi) { g.items.forEach(function(p, pi) {
         if (p.entry) P.regenerate(plan, si, gi, pi);
       }); });
@@ -319,13 +349,13 @@
       ids.map(function (id) { return '<tr><td>' + esc(raw ? id : (id === 'LAUNCH-2' ? 'Pre-algebra skills (expressions, equations, proportions)' : lessonTitle(id))) + '</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>'; }).join('') + '</tbody></table>';
   }
   function notesBody(plan, s, singleDay) {
-    if (!singleDay && plan.selectedDays && plan.selectedDays.length > 1 && !s.reference && !s.routines && !s.project && !s.corrections) {
+    if (!singleDay && !s.lessonDay && plan.selectedDays && plan.selectedDays.length > 1 && !s.reference && !s.routines && !s.project && !s.corrections) {
       return plan.selectedDays.map(function(n) {
         var d = P.day(n);
         return d ? '<div class="pl-gh">' + esc(d.title) + '</div>' + notesBody(plan, s, d) : '';
       }).join('');
     }
-    var d = singleDay || plan.day, h = '', voc = P.vocab(d);
+    var d = singleDay || s.lessonDay || plan.day, h = '', voc = P.vocab(d);
     if (s.routines) return '<table class="pl-tbl"><tbody>' + routines(d).map(function (r) { return '<tr><th>' + esc(r[0]) + '</th><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</tbody></table>';
     if (s.project) return '<table class="pl-tbl"><thead><tr><th>Model</th><th>Pattern in the data</th><th>Equation</th></tr></thead><tbody><tr><td>Linear</td><td>constant differences (same amount added)</td><td>⟨y = mx + b⟩</td></tr><tr><td>Exponential</td><td>constant ratios (same factor multiplied)</td><td>⟨y = a·b^x⟩</td></tr><tr><td>Quadratic</td><td>constant second differences; rises then falls (or falls then rises)</td><td>⟨y = ax^2 + bx + c⟩</td></tr></tbody></table>'.replace(/⟨[^⟩]*⟩/g, function (m) { return ms(m); }) + '<div class="pl-gh">Rubric: model choice · equation · graph · explanation · presentation (4 points each)</div>';
     if (s.corrections) return '<table class="pl-tbl pl-corr"><thead><tr><th>#</th><th>My error</th><th>Correct work</th></tr></thead><tbody>' + [1, 2, 3, 4].map(function () { return '<tr><td></td><td></td><td></td></tr>'; }).join('') + '</tbody></table>';
@@ -390,7 +420,7 @@
         return '<label class="pl-lv' + (ui.notes === o[0] ? ' on' : '') + '"><input type="radio" name="plNotes" value="' + o[0] + '"' + (ui.notes === o[0] ? ' checked' : '') + '> <span><b>' + o[1] + '</b> <small>' + o[2] + '</small></span></label>';
       }).join('') + '</fieldset>' +
       '<fieldset class="pl-levels pl-section-options"><legend class="pl-lab">Include in lesson</legend><p class="pl-hint">Unchecked sections are omitted from the lesson preview, handout, teacher key, and PowerPoint.</p>' +
-      sectionSequence.map(function(k, i) { return '<div class="pl-section-choice" style="display:flex;align-items:center;gap:8px;margin:7px 0"><label style="flex:1;display:flex;gap:7px;align-items:center"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>' + problemCountInput(k) + '<button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' up">↑</button><button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="1"' + (i === sectionSequence.length - 1 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' down">↓</button><button type="button" class="btn ghost sm" data-remove-repeat="' + i + '"' + (sectionSequence.filter(function(x){return x===k;}).length < 2 ? ' disabled' : '') + ' title="Remove repeated section">−</button></div>'; }).join('') + '<select id="plRepeatType" aria-label="Section to repeat">' + Object.keys(sectionLabels).map(function(k){return '<option value="' + k + '">' + esc(sectionLabels[k]) + '</option>';}).join('') + '</select> <button type="button" class="btn ghost sm" id="plRepeat">+ Repeat section</button><p class="pl-hint">Add a section again, then use arrows to arrange the sequence. All exports follow this order.</p></fieldset>' +
+      sectionSequence.map(function(k, i) { return '<div class="pl-section-choice" style="display:flex;align-items:center;gap:8px;margin:7px 0"><label style="flex:1;display:flex;gap:7px;align-items:center"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>' + problemCountInput(k) + '<button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' up">↑</button><button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="1"' + (i === sectionSequence.length - 1 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' down">↓</button><select data-occ-lesson="' + i + '" aria-label="Topic for this section"><option value="">All selected topics</option>' + ui.selectedDays.map(function(n){var d=P.day(n); return d && d.day_type==='Lesson' ? '<option value="' + esc(d.lesson_id) + '"' + ((sectionConfigs[i]||{}).lesson===d.lesson_id?' selected':'') + '>' + esc(d.title) + '</option>' : '';}).join('') + '</select>' + (k==='notes' ? '' : '<input type="number" min="0" max="30" style="width:60px" data-occ-count="' + i + '" placeholder="#" value="' + ((sectionConfigs[i]||{}).count == null ? '' : sectionConfigs[i].count) + '" aria-label="Questions in this section">') + '<button type="button" class="btn ghost sm" data-remove-repeat="' + i + '"' + (sectionSequence.filter(function(x){return x===k;}).length < 2 ? ' disabled' : '') + ' title="Remove repeated section">−</button></div>'; }).join('') + '<select id="plRepeatType" aria-label="Section to repeat">' + Object.keys(sectionLabels).map(function(k){return '<option value="' + k + '">' + esc(sectionLabels[k]) + '</option>';}).join('') + '</select> <button type="button" class="btn ghost sm" id="plRepeat">+ Repeat section</button><p class="pl-hint">Add a section again, then use arrows to arrange the sequence. All exports follow this order.</p></fieldset>' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
@@ -493,6 +523,12 @@
   function rerenderKeep() { var y = G.scrollY; renderView(); G.scrollTo(0, y); }
   doc.addEventListener('change', function (e) {
     var t = e.target;
+    if (t.hasAttribute && (t.hasAttribute('data-occ-lesson') || t.hasAttribute('data-occ-count'))) {
+      var idx = +(t.getAttribute('data-occ-lesson') || t.getAttribute('data-occ-count')), cfg = sectionConfigs[idx] || {};
+      if (t.hasAttribute('data-occ-lesson')) cfg.lesson = t.value;
+      else cfg.count = t.value === '' ? null : Math.max(0,Math.min(30,Math.round(+t.value)));
+      sectionConfigs[idx] = cfg; saveConfigs(); render(); return;
+    }
     if (t.hasAttribute && t.hasAttribute('data-problem-count')) {
       var sectionId = t.getAttribute('data-problem-count');
       if (['donow','mixed','examples','practice','challenge','exit'].indexOf(sectionId) < 0) return;
