@@ -1,7 +1,7 @@
 /* Geometry Unit 5: independently verifiable starter questions on similarity. */
 (function(G){'use strict';
 var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
-function make(variant,prompt,eq,x,rule){var kind=/^geo-sim-(aa|sas|sss|side|angle)-/.exec(variant);var fig=kind?{kind:'geo-similar-pair',case:kind[1]==='side'||kind[1]==='angle'?'sides':kind[1]}:null;return {variant:variant,fig:fig,prompt:prompt+' Use '+M(eq)+' to find x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(rule,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
+function make(variant,prompt,eq,x,rule){var kind=/^geo-sim-(aa|sas|sss|side|angle)-/.exec(variant);var fig=kind?{kind:'geo-similar-pair',case:kind[1]==='side'||kind[1]==='angle'?'sides':kind[1]}:null;return {variant:variant,fig:fig,prompt:prompt,parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(rule,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
 function missingSide(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?6:4),a=r.int(3,12),b=r.int(3,12),x=k*b;
 return make('geo-sim-side-'+c,'Triangles ABC and DEF are similar with A corresponding to D, B to E, and C to F. AB = '+a+', DE = '+(k*a)+', BC = '+b+', and EF = x. Find x.',a+'*x='+(k*a*b),x,'Corresponding side lengths have the same ratio.');}
 function scale(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:5),a=r.int(3,14),x=k;
@@ -41,7 +41,7 @@ function parallelSegment(ctx){
  var ae=ad*factor,x=db*factor,eq=ad+'*x='+(db*ae);
  return {variant:'geo-sim-parallel-'+c,
   fig:{kind:'geo-similar-pair',case:'parallel'},
-  prompt:'In triangle ABC, D lies on AB and E lies on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', and AE = '+ae+'. Find EC = x. Explain why the two sides are divided proportionally. Use '+M(eq)+' to find x.',
+  prompt:'In triangle ABC, D lies on AB and E lies on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', and AE = '+ae+'. Find EC = x. Explain why the two sides are divided proportionally.',
   parts:[{prompt:'Find EC.',answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('Triangle proportionality theorem: AD/DB = AE/EC.',M(ad+'/'+db+'='+ae+'/x')),
          step('Cross multiply.',M(eq)),step('Solve.',M('x='+x))],
@@ -59,10 +59,10 @@ function parallelHonors(ctx){
   fig:{kind:'geo-similar-pair',case:'parallel'},
   prompt:'Honors investigation: In triangle ABC, D is on AB and E is on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', AE = '+ae+', and DE = '+de+'. Answer all four parts. Show proportional reasoning and justify each result.',
   parts:[
-   {prompt:'(a) Find EC = x using the triangle proportionality theorem. Use '+M(ad+'*x='+(db*ae))+' to find x.',answer:M('x='+ec),check:{type:'solve',eq:ad+'*x='+(db*ae),v:'x'}},
-   {prompt:'(b) Find the full side AC = y. Use '+M('y='+ae+'+'+ec)+' to find y.',answer:M('y='+ac),check:{type:'solve',eq:'y='+ae+'+'+ec,v:'y'}},
-   {prompt:'(c) Find BC = z using similarity of triangles ADE and ABC. Use '+M(ad+'*z='+(de*ab))+' to find z.',answer:M('z='+bc),check:{type:'solve',eq:ad+'*z='+(de*ab),v:'z'}},
-   {prompt:'(d) Find the perimeter of triangle ABC = w. Use '+M('w='+ab+'+'+ac+'+'+bc)+' to find w.',answer:M('w='+p),check:{type:'solve',eq:'w='+ab+'+'+ac+'+'+bc,v:'w'}}
+   {prompt:'(a) Find EC = x using the triangle proportionality theorem. Show the proportion you use.',answer:M('x='+ec),check:{type:'solve',eq:ad+'*x='+(db*ae),v:'x'}},
+   {prompt:'(b) Find the full side AC = y. Show how the segment lengths combine.',answer:M('y='+ac),check:{type:'solve',eq:'y='+ae+'+'+ec,v:'y'}},
+   {prompt:'(c) Find BC = z using similarity of triangles ADE and ABC. Set up the proportion.',answer:M('z='+bc),check:{type:'solve',eq:ad+'*z='+(de*ab),v:'z'}},
+   {prompt:'(d) Find the perimeter of triangle ABC = w. Explain which lengths you add.',answer:M('w='+p),check:{type:'solve',eq:'w='+ab+'+'+ac+'+'+bc,v:'w'}}
   ],
   steps:[
    step('Parallel lines divide sides proportionally.',M(ad+'*x='+(db*ae))),
