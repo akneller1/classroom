@@ -174,12 +174,13 @@
       T(24, y1, nm[0], 'middle', true) + T(24, y2, nm[1], 'middle', true) + T(topEnd[0] + 13 * u[0], topEnd[1] + 13 * u[1], 't', 'middle', true);
     var wedge = { 1: [shown, 180], 2: [0, shown], 3: [180, 180 + shown], 4: [180 + shown, 360] };
     function at(pos) { var up = pos <= 4, w = wedge[up ? pos : pos - 4]; return { v: up ? P : Q, a1: w[0], a2: w[1] }; }
-    var marked = {}, used = [boxOf(topEnd[0] + 13 * u[0], topEnd[1] + 13 * u[1], 't')];
+    var marked = {}, arcN = [0, 0], used = [boxOf(topEnd[0] + 13 * u[0], topEnd[1] + 13 * u[1], 't')];
     (spec.marks || []).forEach(function (m) { marked[m.pos] = m; });
     (spec.marks || []).forEach(function (m) {
-      var g = at(m.pos), rays = [0, 180, shown, 180 + shown], pos;
-      h += arcPath(g.v, g.a1, g.a2, 16, 1.6);
-      pos = placeInWedge(g.v, g.a1, g.a2, m.text, [g.a1, g.a2], used);
+      var g = at(m.pos), rays = [0, 180, shown, 180 + shown], pos, vk = m.pos <= 4 ? 0 : 1, ar;
+      arcN[vk] = (arcN[vk] || 0) + 1; ar = 14 + 5 * (arcN[vk] - 1);   /* neighbouring wedges at one vertex get different radii so the arcs never join into one circle */
+      h += arcPath(g.v, g.a1, g.a2, ar, 1.6);
+      pos = placeInWedge(g.v, g.a1, g.a2, m.text, [g.a1, g.a2], used, null, Math.max(26, ar + 21));
       h += TL(pos, m.text);
     });
     if (spec.numbered) for (var k = 1; k <= 8; k++) {
@@ -218,8 +219,8 @@
     var h = L(O, right) + L(O, other) + L(O, tip) + dot(O, 3);
     var w2 = comp ? 90 : 180;
     if (comp) h += rightMark(O, 0, 90, 9);
-    h += arcPath(O, 0, d1, comp ? 24 : 22, 1.6) + arcPath(O, d1, w2, comp ? 24 : 22, 1.6);
-    var q1 = placeInWedge(O, 0, d1, p[0].text, [0, d1], used, null, 38), q2 = placeInWedge(O, d1, w2, p[1].text, [d1, w2], used, null, 38);
+    h += arcPath(O, 0, d1, 22, 1.6) + arcPath(O, d1, w2, 31, 1.6);   /* two radii so each angle has its own arc, not one continuous curve */
+    var q1 = placeInWedge(O, 0, d1, p[0].text, [0, d1], used, null, 40), q2 = placeInWedge(O, d1, w2, p[1].text, [d1, w2], used, null, 44);
     h += TL(q1, p[0].text) + TL(q2, p[1].text);
     return wrap(h, 160, comp ? 'A right angle split into two adjacent angles' : 'A straight angle split into two adjacent angles', c[1] ? '' : 'Not drawn to scale.');
   }
@@ -503,7 +504,7 @@
     (spec.angles || []).forEach(function (a) {
       var v = Q[a.v], w = shortWedge(ang(v, Q[a.a]), ang(v, Q[a.b]));
       h += arcPath(v, w[0], w[1], 15, 1.6);
-      if (a.label) { var pos = placeInWedge(v, w[0], w[1], a.label, [w[0], w[1]], used); h += TL(pos, a.label); }
+      if (a.label) { var pos = placeInWedge(v, w[0], w[1], a.label, [w[0], w[1]], used, null, Math.max(26, 19 + textW(a.label) / 2)); h += TL(pos, a.label); }
     });
     var lo = CX - S, hi = CX + S;
     Object.keys(Q).forEach(function (n) { lo = Math.min(lo, Q[n][0]); hi = Math.max(hi, Q[n][0]); });

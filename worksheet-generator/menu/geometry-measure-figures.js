@@ -84,7 +84,10 @@
       var bigKey = v.b >= v.a ? 'b' : 'a', smallKey = bigKey === 'b' ? 'a' : 'b';
       if (shown(spec, bigKey)) lbl += T(x0 + tbw / 2, y0 + 15, label(spec, bigKey));
       if (shown(spec, smallKey)) lbl += T(x0 + off + tsw / 2, y0 - tth - 11, label(spec, smallKey));
-      if (shown(spec, 'h')) lbl += T(x0 + off + 6, y0 - tth / 2, label(spec, 'h'), 'start');
+      if (shown(spec, 'h')) {   // inside, right of the dashed height, only when it clears the slanted side; otherwise just outside the left side
+        var hl = label(spec, 'h'), hw = String(hl).length * 7.2 + 10;
+        lbl += hw < tsw - 4 ? T(x0 + off + 6, y0 - tth / 2, hl, 'start') : T(x0 - 6 + off * 0.5, y0 - tth / 2, hl, 'end');
+      }
     }
     var out = poly(pts) + extra + lbl;
     return H.wrap(out, 182, 'A ' + shp + ' with its dimensions labelled', clamped || (wU / hU > 4.5 || hU / wU > 4.5) ? 'Not drawn to scale.' : '');
@@ -170,7 +173,7 @@
     q = P(a.l, 0, a.w / 2); out += T(q[0] + 10, q[1] + 8, dim(spec, a.w), 'start');
     q = P(bx + b.l / 2, a.h + b.h, bz + b.w); out += T(q[0], q[1] - 11, dim(spec, b.l));
     q = P(bx, a.h + b.h / 2, bz); out += T(q[0] - 8, q[1], dim(spec, b.h), 'end');
-    q = P(bx + b.l, a.h + b.h / 2, bz + b.w / 2); out += T(q[0] + 10, q[1] + 2, dim(spec, b.w), 'start');
+    q = P(bx + b.l, a.h + b.h / 2, bz + b.w / 2); out += T(q[0] + kx * b.w / 2 * sc + 7, q[1] + 2, dim(spec, b.w), 'start');
     return H.wrap(out, Math.ceil(y0 + 28), 'Two rectangular prisms stacked, with every dimension labelled', 'Not drawn to scale.');
   }
 

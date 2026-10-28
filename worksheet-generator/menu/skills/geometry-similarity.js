@@ -2,7 +2,7 @@
 (function(G){'use strict';
 var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
 function make(variant,prompt,eq,x,rule,df){var kind=/^geo-sim-(aa|sas|sss|side|angle)-/.exec(variant);var fig=df?df:kind?{kind:'geo-similar-pair',case:kind[1]==='side'||kind[1]==='angle'?'sides':kind[1]}:null;return {variant:variant,fig:fig,prompt:prompt,parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(rule,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};}
-function missingSide(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?6:4),a=r.int(3,12),b=r.int(3,12),x=k*b;
+function missingSide(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?6:4),a=r.int(3,12),b=r.int(3,12),x;while(b>a*1.6||a>b*1.6){a=r.int(3,12);b=r.int(3,12);}x=k*b;
 return make('geo-sim-side-'+c,'Triangles ABC and DEF are similar with A corresponding to D, B to E, and C to F. AB = '+a+', DE = '+(k*a)+', BC = '+b+', and EF = x. Find x.',a+'*x='+(k*a*b),x,'Corresponding side lengths have the same ratio.',{kind:'geo-sim',sides:[a,b,Math.max(Math.abs(a-b)+1,Math.min(a+b-1,Math.round((a+b)*0.75)))],k:k,show:['AB','BC','DE'],lab:{EF:'x'},marks:true});}
 function scale(ctx){var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:5),a=r.int(3,14),x=k;
 return make('geo-sim-scale-'+c,'A triangle has a side of length '+a+'. Its image after a dilation has the corresponding side of length '+(a*k)+'. Find the scale factor x.',a+'*x='+(a*k),x,'Image length = scale factor × original length.',{kind:'geo-sim',sides:[a,a+r.int(0,2)||a,Math.max(1,a-1)],k:k,show:['AB','DE'],note:'Not drawn to scale. Triangle DEF is the image of triangle ABC.'});}
@@ -29,7 +29,7 @@ function sasCriterion(ctx){
   eq,x,'SAS similarity requires proportional sides surrounding a congruent included angle.',{kind:'geo-sim',sas:[a,b,55],k:k,show:['AB','CA','DE'],lab:{FD:'x'},marks:['A','D']});
 }
 function sssCriterion(ctx){
- var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:4),a=r.int(5,11),b=r.int(5,11),d=r.int(Math.abs(a-b)+1,a+b-1),x=k*d;
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:4),a=r.int(5,11),b=r.int(5,11),d=r.int(Math.abs(a-b)+1,a+b-1),x;for(var tr=0;tr<60;tr++){var sd=[a,b,d].sort(function(u,v){return u-v}),big=sd[2];if(big<=sd[0]*1.6&&sd[0]+sd[1]>=big*1.25)break;a=r.int(5,11);b=r.int(5,11);d=r.int(Math.abs(a-b)+1,a+b-1);}x=k*d;
  var eq=d+'*x='+(d*x);
  return make('geo-sim-sss-'+c,
   'Triangles ABC and DEF have corresponding sides AB = '+a+', DE = '+(k*a)+', BC = '+b+', EF = '+(k*b)+', AC = '+d+', and DF = x. All three side pairs must have the same ratio for SSS similarity. Find x and state why the triangles are similar.',
@@ -40,7 +40,7 @@ function parallelSegment(ctx){
  var r=ctx.rng,c=ctx.c,ad=r.int(3,9),db=r.int(2,7),factor=r.int(2,c>=5?6:4);
  var ae=ad*factor,x=db*factor,eq=ad+'*x='+(db*ae);
  return {variant:'geo-sim-parallel-'+c,
-  fig:{kind:'geo-tri-par',v:{AD:ad,DB:db,AE:ae,EC:x},angA:65,show:['AD','DB','AE'],lab:{EC:'x'}},
+  fig:{kind:'geo-tri-par',v:{AD:ad,DB:db,AE:ae,EC:x},angA:65,schem:true,note:'Not drawn to scale.',show:['AD','DB','AE'],lab:{EC:'x'}},
   prompt:'In triangle ABC, D lies on AB and E lies on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', and AE = '+ae+'. Find EC = x. Explain why the two sides are divided proportionally.',
   parts:[{prompt:'Find EC.',answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step('Triangle proportionality theorem: AD/DB = AE/EC.',M(ad+'/'+db+'='+ae+'/x')),
@@ -56,7 +56,7 @@ function parallelHonors(ctx){
  var de=ae,bc=de*ab/ad; // ADE is isosceles (AD, AE, DE): strict triangle inequality always holds.
  var p=ab+ac+bc;
  return {variant:'geo-sim-parallel-honors-'+c,
-  fig:{kind:'geo-tri-par',v:{AD:ad,DB:db,AE:ae,EC:ec},BC:bc,show:['AD','DB','AE'],lab:{EC:'x',DE:String(de)}},
+  fig:{kind:'geo-tri-par',v:{AD:ad,DB:db,AE:ae,EC:ec},BC:bc,schem:true,note:'Not drawn to scale.',show:['AD','DB','AE'],lab:{EC:'x',DE:String(de)}},
   prompt:'Honors investigation: In triangle ABC, D is on AB and E is on AC, with DE parallel to BC. AD = '+ad+', DB = '+db+', AE = '+ae+', and DE = '+de+'. Answer all four parts. Show proportional reasoning and justify each result.',
   parts:[
    {prompt:'(a) Find EC = x using the triangle proportionality theorem. Show the proportion you use.',answer:M('x='+ec),check:{type:'solve',eq:ad+'*x='+(db*ae),v:'x'}},

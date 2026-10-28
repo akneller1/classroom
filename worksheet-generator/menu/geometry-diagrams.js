@@ -190,13 +190,14 @@ D.render=function(spec){
    h='<path d="M54 76 H376" fill="none" stroke="#111" stroke-width="2.5"/>'+
      '<circle cx="54" cy="76" r="4" fill="#111"/><circle cx="198" cy="76" r="4" fill="#111"/><circle cx="376" cy="76" r="4" fill="#111"/>'+
      tx(54,105,a[0])+tx(198,105,a[1])+tx(376,105,a[2])+
-     tx(125,59,m[0])+tx(287,59,m[1])+tx(215,139,m[2]);
+     tx(125,59,m[0])+tx(287,59,m[1])+
+     (/\d/.test(m[2])?'<path d="M54 118 V126 H376 V118 M215 126 V132" fill="none" stroke="#111" stroke-width="1.5"/>'+tx(215,148,m[2]):tx(215,139,m[2]));
  }else if(spec.kind==='geo-angle'){
    if(a.length!==3||m.length!==3)return '';
    /* Adjacent angles ABD and DBC inside the whole angle ABC. Wedge sizes follow the numbers when they are plain
       degrees (kept readable), each part has its own arc and label, and the whole angle has its own outer arc. */
    var V=[215,125],num=function(t){var q=/^(\d+)°$/.exec(String(t));return q?Number(q[1]):null;},T0=num(m[2]),P2=num(m[1]),
-     Tv=T0===null?110:Math.max(70,Math.min(115,T0)),f=(T0!==null&&P2!==null&&T0>0)?(T0-P2)/T0:0.55,
+     Tv=T0===null?110:Math.max(70,Math.min(115,T0)),f=spec.equal?0.5:(T0!==null&&P2!==null&&T0>0)?(T0-P2)/T0:0.55,
      t1=Math.max(30,Math.min(Tv-30,f*Tv)),pt=function(ph,r){return [V[0]+r*Math.cos(ph*Math.PI/180),V[1]-r*Math.sin(ph*Math.PI/180)];},
      P=function(q){return q[0].toFixed(1)+' '+q[1].toFixed(1);},arcp=function(p1,p2,r){return '<path d="M'+P(pt(p1,r))+' A'+r+' '+r+' 0 0 1 '+P(pt(p2,r))+'" fill="none" stroke="#111" stroke-width="1.6"/>';},
      e1=180-t1,e2=180-Tv,rayEnd=pt(e1,spec.mid?98:98),cEnd=pt(e2,108),cLab=pt(e2,122),aEnd=pt(180,150),l1=pt(180-t1/2,62),l2=pt(180-t1-(Tv-t1)/2,62),lt=pt(180-Tv/2,114);

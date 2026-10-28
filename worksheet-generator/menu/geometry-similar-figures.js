@@ -132,7 +132,13 @@
           var b3 = bx(A0[0] + bis[0] * d3, A0[1] + bis[1] * d3, angTxt[i]);
           if (2 * d3 * Math.tan(a / 2) >= tw2 + 2 && !hit(b3)) { o += T(A0[0] + bis[0] * d3, A0[1] + bis[1] * d3, angTxt[i]); boxes.push(b3); placed = true; }
         }
-        if (!placed) { var ox = Math.max(20, Math.min(W - 20, A0[0] - bis[0] * (24 + tw2 / 2))), oy = A0[1] - bis[1] * (24 + tw2 / 2); o += T(ox, oy, angTxt[i]); boxes.push(bx(ox, oy, angTxt[i])); }
+        if (!placed) {   // outside the corner, beyond the vertex letter, clear of every other label
+          var tries = [34, 44, 54, 64], ox, oy, bo;
+          for (var ti = 0; ti < tries.length && !placed; ti++) {
+            ox = Math.max(20, Math.min(W - 20, A0[0] - bis[0] * (tries[ti] + tw2 / 2))); oy = A0[1] - bis[1] * (tries[ti] + tw2 / 2); bo = bx(ox, oy, angTxt[i]);
+            if (!hit(bo) || ti === tries.length - 1) { var ap = [A0[0] + bis[0] * 15, A0[1] + bis[1] * 15], dl = unit([ox, oy], ap), st = [ox + dl[0] * (Math.abs(dl[0]) * tw2 / 2 + 6), oy + dl[1] * (Math.abs(dl[0]) * tw2 / 2 + 6)]; o += L(st, ap, 0.9) + T(ox, oy, angTxt[i]); boxes.push(bo); placed = true; }
+          }
+        }
       }
     }
     return o;
@@ -141,10 +147,10 @@
   function renderSim(spec) {
     var t = build(spec), k = spec.k, kd = Math.max(1 / 2.2, Math.min(2.2, k)), note = kd !== k ? 'Not drawn to scale.' : '';
     var xs = [t.A[0], t.B[0], t.C[0]], ys = [t.A[1], t.B[1], t.C[1]], w = Math.max.apply(null, xs) - Math.min.apply(null, xs), h = Math.max.apply(null, ys) - Math.min.apply(null, ys);
-    var big = Math.max(1, kd), s = Math.min(165 / (w * big), 112 / (h * big)), s1 = s * (kd >= 1 ? 1 : 1), s2 = s * kd;
+    var big = Math.max(1, kd), s = Math.min(155 / (w * big), 112 / (h * big)), s1 = s * (kd >= 1 ? 1 : 1), s2 = s * kd;
     function place(sc, x0, y0) { var mnx = Math.min.apply(null, xs); return [t.A, t.B, t.C].map(function (p) { return [x0 + (p[0] - mnx) * sc, y0 - p[1] * sc]; }); }
     var baseY = 34 + Math.max(h * s1, h * s2);
-    var P1 = place(s1, 24 + (165 - w * s1) / 2, baseY), P2 = place(s2, 240 + (165 - w * s2) / 2, baseY);
+    var P1 = place(s1, 14 + (155 - w * s1) / 2, baseY), P2 = place(s2, 258 + (155 - w * s2) / 2, baseY);
     var sd = [['AB', 'DE'], ['BC', 'EF'], ['CA', 'FD']];
     function sideText(nm) {
       var nm2 = nm === 'CA' ? ['CA', 'AC'] : nm === 'FD' ? ['FD', 'DF'] : [nm], v;
@@ -164,9 +170,8 @@
   /* ---------- triangle proportionality: DE parallel to BC ---------- */
   function parTri(spec) {
     var v = spec.v, AB = v.AD + v.DB, AC = v.AE + v.EC, t;
-    if (spec.BC) t = { B: [0, 0], C: [spec.BC, 0] };
-    else t = null;
-    var BCv = spec.BC || Math.sqrt(AB * AB + AC * AC - 2 * AB * AC * Math.cos(spec.angA * DEG));
+    if (spec.schem) { AB = 10; AC = 11.5; }   // schematic: side lengths are NOT to scale, only the division ratio is
+    var BCv = spec.schem ? Math.sqrt(AB * AB + AC * AC - 2 * AB * AC * Math.cos((spec.angA || 62) * DEG)) : spec.BC || Math.sqrt(AB * AB + AC * AC - 2 * AB * AC * Math.cos(spec.angA * DEG));
     var bx = (AB * AB + BCv * BCv - AC * AC) / (2 * BCv), by2 = AB * AB - bx * bx;
     if (by2 <= 0) return null;
     return { B: [0, 0], C: [BCv, 0], A: [bx, Math.sqrt(by2)], BC: BCv, AB: AB, AC: AC };
@@ -176,7 +181,7 @@
     if (!v) return { ok: false, msg: 'missing lengths' };
     for (i = 0; i < 4; i++) if (!(v[ks[i]] > 0)) return { ok: false, msg: 'lengths must be positive' };
     if (Math.abs(v.AD * v.EC - v.DB * v.AE) > 1e-9) return { ok: false, msg: 'DE is not parallel to BC: AD/DB must equal AE/EC' };
-    if (!(spec.BC > 0) && !(spec.angA > 0 && spec.angA < 180)) return { ok: false, msg: 'need BC or angle A' };
+    if (!spec.schem && !(spec.BC > 0) && !(spec.angA > 0 && spec.angA < 180)) return { ok: false, msg: 'need BC or angle A' };
     var t = parTri(spec); if (!t) return { ok: false, msg: 'not a valid triangle' };
     var show = spec.show || [], lab = spec.lab || {}, allowed = ['AD', 'DB', 'AE', 'EC', 'DE', 'BC'], k;
     for (i = 0; i < show.length; i++) {
@@ -186,7 +191,7 @@
     for (k in lab) {
       if (allowed.indexOf(k) < 0) return { ok: false, msg: 'unknown segment ' + k };
       var n = numOf(lab[k]); if (n === null && /\d/.test(lab[k])) return { ok: false, msg: 'label mixes a number with other text' };
-      if (n !== null) { var tv = k === 'BC' ? t.BC : k === 'DE' ? t.BC * v.AD / (v.AD + v.DB) : v[k]; if (Math.abs(tv - n) > 1e-6) return { ok: false, msg: 'segment ' + k + ' is labelled ' + lab[k] + ' but drawn as ' + Math.round(tv * 100) / 100 }; }
+      if (n !== null && !spec.schem) { var tv = k === 'BC' ? t.BC : k === 'DE' ? t.BC * v.AD / (v.AD + v.DB) : v[k]; if (Math.abs(tv - n) > 1e-6) return { ok: false, msg: 'segment ' + k + ' is labelled ' + lab[k] + ' but drawn as ' + Math.round(tv * 100) / 100 }; }
     }
     return { ok: true };
   }

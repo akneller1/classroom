@@ -81,6 +81,13 @@
       o += '<path d="M' + r1(a[0]) + ' ' + r1(a[1]) + ' L' + r1(b[0]) + ' ' + r1(b[1]) + '" stroke="' + INK + '" stroke-width="2.2" stroke-dasharray="8 5"/>';
       if (l.text) o += l.x !== undefined ? txt(a[0] + 5, a[1] + 8, l.text, { anchor: 'start', size: 12, halo: true }) : txt(b[0] - 3, b[1] - 9, l.text, { anchor: 'end', size: 12, halo: true });
     });
+    /* vertex labels: collision-aware (other labels, every vertex dot, axis numbers) and kept inside the picture */
+    var dots = [], tickBoxes = [], placed = [], hits = function (A, B) { return A[0] < B[2] && B[0] < A[2] && A[1] < B[3] && B[1] < A[3]; };
+    for (i = xmin; i <= xmax; i++) if (i !== 0 && i % step === 0) tickBoxes.push([gx(i) - 9, gy(0) + 3, gx(i) + 9, gy(0) + 17]);
+    for (j = ymin; j <= ymax; j++) if (j !== 0 && j % step === 0) tickBoxes.push([gx(0) - 22, gy(j) - 7, gx(0) - 2, gy(j) + 7]);
+    tickBoxes.push([gx(xmax) - 12, gy(0) - 18, gx(xmax) + 2, gy(0) - 2], [gx(0) + 2, gy(ymax) - 2, gx(0) + 16, gy(ymax) + 16]);
+    (spec.lines || []).forEach(function (l) { if (l.text) tickBoxes.push(l.x !== undefined ? [gx(l.x) + 3, gy(ymax) + 1, gx(l.x) + 3 + l.text.length * 7, gy(ymax) + 15] : [gx(xmax) - 3 - l.text.length * 7, gy(l.y) - 16, gx(xmax) - 3, gy(l.y) - 2]); });
+    sh.forEach(function (s) { s.pts.forEach(function (p) { dots.push([gx(p[0]), gy(p[1])]); }); });
     sh.forEach(function (s) {
       var P = s.pts.map(function (p) { return [gx(p[0]), gy(p[1])]; }), cx = 0, cy = 0;
       P.forEach(function (p) { cx += p[0]; cy += p[1]; }); cx /= P.length; cy /= P.length;
@@ -93,8 +100,19 @@
         if (s.labels && s.labels[k]) {
           var vx = p[0] - cx, vy = p[1] - cy, m = Math.hypot(vx, vy);
           if (m < 1) { vx = 1; vy = -1; m = Math.SQRT2; }
-          var lab = s.labels[k], w = lab.length * 7.5 + 4;
-          o += txt(p[0] + vx / m * (10 + w / 2 * Math.abs(vx / m)), p[1] + vy / m * 14, lab, { halo: true });
+          var lab = s.labels[k], w = lab.length * 7.5 + 4, base = Math.atan2(vy, vx), best = null, order = [0, 1, -1, 2, -2, 3, -3, 4], q, e, ex;
+          for (e = 0; e < 3 && !best; e++) for (q = 0; q < order.length && !best; q++) {
+            var th = base + order[q] * Math.PI / 4, ux = Math.cos(th), uy = Math.sin(th), dd = 7 + e * 9 + Math.abs(ux) * w / 2 + Math.abs(uy) * 8,
+              lx = p[0] + ux * dd, ly = p[1] + uy * dd, bx = [lx - w / 2, ly - 8, lx + w / 2, ly + 8], bad = false;
+            if (bx[0] < 2 || bx[2] > W - 2 || bx[1] < 2 || bx[3] > hh - 2) bad = true;
+            placed.forEach(function (z) { if (hits(bx, z)) bad = true; });
+            tickBoxes.forEach(function (z) { if (hits(bx, z)) bad = true; });
+            dots.forEach(function (z) { if (z[0] > bx[0] - 4 && z[0] < bx[2] + 4 && z[1] > bx[1] - 4 && z[1] < bx[3] + 4) bad = true; });
+            if (!bad) best = { x: lx, y: ly, b: bx };
+          }
+          if (!best) { ex = 7 + Math.abs(Math.cos(base)) * w / 2 + Math.abs(Math.sin(base)) * 8; best = { x: Math.max(w / 2 + 2, Math.min(W - w / 2 - 2, p[0] + Math.cos(base) * ex)), y: p[1] + Math.sin(base) * ex, b: [0, 0, 0, 0] }; best.b = [best.x - w / 2, best.y - 8, best.x + w / 2, best.y + 8]; }
+          placed.push(best.b);
+          o += txt(best.x, best.y, lab, { halo: true });
         }
       });
     });

@@ -121,3 +121,20 @@ User report: some circle skills showed "No verified problem" in Open Response se
 - Chord and tangent labels, circle size and cropping: see the previous section.
 - Verifier: the right-triangle investigation is re-derived from the printed hypotenuse and sin/cos ratios (a tampered ratio is rejected). Midpoint skill no longer produces B = A.
 - Not drawn: the first (mixed-triangle) four-part triangle investigation, whose parts use different triangles.
+
+## Accuracy audit of earlier (ChatGPT) work: triangles and similarity
+- Triangle angle labels must sit inside the triangle with room to spare; narrow triangles fall back to an outside label.
+- Similarity parallel-line figures are now schematic ("Not drawn to scale"); side lengths are kept within a 1.6 ratio so drawings stay readable.
+- Outside angle labels get a short leader line to their vertex.
+- Still to audit visually: right triangles, congruence criteria, angles/parallel lines, basics, transformations, area/volume.
+
+## Accuracy audit continued: every unit's figures re-rendered and checked by eye
+Checked: right triangles, congruence, angles/parallel lines, basics, transformations, area/volume, circles. Planner glossary/key ideas and skill reference sheets were read for mathematical errors (none found).
+Fixes made:
+- Straight-angle (supplementary / linear-pair) figures: the two angles now have separate arcs at different radii, instead of one arc that looked like it covered both.
+- Parallel-lines figures: arcs at one vertex use different radii (no more merged circles) and labels sit clear of their arcs; this also fixes the four-part investigation figure.
+- Bisector figure now draws the bisector in the true middle with matching double arcs; segment-addition shows a bracket for the total length.
+- Coordinate-plane figures: vertex labels avoid each other, dots, axis numbers and the figure edge (coincident points such as C and C′ on the mirror line are now separated; no clipped "P(8, −1)").
+- Trapezoid height label no longer crosses the slanted side; trapezoid bases are never equal; stack figure depth label sits outside its face.
+- Semicircle problems use angle A between 22° and 68° so the triangle is large enough to label; circle angle labels clear their arcs.
+- Outside angle labels in similar triangles get a leader line.

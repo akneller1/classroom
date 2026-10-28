@@ -98,12 +98,14 @@
     var s = Math.min(bw / (mxx - mnx || 1), bh / (mxy - mny || 1)), x0 = (W - (mxx - mnx) * s) / 2 - mnx * s, y0 = 46 + (mxy) * s;
     return { map: function (p) { return [x0 + p[0] * s, y0 - p[1] * s]; }, h: (mxy - mny) * s + 46 + 38, s: s };
   }
-  function angleLabel(V, u1, u2, text, boxes) {
+  function inTri(p, T) { var s1 = (T[1][0] - T[0][0]) * (p[1] - T[0][1]) - (T[1][1] - T[0][1]) * (p[0] - T[0][0]), s2 = (T[2][0] - T[1][0]) * (p[1] - T[1][1]) - (T[2][1] - T[1][1]) * (p[0] - T[1][0]), s3 = (T[0][0] - T[2][0]) * (p[1] - T[2][1]) - (T[0][1] - T[2][1]) * (p[0] - T[2][0]); return (s1 >= 0 && s2 >= 0 && s3 >= 0) || (s1 <= 0 && s2 <= 0 && s3 <= 0); }
+  function angleLabel(V, u1, u2, text, boxes, tri) {
     var o = arc(V, u1, u2, 18), bis = [u1[0] + u2[0], u1[1] + u2[1]], bm = Math.hypot(bis[0], bis[1]) || 1; bis = [bis[0] / bm, bis[1] / bm];
     var a = Math.acos(Math.max(-1, Math.min(1, u1[0] * u2[0] + u1[1] * u2[1]))), tw = String(text).length * 7.8 + 6;
     for (var d = 32; d <= 90; d += 4) {
       var c = [V[0] + bis[0] * d, V[1] + bis[1] * d], b = boxOf(c[0], c[1], text), bad = false;
-      if (2 * d * Math.tan(a / 2) < tw + 4) continue;
+      if (2 * d * Math.tan(a / 2) < tw + 18) continue;
+      if (tri && !(inTri([b[0], b[1]], tri) && inTri([b[2], b[1]], tri) && inTri([b[0], b[3]], tri) && inTri([b[2], b[3]], tri))) continue;
       for (var q = 0; q < boxes.length; q++) { var z = boxes[q]; if (b[0] < z[2] && b[2] > z[0] && b[1] < z[3] && b[3] > z[1]) bad = true; }
       if (!bad) { boxes.push(b); return o + T(c[0], c[1], text); }
     }
@@ -127,7 +129,7 @@
       for (var i = 0; i < 3; i++) { var d = unit(cen, P[i]); o += T(P[i][0] + d[0] * 14, P[i][1] + d[1] * 14, nm[i]); boxes.push(boxOf(P[i][0] + d[0] * 14, P[i][1] + d[1] * 14, nm[i])); }
       for (i = 0; i < 3; i++) {
         var lt = (spec.lab || {})[nm[i]]; if (!lt) continue;
-        o += angleLabel(P[i], unit(P[i], P[(i + 1) % 3]), unit(P[i], P[(i + 2) % 3]), lt, boxes);
+        o += angleLabel(P[i], unit(P[i], P[(i + 1) % 3]), unit(P[i], P[(i + 2) % 3]), lt, boxes, P);
       }
       var sl = spec.sideLab || {}, segs = [['AB', 0, 1], ['BC', 1, 2], ['CA', 2, 0]];
       segs.forEach(function (sg) { var t = sl[sg[0]] !== undefined ? sl[sg[0]] : (sg[0] === 'CA' ? sl.AC : undefined); if (t) o += side(P[sg[1]], P[sg[2]], t, cen, 12); });
