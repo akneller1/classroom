@@ -11,7 +11,7 @@
   if(a>1){target=r.int(8,Math.floor((limit-10)/a));fixed=limit-a*target;}
   var left=a===1?'x':a+'x',eq=left+'+'+fixed+'='+limit;
   var description=kind==='complement'?'Two complementary angles':'Two supplementary angles';
-  var prompt=description+' have measures that add to '+limit+' degrees. Find x by writing and solving an equation.';
+  var prompt=description+' have measures '+M(left)+' degrees and '+fixed+' degrees. Find x by writing and solving an equation.';
   return {variant:'geo-'+kind+'-'+c,prompt,parts:[{answer:M('x='+target),check:{type:'solve',eq,v:'x'}}],steps:[st('The two angles add to '+limit+' degrees.',M(eq)),st('Solve for x.',M('x='+target))],space:[1,1.3,1.6]};
  }
 
@@ -21,7 +21,7 @@
  }
  function linearPair(ctx){
   var r=ctx.rng,c=ctx.c,a=c>=5?r.int(2,4):1,x=r.int(8,Math.floor(140/a)),fixed=180-a*x,eq=(a===1?'x':a+'x')+'+'+fixed+'=180';
-  return {variant:'geo-linear-pair-'+c,prompt:'Two adjacent angles form a linear pair (a straight angle). Find x by writing and solving an equation.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('A linear pair sums to 180 degrees.',M(eq)),st('Solve.',M('x='+x))],space:[1,1.3,1.6]};
+  return {variant:'geo-linear-pair-'+c,prompt:'Two adjacent angles form a linear pair (a straight angle). Their measures are '+M(a===1?'x':a+'x')+' degrees and '+fixed+' degrees. Find x by writing and solving an equation.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[st('A linear pair sums to 180 degrees.',M(eq)),st('Solve.',M('x='+x))],space:[1,1.3,1.6]};
  }
 
  function transversal(ctx,relationship){
@@ -32,7 +32,7 @@
   var eq=relationship==='same-side'?(a===1?'x':a+'x')+'+'+b+'+'+supplementary+'=180':(a===1?'x':a+'x')+'+'+b+'='+base;
   var relationNames={corresponding:'corresponding','alternate-interior':'alternate interior','alternate-exterior':'alternate exterior','same-side':'same-side interior'};
   var text=relationship==='same-side'?'Same-side interior angles are supplementary':'The two '+relationNames[relationship]+' angles are congruent';
-  return {variant:'geo-transversal-'+relationship+'-'+c,prompt:'Two parallel lines are cut by a transversal. '+text+'. Find x by writing and solving an equation.',
+  return {variant:'geo-transversal-'+relationship+'-'+c,prompt:'Two parallel lines are cut by a transversal. '+text+'. The relevant angle measures are '+M((a===1?'x':a+'x')+'+'+b)+' degrees and '+(relationship==='same-side'?supplementary:base)+' degrees. Find x by writing and solving an equation.',
     parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
     steps:[st(relationship==='same-side'?'The angle measures add to 180 degrees.':'The angle measures are equal.',M(eq)),st('Solve for x.',M('x='+x))],
     space:[1,1.3,1.6]};
