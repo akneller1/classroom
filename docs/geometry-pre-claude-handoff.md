@@ -149,3 +149,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 ## Circles: Honors tangent–secant internal segment (2026-10-28)
 - Tiers 5–7 of `circle-tangent-secant` now give tangent and external secant lengths but ask for the *internal* secant segment x, requiring e(x+e)=t². Tiers 1–4 retain direct whole-secant calculation.
 - Values use t=e·m (m≥2), yielding positive integer x=e(m²−1). Independent verifier derives the compound equation from the student-visible tangent and external lengths. No diagrams created; all 16 registered skills preserved. CI pending.
+
+## Circles: Honors intersecting-chord expressions (2026-10-28)
+- Tiers 5–7 of the existing intersecting-chord skill now require setting up a(x+s)=b·d with PB labeled (x+s), not x. The generator ensures positive integer x; tiers 1–4 retain direct chord-product practice.
+- Independent verification parses PA, PB expression, PC, and PD from the student-visible prompt. No diagrams or drawings; still 16 registered Circles skills. CI pending.

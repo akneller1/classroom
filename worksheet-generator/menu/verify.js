@@ -80,6 +80,11 @@
       var sector = /radius ([0-9]+) cm.*central angle ([0-9]+)°.*exact sector area is x times pi square centimeters/.exec(p.prompt || '');
       return !!sector && Number(sector[2]) > 0 && Number(sector[2]) < 360 && chk.eq === '360*x='+sector[1]+'*'+sector[1]+'*'+sector[2];
     }
+    if (/^geo-circle-intersecting-chords-expression-/.test(p.variant || '')) {
+      var chordExpr=/PA measures ([0-9]+) cm, PB measures \(x\+([0-9]+)\) cm, PC measures ([0-9]+) cm, and PD measures ([0-9]+) cm/.exec(p.prompt || '');
+      return !!chordExpr && Number(chordExpr[1])>0 && Number(chordExpr[2])>0 && Number(chordExpr[3])>0 && Number(chordExpr[4])>0 &&
+        chk.eq===chordExpr[1]+'*(x+'+chordExpr[2]+')='+chordExpr[3]+'*'+chordExpr[4];
+    }
     if (/^geo-circle-intersecting-chords-/.test(p.variant || '')) {
       var chord = /PA measures ([0-9]+) cm, PB measures x cm, PC measures ([0-9]+) cm, and PD measures ([0-9]+) cm/.exec(p.prompt || '');
       return !!chord && chk.eq === chord[1]+'*x='+chord[2]+'*'+chord[3];
