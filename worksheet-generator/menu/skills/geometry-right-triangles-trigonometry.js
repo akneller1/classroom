@@ -28,7 +28,7 @@ function special30(ctx){
   eq,x,'In a 30°-60°-90° triangle the hypotenuse is twice the short leg.');
 }
 function elevation(ctx){
- var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?15:8),rise=3*k,run=4*k,x=rise;
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?50:35),ratio=r.int(0,1)===0?[3,4]:[5,12],rise=ratio[0]*k,run=ratio[1]*k,x=rise;
  var eq=run+'*x='+rise+'*'+run;
  return make('geo-right-elevation-'+c,
   'A surveyor observes the top of a building at an angle of elevation θ. The horizontal distance is '+run+' feet and tan θ = '+rise+'/'+run+'. Assuming level ground, find the building height x in feet.',
