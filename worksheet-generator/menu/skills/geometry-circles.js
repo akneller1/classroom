@@ -41,7 +41,7 @@ function circleInvestigation(ctx){var r=ctx.rng,c=ctx.c,m=r.int(20,c>=5?80:60),a
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
 tags:{INVEST:'Four-part circle investigation',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
-gaps:['Intersecting chord products and two-secant products added. Further circle equations, advanced chord properties, more advanced arcs/sectors, and all diagrams remain pending.'],
+gaps:['Circle equations from three points or a tangent line, proofs about chords and tangents, and decimal-form arc and sector answers are not generated.'],
 skills:[
 {id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1,2],generate:central},
 {id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1,2],generate:inscribed},

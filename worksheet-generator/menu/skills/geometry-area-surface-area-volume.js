@@ -54,7 +54,7 @@ function solidsInvestigation(ctx){var r=ctx.rng,c=ctx.c,l=r.int(3,c>=5?14:9),w=r
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
 tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},
 reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section></div>',
-gaps:['Starter bank only. Composite figures, cones, spheres (figure support exists), nets, cross-sections, unit conversions, scale factors for area/volume, and diagram-based Honors tasks remain pending.'],
+gaps:['Surface area of pyramids and cones, composite figures beyond two stacked prisms, unit conversions, and scale-factor problems for area and volume are not generated.'],
 skills:[
 {id:'measure-rectangle-area',tag:'AREA',name:'Area of a rectangle',best:[0,1,2],generate:rect},
 {id:'measure-triangle-area',tag:'AREA',name:'Area of a triangle',best:[0,1,2],generate:triangle},

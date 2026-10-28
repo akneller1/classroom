@@ -115,7 +115,7 @@ function C(g){return function(ctx){var p=g(ctx);if(ctx.compact&&p.compactPrompt)
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
- gaps:['More advanced proof structures and fully labeled proof diagrams remain to be developed.'],
+ gaps:['Proofs other than the shared-side and vertical-angle formats, and congruence in the coordinate plane, are not generated.'],
  skills:[
  {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:C(ctx=>corresponding(ctx,'side'))},
  {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:C(ctx=>corresponding(ctx,'angle'))},

@@ -67,7 +67,7 @@ function transformInvestigation(ctx){var r=ctx.rng,c=ctx.c,a=nz(r),b=nz(r),h=nz(
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
 tags:{INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},
 reference:'<div class="mm-refgrid"><section><h4>Reflections</h4><p>x-axis: (x,y) → (x,−y); y-axis: (x,y) → (−x,y).</p></section><section><h4>90° rotations</h4><p>Clockwise: (x,y) → (y,−x); counterclockwise: (x,y) → (−y,x).</p></section></div>',
-gaps:['Coordinate-grid figures are drawn from the same coordinates as the question. Still pending: full ordered-pair responses, composition of transformations, rigid-motion proofs, symmetry, and diagram-based items remain pending.'],
+gaps:['Rigid-motion proofs, glide reflections, and dilations from a center other than the origin are not generated.'],
 skills:[
 {id:'reflect-x-axis',tag:'REFLECTION',name:'Reflect over x-axis',best:[0,1,2],generate:ctx=>reflect(ctx,'x')},
 {id:'reflect-y-axis',tag:'REFLECTION',name:'Reflect over y-axis',best:[0,1,2],generate:ctx=>reflect(ctx,'y')},

@@ -256,3 +256,6 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-spacing-stepper button{min-width:2.7rem;min-height:2.6rem;font-size:1.45rem;font-weight:800;padding:.25rem .6rem}
 .mm-spacing-stepper output{min-width:4rem;text-align:center;font-variant-numeric:tabular-nums;font-weight:750}
 .mm-spacing-stepper button:disabled{opacity:.4;cursor:not-allowed}
+
+/* Geometry diagrams on printed pages: keep a full-width problem from stretching its figure into a half-page picture. */
+.mm-page .mm-geometry-figure svg{max-height:2.3in !important;width:auto !important;max-width:100% !important;height:auto !important}

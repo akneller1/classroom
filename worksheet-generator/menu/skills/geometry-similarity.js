@@ -74,7 +74,7 @@ function parallelHonors(ctx){
 NS.registerSkillSet({id:'geometry-similarity',course:'geometry',courseName:'Geometry',unit:'similarity',unitName:'Similarity',title:'Similarity Foundations',
 tags:{RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity',PARALLEL:'Triangle proportionality and parallel segments'},
 reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section></div>',
-gaps:['Starter bank only. Coordinate dilations and formal proofs remain pending.'],
+gaps:['Coordinate dilations, similarity proofs, and area and volume ratios of similar figures are not generated.'],
 skills:[
 {id:'similarity-missing-side',tag:'RATIOS',name:'Find a corresponding side',best:[0,1,2],generate:missingSide},
 {id:'similarity-scale-factor',tag:'DILATION',name:'Find a dilation scale factor',best:[0,1,2],generate:scale},

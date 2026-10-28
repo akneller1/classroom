@@ -115,7 +115,7 @@ function trigInvestigation(ctx){var r=ctx.rng,c=ctx.c,t=triples[r.int(0,c>=5?5:2
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
 tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
-gaps:['Starter bank only: non-integer trig answers, and additional non-integer trigonometry applications remain pending.'],
+gaps:['The Law of Sines and Law of Cosines are not generated. Trigonometry answers are whole numbers, exact radicals, or rounded to tenths where the skill says so.'],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1,2],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1,2],generate:leg},

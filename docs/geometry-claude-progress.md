@@ -164,3 +164,11 @@ Fixes made:
 - Fix: the engine passes `ctx.compact` (set by `printables.js` `makeItem` for every printable except Stations in Geometry units). Congruence skills return a `compactPrompt` (givens only, for example "Triangle ABC ≅ triangle DEF. AB = x + 12 and DE = 29. Find x.") and the `C()` wrapper swaps it in when `ctx.compact` is set. Worksheets, assessments, planner and games are unchanged. The verifier still sees the printed equation (third-angle prompt keeps it).
 - Catalog: four Printable cards and four thumbnails added for the unit. Cache tags: `geo-compact-2` (congruence skill, printables.js, engine in printables.html), `data.js?v=geo-cong-print-20261028`.
 - The Maze and Tarsia printables stay off for all Geometry units by design (problems need diagrams).
+
+## Print QA and teacher-facing notes (2026-10-28)
+
+- **"Not generated yet in this unit" notes rewritten.** The Geometry skill sets carried developer notes such as "Starter bank only" and "all diagrams remain pending" that were stale (cones, spheres, nets, cross-sections and diagrams all exist). Each unit now lists only what is truly not generated, in the same plain style as Algebra.
+- **Circle equations print with superscripts.** The bank keeps `X^2` for the verifier; `render.js` prints `X²`/`(X-h)²` for `geo-circle-*` problems.
+- **Print layout.** A Geometry figure problem may run to 240 characters before it takes a full row (was 150), and printed Geometry figures are capped at 2.3 in tall (`menu.css`). Checked by printing every Geometry worksheet through the real print path to PDF. The paginator leaves blank space at the bottom of some pages for Algebra worksheets too (same shared code), so it was left alone.
+- Cache tags: `render.js?v=geo-layout-2`, `menu.css?v=geo-layout-2`, Geometry skill files `geo-gaps-1`/`geo-gaps-2` (circles).
+- `printables-tests.cjs` stops at an Algebra vocabulary assertion ("Unknown printable vocabulary") on commits before this work as well; it is unrelated to Geometry.

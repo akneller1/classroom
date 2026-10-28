@@ -125,6 +125,8 @@
     if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
       questionText = questionText.split(' Establish:')[0];
     }
+    // Geometry circle equations are written with a caret in the bank; print them as superscripts.
+    if (/^geo-circle-/.test(p.variant || '')) questionText = questionText.replace(/([XY]|\))\^2/g, '$1\u00b2');
     var h = '<div class="mm-q">' + mathSafe(questionText) + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
@@ -138,7 +140,9 @@
     if (/^geo-structured-proof-/.test(p.variant || '')) return true;
     var txt = WS.render ? (p.prompt || '').replace(/⟨[^⟩]*⟩/g, 'xxxxxxxxxx') : '';
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; }).length;
-    return parts > 0 || txt.length > 150;
+    // A Geometry diagram sits under its text in a half-width column, so a figure problem may run a little longer before it needs the full row.
+    var limit = p.fig && /^geo/.test(p.fig.kind || '') ? 240 : 150;
+    return parts > 0 || txt.length > limit;
   }
   NS.isWideProblem = isWide;
   function workspace(p, cfg) {

@@ -71,7 +71,7 @@
  NS.registerSkillSet({id:'geometry-basics-reasoning',course:'geometry',courseName:'Geometry',unit:'basics-reasoning',unitName:'Foundations of Geometry',title:'Geometry Foundations',
  tags:{SEGMENT:'Segment addition and lengths',ANGLE:'Angle addition and measures',MIDPOINT:'Midpoints',BISECTOR:'Angle bisectors',COORD:'Coordinate geometry'},
  reference:'<div class="mm-refgrid"><section><h4>Segment addition</h4><p>When B is between A and C, AB + BC = AC.</p></section><section><h4>Angle addition</h4><p>Adjacent angles add to the measure of their whole angle.</p></section></div>',
- gaps:['Diagram-based constructions and measurement remain pending.'],skills:[
+ gaps:['Compass-and-straightedge constructions, measuring with a protractor, and formal proofs are not generated.'],skills:[
  {id:'segment-addition',tag:'SEGMENT',name:'Find missing segment length',best:[0,1,2],generate:ctx=>question(ctx,'segment')},
  {id:'angle-addition',tag:'ANGLE',name:'Find missing angle measure',best:[0,1,2],generate:ctx=>question(ctx,'angle')},
  {id:'midpoint',tag:'MIDPOINT',name:'Midpoint and equal segments',best:[0,1,2],generate:midpoint},
