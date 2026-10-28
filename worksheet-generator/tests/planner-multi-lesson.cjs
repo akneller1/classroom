@@ -39,3 +39,39 @@ const copy = P.buildDay(days[0].day,{level:'cp1',seed:'regression'});
 assert.equal(copy.selectedDays.length,1,'Single-lesson backwards compatibility');
 for (const id of ids) assert.ok(P.entriesFor([id]).length,'Missing mapped skills for '+id);
 console.log('PASS multi-lesson scope, example/practice/exit routing, single-lesson fallback');
+
+/* Exercise the ACTUAL UI section-composition functions in a controlled VM.
+ * We extract the function block so future changes to its implementation
+ * are exercised, rather than reimplementing the behavior in this test. */
+const uiSource = fs.readFileSync(path.join(root,'planner/planner-ui.js'),'utf8');
+const start = uiSource.indexOf('  function configureSection(');
+const finish = uiSource.indexOf('  var problemCounts =',start);
+assert.ok(start >= 0 && finish > start,'Section composer must be present');
+const composeSource = uiSource.slice(start,finish);
+const sectionSequence = ['notes','practice','notes','practice','exit'];
+const sectionChoices = { notes:true,practice:true,exit:true };
+const sectionConfigs = {
+  0:{lesson:ids[0]}, 1:{lesson:ids[0],count:5},
+  2:{lesson:ids[1]}, 3:{lesson:ids[1],count:8},
+  4:{count:3}
+};
+const compose = new Function('P','sectionConfigs','sectionSequence','sectionChoices','lsSet','KEY_SEQUENCE',
+  composeSource+'\\nreturn applySectionChoices;')(P,sectionConfigs,sectionSequence,sectionChoices,()=>{},'test');
+function cloneSection(name) {
+  return {id:name,title:name,groups:name==='notes'?[]:[{name:'',items:[{
+    entry:P.entriesFor([ids[0]])[0],slot:name+'-initial',c:2,num:1
+  }]}]};
+}
+const combined = {day:days[0],level:'cp1',seed:'regression',selectedDays:days.map(d=>d.day),
+  used:{keys:new Set(),sigs:new Set()},sections:['notes','practice','exit'].map(cloneSection)};
+compose(combined);
+assert.deepEqual(combined.sections.map(s=>s.id),sectionSequence);
+assert.deepEqual(combined.sections.map(s=>s.groups.reduce((n,g)=>n+g.items.length,0)),[0,5,0,8,3]);
+assert.equal(combined.sections[0].lessonDay.lesson_id,ids[0]);
+assert.equal(combined.sections[2].lessonDay.lesson_id,ids[1]);
+for (const [sectionIndex,id] of [[1,ids[0]],[3,ids[1]]]) {
+  assert.ok(combined.sections[sectionIndex].groups.flatMap(g=>g.items).every(p=>p.lesson===id),
+    'Practice section must contain only topic '+id);
+}
+console.log('PASS repeated Notes/Practice order, lesson assignments and independent counts');
+
