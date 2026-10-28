@@ -73,3 +73,11 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Inspected all ten Geometry flashcard entrypoint HTML files. Each uses the same shared `games/games.js` and `games/bank.js` infrastructure as Algebra 1 flashcards, with shared level controls. This establishes shared code, not visual/browser parity of every generated skill.
 - All ten Geometry flashcard pages previously referenced older cache keys for `menu/verify.js` and their respective `menu/skills/geometry-*.js`. Updated those script cache keys together to the green-tested `f4e70f3` version so browsers fetch the verified code.
 - Remaining: inspect live desktop/mobile flashcard settings, all ten diagram renderings, PDF/print quality, and self-assessment/lesson-planner/vocabulary feature parity. CI for this cache-only change requires confirmation.
+
+## Four priority units: source-level content audit (2026-10-28)
+- Quadrilaterals/Polygons: five registered skills. The quadrilateral-angle generator had a fallback producing angle totals other than 360°. Replaced it with valid interior-angle sampling so all four angles are strictly between 0° and 180° and sum to 360°.
+- Circles: seven skills. The central-angle-to-arc item used the tautology `2*x=2*x`, which could not independently verify the displayed central angle. Changed the question to label the unknown arc `x` and check `x=<given angle>`.
+- Transformations: seven skills; all are single-coordinate numerical answers rather than complete ordered-pair or figure transformations. Needs diagram-rich, multistep items and composition.
+- Area/Surface Area/Volume: nine skills; missing cones, spheres, composite solids, nets, cross-sections and scale-factor reasoning.
+- All four files are text-first and do not attach per-question `fig` payloads. Visual coverage is a priority for Claude, particularly Quadrilaterals and Transformations.
+- No claim of end-to-end Honors calibration or live visual verification. Run GitHub Actions after these correctness corrections before adding new skill families.
