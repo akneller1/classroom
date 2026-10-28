@@ -134,13 +134,13 @@
   function labelKey(day, section, group, index) { return day + ':' + section + ':' + group + ':' + index; }
   function applyProblemLabels(plan) {
     plan.sections.forEach(function(s) { s.groups.forEach(function(g, gi) { g.items.forEach(function(p, pi) {
-      p.teacherLabel = problemLabels[labelKey(plan.day.day, s.id, gi, pi)] || '';
+      p.teacherLabel = problemLabels[labelKey(plan.day.day, s.id + ':' + s.occurrenceIndex, gi, pi)] || '';
     }); }); });
   }
   function displayProblemLabel(p, fallback) { return fallback + (p.teacherLabel ? ' · ' + p.teacherLabel : ''); }
   function problemLabelPicker(plan, p, s, gi, pi) {
     var values = ['', 'I do', 'We do', 'You do'];
-    return '<label class="pl-problem-label">Instructional label <select data-problem-label="' + esc(s.id) + '" data-group="' + gi + '" data-item="' + pi + '" aria-label="Label for ' + esc(s.title) + ' problem ' + p.num + '">' +
+    return '<label class="pl-problem-label">Instructional label <select data-problem-label="' + esc(s.id) + '" data-occ-index="' + s.occurrenceIndex + '" data-group="' + gi + '" data-item="' + pi + '" aria-label="Label for ' + esc(s.title) + ' problem ' + p.num + '">' +
       values.map(function(v) { return '<option value="' + esc(v) + '"' + (p.teacherLabel === v ? ' selected' : '') + '>' + (v ? esc(v) : 'No label') + '</option>'; }).join('') +
       '</select></label>';
   }
@@ -570,11 +570,11 @@
     }
     if (t.hasAttribute && t.hasAttribute('data-problem-label')) {
       var sectionId = t.getAttribute('data-problem-label'), gi = +t.getAttribute('data-group'), pi = +t.getAttribute('data-item');
-      var sec = ui.plan.sections.find(function(s) { return s.id === sectionId; });
+      var sec = ui.plan.sections.find(function(s) { return s.id === sectionId && s.occurrenceIndex === +t.getAttribute('data-occ-index'); });
       if (sec && sec.groups[gi] && sec.groups[gi].items[pi]) {
         var value = ['I do','We do','You do'].indexOf(t.value) >= 0 ? t.value : '';
         sec.groups[gi].items[pi].teacherLabel = value;
-        var key = labelKey(ui.plan.day.day, sectionId, gi, pi);
+        var key = labelKey(ui.plan.day.day, sectionId + ':' + sec.occurrenceIndex, gi, pi);
         if (value) problemLabels[key] = value; else delete problemLabels[key];
         lsSet(KEY_PROBLEM_LABELS, JSON.stringify(problemLabels));
       }
