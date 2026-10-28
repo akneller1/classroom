@@ -547,7 +547,7 @@
   doc.addEventListener('change', function (e) {
     var t = e.target;
     if (t.hasAttribute && (t.hasAttribute('data-occ-lesson') || t.hasAttribute('data-occ-count'))) {
-      var idx = +(t.getAttribute('data-occ-lesson') || t.getAttribute('data-occ-count')), cfg = sectionConfigs[idx] || {};
+      var idx = +(t.hasAttribute('data-occ-lesson') ? t.getAttribute('data-occ-lesson') : t.getAttribute('data-occ-count')), cfg = sectionConfigs[idx] || {};
       if (t.hasAttribute('data-occ-lesson')) cfg.lesson = t.value;
       else cfg.count = t.value === '' ? null : Math.max(0,Math.min(30,Math.round(+t.value)));
       sectionConfigs[idx] = cfg; saveConfigs(); render(); return;
