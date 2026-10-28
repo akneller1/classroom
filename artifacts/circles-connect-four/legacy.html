@@ -1,0 +1,1047 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Circles Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#e2e8f4; --ink:#12203f; --muted:#52608a; --line:#c6cfe3;
+  --board:#2848c7; --board-2:#1c3597; --hole:#dce4f6;
+  --t0:#e5484d; --t0-ink:#ffffff; --t1:#f4b400; --t1-ink:#2b2100;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Circles Four</h1><span>Work with circles, arcs, angles and equations to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">L</div><div class="cardbody">
+      <input class="name" id="name0" value="Left side" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">R</div><div class="cardbody">
+      <input class="name" id="name1" value="Right side" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: formulas and basic facts</option>
+        <option value="2">Level 2: arcs, sectors and segments</option>
+        <option value="3">Level 3: algebra, reverse problems and completing the square</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Circles Four: circumference, area, arcs, angles, tangents, chords, equations. Contract: UNIT = {types, pools, gens}. */
+const TRIPLES=[[3,4,5],[5,12,13],[8,15,17],[7,24,25],[20,21,29]];
+const rad=d=>d*Math.PI/180, deg=r=>r*180/Math.PI;
+const isInt=x=>Math.abs(x-Math.round(x))<1e-9;
+function simpRad(n){let k=1,r=n;for(let f=2;f*f<=r;f++){while(r%(f*f)===0){r/=f*f;k*=f;}}return{k,r};}
+function radTxt(n){const{k,r}=simpRad(n);if(r===1)return String(k);return (k===1?'':String(k))+'rt{'+r+'}';}
+function valTxt(x){
+  if(!(x>0)||!isFinite(x))return null;
+  if(isInt(x))return String(Math.round(x));
+  const n=Math.round(x*x);if(n>0&&Math.abs(Math.sqrt(n)-x)<1e-9)return radTxt(n);
+  return null;
+}
+/* a rational multiple of pi: {n,d} -> text and value */
+const piR=a=>a.d===1?(a.n===1?'π':a.n+'π'):`[[${a.n===1?'':a.n}π ; ${a.d}]]`;
+const piC=(n,d=1)=>{const a=R(n,d);return{t:piR(a),v:a.n/a.d*Math.PI,a};};
+const piOK=(n,d=1)=>piC(n,d);
+const pt2=(x,y)=>`(${x}, ${y})`;
+const sqT=(v,h)=>h===0?`${v}^2`:`(${v} ${h>0?'-':'+'} ${Math.abs(h)})^2`;
+const eqC=(h,k,Rr)=>`${sqT('x',h)} + ${sqT('y',k)} = ${Rr}`;
+const farInts=(okv,cands,pads)=>{const out=[];for(const c of [...cands,...pads]){if(!Number.isFinite(c)||c<=0||Math.abs(c-okv)<1e-9||out.includes(c))continue;out.push(c);}return out;};
+
+/* circle figures: radius 3 centred at the origin, not to scale for the given lengths */
+const CR=3,cp=(a,r=CR)=>[+(r*Math.cos(rad(a))).toFixed(3),+(r*Math.sin(rad(a))).toFixed(3)];
+function lab(name,p,d=15,k){const ux=p[0],uy=p[1],n=Math.hypot(ux,uy)||1;return {t:'tx',p,s:name,dx:Math.round(ux/n*d),dy:Math.round(-uy/n*d)+4,k:k||'b'};}
+function circFig(items,vb,px,alt){return figSvg({vb:vb||[-4.2,-4.2,4.2,4.2],px:px||230,alt:alt||'Circle',items:[{t:'c',c:[0,0],r:CR},...items]});}
+function wedge(a0,a1){const pts=[[0,0]];for(let a=a0;a<=a1+1e-9;a+=(a1-a0)/24)pts.push(cp(a));return {t:'p',pts,k:'fill'};}
+
+const UNIT={
+types:{circ:'Circumference & area',arc:'Arc length',sector:'Sector area',angles:'Circle angles',tangent:'Tangent',chords:'Chords',eqRead:'Read an equation',eqWrite:'Write an equation',point:'Point on circle'},
+pools:{
+  1:['circ','arc','angles','tangent','chords','eqRead','point'],
+  2:['circ','arc','sector','angles','tangent','chords','eqRead','eqWrite','point'],
+  3:['circ','arc','sector','angles','tangent','chords','eqRead','eqWrite','point']},
+gens:{
+
+/* ---------- circumference and area ---------- */
+circ(level){
+  const ask=pick(['circumference','area']);
+  let story,okC,badC,steps,oracle,fig;
+  if(level<3){
+    let r,givenTxt;
+    if(level===1){r=rnd(2,12);givenTxt=`a radius of ${r} cm`;}
+    else{const d=ask==='area'?2*rnd(2,13):rnd(5,30);r=d/2;givenTxt=`a diameter of ${d} cm`;}
+    story=`A circle has ${givenTxt}.`;
+    const dd=2*r;
+    if(ask==='circumference'){
+      okC=piC(2*r);badC=[piC(r*r*1),piC(r),piC(4*r),piC(dd*dd,1),piC(2*r*r)];
+      oracle=v=>Math.abs(v-2*Math.PI*r)<1e-6;
+      steps=level===1?[['Use {{C = 2πr}}.','C = 2π(' + r + ')'],['Multiply.',`C = ${2*r}π`]]:[['The diameter is given, so use {{C = πd}}.',`C = π(${dd})`],['Multiply.',`C = ${dd}π`]];
+    }else{
+      const rr=R(dd*dd,4);okC=piC(rr.n,rr.d);
+      badC=[piC(2*r),piC(dd*dd),piC(r),piC(dd*dd,2),piC(4*r*r)];
+      oracle=v=>Math.abs(v-Math.PI*r*r)<1e-6;
+      steps=level===1?[['Use {{A = πr^2}}.','A = π(' + r + ')^2'],['Square, then multiply.',`A = ${r*r}π`]]:[['The diameter is '+dd+', so the radius is half of it.',`r = ${r}`],['Use {{A = πr^2}}.',`A = π(${r})^2 = ${piR(R(dd*dd,4))}`]];
+    }
+    fig=circFig([{t:'l',a:[0,0],b:cp(30)},{t:'d',p:[0,0],r:3}],null,200,'Circle');
+  }else{
+    const k=rnd(3,15);
+    if(Math.random()<0.5){
+      story=`A circle has a circumference of ${2*k}π cm.`;
+      okC=piC(k*k);badC=[piC(2*k),piC(4*k*k),piC(k),piC(k*k,2),piC(2*k*2*k)];
+      oracle=v=>Math.abs(v-Math.PI*k*k)<1e-6;
+      steps=[['Set the circumference formula equal to the given value.',`2πr = ${2*k}π`],['Divide both sides by {{2π}}.',`r = ${k}`],['Use {{A = πr^2}}.',`A = π(${k})^2 = ${k*k}π`]];
+      return mc({prompt:'Find the area of the circle. Leave your answer in terms of π.',story,ok:okC,bad:badC,steps,oracle});
+    }
+    story=`A circle has an area of ${k*k}π square centimeters.`;
+    okC=piC(2*k);badC=[piC(k),piC(k*k*2),piC(4*k),piC(k*k),piC(2*k*k)];
+    oracle=v=>Math.abs(v-2*Math.PI*k)<1e-6;
+    steps=[['Set the area formula equal to the given value.',`πr^2 = ${k*k}π`],['Divide by {{π}}, then take the square root.',`r = ${k}`],['Use {{C = 2πr}}.',`C = 2π(${k}) = ${2*k}π`]];
+    return mc({prompt:'Find the circumference of the circle. Leave your answer in terms of π.',story,ok:okC,bad:badC,steps,oracle});
+  }
+  return mc({prompt:`Find the ${ask}. Leave your answer in terms of π.`,story,fig,ok:okC,bad:badC,steps,oracle});
+},
+
+/* ---------- arc length ---------- */
+arc(level){
+  const angs=level===1?[90,180,60,120,270,45]:[30,45,60,72,90,120,135,150,240,270];
+  if(level===3&&Math.random()<0.4){
+    /* find the radius or the central angle from an arc length */
+    let th,r,t=0;do{th=pick([60,90,120,180,45,135,240]);r=rnd(3,12);t++;}while((th*r)%180!==0&&t<200);
+    if((th*r)%180!==0)return null;
+    const al=R(th*r,180);
+    if(Math.random()<0.5){
+      return mc({prompt:'Find the radius of the circle in centimeters.',story:`An arc of a circle has length ${al.n}π cm and its central angle measures ${th}°.`,
+        ok:{t:String(r),v:r},bad:farInts(r,[2*r,r/2,al.n,Math.round(th/10),r+2,r*2+1].filter(isInt),[r+1,r-1,r+3,2*r+2]).map(x=>({t:String(x),v:x})),
+        steps:[['The arc is the fraction {{[[θ ; 360]] }} of the circumference.',`[[${th} ; 360]] · 2πr = ${al.n}π`],['Simplify the left side.',`${(R(th,180).d===1?(R(th,180).n===1?'':R(th,180).n):'[['+R(th,180).n+' ; '+R(th,180).d+']]')}πr = ${al.n}π`],['Divide by {{π}} and solve for {{r}}.',`r = ${r}`]],
+        oracle:v=>Math.abs(th/360*2*Math.PI*v-al.n*Math.PI)<1e-6});
+    }
+    return mc({prompt:'Find the measure of the central angle in degrees.',story:`A circle has radius ${r} cm. An arc of the circle has length ${al.n}π cm.`,
+      ok:{t:th+'°',v:th},bad:farInts(th,[360-th,th/2,2*th,180-th,th+30,th-30].filter(isInt),[th+15,th-15,th+45,th+60]).filter(x=>x<=360).map(x=>({t:x+'°',v:x})),
+      steps:[['Write the arc length as a fraction of the circumference.',`[[θ ; 360]] · 2π(${r}) = ${al.n}π`],['Solve for {{θ}}.',`θ = ${th}°`]],
+      oracle:v=>Math.abs(v/360*2*Math.PI*r-al.n*Math.PI)<1e-6});
+  }
+  let th,r,tries=0;
+  do{th=pick(angs);r=level===1?rnd(2,12):rnd(3,15);tries++;}while(level===1&&(th*r)%180!==0&&tries<50);
+  const ans=R(th*r,180);
+  const ok=piC(ans.n,ans.d);
+  const cands=[R(th*r,360),R(th*r*r,360),R(2*r,1),R(th*r*2,180),R(360*2*r,th*1)].map(a=>piC(a.n,a.d));
+  const a0=rnd(0,100),a1=a0+th;
+  const fig=circFig([wedge(a0,a1),{t:'l',a:[0,0],b:cp(a0)},{t:'l',a:[0,0],b:cp(a1)},lab('A',cp(a0)),lab('B',cp(a1)),{t:'arc',c:[0,0],r:16,from:a0,to:a1,k:'acc'},{t:'tx',p:[0,0],s:th+'°',dx:Math.round(30*Math.cos(rad((a0+a1)/2))),dy:Math.round(-30*Math.sin(rad((a0+a1)/2)))+4}],null,220,'Circle with a central angle');
+  const steps=[['The arc is a fraction of the whole circumference.',`[[${th} ; 360]] · 2π(${r})`],['Multiply.',`L = ${piR(ans)}`]];
+  return mc({prompt:'Find the length of the arc intercepted by the central angle. Leave your answer in terms of π.',
+    story:`In a circle with radius ${r} cm, a central angle measures ${th}°.`,fig,ok,bad:cands,steps,
+    oracle:v=>Math.abs(v-th/360*2*Math.PI*r)<1e-6});
+},
+
+/* ---------- sector area ---------- */
+sector(level){
+  if(level===3&&Math.random()<0.4){
+    let th,r,t=0;do{th=pick([60,90,120,180,45,240]);r=rnd(3,12);t++;}while((th*r*r)%360!==0&&t<200);
+    if((th*r*r)%360!==0)return null;
+    const ar=R(th*r*r,360);
+    return mc({prompt:'Find the radius of the circle in centimeters.',story:`A sector with a central angle of ${th}° has an area of ${ar.n}π square centimeters.`,
+      ok:{t:String(r),v:r},bad:farInts(r,[r*r,2*r,r/2,ar.n].filter(isInt),[r+1,r-1,r+2,2*r+1]).map(x=>({t:String(x),v:x})),
+      steps:[['The sector area is the fraction {{[[θ ; 360]] }} of the circle area.',`[[${th} ; 360]] · πr^2 = ${ar.n}π`],['Multiply both sides by {{[[360 ; '+th+']] }} and divide by {{π}}.',`r^2 = ${r*r}`],['Take the positive square root.',`r = ${r}`]],
+      oracle:v=>Math.abs(th/360*Math.PI*v*v-ar.n*Math.PI)<1e-6});
+  }
+  const th=pick(level===1?[90,180,60,120,270]:[30,45,60,90,120,150,180,240,270]),r=level===1?rnd(2,10):rnd(3,14);
+  const ans=R(th*r*r,360),ok=piC(ans.n,ans.d);
+  const cands=[R(th*r,360),R(th*2*r,360),R(r*r,1),R(th*r*r,180),R(360*r*r,th)].map(a=>piC(a.n,a.d));
+  const a0=rnd(0,100),a1=a0+th;
+  const fig=circFig([wedge(a0,a1),{t:'l',a:[0,0],b:cp(a0)},{t:'l',a:[0,0],b:cp(a1)},{t:'tx',p:[0,0],s:th+'°',dx:Math.round(30*Math.cos(rad((a0+a1)/2))),dy:Math.round(-30*Math.sin(rad((a0+a1)/2)))+4}],null,220,'Circle with a shaded sector');
+  return mc({prompt:'Find the area of the sector. Leave your answer in terms of π.',story:`A sector of a circle with radius ${r} cm has a central angle of ${th}°.`,fig,ok,bad:cands,
+    steps:[['The sector is a fraction of the whole circle.',`[[${th} ; 360]] · π(${r})^2`],['Square the radius, then multiply.',`A = ${piR(ans)}`]],
+    oracle:v=>Math.abs(v-th/360*Math.PI*r*r)<1e-6});
+},
+
+/* ---------- angles and arcs ---------- */
+angles(level){
+  const TT=[];
+  TT.push({lv:[1],mk(){const th=5*rnd(5,34);return {story:`In circle O, central angle {{∠AOB}} measures ${th}°.`,prompt:'Find the measure of minor arc {{AB}}.',okv:th,bad:[th/2,2*th,180-th,360-th],
+    steps:[['A central angle has the same measure as its intercepted arc.',`arc AB = ${th}°`]],
+    fig:circFig([{t:'l',a:[0,0],b:cp(20)},{t:'l',a:[0,0],b:cp(20+th)},lab('A',cp(20)),lab('B',cp(20+th)),{t:'tx',p:[0,0],s:'O',dx:-10,dy:16,k:'b'},{t:'arc',c:[0,0],r:16,from:20,to:20+th,k:'acc'}],null,210,'Central angle')};}});
+  TT.push({lv:[1,2],mk(){const arc=10*rnd(5,22);
+    const fig=circFig([{t:'l',a:cp(90),b:cp(270-arc/2)},{t:'l',a:cp(90),b:cp(270+arc/2)},lab('C',cp(90)),lab('A',cp(270-arc/2)),lab('B',cp(270+arc/2))],null,210,'Inscribed angle');
+    return {story:`In circle O, inscribed angle {{∠ACB}} intercepts arc {{AB}}, which measures ${arc}°.`,prompt:'Find {{m∠ACB}}.',okv:arc/2,bad:[arc,2*arc,180-arc/2,arc/2+10],
+    steps:[['An inscribed angle is half of its intercepted arc.',`m∠ACB = [[1 ; 2]](${arc}°) = ${arc/2}°`]],fig};}});
+  TT.push({lv:[2],mk(){const a=5*rnd(4,16);return {story:`In circle O, inscribed angle {{∠ACB}} measures ${a}° and intercepts arc {{AB}}.`,prompt:'Find the measure of minor arc {{AB}}.',okv:2*a,bad:[a,a/2,180-a,360-2*a],
+    steps:[['The intercepted arc is twice the inscribed angle.',`arc AB = 2(${a}°) = ${2*a}°`]]};}});
+  TT.push({lv:[1,2],mk(){return {story:'In circle O, segment {{AB}} is a diameter and C is another point on the circle.',prompt:'Find {{m∠ACB}}.',okv:90,bad:[180,45,60,30,120],
+    steps:[['{{AB}} is a diameter, so arc {{AB}} is a semicircle of 180°.',''],['The inscribed angle {{∠ACB}} is half of 180°.',`m∠ACB = 90°`]],
+    fig:circFig([{t:'l',a:cp(180),b:cp(0)},{t:'l',a:cp(180),b:cp(70)},{t:'l',a:cp(0),b:cp(70)},lab('A',cp(180)),lab('B',cp(0)),lab('C',cp(70))],null,210,'Triangle with a diameter')};}});
+  TT.push({lv:[2],mk(){const th=5*rnd(3,15);return {story:`In circle O, segment {{AB}} is a diameter and C is on the circle. {{m∠CAB = ${th}°}}.`,prompt:'Find {{m∠CBA}}.',okv:90-th,bad:[180-th,th,90+th,2*th,45],
+    steps:[['An angle inscribed in a semicircle is a right angle, so {{m∠ACB = 90°}}.',''],['The angles of a triangle add to 180°.',`${th}° + 90° + m∠CBA = 180°`],['Solve.',`m∠CBA = ${90-th}°`]],
+    fig:circFig([{t:'l',a:cp(180),b:cp(0)},{t:'l',a:cp(180),b:cp(2*th)},{t:'l',a:cp(0),b:cp(2*th)},lab('A',cp(180)),lab('B',cp(0)),lab('C',cp(2*th))],null,210,'Triangle with a diameter')};}});
+  TT.push({lv:[3],mk(){
+    const x=rnd(4,14),a=rnd(2,4),b=5*rnd(0,3),c=pick([5,6,7,8,9,10,11].filter(v=>v!==2*a)),d=2*a*x+2*b-c*x;
+    if(d===0||Math.abs(d)>40||a*x+b>85)return null;
+    const cand=[a===c?NaN:(d-b)/(a-c),x+1,x-1,2*x,(b-d)/(2*a-c)].filter(isInt);
+    return {story:`In circle O, inscribed angle {{∠ACB}} measures {{(${lin(a,b)})°}} and intercepts arc {{AB}}, which measures {{(${lin(c,d)})°}}.`,prompt:'Find {{x}}.',okv:x,bad:cand,plain:true,
+    steps:[['The intercepted arc is twice the inscribed angle.',`${lin(c,d)} = 2(${lin(a,b)})`],['Distribute, then get the {{x}}-terms and constants on opposite sides.',`${d-2*b} = ${T(2*a-c,'x')}`],['Solve for {{x}}.',`x = ${x}`]],
+    oracle:v=>Math.abs((c*v+d)-2*(a*v+b))<1e-9};}});
+  TT.push({lv:[3],mk(){const arc=10*rnd(8,30);return {story:`Line {{ℓ}} is tangent to circle O at A, and chord {{AB}} cuts off arc {{AB}} measuring ${arc}°.`.replace('ℓ','l'),prompt:'Find the measure of the tangent-chord angle that intercepts arc {{AB}}.',okv:arc/2,bad:[arc,arc*2,90-arc/2,arc/2+20],
+    steps:[['An angle formed by a tangent and a chord is half of its intercepted arc.',`[[1 ; 2]](${arc}°) = ${arc/2}°`]]};}});
+  const pool=TT.filter(t=>t.lv.includes(level)),t=pick(pool),w=t.mk();if(!w)return null;
+  if(w.plain){
+    const bad=farInts(w.okv,w.bad,[w.okv+2,w.okv-2,w.okv+3,2*w.okv]).map(x=>({t:String(x),v:x}));
+    return mc({prompt:w.prompt,story:w.story,ok:{t:String(w.okv),v:w.okv},bad,steps:w.steps,oracle:w.oracle});
+  }
+  const bad=farInts(w.okv,w.bad,[w.okv+10,w.okv-10,w.okv+20,w.okv+30]).filter(x=>x<=360).map(x=>({t:x+'°',v:x}));
+  const arcNums=null;void arcNums;
+  return mc({prompt:w.prompt,story:w.story,fig:w.fig,ok:{t:w.okv+'°',v:w.okv},bad,steps:w.steps,oracle:v=>v===w.okv});
+},
+
+/* ---------- tangent is perpendicular to the radius ---------- */
+tangent(level){
+  if(level===3&&Math.random()<0.35){
+    const x=rnd(2,9),a1=rnd(2,5),b1=nz(-5,8),a2=pick([6,7,8,9].filter(v=>v!==a1));const b2=a1*x+b1-a2*x;
+    if(Math.abs(b2)>15||a1*x+b1<=0)return null;
+    const e1=lin(a1,b1),e2=lin(a2,b2);
+    return mc({prompt:'Find {{x}}.',story:`Segments {{PA}} and {{PB}} are tangent to circle O at A and B. {{PA = ${e1}}} and {{PB = ${e2}}}.`,
+      ok:{t:String(x),v:x},bad:farInts(x,[x+1,x-1,2*x,x+2,(b2-b1)/(a1-a2)].filter(isInt),[x+3,x-2,x+4]).map(v=>({t:String(v),v})),
+      steps:[['Two tangent segments from the same point are congruent.',`${e1} = ${e2}`],['Collect the {{x}}-terms on one side and the constants on the other.',`${b1-b2} = ${T(a2-a1,'x')}`],['Solve for {{x}}.',`x = ${x}`]],
+      oracle:v=>Math.abs((a1*v+b1)-(a2*v+b2))<1e-9});
+  }
+  const find=pick(['OP','PT','OT']);
+  let r,t,c;
+  if(level===1||(level===2&&Math.random()<0.5)){
+    const tr=pick(TRIPLES.slice(0,level===1?3:5)),k=level===1?rnd(1,2):rnd(1,2);[r,t,c]=pick([[tr[0],tr[1],tr[2]],[tr[1],tr[0],tr[2]]]).map(x=>x*k);
+  }else{
+    r=rnd(2,10);t=rnd(2,12);const P=r*r+t*t;if(isInt(Math.sqrt(P)))return null;c=Math.sqrt(P);
+    if(level===3&&simpRad(P).k===1&&Math.random()<0.7)return null;
+    if(find!=='OP'){/* make the hypotenuse an integer instead */
+      const cc=rnd(Math.max(r,t)+1,16);const sq=cc*cc-(find==='PT'?r*r:t*t);if(sq<=0||isInt(Math.sqrt(sq)))return null;
+      if(find==='PT'){c=cc;t=Math.sqrt(sq);}else{c=cc;r=Math.sqrt(sq);}
+    }
+  }
+  let story,prompt,ansV,oracle,steps,cands;
+  if(find==='OP'){story=`Line PT is tangent to circle O at T. {{OT = ${r}}} and {{PT = ${t}}}.`;prompt='Find {{OP}}.';ansV=Math.sqrt(r*r+t*t);
+    cands=[r+t,r*r+t*t,Math.sqrt(Math.abs(t*t-r*r)),Math.sqrt(r+t),r*t];oracle=v=>Math.abs(v*v-(r*r+t*t))<1e-6;
+    steps=[['The tangent {{PT}} is perpendicular to the radius {{OT}}, so triangle {{OTP}} has a right angle at {{T}}.',''],['Apply the Pythagorean Theorem with {{OP}} as the hypotenuse.',`${r}^2 + ${t}^2 = OP^2`],['Square and add.',`OP^2 = ${r*r+t*t}`]];}
+  else if(find==='PT'){story=`Line PT is tangent to circle O at T. {{OT = ${r}}} and {{OP = ${valTxt(c)}}}.`;prompt='Find {{PT}}.';ansV=Math.sqrt(c*c-r*r);
+    cands=[c+r,Math.sqrt(c*c+r*r),c-r,c*c-r*r,Math.sqrt(c-r)];oracle=v=>Math.abs(v*v+r*r-c*c)<1e-6;
+    steps=[['The tangent {{PT}} is perpendicular to the radius {{OT}}, so triangle {{OTP}} has a right angle at {{T}}.',''],['{{OP}} is the hypotenuse, so subtract.',`${r}^2 + PT^2 = ${c}^2`],['Solve.',`PT^2 = ${c*c} - ${r*r} = ${c*c-r*r}`]];}
+  else{story=`Line PT is tangent to circle O at T. {{PT = ${valTxt(t)}}} and {{OP = ${valTxt(c)}}}.`;prompt='Find the radius {{OT}}.';ansV=Math.sqrt(c*c-t*t);
+    cands=[c+t,Math.sqrt(c*c+t*t),c-t,c*c-t*t,Math.sqrt(c-t)];oracle=v=>Math.abs(v*v+t*t-c*c)<1e-6;
+    steps=[['The tangent {{PT}} is perpendicular to the radius {{OT}}, so triangle {{OTP}} has a right angle at {{T}}.',''],['{{OP}} is the hypotenuse, so subtract.',`OT^2 + ${valTxt(t)}^2 = ${c}^2`],['Solve.',`OT^2 = ${c*c} - ${Math.round(t*t)} = ${Math.round(c*c-t*t)}`]];}
+  const ans=valTxt(ansV);if(!ans)return null;
+  const radical=!isInt(ansV);
+  if(radical)prompt+=' Give the exact answer in simplest radical form.';
+  const bad=cands.map(x=>{const tx=valTxt(x);return tx?{t:tx,v:x}:null;}).filter(Boolean);
+  steps.push(['Take the positive square root.',`${find} = ${radical&&simpRad(Math.round(ansV*ansV)).k>1?'rt{'+Math.round(ansV*ansV)+'} = ':''}${ans}`]);
+  const kk=5/Math.max(r,t),rd=r*kk,td=t*kk;   /* drawn to scale from the numbers */
+  const fig=figSvg({vb:[-rd-1.3,-rd-1.3,td+1.3,rd+1.5],px:250,alt:'Circle with a tangent segment, drawn to scale',items:[{t:'c',c:[0,0],r:rd},{t:'l',a:[-rd*0.6,rd],b:[td+0.6,rd],k:'thin'},{t:'l',a:[0,0],b:[0,rd],k:'acc'},{t:'l',a:[0,0],b:[td,rd],dash:true},{t:'ra',p:[0,rd],d1:270,d2:0,s:10},{t:'d',p:[0,0],r:3},{t:'d',p:[0,rd],r:3},{t:'d',p:[td,rd],r:3},{t:'tx',p:[0,0],s:'O',dx:-10,dy:16,k:'b'},{t:'tx',p:[0,rd],s:'T',dx:-4,dy:-9,k:'b'},{t:'tx',p:[td,rd],s:'P',dx:8,dy:-8,k:'b'}]});
+  return mc({prompt,story,fig,ok:{t:ans,v:ansV},bad,steps,oracle});
+},
+
+/* ---------- intersecting chords ---------- */
+chords(level){
+  if(level===3&&Math.random()<0.4){
+    const x=rnd(2,7),k=pick([1,2,3,4]),prod=x*(x+k);
+    const fs=[];for(let a=2;a<=12;a++)if(prod%a===0&&prod/a<=14&&a<=prod/a&&a!==x&&prod/a!==x+k&&a!==x+k)fs.push([a,prod/a]);
+    if(!fs.length)return null;
+    const [a,b]=pick(fs);
+    return mc({prompt:'Find {{x}}. (The length must be positive.)',story:'Chords {{AB}} and {{CD}} intersect at E inside a circle.',stmt:`AE = ${a},  EB = ${b},  CE = x,  ED = x + ${k}`,
+      ok:{t:String(x),v:x},bad:farInts(x,[-(x+k),x+k,x+1,x-1,prod/(a+b)].filter(isInt),[x+2,x+3,x+4,2*x]).map(v=>({t:String(v),v})),
+      steps:[['The products of the segments of the two chords are equal.',`AE · EB = CE · ED`],['Substitute.',`${a} · ${b} = x(x + ${k})`],['Write as a quadratic and solve.',`x^2${Tm(k,'x')} - ${prod} = 0`],['Factor and keep the positive solution.',`x = ${x}`]],
+      oracle:v=>v>0&&Math.abs(a*b-v*(v+k))<1e-9});
+  }
+  const p1=rnd(2,9),p2=rnd(2,9);let a=p1,b=p2;const prod=a*b;
+  const divs=[];for(let c=2;c<=15;c++)if(prod%c===0&&prod/c<=15&&prod/c>=2&&!(c===a&&prod/c===b)&&!(c===b&&prod/c===a))divs.push(c);
+  if(!divs.length)return null;
+  const c=pick(divs),d=prod/c;
+  const segs={AE:a,EB:b,CE:c,ED:d};
+  const unk=level===1?'ED':pick(['AE','EB','CE','ED']);
+  const given=Object.keys(segs).filter(k=>k!==unk).map(k=>`${k} = ${segs[k]}`).join(',  ');
+  const partner={AE:['EB','CE','ED'],EB:['AE','CE','ED'],CE:['ED','AE','EB'],ED:['CE','AE','EB']}[unk];
+  const sameChord=partner[0],o1=partner[1],o2=partner[2];
+  const ans=segs[unk];
+  const bad=[segs[o1]+segs[o2]-segs[sameChord],(segs[o1]+segs[o2])/2,segs[o1]*segs[o2],Math.abs(segs[o1]-segs[sameChord]),segs[sameChord]*segs[o1]/segs[o2]].map(x=>Math.round(x*100)/100).filter(isInt);
+  /* E at the origin, chords at 65 degrees, then the circle through A, B, C, D (power of a point) */
+  const ph=rad(65),ccx=c*Math.cos(ph),ccy=c*Math.sin(ph),ox=(b-a)/2,oy=(c*c-2*ox*(ccx+a)-a*a)/(2*ccy),rr=Math.hypot(ox+a,oy),kz=3/rr;
+  const Pn=(x,y)=>[+((x-ox)*kz).toFixed(3),+((y-oy)*kz).toFixed(3)];
+  const pA=Pn(-a,0),pB=Pn(b,0),pC=Pn(ccx,ccy),pD=Pn(-d*Math.cos(ph),-d*Math.sin(ph)),pE=Pn(0,0);
+  const fig=circFig([{t:'l',a:pA,b:pB},{t:'l',a:pC,b:pD},{t:'tx',p:pA,s:'A',dx:-10,dy:4,k:'b'},{t:'tx',p:pB,s:'B',dx:10,dy:6,k:'b'},{t:'tx',p:pC,s:'C',dx:6,dy:-8,k:'b'},{t:'tx',p:pD,s:'D',dx:-6,dy:16,k:'b'},{t:'tx',p:pE,s:'E',dx:10,dy:-6,k:'b'}],null,220,'Two chords intersecting inside a circle, drawn to scale');
+  const prodTxt=`AE · EB = CE · ED`;
+  const left=(k)=>segs[k];
+  return mc({prompt:`Find {{${unk}}}.`,story:'Chords {{AB}} and {{CD}} intersect at E inside a circle.',stmt:given,fig,ok:{t:String(ans),v:ans},
+    bad:farInts(ans,bad,[ans+1,ans-1,ans+2,ans+3,2*ans]).map(v=>({t:String(v),v})),
+    steps:[['The products of the segments of the two chords are equal.',prodTxt],['Substitute the known lengths.',unk==='AE'?`AE · ${segs.EB} = ${segs.CE} · ${segs.ED}`:unk==='EB'?`${segs.AE} · EB = ${segs.CE} · ${segs.ED}`:unk==='CE'?`${segs.AE} · ${segs.EB} = CE · ${segs.ED}`:`${segs.AE} · ${segs.EB} = ${segs.CE} · ED`],['Solve.',`${unk} = ${ans}`]],
+    oracle:v=>{const s=Object.assign({},segs,{[unk]:v});return Math.abs(s.AE*s.EB-s.CE*s.ED)<1e-9;}});
+},
+
+/* ---------- read center and radius from an equation ---------- */
+eqRead(level){
+  let h=nz(-7,7),k=nz(-7,7),r=rnd(2,9),Rr=r*r,stmt;
+  if(level>=2&&Math.random()<0.35){if(Math.random()<0.5)h=0;else k=0;}
+  if(level===3){Rr=pick([10,12,18,20,24,28,40,45,50,8,13,17]);r=Math.sqrt(Rr);}
+  const general=level===3&&h!==0&&k!==0&&Math.random()<0.5;
+  if(general){stmt=`x^2 + y^2${Tm(-2*h,'x')}${Tm(-2*k,'y')}${addC(h*h+k*k-Rr)} = 0`;}
+  else stmt=eqC(h,k,Rr);
+  const rt=valTxt(r);
+  const mkc=(hh,kk,rr)=>({t:`center ${pt2(hh,kk)}, radius ${valTxt(rr)}`,v:{h:hh,k:kk,r:rr}});
+  const ok=mkc(h,k,r);
+  const bad=[mkc(-h,-k,r),mkc(h,k,Rr),mkc(k,h,r),mkc(-h,-k,Rr),mkc(h,-k,r),mkc(-h,k,r)].filter(c=>c.t.indexOf('null')<0);
+  const steps=general
+    ?[['Group the {{x}}-terms and the {{y}}-terms and move the constant.',`(x^2${Tm(-2*h,'x')}) + (y^2${Tm(-2*k,'y')}) = ${Rr-h*h-k*k}`],['Complete the square: add the square of half of each coefficient to both sides.',`(x^2${Tm(-2*h,'x')} + ${h*h}) + (y^2${Tm(-2*k,'y')} + ${k*k}) = ${Rr-h*h-k*k} + ${h*h} + ${k*k}`],['Factor and simplify.',eqC(h,k,Rr)],['Read the center {{(h, k)}} and the radius {{r}} from {{(x - h)^2 + (y - k)^2 = r^2}}.',`center ${pt2(h,k)}, radius ${rt}`]]
+    :[['Compare with {{(x - h)^2 + (y - k)^2 = r^2}}. The center is {{(h, k)}}: flip the signs inside the parentheses.',`center ${pt2(h,k)}`],['The right side is {{r^2}}, so take its square root.',`r = rt{${Rr}}${isInt(r)?' = '+r:(simpRad(Rr).k>1?' = '+rt:'')}`]];
+  return mc({prompt:'Find the center and radius of the circle.',stmt,ok,bad,steps,
+    oracle:v=>{ /* recompute from the equation's coefficients */
+      const D=-2*h,E=-2*k,F=h*h+k*k-Rr;const cx=-D/2,cy=-E/2,rr=Math.sqrt(cx*cx+cy*cy-F);
+      return v.h===cx&&v.k===cy&&Math.abs(v.r-rr)<1e-9;}});
+},
+
+/* ---------- write the equation ---------- */
+eqWrite(level){
+  let h=nz(-7,7),k=nz(-7,7),r=rnd(2,9),Rr=r*r,story,DX=0,DY=0;
+  if(level===2&&Math.random()<0.3){if(Math.random()<0.5)h=0;else k=0;}
+  if(level===3){
+    const dx=nz(-6,6),dy=nz(-6,6);DX=dx;DY=dy;Rr=dx*dx+dy*dy;r=Math.sqrt(Rr);
+    story=`A circle has center {{${pt2(h,k)}}} and passes through the point {{${pt2(h+dx,k+dy)}}}.`;
+  }else story=`A circle has center {{${pt2(h,k)}}} and radius ${r}.`;
+  const mkc=(hh,kk,RR)=>({t:eqC(hh,kk,RR),v:{h:hh,k:kk,R:RR}});
+  const ok=mkc(h,k,Rr);
+  const rWrong=level===3?[Math.abs(DX)+Math.abs(DY),Math.pow(Math.abs(DX)+Math.abs(DY),2)]:[r,2*r];
+  const bad=[mkc(-h,-k,Rr),mkc(h,k,rWrong[0]),mkc(k,h,Rr),mkc(-h,k,Rr),mkc(h,-k,Rr),mkc(h,k,rWrong[1])];
+  const steps=level===3
+    ?[['The radius is the distance from the center to the point. Square the horizontal and vertical differences and add to get {{r^2}}.',`r^2 = (${DX})^2 + (${DY})^2 = ${Rr}`],['Use {{(x - h)^2 + (y - k)^2 = r^2}}. Flip the signs of the center coordinates.',eqC(h,k,Rr)]]
+    :[['Use {{(x - h)^2 + (y - k)^2 = r^2}}. Flip the signs of the center coordinates.',`${sqT('x',h)} + ${sqT('y',k)} = r^2`],['Square the radius.',eqC(h,k,Rr)]];
+  return mc({prompt:'Which equation represents the circle?',story,ok,bad,steps,
+    oracle:v=>v.h===h&&v.k===k&&v.R===Rr});
+},
+
+/* ---------- which point is on the circle ---------- */
+point(level){
+  const h=nz(-6,6),k=nz(-6,6);
+  const opts=level===1?[[3,4]]:level===2?[[3,4],[6,8],[5,12],[0,5],[4,3]]:[[2,3],[1,4],[2,4],[3,4],[1,2],[5,12]];
+  const [a,b]=pick(opts);const Rr=a*a+b*b;
+  const sa=pick([-1,1]),sb=pick([-1,1]);
+  const okp=[h+sa*a,k+sb*b];
+  const cands=[[okp[0]+1,okp[1]],[okp[0],okp[1]+1],[h+sa*b+(a===b?1:0),k+sb*a+1],[sa*a,sb*b],[h-sa*a+1,k+sb*b],[okp[0],okp[1]-2]];
+  const on=(x,y)=>(x-h)*(x-h)+(y-k)*(y-k)===Rr;
+  const bad=cands.filter(p=>!on(p[0],p[1])).map(p=>({t:pt2(p[0],p[1]),v:p}));
+  const steps=[['Substitute each point into the equation. Only one makes both sides equal.',''],[`Check ${pt2(okp[0],okp[1])}: the horizontal difference from the center is ${okp[0]-h} and the vertical difference is ${okp[1]-k}.`,`(${okp[0]-h})^2 + (${okp[1]-k})^2 = ${Rr}`]];
+  return mc({prompt:'Which point lies on the circle?',stmt:eqC(h,k,Rr),ok:{t:pt2(okp[0],okp[1]),v:okp},bad,steps,oracle:v=>on(v[0],v[1])});
+}
+}};
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Left side','Right side'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Right side':'Left side'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'R':'L'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>

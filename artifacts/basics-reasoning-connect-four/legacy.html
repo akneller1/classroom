@@ -1,0 +1,1107 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Reasoning Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#e2e8f4; --ink:#12203f; --muted:#52608a; --line:#c6cfe3;
+  --board:#2848c7; --board-2:#1c3597; --hole:#dce4f6;
+  --t0:#e5484d; --t0-ink:#ffffff; --t1:#f4b400; --t1-ink:#2b2100;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Reasoning Four</h1><span>Solve a segment or angle problem, or reason with a conditional, to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">L</div><div class="cardbody">
+      <input class="name" id="name0" value="Left side" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">R</div><div class="cardbody">
+      <input class="name" id="name1" value="Right side" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: one-step segment, angle, and logic ideas</option>
+        <option value="2">Level 2: algebra with segments and angles, properties</option>
+        <option value="3">Level 3: multi-step algebra and reasoning</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Reasoning Four: segments, angles, conditionals, proof reasons. */
+const approx=(a,b)=>Math.abs(a-b)<1e-9;
+const ints=a=>a.filter(v=>Number.isInteger(v));
+const sum2=(a,b)=>b<0?`${a} - ${-b}`:`${a} + ${b}`;
+const degs=a=>ints(a).filter(v=>v>0).map(v=>({t:S(v)+'°',v}));
+const xs=a=>ints(a).map(v=>({t:'x = '+S(v),v}));
+const ptC=a=>a.filter(p=>p.every(Number.isInteger)).map(p=>({t:`(${p[0]}, ${p[1]})`,v:p}));
+
+/* ---------- figures ---------- */
+function segFig(labAB,labBC,fr){
+  const bx=+(1+10*fr).toFixed(2);
+  return figSvg({vb:[0,-1.5,12,1.5],px:300,alt:'Segment AC with point B between A and C.',items:[
+    {t:'l',a:[1,0],b:[11,0]},{t:'d',p:[1,0]},{t:'d',p:[bx,0]},{t:'d',p:[11,0]},
+    {t:'tx',p:[1,0],s:'A',dy:24},{t:'tx',p:[bx,0],s:'B',dy:24},{t:'tx',p:[11,0],s:'C',dy:24},
+    {t:'tx',p:[(1+bx)/2,0],s:labAB,dy:-12,k:'acc'},{t:'tx',p:[(bx+11)/2,0],s:labBC,dy:-12,k:'acc2'}]});
+}
+function angFig(a1,a2){
+  const P=(d,r=6.5)=>[+(r*Math.cos(d*Math.PI/180)).toFixed(3),+(r*Math.sin(d*Math.PI/180)).toFixed(3)];
+  return figSvg({vb:[-7,-1.2,8,7.4],px:240,alt:'Angle ABC with ray BD inside it, forming angle ABD and angle DBC.',items:[
+    {t:'l',a:[0,0],b:P(0)},{t:'l',a:[0,0],b:P(a2)},{t:'l',a:[0,0],b:P(a1+a2)},
+    {t:'arc',c:[0,0],r:24,from:0,to:a2,k:'acc2'},{t:'arc',c:[0,0],r:32,from:a2,to:a1+a2,k:'acc'},{t:'d',p:[0,0]},
+    {t:'tx',p:[0,0],s:'B',dx:-12,dy:18},{t:'tx',p:P(0),s:'C',dx:14,dy:5},{t:'tx',p:P(a2),s:'D',dx:14,dy:-4},{t:'tx',p:P(a1+a2),s:'A',dx:-6,dy:-9}]});
+}
+
+/* ---------- conditional-statement bank (29 statements) ----------
+   [P as hypothesis, P as conclusion (pronoun), Q as hypothesis, Q as conclusion, statement true?, converse true?]
+   Every phrase has " is " or " are " so that the negation is "is not"/"are not".
+   Numeric entries also carry predicates, so their truth values are recomputed by brute force over 1..99. */
+const isPrime=n=>{if(n<2)return false;for(let d=2;d*d<=n;d++)if(n%d===0)return false;return true;};
+const LB=[
+ ['an integer is divisible by 6','it is divisible by 6','an integer is divisible by 3','it is divisible by 3',1,0,[n=>n%6===0,n=>n%3===0]],
+ ['an integer is a multiple of 4','it is a multiple of 4','an integer is even','it is even',1,0,[n=>n%4===0,n=>n%2===0]],
+ ['an integer is divisible by 10','it is divisible by 10','an integer is divisible by 5','it is divisible by 5',1,0,[n=>n%10===0,n=>n%5===0]],
+ ['an integer is greater than 10','it is greater than 10','an integer is greater than 5','it is greater than 5',1,0,[n=>n>10,n=>n>5]],
+ ['an integer is even','it is even','the square of an integer is even','its square is even',1,1,[n=>n%2===0,n=>(n*n)%2===0]],
+ ['an integer is odd','it is odd','the square of an integer is odd','its square is odd',1,1,[n=>n%2===1,n=>(n*n)%2===1]],
+ ['an integer is divisible by 9','it is divisible by 9','an integer is divisible by 3','it is divisible by 3',1,0,[n=>n%9===0,n=>n%3===0]],
+ ['an integer is a multiple of 3','it is a multiple of 3','an integer is odd','it is odd',0,0,[n=>n%3===0,n=>n%2===1]],
+ ['an integer is prime','it is prime','an integer is odd','it is odd',0,0,[isPrime,n=>n%2===1]],
+ ['an integer is a multiple of 5','it is a multiple of 5','the last digit of an integer is 5','its last digit is 5',0,1,[n=>n%5===0,n=>n%10===5]],
+ ['an integer is divisible by 15','it is divisible by 15','an integer is divisible by 5','it is divisible by 5',1,0,[n=>n%15===0,n=>n%5===0]],
+ ['an integer is divisible by 8','it is divisible by 8','an integer is divisible by 4','it is divisible by 4',1,0,[n=>n%8===0,n=>n%4===0]],
+ ['a figure is a square','it is a square','a figure is a rectangle','it is a rectangle',1,0],
+ ['a figure is a rhombus','it is a rhombus','a figure is a parallelogram','it is a parallelogram',1,0],
+ ['a figure is a rectangle','it is a rectangle','a figure is a square','it is a square',0,1],
+ ['a figure is a parallelogram','it is a parallelogram','a figure is a rectangle','it is a rectangle',0,1],
+ ['a triangle is equilateral','it is equilateral','a triangle is equiangular','it is equiangular',1,1],
+ ['a polygon is a pentagon','it is a pentagon','the number of sides of a polygon is five','its number of sides is five',1,1],
+ ['an angle is acute','it is acute','the measure of an angle is less than 90°','its measure is less than 90°',1,1],
+ ['two angles are vertical angles','they are vertical angles','two angles are congruent','they are congruent',1,0],
+ ['two angles are a linear pair','they are a linear pair','two angles are supplementary','they are supplementary',1,0],
+ ['two angles are supplementary','they are supplementary','two angles are a linear pair','they are a linear pair',0,1],
+ ['an integer is divisible by 12','it is divisible by 12','an integer is divisible by 6','it is divisible by 6',1,0,[n=>n%12===0,n=>n%6===0]],
+ ['the last digit of an integer is 0','its last digit is 0','an integer is divisible by 10','it is divisible by 10',1,1,[n=>n%10===0,n=>n%10===0]],
+ ['an integer is greater than 20','it is greater than 20','an integer is greater than 10','it is greater than 10',1,0,[n=>n>20,n=>n>10]],
+ ['an integer is a multiple of 7','it is a multiple of 7','an integer is odd','it is odd',0,0,[n=>n%7===0,n=>n%2===1]],
+ ['an integer is a multiple of 6','it is a multiple of 6','an integer is even','it is even',1,0,[n=>n%6===0,n=>n%2===0]],
+ ['an integer is a multiple of 10','it is a multiple of 10','an integer is even','it is even',1,0,[n=>n%10===0,n=>n%2===0]],
+ ['an integer is less than 0','it is less than 0','an integer is negative','it is negative',1,1],
+];
+const neg=p=>p.includes(' is ')?p.replace(' is ',' is not '):p.replace(' are ',' are not ');
+const sayc=(h,c)=>'@{If '+h+', then '+c+'.}';
+const UNI=Array.from({length:99},(_,i)=>i+1);
+const truthS=e=>e[6]?UNI.every(n=>!e[6][0](n)||e[6][1](n)):!!e[4];
+const truthC=e=>e[6]?UNI.every(n=>!e[6][1](n)||e[6][0](n)):!!e[5];
+LB.forEach((e,i)=>{if(e[6]&&(truthS(e)!==!!e[4]||truthC(e)!==!!e[5]))throw new Error('bank truth mismatch '+i);});
+const tf=b=>b?'true':'false';
+function forms(e){const [Pn,Pp,Qn,Qp]=e;return{
+  conv:[Qn,Pp],inv:[neg(Pn),neg(Qp)],contra:[neg(Qn),neg(Pp)],orig:[Pn,Qp],
+  notQ:[Pn,neg(Qp)],notP:[neg(Pn),Qp],sw1:[Qn,neg(Pp)],sw2:[neg(Qn),Pp]};}
+const NAMEF={conv:'converse',inv:'inverse',contra:'contrapositive'};
+const same=(a,b)=>a[0]===b[0]&&a[1]===b[1];
+
+/* ---------- property bank ---------- */
+const PN={add:'Addition Property of Equality',sub:'Subtraction Property of Equality',mul:'Multiplication Property of Equality',div:'Division Property of Equality',
+  refl:'Reflexive Property of Equality',sym:'Symmetric Property of Equality',trans:'Transitive Property of Equality',subst:'Substitution Property of Equality',dist:'Distributive Property'};
+function linJust(v,b,a){ /* does property v turn state b into state a for some positive whole k? states [A,B,C] mean Ax + B = C */
+  for(let k=1;k<=30;k++){
+    const T={add:[b[0],b[1]+k,b[2]+k],sub:[b[0],b[1]-k,b[2]-k]};if(k>=2){T.mul=[b[0]*k,b[1]*k,b[2]*k];T.div=[b[0]/k,b[1]/k,b[2]/k];}
+    if(T[v]&&T[v].every((z,i)=>approx(z,a[i])))return true;
+  }
+  return false;
+}
+function structKey(L){ /* classify a non-linear step from the displayed lines */
+  const sd=s=>s.split(' = ');
+  if(L.length===1)return sd(L[0])[0]===sd(L[0])[1]?'refl':null;
+  const a=sd(L[0]),b=sd(L[1]);
+  if(L.length===2)return(b[0]===a[1]&&b[1]===a[0])?'sym':null;
+  const c=sd(L[2]);
+  if(a[1]===b[0]&&c[0]===a[0]&&c[1]===b[1])return'trans';
+  if(c[0]===b[0].replace(a[0],a[1])&&c[1]===b[1])return'subst';
+  return null;
+}
+const OBJ=[['AB','CD','EF'],['PQ','RS','TU'],['m∠1','m∠2','m∠3'],['m∠A','m∠B','m∠C'],['XY','YZ','XZ']];
+
+const dedupe=st=>st.filter((s,i)=>!(i>0&&s[1]&&s[1]===st[i-1][1]));
+const mc2=o=>{o.steps=dedupe(o.steps||[]);return mc(o);};
+const RC={'an integer is even':'if the square of an integer is even, the integer cannot be odd, because an odd integer has an odd square',
+ 'an integer is odd':'if the square of an integer is odd, the integer cannot be even, because an even integer has an even square',
+ 'an integer is a multiple of 5':'an integer ending in 5 can be written as 10k + 5 = 5(2k + 1), a multiple of 5',
+ 'a figure is a rectangle':'every square has four right angles, so every square is a rectangle',
+ 'a figure is a parallelogram':'a rectangle has two pairs of parallel sides, so it is a parallelogram',
+ 'a triangle is equilateral':'a triangle with three equal angles has three equal sides',
+ 'a polygon is a pentagon':'a pentagon is a polygon with five sides, by definition',
+ 'an angle is acute':'the acute angles are exactly the angles whose measure is less than 90°',
+ 'two angles are supplementary':'a linear pair forms a straight line, so its angles add to 180°',
+ 'an integer is less than 0':'a negative integer is an integer below 0',
+ 'the last digit of an integer is 0':'a multiple of 10 always ends in 0'};
+const CXC={'a figure is a square':'a 3 by 5 rectangle is a rectangle but not a square','a figure is a rhombus':'a 3 by 5 rectangle is a parallelogram but not a rhombus',
+ 'two angles are vertical angles':'two separate 40° angles are congruent but are not vertical angles','two angles are a linear pair':'angles of 70° and 110° far apart are supplementary but not a linear pair'};
+function whyConv(e){ /* a reason (true) or a counterexample (false) for the converse, using the bank's own data */
+  if(truthC(e))return RC[e[0]]||'every case checks out';
+  if(e[6]){const n=UNI.find(k=>e[6][1](k)&&!e[6][0](k));return `${n} makes the conclusion of the original true but its hypothesis false, so the converse fails for ${n}`;}
+  return CXC[e[0]]||'a counterexample exists';
+}
+const UNIT={
+types:{segAdd:'Segment Addition',midpoint:'Midpoint',endpoint:'Find an Endpoint',angleSolve:'Angle Addition',compSupp:'Complement & Supplement',
+  logicForm:'Conditionals',logicTruth:'Truth Values',counterex:'Counterexample',prop:'Proof Reasons'},
+pools:{
+  1:['segAdd','midpoint','compSupp','logicForm','prop','angleSolve'],
+  2:['segAdd','midpoint','endpoint','angleSolve','compSupp','logicForm','logicTruth','prop','counterex'],
+  3:['segAdd','endpoint','angleSolve','compSupp','logicForm','logicTruth','counterex','prop']},
+gens:{
+
+/* ---------- segment addition ---------- */
+segAdd(level){
+  if(level===1){
+    const a=rnd(4,15),b=rnd(4,15),V={AB:a,BC:b,AC:a+b},miss=pick(['AB','BC','AC']);
+    const G=['AB','BC','AC'].filter(k=>k!==miss),g1=V[G[0]],g2=V[G[1]],t=V[miss];
+    const chk=v=>{const o={...V};o[miss]=v;return o.AB+o.BC===o.AC;};
+    const labs=k=>k in V&&k!==miss?String(V[k]):'?';
+    const fig=segFig(labs('AB'),labs('BC'),a/(a+b));
+    const how=miss==='AC'?'The whole segment is the sum of its parts.':'The whole minus the known part gives the missing part.';
+    return mc2({prompt:'Point {{B}} is between {{A}} and {{C}}. Find {{'+miss+'}}.',stmt:G.map(k=>`${k} = ${V[k]}`).join(',  '),fig,
+      ok:{t:S(t),v:t},bad:ints([g1+g2,Math.abs(g1-g2),g1,g2,t+1,t-1,t+2]).map(v=>({t:S(v),v})),
+      steps:[['Segment Addition Postulate: {{AB + BC = AC}}. '+how,''],
+             ['Compute '+miss+'.',miss==='AC'?`${a} + ${b} = ${a+b}`:miss==='BC'?`${a+b} - ${a} = ${b}`:`${a+b} - ${b} = ${a}`]],oracle:chk});
+  }
+  const x0=rnd(2,9),a1=rnd(1,5),a2=rnd(1,5),b1=rnd(-3,9),b2=rnd(-3,9);
+  const AB=a1*x0+b1,BC=a2*x0+b2;if(AB<2||BC<2)return null;
+  let a3=0;if(level===3){a3=rnd(1,a1+a2-1);if(a1+a2<2)return null;}
+  const b3=AB+BC-a3*x0,den=a1+a2-a3;
+  const askAC=level===3&&rnd(0,1)===1;
+  const fig=segFig(lin(a1,b1),lin(a2,b2),AB/(AB+BC));
+  const stmt=`AB = ${lin(a1,b1)},  BC = ${lin(a2,b2)},  AC = ${lin(a3,b3)}`;
+  const xsol=(b3-b1-b2)/den;
+  const eq1b=`${lin(a1+a2,b1+b2)} = ${lin(a3,b3)}`;
+  const steps=[['Segment Addition Postulate: {{AB + BC = AC}}. Substitute the expressions.',`(${lin(a1,b1)}) + (${lin(a2,b2)}) = ${lin(a3,b3)}`],
+    ['Combine like terms on the left.',eq1b],
+    ['Collect the {{x}}-terms on one side and the numbers on the other.',`${T(den,'x')} = ${b3-b1-b2}`],
+    ['Divide.',`x = ${x0}`]];
+  if(askAC)steps.push(['Substitute {{x = '+x0+'}} into {{AC}}.',`AC = ${a3}(${x0})${addC(b3)} = ${AB+BC}`]);
+  if(!askAC)return mc2({prompt:'Point {{B}} is between {{A}} and {{C}}. Solve for {{x}}.',stmt,fig,ok:{t:'x = '+x0,v:x0},
+    bad:xs([(b3+b1+b2)/den,(b3-b1+b2)/den,(b3-b1-b2)/(a1+a2+a3),(b1+b2-b3)/den,x0+1,x0-1,x0+2]),steps,
+    oracle:v=>approx((a1+a2)*v+b1+b2,a3*v+b3)});
+  const ACat=x=>a3*x+b3;
+  return mc2({prompt:'Point {{B}} is between {{A}} and {{C}}. Find {{AC}}.',stmt,fig,ok:{t:S(AB+BC),v:AB+BC},
+    bad:ints([ACat((b3+b1+b2)/den),ACat(x0+1),ACat(x0-1),x0,AB,BC,ACat((b1+b2-b3)/den)]).map(v=>({t:S(v),v})),steps,
+    oracle:v=>approx(ACat(xsol),v)});
+},
+
+/* ---------- midpoint ---------- */
+midpoint(level){
+  if(level===1){
+    const a=rnd(-9,3),b=a+2*rnd(2,8),m=(a+b)/2;
+    return mc2({prompt:'Find the coordinate of the midpoint of the segment with these endpoints on a number line.',stmt:`A = ${a},  B = ${b}`,
+      ok:{t:S(m),v:m},bad:ints([a+b,b-a,m+1,m-1,m+2,-m]).map(v=>({t:S(v),v})),
+      steps:[['Add the endpoints and divide by 2.',`[[${sum2(a,b)} ; 2]] = [[${a+b} ; 2]] = ${m}`]],oracle:v=>2*v===a+b});
+  }
+  let x1,x2,y1,y2;
+  do{x1=rnd(-8,6);x2=x1+2*nz(-6,6);y1=rnd(-8,6);y2=y1+2*nz(-6,6);}while(Math.abs(x2)>9||Math.abs(y2)>9||Math.abs(x1)>9);
+  const mx=(x1+x2)/2,my=(y1+y2)/2;
+  const fig=figSvg({vb:[-10,-10,10,10],px:230,alt:'Points A and B on a coordinate grid.',items:[{t:'grid',step:2},{t:'l',a:[x1,y1],b:[x2,y2]},{t:'d',p:[x1,y1],k:'acc'},{t:'d',p:[x2,y2],k:'acc2'},
+    {t:'tx',p:[x1,y1],s:'A',dx:-9,dy:-8},{t:'tx',p:[x2,y2],s:'B',dx:9,dy:-8}]});
+  return mc2({prompt:'Find the coordinates of the midpoint of '+'{{ov{AB} }}.',stmt:`A(${x1}, ${y1}),  B(${x2}, ${y2})`,fig,
+    ok:{t:`(${mx}, ${my})`,v:[mx,my]},
+    bad:ptC([[x1+x2,y1+y2],[(x2-x1)/2,(y2-y1)/2],[mx,y1+y2],[x1+x2,my],[mx,(y2-y1)/2],[my,mx],[mx+1,my-1]]),
+    steps:[['Average the {{x}}-coordinates.',`[[${sum2(x1,x2)} ; 2]] = ${mx}`],['Average the {{y}}-coordinates.',`[[${sum2(y1,y2)} ; 2]] = ${my}`],['The midpoint is',`(${mx}, ${my})`]],
+    oracle:v=>2*v[0]===x1+x2&&2*v[1]===y1+y2});
+},
+
+/* ---------- find an endpoint ---------- */
+endpoint(level){
+  if(level===2){
+    const m=rnd(-4,6),a=rnd(-8,8),b=2*m-a;if(a===b||Math.abs(b)>14)return null;
+    return mc2({prompt:'{{M}} is the midpoint of {{ov{AB} }}. Find the coordinate of {{B}} on the number line.',stmt:`M = ${m},  A = ${a}`,
+      ok:{t:S(b),v:b},bad:ints([m-a,m+a,2*a-m,a+2*m,b+2,b-2,-b]).map(v=>({t:S(v),v})),
+      steps:[['{{M}} is the average of {{A}} and {{B}}.',`[[${a} + B ; 2]] = ${m}`],['Multiply both sides by 2.',`${a} + B = ${2*m}`],['Solve for {{B}}.',`B = ${b}`]],
+      oracle:v=>approx((a+v)/2,m)});
+  }
+  let mx,my,ax,ay,bx,by;
+  do{mx=rnd(-5,6);my=rnd(-5,6);ax=rnd(-8,8);ay=rnd(-8,8);bx=2*mx-ax;by=2*my-ay;}while(Math.abs(bx)>10||Math.abs(by)>10||(ax===mx&&ay===my));
+  return mc2({prompt:'{{M}} is the midpoint of {{ov{AB} }}. Find the coordinates of {{B}}.',stmt:`M(${mx}, ${my}),  A(${ax}, ${ay})`,
+    ok:{t:`(${bx}, ${by})`,v:[bx,by]},
+    bad:ptC([[mx-ax,my-ay],[mx+ax,my+ay],[2*ax-mx,2*ay-my],[bx,my+ay],[mx+(mx-ax),ay],[by,bx]]),
+    steps:[['Each coordinate of {{M}} is the average of the matching coordinates of {{A}} and {{B}}. Solve the {{x}}-coordinate.',`[[${ax} + x_B ; 2]] = ${mx}`],
+           ['Multiply by 2 and subtract. Then do the same for {{y}}.',`x_B = ${2*mx} - (${ax}) = ${bx},  y_B = ${2*my} - (${ay}) = ${by}`],['So',`B = (${bx}, ${by})`]],
+    oracle:v=>ax+v[0]===2*mx&&ay+v[1]===2*my});
+},
+
+/* ---------- angle addition and bisectors ---------- */
+angleSolve(level){
+  const x0=rnd(4,14),form=pick(level===1?['bisTot']:level===2?['bis2','addNum']:['bisTotExpr','add3']);
+  let stmt,prompt,ok={t:'x = '+x0,v:x0},bad,steps,oracle,a1,a2;
+  const BIS='Ray {{BD}} bisects {{∠ABC}}. Solve for {{x}}.',INS='Ray {{BD}} is inside {{∠ABC}}. Solve for {{x}}.';
+  if(form==='bisTot'){
+    const a=rnd(2,5),b=nz(-8,12),h=a*x0+b,T2=2*h;if(h<15||h>80)return null;
+    stmt=`m∠ABC = ${T2}°,  m∠ABD = ${lin(a,b)}`;prompt=BIS;a1=h;a2=h;
+    bad=xs([(T2-b)/a,(h+b)/a,h-b,(T2+b)/a,x0+1,x0-1,x0+2]);
+    steps=[['A bisector cuts the angle in half, so {{m∠ABD}} is half of {{m∠ABC}}.',`${lin(a,b)} = [[${T2} ; 2]]`],['Simplify the right side.',`${lin(a,b)} = ${h}`],
+           [`${b>0?'Subtract':'Add'} ${Math.abs(b)} on both sides.`,`${T(a,'x')} = ${h-b}`],['Divide.',`x = ${x0}`]];
+    oracle=v=>approx(a*v+b,T2/2);
+  } else if(form==='bis2'){
+    const p=rnd(2,6),q=rnd(2,6);if(p===q)return null;const b1=nz(-9,12),h=p*x0+b1,b2=h-q*x0;if(h<15||h>80)return null;
+    stmt=`m∠ABD = ${lin(p,b1)},  m∠DBC = ${lin(q,b2)}`;prompt=BIS;a1=h;a2=h;
+    bad=xs([-x0,(b2-b1)/(p+q),(b1+b2)/(p+q),(b1+b2)/(p-q),x0+1,x0-1]);
+    steps=[['A bisector makes the two angles equal. Set them equal.',`${lin(p,b1)} = ${lin(q,b2)}`],['Collect the {{x}}-terms and the numbers.',`${T(p-q,'x')} = ${b2-b1}`],['Divide.',`x = ${x0}`]];
+    oracle=v=>approx(p*v+b1,q*v+b2);
+  } else if(form==='addNum'){
+    const p=rnd(1,5),q=rnd(1,5),b1=rnd(-6,12),b2=rnd(-6,12),A=p*x0+b1,B=q*x0+b2,tot=A+B;if(A<10||B<10||tot>170)return null;
+    stmt=`m∠ABC = ${tot}°,  m∠ABD = ${lin(p,b1)},  m∠DBC = ${lin(q,b2)}`;prompt=INS;a1=A;a2=B;
+    bad=xs([(tot+b1+b2)/(p+q),(tot-b1+b2)/(p+q),tot/(p+q),(tot-b1-b2)/(p+q)+1,x0+1,x0-1]);
+    steps=[['Angle Addition Postulate: the two parts add to the whole.',`${lin(p,b1)} + ${lin(q,b2)} = ${tot}`.replace('+ -','- ')],['Combine like terms.',`${lin(p+q,b1+b2)} = ${tot}`],
+           [`${b1+b2>0?'Subtract':'Add'} ${Math.abs(b1+b2)} on both sides.`,`${T(p+q,'x')} = ${tot-b1-b2}`],['Divide.',`x = ${x0}`]];
+    oracle=v=>approx((p+q)*v+b1+b2,tot);
+  } else if(form==='bisTotExpr'){
+    const a=rnd(2,5),b=nz(-8,12),c=rnd(3,12),h=a*x0+b,d=2*h-c*x0;if(c===2*a||h<15||h>80)return null;
+    stmt=`m∠ABC = ${lin(c,d)},  m∠ABD = ${lin(a,b)}`;prompt=BIS;a1=h;a2=h;
+    bad=xs([(b-d)/(c-a),(2*b-d)/(c+2*a),(d-2*b)/(c-2*a),(2*b+d)/(c-2*a),x0+1,x0-1,x0+2]);
+    steps=[['The whole angle is twice the half.',`${lin(c,d)} = 2(${lin(a,b)})`],['Distribute the 2.',`${lin(c,d)} = ${lin(2*a,2*b)}`],
+           ['Collect the {{x}}-terms and the numbers.',`${T(c-2*a,'x')} = ${2*b-d}`],['Divide.',`x = ${x0}`]];
+    oracle=v=>approx(c*v+d,2*(a*v+b));
+  } else {
+    const p=rnd(1,5),q=rnd(1,5),b1=rnd(-6,12),b2=rnd(-6,12),a3=rnd(1,p+q-1);if(p+q<2)return null;
+    const A=p*x0+b1,B=q*x0+b2,b3=A+B-a3*x0,den=p+q-a3;if(A<10||B<10||A+B>170)return null;
+    stmt=`m∠ABC = ${lin(a3,b3)},  m∠ABD = ${lin(p,b1)},  m∠DBC = ${lin(q,b2)}`;prompt=INS;a1=A;a2=B;
+    bad=xs([(b1+b2-b3)/den,(b3+b1+b2)/den,(b3-b1-b2)/(p+q+a3),(b3-b1+b2)/den,x0+1,x0-1]);
+    steps=[['Angle Addition Postulate: {{m∠ABD + m∠DBC = m∠ABC}}.',`${lin(p,b1)} + ${lin(q,b2)} = ${lin(a3,b3)}`.replace('+ -','- ')],['Combine like terms on the left.',`${lin(p+q,b1+b2)} = ${lin(a3,b3)}`],
+           ['Collect the {{x}}-terms and the numbers.',`${T(den,'x')} = ${b3-b1-b2}`],['Divide.',`x = ${x0}`]];
+    oracle=v=>approx((p+q)*v+b1+b2,a3*v+b3);
+  }
+  return mc2({prompt,stmt,fig:angFig(a1,a2),ok,bad,steps,oracle});
+},
+
+/* ---------- complement and supplement ---------- */
+compSupp(level){
+  if(level===1){
+    const kind=pick(['complement','supplement']),S0=kind==='complement'?90:180,th=kind==='complement'?rnd(11,79):pick([rnd(21,89),rnd(91,159)]);
+    return mc2({prompt:`Find the ${kind} of this angle.`,stmt:`m∠A = ${th}°`,ok:{t:(S0-th)+'°',v:S0-th},
+      bad:degs([(S0===90?180:90)-th,th,S0+th,S0-th+10,S0-th-10,360-th]).map(o=>({...o})),
+      steps:[[`The ${kind} is the angle that adds with ${th}° to make ${S0}°.`,`${S0} - ${th} = ${S0-th}`]],oracle:v=>v+th===S0});
+  }
+  if(level===2){
+    const kind=pick(['complementary','supplementary']),Tt=kind==='complementary'?90:180,Ot=270-Tt;
+    const x0=rnd(3,15),p=rnd(1,5),q=rnd(1,5),b1=rnd(-5,12),A=p*x0+b1;if(A<8||Tt-A<8)return null;const b2=(Tt-A)-q*x0;
+    return mc2({prompt:`{{∠A}} and {{∠B}} are ${kind}. Solve for {{x}}.`,stmt:`m∠A = ${lin(p,b1)},  m∠B = ${lin(q,b2)}`,
+      ok:{t:'x = '+x0,v:x0},bad:xs([(Ot-b1-b2)/(p+q),(Tt+b1+b2)/(p+q),(Tt-b1+b2)/(p+q),(Tt-b1-b2)/(p+q)+1,x0+1,x0-1,x0+2]),
+      steps:[[`${kind[0].toUpperCase()+kind.slice(1)} angles add to {{${Tt}°}}.`,`${lin(p,b1)} + ${lin(q,b2)} = ${Tt}`.replace('+ -','- ')],['Combine like terms.',`${lin(p+q,b1+b2)} = ${Tt}`],
+             [`${b1+b2>0?'Subtract':'Add'} ${Math.abs(b1+b2)} on both sides.`,`${T(p+q,'x')} = ${Tt-b1-b2}`],['Divide.',`x = ${x0}`]],
+      oracle:v=>approx((p+q)*v+b1+b2,Tt)});
+  }
+  const k=pick([3,3,4]),th=k===3?rnd(50,80):rnd(62,80),c=180-th-k*(90-th);
+  return mc2({prompt:'Find the measure of the angle.',story:`An angle's supplement is {{${c}°}} more than {{${k}}} times its complement.`,
+    ok:{t:th+'°',v:th},bad:degs([90-th,180-th,th+10,th-10,th+5,c]).map(o=>({...o})),
+    steps:[['Let {{x}} be the angle. Its complement is {{90 - x}} and its supplement is {{180 - x}}.',`180 - x = ${k}(90 - x) + ${c}`],
+           ['Distribute and combine.',`180 - x = ${90*k+c} - ${k}x`],['Collect the {{x}}-terms and the numbers.',`${T(k-1,'x')} = ${90*k+c-180}`],['Divide.',`x = ${th}`]],
+    oracle:v=>approx(180-v,k*(90-v)+c)});
+},
+
+/* ---------- name the converse / inverse / contrapositive ---------- */
+logicForm(level){
+  const e=pick(LB.filter(z=>!truthC(z))),F=forms(e);  /* converse false, so the related statements are not all true */
+  const key=level===1?'conv':level===2?pick(['inv','contra']):pick(['conv','inv','contra','contra']);
+  const others=['conv','inv','contra'].filter(k=>k!==key);
+  const equiv={conv:'inv',inv:'conv'}[key];  /* converse and inverse are logically equivalent: never offer one as a wrong answer for the other */
+  const order=[...others.filter(k=>k!==equiv),...(key==='contra'?[]:['orig']),'notQ','notP','sw1','sw2'];  /* the original is equivalent to the contrapositive */
+  const mk=k=>({t:sayc(F[k][0],F[k][1]),v:F[k]});
+  const how={conv:'The converse switches the hypothesis and the conclusion.',inv:'The inverse negates both the hypothesis and the conclusion.',contra:'The contrapositive switches the two parts and negates both.'}[key];
+  return mc2({prompt:`Which statement is the ${NAMEF[key]} of this conditional?`,stmt:sayc(F.orig[0],F.orig[1]),
+    ok:mk(key),bad:order.map(mk),
+    steps:[[`Hypothesis: "${F.orig[0]}". Conclusion: "${F.orig[1]}".`,''],[how,''],['The '+NAMEF[key]+' is',sayc(F[key][0],F[key][1])]],
+    oracle:v=>same(v,F[key])});
+},
+
+/* ---------- truth values of related statements ---------- */
+logicTruth(level){
+  if(rnd(0,1)===0){
+    const cands=LB.filter(e=>truthS(e)&&!truthC(e)),e=pick(cands),F=forms(e);
+    const mk=k=>({t:sayc(F[k][0],F[k][1]),v:F[k]});
+    return mc2({prompt:'This conditional is true. Which related statement must also be true?',stmt:sayc(F.orig[0],F.orig[1]),
+      ok:mk('contra'),bad:['conv','inv','notQ'].map(mk),
+      steps:[['A conditional and its contrapositive always have the same truth value, so the contrapositive must be true.',''],
+             ['The converse and inverse are not guaranteed. Here the converse is false ('+whyConv(e)+'), and so is the inverse.',''],['The contrapositive is',sayc(F.contra[0],F.contra[1])]],
+      oracle:v=>same(v,F.contra)||same(v,F.orig)});
+  }
+  const e=pick(LB),F=forms(e),c=truthC(e),s=truthS(e);
+  const mk=(a,b)=>({t:`Converse: ${tf(a)},  Contrapositive: ${tf(b)}`,v:[a,b]});
+  const all=[[c,s],[s,c],[c,c],[s,s],[!c,!s],[!s,!c],[true,true],[false,false],[true,false],[false,true]];
+  return mc2({prompt:`The conditional is ${tf(s)}. Which choice gives the truth values of its converse and its contrapositive?`,stmt:sayc(F.orig[0],F.orig[1]),
+    ok:mk(c,s),bad:all.slice(1).map(p=>mk(p[0],p[1])),
+    steps:[['The contrapositive always matches the conditional, so it is '+tf(s)+'.',''],['Check the converse: '+whyConv(e)+(c?'. So the converse is true.':'. So the converse is false.'),''],
+           ['So',`Converse: ${tf(c)},  Contrapositive: ${tf(s)}`]],
+    oracle:v=>v[0]===truthC(e)&&v[1]===truthS(e)});
+},
+
+/* ---------- find the counterexample ---------- */
+counterex(level){
+  const idx=[];LB.forEach((e,i)=>{if(e[6]&&(!truthS(e)||!truthC(e)))idx.push(i);});
+  const e=LB[pick(idx)],fwd=!truthS(e),[pp,qq]=e[6];
+  const hyp=fwd?pp:qq,con=fwd?qq:pp,shown=fwd?[e[0],e[3]]:[e[2],e[1]];
+  const hi=level===2?60:99,pool=UNI.filter(n=>n>=2&&n<=hi);
+  const cx=pool.filter(n=>hyp(n)&&!con(n)),bt=pool.filter(n=>hyp(n)&&con(n)),hf1=pool.filter(n=>!hyp(n)&&con(n)),hf0=pool.filter(n=>!hyp(n)&&!con(n));
+  if(!cx.length)return null;
+  const n0=pick(cx),good=pick(bt);
+  const cand=[good,pick(hf1),pick(hf0),pick(bt),pick(hf1),pick(hf0),pick(bt),pick(pool)].filter(v=>v!=null&&v!==n0);
+  return mc2({prompt:'Which integer is a counterexample to this statement?',stmt:sayc(shown[0],shown[1]),ok:{t:S(n0),v:n0},bad:cand.map(v=>({t:S(v),v})),
+    steps:[['A counterexample makes the hypothesis true and the conclusion false.',''],
+           [`For ${n0}, the hypothesis "${shown[0]}" is true, but the conclusion "${shown[1]}" is false.`,''],['So a counterexample is',S(n0)]],
+    oracle:v=>hyp(v)&&!con(v)});
+},
+
+/* ---------- which property justifies the step ---------- */
+prop(level){
+  const kinds=level===1?['lin1','lin1']:level===2?['lin1','lin2','mul','div','sym','refl']:['lin2','mul','div','dist','subst','trans','sym'];
+  const kind=pick(kinds);let L,last,given,st=null,key,desc,oracle;
+  if(kind==='lin1'||kind==='lin2'){
+    const A=kind==='lin2'?rnd(2,5):1,x0=rnd(2,12),B=nz(-9,9),C=A*x0+B;
+    key=B>0?'sub':'add';const bef=`${lin(A,B)} = ${C}`,aft=`${T(A,'x')} = ${C-B}`;
+    L=[bef,aft];st=[[A,B,C],[A,0,C-B]];desc=`${Math.abs(B)} was ${B>0?'subtracted from':'added to'} both sides.`;
+  } else if(kind==='mul'){
+    const d=rnd(2,6),c=nz(-9,9),bef=`[[x ; ${d}]] = ${c}`;key='mul';L=[bef,`x = ${c*d}`];st=[[1/d,0,c],[1,0,c*d]];desc=`Both sides were multiplied by ${d}.`;
+  } else if(kind==='div'){
+    const A=rnd(2,9),x0=nz(-9,9);key='div';L=[`${A}x = ${A*x0}`,`x = ${x0}`];st=[[A,0,A*x0],[1,0,x0]];desc=`Both sides were divided by ${A}.`;
+  } else if(kind==='dist'){
+    const a=rnd(2,7),b=nz(-8,8),c=rnd(10,60);key='dist';L=[`${a}(x ${b<0?'-':'+'} ${Math.abs(b)}) = ${c}`,`${a}x ${a*b<0?'-':'+'} ${Math.abs(a*b)} = ${c}`];st={a,b};desc=`The ${a} was multiplied by each term inside the parentheses.`;
+  } else if(kind==='refl'){
+    const o=pick(OBJ)[rnd(0,2)];key='refl';L=[`${o} = ${o}`];desc='A quantity is equal to itself.';
+  } else if(kind==='sym'){
+    const t=pick(OBJ),[p,q]=shuffle(t).slice(0,2);key='sym';L=[`${p} = ${q}`,`${q} = ${p}`];desc='The two sides were swapped.';
+  } else if(kind==='trans'){
+    const t=pick(OBJ);key='trans';L=[`${t[0]} = ${t[1]}`,`${t[1]} = ${t[2]}`,`${t[0]} = ${t[2]}`];desc=`Both equations share ${t[1]}, so the other two quantities are equal.`;
+  } else {
+    const t=pick([['AB','BC','AC'],['PQ','QR','PR'],['m∠1','m∠2','m∠3']]),n=rnd(3,9),tot=n+rnd(4,12);
+    key='subst';L=[`${t[0]} = ${n}`,`${t[0]} + ${t[1]} = ${tot}`,`${n} + ${t[1]} = ${tot}`];desc=`${t[0]} was replaced by its equal, ${n}.`;
+  }
+  const rowsF=L.length===1?[`${L[0]}&&?`]:[...L.slice(0,-1).map(s=>`${s}&&Given`),`${L[L.length-1]}&&?`];
+  const stmt='tbl{Statement&&Reason ;; '+rowsF.join(' ;; ')+'}';
+  const opp={add:'sub',sub:'add',mul:'div',div:'mul'};
+  const pair={add:['mul','div'],sub:['mul','div'],mul:['add','sub'],div:['add','sub']}[key]||['add','mul','sub','div'];
+  const order=['subst','trans','sym','refl','dist',...pair].filter(k=>k!==key&&!(key==='trans'&&k==='subst')&&!(key==='subst'&&k==='trans'));  /* never the opposite operation: arguably also valid */
+  if(Array.isArray(st))oracle=v=>linJust(v,st[0],st[1]);
+  else if(st&&st.a!==undefined)oracle=v=>v==='dist'&&[2,5,-3].every(x=>st.a*(x+st.b)===st.a*x+st.a*st.b);
+  else oracle=v=>structKey(L)===v;
+  return mc2({prompt:'Which reason belongs in the last row of this proof?',stmt,ok:{t:PN[key],v:key},bad:order.map(k=>({t:PN[k],v:k})),
+    steps:[[(L.length===1?'Look at the statement. ':'Compare the last two lines. ')+desc,''],['The reason is the',PN[key]]],oracle});
+}
+}};
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Left side','Right side'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Right side':'Left side'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'R':'L'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>

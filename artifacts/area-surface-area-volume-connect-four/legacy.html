@@ -1,0 +1,1145 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.statement .tbl,.choice .tbl{font-size:.62em}
+.figwrap{display:flex;justify-content:center;padding:6px 0;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 22%,transparent);--fillc2:color-mix(in srgb,var(--t0) 20%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface);color:var(--ink)}
+.choice svg.fig{max-width:100%;height:auto;--fg:var(--ink);--acc:var(--board);--acc2:var(--t0);--fillc:color-mix(in srgb,var(--board) 25%,transparent);--gridc:color-mix(in srgb,var(--ink) 18%,transparent);--bgc:var(--surface)}
+.choice .txt .fig{margin:0 auto}
+
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+
+
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+
+</style></head><body>
+<title>Volume Four</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
+<style>
+/* Layout: team banners on top (left half / right half of the room), question panel left, board right. */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --surface-2:#e2e8f4; --ink:#12203f; --muted:#52608a; --line:#c6cfe3;
+  --board:#2848c7; --board-2:#1c3597; --hole:#dce4f6;
+  --t0:#e5484d; --t0-ink:#ffffff; --t1:#f4b400; --t1-ink:#2b2100;
+  --ok:#17814d; --ok-bg:#dff3e8; --bad:#bf312b; --bad-bg:#fbe3e1;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;
+  --math:'Source Serif 4','Times New Roman',Georgia,serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#0c1223; --surface:#151d36; --surface-2:#1f2a4b; --ink:#eaf0ff; --muted:#9eabd0; --line:#2d3963;
+  --board:#3b5ce0; --board-2:#2a44b4; --hole:#0c1223;
+  --t0:#ff6369; --t1:#ffc53d; --ok:#55c98f; --ok-bg:#12382a; --bad:#ff8179; --bad-bg:#40191a; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+button,select,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+.title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.title h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0}
+.title span{color:var(--muted);font-size:.95rem}
+
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0;transition:border-color .2s, background .2s}
+.card.t1{flex-direction:row-reverse;text-align:right}
+.card.active.t0{border-color:var(--t0)} .card.active.t1{border-color:var(--t1)}
+.card.active{background:var(--surface-2)}
+.swatch{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem}
+.t0 .swatch,.disc.t0{background:var(--t0);color:var(--t0-ink)}
+.t1 .swatch,.disc.t1{background:var(--t1);color:var(--t1-ink)}
+.cardbody{min-width:0;flex:1;display:flex;flex-direction:column;gap:2px}
+.name{width:100%;background:transparent;border:0;border-bottom:2px dashed transparent;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.4vw,1.6rem);padding:0;text-align:inherit;min-width:0}
+.name:hover,.name:focus{border-bottom-color:var(--line)}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.95rem;flex-wrap:wrap}
+.t1 .meta{justify-content:flex-end}
+.meta b{color:var(--ink);font-variant-numeric:tabular-nums}
+.tag{font-weight:700;color:var(--ink);min-height:1.4em}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:920px){.stage{grid-template-columns:1fr}}
+
+.q{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:4px 12px 4px 6px;border-radius:99px}
+.who i{width:22px;height:22px;border-radius:50%;display:inline-block;background:currentColor;box-shadow:inset 0 0 0 3px var(--surface)}
+.who.t0{background:color-mix(in srgb,var(--t0) 22%,var(--surface));} .who.t1{background:color-mix(in srgb,var(--t1) 28%,var(--surface));}
+.who.t0 i{color:var(--t0)} .who.t1 i{color:var(--t1)}
+.lvl{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.timer{display:flex;align-items:center;gap:10px}
+.timer .bar{flex:1;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.timer .bar i{display:block;height:100%;width:100%;background:var(--board)}
+.timer span{font-variant-numeric:tabular-nums;font-weight:700;min-width:3ch;text-align:right}
+.prompt{margin:0;color:var(--muted);font-size:1.05rem}
+.statement:empty{display:none}
+.statement .story{font-family:var(--body);font-size:clamp(1.05rem,1.8vw,1.35rem);line-height:1.45;margin-bottom:.4em;text-align:left}
+.statement{font-family:var(--math);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.7rem);line-height:1.5;padding:12px 8px;text-align:center;background:var(--surface-2);border-radius:14px;overflow-wrap:anywhere}
+.var{font-style:italic}
+.or,.conj{font-family:var(--body);font-size:.55em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:0 .5em;color:var(--board)}
+:root[data-theme="dark"] .or,:root[data-theme="dark"] .conj{color:var(--ink)}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em}
+.frac .n{padding:0 .3em .08em;border-bottom:.07em solid currentColor}
+.frac .d{padding-top:.05em}
+
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{display:flex;align-items:center;gap:12px;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:12px;min-height:76px;cursor:pointer;min-width:0;font-family:var(--math);font-size:clamp(1.15rem,2vw,1.55rem)}
+.choice .let{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--surface-2);font-family:var(--display);font-weight:800;font-size:1rem}
+.choice .txt{min-width:0;flex:1;overflow-wrap:anywhere}
+.choice:enabled:hover{border-color:var(--board);background:var(--surface-2)}
+.choice:disabled{cursor:default}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .let{background:var(--bad);color:var(--surface)}
+.choice.right{border-color:var(--ok);background:var(--ok-bg)}
+.choice.right .let{background:var(--ok);color:var(--surface)}
+.choice.dim{opacity:.55}
+.nl{display:block;width:100%;height:auto;max-height:90px}
+.nl .ax{stroke:var(--ink);stroke-width:2}
+.nl .tk{stroke:var(--ink);stroke-width:1.5}
+.nl text{fill:var(--ink);font-family:var(--body);font-size:13px;font-weight:700}
+.nl .seg{stroke:var(--board);stroke-width:6}
+:root[data-theme="dark"] .nl .seg{stroke:var(--t1)}
+.nl .arrow{fill:var(--board)}
+.nl .pt-c{fill:var(--board);stroke:var(--board);stroke-width:2.5}
+.nl .pt-o{fill:var(--surface);stroke:var(--board);stroke-width:3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .nl .seg{stroke:var(--t1)} :root:not([data-theme="light"]) .nl .arrow,:root:not([data-theme="light"]) .nl .pt-c{fill:var(--t1);stroke:var(--t1)} :root:not([data-theme="light"]) .nl .pt-o{stroke:var(--t1)} :root:not([data-theme="light"]) .or,:root:not([data-theme="light"]) .conj{color:var(--ink)} }
+:root[data-theme="dark"] .nl .arrow,:root[data-theme="dark"] .nl .pt-c{fill:var(--t1);stroke:var(--t1)}
+:root[data-theme="dark"] .nl .pt-o{stroke:var(--t1)}
+
+.action{display:flex;flex-direction:column;gap:12px}
+.callout{padding:12px 14px;border-radius:12px;background:var(--surface-2);font-size:1.1rem}
+.callout.good{background:var(--ok-bg)} .callout.warn{background:var(--bad-bg)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-family:var(--display);font-weight:800;font-size:1.05rem;padding:10px 18px;border-radius:12px;cursor:pointer}
+.btn.t0{background:var(--t0);border-color:var(--t0);color:var(--t0-ink)}
+.btn.t1{background:var(--t1);border-color:var(--t1);color:var(--t1-ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.08)}
+.btn.sm{font-size:.9rem;padding:7px 12px}
+.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:10px}
+.steps li{padding-left:4px}
+.sl{display:block;color:var(--muted);font-size:.98rem}
+.sm{display:block;font-family:var(--math);font-size:1.45rem;line-height:1.5}
+
+.boardbox{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:640px;width:100%;margin:0 auto}
+.arrows{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:0 10px}
+.arrows span{text-align:center;color:var(--muted);font-weight:700;font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;padding:10px;background:var(--board);border-radius:20px;box-shadow:0 10px 0 var(--board-2)}
+.col{display:grid;gap:6px;padding:0;border:0;background:transparent;overflow:hidden;border-radius:12px;align-content:start}
+.col:enabled{cursor:pointer}
+.col:enabled:hover{background:rgba(255,255,255,.2)}
+.col:disabled{cursor:default}
+.cell{aspect-ratio:1;border-radius:50%;background:var(--hole);position:relative;box-shadow:inset 0 3px 0 rgba(0,0,0,.18)}
+.disc{position:absolute;inset:6%;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(.8rem,2.2vw,1.4rem);box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.disc.drop{animation:fall .55s cubic-bezier(.5,0,.8,.6) both}
+.disc.win{animation:pulse .7s ease-in-out infinite alternate;outline:4px solid var(--surface);z-index:1}
+@keyframes fall{from{transform:translateY(calc(var(--rows)*-112% - 120%))}to{transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.12)}}
+@media (prefers-reduced-motion: reduce){.disc.drop,.disc.win{animation:none}}
+
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.controls label{display:flex;flex-direction:column;gap:3px;font-size:.85rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.controls select{background:var(--surface-2);border:2px solid var(--line);border-radius:10px;padding:8px 10px;font-size:1rem;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:400}
+.controls .sp{flex:1}
+details.how{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+details.how summary{cursor:pointer;font-weight:700}
+details.how p{margin:8px 0 0;max-width:75ch}
+</style>
+
+<div class="wrap">
+  <div class="title"><h1>Volume Four</h1><span>Find an area, a volume, or a surface area to earn a disc. Connect four to win.</span></div>
+
+  <div class="teams">
+    <div class="card t0" id="card0"><div class="swatch">L</div><div class="cardbody">
+      <input class="name" id="name0" value="Left side" aria-label="Left team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins0">0</b></span><span class="tag" id="tag0"></span></div></div></div>
+    <div class="card t1" id="card1"><div class="swatch">R</div><div class="cardbody">
+      <input class="name" id="name1" value="Right side" aria-label="Right team name" maxlength="24">
+      <div class="meta"><span>Wins <b id="wins1">0</b></span><span class="tag" id="tag1"></span></div></div></div>
+  </div>
+
+  <div class="stage">
+    <section class="q" id="q" aria-live="polite"></section>
+    <div class="boardbox">
+      <div class="arrows" id="arrows"></div>
+      <div class="board" id="board" role="group" aria-label="Connect four board"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="levelSel">Difficulty
+      <select id="levelSel">
+        <option value="mix">Mixed</option>
+        <option value="1">Level 1: rectangles, triangles, prisms</option>
+        <option value="2">Level 2: circles, cylinders, cones, pyramids</option>
+        <option value="3">Level 3: composite figures, spheres, scale factors</option>
+      </select></label>
+    <label for="timerSel">Timer
+      <select id="timerSel">
+        <option value="0">Off</option><option value="45">45 seconds</option><option value="90" selected>90 seconds</option><option value="150">150 seconds</option>
+      </select></label>
+    <span class="sp"></span>
+    <button class="btn ghost sm" id="newGame">New game</button>
+    <button class="btn ghost sm" id="resetScores">Reset scores</button>
+  </div>
+
+  <details class="how"><summary>How a turn works</summary>
+    <p>The team on deck picks one answer. A correct answer earns a disc, and that team chooses a column. A wrong answer opens a steal: the other team can try the same problem with the remaining answers. A correct steal earns that team a disc, and the team that missed goes next. If the steal is missed or passed, play moves to the other team. Problems are generated fresh each turn, and the worked solution appears after every turn.</p></details>
+</div>
+
+<script>
+/*FM-START*/
+/* Math mini-syntax -> HTML.
+   <= >= != -> ≤ ≥ ≠     - -> −     * -> ·     -> -> →     ' -> ′
+   [[top ; bottom]]       stacked fraction (nestable)
+   x^2  x^-3  x^{n+1}     superscript (after ^: optional -, then digits or ONE letter, or a {group})
+   x_1  x_{ab}            subscript
+   rt{...}  cbrt{...}     square / cube root
+   ov{AB}                 overline (segment)
+   sys{eq1 ;; eq2}        system of equations with a left brace
+   tbl{x&&0&&1 ;; y&&3&&5} horizontal table, rows split by ;; cells by &&
+   @{text}                upright text, no formatting
+   v{Ipr}                 each letter italic (variable run the automatic rules would treat as a word)
+   Single letters are italic variables. 2-4 capital letters are italic point names (AB, ABC)
+   except known names (SSS, SAS, ASA, AAS, HL, AA, CPCTC, SOH, CAH, TOA ...). Runs of 2 lowercase
+   letters are products of variables (xy) except unit words (cm, ft, in, ln ...). Longer words are upright.
+   "or" and "and" become connector words. "pi" becomes π. */
+const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
+const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
+  let d=0;
+  for(let j=i;j<s.length;){
+    if(s.startsWith(open,j)){d++;j+=open.length;}
+    else if(s.startsWith(close,j)){d--;j+=close.length;if(d===0)return j;}
+    else j++;
+  }
+  return s.length;
+}
+function fmSplit(s,sep){ /* split at top level only */
+  const out=[];let d=0,b=0,last=0;
+  for(let j=0;j<s.length;j++){
+    if(s.startsWith('[[',j)){d++;j++;}
+    else if(s.startsWith(']]',j)){d--;j++;}
+    else if(s[j]==='{')b++;
+    else if(s[j]==='}')b--;
+    else if(!d&&!b&&s.startsWith(sep,j)){
+      if(sep===';'&&(s[j+1]===';'||s[j-1]===';'))continue;
+      out.push(s.slice(last,j));last=j+sep.length;j+=sep.length-1;
+    }
+  }
+  out.push(s.slice(last));return out;
+}
+function fm(s){
+  s=String(s);let out='',i=0;const n=s.length;
+  const grp=(open)=>{ /* read a {group} starting at s[i]==='{' */
+    const e=fmMatch(s,i,'{','}');const inner=s.slice(i+1,e-1);i=e;return inner;};
+  while(i<n){
+    const c=s[i];
+    if(s.startsWith('[[',i)){
+      const e=fmMatch(s,i,'[[',']]'),inner=s.slice(i+2,e-2),parts=fmSplit(inner,';');
+      out+=`<span class="fr"><span class="fn">${fm(parts[0].trim())}</span><span class="fd">${fm((parts[1]||'').trim())}</span></span>`;i=e;continue;
+    }
+    if(s.startsWith('rt{',i)){i+=2;out+=`<span class="rt"><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('cbrt{',i)){i+=4;out+=`<span class="rt"><sup class="rti">3</sup><span class="rts">√</span><span class="rtc">${fm(grp())}</span></span>`;continue;}
+    if(s.startsWith('v{',i)&&!/[A-Za-z]/.test(s[i-1]||' ')){i+=1;out+=grp().split('').map(ch=>/[A-Za-z]/.test(ch)?`<i>${ch}</i>`:fmEsc(ch)).join('');continue;}
+    if(s.startsWith('ov{',i)){i+=2;out+=`<span class="ov">${fm(grp())}</span>`;continue;}
+    if(s.startsWith('@{',i)){i+=1;out+=`<span class="tx">${fmEsc(grp())}</span>`;continue;}
+    if(s.startsWith('sys{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<span class="sys"><span class="eqs">${rows.map(r=>`<span>${fm(r.trim())}</span>`).join('')}</span></span>`;continue;}
+    if(s.startsWith('tbl{',i)){i+=3;const rows=fmSplit(grp(),';;');
+      out+=`<table class="tbl">${rows.map((r,k)=>`<tr>${r.split('&&').map(x=>k?`<td>${fm(x.trim())}</td>`:`<th>${fm(x.trim())}</th>`).join('')}</tr>`).join('')}</table>`.replace(/<tr>(<t[hd]>.*?<\/t[hd]>)/g,(m,a)=>'<tr>'+a.replace(/<td>/,'<th scope="row">').replace(/<\/td>/,'</th>'));continue;}
+    if(c==='^'||c==='_'){
+      i++;let inner='';
+      if(s[i]==='{')inner=grp();
+      else{let m=/^-?(?:\d+(?:\.\d+)?|[A-Za-z])/.exec(s.slice(i));if(m){inner=m[0];i+=inner.length;}}
+      out+=`<${c==='^'?'sup':'sub'} class="s">${fm(inner)}</${c==='^'?'sup':'sub'}>`;continue;
+    }
+    if(/[A-Za-z]/.test(c)){
+      let m=/^[A-Za-z]+/.exec(s.slice(i))[0];
+      /* a trailing digit-free run; handle special words */
+      if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
+      else if(m==='pi'){out+='π';}
+      else if(m.length===1){out+=`<i>${m}</i>`;}
+      else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
+      else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}
+      else if(/^[a-z]{2}$/.test(m)||/^[a-z]{3,4}$/.test(m)&&!/[aeiouy]/.test(m)){out+=m.split('').map(ch=>`<i>${ch}</i>`).join('');}
+      else{out+=`<span class="tx">${m}</span>`;}
+      i+=m.length;continue;
+    }
+    if(s.startsWith('<=',i)){out+='≤';i+=2;continue;}
+    if(s.startsWith('>=',i)){out+='≥';i+=2;continue;}
+    if(s.startsWith('!=',i)){out+='≠';i+=2;continue;}
+    if(s.startsWith('->',i)){out+='→';i+=2;continue;}
+    if(c==='<'){out+='&lt;';i++;continue;}
+    if(c==='>'){out+='&gt;';i++;continue;}
+    if(c==='&'){out+='&amp;';i++;continue;}
+    if(c==='-'){out+='−';i++;continue;}
+    if(c==='*'){out+='·';i++;continue;}
+    if(c==="'"){out+='′';i++;continue;}
+    if(c==='\n'){out+='<br>';i++;continue;}
+    if(c===' '&&s[i+1]===' '){out+='&ensp;';i+=2;continue;}
+    out+=c;i++;
+  }
+  return out;
+}
+/* plain text with inline math in {{ ... }} */
+function inl(s){
+  s=String(s);let out='',i=0;
+  while(i<s.length){
+    const j=s.indexOf('{{',i);
+    if(j<0){out+=fmEsc(s.slice(i));break;}
+    out+=fmEsc(s.slice(i,j));
+    let k=j+2,d=0,end=-1;
+    for(;k<s.length;k++){
+      if(s[k]==='{')d++;
+      else if(s[k]==='}'){if(d===0&&s[k+1]==='}'){end=k;break;}d--;}
+    }
+    if(end<0){out+=fmEsc(s.slice(j));break;}
+    out+=`<span class="m">${fm(s.slice(j+2,end))}</span>`;i=end+2;
+  }
+  return out;
+}
+const FM_CSS=`
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.86em;margin:0 .14em;line-height:1.15}
+.fr .fn{padding:0 .22em .07em;border-bottom:.075em solid currentColor}
+.fr .fd{padding:.07em .22em 0}
+sup.s,sub.s{font-size:.66em;line-height:0;font-style:normal}
+sup.s{vertical-align:.62em} sub.s{vertical-align:-.3em}
+.rt{display:inline-flex;align-items:stretch;white-space:nowrap}
+.rts{font-style:normal;margin-right:-.05em}
+.rtc{border-top:.075em solid currentColor;padding:0 .12em;margin-top:.12em}
+.rti{font-size:.55em;line-height:1;align-self:flex-start;margin-right:-.15em;margin-top:.1em}
+.ov{border-top:.075em solid currentColor;padding-top:.02em}
+.tx{font-style:normal;font-family:inherit}
+.w{font-style:normal;font-weight:700;font-size:.62em;letter-spacing:.07em;text-transform:uppercase;margin:0 .5em;opacity:.85}
+.sys{display:inline-flex;align-items:center;vertical-align:middle}
+.sys::before{content:"";width:.5em;align-self:stretch;margin:.05em .25em .05em 0;border:.09em solid currentColor;border-right:0;border-radius:.45em 0 0 .45em}
+.eqs{display:flex;flex-direction:column;align-items:flex-start;gap:.2em;padding:.1em 0}
+table.tbl{display:inline-table;border-collapse:collapse;font-size:.8em;margin:.2em 0;vertical-align:middle}
+table.tbl th,table.tbl td{border:.08em solid currentColor;padding:.12em .7em;text-align:center;font-weight:400}
+table.tbl th[scope=row]{font-weight:700}
+table.tbl tr:first-child th{font-weight:700}
+.m{white-space:normal}
+`;
+/*FM-END*/
+/*FIG-START*/
+/* Tiny figure engine. figSvg(spec) -> SVG string.
+   spec = { vb:[xmin,ymin,xmax,ymax], px:340, items:[...] }  (math coordinates, y up)
+   items (all coordinates are math coords unless noted):
+     {t:'l', a:[x,y], b:[x,y], k:'', dash:true}        segment
+     {t:'L', m:2, b:1}  {t:'L', x:3}  {t:'L', p:[x,y], q:[x,y]}  line clipped to the view, with arrowheads optional
+     {t:'p', pts:[[x,y],...], k:'fill'|'fill2'|'none'}  polygon
+     {t:'c', c:[x,y], r:3, k:'fill'|'none'}             circle (r in math units)
+     {t:'d', p:[x,y], k:'', r:4}                         dot (r in px)
+     {t:'tx', p:[x,y], s:'A', dx:-8, dy:-8, a:'middle', k:'b'}  text, offsets in px
+     {t:'arc', c:[x,y], r:18, from:0, to:50, k:''}       angle arc (r in px, degrees, counter-clockwise)
+     {t:'ra', p:[x,y], d1:0, d2:90, s:11}                right-angle box
+     {t:'tk', a:[x,y], b:[x,y], n:2}                     congruence ticks on a segment
+     {t:'par', a:[x,y], b:[x,y], n:1}                    parallel arrows on a segment
+     {t:'half', A:1, B:-1, C:0, sgn:1}                   shade the side where Ax+By+C has sign sgn
+     {t:'grid', step:1, label:true}                      grid + axes with number labels
+   k classes: '' (main line), 'acc' (accent), 'acc2', 'thin', 'dash', 'fill', 'fill2' */
+function figMath(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/-/g,'−').replace(/\^(-?\d+|[A-Za-z])/g,'<tspan class="sp" baseline-shift="super" font-size="70%">$1</tspan>')
+    .replace(/(^|[^A-Za-z&;])([a-z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/(^|[^A-Za-z&;])([A-Z])(?![A-Za-z;])/g,'$1<tspan font-style="italic">$2</tspan>').replace(/'/g,'′');
+}
+function figClip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){ /* Liang-Barsky; returns [x1,y1,x2,y2] or null */
+  let t0=0,t1=1;const dx=x2-x1,dy=y2-y1;
+  const P=[-dx,dx,-dy,dy],Q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];
+  for(let i=0;i<4;i++){
+    if(P[i]===0){if(Q[i]<0)return null;}
+    else{const r=Q[i]/P[i];if(P[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}
+  }
+  return [x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];
+}
+function figHalf(A,B,C,sgn,xmin,ymin,xmax,ymax){ /* clip view rectangle to the half-plane sgn*(Ax+By+C) >= 0 */
+  let poly=[[xmin,ymin],[xmax,ymin],[xmax,ymax],[xmin,ymax]];
+  const f=p=>sgn*(A*p[0]+B*p[1]+C), out=[];
+  for(let i=0;i<poly.length;i++){
+    const a=poly[i],b=poly[(i+1)%poly.length],fa=f(a),fb=f(b);
+    if(fa>=0)out.push(a);
+    if((fa>=0)!==(fb>=0)){const t=fa/(fa-fb);out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]);}
+  }
+  return out;
+}
+function figSvg(spec){
+  if(spec.solid)return figSolid(spec.solid);
+  const [xmin,ymin,xmax,ymax]=spec.vb,px=spec.px||340,pad=spec.pad==null?16:spec.pad;
+  const s=(px-2*pad)/(xmax-xmin),W=px,H=Math.round((ymax-ymin)*s+2*pad);
+  const X=x=>+(pad+(x-xmin)*s).toFixed(2),Y=y=>+(pad+(ymax-y)*s).toFixed(2);
+  const dir=d=>[Math.cos(d*Math.PI/180),-Math.sin(d*Math.PI/180)];
+  let g='';
+  const cls=k=>'f'+(k?(' '+k):'');
+  for(const it of spec.items){
+    switch(it.t){
+    case 'grid':{
+      const st=it.step||1;
+      for(let x=Math.ceil(xmin/st)*st;x<=xmax+1e-9;x+=st)g+=`<line class="gr" x1="${X(x)}" y1="${Y(ymin)}" x2="${X(x)}" y2="${Y(ymax)}"/>`;
+      for(let y=Math.ceil(ymin/st)*st;y<=ymax+1e-9;y+=st)g+=`<line class="gr" x1="${X(xmin)}" y1="${Y(y)}" x2="${X(xmax)}" y2="${Y(y)}"/>`;
+      if(xmin<=0&&xmax>=0)g+=`<line class="ax" x1="${X(0)}" y1="${Y(ymin)}" x2="${X(0)}" y2="${Y(ymax)}"/>`;
+      if(ymin<=0&&ymax>=0)g+=`<line class="ax" x1="${X(xmin)}" y1="${Y(0)}" x2="${X(xmax)}" y2="${Y(0)}"/>`;
+      if(it.label!==false){
+        const lab=it.lstep||st*(xmax-xmin>12?2:1);
+        for(let x=Math.ceil(xmin/lab)*lab;x<=xmax+1e-9;x+=lab){if(x===0)continue;g+=`<text class="nm" x="${X(x)}" y="${Y(Math.min(Math.max(0,ymin),ymax))+14}" text-anchor="middle">${x<0?'−'+(-x):x}</text>`;}
+        for(let y=Math.ceil(ymin/lab)*lab;y<=ymax+1e-9;y+=lab){if(y===0)continue;g+=`<text class="nm" x="${X(Math.min(Math.max(0,xmin),xmax))-5}" y="${Y(y)+4}" text-anchor="end">${y<0?'−'+(-y):y}</text>`;}
+      }
+      break;}
+    case 'half':{
+      const P=figHalf(it.A,it.B,it.C,it.sgn,xmin,ymin,xmax,ymax);
+      if(P.length>2)g+=`<polygon class="f ${(it.k||'fill').replace(/^f /,'')}" points="${P.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;
+      break;}
+    case 'p':g+=`<polygon class="${it.k==='none'?'f':'f '+(it.k||'fill')}" points="${it.pts.map(p=>X(p[0])+','+Y(p[1])).join(' ')}"/>`;break;
+    case 'l':g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(it.a[0])}" y1="${Y(it.a[1])}" x2="${X(it.b[0])}" y2="${Y(it.b[1])}"/>`;break;
+    case 'L':{
+      let p,q;
+      if(it.x!==undefined){p=[it.x,ymin];q=[it.x,ymax];}
+      else if(it.m!==undefined){p=[xmin,it.m*xmin+(it.b||0)];q=[xmax,it.m*xmax+(it.b||0)];}
+      else{p=it.p;q=it.q;const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.max(xmax-xmin,ymax-ymin)*3;const n=Math.hypot(dx,dy);const ux=dx/n,uy=dy/n;
+        q=[p[0]+ux*L,p[1]+uy*L];p=[p[0]-ux*L,p[1]-uy*L];}
+      const c=figClip(p[0],p[1],q[0],q[1],xmin,ymin,xmax,ymax);
+      if(c)g+=`<line class="${cls(it.k)}${it.dash?' dash':''}" x1="${X(c[0])}" y1="${Y(c[1])}" x2="${X(c[2])}" y2="${Y(c[3])}"/>`;
+      break;}
+    case 'c':g+=`<circle class="${it.k==='fill'?'f fill':cls(it.k)}" cx="${X(it.c[0])}" cy="${Y(it.c[1])}" r="${+(it.r*s).toFixed(2)}"/>`;break;
+    case 'd':g+=`<circle class="dot${it.k?' '+it.k:''}${it.open?' open':''}" cx="${X(it.p[0])}" cy="${Y(it.p[1])}" r="${it.r||4.5}"/>`;break;
+    case 'tx':g+=`<text class="lb${it.k==='b'?' b':''}${it.k&&it.k!=='b'?' '+it.k:''}" x="${X(it.p[0])+(it.dx||0)}" y="${Y(it.p[1])+(it.dy==null?4:it.dy)}" text-anchor="${it.a||'middle'}">${figMath(it.s)}</text>`;break;
+    case 'arc':{
+      const cx=X(it.c[0]),cy=Y(it.c[1]),r=it.r||18;
+      let a0=it.from,a1=it.to;while(a1<a0)a1+=360;
+      const p0=dir(a0),p1=dir(a1),large=(a1-a0)>180?1:0;
+      g+=`<path class="${cls(it.k||'acc')}" d="M${(cx+r*p0[0]).toFixed(2)},${(cy+r*p0[1]).toFixed(2)} A${r},${r} 0 ${large} 0 ${(cx+r*p1[0]).toFixed(2)},${(cy+r*p1[1]).toFixed(2)}" fill="none"/>`;
+      break;}
+    case 'ra':{
+      const cx=X(it.p[0]),cy=Y(it.p[1]),z=it.s||11,u=dir(it.d1),v=dir(it.d2);
+      g+=`<path class="f thin" fill="none" d="M${(cx+z*u[0]).toFixed(2)},${(cy+z*u[1]).toFixed(2)} l${(z*v[0]).toFixed(2)},${(z*v[1]).toFixed(2)} l${(-z*u[0]).toFixed(2)},${(-z*u[1]).toFixed(2)}"/>`;
+      break;}
+    case 'tk':case 'par':{
+      const ax=X(it.a[0]),ay=Y(it.a[1]),bx=X(it.b[0]),by=Y(it.b[1]),mx=(ax+bx)/2,my=(ay+by)/2,len=Math.hypot(bx-ax,by-ay)||1;
+      const ux=(bx-ax)/len,uy=(by-ay)/len,nx=-uy,ny=ux,n=it.n||1;
+      for(let i=0;i<n;i++){
+        const o=(i-(n-1)/2)*(it.t==='tk'?5:7);
+        const cx=mx+ux*o,cy=my+uy*o;
+        if(it.t==='tk')g+=`<line class="f thin" x1="${(cx+nx*5).toFixed(2)}" y1="${(cy+ny*5).toFixed(2)}" x2="${(cx-nx*5).toFixed(2)}" y2="${(cy-ny*5).toFixed(2)}"/>`;
+        else g+=`<path class="f thin" fill="none" d="M${(cx-ux*4+nx*5).toFixed(2)},${(cy-uy*4+ny*5).toFixed(2)} L${(cx+ux*3).toFixed(2)},${(cy+uy*3).toFixed(2)} L${(cx-ux*4-nx*5).toFixed(2)},${(cy-uy*4-ny*5).toFixed(2)}"/>`;
+      }
+      break;}
+    }
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(spec.alt||'Figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+/* ----- simple solids (pixel space) ----- */
+function figSolid(o){
+  const L=o.labels||{};const T=(x,y,s,a)=>`<text class="lb" x="${x}" y="${y}" text-anchor="${a||'middle'}">${figMath(s)}</text>`;
+  let g='',W=320,H=220;
+  if(o.kind==='prism'){ /* box with front face + oblique depth */
+    const x=50,y=70,w=150,h=90,dx=60,dy=-40;
+    g+=`<polygon class="f fill" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+dx},${y+dy} ${x+w+dx},${y+dy} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill2" points="${x+w},${y} ${x+w+dx},${y+dy} ${x+w+dx},${y+h+dy} ${x+w},${y+h}"/>`;
+    g+=`<polygon class="f" fill="none" points="${x},${y} ${x+w},${y} ${x+w},${y+h} ${x},${y+h}"/>`;
+    g+=`<line class="f dash thin" x1="${x}" y1="${y+h}" x2="${x+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+w+dx}" y2="${y+h+dy}"/><line class="f dash thin" x1="${x+dx}" y1="${y+h+dy}" x2="${x+dx}" y2="${y+dy}"/>`;
+    if(L.l)g+=T(x+w/2,y+h+20,L.l);
+    if(L.w)g+=T(x+w+dx/2+14,y+h+dy/2+h/2+6+ -4,L.w,'start').replace(/y="[^"]+"/,`y="${y+h-4}"`);
+    if(L.h)g+=T(x-8,y+h/2+4,L.h,'end');
+  } else if(o.kind==='cyl'){
+    const cx=130,rx=70,ry=20,top=50,h=110;
+    g+=`<path class="f fill" d="M${cx-rx},${top} v${h} a${rx},${ry} 0 0 0 ${2*rx},0 v${-h} a${rx},${ry} 0 0 0 ${-2*rx},0z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f acc thin dash" x1="${cx}" y1="${top}" x2="${cx+rx}" y2="${top}"/>`;
+    if(L.r)g+=T(cx+rx/2,top-6,L.r);
+    if(L.h)g+=T(cx+rx+14,top+h/2+4,L.h,'start');
+    W=250;H=200;
+  } else if(o.kind==='cone'){
+    const cx=130,rx=70,ry=20,top=30,h=140;
+    g+=`<path class="f fill" d="M${cx},${top} L${cx-rx},${top+h} a${rx},${ry} 0 0 0 ${2*rx},0 Z"/>`;
+    g+=`<ellipse class="f fill2" cx="${cx}" cy="${top+h}" rx="${rx}" ry="${ry}"/>`;
+    g+=`<line class="f thin dash" x1="${cx}" y1="${top}" x2="${cx}" y2="${top+h}"/><line class="f acc thin dash" x1="${cx}" y1="${top+h}" x2="${cx+rx}" y2="${top+h}"/>`;
+    if(L.r)g+=T(cx+rx/2,top+h+16,L.r);
+    if(L.h)g+=T(cx-6,top+h/2,L.h,'end');
+    if(L.s)g+=T(cx+rx/2+14,top+h/2-10,L.s,'start');
+    W=250;H=210;
+  } else if(o.kind==='sphere'){
+    const cx=110,cy=100,r=70;
+    g+=`<circle class="f fill" cx="${cx}" cy="${cy}" r="${r}"/><ellipse class="f thin dash" cx="${cx}" cy="${cy}" rx="${r}" ry="20"/>`;
+    g+=`<line class="f acc thin" x1="${cx}" y1="${cy}" x2="${cx+r}" y2="${cy}"/>`;
+    if(L.r)g+=T(cx+r/2,cy-6,L.r);
+    W=230;H=200;
+  } else if(o.kind==='pyr'){
+    const x=40,y=170,w=150,dx=70,dy=-30,ax=x+w/2+dx/2,ay=40;
+    g+=`<polygon class="f fill2" points="${x},${y} ${x+w},${y} ${x+w+dx},${y+dy} ${x+dx},${y+dy}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x},${y} ${x+w},${y}"/>`;
+    g+=`<polygon class="f fill" points="${ax},${ay} ${x+w},${y} ${x+w+dx},${y+dy}"/>`;
+    g+=`<line class="f thin dash" x1="${x}" y1="${y}" x2="${x+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${x+dx}" y1="${y+dy}" x2="${x+w+dx}" y2="${y+dy}"/><line class="f thin dash" x1="${ax}" y1="${ay}" x2="${x+dx}" y2="${y+dy}"/>`;
+    g+=`<line class="f acc thin dash" x1="${ax}" y1="${ay}" x2="${ax}" y2="${y+dy/2-0}"/>`;
+    if(L.b)g+=T(x+w/2,y+18,L.b);
+    if(L.h)g+=T(ax-6,(ay+y)/2,L.h,'end');
+    W=290;H=210;
+  }
+  return `<svg class="fig" viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="${(o.alt||'Solid figure').replace(/"/g,'&quot;')}">${g}</svg>`;
+}
+const FIG_CSS=`
+svg.fig{display:block;max-width:100%;height:auto;margin:0 auto;overflow:visible}
+svg.fig .f{stroke:var(--fg,currentColor);stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+svg.fig .f.acc{stroke:var(--acc,#2563eb)} svg.fig .f.acc2{stroke:var(--acc2,#e4572e)}
+svg.fig .f.thin{stroke-width:1.4} svg.fig .f.dash,svg.fig .dash{stroke-dasharray:6 5}
+svg.fig .f.fill{fill:var(--fillc,rgba(37,99,235,.18));stroke:none}
+svg.fig .f.fill2{fill:var(--fillc2,rgba(228,87,46,.16))}
+svg.fig polygon.f.fill2{stroke:var(--fg,currentColor)}
+svg.fig .gr{stroke:var(--gridc,rgba(128,128,128,.28));stroke-width:1}
+svg.fig .ax{stroke:var(--fg,currentColor);stroke-width:1.8}
+svg.fig .nm{fill:var(--fg,currentColor);font-size:11px;font-family:inherit;opacity:.8}
+svg.fig .lb{fill:var(--fg,currentColor);font-size:15px;font-family:Georgia,'Times New Roman',serif}
+svg.fig .lb.b{font-weight:700}
+svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:var(--acc2,#e4572e);font-weight:700}
+svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
+svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
+`;
+/*FIG-END*/
+/*LIB-START*/
+/* ===== helpers shared by every Connect 4 unit ===== */
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const nz=(a,b)=>{let n;do{n=rnd(a,b);}while(n===0);return n;};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b];}return a;};
+const lcm=(a,b)=>Math.abs(a*b)/gcd(a,b);
+/* number -> mini-syntax text (fm turns '-' into a true minus sign) */
+const S=n=>String(n);
+/* decimals without float noise: D(3.14159,2) -> "3.14", D(5,1) -> "5.0" when fixed=true */
+const D=(x,d=1,fixed=false)=>{const t=(+x).toFixed(d);return fixed?t:String(+t);};
+/* rational numbers: R(n,d) is always reduced with a positive denominator */
+function R(n,d=1){if(d<0){n=-n;d=-d;}const g=gcd(n,d)||1;return{n:n/g,d:d/g};}
+const Radd=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d), Rsub=(a,b)=>R(a.n*b.d-b.n*a.d,a.d*b.d);
+const Rmul=(a,b)=>R(a.n*b.n,a.d*b.d), Rdiv=(a,b)=>R(a.n*b.d,a.d*b.n);
+const Req=(a,b)=>a.n===b.n&&a.d===b.d, Rnum=a=>a.n/a.d;
+const Rstr=a=>a.d===1?String(a.n):(a.n<0?'-':'')+`[[${Math.abs(a.n)};${a.d}]]`;
+/* coefficient * variable, for the FIRST term: T(1,'x')='x', T(-1,'x')='-x', T(3,'x')='3x', T(0,'x')='' */
+const T=(c,v)=>c===0?'':c===1?v:c===-1?'-'+v:c+v;
+/* append a term with its sign: A('2x','-3x') etc. Use lin()/poly() for the common cases */
+const addC=(c)=>c>0?` + ${c}`:c<0?` - ${-c}`:'';
+/* linear expression a*v + b (any ints); lin(2,-3)= "2x - 3", lin(-1,4)= "-x + 4", lin(0,5)="5" */
+function lin(a,b,v='x'){if(a===0)return String(b);return T(a,v)+addC(b);}
+/* polynomial from coefficients high -> low: poly([1,-5,6]) = "x^2 - 5x + 6" */
+function poly(cs,v='x'){
+  const deg=cs.length-1;let out='';
+  cs.forEach((c,i)=>{
+    const p=deg-i;if(c===0)return;
+    const a=Math.abs(c);
+    let body=p===0?String(a):(a===1?'':String(a))+v+(p>1?'^'+(p>9?'{'+p+'}':p):'');
+    if(!out)out=(c<0?'-':'')+body;else out+=(c<0?' - ':' + ')+body;
+  });
+  return out||'0';
+}
+/* signed term for the middle of an expression: Tm(3,'x')=' + 3x', Tm(-1,'x')=' - x', Tm(0,'x')='' */
+const Tm=(c,v)=>c===0?'':(c<0?' - ':' + ')+(Math.abs(c)===1?v:Math.abs(c)+v);
+/* y = mx + b where m is a rational: lineEq({n,d},{n,d}) */
+function lineEq(m,b,y='y',x='x'){
+  let out=`${y} = `;
+  const mt=m.n===0?'':m.d===1?T(m.n,x):(m.n<0?'-':'')+`[[${Math.abs(m.n)};${m.d}]]${x}`;
+  if(!mt)return out+Rstr(b);
+  if(b.n===0)return out+mt;
+  return out+mt+(b.n<0?' - ':' + ')+Rstr(R(Math.abs(b.n),b.d));
+}
+/* ===== building a multiple-choice problem =====
+   mc({type,level,prompt,story,stmt,fig,ok,bad,steps,oracle})
+     prompt  plain text (use {{x = 3}} for inline math)
+     story   optional plain text with {{math}}, shown above stmt
+     stmt    optional display math (mini-syntax)
+     fig     optional SVG string for the statement area
+     ok      the correct choice: 'text' or {t:'text', v:value} or {svg:'<svg..>', v:value}
+     bad     candidate wrong choices, most plausible first; same forms as ok. At least 3 distinct ones are needed
+     steps   [[label (plain text, {{math}} ok), math (mini-syntax or '')], ...]
+     oracle  OPTIONAL BUT EXPECTED: function(v)->true only for the correct value. It must decide correctness
+             from the problem itself (substitute, brute force, recompute another way), NOT by comparing with ok.v.
+   Returns null when fewer than 3 distinct wrong choices exist (the caller retries). */
+function mc(o){
+  const norm=c=>typeof c==='string'?{t:c}:c;
+  const key=c=>c.svg?c.svg:String(c.t).replace(/\s+/g,'');
+  const ok=norm(o.ok),seen=new Set([key(ok)]),wrong=[];
+  if(o.oracle&&ok.v!==undefined&&!o.oracle(ok.v))throw new Error('GENERATOR BUG: oracle rejects the correct answer "'+ok.t+'" for '+(o.stmt||o.story||o.prompt));
+  for(const b0 of o.bad){
+    const b=norm(b0);if(b==null||(b.t==null&&!b.svg))continue;
+    const k=key(b);if(seen.has(k))continue;
+    if(o.oracle&&b.v!==undefined&&o.oracle(b.v))continue; /* a "wrong" choice that is actually right: drop it */
+    seen.add(k);wrong.push(b);
+  }
+  if(wrong.length<3)return null;
+  const pickd=wrong.slice(0,3);
+  const mk=(c,correct)=>({html:c.svg?undefined:fm(c.t),svg:c.svg,correct,v:c.v,txt:c.t});
+  const choices=shuffle([mk(ok,true),...pickd.map(c=>mk(c,false))]);
+  return {type:o.type,level:o.level,prompt:inl(o.prompt),
+    statement:(o.story?`<div class="story">${inl(o.story)}</div>`:'')+(o.stmt?`<div>${fm(o.stmt)}</div>`:''),
+    fig:o.fig||'',choices,steps:(o.steps||[]).map(([l,m])=>[inl(l),m?fm(m):'']),oracle:o.oracle||null,
+    raw:{prompt:o.prompt,story:o.story||'',stmt:o.stmt||'',ok:ok.t||'',choices:choices.map(c=>({t:c.txt,correct:c.correct})),steps:(o.steps||[]).map(([l,m])=>[l,m||''])}};
+}
+/* ===== picking a problem ===== */
+const RECENT=[]; /* keys of the last problems, so the same problem does not come back within a game */
+function makeProblem(levelSel,lastType){
+  const U=UNIT;
+  for(let t=0;t<120;t++){
+    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let type=pick(pool);if(type===lastType)type=pick(pool);
+    const p=U.gens[type](level);
+    if(p&&p.choices.length===4){
+      const key=p.raw.prompt+'|'+p.raw.story+'|'+p.raw.stmt+'|'+p.raw.ok;
+      if(RECENT.includes(key)&&t<100)continue;
+      RECENT.push(key);if(RECENT.length>14)RECENT.shift();
+      p.type=type;p.level=level;return p;}
+  }
+  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+}
+/*LIB-END*/
+/* Volume Four: problem generators. Every fact needed is in the visible story/prompt. */
+const PI=Math.PI, close=(a,b)=>Math.abs(a-b)<=1e-6*Math.max(1,Math.abs(b));
+const piT=c=>{const k=c.n===1?'π':c.n+'π';return c.d===1?k:`[[${k};${c.d}]]`;};
+const vT=(c,p)=>p?piT(c):Rstr(c);
+const vF=(c,p)=>Rnum(c)*(p?PI:1);
+/* a value is [R, hasPi]; q(n,d,pi) builds one */
+const q=(n,d=1,p=false)=>[R(n,d),!!p];
+const vc=(x,u)=>({t:vT(x[0],x[1])+(u?' '+u:''),v:vF(x[0],x[1])});
+const goodBad=(x,u)=>x[0].n>0&&Number.isFinite(vF(x[0],x[1]));
+const cmL=(a,b)=>(a,b);
+/* polygon figure drawn to scale; labs = [[x,y],'text',dx,dy,anchor] */
+function polyFig(pts,labs,extra,px,alt){
+  const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+  const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys),m=0.25*Math.max(x1-x0,y1-y0);
+  const items=[{t:'p',pts,k:'fill'},{t:'p',pts,k:'none'},...(extra||[])];
+  for(const l of labs)items.push({t:'tx',p:l[0],s:l[1],dx:l[2]||0,dy:l[3]==null?4:l[3],a:l[4]||'middle'});
+  return figSvg({vb:[x0-m,y0-m,x1+m,y1+m],px:px||230,alt:alt||'Figure',items});
+}
+const solidFig=(kind,labels)=>figSvg({solid:{kind,labels,alt:'A '+kind+' with labelled dimensions'}});
+const semiPts=(cx,cy,r,a0,a1)=>{const o=[];for(let t=a0;t<=a1;t+=10)o.push([cx+r*Math.cos(t*PI/180),cy+r*Math.sin(t*PI/180)]);return o;};
+const TRI=[[3,4,5],[6,8,10],[5,12,13],[9,12,15],[8,15,17],[12,5,13],[4,3,5],[12,16,20]]; /* [r,h,s] */
+
+const UNIT={
+types:{area:'Area',composite:'Composite area',volume:'Volume',surface:'Surface area',missing:'Missing dimension',identify:'Which formula?',scale:'Scaling'},
+pools:{
+  1:['area','area','volume','surface','missing','identify','composite','scale'],
+  2:['area','volume','volume','surface','missing','identify','composite','scale'],
+  3:['area','volume','surface','missing','identify','composite','composite','scale']},
+gens:{
+
+/* ---------- area of a single figure ---------- */
+area(level){
+  const kind=pick(level===1?['rect','tri','para']:level===2?['tri','para','trap','circ','circd','rhomb']:['trap','rhomb','equi','circd','para']);
+  let story,fig,ok,bad,steps,truth,u=' cm^2';
+  if(kind==='rect'){
+    const l=rnd(4,14),w=rnd(3,l>3?Math.min(l-1,10):9);
+    story=`A rectangle has length ${l} cm and width ${w} cm.`;
+    fig=polyFig([[0,0],[l,0],[l,w],[0,w]],[[[l/2,0],l+' cm',0,18],[[l,w/2],w+' cm',8,4,'start']],[],230,'Rectangle');
+    ok=q(l*w);truth=l*w;bad=[q(2*(l+w)),q(l+w),q(l*w,2),q(l*l),q(l*w+w)];
+    steps=[['Area of a rectangle is length times width.','A = lw'],['Substitute.',`A = ${l} * ${w} = ${l*w} cm^2`]];
+  } else if(kind==='tri'){
+    let b=rnd(4,level===1?12:16),h=rnd(3,level===1?10:14);if(b*h%2)b++;
+    const ax=rnd(1,b-1);
+    story=`A triangle has base ${b} cm and height ${h} cm.`;
+    fig=polyFig([[0,0],[b,0],[ax,h]],[[[b/2,0],b+' cm',0,18],[[ax,h/2],h+' cm',6,4,'start']],[{t:'l',a:[ax,0],b:[ax,h],dash:true},{t:'ra',p:[ax,0],d1:ax<b/2?0:180,d2:90,s:9}],230,'Triangle');
+    ok=q(b*h,2);truth=b*h/2;bad=[q(b*h),q(b+h),q(b*h,3),q(b*h,4),q(2*(b+h))];
+    steps=[['Area of a triangle is one half base times height.','A = [[1 ; 2]]bh'],['Substitute.',`A = [[1 ; 2]] * ${b} * ${h} = ${b*h/2} cm^2`]];
+  } else if(kind==='para'){
+    const [,hh,ss]=pick([[3,4,5],[6,8,10],[5,12,13],[5,4,5],[9,12,15],[6,4,5]]);
+    /* rebuild so that side^2 = height^2 + offset^2 */
+    const T3=pick([[5,4,3],[10,8,6],[13,12,5],[5,3,4],[10,6,8],[15,12,9],[17,15,8],[13,5,12]]);
+    const s=T3[0],h=T3[1],off=T3[2],b=rnd(Math.max(off+2,6),off+9);
+    story=`A parallelogram has base ${b} cm, slanted side ${s} cm, and height ${h} cm.`;
+    fig=polyFig([[0,0],[b,0],[b+off,h],[off,h]],[[[b/2,0],b+' cm',0,18],[[off/2,h/2],s+' cm',-5,4,'end'],[[b,h/2],h+' cm',-5,4,'end']],[{t:'l',a:[b,0],b:[b,h],dash:true},{t:'ra',p:[b,0],d1:90,d2:180,s:9}],240,'Parallelogram');
+    ok=q(b*h);truth=b*h;bad=[q(b*s),q(b*h,2),q(2*(b+s)),q(s*h),q(b+h)];
+    steps=[['Area of a parallelogram is base times the perpendicular height, not the slanted side.','A = bh'],['Substitute.',`A = ${b} * ${h} = ${b*h} cm^2`]];
+  } else if(kind==='trap'){
+    let b1=rnd(3,10),b2=rnd(b1+2,16),h=rnd(3,10);if((b1+b2)*h%2)h++;
+    const dx=Math.max(1,Math.floor((b2-b1)/2));
+    story=`A trapezoid has parallel sides ${b1} cm and ${b2} cm and height ${h} cm.`;
+    fig=polyFig([[0,0],[b2,0],[dx+b1,h],[dx,h]],[[[b2/2,0],b2+' cm',0,18],[[dx+b1/2,h],b1+' cm',0,-8],[[dx+b1+(b2-dx-b1)/2+.3,h/2],h+' cm',8,4,'start']],[{t:'l',a:[dx+b1,0],b:[dx+b1,h],dash:true}],240,'Trapezoid');
+    truth=(b1+b2)*h/2;ok=q((b1+b2)*h,2);
+    bad=[q(b1*b2*h,2),q((b1+b2)*h),q(b2*h),q(b1*h),q(b1+b2+h)];
+    steps=[['Average the parallel sides, then multiply by the height.','A = [[1 ; 2]](b_1 + b_2)h'],['Substitute.',`A = [[1 ; 2]](${b1} + ${b2})(${h})`],['Add, then multiply.',`A = [[1 ; 2]](${b1+b2})(${h}) = ${truth} cm^2`]];
+  } else if(kind==='circ'||kind==='circd'){
+    const r=rnd(2,level===2?9:11),d=2*r;
+    const useD=kind==='circd';
+    story=useD?`A circle has diameter ${d} cm.`:`A circle has radius ${r} cm.`;
+    fig=figSvg({vb:[-r-1,-r-1,r+1,r+1],px:200,alt:'Circle',items:[{t:'c',c:[0,0],r,k:'fill'},{t:'c',c:[0,0],r},useD?{t:'l',a:[-r,0],b:[r,0]}:{t:'l',a:[0,0],b:[r,0]},{t:'d',p:[0,0],r:3},{t:'tx',p:[useD?0:r/2,0],s:(useD?d:r)+' cm',dy:-8}]});
+    ok=q(r*r,1,true);truth=PI*r*r;
+    bad=useD?[q(d*d,1,true),q(d,1,true),q(2*r,1,true),q(r*r,2,true),q(d*d,2,true)]:[q(r,1,true),q(2*r,1,true),q(r*r*r,1,true),q(2*r*r,1,true),q(r*r)];
+    steps=useD?[['The radius is half the diameter.',`r = [[${d} ; 2]] = ${r} cm`],['Area of a circle.','A = πr^2'],['Substitute.',`A = π(${r})^2 = ${piT(R(r*r))} cm^2`]]
+              :[['Area of a circle.','A = πr^2'],['Substitute.',`A = π(${r})^2 = ${piT(R(r*r))} cm^2`]];
+  } else if(kind==='rhomb'){
+    let d1=rnd(4,14),d2=rnd(4,14);if(d1*d2%2)d1++;
+    story=`A rhombus has diagonals ${d1} cm and ${d2} cm.`;
+    fig=polyFig([[0,d2/2],[d1/2,0],[d1,d2/2],[d1/2,d2]],[[[d1/2,0],d1+' cm (long diagonal)',0,0].slice(0,0)].filter(x=>x.length).concat([]),[{t:'l',a:[0,d2/2],b:[d1,d2/2],dash:true},{t:'l',a:[d1/2,0],b:[d1/2,d2],dash:true}],220,'Rhombus with its two diagonals');
+    ok=q(d1*d2,2);truth=d1*d2/2;bad=[q(d1*d2),q(d1*d2,4),q(2*(d1+d2)),q(d1+d2),q(d1*d2,3)];
+    steps=[['Area of a rhombus is one half the product of its diagonals.','A = [[1 ; 2]]d_1d_2'],['Substitute.',`A = [[1 ; 2]] * ${d1} * ${d2} = ${d1*d2/2} cm^2`]];
+  } else { /* equilateral triangle, exact */
+    const s=2*rnd(2,6),k=(s/2)*(s/2);
+    story=`An equilateral triangle has side length ${s} cm.`;
+    fig=polyFig([[0,0],[s,0],[s/2,s*Math.sqrt(3)/2]],[[[s/2,0],s+' cm',0,18]],[{t:'l',a:[s/2,0],b:[s/2,s*Math.sqrt(3)/2],dash:true}],230,'Equilateral triangle');
+    const T3=(n)=>({t:n+'rt{3}',v:n*Math.sqrt(3)});
+    ok=T3(k);truth=k*Math.sqrt(3);
+    bad=[T3(2*k),{t:S(k),v:k},{t:S(2*k),v:2*k},T3(4*k),T3(s)];
+    steps=[['Draw the height. It splits the triangle into two 30-60-90 triangles, so the height is half the side times root 3.',`h = [[${s} ; 2]]rt{3} = ${s/2}rt{3} cm`],['Area of a triangle.',`A = [[1 ; 2]] * ${s} * ${s/2}rt{3}`],['Multiply.',`A = ${k}rt{3} cm^2`]];
+  }
+  const exact=['circ','circd','equi'].includes(kind);
+  const good=(typeof ok.t==='string'&&ok.v!==undefined)?ok:vc(ok,'cm^2');
+  const cand=bad.map(b=>b.t!==undefined?{t:b.t+' cm^2',v:b.v}:vc(b,'cm^2')).filter(c=>c.v>0);
+  if(ok.t!==undefined)good.t=ok.t+' cm^2';
+  return mc({prompt:exact?'Find the exact area of the figure described.':'Find the area of the figure described.',story,fig,ok:good,bad:cand,steps,oracle:v=>close(v,truth)});
+},
+
+/* ---------- composite area ---------- */
+composite(level){
+  const kind=pick(level===1?['L','house','L']:level===2?['house','hole','L','semi']:['semi','stadium','hole','semi']);
+  let story,fig,ok,bad,steps,truth;
+  if(kind==='L'){
+    const W=rnd(8,15),H=rnd(6,11),w=rnd(2,W-4),h=rnd(2,H-3);
+    story=`An L-shaped region is a ${W} cm by ${H} cm rectangle with a ${w} cm by ${h} cm rectangle removed from one corner.`;
+    fig=polyFig([[0,0],[W,0],[W,H-h],[W-w,H-h],[W-w,H],[0,H]],[[[W/2,0],W+' cm',0,18],[[0,H/2],H+' cm',-8,4,'end'],[[W-w/2,H],w+' cm',0,-8],[[W,H-h/2],h+' cm',8,4,'start']],[],250,'L-shaped region');
+    truth=W*H-w*h;ok=q(truth);bad=[q(W*H+w*h),q(W*H),q(w*h),q(2*(W+H)),q(W*H-w-h)];
+    steps=[['Find the area of the full rectangle.',`${W} * ${H} = ${W*H} cm^2`],['Find the area of the corner that was removed.',`${w} * ${h} = ${w*h} cm^2`],['Subtract.',`${W*H} - ${w*h} = ${truth} cm^2`]];
+  } else if(kind==='house'){
+    const w=2*rnd(3,7),h=rnd(4,9),t=rnd(2,7);
+    story=`A rectangle that is ${w} cm wide and ${h} cm tall has a triangle on top. The triangle has base ${w} cm and height ${t} cm.`;
+    fig=polyFig([[0,0],[w,0],[w,h],[w/2,h+t],[0,h]],[[[w/2,0],w+' cm',0,18],[[w,h/2],h+' cm',8,4,'start'],[[w/2,h+t/2],t+' cm',6,0,'start']],[{t:'l',a:[w/2,h],b:[w/2,h+t],dash:true}],220,'Rectangle with a triangle on top');
+    truth=w*h+w*t/2;ok=q(w*h*2+w*t,2);
+    bad=[q(w*h+w*t),q(w*h),q(w*t,2),q(w*h*2+w*t,4),q(w*h*w*t)].map(x=>x);
+    steps=[['Rectangle.',`${w} * ${h} = ${w*h} cm^2`],['Triangle: one half base times height.',`[[1 ; 2]] * ${w} * ${t} = ${w*t/2} cm^2`],['Add.',`${w*h} + ${w*t/2} = ${truth} cm^2`]];
+  } else if(kind==='hole'){
+    const s=rnd(8,14),r=rnd(2,Math.floor(s/2)-1);
+    story=`A square with side ${s} cm has a circular hole of radius ${r} cm cut out of it.`;
+    fig=figSvg({vb:[-1,-1,s+1,s+1],px:210,alt:'Square with a circular hole',items:[{t:'p',pts:[[0,0],[s,0],[s,s],[0,s]],k:'fill'},{t:'p',pts:[[0,0],[s,0],[s,s],[0,s]],k:'none'},{t:'c',c:[s/2,s/2],r,k:'none'},{t:'tx',p:[s/2,0],s:s+' cm',dy:16}]});
+    /* area is s^2 - r^2 pi */
+    truth=s*s-PI*r*r;
+    ok={t:`${s*s} - ${r*r===1?'':r*r}π`,v:truth};
+    bad=[{t:`${s*s} + ${r*r}π`,v:s*s+PI*r*r},{t:`${s*s} - ${r}π`,v:s*s-PI*r},{t:`${s*s-r*r}`,v:s*s-r*r},{t:`${s*s} - ${2*r}π`,v:s*s-2*PI*r},{t:`${r*r}π`,v:PI*r*r}];
+    steps=[['Area of the square.',`${s}^2 = ${s*s} cm^2`],['Area of the hole.',`π(${r})^2 = ${r*r}π cm^2`],['Subtract the hole from the square.',`${s*s} - ${r*r}π cm^2`]];
+  } else if(kind==='semi'){
+    const w=2*rnd(2,5),l=rnd(w+2,14),r=w/2;
+    story=`A rectangle that is ${l} cm long and ${w} cm wide has a semicircle attached to one ${w} cm side. The diameter of the semicircle is that ${w} cm side.`;
+    fig=polyFig([[0,0],[l,0],...semiPts(l,r,r,-90,90),[l,w],[0,w]],[[[l/2,0],l+' cm',0,18],[[l,r],w+' cm',-6,4,'end']],[{t:'l',a:[l,0],b:[l,w],dash:true}],250,'Rectangle with a semicircle on one end');
+    truth=l*w+PI*r*r/2;
+    ok={t:`${l*w} + ${piT(R(r*r,2))}`,v:truth};
+    bad=[{t:`${l*w} + ${piT(R(r*r))}`,v:l*w+PI*r*r},{t:`${l*w} + ${piT(R(w*w,2))}`,v:l*w+PI*w*w/2},{t:`${l*w}`,v:l*w},{t:`${l*w} + ${piT(R(r,2))}`,v:l*w+PI*r/2},{t:`${l*w} - ${piT(R(r*r,2))}`,v:l*w-PI*r*r/2}];
+    steps=[['Rectangle.',`${l} * ${w} = ${l*w} cm^2`],['The semicircle has radius '+r+' cm. It is half a circle.',`[[1 ; 2]]π(${r})^2 = ${piT(R(r*r,2))} cm^2`],['Add the two parts.',`${l*w} + ${piT(R(r*r,2))} cm^2`]];
+  } else { /* stadium */
+    const w=2*rnd(2,5),l=rnd(w+4,22),r=w/2;
+    story=`A stadium-shaped region is a rectangle ${l} cm long and ${w} cm wide with a semicircle on each of the two ${w} cm ends.`;
+    fig=polyFig([[0,r],...semiPts(0,r,r,90,270).map(p=>p),[0,0].slice(0,0)].slice(0,0).concat([[0,0],[l,0],...semiPts(l,r,r,-90,90),[l,w],[0,w],...semiPts(0,r,r,90,270)]),[[[l/2,r],l+' cm',0,4],[[l+r,r].map((x,i)=>i?x:l),w+' cm',-6,4,'end']].slice(0,1),[{t:'l',a:[l,0],b:[l,w],dash:true},{t:'l',a:[0,0],b:[0,w],dash:true}],260,'Rectangle with a semicircle on each end');
+    truth=l*w+PI*r*r;
+    ok={t:`${l*w} + ${piT(R(r*r))}`,v:truth};
+    bad=[{t:`${l*w} + ${piT(R(r*r,2))}`,v:l*w+PI*r*r/2},{t:`${l*w} + ${piT(R(w*w))}`,v:l*w+PI*w*w},{t:`${l*w}`,v:l*w},{t:`${l*w} + ${piT(R(2*r*r))}`,v:l*w+2*PI*r*r},{t:`${l*w} + ${piT(R(r))}`,v:l*w+PI*r}];
+    steps=[['Rectangle.',`${l} * ${w} = ${l*w} cm^2`],['The two semicircles make one full circle of radius '+r+' cm.',`π(${r})^2 = ${piT(R(r*r))} cm^2`],['Add.',`${l*w} + ${piT(R(r*r))} cm^2`]];
+  }
+  const u=' cm^2';
+  const wrap=b=>b.t!==undefined&&b.svg===undefined&&typeof b.t==='string'&&!Array.isArray(b)&&b.v!==undefined?b:vc(b,'');
+  const addU=b=>{const c=wrap(b);return {t:c.t+u,v:c.v};};
+  const fixed=x=>x.t!==undefined?x:vc(x,'');
+  return mc({prompt:'Find the exact area of the region described.',story,fig,ok:addU(fixed(ok)),bad:bad.map(b=>addU(fixed(b))).filter(c=>c.v>0),steps,oracle:v=>close(v,truth)});
+},
+
+/* ---------- volume ---------- */
+volume(level){
+  const kind=pick(level===1?['prism','cyl','cube','prism']:level===2?['cyl','cone','pyr','prism','cone','pyr']:['sphere','coneS','cylD','hemi','sphere','cone']);
+  let story,fig,ok,bad,steps,truth;
+  if(kind==='prism'){
+    const l=rnd(3,9),w=rnd(2,6),h=rnd(2,8);
+    story=`A rectangular prism has length ${l} cm, width ${w} cm, and height ${h} cm.`;
+    fig=solidFig('prism',{l:l+' cm',w:w+' cm',h:h+' cm'});
+    truth=l*w*h;ok=q(truth);bad=[q(l*w+l*h+w*h),q(l*w),q(l*w*h,3),q(l+w+h),q(2*(l*w+l*h+w*h))];
+    steps=[['Volume of a prism is base area ({{lw}}) times height.','V = lwh'],['Substitute.',`V = ${l} * ${w} * ${h} = ${truth} cm^3`]];
+  } else if(kind==='cube'){
+    const s=rnd(2,7);
+    story=`A cube has edge length ${s} cm.`;
+    truth=s**3;ok=q(truth);bad=[q(6*s*s),q(3*s),q(s*s),q(3*s*s),q(s**3,3)];
+    steps=[['All three dimensions equal the edge length.','V = s^3'],['Substitute.',`V = ${s}^3 = ${truth} cm^3`]];
+  } else if(kind==='cyl'){
+    const r=rnd(2,level===1?5:7),h=rnd(2,level===1?8:12);
+    story=`A cylinder has radius ${r} cm and height ${h} cm.`;
+    fig=solidFig('cyl',{r:r+' cm',h:h+' cm'});
+    truth=PI*r*r*h;ok=q(r*r*h,1,true);bad=[q(r*h*h,1,true),q(r*r*h),q(2*r*h,1,true),q(r*r*h,3,true),q(4*r*r*h,1,true),q(2*r*r*h,1,true)];
+    steps=[['Volume of a cylinder is the circular base area times the height.','V = πr^2h'],['Substitute.',`V = π(${r})^2(${h})`],['Simplify.',`V = ${piT(R(r*r*h))} cm^3`]];
+  } else if(kind==='cone'){
+    const r=rnd(2,7);let h=rnd(3,12);if((r*r*h)%3)h=3*rnd(1,4);
+    story=`A cone has radius ${r} cm and height ${h} cm.`;
+    fig=solidFig('cone',{r:r+' cm',h:h+' cm'});
+    truth=PI*r*r*h/3;ok=q(r*r*h,3,true);bad=[q(r*r*h,1,true),q(r*h,3,true),q(r*r*h,9,true),q(2*r*r*h,3,true),q(4*r*r*h,3,true),q(r*h*h,3,true)];
+    steps=[['A cone holds one third as much as a cylinder with the same base and height.','V = [[1 ; 3]]πr^2h'],['Substitute.',`V = [[1 ; 3]]π(${r})^2(${h})`],['Simplify.',`V = ${piT(R(r*r*h,3))} cm^3`]];
+  } else if(kind==='pyr'){
+    const s=rnd(3,9);let h=rnd(3,12);if((s*s*h)%3)h=3*rnd(1,4);
+    story=`A square pyramid has base side ${s} cm and height ${h} cm.`;
+    fig=solidFig('pyr',{b:s+' cm',h:h+' cm'});
+    truth=s*s*h/3;ok=q(s*s*h,3);bad=[q(s*s*h),q(s*h,3),q(s*s*h,2),q(4*s*h,3),q(s*s*h,9),q(s*s*h*2,3)];
+    steps=[['Volume of a pyramid is one third of the base area times the height.','V = [[1 ; 3]]Bh'],['The base is a square.',`B = ${s}^2 = ${s*s} cm^2`],['Substitute.',`V = [[1 ; 3]](${s*s})(${h}) = ${truth} cm^3`]];
+  } else if(kind==='sphere'){
+    const r=level===2?pick([3,6]):pick([2,3,4,5,6,9]);
+    story=`A sphere has radius ${r} cm.`;
+    fig=solidFig('sphere',{r:r+' cm'});
+    truth=4/3*PI*r**3;ok=q(4*r**3,3,true);bad=[q(4*r*r,3,true),q(4*r**3,1,true),q(r**3,3,true),q(4*(2*r)**3,3,true),q(4*r*r,1,true),q(r**3,1,true)];
+    steps=[['Volume of a sphere.','V = [[4 ; 3]]πr^3'],['Substitute and cube the radius.',`V = [[4 ; 3]]π(${r})^3 = [[4 ; 3]]π(${r**3})`],['Multiply.',`V = ${piT(R(4*r**3,3))} cm^3`]];
+  } else if(kind==='hemi'){
+    const r=pick([3,6,9,4,5]);
+    story=`A hemisphere (half of a sphere) has radius ${r} cm.`;
+    truth=2/3*PI*r**3;ok=q(2*r**3,3,true);bad=[q(4*r**3,3,true),q(2*r*r,3,true),q(r**3,3,true),q(2*r**3,1,true),q(4*r**3,6,true)];
+    steps=[['A hemisphere is half of a sphere.','V = [[1 ; 2]] * [[4 ; 3]]πr^3 = [[2 ; 3]]πr^3'],['Substitute.',`V = [[2 ; 3]]π(${r})^3 = [[2 ; 3]]π(${r**3})`],['Multiply.',`V = ${piT(R(2*r**3,3))} cm^3`]];
+  } else if(kind==='coneS'){
+    const [r,h,s]=pick(TRI.filter(t=>(t[0]*t[0]*t[1])%3===0));
+    story=`A cone has radius ${r} cm and slant height ${s} cm.`;
+    fig=solidFig('cone',{r:r+' cm',h:'h',s:s+' cm'});
+    truth=PI*r*r*h/3;ok=q(r*r*h,3,true);bad=[q(r*r*s,3,true),q(r*r*h,1,true),q(r*r*s,1,true),q(r*s*h,3,true),q(r*h,3,true),q(r*r*h,9,true)];
+    steps=[['The volume formula needs the height, not the slant height. Use the Pythagorean theorem.',`h^2 = ${s}^2 - ${r}^2 = ${s*s-r*r}`],['Take the square root.',`h = ${h} cm`],['Volume of a cone.',`V = [[1 ; 3]]π(${r})^2(${h}) = ${piT(R(r*r*h,3))} cm^3`]];
+  } else { /* cylinder from diameter */
+    const r=rnd(2,6),d=2*r,h=rnd(3,10);
+    story=`A cylinder has diameter ${d} cm and height ${h} cm.`;
+    truth=PI*r*r*h;ok=q(r*r*h,1,true);bad=[q(d*d*h,1,true),q(d*h,1,true),q(r*h,1,true),q(d*d*h,2,true),q(d*d*h,3,true),q(r*r*h)];
+    steps=[['The radius is half the diameter.',`r = [[${d} ; 2]] = ${r} cm`],['Volume of a cylinder.','V = πr^2h'],['Substitute.',`V = π(${r})^2(${h}) = ${piT(R(r*r*h))} cm^3`]];
+  }
+  const cand=bad.map(b=>b.t!==undefined?b:vc(b,'cm^3'));
+  const good=vc(ok,'cm^3');
+  return mc({prompt:(kind==='prism'||kind==='cube'||kind==='pyr')?'Find the volume.':'Find the exact volume.',story,fig,ok:good,bad:cand.map(c=>({t:c.t.includes('cm^3')?c.t:c.t+' cm^3',v:c.v})).filter(c=>c.v>0),steps,oracle:v=>close(v,truth)});
+},
+
+/* ---------- surface area ---------- */
+surface(level){
+  const kind=pick(level===1?['cube','prism','prism']:level===2?['prism','cyl','pyr','cyl','cube']:['coneH','cylD','box','coneH','cyl','pyr']);
+  let story,fig,ok,bad,steps,truth;
+  if(kind==='cube'){
+    const s=rnd(2,9);
+    story=`A cube has edge length ${s} cm.`;
+    truth=6*s*s;ok=q(truth);bad=[q(s**3),q(4*s*s),q(6*s),q(s*s),q(12*s)];
+    steps=[['A cube has six congruent square faces.','SA = 6s^2'],['Substitute.',`SA = 6(${s})^2 = ${truth} cm^2`]];
+  } else if(kind==='prism'){
+    const l=rnd(3,level===1?8:12),w=rnd(2,7),h=rnd(2,8);
+    story=`A rectangular prism has length ${l} cm, width ${w} cm, and height ${h} cm.`;
+    fig=solidFig('prism',{l:l+' cm',w:w+' cm',h:h+' cm'});
+    truth=2*(l*w+l*h+w*h);ok=q(truth);bad=[q(l*w+l*h+w*h),q(l*w*h),q(2*(l*w+l*h)),q(2*(l+w+h)),q(2*l*w*h)];
+    steps=[['Three pairs of matching faces.','SA = 2lw + 2lh + 2wh'],['Substitute.',`SA = 2(${l*w}) + 2(${l*h}) + 2(${w*h})`],['Add.',`SA = ${2*l*w} + ${2*l*h} + ${2*w*h} = ${truth} cm^2`]];
+  } else if(kind==='cyl'){
+    const r=rnd(2,7),h=rnd(2,12);
+    story=`A cylinder has radius ${r} cm and height ${h} cm.`;
+    fig=solidFig('cyl',{r:r+' cm',h:h+' cm'});
+    truth=2*PI*r*r+2*PI*r*h;ok=q(2*r*r+2*r*h,1,true);
+    bad=[q(2*r*h,1,true),q(r*r+2*r*h,1,true),q(2*r*r+r*h,1,true),q(r*r*h,1,true),q(2*r*r*h,1,true),q(4*r*r+2*r*h,1,true)];
+    steps=[['Two circular bases plus the curved side.','SA = 2πr^2 + 2πrh'],['Substitute.',`SA = 2π(${r})^2 + 2π(${r})(${h})`],['Simplify each part.',`SA = ${piT(R(2*r*r))} + ${piT(R(2*r*h))}`],['Add.',`SA = ${piT(R(2*r*r+2*r*h))} cm^2`]];
+  } else if(kind==='pyr'){
+    const s=2*rnd(2,7),l=rnd(Math.floor(s/2)+2,s+6);
+    story=`A square pyramid has base side ${s} cm and slant height ${l} cm.`;
+    truth=s*s+2*s*l;ok=q(truth);bad=[q(s*s+4*s*l),q(2*s*l),q(s*s+s*l),q(s*s*l,3),q(4*s*l)];
+    steps=[['The base is a square. Each of the four triangular faces has base {{s}} and height equal to the slant height.',`B = ${s}^2 = ${s*s} cm^2`],['Each triangle has area one half base times slant height.',`4 * [[1 ; 2]] * ${s} * ${l} = ${2*s*l} cm^2`],['Add the base and the four triangles.',`SA = ${s*s} + ${2*s*l} = ${truth} cm^2`]];
+  } else if(kind==='coneH'){
+    const [r,h,s]=pick(TRI);
+    story=`A cone has radius ${r} cm and height ${h} cm.`;
+    fig=solidFig('cone',{r:r+' cm',h:h+' cm',s:'s'});
+    truth=PI*r*r+PI*r*s;ok=q(r*r+r*s,1,true);
+    bad=[q(r*r+r*h,1,true),q(r*s,1,true),q(2*r*r+r*s,1,true),q(r*r+2*r*s,1,true),q(r*r+r*s,3,true),q(r*r*h,3,true)];
+    steps=[['Find the slant height with the Pythagorean theorem.',`s^2 = ${r}^2 + ${h}^2 = ${s*s}`],['Take the square root.',`s = ${s} cm`],['Base plus curved surface.','SA = πr^2 + πrs'],['Substitute.',`SA = π(${r})^2 + π(${r})(${s}) = ${piT(R(r*r))} + ${piT(R(r*s))}`],['Add.',`SA = ${piT(R(r*r+r*s))} cm^2`]];
+  } else if(kind==='cylD'){
+    const r=rnd(2,6),d=2*r,h=rnd(3,10);
+    story=`A cylinder has diameter ${d} cm and height ${h} cm.`;
+    truth=2*PI*r*r+2*PI*r*h;ok=q(2*r*r+2*r*h,1,true);
+    bad=[q(2*d*d+2*d*h,1,true),q(2*r*r+d*h,1,true),q(d*d+2*d*h,1,true),q(2*d*h,1,true),q(r*r+2*r*h,1,true),q(2*r*r+2*d*h,1,true)].filter(x=>true);
+    steps=[['The radius is half the diameter.',`r = [[${d} ; 2]] = ${r} cm`],['Two bases plus the curved side.','SA = 2πr^2 + 2πrh'],['Substitute.',`SA = 2π(${r})^2 + 2π(${r})(${h}) = ${piT(R(2*r*r))} + ${piT(R(2*r*h))}`],['Add.',`SA = ${piT(R(2*r*r+2*r*h))} cm^2`]];
+  } else { /* open box */
+    const l=rnd(4,10),w=rnd(3,7),h=rnd(2,6);
+    story=`A rectangular box with no lid has length ${l} cm, width ${w} cm, and height ${h} cm. Find the area of cardboard needed to make it.`;
+    fig=solidFig('prism',{l:l+' cm',w:w+' cm',h:h+' cm'});
+    truth=l*w+2*l*h+2*w*h;ok=q(truth);bad=[q(2*(l*w+l*h+w*h)),q(l*w+l*h+w*h),q(2*l*h+2*w*h),q(l*w+l*h+2*w*h),q(l*w*h)];
+    steps=[['There is a bottom but no top, so only one {{l}} by {{w}} face.',`${l} * ${w} = ${l*w} cm^2`],['Four sides: two {{l}} by {{h}} and two {{w}} by {{h}}.',`2(${l*h}) + 2(${w*h}) = ${2*l*h+2*w*h} cm^2`],['Add the bottom and the four sides.',`SA = ${l*w} + ${2*l*h+2*w*h} = ${truth} cm^2`]];
+  }
+  const stem=kind==='box'?'Find the surface area of the box.':(kind==='cube'||kind==='prism'||kind==='pyr')?'Find the total surface area.':'Find the exact total surface area, including the base'+(kind==='cyl'||kind==='cylD'?'s':'')+'.';
+  const cand=bad.map(b=>vc(b,'cm^2'));
+  return mc({prompt:stem,story,fig,ok:vc(ok,'cm^2'),bad:cand.filter(c=>c.v>0),steps,oracle:v=>close(v,truth)});
+},
+
+/* ---------- missing dimension from a volume ---------- */
+missing(level){
+  const kind=pick(level===1?['prismH','cylH','prismH']:level===2?['cylH','cylR','coneH','pyrH','prismH']:['cylR','coneR','sphereR','coneH','pyrH','cylR']);
+  let story,fig,ok,bad,steps,V;
+  const lbl=(t,x)=>({t:`${t} = ${vT(x[0],x[1])} cm`,v:vF(x[0],x[1])});
+  let tgt,truth;
+  if(kind==='prismH'){
+    const l=rnd(3,9),w=rnd(2,7),h=rnd(2,9);V=l*w*h;
+    story=`A rectangular prism has volume {{${V} cm^3}}, length ${l} cm, and width ${w} cm. Find its height.`;
+    fig=solidFig('prism',{l:l+' cm',w:w+' cm',h:'h'});
+    tgt='h';truth=h;ok=q(h);bad=[q(V,l),q(V,w),q(V,l+w),q(V-l-w),q(V,l*w*3),q(l*w)].filter(x=>true);
+    steps=[['Substitute into the volume formula.',`${V} = ${l} * ${w} * h`],['Multiply the known dimensions.',`${V} = ${l*w}h`],['Divide both sides.',`h = ${h} cm`]];
+  } else if(kind==='cylH'){
+    const r=rnd(2,6),h=rnd(2,12);V=r*r*h;
+    story=`A cylinder has volume {{${V}π cm^3}} and radius ${r} cm. Find its height.`;
+    fig=solidFig('cyl',{r:r+' cm',h:'h'});
+    tgt='h';truth=h;ok=q(h);bad=[q(h*r),q(3*h),q(h,3),q(h*r*r),q(r*r*h,2),q(h,r)];
+    steps=[['Substitute into the volume formula.',`${V}π = π(${r})^2h`],['Simplify.',`${V}π = ${r*r}πh`],['Divide both sides by '+piT(R(r*r))+'.',`h = ${h} cm`]];
+  } else if(kind==='cylR'){
+    const r=rnd(2,8),h=rnd(2,9);V=r*r*h;
+    story=`A cylinder has volume {{${V}π cm^3}} and height ${h} cm. Find its radius.`;
+    fig=solidFig('cyl',{r:'r',h:h+' cm'});
+    tgt='r';truth=r;ok=q(r);bad=[q(r*r),q(2*r),q(r*r,2),q(r,2),q(V),q(r+1)];
+    steps=[['Substitute into the volume formula.',`${V}π = πr^2(${h})`],['Divide both sides by '+piT(R(h))+'.',`r^2 = ${r*r}`],['Take the square root.',`r = ${r} cm`]];
+  } else if(kind==='coneH'){
+    const r=rnd(2,7);let h=rnd(3,12);if((r*r*h)%3)h=3*rnd(1,4);V=r*r*h/3;
+    story=`A cone has volume {{${piT(R(V))} cm^3}} and radius ${r} cm. Find its height.`.replace(/\[\[|\]\]/g,'');
+    story=`A cone has volume {{${V}π cm^3}} and radius ${r} cm. Find its height.`;
+    fig=solidFig('cone',{r:r+' cm',h:'h'});
+    tgt='h';truth=h;ok=q(h);bad=[q(h,3),q(h*r),q(h*3,1),q(h*r,3),q(h+r),q(h,r)];
+    steps=[['Substitute into the volume formula.',`${V}π = [[1 ; 3]]π(${r})^2h`],['Multiply both sides by 3, then divide by '+piT(R(r*r))+'.',`${3*V}π = ${r*r}πh`],['Solve.',`h = ${h} cm`]];
+  } else if(kind==='pyrH'){
+    const s=rnd(3,9);let h=rnd(3,12);if((s*s*h)%3)h=3*rnd(1,4);V=s*s*h/3;
+    story=`A square pyramid has volume {{${V} cm^3}} and base side ${s} cm. Find its height.`;
+    fig=solidFig('pyr',{b:s+' cm',h:'h'});
+    tgt='h';truth=h;ok=q(h);bad=[q(h,3),q(h*s),q(3*h*3),q(h,s),q(h+s),q(h*s,3)];
+    steps=[['Substitute into the volume formula.',`${V} = [[1 ; 3]](${s})^2h`],['Multiply both sides by 3.',`${3*V} = ${s*s}h`],['Divide both sides.',`h = ${h} cm`]];
+  } else if(kind==='coneR'){
+    const r=pick([3,6,9,2,4,5]);let h=rnd(3,12);if((r*r*h)%3)h=3*rnd(1,4);V=r*r*h/3;
+    story=`A cone has volume {{${V}π cm^3}} and height ${h} cm. Find its radius.`;
+    fig=solidFig('cone',{r:'r',h:h+' cm'});
+    tgt='r';truth=r;ok=q(r);bad=[q(r*r),q(3*r),q(r*r,3),q(2*r),q(r,3),q(r+2)];
+    steps=[['Substitute into the volume formula.',`${V}π = [[1 ; 3]]πr^2(${h})`],['Multiply by 3 and divide by '+piT(R(h))+'.',`r^2 = ${r*r}`],['Take the square root.',`r = ${r} cm`]];
+  } else { /* sphere */
+    const r=pick([3,6,9,2,4,5]);V=4*r**3/3;
+    story=`A sphere has volume {{${piT(R(4*r**3,3))} cm^3}}. Find its radius.`;
+    fig=solidFig('sphere',{r:'r'});
+    tgt='r';truth=r;ok=q(r);bad=[q(r**3),q(3*r),q(r*r),q(2*r),q(r**3,3),q(r+1)];
+    steps=[['Substitute into the volume formula.',`${piT(R(4*r**3,3))} = [[4 ; 3]]πr^3`],['Multiply both sides by {{[[3 ; 4]]}} and divide by π.',`r^3 = ${r**3}`],['Take the cube root.',`r = ${r} cm`]];
+  }
+  const f=x=>({t:`${tgt} = ${vT(x[0],x[1])} cm`,v:vF(x[0],x[1])});
+  const volOf=(x)=>{ /* does this value of the unknown give the stated volume? */
+    return null;};
+  return mc({prompt:'Find the missing dimension.',story,fig,ok:f(ok),bad:bad.map(f).filter(c=>c.v>0),steps,oracle:v=>close(v,truth)});
+},
+
+/* ---------- which formula applies ---------- */
+identify(level){
+  const FS={
+   rect:{name:'rectangle',what:'area',vars:'length l and width w',ok:'A = lw',f:v=>v.l*v.w,bad:[['A = l + w',v=>v.l+v.w],['A = 2l + 2w',v=>2*v.l+2*v.w],['A = [[1 ; 2]]lw',v=>.5*v.l*v.w]],vs:['l','w']},
+   tri:{name:'triangle',what:'area',vars:'base b and height h',ok:'A = [[1 ; 2]]bh',f:v=>.5*v.b*v.h,bad:[['A = bh',v=>v.b*v.h],['A = b + h',v=>v.b+v.h],['A = [[1 ; 2]](b + h)',v=>.5*(v.b+v.h)]],vs:['b','h']},
+   circ:{name:'circle',what:'area',vars:'radius r',ok:'A = πr^2',f:v=>PI*v.r*v.r,bad:[['A = 2πr',v=>2*PI*v.r],['A = πr',v=>PI*v.r],['A = π(2r)^2',v=>PI*4*v.r*v.r]],vs:['r']},
+   trap:{name:'trapezoid',what:'area',vars:'parallel sides b_1 and b_2 and height h',ok:'A = [[1 ; 2]](b_1 + b_2)h',f:v=>.5*(v.p+v.q)*v.h,bad:[['A = (b_1 + b_2)h',v=>(v.p+v.q)*v.h],['A = [[1 ; 2]]b_1b_2h',v=>.5*v.p*v.q*v.h],['A = [[1 ; 2]](b_1 + b_2)',v=>.5*(v.p+v.q)]],vs:['p','q','h']},
+   prism:{name:'rectangular prism',what:'volume',vars:'length l, width w, and height h',ok:'V = lwh',f:v=>v.l*v.w*v.h,bad:[['V = lw + h',v=>v.l*v.w+v.h],['V = 2lw + 2lh + 2wh',v=>2*(v.l*v.w+v.l*v.h+v.w*v.h)],['V = [[1 ; 3]]lwh',v=>v.l*v.w*v.h/3]],vs:['l','w','h']},
+   cyl:{name:'cylinder',what:'volume',vars:'radius r and height h',ok:'V = πr^2h',f:v=>PI*v.r*v.r*v.h,bad:[['V = πrh^2',v=>PI*v.r*v.h*v.h],['V = 2πrh',v=>2*PI*v.r*v.h],['V = [[1 ; 3]]πr^2h',v=>PI*v.r*v.r*v.h/3]],vs:['r','h']},
+   cone:{name:'cone',what:'volume',vars:'radius r and height h',ok:'V = [[1 ; 3]]πr^2h',f:v=>PI*v.r*v.r*v.h/3,bad:[['V = πr^2h',v=>PI*v.r*v.r*v.h],['V = [[1 ; 3]]πrh',v=>PI*v.r*v.h/3],['V = [[1 ; 3]]πrh^2',v=>PI*v.r*v.h*v.h/3]],vs:['r','h']},
+   pyr:{name:'square pyramid',what:'volume',vars:'base side s and height h',ok:'V = [[1 ; 3]]s^2h',f:v=>v.s*v.s*v.h/3,bad:[['V = s^2h',v=>v.s*v.s*v.h],['V = [[1 ; 3]]sh',v=>v.s*v.h/3],['V = [[1 ; 2]]s^2h',v=>v.s*v.s*v.h/2]],vs:['s','h']},
+   sph:{name:'sphere',what:'volume',vars:'radius r',ok:'V = [[4 ; 3]]πr^3',f:v=>4/3*PI*v.r**3,bad:[['V = [[4 ; 3]]πr^2',v=>4/3*PI*v.r*v.r],['V = 4πr^2',v=>4*PI*v.r*v.r],['V = [[1 ; 3]]πr^3',v=>PI*v.r**3/3]],vs:['r']},
+   sphS:{name:'sphere',what:'surface area',vars:'radius r',ok:'SA = 4πr^2',f:v=>4*PI*v.r*v.r,bad:[['SA = [[4 ; 3]]πr^3',v=>4/3*PI*v.r**3],['SA = πr^2',v=>PI*v.r*v.r],['SA = 2πr^2',v=>2*PI*v.r*v.r]],vs:['r']},
+   cylS:{name:'cylinder',what:'surface area',vars:'radius r and height h',ok:'SA = 2πr^2 + 2πrh',f:v=>2*PI*v.r*v.r+2*PI*v.r*v.h,bad:[['SA = πr^2h',v=>PI*v.r*v.r*v.h],['SA = 2πr^2 + πrh',v=>2*PI*v.r*v.r+PI*v.r*v.h],['SA = πr^2 + 2πrh',v=>PI*v.r*v.r+2*PI*v.r*v.h]],vs:['r','h']},
+   prismS:{name:'rectangular prism',what:'surface area',vars:'length l, width w, and height h',ok:'SA = 2lw + 2lh + 2wh',f:v=>2*(v.l*v.w+v.l*v.h+v.w*v.h),bad:[['SA = lwh',v=>v.l*v.w*v.h],['SA = lw + lh + wh',v=>v.l*v.w+v.l*v.h+v.w*v.h],['SA = 2lw + 2lh',v=>2*v.l*v.w+2*v.l*v.h]],vs:['l','w','h']},
+   coneS:{name:'cone',what:'surface area',vars:'radius r and slant height s',ok:'SA = πr^2 + πrs',f:v=>PI*v.r*v.r+PI*v.r*v.s,bad:[['SA = πrs',v=>PI*v.r*v.s],['SA = πr^2 + πrh',v=>PI*v.r*v.r+PI*v.r*v.h],['SA = 2πr^2 + πrs',v=>2*PI*v.r*v.r+PI*v.r*v.s]],vs:['r','s']}
+  };
+  const keys=level===1?['rect','tri','circ','prism','trap']:level===2?['cyl','cone','pyr','sph','trap','prism','tri']:['cylS','sphS','coneS','prismS','cone','sph','pyr'];
+  const key=pick(keys),F=FS[key];
+  const art=/^[aeiou]/.test(F.name)?'an':'a';
+  const vars=F.vs;
+  const mkv=fn=>({t:fn[0],v:fn[1]});
+  const oracle=fn=>{if(typeof fn!=='function')return false;for(let i=0;i<8;i++){const v={l:rnd(2,9),w:rnd(2,9),h:rnd(2,9),b:rnd(2,9),r:rnd(2,9),s:rnd(2,9),p:rnd(2,9),q:rnd(2,9)};if(!close(fn(v),F.f(v)))return false;}return true;};
+  const whatLine=F.what==='area'?'area':F.what;
+  return mc({prompt:`Which formula gives the ${whatLine} of ${art} ${F.name}?`,story:`The ${F.name} has ${F.vars}.`.replace(/b_1/g,'b1').replace(/b_2/g,'b2'),
+    ok:{t:F.ok,v:F.f},bad:F.bad.map(mkv),
+    steps:[[`Recall the ${whatLine} formula for ${art} ${F.name}.`,F.ok]],oracle});
+},
+
+/* ---------- scale factors ---------- */
+scale(level){
+  const kinds=level===1?['areaAll','volAll','areaAll']:level===2?['volAll','areaAll','circ','volHalf','volAll']:['cylRH','coneRH','sphere','pyrSH','back','cylRH'];
+  const kind=pick(kinds);
+  let story,prompt,k,factor,bad,steps;
+  const F=(n,d=1)=>({t:'×'+(d===1?n:`[[${n};${d}]]`),v:n/d});
+  if(kind==='areaAll'){
+    const f=rnd(2,6);const fig=pick(['rectangle','triangle','parallelogram','square']);
+    story=`A ${fig} is enlarged by a scale factor of ${f}. The new figure has the same shape.`;prompt='By what factor does the area change?';
+    factor=F(f*f);bad=[F(f),F(2*f),F(f*f*f),F(f+f),F(2*f*f)];
+    steps=[['Area is measured in square units, so it changes by the square of the scale factor.',`${f}^2 = ${f*f}`]];
+  } else if(kind==='circ'){
+    const f=rnd(2,6);
+    story=`The radius of a circle is multiplied by ${f}.`;prompt='By what factor does the area change?';
+    factor=F(f*f);bad=[F(f),F(2*f),F(f**3),F(f+2),F(2*f*f)];
+    steps=[['The area is {{πr^2}}, so it depends on the square of the radius.',`${f}^2 = ${f*f}`]];
+  } else if(kind==='volAll'){
+    const f=rnd(2,5);const sol=pick(['rectangular prism','cube','cylinder','cone','sphere']);
+    story=`Every dimension of a ${sol} is multiplied by ${f}.`;prompt='By what factor does the volume change?';
+    factor=F(f**3);bad=[F(f*f),F(f),F(3*f),F(f**4),F(2*f**3)];
+    steps=[['Volume is measured in cubic units, so it changes by the cube of the scale factor.',`${f}^3 = ${f**3}`]];
+  } else if(kind==='volHalf'){
+    const sol=pick(['rectangular prism','cylinder','cone','sphere','square pyramid']);
+    story=`Every dimension of a ${sol} is cut in half.`;prompt='By what factor does the volume change?';
+    factor=F(1,8);bad=[F(1,2),F(1,4),F(1,6),F(1,3),F(1,16)];
+    steps=[['Each dimension is multiplied by {{[[1 ; 2]]}}. Volume changes by the cube of the scale factor.','([[1 ; 2]])^3 = [[1 ; 8]]']];
+  } else if(kind==='cylRH'||kind==='coneRH'){
+    const a=rnd(2,4),b=rnd(2,5);const sol=kind==='cylRH'?'cylinder':'cone';
+    story=`The radius of a ${sol} is multiplied by ${a} and its height is multiplied by ${b}.`;prompt='By what factor does the volume change?';
+    factor=F(a*a*b);bad=[F(a*b),F(a**3*b),F(a+b),F(a*a+b),F(a*b*b)];
+    steps=[['The volume depends on {{r^2}} and on {{h}}. The radius factor is squared.',`${a}^2 * ${b} = ${a*a*b}`]];
+  } else if(kind==='sphere'){
+    const f=rnd(2,5);
+    story=`The radius of a sphere is multiplied by ${f}.`;prompt='By what factor does the volume change?';
+    factor=F(f**3);bad=[F(f*f),F(f),F(3*f),F(4*f),F(f**4)];
+    steps=[['The volume is {{[[4 ; 3]]πr^3}}, so the radius factor is cubed.',`${f}^3 = ${f**3}`]];
+  } else if(kind==='pyrSH'){
+    const a=rnd(2,4),b=rnd(2,5);
+    story=`The base side of a square pyramid is multiplied by ${a} and its height is multiplied by ${b}.`;prompt='By what factor does the volume change?';
+    factor=F(a*a*b);bad=[F(a*b),F(a**3*b),F(a+b),F(a*a+b),F(a*b*b)];
+    steps=[['The volume is {{[[1 ; 3]]s^2h}}. The base side factor is squared.',`${a}^2 * ${b} = ${a*a*b}`]];
+  } else { /* back: volume ratio given, find length scale */
+    const f=rnd(2,5);const sol=pick(['sphere','cube','cylinder with its height scaled by the same factor']);
+    const sol2=pick(['sphere','cube']);
+    story=`A ${sol2} is enlarged so that its volume becomes ${f**3} times as large.`;prompt='By what factor was each length (radius or edge) multiplied?';
+    factor=F(f);bad=[F(f*f),F(f**3),F(2*f),F(f+1),F(f**3-f)];
+    steps=[['Volume changes by the cube of the length scale factor, so take the cube root.',`cbrt{${f**3}} = ${f}`]];
+  }
+  return mc({prompt,story,ok:factor,bad,steps,oracle:v=>close(v,factor.v)});
+}
+
+}};
+
+const LEVEL_NAME={"1": "Level 1", "2": "Level 2", "3": "Level 3"};
+const TYPE_NAME=UNIT.types;
+
+
+/* ================= game ================= */
+const $=s=>document.querySelector(s);
+const ROWS=6,COLS=7;
+const G={board:[],turn:0,phase:'question',answerer:0,p:null,picked:[],dropper:0,stolen:false,next:0,note:'',
+  wins:[0,0],names:['Left side','Right side'],lastMove:null,animate:null,winCells:[],showWin:false,draw:false,
+  starter:0,level:'mix',secs:90,timerEnd:0,timerTotal:0,tid:null,lastType:null};
+const tNm=t=>esc(G.names[t]||(t?'Right side':'Left side'));
+const LET='ABCD';
+
+function newBoard(){G.board=Array.from({length:ROWS},()=>Array(COLS).fill(null));G.lastMove=null;G.animate=null;G.winCells=[];G.showWin=false;G.draw=false;}
+function startTimer(){clearInterval(G.tid);if(!G.secs){G.timerEnd=0;return;}G.timerTotal=G.secs*1000;G.timerEnd=Date.now()+G.timerTotal;G.tid=setInterval(tick,100);}
+function stopTimer(){clearInterval(G.tid);G.timerEnd=0;}
+function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
+  if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
+  if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
+
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function choose(i){
+  if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
+  G.picked.push(i);stopTimer();
+  if(G.p.choices[i].correct){G.stolen=G.phase==='steal';G.dropper=G.answerer;G.phase='drop';render();}
+  else if(G.phase==='question')toStealOffer(false);
+  else endNoDisc('The steal missed. No disc this turn.');
+}
+function toStealOffer(timeout){stopTimer();G.note=timeout?'Time is up.':'Not quite.';G.phase='steal-offer';render();}
+function startSteal(){G.answerer=1-G.turn;G.phase='steal';startTimer();render();}
+function endNoDisc(note){stopTimer();G.note=note;G.next=1-G.turn;G.phase='resolved';render();}
+function dropCol(c){
+  if(G.phase!=='drop')return; let r=-1;
+  for(let i=ROWS-1;i>=0;i--)if(G.board[i][c]===null){r=i;break;} if(r<0)return;
+  G.board[r][c]=G.dropper;G.lastMove=[r,c];G.animate=[r,c];
+  const w=checkWin(r,c,G.dropper);
+  if(w){G.wins[G.dropper]++;G.phase='over';G.winCells=w;G.note='';renderBoard();setTimeout(()=>{G.showWin=true;renderBoard();render();},750);}
+  else if(G.board[0].every(x=>x!==null)){G.phase='over';G.draw=true;renderBoard();}
+  else{G.phase='resolved';G.note=`${G.names[G.dropper]} dropped a disc in column ${c+1}.`;G.next=G.stolen?G.turn:1-G.turn;renderBoard();}
+  render();
+}
+function checkWin(r,c,t){
+  for(const [dr,dc] of [[0,1],[1,0],[1,1],[1,-1]]){
+    const cells=[[r,c]];
+    for(const s of [1,-1]){let i=r+dr*s,j=c+dc*s;while(i>=0&&i<ROWS&&j>=0&&j<COLS&&G.board[i][j]===t){cells.push([i,j]);i+=dr*s;j+=dc*s;}}
+    if(cells.length>=4)return cells;
+  }
+  return null;
+}
+function newGame(){stopTimer();newBoard();G.starter=1-G.starter;renderBoard();startTurn(G.starter);}
+
+function renderBoard(){
+  const a=G.animate;G.animate=null;let h='';
+  for(let c=0;c<COLS;c++){
+    h+=`<button class="col" data-c="${c}" aria-label="Column ${c+1}">`;
+    for(let r=0;r<ROWS;r++){
+      const t=G.board[r][c];let d='';
+      if(t!==null){const win=G.showWin&&G.winCells.some(([i,j])=>i===r&&j===c);
+        const drop=a&&a[0]===r&&a[1]===c;
+        d=`<span class="disc t${t}${drop?' drop':''}${win?' win':''}" ${drop?`style="--rows:${r}"`:''}>${t?'R':'L'}</span>`;}
+      h+=`<span class="cell">${d}</span>`;
+    }
+    h+='</button>';
+  }
+  $('#board').innerHTML=h;syncCols();
+}
+function syncCols(){document.querySelectorAll('#board .col').forEach(b=>{const c=+b.dataset.c;b.disabled=!(G.phase==='drop'&&G.board[0][c]===null);});}
+
+function stepsHtml(){return `<ol class="steps">${G.p.steps.map(([l,m])=>`<li><span class="sl">${l}</span><span class="sm">${m}</span></li>`).join('')}</ol>`;}
+function activeTeam(){return G.phase==='question'||G.phase==='steal'?G.answerer:G.phase==='steal-offer'?1-G.turn:G.phase==='drop'?G.dropper:null;}
+function render(){
+  const act=activeTeam();
+  [0,1].forEach(t=>{
+    $('#card'+t).classList.toggle('active',act===t);$('#wins'+t).textContent=G.wins[t];
+    $('#tag'+t).textContent=act!==t?'':G.phase==='question'?'Answering':G.phase==='steal-offer'?'Steal?':G.phase==='steal'?'Stealing':'Pick a column';
+  });
+  const p=G.p,ph=G.phase,reveal=ph==='drop'||ph==='resolved'||ph==='over';
+  const live=ph==='question'||ph==='steal', who=live?G.answerer:ph==='steal-offer'?1-G.turn:ph==='drop'?G.dropper:G.turn;
+  let h=`<div class="qhead"><span class="who t${who}"><i></i>${tNm(who)}${ph==='steal'?' (steal)':''}</span><span class="lvl">${LEVEL_NAME[p.level]} · ${TYPE_NAME[p.type]}</span></div>`;
+  if(live&&G.timerEnd)h+=`<div class="timer"><div class="bar"><i id="tbar"></i></div><span id="ttxt"></span></div>`;
+  h+=`<p class="prompt">${p.prompt}</p><div class="statement">${p.statement}</div>${p.fig?`<div class="figwrap">${p.fig}</div>`:""}<div class="choices">`;
+  p.choices.forEach((c,i)=>{
+    const wrong=G.picked.includes(i)&&!c.correct, right=reveal&&c.correct;
+    const dis=!live||G.picked.includes(i);
+    h+=`<button class="choice${wrong?' wrong':''}${right?' right':''}${(!live&&!right&&!wrong)?' dim':''}" data-i="${i}"${dis?' disabled':''}><span class="let">${LET[i]}</span><span class="txt">${c.svg||c.html}</span></button>`;
+  });
+  h+='</div><div class="action">';
+  if(ph==='question')h+=`<div class="callout">Talk it over, then ${tNm(G.turn)} picks one answer.</div><div class="btns"><button class="btn ghost sm" data-act="skip">Skip this problem</button></div>`;
+  if(ph==='steal-offer')h+=`<div class="callout warn"><b>${G.note}</b> ${tNm(1-G.turn)} can steal this problem and earn a disc.</div><div class="btns"><button class="btn t${1-G.turn}" data-act="steal">Steal it</button><button class="btn ghost" data-act="pass">Pass</button></div>`;
+  if(ph==='steal')h+=`<div class="callout">${tNm(G.answerer)}: pick your answer. The wrong choice is crossed out.</div>`;
+  if(ph==='drop')h+=`<div class="callout good"><b>${G.stolen?'Steal successful!':'Correct!'}</b> ${tNm(G.dropper)}, choose a column on the board.</div>`;
+  if(ph==='resolved')h+=`<div class="callout ${G.note.startsWith('The steal')||G.note.startsWith('Time')||G.note.startsWith('Passed')?'warn':'good'}">${esc(G.note)} Next up: <b>${tNm(G.next)}</b>.</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="next">Next turn</button></div>`;
+  if(ph==='over'){
+    const msg=G.draw?'The board is full. It is a draw.':G.showWin||true?`<b>${tNm(G.dropper)} connected four!</b>`:'';
+    h+=`<div class="callout good">${msg}</div>${stepsHtml()}<div class="btns"><button class="btn" data-act="again">Play again</button></div>`;
+  }
+  h+='</div>';
+  $('#q').innerHTML=h;syncCols();tick&&G.timerEnd&&tick();
+}
+
+document.addEventListener('click',e=>{
+  const ch=e.target.closest('.choice');if(ch){choose(+ch.dataset.i);return;}
+  const col=e.target.closest('.col');if(col){dropCol(+col.dataset.c);return;}
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act;
+  if(a==='steal')startSteal();
+  else if(a==='pass')endNoDisc('Passed. No disc this turn.');
+  else if(a==='next')startTurn(G.next);
+  else if(a==='again')newGame();
+  else if(a==='skip'){stopTimer();startTurn(G.turn);}
+});
+[0,1].forEach(t=>$('#name'+t).addEventListener('input',e=>{G.names[t]=e.target.value;render();}));
+$('#levelSel').addEventListener('change',e=>{G.level=e.target.value;});
+$('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==='question'||G.phase==='steal')startTimer();render();});
+$('#newGame').addEventListener('click',newGame);
+$('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
+$('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+newBoard();renderBoard();startTurn(0);
+</script>
+
+</body></html>
