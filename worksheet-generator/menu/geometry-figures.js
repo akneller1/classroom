@@ -583,13 +583,19 @@
   }
 
   /* ---------- public API ---------- */
+  /* extension point: other files add figure kinds (geo-plane, geo-solid ...) with their own render/check */
+  var EXT = {};
+  F.extend = function (kind, impl) { EXT[kind] = impl; if (KINDS.indexOf(kind) < 0) KINDS.push(kind); };
+  F.h = { wrap: wrap, T: T, L: L, dot: dot, rightMark: rightMark, esc: esc, r1: r1, textW: textW, W: W, INK: INK };
   F.owns = function (spec) { return !!spec && KINDS.indexOf(spec.kind) >= 0; };
   F.render = function (spec) {
     if (!F.owns(spec) || !F.check(spec).ok) return '';
+    if (EXT[spec.kind]) return EXT[spec.kind].render(spec);
     return spec.kind === 'geo-transversal' ? transversal(spec) : spec.kind === 'geo-adjacent' ? adjacent(spec) : spec.kind === 'geo-cross' ? cross(spec) : spec.kind === 'geo-quad' ? quad(spec) : spec.kind === 'geo-regular' ? regular(spec) : circle(spec);
   };
   F.check = function (spec) {
     if (!F.owns(spec)) return { ok: false, msg: 'not a geometry figure' };
+    if (EXT[spec.kind]) return EXT[spec.kind].check(spec);
     return spec.kind === 'geo-transversal' ? checkTransversal(spec) : spec.kind === 'geo-adjacent' ? checkAdjacent(spec) : spec.kind === 'geo-cross' ? checkCross(spec) : spec.kind === 'geo-quad' ? checkQuad(spec) : spec.kind === 'geo-regular' ? checkRegular(spec) : checkCircle(spec);
   };
 

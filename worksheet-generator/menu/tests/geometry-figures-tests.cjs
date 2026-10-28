@@ -17,6 +17,15 @@ assert.equal(F.check({ kind: 'geo-transversal', marks: [{ pos: 3, text: 'a', deg
 assert.equal(F.check({ kind: 'geo-adjacent', relation: 'complement', parts: [{ text: 'a', deg: 40 }, { text: 'b', deg: 40 }] }).ok, false);
 assert.equal(F.check({ kind: 'geo-cross', marks: [{ pos: 1, text: 'a', deg: 120 }, { pos: 3, text: 'b', deg: 60 }] }).ok, false);
 assert.equal(F.render({ kind: 'geo-cross', marks: [{ pos: 1, text: 'a', deg: 120 }, { pos: 3, text: 'b', deg: 60 }] }), '', 'invalid figure renders nothing');
+assert.equal(F.check({ kind: 'geo-plane', shape: 'triangle', v: { b: 6 } }).ok, false, 'missing height');
+assert.equal(F.check({ kind: 'geo-plane', shape: 'rectangle', v: { w: -2, l: 5 } }).ok, false, 'negative side');
+assert.equal(F.check({ kind: 'geo-solid', solid: 'cylinder', v: { r: 3, h: 5 }, lab: { r: '4 cm' } }).ok, false, 'override label may not contain a number');
+assert.equal(F.check({ kind: 'geo-solid', solid: 'cone', v: { r: 3, h: 5 }, lab: { h: 'h' } }).ok, true);
+assert.equal(F.check({ kind: 'geo-solid', solid: 'sphere', v: { r: 3, h: 9 }, show: ['h'] }).ok, false, 'a sphere has no height to show');
+assert.ok(/<svg/.test(F.render({ kind: 'geo-solid', solid: 'prism', v: { l: 4, w: 3, h: 2 }, unit: 'cm' })), 'a valid solid renders');
+// a figure that prints a number the question never states must fail verification
+{ const M2 = NS; const bad = { variant: 'x', prompt: 'A rectangle has width 4 cm and length 9 cm.', parts: [{ answer: '36', check: { type: 'solve', eq: 'x=4*9', v: 'x' } }], fig: { kind: 'geo-plane', shape: 'rectangle', v: { w: 4, l: 7 }, unit: 'cm' } };
+  const r = M2.verifyProblem(bad); assert.notEqual(r.status, 'verified', 'figure shows 7 but the question says 9'); }
 assert.equal(F.check({ kind: 'geo-circle', pts: { A: [1, 1] }, onCircle: ['A'] }).ok, false, 'point off the circle');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], O2: [0.5, 0.5], T: [1, 1] }, right: [['P', 'O', 'T']] }).ok, true, 'radius to (1,0) is perpendicular to the vertical tangent');
 assert.equal(F.check({ kind: 'geo-circle', pts: { P: [1, 0], T: [1.5, 1] }, right: [['P', 'O', 'T']] }).ok, false, 'tangent mark on a slanted segment');
@@ -51,7 +60,7 @@ for (const set of Object.values(NS.skillSets).filter(s => s.id.startsWith('geome
     const html = NS.figHtml(p.fig);
     assert.match(html, /<svg[\s\S]*<\/svg>/, sk.id + ' did not render');
     assert.ok(!dirty.test(html), sk.id + ' svg has NaN/undefined: ' + (html.match(dirty) || [])[0]);
-    assert.ok(!/#[0-9a-f]{3,6}/i.test(html.replace(/#111|#555/g, '')), sk.id + ' uses non-print-safe colours');
+    assert.ok(!/#[0-9a-f]{3,6}/i.test(html.replace(/#111|#555|#fff(?![0-9a-f])/gi, '')), sk.id + ' uses non-print-safe colours');
     // transversal / adjacent / cross: the labelled expression equals the true angle at the solved x
     const marks = p.fig.marks || p.fig.parts;
     if (marks && p.parts[0].check && p.parts[0].check.type === 'solve') {

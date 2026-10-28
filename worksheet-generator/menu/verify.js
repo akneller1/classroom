@@ -2543,6 +2543,15 @@
     if (p.fig && NS.geoFigures && NS.geoFigures.owns(p.fig)) {
       var fc = NS.geoFigures.check(p.fig);
       if (!fc.ok) { statuses.push('invalid'); issues.push('The figure is inconsistent: ' + fc.msg + '.'); }
+      /* Measurement figures print their dimensions from the data: every printed number must be stated in the question too, and none may be the answer's unknown. */
+      else if (p.fig.v && /^geo-(plane|solid)$/.test(p.fig.kind)) {
+        var need = (p.fig.show || Object.keys(p.fig.v)), txt = String(p.prompt || '').replace(/[,]/g, '');
+        need.forEach(function (k) {
+          if (p.fig.lab && p.fig.lab[k] !== undefined) return;
+          var re = new RegExp('(^|[^0-9.])' + String(p.fig.v[k]).replace('.', '\\.') + '([^0-9]|$)');
+          if (!re.test(txt)) { statuses.push('invalid'); issues.push('The figure shows ' + k + ' = ' + p.fig.v[k] + ', which the question does not state.'); }
+        });
+      }
     }
     if (!p.edited) issues = issues.concat(checkSteps(p));
     var status = statuses.indexOf('invalid') >= 0 ? 'invalid' : statuses.indexOf('mismatch') >= 0 ? 'mismatch'

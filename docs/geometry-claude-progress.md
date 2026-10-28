@@ -29,7 +29,9 @@ GitHub Actions status was **not observable** from this session (GitHub not linke
 - Local results after changes: all scripts above pass; math audit PASS (528,310 checks).
 
 - Circles: 22 generator variants now carry figures (3 equation-of-circle variants stay text-only). 624 circle figures checked, including that numeric angle/arc labels equal the drawn angles.
-- Cache-busting `?v=` strings for verify.js and the three figure-bearing skill files bumped to `geo-figures-2`.
+- Cache-busting `?v=` strings for verify.js and the three figure-bearing skill files bumped to `geo-measure-1`.
+
+- Area, Surface Area & Volume: new `geo-plane` (rectangle, triangle, parallelogram, trapezoid with dashed heights and right-angle marks) and `geo-solid` (prism, cylinder, pyramid, cone, sphere) figures in `menu/geometry-measure-figures.js`, drawn from the true numbers; unknowns can be labelled `x`. 14 skills, all with figures (5 new: cone volume, sphere volume, sphere surface, prism height, cylinder height). Verifier rejects a figure that prints a number the question never states.
 
 ## Known issues found (not fixed)
 - `triangles-congruence` "third angle" prompt prints its own equation ("Use x+74+64=180 to find x").
@@ -40,7 +42,7 @@ GitHub Actions status was **not observable** from this session (GitHub not linke
 ## Next steps, in order
 1. Push this work (needs GitHub linked) and confirm Actions are green; bump `?v=` strings.
 2. (done) Circles figures.
-3. Transformations and Area/Surface Area/Volume figures (coordinate plane with image/preimage; prisms, cylinders, cones, spheres, nets).
+3. (Area/SA/Volume figures done.) Still to do: Transformations figures (coordinate plane with image/preimage), nets, composite solids, cross-sections.
 4. Replace schematic triangle/similarity/trig figures with data-driven ones; finish Triangle Relationships/Congruence correspondence marks.
 5. Geometry Daily Lesson Planner scope and lesson-skills map.
 6. Generate the four Geometry games per unit with `mkgames.py` (needs figure scripts in the template), retire hand-built duplicates only after parity.
