@@ -372,7 +372,7 @@
   GB.partQuestion = function (p, k) {
     var pt = p.parts[k], multi = p.parts.length > 1, ask = pt.prompt || '';
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
-    return { prompt: p.prompt, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
+    return { prompt: NS.displayPrompt ? NS.displayPrompt(p) : p.prompt, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
   GB.makeItems = function (setId, skillId, c, policy, seed, used) {
     var p = NS.generateProblem(setId, skillId, c, policy, seed, used);

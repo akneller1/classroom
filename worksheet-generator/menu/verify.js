@@ -54,7 +54,7 @@
     }
     /* Four-part Open Response investigations: each part's equation may use only numbers printed for students,
        a standard constant, or an answer from an earlier part. A changed printed number therefore invalidates the key. */
-    if (/^geo-(angles|circles|polygons|transformations|solids)-investigation-/.test(p.variant || '')) {
+    if (/^geo-(angles|circles|polygons|transformations|solids|congruence)-investigation-/.test(p.variant || '')) {
       var pts = p.parts || [], ix = -1; pts.forEach(function (pt, i) { if (pt.check === chk) ix = i; });
       if (ix < 0 || pts.length < 4) return false;
       if (/^geo-solids-/.test(p.variant)) {   // exact re-derivation from the printed dimensions
@@ -63,9 +63,10 @@
         var L0 = sd[1], W0 = sd[2], H0 = sd[3], want = ['x=' + L0 + '*' + W0, 'y=' + L0 + '*' + W0 + '*' + H0, 'z=2*' + L0 + '*' + W0 + '+2*' + L0 + '*' + H0 + '+2*' + W0 + '*' + H0, sb[1] + '*k=' + (L0 * W0 * H0)];
         return chk.eq === want[ix];
       }
-      var okNum = {}; (C.plainText(studentText(p)).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
+      var okNum = {}; // Congruence chains print their expressions inside math, so their digits count too
+      ((/^geo-congruence-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
       [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; });
-      for (var pj = 0; pj < ix; pj++) { var am = /=\s*(-?\d+)/.exec(String(pts[pj].answer || '')); if (am) okNum[String(Math.abs(Number(am[1])))] = 1; }
+      for (var pj = 0; pj < ix; pj++) { var am = /=\s*(-?\d+)/.exec(String(pts[pj].answer || '')) || /^\s*⟨?\s*(-?\d+)\s*⟩?\s*$/.exec(String(pts[pj].answer || '')); if (am) okNum[String(Math.abs(Number(am[1])))] = 1; }
       return (chk.eq.match(/\d+/g) || []).every(function (n) { return okNum[String(Number(n))]; });
     }
     /* Shadow problems: x is recomputed from the printed heights and shadows (h/s = x/S), and the figure must show the same four numbers. */

@@ -119,14 +119,18 @@
       rows.map(function (st,i) { return '<tr><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+(i+1)+'. '+mathSafe(st)+'</td><td style="border:1px solid #555;padding:10px 8px;vertical-align:top">'+blanks[i]+'</td></tr>'; }).join('')+'</tbody></table>';
   }
   NS.proofLayout = proofLayout;
+  /* Geometry circle equations are written with a caret in the bank (the verifier reads that form); every screen and page shows superscripts. */
+  NS.displayPrompt = function (p, text) {
+    text = text === undefined ? (p.prompt || '') : text;
+    return /^geo-circle-/.test(p.variant || '') ? text.replace(/([XY]|\))\^2/g, '$1\u00b2') : text;
+  };
   function promptHtml(p, forKey) {
     // Proof statements and the equation appear in the scaffold; do not print them twice.
     var questionText = p.prompt || '';
     if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
       questionText = questionText.split(' Establish:')[0];
     }
-    // Geometry circle equations are written with a caret in the bank; print them as superscripts.
-    if (/^geo-circle-/.test(p.variant || '')) questionText = questionText.replace(/([XY]|\))\^2/g, '$1\u00b2');
+    questionText = NS.displayPrompt(p, questionText);
     var h = '<div class="mm-q">' + mathSafe(questionText) + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay

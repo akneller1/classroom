@@ -172,3 +172,13 @@ Fixes made:
 - **Print layout.** A Geometry figure problem may run to 240 characters before it takes a full row (was 150), and printed Geometry figures are capped at 2.3 in tall (`menu.css`). Checked by printing every Geometry worksheet through the real print path to PDF. The paginator leaves blank space at the bottom of some pages for Algebra worksheets too (same shared code), so it was left alone.
 - Cache tags: `render.js?v=geo-layout-2`, `menu.css?v=geo-layout-2`, Geometry skill files `geo-gaps-1`/`geo-gaps-2` (circles).
 - `printables-tests.cjs` stops at an Algebra vocabulary assertion ("Unknown printable vocabulary") on commits before this work as well; it is unrelated to Geometry.
+
+## Rigor upgrade — Congruence of Triangles (2026-10-28)
+Teacher feedback: Honors problems were too basic. Added four Honors-level (`best:[2]`, tag "Multi-step congruence investigations") four-part Open Response chains in `skills/geometry-triangles-congruence.js`:
+- `congruence-investigation-algebra` — x from AB≅DE, y from BC≅EF (uses x), perimeter of ABC, z from ∠C≅∠F.
+- `congruence-investigation-isosceles` — x from congruent halves of the vertex angle, ∠BAC, base angle, ∠ADB = 90 (SSS, CPCTC, angle sum, linear pair).
+- `congruence-investigation-coordinate` — AB and BC lengths, AC² by the distance formula, x-coordinate of F that makes DEF congruent.
+- `congruence-investigation-overlap` — overlapping triangles: x (AB = CD), y (alternate interior angles), z (CPCTC), ∠A by angle sum.
+Verifier (`verify.js`): `congruence` added to the investigation rule; later parts may use earlier answers, including bare-number answers (needed by the game bank).
+Test: `menu/tests/geometry-congruence-rigor-tests.cjs` re-solves 2,550 generated problems from their printed text (keys, triangle inequality, SSS for the coordinate F, honest figures). It caught a real bug: algebra-chain side lengths that could not form a triangle (fixed).
+Next: the same rigor upgrade for the other nine Geometry units.
