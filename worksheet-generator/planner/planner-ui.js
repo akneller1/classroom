@@ -60,7 +60,7 @@
         }); });
       }
     }
-    if (cfg.count != null && s.id !== 'notes') {
+    if (cfg.count != null && s.id !== 'notes' && s.id !== 'summary') {
       var all = []; s.groups.forEach(function(g){all=all.concat(g.items);});
       if (all.length) {
         var target = Math.max(0,Math.min(30,Math.round(+cfg.count)));
@@ -90,9 +90,14 @@
     });
     plan.sections.forEach(function(s,si) { configureSection(plan,s,si); });
     plan.sections.forEach(function(s, si) {
-      if (!/\(\d+\)/.test(s.title) && !sectionConfigs[si]) return;
-      s.groups.forEach(function(g, gi) { g.items.forEach(function(p, pi) {
-        if (p.entry) P.regenerate(plan, si, gi, pi);
+      var cfg = sectionConfigs[si] || {};
+      var nth = s.title.match(/\\((\\d+)\\)/);
+      if (!nth && !cfg.lesson && cfg.count == null) return;
+      s.groups.forEach(function(g,gi) { g.items.forEach(function(p,pi) {
+        if (!p.entry) return;
+        // Different slots and salts prevent repeated questions from cloning the originals.
+        p.slot = p.slot + '-occ-' + si + '-item-' + pi;
+        P.regenerate(plan,si,gi,pi);
       }); });
     });
   }
@@ -468,7 +473,17 @@
       var from = +t.getAttribute('data-move-section'), to = from + +t.getAttribute('data-direction');
       if (from >= 0 && to >= 0 && to < sectionSequence.length) {
         sectionSequence.splice(to, 0, sectionSequence.splice(from, 1)[0]);
-        saveSequence(); render();
+        var oldConfig = sectionConfigs[from];
+        var nextConfigs = {};
+        Object.keys(sectionConfigs).forEach(function(k) {
+          var n = +k;
+          if (n === from) return;
+          if (from < to && n > from && n <= to) nextConfigs[n-1] = sectionConfigs[k];
+          else if (to < from && n >= to && n < from) nextConfigs[n+1] = sectionConfigs[k];
+          else nextConfigs[n] = sectionConfigs[k];
+        });
+        if (oldConfig) nextConfigs[to] = oldConfig;
+        sectionConfigs = nextConfigs; saveConfigs(); saveSequence(); render();
       }
       return;
     }
@@ -484,7 +499,13 @@
     if (t.hasAttribute('data-remove-repeat')) {
       var i = +t.getAttribute('data-remove-repeat'), k = sectionSequence[i];
       if (sectionSequence.filter(function(x){return x === k;}).length > 1) {
-        sectionSequence.splice(i,1); saveSequence(); render();
+        sectionSequence.splice(i,1);
+        var remaining = {};
+        Object.keys(sectionConfigs).forEach(function(k) {
+          var n = +k;
+          if (n !== i) remaining[n > i ? n-1 : n] = sectionConfigs[k];
+        });
+        sectionConfigs = remaining; saveConfigs(); saveSequence(); render();
       }
       return;
     }
