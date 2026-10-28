@@ -29,7 +29,7 @@ function sasCriterion(ctx){
   eq,x,'SAS similarity requires proportional sides surrounding a congruent included angle.');
 }
 function sssCriterion(ctx){
- var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:4),a=r.int(5,11),b=r.int(5,11),d=r.int(5,11),x=k*d;
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=5?7:4),a=r.int(5,11),b=r.int(5,11),d=r.int(Math.abs(a-b)+1,a+b-1),x=k*d;
  var eq=d+'*x='+(d*x);
  return make('geo-sim-sss-'+c,
   'Triangles ABC and DEF have corresponding sides AB = '+a+', DE = '+(k*a)+', BC = '+b+', EF = '+(k*b)+', AC = '+d+', and DF = x. All three side pairs must have the same ratio for SSS similarity. Find x and state why the triangles are similar.',
