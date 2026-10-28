@@ -50,6 +50,13 @@
       var radiusSquared=(a*a+b*b)/4-constant;
       return a>0 && b>0 && a%2===0 && b%2===0 && radiusSquared>0 && Number.isInteger(Math.sqrt(radiusSquared)) && chk.eq==='2*x='+expanded[1];
     }
+    if (/^geo-circle-chord-distance-inverse-/.test(p.variant || '')) {
+      var invChord=/circle has radius ([0-9]+) cm and a chord of length ([0-9]+) cm/.exec(p.prompt || '');
+      if (!invChord) return false;
+      var ri=Number(invChord[1]), ci=Number(invChord[2]), hi=ci/2, ds=ri*ri-hi*hi;
+      return ri>hi && hi>0 && ci%2===0 && ds>0 && Number.isInteger(Math.sqrt(ds)) &&
+        chk.eq==='x*x+'+hi+'*'+hi+'='+ri+'*'+ri;
+    }
     if (/^geo-circle-chord-distance-/.test(p.variant || '')) {
       var chordDistance = /circle has radius ([0-9]+) cm.*perpendicular distance from the center to a chord is ([0-9]+) cm/.exec(p.prompt || '');
       if (!chordDistance) return false;
