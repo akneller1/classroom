@@ -320,6 +320,7 @@
         m = /Points A\(0, 0\) and B\((\d+), (\d+)\)/.exec(raw);
         if (!m) return {status:'invalid',msg:'Missing printed coordinates.'};
         squared = (+m[1])**2 + (+m[2])**2;
+        expectedEq = 'x^2='+m[1]+'^2+'+m[2]+'^2';
       } else return {status:'invalid',msg:'Unknown Pythagorean problem type.'};
       // Independently validate the hidden equation against the printed givens,
       // without showing the completed equation to students.
