@@ -31,6 +31,7 @@
       var measures = /Angle ABD measures ⟨([^⟩]+)⟩ degrees, and angle DBC measures (\d+) degrees/.exec(p.prompt || '');
       return !!measures && measures[1]+'='+measures[2] === chk.eq;
     }
+    if (/^geo-vertical-/.test(p.variant || '')) return false;
     return true;
   }
   function norm(s) { return String(s).replace(/\s+/g, ''); }
