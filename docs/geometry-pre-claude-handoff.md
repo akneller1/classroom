@@ -91,3 +91,7 @@ The four-family plausibility test was wired to the workflow and its generator AP
 - Added consecutive-angle relationships in parallelograms (supplementary angle reasoning) and diagonal counting in convex polygons (double-counting reasoning), increasing the unit to ten skills.
 - The generators have 131 and at least 70 unique numerical prompts, respectively, exceeding the 25-card capacity requirement. Both use independent checks of the student-visible givens. No figures or drawings were created; all visual/diagram work is reserved for Claude.
 - Next text-first opportunities: classification using verbal property descriptions and formal reasoning; all visual proof/diagram work remains in Claude's scope. CI needs confirmation on this commit.
+
+## Text-only special-quadrilateral classification (2026-10-28)
+- Added `classify-square-rhombus`: given a rectangle or parallelogram with two algebraic adjacent-side expressions, students solve the equality condition that makes it a square or rhombus and justify why that property is sufficient. For higher tiers both sides have variable expressions, increasing algebraic reasoning.
+- The verifier independently reconstructs the equation from the two student-visible side expressions; no diagram or drawing is included. All visual classification examples remain assigned to Claude. The Quadrilaterals/Polygons menu bank now has 11 registered skills. CI requires confirmation on this commit.

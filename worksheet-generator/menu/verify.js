@@ -35,6 +35,10 @@
       var angles = /angle A is ([0-9]+)° and angle C is ([0-9]+)°/.exec(p.prompt || '');
       return !!angles && chk.eq === 'x+'+angles[1]+'+'+angles[2]+'=180' && shown(p,chk.eq);
     }
+    if (/^geo-quad-classify-sides-/.test(p.variant || '')) {
+      var sideExpressions = /adjacent side lengths ⟨([^⟩]+)⟩ cm and ⟨([^⟩]+)⟩ cm/.exec(p.prompt || '');
+      return !!sideExpressions && chk.eq === sideExpressions[1]+'='+sideExpressions[2];
+    }
     if (/^geo-quad-consecutive-/.test(p.variant || '')) {
       var adjacent = /angle A measures ([0-9]+)°/.exec(p.prompt || '');
       return !!adjacent && chk.eq === 'x+'+adjacent[1]+'=180';
