@@ -37,9 +37,34 @@
     } catch(e) {}
     return base;
   })();
+  var KEY_SEQUENCE = 'mk-planner-sequence-v1';
+  var sectionSequence = (function() {
+    try { var v = JSON.parse(lsGet(KEY_SEQUENCE) || 'null');
+      if (Array.isArray(v) && v.length && v.length <= 30 && v.every(function(k) { return k in sectionChoices; })) return v;
+    } catch(e) {}
+    return sectionOrder.slice();
+  })();
+  function saveSequence() { lsSet(KEY_SEQUENCE, JSON.stringify(sectionSequence)); }
   function applySectionChoices(plan) {
-    plan.sections = plan.sections.filter(function(s) { return sectionChoices[s.id] !== false; });
-    plan.sections.sort(function(a, b) { return sectionOrder.indexOf(a.id) - sectionOrder.indexOf(b.id); });
+    var original = {};
+    plan.sections.forEach(function(s) { original[s.id] = s; });
+    var occurrences = {};
+    plan.sections = sectionSequence.filter(function(id) { return sectionChoices[id] && original[id]; }).map(function(id) {
+      var n = occurrences[id] = (occurrences[id] || 0) + 1;
+      if (n === 1) return original[id];
+      var s = Object.assign({}, original[id]);
+      s.title = s.title + ' (' + n + ')';
+      s.groups = original[id].groups.map(function(g) {
+        return Object.assign({}, g, {items:g.items.map(function(p) { return Object.assign({}, p); })});
+      });
+      return s;
+    });
+    plan.sections.forEach(function(s, si) {
+      if (!/\\(\\d+\\)$/.test(s.title)) return;
+      s.groups.forEach(function(g, gi) { g.items.forEach(function(p, pi) {
+        if (p.entry) P.regenerate(plan, si, gi, pi);
+      }); });
+    });
   }
 
   var problemCounts = (function() {
@@ -365,7 +390,7 @@
         return '<label class="pl-lv' + (ui.notes === o[0] ? ' on' : '') + '"><input type="radio" name="plNotes" value="' + o[0] + '"' + (ui.notes === o[0] ? ' checked' : '') + '> <span><b>' + o[1] + '</b> <small>' + o[2] + '</small></span></label>';
       }).join('') + '</fieldset>' +
       '<fieldset class="pl-levels pl-section-options"><legend class="pl-lab">Include in lesson</legend><p class="pl-hint">Unchecked sections are omitted from the lesson preview, handout, teacher key, and PowerPoint.</p>' +
-      sectionOrder.map(function(k, i) { return '<div class="pl-section-choice" style="display:flex;align-items:center;gap:8px;margin:7px 0"><label style="flex:1;display:flex;gap:7px;align-items:center"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>' + problemCountInput(k) + '<button type="button" class="btn ghost sm" data-move-section="' + k + '" data-direction="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' up">↑</button><button type="button" class="btn ghost sm" data-move-section="' + k + '" data-direction="1"' + (i === sectionOrder.length - 1 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' down">↓</button></div>'; }).join('') + '<p class="pl-hint">Use arrows to change the sequence. The order is saved and used in all exports.</p></fieldset>' +
+      sectionSequence.map(function(k, i) { return '<div class="pl-section-choice" style="display:flex;align-items:center;gap:8px;margin:7px 0"><label style="flex:1;display:flex;gap:7px;align-items:center"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>' + problemCountInput(k) + '<button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' up">↑</button><button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="1"' + (i === sectionSequence.length - 1 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' down">↓</button></div>'; }).join('') + '<p class="pl-hint">Use arrows to change the sequence. The order is saved and used in all exports.</p></fieldset>' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
@@ -410,12 +435,26 @@
     var t = e.target.closest ? e.target.closest('button') : null; if (!t) return;
     if (t.classList.contains('pl-daybtn')) { ui.day = +t.getAttribute('data-day'); resetSelection(); render(); $('#plView').scrollIntoView ? G.scrollTo(0, 0) : 0; return; }
     if (t.hasAttribute('data-move-section')) {
-      var id = t.getAttribute('data-move-section'), from = sectionOrder.indexOf(id), to = from + Number(t.getAttribute('data-direction'));
-      if (from >= 0 && to >= 0 && to < sectionOrder.length) {
-        sectionOrder.splice(from, 1);
-        sectionOrder.splice(to, 0, id);
-        lsSet(KEY_SECTION_ORDER, JSON.stringify(sectionOrder));
-        render();
+      var from = +t.getAttribute('data-move-section'), to = from + +t.getAttribute('data-direction');
+      if (from >= 0 && to >= 0 && to < sectionSequence.length) {
+        sectionSequence.splice(to, 0, sectionSequence.splice(from, 1)[0]);
+        saveSequence(); render();
+      }
+      return;
+    }
+    if (t.id === 'plRepeat') {
+      var id = $('#plRepeatType').value;
+      if (id in sectionChoices && sectionSequence.length < 30) {
+        sectionChoices[id] = true; sectionSequence.push(id);
+        lsSet(KEY_SECTIONS, JSON.stringify(sectionChoices));
+        saveSequence(); render();
+      }
+      return;
+    }
+    if (t.hasAttribute('data-remove-repeat')) {
+      var i = +t.getAttribute('data-remove-repeat'), k = sectionSequence[i];
+      if (sectionSequence.filter(function(x){return x === k;}).length > 1) {
+        sectionSequence.splice(i,1); saveSequence(); render();
       }
       return;
     }
