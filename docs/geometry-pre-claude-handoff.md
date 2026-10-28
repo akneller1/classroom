@@ -45,3 +45,10 @@ Latest baseline before this audit: Menu assessment generator #367, Geometry flas
 
 ## Follow-up verification note
 The four-family plausibility test was wired to the workflow and its generator API was checked against `menu/engine.js`. CI status could not be confirmed from the available GitHub connector (commit status endpoint returned no statuses and workflow-run lookup only exposes PR-triggered runs). Treat the new test as **unverified until a green GitHub Actions run is observed**. A direct repository clone was also unavailable in this environment due to DNS restrictions.
+
+## Configuration parity follow-up (2026-10-27)
+- Added `menu/tests/geometry-config-parity-tests.cjs` to compare all ten Geometry units against an Algebra 1 unit in the same shared assessment engine, for menu/test/worksheet configurations and CP2/CP1/Honors tier mapping (30 configuration comparisons, 90 level mappings).
+- Wired parity checks into `.github/workflows/menu-generator-tests.yml`. **CI pass not yet confirmed**.
+- Fixed an overescaped regular expression in the Honors triangle plausibility test; earlier version would have failed matching legitimate numeric givens.
+- Updated `menu-assessment.html` cache-busting query parameters for corrected Congruence, Similarity and Circles skill scripts so deployed browsers fetch the latest source.
+- This proves shared configuration code paths, **not** UI feature parity in separate flashcard, self-assessment, lesson-planner, or vocabulary applications; those remain pending.
