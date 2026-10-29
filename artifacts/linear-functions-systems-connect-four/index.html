@@ -41,7 +41,8 @@ svg.fig .lb.acc{fill:var(--acc,#2563eb);font-weight:700} svg.fig .lb.acc2{fill:v
 svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563eb)} svg.fig .dot.acc2{fill:var(--acc2,#e4572e)}
 svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
 
-</style></head><body>
+</style><script src="../../worksheet-generator/games/skill-setup.js"></script>
+</head><body>
 <title>Crossroads Four</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
@@ -623,7 +624,9 @@ const RECENT=[]; /* keys of the last problems, so the same problem does not come
 function makeProblem(levelSel,lastType){
   const U=UNIT;
   for(let t=0;t<120;t++){
-    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel,pool=U.pools[level];
+    let level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel;
+    if(!U.pools[level].length) level=+pick(Object.keys(U.pools).filter(k=>U.pools[k].length));
+    const pool=U.pools[level];
     let type=pick(pool);if(type===lastType)type=pick(pool);
     const p=U.gens[type](level);
     if(p&&p.choices.length===4){
@@ -632,7 +635,7 @@ function makeProblem(levelSel,lastType){
       RECENT.push(key);if(RECENT.length>14)RECENT.shift();
       p.type=type;p.level=level;return p;}
   }
-  const type=U.pools[1][0],p=U.gens[type](1);p.type=type;p.level=1;return p;
+  const level=+Object.keys(U.pools).find(k=>U.pools[k].length),type=U.pools[level][0],p=U.gens[type](level);if(!p)return null;p.type=type;p.level=level;return p;
 }
 /*LIB-END*/
 /* Crossroads Four: problem generators. Contract: define UNIT = {types, pools, gens}. Each gen(level) returns mcm({...}) or null.
@@ -1476,7 +1479,7 @@ function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
   if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
   if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
 
-function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);if(!G.p){stopTimer();G.phase="unavailable";document.querySelector("#q").innerHTML='<p role="status">No question is available for these skills. <button onclick="location.reload()">Choose skills again</button></p>';return;}G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
 function choose(i){
   if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
   G.picked.push(i);stopTimer();
@@ -1573,7 +1576,10 @@ $('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==
 $('#newGame').addEventListener('click',newGame);
 $('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
 $('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+TeacherSkills.choose(Object.keys(UNIT.types).filter(id=>Object.values(UNIT.pools).some(pool=>pool.includes(id))).map(id=>({id,name:UNIT.types[id]})), ids=>{
+Object.keys(UNIT.pools).forEach(k=>{UNIT.pools[k]=UNIT.pools[k].filter(id=>ids.includes(id));});
 newBoard();renderBoard();startTurn(0);
+});
 </script>
 
 </body></html>
