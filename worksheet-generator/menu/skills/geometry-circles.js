@@ -38,27 +38,79 @@ function circleInvestigation(ctx){var r=ctx.rng,c=ctx.c,m=r.int(20,c>=5?80:60),a
  ['In the figure, chords AB and CD intersect at P. PA = '+pa+', PB = '+pb+', PC = '+pc+', and PD = z. Find z.','z',pd,pc+'*z='+pa+'*'+pb,'Products of the segments of intersecting chords are equal.'],
  ['From an outside point, a tangent segment has length '+t+'. The secant from the same point has an outside part of '+a+'. Find the length w of the whole secant.','w',sec,'w*'+a+'='+t+'*'+t,'The tangent squared equals the outside part times the whole secant.']]);o6.fig=fig(CF().chords({PA:String(pa),PB:String(pb),PC:String(pc),PD:'z'}));return o6;}
 
+function pn(n){return n<0?'(0-'+(-n)+')':String(n);}
+function mn(n){return String(n).replace('-','−');}
+function divisors(n,lo,hi){var d=[];for(var k=lo;k<=hi;k++)if(n%k===0)d.push(k);return d;}
+/* Honors chain 1: inscribed angle and arc written as expressions, then major arc and tangent-chord angle. */
+function invAngles(ctx){var r=ctx.rng,c=ctx.c,m=r.int(3,4),x=r.int(15,45),a=r.int(2,Math.max(2,Math.floor(x/2)-1)),b=m*x-2*(x+a),arc=2*(x+a);
+ while(b<2||b>60){x=r.int(15,45);a=r.int(2,Math.max(2,Math.floor(x/2)-1));b=m*x-2*(x+a);arc=2*(x+a);}
+ var major=360-arc,tc=arc/2;
+ var o=four('geo-circles-investigation-angles',c,'Open Response: An inscribed angle measures (x + '+a+')° and intercepts an arc measuring ('+m+'x − '+b+')°. Each part uses the answer before it.',[
+ ['An inscribed angle is half its intercepted arc, so twice the angle equals the arc. Find x.','x',x,'2*(x+'+a+')='+m+'*x-'+b,'Twice the inscribed angle equals the intercepted arc.'],
+ ['Use the value of x from part a to find the measure y of the intercepted arc, in degrees.','y',arc,'y='+m+'*'+pn(x)+'-'+b,'Substitute x into the arc expression.'],
+ ['Find the measure w of the major arc that completes the circle.','w',major,'w+'+arc+'=360','A circle has 360 degrees of arc.'],
+ ['A tangent and a chord meet at a point on the circle and intercept the minor arc from part b. A tangent-chord angle is half its intercepted arc. Find the angle z.','z',tc,'2*z='+arc,'A tangent-chord angle is half its intercepted arc.']]);
+ o.fig=fig(CF().inscribed(arc,'(x+'+a+')°','('+m+'x−'+b+')°'));return o;}
+/* Honors chain 2: intersecting chords, the chord length reused as a tangent, then tangent-secant and a second secant. */
+function invPower(ctx){var r=ctx.rng,c=ctx.c,t,a,pb,b,cc,k,x,e,f,ok=false;
+ for(var tries=0;tries<400&&!ok;tries++){t=r.int(9,c>=5?24:18);a=r.int(3,t-4);pb=t-a;var prod=a*pb,dv=divisors(prod,2,20).filter(function(d){return prod/d>=2&&prod/d<=30&&d!==prod/d;});if(!dv.length)continue;
+  b=dv[r.int(0,dv.length-1)];cc=prod/b;if(pb<4)continue;k=r.int(1,pb-2);x=pb-k;
+  var es=divisors(t*t,2,t-1).filter(function(d){return t*t/d-d>=2;});if(es.length<2)continue;e=es[r.int(0,es.length-1)];var fs=es.filter(function(d){return d!==e;});f=fs[r.int(0,fs.length-1)];ok=true;}
+ if(!ok){t=12;a=4;pb=8;b=4;cc=8;k=3;x=5;e=4;f=6;}
+ var inside=t*t/e-e,whole2=t*t/f;
+ var o=four('geo-circles-investigation-power',c,'Open Response: Two chords AB and CD intersect inside a circle at P. Each part uses the answer before it.',[
+ ['PA = '+a+', PB = (x + '+k+'), PC = '+b+', and PD = '+cc+'. Use the intersecting chords theorem to find x.','x',x,a+'*(x+'+k+')='+b+'*'+cc,'The products of the segments of the two chords are equal.'],
+ ['Chord AB is made of PA and PB. Use x from part a to find the length w of chord AB.','w',t,'w='+a+'+('+pn(x)+'+'+k+')','The chord is the sum of its two segments.'],
+ ['From an exterior point, a tangent segment has the same length as chord AB from part b. A secant from the same point has an external segment of '+e+'. Find the internal segment y of the secant.','y',inside,e+'*(y+'+e+')='+pn(t)+'*'+pn(t),'The tangent squared equals the external segment times the whole secant.'],
+ ['A second secant from the same point has an external segment of '+f+'. Using the tangent length from part b, find the length z of this whole secant.','z',whole2,f+'*z='+pn(t)+'*'+pn(t),'The tangent squared equals the external segment times the whole secant.']]);
+ o.fig=fig(CF().chords({PA:String(a),PB:'(x+'+k+')',PC:String(b),PD:String(cc)}));return o;}
+/* Honors chain 3: expanded circle equation, center, radius and area. */
+function invCoord(ctx){var r=ctx.rng,c=ctx.c,h=r.int(-12,12),k=r.int(-12,12),rad=r.int(3,c>=5?14:11);
+ while(h===0||k===0||h*h+k*k-rad*rad===0){h=r.int(-12,12);k=r.int(-12,12);}
+ var cs=h*h+k*k-rad*rad;
+ var lx=-2*h,ly=-2*k,text='X² '+(lx<0?'− ':'+ ')+Math.abs(lx)+'X + Y² '+(ly<0?'− ':'+ ')+Math.abs(ly)+'Y '+(cs<0?'− ':'+ ')+Math.abs(cs)+' = 0';
+ return four('geo-circles-investigation-coordinate',c,'Open Response: A circle has equation '+text+'. Complete the square to find its features. Each part uses the answer before it.',[
+ ['The X terms give (X − h)² = X² − 2hX + h², so −2h equals the coefficient '+mn(lx)+'. Find h, the X-coordinate of the center.','h',h,'-2*h='+pn(lx),'The linear coefficient equals −2 times the center coordinate.'],
+ ['The Y terms give −2k equal to the coefficient '+mn(ly)+'. Find k, the Y-coordinate of the center.','k',k,'-2*k='+pn(ly),'The linear coefficient equals −2 times the center coordinate.'],
+ ['Completing the square gives r² = h² + k² − ('+mn(cs)+'). Use h = '+mn(h)+' and k = '+mn(k)+' from parts a and b. Find the radius w.','w',rad,'w^2='+pn(h)+'*'+pn(h)+'+'+pn(k)+'*'+pn(k)+'-'+pn(cs),'The radius squared is h squared plus k squared minus the constant term.'],
+ ['The area of this circle is z times π square units. Use the radius from part c. Find z.','z',rad*rad,'z='+rad+'*'+rad,'Area is π times the radius squared.']]);}
+/* Honors chain 4: arc and sector built from an angle written as an expression. */
+function invSector(ctx){var r=ctx.rng,c=ctx.c,ks=[3,4,5,6,8,9,10,12],k,th,aa,x,b,ok=false;
+ for(var i=0;i<300&&!ok;i++){k=ks[r.int(0,ks.length-1)];th=360/k;aa=r.int(2,3);var lo=Math.ceil((th-40)/aa),hi=Math.floor((th-2)/aa);if(lo<3)lo=3;if(hi<lo)continue;x=r.int(lo,hi);b=th-aa*x;if(b>=2&&b<=40)ok=true;}
+ if(!ok){k=4;th=90;aa=2;x=35;b=20;}
+ var rad=k*r.int(2,c>=5?12:9),L=2*rad/k,A=rad*rad/k;
+ var o=four('geo-circles-investigation-sector',c,'Open Response: A sector of a circle with radius '+rad+' cm has a central angle of ('+aa+'x + '+b+')°, which is exactly '+(k===2?'half':'one-'+['','','','third','fourth','fifth','sixth','','eighth','ninth','tenth','','twelfth'][k])+' of the circle. Each part uses the answer before it.',[
+ ['The angle is one-'+['','','','third','fourth','fifth','sixth','','eighth','ninth','tenth','','twelfth'][k]+' of 360°, so '+k+' times the angle equals 360. Find x.','x',x,k+'*('+aa+'*x+'+b+')=360','The whole circle is '+k+' copies of the sector angle.'],
+ ['Use x from part a to find the central angle y, in degrees.','y',th,'y='+aa+'*'+pn(x)+'+'+b,'Substitute x into the angle expression.'],
+ ['The exact arc length is z times π centimeters. Use the angle from part b. Find z.','z',L,'360*z=2*'+rad+'*'+th,'Arc length is the angle fraction of the circumference 2πr; divide out π.'],
+ ['The exact area of the sector is w times π square centimeters. Use the angle from part b. Find w.','w',A,'360*w='+rad+'*'+rad+'*'+th,'Sector area is the angle fraction of the circle area πr²; divide out π.']]);
+ o.fig=fig(CF().sector(th,'('+aa+'x+'+b+')°',rad+' cm','zπ','arc'));return o;}
+
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
 tags:{INVEST:'Four-part circle investigation',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
 gaps:['Circle equations from three points or a tangent line, proofs about chords and tangents, and decimal-form arc and sector answers are not generated.'],
 skills:[
-{id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1,2],generate:central},
-{id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1,2],generate:inscribed},
-{id:'circle-intercepted-arc',tag:'INSCRIBED',name:'Intercepted arc from inscribed angle',best:[0,1,2],generate:intercepted},
-{id:'circle-tangent-radius',tag:'TANGENT',name:'Radius and tangent angle',best:[0,1,2],generate:tangent},
-{id:'circle-diameter',tag:'MEASURE',name:'Diameter from radius',best:[0,1,2],generate:diameter},
-{id:'circle-radius',tag:'MEASURE',name:'Radius from diameter',best:[0,1,2],generate:radius},
-{id:'circle-semicircle-angle',tag:'SEMICIRCLE',name:'Angle inscribed in a semicircle',best:[0,1,2],generate:chord},
-{id:'circle-intersecting-chords',tag:'CHORDS',name:'Intersecting chord segment products',best:[0,1,2],generate:intersectingChords},
-{id:'circle-two-secants',tag:'SECANTS',name:'Two secants from an exterior point',best:[0,1,2],generate:twoSecants},
-{id:'circle-tangent-secant',tag:'TANSEC',name:'Tangent and secant from an exterior point',best:[0,1,2],generate:tangentSecant},
-{id:'circle-arc-length-exact',tag:'ARC',name:'Arc length in exact pi form',best:[0,1,2],generate:arcLength},
-{id:'circle-sector-area-exact',tag:'SECTOR',name:'Sector area in exact pi form',best:[0,1,2],generate:sectorArea},
-{id:'circle-radius-squared-from-point',tag:'COORD',name:'Radius squared from a center and point',best:[0,1,2],generate:circleRadiusSquared},
-{id:'circle-chord-length-from-distance',tag:'CHORDDIST',name:'Chord length from radius and center distance',best:[0,1,2],generate:chordLengthFromDistance},
-{id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1,2],generate:centerFromExpandedEquation},
-{id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1,2],generate:radiusFromExpandedEquation},
+{id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1],generate:central},
+{id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1],generate:inscribed},
+{id:'circle-intercepted-arc',tag:'INSCRIBED',name:'Intercepted arc from inscribed angle',best:[0,1],generate:intercepted},
+{id:'circle-tangent-radius',tag:'TANGENT',name:'Radius and tangent angle',best:[0,1],generate:tangent},
+{id:'circle-diameter',tag:'MEASURE',name:'Diameter from radius',best:[0,1],generate:diameter},
+{id:'circle-radius',tag:'MEASURE',name:'Radius from diameter',best:[0,1],generate:radius},
+{id:'circle-semicircle-angle',tag:'SEMICIRCLE',name:'Angle inscribed in a semicircle',best:[0,1],generate:chord},
+{id:'circle-intersecting-chords',tag:'CHORDS',name:'Intersecting chord segment products',best:[0,1],generate:intersectingChords},
+{id:'circle-two-secants',tag:'SECANTS',name:'Two secants from an exterior point',best:[0,1],generate:twoSecants},
+{id:'circle-tangent-secant',tag:'TANSEC',name:'Tangent and secant from an exterior point',best:[0,1],generate:tangentSecant},
+{id:'circle-arc-length-exact',tag:'ARC',name:'Arc length in exact pi form',best:[0,1],generate:arcLength},
+{id:'circle-sector-area-exact',tag:'SECTOR',name:'Sector area in exact pi form',best:[0,1],generate:sectorArea},
+{id:'circle-radius-squared-from-point',tag:'COORD',name:'Radius squared from a center and point',best:[0,1],generate:circleRadiusSquared},
+{id:'circle-chord-length-from-distance',tag:'CHORDDIST',name:'Chord length from radius and center distance',best:[0,1],generate:chordLengthFromDistance},
+{id:'circle-center-expanded-equation',tag:'EXPANDED',name:'Center coordinate by completing the square',best:[0,1],generate:centerFromExpandedEquation},
+{id:'circle-radius-expanded-equation',tag:'EXPANDED',name:'Radius from expanded circle equation',best:[0,1],generate:radiusFromExpandedEquation},
+{id:'circles-investigation-angles',tag:'INVEST',name:'Honors: inscribed angle and arc expressions, major arc, tangent-chord angle',best:[2],generate:invAngles},
+{id:'circles-investigation-power',tag:'INVEST',name:'Honors: chords, tangent-secant and secant-secant lengths',best:[2],generate:invPower},
+{id:'circles-investigation-coordinate',tag:'INVEST',name:'Honors: expanded circle equation, center, radius and area',best:[2],generate:invCoord},
+{id:'circles-investigation-sector',tag:'INVEST',name:'Honors: arc length and sector area from an angle expression',best:[2],generate:invSector},
 {id:'circle-open-response-investigation',tag:'INVEST',name:'Four-part circle investigation',best:[2],generate:circleInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

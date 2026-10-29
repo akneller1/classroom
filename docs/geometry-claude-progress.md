@@ -246,3 +246,8 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 - Four Honors four-part chains: mirror line found from a point and its image; dilation about a center that is not the origin (scale factor, image, length, area); rotation + translation worked forwards and backwards; regular-polygon symmetry with angle sums.
 - One-step transformation skills now `best:[0,1]`. Gap note updated (non-origin dilations now generated).
 - Independent test: `menu/tests/geometry-transformations-rigor-tests.cjs` (1680 problems). Cache tag `geo-rigor-1`.
+
+## Circles rigor (update-16)
+- Four Honors four-part chains: inscribed angle/arc expressions with major arc and tangent-chord angle; intersecting chords reused as a tangent with tangent-secant and second secant; expanded circle equation (center, radius via square root, area); arc length and sector area from an angle written as an expression.
+- One-step circle skills now `best:[0,1]`. Verifier: square-root rule extended to `geo-circles-investigation-coordinate-`, digits rule extended to the new variants (`geo-v-13`).
+- Independent test: `menu/tests/geometry-circles-rigor-tests.cjs` (1680 problems). Cache tag `geo-rigor-1`.
