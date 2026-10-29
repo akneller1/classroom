@@ -51,6 +51,75 @@
     steps:[st(same?'The angle measures add to 180 degrees.':'The angle measures are equal.',M(eq)),st('Solve for x.',M('x='+x))],
     space:[1,1.3,1.6]};
  }
+
+/* ---------- Honors investigations (two-sided algebra, chained answers) ----------
+   Variants geo-angles-investigation-<name>-<c> use the shared investigation verifier. */
+function lin(a,b,v){var t=a===1?v:a+v;return b>0?t+'+'+b:b<0?t+'-'+(-b):t;}
+function cn(b){return b<0?'-'+(-b):'+'+b;}
+/* build expressions that evaluate to `val` at `x`, with a coefficient in [lo,hi] and a bounded constant */
+function expr(r,x,val,lo,hi,lim){var a=r.int(lo,hi),b=val-a*x;return {a:a,b:b,ok:Math.abs(b)<=lim,e:lin(a,b,'x')};}
+/* 1: corresponding angles, a linear pair, alternate exterior angles, same-side interior angles */
+function invCorresponding(ctx){
+ var r=ctx.rng,c=ctx.c,tries=0,x,phi,A,B,y,C,z,D,v,ey,ez;
+ do{x=r.int(4,c>=6?24:16);phi=r.int(44,136);A=expr(r,x,phi,2,5,40);B=expr(r,x,phi,1,6,40);
+  y=r.int(3,c>=6?20:14);var cy=r.int(2,5),dy=180-phi-cy*y;z=r.int(3,c>=6?20:14);var ez2=r.int(2,5),fz=phi-ez2*z;
+  C={a:cy,b:dy,e:lin(cy,dy,'y')};D={a:ez2,b:fz,e:lin(ez2,fz,'z')};tries++;
+  if(phi===90||A.a===B.a)A.ok=false;}
+ while((!A.ok||!B.ok||Math.abs(dy)>60||Math.abs(fz)>60)&&tries<8000);
+ var eA=A.e,eB=B.e,eC=C.e,eD=D.e,other=180-phi;
+ var fg=fig({kind:'geo-transversal',names:['ℓ','m'],marks:[{pos:2,text:'('+eA+')°',deg:phi},{pos:6,text:'('+eB+')°',deg:phi},{pos:1,text:'('+eC+')°',deg:other},{pos:7,text:'('+eD+')°',deg:phi},{pos:4,text:'v°',deg:other}]});
+ var phiExpr='('+A.a+'*'+x+cn(A.b)+')';
+ return {variant:'geo-angles-investigation-corresponding-'+c,fig:fg,
+  prompt:'Open Response: Lines ℓ and m are parallel and are cut by a transversal, as shown. Use the angle relationship named in each part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'The angles marked '+M('('+eA+')')+'° and '+M('('+eB+')')+'° are corresponding angles. Find x.',answer:M('x='+x),check:{type:'solve',eq:eA+'='+eB,v:'x'}},
+   {label:'b',prompt:'The angle marked '+M('('+eC+')')+'° forms a linear pair with the angle marked '+M('('+eA+')')+'°. Use your value of x to find y.',answer:M('y='+y),check:{type:'solve',eq:'('+eC+')+'+phiExpr+'=180',v:'y'}},
+   {label:'c',prompt:'The angle marked '+M('('+eD+')')+'° and the angle marked '+M('('+eA+')')+'° are alternate exterior angles. Find z.',answer:M('z='+z),check:{type:'solve',eq:eD+'='+phiExpr,v:'z'}},
+   {label:'d',prompt:'The angle marked v° and the angle marked '+M('('+eB+')')+'° are same-side interior angles. Find v.',answer:M('v='+other),check:{type:'solve',eq:'v=180-('+B.a+'*'+x+cn(B.b)+')',v:'v'}}
+  ],
+  steps:[st('Corresponding angles are congruent, so '+M(eA+'='+eB)+'.',M('x='+x)),st('A linear pair adds to 180, so '+M('('+eC+')+'+phiExpr+'=180')+'.',M('y='+y)),st('Alternate exterior angles are congruent, so '+M(eD+'='+phiExpr)+'.',M('z='+z)),st('Same-side interior angles add to 180, so '+M('v=180-('+B.a+'*'+x+cn(B.b)+')')+'.',M('v='+other))],
+  space:[3,3.6,4.2]};
+}
+/* 2: alternate interior angles, same-side interior angles, vertical angles, a linear pair */
+function invAlternate(ctx){
+ var r=ctx.rng,c=ctx.c,tries=0,x,phi,A,B,y,cy,dy,z,ez,fz,other;
+ do{x=r.int(4,c>=6?24:16);phi=r.int(44,136);A=expr(r,x,phi,2,5,40);B=expr(r,x,phi,1,6,40);other=180-phi;
+  y=r.int(3,c>=6?20:14);cy=r.int(2,5);dy=other-cy*y;z=r.int(3,c>=6?20:14);ez=r.int(2,5);fz=other-ez*z;tries++;
+  if(phi===90||A.a===B.a)A.ok=false;}
+ while((!A.ok||!B.ok||Math.abs(dy)>60||Math.abs(fz)>60)&&tries<8000);
+ var eA=A.e,eB=B.e,eC=lin(cy,dy,'y'),eD=lin(ez,fz,'z');
+ var fg=fig({kind:'geo-transversal',names:['ℓ','m'],marks:[{pos:3,text:'('+eA+')°',deg:phi},{pos:6,text:'('+eB+')°',deg:phi},{pos:5,text:'('+eC+')°',deg:other},{pos:8,text:'('+eD+')°',deg:other},{pos:2,text:'w°',deg:phi}]});
+ var phiExpr='('+A.a+'*'+x+cn(A.b)+')',oth='('+cy+'*'+y+cn(dy)+')';
+ return {variant:'geo-angles-investigation-alternate-'+c,fig:fg,
+  prompt:'Open Response: Lines ℓ and m are parallel and are cut by a transversal, as shown. Use the angle relationship named in each part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'The angles marked '+M('('+eA+')')+'° and '+M('('+eB+')')+'° are alternate interior angles. Find x.',answer:M('x='+x),check:{type:'solve',eq:eA+'='+eB,v:'x'}},
+   {label:'b',prompt:'The angle marked '+M('('+eC+')')+'° and the angle marked '+M('('+eA+')')+'° are same-side interior angles. Use your value of x to find y.',answer:M('y='+y),check:{type:'solve',eq:'('+eC+')+'+phiExpr+'=180',v:'y'}},
+   {label:'c',prompt:'The angle marked '+M('('+eD+')')+'° is vertical to the angle marked '+M('('+eC+')')+'°. Use your value of y to find z.',answer:M('z='+z),check:{type:'solve',eq:eD+'='+oth,v:'z'}},
+   {label:'d',prompt:'The angle marked w° and the angle marked '+M('('+eC+')')+'° form a linear pair. Find w.',answer:M('w='+phi),check:{type:'solve',eq:'w=180-'+oth,v:'w'}}
+  ],
+  steps:[st('Alternate interior angles are congruent, so '+M(eA+'='+eB)+'.',M('x='+x)),st('Same-side interior angles add to 180, so '+M('('+eC+')+'+phiExpr+'=180')+'.',M('y='+y)),st('Vertical angles are congruent, so '+M(eD+'='+oth)+'.',M('z='+z)),st('A linear pair adds to 180, so '+M('w=180-'+oth)+'.',M('w='+phi))],
+  space:[3,3.6,4.2]};
+}
+/* 3: complementary, supplementary and vertical angle relationships with algebra (no transversal) */
+function invRelations(ctx){
+ var r=ctx.rng,c=ctx.c,tries=0,x,a1,b1,a2,b2,ang1,ang2,y,c1,d1,ang3,z,e1,f1;
+ do{x=r.int(4,c>=6?20:14);ang1=r.int(20,70);a1=r.int(2,5);b1=ang1-a1*x;ang2=90-ang1;a2=r.int(1,5);b2=ang2-a2*x;
+  y=r.int(3,c>=6?20:14);ang3=180-ang1;c1=r.int(2,5);d1=ang3-c1*y;z=r.int(3,c>=6?20:14);e1=r.int(2,5);f1=ang3-e1*z;tries++;}
+ while((Math.abs(b1)>50||Math.abs(b2)>50||a1===a2||Math.abs(d1)>60||Math.abs(f1)>60||ang1<15||ang2<15||a1*x+a2*x>200)&&tries<8000);
+ var e1x=lin(a1,b1,'x'),e2x=lin(a2,b2,'x'),e3y=lin(c1,d1,'y'),e4z=lin(e1,f1,'z');
+ var diff=ang3-ang2;
+ return {variant:'geo-angles-investigation-relations-'+c,
+  prompt:'Open Response: Angle 1 and angle 2 are complementary. Angle 1 measures '+M('('+e1x+')')+' degrees and angle 2 measures '+M('('+e2x+')')+' degrees. Angle 3 is supplementary to angle 1 and measures '+M('('+e3y+')')+' degrees. Angle 4 is vertical to angle 3 and measures '+M('('+e4z+')')+' degrees. Name the angle relationship you use in every part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'Angles 1 and 2 are complementary. Find x.',answer:M('x='+x),check:{type:'solve',eq:'('+e1x+')+('+e2x+')=90',v:'x'}},
+   {label:'b',prompt:'Angle 3 is supplementary to angle 1. Use your value of x to find y.',answer:M('y='+y),check:{type:'solve',eq:'('+e3y+')+('+a1+'*'+x+cn(b1)+')=180',v:'y'}},
+   {label:'c',prompt:'Angle 4 is vertical to angle 3. Use your value of y to find z.',answer:M('z='+z),check:{type:'solve',eq:e4z+'=('+c1+'*'+y+cn(d1)+')',v:'z'}},
+   {label:'d',prompt:'Find how many degrees larger angle 3 is than angle 2.',answer:M('w='+diff),check:{type:'solve',eq:'w=('+c1+'*'+y+cn(d1)+')-('+a2+'*'+x+cn(b2)+')',v:'w'}}
+  ],
+  steps:[st('Complementary angles add to 90, so '+M('('+e1x+')+('+e2x+')=90')+'.',M('x='+x)),st('Supplementary angles add to 180, so '+M('('+e3y+')+('+a1+'*'+x+cn(b1)+')=180')+'.',M('y='+y)),st('Vertical angles are congruent, so '+M(e4z+'=('+c1+'*'+y+cn(d1)+')')+'.',M('z='+z)),st('Subtract the measure of angle 2 from the measure of angle 3: '+M('w=('+c1+'*'+y+cn(d1)+')-('+a2+'*'+x+cn(b2)+')')+'.',M('w='+diff))],
+  space:[3,3.6,4.2]};
+}
 function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.map(function(p,i){return {label:'abcd'[i],prompt:p[0],answer:M(p[1]+'='+p[2]),check:{type:'solve',eq:p[3],v:p[1]}};}),steps:rows.map(function(p){return st(p[4],M(p[3]));}),space:[2.6,3.2,3.9]};}
 
  function angleInvestigation(ctx){var r=ctx.rng,c=ctx.c,x=r.int(4,c>=5?24:16),k=r.int(2,c>=5?5:3),b=r.int(1,12),M1=k*x+b,y=180-M1,cc=r.int(2,4),e=r.int(1,12),z,ex='('+k+'x+'+b+')°';
@@ -69,14 +138,17 @@ function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.
  tags:{INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
  reference:'<div class="mm-refgrid"><section><h4>Complementary angles</h4><p>The measures sum to 90°.</p></section><section><h4>Supplementary angles</h4><p>The measures sum to 180°.</p></section></div>',
  gaps:['Parallel-line proofs, naming angle pairs from a diagram, and figures with more than one transversal are not generated.'],skills:[
- {id:'complementary-angles',tag:'COMPLEMENT',name:'Complementary angles',best:[0,1,2],generate:ctx=>angle(ctx,'complement')},
- {id:'supplementary-angles',tag:'SUPPLEMENT',name:'Supplementary angles',best:[0,1,2],generate:ctx=>angle(ctx,'supplement')},
- {id:'vertical-angles',tag:'VERTICAL',name:'Vertical angles',best:[0,1,2],generate:vertical},
- {id:'linear-pairs',tag:'LINEAR',name:'Linear pairs',best:[0,1,2],generate:linearPair},
- {id:'corresponding-angles',tag:'TRANSVERSAL',name:'Corresponding angles',best:[0,1,2],generate:ctx=>transversal(ctx,'corresponding')},
- {id:'alternate-interior',tag:'TRANSVERSAL',name:'Alternate interior angles',best:[0,1,2],generate:ctx=>transversal(ctx,'alternate-interior')},
- {id:'alternate-exterior',tag:'TRANSVERSAL',name:'Alternate exterior angles',best:[0,1,2],generate:ctx=>transversal(ctx,'alternate-exterior')},
- {id:'same-side-interior',tag:'TRANSVERSAL',name:'Same-side interior angles',best:[0,1,2],generate:ctx=>transversal(ctx,'same-side')},
-{id:'angles-open-response-investigation',tag:'INVEST',name:'Four-part parallel lines investigation',best:[2],generate:angleInvestigation}
+ {id:'complementary-angles',tag:'COMPLEMENT',name:'Complementary angles',best:[0,1],generate:ctx=>angle(ctx,'complement')},
+ {id:'supplementary-angles',tag:'SUPPLEMENT',name:'Supplementary angles',best:[0,1],generate:ctx=>angle(ctx,'supplement')},
+ {id:'vertical-angles',tag:'VERTICAL',name:'Vertical angles',best:[0,1],generate:vertical},
+ {id:'linear-pairs',tag:'LINEAR',name:'Linear pairs',best:[0,1],generate:linearPair},
+ {id:'corresponding-angles',tag:'TRANSVERSAL',name:'Corresponding angles',best:[0,1],generate:ctx=>transversal(ctx,'corresponding')},
+ {id:'alternate-interior',tag:'TRANSVERSAL',name:'Alternate interior angles',best:[0,1],generate:ctx=>transversal(ctx,'alternate-interior')},
+ {id:'alternate-exterior',tag:'TRANSVERSAL',name:'Alternate exterior angles',best:[0,1],generate:ctx=>transversal(ctx,'alternate-exterior')},
+ {id:'same-side-interior',tag:'TRANSVERSAL',name:'Same-side interior angles',best:[0,1],generate:ctx=>transversal(ctx,'same-side')},
+{id:'angles-investigation-corresponding',tag:'INVEST',name:'Honors: corresponding, linear pair, alternate exterior and same-side angles',best:[2],generate:invCorresponding},
+ {id:'angles-investigation-alternate',tag:'INVEST',name:'Honors: alternate interior, same-side, vertical angles and a linear pair',best:[2],generate:invAlternate},
+ {id:'angles-investigation-relations',tag:'INVEST',name:'Honors: complementary, supplementary and vertical angles with algebra',best:[2],generate:invRelations},
+ {id:'angles-open-response-investigation',tag:'INVEST',name:'Four-part parallel lines investigation',best:[2],generate:angleInvestigation}
  ]});
 })(typeof window!=='undefined'?window:globalThis);

@@ -64,8 +64,8 @@
         return chk.eq === want[ix];
       }
       var okNum = {}; // Congruence chains print their expressions inside math, so their digits count too
-      ((/^geo-(congruence|triangles|similarity|rtchain)-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
-      [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; }); if (/^geo-triangles-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-/.test(p.variant || '')) { okNum[3] = 1; okNum[4] = 1; okNum[90] = 1; }
+      ((/^geo-(congruence|triangles|similarity|rtchain)-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-|^geo-angles-investigation-(corresponding|alternate|relations)-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
+      [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; }); if (/^geo-triangles-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-|^geo-angles-investigation-(corresponding|alternate|relations)-/.test(p.variant || '')) { okNum[3] = 1; okNum[4] = 1; okNum[90] = 1; }
       for (var pj = 0; pj < ix; pj++) { var am = /=\s*(-?\d+)/.exec(String(pts[pj].answer || '')) || /^\s*⟨?\s*(-?\d+)\s*⟩?\s*$/.exec(String(pts[pj].answer || '')); if (am) okNum[String(Math.abs(Number(am[1])))] = 1; }
       return (chk.eq.match(/\d+/g) || []).every(function (n) { return okNum[String(Number(n))]; });
     }

@@ -235,3 +235,9 @@ The six one-step skills are `best:[0,1]`; the older `coordinate-investigation` s
 
 ## Question-format greying (2026-10-29)
 Teacher request: when a question format (e.g. Choose all that apply) cannot be asked for a skill or section, grey it out instead of adding problems that show "No verified problem". `NS.skillFormatOk` and `NS.formatAvailable` (engine.js) sample the existing capability checks (`multiCapable`, `mcCapable`, `mcasCapable`). In the menu UI (app.js, shared with Algebra): the part's format dropdown disables a format when none of the part's selected skills can do it ("not available here"); the per-problem skill dropdown and the "Add a problem" dropdown disable skills that cannot be asked in the part's format, and "Add a problem" defaults to the first available skill. Congruence has no select-all-capable skills, so that option is greyed there.
+
+## Angles and Parallel Lines rigor (update-14)
+- Three Honors four-part chains (`angles-investigation-corresponding|alternate|relations`): algebraic expressions on a labelled transversal figure (or no figure for complementary/supplementary/vertical), each part reuses earlier answers as numbers.
+- One-step angle skills now `best:[0,1]`; Honors gets the chains. Verifier rules extended for the new variants.
+- Independent test: `menu/tests/geometry-angles-rigor-tests.cjs` (1260 problems re-derived from printed text).
+- Cache tags: angles file `geo-rigor-1`, verify.js `geo-v-12`.
