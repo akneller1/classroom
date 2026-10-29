@@ -54,7 +54,7 @@
     }
     /* Four-part Open Response investigations: each part's equation may use only numbers printed for students,
        a standard constant, or an answer from an earlier part. A changed printed number therefore invalidates the key. */
-    if (/^geo-(angles|circles|polygons|transformations|solids|congruence|triangles|similarity|rtchain|basics)-investigation-/.test(p.variant || '')) {
+    if (/^geo-(angles|circles|polygons|transformations|solids|measure|congruence|triangles|similarity|rtchain|basics)-investigation-/.test(p.variant || '')) {
       var pts = p.parts || [], ix = -1; pts.forEach(function (pt, i) { if (pt.check === chk) ix = i; });
       if (ix < 0 || pts.length < 4) return false;
       if (/^geo-solids-/.test(p.variant)) {   // exact re-derivation from the printed dimensions
@@ -63,8 +63,21 @@
         var L0 = sd[1], W0 = sd[2], H0 = sd[3], want = ['x=' + L0 + '*' + W0, 'y=' + L0 + '*' + W0 + '*' + H0, 'z=2*' + L0 + '*' + W0 + '+2*' + L0 + '*' + H0 + '+2*' + W0 + '*' + H0, sb[1] + '*k=' + (L0 * W0 * H0)];
         return chk.eq === want[ix];
       }
+      if (/^geo-measure-investigation-/.test(p.variant) && ix === 0) {   // part (a) is re-derived from the printed givens
+        var mt = C.plainText(p.prompt || ''), mw, mkind = p.variant.replace(/^geo-measure-investigation-|-\d+$/g, '');
+        if (mkind === 'prism') { mw = /length \(x \+ (\d+)\) cm, width (\d+) cm, height (\d+) cm, and volume (\d+) cubic/.exec(mt); return !!mw && chk.eq === mw[2] + '*' + mw[3] + '*(x+' + mw[1] + ')=' + mw[4]; }
+        if (mkind === 'trapezoid') { mw = /sides \(x \+ (\d+)\) cm and (\d+) cm, a height of (\d+) cm, and an area of (\d+) square/.exec(mt); return !!mw && chk.eq === mw[3] + '*((x+' + mw[1] + ')+' + mw[2] + ')=2*' + mw[4]; }
+        if (mkind === 'cylinder') { mw = /height (\d+) cm and volume (\d+)π/.exec(mt); return !!mw && chk.eq === 'x^2*' + mw[1] + '=' + mw[2]; }
+        if (mkind === 'sphere') {
+          if ((mw = /surface area (\d+)π square/.exec(mt))) return chk.eq === '4*x^2=' + mw[1];
+          if ((mw = /circumference (\d+)π/.exec(mt))) return chk.eq === '2*x=' + mw[1];
+          if ((mw = /great circle with area (\d+)π/.exec(mt))) return chk.eq === 'x^2=' + mw[1];
+          return false;
+        }
+        return false;
+      }
       var okNum = {}; // Congruence chains print their expressions inside math, so their digits count too
-      ((/^geo-(congruence|triangles|similarity|rtchain)-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-|^geo-angles-investigation-(corresponding|alternate|relations)-|^geo-circles-investigation-(angles|power|coordinate|sector)-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
+      ((/^geo-(congruence|triangles|similarity|rtchain)-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-|^geo-angles-investigation-(corresponding|alternate|relations)-|^geo-circles-investigation-(angles|power|coordinate|sector)-|^geo-measure-investigation-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
       [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; }); if (/^geo-triangles-|^geo-polygons-investigation-(parallelogram|rhombus|trapezoid|polygon)-|^geo-basics-investigation-|^geo-angles-investigation-(corresponding|alternate|relations)-/.test(p.variant || '')) { okNum[3] = 1; okNum[4] = 1; okNum[90] = 1; }
       for (var pj = 0; pj < ix; pj++) { var am = /=\s*(-?\d+)/.exec(String(pts[pj].answer || '')) || /^\s*⟨?\s*(-?\d+)\s*⟩?\s*$/.exec(String(pts[pj].answer || '')); if (am) okNum[String(Math.abs(Number(am[1])))] = 1; }
       return (chk.eq.match(/\d+/g) || []).every(function (n) { return okNum[String(Number(n))]; });
@@ -806,7 +819,7 @@
     if (POLY_TYPES.indexOf(t) >= 0) return checkPolyPart(p, part, policy);
     if (QUAD_TYPES.indexOf(t) >= 0) return checkQuadPart(p, part, policy);
     /* Honors right-triangle chains: a one-unknown equation in v^2 (Pythagorean steps). The numbers must still be printed or earlier answers; the positive root is re-derived here. */
-    if (t === 'solve' && /^geo-rtchain-|^geo-polygons-investigation-rhombus-|^geo-basics-investigation-coordinate-|^geo-circles-investigation-coordinate-/.test(p.variant || '') && /^[a-z]$/.test(chk.v || '') && new RegExp('(^|[^0-9a-z])' + chk.v + '\\^2').test(chk.eq || '')) {
+    if (t === 'solve' && /^geo-rtchain-|^geo-polygons-investigation-rhombus-|^geo-basics-investigation-coordinate-|^geo-circles-investigation-coordinate-|^geo-measure-investigation-(cylinder|sphere)-/.test(p.variant || '') && /^[a-z]$/.test(chk.v || '') && new RegExp('(^|[^0-9a-z])' + chk.v + '\\^2').test(chk.eq || '')) {
       if (!geometryDerived(p, chk)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
       var qv = chk.v, sides = String(chk.eq).split('=');
       if (sides.length !== 2 || !/^[0-9a-z+\-*()^\s]+$/.test(chk.eq.replace('=', '')) || (chk.eq.match(new RegExp(qv, 'g')) || []).length !== (chk.eq.match(new RegExp(qv + '\\^2', 'g')) || []).length) return { status: 'invalid', msg: 'Not a square-root equation in ' + qv + '.' };
@@ -2650,7 +2663,7 @@
   function checkSteps(p) {
     var issues = [], first = (p.parts || [])[0];
     if (!first || !first.check) return issues;
-    if (/^geo-rtchain-/.test(p.variant || '') && first.check.v && new RegExp('(^|[^0-9a-z])' + first.check.v + '\\^2').test(first.check.eq || '')) return issues;   // each step's answer is checked against its own part
+    if (/^geo-rtchain-|^geo-measure-investigation-(cylinder|sphere)-/.test(p.variant || '') && first.check.v && new RegExp('(^|[^0-9a-z])' + first.check.v + '\\^2').test(first.check.eq || '')) return issues;   // each step's answer is checked against its own part
     (p.steps || []).forEach(function (st, i) {
       if (!st.m || st.partial) return;
       try {

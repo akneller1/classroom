@@ -251,3 +251,9 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 - Four Honors four-part chains: inscribed angle/arc expressions with major arc and tangent-chord angle; intersecting chords reused as a tangent with tangent-secant and second secant; expanded circle equation (center, radius via square root, area); arc length and sector area from an angle written as an expression.
 - One-step circle skills now `best:[0,1]`. Verifier: square-root rule extended to `geo-circles-investigation-coordinate-`, digits rule extended to the new variants (`geo-v-13`).
 - Independent test: `menu/tests/geometry-circles-rigor-tests.cjs` (1680 problems). Cache tag `geo-rigor-1`.
+
+## Area, Surface Area and Volume rigor (update-17)
+- Four Honors four-part chains (`measure-investigation-prism|cylinder|sphere|trapezoid`, variants `geo-measure-investigation-*`): prism with an algebraic length, surface area and scaling by a factor; cylinder from its volume (square-root step), lateral/total surface area and a cone; sphere from surface area, great-circle circumference or area (three givens), larger sphere, hemisphere, circumscribed cylinder; trapezoid with an algebraic base, triangle, difference and a similar copy.
+- One-step measure skills now `best:[0,1]`. Verifier: part (a) of each chain is re-derived from the printed givens; square-root and step rules extended (`geo-v-14`).
+- Independent test: `menu/tests/geometry-measure-rigor-tests.cjs` (1680 problems). Cache tag `geo-rigor-1`.
+- All ten Geometry units now have Honors rigor chains; the remaining optional items are presets, fixed activities (escape rooms, mysteries) and printables not yet using the chains.

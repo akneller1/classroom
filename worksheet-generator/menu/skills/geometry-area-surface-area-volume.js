@@ -51,29 +51,65 @@ function solidsInvestigation(ctx){var r=ctx.rng,c=ctx.c,l=r.int(3,c>=5?14:9),w=r
  ['Find the total surface area z, in square centimeters.','z',SA,'z=2*'+l+'*'+w+'+2*'+l+'*'+h+'+2*'+w+'*'+h,'Add the areas of all six faces.'],
  ['A second prism has the same volume as the first (from (b)) and a base area of '+B2+' square centimeters. Find its height k.','k',h2,B2+'*k='+V,'Volume equals base area times height, so divide.']]);o5.fig=so('prism',{l:l,w:w,h:h},'cm',['l','w','h']);return o5;}
 
+function pn(n){return n<0?'(0-'+(-n)+')':String(n);}
+/* Honors chain 1: prism with an algebraic length, surface area, then scaling all dimensions. */
+function invPrism(ctx){var r=ctx.rng,c=ctx.c,x=r.int(2,c>=5?12:8),k=r.int(1,6),l=x+k,w=r.int(3,c>=5?12:9),h=r.int(4,c>=5?12:10),V=l*w*h,SA=2*l*w+2*l*h+2*w*h,sc=r.int(2,c>=5?4:3);
+ return four('geo-measure-investigation-prism',c,'Open Response: A rectangular prism has length (x + '+k+') cm, width '+w+' cm, height '+h+' cm, and volume '+V+' cubic centimeters. Each part uses the answer before it.',[
+ ['Volume is length times width times height. Find x.','x',x,w+'*'+h+'*(x+'+k+')='+V,'Volume equals width times height times length.'],
+ ['Use x from part a to find the total surface area y of the prism, in square centimeters.','y',SA,'y=2*('+pn(x)+'+'+k+')*'+w+'+2*('+pn(x)+'+'+k+')*'+h+'+2*'+w+'*'+h,'Add the areas of the three pairs of faces.'],
+ ['Every dimension of the prism is multiplied by '+sc+'. The original volume is '+V+'. Find the new volume z.','z',sc*sc*sc*V,'z='+sc+'*'+sc+'*'+sc+'*'+V,'Volume is multiplied by the cube of the scale factor.'],
+ ['Use the surface area y from part b. After every dimension is multiplied by '+sc+', find the new surface area w.','w',sc*sc*SA,'w='+sc+'*'+sc+'*'+pn(SA),'Surface area is multiplied by the square of the scale factor.']]);}
+/* Honors chain 2: cylinder from its volume, lateral and total surface area, then a cone. */
+function invCylinder(ctx){var r=ctx.rng,c=ctx.c,rad=r.int(3,c>=5?12:9),h=r.int(4,c>=5?16:12),V=rad*rad*h,h2=3*r.int(2,c>=5?8:6),lat=2*rad*h,tot=lat+2*rad*rad,cone=rad*rad*h2/3;
+ return four('geo-measure-investigation-cylinder',c,'Open Response: A cylinder has height '+h+' cm and volume '+V+'π cubic centimeters. Answers that involve π are written as a coefficient of π. Each part uses the answer before it.',[
+ ['Volume is πr²h, so r² times '+h+' equals '+V+'. Find the radius x, in centimeters.','x',rad,'x^2*'+h+'='+V,'Volume is π times radius squared times height; divide out π and take the positive root.'],
+ ['The lateral surface area is 2πrh. Use x from part a. Find y, the coefficient of π.','y',lat,'y=2*'+pn(rad)+'*'+h,'Lateral area is 2πrh.'],
+ ['The total surface area adds two circular bases, 2πr². Use y from part b and r from part a. Find z, the coefficient of π for the total surface area.','z',tot,'z='+pn(lat)+'+2*'+pn(rad)+'*'+pn(rad),'Total area is the lateral area plus two bases.'],
+ ['A cone has the same radius and a height of '+h2+' cm. Its volume is one third of πr²h. Find w, the coefficient of π.','w',cone,'3*w='+pn(rad)+'*'+pn(rad)+'*'+h2,'Cone volume is one third of πr²h.']]);}
+/* Honors chain 3: sphere from its surface area, volume, hemisphere and circumscribed cylinder. */
+function invSphere(ctx){var r=ctx.rng,c=ctx.c,rad=r.int(3,c>=5?15:12),g=r.int(0,2),big=3*rad,Vn=4*big*big*big/3,hemi=3*rad*rad,cyl=rad*rad*2*rad;
+ var given=g===0?'surface area '+4*rad*rad+'π square centimeters':g===1?'a great circle with circumference '+2*rad+'π centimeters':'a great circle with area '+rad*rad+'π square centimeters';
+ var first=g===0?['Use the surface area formula 4πr² with the given surface area. Find the radius x, in centimeters.','4*x^2='+4*rad*rad]:g===1?['The circumference of a great circle is 2πr, so 2 times the radius equals '+2*rad+'. Find the radius x, in centimeters.','2*x='+2*rad]:['The area of a great circle is πr², so the radius squared equals '+rad*rad+'. Find the radius x, in centimeters.','x^2='+rad*rad];
+ return four('geo-measure-investigation-sphere',c,'Open Response: A sphere has '+given+'. Sphere facts: surface area = 4πr² and volume = 4πr³ divided by 3. Answers that involve π are written as a coefficient of π. Each part uses the answer before it.',[
+ [first[0],'x',rad,first[1],g===0?'Set 4r² equal to the coefficient of π and take the positive root.':g===1?'Divide the circumference coefficient by 2.':'Take the positive square root.'],
+ ['A larger sphere has a radius three times the radius x from part a. Find y, the coefficient of π in its volume: 3 times y equals 4 times the cube of its radius.','y',Vn,'3*y=4*(3*'+pn(rad)+')*(3*'+pn(rad)+')*(3*'+pn(rad)+')','Volume is 4πr³ divided by 3, with r equal to three times the radius from part a.'],
+ ['A solid hemisphere of the radius from part a has a curved surface of 2πr² and a flat circular base of πr². Find z, the coefficient of π for its total surface area.','z',hemi,'z=2*'+pn(rad)+'*'+pn(rad)+'+'+pn(rad)+'*'+pn(rad),'Add the curved surface and the flat base.'],
+ ['A cylinder has the radius from part a, and its height equals the sphere’s diameter, which is twice the radius. Find w, the coefficient of π in the cylinder’s volume.','w',cyl,'w='+pn(rad)+'*'+pn(rad)+'*2*'+pn(rad),'Cylinder volume is πr²h with h equal to 2r.']]);}
+/* Honors chain 4: trapezoid with an algebraic base, then a triangle and a scaled copy. */
+function invTrapezoid(ctx){var r=ctx.rng,c=ctx.c,x=r.int(3,c>=5?14:10),k=r.int(1,6),L=x+k,b2=r.int(3,c>=5?16:12),h=2*r.int(2,c>=5?8:5),A=h*(L+b2)/2,sc=r.int(2,c>=5?5:3),T=L*h/2;
+ return four('geo-measure-investigation-trapezoid',c,'Open Response: A trapezoid has parallel sides (x + '+k+') cm and '+b2+' cm, a height of '+h+' cm, and an area of '+A+' square centimeters. Each part uses the answer before it.',[
+ ['Area is half of the height times the sum of the parallel sides, so twice the area equals the height times the sum. Find x.','x',x,h+'*((x+'+k+')+'+b2+')=2*'+A,'Twice the area equals height times the sum of the bases.'],
+ ['A triangle has a base equal to the first parallel side of the trapezoid, (x + '+k+') with x from part a, and the same height '+h+' cm. Find its area y.','y',T,'2*y=('+pn(x)+'+'+k+')*'+h,'Triangle area is half of base times height.'],
+ ['Find z, how many square centimeters the trapezoid’s area '+A+' is more than the triangle area y from part b (it may be negative).','z',A-T,'z='+A+'-'+pn(T),'Subtract the triangle area from the trapezoid area.'],
+ ['A larger triangle is similar to the one in part b, with every length multiplied by '+sc+'. Use y from part b. Find the area w of the larger triangle.','w',sc*sc*T,'w='+sc+'*'+sc+'*'+pn(T),'Area is multiplied by the square of the scale factor.']]);}
+
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
 tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},
 reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section></div>',
 gaps:['Surface area of pyramids and cones, composite figures beyond two stacked prisms, unit conversions, and scale-factor problems for area and volume are not generated.'],
 skills:[
-{id:'measure-rectangle-area',tag:'AREA',name:'Area of a rectangle',best:[0,1,2],generate:rect},
-{id:'measure-triangle-area',tag:'AREA',name:'Area of a triangle',best:[0,1,2],generate:triangle},
-{id:'measure-parallelogram-area',tag:'AREA',name:'Area of a parallelogram',best:[0,1,2],generate:parallelogram},
-{id:'measure-trapezoid-area',tag:'AREA',name:'Area of a trapezoid',best:[0,1,2],generate:trapezoid},
-{id:'measure-prism-volume',tag:'VOLUME',name:'Volume of a rectangular prism',best:[0,1,2],generate:prismVolume},
-{id:'measure-prism-surface',tag:'SURFACE',name:'Surface area of a rectangular prism',best:[0,1,2],generate:prismSurface},
-{id:'measure-cylinder-volume',tag:'CIRCULAR',name:'Cylinder volume (coefficient of π)',best:[0,1,2],generate:cylinderVolume},
-{id:'measure-cylinder-surface',tag:'CIRCULAR',name:'Cylinder surface area (coefficient of π)',best:[0,1,2],generate:cylinderSurface},
-{id:'measure-pyramid-volume',tag:'VOLUME',name:'Volume of a rectangular pyramid',best:[0,1,2],generate:pyramid},
-{id:'measure-cone-volume',tag:'CIRCULAR',name:'Cone volume (coefficient of π)',best:[0,1,2],generate:coneVolume},
-{id:'measure-sphere-volume',tag:'CIRCULAR',name:'Sphere volume (coefficient of π)',best:[0,1,2],generate:sphereVolume},
-{id:'measure-sphere-surface',tag:'CIRCULAR',name:'Sphere surface area (coefficient of π)',best:[0,1,2],generate:sphereSurface},
-{id:'measure-net-surface',tag:'SURFACE',name:'Surface area from a net',best:[0,1,2],generate:netSurface},
-{id:'measure-composite-volume',tag:'VOLUME',name:'Volume of two stacked prisms',best:[0,1,2],generate:stackVolume},
-{id:'measure-rotate-solid',tag:'VOLUME',name:'Volume of a solid of revolution (coefficient of π)',best:[0,1,2],generate:rotateSolid},
-{id:'measure-cross-section',tag:'VOLUME',name:'Area of a cross-section of a solid',best:[0,1,2],generate:crossSection},
-{id:'measure-prism-height',tag:'VOLUME',name:'Missing height of a prism from its volume',best:[0,1,2],generate:prismHeight},
-{id:'measure-cylinder-height',tag:'CIRCULAR',name:'Missing height of a cylinder from its volume',best:[0,1,2],generate:cylinderHeight},
+{id:'measure-rectangle-area',tag:'AREA',name:'Area of a rectangle',best:[0,1],generate:rect},
+{id:'measure-triangle-area',tag:'AREA',name:'Area of a triangle',best:[0,1],generate:triangle},
+{id:'measure-parallelogram-area',tag:'AREA',name:'Area of a parallelogram',best:[0,1],generate:parallelogram},
+{id:'measure-trapezoid-area',tag:'AREA',name:'Area of a trapezoid',best:[0,1],generate:trapezoid},
+{id:'measure-prism-volume',tag:'VOLUME',name:'Volume of a rectangular prism',best:[0,1],generate:prismVolume},
+{id:'measure-prism-surface',tag:'SURFACE',name:'Surface area of a rectangular prism',best:[0,1],generate:prismSurface},
+{id:'measure-cylinder-volume',tag:'CIRCULAR',name:'Cylinder volume (coefficient of π)',best:[0,1],generate:cylinderVolume},
+{id:'measure-cylinder-surface',tag:'CIRCULAR',name:'Cylinder surface area (coefficient of π)',best:[0,1],generate:cylinderSurface},
+{id:'measure-pyramid-volume',tag:'VOLUME',name:'Volume of a rectangular pyramid',best:[0,1],generate:pyramid},
+{id:'measure-cone-volume',tag:'CIRCULAR',name:'Cone volume (coefficient of π)',best:[0,1],generate:coneVolume},
+{id:'measure-sphere-volume',tag:'CIRCULAR',name:'Sphere volume (coefficient of π)',best:[0,1],generate:sphereVolume},
+{id:'measure-sphere-surface',tag:'CIRCULAR',name:'Sphere surface area (coefficient of π)',best:[0,1],generate:sphereSurface},
+{id:'measure-net-surface',tag:'SURFACE',name:'Surface area from a net',best:[0,1],generate:netSurface},
+{id:'measure-composite-volume',tag:'VOLUME',name:'Volume of two stacked prisms',best:[0,1],generate:stackVolume},
+{id:'measure-rotate-solid',tag:'VOLUME',name:'Volume of a solid of revolution (coefficient of π)',best:[0,1],generate:rotateSolid},
+{id:'measure-cross-section',tag:'VOLUME',name:'Area of a cross-section of a solid',best:[0,1],generate:crossSection},
+{id:'measure-prism-height',tag:'VOLUME',name:'Missing height of a prism from its volume',best:[0,1],generate:prismHeight},
+{id:'measure-cylinder-height',tag:'CIRCULAR',name:'Missing height of a cylinder from its volume',best:[0,1],generate:cylinderHeight},
+{id:'measure-investigation-prism',tag:'INVEST',name:'Honors: prism with an algebraic length, surface area and scaling',best:[2],generate:invPrism},
+{id:'measure-investigation-cylinder',tag:'INVEST',name:'Honors: cylinder from its volume, surface area and a cone',best:[2],generate:invCylinder},
+{id:'measure-investigation-sphere',tag:'INVEST',name:'Honors: sphere from its surface area, hemisphere and cylinder',best:[2],generate:invSphere},
+{id:'measure-investigation-trapezoid',tag:'INVEST',name:'Honors: trapezoid with an algebraic base, triangle and scaling',best:[2],generate:invTrapezoid},
 {id:'solids-open-response-investigation',tag:'INVEST',name:'Four-part prism investigation',best:[2],generate:solidsInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);
