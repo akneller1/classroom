@@ -72,6 +72,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
   .court,.panel{padding:14px}
 }
 </style>
+<script src="../../worksheet-generator/games/skill-setup.js?v=student-skills-2"></script>
 </head>
 <body>
 <main>
@@ -165,6 +166,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-o
 
 <script>
 'use strict';
+let progressKey='parabola-basketball-v2';
 const levels = [
   {
     name: 'Level 1: Find k',
@@ -241,14 +243,14 @@ const calc = (x, a, h, k) => a * (x - h) * (x - h) + k;
 let level = 0, completed = [], shooting = false, ballX = null, raf = null, run = 0;
 
 try {
-  const data = JSON.parse(localStorage.getItem('parabola-basketball-v2') || '{}');
+  const data = JSON.parse(localStorage.getItem(progressKey) || '{}');
   if (Array.isArray(data.completed)) {
     completed = data.completed.filter(x => Number.isInteger(x) && x >= 0 && x < levels.length);
   }
 } catch {}
 
 function persist() {
-  try { localStorage.setItem('parabola-basketball-v2', JSON.stringify({ completed })); } catch {}
+  try { localStorage.setItem(progressKey, JSON.stringify({ completed })); } catch {}
 }
 function v(id) { return Number($(id).value); }
 function setV(key, value) {
@@ -606,7 +608,11 @@ $('hint').onclick = () => setStatus(levels[level].tip);
 $('next').onclick = () => {
   if (completed.includes(level) && level + 1 < levels.length) load(level + 1);
 };
+TeacherSkills.activityBank(levels, L=>L.challenge, selected=>{
+if(selected.length!==levels.length){completed=[];progressKey+='|skills|'+JSON.stringify(selected.map(L=>levels.indexOf(L)));}
+levels.splice(0,levels.length,...selected);
 load(0);
+});
 </script>
 </body>
 </html>
