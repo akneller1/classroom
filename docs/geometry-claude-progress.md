@@ -188,3 +188,11 @@ Next: the same rigor upgrade for the other nine Geometry units.
 - The one-step skills (corresponding sides/angles, third angle, perimeters, SSS/SAS/ASA/AAS/HL) are now `best:[0,1]` (CP2/CP1 tiers). The top tier draws identify, structured proofs and the six investigations.
 - Rigor test now re-solves 3,150 problems. It found an infinite loop in the HL generator (a leg length that could not fit under a small hypotenuse); fixed.
 - Not changed: fixed activities (escape rooms, mysteries) and printables (small boxes skip multi-part items).
+
+## Rigor upgrade — Triangle Relationships (2026-10-28)
+Four new Honors-only four-part investigations in `skills/geometry-triangle-relationships.js` (variants `geo-triangles-investigation-*`, shared investigation verifier extended with `triangles`; 3 and 90 are accepted constants there):
+- `triangle-investigation-midsegment` — midsegment theorem with algebra (BC = 2 DE), midpoint of AB, perimeter of ABC, perimeter of the half-size triangle ADE.
+- `triangle-investigation-exterior` — exterior angle theorem in an isosceles triangle (angles drawn to the printed values), angle B, linear pair, then a second isosceles perimeter equation.
+- `triangle-investigation-coordinate` — midpoint formula, median length, centroid (one third up from M) on the coordinate plane.
+- `triangle-investigation-bisector` — perpendicular bisector theorem with algebra, midpoint, perimeter of triangle PAB.
+The nine one-step skills are now `best:[0,1]`. Test: `menu/tests/geometry-triangle-rigor-tests.cjs` re-solves 2,100 problems from printed text at all seven difficulties. It also caught an exterior-angle generator that silently fell back to a bad value at low difficulty (constant-term range too tight; widened).

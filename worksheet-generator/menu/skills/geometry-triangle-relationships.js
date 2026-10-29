@@ -137,22 +137,115 @@ function honorsChain(ctx) {
    step('The third side is strictly less than the sum of the two known sides.',M(e4))
   ],space:[3,3.6,4.2]};
 }
+
+/* ---------- Honors investigations (algebra + several theorems per problem) ----------
+   Four-part chains: later parts reuse earlier answers. Variants geo-triangles-investigation-* use the shared investigation verifier. */
+function lin(a,b,v){var t=a===1?v:a+v;return b>0?t+'+'+b:b<0?t+'-'+(-b):t;}
+function tri2(a1,b1,a2,b2){var x;for(x=1;x<60;x++){if(a1*x+b1===a2*x+b2)return x;}return null;}
+/* 1: midsegment algebra, perimeter, and the half-size triangle */
+function invMidsegment(ctx){
+ var r=ctx.rng,c=ctx.c,x,a1,b1,a2,b2,de,bc,y,p,q,rr,s,ad,ac,tries=0;
+ do{x=r.int(3,c>=6?15:11);a1=r.int(1,4);b1=r.int(-3,9);de=a1*x+b1;a2=r.int(1,5);bc=2*de;b2=bc-a2*x;
+  y=r.int(3,c>=6?14:10);p=r.int(1,4);rr=p+r.int(1,3);ad=p*y+r.int(2,9);q=ad-p*y;s=ad-rr*y;ac=2*r.int(6,14);tries++;}
+ while((de<4||a2===2*a1||Math.abs(b2)>40||ad<4||tries<1||2*ad+bc<=ac||ac+bc<=2*ad||2*ad+ac<=bc)&&tries<3000);
+ var per=2*ad+bc+ac,half=per/2;
+ var eDE=lin(a1,b1,'x'),eBC=lin(a2,b2,'x'),eAD=lin(p,q,'y'),eDB=lin(rr,s,'y');
+ var P={A:[0,2],B:[-2,0],C:[2.4,0]};P.D=[(P.A[0]+P.B[0])/2,(P.A[1]+P.B[1])/2];P.E=[(P.A[0]+P.C[0])/2,(P.A[1]+P.C[1])/2];
+ var fig={kind:'geo-cong',pts:P,segs:[['A','B'],['A','C'],['B','C'],['D','E']],tris:null,sides:[{s:[['A','D'],['D','B']],n:1},{s:[['A','E'],['E','C']],n:2}],angles:[],right:[],lab:{DE:eDE,BC:eBC,AD:eAD,DB:eDB},note:'Not drawn to scale.'};
+ var eP='w=2*('+p+'*'+y+'+'+q+')+('+a2+'*'+x+(b2<0?'-'+(-b2):'+'+b2)+')+'+ac;
+ return {variant:'geo-triangles-investigation-midsegment-'+c,fig:fig,
+  prompt:'Open Response: In triangle ABC, D and E are the midpoints of AB and AC, so DE is a midsegment. DE = '+M(eDE)+' and BC = '+M(eBC)+'. AD = '+M(eAD)+' and DB = '+M(eDB)+'. AC = '+ac+'. Name the theorem or relationship you use in every part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'Use the midsegment theorem to find x.',answer:M('x='+x),check:{type:'solve',eq:eBC+'=2*('+eDE+')',v:'x'}},
+   {label:'b',prompt:'D is the midpoint of AB. Find y.',answer:M('y='+y),check:{type:'solve',eq:eAD+'='+eDB,v:'y'}},
+   {label:'c',prompt:'Find the perimeter of triangle ABC, using your values of x and y.',answer:M('w='+per),check:{type:'solve',eq:eP,v:'w'}},
+   {label:'d',prompt:'Triangle ADE has sides half as long as the matching sides of triangle ABC. Find its perimeter.',answer:M('v='+half),check:{type:'solve',eq:'2*v='+per,v:'v'}}
+  ],
+  steps:[step('The midsegment is half the third side, so '+M(eBC+'=2*('+eDE+')')+'.',M('x='+x)),step('A midpoint splits a side into equal parts, so '+M(eAD+'='+eDB)+'.',M('y='+y)),step('AB = 2 AD. Add the three sides: '+M(eP)+'.',M('w='+per)),step('The similar half-size triangle has half the perimeter, so '+M('2*v='+per)+'.',M('v='+half))],
+  space:[3,3.6,4.2]};
+}
+/* 2: isosceles triangle with an exterior angle, then a second isosceles perimeter */
+function invExterior(ctx){
+ var r=ctx.rng,c=ctx.c,x,a,b,cc,d,B,n,ext,tries=0,y,e,f,g,h,per,leg,base;
+ do{x=r.int(4,c>=6?18:13);cc=r.int(1,3);d=r.int(5,30);B=cc*x+d;n=180-2*B;a=r.int(1,5);ext=180-B;b=ext-a*x;tries++;}
+ while((B<40||B>75||a===cc||Math.abs(b)>110)&&tries<3000);
+ tries=0;
+ do{y=r.int(3,c>=6?14:10);e=r.int(2,5);f=r.int(-3,8);g=r.int(1,4);leg=e*y+f;base=g*y+(h=r.int(1,9));per=2*leg+base;tries++;}while((leg<4||base<2||base>=2*leg||tries<1)&&tries<3000);
+ var tn=Math.tan(B*Math.PI/180),P={B:[-1,0],C:[1,0],A:[0,tn],D:[2.4,0]};
+ var eExt=lin(a,b,'x'),eB=lin(cc,d,'x'),eL=lin(e,f,'y'),eBase=lin(g,h,'y');
+ var fig={kind:'geo-cong',pts:P,segs:[['A','B'],['A','C'],['B','C'],['C','D']],tris:null,sides:[{s:[['A','B'],['A','C']],n:1}],angles:[],right:[],
+  angLab:[{p:'A',v:'C',q:'D',text:'('+eExt+')°'},{p:'C',v:'B',q:'A',text:'('+eB+')°'},{p:'B',v:'A',q:'C',text:n+'°'}],note:'Not drawn to scale.'};
+ return {variant:'geo-triangles-investigation-exterior-'+c,fig:fig,
+  prompt:'Open Response: In triangle ABC, AB = AC and side BC is extended to point D. The exterior angle ACD measures '+M('('+eExt+')')+' degrees, angle B measures '+M('('+eB+')')+' degrees, and angle A measures '+n+' degrees. Name the theorem you use in every part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'Use the exterior angle theorem to find x.',answer:M('x='+x),check:{type:'solve',eq:eExt+'='+n+'+('+eB+')',v:'x'}},
+   {label:'b',prompt:'Find the measure of angle B.',answer:M('w='+B),check:{type:'solve',eq:'w='+cc+'*'+x+'+'+d,v:'w'}},
+   {label:'c',prompt:'Angle ACB and angle ACD form a linear pair. Find the measure of angle ACB, and explain why it equals angle B.',answer:M('v='+B),check:{type:'solve',eq:'v=180-('+a+'*'+x+(b<0?'-'+(-b):'+'+b)+')',v:'v'}},
+   {label:'d',prompt:'A different isosceles triangle PQR has PQ = PR = '+M(eL)+' cm and QR = '+M(eBase)+' cm. Its perimeter is '+per+' cm. Find y.',answer:M('y='+y),check:{type:'solve',eq:'2*('+eL+')+('+eBase+')='+per,v:'y'}}
+  ],
+  steps:[step('Exterior angle = sum of the remote interior angles, so '+M(eExt+'='+n+'+('+eB+')')+'.',M('x='+x)),step('Substitute x into angle B.',M('w='+B)),step('Angles ACB and ACD add to 180, so '+M('v=180-('+a+'*'+x+(b<0?'-'+(-b):'+'+b)+')')+'. AB = AC, so the base angles match.',M('v='+B)),step('The perimeter is the two equal legs plus the base: '+M('2*('+eL+')+('+eBase+')='+per)+'.',M('y='+y))],
+  space:[3,3.6,4.2]};
+}
+/* 3: coordinates: midpoint, median length, centroid */
+function invCoordinate(ctx){
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=6?7:5),mx=r.int(-4,3),by=r.int(-6,0),L=3*r.int(1,c>=6?3:2),ay=by+L;
+ if(ay>8){by-=ay-8;ay=8;}
+ var A=[mx,ay],B=[mx-k,by],Cp=[mx+k,by],gy=by+L/3;
+ var Pt=function(q){return '('+q[0]+', '+q[1]+')';};
+ var fig={kind:'geo-grid',shapes:[{id:'tri',pts:[A,B,Cp],labels:['A','B','C']}],lines:[],alt:'Coordinate plane with triangle ABC'};
+ return {variant:'geo-triangles-investigation-coordinate-'+c,fig:fig,
+  prompt:'Open Response: Triangle ABC has vertices A'+Pt(A)+', B'+Pt(B)+', and C'+Pt(Cp)+'. M is the midpoint of BC and G is the centroid. Show the formula or theorem you use in every part.',
+  parts:[
+   {label:'a',prompt:'Use the midpoint formula to find the x-coordinate of M.',answer:M('p='+mx),check:{type:'solve',eq:'2*p='+(B[0]<0?'('+B[0]+')':B[0])+'+'+Cp[0],v:'p'}},
+   {label:'b',prompt:'Find the y-coordinate of M.',answer:M('q='+by),check:{type:'solve',eq:'2*q='+(by<0?'('+by+')':by)+'+'+(by<0?'('+by+')':by),v:'q'}},
+   {label:'c',prompt:'Segment AM is a median. Use the coordinates to find its length.',answer:M('t='+L),check:{type:'solve',eq:'t='+ay+'-'+(by<0?'('+by+')':by),v:'t'}},
+   {label:'d',prompt:'The centroid G is two-thirds of the way from A to M, so GM is one-third of AM. Find the y-coordinate of G.',answer:M('g='+gy),check:{type:'solve',eq:'3*g=3*'+(by<0?'('+by+')':by)+'+'+L,v:'g'}}
+  ],
+  steps:[step('The midpoint x-coordinate is the average: '+M('2*p='+(B[0]<0?'('+B[0]+')':B[0])+'+'+Cp[0])+'.',M('p='+mx)),step('B and C have the same y-coordinate, so '+M('2*q='+(by<0?'('+by+')':by)+'+'+(by<0?'('+by+')':by))+'.',M('q='+by)),step('AM is vertical, so its length is the difference of the y-coordinates: '+M('t='+ay+'-'+(by<0?'('+by+')':by))+'.',M('t='+L)),step('G is one third of the way up from M: '+M('3*g=3*'+(by<0?'('+by+')':by)+'+'+L)+'.',M('g='+gy))],
+  space:[3,3.6,4.2]};
+}
+/* 4: perpendicular bisector with algebra, then the perimeter of triangle PAB */
+function invBisector(ctx){
+ var r=ctx.rng,c=ctx.c,x,a1,b1,a2,b2,pa,y,p,q,rr,s,am,tries=0;
+ do{x=r.int(3,c>=6?14:10);a1=r.int(2,5);b1=r.int(-4,9);pa=a1*x+b1;a2=r.int(1,a1+2);b2=pa-a2*x;
+  y=r.int(3,c>=6?13:9);p=r.int(1,4);rr=p+r.int(1,3);am=p*y+r.int(1,8);q=am-p*y;s=am-rr*y;tries++;}
+ while((a1===a2||pa<=am+1||am<3||Math.abs(b2)>40)&&tries<3000);
+ var per=2*pa+2*am;
+ var ePA=lin(a1,b1,'x'),ePB=lin(a2,b2,'x'),eAM=lin(p,q,'y'),eMB=lin(rr,s,'y');
+ var P={A:[-1.1,0],B:[1.1,0],M:[0,0],P:[0,1.3]};
+ var fig={kind:'geo-cong',pts:P,segs:[['A','B'],['P','A'],['P','B'],['P','M']],tris:null,sides:[{s:[['P','A'],['P','B']],n:1},{s:[['A','M'],['M','B']],n:2}],angles:[],right:[['P','M','B']],lab:{PA:ePA,PB:ePB,AM:eAM,MB:eMB},note:'Not drawn to scale.'};
+ var eP='w=2*('+a1+'*'+x+(b1<0?'-'+(-b1):'+'+b1)+')+2*('+p+'*'+y+'+'+q+')';
+ return {variant:'geo-triangles-investigation-bisector-'+c,fig:fig,
+  prompt:'Open Response: Line PM is the perpendicular bisector of segment AB, with M the midpoint of AB and P on the bisector. PA = '+M(ePA)+' and PB = '+M(ePB)+'. AM = '+M(eAM)+' and MB = '+M(eMB)+'. Name the theorem you use in every part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'Use the perpendicular bisector theorem to find x.',answer:M('x='+x),check:{type:'solve',eq:ePA+'='+ePB,v:'x'}},
+   {label:'b',prompt:'Find the length PA.',answer:M('v='+pa),check:{type:'solve',eq:'v='+a1+'*'+x+(b1<0?'-'+(-b1):'+'+b1),v:'v'}},
+   {label:'c',prompt:'M is the midpoint of AB. Find y.',answer:M('y='+y),check:{type:'solve',eq:eAM+'='+eMB,v:'y'}},
+   {label:'d',prompt:'Find the perimeter of triangle PAB, using your values of x and y.',answer:M('w='+per),check:{type:'solve',eq:eP,v:'w'}}
+  ],
+  steps:[step('Any point on the perpendicular bisector is equidistant from the endpoints, so '+M(ePA+'='+ePB)+'.',M('x='+x)),step('Substitute x into PA.',M('v='+pa)),step('A midpoint splits AB into equal parts, so '+M(eAM+'='+eMB)+'.',M('y='+y)),step('PA = PB and AB = 2 AM, so '+M(eP)+'.',M('w='+per))],
+  space:[3,3.6,4.2]};
+}
 NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',courseName:'Geometry',
  unit:'triangle-relationships',unitName:'Triangle Relationships',title:'Triangle Angle Relationships',
  tags:{SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation',HONORS:'Connected Honors triangle investigation'},
  reference:'<div class="mm-refgrid"><section><h4>Interior angle sum</h4><p>Every triangle has an angle sum of 180°.</p></section><section><h4>Exterior angle theorem</h4><p>An exterior angle equals the sum of the two remote interior angles.</p></section></div>',
  gaps:['Incenter, circumcenter and orthocenter problems, and proofs about triangle relationships, are not generated.'],
  skills:[
-  {id:'triangle-interior-sum',tag:'SUM',name:'Find a missing interior angle',best:[0,1,2],generate:ctx=>make(ctx,'sum')},
-  {id:'triangle-exterior-angle',tag:'EXTERIOR',name:'Exterior angle theorem',best:[0,1,2],generate:ctx=>make(ctx,'exterior')},
-  {id:'triangle-isosceles-angles',tag:'ISOSCELES',name:'Isosceles triangle base angles',best:[0,1,2],generate:ctx=>make(ctx,'isosceles')},
-  {id:'triangle-inequality-max-integer',tag:'INEQUALITY',name:'Triangle inequality: greatest possible integer side',best:[0,1,2],generate:triangleInequality},
-  {id:'triangle-midsegment-length',tag:'MIDSEGMENT',name:'Triangle midsegment theorem',best:[0,1,2],generate:midsegment},
-  {id:'triangle-centroid-median',tag:'CENTROID',name:'Centroid and median 2:1 ratio',best:[0,1,2],generate:centroid},
-  {id:'triangle-side-angle-order',tag:'ORDER',name:'Longest side opposite largest angle',best:[0,1,2],generate:sideAngleOrder},
-  {id:'triangle-perpendicular-bisector',tag:'BISECTOR',name:'Perpendicular bisector equidistance',best:[0,1,2],generate:perpendicularBisector},
-  {id:'triangle-altitude-area',tag:'ALTITUDE',name:'Triangle altitude from area',best:[0,1,2],generate:altitudeArea},
+  {id:'triangle-interior-sum',tag:'SUM',name:'Find a missing interior angle',best:[0,1],generate:ctx=>make(ctx,'sum')},
+  {id:'triangle-exterior-angle',tag:'EXTERIOR',name:'Exterior angle theorem',best:[0,1],generate:ctx=>make(ctx,'exterior')},
+  {id:'triangle-isosceles-angles',tag:'ISOSCELES',name:'Isosceles triangle base angles',best:[0,1],generate:ctx=>make(ctx,'isosceles')},
+  {id:'triangle-inequality-max-integer',tag:'INEQUALITY',name:'Triangle inequality: greatest possible integer side',best:[0,1],generate:triangleInequality},
+  {id:'triangle-midsegment-length',tag:'MIDSEGMENT',name:'Triangle midsegment theorem',best:[0,1],generate:midsegment},
+  {id:'triangle-centroid-median',tag:'CENTROID',name:'Centroid and median 2:1 ratio',best:[0,1],generate:centroid},
+  {id:'triangle-side-angle-order',tag:'ORDER',name:'Longest side opposite largest angle',best:[0,1],generate:sideAngleOrder},
+  {id:'triangle-perpendicular-bisector',tag:'BISECTOR',name:'Perpendicular bisector equidistance',best:[0,1],generate:perpendicularBisector},
+  {id:'triangle-altitude-area',tag:'ALTITUDE',name:'Triangle altitude from area',best:[0,1],generate:altitudeArea},
   {id:'triangle-open-response-investigation',tag:'INVESTIGATION',name:'Four-part triangle relationships investigation',best:[2],generate:triangleInvestigation},
+  {id:'triangle-investigation-midsegment',tag:'HONORS',name:'Honors: midsegment algebra and perimeter',best:[2],generate:invMidsegment},
+  {id:'triangle-investigation-exterior',tag:'HONORS',name:'Honors: exterior angle in an isosceles triangle',best:[2],generate:invExterior},
+  {id:'triangle-investigation-coordinate',tag:'HONORS',name:'Honors: midpoint, median and centroid on the coordinate plane',best:[2],generate:invCoordinate},
+  {id:'triangle-investigation-bisector',tag:'HONORS',name:'Honors: perpendicular bisector algebra and perimeter',best:[2],generate:invBisector},
   {id:'triangle-honors-connected-investigation',tag:'HONORS',name:'Honors: connected midsegment, centroid and inequality investigation',best:[2],generate:honorsChain}
  ]});
 })(typeof window!=='undefined'?window:globalThis);
