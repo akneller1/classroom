@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script src="../../worksheet-generator/games/skill-setup.js?v=student-skills-2"></script>
+</head><body>
 <title>Zombie Fence</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,6 +141,7 @@ summary { cursor: pointer; font-weight: 700; }
 // ===== Levels + pure logic =====
 const N = 10;
 // each level: fences = number of inequalities; sol = intended solution (for verification only)
+let progressKey='zf-stars';
 const LEVELS = [
   { name: "First Night", fences: 1, tip: "Is the safe side above or below the fence?",
     sol: [[">", 0, 1, 2, 1]],
@@ -194,7 +196,7 @@ const OPS = [["<", "<"], ["<=", "≤"], [">", ">"], [">=", "≥"]];
 const SYM = Object.fromEntries(OPS);
 const FENCE_VARS = ["--fenceA", "--fenceB"];
 let stars = [];
-try { stars = JSON.parse(localStorage.getItem("zf-stars") || "[]"); } catch (e) {}
+try { stars = JSON.parse(localStorage.getItem(progressKey) || "[]"); } catch (e) {}
 const S = { lv: 0, tries: 0, built: null, result: null, won: false, t0: 0 };
 
 // ---------- formatting ----------
@@ -283,7 +285,7 @@ function build() {
     S.won = true;
     const st = S.tries === 1 ? 3 : S.tries === 2 ? 2 : 1;
     stars[S.lv] = Math.max(stars[S.lv] || 0, st);
-    try { localStorage.setItem("zf-stars", JSON.stringify(stars)); } catch (e) {}
+    try { localStorage.setItem(progressKey, JSON.stringify(stars)); } catch (e) {}
     say(`<span class="stars">${"★".repeat(st)}${"☆".repeat(3 - st)}</span><br><b>The fence holds!</b> Everyone made it to sunrise with ${qs.map(ineqHTML).join(" and ")}.`, "good");
     $("nextBtn").hidden = false; $("buildBtn").disabled = true;
     $("nextBtn").textContent = S.lv === LEVELS.length - 1 ? "Back to Night 1 ↺" : "Next night ▶";
@@ -426,7 +428,11 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => draw
 new MutationObserver(() => draw()).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 if (document.fonts) document.fonts.ready.then(() => draw());
 if (!reduce) (function idle() { if (!document.hidden) draw(); setTimeout(() => requestAnimationFrame(idle), 80); })();
+TeacherSkills.activityBank(LEVELS, L=>L.tip, selected=>{
+if(selected.length!==LEVELS.length){stars=[];progressKey+='|skills|'+JSON.stringify(selected.map(L=>LEVELS.indexOf(L)));}
+LEVELS.splice(0,LEVELS.length,...selected);
 load(0);
+});
 </script>
 
 </body></html>

@@ -22,7 +22,7 @@ for g, name in GAMES:
 <title>{title}</title>
 <link rel="stylesheet" href="{W}vendor/katex/katex.min.css">
 <link rel="stylesheet" href="{W}games/games.css?v={V}">
-<script src="{W}games/skill-setup.js"></script>
+<script src="{W}games/skill-setup.js?v=student-skills-2"></script>
 </head>
 <body data-unit="{set_id}" data-game="{g}" data-title="{title}"{(' data-skills="' + skills + '"') if skills else ''}>
 <main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading…</div></main>

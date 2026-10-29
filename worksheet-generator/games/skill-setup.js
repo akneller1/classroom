@@ -7,6 +7,21 @@
     return el.textContent.replace(/\s+/g, ' ').trim();
   }
   function choose(skills, start, note) {
+    var params = new URLSearchParams(G.location.search);
+    if (params.get('student') === '1') {
+      var requested;
+      try { requested = params.has('skills') ? JSON.parse(params.get('skills')) : skills.map(function (s) { return s.id; }); }
+      catch (e) { requested = []; }
+      var selected = Array.isArray(requested) ? skills.filter(function (s) { return requested.indexOf(s.id) >= 0; }).map(function (s) { return s.id; }) : [];
+      if (!selected.length) {
+        var error = G.document.createElement('p'); error.setAttribute('role', 'alert');
+        error.textContent = 'These assigned skills are unavailable. Ask your teacher for a new student link.';
+        G.document.body.replaceChildren(error); return;
+      }
+      start(selected); return;
+    }
+    var sharing = params.get('teacherShare') === '1';
+    if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-ready', skills: skills }, G.location.origin);
     var doc = G.document, dialog = doc.createElement('dialog');
     dialog.className = 'teacher-skills';
     dialog.style.cssText = 'box-sizing:border-box;width:min(640px,94vw);max-height:88vh;overflow:auto;border:2px solid #3456d1;border-radius:16px;padding:24px;background:#fff;color:#17233b;font:16px/1.5 system-ui;';
@@ -34,10 +49,12 @@
       b.style.cssText = 'padding:9px 16px;margin:4px;border:1px solid #3456d1;border-radius:8px;background:#f2f5ff;color:#17233b;font:inherit;cursor:pointer;';
       b.onclick = fn; parent.appendChild(b); return b;
     }
-    var go = button('Continue', dialog, function () {
+    var go = button(sharing ? 'Generate student link' : 'Continue', dialog, function () {
       var ids = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
       if (!ids.length) return;
-      dialog.close(); dialog.remove(); start(ids);
+      dialog.close(); dialog.remove();
+      if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-selected', skills: ids }, G.location.origin);
+      else start(ids);
     });
     function update() {
       var n = inputs.filter(function (i) { return i.checked; }).length;
@@ -47,7 +64,10 @@
     button('Select All', actions, function () { inputs.forEach(function (i) { i.checked = true; }); update(); });
     button('Clear All', actions, function () { inputs.forEach(function (i) { i.checked = false; }); update(); });
     inputs.forEach(function (i) { i.onchange = update; });
-    dialog.addEventListener('cancel', function (e) { e.preventDefault(); });
+    dialog.addEventListener('cancel', function (e) {
+      e.preventDefault();
+      if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-cancel' }, G.location.origin);
+    });
     doc.body.appendChild(dialog); update(); dialog.showModal();
   }
   function bank(items, label, start, note) {
@@ -63,5 +83,10 @@
     // Use the actual instruction in that case, never an invented topic tag.
     return q.skill && !/^clue\s*\d+$/i.test(text(q.skill)) ? q.skill : q.instr;
   }
-  G.TeacherSkills = { choose: choose, bank: bank, questionLabel: questionLabel };
+  function activityBank(items, label, start) {
+    var params = new URLSearchParams(G.location.search);
+    if (params.get('teacherShare') === '1' || params.get('student') === '1') bank(items, label, start);
+    else start(items.slice());
+  }
+  G.TeacherSkills = { choose: choose, bank: bank, questionLabel: questionLabel, activityBank: activityBank };
 })(window);

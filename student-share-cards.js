@@ -34,6 +34,7 @@
       button.setAttribute('aria-label', 'Copy student link for ' +
         (card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'activity'));
       button.addEventListener('click', function () {
+        if (window.TeacherGameShare && window.TeacherGameShare.supports(path)) { window.TeacherGameShare.open(path); return; }
         var url = new URL('activity.html', window.location.href);
         url.hash = '';
         url.search = new URLSearchParams({ path: path, student: '1' }).toString();

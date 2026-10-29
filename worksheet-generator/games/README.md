@@ -1,5 +1,28 @@
 # Generated games
 
+## Sharing configured individual review
+
+Both library-card and activity-viewer student-link buttons open the game's own
+skill catalogue before creating a URL. `student-game-share.js` hosts that setup;
+the iframe returns its catalogue and selected IDs through same-origin messages,
+validated against the expected iframe and catalogue. The generated link includes
+the selected IDs. `activity.js` forwards them to the student game, and
+`skill-setup.js` starts that selection without a teacher picker. Reloading keeps
+the URL's selection. Legacy student links without a skill list use all available
+skills; malformed or completely unavailable assignments show a teacher-contact
+message instead of silently broadening the assignment.
+
+Individual level-based activities use their existing mission or tip labels.
+Slope Links has one supported skill, Slope. Escape rooms and printable/reference
+PDF sharing retain their existing behavior.
+
+Run `node worksheet-generator/games/tests/student-share-tests.cjs` for dependency-free
+catalogue, DOM and messaging checks across every listed individual HTML game and
+flashcard deck, including both share buttons, selected-only links, viewer forwarding,
+student filtering, reloads, and invalid/legacy links. These tests use a small DOM
+fixture rather than a browser. `student-share-browser.cjs` provides the real-browser
+counterpart (Playwright required; `CHANNEL=msedge` selects installed Edge).
+
 ## Teacher skill selection
 
 Every game starts with the shared `skill-setup.js` dialog: unit-specific checkboxes,
