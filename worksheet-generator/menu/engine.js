@@ -488,6 +488,12 @@
     if (!ids.length) return true;
     return ids.some(function (id) { return NS.skillFormatOk(cfg.unitId, id, format, c); });
   };
+  /* A "Start from" preset is available only if every part it creates can be asked in its format for the selected skills. */
+  NS.presetAvailable = function (cfg, kind, preset) {
+    var secs; try { secs = kind === 'w' ? NS.worksheetSections(preset, cfg) : NS.testSections(preset); } catch (err) { return true; }
+    var temp = {}; for (var k in cfg) temp[k] = cfg[k]; temp.sections = secs;
+    return secs.every(function (s, i) { return NS.formatAvailable(temp, i, s.qformat || 'open'); });
+  };
   /* Re-check stored choices against the problem: exactly the key is accepted by the verifier. */
   NS.checkChoices = function (p) {
     var GB = G.MKGAMES; if (!p || !p.mc || !GB || !GB.answerOk) return false;

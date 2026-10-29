@@ -257,3 +257,6 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 - One-step measure skills now `best:[0,1]`. Verifier: part (a) of each chain is re-derived from the printed givens; square-root and step rules extended (`geo-v-14`).
 - Independent test: `menu/tests/geometry-measure-rigor-tests.cjs` (1680 problems). Cache tag `geo-rigor-1`.
 - All ten Geometry units now have Honors rigor chains; the remaining optional items are presets, fixed activities (escape rooms, mysteries) and printables not yet using the chains.
+
+## Preset greying (update-18)
+- `NS.presetAvailable(cfg, kind, preset)` in engine.js; "Start from" buttons (tests and worksheets) are disabled when a part the preset creates could not be asked in its format for the selected skills. Cache tag `preset-grey-1`.
