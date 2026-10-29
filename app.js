@@ -754,6 +754,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     return {
       title: c.name,
       html: bandHtml(c, inner) +
+        '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>' +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
@@ -794,7 +795,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       } else unitId = 'algebra1-' + u.id;
     }
     return '<div class="generator-banner' + (compact ? ' compact' : '') + '">' +
-      '<div class="generator-banner-heading"><h2>' + (compact ? 'Create Resources for This Unit' : 'What would you like to do today?') + '</h2>' +
+      '<div class="generator-banner-heading"><h2>' + (compact ? (u ? 'Create Resources for This Unit' : 'Create Resources for This Course') : 'What would you like to do today?') + '</h2>' +
       (!compact ? '<p>Choose a generator, select your unit, and make classroom-ready resources.</p>' : '') + '</div>' +
       '<ul class="generator-shortcuts">' + GENERATOR_ACTIONS.map(function (tool) {
         var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
