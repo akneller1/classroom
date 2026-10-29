@@ -64,25 +64,63 @@ function transformInvestigation(ctx){var r=ctx.rng,c=ctx.c,a=nz(r),b=nz(r),h=nz(
  ['Rotate A″ 90° counterclockwise about the origin to get A‴, using (x, y) → (−y, x). The y-coordinate of A″ is '+y2+'. Find the x-coordinate z of A‴.','z',x3,ad('z',y2)+'=0','The new x-coordinate is the opposite of the old y-coordinate.'],
  ['Dilate A‴ by scale factor '+s+' about the origin. The y-coordinate of A‴ is '+y3+'. Find the y-coordinate w of the image.','w',y4,'w='+s+'*'+(y3<0?'(0'+y3+')':y3),'A dilation multiplies each coordinate by the scale factor.']]);o7.fig={kind:'geo-grid',shapes:[{id:'pre',pts:[[a,b]],labels:['A('+mn(a)+', '+mn(b)+')']}],alt:'Coordinate plane with point A('+a+', '+b+')'};return o7;}
 
+function pn(n){return n<0?'(0-'+(-n)+')':String(n);}
+function pt2(a,b){return '('+mn(a)+', '+mn(b)+')';}
+/* Honors chain 1: find a vertical mirror line from a point and its image, then use it. */
+function invMirror(ctx){var r=ctx.rng,c=ctx.c,m=r.int(-4,4),a,b=nz(r),p;do{a=r.int(-8,8);}while(a===m||Math.abs(2*m-a)>10);p=2*m-a;
+ var q,d,t=nz(r),u=nz(r);do{q=r.int(-8,8);}while(q===m||Math.abs(2*m-q)>10);d=2*m-q;var fx=d+t,fy=r.int(-6,6),dist=Math.abs(p-a);
+ var o=four('geo-transformations-investigation-mirror',c,'Open Response: Point P'+pt2(a,b)+' is reflected across a vertical line x = m to the image P′'+pt2(p,b)+'. Each part uses the answer before it.',[
+ ['Because the mirror line is halfway between P and P′, twice the x-coordinate of the line equals the sum of the two x-coordinates. Find m.','m',m,'2*m='+pn(a)+'+'+pn(p),'The line is the midpoint of the x-coordinates, so 2m equals their sum.'],
+ ['Point Q'+pt2(q,fy)+' is reflected across the same line. Use the value of m from part a: the new x-coordinate x satisfies x + '+mn(q)+' = 2m. Find x.','x',d,'x+'+pn(q)+'=2*'+pn(m),'A point and its image add to twice the mirror value.'],
+ ['Q′ is then translated '+Math.abs(t)+' units '+(t>0?'right':'left')+' and '+Math.abs(u)+' units '+(u>0?'up':'down')+'. The x-coordinate of Q′ is '+mn(d)+'. Find the final x-coordinate y.','y',fx,'y='+pn(d)+'+'+pn(t),'A translation adds the signed shift.'],
+ ['The distance between P and P\u2032 is w. The mirror line is x = '+mn(m)+' and P has x-coordinate '+mn(a)+'. Twice the distance from P to the line is 2 times the difference of '+mn(Math.max(m,a))+' and '+mn(Math.min(m,a))+'. Find w.','w',dist,'w=2*('+pn(Math.max(m,a))+'-'+pn(Math.min(m,a))+')','The segment PP′ crosses the mirror at its midpoint, so its length is twice the distance from P to the line.']]);
+ o.fig=ptFig(a,b);return o;}
+/* Honors chain 2: dilation about a center other than the origin. */
+function invDilCenter(ctx){var r=ctx.rng,c=ctx.c,s=r.int(2,c>=5?4:3),h=r.int(-5,5),k=r.int(-5,5),a,b=r.int(-6,6);do{a=r.int(-6,6);}while(a===h);
+ var a2=h+s*(a-h),q,q2,len=r.int(2,6),area=r.int(3,9);do{q=r.int(-6,6);}while(q===h);q2=h+s*(q-h);var w=s*s*area,z=s*len;
+ return four('geo-transformations-investigation-center',c,'Open Response: A dilation about the center C'+pt2(h,k)+' sends P'+pt2(a,b)+' to P′ whose x-coordinate is '+mn(a2)+'. Each part uses the answer before it.',[
+ ['A dilation multiplies the horizontal distance from the center by the scale factor. Write '+mn(a2)+' − '+mn(h)+' = (scale factor)(' +mn(a)+' − '+mn(h)+'). Find the scale factor s.','s',s,'s*('+pn(a)+'-'+pn(h)+')='+pn(a2)+'-'+pn(h),'Distances from the center are multiplied by the scale factor.'],
+ ['Point Q has x-coordinate '+mn(q)+'. Using the scale factor s from part a, its image has x-coordinate x = '+mn(h)+' + s('+mn(q)+' − '+mn(h)+'). Find x.','x',q2,'x='+pn(h)+'+'+s+'*('+pn(q)+'-'+pn(h)+')','Move from the center by s times the original horizontal distance.'],
+ ['A segment with length '+len+' units is dilated by the same scale factor. Find the length z of its image.','z',z,'z='+s+'*'+len,'Lengths are multiplied by the scale factor.'],
+ ['A region with area '+area+' square units is dilated by the same scale factor. Find the area w of its image.','w',w,'w='+s+'*'+s+'*'+area,'Areas are multiplied by the square of the scale factor.']]);}
+/* Honors chain 3: a rotation then a translation, worked forwards and backwards. */
+function invBackward(ctx){var r=ctx.rng,c=ctx.c,a=nz(r),b=nz(r),T=r.int(-6,6),U=r.int(-6,6),cx=-b+T,cy=a+U,e=nz(r),f=nz(r),ex=-f+T,gy=r.int(-8,8),gx=-gy+T;
+ return four('geo-transformations-investigation-backward',c,'Open Response: Point A'+pt2(a,b)+' is rotated 90° counterclockwise about the origin, using (x, y) → (−y, x), and then translated to A″'+pt2(cx,cy)+'. Each part uses the answer before it.',[
+ ['The rotation sends A to ('+mn(-b)+', '+mn(a)+'). The translation adds x to the x-coordinate. Find the horizontal shift x.','x',T,'x+'+pn(-b)+'='+pn(cx),'Final x-coordinate = rotated x-coordinate + horizontal shift.'],
+ ['The translation also adds y to the y-coordinate. Find the vertical shift y.','y',U,'y+'+pn(a)+'='+pn(cy),'Final y-coordinate = rotated y-coordinate + vertical shift.'],
+ ['Point B'+pt2(e,f)+' goes through the same rotation and then the same translation. Its rotated x-coordinate is '+mn(-f)+'. Using the horizontal shift from part a, find the final x-coordinate z.','z',ex,'z='+pn(-f)+'+'+pn(T),'Add the horizontal shift to the rotated x-coordinate.'],
+ ['Point D goes through the same two steps and ends with x-coordinate '+mn(gx)+'. Using the horizontal shift '+mn(T)+', the rotation gives (− original y) + shift = '+mn(gx)+'. Find the original y-coordinate w of D.','w',gy,'0-w+'+pn(T)+'='+pn(gx),'Work backwards: undo the shift, then undo the rotation.']]);}
+/* Honors chain 4: regular polygons, symmetry and angle measures (no figure). */
+function invPolygonSym(ctx){var r=ctx.rng,c=ctx.c,ns=c>=5?[5,6,8,9,10,12,15]:[5,6,8,9,10,12],n=ns[r.int(0,ns.length-1)],d=360/n,S=(n-2)*180,v=S/n,sd=r.int(3,9),per=n*sd;
+ return four('geo-transformations-investigation-symmetry',c,'Open Response: A regular polygon maps onto itself when rotated about its center by '+d+'°, and no smaller positive turn works. Each part uses the answer before it.',[
+ ['The smallest turn times the number of sides is 360°. Find the number of sides n.','n',n,d+'*n=360','Equal turns around the center add up to 360°.'],
+ ['Use the number of sides from part a. The interior angles of a polygon add up to (n − 2) · 180. Find the sum w.','w',S,'w=('+n+'-2)*180','The interior angle sum is (n − 2) times 180.'],
+ ['Each interior angle of the regular polygon is equal. Using the sum '+S+' from part b and the number of sides '+n+', find the measure v of one interior angle.','v',v,n+'*v='+S,'Divide the angle sum equally among the n angles.'],
+ ['Each side of the polygon is '+sd+' units long. Using the number of sides from part a, find the perimeter p.','p',per,'p='+n+'*'+sd,'Perimeter is the number of sides times the side length.']]);}
+
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
 tags:{INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},
 reference:'<div class="mm-refgrid"><section><h4>Reflections</h4><p>x-axis: (x,y) → (x,−y); y-axis: (x,y) → (−x,y).</p></section><section><h4>90° rotations</h4><p>Clockwise: (x,y) → (y,−x); counterclockwise: (x,y) → (−y,x).</p></section></div>',
-gaps:['Rigid-motion proofs, glide reflections, and dilations from a center other than the origin are not generated.'],
+gaps:['Rigid-motion proofs and glide reflections are not generated.'],
 skills:[
-{id:'reflect-x-axis',tag:'REFLECTION',name:'Reflect over x-axis',best:[0,1,2],generate:ctx=>reflect(ctx,'x')},
-{id:'reflect-y-axis',tag:'REFLECTION',name:'Reflect over y-axis',best:[0,1,2],generate:ctx=>reflect(ctx,'y')},
-{id:'translate-horizontal',tag:'TRANSLATION',name:'Horizontal translation',best:[0,1,2],generate:ctx=>translate(ctx,'x')},
-{id:'translate-vertical',tag:'TRANSLATION',name:'Vertical translation',best:[0,1,2],generate:ctx=>translate(ctx,'y')},
-{id:'rotate-90-clockwise',tag:'ROTATION',name:'90° clockwise rotation',best:[0,1,2],generate:ctx=>rotate(ctx,'cw')},
-{id:'rotate-90-counterclockwise',tag:'ROTATION',name:'90° counterclockwise rotation',best:[0,1,2],generate:ctx=>rotate(ctx,'ccw')},
-{id:'dilate-origin',tag:'DILATION',name:'Dilation about origin',best:[0,1,2],generate:dilate},
-{id:'translate-triangle-figure',tag:'TRANSLATION',name:'Translate a triangle (read from the grid)',best:[0,1,2],generate:translateTri},
-{id:'reflect-triangle-figure',tag:'REFLECTION',name:'Reflect a triangle across a mirror line',best:[0,1,2],generate:reflectTri},
-{id:'rotate-triangle-figure',tag:'ROTATION',name:'Rotate a triangle about the origin',best:[0,1,2],generate:rotateTri},
+{id:'reflect-x-axis',tag:'REFLECTION',name:'Reflect over x-axis',best:[0,1],generate:ctx=>reflect(ctx,'x')},
+{id:'reflect-y-axis',tag:'REFLECTION',name:'Reflect over y-axis',best:[0,1],generate:ctx=>reflect(ctx,'y')},
+{id:'translate-horizontal',tag:'TRANSLATION',name:'Horizontal translation',best:[0,1],generate:ctx=>translate(ctx,'x')},
+{id:'translate-vertical',tag:'TRANSLATION',name:'Vertical translation',best:[0,1],generate:ctx=>translate(ctx,'y')},
+{id:'rotate-90-clockwise',tag:'ROTATION',name:'90° clockwise rotation',best:[0,1],generate:ctx=>rotate(ctx,'cw')},
+{id:'rotate-90-counterclockwise',tag:'ROTATION',name:'90° counterclockwise rotation',best:[0,1],generate:ctx=>rotate(ctx,'ccw')},
+{id:'dilate-origin',tag:'DILATION',name:'Dilation about origin',best:[0,1],generate:dilate},
+{id:'translate-triangle-figure',tag:'TRANSLATION',name:'Translate a triangle (read from the grid)',best:[0,1],generate:translateTri},
+{id:'reflect-triangle-figure',tag:'REFLECTION',name:'Reflect a triangle across a mirror line',best:[0,1],generate:reflectTri},
+{id:'rotate-triangle-figure',tag:'ROTATION',name:'Rotate a triangle about the origin',best:[0,1],generate:rotateTri},
 {id:'compose-triangle-figure',tag:'COMPOSITION',name:'Transform a triangle in two steps',best:[1,2],generate:composeTri},
-{id:'symmetry-lines-regular',tag:'SYMMETRY',name:'Lines of symmetry of a regular polygon',best:[0,1,2],generate:symLines},
-{id:'symmetry-rotation-regular',tag:'SYMMETRY',name:'Rotational symmetry of a regular polygon',best:[0,1,2],generate:symRotation},
-{id:'dilate-triangle-figure',tag:'DILATION',name:'Dilate a triangle about the origin',best:[0,1,2],generate:dilateTri},
+{id:'symmetry-lines-regular',tag:'SYMMETRY',name:'Lines of symmetry of a regular polygon',best:[0,1],generate:symLines},
+{id:'symmetry-rotation-regular',tag:'SYMMETRY',name:'Rotational symmetry of a regular polygon',best:[0,1],generate:symRotation},
+{id:'dilate-triangle-figure',tag:'DILATION',name:'Dilate a triangle about the origin',best:[0,1],generate:dilateTri},
+{id:'transformations-investigation-mirror',tag:'INVEST',name:'Honors: mirror line from a point and its image',best:[2],generate:invMirror},
+{id:'transformations-investigation-center',tag:'INVEST',name:'Honors: dilation about a center that is not the origin',best:[2],generate:invDilCenter},
+{id:'transformations-investigation-backward',tag:'INVEST',name:'Honors: rotation and translation worked backwards',best:[2],generate:invBackward},
+{id:'transformations-investigation-symmetry',tag:'INVEST',name:'Honors: symmetry and angle measures of a regular polygon',best:[2],generate:invPolygonSym},
 {id:'transformations-open-response-investigation',tag:'INVEST',name:'Four-part transformation sequence',best:[2],generate:transformInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

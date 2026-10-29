@@ -241,3 +241,8 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 - One-step angle skills now `best:[0,1]`; Honors gets the chains. Verifier rules extended for the new variants.
 - Independent test: `menu/tests/geometry-angles-rigor-tests.cjs` (1260 problems re-derived from printed text).
 - Cache tags: angles file `geo-rigor-1`, verify.js `geo-v-12`.
+
+## Transformations rigor (update-15)
+- Four Honors four-part chains: mirror line found from a point and its image; dilation about a center that is not the origin (scale factor, image, length, area); rotation + translation worked forwards and backwards; regular-polygon symmetry with angle sums.
+- One-step transformation skills now `best:[0,1]`. Gap note updated (non-origin dilations now generated).
+- Independent test: `menu/tests/geometry-transformations-rigor-tests.cjs` (1680 problems). Cache tag `geo-rigor-1`.
