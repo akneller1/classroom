@@ -75,6 +75,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offse
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .gfx{display:block;margin:4px auto;width:min(100%,360px);height:auto}
 </style>
+<script src="../../worksheet-generator/games/skill-setup.js"></script>
 </head>
 <body>
 <main id="app"></main>
@@ -160,7 +161,10 @@ function render(){
   $('#newsetup').onclick=()=>{clearTimer();quiz=null;G.screen='setup';render();};
   $('#resetsc').onclick=()=>{G.score={A:0,B:0,D:0};starter='A';newGame();};
 }
+TeacherSkills.bank(CFG.questions, TeacherSkills.questionLabel, selected=>{
+CFG.questions=selected; order=[]; deckPos=0;
 render();
+});
 </script>
 </body>
 </html>

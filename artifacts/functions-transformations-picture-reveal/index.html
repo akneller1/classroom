@@ -124,6 +124,7 @@ svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563e
 svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
 
 </style>
+<script src="../../worksheet-generator/games/skill-setup.js"></script>
 </head>
 <body>
 <main>
@@ -303,7 +304,7 @@ svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-widt
 </svg>
         <div class="covers" id="covers"></div>
       </div>
-      <p class="picture-note">Each correct answer uncovers one piece of the picture. Solve all 10 to see the whole thing!</p>
+      <p class="picture-note">Each correct answer uncovers one piece of the picture. Solve all selected problems to see the whole thing!</p>
       <div id="completion" class="completion" hidden></div>
     </section>
   </div>
@@ -739,11 +740,11 @@ function covers(flashTile){
   const c=el('covers'); c.innerHTML='';
   for(let t=0;t<10;t++){
     const q=Q.find(q=>q.tile===t);
-    const d=document.createElement('div'); d.className='cover'+(q&&solved[q.id]?' revealed':'')+(t===flashTile?' flash':'');
+    const d=document.createElement('div'); d.className='cover'+((!q||solved[q.id])?' revealed':'')+(t===flashTile?' flash':'');
     d.innerHTML='<span>?</span>'; c.append(d);
   }
   const scene=document.querySelector('#picture svg');
-  if(scene) scene.setAttribute('aria-label', count()===10?SCENE_NAME:'Mystery picture, '+count()+' of 10 pieces uncovered');
+  if(scene) scene.setAttribute('aria-label', count()===Q.length?SCENE_NAME:'Mystery picture, '+count()+' of '+Q.length+' pieces uncovered');
 }
 function nav(){
   const n=el('questionNav'); n.innerHTML='';
@@ -788,15 +789,15 @@ function render(flashTile){
   el('steps').innerHTML=q.steps.map((s,i)=>`<li class="step"><div class="step-num">${i+1}</div><div><div class="step-say">${inl(s.say)}</div>${s.m?`<div class="step-m m">${fm(s.m)}</div>`:''}</div></li>`).join('');
   el('final').innerHTML='Answer: <span class="m">'+fm(q.a)+'</span>';
   el('previous').disabled=current===0; el('next').disabled=current===Q.length-1;
-  const n=count(); el('score').textContent=`${n} / 10 revealed`; el('bar').style.width=`${n*10}%`;
-  const c=el('completion'); c.hidden=n!==10; c.textContent=n===10?`🎉 Picture complete: ${SCENE_NAME}! You solved all 10 problems.`:'';
+  const n=count(); el('score').textContent=`${n} / ${Q.length} revealed`; el('bar').style.width=`${n/Q.length*100}%`;
+  const c=el('completion'); c.hidden=n!==Q.length; c.textContent=n===Q.length?`🎉 Picture complete: ${SCENE_NAME}! You solved all ${Q.length} problems.`:'';
   nav(); covers(flashTile);
 }
 function select(i){current=i;render();}
 function win(q,val){
   solved[q.id]=val; save(); render(q.tile);
   el('feedback').textContent='✓ Correct! You uncovered a piece of the picture.'; el('feedback').className='feedback good';
-  if(count()===10){ const p=el('picture'); if(p.getBoundingClientRect().top<0) p.scrollIntoView({block:'center',behavior:'smooth'}); }
+  if(count()===Q.length){ const p=el('picture'); if(p.getBoundingClientRect().top<0) p.scrollIntoView({block:'center',behavior:'smooth'}); }
 }
 function submit(e){
   e.preventDefault(); const q=Q[current]; if(solved[q.id]||q.ans.t==='mc') return;
@@ -815,7 +816,10 @@ el('showSolution').onclick=()=>{const s=el('solution'); s.hidden=!s.hidden; el('
 el('reset').onclick=()=>{ if(confirm('Start over? This covers the picture again and clears your answers.')){ solved={}; wrongMC={}; save(); select(0);} };
 /* shuffle multiple-choice order once per visit */
 Q.forEach(q=>{ if(q.ans.t==='mc'){ const o=q.ans.opts.map((_,i)=>i); for(let i=o.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[o[i],o[j]]=[o[j],o[i]];} q.ans.order=o; } });
+TeacherSkills.bank(Q, q=>q.skill, selected=>{
+Q.splice(0,Q.length,...selected); current=0;
 render();
+});
 </script>
 </body>
 </html>

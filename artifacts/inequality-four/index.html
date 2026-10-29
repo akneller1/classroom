@@ -1,4 +1,5 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><script src="../../worksheet-generator/games/skill-setup.js"></script>
+</head><body>
 <title>Inequality Four</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:ital,wght@0,500;0,700;1,500&display=swap">
@@ -393,13 +394,16 @@ function solveProb(key,l,v){
 const POOLS={1:['translate','member','and2','or2','three','graph'],2:['three','and2','or2','graph','member','translate','three','and2'],3:['three','and2','or2','graph','member','three','and2','or2']};
 function makeProblem(levelSel,lastType){
   for(let t=0;t<60;t++){
-    const level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel, pool=POOLS[level];
+    let level=levelSel==='mix'?pick([1,2,2,2,3,3]):+levelSel;
+    if(!POOLS[level].length) level=+pick(Object.keys(POOLS).filter(k=>POOLS[k].length));
+    const pool=POOLS[level];
     let type=pick(pool); if(type===lastType) type=pick(pool);
     const v=Math.random()<.7?'x':pick(['n','y','t','m']);
     const p=BUILD[type](level,v);
     if(p&&p.choices.length>=3){p.type=type;p.level=level;p.v=v;return p;}
   }
-  const p=BUILD.three(1,'x');p.type='three';p.level=1;p.v='x';return p;
+  const level=+Object.keys(POOLS).find(k=>POOLS[k].length),type=POOLS[level][0],p=BUILD[type](level,'x');
+  if(!p)return null;p.type=type;p.level=level;p.v='x';return p;
 }
 /*GEN-END*/
 
@@ -419,7 +423,7 @@ function tick(){const left=G.timerEnd-Date.now(),bar=$('#tbar'),txt=$('#ttxt');
   if(bar)bar.style.width=Math.max(0,left/G.timerTotal*100)+'%'; if(txt)txt.textContent=Math.max(0,Math.ceil(left/1000))+'s';
   if(left<=0){stopTimer();if(G.phase==='question')toStealOffer(true);else if(G.phase==='steal')endNoDisc('Time ran out on the steal. No disc this turn.');}}
 
-function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
+function startTurn(team){G.turn=team;G.answerer=team;G.p=makeProblem(G.level,G.lastType);if(!G.p){stopTimer();G.phase="unavailable";document.querySelector("#q").innerHTML='<p role="status">No question is available for these skills. <button onclick="location.reload()">Choose skills again</button></p>';return;}G.lastType=G.p.type;G.picked=[];G.stolen=false;G.note='';G.phase='question';startTimer();render();}
 function choose(i){
   if((G.phase!=='question'&&G.phase!=='steal')||G.picked.includes(i))return;
   G.picked.push(i);stopTimer();
@@ -516,7 +520,10 @@ $('#timerSel').addEventListener('change',e=>{G.secs=+e.target.value;if(G.phase==
 $('#newGame').addEventListener('click',newGame);
 $('#resetScores').addEventListener('click',()=>{G.wins=[0,0];render();});
 $('#arrows').innerHTML=Array.from({length:COLS},(_,i)=>`<span>${i+1}</span>`).join('');
+TeacherSkills.bank(Object.keys(TYPE_NAME),id=>TYPE_NAME[id],ids=>{
+Object.keys(POOLS).forEach(k=>{POOLS[k]=POOLS[k].filter(id=>ids.includes(id));});
 newBoard();renderBoard();startTurn(0);
+});
 </script>
 
 </body></html>

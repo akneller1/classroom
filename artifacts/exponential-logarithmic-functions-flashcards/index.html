@@ -113,6 +113,7 @@ svg.fig .dot{fill:var(--fg,currentColor)} svg.fig .dot.acc{fill:var(--acc,#2563e
 svg.fig .dot.open{fill:var(--bgc,#fff);stroke:var(--fg,currentColor);stroke-width:2.2}
 
 </style>
+<script src="../../worksheet-generator/games/skill-setup.js"></script>
 </head>
 <body>
 <main>
@@ -611,7 +612,12 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='1') rate('missed');
   else if(e.key==='2') rate('known');
 });
+TeacherSkills.bank(CARDS, c=>c.skill, selected=>{
+CARDS.splice(0,CARDS.length,...selected);
+Array.from(byId('skill').options).forEach(o=>{if(o.value!=='All' && !CARDS.some(c=>c.skill===o.value))o.remove();});
+byId('skill').value='All'; if(byId('level'))byId('level').value='All';
 selectDeck();
+});
 </script>
 </body>
 </html>
