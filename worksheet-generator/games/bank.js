@@ -374,8 +374,8 @@
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
     /* Geometry Honors chains: a part that builds on earlier parts is asked on its own in games and flashcards, so the earlier results are stated as givens. */
     if (multi && k > 0 && /^geo-/.test(p.variant || '') && /investigation|rtchain|chain/.test(p.variant)) {
-      var givens = p.parts.slice(0, k).map(function (q) { return '(' + (q.label || '?') + ') ' + q.answer; });
-      ask = 'Results from the earlier parts: ' + givens.join('; ') + '. ' + ask;
+      var givens = p.parts.slice(0, k).map(function (q) { return '(' + (q.label || '?') + ') ' + (q.prompt ? q.prompt + ' Result: ' : 'Result: ') + q.answer; });
+      ask = 'Earlier parts and their results: ' + givens.join(' ') + ' Now: ' + ask;
     }
     return { prompt: NS.displayPrompt ? NS.displayPrompt(p) : p.prompt, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
@@ -420,12 +420,6 @@
       else done(out);
     }
     step();
-  };
-  GB.hasGameItems = function (setId, skillId) {
-    for (var c = 1; c <= 7; c++) for (var i = 0; i < 3; i++) {
-      if (GB.makeItems(setId, skillId, c, { intOnly: c <= 5, level: 'game' }, 'availability|' + i, null).length) return true;
-    }
-    return false;
   };
   GB.skillsOf = function (setId) { return NS.skillSets[setId].skills.map(function (s) { return s.id; }); };
 })(typeof window !== 'undefined' ? window : globalThis);

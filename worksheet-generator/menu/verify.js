@@ -57,6 +57,7 @@
     if (/^geo-(angles|circles|polygons|transformations|solids|measure|congruence|triangles|similarity|rtchain|basics)-investigation-/.test(p.variant || '')) {
       var pts = p.parts || [], ix = -1; pts.forEach(function (pt, i) { if (pt.check === chk) ix = i; });
       if (ix < 0 || pts.length < 4) return false;
+      if (typeof p.printed === 'string' && typeof NS.printedNumbers === 'function' && p.printed !== NS.printedNumbers(p)) return false;   // the printed numbers changed after the problem was generated
       if (/^geo-solids-/.test(p.variant)) {   // exact re-derivation from the printed dimensions
         var sd = /length (\d+) cm, width (\d+) cm, and height (\d+) cm/.exec(C.plainText(p.prompt || '')), sb = /base area of (\d+) square/.exec(C.plainText(pts[3].prompt || ''));
         if (!sd || !sb) return false;

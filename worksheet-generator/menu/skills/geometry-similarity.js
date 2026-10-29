@@ -126,7 +126,7 @@ function invParallel(ctx){
 }
 /* 3: dilation about the origin on the coordinate plane */
 function invDilation(ctx){
- var r=ctx.rng,c=ctx.c,k=r.int(2,c>=6?4:3),a=r.int(2,4),b=r.int(2,4),px=r.int(-4,0),py=r.int(-4,0);
+ var r=ctx.rng,c=ctx.c,k=r.int(2,c>=6?4:3),a=r.int(2,4),b=r.int(2,4),px=r.int(-4,0),py=r.int(-4,0);if(a%2&&b%2)b++;
  var A=[px,py],B=[px+a,py],Cp=[px+a,py+b];
  if(B[0]===0||Cp[1]===0){px-=1;py-=1;A=[px,py];B=[px+a,py];Cp=[px+a,py+b];}
  var Pt=function(q){return '('+q[0]+', '+q[1]+')';},w=k*a,area=w*k*b/2;

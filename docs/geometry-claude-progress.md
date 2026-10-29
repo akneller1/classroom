@@ -269,3 +269,9 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 ## Escape rooms: algebra in the three lightest rooms (update-20)
 - Similarity: Room 1 (scale conversion) and Room 5 (brace) now start from expressions in x and y; Transformations: Room 5 (boss warp) finds the unknown translation t; Area/Surface Area/Volume: Room 5 (monument) finds x from the total height. Dial answers, key cards, stamps and final words are unchanged. The three rooms' hints and teacher keys were rewritten to match.
 - The mysteries (Midnight Express, Treasure Map) and the other seven rooms were not changed.
+
+## CI fix and clearer wording (update-21)
+- The CI math test (`math-tests.cjs`) rejects a Geometry investigation whose printed numbers were changed without changing its key. Honors investigations now record `p.printed` (every number printed for students, `NS.printedNumbers`) when generated, and the verifier rejects a mismatch (commit f53f32a). Run `N=25 node worksheet-generator/menu/tests/math-tests.cjs` and `N=300 ...` before delivering skill changes; they are CI steps.
+- Dilation chain areas kept whole (a fraction answer at difficulty 1 failed the integer-answer check).
+- Transformations: the unknown now matches the coordinate asked for ("Find y, the y-coordinate of A′"; "Let y be the x-coordinate of A″. Find y."), instead of "the y-coordinate x".
+- Games and flashcards: a chain part now shows each earlier part's question with its result ("(a) Let x be the x-coordinate of A′. Find x. Result: x = 4").

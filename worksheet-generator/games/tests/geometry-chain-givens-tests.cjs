@@ -12,7 +12,7 @@ for (const setId of Object.keys(NS.skillSets).filter(s => /^geometry-/.test(s)))
       if (!its.length) continue; chains++;
       for (const it of its) {
         const k = it.k, p = it.p; items++;
-        if (k === 0) assert(!/Results from the earlier parts/.test(it.q.ask), 'part a has no givens');
+        if (k === 0) assert(!/Earlier parts and their results/.test(it.q.ask), 'part a has no givens');
         else for (let j = 0; j < k; j++) assert(it.q.ask.indexOf(p.parts[j].answer) >= 0, sk.id + ' part ' + k + ' must state the answer of part ' + j);
       }
     }

@@ -1,6 +1,9 @@
 /* Geometry Unit 8: coordinate transformations, text-first verified starter bank. */
 (function(G){'use strict';var NS=G.MKMENU,K=NS.kit,M=K.M,step=K.step;
-function make(id,prompt,eq,x,reason,fig){var o={variant:id,prompt:prompt+' Set up and solve an equation for x.',parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],steps:[step(reason,M(eq)),step('Solve for x.',M('x='+x))],space:[1.2,1.5,1.8]};if(fig)o.fig=fig;return o;}
+/* The unknown is named for the coordinate asked for (x for an x-coordinate, y for a y-coordinate), so a question never asks for "the y-coordinate x". */
+function make(id,prompt,eq,x,reason,fig){var v='x',mm=/Find x, the ([xy])-coordinate/.exec(prompt);if(mm)v=mm[1];else if(/the y-coordinate x\b/.test(prompt))v='y';
+ if(v!=='x'){prompt=prompt.replace(/Find x, the/,'Find '+v+', the').replace(/-coordinate x\b/,'-coordinate '+v);eq=eq.replace(/x/g,v);}
+ var o={variant:id,prompt:prompt+' Set up and solve an equation for '+v+'.',parts:[{answer:M(v+'='+x),check:{type:'solve',eq:eq,v:v}}],steps:[step(reason,M(eq)),step('Solve for '+v+'.',M(v+'='+x))],space:[1.2,1.5,1.8]};if(fig)o.fig=fig;return o;}
 function nz(r){var n=r.int(-9,9);return n===0?4:n;}
 function reflect(ctx,axis){var r=ctx.rng,a=nz(r),b=nz(r),x=axis==='x'?-b:-a,eq='x'+((axis==='x'?b:a)>=0?'+':'')+(axis==='x'?b:a)+'=0';
 return make('geo-transform-reflect-'+axis+'-'+ctx.c,'Point P('+a+', '+b+') is reflected across the '+axis+'-axis. Find '+(axis==='x'?'the y-coordinate':'the x-coordinate')+' x of the image P′.',eq,x,'Reflection across the '+axis+'-axis changes the sign of the '+(axis==='x'?'y':'x')+'-coordinate.',ptFig(a,b));}
@@ -59,10 +62,10 @@ function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.
 function ad(v,n){return v+(n<0?'-'+(-n):'+'+n);}
 function transformInvestigation(ctx){var r=ctx.rng,c=ctx.c,a=nz(r),b=nz(r),h=nz(r),k=nz(r),x1=a+h,y1=b+k,x2=-x1,y2=y1,x3=-y2,y3=x2,s=r.int(2,c>=5?5:3),y4=s*y3,x4=s*x3;
  var o7=four('geo-transformations-investigation',c,'Open Response: Track point A('+a+', '+b+') through a sequence of transformations. Each part uses the image from the part before it.',[
- ['Translate A by '+h+' in the x-direction and '+k+' in the y-direction to get A′. Find the x-coordinate x of A′.','x',x1,ad('x',-a)+'='+h,'Add the shift to the x-coordinate.'],
- ['Reflect A′ across the y-axis to get A″. Find the x-coordinate y of A″.','y',x2,ad('y',x1)+'=0','A reflection across the y-axis changes the sign of x.'],
- ['Rotate A″ 90° counterclockwise about the origin to get A‴, using (x, y) → (−y, x). The y-coordinate of A″ is '+y2+'. Find the x-coordinate z of A‴.','z',x3,ad('z',y2)+'=0','The new x-coordinate is the opposite of the old y-coordinate.'],
- ['Dilate A‴ by scale factor '+s+' about the origin. The y-coordinate of A‴ is '+y3+'. Find the y-coordinate w of the image.','w',y4,'w='+s+'*'+(y3<0?'(0'+y3+')':y3),'A dilation multiplies each coordinate by the scale factor.']]);o7.fig={kind:'geo-grid',shapes:[{id:'pre',pts:[[a,b]],labels:['A('+mn(a)+', '+mn(b)+')']}],alt:'Coordinate plane with point A('+a+', '+b+')'};return o7;}
+ ['Translate A by '+h+' in the x-direction and '+k+' in the y-direction to get A′. Let x be the x-coordinate of A′. Find x.','x',x1,ad('x',-a)+'='+h,'Add the shift to the x-coordinate.'],
+ ['Reflect A′ across the y-axis to get A″. Let y be the x-coordinate of A″. Find y.','y',x2,ad('y',x1)+'=0','A reflection across the y-axis changes the sign of x.'],
+ ['Rotate A″ 90° counterclockwise about the origin to get A‴, using (x, y) → (−y, x). The y-coordinate of A″ is '+y2+'. Let z be the x-coordinate of A‴. Find z.','z',x3,ad('z',y2)+'=0','The new x-coordinate is the opposite of the old y-coordinate.'],
+ ['Dilate A‴ by scale factor '+s+' about the origin. The y-coordinate of A‴ is '+y3+'. Let w be the y-coordinate of the image. Find w.','w',y4,'w='+s+'*'+(y3<0?'(0'+y3+')':y3),'A dilation multiplies each coordinate by the scale factor.']]);o7.fig={kind:'geo-grid',shapes:[{id:'pre',pts:[[a,b]],labels:['A('+mn(a)+', '+mn(b)+')']}],alt:'Coordinate plane with point A('+a+', '+b+')'};return o7;}
 
 function pn(n){return n<0?'(0-'+(-n)+')':String(n);}
 function pt2(a,b){return '('+mn(a)+', '+mn(b)+')';}
