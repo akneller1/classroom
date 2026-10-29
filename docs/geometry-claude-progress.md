@@ -265,3 +265,7 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 - Showdown, Connect Four, Tic-Tac-Toe, Picture Reveal and the flashcards ask one chain part at a time. Parts that build on earlier parts now state those earlier results ("Results from the earlier parts: (a) x=8; (b) w=20.") in `GB.partQuestion` (games/bank.js), for every Geometry chain (`investigation`, `rtchain`, `chain` variants). Algebra is unchanged.
 - Test: `games/tests/geometry-chain-givens-tests.cjs` (2911 items from 900 chains). The bank.js cache tag was not bumped (114 pages load it); a hard refresh picks up the change before the ~10 minute cache expires.
 - Fixed escape rooms and mysteries are hand-authored with fixed answers; their rigor was audited, not changed: Similarity, Transformations and Area/Surface Area/Volume rooms are the lightest on algebra.
+
+## Escape rooms: algebra in the three lightest rooms (update-20)
+- Similarity: Room 1 (scale conversion) and Room 5 (brace) now start from expressions in x and y; Transformations: Room 5 (boss warp) finds the unknown translation t; Area/Surface Area/Volume: Room 5 (monument) finds x from the total height. Dial answers, key cards, stamps and final words are unchanged. The three rooms' hints and teacher keys were rewritten to match.
+- The mysteries (Midnight Express, Treasure Map) and the other seven rooms were not changed.

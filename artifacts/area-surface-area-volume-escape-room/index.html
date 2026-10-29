@@ -97,18 +97,18 @@ const ROOM={
   hints:['Volume of a prism or cylinder = (area of base) × height.','The side of a cylinder unrolls into a rectangle of width 2πr and height h.','A lid or the floor footprint is just one circle.'],
   key:'Water: πr²h. Side: 2πrh. Whole outside: 2πr² + 2πrh. Floor: πr². Top lid: πr².'},
  {name:'The Treasure Monument',type:'fields',stamp:26,letter:'U',
-  story:'The last chamber holds a gold monument: a square prism topped with a square pyramid. Find its volume and the area that must be gilded. The bottom sits on the floor and is not gilded.',
+  story:'The last chamber holds a gold monument: a square prism topped with a square pyramid. The monument is 9 m tall in all, and the figure labels its dimensions with expressions in x. Find its volume and the area that must be gilded. The bottom sits on the floor and is not gilded.',
   scene:{kind:'svg',viewBox:'0 0 400 300',svg:`<polygon points="100,140 220,140 220,230 100,230" fill="#3a2f14" stroke="#ffc857" stroke-width="3"/>
 <polygon points="220,140 260,110 260,200 220,230" fill="#4a3d1c" stroke="#ffc857" stroke-width="3"/>
 <polygon points="100,140 220,140 260,110 140,110" fill="#5a4a22" fill-opacity=".6" stroke="#ffc857" stroke-width="2"/>
 <g stroke="#ffc857" stroke-width="3" stroke-linecap="round"><line x1="180" y1="62" x2="100" y2="140"/><line x1="180" y1="62" x2="220" y2="140"/><line x1="180" y1="62" x2="260" y2="110"/></g>
 <line x1="180" y1="62" x2="140" y2="110" stroke="#ffc857" stroke-width="2" stroke-dasharray="6 5"/>
 <line x1="180" y1="62" x2="180" y2="125" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/>
-<g fill="#fff" font-size="15" font-weight="700"><text x="152" y="252">8 m × 8 m base</text><text x="268" y="170">prism height 6 m</text><text x="188" y="96">pyramid height 3 m</text></g>`},
-  title:'The Gilder’s Order',prompt:`<p>Prism: square base 8 m × 8 m, height 6 m. Pyramid on top: same 8 m × 8 m base, height 3 m, slant height 5 m. Find the volume and the gilded area (all outside faces except the bottom).</p>`,
+<g fill="#fff" font-size="15" font-weight="700"><text x="120" y="252">(2x − 2) m × (2x − 2) m base</text><text x="268" y="165">prism height</text><text x="268" y="185">(x + 1) m</text><text x="236" y="60">pyramid height</text><text x="236" y="80">(x − 2) m</text></g>`},
+  title:'The Gilder’s Order',prompt:`<p>Prism: square base (2x − 2) m on each side, height (x + 1) m. Pyramid on top: same base, height (x − 2) m, slant height 5 m. The prism and pyramid together are 9 m tall. Find x first, then the volume and the gilded area (all outside faces except the bottom).</p>`,
   fields:[{label:`volume (m${sup('3')})`,answer:448},{label:`gilded area (m${sup('2')})`,answer:272}],button:'Claim the treasure',
-  hints:[`Volume = prism + pyramid. Pyramid volume = ${fr('1','3')} × base area × height.`,`Prism: 8 × 8 × 6 = 384. Pyramid: ${fr('1','3')} × 64 × 3 = 64.`,'Gilded area: 4 prism sides (8 × 6 each) plus 4 triangular faces (base 8, slant 5). Skip the prism top, which is hidden, and the bottom.'],
-  key:`V = 384 + 64 = 448 m³. Area = 4(8·6) + 4·${fr('1','2')}(8)(5) = 192 + 80 = 272 m².`}
+  hints:[`Total height: (x + 1) + (x − 2) = 9, so 2x − 1 = 9 and x = 5. Then the base is 8 m, the prism is 6 m tall and the pyramid 3 m tall.`,`Volume = prism + pyramid. Prism: 8 × 8 × 6 = 384. Pyramid: ${fr('1','3')} × 64 × 3 = 64.`,'Gilded area: 4 prism sides (8 × 6 each) plus 4 triangular faces (base 8, slant 5). Skip the prism top, which is hidden, and the bottom.'],
+  key:`(x + 1) + (x − 2) = 9 gives x = 5, so the base is 8 m, the prism is 6 m tall and the pyramid 3 m tall. V = 384 + 64 = 448 m³. Area = 4(8·6) + 4·${fr('1','2')}(8)(5) = 192 + 80 = 272 m².`}
  ]};
 
 const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;

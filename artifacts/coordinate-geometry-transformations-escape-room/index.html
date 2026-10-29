@@ -82,12 +82,12 @@ const ROOM={
   hints:['You need the slopes of two sides that meet at one vertex.','Compute each slope, then compare them, then draw the conclusion.','Perpendicular lines have slopes that are opposite reciprocals.'],
   key:`AB has slope ${fr('3','4')}, BC has slope ${fr('−4','3')}, product −1, so AB ⟂ BC and the triangle is right-angled at B.`},
  {name:'The Final Boss Warp',type:'fields',stamp:42,letter:'X',
-  story:'The boss uses a three-move warp on triangle PQR, in this order. Predict where it lands. Move 1: rotate 90° counterclockwise about the origin. Move 2: dilate by scale factor 2 about the origin. Move 3: translate 10 right and 3 down.',
+  story:'The boss uses a three-move warp on triangle PQR, in this order. Predict where it lands. Move 1: rotate 90° counterclockwise about the origin. Move 2: dilate by scale factor 2 about the origin. Move 3: translate t units right and (t − 7) units down, where t is the amount that puts the final image of R at x = −2.',
   scene:{kind:'grid',xmin:-1,xmax:8,ymin:-1,ymax:8,polys:[{pts:[[1,2],[4,2],[4,6]],color:'#6ec1ff',fill:'#6ec1ff'}],points:[{x:1,y:2,label:'P (1, 2)'},{x:4,y:2,label:'Q (4, 2)'},{x:4,y:6,label:'R (4, 6)'}]},
-  title:'The Warp Calculator',prompt:'<p>Find the final image R′ of point R, and the area of the final triangle P′Q′R′.</p>',
-  fields:[{label:'R′ x =',answer:-2},{label:'R′ y =',answer:5},{label:'area of △P′Q′R′ (square units)',answer:24}],button:'Defeat the boss',
-  hints:['Rotation 90° counterclockwise: (x, y) → (−y, x). Do it to R first.','R(4, 6) → (−6, 4) → dilate: (−12, 8) → translate: add 10 to x, subtract 3 from y.',`A dilation by 2 multiplies area by 2 × 2 = 4. Rotations and translations do not change area. The original area is ${fr('1','2')}(3)(4) = 6.`],
-  key:'R(4,6) → (−6,4) → (−12,8) → (−2,5). Original area 6; dilation by 2 makes it 6 × 4 = 24.'}
+  title:'The Warp Calculator',prompt:'<p>Find t, the y-coordinate of the final image R′ of point R, and the area of the final triangle P′Q′R′.</p>',
+  fields:[{label:'t (units right) =',answer:10},{label:'R′ y =',answer:5},{label:'area of △P′Q′R′ (square units)',answer:24}],button:'Defeat the boss',
+  hints:['Rotation 90° counterclockwise: (x, y) → (−y, x). Do it to R first, then dilate.','R(4, 6) → (−6, 4) → dilate: (−12, 8). Translating t right gives x = −12 + t = −2, so t = 10 and the move down is t − 7 = 3.',`A dilation by 2 multiplies area by 2 × 2 = 4. Rotations and translations do not change area. The original area is ${fr('1','2')}(3)(4) = 6.`],
+  key:'R(4,6) → (−6,4) → (−12,8). −12 + t = −2 gives t = 10, so the move down is 10 − 7 = 3 and R′ = (−2, 5). Original area 6; dilation by 2 makes it 6 × 4 = 24.'}
  ]};
 
 const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;
