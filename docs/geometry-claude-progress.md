@@ -196,3 +196,12 @@ Four new Honors-only four-part investigations in `skills/geometry-triangle-relat
 - `triangle-investigation-coordinate` — midpoint formula, median length, centroid (one third up from M) on the coordinate plane.
 - `triangle-investigation-bisector` — perpendicular bisector theorem with algebra, midpoint, perimeter of triangle PAB.
 The nine one-step skills are now `best:[0,1]`. Test: `menu/tests/geometry-triangle-rigor-tests.cjs` re-solves 2,100 problems from printed text at all seven difficulties. It also caught an exterior-angle generator that silently fell back to a bad value at low difficulty (constant-term range too tight; widened).
+
+## Rigor upgrade — Similarity (2026-10-28)
+Four new Honors-only four-part investigations in `skills/geometry-similarity.js` (variants `geo-similarity-investigation-*`; verifier regex extended with `similarity`):
+- `similarity-investigation-ratio` — similar triangles with a given ratio (e.g. 3 to 2), algebraic sides, missing side, perimeter of the larger triangle.
+- `similarity-investigation-parallel` — triangle proportionality with algebraic segments, AB, BC from similar triangles ADE/ABC, perimeter.
+- `similarity-investigation-dilation` — dilation about the origin: image coordinates, image length, image area.
+- `similarity-investigation-altitude` — altitude to the hypotenuse: geometric mean with algebra, hypotenuse, leg squared, area.
+One-step similarity skills are now `best:[0,1]` (SAS/SSS criteria `[1]`). Figures use `geo-cong` (expression labels are not allowed by `geo-sim`/`geo-tri-par`). Test: `menu/tests/geometry-similarity-rigor-tests.cjs` re-solves 1,680 problems from printed text at all seven difficulties.
+Note: in the shared verifier, later parts must use earlier answers as numbers, not variable names.
