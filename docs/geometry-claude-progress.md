@@ -260,3 +260,8 @@ Teacher request: when a question format (e.g. Choose all that apply) cannot be a
 
 ## Preset greying (update-18)
 - `NS.presetAvailable(cfg, kind, preset)` in engine.js; "Start from" buttons (tests and worksheets) are disabled when a part the preset creates could not be asked in its format for the selected skills. Cache tag `preset-grey-1`.
+
+## Chain parts in games and flashcards (update-19)
+- Showdown, Connect Four, Tic-Tac-Toe, Picture Reveal and the flashcards ask one chain part at a time. Parts that build on earlier parts now state those earlier results ("Results from the earlier parts: (a) x=8; (b) w=20.") in `GB.partQuestion` (games/bank.js), for every Geometry chain (`investigation`, `rtchain`, `chain` variants). Algebra is unchanged.
+- Test: `games/tests/geometry-chain-givens-tests.cjs` (2911 items from 900 chains). The bank.js cache tag was not bumped (114 pages load it); a hard refresh picks up the change before the ~10 minute cache expires.
+- Fixed escape rooms and mysteries are hand-authored with fixed answers; their rigor was audited, not changed: Similarity, Transformations and Area/Surface Area/Volume rooms are the lightest on algebra.

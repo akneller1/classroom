@@ -372,6 +372,11 @@
   GB.partQuestion = function (p, k) {
     var pt = p.parts[k], multi = p.parts.length > 1, ask = pt.prompt || '';
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
+    /* Geometry Honors chains: a part that builds on earlier parts is asked on its own in games and flashcards, so the earlier results are stated as givens. */
+    if (multi && k > 0 && /^geo-/.test(p.variant || '') && /investigation|rtchain|chain/.test(p.variant)) {
+      var givens = p.parts.slice(0, k).map(function (q) { return '(' + (q.label || '?') + ') ' + q.answer; });
+      ask = 'Results from the earlier parts: ' + givens.join('; ') + '. ' + ask;
+    }
     return { prompt: NS.displayPrompt ? NS.displayPrompt(p) : p.prompt, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
   GB.makeItems = function (setId, skillId, c, policy, seed, used) {
