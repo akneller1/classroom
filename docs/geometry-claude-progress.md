@@ -182,3 +182,9 @@ Teacher feedback: Honors problems were too basic. Added four Honors-level (`best
 Verifier (`verify.js`): `congruence` added to the investigation rule; later parts may use earlier answers, including bare-number answers (needed by the game bank).
 Test: `menu/tests/geometry-congruence-rigor-tests.cjs` re-solves 2,550 generated problems from their printed text (keys, triangle inequality, SSS for the coordinate F, honest figures). It caught a real bug: algebra-chain side lengths that could not form a triangle (fixed).
 Next: the same rigor upgrade for the other nine Geometry units.
+
+### Congruence rigor, part 2
+- Added `congruence-investigation-kite` (kite with shared diagonal, SSS, two-sided equation for x, angle chase) and `congruence-investigation-hl` (right triangles by HL, two-sided hypotenuse equation, leg, CPCTC angle, complementary acute angles). Both Honors-only. Figures drawn from the printed angles.
+- The one-step skills (corresponding sides/angles, third angle, perimeters, SSS/SAS/ASA/AAS/HL) are now `best:[0,1]` (CP2/CP1 tiers). The top tier draws identify, structured proofs and the six investigations.
+- Rigor test now re-solves 3,150 problems. It found an infinite loop in the HL generator (a leg length that could not fit under a small hypotenuse); fixed.
+- Not changed: fixed activities (escape rooms, mysteries) and printables (small boxes skip multi-part items).

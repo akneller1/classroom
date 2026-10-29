@@ -213,6 +213,53 @@ function investigationOverlap(ctx){
   steps:[step('Corresponding sides of congruent triangles are equal, so '+M(eAB+'='+eCD)+'.',M('x='+x)),step('Alternate interior angles (parallel lines AB and CD, transversal BD) are congruent, so '+M(eY+'='+n)+'.',M('y='+y)),step('CPCTC: angle ADB is congruent to angle CBD, so '+M(eZ+'='+adb)+'.',M('z='+z)),step('The angles of triangle ABD add to 180 (angle C is congruent to angle A by CPCTC), so '+M('w+'+n+'+'+adb+'=180')+'.',M('w='+angA))],
   space:[3,3.6,4.2]};
 }
+/* 5: kite with a shared diagonal (SSS), two-sided equation, then an angle chase */
+function investigationKite(ctx){
+ var r=ctx.rng,c=ctx.c,x,a1,a2,b1,b2,tries=0,ab;
+ do{x=r.int(4,c>=6?16:12);a2=r.int(1,4);a1=a2+r.int(1,4);b2=r.int(2,14);ab=a2*x+b2;b1=ab-a1*x;tries++;}while(ab<8&&tries<200);
+ var m=r.int(3,5),y,n,k,p=r.int(3,5),z,q2,m2;
+ tries=0;
+ do{y=r.int(8,c>=6?24:18);k=r.int(2,12);n=m*y-k;z=r.int(8,c>=6?24:18);q2=r.int(3,14);m2=p*z+q2;tries++;}while((n<40||n>75||m2<40||m2>75||n+m2>135)&&tries<500);
+ var rad=Math.PI/180,sb=Math.sin(m2*rad)/Math.sin((n+m2)*rad),Bx=-sb*Math.sin(n*rad),By=1-sb*Math.cos(n*rad);
+ var Pp={A:[0,1],C:[0,0],B:[Bx,By],D:[-Bx,By]},angB=180-n-m2;
+ var eAB=lin(a1,b1,'x'),eAD=lin(a2,b2,'x'),eY=lin(m,-k,'y'),eZ=lin(p,q2,'z');
+ var fig={kind:'geo-cong',pts:Pp,segs:[['A','B'],['B','C'],['C','D'],['D','A'],['A','C']],tris:null,
+  sides:[{s:[['A','B'],['A','D']],n:1},{s:[['B','C'],['D','C']],n:2}],angles:[],right:[],
+  lab:{AB:eAB,AD:eAD},angLab:[{p:'B',v:'A',q:'C',text:'('+eY+')°'},{p:'D',v:'A',q:'C',text:n+'°'},{p:'B',v:'C',q:'A',text:'('+eZ+')°'}],note:'Not drawn to scale.'};
+ return {variant:'geo-congruence-investigation-kite-'+c,fig:fig,
+  prompt:'Open Response: In kite ABCD, AB = AD and BC = DC. Diagonal AC is drawn, so triangles ABC and ADC share side AC and are congruent by SSS. AB = '+M(eAB)+' and AD = '+M(eAD)+'. Angle BAC measures '+M('('+eY+')')+' degrees and angle DAC measures '+n+' degrees. Angle BCA measures '+M('('+eZ+')')+' degrees and angle DCA measures '+m2+' degrees. Answer every part.',
+  parts:[
+   {label:'a',prompt:'Use AB and AD to find x.',answer:M('x='+x),check:{type:'solve',eq:eAB+'='+eAD,v:'x'}},
+   {label:'b',prompt:'Angle BAC and angle DAC are corresponding parts. Find y.',answer:M('y='+y),check:{type:'solve',eq:eY+'='+n,v:'y'}},
+   {label:'c',prompt:'Angle BCA and angle DCA are corresponding parts. Find z.',answer:M('z='+z),check:{type:'solve',eq:eZ+'='+m2,v:'z'}},
+   {label:'d',prompt:'Find the measure of angle ABC in triangle ABC. Then state the measure of angle ADC and why.',answer:M('w='+angB),check:{type:'solve',eq:'w+'+n+'+'+m2+'=180',v:'w'}}
+  ],
+  steps:[step('Corresponding sides of congruent triangles are equal, so '+M(eAB+'='+eAD)+'.',M('x='+x)),step('CPCTC: angle BAC is congruent to angle DAC, so '+M(eY+'='+n)+'.',M('y='+y)),step('CPCTC: angle BCA is congruent to angle DCA, so '+M(eZ+'='+m2)+'.',M('z='+z)),step('The angles of triangle ABC add to 180 (angle ADC is congruent to angle ABC by CPCTC), so '+M('w+'+n+'+'+m2+'=180')+'.',M('w='+angB))],
+  space:[3,3.6,4.2]};
+}
+/* 6: right triangles congruent by HL, two-sided hypotenuse equation, then acute angles */
+function investigationHL(ctx){
+ var r=ctx.rng,c=ctx.c,x,a1,a2,b1,b2,h,tries=0;
+ do{x=r.int(4,c>=6?16:12);a2=r.int(1,4);a1=a2+r.int(1,4);b2=r.int(2,14);h=a2*x+b2;b1=h-a1*x;tries++;}while(h<12&&tries<200);
+ var m=r.int(2,5),y=r.int(4,c>=6?18:12),cc=r.int(-8,9),leg=m*y+cc;
+ while(leg<6||leg>=h-1){m=r.int(2,5);y=r.int(2,18);cc=r.int(-8,9);leg=m*y+cc;}
+ var p=r.int(2,4),z=r.int(6,c>=6?20:14),q2=r.int(-6,12),angC=p*z+q2;
+ while(angC<20||angC>70){z=r.int(6,20);q2=r.int(-6,12);angC=p*z+q2;}
+ var angA=90-angC;
+ var eAC=lin(a1,b1,'x'),eDF=lin(a2,b2,'x'),eAB=lin(m,cc,'y'),eC=lin(p,q2,'z');
+ var f=NS.geoFigures&&NS.geoFigures.cong?NS.geoFigures.cong.pair('hl',false):{kind:'geo-triangle-pair',criterion:'hl'};
+ if(f.kind==='geo-cong'){f.lab={AC:eAC,DF:eDF,AB:eAB,DE:String(leg)};f.note='Not drawn to scale.';}
+ return {variant:'geo-congruence-investigation-hl-'+c,fig:f,
+  prompt:'Open Response: Triangles ABC and DEF are right triangles with right angles (90 degrees) at B and E. Their hypotenuses are AC = '+M(eAC)+' and DF = '+M(eDF)+', and leg AB = '+M(eAB)+' while leg DE = '+leg+'. The triangles are congruent with A corresponding to D, B to E, and C to F. Angle C measures '+M('('+eC+')')+' degrees and angle F measures '+angC+' degrees. Answer every part.',
+  parts:[
+   {label:'a',prompt:'The hypotenuses are equal. Find x.',answer:M('x='+x),check:{type:'solve',eq:eAC+'='+eDF,v:'x'}},
+   {label:'b',prompt:'Legs AB and DE are corresponding parts. Find y.',answer:M('y='+y),check:{type:'solve',eq:eAB+'='+leg,v:'y'}},
+   {label:'c',prompt:'Angles C and F are corresponding parts. Find z.',answer:M('z='+z),check:{type:'solve',eq:eC+'='+angC,v:'z'}},
+   {label:'d',prompt:'Find the measure of angle A. Explain why angles A and C are complementary.',answer:M('w='+angA),check:{type:'solve',eq:'w+'+angC+'+90=180',v:'w'}}
+  ],
+  steps:[step('The hypotenuses are corresponding sides, so '+M(eAC+'='+eDF)+'.',M('x='+x)),step('CPCTC: AB = DE, so '+M(eAB+'='+leg)+'.',M('y='+y)),step('CPCTC: angle C is congruent to angle F, so '+M(eC+'='+angC)+'.',M('z='+z)),step('The angles of right triangle ABC add to 180, so '+M('w+'+angC+'+90=180')+'.',M('w='+angA))],
+  space:[3,3.6,4.2]};
+}
 /* Printables with small boxes ask for a compact prompt: the diagram carries the marks, so the text only needs the givens. */
 function C(g){return function(ctx){var p=g(ctx);if(ctx.compact&&p.compactPrompt)p.prompt=p.compactPrompt;delete p.compactPrompt;return p;};}
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
@@ -220,20 +267,22 @@ NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',course
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
  gaps:['Proofs other than the shared-side and vertical-angle formats, and congruence by rigid motions, are not generated.'],
  skills:[
- {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1,2],generate:C(ctx=>corresponding(ctx,'side'))},
- {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1,2],generate:C(ctx=>corresponding(ctx,'angle'))},
- {id:'congruent-third-angle',tag:'THIRD',name:'Third angle theorem',best:[0,1,2],generate:C(thirdAngle)},
- {id:'congruent-perimeters',tag:'PERIMETER',name:'Perimeters of congruent triangles',best:[0,1,2],generate:C(perimeter)},
- {id:'congruence-sss',tag:'CRITERIA',name:'SSS congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'sss'))},
- {id:'congruence-sas',tag:'CRITERIA',name:'SAS congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'sas'))},
- {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'asa'))},
- {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'aas'))},
- {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1,2],generate:C(ctx=>criterion(ctx,'hl'))},
+ {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1],generate:C(ctx=>corresponding(ctx,'side'))},
+ {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1],generate:C(ctx=>corresponding(ctx,'angle'))},
+ {id:'congruent-third-angle',tag:'THIRD',name:'Third angle theorem',best:[0,1],generate:C(thirdAngle)},
+ {id:'congruent-perimeters',tag:'PERIMETER',name:'Perimeters of congruent triangles',best:[0,1],generate:C(perimeter)},
+ {id:'congruence-sss',tag:'CRITERIA',name:'SSS congruence and CPCTC',best:[0,1],generate:C(ctx=>criterion(ctx,'sss'))},
+ {id:'congruence-sas',tag:'CRITERIA',name:'SAS congruence and CPCTC',best:[0,1],generate:C(ctx=>criterion(ctx,'sas'))},
+ {id:'congruence-asa',tag:'CRITERIA',name:'ASA congruence and CPCTC',best:[0,1],generate:C(ctx=>criterion(ctx,'asa'))},
+ {id:'congruence-aas',tag:'CRITERIA',name:'AAS congruence and CPCTC',best:[0,1],generate:C(ctx=>criterion(ctx,'aas'))},
+ {id:'congruence-hl',tag:'CRITERIA',name:'HL congruence and CPCTC',best:[0,1],generate:C(ctx=>criterion(ctx,'hl'))},
  {id:'congruence-identify',tag:'CRITERIA',name:'Identify valid and invalid triangle congruence criteria from markings',best:[0,1,2],generate:C(identify)},
  {id:'congruence-investigation-algebra',tag:'CHAIN',name:'Four-part investigation: algebra on congruent triangles',best:[2],generate:investigationAlgebra},
  {id:'congruence-investigation-isosceles',tag:'CHAIN',name:'Four-part investigation: isosceles triangle and its median',best:[2],generate:investigationIsosceles},
  {id:'congruence-investigation-coordinate',tag:'CHAIN',name:'Four-part investigation: congruence on the coordinate plane',best:[2],generate:investigationCoordinate},
  {id:'congruence-investigation-overlap',tag:'CHAIN',name:'Four-part investigation: overlapping triangles and parallel lines',best:[2],generate:investigationOverlap},
+ {id:'congruence-investigation-kite',tag:'CHAIN',name:'Four-part investigation: kite with a shared diagonal',best:[2],generate:investigationKite},
+ {id:'congruence-investigation-hl',tag:'CHAIN',name:'Four-part investigation: right triangles congruent by HL',best:[2],generate:investigationHL},
  {id:'congruence-structured-proof',tag:'PROOFS',name:'Complete a two-column or flow proof',best:[0,1,2],generate:structuredProof}
  ]});
 })(typeof window!=='undefined'?window:globalThis);

@@ -79,4 +79,25 @@ run('congruence-investigation-overlap', p => {
   [x, y, z, angA].forEach((w, i) => assert.strictEqual(num(p.parts[i].answer), w, 'overlap part ' + i));
   assert(M.geoFigures.check(p.fig).ok, 'figure honest (angles drawn as printed)');
 }, 120);
+/* 5 kite */
+run('congruence-investigation-kite', p => {
+  const m = /AB = ⟨([^⟩]+)⟩ and AD = ⟨([^⟩]+)⟩\. Angle BAC measures ⟨\(([^⟩]+)\)⟩ degrees and angle DAC measures (\d+) degrees\. Angle BCA measures ⟨\(([^⟩]+)\)⟩ degrees and angle DCA measures (\d+) degrees/.exec(p.prompt);
+  assert(m, 'givens');
+  const x = solve(m[1], m[2], 'x'), y = solve(m[3], m[4], 'y'), z = solve(m[5], m[6], 'z');
+  const n1 = Number(m[4]), n2 = Number(m[6]), angB = 180 - n1 - n2;
+  assert(ev(m[1], { x }) > 0 && angB > 0);
+  [x, y, z, angB].forEach((w, i) => assert.strictEqual(num(p.parts[i].answer), w, 'kite part ' + i));
+  assert(M.geoFigures.check(p.fig).ok, 'figure honest');
+}, 60);
+/* 6 HL */
+run('congruence-investigation-hl', p => {
+  const m = /AC = ⟨([^⟩]+)⟩ and DF = ⟨([^⟩]+)⟩, and leg AB = ⟨([^⟩]+)⟩ while leg DE = (\d+)\..*Angle C measures ⟨\(([^⟩]+)\)⟩ degrees and angle F measures (\d+) degrees/.exec(p.prompt);
+  assert(m, 'givens');
+  const x = solve(m[1], m[2], 'x'), y = solve(m[3], m[4], 'y'), z = solve(m[5], m[6], 'z');
+  const hyp = ev(m[1], { x }), leg = Number(m[4]), angC = Number(m[6]);
+  assert(hyp > leg, 'hypotenuse is the longest side');
+  assert(angC > 0 && angC < 90);
+  [x, y, z, 90 - angC].forEach((w, i) => assert.strictEqual(num(p.parts[i].answer), w, 'hl part ' + i));
+  assert(M.geoFigures.check(p.fig).ok, 'figure honest');
+}, 60);
 console.log('Congruence investigations: ' + n + ' problems re-derived from their printed text; every key, figure and side/angle relation agrees.');
