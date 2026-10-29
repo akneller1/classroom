@@ -421,5 +421,11 @@
     }
     step();
   };
+  GB.hasGameItems = function (setId, skillId) {
+    for (var c = 1; c <= 7; c++) for (var i = 0; i < 3; i++) {
+      if (GB.makeItems(setId, skillId, c, { intOnly: c <= 5, level: 'game' }, 'availability|' + i, null).length) return true;
+    }
+    return false;
+  };
   GB.skillsOf = function (setId) { return NS.skillSets[setId].skills.map(function (s) { return s.id; }); };
 })(typeof window !== 'undefined' ? window : globalThis);

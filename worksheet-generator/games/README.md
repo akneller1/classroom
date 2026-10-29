@@ -1,5 +1,40 @@
 # Generated games
 
+## Teacher skill selection
+
+Every game starts with the shared `skill-setup.js` dialog: unit-specific checkboxes,
+Select All, Clear All, and Continue. All supported skills are checked by default;
+Continue is disabled when none are selected. Refresh the page to choose a different
+set. Existing level, team, timer, scoring, stealing and answer-checking controls remain
+inside each game.
+
+- Generated games use the menu bank's skill IDs and names, respect `data-skills`,
+  and exclude investigations without game-compatible answer parts. Selected IDs
+  feed every initial deck, replacement deck, new board and new round. Showdown
+  includes every selected category. An unexpectedly empty verified deck shows a
+  recovery message instead of opening a question with no item.
+- Hand-built Connect Four filters its own `UNIT.pools` (or `POOLS`), preserving
+  weighting. A skill missing at a requested level uses a level where it exists.
+  Generation and fallback both stay inside the selected skills.
+- Hand-built Tic-Tac-Toe uses bank skill labels, or the actual question instruction
+  where the bank has no skill field; no inferred curriculum tags are added.
+- Hand-built Jeopardy uses its bank categories, with saved boards scoped by the
+  selected categories. Picture Reveal and flashcards use their own `skill` fields.
+  Picture Reveal uncovers omitted tiles immediately and counts only selected
+  problems, preserving the original question IDs and answers.
+- Mystery games use their bank skills and automatically provide the evidence from
+  omitted questions, preserving the full evidence chain and final accusation.
+- Escape rooms are intentionally excluded. Printable PDFs and single-purpose
+  interactive simulations without a question-skill bank are unchanged. Archived
+  `legacy.html` copies are also unchanged.
+
+`node worksheet-generator/games/tests/skill-selection-browser.cjs` starts its own
+local server and checks every integrated page for checked defaults, Select All,
+Clear All, blocked empty selection, single-skill filtering and game startup.
+Set `CHANNEL=msedge` to use installed Edge, `MATCH=<folder substring>` for a subset,
+and `MECHANICS=1` to also run the existing complete generated-game playthroughs.
+The latter cover wins, steals, scoring, misses and solving the entire picture.
+
 Five classroom games that run on fresh, independently checked problems from the Menu Assessment skill
 banks (`worksheet-generator/menu/skills/`). They look and play like the hand-built games on the site.
 

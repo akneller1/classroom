@@ -24,6 +24,9 @@
   // data-skills="a,b,c" limits a page to some of the unit's skills (e.g. Foundations uses the expression skills)
   var only = (body.getAttribute('data-skills') || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean);
   var skillIds = SET.skills.map(function (s) { return s.id; }).filter(function (id) { return !only.length || only.indexOf(id) >= 0; });
+  // Some bank skills are extended investigations without game-compatible
+  // answer parts. Only offer skills that can actually make game questions.
+  skillIds = skillIds.filter(function (id) { return GB.hasGameItems(UNIT, id); });
   var tags = Object.keys(SET.tags || {}).filter(function (t) { return skillIds.some(function (id) { return SET.byId[id].tag === t; }); });
   function skillName(id) { return SET.byId[id].name; }
 
@@ -66,7 +69,10 @@
     for (var r = 0; r < (reps || 1); r++) skills.forEach(function (s) { tiers.forEach(function (c) { out.push({ skill: s, c: c }); }); });
     return rng.shuffle(out);
   }
-  function deck(slots, opts, done) { loading(opts && opts.msg); GB.buildDeck(UNIT, slots, Object.assign({ progress: progress }, opts || {}), done); }
+  function deck(slots, opts, done) { loading(opts && opts.msg); GB.buildDeck(UNIT, slots, Object.assign({ progress: progress }, opts || {}), function (items) {
+    if (!items.length) { app.innerHTML = '<div class="gm-panel" role="status">No verified questions could be made for these skills. <button class="gm-btn" onclick="location.reload()">Choose skills again</button></div>'; return; }
+    done(items);
+  }); }
   /* a drawing pile of verified items that refills itself */
   function Pile(level) { this.level = level; this.items = []; }
   Pile.prototype.fill = function (done) { var self = this; deck(levelSlots(this.level, skillIds), {}, function (its) { self.items = rng.shuffle(its); done(); }); };
@@ -137,8 +143,8 @@
     var S = { preset: saved.preset || 'cp1', teams: saved.teams || ['Team 1', 'Team 2'], score: [], cells: {}, open: null, showOpts: false, showAns: false };
     GB._state = function () { return S; };
     /* one category per skill group; a unit with fewer than three groups gets one category per skill instead */
-    var cols = (tags.length >= 3 ? tags.slice(0, 6).map(function (t) { return { name: SET.tags[t], skills: skillIds.filter(function (id) { return SET.byId[id].tag === t; }) }; })
-      : skillIds.slice(0, 6).map(function (id) { return { name: SET.byId[id].name, skills: [id] }; })), VALUES = [100, 200, 300, 400, 500];
+    var cols = (tags.length >= 3 ? tags.map(function (t) { return { name: SET.tags[t], skills: skillIds.filter(function (id) { return SET.byId[id].tag === t; }) }; })
+      : skillIds.map(function (id) { return { name: SET.byId[id].name, skills: [id] }; })), VALUES = [100, 200, 300, 400, 500];
     function build() {
       var slots = [];
       cols.forEach(function (t, ci) {
@@ -155,12 +161,12 @@
       var h = '<h1 class="sd-title">' + esc(TITLE).replace(/Showdown/, '<b>Showdown</b>') + '</h1><p class="sd-sub">' + esc(SET.unitName) + ' review · pick a category and a value</p>' +
         '<div class="gm-ctl"><label for="sdPreset">Board:</label><select class="gm-sel" id="sdPreset">' + Object.keys(PRESETS).map(function (k) { return '<option value="' + k + '"' + (k === S.preset ? ' selected' : '') + '>' + NAMES[k] + '</option>'; }).join('') + '</select>' +
         '<button class="gm-btn" id="sdNew">New board</button><button class="gm-btn" id="sdAddT"' + (S.teams.length >= 8 ? ' disabled' : '') + '>Add team</button><button class="gm-btn" id="sdRemT"' + (S.teams.length <= 1 ? ' disabled' : '') + '>Remove team</button></div>' +
-        '<div class="sd-board" style="grid-template-columns:repeat(' + cols.length + ',1fr)">' + cols.map(function (t) { return '<div class="sd-cat">' + esc(t.name) + '</div>'; }).join('');
+        '<div style="overflow-x:auto"><div class="sd-board" style="grid-template-columns:repeat(' + cols.length + ',minmax(130px,1fr))">' + cols.map(function (t) { return '<div class="sd-cat">' + esc(t.name) + '</div>'; }).join('');
       VALUES.forEach(function (v, ri) { cols.forEach(function (t, ci) {
         var cell = S.cells[ci + ',' + ri];
-        h += cell ? '<button class="sd-cell" data-cell="' + ci + ',' + ri + '"' + (cell.used ? ' disabled aria-label="used"' : ' aria-label="' + esc(SET.tags[t]) + ' for ' + v + '"') + '>' + (cell.used ? '' : v) + '</button>' : '<button class="sd-cell err" disabled>No verified problem</button>';
+        h += cell ? '<button class="sd-cell" data-cell="' + ci + ',' + ri + '"' + (cell.used ? ' disabled aria-label="used"' : ' aria-label="' + esc(t.name) + ' for ' + v + '"') + '>' + (cell.used ? '' : v) + '</button>' : '<button class="sd-cell err" disabled>No verified problem</button>';
       }); });
-      h += '</div>' + teamsHtml() + '<p class="sd-foot">Click a value to open the problem. Press <b>Space</b> to show the answer and solution, <b>Esc</b> to return to the board.</p>';
+      h += '</div></div>' + teamsHtml() + '<p class="sd-foot">Click a value to open the problem. Press <b>Space</b> to show the answer and solution, <b>Esc</b> to return to the board.</p>';
       app.innerHTML = h;
       $('#sdPreset').onchange = function () { S.preset = this.value; persist(); build(); };
       $('#sdNew').onclick = build;
@@ -364,7 +370,7 @@
           '<div class="gm-row" style="margin-top:10px"><button class="gm-btn primary" id="prCheck"' + (st.done ? ' disabled' : '') + '>Check answer</button><button class="gm-btn" id="prSol">' + (st.sol ? 'Hide' : 'Show') + ' worked solution</button></div>' + (st.sol ? solHtml(it) : '');
       }
       h += '<div class="gm-row" style="margin-top:18px"><button class="gm-btn" id="prPrev"' + (S.i > 0 ? '' : ' disabled') + '>← Previous</button><button class="gm-btn" id="prNext"' + (S.i < n - 1 ? '' : ' disabled') + '>Next →</button><span class="gm-sp"></span>' + levelSel('prLevel', S.level) + '<button class="gm-btn" id="prNew">New game</button></div></div>' +
-        '<div class="gm-panel"><div class="gm-row"><h2 style="margin:0;font-size:1.2rem">Mystery Picture</h2><span class="gm-sp"></span><span class="gm-pill">' + n + ' pieces</span></div><div class="pr-pic" style="margin-top:12px">' + ART[S.art]() + '<div class="pr-tiles">' +
+        '<div class="gm-panel"><div class="gm-row"><h2 style="margin:0;font-size:1.2rem">Mystery Picture</h2><span class="gm-sp"></span><span class="gm-pill">' + n + ' pieces</span></div><div class="pr-pic" style="margin-top:12px">' + ART[S.art]() + '<div class="pr-tiles" style="grid-template-columns:repeat(' + (n === 10 ? 5 : n) + ',1fr);grid-template-rows:repeat(' + (n === 10 ? 2 : 1) + ',1fr)">' +
         S.items.map(function (_, k) { return '<div class="pr-tile' + (S.st[k].done ? ' gone' : '') + '">' + (S.st[k].done ? '' : '?') + '</div>'; }).join('') + '</div></div><p class="gm-muted">Each correct answer uncovers one piece of the picture. Solve all ' + n + ' to see the whole thing!</p></div></div>';
       app.innerHTML = h; wire();
     }
@@ -393,6 +399,10 @@
   }
 
   var GAMES = { flashcards: flashcards, showdown: showdown, 'connect-four': connectFour, 'tic-tac-toe': ticTacToe, 'picture-reveal': pictureReveal };
-  (GAMES[GAME] || flashcards)();
+  G.TeacherSkills.choose(skillIds.map(function (id) { return { id: id, name: skillName(id) }; }), function (selected) {
+    skillIds = selected;
+    tags = tags.filter(function (t) { return skillIds.some(function (id) { return SET.byId[id].tag === t; }); });
+    (GAMES[GAME] || flashcards)();
+  });
   G.MKGAMES.ui = { qHtml: qHtml, solHtml: solHtml };
 })(window);

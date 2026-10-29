@@ -1,0 +1,67 @@
+/* Shared teacher setup. Labels come from each game's own bank. */
+(function (G) {
+  'use strict';
+  function text(value) {
+    var el = G.document.createElement('div');
+    el.innerHTML = String(value || '');
+    return el.textContent.replace(/\s+/g, ' ').trim();
+  }
+  function choose(skills, start, note) {
+    var doc = G.document, dialog = doc.createElement('dialog');
+    dialog.className = 'teacher-skills';
+    dialog.style.cssText = 'box-sizing:border-box;width:min(640px,94vw);max-height:88vh;overflow:auto;border:2px solid #3456d1;border-radius:16px;padding:24px;background:#fff;color:#17233b;font:16px/1.5 system-ui;';
+    var title = doc.createElement('h2'); title.textContent = 'Choose skills for this game';
+    title.style.marginTop = '0'; dialog.appendChild(title);
+    var context = doc.createElement('p'); context.textContent = doc.title;
+    context.style.fontWeight = '600'; dialog.appendChild(context);
+    var help = doc.createElement('p'); help.textContent = note || 'All available skills are selected. Choose the skills you want students to practice.';
+    dialog.appendChild(help);
+    var actions = doc.createElement('div'); dialog.appendChild(actions);
+    var list = doc.createElement('fieldset');
+    var legend = doc.createElement('legend'); legend.textContent = 'Skills'; list.appendChild(legend);
+    var inputs = skills.map(function (skill) {
+      var label = doc.createElement('label'), input = doc.createElement('input');
+      label.style.cssText = 'display:flex;align-items:baseline;gap:10px;margin:10px 0;text-align:left;';
+      input.type = 'checkbox'; input.checked = true; input.value = skill.id;
+      input.style.cssText = 'width:18px;height:18px;flex:none;';
+      label.appendChild(input); label.appendChild(doc.createTextNode(text(skill.name))); list.appendChild(label);
+      return input;
+    });
+    dialog.appendChild(list);
+    var status = doc.createElement('p'); status.setAttribute('role', 'status'); dialog.appendChild(status);
+    function button(label, parent, fn) {
+      var b = doc.createElement('button'); b.type = 'button'; b.textContent = label;
+      b.style.cssText = 'padding:9px 16px;margin:4px;border:1px solid #3456d1;border-radius:8px;background:#f2f5ff;color:#17233b;font:inherit;cursor:pointer;';
+      b.onclick = fn; parent.appendChild(b); return b;
+    }
+    var go = button('Continue', dialog, function () {
+      var ids = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
+      if (!ids.length) return;
+      dialog.close(); dialog.remove(); start(ids);
+    });
+    function update() {
+      var n = inputs.filter(function (i) { return i.checked; }).length;
+      go.disabled = !n; go.style.opacity = n ? '1' : '.5';
+      status.textContent = !skills.length ? 'No game questions are available for this unit yet.' : n ? n + ' of ' + skills.length + ' selected' : 'Select at least one skill to continue.';
+    }
+    button('Select All', actions, function () { inputs.forEach(function (i) { i.checked = true; }); update(); });
+    button('Clear All', actions, function () { inputs.forEach(function (i) { i.checked = false; }); update(); });
+    inputs.forEach(function (i) { i.onchange = update; });
+    dialog.addEventListener('cancel', function (e) { e.preventDefault(); });
+    doc.body.appendChild(dialog); update(); dialog.showModal();
+  }
+  function bank(items, label, start, note) {
+    var names = items.map(function (q) { return text(label(q)); });
+    var unique = Array.from(new Set(names));
+    choose(unique.map(function (name, i) { return { id: String(i), name: name }; }), function (ids) {
+      var selected = new Set(ids.map(function (id) { return unique[+id]; }));
+      start(items.filter(function (_, i) { return selected.has(names[i]); }));
+    }, note);
+  }
+  function questionLabel(q) {
+    // Older mystery banks store a clue number where newer banks store a skill.
+    // Use the actual instruction in that case, never an invented topic tag.
+    return q.skill && !/^clue\s*\d+$/i.test(text(q.skill)) ? q.skill : q.instr;
+  }
+  G.TeacherSkills = { choose: choose, bank: bank, questionLabel: questionLabel };
+})(window);
