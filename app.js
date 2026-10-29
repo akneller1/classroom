@@ -616,8 +616,120 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     "Effects of Scale Factor on Area and Volume"
   ]
 };
+  var ALGEBRA2_UNIT_SUBSKILLS = {
+    "functions-transformations": [
+      "Function notation and evaluation",
+      "Domain and range",
+      "Operations and composition of functions",
+      "Inverse functions",
+      "Parent functions and graph transformations",
+      "Piecewise functions",
+      "Even and odd functions",
+      "Modeling with functions"
+    ],
+    "linear-functions-systems": [
+      "Linear equations in multiple forms",
+      "Slope and rate of change",
+      "Writing linear models",
+      "Systems by graphing and substitution",
+      "Systems by elimination",
+      "Linear inequalities and systems",
+      "Linear programming and applications"
+    ],
+    "quadratic-functions-complex-numbers": [
+      "Graphing quadratic functions",
+      "Vertex and intercept forms",
+      "Factoring quadratic expressions",
+      "Solving by square roots and completing the square",
+      "Quadratic formula and discriminant",
+      "Complex numbers and arithmetic",
+      "Quadratic equations with complex solutions",
+      "Quadratic modeling applications"
+    ],
+    "polynomial-functions": [
+      "Polynomial operations",
+      "Special products and factoring",
+      "Long division and synthetic division",
+      "Remainder and factor theorems",
+      "Zeros and multiplicities",
+      "Graphing polynomial functions",
+      "Fundamental theorem of algebra",
+      "Polynomial equations and applications"
+    ],
+    "radicals-rational-exponents": [
+      "Simplifying radicals",
+      "Operations with radical expressions",
+      "Rational exponents",
+      "Converting between radicals and exponents",
+      "Solving radical equations",
+      "Extraneous solutions",
+      "Graphing square-root and cube-root functions",
+      "Radical function transformations"
+    ],
+    "exponential-logarithmic-functions": [
+      "Exponential growth and decay",
+      "Graphing exponential functions",
+      "Inverse relationship of exponentials and logarithms",
+      "Logarithm properties",
+      "Evaluating logarithms",
+      "Solving exponential equations",
+      "Solving logarithmic equations",
+      "Compound interest and real-world models"
+    ],
+    "rational-functions": [
+      "Simplifying rational expressions",
+      "Multiplying and dividing rational expressions",
+      "Adding and subtracting rational expressions",
+      "Solving rational equations",
+      "Excluded values and extraneous solutions",
+      "Vertical and horizontal asymptotes",
+      "Graphing rational functions",
+      "Rational variation and modeling"
+    ],
+    "sequences-series": [
+      "Arithmetic sequences",
+      "Geometric sequences",
+      "Recursive and explicit formulas",
+      "Arithmetic series and sums",
+      "Geometric series and sums",
+      "Sigma notation",
+      "Finite and infinite geometric series",
+      "Applications of sequences"
+    ],
+    "conic-sections": [
+      "Circles in standard form",
+      "Parabolas and focus-directrix form",
+      "Ellipses and their equations",
+      "Hyperbolas and their equations",
+      "Graphing conic sections",
+      "Converting equations to standard form",
+      "Identifying conics from equations"
+    ],
+    "trigonometric-functions": [
+      "Angles in degrees and radians",
+      "Unit circle coordinates",
+      "Sine, cosine, and tangent",
+      "Graphs of sine and cosine",
+      "Amplitude, period, and phase shift",
+      "Trigonometric identities",
+      "Solving trigonometric equations",
+      "Inverse trigonometric functions",
+      "Trigonometric modeling"
+    ],
+    "probability-statistics": [
+      "Counting principles and permutations",
+      "Combinations",
+      "Independent and dependent events",
+      "Conditional probability",
+      "Probability distributions",
+      "Expected value",
+      "Normal distributions and z-scores",
+      "Sampling, inference, and statistical models"
+    ]
+  };
     function subskillsHtml(u, courseId) {
-    var skills = (courseId === 'geometry' ? GEOMETRY_UNIT_SUBSKILLS : ALGEBRA_UNIT_SUBSKILLS)[u.id] || [];
+    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS };
+    var skills = (skillBanks[courseId] || {})[u.id] || [];
     function lines(list) {
       return '<ul class="unit-skills">' + list.map(function (skill) {
         return '<li class="unit-skill">' + esc(skill) + '</li>';
@@ -637,7 +749,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'algebra' || c.id === 'geometry') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
@@ -645,14 +757,14 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
-          if (!k && c.id !== 'geometry') {
+          if (!k && c.id !== 'geometry' && c.id !== 'algebra2') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          if (c.id === 'algebra' || c.id === 'geometry') {
+          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') {
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
@@ -755,7 +867,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   }
 
   function unitView(c, u) {
-    if (c.id === 'algebra' || c.id === 'geometry') return algebraUnitView(c, u);
+    if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') return algebraUnitView(c, u);
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var planner = u.artifacts.filter(function (a) { return activityFormat(a) === 'lesson-planner'; })[0];
     var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];
