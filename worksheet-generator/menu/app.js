@@ -173,7 +173,7 @@
         return '<tr data-si="' + si + '"><td><input type="text" class="mmSecName" value="' + esc(s.name) + '" aria-label="Part ' + (si + 1) + ' name" maxlength="40"><input type="text" class="mmSecNote" value="' + esc(s.note || '') + '" aria-label="Part ' + (si + 1) + ' directions" placeholder="Directions (optional)" maxlength="60"></td>' +
           (ws ? '' : '<td><input type="number" class="mmSecPts" min="0.5" step="0.5" value="' + s.points + '" aria-label="' + esc(s.name) + ' points each"></td>') +
           '<td><input type="number" class="mmSecOff" min="1" max="30" value="' + s.offered + '" aria-label="' + esc(s.name) + ' number of questions"></td>' +
-          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + (k === 'multi' && !NS.multiUnitSupported(c.unitId) ? ' disabled' : '') + '>' + esc(NS.FORMATS[k]) + '</option>'; }).join('') + '</select></td>' +
+          '<td><select class="mmSecFmt" aria-label="' + esc(s.name) + ' question format">' + Object.keys(NS.FORMATS).map(function (k) { return '<option value="' + k + '"' + ((s.qformat || 'open') === k ? ' selected' : '') + ((k === 'multi' && !NS.multiUnitSupported(c.unitId)) || ((s.qformat || 'open') !== k && !NS.formatAvailable(c, si, k)) ? ' disabled title="None of this part\'s selected skills can be asked this way"' : '') + '>' + esc(NS.FORMATS[k]) + ((k !== 'open' && (s.qformat || 'open') !== k && !NS.formatAvailable(c, si, k)) ? ' (not available here)' : '') + '</option>'; }).join('') + '</select></td>' +
           '<td><select class="mmSecTier" aria-label="' + esc(s.name) + ' difficulty">' + TIERS_TEST.map(function (t) { return '<option value="' + t[0] + '"' + (String(tierV) === String(t[0]) ? ' selected' : '') + '>' + t[1] + '</option>'; }).join('') + '</select>' +
           '<span class="mm-adj"><button type="button" class="step-btn mmAdj" data-d="-1" aria-label="Make ' + esc(s.name) + ' easier">−</button><span class="mm-cval" title="Difficulty (1 to 7)">' + cTxt + '</span><button type="button" class="step-btn mmAdj" data-d="1" aria-label="Make ' + esc(s.name) + ' harder">+</button></span></td>' +
           '<td><button type="button" class="btn ghost sm mmSecSkills">' + skillsTxt + '</button></td>' +
@@ -347,7 +347,8 @@
     var issues = (!p.failed && p.verify && p.verify.status !== 'verified') ? '<div class="mm-issues">' + (p.verify.issues || []).map(function (x) { return '<div>' + esc(x) + '</div>'; }).join('') +
       '<label class="chk"><input type="checkbox" class="mmApprove"' + (p.approved ? ' checked' : '') + '><span>I checked this answer myself and approve it for the key.</span></label></div>' : '';
     var secOpts = c.sections.map(function (s, k) { return '<option value="' + k + '"' + (k === si ? ' disabled' : '') + '>' + esc(s.name) + '</option>'; }).join('');
-    var skillOpts = set.skills.map(function (s) { return '<option value="' + s.id + '"' + (s.id === p.skill ? ' selected' : '') + '>' + esc(s.name) + '</option>'; }).join('');
+    var curFmt = NS.sectionFormat(c, si), curC = NS.sectionC(c, si);
+    var skillOpts = set.skills.map(function (s) { var bad = s.id !== p.skill && !NS.skillFormatOk(c.unitId, s.id, curFmt, curC); return '<option value="' + s.id + '"' + (s.id === p.skill ? ' selected' : '') + (bad ? ' disabled' : '') + '>' + esc(s.name) + (bad ? ' (not available as ' + esc(NS.FORMATS[curFmt]) + ')' : '') + '</option>'; }).join('');
     var lockedNote = p.edited || p.manual ? ' (edited problems are pinned)' : '';
     var tools = '<div class="mm-tools" role="toolbar" aria-label="Tools for ' + lab + '">' +
       '<button type="button" class="btn sm" data-act="regen"' + (p.pinned ? ' disabled title="Unpin to regenerate"' : '') + '>↻ New problem</button>' +
@@ -380,7 +381,7 @@
       var items = v.sections[si].items, req = items.filter(function (x) { return x.required; }).length;
       h += '<section class="mm-secblock" aria-labelledby="mmsec' + si + '"><div class="mm-sechd"><h2 id="mmsec' + si + '">' + esc(sec.name) + '</h2><span class="mm-secinfo">' + (NS.isTest(c) ? items.length + ' questions · ' + esc(NS.FORMATS[NS.sectionFormat(c, si)]) + (NS.isWorksheet(c) ? '' : ' · ' + sec.points + ' pts each') : items.length + ' offered · students complete ' + sec.required + ' · ' + sec.points + ' pts each' + (req ? ' · ' + req + ' required' : '')) + '</span></div>' +
         '<div class="mm-cards">' + items.map(function (p, i) { return dishCard(p, si, i); }).join('') + '</div>' +
-        '<div class="mm-addrow"><label>Add a problem: <select class="mmAddSkill" data-si="' + si + '">' + set.skills.map(function (s) { return '<option value="' + s.id + '">' + esc(s.name) + '</option>'; }).join('') + '</select></label>' +
+        '<div class="mm-addrow"><label>Add a problem: <select class="mmAddSkill" data-si="' + si + '">' + (function () { var f = NS.sectionFormat(c, si), cs = NS.sectionC(c, si), picked = false; return set.skills.map(function (s) { var ok = NS.skillFormatOk(c.unitId, s.id, f, cs), sel = ok && !picked; if (sel) picked = true; return '<option value="' + s.id + '"' + (ok ? '' : ' disabled') + (sel ? ' selected' : '') + '>' + esc(s.name) + (ok ? '' : ' (not available as ' + esc(NS.FORMATS[f]) + ')') + '</option>'; }).join(''); })() + '</select></label>' +
         '<label>Difficulty <select class="mmAddC" data-si="' + si + '">' + [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<option value="' + k + '"' + (k === NS.sectionC(c, si) ? ' selected' : '') + '>' + k + ' · ' + NS.DIFF_NAMES[k] + '</option>'; }).join('') + '</select></label>' +
         '<button type="button" class="btn sm" data-add="' + si + '">+ Add</button><button type="button" class="btn sm ghost" data-manual="' + si + '">+ Write your own</button></div></section>';
     });
@@ -420,6 +421,7 @@
     });
     $$('[data-add]').forEach(function (b) { b.onclick = function () {
       var si = +b.getAttribute('data-add'), sk = $('.mmAddSkill[data-si="' + si + '"]').value, cc = +$('.mmAddC[data-si="' + si + '"]').value;
+      if (!NS.skillFormatOk(S.config.unitId, sk, NS.sectionFormat(S.config, si), cc)) return;
       change(function () { return NS.addItem(S, si, sk, cc); }, 'Problem added to every version.');
     }; });
     $$('[data-manual]').forEach(function (b) { b.onclick = function () { editDialog(null, +b.getAttribute('data-manual')); }; });

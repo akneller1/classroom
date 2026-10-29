@@ -232,3 +232,6 @@ Four new Honors-only four-part investigations in `skills/geometry-basics-reasoni
 - missing endpoint from a midpoint, then the distance formula (3-4-5 family so lengths are whole numbers; grid figure of A and M);
 - linear pair, vertical angle and bisector at intersecting lines.
 The six one-step skills are `best:[0,1]`; the older `coordinate-investigation` stays Honors. Test: `menu/tests/geometry-basics-rigor-tests.cjs` (1,680 problems). The capacity audit caught too few distinct "lines" problems and the diagrams test caught a figure outside the grid; both fixed.
+
+## Question-format greying (2026-10-29)
+Teacher request: when a question format (e.g. Choose all that apply) cannot be asked for a skill or section, grey it out instead of adding problems that show "No verified problem". `NS.skillFormatOk` and `NS.formatAvailable` (engine.js) sample the existing capability checks (`multiCapable`, `mcCapable`, `mcasCapable`). In the menu UI (app.js, shared with Algebra): the part's format dropdown disables a format when none of the part's selected skills can do it ("not available here"); the per-problem skill dropdown and the "Add a problem" dropdown disable skills that cannot be asked in the part's format, and "Add a problem" defaults to the first available skill. Congruence has no select-all-capable skills, so that option is greyed there.

@@ -470,6 +470,24 @@
     for (var i = 0; i < 6; i++) { var p = NS.generateProblem(setId, skillId, c, { intOnly: c <= 5, level: 'x' }, 'mccap|' + i, null); if (p.failed) continue; n++; if (!NS.makeChoices(p).fail) ok++; }
     return (mcCache[k] = n > 0 && ok * 2 >= n);
   };
+  /* Can this skill be asked in this question format at this difficulty? Used to grey out choices that would only produce "No verified problem". */
+  NS.skillFormatOk = function (unitId, skillId, format, c) {
+    if (!format || format === 'open') return true;
+    var set = sets[unitId]; if (!set || !set.byId[skillId]) return true;
+    try {
+      if (format === 'multi') return !!NS.multiUnitSupported(unitId) && NS.multiCapable(unitId, skillId, c);
+      if (format === 'mc') return NS.mcCapable(unitId, skillId, c);
+      if (format === 'mcas') return set.byId['mcas-context'] ? true : NS.mcasCapable(unitId, skillId, c);
+    } catch (err) { return true; }
+    return true;
+  };
+  /* Does at least one of the section's selected skills work in this format? */
+  NS.formatAvailable = function (cfg, si, format) {
+    if (!format || format === 'open') return true;
+    var ids = NS.sectionSkills(cfg, si), c = NS.sectionC(cfg, si);
+    if (!ids.length) return true;
+    return ids.some(function (id) { return NS.skillFormatOk(cfg.unitId, id, format, c); });
+  };
   /* Re-check stored choices against the problem: exactly the key is accepted by the verifier. */
   NS.checkChoices = function (p) {
     var GB = G.MKGAMES; if (!p || !p.mc || !GB || !GB.answerOk) return false;
