@@ -63,6 +63,42 @@
         var L0 = sd[1], W0 = sd[2], H0 = sd[3], want = ['x=' + L0 + '*' + W0, 'y=' + L0 + '*' + W0 + '*' + H0, 'z=2*' + L0 + '*' + W0 + '+2*' + L0 + '*' + H0 + '+2*' + W0 + '*' + H0, sb[1] + '*k=' + (L0 * W0 * H0)];
         return chk.eq === want[ix];
       }
+      /* Congruence investigations (algebra, isosceles, overlap): the loose "digit was printed somewhere" test below
+         lets a changed printed number slip through whenever the old digit appears elsewhere in the text. Instead, rebuild
+         each part's equation from the printed givens and the earlier answers, and require an exact match. */
+      if (/^geo-congruence-investigation-(algebra|isosceles|overlap)-/.test(p.variant || '')) {
+        var cpr = String(p.prompt || ''), cwant = null;
+        var cans = function (j, v) { var mm = new RegExp(v + '\\s*=\\s*(-?\\d+)').exec(String((pts[j] || {}).answer || '')); return mm ? mm[1] : null; };
+        var cM = '⟨([^⟩]*)⟩';
+        if (/-algebra-/.test(p.variant)) {
+          var am2 = new RegExp('AB = ' + cM + ' and DE = ' + cM + '\\. BC = ' + cM + ' and EF = (\\d+)\\. AC = ' + cM + '\\..*?angle C is ⟨\\(([^⟩]*)\\)⟩ degrees and the measure of angle F is ⟨\\(([^⟩]*)\\)⟩ degrees').exec(cpr);
+          if (!am2) return false;
+          var xA = cans(0, 'x'), yA = cans(1, 'y');
+          if (ix === 0) cwant = am2[1] + '=' + am2[2];
+          else if (ix === 3) cwant = am2[6] + '=' + am2[7];
+          else {
+            var bcm = /^(\d*)y\+x$/.exec(norm(am2[3]));
+            if (!bcm) return false;
+            var pcA = bcm[1] === '' ? '1' : bcm[1];
+            if (ix === 1) { if (xA === null) return false; cwant = pcA + '*y+' + xA + '=' + am2[4]; }
+            else {
+              var abm = /^(\d*)x(?:([+-])(\d+))?$/.exec(norm(am2[1])), acm = /^(\d*)x-(\d*)y$/.exec(norm(am2[5]));
+              if (!abm || !acm || xA === null || yA === null) return false;
+              var a1A = abm[1] === '' ? '1' : abm[1], b1A = abm[2] ? (abm[2] === '-' ? '-' : '+') + abm[3] : '+0', uA = acm[1] === '' ? '1' : acm[1], wA = acm[2] === '' ? '1' : acm[2];
+              cwant = 'w=(' + a1A + '*' + xA + b1A + ')+(' + pcA + '*' + yA + '+' + xA + ')+(' + uA + '*' + xA + '-' + wA + '*' + yA + ')';
+            }
+          }
+        } else if (/-isosceles-/.test(p.variant)) {
+          var im = new RegExp('Angle BAD measures ⟨\\(([^⟩]*)\\)⟩ degrees and angle CAD measures (\\d+) degrees').exec(cpr);
+          if (!im) return false;
+          cwant = ix === 0 ? im[1] + '=' + im[2] : ix === 1 ? 'w=' + im[2] + '+' + im[2] : ix === 2 ? 'w+w+' + (2 * Number(im[2])) + '=180' : 'w+w=180';
+        } else {
+          var om = new RegExp('AB = ' + cM + ' and CD = ' + cM + '\\. Angle ABD measures ⟨\\(([^⟩]*)\\)⟩ degrees and angle CDB measures (\\d+) degrees\\. Angle ADB measures ⟨\\(([^⟩]*)\\)⟩ degrees and angle CBD measures (\\d+) degrees').exec(cpr);
+          if (!om) return false;
+          cwant = ix === 0 ? om[1] + '=' + om[2] : ix === 1 ? om[3] + '=' + om[4] : ix === 2 ? om[5] + '=' + om[6] : 'w+' + om[4] + '+' + om[6] + '=180';
+        }
+        return cwant !== null && norm(chk.eq) === norm(cwant);
+      }
       var okNum = {}; // Congruence chains print their expressions inside math, so their digits count too
       ((/^geo-congruence-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
       [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; });
