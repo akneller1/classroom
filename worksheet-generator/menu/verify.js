@@ -54,7 +54,7 @@
     }
     /* Four-part Open Response investigations: each part's equation may use only numbers printed for students,
        a standard constant, or an answer from an earlier part. A changed printed number therefore invalidates the key. */
-    if (/^geo-(angles|circles|polygons|transformations|solids|congruence|triangles|similarity)-investigation-/.test(p.variant || '')) {
+    if (/^geo-(angles|circles|polygons|transformations|solids|congruence|triangles|similarity|rtchain)-investigation-/.test(p.variant || '')) {
       var pts = p.parts || [], ix = -1; pts.forEach(function (pt, i) { if (pt.check === chk) ix = i; });
       if (ix < 0 || pts.length < 4) return false;
       if (/^geo-solids-/.test(p.variant)) {   // exact re-derivation from the printed dimensions
@@ -64,7 +64,7 @@
         return chk.eq === want[ix];
       }
       var okNum = {}; // Congruence chains print their expressions inside math, so their digits count too
-      ((/^geo-(congruence|triangles|similarity)-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
+      ((/^geo-(congruence|triangles|similarity|rtchain)-/.test(p.variant || '') ? studentText(p).replace(/<[^>]+>/g, ' ') : C.plainText(studentText(p))).match(/\d+/g) || []).forEach(function (n) { okNum[String(Number(n))] = 1; });
       [0, 1, 2, 180, 360].forEach(function (n) { okNum[n] = 1; }); if (/^geo-triangles-/.test(p.variant || '')) { okNum[3] = 1; okNum[90] = 1; }
       for (var pj = 0; pj < ix; pj++) { var am = /=\s*(-?\d+)/.exec(String(pts[pj].answer || '')) || /^\s*⟨?\s*(-?\d+)\s*⟩?\s*$/.exec(String(pts[pj].answer || '')); if (am) okNum[String(Math.abs(Number(am[1])))] = 1; }
       return (chk.eq.match(/\d+/g) || []).every(function (n) { return okNum[String(Number(n))]; });
@@ -805,6 +805,17 @@
     if (POW_TYPES.indexOf(t) >= 0) return checkPowPart(p, part, policy);
     if (POLY_TYPES.indexOf(t) >= 0) return checkPolyPart(p, part, policy);
     if (QUAD_TYPES.indexOf(t) >= 0) return checkQuadPart(p, part, policy);
+    /* Honors right-triangle chains: a one-unknown equation in v^2 (Pythagorean steps). The numbers must still be printed or earlier answers; the positive root is re-derived here. */
+    if (t === 'solve' && /^geo-rtchain-/.test(p.variant || '') && /^[a-z]$/.test(chk.v || '') && new RegExp('(^|[^0-9a-z])' + chk.v + '\\^2').test(chk.eq || '')) {
+      if (!geometryDerived(p, chk)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
+      var qv = chk.v, sides = String(chk.eq).split('=');
+      if (sides.length !== 2 || !/^[0-9a-z+\-*()^\s]+$/.test(chk.eq.replace('=', '')) || (chk.eq.match(new RegExp(qv, 'g')) || []).length !== (chk.eq.match(new RegExp(qv + '\\^2', 'g')) || []).length) return { status: 'invalid', msg: 'Not a square-root equation in ' + qv + '.' };
+      var fq = function (tv) { var f = function (e) { return Function(qv, 'return (' + e.replace(/\^/g, '**') + ')')(tv); }; return f(sides[0]) - f(sides[1]); };
+      var q0 = fq(0), q1 = fq(1) - q0, sq = q1 ? -q0 / q1 : NaN, root = Math.sqrt(sq);
+      if (!(sq > 0) || !Number.isInteger(root)) return { status: 'invalid', msg: 'The equation has no whole-number positive root.' };
+      var gotq = valueFromAnswer(ans, qv);
+      return gotq.eq(new Q(root)) ? { status: 'verified', computed: qv + '=' + root } : { status: 'mismatch', msg: 'Correct value is ' + root + '.', computed: qv + '=' + root };
+    }
     if ((t === 'solve' || t === 'classify' || t === 'literal' || t === 'literal-eval') && !shown(p, chk.eq) && !geometryDerived(p, chk)) return { status: 'invalid', msg: 'The equation being checked is not the one printed for students.' };
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
@@ -2639,6 +2650,7 @@
   function checkSteps(p) {
     var issues = [], first = (p.parts || [])[0];
     if (!first || !first.check) return issues;
+    if (/^geo-rtchain-/.test(p.variant || '') && first.check.v && new RegExp('(^|[^0-9a-z])' + first.check.v + '\\^2').test(first.check.eq || '')) return issues;   // each step's answer is checked against its own part
     (p.steps || []).forEach(function (st, i) {
       if (!st.m || st.partial) return;
       try {

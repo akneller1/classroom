@@ -205,3 +205,13 @@ Four new Honors-only four-part investigations in `skills/geometry-similarity.js`
 - `similarity-investigation-altitude` — altitude to the hypotenuse: geometric mean with algebra, hypotenuse, leg squared, area.
 One-step similarity skills are now `best:[0,1]` (SAS/SSS criteria `[1]`). Figures use `geo-cong` (expression labels are not allowed by `geo-sim`/`geo-tri-par`). Test: `menu/tests/geometry-similarity-rigor-tests.cjs` re-solves 1,680 problems from printed text at all seven difficulties.
 Note: in the shared verifier, later parts must use earlier answers as numbers, not variable names.
+
+## Rigor upgrade — Right Triangles and Trigonometry (2026-10-28)
+Four new Honors-only four-part investigations in `skills/geometry-right-triangles-trigonometry.js` (variants `geo-rtchain-investigation-*`):
+- `right-investigation-pyth` — two right triangles sharing a hypotenuse (65, 85 or 125 families, no needle-thin triangles): hypotenuse, other leg, algebraic leg for x, area.
+- `right-investigation-special` — 30-60-90 triangle with algebraic short leg and hypotenuse, long leg squared.
+- `right-investigation-converse` — Pythagorean theorem with an algebraic hypotenuse, sum of squares, perimeter.
+- `right-investigation-coordinate` — right triangle on the plane, hypotenuse, median to the hypotenuse.
+Verifier: `verify.js` now checks one-unknown square equations (e.g. `w^2=225`) for rtchain variants by re-deriving the positive whole-number root; every number in the equation must still be printed or an earlier answer. `checkSteps` skips the linear step comparison for those variants.
+Eight one-step skills (Pythagorean, distance, sine/cosine/tangent, 45-45-90, 30-60-90) are now `best:[0,1]`.
+Test: `menu/tests/geometry-righttriangle-rigor-tests.cjs` re-solves 1,120 problems from printed text and checks that 336 tampered answers are rejected.

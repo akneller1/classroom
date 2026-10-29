@@ -112,20 +112,104 @@ function trigInvestigation(ctx){var r=ctx.rng,c=ctx.c,t=triples[r.int(0,c>=5?5:2
  ['Use '+M('\\cos\\theta=\\frac{'+ad+'}{'+h+'}')+' to find the length y of the side adjacent to angle \u03b8.','y',D,h+'*y='+ad+'*'+H,'Cosine is adjacent over hypotenuse.'],
  ['Find the perimeter P of the triangle, using x and y from (a) and (b).','P',O+D+H,'P='+O+'+'+D+'+'+H,'Perimeter is the sum of the three sides.'],
  ['Find the area w of the triangle, using x and y as the legs.','w',O*D/2,'2*w='+O+'*'+D,'Area of a right triangle is half the product of its legs.']]);o4.fig=rt({a:D,b:O},['c'],{a:'y',b:'x'},{B:'\u03b8'});return o4;}
+
+/* ---------- Honors investigations (Pythagorean theorem, special triangles, converse, coordinates) ----------
+   Variants geo-rtchain-investigation-* use the shared four-part verifier: later equations use earlier answers as numbers. */
+function lin(a,b,v){var t=a===1?v:a+v;return b>0?t+'+'+b:b<0?t+'-'+(-b):t;}
+function sg(n){return n<0?'('+n+')':String(n);}
+var SAMEHYP={65:[[25,60],[33,56],[39,52]],85:[[36,77],[40,75],[51,68]],125:[[44,117],[75,100]]};   // no needle-thin triangles, so the picture stays readable
+/* 1: two right triangles with the same hypotenuse */
+function rtPyth(ctx){
+ var r=ctx.rng,c=ctx.c,hs=Object.keys(SAMEHYP),H=+hs[r.int(0,hs.length-1)],lst=SAMEHYP[H],i=r.int(0,lst.length-1),j=r.int(0,lst.length-1);
+ while(j===i){j=r.int(0,lst.length-1);}
+ var flip1=r.int(0,1),a=lst[i][flip1],b=lst[i][1-flip1],flip2=r.int(0,1),m=lst[j][flip2],v=lst[j][1-flip2];
+ var tries=0,px,q,x;do{px=r.int(2,5);x=r.int(2,c>=6?14:9);q=v-px*x;tries++;}while(Math.abs(q)>40&&tries<500);
+ var eEF=lin(px,q,'x'),sc=3/H;
+ var P={A:[0,0],B:[a*sc,0],C:[a*sc,b*sc],D:[4,0],E:[4+m*sc,0],F:[4+m*sc,v*sc]};
+ var fig={kind:'geo-cong',pts:P,segs:[['A','B'],['B','C'],['C','A'],['D','E'],['E','F'],['F','D']],tris:[['A','B','C'],['D','E','F']],sides:[{s:[['A','C'],['D','F']],n:1}],angles:[],right:[['A','B','C'],['D','E','F']],lab:{AB:String(a),BC:String(b),DE:String(m),EF:eEF},note:'Not drawn to scale.'};
+ return {variant:'geo-rtchain-investigation-pyth-'+c,fig:fig,
+  prompt:'Open Response: Right triangle ABC has its right angle at B, with AB = '+a+' and BC = '+b+'. Right triangle DEF has its right angle at E, with DE = '+m+' and EF = '+M(eEF)+'. The hypotenuses are equal: DF = AC. Show the equation you write in every part.',
+  parts:[
+   {label:'a',prompt:'Use the Pythagorean theorem to find the hypotenuse AC.',answer:M('w='+H),check:{type:'solve',eq:'w^2='+a+'^2+'+b+'^2',v:'w'}},
+   {label:'b',prompt:'Use DF = AC and the Pythagorean theorem to find the length EF.',answer:M('t='+v),check:{type:'solve',eq:'t^2+'+m+'^2='+H+'^2',v:'t'}},
+   {label:'c',prompt:'Use your answer to (b) to find x.',answer:M('x='+x),check:{type:'solve',eq:eEF+'='+v,v:'x'}},
+   {label:'d',prompt:'Find the area of triangle DEF.',answer:M('u='+m*v/2),check:{type:'solve',eq:'2*u='+m+'*'+v,v:'u'}}
+  ],
+  steps:[step('Legs squared add to the hypotenuse squared: '+a+'² + '+b+'² = '+(a*a+b*b)+', and the square root of '+(a*a+b*b)+' is '+H+'.',M('w='+H)),step('DF = '+H+', so t² + '+m+'² = '+H+'², which gives t² = '+(H*H-m*m)+' and t = '+v+'.',M('t='+v)),step('EF is the expression given: '+M(eEF+'='+v)+'.',M('x='+x)),step('Area is half the product of the legs: '+M('2*u='+m+'*'+v)+'.',M('u='+m*v/2))],
+  space:[3,3.6,4.2]};
+}
+/* 2: 30-60-90 triangle with algebraic sides */
+function rtSpecial(ctx){
+ var r=ctx.rng,c=ctx.c,tries=0,x,a,b,cc,d,s,h;
+ do{x=r.int(3,c>=6?15:11);a=r.int(1,4);b=r.int(-3,8);s=a*x+b;h=2*s;cc=r.int(1,6);d=h-cc*x;tries++;}while((cc===2*a||s<4||Math.abs(d)>40)&&tries<3000);
+ var eS=lin(a,b,'x'),eH=lin(cc,d,'x'),R3=Math.sqrt(3);
+ var P={C:[0,0],B:[0,1],A:[R3,0]};
+ var fig={kind:'geo-cong',pts:P,segs:[['A','B'],['B','C'],['C','A']],tris:null,sides:[],angles:[],right:[['A','C','B']],lab:{BC:eS,AB:eH},angLab:[{p:'B',v:'A',q:'C',text:'30°'}],note:'Not drawn to scale.'};
+ var sS='('+a+'*'+x+(b<0?'-'+(-b):'+'+b)+')';
+ return {variant:'geo-rtchain-investigation-special-'+c,fig:fig,
+  prompt:'Open Response: Triangle ABC is a 30-60-90 triangle with the right angle at C and angle A measuring 30 degrees. The short leg BC = '+M(eS)+' and the hypotenuse AB = '+M(eH)+'. Name the relationship you use in every part and show the equation you write.',
+  parts:[
+   {label:'a',prompt:'In a 30-60-90 triangle the hypotenuse is twice the short leg. Find x.',answer:M('x='+x),check:{type:'solve',eq:eH+'=2*('+eS+')',v:'x'}},
+   {label:'b',prompt:'Find the length of the short leg BC.',answer:M('w='+s),check:{type:'solve',eq:'w='+sS,v:'w'}},
+   {label:'c',prompt:'Find the length of the hypotenuse AB.',answer:M('v='+h),check:{type:'solve',eq:'v=2*'+s,v:'v'}},
+   {label:'d',prompt:'Find AC squared, the square of the long leg, using the Pythagorean theorem.',answer:M('k='+(h*h-s*s)),check:{type:'solve',eq:'k='+h+'^2-'+s+'^2',v:'k'}}
+  ],
+  steps:[step('The hypotenuse is twice the short leg, so '+M(eH+'=2*('+eS+')')+'.',M('x='+x)),step('Substitute x into the short leg.',M('w='+s)),step('Double the short leg: '+M('v=2*'+s)+'.',M('v='+h)),step('The long leg squared is the hypotenuse squared minus the short leg squared: '+M('k='+h+'^2-'+s+'^2')+'.',M('k='+(h*h-s*s)))],
+  space:[3,3.6,4.2]};
+}
+/* 3: converse of the Pythagorean theorem with an algebraic side */
+function rtConverse(ctx){
+ var r=ctx.rng,c=ctx.c,t=triples[r.int(0,c>=5?9:5)],f=r.int(0,1),a=t[f],b=t[1-f],h=t[2],tries=0,px,q,x;
+ do{px=r.int(2,5);x=r.int(2,c>=6?14:9);q=h-px*x;tries++;}while(Math.abs(q)>40&&tries<500);
+ var eP=lin(px,q,'x'),sc=3/Math.max(a,b);
+ var Pp={Q:[0,0],P:[a*sc,0],R:[0,b*sc]};
+ var fig={kind:'geo-cong',pts:Pp,segs:[['P','Q'],['Q','R'],['R','P']],tris:null,sides:[],angles:[],right:[['P','Q','R']],lab:{PQ:String(a),QR:String(b),PR:eP},note:'Not drawn to scale.'};
+ return {variant:'geo-rtchain-investigation-converse-'+c,fig:fig,
+  prompt:'Open Response: Triangle PQR has PQ = '+a+', QR = '+b+', and PR = '+M(eP)+'. The triangle is a right triangle with its right angle at Q, so PR is the hypotenuse. Show the equation you write in every part.',
+  parts:[
+   {label:'a',prompt:'Find the sum of the squares of the two legs.',answer:M('k='+(a*a+b*b)),check:{type:'solve',eq:'k='+a+'^2+'+b+'^2',v:'k'}},
+   {label:'b',prompt:'Use your answer to (a) to find the length of the hypotenuse PR.',answer:M('w='+h),check:{type:'solve',eq:'w^2='+(a*a+b*b),v:'w'}},
+   {label:'c',prompt:'Use your answer to (b) to find x.',answer:M('x='+x),check:{type:'solve',eq:eP+'='+h,v:'x'}},
+   {label:'d',prompt:'Find the perimeter of triangle PQR.',answer:M('v='+(a+b+h)),check:{type:'solve',eq:'v='+a+'+'+b+'+'+h,v:'v'}}
+  ],
+  steps:[step('Add the squares of the legs: '+M('k='+a+'^2+'+b+'^2')+'.',M('k='+(a*a+b*b))),step('The hypotenuse squared equals that sum, so w² = '+(a*a+b*b)+' and w = '+h+'.',M('w='+h)),step('PR is the expression given: '+M(eP+'='+h)+'.',M('x='+x)),step('Add the three sides: '+M('v='+a+'+'+b+'+'+h)+'.',M('v='+(a+b+h)))],
+  space:[3,3.6,4.2]};
+}
+/* 4: coordinate right triangle, hypotenuse and the median to the hypotenuse */
+function rtCoordinate(ctx){
+ var r=ctx.rng,c=ctx.c,t=[[6,8,10],[8,6,10],[12,16,20],[16,12,20]][r.int(0,c>=5?3:1)],a=t[0],b=t[1],h=t[2];
+ var px=r.int(-6,-1),py=r.int(-6,-1),A=[px,py],B=[px+a,py],Cp=[px+a,py+b];
+ var Pt=function(q){return '('+q[0]+', '+q[1]+')';};
+ var fig={kind:'geo-grid',shapes:[{id:'tri',pts:[A,B,Cp],labels:['A','B','C']}],lines:[],alt:'Coordinate plane with triangle ABC'};
+ return {variant:'geo-rtchain-investigation-coordinate-'+c,fig:fig,
+  prompt:'Open Response: Triangle ABC has vertices A'+Pt(A)+', B'+Pt(B)+', and C'+Pt(Cp)+', with a right angle at B. M is the midpoint of hypotenuse AC. Show the formula or theorem you use in every part.',
+  parts:[
+   {label:'a',prompt:'Find the length AB. Segment AB is horizontal.',answer:M('s='+a),check:{type:'solve',eq:'s='+sg(B[0])+'-'+sg(A[0]),v:'s'}},
+   {label:'b',prompt:'Find the length BC. Segment BC is vertical.',answer:M('t='+b),check:{type:'solve',eq:'t='+sg(Cp[1])+'-'+sg(B[1]),v:'t'}},
+   {label:'c',prompt:'Use the Pythagorean theorem and your answers to (a) and (b) to find AC.',answer:M('w='+h),check:{type:'solve',eq:'w^2='+a+'^2+'+b+'^2',v:'w'}},
+   {label:'d',prompt:'In a right triangle, the median to the hypotenuse is half as long as the hypotenuse. Find BM.',answer:M('v='+h/2),check:{type:'solve',eq:'2*v='+h,v:'v'}}
+  ],
+  steps:[step('The x-coordinates give the horizontal length: '+M('s='+sg(B[0])+'-'+sg(A[0]))+'.',M('s='+a)),step('The y-coordinates give the vertical length: '+M('t='+sg(Cp[1])+'-'+sg(B[1]))+'.',M('t='+b)),step('Pythagorean theorem: '+a+'² + '+b+'² = '+(a*a+b*b)+', so AC = '+h+'.',M('w='+h)),step('BM is half of AC: '+M('2*v='+h)+'.',M('v='+h/2))],
+  space:[3,3.6,4.2]};
+}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
 tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
 gaps:['The Law of Sines and Law of Cosines are not generated. Trigonometry answers are whole numbers, exact radicals, or rounded to tenths where the skill says so.'],
 skills:[
-{id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1,2],generate:hyp},
-{id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1,2],generate:leg},
-{id:'right-distance-formula',tag:'DISTANCE',name:'Distance on a coordinate plane',best:[0,1,2],generate:distance},
-{id:'right-sine-side',tag:'TRIG',name:'Sine: missing opposite side',best:[0,1,2],generate:ctx=>trig(ctx,'sin')},
-{id:'right-cosine-side',tag:'TRIG',name:'Cosine: missing adjacent side',best:[0,1,2],generate:ctx=>trig(ctx,'cos')},
-{id:'right-tangent-side',tag:'TRIG',name:'Tangent: missing opposite side',best:[0,1,2],generate:ctx=>trig(ctx,'tan')},
-{id:'right-special-45-45-90',tag:'SPECIAL',name:'Equal legs of a 45-45-90 triangle',best:[0,1,2],generate:special45},
-{id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1,2],generate:special30},
+{id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1],generate:hyp},
+{id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1],generate:leg},
+{id:'right-distance-formula',tag:'DISTANCE',name:'Distance on a coordinate plane',best:[0,1],generate:distance},
+{id:'right-sine-side',tag:'TRIG',name:'Sine: missing opposite side',best:[0,1],generate:ctx=>trig(ctx,'sin')},
+{id:'right-cosine-side',tag:'TRIG',name:'Cosine: missing adjacent side',best:[0,1],generate:ctx=>trig(ctx,'cos')},
+{id:'right-tangent-side',tag:'TRIG',name:'Tangent: missing opposite side',best:[0,1],generate:ctx=>trig(ctx,'tan')},
+{id:'right-special-45-45-90',tag:'SPECIAL',name:'Equal legs of a 45-45-90 triangle',best:[0,1],generate:special45},
+{id:'right-special-30-60-90',tag:'SPECIAL',name:'Short leg and hypotenuse of a 30-60-90 triangle',best:[0,1],generate:special30},
 {id:'right-angle-elevation',tag:'APPLICATION',name:'Angle of elevation and building height',best:[1,2],generate:elevation},
+{id:'right-investigation-pyth',tag:'HONORS',name:'Honors: two right triangles with a shared hypotenuse',best:[2],generate:rtPyth},
+{id:'right-investigation-special',tag:'HONORS',name:'Honors: 30-60-90 triangle with algebraic sides',best:[2],generate:rtSpecial},
+{id:'right-investigation-converse',tag:'HONORS',name:'Honors: converse of the Pythagorean theorem with algebra',best:[2],generate:rtConverse},
+{id:'right-investigation-coordinate',tag:'HONORS',name:'Honors: right triangle and its hypotenuse median on the coordinate plane',best:[2],generate:rtCoordinate},
 {id:'right-trig-investigation',tag:'HONORS',name:'Four-part right triangle trigonometry investigation',best:[2],generate:trigInvestigation},
 {id:'right-honors-survey',tag:'HONORS',name:'Four-part surveying and similar triangles investigation',best:[2],generate:honorsSurvey},
 {id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
