@@ -215,3 +215,20 @@ Four new Honors-only four-part investigations in `skills/geometry-right-triangle
 Verifier: `verify.js` now checks one-unknown square equations (e.g. `w^2=225`) for rtchain variants by re-deriving the positive whole-number root; every number in the equation must still be printed or an earlier answer. `checkSteps` skips the linear step comparison for those variants.
 Eight one-step skills (Pythagorean, distance, sine/cosine/tangent, 45-45-90, 30-60-90) are now `best:[0,1]`.
 Test: `menu/tests/geometry-righttriangle-rigor-tests.cjs` re-solves 1,120 problems from printed text and checks that 336 tampered answers are rejected.
+
+## Rigor upgrade — Quadrilaterals and Polygons (2026-10-29)
+Four new Honors-only four-part investigations in `skills/geometry-quadrilaterals-polygons.js` (variants `geo-polygons-investigation-{parallelogram,rhombus,trapezoid,polygon}-<c>`):
+- parallelogram: opposite sides with algebra, consecutive angles, opposite angle, perimeter (figure drawn at the true angle).
+- rhombus: diagonals bisect each other, perpendicular diagonals, side by the Pythagorean theorem, perimeter.
+- isosceles trapezoid: midsegment with algebra, longer base, congruent base angles, supplementary angle.
+- polygon: angle sum of a convex quadrilateral with algebraic angles, regular-polygon interior angle, algebra on it, diagonal count.
+Verifier: those four variants get the digits-in-math rule and constants 3, 4, 90; the rhombus chain uses the existing square-root solve rule (as in `geo-rtchain-`). One-step skills (interior sum, opposite sides/angles, exterior, rectangle/rhombus diagonals, midsegment, consecutive angles, diagonal count, quadrilateral angle sum) are now `best:[0,1]`; algebraic consecutive angles, diagonal-bisection converse and classify remain available to Honors. Test: `menu/tests/geometry-polygon-rigor-tests.cjs` (1,680 problems; it caught non-convex quadrilateral angles, fixed).
+Right Triangles and Trigonometry already had Honors chains (`right-investigation-*`), so no new work there.
+
+## Rigor upgrade — Foundations of Geometry (2026-10-29)
+Four new Honors-only four-part investigations in `skills/geometry-basics-reasoning.js` (variants `geo-basics-investigation-{segment,angle,coordinate,lines}-<c>`; the shared verifier regex, digits-in-math rule, constants 3/4/90 and the square-root solve rule were extended for them):
+- segment addition and midpoints with algebraic lengths;
+- angle addition and an angle bisector with algebraic measures (figure drawn from the printed angles);
+- missing endpoint from a midpoint, then the distance formula (3-4-5 family so lengths are whole numbers; grid figure of A and M);
+- linear pair, vertical angle and bisector at intersecting lines.
+The six one-step skills are `best:[0,1]`; the older `coordinate-investigation` stays Honors. Test: `menu/tests/geometry-basics-rigor-tests.cjs` (1,680 problems). The capacity audit caught too few distinct "lines" problems and the diagrams test caught a figure outside the grid; both fixed.
