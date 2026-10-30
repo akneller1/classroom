@@ -385,6 +385,20 @@
     // Do not turn extended prompts into misleading one-card exercises.
     var questionText = String(p.compactPrompt || p.prompt || '');
     if (/\b(open response|answer every part|four.part investigation|earlier parts and their results)\b/i.test(questionText)) return [];
+    // For congruence criteria, add an independent diagram-identification card.
+    // Do not reveal the criterion in the question text.
+    var criterionMatch = /^geo-criterion-(sss|sas|asa|aas|hl)-/.exec(p.variant || '');
+    if (criterionMatch && p.fig) {
+      var correct = criterionMatch[1].toUpperCase();
+      var alternatives = ['SSS','SAS','ASA','AAS','HL','NOT SUFFICIENT'].filter(function (x) { return x !== correct; });
+      var distractors = rng.shuffle(alternatives).slice(0,3);
+      var options = rng.shuffle([{a:correct,ok:true}].concat(distractors.map(function (x) { return {a:x,ok:false}; })));
+      items.push({ id:p.uid+'-criterion',p:p,k:0,skill:skillId,skillName:set.byId[skillId].name,
+        tag:p.tag,tagName:set.tags[p.tag]||p.tag,c:c,
+        q:{prompt:'Which congruence criterion is demonstrated by the marked triangles?',fig:p.fig,ask:'Choose SSS, SAS, ASA, AAS, HL, or NOT SUFFICIENT.'},
+        answer:correct,steps:[{t:'Identify the marked corresponding sides and angles, including whether a side is included between two angles or an angle between two sides.'}],
+        options:options,typed:null });
+    }
     p.parts.forEach(function (pt, k) {
       if (!pt.check) return;
       var ds = GB.distractors(p, k, rng, 3);
