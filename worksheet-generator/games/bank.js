@@ -372,12 +372,7 @@
   GB.partQuestion = function (p, k) {
     var pt = p.parts[k], multi = p.parts.length > 1, ask = pt.prompt || '';
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
-    /* Geometry Honors chains: a part that builds on earlier parts is asked on its own in games and flashcards, so the earlier results are stated as givens. */
-    if (multi && k > 0 && /^geo-/.test(p.variant || '') && /investigation|rtchain|chain/.test(p.variant)) {
-      var givens = p.parts.slice(0, k).map(function (q) { return '(' + (q.label || '?') + ') ' + (q.prompt ? q.prompt + ' Result: ' : 'Result: ') + q.answer; });
-      ask = 'Earlier parts and their results: ' + givens.join(' ') + ' Now: ' + ask;
-    }
-    return { prompt: NS.displayPrompt ? NS.displayPrompt(p) : p.prompt, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
+    return { prompt: p.compactPrompt || (NS.displayPrompt ? NS.displayPrompt(p) : p.prompt), fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
   GB.makeItems = function (setId, skillId, c, policy, seed, used) {
     var p = NS.generateProblem(setId, skillId, c, policy, seed, used);
@@ -386,7 +381,10 @@
     var items = [];
     // Multi-part investigations belong in assessments, not single-card games.
     // Never reveal previous answers or isolate a dependent sub-question.
-    if (p.parts.length > 1 && (/investigation|rtchain|chain|structured-proof/i.test(p.variant || '') || /^geo-/.test(p.variant || ''))) return [];
+    if (p.parts.length !== 1) return [];
+    // Do not turn extended prompts into misleading one-card exercises.
+    var questionText = String(p.compactPrompt || p.prompt || '');
+    if (/\b(open response|answer every part|four.part investigation|earlier parts and their results)\b/i.test(questionText)) return [];
     p.parts.forEach(function (pt, k) {
       if (!pt.check) return;
       var ds = GB.distractors(p, k, rng, 3);
