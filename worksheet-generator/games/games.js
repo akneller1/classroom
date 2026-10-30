@@ -5,6 +5,11 @@
 (function (G) {
   'use strict';
   var NS = G.MKMENU, GB = G.MKGAMES, WS = G.MKWS, doc = G.document, body = doc.body;
+  // A browser may restore an old flashcard document from its back/forward cache.
+  // Reinitialize it rather than showing a previous lesson's in-memory deck.
+  G.addEventListener('pageshow', function (event) {
+    if (event.persisted) G.location.reload();
+  });
   var UNIT = body.getAttribute('data-unit'), GAME = body.getAttribute('data-game'), SET = NS.skillSets[UNIT];
   var TITLE = body.getAttribute('data-title') || (SET ? SET.unitName : 'Game');
   var app = doc.getElementById('app');
