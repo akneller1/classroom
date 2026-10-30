@@ -384,6 +384,9 @@
     if (p.failed) return [];
     var set = NS.skillSets[setId], rng = G.MKWS.rng.make(G.MKWS.rng.hash(seed + '|mc'));
     var items = [];
+    // Multi-part investigations belong in assessments, not single-card games.
+    // Never reveal previous answers or isolate a dependent sub-question.
+    if (p.parts.length > 1 && (/investigation|rtchain|chain|structured-proof/i.test(p.variant || '') || /^geo-/.test(p.variant || ''))) return [];
     p.parts.forEach(function (pt, k) {
       if (!pt.check) return;
       var ds = GB.distractors(p, k, rng, 3);
