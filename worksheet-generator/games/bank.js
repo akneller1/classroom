@@ -421,5 +421,12 @@
     }
     step();
   };
+  // Shared game bootstrap calls this before opening the skill selector.
+  // Missing implementation previously threw a TypeError and left flashcards
+  // (and other generated games) stuck on the initial Loading screen.
+  GB.hasGameItems = function (setId, skillId) {
+    var set = NS.skillSets[setId];
+    return !!(set && set.byId && set.byId[skillId] && typeof set.byId[skillId].generate === 'function');
+  };
   GB.skillsOf = function (setId) { return NS.skillSets[setId].skills.map(function (s) { return s.id; }); };
 })(typeof window !== 'undefined' ? window : globalThis);
