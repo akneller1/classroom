@@ -62,9 +62,10 @@ function build(overrides){
  config.mode='test';
  var selected=overrides&&overrides.length?chosen().skills.filter(x=>overrides.includes(x.id)):skills();
  if(!selected.length){alert('Select at least one skill.');return;}
- var questions=[],seen=new Set(),skipped=0,requested=config.count;
+ var questions=[],candidates=[],seen=new Set(),skipped=0,requested=config.count;
+ var excludedBySkill={};
  // Use the same verified teacher Assessment Generator, but accept ONLY fully gradeable questions.
- for(var attempt=0;attempt<7&&questions.length<requested;attempt++){
+ for(var attempt=0;attempt<7;attempt++){
    var ac=N.defaultConfig(config.unit,'test');
    ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.questionPool='practice';ac.skills={};
    selected.forEach(x=>ac.skills[x.id]=true);
@@ -78,24 +79,45 @@ function build(overrides){
    var generated=N.newAssessment(ac);
    generated.versions[0].sections.forEach(function(sec){
      sec.items.forEach(function(p){
-       if(questions.length>=requested)return;
+       if(candidates.length>=Math.max(requested*6,selected.length*5))return;
        var fingerprint=p.key||N.studentText(p).replace(/\s+/g,'');
        if(p.failed||seen.has(fingerprint)){skipped++;return;}
        var choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
        var graph={problem:p,kind:'auto'};
        if((G.MKEXPGRAPH&&G.MKEXPGRAPH.target(graph))||(G.MKSYSTEM&&G.MKSYSTEM.target(graph))||(G.MKLINE&&G.MKLINE.target(graph))||(G.MKPARABOLA&&G.MKPARABOLA.target(graph))||(G.MKGRAPH&&(G.MKGRAPH.supports(graph)||G.MKGRAPH.pointTarget(graph))))choice=null;
        var kind=autoKind(p,choice);
-       if(!kind){skipped++;return;}
+       if(!kind){skipped++;excludedBySkill[p.skill]=(excludedBySkill[p.skill]||0)+1;return;}
        var sk=chosen().byId[p.skill];
        seen.add(fingerprint);
-       questions.push({id:p.uid,skill:p.skill,skillName:sk?sk.name:p.tag,problem:p,kind:kind,choices:kind==='mc'?choice:null,response:null,checked:false,correct:null,review:false});
+       candidates.push({id:p.uid,skill:p.skill,skillName:sk?sk.name:p.tag,problem:p,kind:kind,choices:kind==='mc'?choice:null,response:null,checked:false,correct:null,review:false});
      });
    });
  }
+ // Round-robin across selected skills, preferring a different question template
+ // before repeating one. This prevents a single high-yield skill from filling
+ // the assessment while other selected skills never appear.
+ var counts={},variants={};
+ selected.forEach(function(sk){counts[sk.id]=0;variants[sk.id]={};});
+ while(questions.length<requested&&candidates.length){
+   var best=-1,bestScore=-Infinity;
+   candidates.forEach(function(q,i){
+     var variant=q.problem.variant||q.problem.tag||q.skill;
+     var score=-(counts[q.skill]||0)*100-(variants[q.skill][variant]||0)*30;
+     if(score>bestScore){bestScore=score;best=i;}
+   });
+   if(best<0)break;
+   var q=candidates.splice(best,1)[0],v=q.problem.variant||q.problem.tag||q.skill;
+   counts[q.skill]=(counts[q.skill]||0)+1;
+   variants[q.skill][v]=(variants[q.skill][v]||0)+1;
+   questions.push(q);
+ }
+ var missing=selected.filter(function(sk){return !counts[sk.id];}).map(function(sk){return sk.name;});
+ if(missing.length)console.warn('Assessment Readiness: selected skills without gradeable questions:',missing);
+ if(skipped)console.warn('Assessment Readiness: excluded ungradeable or duplicate questions:',skipped,excludedBySkill);
  if(!questions.length){alert('No fully auto-gradable questions could be generated. Try a different skill selection or choose Multiple Choice.');return;}
  if(questions.length<requested)alert('Only '+questions.length+' of '+requested+' requested questions could be generated with reliable automatic grading. Unsupported questions were excluded; no self-graded questions were included.');
  var previous=state&&state.done?state.questions.filter(q=>q.correct===true).length+'/'+state.questions.length:null;
- state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true,autoGraded:true,unsupportedExcluded:skipped};
+ state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true,autoGraded:true,unsupportedExcluded:skipped,missingSkills:missing};
  save();show();
 }
 function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(p.prompt)+(p.fig&&N.figHtml?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
