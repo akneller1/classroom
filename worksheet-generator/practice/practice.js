@@ -65,11 +65,11 @@ function build(overrides){
  var questions=[],candidates=[],seen=new Set(),skipped=0,requested=config.count;
  var excludedBySkill={};
  // Use the same verified teacher Assessment Generator, but accept ONLY fully gradeable questions.
- for(var attempt=0;attempt<7;attempt++){
+ for(var attempt=0;attempt<7&&candidates.length<Math.max(requested*6,selected.length*5);attempt++){
    var ac=N.defaultConfig(config.unit,'test');
    ac.level=config.level;ac.seed=Math.floor(Math.random()*1e9);ac.versions=1;ac.questionPool='practice';ac.skills={};
    selected.forEach(x=>ac.skills[x.id]=true);
-   var remaining=requested-questions.length;
+   var remaining=Math.max(requested,selected.length*3);
    var mcCount=config.format==='self'?0:config.format==='mc'?remaining*2:remaining;
    var openCount=config.format==='mc'?0:config.format==='self'?remaining*2:remaining;
    ac.sections=N.testSections('std');
@@ -80,7 +80,7 @@ function build(overrides){
    generated.versions[0].sections.forEach(function(sec){
      sec.items.forEach(function(p){
        if(candidates.length>=Math.max(requested*6,selected.length*5))return;
-       var fingerprint=p.key||N.studentText(p).replace(/\s+/g,'');
+       var fingerprint=[p.skill,p.variant||'',N.studentText(p).replace(/\s+/g,'')].join('|');
        if(p.failed||seen.has(fingerprint)){skipped++;return;}
        var choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
        var graph={problem:p,kind:'auto'};
@@ -103,6 +103,9 @@ function build(overrides){
    candidates.forEach(function(q,i){
      var variant=q.problem.variant||q.problem.tag||q.skill;
      var score=-(counts[q.skill]||0)*100-(variants[q.skill][variant]||0)*30;
+     // Prefer questions that are not merely a different set of numbers in
+     // the same skill/template, without compromising the verified answer.
+     if(q.problem.fig)score+=2;
      if(score>bestScore){bestScore=score;best=i;}
    });
    if(best<0)break;
