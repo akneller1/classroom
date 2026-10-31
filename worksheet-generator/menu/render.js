@@ -164,10 +164,10 @@
   NS.workspaceHtml = workspace;
   function dishHtml(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
-    if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
-    return '<div class="mm-dish' + (isWide(p) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '</b>' + (p.tag ? '<span class="mm-chip">' + esc(p.tag) + '</span>' : '') +
+    if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-q"><b class="mm-qnum">' + esc(lab) + '</b> [No verified problem — fix this in the editor before printing.]</div></div>';
+    return '<div class="mm-dish' + (isWide(p) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span>' + (p.tag ? '<span class="mm-chip">' + esc(p.tag) + '</span>' : '') +
       (p.required ? '<span class="mm-req">everyone must do</span>' : '') + '</span><span class="mm-pick"><span class="mm-box-chk"></span>My pick · ' + ptsText(+sec.points) + '</span></div>' +
-      promptHtml(p) + workspace(p, cfg) + '</div>';
+      promptHtml(p, false, lab + '.') + workspace(p, cfg) + '</div>';
   }
 
   /* ---------- standard test ---------- */
