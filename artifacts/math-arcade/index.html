@@ -25,7 +25,7 @@ const prompts={
  mirror:[{x:2,y:3,t:'reflect-x'},{x:-4,y:2,t:'reflect-y'},{x:3,y:1,t:'rotate90'},{x:-2,y:-3,t:'translate',dx:4,dy:5},{x:4,y:-2,t:'rotate180'},{x:-2,y:4,t:'rotate270'}],
  cannon:[{rise:3,run:4},{rise:5,run:12},{rise:8,run:6},{rise:7,run:7},{rise:4,run:9},{rise:9,run:12}],
  portal:[{a:2,h:1,k:3,x:4},{a:-1,h:2,k:5,x:6},{a:3,h:-2,k:1,x:0},{a:2,h:3,k:-4,x:5},{a:-2,h:-1,k:6,x:2},{a:1,h:-3,k:2,x:6}],
- catapult:Array.from({length:10},(_,i)=>({a:-1,r1:0,r2:([8,12,16,9,14,15,7,13,18,11])[i],castleX:([8,8,8,8,8,8,8,8,8,8])[i],height:([0,0,0,0,0,0,0,0,0,0])[i]}))
+ catapult:Array.from({length:10},(_,i)=>({a:-1,r1:0,r2:([9,10,7,10,8,9,12,10,11,9])[i],castleX:([8,8,8,8,8,8,8,8,8,8])[i],height:([0,0,0,0,0,0,0,0,0,0])[i]}))
 };
 const clean=n=>Number(n.toFixed(3)),approx=(x,y,t=.12)=>Math.abs(Number(x)-y)<=t;
 function active(){return prompts[key][turn]||prompts[key][0]}
