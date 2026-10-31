@@ -93,7 +93,7 @@ function answerFor(q){
  if(key==='mirror'){const {x,y,t}=q;return ({'reflect-x':[x,-y],'reflect-y':[-x,y],rotate90:[-y,x],rotate180:[-x,-y],rotate270:[y,-x],translate:[x+q.dx,y+q.dy]})[t]}
  if(key==='cannon')return [clean(q.rise/q.run),clean(Math.atan2(q.rise,q.run)*180/Math.PI)];
  if(key==='portal')return [q.a*(q.x-q.h)**2+q.k];
- if(key==='catapult'){const r2=q.r2,vx=r2/2,vy=vx*(r2-vx),hy=q.castleX*(r2-q.castleX);return [0,r2,vx,vy,hy]}
+ if(key==='catapult'){const vx=(q.r1+q.r2)/2,vy=q.a*(vx-q.r1)*(vx-q.r2),hy=q.a*(q.castleX-q.r1)*(q.castleX-q.r2);return [q.r1,q.r2,vx,vy,hy]}
 }
 function field(id,label,value='',kind='number'){return '<label>'+label+'<input id="f'+id+'" type="'+kind+'" step="any" inputmode="decimal" value="'+value+'" autocomplete="off"></label>'}
 function option(id,label,choices){return '<label>'+label+'<select id="f'+id+'">'+choices.map(z=>'<option>'+z+'</option>').join('')+'</select></label>'}
@@ -174,7 +174,7 @@ function setup(){locked=false;feedback='';animate=0;current=active();$('next').h
  if(key==='mirror'){const desc=({ 'reflect-x':'Reflect across x-axis','reflect-y':'Reflect across y-axis',rotate90:'Rotate 90° counterclockwise',rotate180:'Rotate 180°',rotate270:'Rotate 270° counterclockwise',translate:'Translate right '+q.dx+' and up '+q.dy})[q.t];text='Explorer starts at ('+q.x+', '+q.y+'). '+desc+'. Find the destination.';fields=field(0,'New x')+field(1,'New y');}
  if(key==='cannon'){text='Enemy tower rises '+q.rise+' units above cannon level, '+q.run+' units horizontally away. Enter tangent (rise/run) and the firing angle in degrees.';fields=field(0,'tan(θ)')+field(1,'Angle θ (degrees)');}
  if(key==='portal'){text='Energy portal: f(x) = '+q.a+'(x − ('+q.h+'))² '+(q.k>=0?'+ '+q.k:'− '+(-q.k))+'. Evaluate f('+q.x+') to route the energy ball.';fields=field(0,'Portal output');}
- if(key==='catapult'){const r=q.r2; text='Launch trajectory in standard form: h(x) = −x² + '+r+'x. The castle is at x = '+q.castleX+'. Find the roots, the vertex, and h('+q.castleX+') before firing. All five answers are integers.';fields=field(0,'Left root')+field(1,'Right root')+field(2,'Vertex x')+field(3,'Vertex height')+field(4,'Height at castle x = '+q.castleX);}
+ if(key==='catapult'){const b=-q.a*(q.r1+q.r2),constant=q.a*q.r1*q.r2; text='Launch trajectory in standard form: h(x) = −x² '+(b<0?'− ':'+ ')+Math.abs(b)+'x '+(constant<0?'− ':'+ ')+Math.abs(constant)+'. The castle is at x = '+q.castleX+'. Find the roots, vertex, and h('+q.castleX+') before firing. All five answers are integers.';fields=field(0,'Left root')+field(1,'Right root')+field(2,'Vertex x')+field(3,'Vertex height')+field(4,'Height at castle x = '+q.castleX);}
  $('instructions').textContent=key==='catapult'?text:BANK_GAME?'Solve the existing question-bank challenge to power your '+(key==='rocket'?'rocket engine':key==='laser'?'security lasers':'game action')+'. Difficulty increases as you advance.':text;$('fields').innerHTML=fields;showBankQuestion();$('controls').innerHTML='<small>Correct calculations control the action. The graph illustrates the model; it does not reveal the numeric answer.</small>';$('status').textContent='Ready for your move.';draw();}
 function shoot(){if(locked)return;const q=current,correct=answerFor(q);
  const selected=BANK_GAME?(bankQuestion?.options?.length?document.querySelector('input[name="bankAnswer"]:checked'):$('bankTyped')):null;
@@ -291,9 +291,9 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
 
  if(key==='catapult'){
   // A labeled side-view battlefield: independent screen projection (not the algebra graph).
-  const ground=510,launchX=125,castleX=655,scaleX=(castleX-launchX)/8,scaleY=7.8;
+  const ground=510,launchX=125,castleX=655,scaleX=(castleX-launchX)/8,scaleY=5.4;
   const sx=x=>launchX+x*scaleX,sy=y=>ground-y*scaleY;
-  const trajectory=x=>x*(q.r2-x);
+  const trajectory=x=>q.a*(x-q.r1)*(x-q.r2);
   c.save();
   const sky=c.createLinearGradient(0,0,0,ground);
   sky.addColorStop(0,'#15395e');sky.addColorStop(.75,'#436b83');sky.addColorStop(1,'#b3a982');
@@ -335,7 +335,7 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
   c.fillStyle='#fff3bb';c.font='bold 15px system-ui';c.fillText('TARGET x = '+q.castleX,castleX+12,587);
   if(locked){
    const good=history.at(-1)?.success;
-   const endX=good?Math.min(q.r2,8):Math.min(q.r2,10);
+   const endX=Math.min(q.r2,10);
    c.save();c.strokeStyle=good?'#eaffc4':'#ffd19a';c.lineWidth=4;c.setLineDash([10,6]);c.beginPath();
    for(let i=0;i<=90;i++){const x=endX*i/90,y=trajectory(x);if(i)c.lineTo(sx(x),sy(y));else c.moveTo(sx(x),sy(y));}
    c.stroke();c.setLineDash([]);c.restore();
