@@ -453,7 +453,6 @@
           '<h1 tabindex="-1">More learning. <span>Less planning.</span></h1>' +
           '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
           '<div class="home-resource-panels">' +
-            '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
             '<section class="home-subject-panel" aria-labelledby="subject-heading">' +
               '<div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2 id="subject-heading">Browse by subject</h2>' +
               '<p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses home-subject-cards">' +
@@ -466,7 +465,9 @@
               }).join('') + SOON.map(function (c) {
                 return '<li><div class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
                   '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
-              }).join('') + '</ul></section></div>' +
+              }).join('') + '</ul></section>' +
+            '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
+          '</div>' +
         '</div></section>'
     };
   }
