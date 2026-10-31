@@ -48,6 +48,8 @@
 <script src="../../worksheet-generator/menu/skills/geometry-area-surface-area-volume.js?v=geo-rigor-1"></script>
 <script src="../../worksheet-generator/menu/mcas-context-bank.js?v=reasoning-20261027"></script>
 <script src="../../worksheet-generator/games/bank.js?v=showdown-fix-20261031"></script>
+<link rel="stylesheet" href="../../worksheet-generator/vendor/katex/katex.min.css">
+<script src="../../worksheet-generator/vendor/katex/katex.min.js"></script>
 <script src="../../worksheet-generator/core/math-display.js"></script>
 <script>
 'use strict';
@@ -144,12 +146,48 @@ function newBankQuestion(){
  }
  return false;
 }
+function renderArcadeMath(value){
+ const raw=String(value==null?'':value);
+ const escape=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+ const render=tex=>window.katex?katex.renderToString(tex,{throwOnError:false,trust:false,output:'html'}):escape(tex);
+ // Banks contain both TeX-wrapped expressions and unwrapped LaTeX fragments.
+ let remaining=raw,output='';
+ const delimited=/\\\\\(([\\s\\S]*?)\\\\\)|\\\\\[([\\s\\S]*?)\\\\\]|⟨([^⟩]+)⟩/;
+ while(remaining.length){
+  const m=delimited.exec(remaining);
+  if(!m)break;
+  output+=renderLooseMath(remaining.slice(0,m.index),escape,render);
+  output+=render(m[1]||m[2]||m[3]);
+  remaining=remaining.slice(m.index+m[0].length);
+ }
+ return output+renderLooseMath(remaining,escape,render);
+}
+function renderLooseMath(text,escape,render){
+ // A bare TeX command may follow English instructions, e.g. "Solve \\frac{x}{3}+3=4."
+ const command=/\\\\(?:d?frac|sqrt|left|right|cdot|times|leq|geq|neq|angle|overline|pi|theta|circ|text|sum|ge|le)\\b/;
+ let out='',rest=String(text);
+ while(rest.length){
+  const match=command.exec(rest);
+  if(!match){out+=window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(rest):escape(rest);break;}
+  const prefix=rest.slice(0,match.index);
+  out+=window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(prefix):escape(prefix);
+  const fragment=rest.slice(match.index);
+  const sentence=/(?:[.!?](?=\\s|$)|\\n)/.exec(fragment);
+  let math=sentence?fragment.slice(0,sentence.index):fragment;
+  // Remove unmatched stray closing punctuation from imported questions.
+  while(math.endsWith(')')&&(math.match(/\\(/g)||[]).length<(math.match(/\\)/g)||[]).length) math=math.slice(0,-1);
+  out+=render(math.trim());
+  rest=fragment.slice(math.length);
+  if(sentence&&rest.length===fragment.length)break;
+ }
+ return out;
+}
 function showBankQuestion(){
  const box=$('bankPrompt');
  if(!BANK_GAME){box.hidden=true;$('bankSettings').hidden=true;return;}
  $('bankSettings').hidden=false;box.hidden=false;
  if(!bankQuestion){box.textContent=bankLoading?'Loading existing questions…':(bankError||'No suitable bank question was available at this difficulty. Choose another difficulty.');$('action').disabled=true;return;} $('action').disabled=locked;
- const toHtml=t=>window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(t):String(t);
+ const toHtml=renderArcadeMath;
  box.innerHTML='<p><strong>'+ (key==='portal'?'Algebra 2 authored bank (human review pending)':'Existing course question bank')+' · '+bankQuestion.skillName+' · Stage '+(turn+1)+'</strong></p><div>'+toHtml(bankQuestion.q.prompt||'')+'</div>'+(bankQuestion.q.ask?'<p>'+toHtml(bankQuestion.q.ask)+'</p>':'')+
  (bankQuestion.q.fig&&window.MKMENU.figHtml?MKMENU.figHtml(bankQuestion.q.fig):'')+
  (bankQuestion.options?'<div role="radiogroup" aria-label="Choose the correct answer">'+bankQuestion.options.map((o,i)=>'<label style="display:flex;align-items:center;gap:9px;padding:8px;margin:6px 0;background:#273f5b;border-radius:8px"><input type="radio" name="bankAnswer" value="'+i+'" style="width:auto">'+toHtml(o.a)+'</label>').join('')+'</div>':'<label>Answer <input id="bankTyped" aria-label="Type your answer" autocomplete="off"></label>');
