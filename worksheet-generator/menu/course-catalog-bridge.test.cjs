@@ -10,8 +10,8 @@ G.MKMENU={CATALOG:[{course:'Algebra 1',units:[['algebra1-foundations','Unit 1']]
 const context={window:G};
 const source=fs.readFileSync(path.join(__dirname,'course-catalog-bridge.js'),'utf8');
 vm.runInNewContext(source,context);
-assert.equal(G.MKMENU.CATALOG.length,4,'Three grade-level groups should be added');
-for(const id of ['math6','prealgebra7','prealgebra']){
+assert.equal(G.MKMENU.CATALOG.length,5,'Three grade-level groups and Algebra 2 should be added');
+for(const id of ['math6','prealgebra7','prealgebra','algebra2']){
  const course=G.LIBRARY.courses.find(c=>c.id===id);
  const group=G.MKMENU.CATALOG.find(g=>g.course===course.name);
  assert.ok(group,'Missing '+id);
@@ -22,6 +22,6 @@ for(const id of ['math6','prealgebra7','prealgebra']){
  });
 }
 vm.runInNewContext(source,context);
-assert.equal(G.MKMENU.CATALOG.length,4,'Bridge must be idempotent');
+assert.equal(G.MKMENU.CATALOG.length,5,'Bridge must be idempotent');
 assert.equal(G.MKMENU.CATALOG.at(-1).course,'Algebra 1','Existing algebra catalog preserved');
-console.log('PASS: all 27 grade-level units listed as unsupported without altering the existing course catalog');
+console.log('PASS: all 38 grade-level and Algebra 2 units listed as unsupported without altering the existing course catalog');
