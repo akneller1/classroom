@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { algebra: 0, geometry: 1, algebra2: 2 };
+  var courseOrder = { prealgebra: 0, algebra: 1, geometry: 2, algebra2: 3 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -727,8 +727,82 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       "Sampling, inference, and statistical models"
     ]
   };
-    function subskillsHtml(u, courseId) {
-    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS };
+  var PREALGEBRA_UNIT_SUBSKILLS = {
+  "real-numbers-exponents": [
+    "Rational numbers",
+    "Operations with rational numbers",
+    "Converting fractions and decimals",
+    "Identifying irrational numbers",
+    "Properties of irrational numbers",
+    "Comparing and ordering irrational numbers",
+    "Evaluating and approximating square and cube roots",
+    "Negative exponents",
+    "Operations with negative exponents",
+    "Scientific notation",
+    "Operations with numbers in scientific notation"
+  ],
+  "equations-expressions": [
+    "Expressions with radical exponents",
+    "Expressions with integer exponents",
+    "Creating linear equations",
+    "Solving equations with variables on both sides",
+    "Solving equations using the distributive property",
+    "Solving equations by combining like terms",
+    "One, infinitely many, or no solutions",
+    "Solving exponent equations"
+  ],
+  "linear-functional-relationships": [
+    "Introduction to functions and writing function rules",
+    "Graphing functions",
+    "Distinguishing linear and nonlinear functions",
+    "Exploring linear functions",
+    "Equations of linear functions",
+    "Graphs of linear functions",
+    "Tables of linear functions",
+    "Increasing, decreasing, maximum, and minimum",
+    "Interpreting rates of change",
+    "Interpreting functions in context",
+    "Sketching piecewise functions"
+  ],
+  "systems-linear-equations": [
+    "Graphing in slope-intercept form",
+    "Solving systems by graphing",
+    "Solving systems by substitution",
+    "Solving systems by elimination",
+    "Solving systems by inspection",
+    "Applications of systems of linear equations"
+  ],
+  "patterns-bivariate-data": [
+    "Constructing scatter plots",
+    "Analyzing scatter plots",
+    "Linear and nonlinear association",
+    "Lines of best fit",
+    "Constructing two-way tables",
+    "Interpreting two-way tables"
+  ],
+  "congruence-similarity": [
+    "Identifying transformations",
+    "Rotations and their properties",
+    "Reflections and their properties",
+    "Translations and their properties",
+    "Dilations and their properties",
+    "Sequences of transformations: congruence and similarity",
+    "Sum of the angles in a triangle",
+    "Similar triangles",
+    "Parallel lines cut by a transversal"
+  ],
+  "geometry-applications": [
+    "Pythagorean theorem and its converse",
+    "Two-dimensional applications of the Pythagorean theorem",
+    "Three-dimensional applications of the Pythagorean theorem",
+    "Distance between points using the Pythagorean theorem",
+    "Volume of cylinders, cones, and spheres",
+    "Solving for a missing dimension",
+    "Volume of composite solids"
+  ]
+};
+  function subskillsHtml(u, courseId) {
+    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS, prealgebra: PREALGEBRA_UNIT_SUBSKILLS };
     var skills = (skillBanks[courseId] || {})[u.id] || [];
     function lines(list) {
       return '<ul class="unit-skills">' + list.map(function (skill) {
@@ -742,6 +816,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       lines(skills.slice(4)) + '</details>';
   }
 
+  var PREALGEBRA_LESSON_COUNT = 58;
   function courseView(c) {
     var n = courseCount(c);
     var inner =
@@ -749,23 +824,23 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'prealgebra') ? units(c.units.length) + ' with ' + PREALGEBRA_LESSON_COUNT + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>' +
+        (c.id === 'prealgebra' ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
-          if (!k && c.id !== 'geometry' && c.id !== 'algebra2') {
+          if (!k && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') {
+          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra') {
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
@@ -814,7 +889,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       }).join('') + '</ul></div>';
   }
   function unitPager(c, u) {
-    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry'; });
+    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra'; });
     var i = list.indexOf(u);
     if (list.length < 2) return '';
     function link(t, dir) {
@@ -868,6 +943,19 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   }
 
   function unitView(c, u) {
+    if (c.id === 'prealgebra') {
+      var skills = PREALGEBRA_UNIT_SUBSKILLS[u.id] || [];
+      var intro = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
+        '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
+        '<p class="band-meta">' + skills.length + ' lessons · Grade 8 curriculum</p>';
+      return { title: unitLabel(c, u) + ', ' + c.name,
+        html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
+          unitPager(c, u) + '<section class="algebra-unit-section"><h2>Lessons and Subskills</h2>' +
+          '<ol class="unit-skills">' + skills.map(function (s) {return '<li class="unit-skill">' + esc(s) + '</li>';}).join('') + '</ol>' +
+          '</section><section class="algebra-unit-section"><h2>Resources coming soon</h2>' +
+          '<p>Worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
+          unitPager(c, u) + '</div></section>' };
+    }
     if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') return algebraUnitView(c, u);
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var planner = u.artifacts.filter(function (a) { return activityFormat(a) === 'lesson-planner'; })[0];
