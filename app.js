@@ -660,7 +660,7 @@
         '<p class="band-meta">' + skills.length + ' lessons · ' + esc(c.name) + ' curriculum</p>';
       return { title: unitLabel(c, u) + ', ' + c.name,
         html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
-          unitPager(c, u) + gradePracticeLinks(c, u) + contentBriefSection(c, u) +
+          unitPager(c, u) + gradePracticeLinks(c, u) +
           unitPager(c, u) + '</div></section>' };
     }
     if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') return algebraUnitView(c, u);
