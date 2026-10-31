@@ -45,7 +45,7 @@ const assert=require('node:assert/strict');
   await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/index.html#prealgebra7');
   assert.ok(await page.locator('script[src^="skill-crosswalk.js"]').count()>0);
   await page.setViewportSize({width:375,height:812});
-  assert.ok(await page.locator('#course').isVisible());
+  assert.ok(await page.locator('#main').isVisible());
   assert.equal(errors.length,0,errors.join('; '));
   console.log('PASS real browser course/skill selection, generated questions, reviewer notes, JSON download and mobile viewport');
  }finally{await browser.close()}
