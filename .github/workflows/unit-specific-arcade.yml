@@ -1,0 +1,19 @@
+name: Unit-Specific Math Arcade
+on:
+  push:
+    paths:
+      - 'artifacts/math-arcade/**'
+      - 'unit-specific-arcade.js'
+      - 'scripts/test-unit-specific-arcade.cjs'
+      - 'index.html'
+      - '.github/workflows/unit-specific-arcade.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-unit-specific-arcade.cjs
