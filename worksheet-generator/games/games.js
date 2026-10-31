@@ -19,10 +19,11 @@
   /* ---------- helpers ---------- */
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var rng = WS.rng.make(WS.rng.hash(String(Date.now()) + Math.random()));
-  var KEY = 'mk-game-' + GAME + '-' + UNIT;
+  var KEY = 'mk-game-' + GAME + '-' + (G.MK_GRADE_GAME_COURSE || UNIT) + '-' + UNIT;
   function load() { try { return JSON.parse(G.localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
   function save(o) { try { G.localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { /* private window: settings are not remembered */ } }
   var saved = load();
+  if (G.MK_GRADE_GAME_COURSE && (!saved.level || !GB.LEVELS[saved.level])) saved.level = 'cp1';
   function $(s, r) { return (r || doc).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); }
   function on(sel, ev, fn) { $$(sel).forEach(function (e) { e.addEventListener(ev, fn); }); }
@@ -59,7 +60,7 @@
   /* flashcards show the levels as Easy / Medium / Hard (CP2 / CP1 / Honors problems underneath) */
   var EASY_NAMES = { cp2: 'Easy', cp1: 'Medium', honors: 'Hard' };
   function levelSel(id, cur, names) {
-    return '<select class="gm-sel" id="' + id + '">' + Object.keys(GB.LEVELS).map(function (k) { return '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + ((names && names[k]) || GB.LEVELS[k].name) + '</option>'; }).join('') + '</select>';
+    return '<select class="gm-sel" id="' + id + '">' + Object.keys(GB.LEVELS).map(function (k) { return '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + ((names && names[k]) || (G.MK_GRADE_GAME_LABELS && G.MK_GRADE_GAME_LABELS[k]) || GB.LEVELS[k].name) + '</option>'; }).join('') + '</select>';
   }
   function loading(msg) { app.innerHTML = '<div class="gm-panel gm-loading" role="status"><div><div class="gm-spin"></div>' + esc(msg || 'Cooking up fresh problems…') + '<div class="gm-muted" id="gmProg"></div></div></div>'; }
   function progress(i, n) { var e = $('#gmProg'); if (e) e.textContent = i + ' of ' + n; }
