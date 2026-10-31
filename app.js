@@ -157,7 +157,7 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator'] },
+    { id: 'generators', name: 'Assessment Tools', formats: ['assessment-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'matching-game', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] }
   ];
@@ -786,6 +786,8 @@
   }
   function browseResults(state) {
     return everything().filter(function (it) {
+      // Lesson plans and worksheets are separate generator tools, not browseable activities.
+      if (['lesson-planner', 'worksheet-generator', 'printable-generator'].indexOf(activityFormat(it.a)) >= 0) return false;
       return (!state.subject || it.c.id === state.subject) &&
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
         (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
