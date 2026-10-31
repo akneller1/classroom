@@ -16,7 +16,8 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
   }
   await page.goto(base+'/index.html#algebra2.'+unit);
   await page.waitForFunction(()=>document.querySelectorAll('a[href*="course-game.html"],a[href*="course-activity.html"]').length>=7);
-  assert.equal(await page.locator('.generator-shortcuts a').count(),4);
+  assert.equal(await page.locator('.generator-shortcuts a').count(),6);
+  assert.deepEqual(await page.locator('.generator-shortcut.resource-shortcut strong').allTextContents(),['Games','Study Guides']);
   for(const mode of ['lesson','worksheet','assessment']){
    await page.goto(base+'/worksheet-generator/bank-printable.html?unit='+unit+'&mode='+mode);
    await page.waitForFunction(()=>document.querySelector('#status').textContent==='Ready to generate.');
