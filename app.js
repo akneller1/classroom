@@ -776,12 +776,12 @@
 
   function browseState(defaultFormat) {
     var params = new URLSearchParams(token.split('?')[1] || '');
-    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || '', unitSpecific: params.get('unitSpecific') || '',
+    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || (params.get('unitSpecific') ? 'Unit Specific' : ''),
       format: params.get('format') || defaultFormat || '', page: Math.max(1, parseInt(params.get('page'), 10) || 1) };
   }
   function browseToken(state) {
     var params = new URLSearchParams();
-    ['subject', 'unit', 'category', 'format', 'gameMode', 'unitSpecific'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    ['subject', 'unit', 'category', 'format', 'gameMode'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
     if (state.page > 1) params.set('page', state.page);
     return 'activities' + (params.toString() ? '?' + params.toString() : '');
   }
@@ -793,8 +793,7 @@
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
         (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
         (!state.format || activityFormat(it.a) === state.format) &&
-        (!state.gameMode || gameMode(it.a) === state.gameMode) &&
-        (!state.unitSpecific || isUnitSpecificGame(it.a));
+        (!state.gameMode || (state.gameMode === 'Unit Specific' ? isUnitSpecificGame(it.a) : gameMode(it.a) === state.gameMode));
     });
   }
   function browseSelect(id, label, choices, selected, allLabel) {
@@ -830,8 +829,7 @@
       browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
       browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
       browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
-      ((state.category === 'games' || state.gameMode || state.unitSpecific) ? browseSelect('gameMode', 'Game Mode', GAME_MODES.map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game modes') : '') +
-      browseSelect('unitSpecific', 'Game Tag', [{id:'yes',name:'Unit Specific'}], state.unitSpecific, 'All games and activities') +
+      browseSelect('gameMode', 'Game Type', GAME_MODES.concat(['Unit Specific']).map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game types') +
       '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
     var pager = '';
     if (pages > 1) {
