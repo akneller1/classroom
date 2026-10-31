@@ -8,7 +8,14 @@ const unitId='conic-sections',courseId='algebra2',skillId=g.MK_COURSE_CATALOG.ge
 const bank={schemaVersion:1,courseId,unitId,questions:[{id:'test-1',skillId,level:'cp2',format:'short-answer',prompt:'Fixture only',answer:'1',solutionSteps:['Fixture']}]};
 const entry={path:'question-banks/algebra2/conic-sections.json',courseId,unitId,approved:true};
 async function main(){
- assert.equal(JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifest.json'))).banks.length,0);
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifest.json'),'utf8'));
+ assert.equal(manifest.version,1);
+ assert.ok(Array.isArray(manifest.banks));
+ for(const item of manifest.banks){
+  assert.equal(item.path,'question-banks/'+item.courseId+'/'+item.unitId+'.json');
+  assert.equal(item.approved,true);
+  assert.ok(fs.existsSync(path.join(root,item.path)),'Missing approved bank: '+item.path);
+ }
  assert.equal((await loader.load({version:1,banks:[{...entry,approved:false}]},()=>{throw Error('Should not fetch unapproved bank')})).length,0);
  assert.equal(banks.available(courseId,unitId),false);
  await assert.rejects(loader.load({version:1,banks:[entry]},async()=>({...bank,unitId:'wrong'})),/mismatch/);
