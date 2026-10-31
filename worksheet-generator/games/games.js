@@ -302,7 +302,43 @@
       var timer = new Timer(cfg.timer, tickUI(cfg.timer), function () { submit(true); });
       var MARK = { L: '✕', R: '◯' };
       function reset() { S.b = Array(9).fill(null); S.quiz = null; S.over = false; S.line = null; S.turn = S.starter; render(); }
-      function pick(i) { if (S.over || S.b[i] || S.quiz) return; pile.draw(function (it) { if (!it) { app.innerHTML = head('No verified questions are currently available for this selected skill.', 'Tic-Tac-Toe') + '<div class="gm-panel" role="alert"><h2>Questions could not be generated</h2><p>The selected topic did not produce any game-ready questions. Try a different skill or level. The board has not been changed.</p><button class="gm-btn primary" id="tRetry">Try again</button></div>'; $('#tRetry').onclick = function () { loading('Trying to generate questions…'); pile.fill(function () { if (pile.items.length) render(); else pickError(); }); }; return; } S.quiz = { sq: i, it: it, who: S.turn, stage: 'ans', sel: null, dead: [] }; render(); timer.start(); }); }
+      function pick(i) {
+        if (S.over || S.b[i] || S.quiz || S.loadingQuestion) return;
+        S.loadingQuestion = true;
+        // Give immediate visual feedback even if the question pile must refill.
+        var status = doc.createElement('div');
+        status.className = 'gm-modal';
+        status.setAttribute('role','status');
+        status.innerHTML = '<div class="gm-panel gm-loading">Loading question…</div>';
+        app.appendChild(status);
+        function fail(message) {
+          S.loadingQuestion = false;
+          app.innerHTML = head('Could not open the question.', 'Tic-Tac-Toe') +
+            '<div class="gm-panel" role="alert"><h2>Question unavailable</h2><p>' +
+            esc(message || 'The selected skill did not generate a verified question.') +
+            '</p><button class="gm-btn primary" id="tBack">Return to game setup</button></div>';
+          $('#tBack').onclick = function () { G.location.reload(); };
+        }
+        try {
+          pile.draw(function (it) {
+            S.loadingQuestion = false;
+            if (!it || !it.q || !it.options || !it.options.length) {
+              fail('No verified game question was generated at this level.');
+              return;
+            }
+            try {
+              S.quiz = { sq:i, it:it, who:S.turn, stage:'ans', sel:null, dead:[] };
+              render();
+              timer.start();
+            } catch (err) {
+              S.quiz = null;
+              fail('The question could not be displayed: ' + (err && err.message || String(err)));
+            }
+          });
+        } catch (err) {
+          fail('The question generator failed: ' + (err && err.message || String(err)));
+        }
+      }
       function pickError() { app.innerHTML = head('No verified questions are currently available for this selected skill.', 'Tic-Tac-Toe') + '<div class="gm-panel" role="alert"><h2>Questions could not be generated</h2><p>Try another skill or level from the game setup. This topic is not currently producing verified game questions.</p><button class="gm-btn" id="tReload">Return to setup</button></div>'; $('#tReload').onclick = function () { G.location.reload(); }; }
       function submit(timeout) {
         var q = S.quiz; if (!q || q.stage === 'result') return; if (!timeout && q.sel === null) return;
