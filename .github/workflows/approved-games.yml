@@ -1,0 +1,19 @@
+name: Approved review game player
+on:
+  push:
+    paths:
+      - 'worksheet-generator/approved-games.*'
+      - 'approved-game-items.js'
+      - 'scripts/test-approved-games.cjs'
+      - '.github/workflows/approved-games.yml'
+  workflow_dispatch:
+jobs:
+  review-games:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-approved-games.cjs
