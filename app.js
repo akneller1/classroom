@@ -9,8 +9,11 @@
   });
   /* Courses marked "comingSoon" in data.js stay in the files but are hidden from navigation, search and
      browsing: the home page and the menu show them as "Coming soon". */
-  var SOON = L.courses.filter(function (c) { return c.comingSoon; });
-  L.courses = L.courses.filter(function (c) { return !c.comingSoon; });
+  // Temporary publication switch: preserve all middle-school course data and resources.
+  // Remove these IDs from HIDDEN_COURSES when the owner is ready to publish them again.
+  var HIDDEN_COURSES = { math6: true, prealgebra7: true, prealgebra: true };
+  var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
+  L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
   var q = document.getElementById('q');
