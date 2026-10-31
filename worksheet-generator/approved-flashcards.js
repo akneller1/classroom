@@ -72,7 +72,7 @@ el('afNeed').addEventListener('click',function(){rate('need')});el('afGot').addE
 el('afReset').addEventListener('click',function(){S.ratings={};S.missedOnly=false;refresh()});
 el('afMissed').addEventListener('click',function(){S.missedOnly=!S.missedOnly;S.index=0;refresh()});
 el('afShuffle').addEventListener('click',function(){for(var i=S.order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=S.order[i];S.order[i]=S.order[j];S.order[j]=t}S.index=0;S.flipped=false;render()});
-root.MK_BANK_LOADER.loadFromSite().then(function(){
+root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(function(){
  if(!banks.available(courseId,unitId)){status.textContent='No independently approved flashcard bank is available for '+course.name+' — '+unit.name+'. Existing classroom resources are unaffected.';return;}
  status.textContent=course.name+' · '+unit.name+' · approved questions only';
  container.hidden=false;refresh();
