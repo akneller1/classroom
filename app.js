@@ -594,7 +594,7 @@
         {mode:'tic-tac-toe',title:'Tic-Tac-Toe',thumb:'thumbs/foundations-algebra-tic-tac-toe.jpg'},
         {mode:'connect-four',title:'Connect 4',thumb:'thumbs/foundations-algebra-connect-four.jpg'},
         {mode:'picture-reveal',title:'Picture Reveal',thumb:'thumbs/foundations-algebra-picture-reveal.jpg'},
-        {mode:'showdown',title:'Showdown',thumb:'thumbs/foundations-algebra-jeopardy.jpg'},
+        {mode:'showdown',title:'Showdown',thumb:'thumbs/foundations-algebra-showdown.jpg'},
         {mode:'flashcards',title:'Flashcards',thumb:'thumbs/foundations-algebra-flashcards.jpg'}
       ].map(function(item){
         var formatDetails = {
