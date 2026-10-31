@@ -15,13 +15,7 @@
   /* The Worksheet Generator page (body data-mode="worksheet") is the same app locked to practice worksheets,
      with its own autosave per unit. */
   var PAGE_MODE = doc.body.getAttribute('data-mode') === 'worksheet' ? 'worksheet' : null;
-  function authoredRoute(id) {
-    if (!/^algebra2-/.test(id || '')) return false;
-    G.location.replace('bank-printable.html?unit='+encodeURIComponent(id.slice(9))+'&mode='+(PAGE_MODE?'worksheet':'assessment'));
-    return true;
-  }
-  var requestedBankUnit = /unit=(algebra2-[a-z0-9-]+)/.exec(G.location.hash || '');
-  if (requestedBankUnit && authoredRoute(requestedBankUnit[1])) return;
+  function authoredRoute() { return false; }
   function curKey(unit) { return KEY_CUR + ':' + unit + (PAGE_MODE ? ':' + PAGE_MODE : ''); }
   function hashUnit() { var m = /unit=([a-z0-9\-]+)/.exec(G.location.hash || ''); return m && NS.skillSets[m[1]] ? m[1] : null; }
   var defaultUnit = doc.body.getAttribute('data-unit') || 'algebra1-expressions-equations';
@@ -89,7 +83,7 @@
       bits.push('<span>' + S.versions.length + (S.versions.length > 1 ? ' versions' : ' version') + '</span>');
       if (cnt.failed) bits.push('<span class="bad">' + cnt.failed + ' missing</span>');
       if (cnt.unverified) bits.push('<span class="warn">' + cnt.unverified + ' need approval</span>');
-      if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">✓ every answer verified</span>');
+      if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">' + (NS.skillSets[c.unitId] && NS.skillSets[c.unitId].authoredBank ? '✓ approved bank answers available for review' : '✓ every answer verified') + '</span>');
     }
     if (rules.errors.length) bits.push('<span class="bad">' + rules.errors.length + ' rule problem' + (rules.errors.length > 1 ? 's' : '') + '</span>');
     box.innerHTML = bits.join('');
@@ -99,7 +93,7 @@
   function unitOptions(sel) {
     return NS.CATALOG.map(function (g) {
       return '<optgroup label="' + esc(g.course) + '">' + g.units.map(function (u) {
-        var ok = /^algebra2-/.test(u[0]) || !!NS.skillSets[u[0]];
+        var ok = !!NS.skillSets[u[0]];
         return '<option value="' + u[0] + '"' + (u[0] === sel ? ' selected' : '') + (ok ? '' : ' disabled') + '>' + esc(u[1]) + (ok ? '' : ' — not yet supported') + '</option>';
       }).join('') + '</optgroup>';
     }).join('');
@@ -718,12 +712,16 @@
     if (!draft && !S) { draft = NS.defaultConfig(unit, PAGE_MODE || (/mode=menu/.test(G.location.hash || '') ? 'menu' : 'test')); /* a standard test unless #mode=menu */ if (level) draft.level = level; }
     return !!S;
   }
-  (function restore() {
+  function startApp() {
     var unit = hashUnit() || (NS.skillSets[lsGet(KEY_LAST)] ? lsGet(KEY_LAST) : null) || (NS.skillSets[defaultUnit] ? defaultUnit : Object.keys(NS.skillSets)[0]);
     var restored = loadUnit(unit);
     render();
     if (restored) toast('Welcome back. Your last ' + NS.skillSets[unit].unitName + ' ' + noun() + ' was restored from this browser.');
-  })();
-  G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { autosave(); loadUnit(u); render(); } });
-  NS.app = { state: function () { return S; }, render: render, ui: ui };   // for tests
+    G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { autosave(); loadUnit(u); render(); } });
+    NS.app = { state: function () { return S; }, render: render, ui: ui };   // for tests
+  }
+  if (G.MK_COURSE_BANKS_READY) {
+    $('#mmView').innerHTML = '<p class="card" role="status">Loading approved question banks…</p>';
+    G.MK_COURSE_BANKS_READY.then(startApp, startApp);
+  } else startApp();
 })(window);
