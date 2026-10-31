@@ -136,3 +136,12 @@ Readiness checks automatically grade source-marked choices. Written responses us
 Initial integration commit: `93ef67f9f75c38c42d8ca8e4ae5b91a818984954`. GitHub Pages build and deployment succeeded in [run 41202137644](https://github.com/akneller1/classroom/actions/runs/41202137644). Existing Algebra 2 printable editing, versions, notes-only output, PDF output, and teacher-key toggle regression passed. The native adapter checks cover 186 available multiple-choice skill/difficulty combinations, and fail closed for the 75 combinations without source multiple-choice items.
 
 Expanded entry-route verification: all **157 browser routes passed** in [run 41202296854](https://github.com/akneller1/classroom/actions/runs/41202296854), including global worksheet, assessment, and lesson course selectors. Updated asset version URLs refresh previously cached generator and course scripts. The legacy visibility regression now checks the intentionally hidden middle-school entry pages redirect without restoring their navigation.
+
+## Final validation results
+
+- All 157 Algebra 2 browser routes, existing editing/version controls, notes-only output, teacher-key toggles, and PDF generation passed in [integration run 41202430143](https://github.com/akneller1/classroom/actions/runs/41202430143).
+- All 22 existing Algebra 1/Geometry mathematics units passed the unchanged N=300 independent verification, mutation, and difficulty tests. The structural job also passed: **23 successful jobs**, [run 41202597598](https://github.com/akneller1/classroom/actions/runs/41202597598). Unit sharding replaces the serial batch that could exceed the job time limit; checks and sample counts were not reduced.
+- The corrected hidden-middle-school browser regression passed in [run 41202329252](https://github.com/akneller1/classroom/actions/runs/41202329252); middle-school navigation remains hidden and all source files remain preserved.
+- The deployed application passed GitHub Pages publishing in [run 41202597290](https://github.com/akneller1/classroom/actions/runs/41202597290). Live course navigation and Unit 11 flashcard loading were also checked in the browser.
+
+Content limitations remain the 75 missing multiple-choice skill/difficulty combinations, finite printable capacity, and legacy-only Tarsia/Error Analysis sources described above. These are content gaps, not substituted or newly generated mathematics. Structural/browser success does not constitute independent human mathematical review of the authored bank.
