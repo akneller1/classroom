@@ -604,3 +604,9 @@ body { background:var(--paper); }
 .course-skill-checklist li { margin:.5rem 0; }
 .course-skill-checklist label { display:inline-flex; align-items:flex-start; gap:.55rem; cursor:pointer; }
 .course-skill-checklist input { margin-top:.3rem; accent-color:var(--blue-bg); }
+
+/* Shared per-unit approved-question readiness (informational, not live resource links). */
+.resource-readiness-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr)); gap:.65rem; margin-top:1rem; }
+.resource-readiness-row { display:flex; flex-direction:column; gap:.25rem; border:1px solid var(--edge); border-radius:12px; background:var(--card); padding:.8rem 1rem; }
+.resource-readiness-row strong { font-size:.96rem; }
+.resource-readiness-row span { font-size:.84rem; color:var(--ink-soft); }
