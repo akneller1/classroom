@@ -449,7 +449,7 @@
       title: L.title,
       html:
         '<section class="hero"><div class="wrap home-layout">' +
-          '<div class="hero-copy home-intro"><p class="hero-eyebrow">MR. K’S CLASSROOM · BUILT FOR TEACHERS</p>' +
+          '<div class="hero-copy home-intro">' +
           '<h1 tabindex="-1">More learning. <span>Less planning.</span></h1>' +
           '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
           '<div class="home-resource-panels">' +
