@@ -6506,7 +6506,7 @@ window.LIBRARY = {
     ,  {
       "id": "prealgebra",
       "name": "Pre-Algebra (8th Grade)",
-      "color": "purple",
+      "color": "teal",
       "art": "curve",
       "blurb": "Grade 8 mathematics: real numbers, equations, functions, data, transformations, and geometry.",
       "units": [
@@ -6626,7 +6626,7 @@ window.LIBRARY = {
 {
   "id": "math6",
   "name": "6th Grade Math",
-  "color": "orange",
+  "color": "coral",
   "art": "curve",
   "blurb": "Ratios, fractions, rational numbers, expressions, equations, inequalities, geometry, and data.",
   "units": [
