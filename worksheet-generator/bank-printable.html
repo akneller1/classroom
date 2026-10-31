@@ -1,27 +1,115 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Algebra 2 Question Bank Generator · Mr. K's Classroom</title>
-<link rel="stylesheet" href="../styles.css">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Algebra 2 Generator · Mr. K's Classroom</title>
+<meta name="description" content="Create Algebra 2 lesson plans, worksheets, and assessments using approved course questions.">
+<link rel="stylesheet" href="core/app.css">
+<link rel="stylesheet" href="menu/menu.css">
 <style>
-main{max-width:1020px;margin:1.5rem auto;padding:1rem}fieldset{border:1px solid #9995;border-radius:12px;padding:1rem;margin:1rem 0}
-.controls{display:flex;flex-wrap:wrap;gap:1rem;align-items:end}.controls label{display:grid;gap:.3rem}select,input,button{font:inherit;padding:.55rem;border:1px solid #888;border-radius:8px}button{cursor:pointer}#skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.5rem}.skill{display:flex;gap:.4rem;align-items:flex-start}.sheet{background:white;color:#111;padding:1.25rem;border:1px solid #aaa;border-radius:12px;margin-top:1.5rem}.sheet h2{margin:.2rem 0 1rem}.item{break-inside:avoid;margin:1.1rem 0;padding-bottom:.7rem;border-bottom:1px solid #ccc}.item img{max-width:440px;max-height:280px;width:auto;height:auto;display:block;margin:.6rem 0}.choices{display:grid;gap:.4rem;margin:.5rem 0}.workspace{min-height:2rem;border-bottom:1px solid #ddd;margin-top:.5rem}.section-config{border:1px solid #9996;border-radius:10px;padding:.7rem;margin:.5rem 0}.section-config input[type="number"]{width:5.5rem}.section-config textarea{width:100%;min-height:2.5rem;box-sizing:border-box}.section-skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.3rem;margin:.6rem 0}.section-skills strong{grid-column:1/-1}.section-print{margin-top:1.1rem}.section-print h3{break-after:avoid}.section-print h3{border-bottom:1px solid #777;padding-bottom:.25rem}.section-notes{white-space:pre-wrap}.edit-card{border:1px solid #9997;border-radius:12px;padding:.8rem;margin:.7rem 0}.edit-card textarea{width:100%;min-height:4rem;box-sizing:border-box}.edit-card .controls{margin:.5rem 0}.parts{padding-left:1.5rem}.key{page-break-before:always}.key p{white-space:pre-wrap}.muted{opacity:.8}[hidden]{display:none!important}
-@media print{body{background:white!important;color:#111!important}main{max-width:none;margin:0;padding:0}header,.setup,#editor,#status,.noprint{display:none!important}.sheet{border:0;padding:0;margin:0}.key{page-break-before:always}.item{break-inside:avoid}@page{margin:.55in}}
-</style></head><body><main>
-<header><a href="../index.html">← Mr. K's Classroom</a><h1 id="heading">Algebra 2 Resource Generator</h1></header>
-<div class="setup"><p>Create a printable worksheet or assessment using existing Algebra 2 questions, with the same skill IDs and difficulty levels as the course catalog. Mathematical content has not undergone independent human review.</p>
-<fieldset><legend>Resource settings</legend><div class="controls">
-<label>Resource<select id="mode"><option value="lesson">Lesson Plan</option><option value="worksheet">Worksheet</option><option value="assessment">Assessment</option></select></label>
-<label>Unit<select id="unit"></select></label><label>Difficulty<select id="level"><option value="cp2">Easy (CP2)</option><option value="cp1" selected>Medium (CP1)</option><option value="honors">Hard (Honors)</option></select></label>
-<label>Number of questions<input id="count" type="number" min="1" max="60" value="12"></label>
-<label><span>Question formats</span><select id="format"><option value="all">All supported formats</option><option value="short-answer">Short answer</option><option value="multiple-choice">Multiple choice</option><option value="select-all">Select all</option><option value="open-response">Open response</option></select></label>
-</div><div class="controls"><label>Versions<input id="versions" type="number" min="1" max="4" value="1"></label><label>Heading<input id="customTitle" placeholder="Optional custom heading"></label></div></fieldset>
-<fieldset><legend>Lesson sections</legend>
-<p class="muted">Add, remove, repeat, and rearrange sections. Each occurrence has its own problem count, notes, and optional skills.</p>
-<div class="controls"><label>Add section<select id="sectionType"><option>Do Now</option><option>Mixed Review</option><option>Notes</option><option>Examples</option><option>Practice</option><option>Challenge Problems</option><option>Summary</option><option>Exit Ticket</option></select></label><button type="button" id="addSection">Add section</button><button type="button" id="resetSections">Restore default order</button><button type="button" id="saveLayout">Save configuration</button><button type="button" id="loadLayout">Load configuration</button><button type="button" id="exportLayout">Download configuration</button><button type="button" id="importLayout">Import configuration</button><input id="importFile" type="file" accept=".json,application/json" hidden></div>
-<div class="section-config"><strong>Earlier units for Mixed Review</strong><label class="skill"><input id="spiralEnabled" type="checkbox"> Include previous Algebra 2 units</label><div id="spiralUnits" class="section-skills"></div></div><div id="sectionList"></div>
-</fieldset><fieldset><legend>Skills</legend><div class="controls"><button type="button" id="all">Select all</button><button type="button" id="none">Clear</button></div><div id="skills"></div></fieldset>
-<div class="controls"><label class="skill"><input type="checkbox" id="key" checked> Include teacher answer key</label><button type="button" id="build">Generate preview</button><button type="button" id="print" disabled>Print / Save PDF</button></div><div id="editor" hidden><h2>Review & edit</h2><p class="muted">Edit wording, replace questions, or move questions before printing. Edits affect this generated version only.</p><div class="controls"><label>Version<select id="currentVersion"></select></label><button type="button" id="refreshVersion">Regenerate version</button><button type="button" id="resetEdits">Restore bank wording</button></div><div id="editItems"></div></div>
-</div><p id="status" role="status">Loading course questions…</p><div id="output"></div>
+.bank-app .mm-view-setup{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.bank-app .mm-card{min-width:0}
+.bank-app .controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:10px 0}
+.bank-app .controls label:not(.skill){display:grid;gap:4px;color:var(--ink2);font-size:.88rem;font-weight:700}
+.bank-app .controls input[type=number]{width:6rem}
+.bank-app .controls input[type=text]{min-width:12rem}
+.bank-app .section-config{border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:10px 0;background:var(--card)}
+.bank-app .section-config textarea,.bank-app .edit-card textarea{width:100%;min-height:3rem;box-sizing:border-box}
+.bank-app .section-skills,#skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:6px;margin:10px 0}
+.bank-app .skill{display:flex;gap:8px;align-items:flex-start;padding:5px 7px;border-radius:8px;color:var(--ink2)}
+.bank-app .skill input{flex:0 0 auto;min-height:0;width:18px;height:18px;accent-color:var(--blue)}
+.bank-app .edit-card{border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:10px 0;background:var(--card)}
+.bank-app .sheet{background:#fff;color:#111;padding:1.25rem;border:1px solid #aaa;border-radius:12px;margin-top:1.5rem}
+.bank-app .sheet h2{margin:.2rem 0 1rem}
+.bank-app .item{break-inside:avoid;margin:1.1rem 0;padding-bottom:.7rem;border-bottom:1px solid #ccc}
+.bank-app .item img{max-width:440px;max-height:280px;width:auto;height:auto;display:block;margin:.6rem 0}
+.bank-app .choices{display:grid;gap:.4rem;margin:.5rem 0}
+.bank-app .workspace{min-height:2rem;border-bottom:1px solid #ddd;margin-top:.5rem}
+.bank-app .section-print{margin-top:1.1rem}
+.bank-app .section-print h3{break-after:avoid;border-bottom:1px solid #777;padding-bottom:.25rem}
+.bank-app .section-notes{white-space:pre-wrap}
+.bank-app .parts{padding-left:1.5rem}
+.bank-app .key{page-break-before:always}
+.bank-app .key p{white-space:pre-wrap}
+.bank-app #status{margin:0 0 14px}
+@media print{
+ body{background:#fff!important;color:#111!important}
+ .topbar,.mm-stepnav,.mm-summary,.bank-app .setup,.bank-app #status,.bank-app .noprint{display:none!important}
+ .mm-app{max-width:none;margin:0;padding:0}
+ .bank-app .sheet{border:0;padding:0;margin:0}
+ .bank-app .key{page-break-before:always}
+ .bank-app .item{break-inside:avoid}
+ @page{margin:.55in}
+}
+</style>
+</head>
+<body class="bank-app">
+<a class="mm-skip" href="#mmMain">Skip to the generator</a>
+<header class="topbar">
+  <button type="button" class="btn ghost sm" id="backBtn" aria-label="Back to the previous page" onclick="if (history.length > 1 && document.referrer) history.back(); else location.href = '../index.html';">← Back</button>
+  <a class="brand" href="../index.html">Mr. K's Classroom</a>
+  <span class="crumb" id="generatorCrumb">Algebra 2 · Resource Generator</span>
+  <span class="sp"></span>
+  <button type="button" class="btn ghost sm" id="themeBtn">Light / dark</button>
+</header>
+<main id="mmMain" class="mm-app">
+  <div class="mm-stepnav" aria-label="Generator workflow">
+    <span class="mm-stepbtn on"><span class="step">1</span>Build</span>
+    <span class="mm-stepbtn"><span class="step">2</span>Review &amp; edit</span>
+    <span class="mm-stepbtn"><span class="step">3</span>Preview &amp; print</span>
+  </div>
+  <div id="status" class="mm-summary" role="status" aria-live="polite">Loading course questions…</div>
+  <div class="setup">
+    <div class="mm-view-setup">
+      <fieldset class="card mm-card"><legend class="sr">Resource settings</legend><h2><span class="step">1</span>Resource settings</h2>
+        <p class="hint">Use approved Algebra 2 questions for a lesson plan, worksheet, or assessment. The questions and answer keys come from the linked course bank.</p>
+        <div class="controls">
+          <label>Resource<select id="mode"><option value="lesson">Lesson Plan</option><option value="worksheet">Worksheet</option><option value="assessment">Assessment</option></select></label>
+          <label>Unit<select id="unit"></select></label>
+          <label>Difficulty<select id="level"><option value="cp2">Easy (CP2)</option><option value="cp1" selected>Medium (CP1)</option><option value="honors">Hard (Honors)</option></select></label>
+          <label>Maximum questions<input id="count" type="number" min="1" max="60" value="12"></label>
+          <label>Question format<select id="format"><option value="all">All supported formats</option><option value="short-answer">Short answer</option><option value="multiple-choice">Multiple choice</option><option value="select-all">Select all that apply</option><option value="open-response">Open response</option></select></label>
+          <label>Versions<input id="versions" type="number" min="1" max="4" value="1"></label>
+          <label>Custom heading<input id="customTitle" placeholder="Optional heading"></label>
+        </div>
+      </fieldset>
+      <fieldset class="card mm-card"><legend class="sr">Question skills</legend><h2><span class="step">2</span>Choose skills</h2>
+        <div class="controls"><button type="button" id="all" class="btn ghost sm">Select all</button><button type="button" id="none" class="btn ghost sm">Clear</button></div>
+        <div id="skills"></div>
+      </fieldset>
+    </div>
+    <fieldset class="card mm-card" id="lessonSections"><legend class="sr">Lesson sections</legend><h2><span class="step">3</span>Lesson sections</h2>
+      <p class="hint">Add, remove, repeat, and rearrange sections. Each section can have its own problem count, notes, and skills.</p>
+      <div class="controls">
+        <label>Add section<select id="sectionType"><option>Do Now</option><option>Mixed Review</option><option>Notes</option><option>Examples</option><option>Practice</option><option>Challenge Problems</option><option>Summary</option><option>Exit Ticket</option></select></label>
+        <button type="button" id="addSection" class="btn ghost sm">Add section</button><button type="button" id="resetSections" class="btn ghost sm">Restore default order</button>
+        <button type="button" id="saveLayout" class="btn ghost sm">Save configuration</button><button type="button" id="loadLayout" class="btn ghost sm">Load configuration</button><button type="button" id="exportLayout" class="btn ghost sm">Download configuration</button><button type="button" id="importLayout" class="btn ghost sm">Import configuration</button><input id="importFile" type="file" accept=".json,application/json" hidden>
+      </div>
+      <div class="section-config"><strong>Earlier units for Mixed Review</strong><label class="skill"><input id="spiralEnabled" type="checkbox"> Include previous Algebra 2 units</label><div id="spiralUnits" class="section-skills"></div></div>
+      <div id="sectionList"></div>
+    </fieldset>
+    <fieldset class="card mm-card"><legend class="sr">Generate and print</legend><h2><span class="step">4</span>Generate resource</h2>
+      <div class="controls">
+        <label class="skill"><input type="checkbox" id="key" checked> Include teacher answer key</label>
+        <button type="button" id="build" class="btn">Generate preview</button>
+        <button type="button" id="print" class="btn sec2" disabled>Print / Save PDF</button>
+      </div>
+    </fieldset>
+    <section id="editor" class="card mm-card" hidden><h2><span class="step">5</span>Review &amp; edit</h2>
+      <p class="hint">Edit wording, replace questions, or move questions before printing. Edits affect this generated version only.</p>
+      <div class="controls"><label>Version<select id="currentVersion"></select></label><button type="button" id="refreshVersion" class="btn ghost sm">Regenerate version</button><button type="button" id="resetEdits" class="btn ghost sm">Restore bank wording</button></div>
+      <div id="editItems"></div>
+    </section>
+  </div>
+  <div id="output"></div>
 </main>
-<script src="../data.js"></script><script src="../course-catalog.js"></script><script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="bank-printable.js?v=algebra2-integrated-20261031"></script>
-<script src="core/math-display.js?v=class-parity-20261031"></script></body></html>
+<dialog id="mmDialog" class="mm-dialog" aria-labelledby="mmDialogTitle"></dialog>
+<script src="../data.js"></script>
+<script src="../course-catalog.js"></script>
+<script src="../question-bank-adapter.js"></script>
+<script src="../question-bank-loader.js"></script>
+<script src="bank-printable.js?v=standard-generators-20261031"></script>
+<script src="core/math-display.js?v=class-parity-20261031"></script>
+</body>
+</html>
