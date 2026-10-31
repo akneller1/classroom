@@ -580,7 +580,7 @@
           (status.ready ? status.count + ' approved questions' : 'Awaiting approved questions') + '</span>' +
           (status.ready ? '<a href="' + esc((function(){
             var games={'flashcards':'flashcards','connect-4':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','showdown':'showdown','detective':'detective','escape-room':'escape-room'};
-            if(games[item[0]])return 'worksheet-generator/'+(['detective','escape-room'].includes(games[item[0]])?'course-activity':'course-game')+'.html?course='+c.id+'&unit='+u.id+'&game='+games[item[0]];
+            if(games[item[0]])return 'worksheet-generator/'+(['detective','escape-room'].includes(games[item[0]])?'course-activity':'course-game')+'.html?course='+c.id+'&unit='+u.id+'&game='+games[item[0]]+'&v=showdown-fix-20261031';
             if(item[0]==='readiness-check')return 'worksheet-generator/algebra2-practice.html?unit='+u.id;
             return 'worksheet-generator/bank-printable.html?unit='+u.id+'&mode='+(item[0]==='assessments'?'assessment':'worksheet');
           })()) + '">Open resource</a>' : '') + '</div>';

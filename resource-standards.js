@@ -25,7 +25,8 @@ function apply(library){
    let thumb=preview||a.thumb;if(!thumb||/foundations-algebra/.test(thumb)&&u.id!=='foundations-algebra')thumb=t.thumb;
    if(k==='detective'&&/showdown|jeopardy/.test(thumb))thumb=t.thumb;if(k==='escape-room'&&/showdown|jeopardy/.test(thumb))thumb=t.thumb;
    const base=['detective','escape-room'].includes(k)?'course-activity':'course-game';
-   return [{...a,originalPath:a.path,legacyPaths:original.filter(item=>kind(item)===k).map(item=>item.path),title:u.name+' '+t.name,description:t.description,bankFormat:t.format,thumb,path:'worksheet-generator/'+base+'.html?course='+c.id+'&unit='+u.id+'&game='+k}];
+   const canonical='worksheet-generator/'+base+'.html?course='+c.id+'&unit='+u.id+'&game='+k;
+   return [{...a,originalPath:a.path,legacyPaths:original.filter(item=>kind(item)===k).map(item=>item.path).concat(canonical),title:u.name+' '+t.name,description:t.description,bankFormat:t.format,thumb,path:canonical+'&v='+ 'showdown-fix-20261031'}];
   });
  }));
 }
