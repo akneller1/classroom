@@ -26,3 +26,15 @@ The catalog audit validates course/unit uniqueness, lesson coverage, and resourc
 `MK_COURSE_CATALOG.getSkillRecords(courseId,unitId)` returns objects `{id,name,index}` for Claude to reference. Example: the first skill in 6th Grade Math's `ratios-rates-percent-proportions` unit is `ratios-rates-percent-proportions-skill-01`. IDs are positional, so **do not reorder existing lessons after creating question banks** without an explicit ID migration. Future work can replace these transitional IDs with authored permanent IDs.
 
 Claude can deliver one JSON file per unit conforming to `schemas/question-bank.schema.json`, then run `node scripts/check-question-bank.cjs path/to/unit-questions.json`. This currently checks format, identifiers, options, solution presence and open-response length; mathematical verification and diagram QA remain separate. Do not publish unverified questions merely because this structural validator passes.
+
+## Universal question bank adapter (infrastructure milestone)
+`question-bank-adapter.js` exports `window.MK_QUESTION_BANKS` with:
+- `validate(bank)` → `{ok, errors}`, structural checks only
+- `register(bank, {verified:true})` → registers a unit bank; verification flag must come **only after independent mathematical and diagram review**
+- `available(courseId, unitId)` → true only for explicitly verified banks
+- `select({courseId, unitId, skillIds, level, formats, limit})` → filtered defensive copies; no bank or unverified bank yields []
+- `coverage(courseId, unitId)` → per-skill counts for CP2, CP1, Honors and approval status
+
+The adapter is independent of existing game and generator question factories. It is **not yet wired into student-facing question generation**. Do not assume a structurally valid JSON bank is mathematically verified or mark it verified automatically. The integration layer should translate only approved question formats into each existing generator, with format-specific constraints and full regression tests. A new question should be written once, independently reviewed, and reused across appropriate activities, never duplicated as inconsistent versions.
+
+Run `node scripts/test-question-bank-adapter.cjs` for the adapter's validation, gating, filtering, and mutation-isolation checks.
