@@ -83,6 +83,33 @@ async function run(){
   for(const square of [0,1,2,4,3,5,7,6,8])await turnAt(square,true);
   assert.match(await page.locator('#agTurn').innerText(),/Draw — no more moves/);
   assert.equal(await page.locator('.ag-cell:enabled').count(),0,'Draw board must lock');
+  // Connect 4: keyboard-only column selection, bottom-up stacking, and a complete four-in-a-row win.
+  await page.locator('#agGame').selectOption('connect-4');
+  await page.locator('#agReset').click();
+  async function connectTurn(column){
+    const target=page.locator('.ag-cell').nth(column);
+    await target.focus();
+    await page.keyboard.press('Enter');
+    await page.locator('#agReveal').click();
+    await page.locator('#agCorrect').click();
+  }
+  for(const col of [0,1,0,1,0,1,0])await connectTurn(col);
+  assert.match(await page.locator('#agTurn').innerText(),/Player 1 wins!/);
+  assert.equal(await page.locator('.ag-cell[data-owner="1"]').count(),4);
+  assert.equal(await page.locator('.ag-cell:enabled').count(),0,'Connect 4 winner must lock board');
+  await page.locator('#agReset').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('.ag-cell:enabled').count(),42,'Keyboard reset must reopen Connect 4 board');
+  // Keyboard-operated answer choices and reveal.
+  await page.locator('#agGame').selectOption('tic-tac-toe');
+  await page.locator('.ag-cell').first().focus();
+  await page.keyboard.press('Enter');
+  await page.locator('#agOptions button').first().focus();
+  await page.keyboard.press('Space');
+  assert.equal(await page.locator('#agOptions button').first().getAttribute('aria-pressed'),'true');
+  await page.locator('#agReveal').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('.ag-cell[data-owner="1"]').count(),1);
   // Mobile layout: board and controls fit within the viewport.
   await page.setViewportSize({width:375,height:812});
   for(const type of ['tic-tac-toe','connect-4','picture-reveal']){
