@@ -73,7 +73,7 @@ function sectionQuestions(layout,used){
   const count=Math.max(0,Math.min(60,Number(sec.count)||0));
   if(!count)return;
   const source=sec.type==='Mixed Review'&&$('spiralEnabled').checked?pool.concat(spiralPool):pool;
-  const eligible=source.filter(q=>(sec.type==='Mixed Review'&&$('spiralEnabled').checked&&q._spiral===true||!sec.skillIds.length||sec.skillIds.includes(q.skillId))&&!used.has((q._origin||unitSelect.value)+'/'+q.id));
+  const eligible=source.filter(q=>{const crossUnit=q._spiral===true;const permitted=crossUnit ? sec.type==='Mixed Review'&&$('spiralEnabled').checked : (!sec.skillIds.length||sec.skillIds.includes(q.skillId));return permitted&&!used.has((q._origin||unitSelect.value)+'/'+q.id)});
   // Mixed Review deliberately samples across distinct skills instead of allowing
   // the largest question category to dominate the section.
   const chosen=[];
@@ -204,8 +204,10 @@ function renderEditor(){
   const up=addButton('Move up',()=>move(index,-1));up.disabled=index===0;
   const down=addButton('Move down',()=>move(index,1));down.disabled=index===currentItems().length-1;
   addButton('Replace',()=>{
-   const used=new Set(currentItems().filter((_,i)=>i!==index).map(x=>x.question.id));
-   const alternate=shuffle(pool.filter(q=>q.id!==item.question.id&&!used.has(q.id)&&(!versionSections[activeVersion].find(sec=>sec.id===item.sectionId)?.skillIds.length||versionSections[activeVersion].find(sec=>sec.id===item.sectionId).skillIds.includes(q.skillId))))[0];
+   const used=new Set(currentItems().filter((_,i)=>i!==index).map(x=>(x.question._origin||unitSelect.value)+'/'+x.question.id));
+   const layout=versionSections[activeVersion].find(sec=>sec.id===item.sectionId);
+   const choices=layout?.type==='Mixed Review'&&$('spiralEnabled').checked?pool.concat(spiralPool):pool;
+   const alternate=shuffle(choices.filter(q=>((q._origin||unitSelect.value)+'/'+q.id)!==(item.question._origin||unitSelect.value)+'/'+item.question.id)&&!used.has((q._origin||unitSelect.value)+'/'+q.id)&&(q._spiral===true?layout?.type==='Mixed Review':!layout?.skillIds.length||layout.skillIds.includes(q.skillId))))[0];
    if(!alternate){status.textContent='No unused replacement questions match the selected settings.';return}
    currentItems()[index]={source:alternate,question:JSON.parse(JSON.stringify(alternate)),sectionId:item.sectionId};renderEditor();renderAll();
   });
