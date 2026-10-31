@@ -6,6 +6,7 @@ var names=root.MK_COURSE_CATALOG.getSkillRecords(courseId,unitId);
 names.forEach(function(s){var o=doc.createElement('option');o.value=s.id;o.textContent=s.name;el('agSkill').appendChild(o)});
 var bridge=root.MK_GRADE_LEGACY_BRIDGE,isLegacy=bridge&&bridge.isGrade(courseId),engine=null;
 if(names.some(function(x){return x.id===params.get('skill')}))el('agSkill').value=params.get('skill');
+var requestedGame=params.get('game');if(['tic-tac-toe','connect-4','picture-reveal'].indexOf(requestedGame)>=0)el('agGame').value=requestedGame;
 var board=[],turn=1,pending=-1,question=null,items=[],cursor=0,finished=false,selectedAnswer=-1,feedback='',attempts=0,correctCount=0;
 function text(node,value){node.textContent=String(value)}
 function dimensions(){return el('agGame').value==='connect-4'?42:el('agGame').value==='picture-reveal'?16:9}
