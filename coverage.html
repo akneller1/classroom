@@ -46,6 +46,8 @@ window.LIBRARY.courses.forEach(function(c){var o=document.createElement('option'
 if(window.LIBRARY.courses.some(function(c){return c.id===requested}))course.value=requested;
 function el(tag,txt,parent,cls){var n=document.createElement(tag);if(txt!==null)n.textContent=txt;if(cls)n.className=cls;if(parent)parent.appendChild(n);return n}
 function rows(){return window.MK_COVERAGE_REPORT.report(window.LIBRARY,course.value)}
+function isMiddleSchool(id){return ['math6','prealgebra7','prealgebra'].indexOf(id)>=0}
+function levels(id){return isMiddleSchool(id)?['Remedial','Standard','Advanced']:['CP2','CP1','Honors']}
 function stat(label,value){var box=el('div',null,summary,'coverage-stat');el('strong',String(value),box);el('span',label,box)}
 function render(){
 summary.replaceChildren();units.replaceChildren();
@@ -59,10 +61,10 @@ reports.forEach(function(c){
  c.units.forEach(function(u){
  var details=el('details',null,units,'coverage-unit');
  var head=el('summary',null,details);el('span',u.name,head);
- el('small',u.fullyCovered+'/'+u.skillCount+' skills across CP2, CP1, Honors',head);
+ el('small',u.fullyCovered+'/'+u.skillCount+' skills across '+levels(c.id).join(', '),head);
  var scroll=el('div',null,details,'coverage-table-wrap'),table=el('table',null,scroll,'coverage-table');
  var thead=el('thead',null,table),hr=el('tr',null,thead);
- ['Lesson / Subskill','CP2','CP1','Honors','Status'].forEach(function(t){el('th',t,hr)});
+ ['Lesson / Subskill'].concat(levels(c.id),['Status']).forEach(function(t){el('th',t,hr)});
  var body=el('tbody',null,table);
  u.skills.forEach(function(s){
  var tr=el('tr',null,body);el('td',s.name,tr);
@@ -76,7 +78,7 @@ reports.forEach(function(c){
 course.addEventListener('change',function(){var url=new URL(location.href);if(course.value)url.searchParams.set('course',course.value);else url.searchParams.delete('course');history.replaceState(null,'',url);render()});
 document.getElementById('expand').addEventListener('click',function(){var all=[].slice.call(document.querySelectorAll('details.coverage-unit'));var opening=all.some(function(d){return !d.open});all.forEach(function(d){d.open=opening});this.textContent=opening?'Collapse units':'Expand units'});
 document.getElementById('csv').addEventListener('click',function(){
- var content=[['Course','Unit','Skill ID','Skill','CP2 approved','CP1 approved','Honors approved','All levels covered']];
+ var content=[['Course','Unit','Skill ID','Skill','Remedial / CP2 approved','Standard / CP1 approved','Advanced / Honors approved','All levels covered']];
  rows().forEach(function(c){c.units.forEach(function(u){u.skills.forEach(function(s){var q=s.verified?s.counts:{cp2:0,cp1:0,honors:0};content.push([c.name,u.name,s.id,s.name,q.cp2,q.cp1,q.honors,s.verified&&q.cp2>0&&q.cp1>0&&q.honors>0?'Yes':'No'])})})});
  var csv=content.map(function(row){return row.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(',')}).join('\r\n');
  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='mk-question-coverage.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
