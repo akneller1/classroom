@@ -50,3 +50,12 @@ Open `coverage.html` from the website, or `coverage.html?course=algebra2` to fil
 **Important**: Zero does not mean that legacy Algebra 1/Geometry/Algebra 2 generators are empty. The existing verified or unverified legacy factories are **not imported into this new adapter**, so the dashboard intentionally avoids claiming their content is approved. Once Claude's content is reviewed and integrated via `MK_QUESTION_BANKS.register(bank,{verified:true})`, the registered questions will be included in the dashboard. Never mark a bank verified simply to make the dashboard green.
 
 Run `node scripts/test-coverage-report.cjs` to test the reporting model.
+
+## Approved question-bank loading (live integration foundation)
+The website and teacher coverage dashboard now load `question-banks/manifest.json` using `question-bank-loader.js`. An empty manifest is intentional until independent mathematical and diagram review is completed. Approved entries have this shape:
+```json
+{"version":1,"banks":[{"courseId":"algebra2","unitId":"conic-sections","path":"question-banks/algebra2/conic-sections.json","approved":true}]}
+```
+The JSON file itself must match `schemas/question-bank.schema.json` and the shared catalog IDs. Only entries explicitly marked `approved:true` are fetched, checked and registered with the verified adapter; unapproved entries are never fetched by the loader. Editorial reviewers must not flip the flag until answers, mathematical rigor, diagrams and difficulty have been independently verified. Changes to the file after approval require re-review.
+
+Run `node scripts/test-question-bank-loader.cjs` to validate manifest safeguards. This loads banks into the shared adapter for eligibility/coverage reporting. **It does not yet replace existing game or generator engines**, and the manifest is empty until approved new questions are supplied.
