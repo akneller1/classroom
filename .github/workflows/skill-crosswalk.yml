@@ -5,6 +5,9 @@ on:
       - 'skill-crosswalk.js'
       - 'course-catalog.js'
       - 'scripts/test-skill-crosswalk.cjs'
+      - 'legacy-crosswalk-audit.js'
+      - 'scripts/test-legacy-crosswalk-audit.cjs'
+      - 'scripts/report-legacy-reuse.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
 jobs:
@@ -16,3 +19,5 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/test-skill-crosswalk.cjs
+      - run: node scripts/test-legacy-crosswalk-audit.cjs
+      - run: node scripts/report-legacy-reuse.cjs
