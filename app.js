@@ -596,8 +596,8 @@
       return { title: unitLabel(c, u) + ', ' + c.name,
         html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
           unitPager(c, u) + gradePracticeLinks(c, u) + contentBriefSection(c, u) + contentReadinessSection(c, u) +
-          '<section class="algebra-unit-section"><h2>Resources coming soon</h2>' +
-          '<p>Worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
+          '<section class="algebra-unit-section"><h2>More resources in development</h2>' +
+          '<p>Additional worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
           unitPager(c, u) + '</div></section>' };
     }
     if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') return algebraUnitView(c, u);
