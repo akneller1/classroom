@@ -1,0 +1,18 @@
+name: Shared curriculum skill crosswalk
+on:
+  push:
+    paths:
+      - 'skill-crosswalk.js'
+      - 'course-catalog.js'
+      - 'scripts/test-skill-crosswalk.cjs'
+      - '.github/workflows/skill-crosswalk.yml'
+  workflow_dispatch:
+jobs:
+  crosswalk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-skill-crosswalk.cjs
