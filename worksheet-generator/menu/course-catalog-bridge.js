@@ -5,19 +5,21 @@
   'use strict';
   var ns = G.MKMENU, library = G.LIBRARY, catalog = G.MK_COURSE_CATALOG;
   if (!ns || !Array.isArray(ns.CATALOG) || !library || !catalog) return;
-  var courseIds = ['math6', 'prealgebra7', 'prealgebra'];
+  var courseIds = ['math6', 'prealgebra7', 'prealgebra', 'algebra2'];
   var seen = Object.create(null);
   ns.CATALOG.forEach(function (group) { group.units.forEach(function (u) { seen[u[0]] = true; }); });
   var insertAt = 0;
   courseIds.forEach(function (id) {
     var course = library.courses.filter(function (c) { return c.id === id; })[0];
     if (!course) return;
+    var existingGroup = ns.CATALOG.filter(function (g) { return g.course === course.name; })[0];
     var units = course.units.map(function (unit, i) {
-      var bankId = id + '-' + unit.id;
+      var bankId = (id === 'algebra2' ? 'algebra2-' : id + '-') + unit.id;
       return [bankId, 'Unit ' + (i + 1) + ' · ' + unit.name];
     }).filter(function (u) { return !seen[u[0]]; });
     if (units.length) {
-      ns.CATALOG.splice(insertAt++, 0, { course: course.name, units: units });
+      if (existingGroup) existingGroup.units = existingGroup.units.concat(units);
+      else ns.CATALOG.splice(insertAt++, 0, { course: course.name, units: units });
       units.forEach(function (u) { seen[u[0]] = true; });
     }
   });
