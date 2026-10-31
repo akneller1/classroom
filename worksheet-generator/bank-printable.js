@@ -276,20 +276,6 @@ if(themeButton){
   try{root.localStorage.setItem('mkws-theme',next)}catch(e){}
  });
 }
-const printMedia=root.matchMedia?root.matchMedia('print'):null;
-function syncPrintMode(){
- const setup=doc.querySelector('.setup');
- if(!setup)return;
- if(printMedia&&printMedia.matches)setup.style.setProperty('display','none','important');
- else setup.style.removeProperty('display');
-}
-if(printMedia){
- if(printMedia.addEventListener)printMedia.addEventListener('change',syncPrintMode);
- else if(printMedia.addListener)printMedia.addListener(syncPrintMode);
-}
-root.addEventListener('beforeprint',()=>{const setup=doc.querySelector('.setup');if(setup)setup.style.setProperty('display','none','important')});
-root.addEventListener('afterprint',()=>{const setup=doc.querySelector('.setup');if(setup)setup.style.removeProperty('display')});
-syncPrintMode();
 $('currentVersion').addEventListener('change',()=>{activeVersion=Number($('currentVersion').value);renderEditor()});
 $('refreshVersion').addEventListener('click',()=>{versions[activeVersion]=sectionQuestions(versionSections[activeVersion],new Set());renderEditor();renderAll()});
 $('resetEdits').addEventListener('click',()=>{versions[activeVersion]=currentItems().map(x=>({source:x.source,question:JSON.parse(JSON.stringify(x.source)),sectionId:x.sectionId}));renderEditor();renderAll()});
