@@ -81,7 +81,7 @@
   /* a drawing pile of verified items that refills itself */
   function Pile(level) { this.level = level; this.items = []; }
   Pile.prototype.fill = function (done) { var self = this; deck(levelSlots(this.level, skillIds), {}, function (its) { self.items = rng.shuffle(its); done(); }); };
-  Pile.prototype.draw = function (done) { var self = this; if (this.items.length) return done(this.items.pop()); this.fill(function () { done(self.items.pop()); }); };
+  Pile.prototype.draw = function (done) { var self = this; if (this.items.length) return done(this.items.pop()); this.fill(function () { done(self.items.length ? self.items.pop() : null); }); };
 
   /* =========================== FLASHCARDS =========================== */
   function flashcards() {
@@ -301,7 +301,8 @@
       var timer = new Timer(cfg.timer, tickUI(cfg.timer), function () { submit(true); });
       var MARK = { L: '✕', R: '◯' };
       function reset() { S.b = Array(9).fill(null); S.quiz = null; S.over = false; S.line = null; S.turn = S.starter; render(); }
-      function pick(i) { if (S.over || S.b[i] || S.quiz) return; pile.draw(function (it) { S.quiz = { sq: i, it: it, who: S.turn, stage: 'ans', sel: null, dead: [] }; render(); timer.start(); }); }
+      function pick(i) { if (S.over || S.b[i] || S.quiz) return; pile.draw(function (it) { if (!it) { app.innerHTML = head('No verified questions are currently available for this selected skill.', 'Tic-Tac-Toe') + '<div class="gm-panel" role="alert"><h2>Questions could not be generated</h2><p>The selected topic did not produce any game-ready questions. Try a different skill or level. The board has not been changed.</p><button class="gm-btn primary" id="tRetry">Try again</button></div>'; $('#tRetry').onclick = function () { loading('Trying to generate questions…'); pile.fill(function () { if (pile.items.length) render(); else pickError(); }); }; return; } S.quiz = { sq: i, it: it, who: S.turn, stage: 'ans', sel: null, dead: [] }; render(); timer.start(); }); }
+      function pickError() { app.innerHTML = head('No verified questions are currently available for this selected skill.', 'Tic-Tac-Toe') + '<div class="gm-panel" role="alert"><h2>Questions could not be generated</h2><p>Try another skill or level from the game setup. This topic is not currently producing verified game questions.</p><button class="gm-btn" id="tReload">Return to setup</button></div>'; $('#tReload').onclick = function () { G.location.reload(); }; }
       function submit(timeout) {
         var q = S.quiz; if (!q || q.stage === 'result') return; if (!timeout && q.sel === null) return;
         timer.stop(); var ok = !timeout && q.it.options[q.sel].ok;
@@ -338,7 +339,7 @@
         if ($('#tCont')) $('#tCont').onclick = after;
         if ($('#tAgain')) $('#tAgain').onclick = reset;
       }
-      loading(); pile.fill(reset);
+      loading(); pile.fill(function () { if (!pile.items.length) { pickError(); return; } reset(); });
     }
   }
 
