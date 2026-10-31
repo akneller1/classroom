@@ -29,7 +29,13 @@
   function on(sel, ev, fn) { $$(sel).forEach(function (e) { e.addEventListener(ev, fn); }); }
   // data-skills="a,b,c" limits a page to some of the unit's skills (e.g. Foundations uses the expression skills)
   var only = (body.getAttribute('data-skills') || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean);
-  var bankBackedGame = body.hasAttribute('data-algebra2-game') || SET.authoredBank === true || !!G.MK_GRADE_GAME_COURSE;
+  var sourceCourseId = G.MK_COURSE_ACTIVITY_SOURCE && G.MK_COURSE_ACTIVITY_SOURCE.courseId;
+  var nativeQuestionBank = body.hasAttribute('data-algebra2-game') || SET.authoredBank === true || sourceCourseId === 'algebra2';
+  var bankBackedGame = nativeQuestionBank || !!G.MK_GRADE_GAME_COURSE;
+  var skillIds = SET.skills.map(function (s) { return s.id; }).filter(function (id) { return !only.length || only.indexOf(id) >= 0; });
+  // Legacy generated games need an actual game-compatible question. Native
+  // bank courses use their own deck builder and format/level rules.
+  if (!nativeQuestionBank) skillIds = skillIds.filter(function (id) { return GB.hasGameItems(UNIT, id); });
   var flashcardSkills = bankBackedGame ? skillIds.slice() : skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
   var flashcardAvailability = {};
   function skillsWithCardsAt(level) {
