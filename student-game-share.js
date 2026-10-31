@@ -2,6 +2,7 @@
 (function (G) {
   'use strict';
   function supports(path) {
+    if (/^artifacts\/math-arcade\/index\.html\?/i.test(path)) return false;
     if (/^worksheet-generator\/algebra2-game\.html\?/i.test(path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(path);
     return /^worksheet-generator\/course-(game|activity)\.html\?/i.test(path) || /^artifacts\/[a-z0-9-]+\/index\.html(?:\?[a-z0-9_=&%+,.~-]*)?$/i.test(path) && !/escape-room/i.test(path);
   }

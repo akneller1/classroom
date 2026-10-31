@@ -17,6 +17,7 @@
   var match = null;
   function shareableActivity(activity) {
     if (!activity) return false;
+    if (/^artifacts\/math-arcade\/index\.html\?/i.test(activity.path || '')) return false;
     if (/^worksheet-generator\/algebra2-game\.html\?/i.test(activity.path || '')) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(activity.path);
     if (/^worksheet-generator\//i.test(activity.path || '')) return false;
     if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path || '')) return false;
@@ -108,7 +109,7 @@
   frame.className = 'activity-frame';
   frame.title = match.title;
   var frameURL = new URL(match.path, window.location.href);
-  if (studentFocus && /\.html$/i.test(match.path)) {
+  if (studentFocus && /\.html(?:[?#]|$)/i.test(match.path)) {
     frameURL.searchParams.set('student', '1');
     if (params.has('skills')) frameURL.searchParams.set('skills', params.get('skills'));
   }
