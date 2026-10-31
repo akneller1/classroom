@@ -497,7 +497,7 @@
   var unit = hashArg('unit'); if (!NS.skillSets[unit]) unit = doc.body.getAttribute('data-unit') || Object.keys(NS.skillSets)[0];
   var kind = hashArg('kind'); if (!PR.kind(kind)) kind = 'maze';
   /* A printable is offered for a unit only when at least one of its skills can fill it (Geometry problems carry diagrams, so Maze and Tarsia need none of them). */
-  function supported(u, k) { if (k === 'match') return PR.MATCH.supported(u); if (k === 'vocabulary' || !PR.MODES[k]) return true; return NS.skillSets[u].skills.some(function (sk) { return PR.capable(u, sk.id, k); }); }
+  function supported(u, k) { if (k === 'project') return !!(PR.PROJECTS && PR.PROJECTS[u] && PR.PROJECTS[u].length); if (k === 'match') return PR.MATCH.supported(u); if (k === 'vocabulary' || !PR.MODES[k]) return true; return NS.skillSets[u].skills.some(function (sk) { return PR.capable(u, sk.id, k); }); }
   function firstSupported(u, k) { if (supported(u, k)) return k; var f = PR.KINDS.filter(function (x) { return supported(u, x.id); })[0]; return f ? f.id : k; }
   kind = firstSupported(unit, kind);
   var cfg = null, built = [], ui = { doc: 'student', v: 0 };
@@ -516,7 +516,9 @@
   function controls() {
     var set = NS.skillSets[unit], k = PR.kind(kind);
     var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing functions (linear, quadratic, exponential and the Algebra 2 function units).' : (/^algebra2-/.test(unit)?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing functions (linear, quadratic, exponential and the Algebra 2 function units).' : (/^algebra2-/.test(unit)?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+    if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>CP2</b> (guided), <b>CP1</b> (standard) and <b>Honors</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
+      '<section class="card"><h2>Teacher guide</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels. Enter the teacher code to show the links. The PDF also asks for the code.</p><form id="pjCodeForm" class="pj-code"><input id="pjCode" type="password" inputmode="numeric" autocomplete="off" placeholder="Code" aria-label="Teacher code"><button type="submit" class="btn sm">Show</button></form><p class="hint" id="pjCodeMsg" aria-live="polite"></p></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
     if (kind === 'match') {
       var fams = PR.MATCH.familiesFor(unit);
@@ -554,6 +556,11 @@
     if ($('#prSets')) $('#prSets').onchange = function (e) { cfg.sets = +e.target.value; save(); rebuild(); };
     if ($('#prBlanks')) $('#prBlanks').onchange = function (e) { cfg.blanks = e.target.value; save(); rebuild(); };
     if ($('#prPic')) $('#prPic').onchange = function (e) { cfg.picture = e.target.value; save(); rebuild(); };
+    if (kind === 'project') {
+      doc.title = 'Projects · Mr. K\'s Classroom'; $('#prCrumb').textContent = 'Printable Generator · Projects';
+      $('#pjCodeForm').onsubmit = function (e) { e.preventDefault(); var okc = $('#pjCode').value.trim() === '205'; ui.teacher = okc; $('#pjCodeMsg').textContent = okc ? 'Teacher guide links are shown.' : 'Incorrect code.'; drawProjects(); };
+      return;
+    }
     if (kind === 'vocabulary') { doc.title = 'Vocabulary Builder · Mr. K\'s Classroom'; $('#prCrumb').textContent = 'Printable Generator · Vocabulary Builder'; return; }
     $('#prVer').onchange = function (e) { cfg.versions = +e.target.value; save(); rebuild(); };
     $('#prNew').onclick = function () { cfg.seed = Math.floor(Math.random() * 1e9); save(); rebuild(); };
@@ -562,6 +569,7 @@
   }
   function rebuild() {
     render();
+    if (kind === 'project') { built = []; drawProjects(); return; }
     if (kind === 'vocabulary') { built = []; $('#prPreview').innerHTML = '<iframe title="Vocabulary Builder: worksheet settings and printable preview" src="vocabulary.html?embedded=1&unit=' + encodeURIComponent(unit) + '" style="width:100%;min-height:1420px;border:1px solid #d4dfea;border-radius:12px;background:white" loading="eager"></iframe>'; return; }
     var pv = $('#prPreview'); pv.innerHTML = '<div class="pr-busy">Making and checking problems…</div>';
     setTimeout(function () {
@@ -570,6 +578,32 @@
       if (ui.v >= built.length) ui.v = 0;
       drawPreview();
     }, 30);
+  }
+  /* Projects: list the unit's saved projects with PDF / Word / PowerPoint downloads per level (nothing is generated). */
+  function unitLabel(u) {
+    var name = '';
+    (NS.CATALOG || []).forEach(function (g) { g.units.forEach(function (x) { if (x[0] === u) name = g.course + ' \u00b7 ' + x[1]; }); });
+    return name || (NS.skillSets[u] && (NS.skillSets[u].title || NS.skillSets[u].name)) || u;
+  }
+  function drawProjects() {
+    var list = (PR.PROJECTS && PR.PROJECTS[unit]) || [], lv = [['cp2', 'CP2', 'Guided'], ['cp1', 'CP1', 'Standard'], ['honors', 'Honors', 'Extension']];
+    var html = '<div class="pj-head"><h2>Projects \u00b7 ' + esc(unitLabel(unit)) + '</h2><p class="hint">' + list.length + (list.length === 1 ? ' project' : ' projects') + ' for this unit. Word and PowerPoint files are fully editable.</p></div>' +
+      list.map(function (p) {
+        var f = PR.projectFiles(p);
+        return '<article class="pj-card"><img class="pj-thumb" src="' + esc(f.thumb) + '" alt="" width="360" height="225" loading="lazy">' +
+          '<div class="pj-main"><h3>' + esc(p.title) + '</h3><p class="pj-tag">' + esc(p.tagline) + '</p><p class="pj-desc">' + esc(p.description) + '</p>' +
+          '<p class="pj-meta"><span>2\u20133 class periods</span><span>' + esc(p.theme) + '</span><span>Final product: ' + esc(p.product) + '</span></p>' +
+          '<table class="pj-levels"><tbody>' + lv.map(function (l) {
+            var x = f[l[0]];
+            return '<tr class="pj-' + l[0] + '"><th scope="row">' + l[1] + '<small>' + l[2] + '</small></th>' +
+              '<td><a class="btn sm" href="' + esc(x.pdf) + '">PDF</a></td>' +
+              '<td><a class="btn ghost sm" href="' + esc(x.docx) + '" download>Word</a></td>' +
+              '<td><a class="btn ghost sm" href="' + esc(x.pptx) + '" download>PowerPoint</a></td></tr>';
+          }).join('') + '</tbody></table>' +
+          (ui.teacher ? '<p class="pj-teacher">\ud83d\udd12 Teacher guide: <a href="' + esc(f.teacher.pdf) + '">PDF</a> \u00b7 <a href="' + esc(f.teacher.docx) + '" download>Word</a></p>' : '') +
+          '</div></article>';
+      }).join('');
+    $('#prPreview').innerHTML = list.length ? html : '<div class="pr-busy">No projects for this unit yet.</div>';
   }
   /* The interactive Function Matching Game with exactly these cards (same seed, level, function types, sets and version). */
   function playLink() {

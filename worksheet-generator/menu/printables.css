@@ -327,3 +327,24 @@
 .mt-sc{position:relative;padding-top:.22in;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
 .mt-sc .mt-tbl{font-size:8.5pt}
 .mt-sc .mt-tbl th,.mt-sc .mt-tbl td{padding:0 6px;height:.2in}
+
+/* Projects (kind=project): saved files, nothing generated */
+.pj-head h2{margin:0 0 4px;font-size:1.15rem}
+.pj-head{margin-bottom:10px}
+.pj-card{display:grid;grid-template-columns:240px minmax(0,1fr);gap:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px}
+.pj-thumb{width:100%;height:auto;border-radius:8px;display:block}
+.pj-main h3{margin:0 0 2px;font-size:1.1rem}
+.pj-tag{margin:0 0 6px;font-weight:600}
+.pj-desc{margin:0 0 8px;color:var(--ink2);font-size:.92rem}
+.pj-meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.pj-meta span{font-size:.78rem;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.pj-levels{border-collapse:collapse}
+.pj-levels th{text-align:left;padding:4px 12px 4px 0;font-size:.95rem;white-space:nowrap}
+.pj-levels th small{display:block;font-weight:400;font-size:.75rem;color:var(--ink2)}
+.pj-levels td{padding:4px 6px 4px 0}
+.pj-levels a{text-decoration:none}
+.pj-cp2 th{color:#2E7D4F}.pj-cp1 th{color:#2B6CB0}.pj-honors th{color:#6B3FA0}
+.pj-teacher{margin:10px 0 0;font-size:.9rem}
+.pj-code{display:flex;gap:6px;align-items:center}
+.pj-code input{width:90px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;font:inherit}
+@media (max-width:700px){.pj-card{grid-template-columns:1fr}}

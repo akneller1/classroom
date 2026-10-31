@@ -18,7 +18,8 @@
     { id: 'partner', name: 'Partner Check', blurb: 'Partner A and Partner B solve different problems with the same answers, then compare.' },
     { id: 'who', name: 'Whodunnit', blurb: 'Ten clue cards with four answer choices. Each choice leads to a clue that clears a suspect, a place or a method. The one of each left standing solves the case.' },
     { id: 'stations', name: 'Stations', blurb: 'One page per station, each practicing its own skills, plus a one-page answer key.' },
-    { id: 'match', name: 'Matching Card Sort', blurb: 'Students match each function\u2019s graph, equation, table and description. Every card fits exactly one set. Play the same cards online with \u25B6 Play online.' }
+    { id: 'match', name: 'Matching Card Sort', blurb: 'Students match each function\u2019s graph, equation, table and description. Every card fits exactly one set. Play the same cards online with \u25B6 Play online.' },
+    { id: 'project', name: 'Projects', blurb: 'Ready-made 2\u20133 day projects with CP2, CP1 and Honors versions. Download as PDF, Word or PowerPoint and customize; nothing is generated.' }
   ];
   PR.kind = function (id) { return PR.KINDS.filter(function (k) { return k.id === id; })[0]; };
 
