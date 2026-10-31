@@ -413,9 +413,11 @@
       lines(skills.slice(4)) + '</details>';
   }
 
-  var PREALGEBRA_LESSON_COUNT = 58;
-  var PREALGEBRA7_LESSON_COUNT = 114;
-  var MATH6_LESSON_COUNT = 53;
+  function lessonCount(c) {
+    return c.units.reduce(function (sum, unit) {
+      return sum + window.MK_COURSE_CATALOG.getSkills(c.id, unit.id).length;
+    }, 0);
+  }
   function courseView(c) {
     var n = courseCount(c);
     var inner =
@@ -423,7 +425,7 @@
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + (c.id === 'math6' ? MATH6_LESSON_COUNT : c.id === 'prealgebra7' ? PREALGEBRA7_LESSON_COUNT : PREALGEBRA_LESSON_COUNT) + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
