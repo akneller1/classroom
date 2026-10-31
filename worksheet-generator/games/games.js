@@ -33,12 +33,16 @@
   // Some bank skills are extended investigations without game-compatible
   // answer parts. Only offer skills that can actually make game questions.
   skillIds = skillIds.filter(function (id) { return GB.hasGameItems(UNIT, id); });
+  var flashcardSkills = skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
+  function skillsWithCardsAt(level) { return skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id, level); }); }
+  if (GAME === 'flashcards') skillIds = flashcardSkills;
   var tags = Object.keys(SET.tags || {}).filter(function (t) { return skillIds.some(function (id) { return SET.byId[id].tag === t; }); });
   function skillName(id) { return SET.byId[id].name; }
 
-  function qHtml(it) {
-    var q = it.q, h = '<div class="gm-q">' + M(q.prompt || '');
-    if (q.work && q.work.length) h += '<ol class="mm-work-lines">' + q.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + M('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
+  function qHtml(it, flashcardFront) {
+    var q = it.q, prompt = flashcardFront && q.flashcardPrompt ? q.flashcardPrompt : q.prompt;
+    var h = '<div class="gm-q">' + M(prompt || '');
+    if (!flashcardFront && q.work && q.work.length) h += '<ol class="mm-work-lines">' + q.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + M('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (q.fig) h += NS.figHtml(q.fig);
     if (q.ask) h += '<div class="gm-ask">' + (q.label ? '(' + esc(q.label) + ') ' : '') + M(q.ask) + '</div>';
     return h + '</div>';
@@ -89,7 +93,8 @@
     var S = { level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false };
     GB._state = function () { return S; };
     function build() {
-      deck(levelSlots(S.level, skillIds, Math.max(1, Math.ceil(20 / (skillIds.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
+      if (!activeSkills.length) { S.cards = []; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render(); return; }
+      deck(levelSlots(S.level, activeSkills, Math.max(1, Math.ceil(20 / (activeSkills.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
         S.cards = its; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render();
       });
     }
@@ -101,16 +106,18 @@
     function cur() { return S.cards[S.order[S.i]]; }
     function render() {
       var c = cur(), got = 0, need = 0; Object.keys(S.rate).forEach(function (k) { if (S.rate[k] === 'got') got++; else need++; });
+      var visibleSkills = skillsWithCardsAt(S.level);
+      var activeSkills = skillIds.filter(function (id) { return visibleSkills.indexOf(id) >= 0; });
       var h = head('Flip each card for the answer and the worked solution. Practice your selected skills at this level.') +
         '<div class="gm-ctl"><label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level, EASY_NAMES) +
-        '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + skillIds.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + '</select>' +
+        '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + visibleSkills.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + '</select>' +
         '<button class="gm-btn" id="fcShuffle">Shuffle</button><button class="gm-btn" id="fcMissed"' + (need ? '' : ' disabled') + '>' + (S.missed ? 'All cards' : 'Practice missed') + '</button><button class="gm-btn" id="fcNew">New cards</button><button class="gm-btn" id="fcReset">Reset progress</button></div>' +
         '<div class="fc-stats"><span>' + (S.order.length ? 'Card ' + (S.i + 1) + ' of ' + S.order.length : 'No cards') + '</span><span>Got it: ' + got + ' • Need practice: ' + need + '</span></div>' +
         '<div class="gm-bar"><i style="width:' + (S.order.length ? (S.i + 1) / S.order.length * 100 : 0) + '%"></i></div>';
       if (!c) h += '<div class="gm-panel">' + (S.missed ? 'No missed cards here. Nice work!' : 'No cards for this choice.') + '</div>';
       else h += '<div class="gm-panel fc-card' + (S.flip ? ' back' : '') + '" id="fcCard" tabindex="0" role="button" aria-label="Flip card">' +
         '<div class="fc-top"><span class="gm-tag">' + esc(c.tagName) + ' · ' + esc(c.skillName) + '</span><span class="fc-side">' + (S.flip ? 'Answer side' : 'Question side') + '</span></div>' +
-        (S.flip ? qHtml(c) + solHtml(c) : '<div class="gm-muted" style="font-weight:700;margin-top:10px;font-size:.85rem">PROBLEM</div>' + qHtml(c)) +
+        (S.flip ? qHtml(c) + solHtml(c) : '<div class="gm-muted" style="font-weight:700;margin-top:10px;font-size:.85rem">PROBLEM</div>' + qHtml(c, true)) +
         '<div class="fc-foot">' + (S.flip ? 'How did it go? Rate the card below.' : 'Click the card or press Space to reveal the answer and the worked solution.') + '</div></div>';
       h += '<div class="fc-nav"><button class="gm-btn" id="fcPrev"' + (S.i > 0 ? '' : ' disabled') + '>← Previous</button>' +
         (S.flip ? '<span class="fc-rate gm-row"><button class="gm-btn need" id="fcNeed">Need practice</button><button class="gm-btn got" id="fcGot">Got it</button></span>' : '<button class="gm-btn primary" id="fcFlip"' + (c ? '' : ' disabled') + '>Reveal answer</button>') +
@@ -121,7 +128,7 @@
     function go(d) { S.i = Math.max(0, Math.min(S.order.length - 1, S.i + d)); S.flip = false; render(); }
     function rate(v) { var c = cur(); if (!c) return; S.rate[c.id] = v; persist(); if (S.missed && v === 'got') { refilter(); S.flip = false; render(); } else if (S.i < S.order.length - 1) go(1); else render(); }
     function wire() {
-      $('#fcLevel').onchange = function () { S.level = this.value; persist(); build(); };
+      $('#fcLevel').onchange = function () { S.level = this.value; var nextSkills = skillsWithCardsAt(S.level); if (S.skill !== 'all' && nextSkills.indexOf(S.skill) < 0) S.skill = 'all'; persist(); build(); };
       $('#fcSkill').onchange = function () { S.skill = this.value; S.i = 0; S.flip = false; refilter(); render(); };
       $('#fcShuffle').onclick = function () { S.cards = rng.shuffle(S.cards); S.i = 0; S.flip = false; refilter(); render(); };
       $('#fcMissed').onclick = function () { S.missed = !S.missed; S.i = 0; S.flip = false; refilter(); render(); };
