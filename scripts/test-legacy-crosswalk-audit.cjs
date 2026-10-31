@@ -14,4 +14,5 @@ assert.equal(result[0].legacyCandidates[0].skillId,'real-existing-id');
 assert.equal(result[0].ready,false,'Never automatically approve merely because generator exists');
 assert.equal(result[1].legacyCandidates.length,0);
 assert.equal(audit.inspect(cross,null).filter(x=>x.ready).length,0);
+assert.equal(audit.inspect(cross,null).filter(x=>x.curatedGenerator).length,0,'Unloaded skills cannot be trusted');
 console.log('PASS 15 cross-course legacy audits, exact-name candidate detection, no auto-approval');
