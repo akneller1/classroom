@@ -58,7 +58,7 @@ const assert=require('node:assert/strict');
   const nativeSkill='worksheet-generator/approved-flashcards.html?course=prealgebra7&unit=algebraic-expressions-integers';
   await page.goto(coursePage+'/'+nativeSkill);
   await page.waitForFunction(()=>document.querySelector('#afApp')?.hidden===false);
-  assert.match(await page.locator('#afProgress').innerText(),/Card \\d+ of/);
+  assert.match(await page.locator('#afProgress').innerText(),/Card \d+ of/);
   await page.locator('#afFlip').click();
   assert.match(await page.locator('#afCard').innerText(),/Answer/);
   const gameLink='worksheet-generator/middle-school-game.html?course=prealgebra7&topic=evaluating-expressions&game=tic-tac-toe';
