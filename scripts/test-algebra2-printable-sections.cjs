@@ -13,4 +13,5 @@ assert.ok(js.includes('versionSections[vi].forEach'),'Student and teacher previe
 assert.ok(js.includes('mk-algebra2-section-layout-v1'),'Missing persistent configuration key');
 assert.ok(js.includes('group.querySelectorAll(\'input:checked\')'),'Missing multiple skill selection');
 assert.ok(js.includes('function snapshotLayout(') && js.includes('function applyLayout('),'Missing portable layout functions');
-console.log('PASS Algebra 2 sections, multiskill, saved and portable layouts, and source syntax');
+assert.ok(js.includes("sec.type==='Mixed Review'") && js.includes('grouped=new Map()'),'Mixed Review must balance across skills');
+console.log('PASS Algebra 2 sections, mixed review, portable layouts, and syntax');
