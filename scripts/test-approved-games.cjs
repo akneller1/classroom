@@ -19,4 +19,7 @@ assert.ok(js.includes("judge(ok)"),'Multiple choice responses must affect the bo
 assert.ok(html.includes('content:"MATH"'),'Picture Reveal must have a genuine visual beneath its tiles');
 assert.ok(html.includes('.ag-cell[data-owner="revealed"]{opacity:0'),'Solved tiles must reveal the artwork');
 assert.ok(js.includes('||!items.length'),'Tiles should not be active without approved questions');
+assert.ok(js.includes("function outcome()"),'Game outcome helper missing');
+assert.ok(js.includes("type:'win'") && js.includes("type:'draw'") && js.includes("type:'complete'"),'Wins, draws and reveal completion must be distinct');
+assert.ok(js.includes("Player '+result.player+' wins!"),'Winning player must be named');
 console.log('PASS approved review game page structure and security gating');
