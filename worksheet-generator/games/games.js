@@ -175,6 +175,7 @@
     var cols = (tags.length >= 3 ? tags.map(function (t) { return { name: SET.tags[t], skills: skillIds.filter(function (id) { return SET.byId[id].tag === t; }) }; })
       : skillIds.map(function (id) { return { name: SET.byId[id].name, skills: [id] }; })), VALUES = [100, 200, 300, 400, 500];
     function build() {
+      if (!cols.length) { app.innerHTML = head('Practice questions are not available for this unit yet.', 'Showdown') + '<div class="gm-panel" role="status">No questions are available for this unit yet.</div>'; return; }
       var slots = [];
       cols.forEach(function (t, ci) {
         var sk = rng.shuffle(t.skills.slice());
@@ -428,6 +429,7 @@
     }
     function render() {
       var it = S.items[S.i], st = S.st[S.i], done = S.st.filter(function (x) { return x.done; }).length, n = S.items.length;
+      if (!n) { app.innerHTML = head('Practice questions are not available for this unit yet.', 'Picture Reveal') + '<div class="gm-panel" role="status">No questions are available for this unit yet.</div>'; return; }
       var h = head('Solve ' + n + ' problems. Every correct answer uncovers part of a mystery picture.', 'Picture Reveal') + '<div class="pr-main"><div class="gm-panel">' +
         '<div class="gm-row"><h2 style="margin:0;font-size:1.2rem">Question ' + (S.i + 1) + ' of ' + n + '</h2><span class="gm-sp"></span><span style="color:var(--green);font-weight:800">' + done + ' / ' + n + ' revealed</span></div>' +
         '<div class="gm-bar"><i style="width:' + (done / Math.max(1, n) * 100) + '%"></i></div><div class="pr-nums">' + S.items.map(function (_, k) { return '<button class="pr-num' + (k === S.i ? ' on' : '') + (S.st[k].done ? ' done' : '') + '" data-q="' + k + '" aria-label="Question ' + (k + 1) + (S.st[k].done ? ', solved' : '') + '">' + (k + 1) + '</button>'; }).join('') + '</div>';
