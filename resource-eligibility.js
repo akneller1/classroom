@@ -20,7 +20,8 @@
   function describe(activity, courseId, unitId, level, skillIds) {
     if (!Object.prototype.hasOwnProperty.call(RULES, activity)) return {ready:false,count:0,reason:'Unsupported activity type',questions:[]};
     if (!bank || !bank.available(courseId,unitId)) return {ready:false,count:0,reason:'No approved question bank for this unit',questions:[]};
-    var questions = bank.select({courseId:courseId,unitId:unitId,skillIds:skillIds,level:level,formats:RULES[activity]});
+    var formats = courseId==='algebra2' && ['connect-4','tic-tac-toe','picture-reveal','showdown','detective','escape-room'].indexOf(activity)>=0 ? ['multiple-choice'] : RULES[activity];
+    var questions = bank.select({courseId:courseId,unitId:unitId,skillIds:skillIds,level:level,formats:formats});
     return {ready:questions.length>0,count:questions.length,reason:questions.length?'':'No approved questions matching these skills or difficulty',questions:questions};
   }
   root.MK_RESOURCE_ELIGIBILITY={version:1,formats:RULES,describe:describe};

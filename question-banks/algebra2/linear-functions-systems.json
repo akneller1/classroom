@@ -239,7 +239,7 @@
    "level": "cp2",
    "format": "short-answer",
    "prompt": "Write the point-slope equation of the line with slope 2 through (3, -1).",
-   "answer": "y + (1) = 2(x - (3))",
+   "answer": "y + 1 = 2(x - 3)",
    "solutionSteps": [
     "Point-slope form: y - y₁ = m(x - x₁).",
     "Substitute m = 2, (x₁, y₁) = (3, -1)."
@@ -256,7 +256,7 @@
    "level": "cp2",
    "format": "short-answer",
    "prompt": "Write the point-slope equation of the line with slope -1/2 through (4, 6).",
-   "answer": "y - (6) = -1/2(x - (4))",
+   "answer": "y - 6 = -(1/2)(x - 4)",
    "solutionSteps": [
     "Point-slope form: y - y₁ = m(x - x₁).",
     "Substitute m = -1/2, (x₁, y₁) = (4, 6)."
@@ -273,7 +273,7 @@
    "level": "cp2",
    "format": "short-answer",
    "prompt": "Write the point-slope equation of the line with slope -3 through (-2, 5).",
-   "answer": "y - (5) = -3(x + (2))",
+   "answer": "y - 5 = -3(x + 2)",
    "solutionSteps": [
     "Point-slope form: y - y₁ = m(x - x₁).",
     "Substitute m = -3, (x₁, y₁) = (-2, 5)."
@@ -591,7 +591,7 @@
    "answer": "3x + 4y = 12",
    "solutionSteps": [
     "Slope = (0 - 3)/(4 - 0) = -3/4; y-intercept 3.",
-    "y = -3/4x + 3 → multiply by 4: 4y = -3x + 12 → 3x + 4y = 12."
+    "y = -(3/4)x + 3 → multiply by 4: 4y = -3x + 12 → 3x + 4y = 12."
    ],
    "diagram": {
     "type": "image",
@@ -698,27 +698,27 @@
    "level": "honors",
    "format": "multiple-choice",
    "prompt": "Which line is the perpendicular bisector of the segment from (-2, 1) to (4, 5)?",
-   "answer": "y = -3/2x + 9/2",
+   "answer": "y = -(3/2)x + 9/2",
    "solutionSteps": [
     "Midpoint (1, 3); segment slope 4/6 = 2/3.",
     "Perpendicular slope -3/2.",
-    "y - 3 = -3/2(x - 1) → y = -3/2x + 9/2."
+    "y - 3 = -(3/2)(x - 1) → y = -(3/2)x + 9/2."
    ],
    "options": [
     {
-     "text": "y = -3/2x + 3",
+     "text": "y = -(3/2)x + 3",
      "correct": false
     },
     {
-     "text": "y = -3/2x + 9/2",
+     "text": "y = -(3/2)x + 9/2",
      "correct": true
     },
     {
-     "text": "y = 2/3x + 7/3",
+     "text": "y = (2/3)x + 7/3",
      "correct": false
     },
     {
-     "text": "y = 3/2x + 3/2",
+     "text": "y = (3/2)x + 3/2",
      "correct": false
     }
    ],
@@ -734,17 +734,17 @@
    "level": "honors",
    "format": "open-response",
    "prompt": "Line ℓ passes through A(0, 6) and B(8, 0).",
-   "answer": "(a) y = -3/4x + 6; y = -3/4(x - 8); 3x + 4y = 24; (b) 24; (c) 4.8; (d) y = 4/3x; (2.88, 3.84)",
+   "answer": "(a) y = -(3/4)x + 6; y = -(3/4)(x - 8); 3x + 4y = 24; (b) 24; (c) 4.8; (d) y = (4/3)x; (2.88, 3.84)",
    "solutionSteps": [
     "m = -6/8 = -3/4.",
     "Legs 6 and 8: area = 24.",
     "Hypotenuse 10; height to hypotenuse = 2·24/10 = 4.8.",
-    "4/3x = -3/4x + 6 → 25/12 x = 6 → x = 2.88, y = 3.84."
+    "(4/3)x = -(3/4)x + 6 → 25/12 x = 6 → x = 2.88, y = 3.84."
    ],
    "parts": [
     {
      "prompt": "Write ℓ in slope-intercept, point-slope (using B) and standard form.",
-     "answer": "y = -3/4x + 6; y = -3/4(x - 8); 3x + 4y = 24"
+     "answer": "y = -(3/4)x + 6; y = -(3/4)(x - 8); 3x + 4y = 24"
     },
     {
      "prompt": "Find the area of the triangle formed by ℓ and the axes.",
@@ -756,7 +756,7 @@
     },
     {
      "prompt": "Write the line through the origin perpendicular to ℓ and find where it meets ℓ.",
-     "answer": "y = 4/3x; (2.88, 3.84)"
+     "answer": "y = (4/3)x; (2.88, 3.84)"
     }
    ],
    "standards": [
@@ -3499,6 +3499,2756 @@
     {
      "prompt": "If table profit rose to $90, does the best plan change?",
      "answer": "No: (30, 20) gives $3,000, still the maximum"
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s01-cp1-014",
+   "skillId": "linear-functions-systems-skill-01",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL equations of the line with slope 2/3 through (3, -2).",
+   "answer": [
+    "y = (2/3)x - 4",
+    "y + 2 = (2/3)(x - 3)"
+   ],
+   "solutionSteps": [
+    "Point-slope and slope-intercept forms describe the same line.",
+    "b = -2 - 2/3(3) = -4."
+   ],
+   "options": [
+    {
+     "text": "y = (3/2)x - 4",
+     "correct": false
+    },
+    {
+     "text": "y = (2/3)x - 4",
+     "correct": true
+    },
+    {
+     "text": "y + 2 = (2/3)(x - 3)",
+     "correct": true
+    },
+    {
+     "text": "y = (2/3)x + 4",
+     "correct": false
+    },
+    {
+     "text": "y = -(2/3)x - 4",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s01-cp1-015",
+   "skillId": "linear-functions-systems-skill-01",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL equations of the line with slope -3 through (3, -4).",
+   "answer": [
+    "y = -3x + 5",
+    "y + 4 = -3(x - 3)"
+   ],
+   "solutionSteps": [
+    "Point-slope and slope-intercept forms describe the same line.",
+    "b = -4 - (-3)(3) = 5."
+   ],
+   "options": [
+    {
+     "text": "y + 4 = -3(x - 3)",
+     "correct": true
+    },
+    {
+     "text": "y = 3x + 5",
+     "correct": false
+    },
+    {
+     "text": "y = -(6004799503160661/18014398509481984)x + 5",
+     "correct": false
+    },
+    {
+     "text": "y = -3x + 5",
+     "correct": true
+    },
+    {
+     "text": "y = -3x - 5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s01-cp1-016",
+   "skillId": "linear-functions-systems-skill-01",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL equations of the line with slope -1/2 through (3, -1/2).",
+   "answer": [
+    "y = -(1/2)x + 1",
+    "y + 1/2 = (-1/2)(x - 3)"
+   ],
+   "solutionSteps": [
+    "Point-slope and slope-intercept forms describe the same line.",
+    "b = -1/2 - (-1)/2(3) = 1."
+   ],
+   "options": [
+    {
+     "text": "y = -2x + 1",
+     "correct": false
+    },
+    {
+     "text": "y + 1/2 = (-1/2)(x - 3)",
+     "correct": true
+    },
+    {
+     "text": "y = (1/2)x + 1",
+     "correct": false
+    },
+    {
+     "text": "y = -(1/2)x - 1",
+     "correct": false
+    },
+    {
+     "text": "y = -(1/2)x + 1",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s01-honors-006",
+   "skillId": "linear-functions-systems-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Line L passes through (-2, 7) and (4, -2).",
+   "answer": "(a) -3/2; (b) y - 7 = -(3/2)(x + 2); (c) 3x + 2y = 8; (d) (8/3, 0) and (0, 4)",
+   "solutionSteps": [
+    "(-2 - 7)/(4 + 2).",
+    "Use (-2, 7).",
+    "Multiply by 2 and rearrange.",
+    "Set y = 0, then x = 0."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the slope.",
+     "answer": "-3/2"
+    },
+    {
+     "prompt": "Write L in point-slope form.",
+     "answer": "y - 7 = -(3/2)(x + 2)"
+    },
+    {
+     "prompt": "Write L in standard form with integer coefficients.",
+     "answer": "3x + 2y = 8"
+    },
+    {
+     "prompt": "Find the x- and y-intercepts.",
+     "answer": "(8/3, 0) and (0, 4)"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp2-007",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the slope of the line through (-3, 4) and (5, -2).",
+   "answer": "-3/4",
+   "solutionSteps": [
+    "m = (y₂ - y₁)/(x₂ - x₁).",
+    "Vertical lines have undefined slope; horizontal lines have slope 0."
+   ],
+   "options": [
+    {
+     "text": "-3/4",
+     "correct": true
+    },
+    {
+     "text": "3/4",
+     "correct": false
+    },
+    {
+     "text": "-4/3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp2-008",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the slope of the line through (2, 2) and (2, 9).",
+   "answer": "undefined",
+   "solutionSteps": [
+    "m = (y₂ - y₁)/(x₂ - x₁).",
+    "Vertical lines have undefined slope; horizontal lines have slope 0."
+   ],
+   "options": [
+    {
+     "text": "undefined",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "-7",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp2-009",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the slope of the line through (-1, 6) and (7, 6).",
+   "answer": "0",
+   "solutionSteps": [
+    "m = (y₂ - y₁)/(x₂ - x₁).",
+    "Vertical lines have undefined slope; horizontal lines have slope 0."
+   ],
+   "options": [
+    {
+     "text": "undefined",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp2-010",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the slope of the line through (0, -5) and (4, 3).",
+   "answer": "2",
+   "solutionSteps": [
+    "m = (y₂ - y₁)/(x₂ - x₁).",
+    "Vertical lines have undefined slope; horizontal lines have slope 0."
+   ],
+   "options": [
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "-2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-011",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL lines parallel to 2x - 5y = 10.",
+   "answer": [
+    "y = (2/5)x + 7",
+    "4x - 10y = 3",
+    "y = (2/5)x"
+   ],
+   "solutionSteps": [
+    "Slope of 2x - 5y = 10 is 2/5.",
+    "Parallel lines have equal slopes."
+   ],
+   "options": [
+    {
+     "text": "4x - 10y = 3",
+     "correct": true
+    },
+    {
+     "text": "y = (5/2)x - 2",
+     "correct": false
+    },
+    {
+     "text": "y = (2/5)x + 7",
+     "correct": true
+    },
+    {
+     "text": "2x + 5y = 10",
+     "correct": false
+    },
+    {
+     "text": "y = (2/5)x",
+     "correct": true
+    },
+    {
+     "text": "y = -(5/2)x + 1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-012",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL lines perpendicular to y = -4x + 1.",
+   "answer": [
+    "y = (1/4)x",
+    "x - 4y = 8",
+    "y = 0.25x - 3"
+   ],
+   "solutionSteps": [
+    "Perpendicular slopes are negative reciprocals: 1/4."
+   ],
+   "options": [
+    {
+     "text": "y = 4x",
+     "correct": false
+    },
+    {
+     "text": "x - 4y = 8",
+     "correct": true
+    },
+    {
+     "text": "y = -(1/4)x",
+     "correct": false
+    },
+    {
+     "text": "y = (1/4)x",
+     "correct": true
+    },
+    {
+     "text": "y = 0.25x - 3",
+     "correct": true
+    },
+    {
+     "text": "4x + y = 2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-013",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Table — t (h): 0, 2, 5; d (mi): 10, 130, 310.",
+   "answer": "(a) 60 mi/h; (b) 60 mi/h; (c) Yes, constant rate; (d) 10",
+   "solutionSteps": [
+    "Δy/Δx.",
+    "Δy/Δx.",
+    "Rates are equal.",
+    "Value at the first input (0) or extrapolate."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the rate of change between the first two points.",
+     "answer": "60 mi/h"
+    },
+    {
+     "prompt": "Find the rate between the last two points.",
+     "answer": "60 mi/h"
+    },
+    {
+     "prompt": "Is the relationship linear?",
+     "answer": "Yes, constant rate"
+    },
+    {
+     "prompt": "Find the starting (initial) value.",
+     "answer": "10"
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-014",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Table — x: 1, 4, 10; cost: $14, $26, $50.",
+   "answer": "(a) $4 per item; (b) $4 per item; (c) Yes, constant rate; (d) $14",
+   "solutionSteps": [
+    "Δy/Δx.",
+    "Δy/Δx.",
+    "Rates are equal.",
+    "Value at the first input (0) or extrapolate."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the rate of change between the first two points.",
+     "answer": "$4 per item"
+    },
+    {
+     "prompt": "Find the rate between the last two points.",
+     "answer": "$4 per item"
+    },
+    {
+     "prompt": "Is the relationship linear?",
+     "answer": "Yes, constant rate"
+    },
+    {
+     "prompt": "Find the starting (initial) value.",
+     "answer": "$14"
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-015",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Table — week: 0, 3, 8; height (cm): 12, 18.6, 29.6.",
+   "answer": "(a) 2.2 cm/week; (b) 2.2 cm/week; (c) Yes, constant rate; (d) 12",
+   "solutionSteps": [
+    "Δy/Δx.",
+    "Δy/Δx.",
+    "Rates are equal.",
+    "Value at the first input (0) or extrapolate."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the rate of change between the first two points.",
+     "answer": "2.2 cm/week"
+    },
+    {
+     "prompt": "Find the rate between the last two points.",
+     "answer": "2.2 cm/week"
+    },
+    {
+     "prompt": "Is the relationship linear?",
+     "answer": "Yes, constant rate"
+    },
+    {
+     "prompt": "Find the starting (initial) value.",
+     "answer": "12"
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-honors-006",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Average rate of change of f(x) = x² - 2x.",
+   "answer": "(a) 0; (b) 3; (c) 2a - 1; (d) f is not linear, so its rate of change varies",
+   "solutionSteps": [
+    "(0 - 0)/2.",
+    "(8 - (-1))/3.",
+    "((a + 1)² - 2(a + 1) - a² + 2a)/1.",
+    "Linear functions have constant slope."
+   ],
+   "parts": [
+    {
+     "prompt": "On [0, 2].",
+     "answer": "0"
+    },
+    {
+     "prompt": "On [1, 4].",
+     "answer": "3"
+    },
+    {
+     "prompt": "On [a, a + 1] in terms of a.",
+     "answer": "2a - 1"
+    },
+    {
+     "prompt": "Why do these differ for f but not for a linear function?",
+     "answer": "f is not linear, so its rate of change varies"
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-016",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student computes the slope through (2, 5) and (6, 1) as (6 - 2)/(1 - 5) = -1. What is wrong?",
+   "answer": "The ratio is upside down; the slope is (1 - 5)/(6 - 2) = -1 — the answer is right by coincidence",
+   "solutionSteps": [
+    "Slope is Δy/Δx; here both give -1 only because |Δy| = |Δx|."
+   ],
+   "options": [
+    {
+     "text": "Nothing is wrong",
+     "correct": false
+    },
+    {
+     "text": "The ratio is upside down; the slope is (1 - 5)/(6 - 2) = -1 — the answer is right by coincidence",
+     "correct": true
+    },
+    {
+     "text": "The slope is -4",
+     "correct": false
+    },
+    {
+     "text": "The slope is 1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp2-011",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the slope of y = 7?",
+   "answer": "0",
+   "solutionSteps": [
+    "Horizontal line."
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s02-cp1-017",
+   "skillId": "linear-functions-systems-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find k so the line through (1, k) and (4, 10) has slope 2.",
+   "answer": "k = 4",
+   "solutionSteps": [
+    "(10 - k)/3 = 2."
+   ],
+   "standards": [
+    "F-IF.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-008",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A plant is 6 cm tall and grows 1.5 cm per week.",
+   "answer": "(a) y = 1.5x + 6; (b) 1.5 per week (increase); (c) 21; (d) starting value 6",
+   "solutionSteps": [
+    "Starting value + rate·x.",
+    "Rate of change.",
+    "Substitute.",
+    "Value when x = 0."
+   ],
+   "parts": [
+    {
+     "prompt": "Write a linear model.",
+     "answer": "y = 1.5x + 6"
+    },
+    {
+     "prompt": "Interpret the slope.",
+     "answer": "1.5 per week (increase)"
+    },
+    {
+     "prompt": "Find y when x = 10.",
+     "answer": "21"
+    },
+    {
+     "prompt": "Interpret the y-intercept.",
+     "answer": "starting value 6"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-009",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A tank has 500 L and drains 12 L per minute.",
+   "answer": "(a) y = -12x + 500; (b) 12 per minute (decrease); (c) 260; (d) starting value 500",
+   "solutionSteps": [
+    "Starting value + rate·x.",
+    "Rate of change.",
+    "Substitute.",
+    "Value when x = 0."
+   ],
+   "parts": [
+    {
+     "prompt": "Write a linear model.",
+     "answer": "y = -12x + 500"
+    },
+    {
+     "prompt": "Interpret the slope.",
+     "answer": "12 per minute (decrease)"
+    },
+    {
+     "prompt": "Find y when x = 20.",
+     "answer": "260"
+    },
+    {
+     "prompt": "Interpret the y-intercept.",
+     "answer": "starting value 500"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-010",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A tutor charges $20 plus $35 per hour.",
+   "answer": "(a) y = 35x + 20; (b) 35 per hour (increase); (c) 125; (d) starting value 20",
+   "solutionSteps": [
+    "Starting value + rate·x.",
+    "Rate of change.",
+    "Substitute.",
+    "Value when x = 0."
+   ],
+   "parts": [
+    {
+     "prompt": "Write a linear model.",
+     "answer": "y = 35x + 20"
+    },
+    {
+     "prompt": "Interpret the slope.",
+     "answer": "35 per hour (increase)"
+    },
+    {
+     "prompt": "Find y when x = 3.",
+     "answer": "125"
+    },
+    {
+     "prompt": "Interpret the y-intercept.",
+     "answer": "starting value 20"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-011",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A car's odometer reads 24,000 mi and it is driven 1,100 mi per month.",
+   "answer": "(a) y = 1100x + 24000; (b) 1100 per month (increase); (c) 30600; (d) starting value 24000",
+   "solutionSteps": [
+    "Starting value + rate·x.",
+    "Rate of change.",
+    "Substitute.",
+    "Value when x = 0."
+   ],
+   "parts": [
+    {
+     "prompt": "Write a linear model.",
+     "answer": "y = 1100x + 24000"
+    },
+    {
+     "prompt": "Interpret the slope.",
+     "answer": "1100 per month (increase)"
+    },
+    {
+     "prompt": "Find y when x = 6.",
+     "answer": "30600"
+    },
+    {
+     "prompt": "Interpret the y-intercept.",
+     "answer": "starting value 24000"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-012",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A phone has 80% battery and loses 6% per hour.",
+   "answer": "(a) y = -6x + 80; (b) 6 per hour (decrease); (c) 38; (d) starting value 80",
+   "solutionSteps": [
+    "Starting value + rate·x.",
+    "Rate of change.",
+    "Substitute.",
+    "Value when x = 0."
+   ],
+   "parts": [
+    {
+     "prompt": "Write a linear model.",
+     "answer": "y = -6x + 80"
+    },
+    {
+     "prompt": "Interpret the slope.",
+     "answer": "6 per hour (decrease)"
+    },
+    {
+     "prompt": "Find y when x = 7.",
+     "answer": "38"
+    },
+    {
+     "prompt": "Interpret the y-intercept.",
+     "answer": "starting value 80"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-013",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A linear model passes through (2, 50) and (6, 90). Which equation is it?",
+   "answer": "y = 10x + 30",
+   "solutionSteps": [
+    "Slope from the two points; then solve for b."
+   ],
+   "options": [
+    {
+     "text": "y = 0.1x + 30",
+     "correct": false
+    },
+    {
+     "text": "y = 10x + 50",
+     "correct": false
+    },
+    {
+     "text": "y = 10x + 30",
+     "correct": true
+    },
+    {
+     "text": "y = -10x + 30",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-014",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A linear model passes through (0, 18) and (5, 3). Which equation is it?",
+   "answer": "y = -3x + 18",
+   "solutionSteps": [
+    "Slope from the two points; then solve for b."
+   ],
+   "options": [
+    {
+     "text": "y = -0.333333x + 18",
+     "correct": false
+    },
+    {
+     "text": "y = 3x + 18",
+     "correct": false
+    },
+    {
+     "text": "y = -3x + 18",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-015",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A linear model passes through (10, 4) and (30, 9). Which equation is it?",
+   "answer": "y = 0.25x + 1.5",
+   "solutionSteps": [
+    "Slope from the two points; then solve for b."
+   ],
+   "options": [
+    {
+     "text": "y = 0.25x + 1.5",
+     "correct": true
+    },
+    {
+     "text": "y = 4x + 1.5",
+     "correct": false
+    },
+    {
+     "text": "y = 0.25x + 4",
+     "correct": false
+    },
+    {
+     "text": "y = -0.25x + 1.5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-016",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A linear model passes through (1, 2.5) and (4, 7). Which equation is it?",
+   "answer": "y = 1.5x + 1",
+   "solutionSteps": [
+    "Slope from the two points; then solve for b."
+   ],
+   "options": [
+    {
+     "text": "y = 0.666667x + 1",
+     "correct": false
+    },
+    {
+     "text": "y = 1.5x + 1",
+     "correct": true
+    },
+    {
+     "text": "y = 1.5x + 2.5",
+     "correct": false
+    },
+    {
+     "text": "y = -1.5x + 1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-017",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "A gym's cost is C = 25m + 50 (m months). Select ALL true statements.",
+   "answer": [
+    "The sign-up fee is $50",
+    "The monthly rate is $25",
+    "C(12) = 350",
+    "After 6 months the cost is $200"
+   ],
+   "solutionSteps": [
+    "Intercept 50, slope 25.",
+    "25·12 + 50 = 350; 25·6 + 50 = 200."
+   ],
+   "options": [
+    {
+     "text": "The monthly rate is $25",
+     "correct": true
+    },
+    {
+     "text": "C is exponential",
+     "correct": false
+    },
+    {
+     "text": "The monthly rate is $50",
+     "correct": false
+    },
+    {
+     "text": "C(12) = 350",
+     "correct": true
+    },
+    {
+     "text": "The sign-up fee is $50",
+     "correct": true
+    },
+    {
+     "text": "After 6 months the cost is $200",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-honors-004",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Data: (1, 3.1), (2, 4.9), (3, 7.2), (4, 8.8), (5, 11.0).",
+   "answer": "(a) y = 1.975x + 1.125; (b) 16.925; (c) Roughly: differences are near 2 each step; (d) Actual y minus predicted y",
+   "solutionSteps": [
+    "(11.0 - 3.1)/4 = 1.975.",
+    "Substitute.",
+    "Nearly constant first differences.",
+    "Vertical distance from the line."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the line through the first and last points.",
+     "answer": "y = 1.975x + 1.125"
+    },
+    {
+     "prompt": "Use it to predict y at x = 8.",
+     "answer": "16.925"
+    },
+    {
+     "prompt": "Is the trend linear? Explain.",
+     "answer": "Roughly: differences are near 2 each step"
+    },
+    {
+     "prompt": "What does a residual measure?",
+     "answer": "Actual y minus predicted y"
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-018",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which situation is NOT well modeled by a linear function?",
+   "answer": "A bacteria population that doubles every hour",
+   "solutionSteps": [
+    "Doubling is a constant ratio (exponential)."
+   ],
+   "options": [
+    {
+     "text": "Distance at a constant 50 mph",
+     "correct": false
+    },
+    {
+     "text": "Pay of $15 per hour",
+     "correct": false
+    },
+    {
+     "text": "A bacteria population that doubles every hour",
+     "correct": true
+    },
+    {
+     "text": "Water level dropping 2 in per day",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp2-005",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A movie streaming service costs $11 per month. Write the total cost after m months.",
+   "answer": "C = 11m",
+   "solutionSteps": [
+    "Rate × months."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-honors-005",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two plans: A charges $40 + $0.10/min; B charges $0.25/min. For how many minutes do they cost the same?",
+   "answer": "≈ 266.7 minutes (about 267)",
+   "solutionSteps": [
+    "40 + 0.1m = 0.25m → 0.15m = 40."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-010",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by substitution: y = 2x - 3 and y = -x + 6.",
+   "answer": "(3, 3)",
+   "solutionSteps": [
+    "Set the expressions for y equal.",
+    "Solve for x, then substitute to find y.",
+    "Parallel lines (same slope, different intercept) never meet."
+   ],
+   "options": [
+    {
+     "text": "(3, -6)",
+     "correct": false
+    },
+    {
+     "text": "(3, 3)",
+     "correct": true
+    },
+    {
+     "text": "infinitely many solutions",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-011",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by substitution: y = (1/2)x + 1 and y = -2x + 11.",
+   "answer": "(4, 3)",
+   "solutionSteps": [
+    "Set the expressions for y equal.",
+    "Solve for x, then substitute to find y.",
+    "Parallel lines (same slope, different intercept) never meet."
+   ],
+   "options": [
+    {
+     "text": "(4, 3)",
+     "correct": true
+    },
+    {
+     "text": "(4, -7)",
+     "correct": false
+    },
+    {
+     "text": "infinitely many solutions",
+     "correct": false
+    },
+    {
+     "text": "(3, 4)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-012",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by substitution: y = 3x + 4 and y = 3x - 1.",
+   "answer": "no solution",
+   "solutionSteps": [
+    "Set the expressions for y equal.",
+    "Solve for x, then substitute to find y.",
+    "Parallel lines (same slope, different intercept) never meet."
+   ],
+   "options": [
+    {
+     "text": "no solution",
+     "correct": true
+    },
+    {
+     "text": "(0, 4)",
+     "correct": false
+    },
+    {
+     "text": "infinitely many solutions",
+     "correct": false
+    },
+    {
+     "text": "(1, 1)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-013",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by substitution: y = -x + 5 and y = -(1/3)x + 1.",
+   "answer": "(6, -1)",
+   "solutionSteps": [
+    "Set the expressions for y equal.",
+    "Solve for x, then substitute to find y.",
+    "Parallel lines (same slope, different intercept) never meet."
+   ],
+   "options": [
+    {
+     "text": "(6, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-1, 6)",
+     "correct": false
+    },
+    {
+     "text": "infinitely many solutions",
+     "correct": false
+    },
+    {
+     "text": "(6, -1)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-014",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "The graph shows two lines.",
+   "answer": "(a) y = (1/2)x + 2; (b) y = -2x + 7; (c) (2, 3); (d) (1/2)(2) + 2 = 3 and -2(2) + 7 = 3",
+   "solutionSteps": [
+    "Read the intercept and slope.",
+    "Read the intercept and slope.",
+    "Intersection point.",
+    "Substitute into both."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the blue line's equation.",
+     "answer": "y = (1/2)x + 2"
+    },
+    {
+     "prompt": "Write the red line's equation.",
+     "answer": "y = -2x + 7"
+    },
+    {
+     "prompt": "Find the solution of the system.",
+     "answer": "(2, 3)"
+    },
+    {
+     "prompt": "Verify algebraically.",
+     "answer": "(1/2)(2) + 2 = 3 and -2(2) + 7 = 3"
+    }
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/algebra2/linear-functions-systems/s04-topup-graph-system.png",
+     "alt": "Blue line y = (1/2)x + 2 and red line y = -2x + 7 crossing at (2, 3)."
+    }
+   },
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-015",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL systems with exactly one solution.",
+   "answer": [
+    "y = 2x + 1 and y = -x + 4",
+    "y = 3x and x + y = 8",
+    "2x + y = 5 and x - y = 1"
+   ],
+   "solutionSteps": [
+    "Different slopes → one solution.",
+    "Same slope and intercept → infinitely many; same slope, different intercept → none."
+   ],
+   "options": [
+    {
+     "text": "y = 2x + 1 and 4x - 2y = -2",
+     "correct": false
+    },
+    {
+     "text": "2x + y = 5 and x - y = 1",
+     "correct": true
+    },
+    {
+     "text": "x = 3 and x = -1",
+     "correct": false
+    },
+    {
+     "text": "y = 3x and x + y = 8",
+     "correct": true
+    },
+    {
+     "text": "y = 2x + 1 and y = -x + 4",
+     "correct": true
+    },
+    {
+     "text": "y = x + 2 and y = x - 3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-honors-004",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Solve: y = x² - 2x and y = x + 4.",
+   "answer": "(a) x² - 2x = x + 4; (b) x = 4 or x = -1; (c) (4, 8) and (-1, 3); (d) 0, 1, or 2",
+   "solutionSteps": [
+    "Set equal.",
+    "x² - 3x - 4 = (x - 4)(x + 1).",
+    "Use y = x + 4.",
+    "A quadratic has at most 2 real roots."
+   ],
+   "parts": [
+    {
+     "prompt": "Substitute.",
+     "answer": "x² - 2x = x + 4"
+    },
+    {
+     "prompt": "Solve the quadratic.",
+     "answer": "x = 4 or x = -1"
+    },
+    {
+     "prompt": "Find the points.",
+     "answer": "(4, 8) and (-1, 3)"
+    },
+    {
+     "prompt": "How many intersection points are possible for a line and a parabola?",
+     "answer": "0, 1, or 2"
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-016",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student solves y = 3x - 2 and 2x + y = 8 and gets x = 2, then reports the solution as x = 2. What is missing?",
+   "answer": "The y-value: the solution is (2, 4)",
+   "solutionSteps": [
+    "A solution of a system is an ordered pair."
+   ],
+   "options": [
+    {
+     "text": "The solution is (4, 2)",
+     "correct": false
+    },
+    {
+     "text": "Nothing",
+     "correct": false
+    },
+    {
+     "text": "The y-value: the solution is (2, 4)",
+     "correct": true
+    },
+    {
+     "text": "x = 6",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp1-017",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve by substitution: x = 2y + 1 and 3x - 4y = 9.",
+   "answer": "(7, 3)",
+   "solutionSteps": [
+    "3(2y + 1) - 4y = 9 → 2y = 6."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-honors-005",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what k does y = kx + 2 and y = 3x - 5 have no solution?",
+   "answer": "k = 3",
+   "solutionSteps": [
+    "Same slope, different intercepts."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s04-cp2-009",
+   "skillId": "linear-functions-systems-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Is (1, 4) a solution of y = 2x + 2 and y = -x + 5?",
+   "answer": "Yes",
+   "solutionSteps": [
+    "4 = 4 and 4 = 4."
+   ],
+   "standards": [
+    "A-REI.C.6",
+    "A-REI.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-010",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by elimination: 3x - 2y = -10 and 4x - y = -10.",
+   "answer": "(-2, 2)",
+   "solutionSteps": [
+    "Multiply one or both equations so a variable has opposite coefficients.",
+    "Add to eliminate, solve, then back-substitute."
+   ],
+   "options": [
+    {
+     "text": "(-2, -2)",
+     "correct": false
+    },
+    {
+     "text": "(2, -2)",
+     "correct": false
+    },
+    {
+     "text": "(-2, 2)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-011",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by elimination: 2x + y = -5 and -3x - y = 7.",
+   "answer": "(-2, -1)",
+   "solutionSteps": [
+    "Multiply one or both equations so a variable has opposite coefficients.",
+    "Add to eliminate, solve, then back-substitute."
+   ],
+   "options": [
+    {
+     "text": "(-2, -1)",
+     "correct": true
+    },
+    {
+     "text": "(2, 1)",
+     "correct": false
+    },
+    {
+     "text": "(-2, 1)",
+     "correct": false
+    },
+    {
+     "text": "(-1, -2)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-012",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by elimination: 5x - 2y = -14 and 4x + 5y = 2.",
+   "answer": "(-2, 2)",
+   "solutionSteps": [
+    "Multiply one or both equations so a variable has opposite coefficients.",
+    "Add to eliminate, solve, then back-substitute."
+   ],
+   "options": [
+    {
+     "text": "(-2, -2)",
+     "correct": false
+    },
+    {
+     "text": "(2, -2)",
+     "correct": false
+    },
+    {
+     "text": "(-2, 2)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-013",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by elimination: 3x - 2y = 1 and -3x + 3y = 3.",
+   "answer": "(3, 4)",
+   "solutionSteps": [
+    "Multiply one or both equations so a variable has opposite coefficients.",
+    "Add to eliminate, solve, then back-substitute."
+   ],
+   "options": [
+    {
+     "text": "(4, 3)",
+     "correct": false
+    },
+    {
+     "text": "(-3, -4)",
+     "correct": false
+    },
+    {
+     "text": "(3, -4)",
+     "correct": false
+    },
+    {
+     "text": "(3, 4)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-014",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by elimination: 5x + y = 19 and 4x - y = 8.",
+   "answer": "(3, 4)",
+   "solutionSteps": [
+    "Multiply one or both equations so a variable has opposite coefficients.",
+    "Add to eliminate, solve, then back-substitute."
+   ],
+   "options": [
+    {
+     "text": "(-3, -4)",
+     "correct": false
+    },
+    {
+     "text": "(3, -4)",
+     "correct": false
+    },
+    {
+     "text": "(3, 4)",
+     "correct": true
+    },
+    {
+     "text": "(4, 3)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-015",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Solve by elimination: 5x - 2y = -3 and -3x - y = -7.",
+   "answer": "(1, 4)",
+   "solutionSteps": [
+    "Multiply one or both equations so a variable has opposite coefficients.",
+    "Add to eliminate, solve, then back-substitute."
+   ],
+   "options": [
+    {
+     "text": "(1, 4)",
+     "correct": true
+    },
+    {
+     "text": "(-1, -4)",
+     "correct": false
+    },
+    {
+     "text": "(4, 1)",
+     "correct": false
+    },
+    {
+     "text": "(1, -4)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-016",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "To eliminate y from 3x + 2y = 7 and 5x - 4y = 19, select ALL valid first steps.",
+   "answer": [
+    "Multiply the first equation by 2, then add",
+    "Multiply the first by 4 and the second by 2, then add"
+   ],
+   "solutionSteps": [
+    "The y-coefficients 4y and -4y cancel after doubling the first equation.",
+    "4(2y) + 2(-4y) = 0 also works."
+   ],
+   "options": [
+    {
+     "text": "Multiply the first equation by 2, then add",
+     "correct": true
+    },
+    {
+     "text": "Multiply the second by 3, then add",
+     "correct": false
+    },
+    {
+     "text": "Multiply the second equation by 2, then add",
+     "correct": false
+    },
+    {
+     "text": "Multiply the first by 4 and the second by 2, then add",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-017",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Tickets: adult $9, child $6. 300 tickets sold for $2,250.",
+   "answer": "(a) a + c = 300; 9a + 6c = 2250; (b) Multiply the first by 6 and subtract: 3a = 450; (c) a = 150, c = 150; (d) 9(150) + 6(150) = 2250",
+   "solutionSteps": [
+    "Count and value.",
+    "6a + 6c = 1800.",
+    "Back-substitute.",
+    "Substitute."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the system.",
+     "answer": "a + c = 300; 9a + 6c = 2250"
+    },
+    {
+     "prompt": "Eliminate a variable.",
+     "answer": "Multiply the first by 6 and subtract: 3a = 450"
+    },
+    {
+     "prompt": "Solve.",
+     "answer": "a = 150, c = 150"
+    },
+    {
+     "prompt": "Check.",
+     "answer": "9(150) + 6(150) = 2250"
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-honors-007",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Solve the 3×3 system: x + y + z = 6; 2x - y + z = 3; x + 2y - z = 2.",
+   "answer": "(a) 2x + 3y = 8; (b) 3x + y = 5; (c) x = 1, y = 2; (d) z = 3",
+   "solutionSteps": [
+    "Add (1) and (3).",
+    "Add (2) and (3).",
+    "Elimination.",
+    "Back-substitute."
+   ],
+   "parts": [
+    {
+     "prompt": "Eliminate z using equations 1 and 3.",
+     "answer": "2x + 3y = 8"
+    },
+    {
+     "prompt": "Eliminate z using equations 2 and 3.",
+     "answer": "3x + y = 5"
+    },
+    {
+     "prompt": "Solve the 2×2 system.",
+     "answer": "x = 1, y = 2"
+    },
+    {
+     "prompt": "Find z.",
+     "answer": "z = 3"
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-018",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Eliminating gives 0 = 5. What does this mean?",
+   "answer": "The system has no solution (parallel lines)",
+   "solutionSteps": [
+    "A false statement means inconsistent."
+   ],
+   "options": [
+    {
+     "text": "The system has no solution (parallel lines)",
+     "correct": true
+    },
+    {
+     "text": "Infinitely many solutions",
+     "correct": false
+    },
+    {
+     "text": "x = 5",
+     "correct": false
+    },
+    {
+     "text": "The solution is (0, 5)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-cp1-019",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Eliminating gives 0 = 0. What does this mean?",
+   "answer": "Infinitely many solutions (same line)",
+   "solutionSteps": [
+    "A true statement with no variables means the equations are equivalent."
+   ],
+   "options": [
+    {
+     "text": "The solution is (0, 0)",
+     "correct": false
+    },
+    {
+     "text": "Infinitely many solutions (same line)",
+     "correct": true
+    },
+    {
+     "text": "No solution",
+     "correct": false
+    },
+    {
+     "text": "x = 0",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s05-honors-008",
+   "skillId": "linear-functions-systems-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A boat travels 36 mi downstream in 2 h and returns upstream in 3 h. Find the boat's speed and the current.",
+   "answer": "boat 15 mph, current 3 mph",
+   "solutionSteps": [
+    "b + c = 18, b - c = 12.",
+    "Add: 2b = 30."
+   ],
+   "standards": [
+    "A-REI.C.5",
+    "A-REI.C.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-008",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL points that satisfy y ≤ -x + 4.",
+   "answer": [
+    "(0, 0)",
+    "(2, 2)",
+    "(5, -1)"
+   ],
+   "solutionSteps": [
+    "Substitute; boundary points count only for ≤ or ≥."
+   ],
+   "options": [
+    {
+     "text": "(-1, 6)",
+     "correct": false
+    },
+    {
+     "text": "(0, 0)",
+     "correct": true
+    },
+    {
+     "text": "(5, -1)",
+     "correct": true
+    },
+    {
+     "text": "(3, 2)",
+     "correct": false
+    },
+    {
+     "text": "(2, 2)",
+     "correct": true
+    },
+    {
+     "text": "(4, 1)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-009",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL points that satisfy 2x - 3y > 6.",
+   "answer": [
+    "(4, 0)",
+    "(0, -3)",
+    "(6, 1)",
+    "(1, -2)"
+   ],
+   "solutionSteps": [
+    "Substitute; boundary points count only for ≤ or ≥."
+   ],
+   "options": [
+    {
+     "text": "(0, -3)",
+     "correct": true
+    },
+    {
+     "text": "(3, 0)",
+     "correct": false
+    },
+    {
+     "text": "(6, 1)",
+     "correct": true
+    },
+    {
+     "text": "(0, 0)",
+     "correct": false
+    },
+    {
+     "text": "(4, 0)",
+     "correct": true
+    },
+    {
+     "text": "(1, -2)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-010",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL solutions of the system y > x - 2 and y ≤ -2x + 4.",
+   "answer": [
+    "(0, 0)",
+    "(1, 2)",
+    "(-1, 5)",
+    "(0, 4)"
+   ],
+   "solutionSteps": [
+    "A solution must satisfy every inequality."
+   ],
+   "options": [
+    {
+     "text": "(2, 0)",
+     "correct": false
+    },
+    {
+     "text": "(-1, 5)",
+     "correct": true
+    },
+    {
+     "text": "(0, 0)",
+     "correct": true
+    },
+    {
+     "text": "(3, -1)",
+     "correct": false
+    },
+    {
+     "text": "(0, 4)",
+     "correct": true
+    },
+    {
+     "text": "(1, 2)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-011",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL solutions of the system x + y < 5, x ≥ 0, y ≥ 1.",
+   "answer": [
+    "(0, 1)",
+    "(2, 2)",
+    "(1, 3)"
+   ],
+   "solutionSteps": [
+    "A solution must satisfy every inequality."
+   ],
+   "options": [
+    {
+     "text": "(2, 2)",
+     "correct": true
+    },
+    {
+     "text": "(1, 3)",
+     "correct": true
+    },
+    {
+     "text": "(-1, 2)",
+     "correct": false
+    },
+    {
+     "text": "(3, 0)",
+     "correct": false
+    },
+    {
+     "text": "(0, 1)",
+     "correct": true
+    },
+    {
+     "text": "(4, 1)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-012",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which inequality is graphed?",
+   "answer": "y > 2x - 1",
+   "solutionSteps": [
+    "Dashed boundary → strict inequality.",
+    "Shading above → y >."
+   ],
+   "options": [
+    {
+     "text": "y ≥ 2x - 1",
+     "correct": false
+    },
+    {
+     "text": "y > 2x - 1",
+     "correct": true
+    },
+    {
+     "text": "y > -2x - 1",
+     "correct": false
+    },
+    {
+     "text": "y < 2x - 1",
+     "correct": false
+    }
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/algebra2/linear-functions-systems/s06-topup-shade.png",
+     "alt": "A dashed line y = 2x - 1 with the region above it shaded."
+    }
+   },
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-013",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which inequality is graphed?",
+   "answer": "y ≤ -(1/2)x + 3",
+   "solutionSteps": [
+    "Solid boundary → ≤ or ≥.",
+    "Shading below → y ≤."
+   ],
+   "options": [
+    {
+     "text": "y ≤ (1/2)x + 3",
+     "correct": false
+    },
+    {
+     "text": "y < -(1/2)x + 3",
+     "correct": false
+    },
+    {
+     "text": "y ≤ -(1/2)x + 3",
+     "correct": true
+    },
+    {
+     "text": "y ≥ -(1/2)x + 3",
+     "correct": false
+    }
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/algebra2/linear-functions-systems/s06-topup-shade2.png",
+     "alt": "A solid line y = -(1/2)x + 3 with the region below it shaded."
+    }
+   },
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-014",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Graph x + 2y ≤ 8.",
+   "answer": "(a) y = -(1/2)x + 4; (b) solid; (c) 0 ≤ 8: true; (d) the side containing the origin (below)",
+   "solutionSteps": [
+    "Solve for y.",
+    "≤ includes the line.",
+    "Substitute.",
+    "Shade the true side."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the boundary in slope-intercept form.",
+     "answer": "y = -(1/2)x + 4"
+    },
+    {
+     "prompt": "Solid or dashed?",
+     "answer": "solid"
+    },
+    {
+     "prompt": "Test (0, 0).",
+     "answer": "0 ≤ 8: true"
+    },
+    {
+     "prompt": "Which side is shaded?",
+     "answer": "the side containing the origin (below)"
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-honors-005",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A student budget: x hours tutoring ($15/h) and y hours retail ($12/h), with x + y ≤ 20 and earnings at least $270.",
+   "answer": "(a) 15x + 12y ≥ 270; (b) Yes: 20 ≤ 20 and 270 ≥ 270; (c) No: 219 < 270; (d) 18",
+   "solutionSteps": [
+    "Rate × hours.",
+    "Check both.",
+    "75 + 144 = 219.",
+    "15x ≥ 270."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the earnings inequality.",
+     "answer": "15x + 12y ≥ 270"
+    },
+    {
+     "prompt": "Is (10, 10) a solution?",
+     "answer": "Yes: 20 ≤ 20 and 270 ≥ 270"
+    },
+    {
+     "prompt": "Is (5, 12) a solution?",
+     "answer": "No: 219 < 270"
+    },
+    {
+     "prompt": "Find the minimum tutoring hours if y = 0.",
+     "answer": "18"
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-015",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "When solving -3x + 6 > 12, a student gets x > -2. What is correct?",
+   "answer": "x < -2 (flip the inequality when dividing by a negative)",
+   "solutionSteps": [
+    "-3x > 6 → x < -2."
+   ],
+   "options": [
+    {
+     "text": "x > 6",
+     "correct": false
+    },
+    {
+     "text": "x > -2",
+     "correct": false
+    },
+    {
+     "text": "x < 2",
+     "correct": false
+    },
+    {
+     "text": "x < -2 (flip the inequality when dividing by a negative)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp2-008",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Is (2, 1) a solution of y < x?",
+   "answer": "Yes",
+   "solutionSteps": [
+    "1 < 2."
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-cp1-016",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the inequality for the region above the solid line through (0, -2) with slope 3.",
+   "answer": "y ≥ 3x - 2",
+   "solutionSteps": [
+    "Solid → ≥; above → y ≥."
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-006",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A feasible region has vertices (0, 0), (0, 6), (3, 4), (5, 0). Optimize P = 4x + 3y.",
+   "answer": "(a) (0, 0): 0; (0, 6): 18; (3, 4): 24; (5, 0): 20; (b) 24 at (3, 4); (c) A linear objective's optimum on a polygon occurs at a vertex; (d) Yes",
+   "solutionSteps": [
+    "Substitute each vertex.",
+    "Compare.",
+    "Fundamental theorem of linear programming.",
+    "Look at the region's shape."
+   ],
+   "parts": [
+    {
+     "prompt": "Evaluate the objective at each vertex.",
+     "answer": "(0, 0): 0; (0, 6): 18; (3, 4): 24; (5, 0): 20"
+    },
+    {
+     "prompt": "Find the maximum.",
+     "answer": "24 at (3, 4)"
+    },
+    {
+     "prompt": "Why check only the vertices?",
+     "answer": "A linear objective's optimum on a polygon occurs at a vertex"
+    },
+    {
+     "prompt": "Is the region bounded?",
+     "answer": "Yes"
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-007",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A feasible region has vertices (0, 8), (2, 4), (6, 0). Optimize C = 2x + 5y.",
+   "answer": "(a) (0, 8): 40; (2, 4): 24; (6, 0): 12; (b) 12 at (6, 0); (c) A linear objective's optimum on a polygon occurs at a vertex; (d) No (unbounded above)",
+   "solutionSteps": [
+    "Substitute each vertex.",
+    "Compare.",
+    "Fundamental theorem of linear programming.",
+    "Look at the region's shape."
+   ],
+   "parts": [
+    {
+     "prompt": "Evaluate the objective at each vertex.",
+     "answer": "(0, 8): 40; (2, 4): 24; (6, 0): 12"
+    },
+    {
+     "prompt": "Find the minimum.",
+     "answer": "12 at (6, 0)"
+    },
+    {
+     "prompt": "Why check only the vertices?",
+     "answer": "A linear objective's optimum on a polygon occurs at a vertex"
+    },
+    {
+     "prompt": "Is the region bounded?",
+     "answer": "No (unbounded above)"
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-008",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A feasible region has vertices (0, 0), (0, 5), (4, 3), (6, 0). Find the maximum of P = 5x + 2y.",
+   "answer": "30 at (6, 0)",
+   "solutionSteps": [
+    "Evaluate the objective at every vertex and compare."
+   ],
+   "options": [
+    {
+     "text": "0 at (0, 0)",
+     "correct": false
+    },
+    {
+     "text": "30 at (6, 0)",
+     "correct": true
+    },
+    {
+     "text": "26 at (4, 3)",
+     "correct": false
+    },
+    {
+     "text": "10 at (0, 5)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-009",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A feasible region has vertices (0, 0), (0, 5), (4, 3), (6, 0). Find the maximum of P = x + 4y.",
+   "answer": "20 at (0, 5)",
+   "solutionSteps": [
+    "Evaluate the objective at every vertex and compare."
+   ],
+   "options": [
+    {
+     "text": "20 at (0, 5)",
+     "correct": true
+    },
+    {
+     "text": "0 at (0, 0)",
+     "correct": false
+    },
+    {
+     "text": "16 at (4, 3)",
+     "correct": false
+    },
+    {
+     "text": "6 at (6, 0)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-010",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A feasible region has vertices (1, 6), (3, 2), (7, 1). Find the minimum of C = 3x + y.",
+   "answer": "9 at (1, 6)",
+   "solutionSteps": [
+    "Evaluate the objective at every vertex and compare."
+   ],
+   "options": [
+    {
+     "text": "9 at (1, 6)",
+     "correct": true
+    },
+    {
+     "text": "11 at (3, 2)",
+     "correct": false
+    },
+    {
+     "text": "22 at (7, 1)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-011",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "A bakery makes x cakes (2 h each) and y pies (1 h each) with at most 16 hours and at most 10 items. Select ALL feasible plans.",
+   "answer": [
+    "(4, 6)",
+    "(6, 4)",
+    "(0, 10)",
+    "(8, 0)"
+   ],
+   "solutionSteps": [
+    "Check 2x + y ≤ 16 and x + y ≤ 10."
+   ],
+   "options": [
+    {
+     "text": "(7, 3)",
+     "correct": false
+    },
+    {
+     "text": "(8, 0)",
+     "correct": true
+    },
+    {
+     "text": "(4, 6)",
+     "correct": true
+    },
+    {
+     "text": "(0, 10)",
+     "correct": true
+    },
+    {
+     "text": "(6, 4)",
+     "correct": true
+    },
+    {
+     "text": "(5, 7)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-honors-005",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A farmer plants x acres of corn ($300 profit/acre) and y acres of soy ($200/acre) with x + y ≤ 100, x ≤ 60, and 2x + y ≤ 160.",
+   "answer": "(a) (0, 0), (60, 0), (60, 40), (0, 100); (b) 0; 18,000; 26,000; 20,000; (c) $26,000 at (60, 40); (d) all three: x + y = 100, x = 60, 2x + y = 160",
+   "solutionSteps": [
+    "Intersect boundary lines.",
+    "Substitute.",
+    "Largest.",
+    "At (60, 40): 60 + 40 = 100, x = 60, 120 + 40 = 160."
+   ],
+   "parts": [
+    {
+     "prompt": "List the vertices of the feasible region.",
+     "answer": "(0, 0), (60, 0), (60, 40), (0, 100)"
+    },
+    {
+     "prompt": "Evaluate profit at each.",
+     "answer": "0; 18,000; 26,000; 20,000"
+    },
+    {
+     "prompt": "Find the maximum profit.",
+     "answer": "$26,000 at (60, 40)"
+    },
+    {
+     "prompt": "Which constraints are binding (equal) at the optimum?",
+     "answer": "all three: x + y = 100, x = 60, 2x + y = 160"
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-012",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In a linear programming problem, the constraints describe…",
+   "answer": "the feasible region",
+   "solutionSteps": [
+    "Constraints are inequalities limiting the choices."
+   ],
+   "options": [
+    {
+     "text": "the feasible region",
+     "correct": true
+    },
+    {
+     "text": "the optimal value",
+     "correct": false
+    },
+    {
+     "text": "the objective function",
+     "correct": false
+    },
+    {
+     "text": "the slope of the objective",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-013",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A company needs at least 30 units from machine A (5 units/h, $40/h) and machine B (3 units/h, $20/h), each running at most 6 h. Which vertex of the feasible region is (6, 0)? Is it feasible?",
+   "answer": "Yes: 5(6) = 30 units",
+   "solutionSteps": [
+    "30 ≥ 30 and 6 ≤ 6."
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-honors-006",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Explain why an unbounded feasible region may have a minimum but no maximum for P = x + y with x, y ≥ 0.",
+   "answer": "P grows without bound as x or y increases, but its least value occurs at a vertex",
+   "solutionSteps": [
+    "Objective increases in the unbounded direction."
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-cp1-019",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "A candle 30 cm tall burns 2.5 cm per hour. Select ALL true statements about h = 30 - 2.5t.",
+   "answer": [
+    "It burns out after 12 hours",
+    "After 4 hours it is 20 cm tall",
+    "The slope is -2.5 cm/h"
+   ],
+   "solutionSteps": [
+    "30 - 2.5t = 0 → t = 12.",
+    "30 - 10 = 20."
+   ],
+   "options": [
+    {
+     "text": "After 4 hours it is 20 cm tall",
+     "correct": true
+    },
+    {
+     "text": "It burns out after 30 hours",
+     "correct": false
+    },
+    {
+     "text": "The slope is -2.5 cm/h",
+     "correct": true
+    },
+    {
+     "text": "It burns out after 12 hours",
+     "correct": true
+    },
+    {
+     "text": "After 4 hours it is 10 cm tall",
+     "correct": false
+    },
+    {
+     "text": "The y-intercept is 2.5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s03-honors-006",
+   "skillId": "linear-functions-systems-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A line of best fit for study hours h and score s is s = 4.2h + 61. Interpret the slope and predict the score for 6 hours. Is predicting for 30 hours reasonable?",
+   "answer": "Each extra hour adds about 4.2 points; 86.2; no, 30 h is far outside the data (extrapolation)",
+   "solutionSteps": [
+    "Slope = rate.",
+    "4.2(6) + 61 = 86.2.",
+    "Predictions far outside the data are unreliable."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "S-ID.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s06-honors-006",
+   "skillId": "linear-functions-systems-skill-06",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL systems whose solution region is empty.",
+   "answer": [
+    "y > x + 2 and y < x - 1",
+    "x ≥ 4 and x < 2"
+   ],
+   "solutionSteps": [
+    "Parallel boundaries with shading facing away from each other; contradictory bounds."
+   ],
+   "options": [
+    {
+     "text": "y < 3 and y > -3",
+     "correct": false
+    },
+    {
+     "text": "y ≥ 0 and x ≥ 0",
+     "correct": false
+    },
+    {
+     "text": "y > x + 2 and y < x - 1",
+     "correct": true
+    },
+    {
+     "text": "x ≥ 4 and x < 2",
+     "correct": true
+    },
+    {
+     "text": "y > x and y < -x",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-REI.D.12"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-014",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vertices of a feasible region: (0, 0), (0, 4), (3, 3), (5, 0). Find the maximum of P = 2x + 3y and where it occurs.",
+   "answer": "15 at (3, 3)",
+   "solutionSteps": [
+    "Evaluate the objective at each vertex: (0, 0) → 0; (0, 4) → 12; (3, 3) → 15; (5, 0) → 10."
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-015",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vertices of a feasible region: (0, 10), (2, 4), (8, 0). Find the minimum of C = 4x + 3y and where it occurs.",
+   "answer": "20 at (2, 4)",
+   "solutionSteps": [
+    "Evaluate the objective at each vertex: (0, 10) → 30; (2, 4) → 20; (8, 0) → 32."
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-016",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vertices of a feasible region: (0, 0), (0, 7), (2, 6), (4, 2), (5, 0). Find the maximum of P = 6x + y and where it occurs.",
+   "answer": "30 at (5, 0)",
+   "solutionSteps": [
+    "Evaluate the objective at each vertex: (0, 0) → 0; (0, 7) → 7; (2, 6) → 18; (4, 2) → 26; (5, 0) → 30."
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-017",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Constraints x ≥ 0, y ≥ 0, x + y ≤ 6, x ≤ 4. Select ALL vertices of the feasible region.",
+   "answer": [
+    "(0, 0)",
+    "(4, 0)",
+    "(4, 2)",
+    "(0, 6)"
+   ],
+   "solutionSteps": [
+    "Intersections of boundary lines that satisfy all constraints.",
+    "(6, 0) violates x ≤ 4."
+   ],
+   "options": [
+    {
+     "text": "(4, 6)",
+     "correct": false
+    },
+    {
+     "text": "(0, 6)",
+     "correct": true
+    },
+    {
+     "text": "(4, 0)",
+     "correct": true
+    },
+    {
+     "text": "(4, 2)",
+     "correct": true
+    },
+    {
+     "text": "(2, 4)",
+     "correct": false
+    },
+    {
+     "text": "(0, 0)",
+     "correct": true
+    },
+    {
+     "text": "(6, 0)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "A-CED.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ls-s07-cp1-018",
+   "skillId": "linear-functions-systems-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A student sells bracelets ($4 profit) and necklaces ($6 profit). Each bracelet takes 1 h and each necklace 2 h; she has 16 h and materials for at most 10 items.",
+   "answer": "(a) x + 2y ≤ 16, x + y ≤ 10, x ≥ 0, y ≥ 0; (b) (0, 0), (10, 0), (4, 6), (0, 8); (c) 0, 40, 52, 48; (d) 4 bracelets and 6 necklaces for $52",
+   "solutionSteps": [
+    "Time and materials.",
+    "Intersect x + 2y = 16 and x + y = 10.",
+    "Substitute.",
+    "Maximum."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the constraints.",
+     "answer": "x + 2y ≤ 16, x + y ≤ 10, x ≥ 0, y ≥ 0"
+    },
+    {
+     "prompt": "Find the vertices.",
+     "answer": "(0, 0), (10, 0), (4, 6), (0, 8)"
+    },
+    {
+     "prompt": "Evaluate P = 4x + 6y.",
+     "answer": "0, 40, 52, 48"
+    },
+    {
+     "prompt": "State the best plan.",
+     "answer": "4 bracelets and 6 necklaces for $52"
     }
    ],
    "standards": [

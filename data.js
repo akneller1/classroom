@@ -6670,3 +6670,14 @@ window.LIBRARY = {
 }
   ]
 };
+
+/* Bank-backed resources supplement retained original activities and PDFs. */
+(function(G){
+ var course=G.LIBRARY.courses.find(function(c){return c.id==='algebra2'});if(!course)return;
+ course.units.forEach(function(u){
+  [['flashcards','Flashcards','flashcards'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['picture-reveal','Picture Reveal','picture-reveal'],['showdown','Showdown','showdown'],['detective','Detective','detective-games'],['escape-room','Escape Room','escape-rooms']].forEach(function(g){
+   u.artifacts.push({title:u.name+' '+g[1]+' — Skill Practice',path:'worksheet-generator/algebra2-game.html?unit='+u.id+'&game='+g[0],bankFormat:g[2],type:g[0]==='flashcards'?'Study Guide':'Game',thumb:'thumbs/foundations-algebra-'+(g[0]==='flashcards'?'flashcards':['detective','escape-room'].includes(g[0])?'showdown':g[0])+'.jpg',description:'Practice selected skills with the shared Algebra 2 question bank and difficulty settings.'});
+  });
+  u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/algebra2-practice.html?unit='+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Interactive practice with feedback, worked solutions, and skill review.'});
+ });
+})(window);

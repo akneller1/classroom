@@ -1,7 +1,8 @@
 /* Printable Generators — paper rendering and teacher interface (worksheet-generator/printables.html).
    Pages are Letter size (.page.mm-page from core/app.css + menu/menu.css). */
-(function (G) {
+(async function (G) {
   'use strict';
+  if(G.MK_ALGEBRA2_NATIVE_READY) { try { await G.MK_ALGEBRA2_NATIVE_READY; } catch(e) { document.getElementById('prApp').textContent='Unable to load Algebra 2 questions: '+e.message; return; } }
   var doc = G.document, NS = G.MKMENU, PR = NS.printables, WS = G.MKWS;
   var mathSafe = NS.mathSafe;
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -17,7 +18,7 @@
   }
   function page(cfg, nV, v, key, inner) { return { html: '<div class="mm-body">' + inner + '</div>', foot: esc(title(cfg)) + (nV > 1 ? ' · Version ' + 'ABC'[v] : '') + (key ? ' · TEACHER KEY' : '') }; }
   function steps(p) { return (p.steps || []).filter(function (s) { return s.t || s.m; }).map(function (s) { return '<li>' + mathSafe(s.t) + (s.m ? ' ' + mathSafe('⟨' + s.m + '⟩') : '') + '</li>'; }).join(''); }
-  function prompt(p) { return mathSafe(p.prompt) + (p.fig && NS.figHtml ? NS.figHtml(p.fig) : '') + (p.parts[0].prompt ? ' ' + mathSafe(p.parts[0].prompt) : ''); }
+  function prompt(p) { return mathSafe(p.prompt) + (p.authoredOptions && p.authoredOptions.length ? '<ul class="authored-choices">' + p.authoredOptions.map(function(o,i){return '<li>'+String.fromCharCode(65+i)+'. '+mathSafe(o.text)+'</li>';}).join('')+'</ul>' : '') + (p.fig && NS.figHtml ? NS.figHtml(p.fig) : '') + (p.parts[0].prompt ? ' ' + mathSafe(p.parts[0].prompt) : ''); }
   function dirs(t) { return '<div class="mm-box mm-dirs pr-dirs"><b>Directions:</b> ' + t + '</div>'; }
 
   /* =========================== MAZE =========================== */
@@ -434,7 +435,7 @@
   function controls() {
     var set = NS.skillSets[unit], k = PR.kind(kind);
     var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : 'Not available for this unit: its problems need a diagram, and this printable has no room for one.') + '</small></span></label>'; }).join('') + '</fieldset></section>';
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : (/^algebra2-/.test(unit)?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
     h += '<section class="card"><h2>Level and skills</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
       '<p class="hint">Skills this printable cannot use are greyed out (for example, problems answered with a graph cannot go on a maze door).</p>' +
@@ -444,7 +445,7 @@
       '<label class="field"><span class="lbl">Problems per station</span><select id="prPer">' + [6, 8, 10].map(function (n) { return '<option value="' + n + '"' + ((cfg.perStation | 0 || 8) === n ? ' selected' : '') + '>' + n + ' problems</option>'; }).join('') + '</select></label><p class="hint">The checked skills are split, in order, across the stations (never more stations than skills).</p>' : '';
     h += '<section class="card"><h2>Options</h2>' + story + st + (kind === 'tarsia' ? '<label class="field"><span class="lbl">Print layout</span><select id="prTarsiaLayout">' + [['standard','Standard · full puzzle'],['large','Large Print · 6 pieces per page'],['compact','Compact · smaller full puzzle']].map(function (x) { return '<option value="' + x[0] + '"' + ((cfg.tarsiaLayout || 'standard') === x[0] ? ' selected' : '') + '>' + x[1] + '</option>'; }).join('') + '</select></label>' : '') + (kind === 'color' ? '<label class="field"><span class="lbl">Picture</span><select id="prPic"><option value="auto">Surprise me</option>' + Object.keys(PR.SCENES).map(function (id) { return '<option value="' + id + '"' + (cfg.picture === id ? ' selected' : '') + '>' + esc(PR.SCENES[id].name) + '</option>'; }).join('') + '</select></label>' : '') +
       '<label class="field"><span class="lbl">Versions</span><select id="prVer">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((cfg.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
-      '<p><button type="button" class="btn" id="prNew">↻ New problems</button></p><p class="hint">Every answer is checked independently. Every wrong label (a maze door, a Tarsia edge, a student’s wrong answer) is checked to be wrong.</p></section>';
+      '<p><button type="button" class="btn" id="prNew">↻ New problems</button></p><p class="hint">' + (/^algebra2-/.test(unit)?'Uses existing authored questions, source answers, and source-marked choices.':'Every answer is checked independently. Every wrong label (a maze door, a Tarsia edge, a student’s wrong answer) is checked to be wrong.') + '</p></section>';
     return h;
   }
   function render() {

@@ -1,0 +1,48 @@
+name: Algebra 2 bank integration
+on:
+  push:
+    paths:
+      - 'question-banks/algebra2/**'
+      - 'question-banks/assets/algebra2/**'
+      - 'question-banks/manifest.json'
+      - 'scripts/*algebra2*.cjs'
+      - 'scripts/check-question-bank.cjs'
+      - 'worksheet-generator/algebra2-*'
+      - 'worksheet-generator/bank-printable.*'
+      - 'worksheet-generator/menu/printables*.js'
+      - 'worksheet-generator/printables.html'
+      - 'app.js'
+      - 'data.js'
+      - 'resource-eligibility.js'
+      - '.github/workflows/algebra2-bank-coverage.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate all published banks and image paths
+        run: node scripts/test-published-question-banks.cjs
+      - run: node scripts/check-algebra2-coverage.cjs
+      - run: node scripts/test-algebra2-native.cjs
+      - run: node scripts/test-algebra2-printable-sections.cjs
+      - run: node scripts/test-resource-eligibility.cjs
+      - run: node scripts/audit-course-catalog.cjs
+      - run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - name: Start local website
+        run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/algebra2-http.log 2>&1 &
+      - name: All-unit browser integration matrix
+        run: node scripts/test-algebra2-integration-browser.cjs
+      - name: Existing generator editing, versions, and print regression
+        run: node scripts/test-algebra2-printable-browser.cjs
+      - name: Browser diagnostics and coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: algebra2-integration-coverage
+          path: test-results/

@@ -1,0 +1,6552 @@
+{
+ "schemaVersion": 1,
+ "courseId": "algebra2",
+ "unitId": "probability-statistics",
+ "questions": [
+  {
+   "id": "a2-ps-s01-cp2-001",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A menu has 4 appetizers, 6 entrées, and 3 desserts. How many 3-course meals are possible?",
+   "answer": "72",
+   "solutionSteps": [
+    "Fundamental counting principle: 4·6·3."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-002",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "How many 4-digit PINs are possible if digits may repeat?",
+   "answer": "10,000",
+   "solutionSteps": [
+    "10⁴."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-001",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many license plates have 3 letters followed by 3 digits (repetition allowed)?",
+   "answer": "17,576,000",
+   "solutionSteps": [
+    "26³·10³."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-002",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many 3-letter codes use distinct letters?",
+   "answer": "15,600",
+   "solutionSteps": [
+    "26·25·24."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-003",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A quiz has 8 true/false questions. How many answer keys are possible?",
+   "answer": "256",
+   "solutionSteps": [
+    "2⁸."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-001",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many even 3-digit numbers can be formed from the digits 1–6 without repetition?",
+   "answer": "60",
+   "solutionSteps": [
+    "Last digit even: 3 choices; then 5 and 4."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-004",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ₙPᵣ for n = 5, r = 5.",
+   "answer": "120",
+   "solutionSteps": [
+    "5!/(5 - 5)!.",
+    "= 120."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-003",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ₙPᵣ for n = 7, r = 3.",
+   "answer": "210",
+   "solutionSteps": [
+    "7!/(7 - 3)!.",
+    "= 210."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-004",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ₙPᵣ for n = 10, r = 4.",
+   "answer": "5,040",
+   "solutionSteps": [
+    "10!/(10 - 4)!.",
+    "= 5,040."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-005",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ₙPᵣ for n = 8, r = 2.",
+   "answer": "56",
+   "solutionSteps": [
+    "8!/(8 - 2)!.",
+    "= 56."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-005",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ₙPᵣ for n = 6, r = 6.",
+   "answer": "720",
+   "solutionSteps": [
+    "6!/(6 - 6)!.",
+    "= 720."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-006",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ₙPᵣ for n = 12, r = 3.",
+   "answer": "1,320",
+   "solutionSteps": [
+    "12!/(12 - 3)!.",
+    "= 1,320."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-007",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many distinguishable arrangements of the letters in MATH?",
+   "answer": "24",
+   "solutionSteps": [
+    "4! divided by the factorial of each repeated letter count.",
+    "= 24."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-008",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many distinguishable arrangements of the letters in LEVEL?",
+   "answer": "30",
+   "solutionSteps": [
+    "5! divided by the factorial of each repeated letter count.",
+    "= 30."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-009",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many distinguishable arrangements of the letters in BANANA?",
+   "answer": "60",
+   "solutionSteps": [
+    "6! divided by the factorial of each repeated letter count.",
+    "= 60."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-002",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many distinguishable arrangements of the letters in MISSISSIPPI?",
+   "answer": "34,650",
+   "solutionSteps": [
+    "11! divided by the factorial of each repeated letter count.",
+    "= 34,650."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-010",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many distinguishable arrangements of the letters in STATS?",
+   "answer": "30",
+   "solutionSteps": [
+    "5! divided by the factorial of each repeated letter count.",
+    "= 30."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-011",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can gold, silver, and bronze medals are awarded among 10 runners?",
+   "answer": "720",
+   "solutionSteps": [
+    "Order matters → permutation.",
+    "10P3 = 720."
+   ],
+   "options": [
+    {
+     "text": "1,000",
+     "correct": false
+    },
+    {
+     "text": "720",
+     "correct": true
+    },
+    {
+     "text": "120",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-012",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can 8 students line up for a photo?",
+   "answer": "40,320",
+   "solutionSteps": [
+    "Order matters → permutation.",
+    "8P8 = 40,320."
+   ],
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "40,320",
+     "correct": true
+    },
+    {
+     "text": "64",
+     "correct": false
+    },
+    {
+     "text": "16,777,216",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-013",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can a president, VP, secretary, and treasurer are chosen from 12 members?",
+   "answer": "11,880",
+   "solutionSteps": [
+    "Order matters → permutation.",
+    "12P4 = 11,880."
+   ],
+   "options": [
+    {
+     "text": "48",
+     "correct": false
+    },
+    {
+     "text": "11,880",
+     "correct": true
+    },
+    {
+     "text": "495",
+     "correct": false
+    },
+    {
+     "text": "20,736",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-014",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can 6 people sit around a circular table (rotations are the same)?",
+   "answer": "120",
+   "solutionSteps": [
+    "Fix one person: (6 - 1)! = 120."
+   ],
+   "options": [
+    {
+     "text": "36",
+     "correct": false
+    },
+    {
+     "text": "720",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "120",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-015",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL expressions equal to ₇P₃.",
+   "answer": [
+    "7·6·5",
+    "210",
+    "7!/4!",
+    "C(7, 3)·3!"
+   ],
+   "solutionSteps": [
+    "ₙPᵣ = n!/(n - r)! = C(n, r)·r!."
+   ],
+   "options": [
+    {
+     "text": "7!/3!",
+     "correct": false
+    },
+    {
+     "text": "7!/4!",
+     "correct": true
+    },
+    {
+     "text": "C(7, 3)·3!",
+     "correct": true
+    },
+    {
+     "text": "7³",
+     "correct": false
+    },
+    {
+     "text": "210",
+     "correct": true
+    },
+    {
+     "text": "7·6·5",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-003",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL situations where order matters.",
+   "answer": [
+    "Arranging books on a shelf",
+    "Assigning 1st, 2nd, 3rd place",
+    "Creating a password"
+   ],
+   "solutionSteps": [
+    "Different orders give different outcomes → permutation."
+   ],
+   "options": [
+    {
+     "text": "Dealing a 5-card hand",
+     "correct": false
+    },
+    {
+     "text": "Choosing 3 toppings for a pizza",
+     "correct": false
+    },
+    {
+     "text": "Creating a password",
+     "correct": true
+    },
+    {
+     "text": "Selecting a 5-person committee",
+     "correct": false
+    },
+    {
+     "text": "Assigning 1st, 2nd, 3rd place",
+     "correct": true
+    },
+    {
+     "text": "Arranging books on a shelf",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-016",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Using the digits 1, 2, 3, 4, 5 without repetition:",
+   "answer": "(a) 120; (b) 60; (c) 36; (d) 36",
+   "solutionSteps": [
+    "5!.",
+    "5·4·3.",
+    "Last digit 1, 3, 5: 3·4·3.",
+    "First digit 3, 4, 5: 3·4·3."
+   ],
+   "parts": [
+    {
+     "prompt": "How many 5-digit numbers?",
+     "answer": "120"
+    },
+    {
+     "prompt": "How many 3-digit numbers?",
+     "answer": "60"
+    },
+    {
+     "prompt": "How many 3-digit numbers are odd?",
+     "answer": "36"
+    },
+    {
+     "prompt": "How many 3-digit numbers are greater than 300?",
+     "answer": "36"
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-004",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Seven people (including Ana and Ben) line up.",
+   "answer": "(a) 5040; (b) 720; (c) 1440; (d) 3600",
+   "solutionSteps": [
+    "7!.",
+    "6!.",
+    "Treat as a block: 6!·2.",
+    "5040 - 1440."
+   ],
+   "parts": [
+    {
+     "prompt": "Total arrangements.",
+     "answer": "5040"
+    },
+    {
+     "prompt": "Arrangements with Ana first.",
+     "answer": "720"
+    },
+    {
+     "prompt": "Arrangements with Ana and Ben together.",
+     "answer": "1440"
+    },
+    {
+     "prompt": "Arrangements with Ana and Ben not together.",
+     "answer": "3600"
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-006",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate 5!.",
+   "answer": "120",
+   "solutionSteps": [
+    "5·4·3·2·1."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-001",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate C(6, 2).",
+   "answer": "15",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 15."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-002",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate C(10, 3).",
+   "answer": "120",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 120."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-003",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate C(8, 5).",
+   "answer": "56",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 56."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-001",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate C(12, 6).",
+   "answer": "924",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 924."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-002",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate C(52, 5).",
+   "answer": "2,598,960",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 2,598,960."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-003",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate C(20, 1).",
+   "answer": "20",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 20."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-004",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate C(15, 13).",
+   "answer": "105",
+   "solutionSteps": [
+    "C(n, r) = n!/(r!(n - r)!).",
+    "= 105."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-005",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can you choose 4 students from 15 for a committee?",
+   "answer": "1,365",
+   "solutionSteps": [
+    "Order does not matter → combination.",
+    "C(15, 4) = 1,365."
+   ],
+   "options": [
+    {
+     "text": "1,365",
+     "correct": true
+    },
+    {
+     "text": "32,760",
+     "correct": false
+    },
+    {
+     "text": "455",
+     "correct": false
+    },
+    {
+     "text": "50,625",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-006",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can you choose 3 toppings from 10?",
+   "answer": "120",
+   "solutionSteps": [
+    "Order does not matter → combination.",
+    "C(10, 3) = 120."
+   ],
+   "options": [
+    {
+     "text": "120",
+     "correct": true
+    },
+    {
+     "text": "1,000",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "720",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-007",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can you select 5 cards from a 52-card deck?",
+   "answer": "2,598,960",
+   "solutionSteps": [
+    "Order does not matter → combination.",
+    "C(52, 5) = 2,598,960."
+   ],
+   "options": [
+    {
+     "text": "2,598,960",
+     "correct": true
+    },
+    {
+     "text": "380,204,032",
+     "correct": false
+    },
+    {
+     "text": "311,875,200",
+     "correct": false
+    },
+    {
+     "text": "270,725",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-008",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In how many ways can you pick 2 co-captains from 18 players?",
+   "answer": "153",
+   "solutionSteps": [
+    "Order does not matter → combination.",
+    "C(18, 2) = 153."
+   ],
+   "options": [
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "306",
+     "correct": false
+    },
+    {
+     "text": "153",
+     "correct": true
+    },
+    {
+     "text": "324",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-009",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A committee of 5 is chosen from 7 teachers and 6 students. How many committees have exactly 3 teachers?",
+   "answer": "525",
+   "solutionSteps": [
+    "C(7, 3)·C(6, 2) = 35·15."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-001",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many 5-card hands contain exactly 2 aces?",
+   "answer": "103,776",
+   "solutionSteps": [
+    "C(4, 2)·C(48, 3)."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-002",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A pizza place offers 8 toppings. How many pizzas have at most 2 toppings?",
+   "answer": "37",
+   "solutionSteps": [
+    "C(8, 0) + C(8, 1) + C(8, 2) = 1 + 8 + 28."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-010",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "How many 5-card hands are all hearts?",
+   "answer": "1,287",
+   "solutionSteps": [
+    "C(13, 5)."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-003",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "From 10 people, how many committees of 4 include a specific person?",
+   "answer": "84",
+   "solutionSteps": [
+    "Include that person; choose 3 more from 9."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-011",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Show that C(5, 2) = C(5, 3) and explain why.",
+   "answer": "Both equal 10; choosing 2 to include is the same as choosing 3 to leave out",
+   "solutionSteps": [
+    "Compute both.",
+    "Complement reasoning."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-012",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Show that C(7, 3) = C(7, 4) and explain why.",
+   "answer": "Both equal 35; choosing 3 to include is the same as choosing 4 to leave out",
+   "solutionSteps": [
+    "Compute both.",
+    "Complement reasoning."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-013",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student computes the number of 3-person teams from 9 people as ₉P₃ = 504. What is correct?",
+   "answer": "84, because order does not matter: C(9, 3)",
+   "solutionSteps": [
+    "C(9, 3) = 504/3! = 84."
+   ],
+   "options": [
+    {
+     "text": "729",
+     "correct": false
+    },
+    {
+     "text": "84, because order does not matter: C(9, 3)",
+     "correct": true
+    },
+    {
+     "text": "504",
+     "correct": false
+    },
+    {
+     "text": "27",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-014",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL expressions equal to C(8, 3).",
+   "answer": [
+    "56",
+    "C(8, 5)",
+    "8!/(3!5!)",
+    "₈P₃/3!"
+   ],
+   "solutionSteps": [
+    "C(n, r) = C(n, n - r) = ₙPᵣ/r!.",
+    "Pascal: C(8, 3) + C(8, 4) = C(9, 4), so the last is 0."
+   ],
+   "options": [
+    {
+     "text": "8·7·6",
+     "correct": false
+    },
+    {
+     "text": "56",
+     "correct": true
+    },
+    {
+     "text": "C(8, 3) + C(8, 4) - C(9, 4)",
+     "correct": false
+    },
+    {
+     "text": "C(8, 5)",
+     "correct": true
+    },
+    {
+     "text": "8!/(3!5!)",
+     "correct": true
+    },
+    {
+     "text": "₈P₃/3!",
+     "correct": true
+    },
+    {
+     "text": "₈P₃",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-015",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A class of 12 boys and 10 girls chooses a 4-person team.",
+   "answer": "(a) 7,315; (b) 210; (c) 2,970; (d) 7,105",
+   "solutionSteps": [
+    "C(22, 4).",
+    "C(10, 4).",
+    "C(12, 2)·C(10, 2).",
+    "Complement."
+   ],
+   "parts": [
+    {
+     "prompt": "Total teams.",
+     "answer": "7,315"
+    },
+    {
+     "prompt": "Teams of all girls.",
+     "answer": "210"
+    },
+    {
+     "prompt": "Teams with 2 boys and 2 girls.",
+     "answer": "2,970"
+    },
+    {
+     "prompt": "Teams with at least 1 boy.",
+     "answer": "7,105"
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-004",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Use Pascal's triangle and combinations.",
+   "answer": "(a) 1, 5, 10, 10, 5, 1; (b) 10; (c) 6; (d) 64",
+   "solutionSteps": [
+    "Each entry is C(5, k).",
+    "Third entry.",
+    "C(4, 2).",
+    "2⁶."
+   ],
+   "parts": [
+    {
+     "prompt": "Write row 5 of Pascal's triangle.",
+     "answer": "1, 5, 10, 10, 5, 1"
+    },
+    {
+     "prompt": "Which entry is C(5, 2)?",
+     "answer": "10"
+    },
+    {
+     "prompt": "Expand (x + y)⁴'s x²y² coefficient.",
+     "answer": "6"
+    },
+    {
+     "prompt": "Find the sum of row 6.",
+     "answer": "64"
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-004",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate C(9, 0).",
+   "answer": "1",
+   "solutionSteps": [
+    "There is one way to choose nothing."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-001",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A and B are independent with P(A) = 1/2 and P(B) = 1/6. Find P(A and B).",
+   "answer": "1/12",
+   "solutionSteps": [
+    "Independent: P(A and B) = P(A)·P(B)."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-002",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A and B are independent with P(A) = 3/10 and P(B) = 2/5. Find P(A and B).",
+   "answer": "3/25",
+   "solutionSteps": [
+    "Independent: P(A and B) = P(A)·P(B)."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-003",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A and B are independent with P(A) = 1/4 and P(B) = 1/4. Find P(A and B).",
+   "answer": "1/16",
+   "solutionSteps": [
+    "Independent: P(A and B) = P(A)·P(B)."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-004",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A and B are independent with P(A) = 7/10 and P(B) = 9/10. Find P(A and B).",
+   "answer": "63/100",
+   "solutionSteps": [
+    "Independent: P(A and B) = P(A)·P(B)."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-001",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bag has 5 red and 3 blue marbles. 2 are drawn without replacement. Find P(all red).",
+   "answer": "5/14",
+   "solutionSteps": [
+    "Without replacement: the denominator and red count drop each draw (dependent).",
+    "= 5/14."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-002",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bag has 4 red and 6 blue marbles. 2 are drawn with replacement. Find P(all red).",
+   "answer": "4/25",
+   "solutionSteps": [
+    "With replacement: same probability each draw (independent).",
+    "= 4/25."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-003",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bag has 7 red and 3 blue marbles. 3 are drawn without replacement. Find P(all red).",
+   "answer": "7/24",
+   "solutionSteps": [
+    "Without replacement: the denominator and red count drop each draw (dependent).",
+    "= 7/24."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-004",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A bag has 2 red and 8 blue marbles. 2 are drawn without replacement. Find P(all red).",
+   "answer": "1/45",
+   "solutionSteps": [
+    "Without replacement: the denominator and red count drop each draw (dependent).",
+    "= 1/45."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-005",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Roll two dice. Find P(both show 6).",
+   "answer": "1/36",
+   "solutionSteps": [
+    "(1/6)(1/6)."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-006",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Flip a coin 5 times. Find P(all heads).",
+   "answer": "1/32",
+   "solutionSteps": [
+    "(1/2)⁵."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-005",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Draw 2 cards without replacement. Find P(both aces).",
+   "answer": "1/221",
+   "solutionSteps": [
+    "(4/52)(3/51)."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-006",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Draw 2 cards with replacement. Find P(both hearts).",
+   "answer": "1/16",
+   "solutionSteps": [
+    "(13/52)²."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-007",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Flip a coin 4 times. Find P(at least one head).",
+   "answer": "15/16",
+   "solutionSteps": [
+    "1 - P(no heads) = 1 - 1/16."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-001",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Roll a die 3 times. Find P(at least one 6).",
+   "answer": "91/216",
+   "solutionSteps": [
+    "1 - (5/6)³."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-008",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "P(A) = 0.4, P(B) = 0.5, P(A and B) = 0.2. Are A and B independent?",
+   "answer": "Yes, because 0.4·0.5 = 0.2",
+   "solutionSteps": [
+    "Independent ⇔ P(A and B) = P(A)P(B)."
+   ],
+   "options": [
+    {
+     "text": "No, because 0.4 + 0.5 ≠ 0.2",
+     "correct": false
+    },
+    {
+     "text": "No, because they are mutually exclusive",
+     "correct": false
+    },
+    {
+     "text": "Yes, because 0.4·0.5 = 0.2",
+     "correct": true
+    },
+    {
+     "text": "Cannot tell",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-009",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "P(A) = 0.3, P(B) = 0.6, P(A and B) = 0.1. Are A and B independent?",
+   "answer": "No, because 0.3·0.6 = 0.18 ≠ 0.1",
+   "solutionSteps": [
+    "Compare P(A and B) with P(A)P(B)."
+   ],
+   "options": [
+    {
+     "text": "Cannot tell",
+     "correct": false
+    },
+    {
+     "text": "No, because 0.3·0.6 = 0.18 ≠ 0.1",
+     "correct": true
+    },
+    {
+     "text": "Yes, because 0.3 + 0.6 < 1",
+     "correct": false
+    },
+    {
+     "text": "Yes, because 0.1 < 0.3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-010",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student says mutually exclusive events with nonzero probabilities are independent. What is correct?",
+   "answer": "They are dependent: if one occurs, the other cannot",
+   "solutionSteps": [
+    "P(A and B) = 0 ≠ P(A)P(B) > 0."
+   ],
+   "options": [
+    {
+     "text": "They are always independent",
+     "correct": false
+    },
+    {
+     "text": "They are dependent: if one occurs, the other cannot",
+     "correct": true
+    },
+    {
+     "text": "Only if P(A) = P(B)",
+     "correct": false
+    },
+    {
+     "text": "Correct",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-011",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL pairs of independent events.",
+   "answer": [
+    "Rolling a 4 on a die; flipping heads",
+    "Drawing a red card, replacing it, then drawing a red card",
+    "Two different students' birthdays being in May"
+   ],
+   "solutionSteps": [
+    "Independent: one outcome does not change the other's probability."
+   ],
+   "options": [
+    {
+     "text": "Rain today and carrying an umbrella",
+     "correct": false
+    },
+    {
+     "text": "Rolling a 4 on a die; flipping heads",
+     "correct": true
+    },
+    {
+     "text": "Drawing a red card, replacing it, then drawing a red card",
+     "correct": true
+    },
+    {
+     "text": "Drawing two aces without replacement",
+     "correct": false
+    },
+    {
+     "text": "Being late to school and oversleeping",
+     "correct": false
+    },
+    {
+     "text": "Two different students' birthdays being in May",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-012",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A spinner has 4 equal sections (red, blue, green, yellow). Spin twice.",
+   "answer": "(a) 1/16; (b) 1/4; (c) 7/16; (d) Yes",
+   "solutionSteps": [
+    "(1/4)(1/4).",
+    "4·(1/16).",
+    "1 - (3/4)².",
+    "One spin does not affect the other."
+   ],
+   "parts": [
+    {
+     "prompt": "P(red then blue).",
+     "answer": "1/16"
+    },
+    {
+     "prompt": "P(both the same color).",
+     "answer": "1/4"
+    },
+    {
+     "prompt": "P(at least one red).",
+     "answer": "7/16"
+    },
+    {
+     "prompt": "Are the spins independent?",
+     "answer": "Yes"
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-002",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A box has 3 defective and 9 good bulbs. Two are chosen without replacement.",
+   "answer": "(a) 1/22; (b) 6/11; (c) 9/22; (d) 1/22 + 12/22 + 9/22 = 1",
+   "solutionSteps": [
+    "(3/12)(2/11).",
+    "(9/12)(8/11).",
+    "2·(3/12)(9/11).",
+    "Sum."
+   ],
+   "parts": [
+    {
+     "prompt": "P(both defective).",
+     "answer": "1/22"
+    },
+    {
+     "prompt": "P(both good).",
+     "answer": "6/11"
+    },
+    {
+     "prompt": "P(exactly one defective).",
+     "answer": "9/22"
+    },
+    {
+     "prompt": "Check that the three probabilities sum to 1.",
+     "answer": "1/22 + 12/22 + 9/22 = 1"
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-001",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Table — Juniors: 30 play a sport, 20 do not. Seniors: 25 play, 45 do not. Find P(plays a sport | senior).",
+   "answer": "5/14",
+   "solutionSteps": [
+    "Restrict to seniors: 70.",
+    "25/70 = 5/14."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-002",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Same table. Find P(senior | plays a sport).",
+   "answer": "5/11",
+   "solutionSteps": [
+    "Restrict to sport players: 55.",
+    "25/55."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-003",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Same table. Find P(junior and does not play).",
+   "answer": "1/6",
+   "solutionSteps": [
+    "20/120."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-001",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Same table. Are 'senior' and 'plays a sport' independent?",
+   "answer": "No: P(sport | senior) = 5/14 ≠ P(sport) = 11/24",
+   "solutionSteps": [
+    "Compare P(sport | senior) with P(sport) = 55/120."
+   ],
+   "options": [
+    {
+     "text": "Yes: 25 + 45 = 70",
+     "correct": false
+    },
+    {
+     "text": "No: P(sport | senior) = 5/14 ≠ P(sport) = 11/24",
+     "correct": true
+    },
+    {
+     "text": "Yes: both are about half",
+     "correct": false
+    },
+    {
+     "text": "Cannot tell",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-001",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(A and B) = 1/5 and P(B) = 1/2. Find P(A | B).",
+   "answer": "2/5",
+   "solutionSteps": [
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-002",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(A and B) = 3/20 and P(B) = 3/5. Find P(A | B).",
+   "answer": "1/4",
+   "solutionSteps": [
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-003",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(A and B) = 1/8 and P(B) = 1/4. Find P(A | B).",
+   "answer": "1/2",
+   "solutionSteps": [
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-004",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(A and B) = 2/9 and P(B) = 2/3. Find P(A | B).",
+   "answer": "1/3",
+   "solutionSteps": [
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-002",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "P(D) = 1/100. A test is positive with probability 19/20 if D, and 1/20 if not D. Find P(D | positive).",
+   "answer": "19/118",
+   "solutionSteps": [
+    "P(positive) = 1/100·19/20 + 99/100·1/20 = 59/1000.",
+    "P(D | +) = 19/2000/59/1000 = 19/118."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-003",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "P(D) = 1/5. A test is positive with probability 9/10 if D, and 1/5 if not D. Find P(D | positive).",
+   "answer": "9/17",
+   "solutionSteps": [
+    "P(positive) = 1/5·9/10 + 4/5·1/5 = 17/50.",
+    "P(D | +) = 9/50/17/50 = 9/17."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-004",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "P(D) = 3/10. A test is positive with probability 4/5 if D, and 1/10 if not D. Find P(D | positive).",
+   "answer": "24/31",
+   "solutionSteps": [
+    "P(positive) = 3/10·4/5 + 7/10·1/10 = 31/100.",
+    "P(D | +) = 6/25/31/100 = 24/31."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-004",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Roll two dice. Find P(sum is 8 | at least one die shows 5).",
+   "answer": "2/11",
+   "solutionSteps": [
+    "Outcomes with a 5: 11.",
+    "Sum 8 among them: (3, 5), (5, 3)."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-005",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Draw two cards without replacement. Find P(second is a king | first is a king).",
+   "answer": "1/17",
+   "solutionSteps": [
+    "3 kings left of 51."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-006",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student says P(A | B) = P(B | A) always. Which example shows the error?",
+   "answer": "P(king | face card) = 1/3 but P(face card | king) = 1",
+   "solutionSteps": [
+    "Conditioning on different events changes the sample space."
+   ],
+   "options": [
+    {
+     "text": "P(king | face card) = 1/3 but P(face card | king) = 1",
+     "correct": true
+    },
+    {
+     "text": "P(6 | even) = 1/3",
+     "correct": false
+    },
+    {
+     "text": "P(heads | heads) = 1",
+     "correct": false
+    },
+    {
+     "text": "No example exists",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-007",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "P(A) = 0.5, P(B) = 0.4, P(A | B) = 0.5. Which is true?",
+   "answer": "A and B are independent",
+   "solutionSteps": [
+    "P(A | B) = P(A) → independent.",
+    "P(A and B) = 0.2; P(B | A) = 0.4."
+   ],
+   "options": [
+    {
+     "text": "P(B | A) = 0.5",
+     "correct": false
+    },
+    {
+     "text": "A and B are mutually exclusive",
+     "correct": false
+    },
+    {
+     "text": "A and B are independent",
+     "correct": true
+    },
+    {
+     "text": "P(A and B) = 0.9",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-008",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "In a group, P(cat) = 0.4, P(dog) = 0.5, P(cat and dog) = 0.15. Select ALL true statements.",
+   "answer": [
+    "P(cat or dog) = 0.75",
+    "P(dog | cat) = 0.375",
+    "P(cat | dog) = 0.3",
+    "P(neither) = 0.25"
+   ],
+   "solutionSteps": [
+    "Addition rule: 0.4 + 0.5 - 0.15.",
+    "0.15/0.4 and 0.15/0.5.",
+    "0.4·0.5 = 0.2 ≠ 0.15."
+   ],
+   "options": [
+    {
+     "text": "P(dog | cat) = 0.375",
+     "correct": true
+    },
+    {
+     "text": "P(neither) = 0.25",
+     "correct": true
+    },
+    {
+     "text": "The events are independent",
+     "correct": false
+    },
+    {
+     "text": "P(cat or dog) = 0.9",
+     "correct": false
+    },
+    {
+     "text": "P(cat | dog) = 0.3",
+     "correct": true
+    },
+    {
+     "text": "P(cat or dog) = 0.75",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-009",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Survey of 200: 120 like math; 80 like science; 50 like both.",
+   "answer": "(a) 3/4; (b) 5/12; (c) 5/8; (d) 1/4",
+   "solutionSteps": [
+    "(120 + 80 - 50)/200.",
+    "50/120.",
+    "50/80.",
+    "1 - 3/4."
+   ],
+   "parts": [
+    {
+     "prompt": "Find P(likes math or science).",
+     "answer": "3/4"
+    },
+    {
+     "prompt": "Find P(science | math).",
+     "answer": "5/12"
+    },
+    {
+     "prompt": "Find P(math | science).",
+     "answer": "5/8"
+    },
+    {
+     "prompt": "Find P(neither).",
+     "answer": "1/4"
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-005",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Use a tree: 60% of a store's customers use a card; 30% of card users and 10% of others buy over $50.",
+   "answer": "(a) 0.18; (b) 0.22; (c) 0.82; (d) No",
+   "solutionSteps": [
+    "0.6·0.3.",
+    "0.18 + 0.4·0.1.",
+    "0.18/0.22.",
+    "0.3 ≠ 0.22."
+   ],
+   "parts": [
+    {
+     "prompt": "P(card and over $50).",
+     "answer": "0.18"
+    },
+    {
+     "prompt": "P(over $50).",
+     "answer": "0.22"
+    },
+    {
+     "prompt": "P(card | over $50) (nearest hundredth).",
+     "answer": "0.82"
+    },
+    {
+     "prompt": "Are card use and spending over $50 independent?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-005",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(A and B) = 0.12 and P(A) = 0.3. Find P(B | A).",
+   "answer": "0.4",
+   "solutionSteps": [
+    "0.12/0.3."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-001",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A distribution has X = 0, 1, 2, 3 with P = 0.1, 0.3, k, 0.2. Find k.",
+   "answer": "0.4",
+   "solutionSteps": [
+    "Probabilities sum to 1.",
+    "k = 1 - 0.6."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-002",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A distribution has X = 1, 2, 3, 4, 5 with P = 0.05, 0.15, 0.4, k, 0.1. Find k.",
+   "answer": "0.3",
+   "solutionSteps": [
+    "Probabilities sum to 1.",
+    "k = 1 - 0.7."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-003",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A distribution has X = -1, 0, 2 with P = 1/4, k, 1/3. Find k.",
+   "answer": "5/12",
+   "solutionSteps": [
+    "Probabilities sum to 1.",
+    "k = 1 - 7/12."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-001",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is binomial with n = 5 and p = 1/2. Find P(X = 3) (exact, then to 4 decimals).",
+   "answer": "5/16 ≈ 0.3125",
+   "solutionSteps": [
+    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "C(5, 3)(1/2)^3(1/2)^2."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-002",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is binomial with n = 6 and p = 1/6. Find P(X = 1) (exact, then to 4 decimals).",
+   "answer": "3125/7776 ≈ 0.4019",
+   "solutionSteps": [
+    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "C(6, 1)(1/6)^1(5/6)^5."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-001",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "X is binomial with n = 10 and p = 1/4. Find P(X = 2) (exact, then to 4 decimals).",
+   "answer": "295245/1048576 ≈ 0.2816",
+   "solutionSteps": [
+    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "C(10, 2)(1/4)^2(3/4)^8."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-002",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "X is binomial with n = 8 and p = 3/5. Find P(X = 6) (exact, then to 4 decimals).",
+   "answer": "81648/390625 ≈ 0.2090",
+   "solutionSteps": [
+    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "C(8, 6)(3/5)^6(2/5)^2."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-003",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is binomial with n = 4 and p = 1/3. Find P(X = 0) (exact, then to 4 decimals).",
+   "answer": "16/81 ≈ 0.1975",
+   "solutionSteps": [
+    "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "C(4, 0)(1/3)^0(2/3)^4."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-004",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the probability distribution of X = number of successes in 3 trials with p = 1/2.",
+   "answer": "P(0) = 1/8, P(1) = 3/8, P(2) = 3/8, P(3) = 1/8",
+   "solutionSteps": [
+    "Binomial: C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ for each k."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-005",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Write the probability distribution of X = number of successes in 4 trials with p = 1/4.",
+   "answer": "P(0) = 81/256, P(1) = 27/64, P(2) = 27/128, P(3) = 3/64, P(4) = 1/256",
+   "solutionSteps": [
+    "Binomial: C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ for each k."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-006",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which could be a probability distribution?",
+   "answer": "P(0) = 0.2, P(1) = 0.5, P(2) = 0.3",
+   "solutionSteps": [
+    "Each probability is between 0 and 1, and they sum to 1."
+   ],
+   "options": [
+    {
+     "text": "P(0) = 0.4, P(1) = 0.4, P(2) = 0.4",
+     "correct": false
+    },
+    {
+     "text": "P(0) = 0.3, P(1) = 0.3, P(2) = 0.3",
+     "correct": false
+    },
+    {
+     "text": "P(0) = 0.5, P(1) = 0.6, P(2) = -0.1",
+     "correct": false
+    },
+    {
+     "text": "P(0) = 0.2, P(1) = 0.5, P(2) = 0.3",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-007",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which situation is binomial?",
+   "answer": "Number of heads in 10 coin flips",
+   "solutionSteps": [
+    "Fixed n, two outcomes, independent trials, constant p."
+   ],
+   "options": [
+    {
+     "text": "Number of heads in 10 coin flips",
+     "correct": true
+    },
+    {
+     "text": "Number of cards drawn until an ace (no replacement)",
+     "correct": false
+    },
+    {
+     "text": "Number of flips until the first head",
+     "correct": false
+    },
+    {
+     "text": "Height of 10 students",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-008",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "X = number of sixes in 3 rolls of a die. Select ALL true statements.",
+   "answer": [
+    "X is binomial with n = 3, p = 1/6",
+    "P(X = 0) = 125/216",
+    "P(X = 3) = 1/216",
+    "P(X ≥ 1) = 91/216"
+   ],
+   "solutionSteps": [
+    "(5/6)³ = 125/216.",
+    "P(X = 1) = 3(1/6)(5/6)² = 75/216."
+   ],
+   "options": [
+    {
+     "text": "P(X = 0) = 125/216",
+     "correct": true
+    },
+    {
+     "text": "X is binomial with n = 3, p = 1/6",
+     "correct": true
+    },
+    {
+     "text": "P(X = 1) = 1/6",
+     "correct": false
+    },
+    {
+     "text": "X can equal 4",
+     "correct": false
+    },
+    {
+     "text": "P(X ≥ 1) = 91/216",
+     "correct": true
+    },
+    {
+     "text": "P(X = 3) = 1/216",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-009",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A quiz has 5 multiple-choice questions with 4 choices each. A student guesses on all.",
+   "answer": "(a) n = 5, p = 1/4; (b) 243/1024; (c) 135/512; (d) 781/1024",
+   "solutionSteps": [
+    "Binomial.",
+    "(3/4)⁵.",
+    "C(5, 2)(1/4)²(3/4)³.",
+    "Complement."
+   ],
+   "parts": [
+    {
+     "prompt": "What are n and p?",
+     "answer": "n = 5, p = 1/4"
+    },
+    {
+     "prompt": "P(all wrong).",
+     "answer": "243/1024"
+    },
+    {
+     "prompt": "P(exactly 2 right).",
+     "answer": "135/512"
+    },
+    {
+     "prompt": "P(at least 1 right).",
+     "answer": "781/1024"
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-003",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "X: P(X = 1) = 0.2, P(X = 2) = 0.5, P(X = 3) = 0.3.",
+   "answer": "(a) 0.8; (b) 2.1; (c) 4.9; (d) 0.49",
+   "solutionSteps": [
+    "0.5 + 0.3.",
+    "Σ x·P.",
+    "Σ x²·P.",
+    "E(X²) - μ²."
+   ],
+   "parts": [
+    {
+     "prompt": "Find P(X ≥ 2).",
+     "answer": "0.8"
+    },
+    {
+     "prompt": "Find the mean.",
+     "answer": "2.1"
+    },
+    {
+     "prompt": "Find E(X²).",
+     "answer": "4.9"
+    },
+    {
+     "prompt": "Find the variance.",
+     "answer": "0.49"
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-004",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For a fair coin flipped 4 times, what is P(exactly 2 heads)?",
+   "answer": "3/8",
+   "solutionSteps": [
+    "C(4, 2)/16 = 6/16."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find E(X): X = 0, 1, 2, 3 with P = 1/8, 3/8, 3/8, 1/8.",
+   "answer": "3/2",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "= 3/2."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find E(X): X = 10, 20, 50 with P = 1/2, 3/10, 1/5.",
+   "answer": "21",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "= 21."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find E(X): X = -5, 0, 15 with P = 1/2, 1/4, 1/4.",
+   "answer": "5/4",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "= 5/4."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find E(X): X = 1, 2, 3, 4, 5, 6 with P = 1/6, 1/6, 1/6, 1/6, 1/6, 1/6.",
+   "answer": "7/2",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "= 7/2."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A raffle ticket costs $2. Prizes: $100 with probability 1/200, $10 with probability 1/20. Find the expected net gain.",
+   "answer": "-$1",
+   "solutionSteps": [
+    "Expected winnings Σ prize·P.",
+    "Subtract the cost."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-005",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A raffle ticket costs $5. Prizes: $500 with probability 1/1000, $20 with probability 1/50. Find the expected net gain.",
+   "answer": "-$41/10",
+   "solutionSteps": [
+    "Expected winnings Σ prize·P.",
+    "Subtract the cost."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-006",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A raffle ticket costs $1. Prizes: $50 with probability 1/100. Find the expected net gain.",
+   "answer": "-$1/2",
+   "solutionSteps": [
+    "Expected winnings Σ prize·P.",
+    "Subtract the cost."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-007",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A game: roll a die; win $6 on a 6, lose $1 otherwise. Is it fair?",
+   "answer": "No: E = 6(1/6) - 1(5/6) = 1/6 > 0, favoring the player",
+   "solutionSteps": [
+    "Fair means E = 0."
+   ],
+   "options": [
+    {
+     "text": "No: E < 0",
+     "correct": false
+    },
+    {
+     "text": "No: E = 6(1/6) - 1(5/6) = 1/6 > 0, favoring the player",
+     "correct": true
+    },
+    {
+     "text": "Yes: you win on 1 of 6 outcomes",
+     "correct": false
+    },
+    {
+     "text": "Yes: E = 0",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-008",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A student computes E(X) by averaging the values 0, 10, 100 to get 36.7 though P(100) is tiny. What is wrong?",
+   "answer": "Values must be weighted by their probabilities",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x)."
+   ],
+   "options": [
+    {
+     "text": "Should use the median",
+     "correct": false
+    },
+    {
+     "text": "Nothing",
+     "correct": false
+    },
+    {
+     "text": "Should add the values",
+     "correct": false
+    },
+    {
+     "text": "Values must be weighted by their probabilities",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-009",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An insurance company charges $300 per year. It pays $50,000 with probability 0.004. Find its expected profit per policy.",
+   "answer": "$100",
+   "solutionSteps": [
+    "300 - 50000(0.004) = 100."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-010",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the expected number of heads in 20 flips of a fair coin.",
+   "answer": "10",
+   "solutionSteps": [
+    "Binomial mean np."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-001",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A basketball player makes 75% of free throws. In a 1-and-1 (second shot only if the first is made), find the expected points.",
+   "answer": "1.3125",
+   "solutionSteps": [
+    "P(0) = 0.25, P(1) = 0.75·0.25, P(2) = 0.75².",
+    "E = 0.1875 + 2(0.5625) = 1.3125."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the price x that makes this game fair: pay x, roll two dice, win $10 if the sum is 7.",
+   "answer": "$5/3 ≈ $1.67",
+   "solutionSteps": [
+    "P(7) = 1/6.",
+    "Fair: 10(1/6) - x = 0."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-011",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "X has E(X) = 4. Select ALL true statements.",
+   "answer": [
+    "E(2X) = 8",
+    "E(X + 3) = 7",
+    "E(X - 4) = 0",
+    "E(3X - 1) = 11"
+   ],
+   "solutionSteps": [
+    "E(aX + b) = aE(X) + b.",
+    "E(X²) depends on the spread; X need not take the value 4."
+   ],
+   "options": [
+    {
+     "text": "E(2X) = 8",
+     "correct": true
+    },
+    {
+     "text": "E(X + 3) = 7",
+     "correct": true
+    },
+    {
+     "text": "X must equal 4 sometimes",
+     "correct": false
+    },
+    {
+     "text": "E(3X - 1) = 11",
+     "correct": true
+    },
+    {
+     "text": "E(X - 4) = 0",
+     "correct": true
+    },
+    {
+     "text": "E(X²) = 16 always",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-012",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A carnival game costs $3. Spin a wheel: P($10) = 0.1, P($5) = 0.2, P($0) = 0.7.",
+   "answer": "(a) $2; (b) -$1; (c) -$50; (d) $20",
+   "solutionSteps": [
+    "10(0.1) + 5(0.2).",
+    "2 - 3.",
+    "50·(-1).",
+    "0.1x + 1 = 3."
+   ],
+   "parts": [
+    {
+     "prompt": "Expected winnings.",
+     "answer": "$2"
+    },
+    {
+     "prompt": "Expected net gain.",
+     "answer": "-$1"
+    },
+    {
+     "prompt": "Expected net over 50 plays.",
+     "answer": "-$50"
+    },
+    {
+     "prompt": "What prize for the $10 slot makes the game fair?",
+     "answer": "$20"
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A company can launch product A (60%: +$80k, 40%: -$30k) or B (90%: +$40k, 10%: -$10k).",
+   "answer": "(a) $36,000; (b) $35,000; (c) A; (d) Lower risk: B rarely loses money",
+   "solutionSteps": [
+    "48 - 12.",
+    "36 - 1.",
+    "Compare.",
+    "Variability matters."
+   ],
+   "parts": [
+    {
+     "prompt": "E(A).",
+     "answer": "$36,000"
+    },
+    {
+     "prompt": "E(B).",
+     "answer": "$35,000"
+    },
+    {
+     "prompt": "Which has higher expected value?",
+     "answer": "A"
+    },
+    {
+     "prompt": "Why might the company still choose B?",
+     "answer": "Lower risk: B rarely loses money"
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-002",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find E(X) for a fair coin with X = 1 for heads, 0 for tails.",
+   "answer": "1/2",
+   "solutionSteps": [
+    "1(1/2) + 0(1/2)."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-001",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the z-score of x = 85 when μ = 70 and σ = 10.",
+   "answer": "1.5",
+   "solutionSteps": [
+    "z = (x - μ)/σ.",
+    "(85 - 70)/10 = 1.5."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-002",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the z-score of x = 52 when μ = 60 and σ = 4.",
+   "answer": "-2",
+   "solutionSteps": [
+    "z = (x - μ)/σ.",
+    "(52 - 60)/4 = -2."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-003",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the z-score of x = 180 when μ = 150 and σ = 20.",
+   "answer": "1.5",
+   "solutionSteps": [
+    "z = (x - μ)/σ.",
+    "(180 - 150)/20 = 1.5."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-004",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the z-score of x = 3.2 when μ = 3 and σ = 0.4.",
+   "answer": "0.5",
+   "solutionSteps": [
+    "z = (x - μ)/σ.",
+    "(3.2 - 3)/0.4 = 0.5."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-005",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the z-score of x = 61 when μ = 70 and σ = 6.",
+   "answer": "-1.5",
+   "solutionSteps": [
+    "z = (x - μ)/σ.",
+    "(61 - 70)/6 = -1.5."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-006",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies between μ - 1σ and μ + 1σ?",
+   "answer": "68%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "99.7%",
+     "correct": false
+    },
+    {
+     "text": "95%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": true
+    },
+    {
+     "text": "34%",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-007",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies between μ - 2σ and μ + 2σ?",
+   "answer": "95%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "99.7%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "34%",
+     "correct": false
+    },
+    {
+     "text": "95%",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-008",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies between μ - 3σ and μ + 3σ?",
+   "answer": "99.7%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "95%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "99.7%",
+     "correct": true
+    },
+    {
+     "text": "34%",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-001",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies between μ and μ + 1σ?",
+   "answer": "34%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "34%",
+     "correct": true
+    },
+    {
+     "text": "99.7%",
+     "correct": false
+    },
+    {
+     "text": "95%",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-002",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies between μ + 1σ and μ + 2σ?",
+   "answer": "13.5%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "99.7%",
+     "correct": false
+    },
+    {
+     "text": "13.5%",
+     "correct": true
+    },
+    {
+     "text": "95%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-003",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies between μ - 2σ and μ?",
+   "answer": "47.5%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "47.5%",
+     "correct": true
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "99.7%",
+     "correct": false
+    },
+    {
+     "text": "95%",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-004",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Use the empirical rule: what percent of a normal distribution lies above μ + 2σ?",
+   "answer": "2.5%",
+   "solutionSteps": [
+    "Empirical rule: 68–95–99.7.",
+    "Split symmetrically about the mean."
+   ],
+   "options": [
+    {
+     "text": "95%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "99.7%",
+     "correct": false
+    },
+    {
+     "text": "2.5%",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-005",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is normal with μ = 100 and σ = 15. Use technology to find P(85 < X < 115) (4 decimals).",
+   "answer": "0.6827",
+   "solutionSteps": [
+    "Convert to z-scores.",
+    "Use normalcdf or a z-table."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-006",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is normal with μ = 500 and σ = 100. Use technology to find P(X > 650) (4 decimals).",
+   "answer": "0.0668",
+   "solutionSteps": [
+    "Convert to z-scores.",
+    "Use normalcdf or a z-table."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-007",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is normal with μ = 64 and σ = 3. Use technology to find P(X < 58) (4 decimals).",
+   "answer": "0.0228",
+   "solutionSteps": [
+    "Convert to z-scores.",
+    "Use normalcdf or a z-table."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-008",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X is normal with μ = 20 and σ = 2. Use technology to find P(17 < X < 25) (4 decimals).",
+   "answer": "0.9270",
+   "solutionSteps": [
+    "Convert to z-scores.",
+    "Use normalcdf or a z-table."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-009",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Test A: score 82 (μ = 75, σ = 5). Test B: score 88 (μ = 80, σ = 8). On which test did the student do relatively better?",
+   "answer": "Test A (z = 1.4 vs z = 1.0)",
+   "solutionSteps": [
+    "Compare z-scores."
+   ],
+   "options": [
+    {
+     "text": "Cannot compare",
+     "correct": false
+    },
+    {
+     "text": "Test A (z = 1.4 vs z = 1.0)",
+     "correct": true
+    },
+    {
+     "text": "Equally well",
+     "correct": false
+    },
+    {
+     "text": "Test B (higher score)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-010",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which is NOT a property of every normal distribution?",
+   "answer": "It is skewed right",
+   "solutionSteps": [
+    "Normal curves are bell-shaped and symmetric."
+   ],
+   "options": [
+    {
+     "text": "About 95% lies within 2σ of the mean",
+     "correct": false
+    },
+    {
+     "text": "Mean = median",
+     "correct": false
+    },
+    {
+     "text": "It is symmetric about the mean",
+     "correct": false
+    },
+    {
+     "text": "It is skewed right",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-011",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Heights are normal with μ = 66 in and σ = 3 in. Select ALL true statements.",
+   "answer": [
+    "About 68% are between 63 and 69 in",
+    "About 2.5% are taller than 72 in",
+    "A height of 60 in has z = -2",
+    "About 50% are shorter than 66 in"
+   ],
+   "solutionSteps": [
+    "μ ± σ = 63–69; μ + 2σ = 72.",
+    "z = (60 - 66)/3 = -2."
+   ],
+   "options": [
+    {
+     "text": "About 50% are shorter than 66 in",
+     "correct": true
+    },
+    {
+     "text": "A height of 60 in has z = -2",
+     "correct": true
+    },
+    {
+     "text": "About 68% are between 63 and 69 in",
+     "correct": true
+    },
+    {
+     "text": "A height of 69 in has z = 3",
+     "correct": false
+    },
+    {
+     "text": "About 2.5% are taller than 72 in",
+     "correct": true
+    },
+    {
+     "text": "About 95% are between 60 and 69 in",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-001",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "SAT math: μ = 520, σ = 115. What score marks the 90th percentile (nearest whole)?",
+   "answer": "667",
+   "solutionSteps": [
+    "z ≈ 1.2816 for the 90th percentile.",
+    "x = μ + zσ."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-012",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Battery life is normal with μ = 40 h, σ = 5 h.",
+   "answer": "(a) 68%; (b) 2.5%; (c) -1.6; (d) 0.0548",
+   "solutionSteps": [
+    "±1σ.",
+    "Above +2σ.",
+    "(32 - 40)/5.",
+    "normalcdf."
+   ],
+   "parts": [
+    {
+     "prompt": "What percent last 35–45 h?",
+     "answer": "68%"
+    },
+    {
+     "prompt": "What percent last more than 50 h?",
+     "answer": "2.5%"
+    },
+    {
+     "prompt": "Find the z-score of 32 h.",
+     "answer": "-1.6"
+    },
+    {
+     "prompt": "Use technology: P(X < 32) (4 decimals).",
+     "answer": "0.0548"
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-002",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A machine fills bags: μ = 16.2 oz, σ = 0.15 oz. Bags under 16 oz are rejected.",
+   "answer": "(a) -1.33; (b) 9.1%; (c) 16.35 oz; (d) Reduce σ (more consistent filling)",
+   "solutionSteps": [
+    "(16 - 16.2)/0.15.",
+    "Φ(z).",
+    "16 = μ - 2.326(0.15).",
+    "Less variability."
+   ],
+   "parts": [
+    {
+     "prompt": "z-score of 16 oz (nearest hundredth).",
+     "answer": "-1.33"
+    },
+    {
+     "prompt": "Percent rejected (nearest tenth).",
+     "answer": "9.1%"
+    },
+    {
+     "prompt": "To reject only 1%, what mean is needed (σ fixed; nearest hundredth)?",
+     "answer": "16.35 oz"
+    },
+    {
+     "prompt": "Name one other way to reduce rejections.",
+     "answer": "Reduce σ (more consistent filling)"
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-009",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is the z-score of a value equal to the mean?",
+   "answer": "0",
+   "solutionSteps": [
+    "(μ - μ)/σ."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-001",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the sampling method: Every 10th customer entering a store is surveyed.",
+   "answer": "Systematic",
+   "solutionSteps": [
+    "Match the description to the method."
+   ],
+   "options": [
+    {
+     "text": "Simple random",
+     "correct": false
+    },
+    {
+     "text": "Stratified",
+     "correct": false
+    },
+    {
+     "text": "Cluster",
+     "correct": false
+    },
+    {
+     "text": "Systematic",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-002",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the sampling method: Names are drawn from a hat containing every student's name.",
+   "answer": "Simple random",
+   "solutionSteps": [
+    "Match the description to the method."
+   ],
+   "options": [
+    {
+     "text": "Stratified",
+     "correct": false
+    },
+    {
+     "text": "Systematic",
+     "correct": false
+    },
+    {
+     "text": "Simple random",
+     "correct": true
+    },
+    {
+     "text": "Cluster",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-003",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the sampling method: Each grade level is sampled randomly in proportion to its size.",
+   "answer": "Stratified",
+   "solutionSteps": [
+    "Match the description to the method."
+   ],
+   "options": [
+    {
+     "text": "Systematic",
+     "correct": false
+    },
+    {
+     "text": "Cluster",
+     "correct": false
+    },
+    {
+     "text": "Stratified",
+     "correct": true
+    },
+    {
+     "text": "Simple random",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-004",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the sampling method: Three homerooms are randomly chosen and every student in them is surveyed.",
+   "answer": "Cluster",
+   "solutionSteps": [
+    "Match the description to the method."
+   ],
+   "options": [
+    {
+     "text": "Simple random",
+     "correct": false
+    },
+    {
+     "text": "Cluster",
+     "correct": true
+    },
+    {
+     "text": "Systematic",
+     "correct": false
+    },
+    {
+     "text": "Stratified",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-005",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the sampling method: A radio host asks listeners to call in.",
+   "answer": "Voluntary response (biased)",
+   "solutionSteps": [
+    "Match the description to the method."
+   ],
+   "options": [
+    {
+     "text": "Stratified",
+     "correct": false
+    },
+    {
+     "text": "Voluntary response (biased)",
+     "correct": true
+    },
+    {
+     "text": "Systematic",
+     "correct": false
+    },
+    {
+     "text": "Simple random",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-006",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Name the sampling method: A reporter interviews people walking by the library.",
+   "answer": "Convenience (biased)",
+   "solutionSteps": [
+    "Match the description to the method."
+   ],
+   "options": [
+    {
+     "text": "Convenience (biased)",
+     "correct": true
+    },
+    {
+     "text": "Simple random",
+     "correct": false
+    },
+    {
+     "text": "Stratified",
+     "correct": false
+    },
+    {
+     "text": "Systematic",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-001",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the study type: Researchers randomly assign patients to a new drug or a placebo.",
+   "answer": "Experiment",
+   "solutionSteps": [
+    "Experiments impose treatments; observational studies do not."
+   ],
+   "options": [
+    {
+     "text": "Observational study",
+     "correct": false
+    },
+    {
+     "text": "Census",
+     "correct": false
+    },
+    {
+     "text": "Experiment",
+     "correct": true
+    },
+    {
+     "text": "Sample survey",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-002",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the study type: A survey asks 500 adults about their exercise habits.",
+   "answer": "Sample survey",
+   "solutionSteps": [
+    "Experiments impose treatments; observational studies do not."
+   ],
+   "options": [
+    {
+     "text": "Experiment",
+     "correct": false
+    },
+    {
+     "text": "Observational study",
+     "correct": false
+    },
+    {
+     "text": "Census",
+     "correct": false
+    },
+    {
+     "text": "Sample survey",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-003",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the study type: Researchers record whether past smokers developed heart disease.",
+   "answer": "Observational study",
+   "solutionSteps": [
+    "Experiments impose treatments; observational studies do not."
+   ],
+   "options": [
+    {
+     "text": "Observational study",
+     "correct": true
+    },
+    {
+     "text": "Experiment",
+     "correct": false
+    },
+    {
+     "text": "Census",
+     "correct": false
+    },
+    {
+     "text": "Sample survey",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-004",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A survey of 400 finds p̂ = 0.52. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
+   "answer": "±0.050; (0.470, 0.570)",
+   "solutionSteps": [
+    "MOE ≈ 2√(p̂(1 - p̂)/n).",
+    "Interval p̂ ± MOE."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-005",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A survey of 1,000 finds p̂ = 0.35. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
+   "answer": "±0.030; (0.320, 0.380)",
+   "solutionSteps": [
+    "MOE ≈ 2√(p̂(1 - p̂)/n).",
+    "Interval p̂ ± MOE."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-006",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A survey of 150 finds p̂ = 0.6. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
+   "answer": "±0.080; (0.520, 0.680)",
+   "solutionSteps": [
+    "MOE ≈ 2√(p̂(1 - p̂)/n).",
+    "Interval p̂ ± MOE."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-007",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A survey of 2,500 finds p̂ = 0.25. Find the approximate 95% margin of error (2·√(p̂(1 - p̂)/n)) and the interval.",
+   "answer": "±0.017; (0.233, 0.267)",
+   "solutionSteps": [
+    "MOE ≈ 2√(p̂(1 - p̂)/n).",
+    "Interval p̂ ± MOE."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-008",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "To cut the margin of error in half, the sample size must be…",
+   "answer": "multiplied by 4",
+   "solutionSteps": [
+    "MOE ∝ 1/√n."
+   ],
+   "options": [
+    {
+     "text": "multiplied by 4",
+     "correct": true
+    },
+    {
+     "text": "doubled",
+     "correct": false
+    },
+    {
+     "text": "multiplied by 8",
+     "correct": false
+    },
+    {
+     "text": "halved",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-009",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Why can an experiment (but not an observational study) show cause and effect?",
+   "answer": "Random assignment balances other variables between groups",
+   "solutionSteps": [
+    "Randomization controls for confounding variables."
+   ],
+   "options": [
+    {
+     "text": "It always uses a placebo",
+     "correct": false
+    },
+    {
+     "text": "Random assignment balances other variables between groups",
+     "correct": true
+    },
+    {
+     "text": "It uses larger samples",
+     "correct": false
+    },
+    {
+     "text": "It surveys more people",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-001",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In 200 simulated samples, a sample mean difference of 4.5 or more occurred 3 times. What does this suggest about an observed difference of 4.5?",
+   "answer": "It is unlikely by chance alone (≈1.5%), so it is statistically significant",
+   "solutionSteps": [
+    "3/200 = 1.5% < 5%."
+   ],
+   "options": [
+    {
+     "text": "It is common, so not significant",
+     "correct": false
+    },
+    {
+     "text": "It is unlikely by chance alone (≈1.5%), so it is statistically significant",
+     "correct": true
+    },
+    {
+     "text": "The simulation is invalid",
+     "correct": false
+    },
+    {
+     "text": "The treatment had no effect",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-010",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL sources of bias.",
+   "answer": [
+    "Asking 'Don't you agree the park needs repairs?'",
+    "Surveying only people with landlines",
+    "Letting volunteers decide whether to respond"
+   ],
+   "solutionSteps": [
+    "Leading questions, undercoverage, and voluntary response bias results."
+   ],
+   "options": [
+    {
+     "text": "Letting volunteers decide whether to respond",
+     "correct": true
+    },
+    {
+     "text": "Asking 'Don't you agree the park needs repairs?'",
+     "correct": true
+    },
+    {
+     "text": "Randomly selecting from a full list",
+     "correct": false
+    },
+    {
+     "text": "Using a large random sample",
+     "correct": false
+    },
+    {
+     "text": "Random assignment to treatments",
+     "correct": false
+    },
+    {
+     "text": "Surveying only people with landlines",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-002",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "A 95% confidence interval for a proportion is (0.42, 0.50). Select ALL correct interpretations or facts.",
+   "answer": [
+    "p̂ = 0.46",
+    "The margin of error is 0.04",
+    "We are 95% confident the true proportion is between 0.42 and 0.50"
+   ],
+   "solutionSteps": [
+    "Center = p̂; half-width = MOE.",
+    "Confidence is about the method capturing the true parameter."
+   ],
+   "options": [
+    {
+     "text": "There is a 95% chance p̂ is in the interval",
+     "correct": false
+    },
+    {
+     "text": "The true proportion is definitely 0.46",
+     "correct": false
+    },
+    {
+     "text": "We are 95% confident the true proportion is between 0.42 and 0.50",
+     "correct": true
+    },
+    {
+     "text": "The margin of error is 0.04",
+     "correct": true
+    },
+    {
+     "text": "p̂ = 0.46",
+     "correct": true
+    },
+    {
+     "text": "95% of people are between 0.42 and 0.50",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-011",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A school wants to know what percent of its 1,200 students support a later start time.",
+   "answer": "(a) Number all students; randomly choose 100 numbers; (b) 0.64; (c) ±0.10; (d) (0.54, 0.74)",
+   "solutionSteps": [
+    "Random selection from a full list.",
+    "64/100.",
+    "2√(0.64·0.36/100).",
+    "p̂ ± MOE."
+   ],
+   "parts": [
+    {
+     "prompt": "Describe a simple random sample of 100.",
+     "answer": "Number all students; randomly choose 100 numbers"
+    },
+    {
+     "prompt": "If 64 of 100 support it, find p̂.",
+     "answer": "0.64"
+    },
+    {
+     "prompt": "Find the 95% margin of error (nearest hundredth).",
+     "answer": "±0.10"
+    },
+    {
+     "prompt": "State the interval.",
+     "answer": "(0.54, 0.74)"
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-003",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Design an experiment to test whether a new fertilizer increases tomato yield using 40 plants.",
+   "answer": "(a) New fertilizer vs. standard (control); (b) Randomly, 20 to each group; (c) Tomato yield per plant; (d) To reduce the effect of natural variation",
+   "solutionSteps": [
+    "Two groups.",
+    "Random assignment.",
+    "What is measured.",
+    "Replication."
+   ],
+   "parts": [
+    {
+     "prompt": "Identify the treatments.",
+     "answer": "New fertilizer vs. standard (control)"
+    },
+    {
+     "prompt": "How should plants be assigned?",
+     "answer": "Randomly, 20 to each group"
+    },
+    {
+     "prompt": "Name the response variable.",
+     "answer": "Tomato yield per plant"
+    },
+    {
+     "prompt": "Why replicate with many plants?",
+     "answer": "To reduce the effect of natural variation"
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-007",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is a parameter?",
+   "answer": "A numerical summary of a population",
+   "solutionSteps": [
+    "Statistics describe samples; parameters describe populations."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-017",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "How many ways can 5 different books be arranged on a shelf?",
+   "answer": "120",
+   "solutionSteps": [
+    "Order matters; use the counting principle or ₙPᵣ."
+   ],
+   "options": [
+    {
+     "text": "120",
+     "correct": true
+    },
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "3,125",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-018",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "How many ways can a coach choose a batting order for 9 players?",
+   "answer": "362,880",
+   "solutionSteps": [
+    "Order matters; use the counting principle or ₙPᵣ."
+   ],
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "81",
+     "correct": false
+    },
+    {
+     "text": "362,880",
+     "correct": true
+    },
+    {
+     "text": "387,420,489",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-019",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "How many 4-character passwords use digits 0–9 without repetition?",
+   "answer": "5,040",
+   "solutionSteps": [
+    "Order matters; use the counting principle or ₙPᵣ."
+   ],
+   "options": [
+    {
+     "text": "210",
+     "correct": false
+    },
+    {
+     "text": "10,000",
+     "correct": false
+    },
+    {
+     "text": "5,040",
+     "correct": true
+    },
+    {
+     "text": "40",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-020",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "How many ways can 3 of 8 runners finish 1st, 2nd, 3rd?",
+   "answer": "336",
+   "solutionSteps": [
+    "Order matters; use the counting principle or ₙPᵣ."
+   ],
+   "options": [
+    {
+     "text": "336",
+     "correct": true
+    },
+    {
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "512",
+     "correct": false
+    },
+    {
+     "text": "56",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-005",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "5 cards are dealt. Find P(all 5 are spades).",
+   "answer": "33/66640",
+   "solutionSteps": [
+    "P = (favorable combinations)/(total combinations).",
+    "1,287/2,598,960."
+   ],
+   "options": [
+    {
+     "text": "33/133280",
+     "correct": false
+    },
+    {
+     "text": "33/66640",
+     "correct": true
+    },
+    {
+     "text": "23/46410",
+     "correct": false
+    },
+    {
+     "text": "33/33320",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-016",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A committee of 3 is chosen at random from 6 girls and 4 boys. Find P(all girls).",
+   "answer": "1/6",
+   "solutionSteps": [
+    "P = (favorable combinations)/(total combinations).",
+    "20/120."
+   ],
+   "options": [
+    {
+     "text": "1/6",
+     "correct": true
+    },
+    {
+     "text": "1/12",
+     "correct": false
+    },
+    {
+     "text": "7/40",
+     "correct": false
+    },
+    {
+     "text": "1/3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-017",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Choose 2 bulbs from 10, of which 3 are defective. Find P(both defective).",
+   "answer": "1/15",
+   "solutionSteps": [
+    "P = (favorable combinations)/(total combinations).",
+    "3/45."
+   ],
+   "options": [
+    {
+     "text": "1/15",
+     "correct": true
+    },
+    {
+     "text": "4/45",
+     "correct": false
+    },
+    {
+     "text": "1/30",
+     "correct": false
+    },
+    {
+     "text": "2/15",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-018",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A 4-person team is chosen from 12 people including Ana and Ben. Find P(both are chosen).",
+   "answer": "1/11",
+   "solutionSteps": [
+    "P = (favorable combinations)/(total combinations).",
+    "45/495."
+   ],
+   "options": [
+    {
+     "text": "2/11",
+     "correct": false
+    },
+    {
+     "text": "46/495",
+     "correct": false
+    },
+    {
+     "text": "1/22",
+     "correct": false
+    },
+    {
+     "text": "1/11",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-019",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Choose 3 numbers from 1–10. Find P(all are even).",
+   "answer": "1/12",
+   "solutionSteps": [
+    "P = (favorable combinations)/(total combinations).",
+    "10/120."
+   ],
+   "options": [
+    {
+     "text": "11/120",
+     "correct": false
+    },
+    {
+     "text": "1/24",
+     "correct": false
+    },
+    {
+     "text": "1/12",
+     "correct": true
+    },
+    {
+     "text": "1/6",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-020",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL expressions equal to the number of 2-person handshakes among 10 people.",
+   "answer": [
+    "C(10, 2)",
+    "45",
+    "10·9/2"
+   ],
+   "solutionSteps": [
+    "Each handshake is an unordered pair."
+   ],
+   "options": [
+    {
+     "text": "10·9/2",
+     "correct": true
+    },
+    {
+     "text": "C(10, 2)",
+     "correct": true
+    },
+    {
+     "text": "45",
+     "correct": true
+    },
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "₁₀P₂",
+     "correct": false
+    },
+    {
+     "text": "10·9",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-006",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A lottery picks 6 numbers from 1–49 (order irrelevant).",
+   "answer": "(a) 13,983,816; (b) 1/13,983,816; (c) 258; (d) 43/2330636",
+   "solutionSteps": [
+    "C(49, 6).",
+    "Reciprocal.",
+    "C(6, 5)·C(43, 1).",
+    "Divide."
+   ],
+   "parts": [
+    {
+     "prompt": "Number of possible tickets.",
+     "answer": "13,983,816"
+    },
+    {
+     "prompt": "P(winning with one ticket).",
+     "answer": "1/13,983,816"
+    },
+    {
+     "prompt": "Number of tickets matching exactly 5.",
+     "answer": "258"
+    },
+    {
+     "prompt": "P(matching exactly 5).",
+     "answer": "43/2330636"
+    }
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-013",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A jar has 6 red and 4 blue chips. Two are drawn without replacement. Find P(both red).",
+   "answer": "1/3",
+   "solutionSteps": [
+    "Dependent: (r/t)·((r - 1)/(t - 1)).",
+    "With replacement would give (r/t)²."
+   ],
+   "options": [
+    {
+     "text": "3/5",
+     "correct": false
+    },
+    {
+     "text": "3/10",
+     "correct": false
+    },
+    {
+     "text": "9/25",
+     "correct": false
+    },
+    {
+     "text": "1/3",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-014",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A jar has 3 red and 9 blue chips. Two are drawn without replacement. Find P(both red).",
+   "answer": "1/22",
+   "solutionSteps": [
+    "Dependent: (r/t)·((r - 1)/(t - 1)).",
+    "With replacement would give (r/t)²."
+   ],
+   "options": [
+    {
+     "text": "1/22",
+     "correct": true
+    },
+    {
+     "text": "1/16",
+     "correct": false
+    },
+    {
+     "text": "1/24",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-015",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A jar has 5 red and 5 blue chips. Two are drawn without replacement. Find P(both red).",
+   "answer": "2/9",
+   "solutionSteps": [
+    "Dependent: (r/t)·((r - 1)/(t - 1)).",
+    "With replacement would give (r/t)²."
+   ],
+   "options": [
+    {
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "1/5",
+     "correct": false
+    },
+    {
+     "text": "2/9",
+     "correct": true
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-016",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A jar has 2 red and 6 blue chips. Two are drawn without replacement. Find P(both red).",
+   "answer": "1/28",
+   "solutionSteps": [
+    "Dependent: (r/t)·((r - 1)/(t - 1)).",
+    "With replacement would give (r/t)²."
+   ],
+   "options": [
+    {
+     "text": "1/32",
+     "correct": false
+    },
+    {
+     "text": "1/16",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "1/28",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-017",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "P(A) = 0.5, P(B) = 0.4, P(A and B) = 0.2. Select ALL true statements.",
+   "answer": [
+    "P(A or B) = 0.7",
+    "A and B are independent",
+    "P(A | B) = 0.5"
+   ],
+   "solutionSteps": [
+    "Addition rule; compare P(A)P(B) with P(A and B).",
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "options": [
+    {
+     "text": "P(A | B) = 0.5",
+     "correct": true
+    },
+    {
+     "text": "A and B are independent",
+     "correct": true
+    },
+    {
+     "text": "P(A or B) = 0.9",
+     "correct": false
+    },
+    {
+     "text": "A and B are dependent",
+     "correct": false
+    },
+    {
+     "text": "P(A or B) = 0.7",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-018",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "P(A) = 0.25, P(B) = 0.6, P(A and B) = 0.15. Select ALL true statements.",
+   "answer": [
+    "P(A or B) = 0.7",
+    "A and B are independent",
+    "P(A | B) = 0.25"
+   ],
+   "solutionSteps": [
+    "Addition rule; compare P(A)P(B) with P(A and B).",
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "options": [
+    {
+     "text": "A and B are independent",
+     "correct": true
+    },
+    {
+     "text": "P(A or B) = 0.7",
+     "correct": true
+    },
+    {
+     "text": "P(A | B) = 0.25",
+     "correct": true
+    },
+    {
+     "text": "A and B are dependent",
+     "correct": false
+    },
+    {
+     "text": "P(A or B) = 0.85",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-019",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "P(A) = 0.3, P(B) = 0.3, P(A and B) = 0.12. Select ALL true statements.",
+   "answer": [
+    "P(A or B) = 0.48",
+    "A and B are dependent",
+    "P(A | B) = 0.4"
+   ],
+   "solutionSteps": [
+    "Addition rule; compare P(A)P(B) with P(A and B).",
+    "P(A | B) = P(A and B)/P(B)."
+   ],
+   "options": [
+    {
+     "text": "A and B are independent",
+     "correct": false
+    },
+    {
+     "text": "A and B are dependent",
+     "correct": true
+    },
+    {
+     "text": "P(A | B) = 0.4",
+     "correct": true
+    },
+    {
+     "text": "P(A or B) = 0.6",
+     "correct": false
+    },
+    {
+     "text": "P(A or B) = 0.48",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-020",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Roll 2 fair dice.",
+   "answer": "(a) 1/36; (b) 1/4; (c) 25/36; (d) 11/36",
+   "solutionSteps": [
+    "Multiply independent probabilities.",
+    "(1/2)ⁿ.",
+    "(5/6)ⁿ.",
+    "Complement."
+   ],
+   "parts": [
+    {
+     "prompt": "P(all show 1).",
+     "answer": "1/36"
+    },
+    {
+     "prompt": "P(all even).",
+     "answer": "1/4"
+    },
+    {
+     "prompt": "P(no 6).",
+     "answer": "25/36"
+    },
+    {
+     "prompt": "P(at least one 6).",
+     "answer": "11/36"
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-021",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Roll 3 fair dice.",
+   "answer": "(a) 1/216; (b) 1/8; (c) 125/216; (d) 91/216",
+   "solutionSteps": [
+    "Multiply independent probabilities.",
+    "(1/2)ⁿ.",
+    "(5/6)ⁿ.",
+    "Complement."
+   ],
+   "parts": [
+    {
+     "prompt": "P(all show 1).",
+     "answer": "1/216"
+    },
+    {
+     "prompt": "P(all even).",
+     "answer": "1/8"
+    },
+    {
+     "prompt": "P(no 6).",
+     "answer": "125/216"
+    },
+    {
+     "prompt": "P(at least one 6).",
+     "answer": "91/216"
+    }
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-022",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A family has 3 children. Find P(at least one girl), assuming P(girl) = 1/2.",
+   "answer": "7/8",
+   "solutionSteps": [
+    "1 - (1/2)³."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-003",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many times must a fair coin be flipped so that P(at least one head) > 0.99?",
+   "answer": "7",
+   "solutionSteps": [
+    "1 - (1/2)ⁿ > 0.99 → (1/2)ⁿ < 0.01.",
+    "2⁷ = 128 > 100."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-010",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Two-way table — Grade 9: Owns pet 24, No pet 16; Grade 10: Owns pet 18, No pet 22.",
+   "answer": "(a) 21/40; (b) 3/5; (c) 4/7; (d) No",
+   "solutionSteps": [
+    "Column total / grand total.",
+    "Restrict to the row.",
+    "Restrict to the column.",
+    "Compare P(col | row) with P(col)."
+   ],
+   "parts": [
+    {
+     "prompt": "P(Owns pet).",
+     "answer": "21/40"
+    },
+    {
+     "prompt": "P(Owns pet | Grade 9).",
+     "answer": "3/5"
+    },
+    {
+     "prompt": "P(Grade 9 | Owns pet).",
+     "answer": "4/7"
+    },
+    {
+     "prompt": "Are 'Grade 9' and 'Owns pet' independent?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-011",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Using the same table (Grade 9: 24, 16; Grade 10: 18, 22), find P(Owns pet | Grade 10).",
+   "answer": "9/20",
+   "solutionSteps": [
+    "Condition on the row: divide by the row total."
+   ],
+   "options": [
+    {
+     "text": "9/40",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "9/20",
+     "correct": true
+    },
+    {
+     "text": "3/7",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-012",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Same table (Grade 9: Owns pet 24, No pet 16; Grade 10: Owns pet 18, No pet 22). Select ALL true statements.",
+   "answer": [
+    "P(Grade 9) = 1/2",
+    "P(No pet | Grade 10) = 11/20",
+    "P(Grade 9 and No pet) = 1/5"
+   ],
+   "solutionSteps": [
+    "Joint: cell/total; conditional: cell/(given row or column total)."
+   ],
+   "options": [
+    {
+     "text": "P(Grade 9 | No pet) = 2/5",
+     "correct": false
+    },
+    {
+     "text": "P(Grade 9 and No pet) = 1/5",
+     "correct": true
+    },
+    {
+     "text": "P(No pet | Grade 10) = 11/20",
+     "correct": true
+    },
+    {
+     "text": "P(Grade 10) = 3/10",
+     "correct": false
+    },
+    {
+     "text": "P(Grade 9) = 1/2",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-013",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Two-way table — Under 30: Prefers online 45, Prefers in-store 15; 30+: Prefers online 20, Prefers in-store 40.",
+   "answer": "(a) 13/24; (b) 3/4; (c) 9/13; (d) No",
+   "solutionSteps": [
+    "Column total / grand total.",
+    "Restrict to the row.",
+    "Restrict to the column.",
+    "Compare P(col | row) with P(col)."
+   ],
+   "parts": [
+    {
+     "prompt": "P(Prefers online).",
+     "answer": "13/24"
+    },
+    {
+     "prompt": "P(Prefers online | Under 30).",
+     "answer": "3/4"
+    },
+    {
+     "prompt": "P(Under 30 | Prefers online).",
+     "answer": "9/13"
+    },
+    {
+     "prompt": "Are 'Under 30' and 'Prefers online' independent?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-014",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Using the same table (Under 30: 45, 15; 30+: 20, 40), find P(Prefers online | 30+).",
+   "answer": "1/3",
+   "solutionSteps": [
+    "Condition on the row: divide by the row total."
+   ],
+   "options": [
+    {
+     "text": "1/6",
+     "correct": false
+    },
+    {
+     "text": "4/13",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "1/3",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-015",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Same table (Under 30: Prefers online 45, Prefers in-store 15; 30+: Prefers online 20, Prefers in-store 40). Select ALL true statements.",
+   "answer": [
+    "P(Under 30) = 1/2",
+    "P(Prefers in-store | 30+) = 2/3",
+    "P(Under 30 and Prefers in-store) = 1/8"
+   ],
+   "solutionSteps": [
+    "Joint: cell/total; conditional: cell/(given row or column total)."
+   ],
+   "options": [
+    {
+     "text": "P(Prefers in-store | 30+) = 2/3",
+     "correct": true
+    },
+    {
+     "text": "P(Under 30 | Prefers in-store) = 1/4",
+     "correct": false
+    },
+    {
+     "text": "P(Under 30 and Prefers in-store) = 1/8",
+     "correct": true
+    },
+    {
+     "text": "P(30+) = 3/8",
+     "correct": false
+    },
+    {
+     "text": "P(Under 30) = 1/2",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-016",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Two-way table — Studied: Passed 54, Failed 6; Did not study: Passed 21, Failed 19.",
+   "answer": "(a) 3/4; (b) 9/10; (c) 18/25; (d) No",
+   "solutionSteps": [
+    "Column total / grand total.",
+    "Restrict to the row.",
+    "Restrict to the column.",
+    "Compare P(col | row) with P(col)."
+   ],
+   "parts": [
+    {
+     "prompt": "P(Passed).",
+     "answer": "3/4"
+    },
+    {
+     "prompt": "P(Passed | Studied).",
+     "answer": "9/10"
+    },
+    {
+     "prompt": "P(Studied | Passed).",
+     "answer": "18/25"
+    },
+    {
+     "prompt": "Are 'Studied' and 'Passed' independent?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-017",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Using the same table (Studied: 54, 6; Did not study: 21, 19), find P(Passed | Did not study).",
+   "answer": "21/40",
+   "solutionSteps": [
+    "Condition on the row: divide by the row total."
+   ],
+   "options": [
+    {
+     "text": "21/100",
+     "correct": false
+    },
+    {
+     "text": "21/40",
+     "correct": true
+    },
+    {
+     "text": "7/25",
+     "correct": false
+    },
+    {
+     "text": "2/5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-018",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Same table (Studied: Passed 54, Failed 6; Did not study: Passed 21, Failed 19). Select ALL true statements.",
+   "answer": [
+    "P(Studied) = 3/5",
+    "P(Failed | Did not study) = 19/40",
+    "P(Studied and Failed) = 3/50"
+   ],
+   "solutionSteps": [
+    "Joint: cell/total; conditional: cell/(given row or column total)."
+   ],
+   "options": [
+    {
+     "text": "P(Studied and Failed) = 3/50",
+     "correct": true
+    },
+    {
+     "text": "P(Studied | Failed) = 1/10",
+     "correct": false
+    },
+    {
+     "text": "P(Studied) = 3/5",
+     "correct": true
+    },
+    {
+     "text": "P(Failed | Did not study) = 19/40",
+     "correct": true
+    },
+    {
+     "text": "P(Did not study) = 3/5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-019",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "P(rain) = 0.3; P(traffic | rain) = 0.8; P(traffic | no rain) = 0.4. Find P(traffic).",
+   "answer": "0.52",
+   "solutionSteps": [
+    "0.3(0.8) + 0.7(0.4)."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-006",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Using the previous data, find P(rain | traffic) (nearest hundredth).",
+   "answer": "0.46",
+   "solutionSteps": [
+    "0.24/0.52 ≈ 0.4615."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-010",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X ~ Binomial(n = 6, p = 1/2). Find P(X = 3).",
+   "answer": "5/16",
+   "solutionSteps": [
+    "C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "Forgetting C(n, k) or (1 - p)ⁿ⁻ᵏ is a common error."
+   ],
+   "options": [
+    {
+     "text": "1/64",
+     "correct": false
+    },
+    {
+     "text": "1/8",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "5/16",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-011",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X ~ Binomial(n = 5, p = 1/5). Find P(X = 2).",
+   "answer": "128/625",
+   "solutionSteps": [
+    "C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "Forgetting C(n, k) or (1 - p)ⁿ⁻ᵏ is a common error."
+   ],
+   "options": [
+    {
+     "text": "2/5",
+     "correct": false
+    },
+    {
+     "text": "128/625",
+     "correct": true
+    },
+    {
+     "text": "64/3125",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-012",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X ~ Binomial(n = 8, p = 1/2). Find P(X = 8).",
+   "answer": "1/256",
+   "solutionSteps": [
+    "C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "Forgetting C(n, k) or (1 - p)ⁿ⁻ᵏ is a common error."
+   ],
+   "options": [
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "1/128",
+     "correct": false
+    },
+    {
+     "text": "1/256",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-013",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X ~ Binomial(n = 4, p = 2/3). Find P(X = 3).",
+   "answer": "32/81",
+   "solutionSteps": [
+    "C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "Forgetting C(n, k) or (1 - p)ⁿ⁻ᵏ is a common error."
+   ],
+   "options": [
+    {
+     "text": "8/27",
+     "correct": false
+    },
+    {
+     "text": "8/81",
+     "correct": false
+    },
+    {
+     "text": "32/81",
+     "correct": true
+    },
+    {
+     "text": "3/4",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-014",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X ~ Binomial(n = 6, p = 1/3). Find P(X = 0).",
+   "answer": "64/729",
+   "solutionSteps": [
+    "C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.",
+    "Forgetting C(n, k) or (1 - p)ⁿ⁻ᵏ is a common error."
+   ],
+   "options": [
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "64/729",
+     "correct": true
+    },
+    {
+     "text": "128/729",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-015",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "X ~ Binomial(n = 4, p = 1/2). Select ALL true statements.",
+   "answer": [
+    "P(X = 0) = 1/16",
+    "P(X ≥ 1) = 15/16",
+    "The mean is 2",
+    "P(X = 4) = 1/16"
+   ],
+   "solutionSteps": [
+    "Binomial formula; mean np."
+   ],
+   "options": [
+    {
+     "text": "P(X = 0) = 1/16",
+     "correct": true
+    },
+    {
+     "text": "The mean is 2",
+     "correct": true
+    },
+    {
+     "text": "P(X ≥ 1) = 15/16",
+     "correct": true
+    },
+    {
+     "text": "P(X = 4) = 1/16",
+     "correct": true
+    },
+    {
+     "text": "The mean is 1/2",
+     "correct": false
+    },
+    {
+     "text": "P(X = 1) = 1/2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-016",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "X ~ Binomial(n = 3, p = 1/3). Select ALL true statements.",
+   "answer": [
+    "P(X = 0) = 8/27",
+    "P(X ≥ 1) = 19/27",
+    "The mean is 1",
+    "P(X = 3) = 1/27"
+   ],
+   "solutionSteps": [
+    "Binomial formula; mean np."
+   ],
+   "options": [
+    {
+     "text": "P(X = 3) = 1/27",
+     "correct": true
+    },
+    {
+     "text": "P(X = 1) = 1/3",
+     "correct": false
+    },
+    {
+     "text": "The mean is 1",
+     "correct": true
+    },
+    {
+     "text": "P(X ≥ 1) = 19/27",
+     "correct": true
+    },
+    {
+     "text": "P(X = 0) = 8/27",
+     "correct": true
+    },
+    {
+     "text": "The mean is 1/3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-017",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "X ~ Binomial(n = 3, p = 1/2).",
+   "answer": "(a) 1/8; (b) 3/8; (c) 1/2; (d) 3/2",
+   "solutionSteps": [
+    "(1 - p)ⁿ.",
+    "n·p(1 - p)ⁿ⁻¹.",
+    "Complement.",
+    "np."
+   ],
+   "parts": [
+    {
+     "prompt": "Find P(X = 0).",
+     "answer": "1/8"
+    },
+    {
+     "prompt": "Find P(X = 1).",
+     "answer": "3/8"
+    },
+    {
+     "prompt": "Find P(X ≥ 2).",
+     "answer": "1/2"
+    },
+    {
+     "prompt": "Find the mean np.",
+     "answer": "3/2"
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-018",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "X ~ Binomial(n = 4, p = 1/5).",
+   "answer": "(a) 256/625; (b) 256/625; (c) 113/625; (d) 4/5",
+   "solutionSteps": [
+    "(1 - p)ⁿ.",
+    "n·p(1 - p)ⁿ⁻¹.",
+    "Complement.",
+    "np."
+   ],
+   "parts": [
+    {
+     "prompt": "Find P(X = 0).",
+     "answer": "256/625"
+    },
+    {
+     "prompt": "Find P(X = 1).",
+     "answer": "256/625"
+    },
+    {
+     "prompt": "Find P(X ≥ 2).",
+     "answer": "113/625"
+    },
+    {
+     "prompt": "Find the mean np.",
+     "answer": "4/5"
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-004",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "X ~ Binomial(n = 5, p = 1/3).",
+   "answer": "(a) 32/243; (b) 80/243; (c) 131/243; (d) 5/3",
+   "solutionSteps": [
+    "(1 - p)ⁿ.",
+    "n·p(1 - p)ⁿ⁻¹.",
+    "Complement.",
+    "np."
+   ],
+   "parts": [
+    {
+     "prompt": "Find P(X = 0).",
+     "answer": "32/243"
+    },
+    {
+     "prompt": "Find P(X = 1).",
+     "answer": "80/243"
+    },
+    {
+     "prompt": "Find P(X ≥ 2).",
+     "answer": "131/243"
+    },
+    {
+     "prompt": "Find the mean np.",
+     "answer": "5/3"
+    }
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-019",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X ~ Binomial(n = 5, p = 1/2). Find P(X ≥ 4).",
+   "answer": "3/16 ≈ 0.1875",
+   "solutionSteps": [
+    "Add P(X = 4) through P(X = 5).",
+    "Or use the complement."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-020",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X ~ Binomial(n = 6, p = 1/6). Find P(X ≥ 2).",
+   "answer": "12281/46656 ≈ 0.2632",
+   "solutionSteps": [
+    "Add P(X = 2) through P(X = 6).",
+    "Or use the complement."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-005",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "X ~ Binomial(n = 10, p = 1/2). Find P(X ≥ 8).",
+   "answer": "7/128 ≈ 0.0547",
+   "solutionSteps": [
+    "Add P(X = 8) through P(X = 10).",
+    "Or use the complement."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-021",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "X ~ Binomial(n = 4, p = 1/4). Find P(X ≥ 2).",
+   "answer": "67/256 ≈ 0.2617",
+   "solutionSteps": [
+    "Add P(X = 2) through P(X = 4).",
+    "Or use the complement."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-013",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X = 0, 1, 2 with P = 1/4, 1/2, 1/4. Find E(X).",
+   "answer": "1",
+   "solutionSteps": [
+    "Weight each value by its probability."
+   ],
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-014",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X = 1, 3, 5 with P = 1/5, 2/5, 2/5. Find E(X).",
+   "answer": "17/5",
+   "solutionSteps": [
+    "Weight each value by its probability."
+   ],
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "17/5",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-015",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X = -2, 0, 4 with P = 1/2, 1/3, 1/6. Find E(X).",
+   "answer": "-1/3",
+   "solutionSteps": [
+    "Weight each value by its probability."
+   ],
+   "options": [
+    {
+     "text": "-1/3",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "2/3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-016",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X = 2, 4, 6, 8 with P = 1/10, 1/5, 3/10, 2/5. Find E(X).",
+   "answer": "6",
+   "solutionSteps": [
+    "Weight each value by its probability."
+   ],
+   "options": [
+    {
+     "text": "16/5",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-017",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X = 100, 0 with P = 1/20, 19/20. Find E(X).",
+   "answer": "5",
+   "solutionSteps": [
+    "Weight each value by its probability."
+   ],
+   "options": [
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "95",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-018",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A game costs $1. You win $5 with probability 1/6.",
+   "answer": "(a) $5/6; (b) -$1/6; (c) No; (d) $6",
+   "solutionSteps": [
+    "prize·p.",
+    "Subtract cost.",
+    "Fair ⇔ E = 0.",
+    "prize·p = cost."
+   ],
+   "parts": [
+    {
+     "prompt": "Expected winnings.",
+     "answer": "$5/6"
+    },
+    {
+     "prompt": "Expected net gain.",
+     "answer": "-$1/6"
+    },
+    {
+     "prompt": "Is the game fair?",
+     "answer": "No"
+    },
+    {
+     "prompt": "Prize that makes it fair.",
+     "answer": "$6"
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-019",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A game costs $2. You win $30 with probability 1/20.",
+   "answer": "(a) $3/2; (b) -$1/2; (c) No; (d) $40",
+   "solutionSteps": [
+    "prize·p.",
+    "Subtract cost.",
+    "Fair ⇔ E = 0.",
+    "prize·p = cost."
+   ],
+   "parts": [
+    {
+     "prompt": "Expected winnings.",
+     "answer": "$3/2"
+    },
+    {
+     "prompt": "Expected net gain.",
+     "answer": "-$1/2"
+    },
+    {
+     "prompt": "Is the game fair?",
+     "answer": "No"
+    },
+    {
+     "prompt": "Prize that makes it fair.",
+     "answer": "$40"
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-020",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A game costs $5. You win $12 with probability 1/3.",
+   "answer": "(a) $4; (b) -$1; (c) No; (d) $15",
+   "solutionSteps": [
+    "prize·p.",
+    "Subtract cost.",
+    "Fair ⇔ E = 0.",
+    "prize·p = cost."
+   ],
+   "parts": [
+    {
+     "prompt": "Expected winnings.",
+     "answer": "$4"
+    },
+    {
+     "prompt": "Expected net gain.",
+     "answer": "-$1"
+    },
+    {
+     "prompt": "Is the game fair?",
+     "answer": "No"
+    },
+    {
+     "prompt": "Prize that makes it fair.",
+     "answer": "$15"
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-021",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL games with negative expected net gain for the player.",
+   "answer": [
+    "Pay $2; win $10 with probability 1/10",
+    "Pay $1; win $3 with probability 1/4",
+    "Pay $5; win $20 with probability 1/5"
+   ],
+   "solutionSteps": [
+    "E = prize·p - cost: -1, -0.25, -1; +0.2, 0, +1."
+   ],
+   "options": [
+    {
+     "text": "Pay $3; win $9 with probability 1/3",
+     "correct": false
+    },
+    {
+     "text": "Pay $1; win $6 with probability 1/5",
+     "correct": false
+    },
+    {
+     "text": "Pay $2; win $12 with probability 1/4",
+     "correct": false
+    },
+    {
+     "text": "Pay $5; win $20 with probability 1/5",
+     "correct": true
+    },
+    {
+     "text": "Pay $2; win $10 with probability 1/10",
+     "correct": true
+    },
+    {
+     "text": "Pay $1; win $3 with probability 1/4",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL true statements about expected value.",
+   "answer": [
+    "It is a long-run average",
+    "It need not be a possible outcome",
+    "E(X + Y) = E(X) + E(Y)"
+   ],
+   "solutionSteps": [
+    "Expected value is a weighted mean."
+   ],
+   "options": [
+    {
+     "text": "It is always a whole number",
+     "correct": false
+    },
+    {
+     "text": "It equals the median",
+     "correct": false
+    },
+    {
+     "text": "It need not be a possible outcome",
+     "correct": true
+    },
+    {
+     "text": "It is the most likely outcome",
+     "correct": false
+    },
+    {
+     "text": "It is a long-run average",
+     "correct": true
+    },
+    {
+     "text": "E(X + Y) = E(X) + E(Y)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-022",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A multiple-choice test gives +4 for correct and -1 for incorrect, 5 choices each. What is the expected score from a random guess?",
+   "answer": "0",
+   "solutionSteps": [
+    "4(1/5) - 1(4/5) = 0."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-023",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the expected number of 6s in 30 rolls of a die.",
+   "answer": "5",
+   "solutionSteps": [
+    "np = 30/6."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-005",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Each box of cereal contains 1 of 4 equally likely prizes. Find the expected number of boxes to collect all 4.",
+   "answer": "25/3 ≈ 8.33",
+   "solutionSteps": [
+    "Expected waits: 1 + 4/3 + 4/2 + 4/1.",
+    "= 1 + 1.333 + 2 + 4."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-013",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X is normal with μ = 70, σ = 8. Using the empirical rule, about what value is the 84th percentile?",
+   "answer": "78",
+   "solutionSteps": [
+    "84th percentile ≈ z = 1.",
+    "x = μ + zσ."
+   ],
+   "options": [
+    {
+     "text": "62",
+     "correct": false
+    },
+    {
+     "text": "78",
+     "correct": true
+    },
+    {
+     "text": "70",
+     "correct": false
+    },
+    {
+     "text": "74",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-014",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X is normal with μ = 50, σ = 5. Using the empirical rule, about what value is the 16th percentile?",
+   "answer": "45",
+   "solutionSteps": [
+    "16th percentile ≈ z = -1.",
+    "x = μ + zσ."
+   ],
+   "options": [
+    {
+     "text": "47.5",
+     "correct": false
+    },
+    {
+     "text": "55",
+     "correct": false
+    },
+    {
+     "text": "45",
+     "correct": true
+    },
+    {
+     "text": "50",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-015",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X is normal with μ = 200, σ = 25. Using the empirical rule, about what value is the 97.5th percentile?",
+   "answer": "250",
+   "solutionSteps": [
+    "97.5th percentile ≈ z = 2.",
+    "x = μ + zσ."
+   ],
+   "options": [
+    {
+     "text": "250",
+     "correct": true
+    },
+    {
+     "text": "200",
+     "correct": false
+    },
+    {
+     "text": "225",
+     "correct": false
+    },
+    {
+     "text": "150",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-016",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "X is normal with μ = 12, σ = 1.5. Using the empirical rule, about what value is the 2.5th percentile?",
+   "answer": "9",
+   "solutionSteps": [
+    "2.5th percentile ≈ z = -2.",
+    "x = μ + zσ."
+   ],
+   "options": [
+    {
+     "text": "12",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": true
+    },
+    {
+     "text": "10.5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-017",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL values that are more than 2 standard deviations from the mean of N(μ = 100, σ = 10).",
+   "answer": [
+    "75",
+    "121",
+    "130"
+   ],
+   "solutionSteps": [
+    "Outside 80–120."
+   ],
+   "options": [
+    {
+     "text": "85",
+     "correct": false
+    },
+    {
+     "text": "121",
+     "correct": true
+    },
+    {
+     "text": "130",
+     "correct": true
+    },
+    {
+     "text": "110",
+     "correct": false
+    },
+    {
+     "text": "75",
+     "correct": true
+    },
+    {
+     "text": "119",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-018",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A z-score is 1.5 with μ = 40 and σ = 6. Find x.",
+   "answer": "49",
+   "solutionSteps": [
+    "x = μ + zσ = 40 + 9."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-003",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Weights are N(μ, σ). 2.5% weigh less than 140 lb and 2.5% weigh more than 200 lb. Find μ and σ.",
+   "answer": "μ = 170, σ = 15",
+   "solutionSteps": [
+    "Symmetric: μ = 170.",
+    "200 = μ + 2σ → σ = 15."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-012",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the bias: Only customers who had a problem respond to the email survey.",
+   "answer": "Voluntary response bias",
+   "solutionSteps": [
+    "Match the flaw to the type of bias."
+   ],
+   "options": [
+    {
+     "text": "Response bias (leading question)",
+     "correct": false
+    },
+    {
+     "text": "Voluntary response bias",
+     "correct": true
+    },
+    {
+     "text": "Undercoverage",
+     "correct": false
+    },
+    {
+     "text": "Nonresponse bias",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-013",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the bias: A phone poll misses people without phones.",
+   "answer": "Undercoverage",
+   "solutionSteps": [
+    "Match the flaw to the type of bias."
+   ],
+   "options": [
+    {
+     "text": "Nonresponse bias",
+     "correct": false
+    },
+    {
+     "text": "Voluntary response bias",
+     "correct": false
+    },
+    {
+     "text": "Response bias (leading question)",
+     "correct": false
+    },
+    {
+     "text": "Undercoverage",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-014",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the bias: 'Most experts agree X is dangerous. Do you agree?'",
+   "answer": "Response bias (leading question)",
+   "solutionSteps": [
+    "Match the flaw to the type of bias."
+   ],
+   "options": [
+    {
+     "text": "Nonresponse bias",
+     "correct": false
+    },
+    {
+     "text": "Undercoverage",
+     "correct": false
+    },
+    {
+     "text": "Voluntary response bias",
+     "correct": false
+    },
+    {
+     "text": "Response bias (leading question)",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-015",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Identify the bias: Many selected people never answer the survey.",
+   "answer": "Nonresponse bias",
+   "solutionSteps": [
+    "Match the flaw to the type of bias."
+   ],
+   "options": [
+    {
+     "text": "Undercoverage",
+     "correct": false
+    },
+    {
+     "text": "Response bias (leading question)",
+     "correct": false
+    },
+    {
+     "text": "Nonresponse bias",
+     "correct": true
+    },
+    {
+     "text": "Voluntary response bias",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-016",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL features of a well-designed experiment.",
+   "answer": [
+    "Random assignment",
+    "A control group",
+    "Replication"
+   ],
+   "solutionSteps": [
+    "Control, randomization, replication."
+   ],
+   "options": [
+    {
+     "text": "Letting subjects choose their group",
+     "correct": false
+    },
+    {
+     "text": "Telling subjects the hypothesis",
+     "correct": false
+    },
+    {
+     "text": "Only one subject per treatment",
+     "correct": false
+    },
+    {
+     "text": "Random assignment",
+     "correct": true
+    },
+    {
+     "text": "Replication",
+     "correct": true
+    },
+    {
+     "text": "A control group",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-004",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "A simulation of 1,000 samples (n = 50) from a population with p = 0.40 gives p̂ values with mean 0.40 and SD 0.07. Select ALL valid conclusions.",
+   "answer": [
+    "A sample p̂ of 0.55 would be unusual",
+    "About 95% of p̂ values lie within 0.26–0.54",
+    "The SD of p̂ is about √(0.4·0.6/50)"
+   ],
+   "solutionSteps": [
+    "0.55 is more than 2 SD above 0.40.",
+    "√(0.24/50) ≈ 0.069."
+   ],
+   "options": [
+    {
+     "text": "A sample p̂ of 0.55 would be unusual",
+     "correct": true
+    },
+    {
+     "text": "A p̂ of 0.45 proves p ≠ 0.40",
+     "correct": false
+    },
+    {
+     "text": "The SD of p̂ is about √(0.4·0.6/50)",
+     "correct": true
+    },
+    {
+     "text": "Every sample has p̂ = 0.40",
+     "correct": false
+    },
+    {
+     "text": "About 95% of p̂ values lie within 0.26–0.54",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-017",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A poll of 900 voters finds 54% support a measure.",
+   "answer": "(a) ±3.3%; (b) 50.7% to 57.3%; (c) Yes, the whole interval is above 50%; (d) It would be cut in half",
+   "solutionSteps": [
+    "2√(p̂(1 - p̂)/n).",
+    "p̂ ± MOE.",
+    "Compare with 50%.",
+    "MOE ∝ 1/√n."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the 95% margin of error (nearest tenth of a percent).",
+     "answer": "±3.3%"
+    },
+    {
+     "prompt": "State the interval.",
+     "answer": "50.7% to 57.3%"
+    },
+    {
+     "prompt": "Can the pollster conclude a majority supports it?",
+     "answer": "Yes, the whole interval is above 50%"
+    },
+    {
+     "prompt": "How would a sample of 3,600 change the margin?",
+     "answer": "It would be cut in half"
+    }
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-018",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "What is the difference between a census and a sample?",
+   "answer": "A census measures every member of the population; a sample measures part of it",
+   "solutionSteps": [
+    "Definitions."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-008",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "What is a statistic?",
+   "answer": "A numerical summary of a sample",
+   "solutionSteps": [
+    "Statistics describe samples."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  }
+ ]
+}

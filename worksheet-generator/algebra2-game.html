@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Algebra 2 Games · Mr. K's Classroom</title><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=games-15"><script src="games/skill-setup.js?v=student-skills-2"></script></head><body data-algebra2-game><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
+<script src="core/rng.js"></script>
+<script src="core/frac.js"></script>
+<script src="core/tex.js"></script>
+<script src="core/graph.js?v=full-audit-v2"></script>
+<script src="core/framework.js"></script>
+<script src="core/render.js"></script>
+<script src="menu/mathcheck.js?v=menu-gaps-2"></script>
+<script src="menu/figures.js?v=menu-gaps-2"></script>
+<script src="menu/verify.js?v=geo-v-15"></script>
+<script src="menu/engine.js?v=ci-fix-1"></script>
+<script src="../data.js?v=grade-discovery-20261030"></script>
+<script src="../course-catalog.js?v=shared-course-skills-20261030"></script>
+<script src="menu/skills/kit.js?v=menu-gaps-2"></script>
+<script src="menu/skills/algebra1-expressions-equations.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-inequalities.js?v=unit-curriculum-20261027"></script>
+<script src="menu/skills/algebra1-relations-functions.js?v=discrete-unique-20261027"></script>
+<script src="menu/skills/algebra1-exponential-functions.js?v=exp-graph-key-20261027"></script>
+<script src="menu/skills/algebra1-factoring-zero-product.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-statistics-data-modeling.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-linear-equations-slope.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-systems-of-equations.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-exponents-scientific-notation.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-polynomials.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-quadratics.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/geometry-diagrams.js?v=geo-dg-4"></script>
+<script src="menu/geometry-figures.js?v=geo-pl-5"></script>
+<script src="menu/geometry-measure-figures.js?v=geo-ms-4"></script>
+<script src="menu/geometry-grid-figures.js?v=geo-gr-3"></script>
+<script src="menu/geometry-triangle-figures.js?v=geo-tri-1"></script>
+<script src="menu/geometry-similar-figures.js?v=geo-sh-3"></script>
+<script src="menu/geometry-landmark-figures.js?v=geo-lm-2"></script>
+<script src="menu/geometry-congruence-figures.js?v=geo-cg-1"></script>
+<script src="menu/skills/geometry-basics-reasoning.js?v=geo-rigor-1"></script>
+<script src="menu/skills/geometry-angles-parallel-lines.js?v=geo-rigor-1"></script>
+<script src="menu/skills/geometry-triangle-relationships.js?v=geo-rigor-1"></script>
+<script src="menu/skills/geometry-triangles-congruence.js?v=geo-rigor-2"></script>
+<script src="menu/skills/geometry-quadrilaterals-polygons.js?v=geo-rigor-1"></script>
+<script src="menu/skills/geometry-similarity.js?v=geo-rigor-2"></script>
+<script src="menu/skills/geometry-right-triangles-trigonometry.js?v=geo-rigor-1"></script>
+<script src="menu/skills/geometry-transformations.js?v=geo-rigor-2"></script>
+<script src="menu/skills/geometry-circles.js?v=geo-rigor-1"></script>
+<script src="menu/skills/geometry-area-surface-area-volume.js?v=geo-rigor-1"></script>
+<script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
+<script src="games/bank.js?v=grade-tiers-20261031"></script>
+<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js"></script><script>
+MK_ALGEBRA2_NATIVE_READY.then(function(course){
+ var p=new URLSearchParams(location.search),u=course.units.find(function(x){return x.id===p.get('unit')})||course.units[0];
+ var game=p.get('game')||'flashcards';if(!['flashcards','showdown','connect-four','tic-tac-toe','picture-reveal','detective','escape-room'].includes(game))game='flashcards';
+ document.body.setAttribute('data-unit','algebra2-'+u.id);document.body.setAttribute('data-game',game);document.body.setAttribute('data-title',u.name);
+ var script=document.createElement('script');script.src=['detective','escape-room'].includes(game)?'algebra2-quest.js':'games/games.js?v=algebra2-authored-20261031';document.body.appendChild(script);
+}).catch(function(e){document.getElementById('app').textContent='Unable to load course questions: '+e.message});
+</script></body></html>

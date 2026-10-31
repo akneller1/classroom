@@ -2165,7 +2165,7 @@
    "answer": "f⁻¹(x) = x/3 + 5/3",
    "solutionSteps": [
     "Write y = 3x - 5 and swap x and y: x = 3y - 5.",
-    "Solve for y: y = (x - (-5))/3.",
+    "Solve for y: y = (x + 5)/3.",
     "f⁻¹(x) = x/3 + 5/3."
    ],
    "standards": [
@@ -2183,7 +2183,7 @@
    "answer": "f⁻¹(x) = 2x - 8",
    "solutionSteps": [
     "Write y = x/2 + 4 and swap x and y: x = y/2 + 4.",
-    "Solve for y: y = (x - (4))/1/2.",
+    "Solve for y: y = (x - 4)/(1/2).",
     "f⁻¹(x) = 2x - 8."
    ],
    "standards": [
@@ -2201,7 +2201,7 @@
    "answer": "f⁻¹(x) = -x/2 + 7/2",
    "solutionSteps": [
     "Write y = -2x + 7 and swap x and y: x = -2y + 7.",
-    "Solve for y: y = (x - (7))/-2.",
+    "Solve for y: y = (x - 7)/(-2).",
     "f⁻¹(x) = -x/2 + 7/2."
    ],
    "standards": [
@@ -2219,7 +2219,7 @@
    "answer": "f⁻¹(x) = x/5 - 1/5",
    "solutionSteps": [
     "Write y = 5x + 1 and swap x and y: x = 5y + 1.",
-    "Solve for y: y = (x - (1))/5.",
+    "Solve for y: y = (x - 1)/5.",
     "f⁻¹(x) = x/5 - 1/5."
    ],
    "standards": [
@@ -2237,7 +2237,7 @@
    "answer": "f⁻¹(x) = -3x/2 + 3",
    "solutionSteps": [
     "Write y = -2x/3 + 2 and swap x and y: x = -2y/3 + 2.",
-    "Solve for y: y = (x - (2))/-2/3.",
+    "Solve for y: y = (x - 2)/(-2/3).",
     "f⁻¹(x) = -3x/2 + 3."
    ],
    "standards": [
@@ -4903,6 +4903,2513 @@
      "text": "Second differences are constant",
      "correct": true
     }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp2-012",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp2",
+   "format": "select-all",
+   "prompt": "f(x) = x² - 4x + 3. Select ALL true statements.",
+   "answer": [
+    "f(0) = 3",
+    "f(1) = 0",
+    "f(-1) = 8",
+    "f(2) = -1"
+   ],
+   "solutionSteps": [
+    "Substitute each input."
+   ],
+   "options": [
+    {
+     "text": "f(1) = 0",
+     "correct": true
+    },
+    {
+     "text": "f(3) = 3",
+     "correct": false
+    },
+    {
+     "text": "f(-1) = 8",
+     "correct": true
+    },
+    {
+     "text": "f(2) = -1",
+     "correct": true
+    },
+    {
+     "text": "f(0) = 3",
+     "correct": true
+    },
+    {
+     "text": "f(4) = 0",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-008",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Let f(x) = 2x² - x and g(x) = 3 - x.",
+   "answer": "(a) 2a² + 3a + 1; (b) 2; (c) 4x + 2h - 1; (d) x = ±√6/2",
+   "solutionSteps": [
+    "2(a + 1)² - (a + 1).",
+    "f(1) = 1; g(1) = 2.",
+    "(4xh + 2h² - h)/h.",
+    "2x² - x = 3 - x → 2x² = 3 → x = ±√(3/2) = ±√6/2."
+   ],
+   "parts": [
+    {
+     "prompt": "Find f(a + 1) in expanded form.",
+     "answer": "2a² + 3a + 1"
+    },
+    {
+     "prompt": "Find g(f(1)).",
+     "answer": "2"
+    },
+    {
+     "prompt": "Find the difference quotient (f(x + h) - f(x))/h.",
+     "answer": "4x + 2h - 1"
+    },
+    {
+     "prompt": "Solve f(x) = g(x).",
+     "answer": "x = ±√6/2"
+    }
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp1-015",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "If f(x) = 3x - 7, which expression is f(x + 2)?",
+   "answer": "3x - 1",
+   "solutionSteps": [
+    "Replace x with (x + 2): 3(x + 2) - 7 = 3x - 1.",
+    "f(x) + 2 = 3x - 5 is a different expression."
+   ],
+   "options": [
+    {
+     "text": "3x - 1",
+     "correct": true
+    },
+    {
+     "text": "3x + 2",
+     "correct": false
+    },
+    {
+     "text": "3x - 5",
+     "correct": false
+    },
+    {
+     "text": "3x - 7 + 2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-012",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the domain of f(x) = √(6 - 2x)?",
+   "answer": "x ≤ 3",
+   "solutionSteps": [
+    "Exclude inputs that make a denominator 0 or an even-root radicand negative.",
+    "Domain: x ≤ 3."
+   ],
+   "options": [
+    {
+     "text": "x ≥ 3",
+     "correct": false
+    },
+    {
+     "text": "x ≤ 3",
+     "correct": true
+    },
+    {
+     "text": "all real numbers",
+     "correct": false
+    },
+    {
+     "text": "x ≤ 6",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-013",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the domain of f(x) = 5/(x² - 9)?",
+   "answer": "x ≠ ±3",
+   "solutionSteps": [
+    "Exclude inputs that make a denominator 0 or an even-root radicand negative.",
+    "Domain: x ≠ ±3."
+   ],
+   "options": [
+    {
+     "text": "x ≠ 3",
+     "correct": false
+    },
+    {
+     "text": "x > 3",
+     "correct": false
+    },
+    {
+     "text": "x ≠ ±3",
+     "correct": true
+    },
+    {
+     "text": "all real numbers",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-014",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the domain of f(x) = √(x + 1)/(x - 4)?",
+   "answer": "x ≥ -1, x ≠ 4",
+   "solutionSteps": [
+    "Exclude inputs that make a denominator 0 or an even-root radicand negative.",
+    "Domain: x ≥ -1, x ≠ 4."
+   ],
+   "options": [
+    {
+     "text": "x ≥ -1",
+     "correct": false
+    },
+    {
+     "text": "x > 4",
+     "correct": false
+    },
+    {
+     "text": "x ≠ 4",
+     "correct": false
+    },
+    {
+     "text": "x ≥ -1, x ≠ 4",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-015",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the domain of f(x) = ∛(x - 7)?",
+   "answer": "all real numbers",
+   "solutionSteps": [
+    "Exclude inputs that make a denominator 0 or an even-root radicand negative.",
+    "Domain: all real numbers."
+   ],
+   "options": [
+    {
+     "text": "x ≥ 7",
+     "correct": false
+    },
+    {
+     "text": "x ≠ 7",
+     "correct": false
+    },
+    {
+     "text": "all real numbers",
+     "correct": true
+    },
+    {
+     "text": "x > 0",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-016",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL functions whose range is y ≥ 0.",
+   "answer": [
+    "y = x²",
+    "y = |x - 3|",
+    "y = √x"
+   ],
+   "solutionSteps": [
+    "x² + 1 has range y ≥ 1; -x² has y ≤ 0; 2^x has y > 0 (0 not included)."
+   ],
+   "options": [
+    {
+     "text": "y = 2^x",
+     "correct": false
+    },
+    {
+     "text": "y = x² + 1",
+     "correct": false
+    },
+    {
+     "text": "y = x²",
+     "correct": true
+    },
+    {
+     "text": "y = |x - 3|",
+     "correct": true
+    },
+    {
+     "text": "y = √x",
+     "correct": true
+    },
+    {
+     "text": "y = -x²",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-008",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "f(x) = -2(x - 1)² + 8.",
+   "answer": "(a) all real numbers; (b) y ≤ 8; (c) -1 ≤ x ≤ 3; (d) x ≤ 1",
+   "solutionSteps": [
+    "Polynomial.",
+    "Opens down, max 8.",
+    "(x - 1)² ≤ 4.",
+    "Left of the vertex."
+   ],
+   "parts": [
+    {
+     "prompt": "State the domain.",
+     "answer": "all real numbers"
+    },
+    {
+     "prompt": "State the range.",
+     "answer": "y ≤ 8"
+    },
+    {
+     "prompt": "For what x is f(x) ≥ 0?",
+     "answer": "-1 ≤ x ≤ 3"
+    },
+    {
+     "prompt": "Restrict the domain so f is one-to-one and increasing.",
+     "answer": "x ≤ 1"
+    }
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-009",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the domain of f(x) = √(x² - 5x + 6).",
+   "answer": "x ≤ 2 or x ≥ 3",
+   "solutionSteps": [
+    "(x - 2)(x - 3) ≥ 0."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-010",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = x² + 1 and g(x) = 2x - 3.",
+   "answer": "(a) 4x² - 12x + 10; (b) 2x² - 1; (c) 2; (d) No",
+   "solutionSteps": [
+    "Substitute g(x) into f.",
+    "Substitute f(x) into g.",
+    "Evaluate.",
+    "Compare the expressions."
+   ],
+   "parts": [
+    {
+     "prompt": "Find (f ∘ g)(x).",
+     "answer": "4x² - 12x + 10"
+    },
+    {
+     "prompt": "Find (g ∘ f)(x).",
+     "answer": "2x² - 1"
+    },
+    {
+     "prompt": "Find (f ∘ g)(1).",
+     "answer": "2"
+    },
+    {
+     "prompt": "Is f ∘ g = g ∘ f?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-011",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = 3x + 1 and g(x) = x² - 2.",
+   "answer": "(a) 3x² - 5; (b) 9x² + 6x - 1; (c) -2; (d) No",
+   "solutionSteps": [
+    "Substitute g(x) into f.",
+    "Substitute f(x) into g.",
+    "Evaluate.",
+    "Compare the expressions."
+   ],
+   "parts": [
+    {
+     "prompt": "Find (f ∘ g)(x).",
+     "answer": "3x² - 5"
+    },
+    {
+     "prompt": "Find (g ∘ f)(x).",
+     "answer": "9x² + 6x - 1"
+    },
+    {
+     "prompt": "Find (f ∘ g)(1).",
+     "answer": "-2"
+    },
+    {
+     "prompt": "Is f ∘ g = g ∘ f?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-012",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = x - 1 and g(x) = x² + 2x.",
+   "answer": "(a) x² + 2x - 1; (b) x² - 1; (c) 2; (d) No",
+   "solutionSteps": [
+    "Substitute g(x) into f.",
+    "Substitute f(x) into g.",
+    "Evaluate.",
+    "Compare the expressions."
+   ],
+   "parts": [
+    {
+     "prompt": "Find (f ∘ g)(x).",
+     "answer": "x² + 2x - 1"
+    },
+    {
+     "prompt": "Find (g ∘ f)(x).",
+     "answer": "x² - 1"
+    },
+    {
+     "prompt": "Find (f ∘ g)(1).",
+     "answer": "2"
+    },
+    {
+     "prompt": "Is f ∘ g = g ∘ f?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-010",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "f(x) = √x and g(x) = x - 4. Select ALL true statements.",
+   "answer": [
+    "(f ∘ g)(x) = √(x - 4)",
+    "The domain of f ∘ g is x ≥ 4",
+    "(g ∘ f)(9) = -1",
+    "(g ∘ f)(x) = √x - 4"
+   ],
+   "solutionSteps": [
+    "Composition domains require each step to be defined.",
+    "√(0 - 4) is not real; g ∘ f needs x ≥ 0."
+   ],
+   "options": [
+    {
+     "text": "The domain of g ∘ f is all real numbers",
+     "correct": false
+    },
+    {
+     "text": "(f ∘ g)(x) = √(x - 4)",
+     "correct": true
+    },
+    {
+     "text": "(g ∘ f)(9) = -1",
+     "correct": true
+    },
+    {
+     "text": "The domain of f ∘ g is x ≥ 4",
+     "correct": true
+    },
+    {
+     "text": "(f ∘ g)(0) = -2",
+     "correct": false
+    },
+    {
+     "text": "(g ∘ f)(x) = √x - 4",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-013",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "h(x) = (2x + 1)³. Which f and g give h = f ∘ g?",
+   "answer": "f(x) = x³, g(x) = 2x + 1",
+   "solutionSteps": [
+    "The inner function is applied first."
+   ],
+   "options": [
+    {
+     "text": "f(x) = 2x + 1, g(x) = x³",
+     "correct": false
+    },
+    {
+     "text": "f(x) = x³ + 1, g(x) = 2x",
+     "correct": false
+    },
+    {
+     "text": "f(x) = x³, g(x) = 2x + 1",
+     "correct": true
+    },
+    {
+     "text": "f(x) = 2x³, g(x) = x + 1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-015",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL true statements about f(x) = (x + 3)/2 and its inverse.",
+   "answer": [
+    "f⁻¹(x) = 2x - 3",
+    "f(f⁻¹(x)) = x"
+   ],
+   "solutionSteps": [
+    "Swap x and y and solve.",
+    "f⁻¹ is not the reciprocal."
+   ],
+   "options": [
+    {
+     "text": "f⁻¹(x) = 1/f(x)",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = -(x + 3)/2",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = 2x - 3",
+     "correct": true
+    },
+    {
+     "text": "f(f⁻¹(x)) = x",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-016",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL true statements about f(x) = x³ - 1 and its inverse.",
+   "answer": [
+    "f⁻¹(x) = ∛(x + 1)",
+    "f(f⁻¹(x)) = x"
+   ],
+   "solutionSteps": [
+    "Swap x and y and solve.",
+    "f⁻¹ is not the reciprocal."
+   ],
+   "options": [
+    {
+     "text": "f⁻¹(x) = ∛(x + 1)",
+     "correct": true
+    },
+    {
+     "text": "f(f⁻¹(x)) = x",
+     "correct": true
+    },
+    {
+     "text": "f⁻¹(x) = 1/f(x)",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = -x³ - 1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-017",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL true statements about f(x) = 4/(x - 1) and its inverse.",
+   "answer": [
+    "f⁻¹(x) = 4/x + 1",
+    "f(f⁻¹(x)) = x"
+   ],
+   "solutionSteps": [
+    "Swap x and y and solve.",
+    "f⁻¹ is not the reciprocal."
+   ],
+   "options": [
+    {
+     "text": "f⁻¹(x) = -4/(x - 1)",
+     "correct": false
+    },
+    {
+     "text": "f(f⁻¹(x)) = x",
+     "correct": true
+    },
+    {
+     "text": "f⁻¹(x) = 1/f(x)",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = 4/x + 1",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-006",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "f(x) = (x - 2)² + 1 with domain x ≥ 2.",
+   "answer": "(a) y ≥ 1; (b) f⁻¹(x) = 2 + √(x - 1); (c) x ≥ 1; (d) f(5) = 10; f⁻¹(10) = 2 + 3 = 5",
+   "solutionSteps": [
+    "Vertex (2, 1), opening up.",
+    "Swap and take the positive root.",
+    "Domain of f⁻¹ = range of f.",
+    "Composition gives back 5."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the range of f.",
+     "answer": "y ≥ 1"
+    },
+    {
+     "prompt": "Find f⁻¹(x).",
+     "answer": "f⁻¹(x) = 2 + √(x - 1)"
+    },
+    {
+     "prompt": "State the domain of f⁻¹.",
+     "answer": "x ≥ 1"
+    },
+    {
+     "prompt": "Verify f⁻¹(f(5)).",
+     "answer": "f(5) = 10; f⁻¹(10) = 2 + 3 = 5"
+    }
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-018",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Temperature conversion F = (9/5)C + 32.",
+   "answer": "(a) C = (5/9)(F - 32); (b) 100°C; (c) Fahrenheit temperature; (d) -40°",
+   "solutionSteps": [
+    "Solve for C.",
+    "(5/9)(180).",
+    "Roles swap.",
+    "x = (9/5)x + 32."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the inverse function C(F).",
+     "answer": "C = (5/9)(F - 32)"
+    },
+    {
+     "prompt": "Convert 212°F.",
+     "answer": "100°C"
+    },
+    {
+     "prompt": "What does the inverse input represent?",
+     "answer": "Fahrenheit temperature"
+    },
+    {
+     "prompt": "Find the temperature where F = C.",
+     "answer": "-40°"
+    }
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-019",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which function does NOT have an inverse function on all real numbers?",
+   "answer": "f(x) = x² + 1",
+   "solutionSteps": [
+    "x² + 1 fails the horizontal line test."
+   ],
+   "options": [
+    {
+     "text": "f(x) = x² + 1",
+     "correct": true
+    },
+    {
+     "text": "f(x) = e^x",
+     "correct": false
+    },
+    {
+     "text": "f(x) = x³",
+     "correct": false
+    },
+    {
+     "text": "f(x) = 2x - 5",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-008",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "If f(3) = 8, what is f⁻¹(8)?",
+   "answer": "3",
+   "solutionSteps": [
+    "Inverses swap inputs and outputs."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-007",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the inverse of f(x) = (2x + 1)/(x - 3).",
+   "answer": "f⁻¹(x) = (3x + 1)/(x - 2)",
+   "solutionSteps": [
+    "x(y - 3) = 2y + 1 → xy - 2y = 3x + 1."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-011",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Describe the transformations from y = |x| to y = -|x + 2| + 3.",
+   "answer": "reflect over the x-axis, left 2, up 3",
+   "solutionSteps": [
+    "Inside changes are horizontal (opposite sign); outside are vertical.",
+    "reflect over the x-axis, left 2, up 3."
+   ],
+   "options": [
+    {
+     "text": "reflect over the y-axis, left 2, up 3",
+     "correct": false
+    },
+    {
+     "text": "reflect over the x-axis, left 2, up 3",
+     "correct": true
+    },
+    {
+     "text": "reflect over the x-axis, right 2, up 3",
+     "correct": false
+    },
+    {
+     "text": "left 2, down 3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-012",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Describe the transformations from y = x² to y = 3(x - 1)² - 4.",
+   "answer": "vertical stretch by 3, right 1, down 4",
+   "solutionSteps": [
+    "Inside changes are horizontal (opposite sign); outside are vertical.",
+    "vertical stretch by 3, right 1, down 4."
+   ],
+   "options": [
+    {
+     "text": "vertical shrink by 1/3, right 1, down 4",
+     "correct": false
+    },
+    {
+     "text": "horizontal stretch by 3, right 1, up 4",
+     "correct": false
+    },
+    {
+     "text": "vertical stretch by 3, left 1, down 4",
+     "correct": false
+    },
+    {
+     "text": "vertical stretch by 3, right 1, down 4",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-013",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Describe the transformations from y = √x to y = √(-x) + 1.",
+   "answer": "reflect over the y-axis, up 1",
+   "solutionSteps": [
+    "Inside changes are horizontal (opposite sign); outside are vertical.",
+    "reflect over the y-axis, up 1."
+   ],
+   "options": [
+    {
+     "text": "reflect over the y-axis, down 1",
+     "correct": false
+    },
+    {
+     "text": "reflect over the y-axis, up 1",
+     "correct": true
+    },
+    {
+     "text": "reflect over the x-axis, up 1",
+     "correct": false
+    },
+    {
+     "text": "left 1, up 1",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-014",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Describe the transformations from y = x³ to y = (1/2)(x + 4)³.",
+   "answer": "vertical shrink by 1/2, left 4",
+   "solutionSteps": [
+    "Inside changes are horizontal (opposite sign); outside are vertical.",
+    "vertical shrink by 1/2, left 4."
+   ],
+   "options": [
+    {
+     "text": "vertical shrink by 1/2, left 4",
+     "correct": true
+    },
+    {
+     "text": "vertical shrink by 1/2, right 4",
+     "correct": false
+    },
+    {
+     "text": "vertical stretch by 2, left 4",
+     "correct": false
+    },
+    {
+     "text": "horizontal shrink by 1/2, left 4",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-015",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Describe the transformations from y = 1/x to y = 1/(x - 3) - 2.",
+   "answer": "right 3, down 2",
+   "solutionSteps": [
+    "Inside changes are horizontal (opposite sign); outside are vertical.",
+    "right 3, down 2."
+   ],
+   "options": [
+    {
+     "text": "left 3, down 2",
+     "correct": false
+    },
+    {
+     "text": "right 2, down 3",
+     "correct": false
+    },
+    {
+     "text": "right 3, up 2",
+     "correct": false
+    },
+    {
+     "text": "right 3, down 2",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-006",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "The graph shows a transformation of y = |x|.",
+   "answer": "(a) (-1, -3); (b) 2; (c) y = 2|x + 1| - 3; (d) y ≥ -3",
+   "solutionSteps": [
+    "Read the corner point.",
+    "Rise over run from the vertex.",
+    "y = a|x - h| + k.",
+    "From the vertex up or down."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the vertex.",
+     "answer": "(-1, -3)"
+    },
+    {
+     "prompt": "Find the slope of the right branch.",
+     "answer": "2"
+    },
+    {
+     "prompt": "Write the equation.",
+     "answer": "y = 2|x + 1| - 3"
+    },
+    {
+     "prompt": "State the range.",
+     "answer": "y ≥ -3"
+    }
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/algebra2/functions-transformations/s05-topup-abs-214.png",
+     "alt": "Graph of an absolute value function with vertex (-1, -3) opening up, passing through (1, 1)."
+    }
+   },
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-016",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "The graph shows a transformation of y = |x|.",
+   "answer": "(a) (3, 2); (b) -1; (c) y = -|x - 3| + 2; (d) y ≤ 2",
+   "solutionSteps": [
+    "Read the corner point.",
+    "Rise over run from the vertex.",
+    "y = a|x - h| + k.",
+    "From the vertex up or down."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the vertex.",
+     "answer": "(3, 2)"
+    },
+    {
+     "prompt": "Find the slope of the right branch.",
+     "answer": "-1"
+    },
+    {
+     "prompt": "Write the equation.",
+     "answer": "y = -|x - 3| + 2"
+    },
+    {
+     "prompt": "State the range.",
+     "answer": "y ≤ 2"
+    }
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/algebra2/functions-transformations/s05-topup-abs-215.png",
+     "alt": "Graph of an absolute value function with vertex (3, 2) opening down, passing through (5, 0)."
+    }
+   },
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-007",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "The graph shows a transformation of y = |x|.",
+   "answer": "(a) (0, 1); (b) 1/2; (c) y = 1/2|x| + 1; (d) y ≥ 1",
+   "solutionSteps": [
+    "Read the corner point.",
+    "Rise over run from the vertex.",
+    "y = a|x - h| + k.",
+    "From the vertex up or down."
+   ],
+   "parts": [
+    {
+     "prompt": "Find the vertex.",
+     "answer": "(0, 1)"
+    },
+    {
+     "prompt": "Find the slope of the right branch.",
+     "answer": "1/2"
+    },
+    {
+     "prompt": "Write the equation.",
+     "answer": "y = 1/2|x| + 1"
+    },
+    {
+     "prompt": "State the range.",
+     "answer": "y ≥ 1"
+    }
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/algebra2/functions-transformations/s05-topup-abs-216.png",
+     "alt": "Graph of an absolute value function with vertex (0, 1) opening up, passing through (2, 2)."
+    }
+   },
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-017",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "g(x) = f(x - 2) + 5. Select ALL true statements.",
+   "answer": [
+    "The graph of f moves right 2 and up 5",
+    "If (1, 4) is on f, then (3, 9) is on g",
+    "The domains differ by a shift of 2"
+   ],
+   "solutionSteps": [
+    "(x, y) → (x + 2, y + 5)."
+   ],
+   "options": [
+    {
+     "text": "The domains differ by a shift of 2",
+     "correct": true
+    },
+    {
+     "text": "If (1, 4) is on f, then (3, 9) is on g",
+     "correct": true
+    },
+    {
+     "text": "If (1, 4) is on f, then (-1, 9) is on g",
+     "correct": false
+    },
+    {
+     "text": "The graph of f moves right 2 and up 5",
+     "correct": true
+    },
+    {
+     "text": "The graph moves left 2",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-008",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "Select ALL transformations that change the y-intercept of y = x² + 1.",
+   "answer": [
+    "Shift up 2",
+    "Vertical stretch by 3",
+    "Shift right 1"
+   ],
+   "solutionSteps": [
+    "y-intercept = f(0); even functions are unchanged by y-axis reflection and horizontal stretch at x = 0."
+   ],
+   "options": [
+    {
+     "text": "Vertical stretch by 3",
+     "correct": true
+    },
+    {
+     "text": "Reflection over the y-axis",
+     "correct": false
+    },
+    {
+     "text": "Shift up 2",
+     "correct": true
+    },
+    {
+     "text": "Horizontal stretch by 2",
+     "correct": false
+    },
+    {
+     "text": "Shift right 1",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-009",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The point (4, -2) is on y = f(x). Find the corresponding point on y = -3f(2x) + 1.",
+   "answer": "(2, 7)",
+   "solutionSteps": [
+    "x → x/2: 4 → 2.",
+    "y → -3y + 1: -2 → 7."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-009",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = { -x if x < 0; x² if 0 ≤ x < 2; 4 if x ≥ 2 }.",
+   "answer": "(a) 3; (b) 1; (c) 4; (d) Yes",
+   "solutionSteps": [
+    "Choose the piece whose condition the input satisfies.",
+    "Evaluate.",
+    "Evaluate.",
+    "Compare the left and right values at each breakpoint."
+   ],
+   "parts": [
+    {
+     "prompt": "Find f(-3).",
+     "answer": "3"
+    },
+    {
+     "prompt": "Find f(1).",
+     "answer": "1"
+    },
+    {
+     "prompt": "Find f(5).",
+     "answer": "4"
+    },
+    {
+     "prompt": "Is f continuous at the breakpoint(s)?",
+     "answer": "Yes"
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-010",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "f(x) = { -x if x < 0; x² if 0 ≤ x < 2; 4 if x ≥ 2 }. Select ALL true statements.",
+   "answer": [
+    "f(-3) = 3",
+    "f(5) = 4"
+   ],
+   "solutionSteps": [
+    "Check which piece applies."
+   ],
+   "options": [
+    {
+     "text": "f(5) = 4",
+     "correct": true
+    },
+    {
+     "text": "f(1) = 3",
+     "correct": false
+    },
+    {
+     "text": "f(-3) = 4",
+     "correct": false
+    },
+    {
+     "text": "f(-3) = 3",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-011",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = { x + 3 if x ≤ -1; -2x if x > -1 }.",
+   "answer": "(a) -1; (b) 0; (c) -4; (d) Yes",
+   "solutionSteps": [
+    "Choose the piece whose condition the input satisfies.",
+    "Evaluate.",
+    "Evaluate.",
+    "Compare the left and right values at each breakpoint."
+   ],
+   "parts": [
+    {
+     "prompt": "Find f(-4).",
+     "answer": "-1"
+    },
+    {
+     "prompt": "Find f(0).",
+     "answer": "0"
+    },
+    {
+     "prompt": "Find f(2).",
+     "answer": "-4"
+    },
+    {
+     "prompt": "Is f continuous at the breakpoint(s)?",
+     "answer": "Yes"
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-012",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "f(x) = { x + 3 if x ≤ -1; -2x if x > -1 }. Select ALL true statements.",
+   "answer": [
+    "f(-4) = -1",
+    "f(2) = -4"
+   ],
+   "solutionSteps": [
+    "Check which piece applies."
+   ],
+   "options": [
+    {
+     "text": "f(2) = -4",
+     "correct": true
+    },
+    {
+     "text": "f(-4) = -1",
+     "correct": true
+    },
+    {
+     "text": "f(0) = 2",
+     "correct": false
+    },
+    {
+     "text": "f(-4) = 0",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-013",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = { 2 if x < 1; x - 1 if x ≥ 1 }.",
+   "answer": "(a) 2; (b) 0; (c) 3; (d) No",
+   "solutionSteps": [
+    "Choose the piece whose condition the input satisfies.",
+    "Evaluate.",
+    "Evaluate.",
+    "Compare the left and right values at each breakpoint."
+   ],
+   "parts": [
+    {
+     "prompt": "Find f(-5).",
+     "answer": "2"
+    },
+    {
+     "prompt": "Find f(1).",
+     "answer": "0"
+    },
+    {
+     "prompt": "Find f(4).",
+     "answer": "3"
+    },
+    {
+     "prompt": "Is f continuous at the breakpoint(s)?",
+     "answer": "No"
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-014",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "f(x) = { 2 if x < 1; x - 1 if x ≥ 1 }. Select ALL true statements.",
+   "answer": [
+    "f(-5) = 2",
+    "f(4) = 3"
+   ],
+   "solutionSteps": [
+    "Check which piece applies."
+   ],
+   "options": [
+    {
+     "text": "f(-5) = 3",
+     "correct": false
+    },
+    {
+     "text": "f(4) = 3",
+     "correct": true
+    },
+    {
+     "text": "f(1) = 2",
+     "correct": false
+    },
+    {
+     "text": "f(-5) = 2",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-015",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Which is the absolute value function written piecewise?",
+   "answer": "|x| = { -x if x < 0; x if x ≥ 0 }",
+   "solutionSteps": [
+    "For negative x, -x is positive."
+   ],
+   "options": [
+    {
+     "text": "|x| = { -x if x > 0; x if x ≤ 0 }",
+     "correct": false
+    },
+    {
+     "text": "|x| = { x² if x < 0; x if x ≥ 0 }",
+     "correct": false
+    },
+    {
+     "text": "|x| = { -x if x < 0; x if x ≥ 0 }",
+     "correct": true
+    },
+    {
+     "text": "|x| = { x if x < 0; -x if x ≥ 0 }",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-016",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A phone plan costs $30 for up to 2 GB and $10 per extra GB (or part). Find the cost for 4.3 GB.",
+   "answer": "$60",
+   "solutionSteps": [
+    "Extra 2.3 GB rounds up to 3 GB.",
+    "30 + 3(10) = 60."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-005",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find k so f(x) = { kx + 1 if x < 2; x² - k if x ≥ 2 } is continuous.",
+   "answer": "k = 1",
+   "solutionSteps": [
+    "2k + 1 = 4 - k → 3k = 3."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-006",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = { 5 if x < 0; x² if x ≥ 0 }. Find f(-2) + f(3).",
+   "answer": "14",
+   "solutionSteps": [
+    "5 + 9."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-006",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Shipping costs $6 for packages under 2 lb, $9 for 2 lb up to 5 lb, and $9 + $1.50 per lb over 5 lb.",
+   "answer": "(a) C = 6 (0 < w < 2); 9 (2 ≤ w ≤ 5); 9 + 1.5(w - 5) (w > 5); (b) $6; (c) $13.50; (d) Yes: both sides give 9",
+   "solutionSteps": [
+    "Three pieces.",
+    "First piece.",
+    "9 + 4.5.",
+    "Compare."
+   ],
+   "parts": [
+    {
+     "prompt": "Write C(w) piecewise.",
+     "answer": "C = 6 (0 < w < 2); 9 (2 ≤ w ≤ 5); 9 + 1.5(w - 5) (w > 5)"
+    },
+    {
+     "prompt": "Find C(1.5).",
+     "answer": "$6"
+    },
+    {
+     "prompt": "Find C(8).",
+     "answer": "$13.50"
+    },
+    {
+     "prompt": "Is C continuous at w = 5?",
+     "answer": "Yes: both sides give 9"
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-017",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate the greatest integer function ⌊-2.4⌋ + ⌊3.9⌋.",
+   "answer": "0",
+   "solutionSteps": [
+    "⌊-2.4⌋ = -3; ⌊3.9⌋ = 3."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-008",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = x⁶ - 2x² even, odd, or neither?",
+   "answer": "Even",
+   "solutionSteps": [
+    "Compute f(-x) and compare with f(x) and -f(x)."
+   ],
+   "options": [
+    {
+     "text": "Neither",
+     "correct": false
+    },
+    {
+     "text": "Odd",
+     "correct": false
+    },
+    {
+     "text": "Both",
+     "correct": false
+    },
+    {
+     "text": "Even",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-009",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = 4x³ + x even, odd, or neither?",
+   "answer": "Odd",
+   "solutionSteps": [
+    "Compute f(-x) and compare with f(x) and -f(x)."
+   ],
+   "options": [
+    {
+     "text": "Even",
+     "correct": false
+    },
+    {
+     "text": "Neither",
+     "correct": false
+    },
+    {
+     "text": "Odd",
+     "correct": true
+    },
+    {
+     "text": "Both",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-010",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = x² + 3x even, odd, or neither?",
+   "answer": "Neither",
+   "solutionSteps": [
+    "Compute f(-x) and compare with f(x) and -f(x)."
+   ],
+   "options": [
+    {
+     "text": "Odd",
+     "correct": false
+    },
+    {
+     "text": "Even",
+     "correct": false
+    },
+    {
+     "text": "Both",
+     "correct": false
+    },
+    {
+     "text": "Neither",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-009",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = |x| + 5 even, odd, or neither?",
+   "answer": "Even",
+   "solutionSteps": [
+    "Compute f(-x) and compare with f(x) and -f(x)."
+   ],
+   "options": [
+    {
+     "text": "Neither",
+     "correct": false
+    },
+    {
+     "text": "Both",
+     "correct": false
+    },
+    {
+     "text": "Odd",
+     "correct": false
+    },
+    {
+     "text": "Even",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-010",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = x/(x² + 1) even, odd, or neither?",
+   "answer": "Odd",
+   "solutionSteps": [
+    "Compute f(-x) and compare with f(x) and -f(x)."
+   ],
+   "options": [
+    {
+     "text": "Both",
+     "correct": false
+    },
+    {
+     "text": "Neither",
+     "correct": false
+    },
+    {
+     "text": "Even",
+     "correct": false
+    },
+    {
+     "text": "Odd",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-011",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = (x - 1)² even, odd, or neither?",
+   "answer": "Neither",
+   "solutionSteps": [
+    "Compute f(-x) and compare with f(x) and -f(x)."
+   ],
+   "options": [
+    {
+     "text": "Both",
+     "correct": false
+    },
+    {
+     "text": "Neither",
+     "correct": true
+    },
+    {
+     "text": "Even",
+     "correct": false
+    },
+    {
+     "text": "Odd",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-011",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL functions whose graphs are symmetric about the origin.",
+   "answer": [
+    "y = x³",
+    "y = 1/x",
+    "y = sin x",
+    "y = x⁵ - x"
+   ],
+   "solutionSteps": [
+    "Odd: f(-x) = -f(x); symmetric about the origin."
+   ],
+   "options": [
+    {
+     "text": "y = x²",
+     "correct": false
+    },
+    {
+     "text": "y = sin x",
+     "correct": true
+    },
+    {
+     "text": "y = 1/x",
+     "correct": true
+    },
+    {
+     "text": "y = x³ + 1",
+     "correct": false
+    },
+    {
+     "text": "y = x³",
+     "correct": true
+    },
+    {
+     "text": "y = |x|",
+     "correct": false
+    },
+    {
+     "text": "y = x⁵ - x",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-005",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "select-all",
+   "prompt": "f is even and g is odd. Select ALL statements that must be true.",
+   "answer": [
+    "f·g is odd",
+    "g·g is even",
+    "f + f is even",
+    "g(0) = 0 if defined"
+   ],
+   "solutionSteps": [
+    "(f·g)(-x) = f(x)(-g(x)).",
+    "g(0) = -g(0) → g(0) = 0."
+   ],
+   "options": [
+    {
+     "text": "f(0) = 0",
+     "correct": false
+    },
+    {
+     "text": "f + f is even",
+     "correct": true
+    },
+    {
+     "text": "g(0) = 0 if defined",
+     "correct": true
+    },
+    {
+     "text": "f + g is even",
+     "correct": false
+    },
+    {
+     "text": "f·g is odd",
+     "correct": true
+    },
+    {
+     "text": "g·g is even",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-012",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "f(x) = x⁴ - 3x².",
+   "answer": "(a) x⁴ - 3x²; (b) even; (c) symmetric about the y-axis; (d) 4",
+   "solutionSteps": [
+    "Even powers.",
+    "f(-x) = f(x).",
+    "Even ↔ y-axis.",
+    "Same value."
+   ],
+   "parts": [
+    {
+     "prompt": "Find f(-x).",
+     "answer": "x⁴ - 3x²"
+    },
+    {
+     "prompt": "Is f even, odd, or neither?",
+     "answer": "even"
+    },
+    {
+     "prompt": "Describe its symmetry.",
+     "answer": "symmetric about the y-axis"
+    },
+    {
+     "prompt": "If f(2) = 4, find f(-2).",
+     "answer": "4"
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-006",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Any function can be written as an even part plus an odd part: E(x) = (f(x) + f(-x))/2, O(x) = (f(x) - f(-x))/2. Let f(x) = x³ + 2x² - x + 5.",
+   "answer": "(a) -x³ + 2x² + x + 5; (b) 2x² + 5; (c) x³ - x; (d) x³ + 2x² - x + 5",
+   "solutionSteps": [
+    "Substitute -x.",
+    "Average.",
+    "Half the difference.",
+    "Sum."
+   ],
+   "parts": [
+    {
+     "prompt": "Find f(-x).",
+     "answer": "-x³ + 2x² + x + 5"
+    },
+    {
+     "prompt": "Find E(x).",
+     "answer": "2x² + 5"
+    },
+    {
+     "prompt": "Find O(x).",
+     "answer": "x³ - x"
+    },
+    {
+     "prompt": "Check E + O.",
+     "answer": "x³ + 2x² - x + 5"
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-013",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A graph is symmetric about the origin. Which point must be on it if (3, -5) is?",
+   "answer": "(-3, 5)",
+   "solutionSteps": [
+    "Origin symmetry: (x, y) → (-x, -y)."
+   ],
+   "options": [
+    {
+     "text": "(-3, -5)",
+     "correct": false
+    },
+    {
+     "text": "(3, 5)",
+     "correct": false
+    },
+    {
+     "text": "(-3, 5)",
+     "correct": true
+    },
+    {
+     "text": "(5, -3)",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-012",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f is even and f(4) = 7. Find f(-4).",
+   "answer": "7",
+   "solutionSteps": [
+    "f(-x) = f(x)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-013",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "g is odd and g(2) = -6. Find g(-2).",
+   "answer": "6",
+   "solutionSteps": [
+    "g(-x) = -g(x)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-007",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Can a nonzero function be both even and odd? Explain.",
+   "answer": "No: f(x) = f(-x) = -f(x) forces f(x) = 0",
+   "solutionSteps": [
+    "Even and odd together give 2f(x) = 0."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-007",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A rectangle has perimeter 40 cm and width x cm.",
+   "answer": "(a) 20 - x; (b) A(x) = x(20 - x); (c) 0 < x < 20; (d) 100 cm² at x = 10",
+   "solutionSteps": [
+    "P = 2(l + w).",
+    "l·w.",
+    "Both sides positive.",
+    "Vertex of the parabola."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the length in terms of x.",
+     "answer": "20 - x"
+    },
+    {
+     "prompt": "Write the area A(x).",
+     "answer": "A(x) = x(20 - x)"
+    },
+    {
+     "prompt": "State a reasonable domain.",
+     "answer": "0 < x < 20"
+    },
+    {
+     "prompt": "Find the maximum area.",
+     "answer": "100 cm² at x = 10"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-008",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "A taxi charges $3.50 plus $2.25 per mile.",
+   "answer": "(a) C(m) = 2.25m + 3.5; (b) $21.50; (c) 12 miles; (d) $2.25 per mile",
+   "solutionSteps": [
+    "Initial fee + rate.",
+    "Substitute.",
+    "Solve 2.25m = 27.",
+    "Rate of change."
+   ],
+   "parts": [
+    {
+     "prompt": "Write C(m).",
+     "answer": "C(m) = 2.25m + 3.5"
+    },
+    {
+     "prompt": "Find C(8).",
+     "answer": "$21.50"
+    },
+    {
+     "prompt": "How far for $30.50?",
+     "answer": "12 miles"
+    },
+    {
+     "prompt": "Interpret the slope.",
+     "answer": "$2.25 per mile"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-006",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A ball's height is h(t) = -16t² + 48t + 6.",
+   "answer": "(a) 6 ft: initial height; (b) t = 1.5 s; (c) 42 ft; (d) 3.12 s",
+   "solutionSteps": [
+    "Substitute 0.",
+    "-b/(2a).",
+    "h(1.5).",
+    "Quadratic formula, positive root."
+   ],
+   "parts": [
+    {
+     "prompt": "Find h(0) and interpret.",
+     "answer": "6 ft: initial height"
+    },
+    {
+     "prompt": "When is the ball highest?",
+     "answer": "t = 1.5 s"
+    },
+    {
+     "prompt": "Find the maximum height.",
+     "answer": "42 ft"
+    },
+    {
+     "prompt": "When does it land (nearest hundredth)?",
+     "answer": "3.12 s"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-009",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A gym charges $40 to join plus $25 per month. Total cost after m months: Which model is correct?",
+   "answer": "C(m) = 25m + 40",
+   "solutionSteps": [
+    "Identify the starting value and how the quantity changes (constant difference or constant ratio)."
+   ],
+   "options": [
+    {
+     "text": "C(m) = 65m",
+     "correct": false
+    },
+    {
+     "text": "C(m) = 40m + 25",
+     "correct": false
+    },
+    {
+     "text": "C(m) = 25(m + 40)",
+     "correct": false
+    },
+    {
+     "text": "C(m) = 25m + 40",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-010",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A population of 500 doubles every 3 years. Population after t years: Which model is correct?",
+   "answer": "P(t) = 500·2^(t/3)",
+   "solutionSteps": [
+    "Identify the starting value and how the quantity changes (constant difference or constant ratio)."
+   ],
+   "options": [
+    {
+     "text": "P(t) = 500·2^(3t)",
+     "correct": false
+    },
+    {
+     "text": "P(t) = 1000t/3",
+     "correct": false
+    },
+    {
+     "text": "P(t) = 500·2^(t/3)",
+     "correct": true
+    },
+    {
+     "text": "P(t) = 500 + 2t/3",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-011",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A 2000-gallon tank drains at 40 gallons per minute. Gallons left after t minutes: Which model is correct?",
+   "answer": "V(t) = 2000 - 40t",
+   "solutionSteps": [
+    "Identify the starting value and how the quantity changes (constant difference or constant ratio)."
+   ],
+   "options": [
+    {
+     "text": "V(t) = 40t - 2000",
+     "correct": false
+    },
+    {
+     "text": "V(t) = 2000 - 40t",
+     "correct": true
+    },
+    {
+     "text": "V(t) = 2000(0.96)^t",
+     "correct": false
+    },
+    {
+     "text": "V(t) = 2000 - 40/t",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-012",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "The cost to produce x shirts is C(x) = 4x + 150 and revenue is R(x) = 10x. Select ALL true statements.",
+   "answer": [
+    "Profit is P(x) = 6x - 150",
+    "Break-even is at 25 shirts",
+    "Each shirt adds $6 profit"
+   ],
+   "solutionSteps": [
+    "P = R - C.",
+    "6x = 150 → x = 25."
+   ],
+   "options": [
+    {
+     "text": "Break-even is at 15 shirts",
+     "correct": false
+    },
+    {
+     "text": "Profit is P(x) = 6x - 150",
+     "correct": true
+    },
+    {
+     "text": "Each shirt adds $6 profit",
+     "correct": true
+    },
+    {
+     "text": "Break-even is at 25 shirts",
+     "correct": true
+    },
+    {
+     "text": "Profit is P(x) = 14x + 150",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-007",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A box with a square base and no top has volume 32 ft³. Write the surface area S as a function of the base edge x.",
+   "answer": "S(x) = x² + 128/x",
+   "solutionSteps": [
+    "Height h = 32/x².",
+    "S = x² + 4x·h = x² + 128/x."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-006",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A car travels at 55 mph. Write the distance d after t hours.",
+   "answer": "d(t) = 55t",
+   "solutionSteps": [
+    "Distance = rate × time."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-013",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Movie tickets cost $12 for adults and $8 for children. Write the total cost T(a, c) and find T(2, 3).",
+   "answer": "T = 12a + 8c; $48",
+   "solutionSteps": [
+    "24 + 24."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-018",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "f(x) = { 3 - x if x < 1; 2x if x ≥ 1 }. Select ALL true statements.",
+   "answer": [
+    "f(0) = 3",
+    "f(1) = 2",
+    "f is continuous at x = 1"
+   ],
+   "solutionSteps": [
+    "Left value 3 - 1 = 2 equals right value 2(1) = 2."
+   ],
+   "options": [
+    {
+     "text": "f has a jump at x = 1",
+     "correct": false
+    },
+    {
+     "text": "f(0) = 3",
+     "correct": true
+    },
+    {
+     "text": "f(1) = 3",
+     "correct": false
+    },
+    {
+     "text": "f(1) = 2",
+     "correct": true
+    },
+    {
+     "text": "f(2) = 1",
+     "correct": false
+    },
+    {
+     "text": "f is continuous at x = 1",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-007",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Which piecewise function has range y ≥ 0?",
+   "answer": "f(x) = { -x if x < 0; x² if x ≥ 0 }",
+   "solutionSteps": [
+    "Check the outputs of each piece over its domain."
+   ],
+   "options": [
+    {
+     "text": "f(x) = { -x if x < 0; -x² if x ≥ 0 }",
+     "correct": false
+    },
+    {
+     "text": "f(x) = { x - 1 if x < 0; x if x ≥ 0 }",
+     "correct": false
+    },
+    {
+     "text": "f(x) = { -x if x < 0; x² if x ≥ 0 }",
+     "correct": true
+    },
+    {
+     "text": "f(x) = { x if x < 0; x² if x ≥ 0 }",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-014",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "select-all",
+   "prompt": "Select ALL situations best modeled by a linear function.",
+   "answer": [
+    "A plumber charges $60 plus $45 per hour",
+    "A candle burns 0.5 in per hour",
+    "Savings grow by $20 per week"
+   ],
+   "solutionSteps": [
+    "Constant rate of change → linear."
+   ],
+   "options": [
+    {
+     "text": "A car's value drops 15% per year",
+     "correct": false
+    },
+    {
+     "text": "A population grows 3% per year",
+     "correct": false
+    },
+    {
+     "text": "A ball's height after it is thrown",
+     "correct": false
+    },
+    {
+     "text": "A candle burns 0.5 in per hour",
+     "correct": true
+    },
+    {
+     "text": "A plumber charges $60 plus $45 per hour",
+     "correct": true
+    },
+    {
+     "text": "Savings grow by $20 per week",
+     "correct": true
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-008",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "A farmer has 120 m of fence to enclose a rectangular pen along a river (no fence on the river side).",
+   "answer": "(a) A(x) = x(120 - 2x); (b) 0 < x < 60; (c) 30 m; (d) 1800 m²",
+   "solutionSteps": [
+    "Parallel side 120 - 2x.",
+    "Lengths positive.",
+    "Vertex -b/(2a) = 120/4.",
+    "30·60."
+   ],
+   "parts": [
+    {
+     "prompt": "Write the area A(x) where x is the side perpendicular to the river.",
+     "answer": "A(x) = x(120 - 2x)"
+    },
+    {
+     "prompt": "State the domain.",
+     "answer": "0 < x < 60"
+    },
+    {
+     "prompt": "Find the x that maximizes area.",
+     "answer": "30 m"
+    },
+    {
+     "prompt": "Find the maximum area.",
+     "answer": "1800 m²"
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-015",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "A phone's battery drops from 100% to 40% in 5 hours at a constant rate. Which function gives the battery level?",
+   "answer": "B(t) = 100 - 12t",
+   "solutionSteps": [
+    "Rate = (40 - 100)/5 = -12 per hour."
+   ],
+   "options": [
+    {
+     "text": "B(t) = 100 - 12t",
+     "correct": true
+    },
+    {
+     "text": "B(t) = 40 + 12t",
+     "correct": false
+    },
+    {
+     "text": "B(t) = 100(0.6)^t",
+     "correct": false
+    },
+    {
+     "text": "B(t) = 100 - 60t",
+     "correct": false
+    }
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-009",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A rental company charges C(d) = 45d + 0.2(m - 100d) for m miles over d days when m > 100d. Find the cost of a 3-day rental driven 450 miles.",
+   "answer": "$165",
+   "solutionSteps": [
+    "Extra miles: 450 - 300 = 150.",
+    "45(3) + 0.2(150) = 165."
    ],
    "standards": [
     "F-BF.A.1",

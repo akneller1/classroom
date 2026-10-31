@@ -105,6 +105,7 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources.' }
   ];
   function activityFormat(a) {
+    if (a.bankFormat) return a.bankFormat;
     // Grade 6–8 games share the generator page, but remain games, not worksheets.
     var middleGame = /worksheet-generator\/middle-school-game\.html\?/i.test(a.path || '') &&
       /[?&]game=([a-z-]+)/i.exec(a.path || '');
@@ -271,7 +272,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
+  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
@@ -492,11 +493,10 @@
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
           url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
         }
-        if (c && c.id === 'algebra2' && u && window.MK_QUESTION_BANKS &&
-            window.MK_QUESTION_BANKS.available(c.id,u.id) &&
-            (tool.format === 'worksheet-generator' || tool.format === 'assessment-generator')) {
-          url = 'worksheet-generator/bank-printable.html?unit=' + encodeURIComponent(u.id) +
-            '&mode=' + (tool.format === 'assessment-generator' ? 'assessment' : 'worksheet');
+        if (c && c.id === 'algebra2') {
+          var selectedUnit = u ? u.id : c.units[0].id;
+          if (tool.format === 'printable-generator') url = 'worksheet-generator/printables.html#unit=algebra2-' + selectedUnit;
+          else url = 'worksheet-generator/bank-printable.html?unit=' + selectedUnit + '&mode=' + ({'lesson-planner':'lesson','assessment-generator':'assessment','worksheet-generator':'worksheet'}[tool.format]);
         }
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
@@ -571,13 +571,17 @@
     ];
     var adapter = window.MK_RESOURCE_ELIGIBILITY;
     return '<section class="algebra-unit-section"><h2>Content readiness</h2>' +
-      '<p class="course-skill-hint">Future resources share the same approved question bank. This checks the new bank system only; it does not evaluate existing legacy resources.</p>' +
+      '<p class="course-skill-hint">These resources use the shared Algebra 2 bank. Games use existing multiple-choice items; availability varies by skill and difficulty.</p>' +
       '<div class="resource-readiness-grid">' + list.map(function (item) {
         var status = adapter.describe(item[0], c.id, u.id);
         return '<div class="resource-readiness-row"><strong>' + esc(item[1]) + '</strong><span>' +
           (status.ready ? status.count + ' approved questions' : 'Awaiting approved questions') + '</span>' +
-          (item[0] === 'flashcards' && status.ready ? '<a href="worksheet-generator/approved-flashcards.html?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id) + '">Open approved flashcards</a>' : '') +
-          (['connect-4', 'tic-tac-toe', 'picture-reveal'].indexOf(item[0]) >= 0 && status.ready ? '<a href="worksheet-generator/approved-games.html?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id) + '">Open approved review games</a>' : '') + '</div>';
+          (status.ready ? '<a href="' + esc((function(){
+            var games={'flashcards':'flashcards','connect-4':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','showdown':'showdown','detective':'detective','escape-room':'escape-room'};
+            if(games[item[0]])return 'worksheet-generator/algebra2-game.html?unit='+u.id+'&game='+games[item[0]];
+            if(item[0]==='readiness-check')return 'worksheet-generator/algebra2-practice.html?unit='+u.id;
+            return 'worksheet-generator/bank-printable.html?unit='+u.id+'&mode='+(item[0]==='assessments'?'assessment':'worksheet');
+          })()) + '">Open resource</a>' : '') + '</div>';
       }).join('') + '</div></section>';
   }
   function contentBriefSection(c, u) {
