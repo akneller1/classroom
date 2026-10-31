@@ -30,6 +30,17 @@ const {chromium}=require('playwright');
   await page.locator('#currentVersion').selectOption('1');
   await page.locator('#refreshVersion').click();
   assert.equal(await page.locator('#output .sheet:not(.key)').count(),2);
+  await page.goto(base+'/worksheet-generator/bank-printable.html?unit=quadratic-functions-complex-numbers');
+  await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('Ready to generate.'));
+  await page.locator('#spiralEnabled').check();
+  assert.equal(await page.locator('#spiralUnits input:not([disabled])').count()>=2,true);
+  const mixed=page.locator('#sectionList .section-config').nth(1);
+  await mixed.locator('input[type="number"]').fill('4');
+  await page.locator('#count').fill('20');
+  await page.locator('#build').click();
+  await page.locator('#editor').waitFor({state:'visible'});
+  const mixItems=await page.locator('#output .sheet:not(.key)').first().locator('.section-print').nth(1).locator('.item').count();
+  assert.ok(mixItems>0,'Spiral Mixed Review should include existing questions');
   assert.deepEqual(errors,[]);
   console.log('PASS Algebra 2 generator browser: sections, duplication, ordering, versions, edits, reset, keys');
  }finally{await browser.close()}
