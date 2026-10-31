@@ -10,6 +10,8 @@ assert.ok(html.indexOf('question-bank-adapter.js')<html.indexOf('approved-flashc
 assert.ok(html.includes('question-bank-loader.js'),'Approved manifest loader required');
 assert.ok(js.includes('banks.available(courseId,unitId)'),'Approval gating must be enforced');
 assert.ok(js.includes("formats:['short-answer','multiple-choice']"),'Flashcards must filter compatible questions');
+assert.ok(js.includes('function imagePath(q)') && js.includes('diagram(q,card)'), 'Safe diagram renderer required');
+assert.ok(js.includes('question-banks/assets/'), 'Only local diagram assets may be used');
 assert.ok(!js.includes('innerHTML'),'Question content must render as text rather than injected HTML');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifest.json'),'utf8'));
 assert.deepEqual(manifest.banks,[],'No unreviewed content should be published');
