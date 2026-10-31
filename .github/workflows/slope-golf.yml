@@ -1,0 +1,17 @@
+name: Slope Links Mini Golf
+on:
+  push:
+    paths:
+      - 'artifacts/slope-links-mini-golf/**'
+      - 'scripts/test-slope-golf.cjs'
+      - '.github/workflows/slope-golf.yml'
+  workflow_dispatch:
+jobs:
+  gameplay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-slope-golf.cjs
