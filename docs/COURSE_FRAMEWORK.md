@@ -38,3 +38,8 @@ Claude can deliver one JSON file per unit conforming to `schemas/question-bank.s
 The adapter is independent of existing game and generator question factories. It is **not yet wired into student-facing question generation**. Do not assume a structurally valid JSON bank is mathematically verified or mark it verified automatically. The integration layer should translate only approved question formats into each existing generator, with format-specific constraints and full regression tests. A new question should be written once, independently reviewed, and reused across appropriate activities, never duplicated as inconsistent versions.
 
 Run `node scripts/test-question-bank-adapter.cjs` for the adapter's validation, gating, filtering, and mutation-isolation checks.
+
+## Algebra 2 coverage (all eleven units)
+Algebra 2 is now included in the same unit-page lesson selection and `Copy content brief` workflow as grades 6–8; this applies even to units with only placeholder resource entries. Existing Algebra 2 games/generators remain linked where present. The shared generator discovery bridge supplements the legacy Algebra 2 generator selector with any units missing there, including Conic Sections and Probability & Statistics. Unsupported units remain disabled until their actual validated question factories exist.
+
+Content completion must be assessed by verified skill/format/difficulty coverage, not by presence of one or two resource links in `data.js`. Algebra 2 questions and diagrams are still reserved for Claude.
