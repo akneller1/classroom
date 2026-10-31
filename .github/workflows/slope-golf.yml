@@ -4,6 +4,7 @@ on:
     paths:
       - 'artifacts/slope-links-mini-golf/**'
       - 'scripts/test-slope-golf.cjs'
+      - 'scripts/test-slope-golf-browser.cjs'
       - '.github/workflows/slope-golf.yml'
   workflow_dispatch:
 jobs:
@@ -15,3 +16,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/test-slope-golf.cjs
+      - run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/slope-golf-http.log 2>&1 &
+      - run: node scripts/test-slope-golf-browser.cjs
