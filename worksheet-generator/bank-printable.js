@@ -62,7 +62,7 @@ function sectionsSnapshot(){return sections.filter(x=>x.enabled).map(x=>({...x,s
 function sectionQuestions(layout,used){
  const selections=[];
  layout.forEach(sec=>{
-  const count=Math.max(0,Math.min(60,sec.count));
+  const count=Math.max(0,Math.min(60,Number(sec.count)||0));
   if(count===0)return;
   const eligible=pool.filter(q=>(!sec.skillIds.length||sec.skillIds.includes(q.skillId))&&!used.has(q.id));
   const chosen=shuffle(eligible).slice(0,count);
@@ -86,8 +86,10 @@ function build(){
  if(requestedTotal>wantedCount){status.textContent='Section counts exceed the total question limit. Increase the question limit or reduce section counts.';return;}
  if(!pool.length){versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent='No matching questions for these settings.';return}
  const total=Math.max(1,Math.min(4,Number($('versions').value)||1));
+ if(!sections.some(x=>x.enabled)){status.textContent='Include at least one section before generating.';return;}
  versionSections=Array.from({length:total},sectionsSnapshot);
  versions=versionSections.map(layout=>sectionQuestions(layout,new Set()));activeVersion=0;
+ if(versions.every(v=>v.length===0)&&!versionSections[0].some(sec=>sec.note.trim())){status.textContent='Add questions or notes to at least one included section.';$('print').disabled=true;return;}
  const chooser=$('currentVersion');chooser.replaceChildren();
  versions.forEach((_,i)=>option(chooser,String(i),'Version '+String.fromCharCode(65+i)));
  chooser.value='0';$('editor').hidden=false;$('print').disabled=false;
