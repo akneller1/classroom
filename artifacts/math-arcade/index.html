@@ -65,14 +65,21 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
  c.strokeStyle='#b5d3ed2e';c.lineWidth=1;for(let x=-12;x<=12;x++){c.beginPath();c.moveTo(px(x),55);c.lineTo(px(x),H-55);c.stroke()}for(let y=-10;y<=10;y++){c.beginPath();c.moveTo(65,py(y));c.lineTo(W-65,py(y));c.stroke()}c.strokeStyle='#b5d3ed';c.lineWidth=2;c.beginPath();c.moveTo(65,py(0));c.lineTo(W-65,py(0));c.moveTo(px(0),55);c.lineTo(px(0),H-55);c.stroke();
  const circle=(x,y,r,col)=>{c.fillStyle=col;c.beginPath();c.arc(px(x),py(y),r,0,Math.PI*2);c.fill()},line=(fun,col,start=-11,end=11)=>{c.strokeStyle=col;c.lineWidth=4;c.beginPath();for(let i=0;i<=140;i++){let x=start+(end-start)*i/140,y=fun(x);if(i)c.lineTo(px(x),py(y));else c.moveTo(px(x),py(y))}c.stroke()};
  c.font='bold 24px system-ui';c.textAlign='center';c.fillStyle='#d9f7ff';
- if(key==='rocket'){c.fillText('🚀 ROCKET RESCUE',W/2,45);c.fillText('🪐',650,180);c.fillText(locked?(history.at(-1).success?'🚀':'💥'):'🚀',250,330);c.fillText('Fuel balance → rocket thrust',W/2,H-35);}
+ if(key==='rocket'){c.fillText('🚀 ROCKET RESCUE',W/2,45);c.fillText('🪐',650,180);c.fillText(locked?(history.at(-1).success?'🚀':'💥'):'🚀',250,330);}
  if(key==='inequality'){c.fillText('🌋 INEQUALITY ISLAND',W/2,45);c.fillStyle='#f16a3c';c.fillRect(70,py(-6),700,160);c.fillStyle='#6ce5a2';c.fillRect(70,py(0)-22,700,42);const b=(q.c-q.b)/q.a;circle(b,0,13,'#ffdf75');c.fillStyle='#fff';c.fillText('Set the safe boundary',W/2,H-35);}
  if(key==='laser'){line(x=>q.m1*x+q.b1,'#ff618b');line(x=>q.m2*x+q.b2,'#5de3ff');const [x,y]=answerFor(q);circle(x,y,11,'#fff1a6');c.fillText('🔒 SECURITY GRID',W/2,45);}
  if(key==='mirror'){circle(q.x,q.y,13,'#ffdb75');c.setLineDash([7,5]);c.strokeStyle='#83ddff';c.beginPath();c.moveTo(px(0),55);c.lineTo(px(0),H-55);c.moveTo(65,py(0));c.lineTo(W-65,py(0));c.stroke();c.setLineDash([]);if(locked)circle(...answerFor(q),14,'#56e6b7');c.fillText('🪞 MIRROR MAZE',W/2,45);}
  if(key==='cannon'){c.fillText('💣 TRIG CANNON',W/2,45);c.fillStyle='#78b67f';c.fillRect(0,py(-8),W,150);circle(-8,-2,17,'#ffdb75');c.fillStyle='#b2c5d6';c.fillRect(px(-8+q.run),py(-2+q.rise),36,55);c.strokeStyle='#ffdb75';c.setLineDash([7,6]);c.beginPath();c.moveTo(px(-8),py(-2));c.lineTo(px(-8+q.run),py(-2+q.rise));c.stroke();c.setLineDash([]);}
  if(key==='portal'){const f=x=>q.a*(x-q.h)**2+q.k;line(f,'#a6ffbb',-7,7);circle(q.x,0,11,'#ffd66c');if(locked)circle(q.x,answerFor(q)[0],15,'#ffe08b');c.fillText('🌀 FUNCTION PORTAL',W/2,45);}
  if(key==='catapult'){const f=x=>x*(q.r2-x);c.fillStyle='#6f9950';c.fillRect(0,py(0),W,H/2);c.fillStyle='#b3bac9';let xCastle=px(q.castleX),damage=Math.min(6,hits);for(let j=0;j<6-damage;j++){c.fillStyle=j%2?'#9c9dad':'#bdc0c9';c.fillRect(xCastle-32,py(2)-j*57,64,55)}c.fillStyle='#c9bca2';c.fillRect(px(-1)-45,py(0)-30,78,26);c.fillText('⚔',px(-1),py(1));c.fillStyle='#fff';c.font='bold 21px system-ui';c.fillText('🏰 CASTLE CATAPULT · '+hits+'/6',W/2,42);if(locked){line(f,history.at(-1).success?'#82ffc1':'#ffc86e',0,Math.min(q.r2,13));}if(shotFX){const progress=Math.min(1,(performance.now()-shotFX.start)/1500),x=Math.min(q.r2,12)*progress,y=f(x);circle(x,y,12,'#ffd56f');if(progress>.8&&shotFX.success){c.font='bold 28px system-ui';c.fillStyle='#ffd36c';c.fillText('💥',xCastle,py(8));}}}
- if(locked&&key!=='catapult'){c.fillStyle=history.at(-1).success?'#a5ffcc':'#ffb28c';c.font='bold 38px system-ui';c.fillText(history.at(-1).success?'✓ SUCCESS':'✕ TRY NEXT ROUND',W/2,H-30);}
+ if(locked&&key!=='catapult'){
+  // Keep feedback on its own high-contrast plate, clear of the grid axis labels.
+  const won=history.at(-1).success, caption=won?'✓ SUCCESS':'✕ TRY NEXT ROUND';
+  c.save();c.fillStyle='rgba(8,21,39,.95)';c.strokeStyle=won?'#72e5bb':'#f4a08b';c.lineWidth=2;
+  c.beginPath();c.roundRect(W/2-225,H-126,450,70,14);c.fill();c.stroke();
+  c.fillStyle=won?'#a5ffcc':'#ffcfb9';c.font='bold 32px system-ui';c.textAlign='center';
+  c.fillText(caption,W/2,H-81);c.restore();
+ }
 }
 setup();window.addEventListener('resize',draw);
 </script></html>
