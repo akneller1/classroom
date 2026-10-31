@@ -314,7 +314,7 @@ function loadHole(i) {
   });
   $("nextBtn").hidden = true; $("results").hidden = true; $("power").value=100;
   say(`Enter a slope for your shot from the ball at ${pt(S.ball)}. Pick a direction and a club, then press <b>Hit</b>.`);
-  refresh(); renderCard(); draw();
+  refresh(); renderCard(); updateResults(); draw();
 }
 
 function refresh() {
@@ -340,10 +340,14 @@ function readSlope() {
 }
 
 function hint() {
+  S.hints++;
   const h = HOLES[S.hole], [bx, by] = S.ball, [hx, hy] = h.cup;
   const rise = hy - by, run = hx - bx;
   if (run === 0) return say(`The cup is straight ${rise > 0 ? "up" : "down"} from the ball. A vertical line has an undefined slope, so play a shot to the side first.`);
-  say(`From the ball to the cup: rise = ${fmt(rise)}, run = ${fmt(run)}, so a straight shot has slope ${fracHTML(rise, run)}. Watch for obstacles in the way, and check that your club can get there.`);
+  if(S.hints===1)return say("Hint 1: compare the ball and cup y-coordinates for rise, then x-coordinates for run.");
+  if(S.hints===2)return say(`Hint 2: rise = ${fmt(rise)} and run = ${fmt(run)}. Divide rise by run.`);
+  if(S.mode==="challenge"){S.strokes++;refresh();}
+  say(`Hint 3: slope = ${fracHTML(rise,run)}. ${S.mode==="challenge"?"Final hint penalty: +1 stroke.":""}`);
 }
 
 // ---------- swinging ----------
@@ -352,8 +356,8 @@ function swing() {
   const a = readSlope(); if (!a) return;
   if (!S.dir) return say("Pick a direction: left or right.", "bad");
   if (!S.club) return say("Pick a club.", "bad");
-  const h = HOLES[S.hole], start = S.ball.slice(), d = S.club, dir = S.dir;
-  const r = simulate(h, start, a.m, dir, d);
+  const h = HOLES[S.hole], start = S.ball.slice(), d = S.club*S.power/100, dir = S.dir;
+  const r = simulate(h, start, a.m, dir, d, Math.floor(performance.now()/2000)*2000);
   S.strokes++; S.busy = true; refresh();
   const len = r.path.length * 0.03;
   const dur = Math.min(2800, 700 + 180 * len) * (reduce ? 0.6 : 1);
@@ -390,7 +394,7 @@ function finishShot(r, start, a, d, dir) {
     S.fx = { type: "sink", t0: performance.now() };
   } else {
     S.ball = r.end;
-    const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", stop: "" }[r.reason];
+    const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", windmill: "The spinning windmill blocked the ball.", stop: "" }[r.reason];
     const snapped = Math.abs(r.raw[0] - r.end[0]) > 1e-6 || Math.abs(r.raw[1] - r.end[1]) > 1e-6;
     msg = (why ? why + " " : "") + (r.sand ? "The sand slowed the ball down. " : "") + (r.lipped ? "Too hard! It rolled right over the cup. " : "") +
       (snapped ? `It stopped near ${pt(r.raw)} and settled on the nearest grid point, ${pt(r.end)}.` : `The ball is now at ${pt(r.end)}.`);
@@ -403,7 +407,7 @@ function finishShot(r, start, a, d, dir) {
     S.done = true; S.scores[S.hole] = MAX_STROKES;
     msg += ` That's ${MAX_STROKES} strokes, so pick up the ball and move on.`;
   }
-  if (S.done) $("nextBtn").hidden = false;
+  if (S.done) { $("nextBtn").hidden = false; updateResults(); }
   if (S.done && S.hole === HOLES.length - 1) $("nextBtn").textContent = "Play again ↺";
   else $("nextBtn").textContent = "Next hole ▶";
   if (!S.done) msg += ` Adjust the slope for your next shot from ${pt(S.ball)}.`;
@@ -412,6 +416,18 @@ function finishShot(r, start, a, d, dir) {
   if (S.fx) animateFx(); else draw();
 }
 
+function updateResults(){
+ const total=S.scores.reduce((a,b)=>a+(b==null?0:b),0);
+ const played=S.scores.filter(x=>x!=null).length,par=HOLES.reduce((a,h,i)=>a+(S.scores[i]==null?0:h.par),0);
+ const stars=S.scores.reduce((a,v,i)=>a+(v==null?0:v<=HOLES[i].par?3:v<=HOLES[i].par+2?2:1),0);
+ $("stars").textContent="★".repeat(stars)+"☆".repeat(HOLES.length*3-stars)+" · "+stars+" stars";
+ if(played===HOLES.length){
+  const old=Number(localStorage.getItem("slope-golf-best")||Infinity);if(total<old)localStorage.setItem("slope-golf-best",total);
+  $("results").hidden=false;
+  $("results").innerHTML="<h2>🏆 Championship complete!</h2><p>"+total+" strokes ("+(total-par>0?"+":"")+(total-par)+" to par). "+stars+" stars. Personal best: "+Math.min(total,old)+".</p><button id='playAgain'>Play another round</button>";
+  $("playAgain").onclick=()=>{S.scores=HOLES.map(()=>null);loadHole(0);};
+ }
+}
 function scoreName(s, par) {
   if (s === 1) return "Hole in one";
   return ({ "-3": "Albatross", "-2": "Eagle", "-1": "Birdie", "0": "Par", "1": "Bogey", "2": "Double bogey" })[s - par] || "In the cup";
@@ -499,6 +515,16 @@ function draw() {
     c.strokeStyle = "rgba(255,255,255,.18)"; c.lineWidth = 1.5; c.stroke();
   });
 
+  (h.moving||[]).forEach(([cx,cy,rx,ry])=>{const a=performance.now()/2000;const dx=rx*Math.cos(a),dy=ry*Math.sin(a);c.strokeStyle="#ffd45d";c.lineWidth=Math.max(5,U*.35);c.beginPath();c.moveTo(X(cx-dx),Y(cy-dy));c.lineTo(X(cx+dx),Y(cy+dy));c.stroke();});
+  if(S.mode!=="challenge"&&!S.busy&&!S.done&&S.dir&&S.club){
+   const mn=parseInt($("mn").value,10),md=parseInt($("md").value,10);
+   if(Number.isFinite(mn)&&Number.isFinite(md)&&md!==0){
+    const p=simulate(h,S.ball,mn/md,S.dir,S.club*S.power/100,Math.floor(performance.now()/2000)*2000);
+    c.save();c.strokeStyle="rgba(255,255,255,.95)";c.lineWidth=2.4;c.setLineDash(S.mode==="practice"?[7,5]:[]);
+    c.beginPath();p.path.forEach((v,i)=>i?c.lineTo(X(v[0]),Y(v[1])):c.moveTo(X(v[0]),Y(v[1])));c.stroke();c.setLineDash([]);
+    c.fillStyle="#ffe276";c.beginPath();c.arc(X(p.end[0]),Y(p.end[1]),U*.22,0,Math.PI*2);c.fill();c.restore();
+   }
+  }
   // cup + flag
   const [hx, hy] = h.cup;
   c.fillStyle = "#101510"; c.beginPath(); c.arc(X(hx), Y(hy), U * 0.34, 0, 7); c.fill();
@@ -526,6 +552,7 @@ function draw() {
       }
     }
   }
+  if(S.fx&&S.fx.type==="sink"){c.fillStyle="#ffe276";c.font="bold 24px sans-serif";c.textAlign="center";c.fillText("★ IN THE CUP! ★",W/2,36);}
   if (S.fx && S.fx.type === "sink") { const q = Math.min(1, (performance.now() - S.fx.t0) / 700); br *= (1 - q); }
   if (S.fx && S.fx.type === "splash") {
     const q = Math.min(1, (performance.now() - S.fx.t0) / 700), [sx, sy] = S.fx.at;
@@ -552,6 +579,9 @@ function roundRect(x, y, w, h, r) { const c = ctx; r = Math.min(r, w / 2, h / 2)
 
 // ---------- wiring ----------
 $("hintBtn").onclick = hint;
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{S.mode=b.dataset.mode;document.querySelectorAll("[data-mode]").forEach(x=>x.classList.toggle("sel",x===b));$("modeHelp").textContent={guided:"Guided: solid predicted trajectory with progressive hints.",practice:"Practice: dashed predicted trajectory with hints.",challenge:"Challenge: no predicted trajectory; final hint adds a stroke."}[S.mode];draw();});
+$("power").oninput=()=>{S.power=Number($("power").value);refresh();draw();};
+["mn","md"].forEach(id=>$(id).addEventListener("input",draw));
 ["mn", "md"].forEach(id => $(id).addEventListener("keydown", e => { if (e.key === "Enter") swing(); }));
 $("dirL").onclick = () => { S.dir = -1; refresh(); draw(); };
 $("dirR").onclick = () => { S.dir = 1; refresh(); draw(); };
