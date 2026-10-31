@@ -85,7 +85,7 @@ const prompts={
  mirror:[{x:2,y:3,t:'reflect-x'},{x:-4,y:2,t:'reflect-y'},{x:3,y:1,t:'rotate90'},{x:-2,y:-3,t:'translate',dx:4,dy:5},{x:4,y:-2,t:'rotate180'},{x:-2,y:4,t:'rotate270'}],
  cannon:[{rise:3,run:4},{rise:5,run:12},{rise:8,run:6},{rise:7,run:7},{rise:4,run:9},{rise:9,run:12}],
  portal:[{a:2,h:1,k:3,x:4},{a:-1,h:2,k:5,x:6},{a:3,h:-2,k:1,x:0},{a:2,h:3,k:-4,x:5},{a:-2,h:-1,k:6,x:2},{a:1,h:-3,k:2,x:6}],
- catapult:[[2,10],[4,10],[2,6],[2,12],[4,12],[2,18],[6,10],[4,6],[6,12],[-2,6]].map(([r1,r2])=>({a:-1,r1,r2,castleX:8}))
+ catapult:[[2,6],[4,6],[2,10],[4,10],[2,12],[6,10],[4,12],[6,12],[2,18],[-2,6]].map(([r1,r2])=>({a:-1,r1,r2,castleX:8}))
 };
 const clean=n=>Number(n.toFixed(3)),approx=(x,y,t=.12)=>Math.abs(Number(x)-y)<=t;
 function active(){return prompts[key][turn]||prompts[key][0]}
