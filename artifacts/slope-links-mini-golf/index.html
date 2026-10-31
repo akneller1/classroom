@@ -251,7 +251,7 @@ function simulate(h, ball, m, dir, d, phase = 0) {
     const x = bx + dir * t, y = by + m * dir * t;
     if (Math.abs(x) > N || Math.abs(y) > N) return finish("edge", px, py);
     if (hitsWall(h, px, py, x, y)) return finish("wall", px, py);
-    if ((h.moving||[]).some(([cx,cy,rx,ry])=>{const a=phase/2000;return segCross(px,py,x,y,cx+rx*Math.cos(a),cy+ry*Math.sin(a),cx-rx*Math.cos(a),cy-ry*Math.sin(a));})) return finish("windmill",px,py);
+    if ((h.moving||[]).some(([cx,cy,rx,ry])=>{const a=phase/2000;return segCross(px,py,x,y,[cx+rx*Math.cos(a),cy+ry*Math.sin(a),cx-rx*Math.cos(a),cy-ry*Math.sin(a)]);})) return finish("windmill",px,py);
     path.push([x, y]); px = x; py = y;
     const tunnel=(h.tunnels||[]).find(v=>Math.hypot(x-v[0],y-v[1])<0.18);
     if(tunnel){path.push([tunnel[2],tunnel[3]]);return finish("tunnel",tunnel[2],tunnel[3]);}
