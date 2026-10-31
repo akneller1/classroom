@@ -11,7 +11,7 @@ const errors=[];const fail=x=>errors.push(x);
 if(bank.schemaVersion!==1)fail('Unsupported schemaVersion');const course=ctx.window.LIBRARY.courses.find(c=>c.id===bank.courseId);if(!course)fail('Unknown courseId: '+bank.courseId);
 const unit=course&&course.units.find(u=>u.id===bank.unitId);if(!unit)fail('Unknown unitId: '+bank.unitId);
 const skills=unit?ctx.window.MK_COURSE_CATALOG.getSkills(bank.courseId,bank.unitId):[];
-const known=new Set(skills.map((_,i)=>bank.unitId+'-skill-'+String(i+1).padStart(2,'0')));const ids=new Set();
+const known=new Set(ctx.window.MK_COURSE_CATALOG.getSkillRecords(bank.courseId,bank.unitId).map(s=>s.id));const ids=new Set();
 if(!Array.isArray(bank.questions))fail('questions must be an array');
 for(const [i,q] of (bank.questions||[]).entries()){
  const x='questions['+i+']';if(!q||typeof q!=='object'){fail(x+' invalid');continue}
