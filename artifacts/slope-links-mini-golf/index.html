@@ -304,6 +304,18 @@ function slopeHTML(a) { return "slope " + fracHTML(a.mn, a.md); }
 const pt = p => `(${fmt(p[0])}, ${fmt(p[1])})`;
 const fmt = v => (Math.round(v * 100) / 100).toString().replace("-", "−");
 
+let audioCtx;
+function sound(type) {
+ try {
+  const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+  audioCtx=audioCtx||new C();if(audioCtx.state==="suspended")audioCtx.resume();
+  const osc=audioCtx.createOscillator(),gain=audioCtx.createGain(),t=audioCtx.currentTime;
+  const f=({swing:240,sink:660,water:120,wall:160})[type]||260;
+  osc.type="sine";osc.frequency.setValueAtTime(f,t);osc.frequency.exponentialRampToValueAtTime(type==="sink"?950:90,t+.18);
+  gain.gain.setValueAtTime(.045,t);gain.gain.exponentialRampToValueAtTime(.001,t+.2);
+  osc.connect(gain).connect(audioCtx.destination);osc.start(t);osc.stop(t+.21);
+ }catch(_){}
+}
 function say(html, kind) { const m = $("msg"); m.innerHTML = html; m.className = "msg" + (kind ? " " + kind : ""); }
 
 // ---------- setup ----------
@@ -367,7 +379,7 @@ function swing() {
   if (!S.club) return say("Pick a club.", "bad");
   const h = HOLES[S.hole], start = S.ball.slice(), d = S.club*S.power/100, dir = S.dir;
   const r = simulate(h, start, a.m, dir, d, performance.now());
-  S.strokes++; S.busy = true; refresh();
+  sound('swing'); S.strokes++; S.busy = true; refresh();
   const len = r.path.length * 0.03;
   const dur = Math.min(2800, 700 + 180 * len) * (reduce ? 0.6 : 1);
   // On small screens the course can be scrolled out of view; bring it back before the ball rolls.
@@ -389,19 +401,20 @@ function swing() {
 function finishShot(r, start, a, d, dir) {
   const h = HOLES[S.hole];
   let res, msg, kind = "";
-  if (r.outcome === "water") {
+  if (r.outcome === "water") { sound('water');
     S.strokes++;
     res = "splash (+1)";
     msg = `Splash! The ball landed in the water. That's a 1-stroke penalty. The ball goes back to ${pt(start)}.`; kind = "bad";
     S.fx = { type: "splash", at: r.path[r.path.length - 1], t0: performance.now() };
     S.ball = start;
-  } else if (r.outcome === "sink") {
+  } else if (r.outcome === "sink") { sound('sink');
     res = "in the cup";
     S.ball = h.cup.slice(); S.done = true;
     S.scores[S.hole] = S.strokes;
     msg = `<b>${scoreName(S.strokes, h.par)}!</b> Holed in ${S.strokes} stroke${S.strokes > 1 ? "s" : ""}${r.trickle ? " (it trickled in)" : ""}.`; kind = "good";
     S.fx = { type: "sink", t0: performance.now() };
   } else {
+    if(r.bounced||r.reason==="wall"||r.reason==="windmill")sound('wall');
     S.ball = r.end;
     const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", windmill: "The spinning windmill blocked the ball.", stop: "" }[r.reason];
     const snapped = false;
