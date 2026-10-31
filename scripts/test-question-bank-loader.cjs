@@ -17,7 +17,7 @@ async function main(){
  assert.equal(ids.length,1);
  assert.equal(banks.available(courseId,unitId),true);
  assert.equal(banks.select({courseId,unitId}).length,1);
- await assert.rejects(loader.load({version:1,banks:[entry,entry]},async()=>bank),/Duplicate/);
+ assert.throws(()=>loader.load({version:1,banks:[entry,entry]},async()=>bank),/Duplicate/);
  console.log('PASS approved manifest loading, unapproved gating, unit isolation and duplicate rejection');
 }
 main().catch(e=>{console.error(e);process.exitCode=1});
