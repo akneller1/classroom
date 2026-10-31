@@ -263,9 +263,29 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
   c.fillText('🌋 INEQUALITY ISLAND',W/2,45);
   c.fillStyle='#e75c39';c.fillRect(65,py(-5),710,220);
   const progress=motionFX?Math.min(1,(performance.now()-motionFX.start)/1450):0;
-  for(let i=0;i<=7;i++){const x=88+i*90,y=400-28*Math.sin(i*1.3);c.fillStyle=i<=turn?'#84dc8a':'#455979';c.fillRect(x-33,y-10,67,22)}
-  const x=88+(turn+(motionFX&&motionFX.success?progress:0))*90;
-  c.font='bold 40px system-ui';c.fillText(motionFX&&!motionFX.success&&progress>.5?'🔥':'🏃',x,370-28*Math.sin((turn+progress)*1.3));
+  // Keep the character at the new checkpoint after a successful jump.
+  // On a miss, the character remains on the current safe platform.
+  const succeeded=locked&&history.length&&history[history.length-1].success;
+  const position=turn+(motionFX?(motionFX.success?progress:0):(succeeded?1:0));
+  const platformY=i=>400-28*Math.sin(i*1.3);
+  for(let i=0;i<=7;i++){
+    const x=88+i*90,y=platformY(i);
+    c.fillStyle=i<=turn||(succeeded&&i===turn+1)?'#84dc8a':'#455979';
+    c.fillRect(x-33,y-10,67,22);
+  }
+  const x=88+position*90;
+  const fromY=platformY(turn)-36;
+  const toY=platformY(Math.min(turn+1,7))-36;
+  const jump=motionFX&&motionFX.success?Math.sin(progress*Math.PI)*58:0;
+  const y=fromY+(toY-fromY)*(motionFX&&motionFX.success?progress:(succeeded?1:0))-jump;
+  c.save();
+  c.font='bold 40px system-ui';
+  c.textAlign='center';
+  // The running emoji's native orientation faces left; flip it to face right.
+  c.translate(x,y);
+  c.scale(-1,1);
+  c.fillText(motionFX&&!motionFX.success&&progress>.5?'🔥':'🏃',0,0);
+  c.restore();
   c.font='bold 18px system-ui';c.fillStyle='#fff';c.fillText('Cross the lava by solving inequality challenges',W/2,560);
 }
  if(key==='laser'){
