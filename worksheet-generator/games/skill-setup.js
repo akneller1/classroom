@@ -51,14 +51,14 @@
     }
     var go = button(sharing ? 'Generate student link' : 'Continue', dialog, function () {
       var ids = inputs.filter(function (i) { return i.checked; }).map(function (i) { return i.value; });
-      if (!ids.length) return;
+      if (!ids.length && skills.length) return;
       dialog.close(); dialog.remove();
       if (sharing && G.parent !== G) G.parent.postMessage({ type: 'teacher-skills-selected', skills: ids }, G.location.origin);
       else start(ids);
     });
     function update() {
       var n = inputs.filter(function (i) { return i.checked; }).length;
-      go.disabled = !n; go.style.opacity = n ? '1' : '.5';
+      var canContinue = !skills.length || n > 0; go.disabled = !canContinue; go.style.opacity = canContinue ? '1' : '.5';
       status.textContent = !skills.length ? 'No game questions are available for this unit yet.' : n ? n + ' of ' + skills.length + ' selected' : 'Select at least one skill to continue.';
     }
     button('Select All', actions, function () { inputs.forEach(function (i) { i.checked = true; }); update(); });
