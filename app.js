@@ -932,6 +932,8 @@
     render(false);
   });
 
+  window.addEventListener('mk-banks-ready', function () { if (!query && resolve(token).name === 'unit') render(true); });
+
   /* ---------- start ---------- */
   (function init() {
     var foot = document.getElementById('foot');
