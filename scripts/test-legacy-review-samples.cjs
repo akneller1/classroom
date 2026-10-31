@@ -14,6 +14,7 @@ for(const entry of entries){
  assert.equal(output.ready,true,entry.key+': no candidate question generated');
  assert.ok(output.questions.length<=3);
  for(const q of output.questions){
+  assert.ok(q.reviewKey.startsWith(entry.key+'|'+target.courseId+'|'));
   assert.equal(q.approved,false);assert.equal(q.publishable,false);
   assert.ok(q.prompt);assert.ok(q.options.some(x=>x.correct));
   checked++;
