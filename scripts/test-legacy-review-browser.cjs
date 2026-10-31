@@ -8,7 +8,7 @@ const assert=require('node:assert/strict');
   const page=await browser.newPage({viewport:{width:1180,height:900},acceptDownloads:true});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/legacy-review.html');
-  await page.locator('#reviewTopic option').first().waitFor();
+  await page.waitForFunction(() => document.querySelector('#reviewTopic').options.length > 0);
   assert.ok(await page.locator('#reviewTopic option').count()>0);
   await page.locator('#reviewLoad').click();
   await page.locator('#reviewStatus').waitFor();
