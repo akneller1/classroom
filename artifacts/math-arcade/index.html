@@ -63,7 +63,17 @@ catapult:{title:'Castle Catapult',course:'Algebra 1',topic:'Quadratic Functions'
 const key=new URLSearchParams(location.search).get('game')||'catapult',cfg=GAMES[key]||GAMES.catapult,$=x=>document.getElementById(x),canvas=$('board'),ctx=canvas.getContext('2d');
 $('heading').textContent=cfg.title;$('subtitle').textContent=cfg.course+' · '+cfg.topic+' — '+cfg.intro;$('boardHint').textContent='The graph and obstacles respond to the mathematical choices you make.';
 const total=key==='catapult'?10:6;
-const BANK_GAME=key==='rocket'||key==='laser';let bankQuestion=null,bankUsed={keys:new Set(),sigs:new Set()},bankLevel='cp1';
+const BANK_GAME=true;let bankQuestion=null,bankUsed={keys:new Set(),sigs:new Set()},bankLevel='cp1',algebra2Bank=null,bankLoading=false,bankError='',motionFX=null,arcadeCombo=0,arcadeLives=3;
+const BANK_SPECS={
+ rocket:{set:'algebra1-expressions-equations',skills:['two-step','multi-step','both-sides','fraction-eq','special-solutions']},
+ inequality:{set:'algebra1-inequalities',skills:[]},
+ laser:{set:'algebra1-systems-of-equations',skills:['sys-graph','sys-subst','sys-elim','sys-apply']},
+ mirror:{set:'geometry-transformations',skills:[]},
+ cannon:{set:'geometry-right-triangles-trigonometry',skills:[]},
+ portal:{course:'algebra2',unit:'functions-transformations'},
+ catapult:{set:'algebra1-quadratics',skills:[]}
+};
+const motionPalette={inequality:'#ffce71',mirror:'#83ffd8',cannon:'#ffc077',portal:'#bd91ff',catapult:'#ffd36a'};
 let turn=0,points=0,hits=0,locked=false,feedback='',animate=0,history=[],current=null,shotFX=null,rocketFX=null,rocketFuel=100,rocketHull=3,rocketStreak=0,laserLives=3,laserStreak=0,laserFX=null,laserShots=0;
 const prompts={
  rocket:[{a:3,b:5,c:20},{a:4,b:-2,c:18},{a:5,b:7,c:42},{a:2,b:9,c:31},{a:6,b:4,c:46},{a:7,b:-3,c:46}],
@@ -87,21 +97,48 @@ function answerFor(q){
 }
 function field(id,label,value='',kind='number'){return '<label>'+label+'<input id="f'+id+'" type="'+kind+'" step="any" inputmode="decimal" value="'+value+'" autocomplete="off"></label>'}
 function option(id,label,choices){return '<label>'+label+'<select id="f'+id+'">'+choices.map(z=>'<option>'+z+'</option>').join('')+'</select></label>'}
+async function loadAuthoredBank(){
+ if(key!=='portal'||algebra2Bank)return;
+ bankLoading=true;
+ try {
+  const response=await fetch('../../question-banks/algebra2/functions-transformations.json',{cache:'no-store'});
+  if(!response.ok)throw Error('Algebra 2 bank could not load');
+  const json=await response.json();
+  if(json.schemaVersion!==1||json.courseId!=='algebra2'||json.unitId!=='functions-transformations'||!Array.isArray(json.questions))throw Error('Unexpected Algebra 2 question-bank schema');
+  algebra2Bank=json.questions;
+  bankError='';
+ }catch(e){bankError=e.message;algebra2Bank=[]}
+ bankLoading=false;
+}
 function newBankQuestion(){
- if(!BANK_GAME)return true;
- const id=key==='rocket'?'algebra1-expressions-equations':'algebra1-systems-of-equations';
- const set=window.MKMENU&&MKMENU.skillSets[id];
+ bankQuestion=null;
+ if(key==='portal'){
+  if(!algebra2Bank)return false;
+  const skills=[...new Set(algebra2Bank.map(q=>q.skillId))];
+  const level=bankLevel;
+  const start=Math.min(skills.length-1,Math.floor(turn*skills.length/total));
+  let eligible=algebra2Bank.filter(q=>q.level===level&&q.format==='multiple-choice'&&q.options?.length>=2&&q.options.some(o=>o.correct)&&skills.slice(0,start+1).includes(q.skillId));
+  if(!eligible.length)eligible=algebra2Bank.filter(q=>q.level===level&&q.format==='short-answer'&&q.answer!==undefined);
+  eligible=eligible.filter(q=>!bankUsed.keys.has(q.id));
+  if(!eligible.length)return false;
+  const q=eligible[Math.floor(Math.random()*eligible.length)];
+  bankUsed.keys.add(q.id);
+  bankQuestion={id:q.id,skillName:q.skillId,q:{prompt:q.prompt,ask:''},steps:(q.solutionSteps||[]).map(t=>({t})),
+    options:q.format==='multiple-choice'?q.options.map(o=>({a:o.text,ok:o.correct})):null,
+    typed:q.format==='short-answer'?String(q.answer):null};
+  return true;
+ }
+ const spec=BANK_SPECS[key],set=window.MKMENU?.skillSets[spec.set];
  if(!set||!window.MKGAMES)return false;
- const skills=key==='rocket'?['two-step','multi-step','both-sides','fraction-eq','special-solutions']:['sys-graph','sys-subst','sys-elim','sys-apply'];
+ const skills=spec.skills.length?spec.skills.filter(id=>set.byId[id]):set.skills.filter(s=>!/error|investigation|graph.*hand|proof/i.test(s.name)).map(s=>s.id);
  const tier={cp2:[1,2,3],cp1:[3,4,5],honors:[5,6,7]}[bankLevel];
  const stage=Math.min(tier.length-1,Math.floor(turn*3/total));
  const c=tier[stage],start=Math.min(skills.length-1,Math.floor(turn*skills.length/total));
  for(let shift=0;shift<skills.length;shift++){
-  const idSkill=skills[(start+shift)%skills.length];
-  if(!set.byId[idSkill])continue;
+  const skill=skills[(start+shift)%skills.length];
   for(let attempt=0;attempt<12;attempt++){
-   const items=MKGAMES.makeItems(id,idSkill,c,{intOnly:bankLevel!=='honors',level:bankLevel},key+'-'+Date.now()+'-'+turn+'-'+attempt,bankUsed);
-   const found=items.find(x=>x.options&&x.options.length>=2&&x.options.some(o=>o.ok));
+   const items=MKGAMES.makeItems(spec.set,skill,c,{intOnly:bankLevel!=='honors',level:bankLevel},key+'-'+Date.now()+'-'+turn+'-'+shift+'-'+attempt,bankUsed);
+   const found=items.find(x=>x.options?.length>=2&&x.options.some(o=>o.ok));
    if(found){bankQuestion=found;return true;}
   }
  }
@@ -111,11 +148,11 @@ function showBankQuestion(){
  const box=$('bankPrompt');
  if(!BANK_GAME){box.hidden=true;$('bankSettings').hidden=true;return;}
  $('bankSettings').hidden=false;box.hidden=false;
- if(!bankQuestion){box.textContent='No verified bank question is available for this round. Select another difficulty.';$('action').disabled=true;return;}
+ if(!bankQuestion){box.textContent=bankLoading?'Loading existing questions…':(bankError||'No suitable bank question was available at this difficulty. Choose another difficulty.');$('action').disabled=true;return;} $('action').disabled=locked;
  const toHtml=t=>window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(t):String(t);
- box.innerHTML='<p><strong>Verified Algebra 1 bank · '+bankQuestion.skillName+' · Stage '+(turn+1)+'</strong></p><div>'+toHtml(bankQuestion.q.prompt||'')+'</div>'+(bankQuestion.q.ask?'<p>'+toHtml(bankQuestion.q.ask)+'</p>':'')+
+ box.innerHTML='<p><strong>'+ (key==='portal'?'Algebra 2 authored bank (human review pending)':'Existing course question bank')+' · '+bankQuestion.skillName+' · Stage '+(turn+1)+'</strong></p><div>'+toHtml(bankQuestion.q.prompt||'')+'</div>'+(bankQuestion.q.ask?'<p>'+toHtml(bankQuestion.q.ask)+'</p>':'')+
  (bankQuestion.q.fig&&window.MKMENU.figHtml?MKMENU.figHtml(bankQuestion.q.fig):'')+
- '<div role="radiogroup" aria-label="Choose the correct answer">'+bankQuestion.options.map((o,i)=>'<label style="display:flex;align-items:center;gap:9px;padding:8px;margin:6px 0;background:#273f5b;border-radius:8px"><input type="radio" name="bankAnswer" value="'+i+'" style="width:auto">'+toHtml(o.a)+'</label>').join('')+'</div>';
+ (bankQuestion.options?'<div role="radiogroup" aria-label="Choose the correct answer">'+bankQuestion.options.map((o,i)=>'<label style="display:flex;align-items:center;gap:9px;padding:8px;margin:6px 0;background:#273f5b;border-radius:8px"><input type="radio" name="bankAnswer" value="'+i+'" style="width:auto">'+toHtml(o.a)+'</label>').join('')+'</div>':'<label>Answer <input id="bankTyped" aria-label="Type your answer" autocomplete="off"></label>');
  $('fields').hidden=true;
 }
 function setup(){locked=false;feedback='';animate=0;current=active();$('next').hidden=true;$('action').disabled=false;$('roundLabel').textContent='Level '+(turn+1)+' / '+total;$('points').textContent=key==='catapult'?'Castle hits: '+hits+'/6':'Score: '+points;$('level').textContent=key==='catapult'?'Castle integrity: '+Math.max(0,6-hits)+'/6':'Mode: Interactive';$('fill').style.width=(turn/total*100)+'%';$('mission').textContent=cfg.goal;
@@ -140,10 +177,10 @@ function setup(){locked=false;feedback='';animate=0;current=active();$('next').h
  if(key==='catapult'){const r=q.r2; text='Launch trajectory: h(x) = −x(x − '+r+'). Castle is at x = '+q.castleX+'. Supply both roots, vertex coordinates, and the height at the castle to fire.';fields=field(0,'Left root')+field(1,'Right root')+field(2,'Vertex x')+field(3,'Vertex height')+field(4,'Height at castle x = '+q.castleX);}
  $('instructions').textContent=BANK_GAME?'Solve the existing question-bank challenge to power the '+(key==='rocket'?'rocket engine.':'security lasers.')+' Difficulty increases as you advance.':text;$('fields').innerHTML=fields;showBankQuestion();$('controls').innerHTML='<small>Correct calculations control the action. The graph illustrates the model; it does not reveal the numeric answer.</small>';$('status').textContent='Ready for your move.';draw();}
 function shoot(){if(locked)return;const q=current,correct=answerFor(q);
- const selected=BANK_GAME?document.querySelector('input[name="bankAnswer"]:checked'):null;
- if(BANK_GAME&&!selected){$('status').textContent='Choose an answer to fire.';return;}
+ const selected=BANK_GAME?(bankQuestion?.typed!==null&&bankQuestion?.typed!==undefined?$('bankTyped'):document.querySelector('input[name="bankAnswer"]:checked')):null;
+ if(BANK_GAME&&(!selected||(selected.id==='bankTyped'&&!selected.value.trim()))){$('status').textContent='Answer the bank question to activate your move.';return;}
  const entered=BANK_GAME?correct.slice():correct.map((_,i)=>{const e=$('f'+i);return e.tagName==='SELECT'?e.value:Number(e.value)});if(!BANK_GAME&&(entered.some(x=>typeof x==='number'&&!Number.isFinite(x))||correct.some((_,i)=>$('f'+i).tagName==='INPUT'&&!$('f'+i).value.trim()))){$('status').textContent='Complete every answer before playing.';return;}
- const valid=BANK_GAME?Boolean(bankQuestion&&bankQuestion.options[Number(selected.value)]?.ok):correct.every((v,i)=>typeof v==='string'?entered[i]===(v==='≥'||v==='≤'?'Closed':'Open'):approx(entered[i],v,key==='cannon'&&i===1?.6:.12));
+ const valid=BANK_GAME?Boolean(bankQuestion&&(bankQuestion.typed!==null&&bankQuestion.typed!==undefined?selected.value.trim().toLowerCase()===bankQuestion.typed.trim().toLowerCase():bankQuestion.options?.[Number(selected.value)]?.ok)):correct.every((v,i)=>typeof v==='string'?entered[i]===(v==='≥'||v==='≤'?'Closed':'Open'):approx(entered[i],v,key==='cannon'&&i===1?.6:.12));
  let hit=false;
  if(key==='catapult'){const y=correct[4];hit=valid&&y>=2&&y<=18; if(hit)hits++;}else hit=valid;
  if(hit)points+=100;
@@ -161,11 +198,11 @@ function shoot(){if(locked)return;const q=current,correct=answerFor(q);
  if(key==='rocket'){rocketFX={start:performance.now(),success:hit,mission:turn};const fly=()=>{draw();if(rocketFX&&performance.now()-rocketFX.start<1700)requestAnimationFrame(fly);else{rocketFX=null;draw();}};requestAnimationFrame(fly);}if(key==='catapult'){shotFX={start:performance.now(),q,success:hit};const tick=()=>{draw();if(shotFX&&performance.now()-shotFX.start<1500)requestAnimationFrame(tick);else{shotFX=null;draw();}};requestAnimationFrame(tick);}let msg='';
  if(key==='catapult'){msg=hit?'Direct hit! The castle loses one wall section. '+hits+' of 6 hits.':valid?'The calculations are correct, but the shot '+(correct[4]<2?'falls short of the castle wall.':'overshoots the wall!'):'Your trajectory data were incorrect; the catapult misses. The castle still stands.';}
  else msg=key==='laser'?(hit?'Security node disabled! Combo ×'+laserStreak+'. '+laserLives+' shield(s) remaining.':'Alarm triggered — beams failed to lock. Shield lost. Review the verified answer and try the next sector.'):key==='rocket'?(hit?'Engine calibrated! Rocket advances toward the next checkpoint. Fuel '+rocketFuel+'%, hull '+rocketHull+'/3.':'Engine misfire! The rocket veers off course. −20 fuel and −1 hull. Check the authored answer below.'):hit?'Success! You completed the mathematical maneuver.':'Not quite. '+(key==='rocket'?'The rocket missed its landing.':key==='inequality'?'The bridge became unsafe.':'Your move missed the target.')+' Correct result: '+correct.map(x=>typeof x==='number'?clean(x):x==='≥'||x==='≤'?'Closed':'Open').join(', ')+'.';
- if(BANK_GAME&&bankQuestion){const right=bankQuestion.options.find(o=>o.ok);msg+='<p><strong>Correct answer:</strong> '+(window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(right.a):right.a)+'</p>';}
+ if(BANK_GAME&&bankQuestion){const right=bankQuestion.typed!==null&&bankQuestion.typed!==undefined?bankQuestion.typed:bankQuestion.options.find(o=>o.ok).a;msg+='<p><strong>Correct answer:</strong> '+(window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(right):right)+'</p>';}
  $('status').innerHTML=msg;history.push({level:turn+1,success:hit});$('next').hidden=false;$('next').textContent=turn===total-1?'See results →':'Next level →';draw();}
 function end(){locked=true;$('action').disabled=true;$('next').hidden=true;$('fill').style.width='100%';$('mission').textContent=key==='catapult'?(hits>=6?'🏰 Castle conquered!':'The castle survived — try again!'):key==='rocket'?(rocketHull>0&&rocketFuel>0?'🚀 Rescue mission completed!':'🚨 Rocket needs repairs — retry the mission!'):key==='laser'?(laserLives>0?'🔓 Security system breached!':'🚨 Shields depleted — retry the mission!'):'🏆 Mission complete!';$('instructions').textContent=key==='catapult'?'You scored '+hits+' direct hits. Six hits bring the castle down.':key==='rocket'?'Final score: '+points+'. Fuel remaining '+rocketFuel+'%, hull '+rocketHull+'/3.':key==='laser'?'Score '+points+'. Shields remaining: '+laserLives+'/3. Security nodes disabled: '+history.filter(x=>x.success).length+'/'+total+'.':'You scored '+points+' points in '+total+' levels.';$('fields').innerHTML='';$('controls').innerHTML='<button class="primary" id="replay">Play again</button>';$('replay').onclick=()=>{turn=0;points=0;hits=0;rocketFuel=100;rocketHull=3;rocketStreak=0;laserLives=3;laserStreak=0;laserShots=0;history=[];setup()};$('status').textContent='Completed '+total+' levels. '+history.filter(x=>x.success).length+' successful turns.';draw();}
 $('action').onclick=shoot;$('next').onclick=()=>{turn++;turn<total?setup():end()};$('bankLevel').onchange=()=>{bankLevel=$('bankLevel').value;bankUsed={keys:new Set(),sigs:new Set()};if(BANK_GAME&&!locked){newBankQuestion();showBankQuestion();}};
-$('hint').onclick=()=>{if(BANK_GAME&&bankQuestion){$('status').textContent=bankQuestion.steps?.[0]?.t||'Use the equation-solving method for this skill.';return;}if(key==='catapult'){$('status').textContent='Hint: roots occur where height is zero. The vertex lies halfway between the roots. Evaluate h(x) at the castle.';}else if(key==='laser'){$('status').textContent='Hint: set the two y-expressions equal, solve for x, and substitute back to find y.';}else if(key==='mirror'){$('status').textContent='Hint: reflect or rotate the ordered pair using the coordinate rule.';}else if(key==='cannon'){$('status').textContent='Hint: tangent = opposite / adjacent. Use inverse tangent to find the angle.';}else if(key==='inequality'){$('status').textContent='Hint: isolate x. Strict inequalities use open endpoints; inclusive ones use closed endpoints.';}else if(key==='portal'){$('status').textContent='Hint: substitute x into the parentheses first, square, multiply, and then shift.';}else $('status').textContent='Hint: undo addition or subtraction, then divide by the coefficient.';};
+$('hint').onclick=()=>{if(BANK_GAME&&bankQuestion){$('status').textContent=bankQuestion.steps?.[0]?.t||'Use the strategy for the selected skill.';return;}if(key==='catapult'){$('status').textContent='Hint: roots occur where height is zero. The vertex lies halfway between the roots. Evaluate h(x) at the castle.';}else if(key==='laser'){$('status').textContent='Hint: set the two y-expressions equal, solve for x, and substitute back to find y.';}else if(key==='mirror'){$('status').textContent='Hint: reflect or rotate the ordered pair using the coordinate rule.';}else if(key==='cannon'){$('status').textContent='Hint: tangent = opposite / adjacent. Use inverse tangent to find the angle.';}else if(key==='inequality'){$('status').textContent='Hint: isolate x. Strict inequalities use open endpoints; inclusive ones use closed endpoints.';}else if(key==='portal'){$('status').textContent='Hint: substitute x into the parentheses first, square, multiply, and then shift.';}else $('status').textContent='Hint: undo addition or subtraction, then divide by the coefficient.';};
 function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#24456b');bg.addColorStop(1,'#0d2343');c.fillStyle=bg;c.fillRect(0,0,W,H);const q=current||active();const px=x=>W/2+x*32,py=y=>H/2-y*25;
  c.strokeStyle='#b5d3ed2e';c.lineWidth=1;for(let x=-12;x<=12;x++){c.beginPath();c.moveTo(px(x),55);c.lineTo(px(x),H-55);c.stroke()}for(let y=-10;y<=10;y++){c.beginPath();c.moveTo(65,py(y));c.lineTo(W-65,py(y));c.stroke()}c.strokeStyle='#b5d3ed';c.lineWidth=2;c.beginPath();c.moveTo(65,py(0));c.lineTo(W-65,py(0));c.moveTo(px(0),55);c.lineTo(px(0),H-55);c.stroke();
  const circle=(x,y,r,col)=>{c.fillStyle=col;c.beginPath();c.arc(px(x),py(y),r,0,Math.PI*2);c.fill()},line=(fun,col,start=-11,end=11)=>{c.strokeStyle=col;c.lineWidth=4;c.beginPath();for(let i=0;i<=140;i++){let x=start+(end-start)*i/140,y=fun(x);if(i)c.lineTo(px(x),py(y));else c.moveTo(px(x),py(y))}c.stroke()};
@@ -225,5 +262,5 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
   c.fillText(caption,W/2,H-81);c.restore();
  }
 }
-setup();window.addEventListener('resize',draw);
+setup();if(key==='portal'){loadAuthoredBank().then(()=>{if(!locked){newBankQuestion();showBankQuestion();}})}window.addEventListener('resize',draw);
 </script></html>
