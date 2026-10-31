@@ -22,6 +22,7 @@ on:
       - 'scripts/assess-legacy-authorization.cjs'
       - 'scripts/test-legacy-authorization.cjs'
       - 'staged-legacy-reuse.js'
+      - 'scripts/staging-reuse-test.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
 jobs:
@@ -43,6 +44,7 @@ jobs:
       - run: node scripts/test-legacy-review-validation.cjs
       - run: node scripts/test-legacy-authorization.cjs
       - run: node --check staged-legacy-reuse.js
+      - run: node scripts/staging-reuse-test.cjs
       - run: npm install --no-save playwright@1.58.2
       - run: npx playwright install --with-deps chromium
       - name: Start local site
