@@ -100,10 +100,10 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
    const id=(c.id==='algebra'?'algebra1-':c.id+'-')+u.id;
    if(!G.MK_QUESTION_BANKS.available(c.id,u.id))return;
    if(!group.units.some(item=>item[0]===id))group.units.push([id,u.name]);
-   const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.id]=s.name);
+   const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
    registry.set(id,{courseId:c.id,unitId:u.id});
    G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,skills:records.map(s=>({id:s.id,name:s.name,tag:s.id,print:['maze','color','partner','who','stations'],generate:function(){throw Error('Authored bank selection required')}}))});
+   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved Algebra 2 bank.',print:['maze','color','partner','who','stations'],generate:function(){throw Error('Authored bank selection required')}}))});
   });
  });
  // Preserve original levels while selecting authored banks by exact level.
