@@ -43,6 +43,17 @@
  .bank-app .item{break-inside:avoid}
  @page{margin:.55in}
 }
+
+.bank-app #output { overflow:auto; }
+.bank-app .sheet.bank-page { width:8.5in; height:11in; max-width:none; padding:.55in; box-sizing:border-box; border:0; border-radius:0; margin:1.5rem auto; box-shadow:0 2px 10px #0003; }
+.bank-page-body { height:9.65in; display:flow-root; }
+.bank-page-number { height:.25in; text-align:right; font-size:8pt; color:#555; padding-top:.08in; box-sizing:border-box; }
+.bank-app .bank-page .item { padding-bottom:calc(.7rem + var(--bank-space-adjust,0)*6px); }
+@media print {
+ .bank-app #output { overflow:visible; }
+ .bank-app .sheet.bank-page { width:7.4in; height:9.9in; padding:0; margin:0; box-shadow:none; break-after:page; }
+ .bank-app .sheet.bank-page:last-child { break-after:auto; }
+}
 </style>
 </head>
 <body class="bank-app">
@@ -91,6 +102,7 @@
       <div id="sectionList"></div>
     </fieldset>
     <fieldset class="card mm-card"><legend class="sr">Generate and print</legend><h2><span class="step">4</span>Generate resource</h2>
+      <div class="controls"><div><span class="lbl">Fine-tune spacing</span><div class="mm-spacing-stepper"><button type="button" id="bankSpaceMinus" aria-label="Decrease spacing">−</button><output id="bankSpaceValue">0 / 10</output><button type="button" id="bankSpacePlus" aria-label="Increase spacing">+</button></div></div></div>
       <div class="controls">
         <label class="skill"><input type="checkbox" id="key" checked> Include teacher answer key</label>
         <button type="button" id="build" class="btn">Generate preview</button>
@@ -110,7 +122,7 @@
 <script src="../course-catalog.js"></script>
 <script src="../question-bank-adapter.js"></script>
 <script src="../question-bank-loader.js"></script>
-<script src="bank-printable.js?v=standard-generators-20261031e"></script>
+<script src="bank-printable.js?v=spacing-pages-20261031"></script>
 <script src="core/math-display.js?v=class-parity-20261031"></script>
 </body>
 </html>

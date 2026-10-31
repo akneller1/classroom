@@ -165,3 +165,14 @@
 .pl-s-challenge .pl-p{padding:9px 0 11px;}
 .pl-s-challenge .pl-row.one .pl-p{width:100%;}
 .pl-section-choice{flex-wrap:wrap;min-width:0}.pl-section-choice select{max-width:100%}
+
+/* Letter pages share their measured content area between screen and print. */
+.pl-paperwrap .pl-page { max-width:none; width:8.5in; height:11in; padding:.45in; box-sizing:border-box; margin-bottom:20px; }
+.pl-page-body { height:9.85in; display:flow-root; }
+.pl-page-number { height:.25in; box-sizing:border-box; padding-top:.08in; text-align:right; font-size:8pt; color:#555; }
+.pl-page .pl-p { padding-bottom:calc(3px + var(--pl-space-adjust, 0) * 6px); }
+@media print {
+  body.printing #printRoot .pl-page { width:7.6in; height:10.1in; padding:0; box-sizing:border-box; break-after:page; page-break-after:always; }
+  body.printing #printRoot .pl-page:last-child { break-after:auto; page-break-after:auto; }
+  body.printing #printRoot .pl-page-body { height:9.85in; }
+}

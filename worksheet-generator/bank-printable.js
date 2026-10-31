@@ -224,6 +224,46 @@ function move(index,direction){
  if(arr[index].sectionId!==arr[to].sectionId){status.textContent='Use the section controls to reorder sections; questions can be moved within their own section.';return;}
  [arr[index],arr[to]]=[arr[to],arr[index]];renderEditor();renderAll();
 }
+
+let spaceAdjust=0, layoutReady=Promise.resolve(), layoutToken=0;
+try { spaceAdjust=Math.max(0,Math.min(10,Number(root.localStorage.getItem('mk-bank-printable-spacing'))||0)); } catch(e) {}
+$('bankSpaceValue').textContent=spaceAdjust+' / 10';
+function paginatePaper(paper) {
+ const out=paper.parentNode; let page,body,section=null,sectionNode=null; const pages=[];
+ function start(){
+  page=doc.createElement('section');page.className='sheet bank-page';page.style.setProperty('--bank-space-adjust',spaceAdjust);
+  body=elt('div',page);body.className='bank-page-body';
+  elt('div',page).className='bank-page-number';out.insertBefore(page,paper);pages.push(page);sectionNode=null;
+ }
+ function destination(){
+  if(!section)return body;
+  if(!sectionNode){sectionNode=section.cloneNode(false);body.appendChild(sectionNode);const heading=section.querySelector('h3');if(heading)sectionNode.appendChild(heading.cloneNode(true));}
+  return sectionNode;
+ }
+ function place(node){
+  const copy=node.cloneNode(true);destination().appendChild(copy);
+  if(body.scrollHeight>body.clientHeight+1){
+   copy.remove();
+   if(sectionNode&&sectionNode.children.length===1){sectionNode.remove();sectionNode=null;}
+   if(body.children.length)start();
+   destination().appendChild(copy);
+  }
+ }
+ start();
+ Array.from(paper.children).forEach(node=>{
+  section=node.classList.contains('section-print')?node:null;sectionNode=null;
+  if(section)Array.from(section.children).filter(n=>n.tagName!=='H3').forEach(place);else place(node);
+ });
+ pages.forEach((p,i)=>p.querySelector('.bank-page-number').textContent='Page '+(i+1)+' of '+pages.length);
+ paper.remove();
+}
+function adjustSpace(delta){
+ spaceAdjust=Math.max(0,Math.min(10,spaceAdjust+delta));
+ try{root.localStorage.setItem('mk-bank-printable-spacing',spaceAdjust);}catch(e){}
+ $('bankSpaceValue').textContent=spaceAdjust+' / 10';if(versions.length)renderAll();
+}
+$('bankSpaceMinus').onclick=()=>adjustSpace(-1);$('bankSpacePlus').onclick=()=>adjustSpace(1);
+
 function renderAll(){
  const out=$('output');out.replaceChildren();
  const unit=units.find(u=>u.id===unitSelect.value),mode=$('mode').value;
@@ -248,6 +288,11 @@ function renderAll(){
     sectionItems.forEach((item,i)=>renderQuestion(item.question,block,i+1,true));
    });
   }
+ });
+ const token=++layoutToken;
+ const papers=Array.from(out.querySelectorAll('.sheet:not(.key)'));
+ layoutReady=Promise.all([doc.fonts?doc.fonts.ready:Promise.resolve(),...Array.from(out.querySelectorAll('img')).map(img=>img.complete?Promise.resolve():new Promise(resolve=>{img.onload=resolve;img.onerror=resolve;}))]).then(()=>{
+  if(token!==layoutToken)return;papers.forEach(p=>{if(p.parentNode)paginatePaper(p);});
  });
  const sizes=versions.map(v=>v.length);
  status.textContent='Preview ready: '+versions.length+' version(s), '+sizes.join('/')+' questions. Review mathematical answers before printing.';
@@ -287,7 +332,7 @@ if(['lesson','assessment','worksheet'].includes(params.get('mode')))$('mode').va
 unitSelect.addEventListener('change',()=>{skills();renderSpiralUnits();renderSections();versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.'});
 $('all').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=true));
 $('none').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=false));
-$('build').addEventListener('click',build);$('print').addEventListener('click',()=>root.print());
+$('build').addEventListener('click',build);$('print').addEventListener('click',()=>layoutReady.then(()=>root.print()));
 skills();renderSpiralUnits();
 root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(()=>{
  renderSpiralUnits();status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.';

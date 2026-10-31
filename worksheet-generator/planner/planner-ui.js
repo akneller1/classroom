@@ -20,6 +20,7 @@
 
   var ui = { day: 4, level: lsGet(KEY_LEVEL) || 'cp1', seed: 'A', practice: +(lsGet(KEY_N) || 10), view: 'plan', plan: null, notes: lsGet(KEY_NOTES) || 'lesson' };
   if (!/^(lesson|fill|filled)$/.test(ui.notes)) ui.notes = 'lesson';
+  ui.spaceAdjust = Math.max(0, Math.min(10, +(lsGet('mk-planner-spacing') || 0)));
   ui.selectedDays = [ui.day];
   function resetSelection() { ui.selectedDays = [ui.day]; }
 
@@ -439,6 +440,7 @@
       }).join('') + '</fieldset>' +
       '<fieldset class="pl-levels pl-section-options"><legend class="pl-lab">Include in lesson</legend><p class="pl-hint">Unchecked sections are omitted from the lesson preview, handout, teacher key, and PowerPoint.</p>' +
       sectionSequence.map(function(k, i) { return '<div class="pl-section-choice" style="display:flex;align-items:center;gap:8px;margin:7px 0"><label style="flex:1;display:flex;gap:7px;align-items:center"><input type="checkbox" data-section-toggle="' + k + '"' + (sectionChoices[k] ? ' checked' : '') + '> ' + esc(sectionLabels[k]) + '</label>' + '<button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' up">↑</button><button type="button" class="btn ghost sm" data-move-section="' + i + '" data-direction="1"' + (i === sectionSequence.length - 1 ? ' disabled' : '') + ' aria-label="Move ' + esc(sectionLabels[k]) + ' down">↓</button><select data-occ-lesson="' + i + '" aria-label="Topic for this section"><option value="">All selected topics</option>' + ui.selectedDays.map(function(n){var d=P.day(n); return d && d.day_type==='Lesson' ? '<option value="' + esc(d.lesson_id) + '"' + ((sectionConfigs[i]||{}).lesson===d.lesson_id?' selected':'') + '>' + esc(d.title) + '</option>' : '';}).join('') + '</select>' + (['donow','mixed','examples','practice','challenge','exit'].indexOf(k) < 0 ? '' : '<label class="pl-hint">Problems <input type="number" min="0" max="30" style="width:62px" data-occ-count="' + i + '" placeholder="Auto" value="' + ((sectionConfigs[i]||{}).count == null ? '' : sectionConfigs[i].count) + '" aria-label="Problems in ' + esc(sectionLabels[k]) + ' occurrence ' + (i+1) + '"></label>') + '<button type="button" class="btn ghost sm" data-remove-repeat="' + i + '"' + (sectionSequence.filter(function(x){return x===k;}).length < 2 ? ' disabled' : '') + ' title="Remove repeated section">−</button></div>'; }).join('') + '<select id="plRepeatType" aria-label="Section to repeat">' + Object.keys(sectionLabels).map(function(k){return '<option value="' + k + '">' + esc(sectionLabels[k]) + '</option>';}).join('') + '</select> <button type="button" class="btn ghost sm" id="plRepeat">+ Repeat section</button><p class="pl-hint">Add a section again, then use arrows to arrange the sequence. All exports follow this order.</p></fieldset>' +
+      '<div class="field"><span class="pl-lab">Fine-tune spacing</span><div class="mm-spacing-stepper"><button type="button" id="plSpaceMinus" aria-label="Decrease spacing">−</button><output id="plSpaceValue">' + ui.spaceAdjust + ' / 10</output><button type="button" id="plSpacePlus" aria-label="Increase spacing">+</button></div></div>' +
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
@@ -465,22 +467,101 @@
     writeHash();
     doc.title = 'Day ' + d.day + ': ' + d.title + ' · Daily Lesson Planner';
   }
+  /* Measure the same Letter-size pages for preview and print. */
+  function studentPages(target, plan) {
+    var source = doc.createElement('div');
+    source.innerHTML = studentSheet(plan);
+    target.innerHTML = '';
+    var pages = [], page, body, currentSection = null, sectionNode = null, pending = [];
+    function startPage() {
+      page = doc.createElement('div'); page.className = 'pl-sheet pl-page';
+      page.style.setProperty('--pl-space-adjust', ui.spaceAdjust);
+      body = doc.createElement('div'); body.className = 'pl-page-body';
+      page.appendChild(body);
+      var foot = doc.createElement('div'); foot.className = 'pl-page-number';
+      page.appendChild(foot); target.appendChild(page); pages.push(page);
+      sectionNode = null;
+    }
+    function destination() {
+      if (!currentSection) return body;
+      if (!sectionNode) {
+        sectionNode = currentSection.cloneNode(false);
+        body.appendChild(sectionNode);
+        var heading = currentSection.querySelector('.pl-shd');
+        if (heading) sectionNode.appendChild(heading.cloneNode(true));
+      }
+      return sectionNode;
+    }
+    function place(node) {
+      var dest = destination(), group = pending.concat([node.cloneNode(true)]); pending = [];
+      group.forEach(function(n) { dest.appendChild(n); });
+      if (body.scrollHeight > body.clientHeight + 1) {
+        group.forEach(function(n) { n.remove(); });
+        // A section heading alone belongs with its first content block.
+        if (sectionNode && sectionNode.children.length <= 1) { sectionNode.remove(); sectionNode = null; }
+        if (body.children.length) startPage();
+        dest = destination();
+        group.forEach(function(n) { dest.appendChild(n); });
+      }
+    }
+    function blocks(node) {
+      if (node.matches('.pl-shd')) return;
+      if (node.matches('.pl-gh')) { pending.push(node.cloneNode(true)); return; }
+      if (node.matches('table') && node.tBodies.length) {
+        Array.prototype.forEach.call(node.tBodies, function(tb) {
+          Array.prototype.forEach.call(tb.rows, function(row) {
+            var table = node.cloneNode(false);
+            if (node.querySelector('colgroup')) table.appendChild(node.querySelector('colgroup').cloneNode(true));
+            if (node.tHead) table.appendChild(node.tHead.cloneNode(true));
+            var tbody = doc.createElement('tbody'); tbody.appendChild(row.cloneNode(true)); table.appendChild(tbody);
+            place(table);
+          });
+        });
+      } else place(node);
+    }
+    startPage();
+    Array.prototype.forEach.call(source.firstElementChild.children, function(node) {
+      currentSection = node.matches('.pl-sbox, .pl-exit') ? node : null;
+      sectionNode = null;
+      if (currentSection) Array.prototype.forEach.call(node.children, blocks);
+      else place(node);
+      if (pending.length) { pending.forEach(function(n) { destination().appendChild(n); }); pending = []; }
+    });
+    pages.forEach(function(pg,i) { pg.querySelector('.pl-page-number').textContent = 'Page ' + (i+1) + ' of ' + pages.length; });
+    return pages;
+  }
+  var pageLayoutToken = 0;
   function renderView() {
     var v = $('#plView');
     v.className = 'pl-view v-' + ui.view;
     v.innerHTML = ui.view === 'plan' ? planView(ui.plan) : '<div class="pl-paperwrap">' + (ui.view === 'student' ? studentSheet(ui.plan) : keySheet(ui.plan)) + '</div>';
+    var layoutToken = ++pageLayoutToken;
+    if (ui.view === 'student') {
+      (doc.fonts && doc.fonts.ready ? doc.fonts.ready : Promise.resolve()).then(function() {
+        if (layoutToken === pageLayoutToken && ui.view === 'student') studentPages(v.querySelector('.pl-paperwrap'), ui.plan);
+      });
+    }
     Array.prototype.forEach.call(doc.querySelectorAll('.pl-tabs .tab'), function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-view') === ui.view)); });
   }
   function doPrint(kind) {
     var root = $('#printRoot');
     root.innerHTML = kind === 'student' ? studentSheet(ui.plan) : keySheet(ui.plan);
     doc.body.classList.add('printing');
-    setTimeout(function () { G.print(); }, 60);
+    (doc.fonts && doc.fonts.ready ? doc.fonts.ready : Promise.resolve()).then(function() {
+      if (kind === 'student') studentPages(root, ui.plan);
+      setTimeout(function () { G.print(); }, 60);
+    });
   }
   G.addEventListener('afterprint', function () { doc.body.classList.remove('printing'); $('#printRoot').innerHTML = ''; });
 
   doc.addEventListener('click', function (e) {
     var t = e.target.closest ? e.target.closest('button') : null; if (!t) return;
+    if (t.id === 'plSpaceMinus' || t.id === 'plSpacePlus') {
+      ui.spaceAdjust = Math.max(0, Math.min(10, ui.spaceAdjust + (t.id === 'plSpacePlus' ? 1 : -1)));
+      lsSet('mk-planner-spacing', ui.spaceAdjust);
+      $('#plSpaceValue').textContent = ui.spaceAdjust + ' / 10';
+      renderView(); return;
+    }
     if (t.classList.contains('pl-daybtn')) { ui.day = +t.getAttribute('data-day'); resetSelection(); render(); $('#plView').scrollIntoView ? G.scrollTo(0, 0) : 0; return; }
     if (t.hasAttribute('data-move-section')) {
       var from = +t.getAttribute('data-move-section'), to = from + +t.getAttribute('data-direction');
