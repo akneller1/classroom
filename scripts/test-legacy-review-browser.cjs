@@ -39,7 +39,7 @@ const assert=require('node:assert/strict');
   assert.match(await page.locator('#status').innerText(),/draft questions generated/);
   assert.ok(await page.locator('#practice button').count()>1);
   await page.setViewportSize({width:375,height:812});
-  assert.ok(await page.locator('#reviewCourse').isVisible());
+  assert.ok(await page.locator('#course').isVisible());
   assert.equal(errors.length,0,errors.join('; '));
   console.log('PASS real browser course/skill selection, generated questions, reviewer notes, JSON download and mobile viewport');
  }finally{await browser.close()}
