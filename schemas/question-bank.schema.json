@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mr. K's Classroom Question Bank Payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "courseId",
+    "unitId",
+    "questions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "courseId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "unitId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "skillId",
+          "level",
+          "format",
+          "prompt",
+          "answer",
+          "solutionSteps"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "skillId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "enum": [
+              "cp2",
+              "cp1",
+              "honors"
+            ]
+          },
+          "format": {
+            "enum": [
+              "short-answer",
+              "multiple-choice",
+              "select-all",
+              "open-response"
+            ]
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "answer": {
+            "type": [
+              "string",
+              "number",
+              "array"
+            ],
+            "minItems": 1
+          },
+          "solutionSteps": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "text",
+                "correct"
+              ],
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "correct": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "parts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "prompt",
+                "answer"
+              ],
+              "properties": {
+                "prompt": {
+                  "type": "string"
+                },
+                "answer": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "diagram": {
+            "type": "object",
+            "required": [
+              "type",
+              "spec"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "svg",
+                  "coordinate-plane",
+                  "number-line",
+                  "geometry-figure",
+                  "image"
+                ]
+              },
+              "spec": {
+                "type": "object"
+              }
+            },
+            "additionalProperties": false
+          },
+          "standards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sourceNotes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
