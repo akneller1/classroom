@@ -17,7 +17,7 @@ catapult:{title:'Castle Catapult',course:'Algebra 1',topic:'Quadratic Functions'
 const key=new URLSearchParams(location.search).get('game')||'catapult',cfg=GAMES[key]||GAMES.catapult,$=x=>document.getElementById(x),canvas=$('board'),ctx=canvas.getContext('2d');
 $('heading').textContent=cfg.title;$('subtitle').textContent=cfg.course+' · '+cfg.topic+' — '+cfg.intro;$('boardHint').textContent='The graph and obstacles respond to the mathematical choices you make.';
 const total=key==='catapult'?10:6;
-let turn=0,points=0,hits=0,locked=false,feedback='',animate=0,history=[],current=null;
+let turn=0,points=0,hits=0,locked=false,feedback='',animate=0,history=[],current=null,shotFX=null;
 const prompts={
  rocket:[{a:3,b:5,c:20},{a:4,b:-2,c:18},{a:5,b:7,c:42},{a:2,b:9,c:31},{a:6,b:4,c:46},{a:7,b:-3,c:46}],
  inequality:[{a:2,b:3,c:11,op:'>'},{a:3,b:-2,c:10,op:'≥'},{a:4,b:1,c:13,op:'<'},{a:2,b:-5,c:9,op:'≤'},{a:5,b:2,c:17,op:'>'},{a:3,b:4,c:16,op:'≥'}],
@@ -55,7 +55,7 @@ function shoot(){if(locked)return;const q=current,correct=answerFor(q),entered=c
  let hit=false;
  if(key==='catapult'){const y=correct[4];hit=valid&&y>=2&&y<=18; if(hit)hits++;}else hit=valid;
  if(hit)points+=100;
- locked=true;$('action').disabled=true;animate=performance.now();let msg='';
+ locked=true;$('action').disabled=true;animate=performance.now();if(key==='catapult'){shotFX={start:performance.now(),q,success:hit};const tick=()=>{draw();if(shotFX&&performance.now()-shotFX.start<1500)requestAnimationFrame(tick);else{shotFX=null;draw();}};requestAnimationFrame(tick);}let msg='';
  if(key==='catapult'){msg=hit?'Direct hit! The castle loses one wall section. '+hits+' of 6 hits.':valid?'The calculations are correct, but the shot '+(correct[4]<2?'falls short of the castle wall.':'overshoots the wall!'):'Your trajectory data were incorrect; the catapult misses. The castle still stands.';}
  else msg=hit?'Success! You completed the mathematical maneuver.':'Not quite. '+(key==='rocket'?'The rocket missed its landing.':key==='inequality'?'The bridge became unsafe.':'Your move missed the target.')+' Correct result: '+correct.map(x=>typeof x==='number'?clean(x):x==='≥'||x==='≤'?'Closed':'Open').join(', ')+'.';
  $('status').textContent=msg;history.push({level:turn+1,success:hit});$('next').hidden=false;$('next').textContent=turn===total-1?'See results →':'Next level →';draw();}
@@ -71,7 +71,7 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
  if(key==='mirror'){circle(q.x,q.y,13,'#ffdb75');c.setLineDash([7,5]);c.strokeStyle='#83ddff';c.beginPath();c.moveTo(px(0),55);c.lineTo(px(0),H-55);c.moveTo(65,py(0));c.lineTo(W-65,py(0));c.stroke();c.setLineDash([]);if(locked)circle(...answerFor(q),14,'#56e6b7');c.fillText('🪞 MIRROR MAZE',W/2,45);}
  if(key==='cannon'){c.fillText('💣 TRIG CANNON',W/2,45);c.fillStyle='#78b67f';c.fillRect(0,py(-8),W,150);circle(-8,-2,17,'#ffdb75');c.fillStyle='#b2c5d6';c.fillRect(px(-8+q.run),py(-2+q.rise),36,55);c.strokeStyle='#ffdb75';c.setLineDash([7,6]);c.beginPath();c.moveTo(px(-8),py(-2));c.lineTo(px(-8+q.run),py(-2+q.rise));c.stroke();c.setLineDash([]);}
  if(key==='portal'){const f=x=>q.a*(x-q.h)**2+q.k;line(f,'#a6ffbb',-7,7);circle(q.x,0,11,'#ffd66c');if(locked)circle(q.x,answerFor(q)[0],15,'#ffe08b');c.fillText('🌀 FUNCTION PORTAL',W/2,45);}
- if(key==='catapult'){const f=x=>x*(q.r2-x);c.fillStyle='#6f9950';c.fillRect(0,py(0),W,H/2);c.fillStyle='#b3bac9';let xCastle=px(q.castleX),damage=Math.min(6,hits);for(let j=0;j<6-damage;j++){c.fillStyle=j%2?'#9c9dad':'#bdc0c9';c.fillRect(xCastle-32,py(2)-j*29,64,27)}c.fillStyle='#c9bca2';c.fillRect(px(-1)-45,py(0)-30,78,26);c.fillText('⚔',px(-1),py(1));c.fillStyle='#fff';c.font='bold 21px system-ui';c.fillText('🏰 CASTLE CATAPULT · '+hits+'/6',W/2,42);if(locked){line(f,history.at(-1).success?'#82ffc1':'#ffc86e',0,Math.min(q.r2,13));}}
+ if(key==='catapult'){const f=x=>x*(q.r2-x);c.fillStyle='#6f9950';c.fillRect(0,py(0),W,H/2);c.fillStyle='#b3bac9';let xCastle=px(q.castleX),damage=Math.min(6,hits);for(let j=0;j<6-damage;j++){c.fillStyle=j%2?'#9c9dad':'#bdc0c9';c.fillRect(xCastle-32,py(2)-j*57,64,55)}c.fillStyle='#c9bca2';c.fillRect(px(-1)-45,py(0)-30,78,26);c.fillText('⚔',px(-1),py(1));c.fillStyle='#fff';c.font='bold 21px system-ui';c.fillText('🏰 CASTLE CATAPULT · '+hits+'/6',W/2,42);if(locked){line(f,history.at(-1).success?'#82ffc1':'#ffc86e',0,Math.min(q.r2,13));}if(shotFX){const progress=Math.min(1,(performance.now()-shotFX.start)/1500),x=Math.min(q.r2,12)*progress,y=f(x);circle(x,y,12,'#ffd56f');if(progress>.8&&shotFX.success){c.font='bold 28px system-ui';c.fillStyle='#ffd36c';c.fillText('💥',xCastle,py(8));}}}
  if(locked&&key!=='catapult'){c.fillStyle=history.at(-1).success?'#a5ffcc':'#ffb28c';c.font='bold 38px system-ui';c.fillText(history.at(-1).success?'✓ SUCCESS':'✕ TRY NEXT ROUND',W/2,H-30);}
 }
 setup();window.addEventListener('resize',draw);
