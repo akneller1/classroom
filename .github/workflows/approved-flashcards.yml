@@ -1,0 +1,21 @@
+name: Approved flashcard player
+on:
+  push:
+    paths:
+      - 'worksheet-generator/approved-flashcards.*'
+      - 'question-bank-adapter.js'
+      - 'question-bank-loader.js'
+      - 'question-banks/manifest.json'
+      - 'scripts/test-approved-flashcards.cjs'
+      - '.github/workflows/approved-flashcards.yml'
+  workflow_dispatch:
+jobs:
+  flashcards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-approved-flashcards.cjs
