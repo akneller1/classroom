@@ -83,7 +83,7 @@
       bits.push('<span>' + S.versions.length + (S.versions.length > 1 ? ' versions' : ' version') + '</span>');
       if (cnt.failed) bits.push('<span class="bad">' + cnt.failed + ' missing</span>');
       if (cnt.unverified) bits.push('<span class="warn">' + cnt.unverified + ' failed verification</span>');
-      if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">' + (NS.skillSets[c.unitId] && NS.skillSets[c.unitId].authoredBank ? '✓ approved bank answers available for review' : '✓ every answer verified') + '</span>');
+      if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">' + (NS.skillSets[c.unitId] && NS.skillSets[c.unitId].authoredBank ? '✓ approved bank answers available for review' : '✓ ready to print (manual answers are not automatically checked)') + '</span>');
     }
     if (rules.errors.length) bits.push('<span class="bad">' + rules.errors.length + ' rule problem' + (rules.errors.length > 1 ? 's' : '') + '</span>');
     box.innerHTML = bits.join('');
@@ -345,7 +345,7 @@
       if (p.mc) body += '<ol class="mm-cchoices' + (p.mc.opts.some(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx').length > 24; }) ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li' + (show && k === p.mc.key ? ' class="ok"' : '') + '><b>' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && k === p.mc.key ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>' + (p.mcNote ? '<p class="mm-fmtnote">' + esc(p.mcNote) + '</p>' : '');
       else body += '<p class="mm-fmtnote bad">Prints as short answer: ' + esc(p.mcFail || 'no choices could be made') + ' Try ↻ New problem, or move it to a short-answer part.</p>';
     }
-    var issues = (!p.failed && p.verify && p.verify.status !== 'verified') ? '<div class="mm-issues">' + (p.verify.issues || []).map(function (x) { return '<div>' + esc(x) + '</div>'; }).join('') +
+    var issues = (!p.failed && p.verify && p.verify.status !== 'verified' && p.verify.status !== 'manual') ? '<div class="mm-issues">' + (p.verify.issues || []).map(function (x) { return '<div>' + esc(x) + '</div>'; }).join('') +
       '</div>' : '';
     var secOpts = c.sections.map(function (s, k) { return '<option value="' + k + '"' + (k === si ? ' disabled' : '') + '>' + esc(s.name) + '</option>'; }).join('');
     var curFmt = NS.sectionFormat(c, si), curC = NS.sectionC(c, si);
