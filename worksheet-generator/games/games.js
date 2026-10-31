@@ -128,7 +128,7 @@
         '<button class="gm-btn" id="fcShuffle">Shuffle</button><button class="gm-btn" id="fcMissed"' + (need ? '' : ' disabled') + '>' + (S.missed ? 'All cards' : 'Practice missed') + '</button><button class="gm-btn" id="fcNew">New cards</button><button class="gm-btn" id="fcReset">Reset progress</button></div>' +
         '<div class="fc-stats"><span>' + (S.order.length ? 'Card ' + (S.i + 1) + ' of ' + S.order.length : 'No cards') + '</span><span>Got it: ' + got + ' • Need practice: ' + need + '</span></div>' +
         '<div class="gm-bar"><i style="width:' + (S.order.length ? (S.i + 1) / S.order.length * 100 : 0) + '%"></i></div>';
-      if (!c) h += '<div class="gm-panel">' + (S.missed ? 'No missed cards here. Nice work!' : 'No cards for this choice.') + '</div>';
+      if (!c) h += '<div class="gm-panel" role="status">' + (S.missed ? 'No missed cards here. Nice work!' : 'No cards for this choice.') + '</div>';
       else h += '<div class="gm-panel fc-card' + (S.flip ? ' back' : '') + '" id="fcCard" tabindex="0" role="button" aria-label="Flip card">' +
         '<div class="fc-top"><span class="gm-tag">' + esc(c.tagName) + ' · ' + esc(c.skillName) + '</span><span class="fc-side">' + (S.flip ? 'Answer side' : 'Question side') + '</span></div>' +
         (S.flip ? qHtml(c) + solHtml(c) : '<div class="gm-muted" style="font-weight:700;margin-top:10px;font-size:.85rem">PROBLEM</div>' + qHtml(c, true)) +
