@@ -53,11 +53,12 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
  for(const tool of ['worksheet','menu-assessment']){
   await page.goto(base+'/worksheet-generator/'+tool+'.html');
   await page.locator('#mmUnitSel').selectOption('algebra2-probability-statistics');
-  await page.waitForURL('**/bank-printable.html?unit=probability-statistics&mode='+(tool==='worksheet'?'worksheet':'assessment'));
+  await page.waitForFunction(()=>document.querySelector('#mmUnitSel')?.value==='algebra2-probability-statistics');
+  assert.ok(page.url().includes('/'+tool+'.html#unit=algebra2-probability-statistics'));
   cases.push('global/'+tool+'-selector');
  }
  await page.goto(base+'/worksheet-generator/lesson-planner.html');
- await page.locator('#plCourse').selectOption('algebra2');await page.waitForURL('**/bank-printable.html?mode=lesson');cases.push('global/lesson-selector');
+ await page.locator('#plCourse').selectOption('algebra2');await page.waitForFunction(()=>document.querySelector('#plCourse')?.value==='algebra2'&&location.hash.includes('course=algebra2'));cases.push('global/lesson-selector');
  assert.deepEqual(errors,[]);
  await page.screenshot({path:'test-results/algebra2-integration.png',fullPage:true});
  fs.writeFileSync('test-results/algebra2-browser-coverage.json',JSON.stringify({cases,errors},null,2));
