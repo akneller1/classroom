@@ -1,0 +1,21 @@
+name: Shared resource eligibility
+on:
+  push:
+    paths:
+      - 'course-catalog.js'
+      - 'question-bank-adapter.js'
+      - 'resource-eligibility.js'
+      - 'scripts/test-resource-eligibility.cjs'
+      - '.github/workflows/resource-eligibility.yml'
+  workflow_dispatch:
+jobs:
+  eligibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate approved question eligibility
+        run: node scripts/test-resource-eligibility.cjs
