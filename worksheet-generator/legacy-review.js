@@ -16,8 +16,8 @@ function addFinding(parent,q){
  [['unreviewed','Not reviewed'],['appropriate','Appropriate for this course'],['revise','Needs revision'],['exclude','Exclude from reuse']].forEach(function(pair){var o=node('option',select,pair[1]);o.value=pair[0];});
  var noteLabel=node('label',row,'Reviewer notes');
  var input=node('input',noteLabel);input.placeholder='Math errors, complexity, diagrams, etc.';
- var existing=notes[q.sourceId]||{};select.value=existing.status||'unreviewed';input.value=existing.note||'';
- function update(){notes[q.sourceId]={status:select.value,note:input.value};}
+ var existing=notes[q.reviewKey]||{};select.value=existing.status||'unreviewed';input.value=existing.note||'';
+ function update(){notes[q.reviewKey]={status:select.value,note:input.value};}
  select.addEventListener('change',update);input.addEventListener('input',update);
 }
 function render(){
@@ -38,14 +38,14 @@ function load(){
  var entry=entries.filter(function(e){return e.key===$('reviewTopic').value})[0];
  if(!entry){$('reviewStatus').textContent='No mapped skills for this course.';current=[];render();return;}
  var result=root.MK_LEGACY_REVIEW_SAMPLES.sample(entry,$('reviewCourse').value,$('reviewLevel').value,'manual-review',Number($('reviewCount').value));
- current=result.questions;notes={};render();
+ current=result.questions;render();
  $('reviewStatus').textContent=result.ready?current.length+' generated samples. These are NOT approved.':'Unavailable: '+result.reason;
 }
 $('reviewCourse').addEventListener('change',function(){refreshTopics();load();});
 $('reviewTopic').addEventListener('change',load);$('reviewLevel').addEventListener('change',load);
 $('reviewLoad').addEventListener('click',load);
 $('reviewExport').addEventListener('click',function(){
- var exportData={schemaVersion:1,type:'legacy-question-review',approved:false,courseId:$('reviewCourse').value,topic:$('reviewTopic').value,level:$('reviewLevel').value,results:current.map(function(q){return {sourceId:q.sourceId,tier:q.tier,review:notes[q.sourceId]||{status:'unreviewed',note:''}};})};
+ var exportData={schemaVersion:1,type:'legacy-question-review',approved:false,courseId:$('reviewCourse').value,topic:$('reviewTopic').value,level:$('reviewLevel').value,results:current.map(function(q){return {sourceId:q.sourceId,reviewKey:q.reviewKey,tier:q.tier,review:notes[q.reviewKey]||{status:'unreviewed',note:''}};})};
  var blob=new Blob([JSON.stringify(exportData,null,2)],{type:'application/json'});
  var url=URL.createObjectURL(blob),a=node('a',doc.body);a.href=url;a.download='legacy-reuse-review.json';a.click();a.remove();root.setTimeout(function(){URL.revokeObjectURL(url);},1000);
 });
