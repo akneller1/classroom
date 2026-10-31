@@ -204,7 +204,7 @@ const HOLES = [
     walls: [[0.5, -10, 0.5, 4.5]], water: [], sand: [[3.5, -7.5, 6.5, -4.5]] },
   { name: "Zig-Zag", par: 4, ball: [-9, -9], cup: [9, 9], clubs: [3, 5, 7, 9],
     walls: [[-4.5, -10, -4.5, 3.5], [3.5, -3.5, 3.5, 10]], water: [[-3.5, 4.5, 2.5, 10]], sand: [[6.5, -6.5, 9.5, -2.5]] },
-  { name: "Ricochet Ridge", par: 4, ball: [-8,-6], cup: [7,6], clubs:[3,5,8,10], walls:[[-2,-4,4,-4]], water:[], sand:[] },
+  { name: "Ricochet Ridge", par: 4, ball: [-8,-6], cup: [7,6], clubs:[3,5,8,10], walls:[[-2,-4,4,-4]], ramps:[[-6,-3,-4,-1]], water:[], sand:[] },
   { name: "Windmill Madness", par: 4, ball: [-8,-5], cup: [8,5], clubs: [3,5,8,10], walls: [[-2,-10,-2,-2],[3,2,3,10]], moving: [[0,0,0,3]], water: [], sand: [[4,-4,8,-1]] },
   { name: "Tunnel Run", par: 4, ball: [-9,-3], cup:[8,5], clubs:[3,5,8,10], walls:[[0,-10,0,-4],[0,4,0,10]], tunnels:[[-6,1,5,-2]], water:[], sand:[] },
   { name: "Island Green", par: 4, ball: [-8,-7], cup: [7,7], clubs: [3,5,8,10], walls: [[-3,-10,-3,0]], water: [[3,3,5,10],[8,2,10,10],[3,8,10,10]], sand: [[-1,-3,2,0]] },
@@ -244,20 +244,29 @@ function simulate(h, ball, m, dir, d, phase = 0) {
   const [bx, by] = ball, [hx, hy] = h.cup;
   const ds = 0.03 / Math.sqrt(1 + m * m);
   const path = [[bx, by]];
-  let px = bx, py = by, lipped = false, t = 0, left = d, sand = false;
+  let px = bx, py = by, lipped = false, left = d, sand = false, bounced = 0;
+  let vx=dir, vy=m*dir;
   while (left > 1e-9) {
     const step = Math.min(ds, left);
-    t += step;
-    const x = bx + dir * t, y = by + m * dir * t;
+    const x = px+vx*step, y=py+vy*step;
     if (Math.abs(x) > N || Math.abs(y) > N) return finish("edge", px, py);
-    if (hitsWall(h, px, py, x, y)) return finish("wall", px, py);
+    const wall=h.walls.find(w=>segCross(px,py,x,y,w));
+    if(wall){
+      if(bounced>=4)return finish("wall",px,py);
+      const wx=wall[2]-wall[0],wy=wall[3]-wall[1],len=Math.hypot(wx,wy);
+      const nx=-wy/len,ny=wx/len,dot=vx*nx+vy*ny;
+      vx-=2*dot*nx;vy-=2*dot*ny;bounced++;
+      left-=step;
+      continue;
+    }
     if ((h.moving||[]).some(([cx,cy,rx,ry])=>{const a=phase/2000;return segCross(px,py,x,y,[cx+rx*Math.cos(a),cy+ry*Math.sin(a),cx-rx*Math.cos(a),cy-ry*Math.sin(a)]);})) return finish("windmill",px,py);
     path.push([x, y]); px = x; py = y;
     const tunnel=(h.tunnels||[]).find(v=>Math.hypot(x-v[0],y-v[1])<0.18);
-    if(tunnel){path.push([tunnel[2],tunnel[3]]);return finish("tunnel",tunnel[2],tunnel[3]);}
+    if(tunnel&&!path.teleported){path.teleported=true;px=tunnel[2];py=tunnel[3];path.push([px,py]);left-=step;continue;}
     const slow = h.sand.some(r => inRect(x, y, r));
     if (slow) sand = true;
-    left -= step * (slow ? SAND_DRAG : 1);
+    const ramp=(h.ramps||[]).some(v=>Math.hypot(x-v[0],y-v[1])<1);
+    left -= step * (slow ? SAND_DRAG : ramp ? 0.65 : 1);
     if (Math.hypot(x - hx, y - hy) < 0.3) {
       if (left <= 1.0001) return { path, outcome: "sink", end: [hx, hy], sand };
       lipped = true;
@@ -269,7 +278,7 @@ function simulate(h, ball, m, dir, d, phase = 0) {
     // The ball can fly over water, but if it comes to rest in water it splashes.
     if (h.water.some(r => inRect(ex, ey, r))) return { path, outcome: "water", end: [bx, by], lipped, sand };
     if (Math.hypot(ex-hx,ey-hy)<0.3) return {path,outcome:"sink",end:[hx,hy],trickle:true,sand};
-    return { path, outcome: "stop", reason, end: [ex,ey], raw: [ex,ey], lipped, sand };
+    return { path, outcome: "stop", reason, end: [ex,ey], raw: [ex,ey], lipped, sand, bounced };
   }
 }
 
@@ -396,7 +405,7 @@ function finishShot(r, start, a, d, dir) {
     S.ball = r.end;
     const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", windmill: "The spinning windmill blocked the ball.", stop: "" }[r.reason];
     const snapped = false;
-    msg = (why ? why + " " : "") + (r.sand ? "The sand slowed the ball down. " : "") + (r.lipped ? "Too hard! It rolled right over the cup. " : "") +
+    msg = (why ? why + " " : "") + (r.bounced ? "Bank shot! "+r.bounced+" wall bounce(s). " : "") + (r.sand ? "The sand slowed the ball down. " : "") + (r.lipped ? "Too hard! It rolled right over the cup. " : "") +
       (snapped ? `It stopped near ${pt(r.raw)} and settled on the nearest grid point, ${pt(r.end)}.` : `The ball is now at ${pt(r.end)}.`);
     res = pt(r.end);
     if (r.lipped) kind = "bad";
@@ -525,6 +534,7 @@ function draw() {
     c.fillStyle="#ffe276";c.beginPath();c.arc(X(p.end[0]),Y(p.end[1]),U*.22,0,Math.PI*2);c.fill();c.restore();
    }
   }
+  (h.ramps||[]).forEach(([ax,ay,bx,by])=>{c.strokeStyle="#ffe182";c.lineWidth=Math.max(5,U*.4);c.beginPath();c.moveTo(X(ax),Y(ay));c.lineTo(X(bx),Y(by));c.stroke();});
   (h.tunnels||[]).forEach(([ax,ay,bx,by])=>{c.fillStyle="#df96e7";for(const p of [[ax,ay],[bx,by]]){c.beginPath();c.arc(X(p[0]),Y(p[1]),U*.5,0,Math.PI*2);c.fill();}});
   // cup + flag
   const [hx, hy] = h.cup;
