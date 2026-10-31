@@ -137,10 +137,45 @@
                 ]
               },
               "spec": {
-                "type": "object"
+                "type": "object",
+                "properties": {
+                  "src": {
+                    "type": "string",
+                    "pattern": "^question-banks/assets/[a-zA-Z0-9_/-]+\\\\.(png|jpg|jpeg|webp)$"
+                  },
+                  "alt": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "caption": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": true
               }
             },
-            "additionalProperties": false
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "image"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "spec": {
+                      "required": [
+                        "src",
+                        "alt"
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
           },
           "standards": {
             "type": "array",
