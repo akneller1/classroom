@@ -323,7 +323,7 @@
   function badge(p) {
     if (p.failed) return '<span class="mm-badge bad" title="' + esc(p.reason) + '">✕ No verified problem</span>';
     var st = p.verify && p.verify.status;
-    if (st === 'verified') return '<span class="mm-badge ok" title="Answer recomputed independently from the printed problem">✓ Verified' + (p.edited ? ' (edited)' : '') + '</span>';
+    if (st === 'verified') return (NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) ? '<span class="mm-badge ok" title="Unedited source item from Algebra 2 question bank; human sign-off pending">✓ From authored bank</span>' : '<span class="mm-badge ok" title="Answer recomputed independently from the printed problem">✓ Verified' + (p.edited ? ' (edited)' : '') + '</span>';
     if (p.approved) return '<span class="mm-badge warn" title="' + esc((p.verify.issues || []).join(' ')) + '">✓ Approved by you</span>';
     return '<span class="mm-badge bad" title="' + esc((p.verify.issues || []).join(' ')) + '">! Needs your approval</span>';
   }
