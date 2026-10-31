@@ -973,7 +973,7 @@
   NS.counts = function (state) {
     var v = state.versions[0], cfg = state.config, out = { offered: 0, problems: 0, unverified: 0, failed: 0, pinned: 0, edited: 0 };
     state.versions.forEach(function (ver) { ver.sections.forEach(function (s) { s.items.forEach(function (it) {
-      out.problems++; if (it.failed) out.failed++; else if (it.verify && it.verify.status !== 'verified' && it.verify.status !== 'manual' && !it.approved) out.unverified++;
+      out.problems++; if (it.failed) out.failed++; else if (it.verify && it.verify.status !== 'verified' && !it.approved) out.unverified++;
       if (it.pinned) out.pinned++; if (it.edited) out.edited++;
     }); }); });
     v.sections.forEach(function (s) { out.offered += s.items.length; });
