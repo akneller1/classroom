@@ -1,0 +1,23 @@
+name: Generator course discovery
+on:
+  push:
+    paths:
+      - 'worksheet-generator/menu/course-catalog-bridge.js'
+      - 'worksheet-generator/menu/course-catalog-bridge.test.cjs'
+      - 'worksheet-generator/worksheet.html'
+      - 'worksheet-generator/menu-assessment.html'
+      - 'course-catalog.js'
+      - 'data.js'
+      - '.github/workflows/generator-course-discovery.yml'
+  workflow_dispatch:
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify generator course registration and unsupported-unit gating
+        run: node worksheet-generator/menu/course-catalog-bridge.test.cjs
