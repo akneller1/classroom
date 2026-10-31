@@ -582,3 +582,13 @@ body { background:var(--paper); }
 }
 [data-color="coral"] { --c-bg: var(--coral-bg); --c-fg: var(--coral-fg); --c-tint: var(--coral-tint); --c-text: var(--coral-text); }
 [data-color="teal"] { --c-bg: var(--teal-bg); --c-fg: var(--teal-fg); --c-tint: var(--teal-tint); --c-text: var(--teal-text); }
+
+/* Header: logo/title on left, search at right, full-width course navigation below. */
+.site-header .bar { display:flex; flex-wrap:wrap; align-items:center; }
+.site-header .brand { margin-right:0; }
+.site-header .search { display:block; flex:0 1 25rem; width: min(25rem, 100%); max-width:25rem; margin-left:auto; }
+.site-header .search input { width:100%; }
+.site-header .main-nav { order:3; flex-basis:100%; }
+@media (max-width:700px) {
+  .site-header .search { flex:1 1 100%; width:100%; max-width:none; margin-left:0; }
+}
