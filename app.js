@@ -102,6 +102,14 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources.' }
   ];
   function activityFormat(a) {
+    // Grade 6–8 games share the generator page, but remain games, not worksheets.
+    var middleGame = /worksheet-generator\/middle-school-game\.html\?/i.test(a.path || '') &&
+      /[?&]game=([a-z-]+)/i.exec(a.path || '');
+    if (middleGame) {
+      var game = middleGame[1].toLowerCase();
+      return ({'tic-tac-toe':'tic-tac-toe','connect-four':'connect-four',
+        'picture-reveal':'picture-reveal','showdown':'showdown','flashcards':'flashcards'})[game] || 'other';
+    }
     if (/worksheet-generator\/practice-test\.html/i.test(a.path || '')) return 'interactive-practice-test';
     if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
     if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
@@ -589,9 +597,17 @@
         {mode:'showdown',title:'Showdown',thumb:'thumbs/foundations-algebra-jeopardy.jpg'},
         {mode:'flashcards',title:'Flashcards',thumb:'thumbs/foundations-algebra-flashcards.jpg'}
       ].map(function(item){
-        return {title:item.title+' · '+target.name,
+        var formatDetails = {
+          'tic-tac-toe': 'Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square; a wrong answer lets the other team steal.',
+          'connect-four': 'Teams solve problems to place discs and connect four in a row.',
+          'picture-reveal': 'Answer questions correctly to uncover a hidden picture.',
+          'showdown': 'Choose a category and point value, solve a problem, and reveal the answer.',
+          'flashcards': 'Flip cards to reveal answers and worked solutions. Shuffle and review missed problems.'
+        };
+        return {title:target.name+' '+item.title,
           path:base+'middle-school-game.html?course='+encodeURIComponent(c.id)+'&topic='+encodeURIComponent(m.key)+'&game='+item.mode,
-          thumb:item.thumb,type:'Game',description:'Play the original Algebra/Geometry game with questions from '+target.name+'.'};
+          thumb:item.thumb,type:item.mode==='flashcards'?'Study Guide':'Game',
+          description:formatDetails[item.mode]};
       });
     });
     var guides = [
