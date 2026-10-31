@@ -621,8 +621,8 @@
        thumb:'thumbs/practice-test.svg',type:'Study Guide',description:'Answer questions online with immediate feedback. Select a lesson topic and difficulty.'}
     ];
     var printables = [
-      {title:'Printable Practice Worksheets',path:practice+'&mode=worksheet',
-       thumb:'thumbs/worksheet-generator-expressions-equations.svg',type:'Worksheet',description:'Generate a printable practice sheet and teacher answer key for a selected skill.'}
+      {title:'Draft Practice Worksheets',path:practice+'&mode=worksheet',
+       thumb:'thumbs/worksheet-generator-expressions-equations.svg',type:'Worksheet',description:'Teacher-preview worksheet from the mapped legacy question bank. Review mathematics and grade suitability before using.'}
     ];
     function group(title, resources) {
       return '<section class="algebra-unit-section"><h2>' + esc(title) + '</h2>' +
