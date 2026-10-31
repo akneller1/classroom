@@ -485,6 +485,22 @@ function resize() {
   draw();
 }
 const X = x => PAD + (x + N) * U, Y = y => PAD + (N - y) * U;
+// Select a visible grid target directly; the slope remains editable as rise/run.
+cv.addEventListener("pointerdown",ev=>{
+ if(S.busy||S.done||!W)return;
+ const rect=cv.getBoundingClientRect(),scale=W/rect.width;
+ const tx=Math.max(-N,Math.min(N,Math.round(((ev.clientX-rect.left)*scale-PAD)/U-N)));
+ const ty=Math.max(-N,Math.min(N,Math.round(N-((ev.clientY-rect.top)*scale-PAD)/U)));
+ const dx=tx-S.ball[0],dy=ty-S.ball[1];
+ if(Math.abs(dx)<.01){say("Choose a point to the left or right. Vertical lines have undefined slope.");return;}
+ const slope=dy/dx;let best=[0,1,Infinity];
+ for(let k=1;k<=12;k++){const n=Math.round(slope*k),err=Math.abs(n/k-slope);if(err<best[2])best=[n,k,err];}
+ $("mn").value=best[0];$("md").value=best[1];S.dir=dx>0?1:-1;
+ const dist=Math.abs(dx),clubs=HOLES[S.hole].clubs;
+ S.club=clubs.reduce((a,b)=>Math.abs(b-dist)<Math.abs(a-dist)?b:a,clubs[0]);
+ S.power=Math.max(25,Math.min(150,Math.round(dist/S.club*20)*5));
+ $("power").value=S.power;refresh();draw();
+});
 function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
 
 function draw() {
