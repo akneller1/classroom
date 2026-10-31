@@ -1,0 +1,1 @@
+window.MK_RESOURCE_PREVIEWS = {};

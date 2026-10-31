@@ -76,7 +76,7 @@
     return rng.shuffle(out);
   }
   function deck(slots, opts, done) { loading(opts && opts.msg); GB.buildDeck(UNIT, slots, Object.assign({ progress: progress }, opts || {}), function (items) {
-    if (!items.length) { app.innerHTML = '<div class="gm-panel" role="status">No verified questions could be made for these skills. <button class="gm-btn" onclick="location.reload()">Choose skills again</button></div>'; return; }
+    if (!items.length) { app.innerHTML = head('Choose skills and difficulty for this activity.', GAME) + '<div class="gm-panel" role="status">No questions are available for these skills and difficulty yet. <button class="gm-btn" onclick="location.reload()">Choose skills again</button></div>'; return; }
     done(items);
   }); }
   /* a drawing pile of verified items that refills itself */
@@ -101,7 +101,7 @@
     function cur() { return S.cards[S.order[S.i]]; }
     function render() {
       var c = cur(), got = 0, need = 0; Object.keys(S.rate).forEach(function (k) { if (S.rate[k] === 'got') got++; else need++; });
-      var h = head('Flip each card for the answer and the worked solution. Every card is a fresh, checked problem.') +
+      var h = head('Flip each card for the answer and the worked solution. Practice your selected skills at this level.') +
         '<div class="gm-ctl"><label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level, EASY_NAMES) +
         '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + skillIds.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + '</select>' +
         '<button class="gm-btn" id="fcShuffle">Shuffle</button><button class="gm-btn" id="fcMissed"' + (need ? '' : ' disabled') + '>' + (S.missed ? 'All cards' : 'Practice missed') + '</button><button class="gm-btn" id="fcNew">New cards</button><button class="gm-btn" id="fcReset">Reset progress</button></div>' +
@@ -234,58 +234,61 @@
 
   /* =========================== CONNECT FOUR =========================== */
   function connectFour() {
-    teamSetup('Connect Four', 'Answer a problem to earn a disc. Connect four in a row to win.', [
-      'Teams take turns. Talk the problem over, then pick one answer.',
-      'Correct: drop a disc in any column. Wrong (or out of time): no disc, and the turn passes.',
-      'First team to connect four discs across, down or diagonally wins. Show your work on paper!'], play);
+    teamSetup('Connect 4', 'Answer a problem to earn a disc. Connect four in a row to win.', [
+      'Teams take turns. Talk the problem over, then lock in one answer.',
+      'A wrong answer or timeout offers the other team a steal on the same problem, with the wrong choice crossed out.',
+      'A correct steal earns a disc; the team that missed goes next. Pass or miss the steal and play moves to the other team.',
+      'First team to connect four discs across, down or diagonally wins.'], play);
     function play(cfg) {
-      var pile = new Pile(cfg.level), S = { board: [], turn: 'L', starter: 'L', wins: { L: 0, R: 0 }, phase: 'q', it: null, sel: null, win: null };
-    GB._state = function () { return S; };
+      var pile = new Pile(cfg.level), S = { board: [], turn: 'L', answerer: 'L', starter: 'L', wins: { L: 0, R: 0 }, phase: 'q', it: null, sel: null, dead: [], win: null, stolen: false };
+      GB._state = function () { return S; };
       var timer = new Timer(cfg.timer, tickUI(cfg.timer), function () { answer(true); });
-      function reset() { S.board = []; for (var r = 0; r < 6; r++) S.board.push([null, null, null, null, null, null, null]); S.win = null; S.turn = S.starter; next(); }
-      function next() { S.phase = 'q'; S.sel = null; pile.draw(function (it) { if (!it) { app.innerHTML = head('No verified questions available for this level.', 'Connect Four') + '<div class="gm-panel" role="alert">No usable questions were generated. <button class="gm-btn" id="c4Reset">Return to setup</button></div>'; $('#c4Reset').onclick = function () { G.location.reload(); }; return; } S.it = it; render(); timer.start(); }); }
+      function reset() { S.board = Array.from({length:6},function(){return Array(7).fill(null);});S.win=null;S.turn=S.starter;next(); }
+      function next() { S.phase='q';S.answerer=S.turn;S.sel=null;S.dead=[];S.stolen=false;S.timeout=false;pile.draw(function(it){
+        if(!it){app.innerHTML=head('No questions available for the selected skills and level.','Connect 4')+'<div class="gm-panel" role="alert"><button class="gm-btn" onclick="location.reload()">Choose skills again</button></div>';return;}
+        S.it=it;render();timer.start();
+      }); }
       function answer(timeout) {
-        if (S.phase !== 'q') return; if (!timeout && S.sel === null) return;
-        timer.stop(); var ok = !timeout && S.it.options[S.sel].ok; S.phase = ok ? 'drop' : 'miss'; S.timeout = !!timeout; render();
+        if(!['q','steal'].includes(S.phase)||(!timeout&&S.sel===null))return;
+        timer.stop();var ok=!timeout&&S.it.options[S.sel].ok;
+        if(ok){S.stolen=S.phase==='steal';S.phase='drop';}
+        else if(S.phase==='q'){if(!timeout)S.dead.push(S.sel);S.sel=null;S.phase='steal-offer';S.timeout=!!timeout;}
+        else{if(!timeout)S.dead.push(S.sel);S.phase='miss';S.timeout=!!timeout;}
+        render();
       }
+      function steal(){if(S.phase!=='steal-offer')return;S.answerer=other(S.turn);S.phase='steal';S.sel=null;render();timer.start();}
+      function pass(){if(S.phase!=='steal-offer')return;S.phase='miss';S.passed=true;render();}
       function drop(col) {
-        if (S.phase !== 'drop') return;
-        for (var r = 5; r >= 0; r--) if (!S.board[r][col]) { S.board[r][col] = S.turn; break; }
-        if (r < 0) return;
-        S.win = winLine(); if (S.win) { S.wins[S.turn]++; S.phase = 'over'; S.starter = other(S.starter); render(); confetti(); return; }
-        if (S.board[0].every(Boolean)) { S.phase = 'over'; S.starter = other(S.starter); render(); return; }
-        S.turn = other(S.turn); next();
+        if(S.phase!=='drop')return;
+        for(var r=5;r>=0;r--)if(!S.board[r][col]){S.board[r][col]=S.answerer;break;}if(r<0)return;
+        S.win=winLine();if(S.win){S.wins[S.answerer]++;S.phase='over';S.starter=other(S.starter);render();confetti();return;}
+        if(S.board[0].every(Boolean)){S.phase='over';S.starter=other(S.starter);render();return;}
+        S.phase='resolved';render();
       }
-      function winLine() {
-        var D = [[0, 1], [1, 0], [1, 1], [1, -1]];
-        for (var r = 0; r < 6; r++) for (var c = 0; c < 7; c++) { var t = S.board[r][c]; if (!t) continue;
-          for (var d = 0; d < 4; d++) { var cells = [[r, c]]; for (var k = 1; k < 4; k++) { var rr = r + D[d][0] * k, cc = c + D[d][1] * k; if (rr < 0 || rr > 5 || cc < 0 || cc > 6 || S.board[rr][cc] !== t) break; cells.push([rr, cc]); } if (cells.length === 4) return cells; } }
-        return null;
-      }
-      function render() {
-        var it = S.it, who = S.turn, h = head('Answer a problem to earn a disc. Connect four in a row to win.', 'Connect Four') + sidesHtml(cfg, S.phase === 'over' ? null : who, S.wins, S.phase === 'drop' ? 'Dropping a disc' : 'Answering');
-        h += '<div class="tm-main"><div class="gm-panel">';
-        if (S.phase === 'over') h += '<h2 style="margin-top:0">' + (S.win ? esc(nameOf(cfg, S.board[S.win[0][0]][S.win[0][1]])) + ' wins!' : 'The board is full: a tie!') + '</h2><button class="gm-btn primary" id="c4Again">Play again</button>';
-        else {
-          h += '<div class="gm-row"><span class="tm-who ' + who + '"><i></i>' + esc(nameOf(cfg, who)) + '</span><span class="gm-sp"></span><span class="gm-tag">' + esc(it.tagName) + '</span></div>' + (S.phase === 'q' ? timerHtml(cfg.timer) : '') + qHtml(it) +
-            optsHtml(it, { sel: S.sel, reveal: S.phase !== 'q' });
-          if (S.phase === 'q') h += '<div class="gm-row" style="margin-top:12px"><button class="gm-btn primary" id="c4Lock"' + (S.sel === null ? ' disabled' : '') + '>Lock in answer</button><button class="gm-btn" id="c4Skip">Skip this problem</button></div><div class="gm-msg gm-muted">Talk it over, then ' + esc(nameOf(cfg, who)) + ' picks one answer.</div>';
-          if (S.phase === 'drop') h += '<div class="gm-msg good">Correct! Click a column to drop your disc.</div>';
-          if (S.phase === 'miss') h += '<div class="gm-msg bad">' + (S.timeout ? 'Time is up!' : 'Not quite.') + ' No disc this turn.</div>' + solHtml(it) + '<button class="gm-btn primary" id="c4Next">Next turn →</button>';
+      function advance(){S.turn=S.stolen?S.turn:other(S.turn);S.passed=false;next();}
+      function winLine(){var D=[[0,1],[1,0],[1,1],[1,-1]];for(var r=0;r<6;r++)for(var c=0;c<7;c++){var t=S.board[r][c];if(!t)continue;for(var d=0;d<4;d++){var cells=[[r,c]];for(var k=1;k<4;k++){var rr=r+D[d][0]*k,cc=c+D[d][1]*k;if(rr<0||rr>5||cc<0||cc>6||S.board[rr][cc]!==t)break;cells.push([rr,cc]);}if(cells.length===4)return cells;}}return null;}
+      function render(){
+        var it=S.it,live=S.phase==='q'||S.phase==='steal',who=S.phase==='steal-offer'?other(S.turn):S.answerer;
+        var h=head('Answer a problem to earn a disc. Connect four in a row to win.','Connect 4')+sidesHtml(cfg,S.phase==='over'?null:who,S.wins,S.phase==='steal-offer'?'Steal?':S.phase==='steal'?'Stealing':S.phase==='drop'?'Dropping a disc':'Answering');
+        h+='<div class="tm-main"><div class="gm-panel">';
+        if(S.phase==='over')h+='<h2>'+(S.win?esc(nameOf(cfg,S.answerer))+' wins!':'The board is full: a tie!')+'</h2>'+solHtml(it)+'<button class="gm-btn primary" id="c4Again">Play again</button>';
+        else{
+          h+='<div class="gm-row"><span class="tm-who '+who+'"><i></i>'+esc(nameOf(cfg,who))+'</span><span class="gm-sp"></span><span class="gm-tag">'+esc(it.tagName)+'</span></div>'+(live?timerHtml(cfg.timer):'')+qHtml(it)+optsHtml(it,{sel:S.sel,dead:S.dead,reveal:['drop','miss','resolved'].includes(S.phase)});
+          if(live)h+='<div class="gm-row"><button class="gm-btn primary" id="c4Lock"'+(S.sel===null?' disabled':'')+'>Lock in answer</button>'+(S.phase==='q'?'<button class="gm-btn" id="c4Skip">Skip this problem</button>':'')+'</div>';
+          if(S.phase==='steal-offer')h+='<div class="gm-msg">'+(S.timeout?'Time is up.':'Not quite.')+' '+esc(nameOf(cfg,other(S.turn)))+' can steal this problem.</div><div class="gm-row"><button class="gm-btn primary" id="c4Steal">Steal it</button><button class="gm-btn" id="c4Pass">Pass</button></div>';
+          if(S.phase==='steal')h+='<p class="gm-msg">Steal attempt: the previous wrong choice is crossed out.</p>';
+          if(S.phase==='drop')h+='<div class="gm-msg good">'+(S.stolen?'Steal successful!':'Correct!')+' Choose a column to drop your disc.</div>';
+          if(S.phase==='miss'||S.phase==='resolved')h+='<div class="gm-msg">'+(S.phase==='resolved'?'Disc placed.':S.passed?'Steal passed. No disc this turn.':'The steal missed. No disc this turn.')+' Next up: '+esc(nameOf(cfg,S.stolen?S.turn:other(S.turn)))+'.</div>'+solHtml(it)+'<button class="gm-btn primary" id="c4Next">Next turn →</button>';
         }
-        h += '</div><div><div class="c4-cols">' + [1, 2, 3, 4, 5, 6, 7].map(function (n) { return '<span>' + n + '</span>'; }).join('') + '</div><div class="c4-board' + (S.phase === 'drop' ? ' pick' : '') + '">';
-        for (var r = 0; r < 6; r++) for (var c = 0; c < 7; c++) { var t = S.board[r][c], w = S.win && S.win.some(function (x) { return x[0] === r && x[1] === c; });
-          h += '<button class="c4-hole' + (t ? ' ' + t : '') + (w ? ' win' : '') + '" data-col="' + c + '" aria-label="Column ' + (c + 1) + '"' + (S.phase === 'drop' && !S.board[0][c] ? '' : ' tabindex="-1"') + '></button>'; }
-        h += '</div></div></div>';
-        app.innerHTML = h;
-        on('[data-opt]', 'click', function () { if (S.phase === 'q') { S.sel = +this.getAttribute('data-opt'); render(); } });
-        if ($('#c4Lock')) $('#c4Lock').onclick = function () { answer(false); };
-        if ($('#c4Skip')) $('#c4Skip').onclick = function () { timer.stop(); next(); };
-        if ($('#c4Next')) $('#c4Next').onclick = function () { S.turn = other(S.turn); next(); };
-        if ($('#c4Again')) $('#c4Again').onclick = reset;
-        on('.c4-hole', 'click', function () { drop(+this.getAttribute('data-col')); });
+        h+='</div><div><div class="c4-cols">'+[1,2,3,4,5,6,7].map(function(n){return '<span>'+n+'</span>';}).join('')+'</div><div class="c4-board'+(S.phase==='drop'?' pick':'')+'">';
+        for(var r=0;r<6;r++)for(var c=0;c<7;c++){var t=S.board[r][c],w=S.win&&S.win.some(function(x){return x[0]===r&&x[1]===c;});h+='<button class="c4-hole'+(t?' '+t:'')+(w?' win':'')+'" data-col="'+c+'" aria-label="Column '+(c+1)+'"'+(S.phase==='drop'&&!S.board[0][c]?'':' disabled')+'></button>';}
+        h+='</div></div></div>';app.innerHTML=h;
+        on('[data-opt]','click',function(){if(live&&S.dead.indexOf(+this.dataset.opt)<0){S.sel=+this.dataset.opt;render();}});
+        if($('#c4Lock'))$('#c4Lock').onclick=function(){answer(false);};if($('#c4Steal'))$('#c4Steal').onclick=steal;if($('#c4Pass'))$('#c4Pass').onclick=pass;
+        if($('#c4Skip'))$('#c4Skip').onclick=function(){timer.stop();next();};if($('#c4Next'))$('#c4Next').onclick=advance;if($('#c4Again'))$('#c4Again').onclick=reset;
+        on('.c4-hole','click',function(){drop(+this.dataset.col);});
       }
-      loading(); pile.fill(reset);
+      loading();pile.fill(reset);
     }
   }
 

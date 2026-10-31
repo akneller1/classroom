@@ -6,7 +6,7 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
  const browser=await chromium.launch({headless:true}),page=await browser.newPage(),errors=[],cases=[];
  page.on('pageerror',e=>errors.push(e.message));
  page.on('response',r=>{if(r.status()>=400&&!r.url().includes('favicon'))errors.push(r.status()+' '+r.url())});
- fs.mkdirSync('test-results',{recursive:true});
+ fs.mkdirSync('test-results',{recursive:true});fs.mkdirSync('thumbs/previews/algebra2',{recursive:true});
  try{
  for(const unit of units){
   for(const tool of ['worksheet','menu-assessment']){
@@ -15,7 +15,7 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
    cases.push(unit+'/'+tool+'-entry');
   }
   await page.goto(base+'/index.html#algebra2.'+unit);
-  await page.waitForFunction(()=>document.querySelectorAll('a[href*="algebra2-game.html"]').length>=7);
+  await page.waitForFunction(()=>document.querySelectorAll('a[href*="course-game.html"],a[href*="course-activity.html"]').length>=7);
   assert.equal(await page.locator('.generator-shortcuts a').count(),4);
   for(const mode of ['lesson','worksheet','assessment']){
    await page.goto(base+'/worksheet-generator/bank-printable.html?unit='+unit+'&mode='+mode);
@@ -39,8 +39,9 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
    if(game==='connect-four')await page.locator('#c4Lock').waitFor();
    if(game==='picture-reveal')await page.locator('#prCheck').waitFor();
    if(game==='showdown')await page.locator('#sdNew').waitFor();
-   if(game==='detective'||game==='escape-room'){await page.locator('#questStart').click();await page.locator('#questLock').waitFor();assert.ok(await page.locator('[data-source-id]').count());}
+   if(game==='detective'||game==='escape-room'){await page.locator('#activityStart').click();if(game==='detective'){await page.locator('#start').click();await page.locator('#check').waitFor();}else{await page.getByRole('button',{name:'Begin',exact:true}).click();await page.locator('#go').waitFor();}}
    if(game==='tic-tac-toe')assert.ok(await page.locator('.gm-opts button').count()>=2);
+   await page.screenshot({path:'thumbs/previews/algebra2/'+unit+'-'+game+'.png'});
    cases.push(unit+'/'+game);
   }
   await page.goto(base+'/worksheet-generator/printables.html#unit=algebra2-'+unit+'&kind=stations');

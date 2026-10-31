@@ -6,7 +6,9 @@
   if (!library || !Array.isArray(library.courses)) return;
 
   function canShare(activity) {
-    if (!activity || !activity.path || /^worksheet-generator\//i.test(activity.path)) return false;
+    if (!activity || !activity.path) return false;
+    if (/^worksheet-generator\/course-(game|activity)\.html\?/.test(activity.path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/.test(activity.path);
+    if (/^worksheet-generator\//i.test(activity.path)) return false;
     if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path)) return false;
     var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
     var label = (activity.path + ' ' + (activity.title || '')).toLowerCase();

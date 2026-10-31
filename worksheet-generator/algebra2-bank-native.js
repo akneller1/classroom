@@ -4,10 +4,10 @@
 (function(G){'use strict';
 const NS=G.MKMENU, GB=G.MKGAMES;
 if(!NS||!GB||!G.MK_BANK_LOADER)return;
-const prefix='algebra2-', isBank=id=>String(id).startsWith(prefix);
+const prefix='algebra2-', registry=new Map(),isBank=id=>registry.has(id);
 const raw=new Map();
 function level(c,policy){return policy&&['cp2','cp1','honors'].includes(policy.level)?policy.level:c<=2?'cp2':c<=5?'cp1':'honors'}
-function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:'algebra2',unitId:id.slice(prefix.length),skillIds:[skill],level:level(c,policy),formats:formats||['multiple-choice']})}
+function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:level(c,policy),formats:formats||['multiple-choice']})}
 function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
 function figure(q){return q.diagram?.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null}
 function problem(q,id,c){return {uid:q.id,sourceId:q.id,source:'authored-bank',authoredOptions:q.options||[],skill:q.skillId,c,tag:q.skillId,prompt:q.prompt,fig:figure(q),parts:[{answer:text(q.answer),prompt:''}],steps:q.solutionSteps.map(t=>({t})),key:q.id,sig:q.id,verify:{status:'source-key',issues:[]}}}
@@ -49,16 +49,21 @@ NS.figHtml=function(fig){
 };
 G.MK_ALGEBRA2_NATIVE_READY=G.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json','../').then(function(){
  const course=G.LIBRARY.courses.find(c=>c.id==='algebra2');
- const group=NS.CATALOG.find(c=>c.course==='Algebra 2');group.units=course.units.map(u=>[prefix+u.id,u.name]);
- course.units.forEach(u=>{
-  if(!G.MK_QUESTION_BANKS.available('algebra2',u.id))return;
-  const records=G.MK_COURSE_CATALOG.getSkillRecords('algebra2',u.id);
-  G.MK_QUESTION_BANKS.select({courseId:'algebra2',unitId:u.id}).forEach(q=>raw.set(q.id,q));
-  const tags={};records.forEach(s=>tags[s.id]=s.name);
-  NS.registerSkillSet({id:prefix+u.id,unitName:u.name,courseName:'Algebra 2',title:u.name+' Activities',tags,skills:records.map(s=>({id:s.id,name:s.name,tag:s.id,print:['maze','color','partner','who','stations'],generate:function(){throw Error('Authored bank selection required')}}))});
+ G.LIBRARY.courses.forEach(c=>{
+  let group=NS.CATALOG.find(g=>g.course===c.name);if(!group){group={course:c.name,units:[]};NS.CATALOG.push(group)}
+  if(c.id==='algebra2')group.units=c.units.map(u=>[c.id+'-'+u.id,u.name]);
+  c.units.forEach(u=>{
+   const id=(c.id==='algebra'?'algebra1-':c.id+'-')+u.id;
+   if(!G.MK_QUESTION_BANKS.available(c.id,u.id))return;
+   if(!group.units.some(item=>item[0]===id))group.units.push([id,u.name]);
+   const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.id]=s.name);
+   registry.set(id,{courseId:c.id,unitId:u.id});
+   G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
+   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,title:u.name+' Activities',tags,skills:records.map(s=>({id:s.id,name:s.name,tag:s.id,print:['maze','color','partner','who','stations'],generate:function(){throw Error('Authored bank selection required')}}))});
+  });
  });
  // Preserve original levels while selecting authored banks by exact level.
  if(G.document?.body.hasAttribute('data-algebra2-game')) { GB.LEVELS.cp2.tiers=[1,1,1];GB.LEVELS.cp1.tiers=[4,4,4];GB.LEVELS.honors.tiers=[6,6,6]; }
- return course;
+ G.MK_COURSE_BANKS_READY=G.MK_ALGEBRA2_NATIVE_READY;return course;
 });
 })(window);

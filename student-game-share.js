@@ -1,7 +1,7 @@
 /* Share the same skill catalogue and filtering used by each individual game. */
 (function (G) {
   'use strict';
-  function supports(path) { return /^artifacts\/[a-z0-9-]+\/index\.html$/i.test(path) && !/escape-room/i.test(path); }
+  function supports(path) { return /^worksheet-generator\/course-(game|activity)\.html\?/.test(path) || /^artifacts\/[a-z0-9-]+\/index\.html$/i.test(path) && !/escape-room/i.test(path); }
   function open(path) {
     var doc = G.document, previous = doc.activeElement;
     var old = doc.getElementById('game-share-dialog'); if (old) old.close();
@@ -24,8 +24,10 @@
         var ids = event.data.skills;
         if (!Array.isArray(ids) || !ids.length || !ids.every(function (id) { return catalogue.some(function (s) { return s.id === id; }); })) return;
         G.removeEventListener('message', receive);
-        var url = new URL('activity.html', G.location.href); url.hash = '';
-        url.search = new URLSearchParams({path:path,student:'1',skills:JSON.stringify(ids)}).toString();
+        var nativeCourse = /^worksheet-generator\/course-(game|activity)\.html\?/.test(path);
+        var url = new URL(nativeCourse ? path : 'activity.html', G.location.href); url.hash = '';
+        if(nativeCourse){url.searchParams.set('student','1');url.searchParams.set('skills',JSON.stringify(ids));}
+        else url.search = new URLSearchParams({path:path,student:'1',skills:JSON.stringify(ids)}).toString();
         frame.remove();
         var heading = doc.createElement('h2'); heading.textContent = 'Student link ready'; dialog.appendChild(heading);
         var summary = doc.createElement('p'); summary.textContent = 'Selected skills: ' + catalogue.filter(function (s) { return ids.indexOf(s.id) >= 0; }).map(function (s) { return s.name; }).join('; '); dialog.appendChild(summary);

@@ -26,6 +26,8 @@
   var firstRender = true;
   var ignoreHash = false;
   var saved = loadSaved();
+  L.courses.forEach(function(c){c.units.forEach(function(u){u.artifacts.forEach(function(a){if((a.legacyPaths||[]).some(function(path){return saved.indexOf(path)>=0;})&&saved.indexOf(a.path)<0)saved.push(a.path);});});});
+  storeSaved();
 
   /* ---------- storage ---------- */
   function loadSaved() {
@@ -272,7 +274,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
+  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
@@ -578,7 +580,7 @@
           (status.ready ? status.count + ' approved questions' : 'Awaiting approved questions') + '</span>' +
           (status.ready ? '<a href="' + esc((function(){
             var games={'flashcards':'flashcards','connect-4':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','showdown':'showdown','detective':'detective','escape-room':'escape-room'};
-            if(games[item[0]])return 'worksheet-generator/algebra2-game.html?unit='+u.id+'&game='+games[item[0]];
+            if(games[item[0]])return 'worksheet-generator/'+(['detective','escape-room'].includes(games[item[0]])?'course-activity':'course-game')+'.html?course='+c.id+'&unit='+u.id+'&game='+games[item[0]];
             if(item[0]==='readiness-check')return 'worksheet-generator/algebra2-practice.html?unit='+u.id;
             return 'worksheet-generator/bank-printable.html?unit='+u.id+'&mode='+(item[0]==='assessments'?'assessment':'worksheet');
           })()) + '">Open resource</a>' : '') + '</div>';
