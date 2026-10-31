@@ -559,7 +559,8 @@
         var status = adapter.describe(item[0], c.id, u.id);
         return '<div class="resource-readiness-row"><strong>' + esc(item[1]) + '</strong><span>' +
           (status.ready ? status.count + ' approved questions' : 'Awaiting approved questions') + '</span>' +
-          (item[0] === 'flashcards' && status.ready ? '<a href="worksheet-generator/approved-flashcards.html?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id) + '">Open approved flashcards</a>' : '') + '</div>';
+          (item[0] === 'flashcards' && status.ready ? '<a href="worksheet-generator/approved-flashcards.html?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id) + '">Open approved flashcards</a>' : '') +
+          (['connect-4', 'tic-tac-toe', 'picture-reveal'].indexOf(item[0]) >= 0 && status.ready ? '<a href="worksheet-generator/approved-games.html?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id) + '">Open approved review games</a>' : '') + '</div>';
       }).join('') + '</div></section>';
   }
   function contentBriefSection(c, u) {
