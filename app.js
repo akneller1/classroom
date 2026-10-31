@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { prealgebra: 0, algebra: 1, geometry: 2, algebra2: 3 };
+  var courseOrder = { prealgebra7: 0, prealgebra: 1, algebra: 2, geometry: 3, algebra2: 4 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -801,8 +801,150 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     "Volume of composite solids"
   ]
 };
+  var PREALGEBRA7_UNIT_SUBSKILLS = {
+  "algebraic-expressions-integers": [
+    "Place Value",
+    "Variables and Expressions",
+    "The Order of Operations",
+    "Writing and Evaluating Expressions",
+    "Integers and Absolute Value",
+    "Adding Integers",
+    "Subtracting Integers",
+    "Problem Solving: Rounding and Estimating",
+    "Inductive Reasoning",
+    "Patterns",
+    "Multiplying and Dividing Integers",
+    "The Coordinate Plane"
+  ],
+  "one-step-equations-inequalities": [
+    "Properties of Numbers",
+    "The Distributive Property",
+    "Simplifying Variable Expressions",
+    "Variables and Equations",
+    "Solving Equations by Adding or Subtracting",
+    "Solving Equations by Multiplying or Dividing",
+    "Guess, Check, and Revise",
+    "Inequalities and Their Graphs",
+    "Solving One-Step Inequalities by Adding or Subtracting",
+    "Solving One-Step Inequalities by Multiplying or Dividing"
+  ],
+  "decimals-equations": [
+    "Rounding and Estimating",
+    "Estimating Decimal Products and Quotients",
+    "Mean, Median, and Mode",
+    "Using Formulas",
+    "Solving Equations by Adding or Subtracting Decimals",
+    "Solving Equations by Multiplying or Dividing Decimals",
+    "Using the Metric System"
+  ],
+  "factors-fractions-exponents": [
+    "Divisibility and Factors",
+    "Exponents",
+    "Prime Factorization and Greatest Common Factor",
+    "Simplifying Fractions",
+    "Rational Numbers",
+    "Irrational Numbers",
+    "Exponents and Multiplication",
+    "Exponents and Division",
+    "Scientific Notation",
+    "Cube Roots"
+  ],
+  "operations-fractions": [
+    "Comparing and Ordering Rational Numbers",
+    "Fractions and Decimals",
+    "Adding and Subtracting Fractions",
+    "Multiplying and Dividing Fractions",
+    "Using Customary Units of Measurement",
+    "Solving Equations by Adding or Subtracting Fractions",
+    "Solving Equations by Multiplying Fractions",
+    "Powers of Products and Quotients"
+  ],
+  "ratios-proportions-percentages": [
+    "Ratios and Unit Rates",
+    "Proportions",
+    "Similar Figures and Scale Drawings",
+    "Probability",
+    "Fractions, Decimals, and Percentages",
+    "Proportions and Percentages",
+    "Percentages and Equations",
+    "Percent of Change",
+    "Markup and Discount",
+    "Tables"
+  ],
+  "solving-equations-inequalities": [
+    "Solving Two-Step Equations",
+    "Solving Multi-Step Equations",
+    "Multi-Step Equations with Fractions and Decimals",
+    "Write an Equation",
+    "Solving Equations with Variables on Both Sides",
+    "Solving Two-Step Inequalities",
+    "Transforming Formulas",
+    "Simple and Compound Interest"
+  ],
+  "linear-functions-graphing": [
+    "Relations and Functions",
+    "Equations with Two Variables",
+    "Slope and y-intercept",
+    "Writing Rules for Linear Functions",
+    "Scatter Plots",
+    "Solving Systems of Linear Equations by Graphing",
+    "Solving Systems of Linear Equations by Substitution",
+    "Graphing Linear Inequalities"
+  ],
+  "spatial-thinking": [
+    "Introduction to Geometry: Points, Lines, and Planes",
+    "Angle Relationships and Parallel Lines",
+    "Classifying Polygons",
+    "Draw a Diagram",
+    "Congruence",
+    "Circles",
+    "Constructions",
+    "Translations",
+    "Symmetry and Rotations",
+    "Rotations"
+  ],
+  "area-volume": [
+    "Area of Parallelograms",
+    "Area of Triangles and Trapezoids",
+    "Area of Circles",
+    "Space Figures",
+    "Surface Area of Prisms and Cylinders",
+    "Surface Area of Pyramids, Cones, and Spheres",
+    "Volumes of Prisms and Cylinders",
+    "Volume of Pyramids, Cones, and Spheres"
+  ],
+  "right-triangles-algebra": [
+    "Square Roots and Irrational Numbers",
+    "The Pythagorean Theorem",
+    "Distance and Midpoint Formulas",
+    "Write a Proportion",
+    "Special Right Triangles",
+    "Sine, Cosine, and Tangent Ratios",
+    "Angles of Elevation and Depression"
+  ],
+  "data-analysis-probability": [
+    "Frequency Tables, Line Plots, and Histograms",
+    "Box-and-Whisker Plots",
+    "Stem and Leaf Plots",
+    "Counting Outcomes and Theoretical Probability",
+    "Independent and Dependent Events",
+    "Permutations and Combinations",
+    "Experimental Probability",
+    "Random Samples and Surveys"
+  ],
+  "nonlinear-functions-polynomials": [
+    "Patterns and Sequences",
+    "Graphing Nonlinear Functions",
+    "Exponential Growth and Decay",
+    "Polynomials",
+    "Adding and Subtracting Polynomials",
+    "Multiplying a Polynomial by a Monomial",
+    "Multiplying Binomials",
+    "Using Multiple Strategies"
+  ]
+};
   function subskillsHtml(u, courseId) {
-    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS, prealgebra: PREALGEBRA_UNIT_SUBSKILLS };
+    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS, prealgebra: PREALGEBRA_UNIT_SUBSKILLS, prealgebra7: PREALGEBRA7_UNIT_SUBSKILLS };
     var skills = (skillBanks[courseId] || {})[u.id] || [];
     function lines(list) {
       return '<ul class="unit-skills">' + list.map(function (skill) {
@@ -817,6 +959,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   }
 
   var PREALGEBRA_LESSON_COUNT = 58;
+  var PREALGEBRA7_LESSON_COUNT = 114;
   function courseView(c) {
     var n = courseCount(c);
     var inner =
@@ -824,23 +967,23 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'prealgebra') ? units(c.units.length) + ' with ' + PREALGEBRA_LESSON_COUNT + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + (c.id === 'prealgebra7' ? PREALGEBRA7_LESSON_COUNT : PREALGEBRA_LESSON_COUNT) + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        (c.id === 'prealgebra' ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
+        ((c.id === 'prealgebra' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
-          if (!k && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra') {
+          if (!k && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra') {
+          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' || c.id === 'prealgebra7') {
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
@@ -889,7 +1032,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       }).join('') + '</ul></div>';
   }
   function unitPager(c, u) {
-    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra'; });
+    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra' || c.id === 'prealgebra7'; });
     var i = list.indexOf(u);
     if (list.length < 2) return '';
     function link(t, dir) {
@@ -943,8 +1086,8 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   }
 
   function unitView(c, u) {
-    if (c.id === 'prealgebra') {
-      var skills = PREALGEBRA_UNIT_SUBSKILLS[u.id] || [];
+    if (c.id === 'prealgebra' || c.id === 'prealgebra7') {
+      var skills = (c.id === 'prealgebra7' ? PREALGEBRA7_UNIT_SUBSKILLS : PREALGEBRA_UNIT_SUBSKILLS)[u.id] || [];
       var intro = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
         '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
         '<p class="band-meta">' + skills.length + ' lessons · Grade 8 curriculum</p>';
