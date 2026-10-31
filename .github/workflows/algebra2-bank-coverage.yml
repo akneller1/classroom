@@ -30,6 +30,9 @@ on:
       - 'scripts/test-classroom-presentation.cjs'
       - '.github/workflows/algebra2-bank-coverage.yml'
   workflow_dispatch:
+concurrency:
+  group: classroom-activity-parity
+  cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -68,6 +71,11 @@ jobs:
           path: test-results/
       - name: Publish actual activity preview images
         run: |
+          git fetch origin main
+          if ! git diff --quiet HEAD origin/main -- . ":(exclude)thumbs/previews" ":(exclude)thumbs/resource-previews.js" ":(exclude)index.html"; then
+            echo "Newer source changes exist; their validation run will publish fresh previews."
+            exit 0
+          fi
           node scripts/publish-resource-previews.cjs
           node scripts/test-classroom-presentation.cjs
           git config user.name "github-actions[bot]"

@@ -5,7 +5,7 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
 (async()=>{
  const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1180,height:820}}),errors=[],cases=[];
  page.on('pageerror',e=>errors.push(e.message));
- async function open(course,unit,game){await page.goto(base+'/worksheet-generator/'+(['detective','escape-room'].includes(game)?'course-activity':'course-game')+'.html?course='+course+'&unit='+unit+'&game='+game);await page.getByRole('button',{name:'Continue',exact:true}).click();}
+ async function open(course,unit,game){if(game==='detective'&&new URL(page.url()).origin===base)await page.evaluate(()=>{for(const k of Object.keys(localStorage))if(k.startsWith('mrk-whodunit-'))localStorage.removeItem(k)});await page.goto(base+'/worksheet-generator/'+(['detective','escape-room'].includes(game)?'course-activity':'course-game')+'.html?course='+course+'&unit='+unit+'&game='+game);await page.getByRole('button',{name:'Continue',exact:true}).click();}
  async function escape(course,unit){
   await open(course,unit,'escape-room');await page.locator('#activityStart').click();await page.getByRole('button',{name:'Begin',exact:true}).click();
   const room=await page.evaluate(()=>window.MK_ESCAPE_ROOM);assert.equal(room.stages.length,5);assert.ok(room.stages.some(s=>s.type==='cipher'));assert.ok(room.stages.some(s=>s.type==='order'));
@@ -73,5 +73,5 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
  await page.goto(base+'/index.html#algebra2.conic-sections');await page.waitForFunction(()=>document.querySelectorAll('#algebra-games + .cards a[href*="course-"]').length>=6);
  const thumbs=await page.locator('#algebra-games + .cards .thumb img').evaluateAll(imgs=>imgs.map(i=>i.src));assert.equal(new Set(thumbs).size,thumbs.length);
  assert.deepEqual(errors,[]);fs.mkdirSync('test-results',{recursive:true});fs.writeFileSync('test-results/course-parity.json',JSON.stringify({cases,errors},null,2));console.log('PASS '+cases.length+' complete game and future-course parity scenarios');
- }catch(e){console.error(page.url());await page.screenshot({path:'test-results/course-parity-failure.png',fullPage:true});throw e}finally{await browser.close()}
+ }catch(e){console.error(page.url(),errors);console.error(await page.locator('body').innerText());await page.screenshot({path:'test-results/course-parity-failure.png',fullPage:true});throw e}finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
