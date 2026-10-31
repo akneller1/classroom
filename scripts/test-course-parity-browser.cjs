@@ -1,7 +1,7 @@
 'use strict';
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const base=process.env.MK_BASE_URL||'http://127.0.0.1:8765';
-const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);const library=ctx.window.LIBRARY;
+const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);const library=ctx.window.LIBRARY;const published=require('../question-banks/manifest.json').banks;
 (async()=>{
  const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1180,height:820}}),errors=[],cases=[];
  page.on('pageerror',e=>errors.push(e.message));
@@ -55,9 +55,9 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
  try{
  for(const u of library.courses.find(c=>c.id==='algebra2').units){await mystery('algebra2',u.id);await escape('algebra2',u.id);}
  for(const [c,u] of [['algebra','foundations-algebra'],['geometry','foundations-geometry'],['algebra2','conic-sections']]){await steal(c,u);if(c!=='algebra2'){await mystery(c,u);await escape(c,u);}}
- for(const course of library.courses.filter(c=>['math6','prealgebra7','prealgebra'].includes(c.id)))for(const middleUnit of course.units){const unit=middleUnit.id;fs.mkdirSync('thumbs/previews/'+course.id,{recursive:true});for(const game of ['flashcards','connect-four','tic-tac-toe','picture-reveal','showdown','detective','escape-room']){await open(course.id,unit,game);if(['detective','escape-room'].includes(game)){assert.match(await page.locator('#activityStatus').innerText(),/not available/);}else if(['connect-four','tic-tac-toe'].includes(game))assert.ok(await page.locator('#tGo').isVisible());else await page.getByRole('status').waitFor();assert.equal(await page.evaluate(c=>window.MK_QUESTION_BANKS.available(c,window.MK_COURSE_ACTIVITY_SOURCE.unit.id),course.id),false);await page.screenshot({path:'thumbs/previews/'+course.id+'/'+unit+'-'+game+'.png'});cases.push(course.id+'/'+game+'/empty-bank');}}
- await page.goto(base+'/index.html#algebra2.conic-sections');await page.waitForFunction(()=>document.querySelectorAll('#algebra-games a[href*="course-"]').length>=6);
- const thumbs=await page.locator('#algebra-games .thumb img').evaluateAll(imgs=>imgs.map(i=>i.src));assert.equal(new Set(thumbs).size,thumbs.length);
+ for(const course of library.courses.filter(c=>['math6','prealgebra7','prealgebra'].includes(c.id)))for(const middleUnit of course.units){const unit=middleUnit.id,expected=published.some(b=>b.courseId===course.id&&b.unitId===unit&&b.approved);fs.mkdirSync('thumbs/previews/'+course.id,{recursive:true});for(const game of ['flashcards','connect-four','tic-tac-toe','picture-reveal','showdown','detective','escape-room']){await open(course.id,unit,game);if(!expected&&['detective','escape-room'].includes(game)){assert.match(await page.locator('#activityStatus').innerText(),/not available/);}else if(['connect-four','tic-tac-toe'].includes(game))assert.ok(await page.locator('#tGo').isVisible());else if(!expected)await page.getByRole('status').waitFor();assert.equal(await page.evaluate(c=>window.MK_QUESTION_BANKS.available(c,window.MK_COURSE_ACTIVITY_SOURCE.unit.id),course.id),expected);await page.screenshot({path:'thumbs/previews/'+course.id+'/'+unit+'-'+game+'.png'});cases.push(course.id+'/'+unit+'/'+game+(expected?'/bank-ready':'/empty-bank'));}}
+ await page.goto(base+'/index.html#algebra2.conic-sections');await page.waitForFunction(()=>document.querySelectorAll('#algebra-games + .cards a[href*="course-"]').length>=6);
+ const thumbs=await page.locator('#algebra-games + .cards .thumb img').evaluateAll(imgs=>imgs.map(i=>i.src));assert.equal(new Set(thumbs).size,thumbs.length);
  assert.deepEqual(errors,[]);fs.mkdirSync('test-results',{recursive:true});fs.writeFileSync('test-results/course-parity.json',JSON.stringify({cases,errors},null,2));console.log('PASS '+cases.length+' complete game and future-course parity scenarios');
  }catch(e){console.error(page.url());await page.screenshot({path:'test-results/course-parity-failure.png',fullPage:true});throw e}finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

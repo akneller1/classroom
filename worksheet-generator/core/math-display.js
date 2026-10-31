@@ -169,7 +169,7 @@ function fractions(src){
 }
 function html(value){
  return String(value==null?'':value).split(/(⟨[^⟩]*⟩)/).map(part=>{
-  if(/^⟨/.test(part)&&G.katex){return G.katex.renderToString(part.slice(1,-1),{throwOnError:false,output:'html',trust:false})}
+  if(/^⟨/.test(part)&&G.katex){return G.katex.renderToString(part.slice(1,-1).replace(/\\frac/g,'\\dfrac'),{throwOnError:false,output:'html',trust:false})}
   let mini=fractions(part);mini=mini.replace(/\^\(([^()]*)\)/g,'^{$1}');
   return fm(mini).replace(/\n/g,'<br>');
  }).join('');

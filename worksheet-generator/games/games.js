@@ -13,7 +13,7 @@
   var UNIT = body.getAttribute('data-unit'), GAME = body.getAttribute('data-game'), SET = NS.skillSets[UNIT];
   var TITLE = body.getAttribute('data-title') || (SET ? SET.unitName : 'Game');
   var app = doc.getElementById('app');
-  var M = (typeof NS.mathSafe === 'function' ? NS.mathSafe : (WS.render && WS.render.math)), LETTERS = 'ABCD';
+  var M = G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html : (typeof NS.mathSafe === 'function' ? NS.mathSafe : (WS.render && WS.render.math)), LETTERS = 'ABCD';
   if (!SET) { app.innerHTML = '<div class="gm-panel">This game is not available for this unit yet.</div>'; return; }
 
   /* ---------- helpers ---------- */
