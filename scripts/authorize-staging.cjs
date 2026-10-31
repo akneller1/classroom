@@ -12,7 +12,10 @@ function authorize(review,settings,allowlist){
  const issues=[...assessment.issues];
  const scope=assessment.scope;
  if(!VALID_COURSES.has(scope.courseId)||!VALID_LEVELS.has(scope.level))issues.push('Unsupported curriculum scope');
- const item=(allowlist?.entries||[]).find(e=>e.courseId===scope.courseId&&e.topic===scope.topic&&e.level===scope.level);
+ const matching=(allowlist?.entries||[]).filter(e=>e.courseId===scope.courseId&&e.topic===scope.topic&&e.level===scope.level);
+ if(matching.length!==1)issues.push('Expected one unique staging scope');
+ const item=matching[0];
+ if(item&&(!item.sourceSetId||!item.sourceSkillId))issues.push('Missing explicit generator reference');
  if(!item||item.stagingEnabled!==true)issues.push('No repository staging allowlist entry');
  if(allowlist?.productionEnabled!==false)issues.push('Production must remain disabled');
  if(item&&(item.productionEnabled!==false||item.reviewRequired!==true))issues.push('Invalid staging allowlist flags');
