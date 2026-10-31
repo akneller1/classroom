@@ -316,7 +316,7 @@ function draw(){
   round(58,538,215,45,13,'rgba(5,13,20,.8)','rgba(239,192,118,.5)');label('TOWER RANGE',76,567,14,'#fff0d1');progressDots(617,568,6,turn+1);
  }
  if(key==='portal'){
-  const gates=[78,218,348,475,535,760],fx=motionFX,pt=fx?Math.min(1,(now-fx.start)/1450):0,complete=!fx&&locked&&isSuccess;
+  const gates=[132,267,401,544,595,682],fx=motionFX,pt=fx?Math.min(1,(now-fx.start)/1450):0,complete=!fx&&locked&&isSuccess;
   const f=turn+(fx&&fx.success?pt:(complete?1:0)),activeIndex=Math.min(gates.length-1,Math.floor(f)),x=gates[activeIndex],y=260;
   c.save();c.strokeStyle='#a9fff0';c.lineWidth=5;c.shadowColor='#66e7df';c.shadowBlur=24;c.beginPath();c.ellipse(x,y,43,104,0,0,Math.PI*2);c.stroke();c.restore();
   if(fx&&fx.success){const prior=gates[Math.min(turn,gates.length-1)];c.save();c.strokeStyle='rgba(162,245,232,.8)';c.lineWidth=4;c.shadowColor='#67dfd5';c.shadowBlur=16;c.beginPath();c.moveTo(prior,386);c.lineTo(x,386);c.stroke();c.restore()}
