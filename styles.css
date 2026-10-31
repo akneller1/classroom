@@ -405,7 +405,7 @@ html { scroll-padding-top: 12rem; }
 .generator-banner-heading { margin-bottom: 1.25rem; }
 .generator-banner-heading h2 { font-family: var(--display); font-size: clamp(1.4rem, 2.8vw, 2rem); line-height: 1.25; margin: 0 0 .4rem; }
 .generator-banner-heading p { color: var(--ink-soft); margin: 0; }
-.generator-shortcuts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .8rem; }
+.generator-shortcuts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .8rem; }
 .generator-shortcuts li { min-width: 0; }
 .generator-shortcut { display: flex; flex-direction: column; gap: .8rem; height: 100%; padding: 1.15rem; text-decoration: none; color: var(--ink); border-radius: 12px; background: var(--card); border: 1px solid var(--line); }
 .generator-shortcut:hover { border-color: var(--blue-text); background: var(--paper); }
@@ -448,6 +448,8 @@ body { background:var(--paper); }
 .generator-shortcuts li:nth-child(2) .generator-shortcut-icon { background:#e4f4ed; color:#216a4e; }
 .generator-shortcuts li:nth-child(3) .generator-shortcut-icon { background:#fff1dd; color:#8d5415; }
 .generator-shortcuts li:nth-child(4) .generator-shortcut-icon { background:#efe6ff; color:#6241a0; }
+.generator-shortcuts li:nth-child(5) .generator-shortcut-icon { background:#fff0bd; color:#755300; }
+.generator-shortcuts li:nth-child(6) .generator-shortcut-icon { background:#dff4f1; color:#176b64; }
 .generator-shortcut-copy strong { font-size:1.16rem; }
 .explore-courses { padding-top:1.25rem; }
 .explore-heading { margin-bottom:1.5rem; }
@@ -487,12 +489,12 @@ body { background:var(--paper); }
 .hero-generator-panel .generator-banner-heading { margin-bottom:1rem; }
 .hero-generator-panel .generator-banner-heading h2 { font-size:clamp(1.2rem,1.8vw,1.55rem); }
 .hero-generator-panel .generator-banner-heading p { display:none; }
-.hero-generator-panel .generator-shortcuts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem; }
+.hero-generator-panel .generator-shortcuts { grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
 .hero-generator-panel .generator-shortcut { min-height:145px; padding:.95rem; gap:.65rem; }
 .hero-generator-panel .generator-shortcut-icon { width:2.4rem; height:2.4rem; font-size:1.5rem; }
 .hero-generator-panel .generator-shortcut-copy strong { font-size:1rem; }
 .hero-generator-panel .generator-shortcut-copy small { font-size:.8rem; line-height:1.35; }
-@media (max-width:900px) { .hero > .wrap { grid-template-columns:1fr; } .hero-copy { max-width:680px; } .hero-generator-panel .generator-shortcut { min-height:125px; } }
+@media (max-width:900px) { .generator-shortcuts,.hero-generator-panel .generator-shortcuts { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero > .wrap { grid-template-columns:1fr; } .hero-copy { max-width:680px; } .hero-generator-panel .generator-shortcut { min-height:125px; } }
 @media (max-width:480px) { .hero-generator-panel .generator-shortcut { min-height:135px; padding:.75rem; } .hero-generator-panel .generator-shortcut-copy strong { font-size:.93rem; } }
 
 /* Simplified site header: branding takes priority over search. */
