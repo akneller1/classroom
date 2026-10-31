@@ -7,10 +7,10 @@ if(!NS||!GB||!G.MK_BANK_LOADER)return;
 const prefix='algebra2-', registry=new Map(),isBank=id=>registry.has(id);
 const raw=new Map();
 function level(c,policy){return policy&&['cp2','cp1','honors'].includes(policy.level)?policy.level:c<=2?'cp2':c<=5?'cp1':'honors'}
-function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['multiple-choice']})}
+function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['short-answer','multiple-choice','select-all','open-response']})}
 function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
 function figure(q){return q.diagram?.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null}
-function problem(q,id,c){return {uid:q.id,sourceId:q.id,source:'authored-bank',authoredOptions:q.options||[],skill:q.skillId,c,tag:q.skillId,prompt:q.prompt,fig:figure(q),parts:[{answer:text(q.answer),prompt:''}],steps:q.solutionSteps.map(t=>({t})),key:q.id,sig:q.id,verify:{status:'source-key',issues:[]}}}
+function problem(q,id,c){const parts=Array.isArray(q.parts)&&q.parts.length?q.parts.map((part,i)=>({answer:text(part.answer),prompt:part.prompt||'',label:String.fromCharCode(97+i)})):[{answer:text(Array.isArray(q.answer)?q.answer.join('; '):q.answer),prompt:''}];return {uid:q.id,sourceId:q.id,source:'authored-bank',authoredFormat:q.format,authoredOptions:q.options||[],approved:true,skill:q.skillId,c,tag:q.skillId,prompt:q.prompt,fig:figure(q),parts,steps:(q.solutionSteps||[]).map(t=>({t})),key:q.id,sig:q.id,verify:{status:'source-key',issues:[]}}}
 function choose(items,seed,used){const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(seed)));return rng.shuffle(items).find(q=>!used?.keys?.has(q.id))}
 const generate=NS.generateProblem;
 NS.generateProblem=function(id,skill,c,policy,seed,used){
@@ -43,6 +43,46 @@ GB.buildDeck=function(id,slots,opts,done){
  }
  if(opts.progress)opts.progress(slots.length,slots.length);done(out);
 };
+
+// Preserve the native menu/worksheet/lesson-planner workflows for Algebra 2 while
+// drawing only from the approved bank and its authored answer keys.
+const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
+function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
+const makeChoices=NS.makeChoices,makeMulti=NS.makeMultiSelect,makeMcas=NS.makeMcas;
+NS.makeChoices=function(p){
+ const q=sourceQuestion(p);if(!q)return makeChoices.apply(this,arguments);
+ const opts=q.options||[],correct=opts.map((o,i)=>o.correct===true?i:-1).filter(i=>i>=0);
+ if(q.format!=='multiple-choice'||correct.length!==1||opts.length<2)return {fail:'This approved question is not a single-answer multiple-choice item.'};
+ return {opts:opts.map(o=>o.text),key:correct[0],src:JSON.stringify([q.id,opts])};
+};
+NS.makeMultiSelect=function(p){
+ const q=sourceQuestion(p);if(!q)return makeMulti.apply(this,arguments);
+ const opts=q.options||[],keys=opts.map((o,i)=>o.correct===true?i:-1).filter(i=>i>=0);
+ if(q.format!=='select-all'||keys.length<2||opts.length<4)return {fail:'This approved question is not a select-all item.'};
+ return {opts:opts.map(o=>o.text),keys,direction:'Select all that apply.',src:JSON.stringify([q.id,opts])};
+};
+NS.makeMcas=function(p){
+ const q=sourceQuestion(p);if(!q)return makeMcas.apply(this,arguments);
+ return q.format==='open-response'&&(q.parts||[]).length>=4?{parts:q.parts.length}:{fail:'This approved question does not have four or more connected parts.'};
+};
+function authoredAvailable(id,skill,level,format){
+ const item=registry.get(id);if(!item)return false;
+ return G.MK_QUESTION_BANKS.select({courseId:item.courseId,unitId:item.unitId,skillIds:[skill],level:level,formats:[format]}).length>0;
+}
+const multiUnit=NS.multiUnitSupported,multiCap=NS.multiCapable,mcCap=NS.mcCapable,mcasCap=NS.mcasCapable,skillFmt=NS.skillFormatOk;
+NS.multiUnitSupported=function(id){return isBank(id)?NS.skillSets[id].skills.some(s=>authoredAvailable(id,s.id,'cp1','select-all')):multiUnit.apply(this,arguments)};
+NS.multiCapable=function(id,skill,c){return isBank(id)?['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,'select-all')):multiCap.apply(this,arguments)};
+NS.mcCapable=function(id,skill,c){return isBank(id)?['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,'multiple-choice')):mcCap.apply(this,arguments)};
+NS.mcasCapable=function(id,skill,c){return isBank(id)?['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,'open-response')):mcasCap.apply(this,arguments)};
+NS.skillFormatOk=function(id,skill,format,c){
+ if(!isBank(id))return skillFmt.apply(this,arguments);
+ const bankFormat={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'}[format]||'short-answer';
+ return ['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,bankFormat));
+};
+NS.authoredFormatForMenu=function(id,sectionFormat){
+ return isBank(id)?[nativeFormats[sectionFormat]||'short-answer']:null;
+};
+
 const figHtml=NS.figHtml;
 NS.figHtml=function(fig){
  if(fig?.kind!=='authored-image')return figHtml.apply(this,arguments);
@@ -66,6 +106,7 @@ G.MK_ALGEBRA2_NATIVE_READY=G.MK_BANK_LOADER.loadFromSite('question-banks/manifes
  });
  // Preserve original levels while selecting authored banks by exact level.
  if(G.document?.body.hasAttribute('data-algebra2-game')) { GB.LEVELS.cp2.tiers=[1,1,1];GB.LEVELS.cp1.tiers=[4,4,4];GB.LEVELS.honors.tiers=[6,6,6]; }
- G.MK_COURSE_BANKS_READY=G.MK_ALGEBRA2_NATIVE_READY;return course;
+ return course;
 });
+G.MK_COURSE_BANKS_READY=G.MK_ALGEBRA2_NATIVE_READY;
 })(window);
