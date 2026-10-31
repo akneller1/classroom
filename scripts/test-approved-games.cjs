@@ -13,4 +13,7 @@ assert.ok(js.includes('MK_QUESTION_BANKS.available'),'Do not serve unapproved un
 assert.ok(!js.includes('innerHTML'),'Do not inject question text as HTML');
 assert.ok(js.includes('row=5;row>=0;row--'),'Connect 4 gravity rule');
 assert.ok(js.includes('selectedAnswer=-1'),'Clear answers between turns');
+assert.ok(js.includes("x==='-'"),'Picture Reveal must complete only when all tiles are cleared');
+assert.ok(js.includes("selectedAnswer>=0"),'Selected multiple choice must support automatic grading');
+assert.ok(js.includes("judge(ok)"),'Multiple choice responses must affect the board');
 console.log('PASS approved review game page structure and security gating');
