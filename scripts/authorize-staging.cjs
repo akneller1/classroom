@@ -16,6 +16,16 @@ function authorize(review,settings,allowlist){
  if(matching.length!==1)issues.push('Expected one unique staging scope');
  const item=matching[0];
  if(item&&(!item.sourceSetId||!item.sourceSkillId))issues.push('Missing explicit generator reference');
+ if(item){
+  try {
+   const root=path.resolve(__dirname,'..');
+   const vm=require('node:vm');
+   const env=require('../worksheet-generator/menu/tests/load.cjs')();
+   for(const name of ['course-catalog.js','skill-crosswalk.js','legacy-crosswalk-audit.js'])vm.runInContext(fs.readFileSync(path.join(root,name),'utf8'),env,{filename:name});
+   const current=env.MK_LEGACY_CROSSWALK_AUDIT.inspect(env.MK_SKILL_CROSSWALK,env.MKMENU).find(e=>e.key===scope.topic);
+   if(!current||!current.curatedGenerator||current.curatedGenerator.setId!==item.sourceSetId||current.curatedGenerator.skillId!==item.sourceSkillId)issues.push('Allowlist generator does not match actual curated source');
+  }catch(error){issues.push('Unable to verify generator registration');}
+ }
  if(!item||item.stagingEnabled!==true)issues.push('No repository staging allowlist entry');
  if(allowlist?.productionEnabled!==false)issues.push('Production must remain disabled');
  if(item&&(item.productionEnabled!==false||item.reviewRequired!==true))issues.push('Invalid staging allowlist flags');
