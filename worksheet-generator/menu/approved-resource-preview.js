@@ -40,6 +40,10 @@
   // approval is a content review flag, not proof from the symbolic verifier.
   printBtn.onclick=function(){
     if(!active.length)return;
+    if(active.some(function(q){return !!q.diagram;})) {
+      status.textContent='Printing is disabled for this selection because one or more diagrams need a faithful approved rendering. Review those diagrams before creating student copies.';
+      return;
+    }
     var frame=G.document.createElement('iframe');
     frame.style.cssText='position:absolute;width:0;height:0;border:0';
     frame.setAttribute('title','Approved questions print view');
@@ -93,7 +97,7 @@
     if(state.state==='loading'){status.textContent='Checking approved question banks…';return;}
     if(state.state==='error'){status.textContent='Approved question-bank loading failed. No questions were imported: '+state.error;return;}
     active=api.select(mode,{courseId:courseSel.value,unitId:unitSel.value,level:levelSel.value});
-    key.disabled=!active.length;printBtn.disabled=!active.length;
+    key.disabled=!active.length;printBtn.disabled=!active.length || active.some(function(q){return !!q.diagram;});
     if(!active.length){
       status.textContent='No approved '+levelSel.selectedOptions[0].textContent.toLowerCase()+' questions for this unit. No substitute questions will be generated.';
       return;
