@@ -10,8 +10,11 @@ for(const [course,unit,game] of expected){assert(register.includes("'"+course+"'
 const data=fs.readFileSync('data.js','utf8');for(const [,unit] of expected)assert(data.includes('"id": "'+unit+'"'),'Unknown unit '+unit);
 const raw={1:html.split('r2:([')[1]?.split('])')[0]};assert(raw[1],'Catapult rounds present');
 const values=raw[1].split(',').map(Number);assert.equal(values.length,10);
-const good=values.filter(r=>{const y=8*(r-8);return y>=2&&y<=18});
+for(const r of values){const answers=[0,r,r/2,r*r/4,8*(r-8)];assert.ok(answers.every(Number.isInteger),'All five catapult answers must be integers for quadratic coefficient '+r);}
+assert.match(html,/standard form: h\(x\) = −x² \+ /,'Catapult must display expanded standard form');
+assert.match(html,/CATAPULT/);assert.match(html,/ENEMY CASTLE/);
+const good=values.filter(r=>{const y=8*(r-8);return y>=2&&y<=36});
 assert.equal(good.length,6,'Exactly six trajectories should hit the castle');
-const misses=values.filter(r=>{const y=8*(r-8);return y<2||y>18});
+const misses=values.filter(r=>{const y=8*(r-8);return y<2||y>36});
 assert.equal(misses.length,4,'Exactly four shots should miss');
 console.log('PASS seven games, unit registrations, 6-hit castle sequence and script syntax');
