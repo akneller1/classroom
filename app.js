@@ -820,8 +820,10 @@
         id: unitToken(c, u), name: (state.subject ? '' : c.name + ' — ') + unitLabel(c, u)
       }); });
     });
+    var activeGroup = RESOURCE_GROUPS.filter(function (group) { return group.id === state.category; })[0];
+    var formatGroups = activeGroup ? [activeGroup] : RESOURCE_GROUPS;
     var formats = [];
-    RESOURCE_GROUPS.forEach(function (group) {
+    formatGroups.forEach(function (group) {
       group.formats.forEach(function (id) {
         var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === id; })[0];
         if (format && formatItems(format).length) formats.push(format);
@@ -836,8 +838,8 @@
       browseSelect('subject', 'Subject', L.courses, state.subject, 'All subjects') +
       browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
       browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
-      browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
-      browseSelect('gameMode', 'Game Type', GAME_MODES.concat(['Unit Specific']).map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game types') +
+      browseSelect('format', 'Activity Type', formats, state.format, activeGroup ? 'All ' + (activeGroup.id === 'games' ? 'game' : 'study guide') + ' types' : 'All activity types') +
+      (state.category === 'study-guides' ? '' : browseSelect('gameMode', 'Game Type', GAME_MODES.concat(['Unit Specific']).map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game types')) +
       '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
     var pager = '';
     if (pages > 1) {
@@ -999,6 +1001,11 @@
     var state = browseState(route.format ? route.format.id : '');
     state[key] = e.target.value;
     state.page = 1;
+    if (key === 'category') {
+      var selectedGroup = RESOURCE_GROUPS.filter(function (group) { return group.id === state.category; })[0];
+      if (selectedGroup && state.format && selectedGroup.formats.indexOf(state.format) < 0) state.format = '';
+      if (state.category !== 'games') state.gameMode = '';
+    }
     if (key === 'subject') state.unit = '';
     if (key === 'unit' && state.unit) state.subject = state.unit.split('.')[0];
     go(browseToken(state));
