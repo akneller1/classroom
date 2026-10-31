@@ -1,0 +1,20 @@
+name: Approved question bank loader
+on:
+  push:
+    paths:
+      - 'question-bank-loader.js'
+      - 'question-banks/**'
+      - 'scripts/test-question-bank-loader.cjs'
+      - '.github/workflows/question-bank-loader.yml'
+  workflow_dispatch:
+jobs:
+  loader:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify approved-bank manifest loading
+        run: node scripts/test-question-bank-loader.cjs
