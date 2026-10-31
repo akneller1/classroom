@@ -489,6 +489,12 @@
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
           url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
         }
+        if (c && c.id === 'algebra2' && u && window.MK_QUESTION_BANKS &&
+            window.MK_QUESTION_BANKS.available(c.id,u.id) &&
+            (tool.format === 'worksheet-generator' || tool.format === 'assessment-generator')) {
+          url = 'worksheet-generator/bank-printable.html?unit=' + encodeURIComponent(u.id) +
+            '&mode=' + (tool.format === 'assessment-generator' ? 'assessment' : 'worksheet');
+        }
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
           '<span class="generator-shortcut-icon" aria-hidden="true">' + ({'lesson-planner':'▤','worksheet-generator':'≡','printable-generator':'✦','assessment-generator':'☑'}[tool.format]) + '</span>' +
