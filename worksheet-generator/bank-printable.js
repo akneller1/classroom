@@ -82,6 +82,8 @@ function build(){
  if(!skillIds.length){status.textContent='Choose at least one skill.';return}
  pool=bank.select({courseId:'algebra2',unitId,level,skillIds,formats:fmt==='all'?undefined:[fmt]}).filter(q=>!q.diagram||q.diagram.type==='image');
  wantedCount=Math.max(1,Math.min(60,Number($('count').value)||12));
+ const requestedTotal=sections.filter(x=>x.enabled).reduce((sum,x)=>sum+Math.max(0,Number(x.count)||0),0);
+ if(requestedTotal>wantedCount){status.textContent='Section counts exceed the total question limit. Increase the question limit or reduce section counts.';return;}
  if(!pool.length){versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent='No matching questions for these settings.';return}
  const total=Math.max(1,Math.min(4,Number($('versions').value)||1));
  versionSections=Array.from({length:total},sectionsSnapshot);
@@ -113,6 +115,7 @@ function renderEditor(){
 }
 function move(index,direction){
  const arr=currentItems(),to=index+direction;if(to<0||to>=arr.length)return;
+ if(arr[index].sectionId!==arr[to].sectionId){status.textContent='Use the section controls to reorder sections; questions can be moved within their own section.';return;}
  [arr[index],arr[to]]=[arr[to],arr[index]];renderEditor();renderAll();
 }
 function renderAll(){
@@ -146,7 +149,7 @@ function renderAll(){
 }
 $('currentVersion').addEventListener('change',()=>{activeVersion=Number($('currentVersion').value);renderEditor()});
 $('refreshVersion').addEventListener('click',()=>{versions[activeVersion]=sectionQuestions(versionSections[activeVersion],new Set());renderEditor();renderAll()});
-$('resetEdits').addEventListener('click',()=>{versions[activeVersion]=currentItems().map(x=>({source:x.source,question:JSON.parse(JSON.stringify(x.source))}));renderEditor();renderAll()});
+$('resetEdits').addEventListener('click',()=>{versions[activeVersion]=currentItems().map(x=>({source:x.source,question:JSON.parse(JSON.stringify(x.source)),sectionId:x.sectionId}));renderEditor();renderAll()});
 $('key').addEventListener('change',()=>{if(versions.length)renderAll()});
 $('customTitle').addEventListener('input',()=>{if(versions.length)renderAll()});
 units.forEach((u,i)=>option(unitSelect,u.id,'Unit '+(i+1)+' · '+u.name));
