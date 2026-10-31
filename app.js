@@ -583,8 +583,10 @@
         var target = m.targets.find(function (t) { return t && t.courseId === c.id && t.unitId === u.id; });
         var url = 'worksheet-generator/grade-practice.html?course=' + encodeURIComponent(c.id) +
           '&topic=' + encodeURIComponent(m.key) + '&level=cp1';
-        return '<li class="card"><a href="' + esc(url) + '"><strong>' + esc(target.name) +
-          '</strong><span> · Interactive Practice →</span></a></li>';
+        return '<li class="card"><strong>' + esc(target.name) + '</strong><p>' +
+          [['practice','Practice'],['flashcards','Flashcards'],['game','Review game'],['worksheet','Worksheet']].map(function(format){
+            return '<a style="display:inline-block;margin:.25rem .75rem .25rem 0" href="' + esc(url+'&mode='+format) + '">' + esc(format==='game'?'Review Game':format==='practice'?'Practice':format==='worksheet'?'Worksheet':'Flashcards') + '</a>';
+          }).join('') + '</p></li>';
       }).join('') + '</ul></section>';
   }
   function unitView(c, u) {
