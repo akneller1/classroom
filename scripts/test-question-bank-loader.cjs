@@ -13,11 +13,13 @@ async function main(){
  assert.ok(Array.isArray(manifest.banks));
  for(const item of manifest.banks){
   assert.equal(item.path,'question-banks/'+item.courseId+'/'+item.unitId+'.json');
-  assert.equal(item.approved,true);
+  assert.ok(item.approved===true||(item.courseId==='algebra2'&&item.teacherUse===true));
   assert.ok(fs.existsSync(path.join(root,item.path)),'Missing approved bank: '+item.path);
  }
  assert.equal((await loader.load({version:1,banks:[{...entry,approved:false}]},()=>{throw Error('Should not fetch unapproved bank')})).length,0);
  assert.equal(banks.available(courseId,unitId),false);
+ // Explicit teacher-use flag allows Algebra 2 without asserting human approval.
+ assert.equal((await loader.load({version:1,banks:[{...entry,approved:false,teacherUse:false}]},()=>{throw Error('Disabled bank should not load')})).length,0);
  await assert.rejects(loader.load({version:1,banks:[entry]},async()=>({...bank,unitId:'wrong'})),/mismatch/);
  assert.equal(banks.available(courseId,unitId),false);
  const ids=await loader.load({version:1,banks:[entry]},async()=>bank);
