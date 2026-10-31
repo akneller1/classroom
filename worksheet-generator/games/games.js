@@ -33,9 +33,11 @@
   // Some bank skills are extended investigations without game-compatible
   // answer parts. Only offer skills that can actually make game questions.
   skillIds = skillIds.filter(function (id) { return GB.hasGameItems(UNIT, id); });
-  var flashcardSkills = skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
+  var bankBackedGame = body.hasAttribute('data-algebra2-game') || !!G.MK_GRADE_GAME_COURSE;
+  var flashcardSkills = bankBackedGame ? skillIds.slice() : skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
   var flashcardAvailability = {};
   function skillsWithCardsAt(level) {
+    if (bankBackedGame) return skillIds.slice();
     if (!flashcardAvailability[level]) {
       flashcardAvailability[level] = skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id, level); });
     }
