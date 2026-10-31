@@ -276,7 +276,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
+  function activityUrl(a) { var path=a.path||''; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
@@ -309,6 +309,7 @@
   // Use game-board previews rather than captured setup/question dialogs.
   // These are illustrations of the existing game modes, not generated questions.
   function gameBoardThumbnail(a, it) {
+    if (/^artifacts\/math-arcade\/index\.html\?game=/.test(a.path || '')) return a.thumb || '';
     var f = activityFormat(a);
     var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms','whodunnit','detective-games','topic-games'];
     if (supported.indexOf(f) < 0) return a.thumb || '';
