@@ -79,6 +79,10 @@ async function run(){
   await turnAt(0,false);
   assert.equal(await page.locator('.ag-cell[data-owner="1"]').count(),0,'Wrong answer cannot claim a square');
   assert.match(await page.locator('#agTurn').innerText(),/Incorrect/);
+  await page.locator('#agReset').click();
+  for(const square of [0,1,2,4,3,5,7,6,8])await turnAt(square,true);
+  assert.match(await page.locator('#agTurn').innerText(),/Draw — no more moves/);
+  assert.equal(await page.locator('.ag-cell:enabled').count(),0,'Draw board must lock');
   // Mobile layout: board and controls fit within the viewport.
   await page.setViewportSize({width:375,height:812});
   for(const type of ['tic-tac-toe','connect-4','picture-reveal']){
