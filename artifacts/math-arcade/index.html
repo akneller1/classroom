@@ -116,14 +116,21 @@ function newBankQuestion(){
  bankQuestion=null;
  if(key==='portal'){
   if(!algebra2Bank)return false;
-  const skills=[...new Set(algebra2Bank.map(q=>q.skillId))];
-  const level=bankLevel;
-  const start=Math.min(skills.length-1,Math.floor(turn*skills.length/total));
-  let eligible=algebra2Bank.filter(q=>q.level===level&&q.format==='multiple-choice'&&q.options?.length>=2&&q.options.some(o=>o.correct)&&skills.slice(0,start+1).includes(q.skillId));
-  if(!eligible.length)eligible=algebra2Bank.filter(q=>q.level===level&&q.format==='short-answer'&&q.answer!==undefined);
-  eligible=eligible.filter(q=>!bankUsed.keys.has(q.id));
-  if(!eligible.length)return false;
-  const q=eligible[Math.floor(Math.random()*eligible.length)];
+  const allSkills=[...new Set(algebra2Bank.map(q=>q.skillId))].sort();
+  const stage=Math.min(allSkills.length-1,Math.floor(turn*allSkills.length/total));
+  const skill=allSkills[stage];
+  const formats=turn<2?['short-answer','multiple-choice']:turn<4?['multiple-choice','short-answer']:['short-answer','multiple-choice'];
+  const pool=algebra2Bank.filter(q=>q.level===bankLevel&&!bankUsed.keys.has(q.id)
+    &&(q.format==='multiple-choice'&&q.options?.some(o=>o.correct)||q.format==='short-answer'&&q.answer!=null));
+  const sorted=pool.sort((a,b)=>{
+    const score=q=>(q.skillId===skill?10:0)+(formats.indexOf(q.format)===0?4:0)
+      -(q.skillId===bankQuestion?.skillName?3:0);
+    return score(b)-score(a);
+  });
+  if(!sorted.length)return false;
+  const topScore=sorted[0].skillId===skill;
+  const candidates=sorted.filter(q=>(q.skillId===skill)===topScore&&q.format===sorted[0].format);
+  const q=candidates[Math.floor(Math.random()*Math.min(5,candidates.length))];
   bankUsed.keys.add(q.id);
   bankQuestion={id:q.id,skillName:q.skillId,q:{prompt:q.prompt,ask:''},steps:(q.solutionSteps||[]).map(t=>({t})),
     options:q.format==='multiple-choice'?q.options.map(o=>({a:o.text,ok:o.correct})):null,
@@ -132,7 +139,9 @@ function newBankQuestion(){
  }
  const spec=BANK_SPECS[key],set=window.MKMENU?.skillSets[spec.set];
  if(!set||!window.MKGAMES)return false;
- const skills=spec.skills.length?spec.skills.filter(id=>set.byId[id]):set.skills.filter(s=>!/error|investigation|graph.*hand|proof/i.test(s.name)).map(s=>s.id);
+ const skills=spec.skills.length?spec.skills.filter(id=>set.byId[id]):set.skills.filter(s=>!/investigation|four-part|open.response|graph.*hand|proof/i.test(s.name)).map(s=>s.id);
+ // Prioritize a different skill family each level, rather than retrying the first generator.
+ if(!skills.length)return false;
  const tier={cp2:[1,2,3],cp1:[3,4,5],honors:[5,6,7]}[bankLevel];
  const stage=Math.min(tier.length-1,Math.floor(turn*3/total));
  const c=tier[stage],start=Math.min(skills.length-1,Math.floor(turn*skills.length/total));
@@ -141,7 +150,7 @@ function newBankQuestion(){
   for(let attempt=0;attempt<12;attempt++){
    const items=MKGAMES.makeItems(spec.set,skill,c,{intOnly:bankLevel!=='honors',level:bankLevel},key+'-'+Date.now()+'-'+turn+'-'+shift+'-'+attempt,bankUsed);
    const found=items.find(x=>x.options?.length>=2&&x.options.some(o=>o.ok));
-   if(found){bankQuestion=found;return true;}
+   if(found){bankQuestion=found;bankQuestion.skillName=set.byId[skill]?.name||found.skillName;return true;}
   }
  }
  return false;
