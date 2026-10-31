@@ -8,6 +8,7 @@
   var courseIds = ['math6', 'prealgebra7', 'prealgebra'];
   var seen = Object.create(null);
   ns.CATALOG.forEach(function (group) { group.units.forEach(function (u) { seen[u[0]] = true; }); });
+  var insertAt = 0;
   courseIds.forEach(function (id) {
     var course = library.courses.filter(function (c) { return c.id === id; })[0];
     if (!course) return;
@@ -16,7 +17,7 @@
       return [bankId, 'Unit ' + (i + 1) + ' · ' + unit.name];
     }).filter(function (u) { return !seen[u[0]]; });
     if (units.length) {
-      ns.CATALOG.unshift({ course: course.name, units: units });
+      ns.CATALOG.splice(insertAt++, 0, { course: course.name, units: units });
       units.forEach(function (u) { seen[u[0]] = true; });
     }
   });
