@@ -303,6 +303,77 @@
     var body = 'Activity: ' + a.title + '\nLink: ' + url + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n';
     return 'https://github.com/akneller1/classroom/issues/new?title=' + encodeURIComponent('Resource problem: ' + a.title) + '&body=' + encodeURIComponent(body);
   }
+
+  // Use game-board previews rather than captured setup/question dialogs.
+  // These are illustrations of the existing game modes, not generated questions.
+  function gameBoardThumbnail(a, it) {
+    var f = activityFormat(a);
+    var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms'];
+    if (supported.indexOf(f) < 0) return a.thumb || '';
+    var topic = (it.u && (it.u.name || it.u.title)) || (it.c && it.c.name) || '';
+    var title = {'tic-tac-toe':'TIC-TAC-TOE','connect-four':'CONNECT 4',
+      'showdown':'SHOWDOWN','picture-reveal':'PICTURE REVEAL',
+      'flashcards':'FLASHCARDS','escape-rooms':'ESCAPE ROOM'}[f];
+    function rect(x,y,w,h,fill,rx,stroke) {
+      return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(rx||0)+
+        '" fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="2"':'')+'/>';
+    }
+    function txt(x,y,value,size,color,weight,anchor) {
+      return '<text x="'+x+'" y="'+y+'" font-family="Arial,sans-serif" font-size="'+size+
+        '" font-weight="'+(weight||600)+'" fill="'+(color||'#172d53')+
+        '" text-anchor="'+(anchor||'start')+'">'+esc(value)+'</text>';
+    }
+    var art = '';
+    if (f === 'tic-tac-toe') {
+      art += rect(159,62,162,162,'#ffffff',12,'#c7d6f0');
+      for(var i=1;i<3;i++) {
+        art += '<path d="M '+(159+54*i)+' 69 V 217 M 166 '+(62+54*i)+' H 314" stroke="#7287ad" stroke-width="4"/>';
+      }
+      [[186,99,'X'],[240,99,'O'],[294,99,'X'],[186,153,'O'],[240,153,'X'],[294,153,'O'],[186,207,'X']].forEach(function(v){
+        art += txt(v[0],v[1],v[2],33,v[2]==='X'?'#5a49d6':'#ee8c42',700,'middle');
+      });
+    } else if (f === 'connect-four') {
+      art += rect(123,62,234,157,'#4568b7',14);
+      for(var row=0;row<4;row++)for(var col=0;col<7;col++){
+        var colors=['#f1f5fc','#f1f5fc','#f1f5fc','#f1f5fc','#f1f5fc','#f1f5fc','#f1f5fc'];
+        if(row===3)colors=['#f6c453','#f6c453','#7063d7','#7063d7','#f6c453','#7063d7','#f6c453'];
+        if(row===2)colors=['#f1f5fc','#7063d7','#f6c453','#7063d7','#f1f5fc','#f6c453','#f1f5fc'];
+        if(row===1)colors=['#f1f5fc','#f1f5fc','#f1f5fc','#f6c453','#f1f5fc','#f1f5fc','#f1f5fc'];
+        art += '<circle cx="'+(143+col*33)+'" cy="'+(83+row*38)+'" r="12" fill="'+colors[col]+'"/>';
+      }
+    } else if (f === 'showdown') {
+      art += rect(100,58,280,166,'#1f458b',12);
+      for(var rr=0;rr<4;rr++)for(var cc=0;cc<4;cc++){
+        var xx=108+cc*67, yy=65+rr*38;
+        art+=rect(xx,yy,60,33,rr===0?'#527bd2':'#173673',5,'#6387ca');
+        art+=txt(xx+30,yy+22,rr===0?['A','B','C','D'][cc]:String(rr*100),rr===0?12:17,'#ffffff',700,'middle');
+      }
+    } else if (f === 'picture-reveal') {
+      art += rect(138,58,204,164,'#e9f7ed',12,'#abc7b5');
+      art += '<circle cx="240" cy="129" r="51" fill="#f4c75b"/><path d="M 191 162 Q 240 101 289 162" fill="#75ae85"/>';
+      for(var pr=0;pr<4;pr++)for(var pc=0;pc<5;pc++){
+        if((pr+pc)%3!==0)art+=rect(140+pc*40,60+pr*40,39,39,'#5976bb',2,'#d8e4f7');
+      }
+    } else if (f === 'flashcards') {
+      art += rect(145,69,205,142,'#c7d5f0',12);
+      art += rect(131,59,205,142,'#ffffff',12,'#9bb0d8');
+      art += txt(233,108,'REVIEW CARD',15,'#5b6fa3',700,'middle');
+      art += '<path d="M 170 124 H 296" stroke="#c1cee4" stroke-width="3"/>';
+      art += txt(233,156,'Flip to reveal',18,'#283d70',700,'middle');
+      art += txt(233,177,'the answer',15,'#5d7199',500,'middle');
+    } else if (f === 'escape-rooms') {
+      art += rect(147,59,186,159,'#243e72',12);
+      art += '<path d="M 191 116 V 96 Q 191 54 240 54 Q 289 54 289 96 V 116" fill="none" stroke="#e6b863" stroke-width="11"/>';
+      art += rect(177,112,126,83,'#e6b863',10);
+      art += '<circle cx="240" cy="144" r="10" fill="#243e72"/><path d="M 236 150 H 244 L 248 174 H 232 Z" fill="#243e72"/>';
+    }
+    var topicLabel = String(topic).replace(/&/g,'&amp;').replace(/</g,'&lt;').slice(0,45);
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 272" role="img" aria-label="'+esc(title)+' game board preview">'+
+      rect(0,0,480,272,'#f2f6fd',0)+rect(8,8,464,256,'#ffffff',15,'#d4e0f3')+
+      rect(8,8,464,37,'#e4ebfa',15)+txt(24,32,title,16,'#233f75',700)+
+      art+txt(240,250,topicLabel,16,'#465c82',600,'middle')+'</svg>';
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
   function cardHtml(it, showWhere, compact) {
     var a = it.a;
     var tags = [];
@@ -311,7 +382,7 @@
     var topics = toArr(a.topics);
     return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-path="' + esc(a.path) + '">' +
       '<a class="thumb" href="' + esc(activityUrl(a)) + '" tabindex="-1" aria-hidden="true">' +
-        (a.thumb ? '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">' : '') + '</a>' +
+        (gameBoardThumbnail(a, it) ? '<img src="' + esc(gameBoardThumbnail(a, it)) + '" alt="" loading="lazy">' : '') + '</a>' +
       '<div class="card-body">' +
         (showWhere ? '<p class="where">' + esc(it.c.name) + ', ' + esc(unitLabel(it.c, it.u)) + '</p>' : '') +
         '<h3><a href="' + esc(activityUrl(a)) + '">' + esc(a.title) +
