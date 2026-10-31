@@ -185,7 +185,9 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-dish,.mm-workbox{border:2px solid #000;padding:.05in .08in;break-inside:avoid;min-width:0}
 .mm-dh{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:9pt;margin-bottom:3px}
 .mm-pick{display:flex;align-items:center;gap:4px;white-space:nowrap}
-.mm-q{line-height:1.55;overflow-wrap:anywhere;font-size:10.5pt}
+.mm-q{display:flow-root;line-height:1.55;overflow-wrap:anywhere;font-size:10.5pt}
+.mm-qnum{font-weight:700;margin-right:.08in}
+.mm-qpts{float:right;font-size:8pt;color:#333;font-weight:700;white-space:nowrap;margin-left:.1in}
 .mm-parts div{margin:2px 0;line-height:1.5}
 .mm-work{margin-top:.04in;position:relative}
 .mm-work.mm-graph{background-image:linear-gradient(#c8c8c8 .5px,transparent .5px),linear-gradient(90deg,#c8c8c8 .5px,transparent .5px);background-size:.2in .2in;border:1px solid #c8c8c8}
