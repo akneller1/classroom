@@ -4,7 +4,7 @@ var el=function(id){return doc.getElementById(id)},course=root.LIBRARY.courses.f
 if(!unit){el('agStatus').textContent='Choose a valid course and unit from Mr. K’s Classroom.';return;}
 var names=root.MK_COURSE_CATALOG.getSkillRecords(courseId,unitId);
 names.forEach(function(s){var o=doc.createElement('option');o.value=s.id;o.textContent=s.name;el('agSkill').appendChild(o)});
-var board=[],turn=1,pending=-1,question=null,items=[],cursor=0,finished=false,selectedAnswer=-1,feedback='';
+var board=[],turn=1,pending=-1,question=null,items=[],cursor=0,finished=false,selectedAnswer=-1,feedback='',attempts=0,correctCount=0;
 function text(node,value){node.textContent=String(value)}
 function dimensions(){return el('agGame').value==='connect-4'?42:el('agGame').value==='picture-reveal'?16:9}
 function game(){return el('agGame').value}
@@ -20,21 +20,22 @@ function outcome(){
  }
  return board.every(Boolean)?{type:'draw'}:null;
 }
-function render(){var grid=el('agGrid');grid.replaceChildren();grid.dataset.game=game();board.forEach(function(p,i){var b=doc.createElement('button');b.type='button';b.className='ag-cell';b.dataset.owner=p===1?'1':p===2?'2':p==='-'?'revealed':'';b.textContent=p===1?'X':p===2?'O':p==='-'?'':(game()==='picture-reveal'?String(i+1):'');b.disabled=finished||!!p||pending>=0||!items.length;b.setAttribute('aria-label','Square '+(i+1)+(p?' claimed':''));b.addEventListener('click',function(){ask(i)});grid.appendChild(b)});
+function render(){text(el('agScore'),'Questions: '+attempts+' · Correct: '+correctCount);var grid=el('agGrid');grid.replaceChildren();grid.dataset.game=game();board.forEach(function(p,i){var b=doc.createElement('button');b.type='button';b.className='ag-cell';b.dataset.owner=p===1?'1':p===2?'2':p==='-'?'revealed':'';b.textContent=p===1?'X':p===2?'O':p==='-'?'':(game()==='picture-reveal'?String(i+1):'');b.disabled=finished||!!p||pending>=0||!items.length;b.setAttribute('aria-label','Square '+(i+1)+(p?' claimed':''));b.addEventListener('click',function(){ask(i)});grid.appendChild(b)});
 text(el('agTurn'),feedback || (finished?'Round complete. Start a new game.':game()==='picture-reveal'?'Reveal all tiles by answering correctly.':'Player '+turn+' — choose a square'));}
 function ask(i){if(finished||pending>=0||board[i])return;var target=i;if(game()==='connect-4'){var col=i%7;target=-1;for(var row=5;row>=0;row--){if(!board[row*7+col]){target=row*7+col;break}}if(target<0)return;}
 if(!items.length){text(el('agStatus'),'No compatible approved questions for this difficulty.');return;}
 feedback='';pending=target;question=items[cursor++%items.length];selectedAnswer=-1;text(el('agPrompt'),question.prompt);var opts=el('agOptions');opts.replaceChildren();
 question.options.forEach(function(o,n){var b=doc.createElement('button');b.type='button';text(b,String.fromCharCode(65+n)+'. '+o.text);b.addEventListener('click',function(){selectedAnswer=n;Array.from(opts.children).forEach(function(c,j){c.setAttribute('aria-pressed',String(j===n))})});opts.appendChild(b)});
-el('agReveal').hidden=false;el('agSolution').hidden=true;el('agCorrect').hidden=true;el('agWrong').hidden=true;el('agQuestion').hidden=false;render();}
+el('agReveal').hidden=false;el('agSolution').hidden=true;el('agCorrect').hidden=true;el('agWrong').hidden=true;el('agQuestion').hidden=false;render();if(question.options.length)question.options.length&&opts.querySelector('button').focus();else el('agReveal').focus();}
 function judge(correct){if(pending<0||!question)return;var answerShown=el('agSolution').hidden===false;if(!answerShown)return;
+attempts++;if(correct)correctCount++;
 if(correct)board[pending]=game()==='picture-reveal'?'-':turn;
 feedback=correct?'Correct — square claimed.':'Incorrect — no square claimed.';
 if(game()!=='picture-reveal')turn=turn===1?2:1;
 pending=-1;question=null;el('agQuestion').hidden=true;var result=outcome();finished=!!result;if(result)feedback=result.type==='win'?'Player '+result.player+' wins!':result.type==='draw'?'Draw — no more moves.':'Picture revealed — all tiles cleared!';render();}
 el('agReveal').addEventListener('click',function(){if(!question)return;var solution='Answer: '+(Array.isArray(question.answer)?question.answer.join(', '):question.answer)+'\n'+question.solutionSteps.join('\n');text(el('agSolution'),solution);el('agSolution').hidden=false;var auto=question.options.length>0&&selectedAnswer>=0;el('agCorrect').hidden=auto;el('agWrong').hidden=auto;el('agReveal').hidden=true;if(auto){var ok=question.options[selectedAnswer].correct===true;text(el('agSolution'),solution+'\n'+(ok?'Correct choice.':'Incorrect choice.'));judge(ok);}});
 el('agCorrect').addEventListener('click',function(){judge(true)});el('agWrong').addEventListener('click',function(){judge(false)});
-function reset(){var result=root.MK_APPROVED_GAME_ITEMS.prepare({game:game(),courseId:courseId,unitId:unitId,level:el('agLevel').value,skillIds:el('agSkill').value?[el('agSkill').value]:undefined});items=result.items;cursor=0;board=Array(dimensions()).fill(null);turn=1;pending=-1;finished=false;feedback='';el('agQuestion').hidden=true;text(el('agStatus'),result.ready?course.name+' · '+unit.name+' · '+items.length+' approved question(s)':'No compatible approved questions for these settings.');render();}
+function reset(){var result=root.MK_APPROVED_GAME_ITEMS.prepare({game:game(),courseId:courseId,unitId:unitId,level:el('agLevel').value,skillIds:el('agSkill').value?[el('agSkill').value]:undefined});items=result.items;cursor=0;board=Array(dimensions()).fill(null);turn=1;pending=-1;finished=false;feedback='';attempts=0;correctCount=0;el('agQuestion').hidden=true;text(el('agStatus'),result.ready?course.name+' · '+unit.name+' · '+items.length+' approved question(s)':'No compatible approved questions for these settings.');render();}
 ['agGame','agLevel','agSkill'].forEach(function(id){el(id).addEventListener('change',reset)});el('agReset').addEventListener('click',reset);
 root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(function(){if(!root.MK_QUESTION_BANKS.available(courseId,unitId)){text(el('agStatus'),'No approved question bank is available for this unit.');return;}el('agApp').hidden=false;reset()}).catch(function(e){text(el('agStatus'),'Could not load approved questions: '+e.message)});
 })(window);
