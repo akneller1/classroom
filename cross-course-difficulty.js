@@ -24,7 +24,9 @@ function plan(entry,courseId,level){
  if(!entry.targets.some(function(t){return t&&t.courseId===courseId}))return {eligible:false,reason:'Not a mapped curriculum target'};
  if(!ranges[courseId]||!ranges[courseId][levelName])return {eligible:false,reason:'Unsupported course or level'};
  if(restrictions[entry.key]&&restrictions[entry.key][courseId]===false)return {eligible:false,reason:'Topic not appropriate for this course'};
- var bounds=ranges[courseId][levelName];
+ var bounds=ranges[courseId][levelName].slice();
+ // Existing scatter-plot multiple-choice generator has no items at tier 4+.
+ if(entry.key==='scatter-plots'){bounds[1]=Math.min(bounds[1],3);bounds[0]=Math.min(bounds[0],bounds[1]);}
  return {eligible:true,approved:false,publishable:false,source:entry.curatedGenerator,courseId:courseId,level:levelName,tiers:bounds.slice(),intOnly:true,reason:'Candidate only: verify mathematical scope, diagram rendering and generated samples before activation'};
 }
 root.MK_CROSS_COURSE_DIFFICULTY={version:1,plan:plan};
