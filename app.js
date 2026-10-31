@@ -448,23 +448,26 @@
     return {
       title: L.title,
       html:
-        '<section class="hero"><div class="wrap">' +
-          '<div class="hero-copy"><p class="hero-eyebrow">MR. K’S CLASSROOM · BUILT FOR TEACHERS</p><h1 tabindex="-1">Less planning.<br><span>More teaching.</span></h1>' +
+        '<section class="hero"><div class="wrap home-layout">' +
+          '<div class="hero-copy home-intro"><p class="hero-eyebrow">MR. K’S CLASSROOM · BUILT FOR TEACHERS</p>' +
+          '<h1 tabindex="-1">More learning.<br><span>Less planning.</span></h1>' +
           '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
-          '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
-        '</div></section>' +
-        '<section class="section explore-courses"><div class="wrap"><div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2>Explore by subject</h2><p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses">' +
-          L.courses.map(function (c) {
-            var n = courseCount(c);
-            return '<li><a class="course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
-              '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
-              '<p class="count">' + (n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
-              artFor(c) + '</a></li>';
-          }).join('') + SOON.map(function (c) {
-            return '<li><div class="course soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
-              '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
-          }).join('') + '</ul></div></section>'
-
+          '<div class="home-resource-panels">' +
+            '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
+            '<section class="home-subject-panel" aria-labelledby="subject-heading">' +
+              '<div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2 id="subject-heading">Browse by subject</h2>' +
+              '<p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses home-subject-cards">' +
+              L.courses.map(function (c) {
+                var n = courseCount(c);
+                return '<li><a class="course home-subject-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
+                  '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
+                  '<p class="count">' + (n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
+                  artFor(c) + '</a></li>';
+              }).join('') + SOON.map(function (c) {
+                return '<li><div class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
+                  '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
+              }).join('') + '</ul></section></div>' +
+        '</div></section>'
     };
   }
 
