@@ -4014,6 +4014,20 @@ window.LIBRARY = {
                 "Zeros, Factoring & Inequalities"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Polynomial Functions Cheat Sheet",
+              "path": "artifacts/polynomial-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/polynomial-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: polynomial operations, factoring patterns, synthetic division and the remainder and factor theorems. Back: zeros and multiplicity, end behavior, graphing, the Fundamental Theorem of Algebra, the Rational Root Theorem and an open-box application. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Polynomial Functions",
+                "Unit 4"
+              ],
+              "added": "2026-10-31"
             }
           ]
         },
@@ -4044,6 +4058,20 @@ window.LIBRARY = {
                 "Radical Equations & Functions"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Radicals & Rational Exponents Cheat Sheet",
+              "path": "artifacts/radicals-rational-exponents-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/radicals-rational-exponents-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: simplifying radicals, radical operations, rational exponents and exponent rules. Back: radical and rational-exponent equations, extraneous solutions, and square-root and cube-root graphs and transformations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Radicals & Rational Exponents",
+                "Unit 5"
+              ],
+              "added": "2026-10-31"
             }
           ]
         },
@@ -4311,6 +4339,20 @@ window.LIBRARY = {
                 "Graphs of Rational Functions"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Rational Functions Cheat Sheet",
+              "path": "artifacts/rational-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/rational-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: simplifying, multiplying, dividing, adding and subtracting rational expressions, and solving rational equations. Back: asymptotes and holes, graphing, transformations of 1/x, variation and work problems. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Rational Functions",
+                "Unit 7"
+              ],
+              "added": "2026-10-31"
             }
           ]
         },
@@ -4341,6 +4383,20 @@ window.LIBRARY = {
                 "Series, Binomials & Applications"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Sequences & Series Cheat Sheet",
+              "path": "artifacts/sequences-series-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/sequences-series-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: arithmetic and geometric sequences, recursive and explicit formulas. Back: arithmetic and geometric series, sigma notation, infinite geometric series and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Sequences & Series",
+                "Unit 8"
+              ],
+              "added": "2026-10-31"
             }
           ]
         },
@@ -4371,6 +4427,20 @@ window.LIBRARY = {
                 "Ellipses & Hyperbolas"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Conic Sections Cheat Sheet",
+              "path": "artifacts/conic-sections-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/conic-sections-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: circles, parabolas, ellipses and hyperbolas in standard form. Back: identifying conics, converting to standard form, focus and directrix, vertical orientation and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Conic Sections",
+                "Unit 9"
+              ],
+              "added": "2026-10-31"
             }
           ]
         },
@@ -4401,6 +4471,20 @@ window.LIBRARY = {
                 "Graphs of Trig Functions & Trig Equations"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Trigonometric Functions Cheat Sheet",
+              "path": "artifacts/trigonometric-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/trigonometric-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: radians, the unit circle, reference angles and trig values of any angle. Back: sine and cosine graphs, amplitude, period and phase shift, identities, trig equations, inverse trig and modeling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Trigonometric Functions",
+                "Unit 10"
+              ],
+              "added": "2026-10-31"
             }
           ]
         },
@@ -4431,6 +4515,20 @@ window.LIBRARY = {
                 "Statistics & Normal Distributions"
               ],
               "added": "2026-10-24"
+            },
+            {
+              "title": "Probability & Statistics Cheat Sheet",
+              "path": "artifacts/probability-statistics-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/probability-statistics-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: counting, permutations, combinations, independent and dependent events, and conditional probability. Back: probability distributions, expected value, normal distributions, z-scores and sampling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Probability & Statistics",
+                "Unit 11"
+              ],
+              "added": "2026-10-31"
             }
           ]
         }
@@ -6670,14 +6768,3 @@ window.LIBRARY = {
 }
   ]
 };
-
-/* Bank-backed resources supplement retained original activities and PDFs. */
-(function(G){
- var course=G.LIBRARY.courses.find(function(c){return c.id==='algebra2'});if(!course)return;
- course.units.forEach(function(u){
-  [['flashcards','Flashcards','flashcards'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['picture-reveal','Picture Reveal','picture-reveal'],['showdown','Showdown','showdown'],['detective','Detective','detective-games'],['escape-room','Escape Room','escape-rooms']].forEach(function(g){
-   u.artifacts.push({title:u.name+' '+g[1]+' — Skill Practice',path:'worksheet-generator/algebra2-game.html?unit='+u.id+'&game='+g[0],bankFormat:g[2],type:g[0]==='flashcards'?'Study Guide':'Game',thumb:'thumbs/foundations-algebra-'+(g[0]==='flashcards'?'flashcards':['detective','escape-room'].includes(g[0])?'showdown':g[0])+'.jpg',description:'Practice selected skills with the shared Algebra 2 question bank and difficulty settings.'});
-  });
-  u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/algebra2-practice.html?unit='+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Interactive practice with feedback, worked solutions, and skill review.'});
- });
-})(window);

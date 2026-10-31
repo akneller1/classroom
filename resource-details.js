@@ -314,6 +314,34 @@ window.RESOURCE_DETAILS = {
     "pages": 2,
     "referenceSheet": true
   },
+  "artifacts/polynomial-functions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/radicals-rational-exponents-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/rational-functions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/sequences-series-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/conic-sections-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/trigonometric-functions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/probability-statistics-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
   "artifacts/functions-transformations-error-analysis/worksheet.pdf": {
     "pages": 5,
     "answerKey": "artifacts/functions-transformations-error-analysis/teacher-key.pdf",
