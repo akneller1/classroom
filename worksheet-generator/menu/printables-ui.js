@@ -395,8 +395,89 @@
     return P;
   }
 
+  /* =========================== MATCHING CARD SORT =========================== */
+  /* A recording sheet, then cut-apart cards grouped by type (graphs G1…, equations E1…, tables T1…, descriptions
+     D1…). Students build each set of four. The key lists the sets by equation card and shows every set at a glance,
+     including the completed versions of any blank cards. */
+  var MT = PR.MATCH;
+  function mtNum(v) { return mathSafe('⟨' + MT_nt(v) + '⟩'); }
+  function MT_nt(v) { if (Math.abs(v - Math.round(v)) < 1e-9) return String(Math.round(v)); for (var d = 2; d <= 32; d++) { var n = Math.round(v * d); if (Math.abs(n / d - v) < 1e-9) return (n < 0 ? '-' : '') + '\\frac{' + Math.abs(n) + '}{' + d + '}'; } return String(Math.round(v * 100) / 100); }
+  function mtGraph(g, sizeIn, blank) {
+    var W = sizeIn * 96, pad = 15, nx = g.xmax - g.xmin, ny = g.ymax - g.ymin, sx = (W - 2 * pad) / nx, sy = (W - 2 * pad) / ny;
+    var X = function (x) { return (pad + (x - g.xmin) * sx).toFixed(1); }, Y = function (y) { return (pad + (g.ymax - y) * sy).toFixed(1); };
+    var h = '<svg class="mt-g" width="' + sizeIn + 'in" height="' + sizeIn + 'in" viewBox="0 0 ' + W + ' ' + W + '" xmlns="http://www.w3.org/2000/svg">';
+    for (var gx = g.xmin; gx <= g.xmax + 1e-9; gx += g.xstep) h += '<path d="M' + X(gx) + ' ' + Y(g.ymin) + 'V' + Y(g.ymax) + '" stroke="#b5b5b5" stroke-width="0.8"/>';
+    for (var gy = g.ymin; gy <= g.ymax + 1e-9; gy += g.ystep) h += '<path d="M' + X(g.xmin) + ' ' + Y(gy) + 'H' + X(g.xmax) + '" stroke="#b5b5b5" stroke-width="0.8"/>';
+    var lab = function (s) { return s === 'a_{n}' ? 'aₙ' : s; };
+    var y0 = Math.min(Math.max(0, g.ymin), g.ymax), x0 = Math.min(Math.max(0, g.xmin), g.xmax);
+    h += '<path d="M' + X(g.xmin) + ' ' + Y(y0) + 'H' + X(g.xmax) + '" stroke="#000" stroke-width="1.5"/><path d="M' + X(x0) + ' ' + Y(g.ymin) + 'V' + Y(g.ymax) + '" stroke="#000" stroke-width="1.5"/>';
+    h += '<text x="' + (+X(g.xmax) + 3) + '" y="' + (+Y(y0) + 4) + '" font-size="12" font-style="italic" font-family="Georgia,serif">' + lab(g.lab[0]) + '</text><text x="' + (+X(x0) - 4) + '" y="' + (+Y(g.ymax) - 4) + '" font-size="12" font-style="italic" font-family="Georgia,serif">' + lab(g.lab[1]) + '</text>';
+    var lx = nx / g.xstep > 8 ? 2 : 1, ly = ny / g.ystep > 8 ? 2 : 1, num = function (v) { return (v < 0 ? '−' : '') + Math.abs(v); };
+    for (var tx = Math.ceil(g.xmin / (g.xstep * lx)) * g.xstep * lx; tx <= g.xmax; tx += g.xstep * lx) if (tx !== 0 && tx > g.xmin && tx < g.xmax) h += '<text x="' + X(tx) + '" y="' + (+Y(y0) + 10.5) + '" text-anchor="middle" font-size="9" font-family="Arial,sans-serif" fill="#222" stroke="#fff" stroke-width="2.4" paint-order="stroke">' + num(tx) + '</text>';
+    for (var ty = Math.ceil(g.ymin / (g.ystep * ly)) * g.ystep * ly; ty <= g.ymax; ty += g.ystep * ly) if (ty !== 0 && ty > g.ymin && ty < g.ymax) h += '<text x="' + (+X(x0) - 3) + '" y="' + (+Y(ty) + 3) + '" text-anchor="end" font-size="9" font-family="Arial,sans-serif" fill="#222" stroke="#fff" stroke-width="2.4" paint-order="stroke">' + num(ty) + '</text>';
+    if (!blank) {
+      (g.asym || []).forEach(function (a) { h += a.x !== undefined ? '<path class="mt-asym" d="M' + X(a.x) + ' ' + Y(g.ymin) + 'V' + Y(g.ymax) + '" stroke="#444" stroke-width="1.5" stroke-dasharray="6 4"/>' : '<path class="mt-asym" d="M' + X(g.xmin) + ' ' + Y(a.y) + 'H' + X(g.xmax) + '" stroke="#444" stroke-width="1.5" stroke-dasharray="6 4"/>'; });
+      (g.curves || []).forEach(function (c) { h += '<polyline class="mt-curve" fill="none" stroke="#1d4ed8" stroke-width="2.4" stroke-linejoin="round" points="' + c.map(function (p) { return X(p[0]) + ',' + Y(p[1]); }).join(' ') + '"/>'; });
+      (g.dots || []).forEach(function (d) { h += '<circle class="mt-dot" cx="' + X(d[0]) + '" cy="' + Y(d[1]) + '" r="3.6" fill="#1d4ed8"/>'; });
+    }
+    return h + '</svg>';
+  }
+  function mtTable(t, blank, flat) {
+    var hd = t.head.map(function (s) { return mathSafe('⟨' + s + '⟩'); });
+    if (flat) return '<table class="mt-tbl flat"><tr><th>' + hd[0] + '</th>' + t.rows.map(function (r) { return '<td>' + mtNum(r[0]) + '</td>'; }).join('') + '</tr><tr><th>' + hd[1] + '</th>' + t.rows.map(function (r) { return '<td>' + (blank ? '' : mtNum(r[1])) + '</td>'; }).join('') + '</tr></table>';
+    return '<table class="mt-tbl"><thead><tr><th>' + hd[0] + '</th><th>' + hd[1] + '</th></tr></thead><tbody>' + t.rows.map(function (r) { return '<tr><td>' + mtNum(r[0]) + '</td><td>' + (blank ? '' : mtNum(r[1])) + '</td></tr>'; }).join('') + '</tbody></table>';
+  }
+  function mtDesc(fn) { return fn.desc.map(function (f) { return '<div>' + mathSafe(f.text) + '</div>'; }).join(''); }
+  function mtCardBody(fn, type, blank) {
+    if (type === 'graph') return (blank ? '<div class="mt-bl">Blank card: draw the graph.</div>' : '') + '<div class="mt-gbox">' + mtGraph(fn.graph, 2.5, blank) + '</div>';
+    if (type === 'table') return (blank ? '<div class="mt-bl">Blank card: complete the table.</div>' : '') + '<div class="mt-tbox">' + mtTable(fn.table, blank) + '</div>';
+    if (type === 'eq') return blank ? '<div class="mt-bl">Blank card: write the equation.</div><div class="mt-lines"><i class="ln full"></i><i class="ln full"></i></div>' : '<div class="mt-eq">' + mathSafe('⟨' + fn.eq + '⟩') + '</div>';
+    return blank ? '<div class="mt-bl">Blank card: write two or three key features.</div><div class="mt-lines"><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i></div>' : '<div class="mt-desc">' + mtDesc(fn) + '</div>';
+  }
+  var MT_GRID = { graph: [2, 3], table: [3, 4], eq: [3, 4], desc: [2, 4] };
+  function matchPages(cfg, B, v, nV, key) {
+    var P = [], ttl = unitName(cfg) + ' Matching', vt = nV > 1 ? ' <span class="pc-ver">Version ' + 'ABC'[v] + '</span>' : '';
+    var byCard = function (type) { var out = []; B.fns.forEach(function (fn, si) { out[B.ids[type][si] - 1] = si; }); return out; };
+    var L = function (type) { return MT.TYPES.filter(function (t) { return t.id === type; })[0].L; };
+    var nBlank = Object.keys(B.blanks).length, eqOrder = byCard('eq');
+    var hd = function (sub, nameOn) { return '<div class="mt-head"><div><div class="mt-title">' + esc(ttl) + (key ? ' <span class="pc-key">ANSWER KEY</span>' : '') + vt + '</div><div class="mt-sub">' + sub + '</div></div>' + (nameOn ? '<div class="mt-nm">Name <i class="ln long"></i><br>Period <i class="ln short"></i></div>' : '') + '</div>'; };
+    if (!key) {
+      // recording sheet
+      P.push({ nofoot: true, html: '<div class="mm-body pc mt">' + hd(esc(lvName(cfg)) + ' · ' + B.N + ' sets of 4 cards', true) +
+        '<div class="mm-box mm-dirs pr-dirs"><b>Directions:</b> Cut out the cards. Each set has one <b>graph</b> (G), one <b>equation</b> (E), one <b>table</b> (T) and one <b>description</b> (D) of the <i>same</i> function. Start with each equation card, find the three cards that match it, and record their numbers below. Every card belongs to exactly one set.' + (nBlank ? ' <b>' + nBlank + ' card' + (nBlank > 1 ? 's are' : ' is') + ' blank:</b> when you find the set it belongs to, fill it in.' : '') + '</div>' +
+        '<table class="mt-rec"><thead><tr><th>Equation</th><th>Graph</th><th>Table</th><th>Description</th><th>How do you know they match?</th></tr></thead><tbody>' +
+        eqOrder.map(function (si, i) { return '<tr><td><b>E' + (i + 1) + '</b></td><td>G</td><td>T</td><td>D</td><td></td></tr>'; }).join('') + '</tbody></table>' +
+        '<div class="mt-tip"><b>Tip:</b> look for the features you can see on every card: intercepts, slope or rate of change, a vertex or starting point, asymptotes, and points the function passes through.</div></div>' });
+      MT.TYPES.forEach(function (ty) {
+        var order = byCard(ty.id), g = MT_GRID[ty.id], per = g[0] * g[1];
+        for (var s = 0; s < order.length; s += per) {
+          P.push({ nofoot: true, html: '<div class="mm-body pc mt">' + hd(esc(ty.name) + ' cards' + (s ? ' (continued)' : '') + ' · cut along the dashed lines', false) +
+            '<div class="mt-cards mt-of-' + ty.id + '" style="grid-template-columns:repeat(' + g[0] + ',1fr);grid-template-rows:repeat(' + g[1] + ',1fr)">' + order.slice(s, s + per).map(function (si, k) {
+              return '<div class="mt-card"><span class="mt-id">' + ty.L + (s + k + 1) + '</span>' + mtCardBody(B.fns[si], ty.id, B.blanks[si] === ty.id) + '</div>';
+            }).join('') + '</div></div>' });
+        }
+      });
+    } else {
+      P.push({ nofoot: true, html: '<div class="mm-body pc mt">' + hd('Matching sets, listed by equation card', false) +
+        '<table class="mt-rec mt-k"><thead><tr><th>Equation</th><th>Graph</th><th>Table</th><th>Description</th><th>Key features (the description)</th></tr></thead><tbody>' +
+        eqOrder.map(function (si, i) {
+          var fn = B.fns[si], bl = B.blanks[si], c = function (t) { return '<b class="pc-red">' + L(t) + B.ids[t][si] + '</b>' + (bl === t ? '<small> (blank)</small>' : ''); };
+          return '<tr><td>' + c('eq') + '<div class="mt-keq">' + mathSafe('⟨' + fn.eq + '⟩') + '</div></td><td>' + c('graph') + '</td><td>' + c('table') + '</td><td>' + c('desc') + '</td><td class="mt-kd">' + mtDesc(fn) + '</td></tr>';
+        }).join('') + '</tbody></table>' +
+        '<p class="mt-tip">Every card was checked: no other function in this activity fits it (graphs differ by more than half a grid unit, tables differ in at least one row, and every description has a fact the other functions fail).' + (nBlank ? ' Blank cards are marked; their completed versions are on the next pages.' : '') + '</p></div>' });
+      var glance = eqOrder.map(function (si, i) { return { si: si, i: i }; });
+      for (var s2 = 0; s2 < glance.length; s2 += 4) {
+        P.push({ nofoot: true, html: '<div class="mm-body pc mt">' + hd('Sets at a glance' + (s2 ? ' (continued)' : ''), false) + glance.slice(s2, s2 + 4).map(function (x) {
+          var fn = B.fns[x.si], bl = B.blanks[x.si], tag = function (t) { return '<span class="mt-id">' + L(t) + B.ids[t][x.si] + '</span>' + (bl === t ? '<span class="mt-was">was blank</span>' : ''); };
+          return '<div class="mt-set"><div class="mt-sc">' + tag('graph') + mtGraph(fn.graph, 1.75) + '</div><div class="mt-sc">' + tag('eq') + '<div class="mt-eq sm">' + mathSafe('⟨' + fn.eq + '⟩') + '</div></div><div class="mt-sc">' + tag('table') + mtTable(fn.table) + '</div><div class="mt-sc mt-desc sm">' + tag('desc') + mtDesc(fn) + '</div></div>';
+        }).join('') + '</div>' });
+      }
+    }
+    return P;
+  }
+
   PR.pages = function (cfg, B, v, nV, key) {
-    return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages })[cfg.kind](cfg, B, v, nV, key);
+    return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages, match: matchPages })[cfg.kind](cfg, B, v, nV, key);
   };
   PR.pageEls = function (cfg, B, v, nV, key) {
     var P = expandFlow(PR.pages(cfg, B, v, nV, key));
@@ -416,7 +497,7 @@
   var unit = hashArg('unit'); if (!NS.skillSets[unit]) unit = doc.body.getAttribute('data-unit') || Object.keys(NS.skillSets)[0];
   var kind = hashArg('kind'); if (!PR.kind(kind)) kind = 'maze';
   /* A printable is offered for a unit only when at least one of its skills can fill it (Geometry problems carry diagrams, so Maze and Tarsia need none of them). */
-  function supported(u, k) { if (k === 'vocabulary' || !PR.MODES[k]) return true; return NS.skillSets[u].skills.some(function (sk) { return PR.capable(u, sk.id, k); }); }
+  function supported(u, k) { if (k === 'match') return PR.MATCH.supported(u); if (k === 'vocabulary' || !PR.MODES[k]) return true; return NS.skillSets[u].skills.some(function (sk) { return PR.capable(u, sk.id, k); }); }
   function firstSupported(u, k) { if (supported(u, k)) return k; var f = PR.KINDS.filter(function (x) { return supported(u, x.id); })[0]; return f ? f.id : k; }
   kind = firstSupported(unit, kind);
   var cfg = null, built = [], ui = { doc: 'student', v: 0 };
@@ -425,7 +506,7 @@
     try { var o = JSON.parse(raw); if (o && o.unitId === unit && o.kind === kind) cfg = o; } catch (e) { cfg = null; }
     if (!cfg) cfg = PR.defaultConfig(unit, kind);
     NS.skillSets[unit].skills.forEach(function (s) { if (cfg.skills[s.id] === undefined) cfg.skills[s.id] = true; });
-    var d = PR.defaultConfig(unit, kind); ['story', 'stations', 'perStation', 'tarsiaLayout'].forEach(function (k) { if (cfg[k] === undefined) cfg[k] = d[k]; });
+    var d = PR.defaultConfig(unit, kind); ['story', 'stations', 'perStation', 'tarsiaLayout', 'sets', 'blanks', 'families'].forEach(function (k) { if (cfg[k] === undefined) cfg[k] = d[k]; });
   }
   function save() { lsSet(KEY + ':' + unit + ':' + kind, JSON.stringify(cfg)); }
   function setHash() { try { G.history.replaceState(null, '', '#unit=' + unit + '&kind=' + kind); } catch (e) { /* ignore */ } }
@@ -435,8 +516,19 @@
   function controls() {
     var set = NS.skillSets[unit], k = PR.kind(kind);
     var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : (/^algebra2-/.test(unit)?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing functions (linear, quadratic, exponential and the Algebra 2 function units).' : (/^algebra2-/.test(unit)?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
+    if (kind === 'match') {
+      var fams = PR.MATCH.familiesFor(unit);
+      h += '<section class="card"><h2>Level and function types</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
+        (fams.length > 1 ? fams.map(function (f) { return '<label class="chk"><input type="checkbox" class="prFam" value="' + f + '"' + (cfg.families[f] ? ' checked' : '') + '><span>' + esc(PR.MATCH.FAMILIES[f]) + '</span></label>'; }).join('') : '<p class="hint">Function type: ' + esc(PR.MATCH.FAMILIES[fams[0]]) + '.</p>') +
+        '<p class="hint">Higher levels use more equation forms (standard, point-slope, factored), fractions, and look-alike sets that share a feature.</p></section>' +
+        '<section class="card"><h2>Options</h2><label class="field"><span class="lbl">Sets</span><select id="prSets">' + [4, 6, 8, 10].map(function (n) { return '<option value="' + n + '"' + ((cfg.sets | 0 || 6) === n ? ' selected' : '') + '>' + n + ' sets (' + 4 * n + ' cards)</option>'; }).join('') + '</select></label>' +
+        '<label class="field"><span class="lbl">Blank cards</span><select id="prBlanks">' + [['none', 'None: every card is filled in'], ['some', 'Some: students create the missing card']].map(function (x) { return '<option value="' + x[0] + '"' + ((cfg.blanks || 'none') === x[0] ? ' selected' : '') + '>' + x[1] + '</option>'; }).join('') + '</select></label>' +
+        '<label class="field"><span class="lbl">Versions</span><select id="prVer">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((cfg.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
+        '<p><button type="button" class="btn" id="prNew">↻ New functions</button></p><p class="hint">Every card is checked to fit exactly one set: graphs, tables and descriptions are tested against every other function in the activity.</p></section>';
+      return h;
+    }
     h += '<section class="card"><h2>Level and skills</h2><div class="pr-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="prLevel" value="' + id + '"' + (cfg.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div>' +
       '<p class="hint">Skills this printable cannot use are greyed out (for example, problems answered with a graph cannot go on a maze door).</p>' +
       set.skills.map(function (s) { var cap = PR.capable(unit, s.id, kind); return '<label class="chk' + (cap ? '' : ' off') + '"><input type="checkbox" class="prSkill" value="' + s.id + '"' + (cfg.skills[s.id] && cap ? ' checked' : '') + (cap ? '' : ' disabled') + '><span>' + esc(s.name) + (cap ? '' : '<small>Not available for a ' + esc(k.name.toLowerCase()) + '</small>') + '</span></label>'; }).join('') + '</section>';
@@ -458,6 +550,9 @@
     if ($('#prStory')) $('#prStory').onchange = function (e) { cfg.story = e.target.value; save(); rebuild(); };
     if ($('#prSt')) $('#prSt').onchange = function (e) { cfg.stations = +e.target.value; save(); rebuild(); };
     if ($('#prPer')) $('#prPer').onchange = function (e) { cfg.perStation = +e.target.value; save(); rebuild(); };
+    $$('.prFam').forEach(function (b) { b.onchange = function () { cfg.families[b.value] = b.checked; save(); rebuild(); }; });
+    if ($('#prSets')) $('#prSets').onchange = function (e) { cfg.sets = +e.target.value; save(); rebuild(); };
+    if ($('#prBlanks')) $('#prBlanks').onchange = function (e) { cfg.blanks = e.target.value; save(); rebuild(); };
     if ($('#prPic')) $('#prPic').onchange = function (e) { cfg.picture = e.target.value; save(); rebuild(); };
     if (kind === 'vocabulary') { doc.title = 'Vocabulary Builder · Mr. K\'s Classroom'; $('#prCrumb').textContent = 'Printable Generator · Vocabulary Builder'; return; }
     $('#prVer').onchange = function (e) { cfg.versions = +e.target.value; save(); rebuild(); };

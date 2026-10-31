@@ -111,7 +111,7 @@ const CHECK = {
   }
 };
 
-for (const unit of Object.keys(M.skillSets)) for (const kind of PR.KINDS.map(k => k.id)) for (const level of ['cp2', 'cp1', 'honors']) for (let s = 0; s < SEEDS; s++) {
+for (const unit of Object.keys(M.skillSets)) for (const kind of PR.KINDS.map(k => k.id).filter(k => k !== 'vocabulary' && k !== 'match')) for (const level of ['cp2', 'cp1', 'honors']) for (let s = 0; s < SEEDS; s++) {
   const cfg = PR.defaultConfig(unit, kind); cfg.level = level; cfg.seed = 500 + s;
   const B = PR.build(cfg, s % 2), tag = unit + ' ' + kind + ' ' + level;
   if ((UNSUPPORTED[unit] || []).includes(kind)) { ok(!!B.error, tag + ': listed as unsupported (remove it from UNSUPPORTED if it works now)'); continue; }

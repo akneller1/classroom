@@ -40,7 +40,7 @@ let n = 0; const ok = name => { n++; console.log('  ✓ ' + name); };
       const B = PR.build(cfg, 0);
       if (B.error) {
         // the Vocabulary Builder has its own builder; Geometry problems carry diagrams, so a printable with no room for one (maze, tarsia) is switched off for the unit
-        const off = kind === 'vocabulary' || (/^geometry-/.test(unit) && !MKMENU.skillSets[unit].skills.some(s => PR.capable(unit, s.id, kind)));
+        const off = kind === 'vocabulary' || (kind === 'match' && !PR.MATCH.supported(unit)) || (/^geometry-/.test(unit) && !MKMENU.skillSets[unit].skills.some(s => PR.capable(unit, s.id, kind)));
         if (!off && !(unit === 'algebra1-statistics-data-modeling' && kind === 'tarsia')) out.push(unit + ' ' + kind + ' ' + level + ': ' + B.error); continue;
       }
       for (const key of [false, true]) {

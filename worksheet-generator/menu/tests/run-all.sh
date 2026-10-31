@@ -9,6 +9,7 @@ node model-tests.cjs | tail -1
 node test-mode-tests.cjs | tail -1
 node worksheet-tests.cjs | tail -1
 node printables-tests.cjs | tail -1
+node printables-match-tests.cjs | tail -1
 if node -e "require(process.env.PW || 'playwright')" 2>/dev/null; then node browser-test.cjs | tail -1; node printables-browser.cjs | tail -1; else echo "(browser tests skipped: install playwright or set PW and CHROME)"; fi
 # Cheat sheets: every worked example checked and every page fits (no files written)
 if node -e "require(process.env.PW || 'playwright')" 2>/dev/null; then CHECK_ONLY=1 node ../../../scripts/cheat-sheets/build.cjs all | tail -1; fi

@@ -71,6 +71,14 @@ CP2/CP1/Honors, up to three versions and an answer key with worked solutions.
 * **Stations** – the chosen skills split, in order, into 2–6 stations of 6–10 problems; a skill that makes few
   different problems shares its station with the next one (fewer stations, with a note). Key: one answer page plus
   worked solutions.
+* **Matching Card Sort** (`kind=match`, engine `menu/printables-match.js`) – only for units about function families
+  (`PR.MATCH.UNITS`: Algebra 1 Units 5, 8 and 11; Algebra 2 transformations, linear, quadratic, polynomial, radical,
+  exponential/log, rational and sequences). Every other unit shows it greyed out. 4–10 sets; each set is a graph (G),
+  equation (E), table (T) and description (D) of one function, with cards numbered separately and a recording sheet
+  anchored on the equation cards. Levels add equation forms (standard, point-slope, factored, recursive) and look-alike
+  sets that share a feature. Optional blank cards. Every card is checked to fit exactly one set: graphs differ by more
+  than half a grid unit, tables by at least one row, and every description has a fact each other function fails (facts
+  are computed from the function's parameters). Tests: `tests/printables-match-tests.cjs`.
 * Honors problems that are too long for a maze door or a Tarsia edge fall back to CP1 problems (the page says so).
 * Tests: `tests/printables-tests.cjs` (every unit × kind × level, checked independently of the builders) and
   `tests/printables-browser.cjs` (every page fits; controls; site links).

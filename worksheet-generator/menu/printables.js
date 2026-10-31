@@ -17,7 +17,8 @@
     { id: 'error', name: 'Error Analysis', blurb: 'A student solved each problem and made a mistake. Find it, explain it, and fix it.' },
     { id: 'partner', name: 'Partner Check', blurb: 'Partner A and Partner B solve different problems with the same answers, then compare.' },
     { id: 'who', name: 'Whodunnit', blurb: 'Ten clue cards with four answer choices. Each choice leads to a clue that clears a suspect, a place or a method. The one of each left standing solves the case.' },
-    { id: 'stations', name: 'Stations', blurb: 'One page per station, each practicing its own skills, plus a one-page answer key.' }
+    { id: 'stations', name: 'Stations', blurb: 'One page per station, each practicing its own skills, plus a one-page answer key.' },
+    { id: 'match', name: 'Matching Card Sort', blurb: 'Students match each function\u2019s graph, equation, table and description. Every card fits exactly one set.' }
   ];
   PR.kind = function (id) { return PR.KINDS.filter(function (k) { return k.id === id; })[0]; };
 
@@ -172,7 +173,8 @@
     var set = NS.skillSets[unitId], skills = {};
     set.skills.forEach(function (s) { skills[s.id] = true; });
     return { format: 'mk-printable', schema: 1, unitId: unitId, kind: kind || 'maze', level: 'cp1', answers: 'auto', skills: skills,
-      seed: Math.floor(Math.random() * 1e9), versions: 1, picture: 'auto', story: 'auto', stations: 4, perStation: 8, count: null };
+      seed: Math.floor(Math.random() * 1e9), versions: 1, picture: 'auto', story: 'auto', stations: 4, perStation: 8, count: null,
+      sets: 6, blanks: 'none', families: PR.MATCH ? PR.MATCH.defaultFamilies(unitId) : {} };
   };
 
   /* =========================== MAZE =========================== */
@@ -511,7 +513,7 @@
 
   /* Build one version; a draw that cannot be completed is retried with other numbers before giving up. */
   PR.build = function (cfg, vIdx) {
-    var f = { maze: PR.buildMaze, color: PR.buildColor, partner: PR.buildPartner, error: PR.buildError, tarsia: PR.buildTarsia, who: PR.buildWho, stations: PR.buildStations }[cfg.kind];
+    var f = { maze: PR.buildMaze, color: PR.buildColor, partner: PR.buildPartner, error: PR.buildError, tarsia: PR.buildTarsia, who: PR.buildWho, stations: PR.buildStations, match: PR.buildMatch }[cfg.kind];
     if (!f) return { error: 'Unknown printable ' + cfg.kind };
     var B = null;
     for (var k = 0; k < 3; k++) {
