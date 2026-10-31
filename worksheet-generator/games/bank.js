@@ -409,6 +409,18 @@
     });
     return items;
   };
+  /* Showdown is teacher judged and can display an entire existing problem,
+     including multi-part investigations, instead of discarding non-MC skills. */
+  GB.makeWholeItems = function(setId,skillId,c,policy,seed,used) {
+    var p=NS.generateProblem(setId,skillId,c,policy,seed,used);
+    if(p.failed||!p.verify||p.verify.status!=='verified')return [];
+    var set=NS.skillSets[setId],rng=G.MKWS.rng.make(G.MKWS.rng.hash(seed+'|whole')),options=[];
+    if(p.parts.length===1&&p.parts[0].check){var ds=GB.distractors(p,0,rng,3);if(ds.length)options=rng.shuffle([{a:p.parts[0].answer,ok:true}].concat(ds.map(function(a){return {a:a,ok:false};})));}
+    return [{id:p.uid,p:p,k:0,skill:skillId,skillName:set.byId[skillId].name,tag:p.tag,tagName:set.tags[p.tag]||p.tag,c:c,
+      q:{prompt:p.prompt,fig:p.fig||null,work:p.work||null,ask:p.parts.map(function(pt,i){return (p.parts.length>1?'('+String.fromCharCode(97+i)+') ':'')+(pt.prompt||'');}).filter(Boolean).join('\n')},
+      answer:p.parts.map(function(pt,i){return (p.parts.length>1?'('+String.fromCharCode(97+i)+') ':'')+(pt.answer||'See answer diagram.');}).join('; '),
+      answerFigures:p.parts.filter(function(pt){return pt.answerFig;}).map(function(pt){return pt.answerFig;}),steps:p.steps||[],options:options,typed:null}];
+  };
   /* A deck: `slots` is a list of {skill, c}; each slot yields one item (a random part of the problem). */
   GB.buildDeck = function (setId, slots, opts, done) {
     opts = opts || {}; var used = { keys: new Set(), sigs: new Set() }, out = [], i = 0, seed = opts.seed || String(Date.now()) + Math.random();
@@ -419,7 +431,8 @@
       for (var k = 0; k < cs.length; k++) {
         var policy = { intOnly: cs[k] <= 5, level: 'game' };
         for (var tries = 0; tries < (k ? 6 : 10); tries++) {
-          var its = GB.makeItems(setId, slot.skill, cs[k], policy, seed + '|' + n + '|' + k + '|' + tries, used);
+          var make = opts.wholeProblem ? GB.makeWholeItems : GB.makeItems;
+          var its = make(setId, slot.skill, cs[k], policy, seed + '|' + n + '|' + k + '|' + tries, used);
           if (opts.typedOnly) its = its.filter(function (it) { return it.typed; });
           if (opts.preferTyped && its.some(function (it) { return it.typed; })) its = its.filter(function (it) { return it.typed; });
           if (its.length) return rng.pick(its);

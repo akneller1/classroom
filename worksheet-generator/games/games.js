@@ -44,7 +44,7 @@
     return h + '</div>';
   }
   function solHtml(it) {
-    return '<div class="gm-sol"><h4>Answer</h4><div>' + M(it.answer) + '</div>' +
+    return '<div class="gm-sol"><h4>Answer</h4><div>' + M(it.answer) + '</div>' + (it.answerFigures||[]).map(function(fig){return NS.figHtml(fig);}).join('') +
       (it.steps.length ? '<h4 style="margin-top:10px">Worked solution</h4><ol>' + it.steps.map(function (st) { return '<li>' + M(st.t || '') + (st.m ? ' ' + M('⟨' + st.m + '⟩') : '') + '</li>'; }).join('') + '</ol>' : '') + '</div>';
   }
   function optsHtml(it, st) {
@@ -147,6 +147,7 @@
     var PRESETS = { cp2: [1, 1, 2, 2, 3], cp1: [2, 3, 3, 4, 5], honors: [4, 5, 5, 6, 7], mixed: [1, 2, 4, 5, 7] };
     var NAMES = G.MK_GRADE_GAME_COURSE ? { cp2:'Remedial',cp1:'Standard',honors:'Advanced',mixed:'Mixed (Remedial → Advanced)' } : { cp2: 'CP2', cp1: 'CP1', honors: 'Honors', mixed: 'Mixed (100 easy → 500 Honors)' };
     if (G.MK_GRADE_GAME_COURSE) { PRESETS = {cp2:[1,1,1,2,2],cp1:[2,2,3,3,3],honors:[3,3,4,4,4],mixed:[1,2,2,3,4]}; }
+    if(SET.authoredBank)NAMES.mixed='Mixed (all levels)';
     var S = { preset: saved.preset || 'cp1', teams: saved.teams || ['Team 1', 'Team 2'], score: [], cells: {}, open: null, showOpts: false, showAns: false };
     GB._state = function () { return S; };
     /* one category per skill group; a unit with fewer than three groups gets one category per skill instead */
@@ -156,9 +157,9 @@
       var slots = [];
       cols.forEach(function (t, ci) {
         var sk = rng.shuffle(t.skills.slice());
-        VALUES.forEach(function (v, ri) { slots.push({ skill: sk[ri % sk.length], c: PRESETS[S.preset][ri], col: ci, row: ri }); });
+        VALUES.forEach(function (v, ri) { slots.push({ skill: sk[ri % sk.length], c: PRESETS[S.preset][ri], level: SET.authoredBank ? S.preset : undefined, col: ci, row: ri }); });
       });
-      deck(slots, { msg: 'Setting up the board…' }, function (its) {
+      deck(slots, { msg: 'Setting up the board…', wholeProblem: true }, function (its) {
         S.cells = {}; its.forEach(function (it) { S.cells[it.slot.col + ',' + it.slot.row] = { it: it, used: false }; });
         S.score = S.teams.map(function () { return 0; }); S.open = null; render();
       });
@@ -171,9 +172,9 @@
         '<div style="overflow-x:auto"><div class="sd-board" style="grid-template-columns:repeat(' + cols.length + ',minmax(130px,1fr))">' + cols.map(function (t) { return '<div class="sd-cat">' + esc(t.name) + '</div>'; }).join('');
       VALUES.forEach(function (v, ri) { cols.forEach(function (t, ci) {
         var cell = S.cells[ci + ',' + ri];
-        h += cell ? '<button class="sd-cell" data-cell="' + ci + ',' + ri + '"' + (cell.used ? ' disabled aria-label="used"' : ' aria-label="' + esc(t.name) + ' for ' + v + '"') + '>' + (cell.used ? '' : v) + '</button>' : '<button class="sd-cell err" disabled>No verified problem</button>';
+        h += cell ? '<button class="sd-cell" data-cell="' + ci + ',' + ri + '"' + (cell.used ? ' disabled aria-label="used"' : ' aria-label="' + esc(t.name) + ' for ' + v + '"') + '>' + (cell.used ? '' : v) + '</button>' : '<span class="sd-cell empty" aria-hidden="true"></span>';
       }); });
-      h += '</div></div>' + teamsHtml() + '<p class="sd-foot">Click a value to open the problem. Press <b>Space</b> to show the answer and solution, <b>Esc</b> to return to the board.</p>';
+      h += '</div></div>' + (Object.keys(S.cells).length<cols.length*VALUES.length?'<p class="gm-muted" role="status">Some categories have fewer questions at this difficulty. Only available point values are shown; choose another difficulty for more questions.</p>':'') + teamsHtml() + '<p class="sd-foot">Click a value to open the problem. Press <b>Space</b> to show the answer and solution, <b>Esc</b> to return to the board.</p>';
       app.innerHTML = h;
       $('#sdPreset').onchange = function () { S.preset = this.value; persist(); build(); };
       $('#sdNew').onclick = build;
@@ -189,7 +190,7 @@
       var it = S.open.it, v = VALUES[it.slot.row];
       var h = '<div class="sd-q"><div class="gm-row"><span class="sd-val">' + esc(cols[it.slot.col].name) + ' · ' + v + '</span><span class="gm-sp"></span><button class="gm-btn" id="sdBack">Back to board (Esc)</button></div>' + qHtml(it) +
         (S.showOpts ? optsHtml(it, { reveal: S.showAns }) : '') +
-        '<div class="gm-row" style="margin-top:14px">' + (S.showOpts ? '' : '<button class="gm-btn" id="sdOpts">Show choices</button>') + (S.showAns ? '' : '<button class="gm-btn primary" id="sdAns">Show answer (Space)</button>') + '</div>' +
+        '<div class="gm-row" style="margin-top:14px">' + (S.showOpts || !it.options.length ? '' : '<button class="gm-btn" id="sdOpts">Show choices</button>') + (S.showAns ? '' : '<button class="gm-btn primary" id="sdAns">Show answer (Space)</button>') + '</div>' +
         (S.showAns ? solHtml(it) + '<div class="gm-row"><b>Award:</b>' + S.teams.map(function (n, i) { return '<button class="gm-btn" data-aw="' + i + '" data-s="1">+' + v + ' ' + esc(n) + '</button><button class="gm-btn" data-aw="' + i + '" data-s="-1">−' + v + '</button>'; }).join('') + '</div>' : '') + '</div>' + teamsHtml();
       app.innerHTML = h;
       $('#sdBack').onclick = back;

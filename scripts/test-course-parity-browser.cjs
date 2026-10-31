@@ -64,7 +64,7 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
    if(game==='flashcards')await page.locator('#fcFlip').waitFor();
    if(game==='connect-four')await page.locator('#c4Lock').waitFor();
    if(game==='picture-reveal')await page.locator('#prCheck').waitFor();
-   if(game==='showdown')await page.locator('#sdNew').waitFor();
+   if(game==='showdown'){await page.locator('#sdNew').waitFor();const columns=await page.locator('.sd-cat').count();assert.equal(await page.locator('.sd-cell[data-cell]').count(),columns*5,'Complete Showdown board '+course.id+'/'+unit.id);}
    if(['detective','escape-room'].includes(game)){await page.locator('#activityStart').click();if(game==='detective'){await page.locator('#start').click();await page.locator('#check').waitFor();}else{await page.getByRole('button',{name:'Begin',exact:true}).click();await page.locator('#go').waitFor();}}
    await page.screenshot({path:'thumbs/previews/'+course.id+'/'+unit.id+'-'+game+'.png'});cases.push(course.id+'/'+unit.id+'/'+game+'/preview');
   }
