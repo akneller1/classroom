@@ -63,7 +63,7 @@ catapult:{title:'Castle Catapult',course:'Algebra 1',topic:'Quadratic Functions'
 const key=new URLSearchParams(location.search).get('game')||'catapult',cfg=GAMES[key]||GAMES.catapult,$=x=>document.getElementById(x),canvas=$('board'),ctx=canvas.getContext('2d');
 $('heading').textContent=cfg.title;$('subtitle').textContent=cfg.course+' · '+cfg.topic+' — '+cfg.intro;$('boardHint').textContent='The graph and obstacles respond to the mathematical choices you make.';
 const total=key==='catapult'?10:6;
-const BANK_GAME=true;let bankQuestion=null,bankUsed={keys:new Set(),sigs:new Set()},bankLevel='cp1',algebra2Bank=null,bankLoading=false,bankError='',motionFX=null,arcadeCombo=0,arcadeLives=3;
+const BANK_GAME=key!=='catapult';let bankQuestion=null,bankUsed={keys:new Set(),sigs:new Set()},bankLevel='cp1',algebra2Bank=null,bankLoading=false,bankError='',motionFX=null,arcadeCombo=0,arcadeLives=3;
 const BANK_SPECS={
  rocket:{set:'algebra1-expressions-equations',skills:['two-step','multi-step','both-sides','fraction-eq','special-solutions']},
  inequality:{set:'algebra1-inequalities',skills:[]},
@@ -82,7 +82,7 @@ const prompts={
  mirror:[{x:2,y:3,t:'reflect-x'},{x:-4,y:2,t:'reflect-y'},{x:3,y:1,t:'rotate90'},{x:-2,y:-3,t:'translate',dx:4,dy:5},{x:4,y:-2,t:'rotate180'},{x:-2,y:4,t:'rotate270'}],
  cannon:[{rise:3,run:4},{rise:5,run:12},{rise:8,run:6},{rise:7,run:7},{rise:4,run:9},{rise:9,run:12}],
  portal:[{a:2,h:1,k:3,x:4},{a:-1,h:2,k:5,x:6},{a:3,h:-2,k:1,x:0},{a:2,h:3,k:-4,x:5},{a:-2,h:-1,k:6,x:2},{a:1,h:-3,k:2,x:6}],
- catapult:Array.from({length:10},(_,i)=>({a:-1,r1:0,r2:([9,10,7,10,8,9,12,10,11,9])[i],castleX:([8,8,8,8,8,8,8,8,8,8])[i],height:([0,0,0,0,0,0,0,0,0,0])[i]}))
+ catapult:Array.from({length:10},(_,i)=>({a:-1,r1:0,r2:([10,12,8,10,6,12,14,10,16,12])[i],castleX:([8,8,8,8,8,8,8,8,8,8])[i],height:([0,0,0,0,0,0,0,0,0,0])[i]}))
 };
 const clean=n=>Number(n.toFixed(3)),approx=(x,y,t=.12)=>Math.abs(Number(x)-y)<=t;
 function active(){return prompts[key][turn]||prompts[key][0]}
@@ -174,7 +174,7 @@ function setup(){locked=false;feedback='';animate=0;current=active();$('next').h
  if(key==='mirror'){const desc=({ 'reflect-x':'Reflect across x-axis','reflect-y':'Reflect across y-axis',rotate90:'Rotate 90° counterclockwise',rotate180:'Rotate 180°',rotate270:'Rotate 270° counterclockwise',translate:'Translate right '+q.dx+' and up '+q.dy})[q.t];text='Explorer starts at ('+q.x+', '+q.y+'). '+desc+'. Find the destination.';fields=field(0,'New x')+field(1,'New y');}
  if(key==='cannon'){text='Enemy tower rises '+q.rise+' units above cannon level, '+q.run+' units horizontally away. Enter tangent (rise/run) and the firing angle in degrees.';fields=field(0,'tan(θ)')+field(1,'Angle θ (degrees)');}
  if(key==='portal'){text='Energy portal: f(x) = '+q.a+'(x − ('+q.h+'))² '+(q.k>=0?'+ '+q.k:'− '+(-q.k))+'. Evaluate f('+q.x+') to route the energy ball.';fields=field(0,'Portal output');}
- if(key==='catapult'){const r=q.r2; text='Launch trajectory (standard form): h(x) = −x² + '+r+'x. Castle is at x = '+q.castleX+'. Find the roots, vertex, and height at the castle before firing.';fields=field(0,'Left root')+field(1,'Right root')+field(2,'Vertex x')+field(3,'Vertex height')+field(4,'Height at castle x = '+q.castleX);}
+ if(key==='catapult'){const r=q.r2; text='Launch trajectory in standard form: h(x) = −x² + '+r+'x. The castle is at x = '+q.castleX+'. Find the roots, the vertex, and h('+q.castleX+') before firing. All five answers are integers.';fields=field(0,'Left root')+field(1,'Right root')+field(2,'Vertex x')+field(3,'Vertex height')+field(4,'Height at castle x = '+q.castleX);}
  $('instructions').textContent=key==='catapult'?text:BANK_GAME?'Solve the existing question-bank challenge to power your '+(key==='rocket'?'rocket engine':key==='laser'?'security lasers':'game action')+'. Difficulty increases as you advance.':text;$('fields').innerHTML=fields;showBankQuestion();$('controls').innerHTML='<small>Correct calculations control the action. The graph illustrates the model; it does not reveal the numeric answer.</small>';$('status').textContent='Ready for your move.';draw();}
 function shoot(){if(locked)return;const q=current,correct=answerFor(q);
  const selected=BANK_GAME?(bankQuestion?.typed!==null&&bankQuestion?.typed!==undefined?$('bankTyped'):document.querySelector('input[name="bankAnswer"]:checked')):null;
@@ -182,7 +182,7 @@ function shoot(){if(locked)return;const q=current,correct=answerFor(q);
  const entered=BANK_GAME?correct.slice():correct.map((_,i)=>{const e=$('f'+i);return e.tagName==='SELECT'?e.value:Number(e.value)});if(!BANK_GAME&&(entered.some(x=>typeof x==='number'&&!Number.isFinite(x))||correct.some((_,i)=>$('f'+i).tagName==='INPUT'&&!$('f'+i).value.trim()))){$('status').textContent='Complete every answer before playing.';return;}
  const valid=BANK_GAME?Boolean(bankQuestion&&(bankQuestion.typed!==null&&bankQuestion.typed!==undefined?selected.value.trim().toLowerCase()===bankQuestion.typed.trim().toLowerCase():bankQuestion.options?.[Number(selected.value)]?.ok)):correct.every((v,i)=>typeof v==='string'?entered[i]===(v==='≥'||v==='≤'?'Closed':'Open'):approx(entered[i],v,key==='cannon'&&i===1?.6:.12));
  let hit=false;
- if(key==='catapult'){const y=correct[4];hit=valid&&y>=2&&y<=18; if(hit)hits++;}else hit=valid;
+ if(key==='catapult'){const y=correct[4];hit=valid&&y>=2&&y<=36; if(hit)hits++;}else hit=valid;
  if(hit)points+=100;
  if(!['rocket','laser'].includes(key)){arcadeCombo=hit?arcadeCombo+1:0;if(hit)points+=Math.min(75,arcadeCombo*15);else arcadeLives=Math.max(0,arcadeLives-1);$('level').textContent='Lives '+arcadeLives+'/3 · Combo ×'+arcadeCombo;}
  if(key==='laser'){
