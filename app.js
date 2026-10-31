@@ -526,24 +526,6 @@
     }
     function category(id, title, formats) {
       var matches = items.filter(function (it) { return formats.indexOf(activityFormat(it.a)) >= 0; });
-      // Reuse the existing card layout for approved Algebra 2 banks.
-      // Do not create duplicate activities for units without a bank.
-      var bankReady = c.id === 'algebra2' && window.MK_QUESTION_BANKS && window.MK_QUESTION_BANKS.available(c.id,u.id);
-      if (bankReady) {
-        var query = '?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id);
-        var extras = id === 'games' ? [
-          ['Tic-Tac-Toe','tic-tac-toe','tic-tac-toe','thumbs/foundations-algebra-tic-tac-toe.jpg'],
-          ['Connect 4','connect-four','connect-4','thumbs/foundations-algebra-connect-four.jpg'],
-          ['Picture Reveal','picture-reveal','picture-reveal','thumbs/foundations-algebra-picture-reveal.jpg']
-        ] : id === 'study-guides' ? [
-          ['Flashcards','flashcards','','thumbs/foundations-algebra-flashcards.jpg']
-        ] : [];
-        extras.forEach(function (x) {
-          var path = x[2] ? 'worksheet-generator/approved-games.html'+query+'&game='+x[2] : 'worksheet-generator/approved-flashcards.html'+query;
-          if (matches.some(function (it) { return it.a.path === path; })) return;
-          matches.push({a:{title:x[0],path:path,thumb:x[3],bankFormat:x[1],type:id==='games'?'Game':'Study Guide',description:'Practice '+u.name+' using the shared Algebra 2 question bank.'},c:c,u:u});
-        });
-      }
       // Include the practice test deterministically in each supported Algebra 1 unit.
       // Use the same card renderer and thumbnail as the other study guides.
       if (id === 'study-guides') {
