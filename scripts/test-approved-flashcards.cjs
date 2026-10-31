@@ -12,6 +12,9 @@ assert.ok(js.includes('banks.available(courseId,unitId)'),'Approval gating must 
 assert.ok(js.includes("formats:['short-answer','multiple-choice']"),'Flashcards must filter compatible questions');
 assert.ok(js.includes('function imagePath(q)') && js.includes('diagram(q,card)'), 'Safe diagram renderer required');
 assert.ok(js.includes('question-banks') && js.includes('assets') && js.includes('imagePath(q)'), 'Only local diagram assets may be used');
+assert.ok(js.includes("if(!figure.isConnected)return"),'Stale diagram errors must not affect subsequent cards');
+assert.ok(js.includes("el('afNeed').disabled=true") && js.includes("el('afGot').disabled=true"),'Missing diagram must disable self-rating');
+assert.ok(js.includes("if(S.flipped){\\n  text('p',q.prompt,card)".replace('\\n','\n')),'Answer side must preserve the question and diagram');
 assert.ok(!js.includes('innerHTML'),'Question content must render as text rather than injected HTML');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifest.json'),'utf8'));
 assert.deepEqual(manifest.banks,[],'No unreviewed content should be published');
