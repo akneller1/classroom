@@ -451,7 +451,7 @@
         '<section class="hero"><div class="wrap home-layout">' +
           '<div class="hero-copy home-intro">' +
           '<h1 tabindex="-1">More learning. <span>Less planning.</span></h1>' +
-          '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
+          '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes.</p></div>' +
           '<div class="home-resource-panels">' +
             '<section class="home-subject-panel" aria-labelledby="subject-heading">' +
               '<div class="explore-heading"><h2 id="subject-heading">Browse by subject</h2>' +
