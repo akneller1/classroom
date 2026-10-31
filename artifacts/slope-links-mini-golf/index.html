@@ -104,6 +104,7 @@ td button { padding: 2px 9px; font-size: 13px; }
 td.cur { background: var(--chip); font-weight: 700; }
 .under { color: var(--good); font-weight: 700; } .over { color: var(--bad); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.power-control{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.power-control input{grid-column:1/-1;width:100%;accent-color:var(--accent)}.mode-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.mode-row button{flex:1}.progress-stars{font-size:20px;color:#bc8617}.results{margin-top:16px;padding:18px;border:2px solid var(--accent);border-radius:12px;background:var(--chip)}.results[hidden]{display:none!important}
 </style>
 
 <div class="wrap">
@@ -112,6 +113,7 @@ td.cur { background: var(--chip); font-weight: 700; }
     <p class="tag">Choose a slope, pick a club, sink the putt.</p>
   </header>
 
+  <div class="mode-row"><button data-mode="guided">Guided</button><button data-mode="practice" class="sel">Practice</button><button data-mode="challenge">Challenge</button></div><p class="hint" id="modeHelp">Practice mode: a dashed line previews your shot.</p>
   <div class="game">
     <div>
       <div class="course"><canvas id="cv" aria-label="Mini golf course on a coordinate grid"></canvas></div>
@@ -154,10 +156,10 @@ td.cur { background: var(--chip); font-weight: 700; }
 
       <div class="step" id="s3">
         <div class="step-h"><span class="num">3</span>Pick a club (units moved left or right)</div>
-        <div class="clubs" id="clubs"></div>
+        <div class="clubs" id="clubs"></div><div class="power-control"><label for="power">Shot power: <b id="powerLabel">100%</b></label><span>25–150%</span><input type="range" id="power" min="25" max="150" step="5" value="100"></div>
       </div>
 
-      <button class="primary swing" id="swingBtn">Hit</button>
+      <button class="primary swing" id="swingBtn">⛳ Swing</button>
       <div class="msg" id="msg" role="status" aria-live="polite"></div>
 
       <details open>
@@ -169,10 +171,10 @@ td.cur { background: var(--chip); font-weight: 700; }
         <ul class="rules">
           <li>Every shot starts at the ball and follows a straight line with the slope you enter. You don't choose a y-intercept, because the line always passes through the ball.</li>
           <li>Pick left or right, then a club. A club's number is how far the ball moves <b>across</b> (change in x). The ball rises or falls by the slope times that distance.</li>
-          <li>You won't see the path until you hit. Use rise over run between the ball and the cup to plan your slope.</li>
+          <li>Practice and Guided modes preview the trajectory; Challenge mode hides it. Use rise over run to aim.</li>
           <li>The ball drops in if it reaches the cup with no more than 1 unit left to roll. Hit it too hard and it rolls right over.</li>
           <li>Walls stop the ball. Sand slows it down: while the ball is in sand it only travels 40% as far. The ball can fly over water if the club is long enough, but if it lands in the water it costs a penalty stroke and goes back.</li>
-          <li>After every shot, the ball settles on the nearest grid point. Adjust the slope and hit again.</li>
+          <li>The ball stops at its calculated coordinate without teleporting to the grid. Adjust the shot power and slope to aim again.</li>
         </ul>
       </details>
       <div class="row" style="justify-content:space-between">
@@ -182,7 +184,7 @@ td.cur { background: var(--chip); font-weight: 700; }
     </div>
   </div>
 
-  <div class="card">
+  <div class="results" id="results" hidden></div><div class="card"><p class="progress-stars" id="stars"></p>
     <table>
       <thead><tr id="scHead"></tr></thead>
       <tbody><tr id="scPar"></tr><tr id="scYou"></tr></tbody>
