@@ -50,7 +50,7 @@ const fs=require('node:fs');
   assert.equal(await studentSections.first().locator('.item').count(),await teacherSections.first().locator('.item').count(),'Student and teacher problem counts must match');
   await page.emulateMedia({media:'print'});
   assert.equal(await page.locator('.setup').evaluate(el=>getComputedStyle(el).display),'none');
-  assert.equal(await page.locator('#editor').evaluate(el=>getComputedStyle(el).display),'none');
+  assert.equal(await page.locator('#editor').evaluate(el=>el.getClientRects().length===0),true,'The editor controls must not appear in print layout');
   assert.equal(await studentSections.first().evaluate(el=>getComputedStyle(el).display)!=='none',true);
   assert.equal(await teacherSections.first().evaluate(el=>getComputedStyle(el).display)!=='none',true);
   assert.match(await teacherSections.first().evaluate(el=>getComputedStyle(el).breakBefore),/page|auto/);
