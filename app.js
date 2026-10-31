@@ -102,7 +102,6 @@
     { id: 'other', name: 'More Activities', description: 'Explore additional practice and resources.' }
   ];
   function activityFormat(a) {
-    if (a.bankFormat) return a.bankFormat;
     // Grade 6–8 games share the generator page, but remain games, not worksheets.
     var middleGame = /worksheet-generator\/middle-school-game\.html\?/i.test(a.path || '') &&
       /[?&]game=([a-z-]+)/i.exec(a.path || '');
