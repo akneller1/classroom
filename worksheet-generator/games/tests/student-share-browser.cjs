@@ -36,11 +36,13 @@ const server=http.createServer((req,res)=>{
     const selectedLabel=(await dialog.locator('label').last().textContent()).trim();
     await dialog.getByRole('button',{name:'Generate student link',exact:true}).click();
     const input=page.locator('#game-student-link');await input.waitFor();const link=await input.inputValue(),url=new URL(link);
-    assert.equal(url.searchParams.get('path'),entry.path);assert.equal(url.searchParams.get('student'),'1');assert.deepEqual(JSON.parse(url.searchParams.get('skills')),[id]);
+    assert.equal(url.pathname,'/'+entry.path);assert.equal(url.searchParams.get('student'),'1');assert.deepEqual(JSON.parse(url.searchParams.get('skills')),[id]);assert.equal(url.searchParams.has('path'),false);
     await page.goto(link);
-    await page.waitForFunction(()=>{const f=document.querySelector('.activity-frame');return f&&f.contentWindow.TeacherSkills&&!f.contentDocument.querySelector('.gm-loading');});
-    const frame=page.frames().find(f=>f.url().includes('/artifacts/'));
+    await page.waitForLoadState({waitUntil:'load'});
+    const frame=page.mainFrame();
     assert.equal(await frame.locator('dialog.teacher-skills').count(),0,'student bypasses teacher picker');
+    assert.equal(await frame.evaluate(()=>document.title.toLowerCase().includes('classroom')||document.title.toLowerCase().includes('mr. k')),false,'student title has no classroom branding');
+    assert.equal(await frame.evaluate(()=>Array.from(document.querySelectorAll('a')).some(a=>{const t=a.textContent.toLowerCase();return t.includes('mr. k')||t.includes('mr k')||t.includes('classroom')||t.includes('back to class')})),false,'student activity has no classroom link');
     const skills=await frame.evaluate(()=>{
       if(typeof MKGAMES!=='undefined'&&MKGAMES._state){const s=MKGAMES._state();return (s.cards||s.items||[]).map(q=>q.skill);}
       if(typeof Q!=='undefined'&&Array.isArray(Q))return Q.map(q=>q.skill);
@@ -58,8 +60,8 @@ const server=http.createServer((req,res)=>{
       const names=await frame.evaluate(items=>items.map(name=>{const e=document.createElement('div');e.innerHTML=name;return e.textContent.replace(/\s+/g,' ').trim();}),skills);
       assert(names.every(name=>name===selectedLabel),'student bank matches chosen label');
     }
-    await page.reload();await page.waitForFunction(()=>{const f=document.querySelector('.activity-frame');return f&&f.contentWindow.TeacherSkills&&!f.contentDocument.querySelector('.gm-loading');});
-    assert.equal(await page.frameLocator('.activity-frame').locator('dialog.teacher-skills').count(),0,'reload keeps assignment');
+    await page.reload();await page.waitForLoadState({waitUntil:'load'});
+    assert.equal(await page.locator('dialog.teacher-skills').count(),0,'reload keeps assignment');
     assert.deepEqual(errors,[],entry.path+' browser errors');count++;console.log('PASS '+entry.path);
    }finally{await page.close();}
   }

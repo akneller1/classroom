@@ -71,14 +71,9 @@ for(const entry of entries){
  find(teacher.doc,'Select All').click();assert(!find(teacher.doc,'Generate student link').disabled);
  find(teacher.doc,'Clear All').click();const inputs=walk(teacher.doc.body).filter(n=>n.type==='checkbox'),last=inputs.at(-1);assert(last);
  last.checked=true;last.onchange();find(teacher.doc,'Generate student link').click();assert(!started,'share mode must not launch game');
- const link=host.doc.getElementById('game-student-link').value,url=new URL(link);assert.equal(url.searchParams.get('path'),entry.path);assert.deepEqual(JSON.parse(url.searchParams.get('skills')),[last.value]);
- // Exercise actual activity viewer forwarding, including the student flag.
- const viewer=environment(link);viewer.win.LIBRARY=data.window.LIBRARY;
- for(const id of ['activity-title','activity-message','original-link','activity-content','resource-details','report-problem','share-student']){const n=new Node();n.id=id;viewer.doc.body.appendChild(n);}
- viewer.run('activity.js');const studentFrame=walk(viewer.doc.body).find(n=>n.tagName==='IFRAME');assert(studentFrame);
- assert.equal(new URL(studentFrame.src).searchParams.get('skills'),JSON.stringify([last.value]));assert.equal(new URL(studentFrame.src).searchParams.get('student'),'1');
+ const link=host.doc.getElementById('game-student-link').value,url=new URL(link);assert.equal(url.pathname,'/'+entry.path);assert.equal(url.searchParams.get('student'),'1');assert.deepEqual(JSON.parse(url.searchParams.get('skills')),[last.value]);assert.equal(url.searchParams.has('path'),false);
  for(let reload=0;reload<2;reload++){
-  const student=environment(studentFrame.src);student.run('worksheet-generator/games/skill-setup.js');let selected;
+  const student=environment(link);student.run('worksheet-generator/games/skill-setup.js');let selected;
   if(cat.skills)student.win.TeacherSkills.choose(cat.skills,s=>selected=s);else student.win.TeacherSkills.bank(cat.items,cat.label,s=>selected=s);
   assert(selected&&selected.length,entry.path+' starts with selected questions');
   if(cat.skills)assert.deepEqual(Array.from(selected),[last.value]);
