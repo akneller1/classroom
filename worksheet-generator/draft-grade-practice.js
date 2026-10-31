@@ -20,5 +20,11 @@ function generate(){var entry=entries.find(function(x){return x.key===$('topic')
  $('status').textContent=questions.length?questions.length+' draft questions generated. Verify mathematics and level before student use.':'No text-only questions available for this combination. '+result.reason;render()}
 $('course').addEventListener('change',function(){topics();generate()});
 $('topic').addEventListener('change',generate);$('level').addEventListener('change',generate);
-$('generate').addEventListener('click',generate);topics();generate()
+$('generate').addEventListener('click',generate);
+var query=new URLSearchParams(root.location.search);
+if(['math6','prealgebra7','prealgebra'].indexOf(query.get('course'))>=0)$('course').value=query.get('course');
+topics();
+if(Array.from($('topic').options).some(function(o){return o.value===query.get('topic')}))$('topic').value=query.get('topic');
+if(['cp2','cp1','honors'].indexOf(query.get('level'))>=0)$('level').value=query.get('level');
+generate()
 })(window);
