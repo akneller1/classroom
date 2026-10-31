@@ -30,4 +30,6 @@ t=[1,2,1,1,2,2,2,1,1];assert.equal(resolve(t,'tic-tac-toe').type,'draw');
 let c=Array(42).fill(null);[35,36,37,38].forEach(i=>c[i]=2);assert.equal(resolve(c,'connect-4').player,2);
 assert.equal(resolve(Array(16).fill('-'),'picture-reveal').type,'complete');
 assert.equal(resolve(Array(16).fill(null),'picture-reveal'),null);
+assert.ok(html.includes("['math6','prealgebra7','prealgebra']"),'Middle-school course detection required');
+for(const label of ['Remedial','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
 console.log('PASS approved review game page structure and security gating');
