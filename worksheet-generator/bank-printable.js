@@ -52,9 +52,14 @@ function renderSections(){
   btn('Duplicate',()=>{sections.splice(i+1,0,{...sec,id:'s'+(++sectionCounter),skillIds:sec.skillIds.slice()});renderSections()});
   btn('Remove',()=>{sections.splice(i,1);renderSections()});
   const note=elt('textarea',card);note.value=sec.note;note.placeholder='Optional teacher notes, instructions or summary text';note.setAttribute('aria-label',sec.title+' notes');note.addEventListener('input',()=>{sec.note=note.value});
-  const select=elt('select',card);select.setAttribute('aria-label',sec.title+' skill selection');
-  option(select,'','Use selected skills above');catalog.getSkillRecords('algebra2',unitSelect.value).forEach(x=>option(select,x.id,x.name));
-  select.value=sec.skillIds[0]||'';select.addEventListener('change',()=>{sec.skillIds=select.value?[select.value]:[]});
+  const group=elt('div',card);group.className='section-skills';
+  elt('strong',group,'Skills for this section (none selected = use overall selection)');
+  catalog.getSkillRecords('algebra2',unitSelect.value).forEach(record=>{
+   const label=elt('label',group);label.className='skill';
+   const cb=elt('input',label);cb.type='checkbox';cb.value=record.id;cb.checked=sec.skillIds.includes(record.id);
+   cb.addEventListener('change',()=>{sec.skillIds=Array.from(group.querySelectorAll('input:checked')).map(x=>x.value)});
+   elt('span',label,record.name);
+  });
  });
 }
 function shiftSection(i,by){const j=i+by;if(j<0||j>=sections.length)return;[sections[i],sections[j]]=[sections[j],sections[i]];renderSections()}
