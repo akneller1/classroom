@@ -326,19 +326,42 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
 }
  if(key==='mirror'){
   c.save();
-  const rooms=[[[90,90,640,0],[90,90,0,440],[730,90,0,440],[90,530,640,0],[245,90,0,295],[245,385,135,0],[380,195,0,335],[515,90,0,310],[515,400,130,0]],[[90,90,640,0],[90,90,0,440],[730,90,0,440],[90,530,640,0],[205,90,0,280],[205,370,175,0],[380,220,0,310],[550,90,0,305],[550,395,110,0]]];
-  c.fillStyle='#193149';c.fillRect(75,75,680,475);
-  c.strokeStyle='#35546c';c.lineWidth=1;for(let x=95;x<=735;x+=40){c.beginPath();c.moveTo(x,85);c.lineTo(x,540);c.stroke()}
-  c.strokeStyle='#7cc0c8';c.lineWidth=12;c.shadowBlur=9;c.shadowColor='#56a0b1';
-  rooms[turn%2].forEach(([x,y,dx,dy])=>{c.beginPath();c.moveTo(x,y);c.lineTo(x+dx,y+dy);c.stroke()});c.shadowBlur=0;
+  // One continuous winding corridor for the entire six-stage journey.
+  const path=[[114,478],[114,365],[220,365],[220,185],[350,185],[350,400],[468,400],[468,165],[615,165],[615,327],[694,327],[694,145]];
+  c.fillStyle='#152d43';c.fillRect(72,77,695,470);
+  c.strokeStyle='#365168';c.lineWidth=1;
+  for(let x=94;x<746;x+=29){c.beginPath();c.moveTo(x,89);c.lineTo(x,533);c.stroke()}
+  for(let y=89;y<534;y+=29){c.beginPath();c.moveTo(87,y);c.lineTo(750,y);c.stroke()}
+  // The two edges of this thick, joined path act as the corridor walls.
+  const trace=()=>{c.beginPath();path.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y))};
+  c.lineCap='round';c.lineJoin='round';
+  trace();c.strokeStyle='#76b9c4';c.lineWidth=76;c.shadowColor='#5c99aa';c.shadowBlur=11;c.stroke();
+  c.shadowBlur=0;trace();c.strokeStyle='#bfd9dc';c.lineWidth=66;c.stroke();
+  trace();c.strokeStyle='#244254';c.lineWidth=59;c.stroke();
+  trace();c.strokeStyle='#35596a';c.lineWidth=2;c.setLineDash([5,12]);c.stroke();c.setLineDash([]);
+  // Dimensional progress is distance along the corridor, never a free-floating sprite.
+  const segments=[];let totalLength=0;
+  for(let i=1;i<path.length;i++){let len=Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]);segments.push(len);totalLength+=len}
+  const at=u=>{let distance=Math.max(0,Math.min(1,u))*totalLength;for(let i=0;i<segments.length;i++){if(distance<=segments[i]){const p=distance/segments[i];return [path[i][0]+(path[i+1][0]-path[i][0])*p,path[i][1]+(path[i+1][1]-path[i][1])*p]}distance-=segments[i]}return path[path.length-1]};
   const t=motionFX?Math.min(1,(performance.now()-motionFX.start)/1450):0;
-  const after=locked&&history.at(-1)?.success&&!motionFX?1:0,position=turn+(motionFX?.success?t:after);
-  const x=127+position*95,y=454-(Math.floor(position)%3)*105-(motionFX?.success?Math.sin(t*Math.PI)*45:0);
-  c.fillStyle='#97d8ad';c.fillRect(652,130,51,67);c.strokeStyle='#d9ffe5';c.lineWidth=5;c.strokeRect(652,130,51,67);
-  c.fillStyle='#e5c6a1';c.beginPath();c.arc(x,y-23,16,0,Math.PI*2);c.fill();
-  c.fillStyle=motionFX&&!motionFX.success?'#ad7064':'#dcbd79';c.fillRect(x-14,y-4,28,34);
-  c.strokeStyle='#ddd3c3';c.lineWidth=7;c.beginPath();c.moveTo(x-8,y+31);c.lineTo(x-21,y+48);c.moveTo(x+8,y+31);c.lineTo(x+18,y+48);c.stroke();
-  c.fillStyle='#d8ebef';c.font='bold 23px system-ui';c.fillText('MIRROR MAZE · CHAMBER '+(turn+1),W/2,50);
+  const success=locked&&history.length&&history[history.length-1].success;
+  const progress=Math.min(total,turn+(motionFX?(motionFX.success?t:0):(success?1:0)));
+  const [x,y]=at(progress/total);
+  const first=path[0],last=path[path.length-1];
+  c.fillStyle='#8cc9ad';c.beginPath();c.arc(first[0],first[1],23,0,Math.PI*2);c.fill();
+  c.fillStyle='#b7e7ba';c.fillRect(last[0]-22,last[1]-26,44,52);
+  c.strokeStyle='#ecfbe9';c.lineWidth=3;c.strokeRect(last[0]-22,last[1]-26,44,52);
+  c.font='bold 16px system-ui';c.textAlign='center';c.fillStyle='#f2f7f8';
+  c.fillText('START',first[0]+68,first[1]+8);c.fillText('EXIT',last[0]-63,last[1]+6);
+  // Marker directly on the corridor, oriented toward the next waypoint.
+  c.save();c.translate(x,y);
+  if(motionFX&&!motionFX.success)c.rotate(Math.sin(t*18)*.12);
+  c.fillStyle='#e0c2a2';c.beginPath();c.arc(0,-13,13,0,Math.PI*2);c.fill();
+  c.fillStyle=motionFX&&!motionFX.success?'#ba726c':'#d6ab70';c.fillRect(-11,1,22,23);
+  c.strokeStyle='#e9d7bf';c.lineWidth=5;c.lineCap='round';
+  c.beginPath();c.moveTo(-7,24);c.lineTo(-12,34);c.moveTo(7,24);c.lineTo(13,34);c.stroke();c.restore();
+  c.fillStyle='#e6f4f5';c.font='bold 22px system-ui';
+  c.fillText('MIRROR MAZE · CHAMBER '+(turn+1),W/2,47);
   c.restore();
  }
  if(key==='cannon'){
