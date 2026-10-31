@@ -8,7 +8,8 @@ var fmt=s=>N.mathSafe(String(s||''));
 var levels={cp2:2,cp1:4,honors:6};
 function save(){try{localStorage.setItem(STORE,JSON.stringify({state:state,config:config}));}catch(e){}if(state&&!state.done)updateProgress();}
 function read(){try{var d=JSON.parse(localStorage.getItem(STORE)||'null');if(d&&d.config){config=d.config;state=d.state||null;}}catch(e){}}
-function units(){return N.CATALOG[0].units.filter(u=>N.skillSets[u[0]]);}
+function courseForUnit(unit){return N.CATALOG.filter(function(group){return group.units.some(function(u){return u[0]===unit;});})[0]||N.CATALOG[0];}
+function units(){var group=courseForUnit(config.unit);return group.units.filter(function(u){return N.skillSets[u[0]];});}
 function chosen(){return N.skillSets[config.unit];}
 function skills(){return chosen().skills.filter(s=>config.skills.indexOf(s.id)!==-1);}
 function studentURL(){
