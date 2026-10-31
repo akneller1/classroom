@@ -58,6 +58,7 @@ function criterion(ctx,kind){
  if(cf.kind==='geo-cong'){var tk=kind==='asa'?['AC','DF']:['BC','EF'];if(kind==='sss')tk=['AB','DE'];cf.lab={};cf.lab[tk[0]]=expression;cf.lab[tk[1]]=String(measure);}
  return {compactPrompt:'Triangles ABC and DEF are congruent by '+kind.toUpperCase()+'. '+target+' Find x.',variant:'geo-criterion-'+kind+'-'+c,fig:cf,
   prompt:'Triangles ABC and DEF have the correspondence A to D, B to E, and C to F. '+fact+' '+target+' Find x. State why the triangles are congruent, then set up and solve an equation for x.',
+  flashcardPrompt:'Use the diagram to state which congruence postulate proves triangle ABC congruent to triangle DEF. Then solve for x.',
   parts:[{answer:M('x='+x),check:{type:'solve',eq:eq,v:'x'}}],
   steps:[step(why,M(eq)),step('Solve for the unknown value.',M('x='+x))],
   space:[1.2,1.5,1.8]};
