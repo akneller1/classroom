@@ -1,0 +1,20 @@
+name: Question bank adapter checks
+on:
+  push:
+    paths:
+      - 'course-catalog.js'
+      - 'question-bank-adapter.js'
+      - 'scripts/test-question-bank-adapter.cjs'
+      - '.github/workflows/question-bank-adapter.yml'
+  workflow_dispatch:
+jobs:
+  adapter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate shared question bank adapter
+        run: node scripts/test-question-bank-adapter.cjs
