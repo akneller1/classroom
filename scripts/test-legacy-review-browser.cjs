@@ -69,7 +69,7 @@ const assert=require('node:assert/strict');
   const gameLink=await page.locator('a[href*="middle-school-game.html?course=prealgebra7"][href*="game=tic-tac-toe"]').first().getAttribute('href');
   assert.ok(gameLink);
   await page.goto(coursePage+'/'+gameLink);
-  await page.waitForFunction(()=>document.querySelector('#app')?.textContent.includes('Choose skills')||document.querySelector('#app')?.textContent.includes('Tic-Tac-Toe'),{timeout:20000});
+  await page.waitForFunction(()=>!!document.querySelector('dialog.teacher-skills')||!!document.querySelector('.gm-head'),{timeout:20000});
   assert.equal(await page.locator('body').getAttribute('data-game'),'tic-tac-toe');
   assert.equal(await page.locator('body').getAttribute('data-skills'),'evaluate');
   await page.setViewportSize({width:375,height:812});
