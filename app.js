@@ -558,7 +558,6 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
-        (c.id === 'algebra2' ? contentBriefSection(c, u) + contentReadinessSection(c, u) : '') +
         unitPager(c, u) + '</div></section>'
     };
   }
