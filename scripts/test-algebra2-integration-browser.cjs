@@ -41,6 +41,7 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
    if(game==='showdown')await page.locator('#sdNew').waitFor();
    if(game==='detective'||game==='escape-room'){await page.locator('#activityStart').click();if(game==='detective'){await page.locator('#start').click();await page.locator('#check').waitFor();}else{await page.getByRole('button',{name:'Begin',exact:true}).click();await page.locator('#go').waitFor();}}
    if(game==='tic-tac-toe')assert.ok(await page.locator('.gm-opts button').count()>=2);
+   if(game==='flashcards')await page.locator('#fcCard').click();
    await page.screenshot({path:'thumbs/previews/algebra2/'+unit+'-'+game+'.png'});
    cases.push(unit+'/'+game);
   }

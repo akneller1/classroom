@@ -55,6 +55,20 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
  try{
  for(const u of library.courses.find(c=>c.id==='algebra2').units){await mystery('algebra2',u.id);await escape('algebra2',u.id);}
  for(const [c,u] of [['algebra','foundations-algebra'],['geometry','foundations-geometry'],['algebra2','conic-sections']]){await steal(c,u);if(c!=='algebra2'){await mystery(c,u);await escape(c,u);}}
+ for(const course of library.courses.filter(c=>['algebra','geometry'].includes(c.id)))for(const unit of course.units){
+  fs.mkdirSync('thumbs/previews/'+course.id,{recursive:true});
+  for(const game of ['flashcards','connect-four','tic-tac-toe','picture-reveal','showdown','detective','escape-room']){
+   await open(course.id,unit.id,game);
+   if(['connect-four','tic-tac-toe'].includes(game))await page.locator('#tGo').click();
+   if(game==='tic-tac-toe')await page.getByRole('button',{name:'Square 1',exact:true}).click();
+   if(game==='flashcards')await page.locator('#fcFlip').waitFor();
+   if(game==='connect-four')await page.locator('#c4Lock').waitFor();
+   if(game==='picture-reveal')await page.locator('#prCheck').waitFor();
+   if(game==='showdown')await page.locator('#sdNew').waitFor();
+   if(['detective','escape-room'].includes(game)){await page.locator('#activityStart').click();if(game==='detective'){await page.locator('#start').click();await page.locator('#check').waitFor();}else{await page.getByRole('button',{name:'Begin',exact:true}).click();await page.locator('#go').waitFor();}}
+   await page.screenshot({path:'thumbs/previews/'+course.id+'/'+unit.id+'-'+game+'.png'});cases.push(course.id+'/'+unit.id+'/'+game+'/preview');
+  }
+ }
  for(const course of library.courses.filter(c=>['math6','prealgebra7','prealgebra'].includes(c.id)))for(const middleUnit of course.units){const unit=middleUnit.id,expected=published.some(b=>b.courseId===course.id&&b.unitId===unit&&b.approved);fs.mkdirSync('thumbs/previews/'+course.id,{recursive:true});for(const game of ['flashcards','connect-four','tic-tac-toe','picture-reveal','showdown','detective','escape-room']){await open(course.id,unit,game);if(!expected&&['detective','escape-room'].includes(game)){assert.match(await page.locator('#activityStatus').innerText(),/not available/);}else if(['connect-four','tic-tac-toe'].includes(game))assert.ok(await page.locator('#tGo').isVisible());else if(!expected)await page.getByRole('status').waitFor();assert.equal(await page.evaluate(c=>window.MK_QUESTION_BANKS.available(c,window.MK_COURSE_ACTIVITY_SOURCE.unit.id),course.id),expected);await page.screenshot({path:'thumbs/previews/'+course.id+'/'+unit+'-'+game+'.png'});cases.push(course.id+'/'+unit+'/'+game+(expected?'/bank-ready':'/empty-bank'));}}
  await page.goto(base+'/index.html#algebra2.conic-sections');await page.waitForFunction(()=>document.querySelectorAll('#algebra-games + .cards a[href*="course-"]').length>=6);
  const thumbs=await page.locator('#algebra-games + .cards .thumb img').evaluateAll(imgs=>imgs.map(i=>i.src));assert.equal(new Set(thumbs).size,thumbs.length);
