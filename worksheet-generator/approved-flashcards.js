@@ -14,8 +14,8 @@ var skills=catalog.getSkillRecords(courseId,unitId), skillNames={};
 skills.forEach(function(s){skillNames[s.id]=s.name;var opt=doc.createElement('option');opt.value=s.id;opt.textContent=s.name;doc.getElementById('afSkill').appendChild(opt)});
 var legacyCards=[];
 var bridge=root.MK_GRADE_LEGACY_BRIDGE,isLegacy=bridge&&bridge.isGrade(courseId);
-var S={level:'cp1',skill:'',cards:[],order:[],index:0,flipped:false,missedOnly:false,ratings:{}};
-var selectors={level:doc.getElementById('afLevel'),skill:doc.getElementById('afSkill')};
+var S={level:'cp1',skill:skills.some(function(x){return x.id===params.get('skill')})?params.get('skill'):'',cards:[],order:[],index:0,flipped:false,missedOnly:false,ratings:{}};
+var selectors={level:doc.getElementById('afLevel'),skill:doc.getElementById('afSkill')};selectors.skill.value=S.skill;
 function el(id){return doc.getElementById(id)}
 function text(tag,value,parent){var n=doc.createElement(tag);n.textContent=value;parent.appendChild(n);return n}
 function imagePath(q) {
