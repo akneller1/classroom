@@ -144,6 +144,7 @@
     return 'other';
   }
   /* Teaching mode metadata: derived from game mechanics, not the generic 'Game' type. */
+  function isUnitSpecificGame(a) { return a.unitSpecific === true || activityFormat(a) === 'topic-games'; }
   function gameMode(a) {
     var f = activityFormat(a);
     if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
@@ -399,6 +400,7 @@
         '<h3><a href="' + esc(activityUrl(a)) + '">' + esc(a.title) +
           '</a></h3>' +
         (gameMode(a) ? '<span class="game-mode-tag">' + esc(gameMode(a)) + '</span>' : '') +
+        (isUnitSpecificGame(a) ? '<span class="game-mode-tag">Unit Specific</span>' : '') +
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
           saveBtnHtml(a.path) + (/practice-test\.html#unit=([a-z0-9-]+)/i.test(a.path || '') ? '<button type="button" class="btn btn-ghost readiness-activity-share" data-readiness-unit="' + esc(/#unit=([a-z0-9-]+)/i.exec(a.path)[1]) + '">Copy student link</button>' : '') + '</div>' +
