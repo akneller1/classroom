@@ -36,6 +36,7 @@
 </main>
 <script src="data.js?v=coverage-1"></script><script src="course-catalog.js?v=shared-course-skills-20261030"></script>
 <script src="question-bank-adapter.js?v=resource-ready-1"></script><script src="coverage-report.js?v=1"></script>
+<script src="question-bank-loader.js?v=1"></script>
 <script>
 (function(){
 'use strict';
@@ -81,5 +82,6 @@ document.getElementById('csv').addEventListener('click',function(){
  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='mk-question-coverage.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
 });
 render();
+window.MK_BANK_LOADER.loadFromSite().then(render).catch(function(e){console.warn("Approved bank loading unavailable:",e.message);});
 })();
 </script></body></html>
