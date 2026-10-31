@@ -150,37 +150,31 @@ function renderArcadeMath(value){
  const raw=String(value==null?'':value);
  const escape=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
  const render=tex=>window.katex?katex.renderToString(tex,{throwOnError:false,trust:false,output:'html'}):escape(tex);
- // Banks contain both TeX-wrapped expressions and unwrapped LaTeX fragments.
- let remaining=raw,output='';
- const delimited=/\\\\\(([\\s\\S]*?)\\\\\)|\\\\\[([\\s\\S]*?)\\\\\]|⟨([^⟩]+)⟩/;
- while(remaining.length){
-  const m=delimited.exec(remaining);
-  if(!m)break;
-  output+=renderLooseMath(remaining.slice(0,m.index),escape,render);
-  output+=render(m[1]||m[2]||m[3]);
-  remaining=remaining.slice(m.index+m[0].length);
+ const delimiter=/\\\(([\s\S]*?)\\\)|\\\[([\s\S]*?)\\\]|⟨([^⟩]+)⟩/;
+ let out='',rest=raw,m;
+ while((m=delimiter.exec(rest))){
+  out+=renderLooseMath(rest.slice(0,m.index),escape,render);
+  out+=render(m[1]||m[2]||m[3]);
+  rest=rest.slice(m.index+m[0].length);
  }
- return output+renderLooseMath(remaining,escape,render);
+ return out+renderLooseMath(rest,escape,render);
 }
 function renderLooseMath(text,escape,render){
- // A bare TeX command may follow English instructions, e.g. "Solve \\frac{x}{3}+3=4."
- const command=/\\\\(?:d?frac|sqrt|left|right|cdot|times|leq|geq|neq|angle|overline|pi|theta|circ|text|sum|ge|le)\\b/;
- let out='',rest=String(text);
- while(rest.length){
-  const match=command.exec(rest);
-  if(!match){out+=window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(rest):escape(rest);break;}
-  const prefix=rest.slice(0,match.index);
-  out+=window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(prefix):escape(prefix);
-  const fragment=rest.slice(match.index);
-  const sentence=/(?:[.!?](?=\\s|$)|\\n)/.exec(fragment);
-  let math=sentence?fragment.slice(0,sentence.index):fragment;
-  // Remove unmatched stray closing punctuation from imported questions.
-  while(math.endsWith(')')&&(math.match(/\\(/g)||[]).length<(math.match(/\\)/g)||[]).length) math=math.slice(0,-1);
-  out+=render(math.trim());
-  rest=fragment.slice(math.length);
-  if(sentence&&rest.length===fragment.length)break;
+ const command=/\\(?:d?frac|sqrt|left|right|cdot|times|leq|geq|neq|angle|overline|pi|theta|circ|text|sum|ge|le)\b/;
+ let out='',rest=String(text),m;
+ while((m=command.exec(rest))){
+  out+=window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(rest.slice(0,m.index)):escape(rest.slice(0,m.index));
+  const fragment=rest.slice(m.index),end=/(?:[.!?](?=\s|$)|\n)/.exec(fragment);
+  let math=end?fragment.slice(0,end.index):fragment;
+  let trailing='';
+  while(math.endsWith(')')&&(math.match(/\(/g)||[]).length<(math.match(/\)/g)||[]).length){math=math.slice(0,-1);trailing=')'+trailing;}
+  out+=render(math.trim())+escape(trailing);
+  rest=fragment.slice((end?end.index:fragment.length));
+  if(!rest.length)break;
+  // Retain punctuation as prose, rather than repeatedly attempting to render it.
+  if(end){out+=escape(rest[0]);rest=rest.slice(1);}
  }
- return out;
+ return out+(window.MK_MATH_DISPLAY?MK_MATH_DISPLAY.html(rest):escape(rest));
 }
 function showBankQuestion(){
  const box=$('bankPrompt');
