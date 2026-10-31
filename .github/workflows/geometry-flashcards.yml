@@ -2,7 +2,14 @@ name: Geometry flashcard QA
 on:
   push:
     paths:
-      - 'worksheet-generator/**'
+      - 'worksheet-generator/menu/engine.js'
+      - 'worksheet-generator/menu/verify.js'
+      - 'worksheet-generator/menu/mathcheck.js'
+      - 'worksheet-generator/menu/skills/**'
+      - 'worksheet-generator/menu/geometry-*.js'
+      - 'worksheet-generator/menu/figures.js'
+      - 'worksheet-generator/games/bank.js'
+      - 'worksheet-generator/games/tests/geometry-flashcard-parity.cjs'
       - '.github/workflows/geometry-flashcards.yml'
   workflow_dispatch:
 jobs:
