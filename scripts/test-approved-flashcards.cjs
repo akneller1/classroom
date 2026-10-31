@@ -17,7 +17,13 @@ assert.ok(js.includes("el('afNeed').disabled=true") && js.includes("el('afGot').
 assert.ok(js.includes("if(S.flipped){\\n  text('p',q.prompt,card)".replace('\\n','\n')),'Answer side must preserve the question and diagram');
 assert.ok(!js.includes('innerHTML'),'Question content must render as text rather than injected HTML');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifest.json'),'utf8'));
-assert.deepEqual(manifest.banks,[],'No unreviewed content should be published');
+assert.equal(manifest.version,1);
+assert.ok(Array.isArray(manifest.banks));
+for(const item of manifest.banks){
+ assert.equal(item.approved,true,'Manifest entries must be explicitly approved');
+ assert.equal(item.path,'question-banks/'+item.courseId+'/'+item.unitId+'.json');
+ assert.ok(fs.existsSync(path.join(root,item.path)),'Approved bank file missing: '+item.path);
+}
 assert.ok(html.includes("['math6','prealgebra7','prealgebra']"),'Middle-school course detection required');
 for(const label of ['Remedial','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
 console.log('PASS approved flashcard player structure, gating and content rendering safeguards');
