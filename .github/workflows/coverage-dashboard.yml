@@ -1,0 +1,23 @@
+name: Question coverage dashboard
+on:
+  push:
+    paths:
+      - 'coverage-report.js'
+      - 'coverage.html'
+      - 'question-bank-adapter.js'
+      - 'course-catalog.js'
+      - 'data.js'
+      - 'scripts/test-coverage-report.cjs'
+      - '.github/workflows/coverage-dashboard.yml'
+  workflow_dispatch:
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test coverage calculations
+        run: node scripts/test-coverage-report.cjs
