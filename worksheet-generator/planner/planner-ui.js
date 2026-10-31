@@ -420,7 +420,7 @@
   /* ---------- page ---------- */
   function picker() {
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
-    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse"><option value="algebra1"' + (GEO ? '' : ' selected') + '>Algebra 1</option>' + (G.MKPLAN_SCOPE_GEOMETRY ? '<option value="geometry"' + (GEO ? ' selected' : '') + '>Geometry</option>' : '') + '<option value="algebra2">Algebra 2</option></select>';
+    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse"><option value="algebra1"' + (COURSE === 'algebra1' ? ' selected' : '') + '>Algebra 1</option>' + (G.MKPLAN_SCOPE_GEOMETRY ? '<option value="geometry"' + (GEO ? ' selected' : '') + '>Geometry</option>' : '') + '<option value="algebra2"' + (A2 ? ' selected' : '') + '>Algebra 2</option></select>';
     var sel = crs + '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
     var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
