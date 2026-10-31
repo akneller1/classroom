@@ -6547,6 +6547,81 @@ window.LIBRARY = {
           }
       ],
       "comingSoon": false
-  }
+  },
+{
+  "id": "prealgebra7",
+  "name": "Pre-Algebra (7th Grade)",
+  "color": "green",
+  "art": "curve",
+  "blurb": "Expressions, integers, fractions, proportions, functions, geometry, statistics, and polynomials.",
+  "units": [
+    {
+      "id": "algebraic-expressions-integers",
+      "name": "Algebraic Expressions and Integers",
+      "artifacts": []
+    },
+    {
+      "id": "one-step-equations-inequalities",
+      "name": "Solving One-Step Equations and Inequalities",
+      "artifacts": []
+    },
+    {
+      "id": "decimals-equations",
+      "name": "Decimals and Equations",
+      "artifacts": []
+    },
+    {
+      "id": "factors-fractions-exponents",
+      "name": "Factors, Fractions, and Exponents",
+      "artifacts": []
+    },
+    {
+      "id": "operations-fractions",
+      "name": "Operations with Fractions",
+      "artifacts": []
+    },
+    {
+      "id": "ratios-proportions-percentages",
+      "name": "Ratios, Proportions, and Percentages",
+      "artifacts": []
+    },
+    {
+      "id": "solving-equations-inequalities",
+      "name": "Solving Equations and Inequalities",
+      "artifacts": []
+    },
+    {
+      "id": "linear-functions-graphing",
+      "name": "Linear Functions and Graphing",
+      "artifacts": []
+    },
+    {
+      "id": "spatial-thinking",
+      "name": "Spatial Thinking",
+      "artifacts": []
+    },
+    {
+      "id": "area-volume",
+      "name": "Area and Volume",
+      "artifacts": []
+    },
+    {
+      "id": "right-triangles-algebra",
+      "name": "Right Triangles in Algebra",
+      "artifacts": []
+    },
+    {
+      "id": "data-analysis-probability",
+      "name": "Data Analysis and Probability",
+      "artifacts": []
+    },
+    {
+      "id": "nonlinear-functions-polynomials",
+      "name": "Nonlinear Functions and Polynomials",
+      "artifacts": []
+    }
+  ],
+  "comingSoon": false
+}
   ]
 };
