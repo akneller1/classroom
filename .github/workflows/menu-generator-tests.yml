@@ -35,11 +35,49 @@ jobs:
       - name: Geometry question-bank capacity audit (diagnostic)
         continue-on-error: true
         run: node worksheet-generator/menu/tests/geometry-capacity-audit.cjs
-      - name: Fast mathematics regression check
-        run: N=25 node worksheet-generator/menu/tests/math-tests.cjs
-      - name: Mathematics (independent verification, mutation and difficulty tests)
-        run: N=300 node worksheet-generator/menu/tests/math-tests.cjs
       - name: Verify select-all answer truth and MCAS bank coverage
         run: node worksheet-generator/menu/tests/select-all-mcas-tests.cjs
       - name: Verify all 12 original MCAS scenario families and wrong-answer rejection
         run: node worksheet-generator/menu/tests/mcas-context-tests.cjs
+
+  mathematics:
+    name: Mathematics (${{ matrix.unit }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        unit:
+          - algebra1-expressions-equations
+          - algebra1-foundations
+          - algebra1-inequalities
+          - algebra1-relations-functions
+          - algebra1-exponential-functions
+          - algebra1-factoring-zero-product
+          - algebra1-statistics-data-modeling
+          - algebra1-linear-equations-slope
+          - algebra1-systems-of-equations
+          - algebra1-exponents-scientific-notation
+          - algebra1-polynomials
+          - algebra1-quadratics
+          - geometry-basics-reasoning
+          - geometry-angles-parallel-lines
+          - geometry-triangle-relationships
+          - geometry-triangles-congruence
+          - geometry-quadrilaterals-polygons
+          - geometry-similarity
+          - geometry-right-triangles-trigonometry
+          - geometry-transformations
+          - geometry-circles
+          - geometry-area-surface-area-volume
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independent verification, mutation and difficulty tests
+        env:
+          UNIT: ${{ matrix.unit }}
+          N: '300'
+        run: node worksheet-generator/menu/tests/math-tests.cjs
