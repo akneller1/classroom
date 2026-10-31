@@ -583,10 +583,15 @@
         var target = m.targets.find(function (t) { return t && t.courseId === c.id && t.unitId === u.id; });
         var url = 'worksheet-generator/grade-practice.html?course=' + encodeURIComponent(c.id) +
           '&topic=' + encodeURIComponent(m.key) + '&level=cp1';
-        return '<li class="card"><strong>' + esc(target.name) + '</strong><p>' +
-          [['practice','Practice'],['flashcards','Flashcards'],['game','Review game'],['worksheet','Worksheet']].map(function(format){
-            return '<a style="display:inline-block;margin:.25rem .75rem .25rem 0" href="' + esc(url+'&mode='+format) + '">' + esc(format==='game'?'Review Game':format==='practice'?'Practice':format==='worksheet'?'Worksheet':'Flashcards') + '</a>';
-          }).join('') + '</p></li>';
+        var nativeBase='worksheet-generator/';
+        var links=[
+          {title:'Practice',href:url+'&mode=practice'},
+          {title:'Flashcards',href:nativeBase+'approved-flashcards.html?course='+encodeURIComponent(c.id)+'&unit='+encodeURIComponent(u.id)+'&skill='+encodeURIComponent(target.skillId)},
+          {title:'Connect 4 / Tic-Tac-Toe / Picture Reveal',href:nativeBase+'approved-games.html?course='+encodeURIComponent(c.id)+'&unit='+encodeURIComponent(u.id)+'&skill='+encodeURIComponent(target.skillId)},
+          {title:'Worksheet',href:url+'&mode=worksheet'}
+        ];
+        return '<li class="card"><strong>'+esc(target.name)+'</strong><p>'+
+          links.map(function(link){return '<a style="display:inline-block;margin:.25rem .75rem .25rem 0" href="'+esc(link.href)+'">'+esc(link.title)+'</a>'}).join('')+'</p></li>';
       }).join('') + '</ul></section>';
   }
   function unitView(c, u) {
