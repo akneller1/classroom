@@ -602,7 +602,7 @@
         '<p class="band-meta">' + skills.length + ' lessons · ' + esc(c.name) + ' curriculum</p>';
       return { title: unitLabel(c, u) + ', ' + c.name,
         html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
-          unitPager(c, u) + gradePracticeLinks(c, u) + contentBriefSection(c, u) + contentReadinessSection(c, u) +
+          unitPager(c, u) + gradePracticeLinks(c, u) + contentBriefSection(c, u) +
           '<section class="algebra-unit-section"><h2>More resources in development</h2>' +
           '<p>Additional worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
           unitPager(c, u) + '</div></section>' };
