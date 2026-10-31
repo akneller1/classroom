@@ -582,11 +582,11 @@
     var practice = base + 'grade-practice.html?course=' + encodeURIComponent(c.id) + '&topic=' + encodeURIComponent(first) + '&level=cp1';
     var games = [
       {title:'Connect 4, Tic-Tac-Toe & Picture Reveal',path:base+'approved-games.html'+common,
-       thumb:'thumbs/expressions-equations-connect-four.jpg',type:'Game',description:'Choose a game, difficulty, and lesson skill. Answer questions to claim squares or reveal a picture.'}
+       thumb:'thumbs/foundations-algebra-connect-four.jpg',type:'Game',description:'Choose a game, difficulty, and lesson skill. Answer questions to claim squares or reveal a picture.'}
     ];
     var guides = [
       {title:'Flashcards',path:base+'approved-flashcards.html'+common,
-       thumb:'thumbs/expressions-equations-flashcards.jpg',type:'Study Guide',description:'Review generated questions, flip cards, shuffle, and practice missed answers.'},
+       thumb:'thumbs/foundations-algebra-flashcards.jpg',type:'Study Guide',description:'Review generated questions, flip cards, shuffle, and practice missed answers.'},
       {title:'Interactive Practice',path:practice+'&mode=practice',
        thumb:'thumbs/practice-test.svg',type:'Study Guide',description:'Answer questions online with immediate feedback. Select a lesson topic and difficulty.'}
     ];
