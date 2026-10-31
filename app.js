@@ -260,7 +260,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(a.path || '') ? a.path : 'activity.html?path=' + encodeURIComponent(a.path); }
+  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
