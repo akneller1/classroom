@@ -288,7 +288,74 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
  c.font='bold 37px system-ui';c.fillText(motionFX&&!motionFX.success?'💥':'⚡',110+(turn+(motionFX&&motionFX.success?t:0))*115,303-35*Math.sin(t*4));
  c.font='bold 20px system-ui';c.fillStyle='#fff';c.fillText('Activate each portal with a correct function-bank answer',W/2,545);
 }
- if(key==='catapult'){const f=x=>x*(q.r2-x);c.fillStyle='#6f9950';c.fillRect(0,py(0),W,H/2);c.fillStyle='#b3bac9';let xCastle=px(q.castleX),damage=Math.min(6,hits);for(let j=0;j<6-damage;j++){c.fillStyle=j%2?'#9c9dad':'#bdc0c9';c.fillRect(xCastle-32,py(2)-j*57,64,55)}c.fillStyle='#c9bca2';c.fillRect(px(-1)-45,py(0)-30,78,26);c.fillText('⚔',px(-1),py(1));c.fillStyle='#fff';c.font='bold 21px system-ui';c.fillText('🏰 CASTLE CATAPULT · '+hits+'/6',W/2,42);if(locked){line(f,history.at(-1).success?'#82ffc1':'#ffc86e',0,Math.min(q.r2,13));}if(shotFX){const progress=Math.min(1,(performance.now()-shotFX.start)/1500),x=Math.min(q.r2,12)*progress,y=f(x);circle(x,y,12,'#ffd56f');if(progress>.8&&shotFX.success){c.font='bold 28px system-ui';c.fillStyle='#ffd36c';c.fillText('💥',xCastle,py(8));}}}
+
+ if(key==='catapult'){
+  // A labeled side-view battlefield: independent screen projection (not the algebra graph).
+  const ground=510,launchX=125,castleX=655,scaleX=(castleX-launchX)/8,scaleY=7.8;
+  const sx=x=>launchX+x*scaleX,sy=y=>ground-y*scaleY;
+  const trajectory=x=>x*(q.r2-x);
+  c.save();
+  const sky=c.createLinearGradient(0,0,0,ground);
+  sky.addColorStop(0,'#15395e');sky.addColorStop(.75,'#436b83');sky.addColorStop(1,'#b3a982');
+  c.fillStyle=sky;c.fillRect(0,0,W,ground);
+  // distant mountain silhouettes
+  c.fillStyle='#2f5664';c.beginPath();c.moveTo(0,430);
+  [[70,330],[150,410],[260,310],[365,410],[460,345],[560,418],[690,325],[840,400]].forEach(v=>c.lineTo(v[0],v[1]));
+  c.lineTo(840,ground);c.lineTo(0,ground);c.fill();
+  c.fillStyle='#42704c';c.fillRect(0,ground,W,H-ground);
+  c.fillStyle='#36593e';c.fillRect(0,ground+44,W,H-ground-44);
+  c.fillStyle='#e3e8df';c.font='bold 28px system-ui';c.textAlign='center';
+  c.fillText('CASTLE CATAPULT',W/2,40);
+  c.font='bold 16px system-ui';c.fillText('SHOT '+(turn+1)+' OF 10   •   CASTLE HITS '+hits+'/6',W/2,66);
+  // Separate the launch apparatus from the castle so their silhouettes are readable.
+  c.fillStyle='#61412e';c.fillRect(65,480,145,15);
+  c.strokeStyle='#b88c4f';c.lineWidth=11;c.lineCap='round';
+  c.beginPath();c.moveTo(87,479);c.lineTo(142,405);c.lineTo(184,480);c.stroke();
+  c.beginPath();c.moveTo(142,405);c.lineTo(95,366);c.stroke();
+  c.fillStyle='#332d2b';for(const x of [91,181]){c.beginPath();c.arc(x,495,20,0,Math.PI*2);c.fill();c.fillStyle='#be9460';c.beginPath();c.arc(x,495,9,0,Math.PI*2);c.fill();c.fillStyle='#332d2b';}
+  c.fillStyle='#eaf7ff';c.font='bold 17px system-ui';c.fillText('CATAPULT',138,552);
+  // Stone fortress with individual brick courses and visible damage.
+  const remaining=Math.max(0,6-hits),fortX=620,fortW=164,fortTop=198;
+  if(remaining){
+   c.fillStyle='#333b48';c.fillRect(fortX+8,fortTop-14,fortW-16,ground-fortTop+14);
+   c.fillStyle='#9ba8b6';c.fillRect(fortX,fortTop,fortW,ground-fortTop);
+   c.strokeStyle='#626f7f';c.lineWidth=2;
+   for(let y=fortTop+30;y<ground;y+=31){c.beginPath();c.moveTo(fortX,y);c.lineTo(fortX+fortW,y);c.stroke();for(let x=fortX+((Math.floor(y/31)%2)*24);x<fortX+fortW;x+=49){c.beginPath();c.moveTo(x,y-31);c.lineTo(x,y);c.stroke();}}
+   for(let x=fortX;x<fortX+fortW;x+=40){c.fillStyle='#cad1d9';c.fillRect(x,fortTop-22,29,29);}
+   c.fillStyle='#343f56';c.beginPath();c.arc(castleX+46,ground,22,Math.PI,0);c.lineTo(castleX+68,ground);c.lineTo(castleX+24,ground);c.fill();
+   c.strokeStyle='#efe7b4';c.lineWidth=4;c.beginPath();c.moveTo(castleX,fortTop-20);c.lineTo(castleX,fortTop-68);c.stroke();
+   c.fillStyle='#f4b647';c.beginPath();c.moveTo(castleX,fortTop-67);c.lineTo(castleX+51,fortTop-54);c.lineTo(castleX,fortTop-43);c.fill();
+   // Six visibly destructible wall sections, removed from the top as hits accumulate.
+   if(hits>0){c.fillStyle='#354b50';c.fillRect(fortX+34,fortTop,96,Math.min(290,hits*47));for(let i=0;i<hits;i++){c.fillStyle=i%2?'#74808d':'#596777';c.fillRect(fortX+39+(i%3)*26,fortTop+13+i*43,24,13);}}
+  }else{
+   c.fillStyle='#7d8996';for(let i=0;i<17;i++){const x=610+(i*37)%184,y=ground-16-(i%4)*15;c.save();c.translate(x,y);c.rotate((i%5)*.3);c.fillRect(-18,-8,34,16);c.restore();}
+   c.font='bold 30px system-ui';c.fillStyle='#ffe09b';c.fillText('CASTLE DESTROYED!',W/2,120);
+  }
+  c.fillStyle='#eaf7ff';c.font='bold 17px system-ui';c.fillText('ENEMY CASTLE',castleX+12,565);
+  c.fillStyle='#fff3bb';c.font='bold 15px system-ui';c.fillText('TARGET x = '+q.castleX,castleX+12,587);
+  if(locked){
+   const good=history.at(-1)?.success;
+   const endX=good?Math.min(q.r2,8):Math.min(q.r2,10);
+   c.save();c.strokeStyle=good?'#eaffc4':'#ffd19a';c.lineWidth=4;c.setLineDash([10,6]);c.beginPath();
+   for(let i=0;i<=90;i++){const x=endX*i/90,y=trajectory(x);if(i)c.lineTo(sx(x),sy(y));else c.moveTo(sx(x),sy(y));}
+   c.stroke();c.setLineDash([]);c.restore();
+   if(shotFX){
+    const t=Math.min(1,(performance.now()-shotFX.start)/1500),x=endX*t,y=trajectory(x);
+    c.fillStyle='#2c303c';c.beginPath();c.arc(sx(x),sy(y),14,0,Math.PI*2);c.fill();
+    c.strokeStyle='#ffe9b1';c.lineWidth=3;c.stroke();
+    if(t>.89&&good){c.fillStyle='#ffc860';c.font='bold 56px system-ui';c.fillText('✦',castleX,sy(trajectory(8))-25);}
+   }
+  }else{
+   c.fillStyle='#f6e8b7';c.font='bold 16px system-ui';
+   c.fillText('Calculate all five values, then launch!',W/2,118);
+  }
+  // Distinct legend helps students identify game objects.
+  c.fillStyle='#112d3e';c.fillRect(236,ground+18,367,63);
+  c.fillStyle='#fff';c.font='bold 15px system-ui';c.fillText('Wooden launcher     •     Stone castle',420,ground+42);
+  c.font='14px system-ui';c.fillText('Dashed line = path after firing',420,ground+66);
+  c.restore();
+ }
+
  if(locked&&key!=='catapult'){
   // Keep feedback on its own high-contrast plate, clear of the grid axis labels.
   const won=history.at(-1).success, caption=won?'✓ SUCCESS':'✕ TRY NEXT ROUND';
