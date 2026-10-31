@@ -66,3 +66,8 @@ Run `node scripts/test-question-bank-loader.cjs` to validate manifest safeguards
 This intentionally does not replace `worksheet-generator/games/games.js` or its existing verified generation/diagram logic. Future question banks may provide diagrams, but the new text-only player does **not yet support figure rendering**: do not approve diagram-dependent questions for this player until diagram rendering and regression tests are added. No current approved question files are published.
 
 Run `node scripts/test-approved-flashcards.cjs` for the current structural regression test. A passing structural test does not replace browser interaction tests or mathematical review.
+
+## Shared approved question preparation for review games
+`approved-game-items.js` exports `MK_APPROVED_GAME_ITEMS.prepare({game,courseId,unitId,level,skillIds})`. Supported game identifiers are `connect-4`, `tic-tac-toe`, and `picture-reveal`. It selects independently approved questions from the shared adapter and returns neutral game items with prompt, answer, possible multiple-choice options, and solution steps.
+
+**Limitations:** This is an adapter, not a rewrite of the existing game engines or a live playable replacement. Diagram-dependent questions are deliberately excluded until their specific games can display them and handle image failures. No approved question banks have been published yet. Run `node scripts/test-approved-game-items.cjs` to test bank gating, course and level isolation, and safe exclusions.
