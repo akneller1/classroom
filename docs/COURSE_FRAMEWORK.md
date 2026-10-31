@@ -59,3 +59,10 @@ The website and teacher coverage dashboard now load `question-banks/manifest.jso
 The JSON file itself must match `schemas/question-bank.schema.json` and the shared catalog IDs. Only entries explicitly marked `approved:true` are fetched, checked and registered with the verified adapter; unapproved entries are never fetched by the loader. Editorial reviewers must not flip the flag until answers, mathematical rigor, diagrams and difficulty have been independently verified. Changes to the file after approval require re-review.
 
 Run `node scripts/test-question-bank-loader.cjs` to validate manifest safeguards. This loads banks into the shared adapter for eligibility/coverage reporting. **It does not yet replace existing game or generator engines**, and the manifest is empty until approved new questions are supplied.
+
+## Shared approved-bank flashcards
+`worksheet-generator/approved-flashcards.html?course=algebra2&unit=conic-sections` is the new standalone approved-bank flashcard player. It reads approved manifests and offers CP2/CP1/Honors, skill filtering, flip, worked solutions, shuffle and self-ratings. The new course readiness interface links to it only if an approved, compatible bank is available.
+
+This intentionally does not replace `worksheet-generator/games/games.js` or its existing verified generation/diagram logic. Future question banks may provide diagrams, but the new text-only player does **not yet support figure rendering**: do not approve diagram-dependent questions for this player until diagram rendering and regression tests are added. No current approved question files are published.
+
+Run `node scripts/test-approved-flashcards.cjs` for the current structural regression test. A passing structural test does not replace browser interaction tests or mathematical review.
