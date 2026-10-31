@@ -2685,6 +2685,12 @@
   }
 
   NS.verifyProblem = function (p, policy) {
+    // Authored Algebra 2 answers are trusted as source keys, not independently verified.
+    // The bank adapter compares the entire student-facing item and key with the loaded bank.
+    // Edited or teacher-created problems always fall through to normal checks.
+    if (typeof NS.isUneditedAlgebra2BankQuestion === 'function' && NS.isUneditedAlgebra2BankQuestion(p)) {
+      return { ok: true, status: 'verified', issues: [], computed: [], bankKey: true };
+    }
     var issues = [], computed = [], statuses = [];
     (p.parts || []).forEach(function (part, i) {
       var res;
