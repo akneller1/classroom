@@ -16,6 +16,6 @@ entries.forEach(function(e){
  unit.artifacts=unit.artifacts||[];
  var path='artifacts/math-arcade/index.html?game='+e[2];
  if(unit.artifacts.some(function(a){return a.path===path}))return;
- unit.artifacts.push({title:e[3],path:path,type:'Game',bankFormat:'topic-games',description:e[4],topics:[e[1].replace(/-/g,' '),'Interactive math game'],added:'2026-10-31'});
+ unit.artifacts.push({title:e[3],path:path,thumb:'thumbs/arcade-'+e[2]+'.svg',type:'Game',bankFormat:'topic-games',description:e[4],topics:[e[1].replace(/-/g,' '),'Interactive math game'],added:'2026-10-31'});
 });
 })(window);
