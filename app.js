@@ -154,9 +154,9 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
-    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards', 'interactive-practice-test'] },
+    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'printable-generator', 'assessment-generator'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'topic-games'] },
+    { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
@@ -615,6 +615,10 @@
     }
     function category(id, title, formats) {
       var matches = items.filter(function (it) { return formats.indexOf(activityFormat(it.a)) >= 0; });
+      // Stable, course-independent order. Keep multiple resources of one type in their original order.
+      matches = matches.map(function (it, index) { return { item: it, index: index }; }).sort(function (a, b) {
+        return formats.indexOf(activityFormat(a.item.a)) - formats.indexOf(activityFormat(b.item.a)) || a.index - b.index;
+      }).map(function (entry) { return entry.item; });
       // Include the practice test deterministically in each supported Algebra 1 unit.
       // Use the same card renderer and thumbnail as the other study guides.
       if (id === 'study-guides') {
