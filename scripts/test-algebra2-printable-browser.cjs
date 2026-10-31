@@ -2,10 +2,12 @@
 'use strict';
 const assert=require('node:assert/strict');
 const {chromium}=require('playwright');
+const fs=require('node:fs');
 (async()=>{
  const browser=await chromium.launch({headless:true});
+ const page=await browser.newPage();
+ fs.mkdirSync('test-results',{recursive:true});
  try{
-  const page=await browser.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   const base=process.env.MK_BASE_URL||'http://127.0.0.1:8765';
   await page.goto(base+'/worksheet-generator/bank-printable.html?unit=functions-transformations');
@@ -53,6 +55,7 @@ const {chromium}=require('playwright');
   assert.equal(await teacherSections.first().evaluate(el=>getComputedStyle(el).display)!=='none',true);
   assert.match(await teacherSections.first().evaluate(el=>getComputedStyle(el).breakBefore),/page|auto/);
   const pdf=await page.pdf({format:'Letter',printBackground:true});
+  fs.writeFileSync('test-results/algebra2-print-preview.pdf',pdf);
   assert.ok(pdf.length>1000,'Printed PDF must contain pages');
   await page.emulateMedia({media:'screen'});
   await page.locator('#key').uncheck();
@@ -61,5 +64,11 @@ const {chromium}=require('playwright');
   assert.equal(await page.locator('#output .sheet.key').count(),1);
   assert.deepEqual(errors,[]);
   console.log('PASS Algebra 2 generator browser: sections, duplication, ordering, versions, edits, reset, keys');
+ }catch(error){
+  console.error('Generator browser test failed:',error);
+  console.error('Page:',page.url());
+  console.error('Status:',await page.locator('#status').textContent().catch(()=>'(missing)'));
+  await page.screenshot({path:'test-results/algebra2-failure.png',fullPage:true}).catch(()=>{});
+  throw error;
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
