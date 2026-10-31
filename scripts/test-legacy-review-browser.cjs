@@ -32,22 +32,13 @@ const assert=require('node:assert/strict');
   assert.equal(data.approved,false);
   assert.equal(data.results[0].review.status,'revise');
   assert.equal(data.results[0].review.note,'Check grade-level arithmetic.');
-  await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/grade-practice.html');
-  await page.locator('#course').selectOption('prealgebra7');
-  await page.locator('#topic').selectOption('evaluating-expressions');
-  await page.locator('#generate').click();
-  assert.match(await page.locator('#status').innerText(),/draft questions generated/);
-  assert.ok(await page.locator('#practice button').count()>1);
-  await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/grade-practice.html?course=prealgebra7&topic=evaluating-expressions&level=honors');
-  assert.equal(await page.locator('#course').inputValue(),'prealgebra7');
-  assert.equal(await page.locator('#topic').inputValue(),'evaluating-expressions');
-  assert.equal(await page.locator('#level').inputValue(),'honors');
-  await page.locator('#mode').selectOption('flashcards');
-  assert.match(await page.locator('#practice').innerText(),/Flashcard/);
-  await page.locator('#mode').selectOption('worksheet');
-  assert.match(await page.locator('#practice').innerText(),/Teacher answer key/);
-  await page.locator('#mode').selectOption('game');
-  assert.match(await page.locator('#practice').innerText(),/Question/);
+  // Middle-school public entry points intentionally redirect while unpublished.
+  // Exercise the redirect, preserving the source files for future restoration.
+  for (const entry of ['grade-practice.html','middle-school-game.html']) {
+    await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/'+entry);
+    await page.waitForURL('**/index.html');
+    assert.equal(await page.locator('#nav a[href*="prealgebra7"]').count(),0);
+  }
   const coursePage=(process.env.MK_BASE_URL||'http://127.0.0.1:8765');
   // Grades 6–8 are deliberately unpublished. Verify they stay hidden in navigation
   // while their existing direct-access resources remain intact for future restoration.
