@@ -26,7 +26,7 @@ GB.hasGameItems=function(id,skill){return isBank(id)?pool(id,skill,4,{level:'cp1
 function item(q,id,c){return {id:q.id,sourceId:q.id,p:problem(q,id,c),k:0,skill:q.skillId,skillName:NS.skillSets[id].byId[q.skillId].name,tag:q.skillId,tagName:NS.skillSets[id].byId[q.skillId].name,c,q:{prompt:q.prompt,fig:figure(q),ask:(q.format==='select-all'?'Select all that apply.\n':'')+(q.parts||[]).map((p,i)=>'('+String.fromCharCode(97+i)+') '+p.prompt).join('\n')},answer:text(q.answer),steps:q.solutionSteps.map(t=>({t})),options:(q.options||[]).map(o=>({a:o.text,ok:o.correct===true})),typed:null}}
 GB.makeItems=function(id,skill,c,policy,seed,used){
  if(!isBank(id))return makeItems.apply(this,arguments);
- const q=choose(pool(id,skill,c,policy),seed,used);if(!q)return [];
+ const q=choose(pool(id,skill,c,policy,policy?.authoredFormats),seed,used);if(!q)return [];
  used?.keys?.add(q.id);return [item(q,id,c)];
 };
 // Keep each selected difficulty exact. Native procedural decks otherwise retry
