@@ -3,11 +3,12 @@
 'use strict';
 var N=G.MKMENU, W=G.MKWS, root=document.getElementById('practice'), STORE='mk-readiness-auto-v3';
 var state=null,config={unit:'algebra1-expressions-equations',level:'cp1',count:10,mode:'test',format:'mixed',minutes:0,skills:[]};
+var STORE_PREFIX=STORE+':';
 var esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 var fmt=s=>N.mathSafe(String(s||''));
 var levels={cp2:2,cp1:4,honors:6};
-function save(){try{localStorage.setItem(STORE,JSON.stringify({state:state,config:config}));}catch(e){}if(state&&!state.done)updateProgress();}
-function read(){try{var d=JSON.parse(localStorage.getItem(STORE)||'null');if(d&&d.config){config=d.config;state=d.state||null;}}catch(e){}}
+function save(){try{localStorage.setItem(STORE_PREFIX+config.unit,JSON.stringify({state:state,config:config}));}catch(e){}if(state&&!state.done)updateProgress();}
+function read(){try{var routeUnit=new URLSearchParams((G.location.hash||'').replace(/^#/,'' )).get('unit'),raw=routeUnit?localStorage.getItem(STORE_PREFIX+routeUnit):null,d=raw?JSON.parse(raw):null;if(!d){d=JSON.parse(localStorage.getItem(STORE)||'null');if(routeUnit&&d&&d.config&&d.config.unit!==routeUnit)d=null;}if(d&&d.config){config=d.config;state=d.state||null;}}catch(e){}}
 function courseForUnit(unit){return N.CATALOG.filter(function(group){return group.units.some(function(u){return u[0]===unit;});})[0]||N.CATALOG[0];}
 function units(){var group=courseForUnit(config.unit);return group.units.filter(function(u){return N.skillSets[u[0]];});}
 function chosen(){return N.skillSets[config.unit];}
@@ -326,8 +327,16 @@ function results(){var qs=state.questions,graded=qs.filter(q=>q.correct!==null),
  root.querySelector('#pt-retry').onclick=()=>build();root.querySelector('#pt-print').onclick=()=>{root.querySelectorAll('details.pt-review').forEach(d=>d.open=true);print();};root.querySelector('#pt-new').onclick=()=>{state=null;save();setup();};
  root.querySelectorAll('[data-self]').forEach(b=>b.onclick=()=>{qs[+b.dataset.self].correct=b.dataset.val==='yes';save();results();});
 }
-read();var params=new URLSearchParams((G.location.hash||'').replace(/^#/,''));var student=params.get('student')==='1';if(params.get('setup')==='1')state=null;if(student&&N.skillSets[params.get('unit')]){config.unit=params.get('unit');config.level=['cp2','cp1','honors'].includes(params.get('level'))?params.get('level'):'cp1';config.count=[5,10,15,20,25].includes(+params.get('count'))?+params.get('count'):10;config.format=['mixed','mc','self'].includes(params.get('format'))?params.get('format'):'mixed';config.minutes=[0,20,30,45].includes(+params.get('minutes'))?+params.get('minutes'):0;config.skills=(params.get('skills')||'').split(',').filter(id=>N.skillSets[config.unit].byId[id]);if(!config.skills.length)config.skills=N.skillSets[config.unit].skills.map(x=>x.id);state=null;}config.mode='test';if(state&&!state.done){state.mode='test';save();}var requested=/unit=([a-z0-9-]+)/.exec(G.location.hash||'');if(requested&&N.skillSets[requested[1]]&&(!state||state.done)){config.unit=requested[1];config.skills=N.skillSets[config.unit].skills.map(s=>s.id);state=null;}
-if(!N.skillSets[config.unit])config.unit=units()[0][0];
-if(state&&!state.done){root.innerHTML='<section class="pt-card"><h1>Continue your practice test?</h1><p>Your previous assessment is saved in this browser.</p><div class="pt-actions"><button id="resume">Resume test</button><button id="fresh" class="pt-secondary">Start fresh</button></div>'+shareControls()+'</section>';bindShare();root.querySelector('#resume').onclick=show;root.querySelector('#fresh').onclick=()=>{state=null;save();setup();};}
-else if(state&&state.done)results();else setup();
+function startPractice(){
+ read();var params=new URLSearchParams((G.location.hash||'').replace(/^#/,'')),student=params.get('student')==='1',requested=/unit=([a-z0-9-]+)/.exec(G.location.hash||'');
+ if(params.get('setup')==='1')state=null;
+ if(requested&&requested[1].indexOf('algebra2-')===0&&!N.skillSets[requested[1]]){root.innerHTML='<section class="pt-card"><h1>Algebra 2 questions are unavailable</h1><p>The approved Algebra 2 bank did not finish loading. Refresh this page to try again.</p></section>';return;}
+ if(student&&N.skillSets[params.get('unit')]){config.unit=params.get('unit');config.level=['cp2','cp1','honors'].includes(params.get('level'))?params.get('level'):'cp1';config.count=[5,10,15,20,25].includes(+params.get('count'))?+params.get('count'):10;config.format=['mixed','mc','self'].includes(params.get('format'))?params.get('format'):'mixed';config.minutes=[0,20,30,45].includes(+params.get('minutes'))?+params.get('minutes'):0;config.skills=(params.get('skills')||'').split(',').filter(function(id){return N.skillSets[config.unit].byId[id];});if(!config.skills.length)config.skills=N.skillSets[config.unit].skills.map(function(x){return x.id;});state=null;}
+ config.mode='test';if(state&&!state.done){state.mode='test';save();}
+ if(requested&&N.skillSets[requested[1]]&&(!state||state.done)){config.unit=requested[1];config.skills=N.skillSets[config.unit].skills.map(function(skill){return skill.id;});state=null;}
+ if(!N.skillSets[config.unit])config.unit=units()[0][0];
+ if(state&&!state.done){root.innerHTML='<section class="pt-card"><h1>Continue your practice test?</h1><p>Your previous assessment is saved in this browser.</p><div class="pt-actions"><button id="resume">Resume test</button><button id="fresh" class="pt-secondary">Start fresh</button></div>'+shareControls()+'</section>';bindShare();root.querySelector('#resume').onclick=show;root.querySelector('#fresh').onclick=function(){state=null;save();setup();};}
+ else if(state&&state.done)results();else setup();
+}
+if(G.MK_COURSE_BANKS_READY)G.MK_COURSE_BANKS_READY.then(startPractice,startPractice);else startPractice();
 })(window);
