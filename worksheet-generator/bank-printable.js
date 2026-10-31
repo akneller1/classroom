@@ -79,6 +79,49 @@ $('addSection').addEventListener('click',()=>{sections.push(newSection($('sectio
 $('resetSections').addEventListener('click',resetSections);
 
 const LAYOUT_KEY='mk-algebra2-section-layout-v1';
+function snapshotLayout(){
+ return {schema:1,unitId:unitSelect.value,sections:sections.map(x=>({...x,skillIds:x.skillIds.slice()})),
+ level:$('level').value,format:$('format').value,count:$('count').value,versions:$('versions').value,
+ heading:$('customTitle').value,selectedSkills:sectionSkills()};
+}
+function applyLayout(saved){
+ if(!saved||saved.schema!==1||!Array.isArray(saved.sections)||saved.sections.length>40||
+    !units.some(u=>u.id===saved.unitId))throw Error('Invalid Algebra 2 layout');
+ const records=catalog.getSkillRecords('algebra2',saved.unitId),valid=new Set(records.map(x=>x.id));
+ const clean=saved.sections.map(x=>{
+  if(!x||typeof x.title!=='string'||x.title.length>120||typeof x.note!=='string'||x.note.length>5000||
+     !Number.isFinite(Number(x.count)))throw Error('Invalid section configuration');
+  return {id:'s'+(++sectionCounter),type:String(x.type||x.title).slice(0,120),title:x.title,
+   count:Math.max(0,Math.min(60,Number(x.count))),enabled:x.enabled!==false,note:x.note,
+   skillIds:Array.isArray(x.skillIds)?x.skillIds.filter(id=>valid.has(id)):[ ]};
+ });
+ if(!clean.length)throw Error('Layout has no sections');
+ unitSelect.value=saved.unitId;skills();
+ const chosen=new Set(Array.isArray(saved.selectedSkills)?saved.selectedSkills:records.map(x=>x.id));
+ doc.querySelectorAll('#skills input').forEach(x=>x.checked=chosen.has(x.value));
+ sections=clean;
+ $('level').value=['cp2','cp1','honors'].includes(saved.level)?saved.level:'cp1';
+ $('format').value=['all','short-answer','multiple-choice','select-all','open-response'].includes(saved.format)?saved.format:'all';
+ $('count').value=Math.max(1,Math.min(60,Number(saved.count)||12));
+ $('versions').value=Math.max(1,Math.min(4,Number(saved.versions)||1));
+ $('customTitle').value=String(saved.heading||'').slice(0,150);
+ versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;
+ renderSections();status.textContent='Configuration loaded. Generate a fresh preview.';
+}
+$('exportLayout').addEventListener('click',()=>{
+ const blob=new Blob([JSON.stringify(snapshotLayout(),null,2)],{type:'application/json'});
+ const url=URL.createObjectURL(blob),a=doc.createElement('a');
+ a.href=url;a.download='algebra2-'+unitSelect.value+'-layout.json';a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+$('importLayout').addEventListener('click',()=>$('importFile').click());
+$('importFile').addEventListener('change',async()=>{
+ const file=$('importFile').files[0];if(!file)return;
+ try{if(file.size>100000)throw Error('Configuration exceeds 100 KB');
+  applyLayout(JSON.parse(await file.text()));
+ }catch(e){status.textContent='Could not import configuration: '+e.message}
+ $('importFile').value='';
+});
 $('saveLayout').addEventListener('click',()=>{
  const config={schema:1,unitId:unitSelect.value,sections:sections.map(x=>({...x,skillIds:x.skillIds.slice()})),
   level:$('level').value,format:$('format').value,count:$('count').value,versions:$('versions').value,heading:$('customTitle').value,
