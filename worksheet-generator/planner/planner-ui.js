@@ -205,7 +205,7 @@
 
   /* ---------- problem pieces ---------- */
   function promptHtml(p) {
-    if (p.failed) return '<div class="pl-missing">No verified problem for this slot (' + esc(p.reason || '') + '). Click “New problem” or write your own.</div>';
+    if (p.failed) return '<div class="pl-missing">No ' + (A2 ? 'approved bank question' : 'verified problem') + ' for this slot (' + esc(p.reason || '') + '). Click “New problem” or write your own.</div>';
     var h = '<div class="pl-q">' + ms(p.prompt || '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + ms('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig) h += NS.figHtml(p.fig);
@@ -440,7 +440,7 @@
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
-      '<p class="hint">Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.</p>';
+      '<p class="hint">' + (A2 ? 'Questions use approved Algebra 2 bank content; review the supplied answers and worked steps before printing.' : 'Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.') + '</p>';
   }
   function render() {
     var d = P.day(ui.day);
@@ -454,7 +454,7 @@
     $('#plHead').innerHTML = '<div class="pl-nav"><button type="button" class="btn ghost sm" id="plPrev"' + (prev ? '' : ' disabled') + '>← Day ' + (ui.day - 1) + '</button>' +
       '<div class="pl-htitle"><div class="pl-kicker">' + (A2 ? 'Unit ' + d.unit + ' · ' + esc(d.unit_title) + ' · ' + esc(d.unit_day) : 'Day ' + d.day + ' · Quarter ' + d.quarter + ' · Week ' + d.week + (d.unit ? ' · Unit ' + d.unit + ', day ' + esc(d.unit_day) : ' · ' + esc(d.unit_title))) + '</div><h1>' + esc(d.title) + ' <span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span></h1>' +
       (ui.plan.selectedLessonTitles.length > 1 ? '<p class="pl-hint">Combined lessons: ' + ui.plan.selectedLessonTitles.map(esc).join(' · ') + '</p>' : '') +
-      '<div class="pl-stat">' + sum.problems + ' problems' + (sum.failed ? ' · <b class="bad">' + sum.failed + ' need a new problem</b>' : sum.problems ? ' · all answers checked' : '') + '</div></div>' +
+      '<div class="pl-stat">' + sum.problems + ' problems' + (sum.failed ? ' · <b class="bad">' + sum.failed + ' need a new problem</b>' : sum.problems ? (A2 ? ' · approved bank questions' : ' · all answers checked') : '') + '</div></div>' +
       '<button type="button" class="btn ghost sm" id="plNext"' + (next ? '' : ' disabled') + '>Day ' + (ui.day + 1) + ' →</button></div>' +
       '<div class="pl-tabs" role="tablist">' + [['plan', 'Plan'], ['student', 'Student handout'], ['key', 'Teacher key']].map(function (t) { return '<button type="button" role="tab" class="tab" data-view="' + t[0] + '" aria-selected="' + (ui.view === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
     renderView();
