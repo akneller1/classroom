@@ -5,6 +5,7 @@ on:
       - 'worksheet-generator/bank-printable.html'
       - 'worksheet-generator/bank-printable.js'
       - 'scripts/test-algebra2-printable-sections.cjs'
+      - 'scripts/test-algebra2-printable-browser.cjs'
       - '.github/workflows/algebra2-printable-sections.yml'
   workflow_dispatch:
 jobs:
@@ -16,3 +17,8 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/test-algebra2-printable-sections.cjs
+      - run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - name: Start local site
+        run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/algebra2-http.log 2>&1 &
+      - run: node scripts/test-algebra2-printable-browser.cjs
