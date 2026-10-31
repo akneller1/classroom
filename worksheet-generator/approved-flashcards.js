@@ -28,7 +28,7 @@ function diagram(q,card){
  if(src){
   var figure=doc.createElement('figure'),im=doc.createElement('img');
   im.src=src;im.alt=q.diagram.spec.alt;im.loading='lazy';
-  im.addEventListener('error',function(){figure.replaceChildren();text('p','Diagram image unavailable. Do not use this question until the asset is repaired.',figure);el('afFlip').disabled=true;el('afNeed').disabled=true;el('afGot').disabled=true;});
+  im.addEventListener('error',function(){if(!figure.isConnected)return;figure.replaceChildren();text('p','Diagram image unavailable. Do not use this question until the asset is repaired.',figure);el('afFlip').disabled=true;el('afNeed').disabled=true;el('afGot').disabled=true;});
   figure.appendChild(im);if(q.diagram.spec.caption)text('figcaption',q.diagram.spec.caption,figure);
   card.appendChild(figure);
  }return true;
