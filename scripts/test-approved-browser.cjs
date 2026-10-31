@@ -29,10 +29,12 @@ async function run(){
   await page.locator('#agOptions button').first().click();
   await page.locator('#agReveal').click();
   assert.equal(await page.locator('.ag-cell[data-owner="1"]').count(),1,'Correct MC should claim first square');
+  assert.match(await page.locator('#agScore').innerText(),/Questions: 1 · Correct: 1/);
   await page.locator('.ag-cell').nth(1).click();
   await page.locator('#agReveal').click();
   await page.locator('#agWrong').click();
   assert.match(await page.locator('#agTurn').innerText(),/Incorrect/);
+  assert.match(await page.locator('#agScore').innerText(),/Questions: 2 · Correct: 1/);
   await page.locator('#agGame').selectOption('connect-4');
   assert.equal(await page.locator('.ag-cell').count(),42);
   await page.locator('.ag-cell').first().click();
