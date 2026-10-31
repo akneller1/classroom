@@ -209,6 +209,7 @@
     var h = '<div class="pl-q">' + ms(p.prompt || '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + ms('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig) h += NS.figHtml(p.fig);
+    if (p.authoredOptions && p.authoredOptions.length) h += '<ol class="pl-authored-options" style="list-style:none;padding-left:0">' + p.authoredOptions.map(function(o){return '<li>' + (p.authoredFormat === 'select-all' ? '☐ ' : '○ ') + ms(o.text) + '</li>';}).join('') + '</ol>';
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="pl-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + ms(pt.prompt) + '</div>'; }).join('') + '</div>';
     return h;
@@ -451,7 +452,7 @@
     $('#plCtl').innerHTML = controls();
     var prev = P.day(ui.day - 1), next = P.day(ui.day + 1), sum = P.summary(ui.plan);
     $('#plHead').innerHTML = '<div class="pl-nav"><button type="button" class="btn ghost sm" id="plPrev"' + (prev ? '' : ' disabled') + '>← Day ' + (ui.day - 1) + '</button>' +
-      '<div class="pl-htitle"><div class="pl-kicker">Day ' + d.day + ' · Quarter ' + d.quarter + ' · Week ' + d.week + (d.unit ? ' · Unit ' + d.unit + ', day ' + esc(d.unit_day) : ' · ' + esc(d.unit_title)) + '</div><h1>' + esc(d.title) + ' <span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span></h1>' +
+      '<div class="pl-htitle"><div class="pl-kicker">' + (A2 ? 'Unit ' + d.unit + ' · ' + esc(d.unit_title) + ' · ' + esc(d.unit_day) : 'Day ' + d.day + ' · Quarter ' + d.quarter + ' · Week ' + d.week + (d.unit ? ' · Unit ' + d.unit + ', day ' + esc(d.unit_day) : ' · ' + esc(d.unit_title))) + '</div><h1>' + esc(d.title) + ' <span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span></h1>' +
       (ui.plan.selectedLessonTitles.length > 1 ? '<p class="pl-hint">Combined lessons: ' + ui.plan.selectedLessonTitles.map(esc).join(' · ') + '</p>' : '') +
       '<div class="pl-stat">' + sum.problems + ' problems' + (sum.failed ? ' · <b class="bad">' + sum.failed + ' need a new problem</b>' : sum.problems ? ' · all answers checked' : '') + '</div></div>' +
       '<button type="button" class="btn ghost sm" id="plNext"' + (next ? '' : ' disabled') + '>Day ' + (ui.day + 1) + ' →</button></div>' +
@@ -630,8 +631,6 @@
     var nx = cur === 'dark' ? 'light' : 'dark'; applyTheme(nx); lsSet(KEY_THEME, nx);
   };
   (function () { var cr = doc.querySelector('.crumb'); if (cr) cr.textContent = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1'); doc.title = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1') + ' · Mr. K\'s Classroom'; })();
-  readHash();
-  resetSelection();
-  render();
-  P.ui = ui;   // for tests
+  function startPlanner() { readHash(); resetSelection(); render(); P.ui = ui; }   // for tests
+  if (A2 && G.MK_COURSE_BANKS_READY) G.MK_COURSE_BANKS_READY.then(startPlanner, startPlanner); else startPlanner();
 })(window);
