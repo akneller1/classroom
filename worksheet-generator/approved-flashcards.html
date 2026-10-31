@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Approved-bank Flashcards · Mr. K's Classroom</title><link rel="stylesheet" href="../styles.css?v=approved-flashcards-1">
+<style>
+.af-wrap{max-width:850px;margin:1.5rem auto;padding:1rem}.af-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
+.af-controls{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;margin:1.5rem 0}.af-controls select,.af-controls button,.af-nav button{font:inherit;background:var(--card);color:var(--ink);border:2px solid var(--edge);border-radius:9px;padding:.5rem .8rem}
+.af-controls button,.af-nav button{cursor:pointer}.af-controls button:disabled,.af-nav button:disabled{opacity:.4;cursor:not-allowed}
+.af-card{min-height:240px;border:2px solid var(--edge);border-radius:18px;padding:1.5rem;background:var(--card);cursor:pointer;margin:1rem 0;display:flex;flex-direction:column;justify-content:center;gap:1rem}
+.af-card h2{font-size:1rem;color:var(--ink-soft)}.af-card .af-prompt{font-size:1.3rem;white-space:pre-wrap;overflow-wrap:anywhere}.af-answer{white-space:pre-wrap;overflow-wrap:anywhere}.af-nav{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+.af-progress{color:var(--ink-soft)}.af-options{padding-left:1.5rem}.af-options li{margin:.5rem 0}.af-solution{margin:.8rem 0 0 1.3rem}.af-solution li{margin:.4rem 0}
+.af-card:focus-visible,.af-controls button:focus-visible,.af-controls select:focus-visible,.af-nav button:focus-visible{outline:3px solid var(--blue-bg);outline-offset:3px}
+</style></head><body><main class="af-wrap">
+<div class="af-header"><h1>Flashcards</h1><a href="../index.html">← Back to classroom</a></div>
+<p id="afStatus" role="status" aria-live="polite">Checking for approved questions…</p>
+<div id="afApp" hidden>
+<div class="af-controls"><label for="afLevel">Level</label><select id="afLevel"><option value="cp2">Easy (CP2)</option><option value="cp1" selected>Medium (CP1)</option><option value="honors">Hard (Honors)</option></select>
+<label for="afSkill">Skill</label><select id="afSkill"><option value="">All skills</option></select>
+<button type="button" id="afShuffle">Shuffle</button><button type="button" id="afMissed">Practice missed</button><button type="button" id="afReset">Reset ratings</button></div>
+<p id="afProgress" class="af-progress"></p><section id="afCard" class="af-card" tabindex="0" role="button" aria-label="Flip flashcard"></section>
+<div class="af-nav"><button type="button" id="afPrev">← Previous</button><button type="button" id="afFlip">Reveal answer</button>
+<button type="button" id="afNeed" hidden>Need practice</button><button type="button" id="afGot" hidden>Got it</button>
+<button type="button" id="afNext">Next →</button></div>
+</div></main>
+<script src="../data.js"></script><script src="../course-catalog.js"></script><script src="../question-bank-adapter.js"></script>
+<script src="../question-bank-loader.js"></script><script src="approved-flashcards.js?v=1"></script>
+</body></html>
