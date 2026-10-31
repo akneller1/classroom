@@ -17,4 +17,7 @@ assert.equal(policy.plan(selected,'algebra','cp1').eligible,false);
 assert.equal(policy.plan(selected,'math6','random').eligible,false);
 const missing=entries.find(e=>e.key==='systems-elimination');
 assert.equal(policy.plan(missing,'prealgebra','cp2').eligible,false);
+const scatter=entries.find(e=>e.key==='scatter-plots');
+// Curated reference is required; no approval implied by these bounds.
+assert.equal(policy.plan(scatter,'prealgebra','honors').eligible,false);
 console.log('PASS middle-school tier constraints, candidate gating and unsupported targets');
