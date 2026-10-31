@@ -174,14 +174,14 @@ function currentItems(){return versions[activeVersion]||[]}
 function build(){
  const unitId=unitSelect.value, level=$('level').value, fmt=$('format').value;
  const skillIds=Array.from(doc.querySelectorAll('#skills input:checked')).map(x=>x.value);
- if(!skillIds.length){status.textContent='Choose at least one skill.';return}
+ if(!skillIds.length&&sections.some(x=>x.enabled&&Number(x.count)>0)){status.textContent='Choose at least one skill for sections containing questions.';return}
  pool=bank.select({courseId:'algebra2',unitId,level,skillIds,formats:fmt==='all'?undefined:[fmt]}).filter(q=>!q.diagram||q.diagram.type==='image');
  spiralPool=[];
  if($('spiralEnabled').checked){const fmtList=fmt==='all'?undefined:[fmt];spiralSelections().forEach(id=>{bank.select({courseId:'algebra2',unitId:id,level,formats:fmtList}).forEach(q=>{if(!q.diagram||q.diagram.type==='image')spiralPool.push({...q,_spiral:true,_origin:id})})})}
  wantedCount=Math.max(1,Math.min(60,Number($('count').value)||12));
  const requestedTotal=sections.filter(x=>x.enabled).reduce((sum,x)=>sum+Math.max(0,Number(x.count)||0),0);
  if(requestedTotal>wantedCount){status.textContent='Section counts exceed the total question limit. Increase the question limit or reduce section counts.';return;}
- if(!pool.length){versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent='No matching questions for these settings.';return}
+ if(!pool.length&&requestedTotal>0&&!(sections.some(x=>x.enabled&&x.type==='Mixed Review')&&spiralPool.length)){versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent='No matching questions for these settings.';return}
  const total=Math.max(1,Math.min(4,Number($('versions').value)||1));
  if(!sections.some(x=>x.enabled)){status.textContent='Include at least one section before generating.';return;}
  versionSections=Array.from({length:total},sectionsSnapshot);
@@ -246,7 +246,7 @@ function renderAll(){
  });
  const sizes=versions.map(v=>v.length);
  status.textContent='Preview ready: '+versions.length+' version(s), '+sizes.join('/')+' questions. Review mathematical answers before printing.';
- $('print').disabled=versions.every(v=>!v.length);
+ $('print').disabled=versions.every((v,i)=>!v.length&&!versionSections[i].some(sec=>sec.note.trim()));
 }
 $('currentVersion').addEventListener('change',()=>{activeVersion=Number($('currentVersion').value);renderEditor()});
 $('refreshVersion').addEventListener('click',()=>{versions[activeVersion]=sectionQuestions(versionSections[activeVersion],new Set());renderEditor();renderAll()});
