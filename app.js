@@ -96,6 +96,7 @@
     { id: 'color-by-number', name: 'Color by Number', description: 'Solve math problems, match each answer to a color, and complete a themed picture. Printable activities for practice and review.' },
     { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
     { id: 'error-analysis', name: 'Error Analysis', description: 'Examine a worked example, identify the mistake, and explain how to fix it. Printable practice that builds mathematical reasoning.' },
+    { id: 'matching-game', name: 'Function Matching Game', description: 'Sort cards into sets: each function\u2019s graph, equation, table and description. Drag or tap to place cards, zoom in on graphs, check your sets and use hints. Same verified cards as the printable Matching Card Sort.' },
     { id: 'detective-games', name: 'Detective Games', description: 'Solve math problems to unlock clues, eliminate suspects, and crack a themed mystery. Type your answers and use the case board to identify the culprit.' },
     { id: 'escape-rooms', name: 'Escape Rooms', description: 'Work together to solve math puzzles, decode clues, and unlock five rooms before the timer runs out. Includes hints and a final challenge.' },
     { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
@@ -118,6 +119,7 @@
     }
     if (/worksheet-generator\/practice-test\.html/i.test(a.path || '')) return 'interactive-practice-test';
     if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
+    if (/worksheet-generator\/match-game\.html/i.test(a.path || '')) return 'matching-game';
     if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
     if (/worksheet-generator\/menu-assessment/i.test(a.path || '')) return 'assessment-generator';
     if (/worksheet-generator\//i.test(a.path || '')) return 'worksheet-generator';
@@ -146,7 +148,7 @@
     var f = activityFormat(a);
     if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
     if (f === 'escape-rooms') return 'Collaborative Challenges';
-    if (['picture-reveal', 'detective-games', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
+    if (['picture-reveal', 'detective-games', 'matching-game', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
     return '';
   }
   var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges'];
@@ -155,7 +157,7 @@
   }
   var RESOURCE_GROUPS = [
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'printable-generator', 'assessment-generator'] },
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'topic-games'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'matching-game', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];

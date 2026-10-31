@@ -571,11 +571,16 @@
       drawPreview();
     }, 30);
   }
+  /* The interactive Function Matching Game with exactly these cards (same seed, level, function types, sets and version). */
+  function playLink() {
+    var U = PR.MATCH.UNITS[unit], fams = U.fams.filter(function (f) { return cfg.families ? cfg.families[f] : U.def.indexOf(f) >= 0; });
+    return 'match-game.html#unit=' + unit + '&level=' + (cfg.level || 'cp1') + '&sets=' + (cfg.sets | 0 || 6) + '&fams=' + fams.join(',') + '&seed=' + cfg.seed + (ui.v ? '&v=' + ui.v : '') + '&eq=1&hints=1';
+  }
   function drawPreview() {
     var pv = $('#prPreview'), err = built.filter(function (b) { return b.error; })[0];
     var tools = '<div class="ptool"><div class="grp" role="group" aria-label="Document"><button type="button" class="tab" data-doc="student" aria-pressed="' + (ui.doc === 'student') + '">Student copy</button><button type="button" class="tab" data-doc="key" aria-pressed="' + (ui.doc === 'key') + '">Answer key</button></div>' +
       (built.length > 1 ? '<div class="grp" role="group" aria-label="Version">' + built.map(function (_, i) { return '<button type="button" class="tab" data-ver="' + i + '" aria-pressed="' + (ui.v === i) + '">Version ' + 'ABC'[i] + '</button>'; }).join('') + '</div>' : '') +
-      '<span class="sp"></span><button type="button" class="btn" id="prPrintS"' + (err ? ' disabled' : '') + '>Print student copies</button><button type="button" class="btn ghost" id="prPrintK"' + (err ? ' disabled' : '') + '>Print answer keys</button></div>';
+      '<span class="sp"></span>' + (kind === 'match' && !err ? '<a class="btn sec2" id="prPlay" style="text-decoration:none" href="' + esc(playLink()) + '" title="Students sort these same cards on a computer or tablet">▶ Play online</a>' : '') + '<button type="button" class="btn" id="prPrintS"' + (err ? ' disabled' : '') + '>Print student copies</button><button type="button" class="btn ghost" id="prPrintK"' + (err ? ' disabled' : '') + '>Print answer keys</button></div>';
     if (err) { pv.innerHTML = tools + '<div class="pr-err">' + esc(err.error) + '</div>'; bindTools(); return; }
     pv.innerHTML = tools + (built[ui.v].levelNote ? '<div class="pr-busy">' + esc(built[ui.v].levelNote) + '</div>' : '') + '<div class="pr-pages"></div>';
     var box = $('.pr-pages', pv);

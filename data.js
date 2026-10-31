@@ -1111,6 +1111,19 @@ window.LIBRARY = {
           "name": "Linear Functions and Graphing",
           "artifacts": [
             {
+              "title": "Linear Functions and Graphing Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra1-linear-equations-slope",
+              "thumb": "thumbs/matching-game-linear-equations-slope.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Linear Functions and Graphing",
+                "Unit 5"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-linear-equations-slope",
               "thumb": "thumbs/practice-test.svg",
@@ -1968,6 +1981,19 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
+              "title": "Exponential Functions Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra1-exponential-functions",
+              "thumb": "thumbs/matching-game-exponential-functions.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Exponential Functions",
+                "Unit 8"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/practice-test.svg",
@@ -2756,6 +2782,19 @@ window.LIBRARY = {
           "name": "Quadratic Functions and Equations",
           "artifacts": [
             {
+              "title": "Quadratic Functions and Equations Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra1-quadratics",
+              "thumb": "thumbs/matching-game-quadratics.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Quadratic Functions and Equations",
+                "Unit 11"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-quadratics",
               "thumb": "thumbs/practice-test.svg",
@@ -3281,6 +3320,19 @@ window.LIBRARY = {
           "name": "Functions & Transformations",
           "artifacts": [
             {
+              "title": "Functions & Transformations Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-functions-transformations",
+              "thumb": "thumbs/matching-game-algebra2-functions-transformations.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Functions & Transformations",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "The Function Bistro: Assessment Menu",
               "path": "artifacts/functions-transformations-assessment-menu/worksheet.pdf",
               "thumb": "thumbs/functions-transformations-assessment-menu.jpg",
@@ -3517,6 +3569,19 @@ window.LIBRARY = {
           "id": "linear-functions-systems",
           "name": "Linear Functions & Systems",
           "artifacts": [
+            {
+              "title": "Linear Functions & Systems Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-linear-functions-systems",
+              "thumb": "thumbs/matching-game-algebra2-linear-functions-systems.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Linear Functions & Systems",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
             {
               "title": "The Line Cook Bistro: Assessment Menu",
               "path": "artifacts/linear-functions-systems-assessment-menu/worksheet.pdf",
@@ -3755,6 +3820,19 @@ window.LIBRARY = {
           "name": "Quadratic Functions & Complex Numbers",
           "artifacts": [
             {
+              "title": "Quadratic Functions & Complex Numbers Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-quadratic-functions-complex-numbers",
+              "thumb": "thumbs/matching-game-algebra2-quadratic-functions-complex-numbers.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Quadratic Functions & Complex Numbers",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "The Rising Soufflé Bistro: Assessment Menu",
               "path": "artifacts/quadratic-functions-complex-numbers-assessment-menu/worksheet.pdf",
               "thumb": "thumbs/quadratic-functions-complex-numbers-assessment-menu.jpg",
@@ -3992,6 +4070,19 @@ window.LIBRARY = {
           "name": "Polynomial Functions",
           "artifacts": [
             {
+              "title": "Polynomial Functions Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-polynomial-functions",
+              "thumb": "thumbs/matching-game-algebra2-polynomial-functions.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Polynomial Functions",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Partner Check 1: Polynomial Operations & Graphs",
               "path": "artifacts/algebra2-polynomial-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-polynomial-functions-partner-check-1.jpg",
@@ -4036,6 +4127,19 @@ window.LIBRARY = {
           "name": "Radicals & Rational Exponents",
           "artifacts": [
             {
+              "title": "Radicals & Rational Exponents Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-radicals-rational-exponents",
+              "thumb": "thumbs/matching-game-algebra2-radicals-rational-exponents.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Radicals & Rational Exponents",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Partner Check 1: Simplifying Radicals & Exponents",
               "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-1.jpg",
@@ -4079,6 +4183,19 @@ window.LIBRARY = {
           "id": "exponential-logarithmic-functions",
           "name": "Exponential & Logarithmic Functions",
           "artifacts": [
+            {
+              "title": "Exponential & Logarithmic Functions Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-exponential-logarithmic-functions",
+              "thumb": "thumbs/matching-game-algebra2-exponential-logarithmic-functions.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Exponential & Logarithmic Functions",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
             {
               "title": "The Time Capsule Switcheroo",
               "path": "artifacts/exponential-logarithmic-functions-time-capsule-switcheroo/index.html",
@@ -4317,6 +4434,19 @@ window.LIBRARY = {
           "name": "Rational Functions",
           "artifacts": [
             {
+              "title": "Rational Functions Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-rational-functions",
+              "thumb": "thumbs/matching-game-algebra2-rational-functions.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Rational Functions",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Partner Check 1: Rational Expressions & Equations",
               "path": "artifacts/algebra2-rational-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-rational-functions-partner-check-1.jpg",
@@ -4360,6 +4490,19 @@ window.LIBRARY = {
           "id": "sequences-series",
           "name": "Sequences & Series",
           "artifacts": [
+            {
+              "title": "Sequences & Series Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-sequences-series",
+              "thumb": "thumbs/matching-game-algebra2-sequences-series.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Sequences & Series",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
             {
               "title": "Partner Check 1: Arithmetic & Geometric Sequences",
               "path": "artifacts/algebra2-sequences-series-partner-check-1/worksheet.pdf",

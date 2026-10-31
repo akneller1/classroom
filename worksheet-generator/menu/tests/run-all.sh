@@ -10,7 +10,7 @@ node test-mode-tests.cjs | tail -1
 node worksheet-tests.cjs | tail -1
 node printables-tests.cjs | tail -1
 node printables-match-tests.cjs | tail -1
-if node -e "require(process.env.PW || 'playwright')" 2>/dev/null; then node browser-test.cjs | tail -1; node printables-browser.cjs | tail -1; else echo "(browser tests skipped: install playwright or set PW and CHROME)"; fi
+if node -e "require(process.env.PW || 'playwright')" 2>/dev/null; then node browser-test.cjs | tail -1; node printables-browser.cjs | tail -1; node match-game-browser.cjs | tail -1; else echo "(browser tests skipped: install playwright or set PW and CHROME)"; fi
 # Cheat sheets: every worked example checked and every page fits (no files written)
 if node -e "require(process.env.PW || 'playwright')" 2>/dev/null; then CHECK_ONLY=1 node ../../../scripts/cheat-sheets/build.cjs all | tail -1; fi
 # Daily Lesson Planner: every lesson mapped, every day × level builds with verified problems; browser check needs the server at BASE

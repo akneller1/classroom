@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Function Matching Game · Mr. K's Classroom</title>
+<meta name="description" content="Interactive function matching: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card, check your sets, and get hints. Uses the same verified cards as the printable Matching Card Sort.">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="core/app.css">
+<link rel="stylesheet" href="menu/match-game.css?v=mgame-2">
+</head>
+<body>
+<header class="topbar">
+  <button type="button" class="btn ghost sm" id="backBtn" aria-label="Back to the previous page" onclick="if (history.length > 1 &amp;&amp; document.referrer) history.back(); else location.href = '../index.html';">← Back</button>
+  <a class="brand" href="../index.html">Mr. K's Classroom</a>
+  <span class="crumb" id="mgCrumb">Function Matching Game</span>
+  <span class="sp"></span>
+  <button type="button" class="btn ghost sm" id="themeBtn">Light / dark</button>
+</header>
+<main id="mgApp" class="mg-app"><div class="mg-busy">Loading…</div></main>
+<div id="mgLive" class="mg-sr" aria-live="polite"></div>
+<noscript><p style="padding:20px">The matching game needs JavaScript.</p></noscript>
+<script src="vendor/katex/katex.min.js"></script>
+<script src="core/rng.js"></script>
+<script src="menu/engine.js?v=ci-fix-1"></script>
+<script src="menu/printables-match.js?v=match-1"></script>
+<script src="menu/match-game.js?v=mgame-2"></script>
+</body>
+</html>
