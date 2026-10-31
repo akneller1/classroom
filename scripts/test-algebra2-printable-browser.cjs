@@ -62,6 +62,16 @@ const fs=require('node:fs');
   assert.equal(await page.locator('#output .sheet.key').count(),0,'Teacher keys must be optional');
   await page.locator('#key').check();
   assert.equal(await page.locator('#output .sheet.key').count(),1);
+  // A lesson consisting only of teacher-authored notes must still be printable.
+  await page.locator('#resetSections').click();
+  const cards=page.locator('#sectionList .section-config');
+  const total=await cards.count();
+  for(let i=0;i<total;i++)await cards.nth(i).locator('input[type="number"]').fill('0');
+  await cards.nth(2).locator('textarea').fill('Teacher-authored explanatory notes.');
+  await page.locator('#build').click();
+  await page.locator('#editor').waitFor({state:'visible'});
+  assert.equal(await page.locator('#print').isDisabled(),false,'Notes-only plan should print');
+  assert.match(await page.locator('#output .sheet:not(.key)').innerText(),/Teacher-authored explanatory notes/);
   assert.deepEqual(errors,[]);
   console.log('PASS Algebra 2 generator browser: sections, duplication, ordering, versions, edits, reset, keys');
  }catch(error){
