@@ -17,7 +17,7 @@ catapult:{title:'Castle Catapult',course:'Algebra 1',topic:'Quadratic Functions'
 const key=new URLSearchParams(location.search).get('game')||'catapult',cfg=GAMES[key]||GAMES.catapult,$=x=>document.getElementById(x),canvas=$('board'),ctx=canvas.getContext('2d');
 $('heading').textContent=cfg.title;$('subtitle').textContent=cfg.course+' · '+cfg.topic+' — '+cfg.intro;$('boardHint').textContent='The graph and obstacles respond to the mathematical choices you make.';
 const total=key==='catapult'?10:6;
-let turn=0,points=0,hits=0,locked=false,feedback='',animate=0,history=[],current=null,shotFX=null,rocketFX=null,rocketFuel=100,rocketHull=3,rocketStreak=0;
+let turn=0,points=0,hits=0,locked=false,feedback='',animate=0,history=[],current=null,shotFX=null,rocketFX=null,rocketFuel=100,rocketHull=3,rocketStreak=0,laserLives=3,laserStreak=0,laserFX=null,laserShots=0;
 const prompts={
  rocket:[{a:3,b:5,c:20},{a:4,b:-2,c:18},{a:5,b:7,c:42},{a:2,b:9,c:31},{a:6,b:4,c:46},{a:7,b:-3,c:46}],
  inequality:[{a:2,b:3,c:11,op:'>'},{a:3,b:-2,c:10,op:'≥'},{a:4,b:1,c:13,op:'<'},{a:2,b:-5,c:9,op:'≤'},{a:5,b:2,c:17,op:'>'},{a:3,b:4,c:16,op:'≥'}],
@@ -49,7 +49,13 @@ function setup(){locked=false;feedback='';animate=0;current=active();$('next').h
  $('level').textContent='Fuel '+rocketFuel+'% · Hull '+rocketHull+'/3 · Streak '+rocketStreak;
 }
  if(key==='inequality'){text='Safe passage: '+q.a+'x '+(q.b>=0?'+ '+q.b:'− '+(-q.b))+' '+q.op+' '+q.c+'. Determine the boundary x and whether the endpoint is open or closed.';fields=field(0,'Boundary x =')+option(1,'Endpoint',['Open','Closed']);}
- if(key==='laser'){text='Laser A: y = '+q.m1+'x '+(q.b1>=0?'+ '+q.b1:'− '+(-q.b1))+'; Laser B: y = '+q.m2+'x '+(q.b2>=0?'+ '+q.b2:'− '+(-q.b2))+'. Enter their intersection coordinates.';fields=field(0,'Intersection x')+field(1,'Intersection y');}
+ if(key==='laser'){
+ const stages=['Training grid','Firewall perimeter','Rotating defenses','Dual-beam corridor','Security vault','Reactor shutdown'];
+ text='Sector '+(turn+1)+': '+stages[turn]+'. Laser A: y = '+q.m1+'x '+(q.b1>=0?'+ '+q.b1:'− '+(-q.b1))+'; Laser B: y = '+q.m2+'x '+(q.b2>=0?'+ '+q.b2:'− '+(-q.b2))+'. Calculate their intersection to fire both beams and disable the security node. Wrong coordinates trigger an alarm.';
+ fields=field(0,'Target x')+field(1,'Target y');
+ $('level').textContent='Shields '+laserLives+'/3 · Combo '+laserStreak+' · Alarm '+Math.min(100,laserShots*15)+'%';
+ $('mission').textContent='Disable the '+stages[turn]+' security node';
+}
  if(key==='mirror'){const desc=({ 'reflect-x':'Reflect across x-axis','reflect-y':'Reflect across y-axis',rotate90:'Rotate 90° counterclockwise',rotate180:'Rotate 180°',rotate270:'Rotate 270° counterclockwise',translate:'Translate right '+q.dx+' and up '+q.dy})[q.t];text='Explorer starts at ('+q.x+', '+q.y+'). '+desc+'. Find the destination.';fields=field(0,'New x')+field(1,'New y');}
  if(key==='cannon'){text='Enemy tower rises '+q.rise+' units above cannon level, '+q.run+' units horizontally away. Enter tangent (rise/run) and the firing angle in degrees.';fields=field(0,'tan(θ)')+field(1,'Angle θ (degrees)');}
  if(key==='portal'){text='Energy portal: f(x) = '+q.a+'(x − ('+q.h+'))² '+(q.k>=0?'+ '+q.k:'− '+(-q.k))+'. Evaluate f('+q.x+') to route the energy ball.';fields=field(0,'Portal output');}
@@ -60,12 +66,22 @@ function shoot(){if(locked)return;const q=current,correct=answerFor(q),entered=c
  let hit=false;
  if(key==='catapult'){const y=correct[4];hit=valid&&y>=2&&y<=18; if(hit)hits++;}else hit=valid;
  if(hit)points+=100;
+ if(key==='laser'){
+  laserShots++;laserStreak=hit?laserStreak+1:0;if(!hit)laserLives=Math.max(0,laserLives-1);
+  if(hit)points+=laserStreak*20;
+  $('level').textContent='Shields '+laserLives+'/3 · Combo '+laserStreak+' · Alarm '+Math.min(100,laserShots*15)+'%';
+ }
  if(key==='rocket'){rocketFuel=Math.max(0,rocketFuel-(valid?7:20));rocketHull=Math.max(0,rocketHull-(valid?0:1));rocketStreak=valid?rocketStreak+1:0;if(valid)points+=Math.min(60,rocketStreak*10);$('level').textContent='Fuel '+rocketFuel+'% · Hull '+rocketHull+'/3 · Streak '+rocketStreak;}
- locked=true;$('action').disabled=true;animate=performance.now();if(key==='rocket'){rocketFX={start:performance.now(),success:hit,mission:turn};const fly=()=>{draw();if(rocketFX&&performance.now()-rocketFX.start<1700)requestAnimationFrame(fly);else{rocketFX=null;draw();}};requestAnimationFrame(fly);}if(key==='catapult'){shotFX={start:performance.now(),q,success:hit};const tick=()=>{draw();if(shotFX&&performance.now()-shotFX.start<1500)requestAnimationFrame(tick);else{shotFX=null;draw();}};requestAnimationFrame(tick);}let msg='';
+ locked=true;$('action').disabled=true;animate=performance.now();if(key==='laser'){
+ laserFX={start:performance.now(),success:hit,entered:entered.slice(),target:correct.slice()};
+ const pulse=()=>{draw();if(laserFX&&performance.now()-laserFX.start<1700)requestAnimationFrame(pulse);else{laserFX=null;draw();}};
+ requestAnimationFrame(pulse);
+}
+ if(key==='rocket'){rocketFX={start:performance.now(),success:hit,mission:turn};const fly=()=>{draw();if(rocketFX&&performance.now()-rocketFX.start<1700)requestAnimationFrame(fly);else{rocketFX=null;draw();}};requestAnimationFrame(fly);}if(key==='catapult'){shotFX={start:performance.now(),q,success:hit};const tick=()=>{draw();if(shotFX&&performance.now()-shotFX.start<1500)requestAnimationFrame(tick);else{shotFX=null;draw();}};requestAnimationFrame(tick);}let msg='';
  if(key==='catapult'){msg=hit?'Direct hit! The castle loses one wall section. '+hits+' of 6 hits.':valid?'The calculations are correct, but the shot '+(correct[4]<2?'falls short of the castle wall.':'overshoots the wall!'):'Your trajectory data were incorrect; the catapult misses. The castle still stands.';}
- else msg=key==='rocket'?(hit?'Engine calibrated! Rocket advances toward the next checkpoint. Fuel '+rocketFuel+'%, hull '+rocketHull+'/3.':'Engine misfire! The rocket veers off course. −20 fuel and −1 hull. Correct engine setting: '+correct[0]+'.'):hit?'Success! You completed the mathematical maneuver.':'Not quite. '+(key==='rocket'?'The rocket missed its landing.':key==='inequality'?'The bridge became unsafe.':'Your move missed the target.')+' Correct result: '+correct.map(x=>typeof x==='number'?clean(x):x==='≥'||x==='≤'?'Closed':'Open').join(', ')+'.';
+ else msg=key==='laser'?(hit?'Security node disabled! Combo ×'+laserStreak+'. '+laserLives+' shield(s) remaining.':'Alarm triggered — beams failed to lock. Shield lost. Actual intersection: ('+clean(correct[0])+', '+clean(correct[1])+').'):key==='rocket'?(hit?'Engine calibrated! Rocket advances toward the next checkpoint. Fuel '+rocketFuel+'%, hull '+rocketHull+'/3.':'Engine misfire! The rocket veers off course. −20 fuel and −1 hull. Correct engine setting: '+correct[0]+'.'):hit?'Success! You completed the mathematical maneuver.':'Not quite. '+(key==='rocket'?'The rocket missed its landing.':key==='inequality'?'The bridge became unsafe.':'Your move missed the target.')+' Correct result: '+correct.map(x=>typeof x==='number'?clean(x):x==='≥'||x==='≤'?'Closed':'Open').join(', ')+'.';
  $('status').textContent=msg;history.push({level:turn+1,success:hit});$('next').hidden=false;$('next').textContent=turn===total-1?'See results →':'Next level →';draw();}
-function end(){locked=true;$('action').disabled=true;$('next').hidden=true;$('fill').style.width='100%';$('mission').textContent=key==='catapult'?(hits>=6?'🏰 Castle conquered!':'The castle survived — try again!'):key==='rocket'?(rocketHull>0&&rocketFuel>0?'🚀 Rescue mission completed!':'🚨 Rocket needs repairs — retry the mission!'):'🏆 Mission complete!';$('instructions').textContent=key==='catapult'?'You scored '+hits+' direct hits. Six hits bring the castle down.':key==='rocket'?'Final score: '+points+'. Fuel remaining '+rocketFuel+'%, hull '+rocketHull+'/3.':'You scored '+points+' points in '+total+' levels.';$('fields').innerHTML='';$('controls').innerHTML='<button class="primary" id="replay">Play again</button>';$('replay').onclick=()=>{turn=0;points=0;hits=0;rocketFuel=100;rocketHull=3;rocketStreak=0;history=[];setup()};$('status').textContent='Completed '+total+' levels. '+history.filter(x=>x.success).length+' successful turns.';draw();}
+function end(){locked=true;$('action').disabled=true;$('next').hidden=true;$('fill').style.width='100%';$('mission').textContent=key==='catapult'?(hits>=6?'🏰 Castle conquered!':'The castle survived — try again!'):key==='rocket'?(rocketHull>0&&rocketFuel>0?'🚀 Rescue mission completed!':'🚨 Rocket needs repairs — retry the mission!'):key==='laser'?(laserLives>0?'🔓 Security system breached!':'🚨 Shields depleted — retry the mission!'):'🏆 Mission complete!';$('instructions').textContent=key==='catapult'?'You scored '+hits+' direct hits. Six hits bring the castle down.':key==='rocket'?'Final score: '+points+'. Fuel remaining '+rocketFuel+'%, hull '+rocketHull+'/3.':key==='laser'?'Score '+points+'. Shields remaining: '+laserLives+'/3. Security nodes disabled: '+history.filter(x=>x.success).length+'/'+total+'.':'You scored '+points+' points in '+total+' levels.';$('fields').innerHTML='';$('controls').innerHTML='<button class="primary" id="replay">Play again</button>';$('replay').onclick=()=>{turn=0;points=0;hits=0;rocketFuel=100;rocketHull=3;rocketStreak=0;laserLives=3;laserStreak=0;laserShots=0;history=[];setup()};$('status').textContent='Completed '+total+' levels. '+history.filter(x=>x.success).length+' successful turns.';draw();}
 $('action').onclick=shoot;$('next').onclick=()=>{turn++;turn<total?setup():end()};$('hint').onclick=()=>{if(key==='catapult'){$('status').textContent='Hint: roots occur where height is zero. The vertex lies halfway between the roots. Evaluate h(x) at the castle.';}else if(key==='laser'){$('status').textContent='Hint: set the two y-expressions equal, solve for x, and substitute back to find y.';}else if(key==='mirror'){$('status').textContent='Hint: reflect or rotate the ordered pair using the coordinate rule.';}else if(key==='cannon'){$('status').textContent='Hint: tangent = opposite / adjacent. Use inverse tangent to find the angle.';}else if(key==='inequality'){$('status').textContent='Hint: isolate x. Strict inequalities use open endpoints; inclusive ones use closed endpoints.';}else if(key==='portal'){$('status').textContent='Hint: substitute x into the parentheses first, square, multiply, and then shift.';}else $('status').textContent='Hint: undo addition or subtraction, then divide by the coefficient.';};
 function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#24456b');bg.addColorStop(1,'#0d2343');c.fillStyle=bg;c.fillRect(0,0,W,H);const q=current||active();const px=x=>W/2+x*32,py=y=>H/2-y*25;
  c.strokeStyle='#b5d3ed2e';c.lineWidth=1;for(let x=-12;x<=12;x++){c.beginPath();c.moveTo(px(x),55);c.lineTo(px(x),H-55);c.stroke()}for(let y=-10;y<=10;y++){c.beginPath();c.moveTo(65,py(y));c.lineTo(W-65,py(y));c.stroke()}c.strokeStyle='#b5d3ed';c.lineWidth=2;c.beginPath();c.moveTo(65,py(0));c.lineTo(W-65,py(0));c.moveTo(px(0),55);c.lineTo(px(0),H-55);c.stroke();
@@ -86,7 +102,33 @@ function draw(){const c=ctx,W=840,H=625;c.clearRect(0,0,W,H);let bg=c.createLine
   c.restore();
 }
  if(key==='inequality'){c.fillText('🌋 INEQUALITY ISLAND',W/2,45);c.fillStyle='#f16a3c';c.fillRect(70,py(-6),700,160);c.fillStyle='#6ce5a2';c.fillRect(70,py(0)-22,700,42);const b=(q.c-q.b)/q.a;circle(b,0,13,'#ffdf75');c.fillStyle='#fff';c.fillText('Set the safe boundary',W/2,H-35);}
- if(key==='laser'){line(x=>q.m1*x+q.b1,'#ff618b');line(x=>q.m2*x+q.b2,'#5de3ff');const [x,y]=answerFor(q);circle(x,y,11,'#fff1a6');c.fillText('🔒 SECURITY GRID',W/2,45);}
+ if(key==='laser'){
+ const target=answerFor(q),sx=px(target[0]),sy=py(target[1]);
+ // Never reveal the intersection before firing: both lasers charge at independent emitters.
+ const pct=laserFX?Math.min(1,(performance.now()-laserFX.start)/1300):0;
+ c.save();c.fillStyle='#0a2440';c.fillRect(55,60,730,475);
+ c.strokeStyle='#3b6685';c.lineWidth=1;
+ for(let i=0;i<13;i++){let v=80+i*55;c.beginPath();c.moveTo(v,70);c.lineTo(v,520);c.stroke();}
+ for(let i=0;i<9;i++){let v=85+i*52;c.beginPath();c.moveTo(65,v);c.lineTo(775,v);c.stroke();}
+ const ex1=108,ey1=485,ex2=730,ey2=480;
+ c.fillStyle='#fa638c';c.fillRect(ex1-18,ey1-17,36,34);
+ c.fillStyle='#5de3ff';c.fillRect(ex2-18,ey2-17,36,34);
+ if(laserFX){
+  const chosen=laserFX.entered,tx=px(chosen[0]),ty=py(chosen[1]);
+  const drawBeam=(ax,ay,col)=>{c.strokeStyle=col;c.lineWidth=5;c.shadowBlur=23;c.shadowColor=col;c.beginPath();c.moveTo(ax,ay);c.lineTo(ax+(tx-ax)*pct,ay+(ty-ay)*pct);c.stroke();};
+  drawBeam(ex1,ey1,'#ff638c');drawBeam(ex2,ey2,'#4de6ff');
+  if(pct>.96){c.fillStyle=laserFX.success?'#87ffd3':'#ff8775';c.beginPath();c.arc(tx,ty,laserFX.success?23:14,0,Math.PI*2);c.fill();}
+ }else{
+  c.strokeStyle='#fc7395';c.setLineDash([8,10]);c.beginPath();c.moveTo(ex1,ey1);c.lineTo(ex1+85,ey1-95);c.stroke();
+  c.strokeStyle='#66edff';c.beginPath();c.moveTo(ex2,ey2);c.lineTo(ex2-85,ey2-95);c.stroke();c.setLineDash([]);
+ }
+ // The security core flashes when hit, but its coordinates are not pre-disclosed.
+ c.fillStyle=laserFX&&laserFX.success?'#7cfdc4':'#f4c95c';c.fillRect(sx-13,sy-13,26,26);
+ c.font='bold 21px system-ui';c.textAlign='center';c.fillStyle='#e6f5ff';
+ c.fillText('🔒 SECURITY NETWORK · SECTOR '+(turn+1),W/2,44);
+ c.fillText('Shields: '+('◆'.repeat(laserLives)||'NONE')+'    Combo ×'+laserStreak,W/2,574);
+ c.restore();
+}
  if(key==='mirror'){circle(q.x,q.y,13,'#ffdb75');c.setLineDash([7,5]);c.strokeStyle='#83ddff';c.beginPath();c.moveTo(px(0),55);c.lineTo(px(0),H-55);c.moveTo(65,py(0));c.lineTo(W-65,py(0));c.stroke();c.setLineDash([]);if(locked)circle(...answerFor(q),14,'#56e6b7');c.fillText('🪞 MIRROR MAZE',W/2,45);}
  if(key==='cannon'){c.fillText('💣 TRIG CANNON',W/2,45);c.fillStyle='#78b67f';c.fillRect(0,py(-8),W,150);circle(-8,-2,17,'#ffdb75');c.fillStyle='#b2c5d6';c.fillRect(px(-8+q.run),py(-2+q.rise),36,55);c.strokeStyle='#ffdb75';c.setLineDash([7,6]);c.beginPath();c.moveTo(px(-8),py(-2));c.lineTo(px(-8+q.run),py(-2+q.rise));c.stroke();c.setLineDash([]);}
  if(key==='portal'){const f=x=>q.a*(x-q.h)**2+q.k;line(f,'#a6ffbb',-7,7);circle(q.x,0,11,'#ffd66c');if(locked)circle(q.x,answerFor(q)[0],15,'#ffe08b');c.fillText('🌀 FUNCTION PORTAL',W/2,45);}
