@@ -231,7 +231,7 @@ $('bankSpaceValue').textContent=spaceAdjust+' / 10';
 function paginatePaper(paper) {
  const out=paper.parentNode; let page,body,section=null,sectionNode=null; const pages=[];
  function start(){
-  page=doc.createElement('section');page.className='sheet bank-page';page.style.setProperty('--bank-space-adjust',spaceAdjust);
+  page=doc.createElement('section');page.className='bank-page';page.style.setProperty('--bank-space-adjust',spaceAdjust);
   body=elt('div',page);body.className='bank-page-body';
   elt('div',page).className='bank-page-number';out.insertBefore(page,paper);pages.push(page);sectionNode=null;
  }
@@ -255,7 +255,7 @@ function paginatePaper(paper) {
   if(section)Array.from(section.children).filter(n=>n.tagName!=='H3').forEach(place);else place(node);
  });
  pages.forEach((p,i)=>p.querySelector('.bank-page-number').textContent='Page '+(i+1)+' of '+pages.length);
- paper.remove();
+ paper.replaceChildren(...pages);paper.classList.add('bank-packet');
 }
 function adjustSpace(delta){
  spaceAdjust=Math.max(0,Math.min(10,spaceAdjust+delta));
