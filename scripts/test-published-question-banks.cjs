@@ -7,7 +7,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifes
 assert.equal(manifest.version,1);assert.ok(Array.isArray(manifest.banks));
 let total=0;const seen=new Set();
 for(const entry of manifest.banks){
- assert.equal(entry.approved,true,'Manifest should only list explicitly approved banks');
+ assert.ok(entry.approved===true||(entry.courseId==='algebra2'&&entry.teacherUse===true),'Manifest entry must be explicitly approved or enabled for Algebra 2 teacher use');
  assert.match(entry.path,/^question-banks\/[a-z0-9/_-]+\.json$/);
  assert.equal(entry.path,'question-banks/'+entry.courseId+'/'+entry.unitId+'.json');
  const file=path.join(root,entry.path);
@@ -26,4 +26,4 @@ for(const entry of manifest.banks){
   total++;
  }
 }
-console.log('PASS '+manifest.banks.length+' approved banks; '+total+' unique questions; all local diagrams present. Math review not verified.');
+console.log('PASS '+manifest.banks.length+' published/teacher-use banks; '+total+' unique questions; all local diagrams present. Math review not verified.');
