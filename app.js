@@ -577,22 +577,36 @@
       return m.targets.some(function (t) { return t && t.courseId === c.id && t.unitId === u.id; });
     });
     if (!topics.length) return '';
-    return '<section class="algebra-unit-section"><h2>Interactive Practice</h2>' +
-      '<p>Practice questions with immediate answer feedback, organized by lesson topic.</p>' +
-      '<ul class="cards grouped-cards">' + topics.map(function (m) {
-        var target = m.targets.find(function (t) { return t && t.courseId === c.id && t.unitId === u.id; });
-        var url = 'worksheet-generator/grade-practice.html?course=' + encodeURIComponent(c.id) +
-          '&topic=' + encodeURIComponent(m.key) + '&level=cp1';
-        var nativeBase='worksheet-generator/';
-        var links=[
-          {title:'Practice',href:url+'&mode=practice'},
-          {title:'Flashcards',href:nativeBase+'approved-flashcards.html?course='+encodeURIComponent(c.id)+'&unit='+encodeURIComponent(u.id)+'&skill='+encodeURIComponent(target.skillId)},
-          {title:'Connect 4 / Tic-Tac-Toe / Picture Reveal',href:nativeBase+'approved-games.html?course='+encodeURIComponent(c.id)+'&unit='+encodeURIComponent(u.id)+'&skill='+encodeURIComponent(target.skillId)},
-          {title:'Worksheet',href:url+'&mode=worksheet'}
-        ];
-        return '<li class="card"><strong>'+esc(target.name)+'</strong><p>'+
-          links.map(function(link){return '<a style="display:inline-block;margin:.25rem .75rem .25rem 0" href="'+esc(link.href)+'">'+esc(link.title)+'</a>'}).join('')+'</p></li>';
+    var base = 'worksheet-generator/', common = '?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id);
+    var first = topics[0].key;
+    var practice = base + 'grade-practice.html?course=' + encodeURIComponent(c.id) + '&topic=' + encodeURIComponent(first) + '&level=cp1';
+    var games = [
+      {title:'Connect 4, Tic-Tac-Toe & Picture Reveal',path:base+'approved-games.html'+common,
+       thumb:'thumbs/connect-4.svg',type:'Game',description:'Choose a game, difficulty, and lesson skill. Answer questions to claim squares or reveal a picture.'}
+    ];
+    var guides = [
+      {title:'Flashcards',path:base+'approved-flashcards.html'+common,
+       thumb:'thumbs/flashcards.svg',type:'Study Guide',description:'Review generated questions, flip cards, shuffle, and practice missed answers.'},
+      {title:'Interactive Practice',path:practice+'&mode=practice',
+       thumb:'thumbs/practice-test.svg',type:'Study Guide',description:'Answer questions online with immediate feedback. Select a lesson topic and difficulty.'}
+    ];
+    var printables = [
+      {title:'Printable Practice Worksheets',path:practice+'&mode=worksheet',
+       thumb:'thumbs/worksheet.svg',type:'Worksheet',description:'Generate a printable practice sheet and teacher answer key for a selected skill.'}
+    ];
+    function group(title, resources) {
+      return '<section class="algebra-unit-section"><h2>' + esc(title) + '</h2>' +
+        '<ul class="cards grouped-cards">' + resources.map(function (a) { return cardHtml({a:a,c:c,u:u},false,true); }).join('') + '</ul></section>';
+    }
+    var lessons = '<section class="algebra-unit-section"><h2>Practice by Lesson</h2>' +
+      '<p class="course-skill-hint">Open the matching topic in a resource. The shared question generators currently cover these lessons.</p>' +
+      '<ul class="unit-skills">' + topics.map(function(m) {
+        var target = m.targets.find(function(t) { return t && t.courseId === c.id && t.unitId === u.id; });
+        return '<li class="unit-skill"><a href="' +
+          esc(base+'grade-practice.html?course='+encodeURIComponent(c.id)+'&topic='+encodeURIComponent(m.key)+'&level=cp1') +
+          '">' + esc(target.name) + '</a></li>';
       }).join('') + '</ul></section>';
+    return group('Games', games) + group('Study Guides',guides) + group('Printable Resources',printables) + lessons;
   }
   function unitView(c, u) {
     if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
