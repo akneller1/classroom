@@ -594,8 +594,7 @@
         {mode:'tic-tac-toe',title:'Tic-Tac-Toe',thumb:'thumbs/foundations-algebra-tic-tac-toe.jpg'},
         {mode:'connect-four',title:'Connect 4',thumb:'thumbs/foundations-algebra-connect-four.jpg'},
         {mode:'picture-reveal',title:'Picture Reveal',thumb:'thumbs/foundations-algebra-picture-reveal.jpg'},
-        {mode:'showdown',title:'Showdown',thumb:'thumbs/foundations-algebra-showdown.jpg'},
-        {mode:'flashcards',title:'Flashcards',thumb:'thumbs/foundations-algebra-flashcards.jpg'}
+        {mode:'showdown',title:'Showdown',thumb:'thumbs/foundations-algebra-showdown.jpg'}
       ].map(function(item){
         var formatDetails = {
           'tic-tac-toe': 'Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square; a wrong answer lets the other team steal.',
@@ -611,8 +610,13 @@
       });
     });
     var guides = [
-      {title:'Flashcards',path:base+'approved-flashcards.html'+common,
-       thumb:'thumbs/foundations-algebra-flashcards.jpg',type:'Study Guide',description:'Review generated questions, flip cards, shuffle, and practice missed answers.'},
+      ...topics.map(function(m) {
+        var target=m.targets.find(function(t){return t&&t.courseId===c.id&&t.unitId===u.id;});
+        return {title:target.name+' Flashcards',
+          path:base+'middle-school-game.html?course='+encodeURIComponent(c.id)+'&topic='+encodeURIComponent(m.key)+'&game=flashcards',
+          thumb:'thumbs/foundations-algebra-flashcards.jpg',type:'Study Guide',
+          description:'Flip cards for answers and worked solutions, shuffle and practice missed questions.'};
+      }),
       {title:'Interactive Practice',path:practice+'&mode=practice',
        thumb:'thumbs/practice-test.svg',type:'Study Guide',description:'Answer questions online with immediate feedback. Select a lesson topic and difficulty.'}
     ];
