@@ -113,7 +113,7 @@ td.cur { background: var(--chip); font-weight: 700; }
     <p class="tag">Choose a slope, pick a club, sink the putt.</p>
   </header>
 
-  <div class="mode-row"><button data-mode="guided">Guided</button><button data-mode="practice" class="sel">Practice</button><button data-mode="challenge">Challenge</button></div><p class="hint" id="modeHelp">Practice mode: a dashed line previews your shot.</p>
+  <div class="mode-row"><button data-mode="guided">Guided</button><button data-mode="practice" class="sel">Practice</button><button data-mode="challenge">Challenge</button></div><p class="hint" id="modeHelp">Practice mode: a dashed line previews your shot.</p><button id="soundBtn" aria-pressed="true" type="button">🔊 Sound on</button>
   <div class="game">
     <div>
       <div class="course"><canvas id="cv" aria-label="Mini golf course on a coordinate grid"></canvas></div>
@@ -304,8 +304,9 @@ function slopeHTML(a) { return "slope " + fracHTML(a.mn, a.md); }
 const pt = p => `(${fmt(p[0])}, ${fmt(p[1])})`;
 const fmt = v => (Math.round(v * 100) / 100).toString().replace("-", "−");
 
-let audioCtx;
+let audioCtx,soundEnabled=true;
 function sound(type) {
+ if(!soundEnabled)return;
  try {
   const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
   audioCtx=audioCtx||new C();if(audioCtx.state==="suspended")audioCtx.resume();
@@ -473,7 +474,11 @@ function renderCard() {
     tot += s; totPar += h.par; played++;
     return `<td class="${(s < h.par ? "under" : s > h.par ? "over" : "") + cur}">${s}</td>`;
   }).join("") + `<td><b>${played ? tot : "–"}</b>${played ? ` <span class="${tot < totPar ? "under" : tot > totPar ? "over" : ""}">(${tot - totPar > 0 ? "+" : tot === totPar ? "E" : "−"}${tot === totPar ? "" : Math.abs(tot - totPar)})</span>` : ""}</td>`;
-  document.querySelectorAll("#scHead button").forEach(b => b.onclick = () => loadHole(+b.dataset.h));
+  document.querySelectorAll("#scHead button").forEach(b=>{
+   const i=+b.dataset.h,unlocked=i===0||S.scores.slice(0,i).every(x=>x!==null);
+   b.disabled=!unlocked;b.title=unlocked?"Play hole "+(i+1):"Complete preceding holes to unlock";
+   b.onclick=()=>{if(unlocked&&!S.busy)loadHole(i);};
+  });
 }
 
 // ---------- drawing ----------
@@ -619,6 +624,7 @@ function roundRect(x, y, w, h, r) { const c = ctx; r = Math.min(r, w / 2, h / 2)
 
 // ---------- wiring ----------
 $("hintBtn").onclick = hint;
+$("soundBtn").onclick=()=>{soundEnabled=!soundEnabled;$("soundBtn").setAttribute("aria-pressed",String(soundEnabled));$("soundBtn").textContent=soundEnabled?"🔊 Sound on":"🔇 Sound off";};
 document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{S.mode=b.dataset.mode;document.querySelectorAll("[data-mode]").forEach(x=>x.classList.toggle("sel",x===b));$("modeHelp").textContent={guided:"Guided: solid predicted trajectory with progressive hints.",practice:"Practice: dashed predicted trajectory with hints.",challenge:"Challenge: no predicted trajectory; final hint adds a stroke."}[S.mode];draw();});
 $("power").oninput=()=>{S.power=Number($("power").value);refresh();draw();};
 ["mn","md"].forEach(id=>$(id).addEventListener("input",draw));
