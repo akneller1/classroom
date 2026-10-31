@@ -59,10 +59,44 @@ function autoKind(p,choice){
  if(G.MKPRACTICE&&G.MKPRACTICE.supports(p))return 'auto';
  return null;
 }
+function bankProblem(q){
+ var sourceAnswer=Array.isArray(q.answer)?q.answer.join('; '):q.answer;
+ var parts=(q.parts&&q.parts.length?q.parts:[{answer:sourceAnswer,prompt:''}]).map(function(part,i){
+   return {answer:typeof part.answer==='object'?JSON.stringify(part.answer):String(part.answer==null?'':part.answer),prompt:part.prompt||'',label:part.label||String.fromCharCode(97+i)};
+ });
+ return {uid:q.id,sourceId:q.id,source:'authored-bank',skill:q.skillId,tag:q.skillId,prompt:q.prompt,
+   fig:q.diagram&&q.diagram.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null,
+   parts:parts,steps:(q.solutionSteps||[]).map(function(t){return {t:t};})};
+}
+function buildAuthored(selected,overrides){
+ var bank=G.MK_QUESTION_BANKS,unitId=config.unit.replace(/^algebra2-/,'');
+ var formats=config.format==='mc'?['multiple-choice','select-all']:config.format==='self'?['short-answer','open-response']:['multiple-choice','select-all','short-answer','open-response'];
+ var pools=selected.map(function(skill){return bank.select({courseId:'algebra2',unitId:unitId,skillIds:[skill.id],level:config.level,formats:formats}).sort(function(){return Math.random()-0.5;});});
+ var questions=[],requested=Math.max(5,Math.min(25,+config.count||10));
+ while(questions.length<requested&&pools.some(function(pool){return pool.length;})){
+   for(var i=0;i<pools.length&&questions.length<requested;i++){
+     if(!pools[i].length)continue;
+     var q=pools[i].shift(),kind=q.format==='multiple-choice'?'mc':q.format==='select-all'?'multi':'self';
+     var options=(q.options||[]).map(function(o){return o.text;});
+     var choices=kind==='mc'?{opts:options,key:(q.options||[]).findIndex(function(o){return o.correct===true;})}
+       :kind==='multi'?{opts:options,keys:(q.options||[]).map(function(o,j){return o.correct===true?j:-1;}).filter(function(j){return j>=0;})}:null;
+     var skill=chosen().byId[q.skillId],problem=bankProblem(q);
+     questions.push({id:q.id,skill:q.skillId,skillName:skill?skill.name:q.skillId,problem:problem,kind:kind,choices:choices,response:null,checked:false,correct:null,review:false});
+   }
+ }
+ var missing=selected.filter(function(skill){return !questions.some(function(q){return q.skill===skill.id;});}).map(function(skill){return skill.name;});
+ if(!questions.length){alert('No approved questions match this unit, level, and format. Try a different level, format, or skill selection.');return;}
+ if(questions.length<requested)alert('Only '+questions.length+' of '+requested+' requested approved questions are available for this unit, level, and format.');
+ if(missing.length)console.warn('Assessment Readiness: selected Algebra 2 skills without matching approved questions:',missing);
+ var previous=state&&state.done?state.questions.filter(function(q){return q.correct===true;}).length+'/'+state.questions.length:null;
+ state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'authored-bank',paperView:true,autoGraded:questions.every(function(q){return q.kind==='mc'||q.kind==='multi';}),missingSkills:missing};
+ save();show();
+}
 function build(overrides){
  config.mode='test';
  var selected=overrides&&overrides.length?chosen().skills.filter(x=>overrides.includes(x.id)):skills();
  if(!selected.length){alert('Select at least one skill.');return;}
+ if(chosen().authoredBank){buildAuthored(selected,overrides);return;}
  var questions=[],candidates=[],seen=new Set(),skipped=0,requested=config.count;
  var excludedBySkill={};
  // Use the same verified teacher Assessment Generator, but accept ONLY fully gradeable questions.
