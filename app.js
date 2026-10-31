@@ -954,6 +954,7 @@
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
     }).join('') + SOON.map(function (c) { return '<span class="soon-link" title="Coming soon">' + esc(c.name) + ' <small>Coming soon</small></span>'; }).join('');
     nav.innerHTML = html;
+    if (backBtn) backBtn.hidden = !query && r.name === 'home';
   }
 
   function render(keepFocus) {
