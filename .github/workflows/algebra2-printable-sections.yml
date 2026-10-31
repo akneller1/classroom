@@ -22,3 +22,10 @@ jobs:
       - name: Start local site
         run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/algebra2-http.log 2>&1 &
       - run: node scripts/test-algebra2-printable-browser.cjs
+      - name: Upload browser diagnostics and print preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: algebra2-generator-browser-output
+          path: test-results/
+          if-no-files-found: ignore
