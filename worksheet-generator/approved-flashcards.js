@@ -16,8 +16,25 @@ var S={level:'cp1',skill:'',cards:[],order:[],index:0,flipped:false,missedOnly:f
 var selectors={level:doc.getElementById('afLevel'),skill:doc.getElementById('afSkill')};
 function el(id){return doc.getElementById(id)}
 function text(tag,value,parent){var n=doc.createElement(tag);n.textContent=value;parent.appendChild(n);return n}
+function imagePath(q) {
+ if(!q.diagram)return '';
+ if(q.diagram.type!=='image'||!q.diagram.spec||typeof q.diagram.spec.src!=='string')return null;
+ var src=q.diagram.spec.src;
+ return /^question-banks\/assets\/[a-zA-Z0-9_/-]+\.(?:png|jpg|jpeg|webp)$/.test(src)&&src.indexOf('..')<0?'../'+src:null;
+}
+function diagram(q,card){
+ var src=imagePath(q);
+ if(src===null){text('p','This question requires an unsupported diagram and cannot be displayed.',card);return false;}
+ if(src){
+  var figure=doc.createElement('figure'),im=doc.createElement('img');
+  im.src=src;im.alt=q.diagram.spec.alt;im.loading='lazy';
+  im.addEventListener('error',function(){figure.replaceChildren();text('p','Diagram image unavailable. Do not use this question until the asset is repaired.',figure)});
+  figure.appendChild(im);if(q.diagram.spec.caption)text('figcaption',q.diagram.spec.caption,figure);
+  card.appendChild(figure);
+ }return true;
+}
 function refresh(){
- S.cards=banks.select({courseId:courseId,unitId:unitId,level:S.level,formats:['short-answer','multiple-choice'],skillIds:S.skill?[S.skill]:undefined});
+ S.cards=banks.select({courseId:courseId,unitId:unitId,level:S.level,formats:['short-answer','multiple-choice'],skillIds:S.skill?[S.skill]:undefined}).filter(function(q){return imagePath(q)!==null;});
  S.order=S.cards.map(function(_,i){return i}).filter(function(i){return !S.missedOnly||S.ratings[S.cards[i].id]==='need'});
  S.index=Math.min(S.index,Math.max(0,S.order.length-1));S.flipped=false;render();
 }
@@ -32,6 +49,7 @@ function render(){
   if(q.solutionSteps&&q.solutionSteps.length){text('strong','Worked solution',card);var sol=doc.createElement('ol');sol.className='af-solution';q.solutionSteps.forEach(function(s){text('li',s,sol)});card.appendChild(sol)}
  }else{
   text('p',q.prompt,card).className='af-prompt';
+  diagram(q,card);
   if(q.options&&q.options.length){var ul=doc.createElement('ol');ul.className='af-options';q.options.forEach(function(o){text('li',o.text,ul)});card.appendChild(ul)}
  }
  text('small',skillNames[q.skillId]||q.skillId,card);
