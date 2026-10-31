@@ -202,10 +202,6 @@ const HOLES = [
     walls: [], water: [[-4.5, -9.5, 1.5, 0.5]], sand: [[5.5, 0.5, 9.5, 4.5]] },
   { name: "The Wall", par: 3, ball: [-8, -2], cup: [8, -2], clubs: [2, 4, 6, 10],
     walls: [[0.5, -10, 0.5, 4.5]], water: [], sand: [[3.5, -7.5, 6.5, -4.5]] },
-  { name: "Sand Box", par: 3, ball: [-8, -8], cup: [8, 8], clubs: [3, 5, 8, 10],
-    walls: [[3.5, 5.5, 10, 5.5]], water: [[-9.5, 0.5, -3.5, 9.5]], sand: [[-2.5, -2.5, 2.5, 2.5]] },
-  { name: "River Crossing", par: 4, ball: [-8, -6], cup: [7, -5], clubs: [2, 3, 6, 9],
-    walls: [[4.5, -10, 4.5, -7.5]], water: [[-2.5, -10, 2.5, 2.5], [-2.5, 5.5, 2.5, 10]], sand: [] },
   { name: "Zig-Zag", par: 4, ball: [-9, -9], cup: [9, 9], clubs: [3, 5, 7, 9],
     walls: [[-4.5, -10, -4.5, 3.5], [3.5, -3.5, 3.5, 10]], water: [[-3.5, 4.5, 2.5, 10]], sand: [[6.5, -6.5, 9.5, -2.5]] },
   { name: "Ricochet Ridge", par: 4, ball: [-8,-6], cup: [7,6], clubs:[3,5,8,10], walls:[[-2,-4,4,-4]], water:[], sand:[] },
@@ -361,7 +357,7 @@ function swing() {
   if (!S.dir) return say("Pick a direction: left or right.", "bad");
   if (!S.club) return say("Pick a club.", "bad");
   const h = HOLES[S.hole], start = S.ball.slice(), d = S.club*S.power/100, dir = S.dir;
-  const r = simulate(h, start, a.m, dir, d, Math.floor(performance.now()/2000)*2000);
+  const r = simulate(h, start, a.m, dir, d, performance.now());
   S.strokes++; S.busy = true; refresh();
   const len = r.path.length * 0.03;
   const dur = Math.min(2800, 700 + 180 * len) * (reduce ? 0.6 : 1);
@@ -399,7 +395,7 @@ function finishShot(r, start, a, d, dir) {
   } else {
     S.ball = r.end;
     const why = { wall: "Bonk! The ball hit a wall and stopped.", edge: "The ball hit the edge of the course and stopped.", windmill: "The spinning windmill blocked the ball.", stop: "" }[r.reason];
-    const snapped = Math.abs(r.raw[0] - r.end[0]) > 1e-6 || Math.abs(r.raw[1] - r.end[1]) > 1e-6;
+    const snapped = false;
     msg = (why ? why + " " : "") + (r.sand ? "The sand slowed the ball down. " : "") + (r.lipped ? "Too hard! It rolled right over the cup. " : "") +
       (snapped ? `It stopped near ${pt(r.raw)} and settled on the nearest grid point, ${pt(r.end)}.` : `The ball is now at ${pt(r.end)}.`);
     res = pt(r.end);
@@ -412,7 +408,7 @@ function finishShot(r, start, a, d, dir) {
     msg += ` That's ${MAX_STROKES} strokes, so pick up the ball and move on.`;
   }
   if (S.done) { $("nextBtn").hidden = false; updateResults(); }
-  if (S.done && S.hole === HOLES.length - 1) $("nextBtn").textContent = "Play again ↺";
+  if (S.done && S.hole === HOLES.length - 1) $("nextBtn").textContent = "Championship results 🏆";
   else $("nextBtn").textContent = "Next hole ▶";
   if (!S.done) msg += ` Adjust the slope for your next shot from ${pt(S.ball)}.`;
   say(msg, kind);
@@ -523,7 +519,7 @@ function draw() {
   if(S.mode!=="challenge"&&!S.busy&&!S.done&&S.dir&&S.club){
    const mn=parseInt($("mn").value,10),md=parseInt($("md").value,10);
    if(Number.isFinite(mn)&&Number.isFinite(md)&&md!==0){
-    const p=simulate(h,S.ball,mn/md,S.dir,S.club*S.power/100,Math.floor(performance.now()/2000)*2000);
+    const p=simulate(h,S.ball,mn/md,S.dir,S.club*S.power/100,performance.now());
     c.save();c.strokeStyle="rgba(255,255,255,.95)";c.lineWidth=2.4;c.setLineDash(S.mode==="practice"?[7,5]:[]);
     c.beginPath();p.path.forEach((v,i)=>i?c.lineTo(X(v[0]),Y(v[1])):c.moveTo(X(v[0]),Y(v[1])));c.stroke();c.setLineDash([]);
     c.fillStyle="#ffe276";c.beginPath();c.arc(X(p.end[0]),Y(p.end[1]),U*.22,0,Math.PI*2);c.fill();c.restore();
@@ -593,7 +589,7 @@ $("dirR").onclick = () => { S.dir = 1; refresh(); draw(); };
 $("swingBtn").onclick = swing;
 $("restartBtn").onclick = () => { S.scores[S.hole] = null; loadHole(S.hole); };
 $("nextBtn").onclick = () => {
-  if (S.hole === HOLES.length - 1) { S.scores = HOLES.map(() => null); loadHole(0); }
+  if (S.hole === HOLES.length - 1) { updateResults(); $("results").scrollIntoView({behavior:"smooth"}); }
   else loadHole(S.hole + 1);
 };
 new ResizeObserver(resize).observe(cv);
