@@ -1617,7 +1617,7 @@ Solution: Set A = 2P and divide by P. 2 = (1 + 0.08/4)^(4t) Use logs: t ≈ 8.8.
 **a2-el-s08-cp1-011** (cp1, short-answer)  
 How long to double money at 3% compounded annually? Round to the nearest tenth of a year.  
 Answer: **≈ 23.4 years**  
-Solution: Set A = 2P and divide by P. 2 = (1 + 0.03/1)^(1t) Use logs: t ≈ 23.4.
+Solution: Set A = 2P and divide by P. 2 = (1 + 0.03)^t Use logs: t ≈ 23.4.
 
 **a2-el-s08-honors-001** (honors, short-answer)  
 How long to double money at 5% compounded continuously? Round to the nearest tenth of a year.  
@@ -1715,7 +1715,7 @@ Solution: A = P(1 + r/n)^(nt). Substitute t = 5. Divide by P, take logs. A - P.
 
 **a2-el-s08-cp1-020** (cp1, open-response)  
 $10,000 is invested at 3% compounded annually.  
-- (a) Write the balance formula. → **A = 10000(1 + 0.03/1)^(1t)**
+- (a) Write the balance formula. → **A = 10000(1 + 0.03)^t**
 - (b) Find the balance after 5 years (nearest cent). → **$11,592.74**
 - (c) When does the balance reach $15,000? (nearest tenth of a year) → **13.7 years**
 - (d) Find the interest earned in the first 5 years. → **$1,592.74**

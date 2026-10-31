@@ -64,13 +64,14 @@ def clean(t):
 
 
 class Bank:
-    def __init__(self, unit_id, short, standards, fresh=True):
+    def __init__(self, unit_id, short, standards, fresh=True, course="algebra2", prefix="a2"):
+        self.course, self.prefix = course, prefix
         self.unit, self.short, self.std = unit_id, short, standards
         self.qs, self.meta, self.seen = [], {}, set()
         self.count = {}
         self.rng = random.Random(__import__("zlib").crc32(unit_id.encode()) % 10_000)  # deterministic across runs
         if fresh:  # drop stale images from earlier runs of this unit's script
-            import shutil; shutil.rmtree(f"{OUT}/question-banks/assets/algebra2/{unit_id}", ignore_errors=True)
+            import shutil; shutil.rmtree(f"{OUT}/question-banks/assets/{course}/{unit_id}", ignore_errors=True)
 
     @classmethod
     def resume(cls, unit_id, short, standards, bank_path, tags_path):
@@ -86,7 +87,7 @@ class Bank:
     def _id(self, skill, level):
         k = (skill, level)
         self.count[k] = self.count.get(k, 0) + 1
-        return f"a2-{self.short}-s{skill:02d}-{level}-{self.count[k]:03d}"
+        return f"{self.prefix}-{self.short}-s{skill:02d}-{level}-{self.count[k]:03d}"
 
     def add(self, skill, level, fmt_, prompt, answer, steps, options=None, parts=None,
             diagram=None, tags=()):
@@ -151,12 +152,17 @@ class Bank:
 
     # -------- output --------
     def write(self):
-        d = f"{OUT}/question-banks/algebra2"
+        d = f"{OUT}/question-banks/{self.course}"
         os.makedirs(d, exist_ok=True)
         with open(f"{d}/{self.unit}.json", "w") as f:
-            json.dump({"schemaVersion": 1, "courseId": "algebra2", "unitId": self.unit,
+            json.dump({"schemaVersion": 1, "courseId": self.course, "unitId": self.unit,
                        "questions": self.qs}, f, ensure_ascii=False, indent=1)
-        md = f"{OUT}/question-banks/algebra2/meta"
+        used = {q["diagram"]["spec"]["src"] for q in self.qs if "diagram" in q}
+        ad = f"{OUT}/question-banks/assets/{self.course}/{self.unit}"
+        if os.path.isdir(ad):  # drop images made by rolled-back items
+            for fn in os.listdir(ad):
+                if f"question-banks/assets/{self.course}/{self.unit}/{fn}" not in used: os.remove(f"{ad}/{fn}")
+        md = f"{OUT}/question-banks/{self.course}/meta"
         os.makedirs(md, exist_ok=True)
         with open(f"{md}/{self.unit}.tags.json", "w") as f:
             json.dump(self.meta, f, ensure_ascii=False, indent=0)
@@ -223,7 +229,7 @@ def graph(bank, name, curves, xr=(-6, 6), yr=(-6, 6), points=(), alt="", vlines=
         if len(p) > 3 and p[3]:
             ax.annotate(p[3], (px, py), textcoords="offset points", xytext=(5, 5), fontsize=8,
                         bbox=dict(fc="white", ec="none", alpha=0.8, pad=0.5))
-    rel = f"question-banks/assets/algebra2/{bank.unit}/{name}.png"
+    rel = f"question-banks/assets/{bank.course}/{bank.unit}/{name}.png"
     os.makedirs(os.path.dirname(f"{OUT}/{rel}"), exist_ok=True)
     fig.tight_layout(); fig.savefig(f"{OUT}/{rel}"); plt.close(fig)
     assert alt

@@ -219,12 +219,12 @@ Solution: Simplify each radical first. 4√3 = 4√3 and -7√3 = -7√3. Combin
 **a2-rr-s02-cp1-001** (cp1, short-answer)  
 Simplify 2√12 + √27.  
 Answer: **7√3**  
-Solution: Simplify each radical first. 2√12 = 4√3 and 1√27 = 3√3. Combine like radicals: 7√3.
+Solution: Simplify each radical first. 2√12 = 4√3 and √27 = 3√3. Combine like radicals: 7√3.
 
 **a2-rr-s02-cp1-002** (cp1, short-answer)  
 Simplify √50 + 3√8.  
 Answer: **11√2**  
-Solution: Simplify each radical first. 1√50 = 5√2 and 3√8 = 6√2. Combine like radicals: 11√2.
+Solution: Simplify each radical first. √50 = 5√2 and 3√8 = 6√2. Combine like radicals: 11√2.
 
 **a2-rr-s02-cp1-003** (cp1, short-answer)  
 Simplify 5√20 - 2√45.  
@@ -234,7 +234,7 @@ Solution: Simplify each radical first. 5√20 = 10√5 and -2√45 = -6√5. Com
 **a2-rr-s02-cp1-004** (cp1, short-answer)  
 Simplify 2√18 - √32.  
 Answer: **2√2**  
-Solution: Simplify each radical first. 2√18 = 6√2 and -1√32 = -4√2. Combine like radicals: 2√2.
+Solution: Simplify each radical first. 2√18 = 6√2 and -√32 = -4√2. Combine like radicals: 2√2.
 
 **a2-rr-s02-cp1-005** (cp1, short-answer)  
 Multiply: (2 + 3√7)(1 + 3√7).  
@@ -432,7 +432,7 @@ Solution: Add. 7 - 3. (p + q)² - 2pq = 28 - 8. Multiply by p/p: p²/(pq) = (10 
 **a2-rr-s03-cp2-001** (cp2, short-answer)  
 Evaluate 27^(2/3).  
 Answer: **9**  
-Solution: Take the 3th root first: 3. Raise to the power 2: 9.
+Solution: Take the 3rd root first: 3. Raise to the power 2: 9.
 
 **a2-rr-s03-cp2-002** (cp2, short-answer)  
 Evaluate 16^(3/4).  
@@ -452,7 +452,7 @@ Solution: Take the 4th root first: 3. Raise to the power 3: 27.
 **a2-rr-s03-cp1-003** (cp1, short-answer)  
 Evaluate 125^(-2/3).  
 Answer: **1/25**  
-Solution: Take the 3th root first: 5. Raise to the power -2: 1/25. A negative exponent means reciprocal.
+Solution: Take the 3rd root first: 5. Raise to the power -2: 1/25. A negative exponent means reciprocal.
 
 **a2-rr-s03-honors-001** (honors, short-answer)  
 Evaluate 64^(-5/6).  
@@ -462,12 +462,12 @@ Solution: Take the 6th root first: 2. Raise to the power -5: 1/32. A negative ex
 **a2-rr-s03-honors-002** (honors, short-answer)  
 Evaluate (8/27)^(2/3).  
 Answer: **4/9**  
-Solution: Take the 3th root first: 2/3. Raise to the power 2: 4/9.
+Solution: Take the 3rd root first: 2/3. Raise to the power 2: 4/9.
 
 **a2-rr-s03-honors-003** (honors, short-answer)  
 Evaluate (9/4)^(-3/2).  
 Answer: **8/27**  
-Solution: Take the 2th root first: 3/2. Raise to the power -3: 8/27. A negative exponent means reciprocal.
+Solution: Take the 2nd root first: 3/2. Raise to the power -3: 8/27. A negative exponent means reciprocal.
 
 **a2-rr-s03-cp1-004** (cp1, short-answer)  
 Simplify x^(1/2)·x^(1/3). Assume variables are positive.  

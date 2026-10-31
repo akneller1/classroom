@@ -347,3 +347,13 @@ def rats(N, D, factored=True):
     if D == P([1]):
         return n[1:-1] if (n.startswith("(") and n.endswith(")") and n.count("(") == 1) else n
     return f"{wrapn(n)}/{wrapd(d)}"
+
+
+def linp(e):
+    """Parse a linear text expression like '3x - 2', '(x + 20)°', '5x', '-x + 4', '12' into P([b, a])."""
+    s = e.replace("°", "").replace("(", "").replace(")", "").replace(" ", "")
+    m = re.fullmatch(r"([+-]?\d*(?:\.\d+)?)x([+-]\d+(?:\.\d+)?)?|([+-]?\d+(?:\.\d+)?)", s)
+    assert m, e
+    if m.group(3) is not None: return P([F(m.group(3))])
+    a = m.group(1); a = 1 if a in ("", "+") else (-1 if a == "-" else F(a))
+    return P([F(m.group(2) or 0), F(a)])

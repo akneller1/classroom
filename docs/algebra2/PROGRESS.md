@@ -1,12 +1,12 @@
 # Algebra 2 content — progress manifest (resume here)
 
 Session 1 (2026-10-31). Repo snapshot: classroom-main ZIP uploaded by user.
-Session 2 (2026-10-31): Units 4–11 authored; Units 1–3 topped up. All 89 skills ≥ 30 items. Repo snapshot: classroom-main (2).zip.
+Session 2 (2026-10-31): Units 4–11 authored; Units 1–3 topped up. All 87 skills ≥ 30 items. Repo snapshot: classroom-main (2).zip.
 
 ## Findings (do not re-inspect)
 - Bank format: `question-banks/algebra2/<unitId>.json`, schema `schemas/question-bank.schema.json` (no extra question keys allowed).
 - Levels: `cp2`, `cp1`, `honors`. Formats: short-answer, multiple-choice (exactly 1 correct), select-all (≥2 correct), open-response (≥4 parts).
-- Skill IDs: `<unitId>-skill-NN` in catalog order (`course-catalog.js` → `algebra2`). 11 units, 89 skills.
+- Skill IDs: `<unitId>-skill-NN` in catalog order (`course-catalog.js` → `algebra2`). 11 units, 87 skills.
 - Diagrams playable in shared tools only as raster images under `question-banks/assets/...` (type "image", alt required).
 - Existing Algebra 2 bank items before this work: none. Algebra 1/Geometry use JS generators in `worksheet-generator/menu/skills/` (not the bank format).
 - Approval: never set `approved: true` in `question-banks/manifest.json`; human review first (docs/CLAUDE_QUESTION_BANK_HANDOFF.md).

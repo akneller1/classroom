@@ -25,7 +25,7 @@ Answer: **44**
 Solution: d = 3/2. aₙ = a₁ + (n - 1)d = 1/2 + 29(3/2) = 44.
 
 **a2-ss-s01-cp1-002** (cp1, short-answer)  
-Find the 41th term of the arithmetic sequence 100, 195/2, 95, 185/2, …  
+Find the 41st term of the arithmetic sequence 100, 195/2, 95, 185/2, …  
 Answer: **0**  
 Solution: d = -5/2. aₙ = a₁ + (n - 1)d = 100 + 40(-5/2) = 0.
 
