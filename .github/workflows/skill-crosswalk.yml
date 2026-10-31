@@ -9,6 +9,8 @@ on:
       - 'scripts/test-legacy-crosswalk-audit.cjs'
       - 'scripts/report-legacy-reuse.cjs'
       - 'scripts/test-crosswalk-generator-samples.cjs'
+      - 'cross-course-difficulty.js'
+      - 'scripts/test-cross-course-difficulty.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
 jobs:
@@ -23,3 +25,4 @@ jobs:
       - run: node scripts/test-legacy-crosswalk-audit.cjs
       - run: node scripts/report-legacy-reuse.cjs
       - run: node scripts/test-crosswalk-generator-samples.cjs
+      - run: node scripts/test-cross-course-difficulty.cjs
