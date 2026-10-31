@@ -326,6 +326,20 @@
     });
   }
   P.figToPng = function (spec) {
+    if (spec && spec.kind === 'authored-image' && /^question-banks\/assets\/[a-zA-Z0-9_/-]+\.(png|jpg|jpeg|webp)$/.test(spec.src || '') && !spec.src.includes('..')) {
+      return new Promise(function (resolve) {
+        var im = new G.Image();
+        im.onload = function () {
+          var w = im.naturalWidth || im.width, h = im.naturalHeight || im.height, canvas = G.document.createElement('canvas');
+          if (!w || !h) { resolve(null); return; }
+          canvas.width = w; canvas.height = h;
+          var ctx = canvas.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, w, h); ctx.drawImage(im, 0, 0, w, h);
+          resolve({ data: canvas.toDataURL('image/png'), w: w, h: h, alt: spec.alt || 'approved Algebra 2 diagram' });
+        };
+        im.onerror = function () { resolve(null); };
+        im.src = '../' + spec.src;
+      });
+    }
     var html = G.MKMENU.figHtml(spec), m = /<svg[\s\S]*<\/svg>/.exec(html);
     return m ? svgToPng(m[0]) : Promise.resolve(null);
   };
