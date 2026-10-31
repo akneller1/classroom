@@ -592,3 +592,15 @@ body { background:var(--paper); }
 @media (max-width:700px) {
   .site-header .search { flex:1 1 100%; width:100%; max-width:none; margin-left:0; }
 }
+
+/* Shared non-math content preparation controls for new grade-level courses. */
+.course-skill-hint { margin:.65rem 0 1rem; color:var(--ink-soft); }
+.course-skill-actions { display:flex; flex-wrap:wrap; align-items:center; gap:.65rem; margin:0 0 1rem; }
+.course-skill-select { border:1.5px solid var(--edge); border-radius:9px; background:var(--card); color:var(--ink); padding:.5rem .75rem; font:inherit; font-weight:700; cursor:pointer; }
+.course-skill-select:hover { background:var(--wash); }
+.course-skill-select:focus-visible,.course-skill-checklist input:focus-visible { outline:3px solid var(--blue-bg); outline-offset:3px; }
+.course-skill-status { color:var(--ink-soft); font-size:.9rem; }
+.course-skill-checklist { margin:.5rem 0 0; padding-left:1.6rem; }
+.course-skill-checklist li { margin:.5rem 0; }
+.course-skill-checklist label { display:inline-flex; align-items:flex-start; gap:.55rem; cursor:pointer; }
+.course-skill-checklist input { margin-top:.3rem; accent-color:var(--blue-bg); }
