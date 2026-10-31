@@ -27,9 +27,10 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
    assert.equal(await page.locator('#output .sheet:not(.key) .item').count(),await page.locator('#output .key .item').count());
    cases.push(unit+'/'+mode);
   }
-  await page.goto(base+'/worksheet-generator/algebra2-practice.html?unit='+unit);
-  await page.locator('#start:not([disabled])').waitFor();await page.locator('#start').click();
-  assert.ok(await page.locator('#questions .item').count()>0);cases.push(unit+'/practice');
+  await page.goto(base+'/worksheet-generator/practice-test.html?course=algebra2#unit=algebra2-'+unit);
+  await page.waitForFunction(expected=>document.querySelector('#pt-unit')?.value===expected,'algebra2-'+unit);
+  await page.locator('#pt-build').click();await page.locator('#pt-progress-count').waitFor();
+  assert.ok(await page.locator('[data-jump]').count()>0);cases.push(unit+'/practice');
   for(const game of ['flashcards','connect-four','tic-tac-toe','picture-reveal','showdown','detective','escape-room']){
    await page.goto(base+'/worksheet-generator/algebra2-game.html?unit='+unit+'&game='+game);
    await page.getByRole('button',{name:'Continue',exact:true}).click();
