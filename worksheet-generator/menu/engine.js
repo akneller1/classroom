@@ -986,7 +986,7 @@
     state.versions.forEach(function (ver) { ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) {
       var where = 'Version ' + ver.label + ', ' + (state.config.sections[si].name) + ' #' + (i + 1);
       if (it.failed) list.push(where + ': no verified problem yet.');
-      else if (it.verify && it.verify.status !== 'verified' && it.verify.status !== 'manual' && !it.approved) list.push(where + ': answer needs your approval.');
+      else if (it.verify && it.verify.status !== 'verified' && !it.approved) list.push(where + ': answer needs your approval.');
     }); }); });
     return list;
   };
