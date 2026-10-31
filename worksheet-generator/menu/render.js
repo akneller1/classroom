@@ -124,14 +124,14 @@
     text = text === undefined ? (p.prompt || '') : text;
     return /^geo-circle-/.test(p.variant || '') ? text.replace(/([XY]|\))\^2/g, '$1\u00b2') : text;
   };
-  function promptHtml(p, forKey) {
+  function promptHtml(p, forKey, inlineLabel, pointsLabel) {
     // Proof statements and the equation appear in the scaffold; do not print them twice.
     var questionText = p.prompt || '';
     if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
       questionText = questionText.split(' Establish:')[0];
     }
     questionText = NS.displayPrompt(p, questionText);
-    var h = '<div class="mm-q">' + mathSafe(questionText) + '</div>';
+    var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + mathSafe(questionText) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p, forKey);
@@ -196,14 +196,14 @@
   }
   function testQHtml(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
-    if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-dh"><b>' + lab + '.</b></div><div class="mm-q">[No verified problem — fix this in the editor before printing.]</div></div>';
+    if (p.failed) return '<div class="mm-dish mm-missing"><div class="mm-q"><b class="mm-qnum">' + lab + '.</b> [No verified problem — fix this in the editor before printing.]</div></div>';
     var fmt = NS.sectionFormat(cfg, si), mc = fmt === 'mc' && p.mc, multi = fmt === 'multi' && p.multi, mcas = fmt === 'mcas';
     if ((fmt === 'multi' && (!multi || !Array.isArray(p.multi.keys) || p.multi.keys.length < 2)) || (mcas && p.mcasFail)) {
       return '<div class="mm-dish mm-missing"><div class="mm-q">[No valid question for this format. Regenerate or select another skill before printing.]</div></div>';
     }
     var space = mc || multi ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: mcas ? 'spacious' : cfg.layout.density, grid: cfg.layout.grid } });
-    return '<div class="mm-dish mm-tq' + (mcas || multi || isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '"><div class="mm-dh"><span><b>' + lab + '.</b></span>' + (NS.isWorksheet(cfg) ? '' : '<span class="mm-pts">' + ptsText(+sec.points) + '</span>') + '</div>' +
-      promptHtml(p) + (mc ? choicesHtml(p) : multi ? multiHtml(p) : '') + (fmt === 'multi' && !multi ? '<p class="mm-flag bad">Cannot make verified choices: ' + esc(p.multiFail || 'Try another skill') + '</p>' : '') + (mcas && p.mcasFail ? '<p class="mm-flag bad">Cannot make a verified multi-part problem: ' + esc(p.mcasFail) + '</p>' : '') + space + '</div>';
+    return '<div class="mm-dish mm-tq' + (mcas || multi || isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '">' +
+      promptHtml(p, false, lab + '.', NS.isWorksheet(cfg) ? '' : ptsText(+sec.points)) + (mc ? choicesHtml(p) : multi ? multiHtml(p) : '') + (fmt === 'multi' && !multi ? '<p class="mm-flag bad">Cannot make verified choices: ' + esc(p.multiFail || 'Try another skill') + '</p>' : '') + (mcas && p.mcasFail ? '<p class="mm-flag bad">Cannot make a verified multi-part problem: ' + esc(p.mcasFail) + '</p>' : '') + space + '</div>';
   }
   function testStudentBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), B = [];
