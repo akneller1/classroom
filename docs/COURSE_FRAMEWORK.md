@@ -21,3 +21,8 @@ Keep question factories and diagrams in the skill-bank layer; shared generators 
 
 ## Automated audit
 The catalog audit validates course/unit uniqueness, lesson coverage, and resource file paths. It **does not** claim math correctness, question quality, diagram validity or browser behavior. Existing math-focused tests remain necessary; do not weaken them to turn builds green.
+
+## Stable subskill IDs and content intake
+`MK_COURSE_CATALOG.getSkillRecords(courseId,unitId)` returns objects `{id,name,index}` for Claude to reference. Example: the first skill in 6th Grade Math's `ratios-rates-percent-proportions` unit is `ratios-rates-percent-proportions-skill-01`. IDs are positional, so **do not reorder existing lessons after creating question banks** without an explicit ID migration. Future work can replace these transitional IDs with authored permanent IDs.
+
+Claude can deliver one JSON file per unit conforming to `schemas/question-bank.schema.json`, then run `node scripts/check-question-bank.cjs path/to/unit-questions.json`. This currently checks format, identifiers, options, solution presence and open-response length; mathematical verification and diagram QA remain separate. Do not publish unverified questions merely because this structural validator passes.
