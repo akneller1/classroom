@@ -31,6 +31,15 @@ if(!tierPlans.cp1||!tierPlans.cp1.length){
  return;
 }
 root.MK_GRADE_GAME_TIERS=tierPlans;
+// Limit retry attempts in middle-school games to curriculum-approved tiers.
+// This wrapper is installed only on the middle-school game page; Algebra 1
+// and Geometry use the original shared game bank unchanged.
+var originalMakeItems=root.MKGAMES.makeItems;
+var allowedTiers=Object.keys(tierPlans).reduce(function(all,level){return all.concat(tierPlans[level]);},[]);
+root.MKGAMES.makeItems=function(setId,skillId,c,policy,seed,used){
+ if(allowedTiers.indexOf(c)<0)return [];
+ return originalMakeItems(setId,skillId,c,policy,seed,used);
+};
 Object.keys(tierPlans).forEach(function(level){
  if(root.MKGAMES.LEVELS[level])root.MKGAMES.LEVELS[level].tiers=tierPlans[level].slice();
 });
