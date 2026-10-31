@@ -43,3 +43,10 @@ Run `node scripts/test-question-bank-adapter.cjs` for the adapter's validation, 
 Algebra 2 is now included in the same unit-page lesson selection and `Copy content brief` workflow as grades 6–8; this applies even to units with only placeholder resource entries. Existing Algebra 2 games/generators remain linked where present. The shared generator discovery bridge supplements the legacy Algebra 2 generator selector with any units missing there, including Conic Sections and Probability & Statistics. Unsupported units remain disabled until their actual validated question factories exist.
 
 Content completion must be assessed by verified skill/format/difficulty coverage, not by presence of one or two resource links in `data.js`. Algebra 2 questions and diagrams are still reserved for Claude.
+
+## Teacher question coverage dashboard
+Open `coverage.html` from the website, or `coverage.html?course=algebra2` to filter to a course. The dashboard reports **only approved questions loaded into `MK_QUESTION_BANKS`**. It shows all six courses, 60 curriculum units and 503 subskills, counts CP2/CP1/Honors per skill, expands to unit detail and exports CSV for content production planning.
+
+**Important**: Zero does not mean that legacy Algebra 1/Geometry/Algebra 2 generators are empty. The existing verified or unverified legacy factories are **not imported into this new adapter**, so the dashboard intentionally avoids claiming their content is approved. Once Claude's content is reviewed and integrated via `MK_QUESTION_BANKS.register(bank,{verified:true})`, the registered questions will be included in the dashboard. Never mark a bank verified simply to make the dashboard green.
+
+Run `node scripts/test-coverage-report.cjs` to test the reporting model.
