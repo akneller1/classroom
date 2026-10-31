@@ -12,6 +12,8 @@ on:
       - 'cross-course-difficulty.js'
       - 'scripts/test-cross-course-difficulty.cjs'
       - 'scripts/test-grade-reuse-samples.cjs'
+      - 'legacy-review-samples.js'
+      - 'scripts/test-legacy-review-samples.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
 jobs:
@@ -28,3 +30,4 @@ jobs:
       - run: node scripts/test-crosswalk-generator-samples.cjs
       - run: node scripts/test-cross-course-difficulty.cjs
       - run: node scripts/test-grade-reuse-samples.cjs
+      - run: node scripts/test-legacy-review-samples.cjs
