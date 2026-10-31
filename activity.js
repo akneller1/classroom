@@ -46,6 +46,16 @@
     message.textContent = 'This link is not a student game or study guide.';
     return;
   }
+  if (studentFocus) {
+    var direct = new URL(match.path, window.location.href);
+    if (/\.html(?:[?#]|$)/i.test(match.path)) {
+      direct.searchParams.set('student', '1');
+      if (params.has('skills')) direct.searchParams.set('skills', params.get('skills'));
+    }
+    if (typeof window.location.replace === 'function') window.location.replace(direct.href);
+    else window.location.href = direct.href;
+    return;
+  }
   title.textContent = match.title;
   document.title = match.title + ' | Mr. K’s Classroom';
   original.href = match.path;
@@ -57,8 +67,8 @@
     share.hidden = false;
     share.addEventListener('click', function () {
       if (window.TeacherGameShare && window.TeacherGameShare.supports(match.path)) { window.TeacherGameShare.open(match.path); return; }
-      var url = new URL('activity.html', window.location.href);
-      url.search = new URLSearchParams({path: match.path, student: '1'}).toString();
+      var url = new URL(match.path, window.location.href);
+      if (/\.html(?:[?#]|$)/i.test(match.path)) url.searchParams.set('student', '1');
       var value = url.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(value).then(function () { share.textContent = 'Student link copied!'; }, function () { window.prompt('Copy student link:', value); });

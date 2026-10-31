@@ -37,9 +37,7 @@
         (card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'activity'));
       button.addEventListener('click', function () {
         if (window.TeacherGameShare && window.TeacherGameShare.supports(path)) { window.TeacherGameShare.open(path); return; }
-        var url = new URL('activity.html', window.location.href);
-        url.hash = '';
-        url.search = new URLSearchParams({ path: path, student: '1' }).toString();
+        var url = new URL(path, window.location.href); url.hash = ''; if (/\.html(?:[?#]|$)/i.test(path)) url.searchParams.set('student', '1');
         function success() {
           button.textContent = 'Copied!';
           window.setTimeout(function () { button.textContent = 'Copy student link'; }, 2000);

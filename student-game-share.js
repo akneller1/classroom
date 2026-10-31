@@ -28,10 +28,7 @@
         var ids = event.data.skills;
         if (!Array.isArray(ids) || !ids.length || !ids.every(function (id) { return catalogue.some(function (s) { return s.id === id; }); })) return;
         G.removeEventListener('message', receive);
-        var nativeCourse = /^worksheet-generator\/course-(game|activity)\.html\?/.test(path);
-        var url = new URL(nativeCourse ? path : 'activity.html', G.location.href); url.hash = '';
-        if(nativeCourse){url.searchParams.set('student','1');url.searchParams.set('skills',JSON.stringify(ids));}
-        else url.search = new URLSearchParams({path:path,student:'1',skills:JSON.stringify(ids)}).toString();
+        var url = new URL(path, G.location.href); url.hash = ''; url.searchParams.set('student', '1'); url.searchParams.set('skills', JSON.stringify(ids));
         frame.remove();
         var heading = doc.createElement('h2'); heading.textContent = 'Student link ready'; dialog.appendChild(heading);
         var summary = doc.createElement('p'); summary.textContent = 'Selected skills: ' + catalogue.filter(function (s) { return ids.indexOf(s.id) >= 0; }).map(function (s) { return s.name; }).join('; '); dialog.appendChild(summary);

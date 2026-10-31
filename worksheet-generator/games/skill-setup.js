@@ -6,6 +6,37 @@
     el.innerHTML = String(value || '');
     return el.textContent.replace(/\s+/g, ' ').trim();
   }
+  function applyStudentFocus() {
+    var doc = G.document, params = new URLSearchParams(G.location.search);
+    if (params.get('student') !== '1' || params.get('teacherShare') === '1' || !doc.documentElement || !doc.head) return;
+    doc.documentElement.classList.add('student-focus');
+    var style = doc.createElement('style');
+    style.textContent = 'html.student-focus .gm-eyebrow,html.student-focus .topbar,html.student-focus .home-button,html.student-focus .back-button,html.student-focus .brand-link,html.student-focus #activityHeader{display:none!important}';
+    doc.head.appendChild(style);
+    var pathname = G.location.pathname;
+    var marker = pathname.indexOf('/artifacts/');
+    if (marker < 0) marker = pathname.indexOf('/worksheet-generator/');
+    var root = marker < 0 ? G.location.origin : pathname.slice(0, marker);
+    function cleanLinks() {
+      Array.prototype.slice.call(doc.querySelectorAll('a')).forEach(function (a) {
+        var label = (a.textContent || '').toLowerCase();
+        var href = a.getAttribute('href') || '';
+        var target;
+        try { target = new URL(href, G.location.href); } catch (e) { return; }
+        var home = target.origin === G.location.origin && (target.pathname === root + '/' || target.pathname === root + '/index.html');
+        var classroomLabel = label.indexOf('mr. k') >= 0 || label.indexOf('mr k') >= 0 || label.indexOf('classroom') >= 0 || label.indexOf('back to class') >= 0 || label.indexOf('return home') >= 0;
+        if (home || classroomLabel) a.remove();
+      });
+      var heading = doc.querySelector('h1');
+      var docTitle = (doc.title || '').toLowerCase();
+      if (heading && (docTitle.indexOf('mr. k') >= 0 || docTitle.indexOf('mr k') >= 0 || docTitle.indexOf('classroom') >= 0)) doc.title = text(heading.textContent);
+    }
+    cleanLinks();
+    if (typeof G.MutationObserver === 'function') {
+      new G.MutationObserver(cleanLinks).observe(doc.documentElement, { childList: true, subtree: true });
+    }
+  }
+  applyStudentFocus();
   function choose(skills, start, note) {
     var params = new URLSearchParams(G.location.search);
     if (params.get('student') === '1') {
