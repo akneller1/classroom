@@ -11,7 +11,7 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
  for(const unit of units){
   for(const tool of ['worksheet','menu-assessment']){
    await page.goto(base+'/worksheet-generator/'+tool+'.html#unit=algebra2-'+unit);
-   await page.waitForURL('**/bank-printable.html?unit='+unit+'&mode='+(tool==='worksheet'?'worksheet':'assessment'));
+   await page.waitForFunction(expected=>document.querySelector('#mmUnitSel')?.value===expected,'algebra2-'+unit);
    cases.push(unit+'/'+tool+'-entry');
   }
   await page.goto(base+'/index.html#algebra2.'+unit);
