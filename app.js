@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { prealgebra7: 0, prealgebra: 1, algebra: 2, geometry: 3, algebra2: 4 };
+  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -943,8 +943,77 @@ var GEOMETRY_UNIT_SUBSKILLS = {
     "Using Multiple Strategies"
   ]
 };
+  var MATH6_UNIT_SUBSKILLS = {
+  "ratios-rates-percent-proportions": [
+    "Ratios",
+    "Unit Rate",
+    "Equivalent Ratios and Tables",
+    "Comparing Ratios",
+    "Proportions",
+    "Percent and Rates per 100",
+    "A Fraction as a Percent",
+    "Ratio and Measurement Units"
+  ],
+  "fractions-decimals-operations": [
+    "Dividing Fractions",
+    "Dividing Whole Numbers and Fractions",
+    "Dividing Mixed Numbers and Fractions",
+    "Dividing Multi-Digit Numbers",
+    "Adding and Subtracting Multi-Digit Decimals",
+    "Multiplying and Dividing Multi-Digit Decimals",
+    "Least Common Multiple and Greatest Common Factor",
+    "The Distributive Property and Products of Decimals"
+  ],
+  "rational-numbers": [
+    "Positive and Negative Numbers",
+    "Positive and Negative Numbers on the Number Line",
+    "Comparing and Ordering Rational Numbers",
+    "Writing and Interpreting Inequality Statements",
+    "Absolute Value of Rational Numbers",
+    "Absolute Value and Ordering Numbers",
+    "Rational Numbers and the Coordinate Plane",
+    "Ordered Pairs on the Coordinate Plane",
+    "Distance on the Coordinate Plane"
+  ],
+  "expressions-equations": [
+    "Writing and Evaluating Numerical Expressions with Exponents",
+    "Writing and Evaluating Algebraic Expressions",
+    "The Order of Operations",
+    "Equivalent Expressions",
+    "Solutions of Equations",
+    "Solving One-Variable Equations",
+    "Dependent and Independent Variables"
+  ],
+  "inequalities": [
+    "Inequalities",
+    "Solving One-Variable Inequalities",
+    "Solutions of Inequalities",
+    "Solutions of Inequalities on the Number Line",
+    "Applications of Inequalities"
+  ],
+  "geometry": [
+    "Area of Special Quadrilaterals",
+    "Area of Right Triangles",
+    "Area of All Triangles",
+    "Area of Polygons Through Composition and Decomposition",
+    "Volume of Right Rectangular Prisms",
+    "Polygons on the Coordinate Plane",
+    "Perimeter and Area of Polygons on the Coordinate Plane",
+    "Nets and Surface Area"
+  ],
+  "data-displays": [
+    "Statistical Questions",
+    "Displaying Data on Dot Plots, Histograms, and Box Plots",
+    "Mean and Median",
+    "Range and Interquartile Range",
+    "Mean Absolute Deviation",
+    "Comparing Data Displays",
+    "Shape of Data Distributions",
+    "Describing Distributions"
+  ]
+};
   function subskillsHtml(u, courseId) {
-    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS, prealgebra: PREALGEBRA_UNIT_SUBSKILLS, prealgebra7: PREALGEBRA7_UNIT_SUBSKILLS };
+    var skillBanks = { algebra: ALGEBRA_UNIT_SUBSKILLS, geometry: GEOMETRY_UNIT_SUBSKILLS, algebra2: ALGEBRA2_UNIT_SUBSKILLS, prealgebra: PREALGEBRA_UNIT_SUBSKILLS, prealgebra7: PREALGEBRA7_UNIT_SUBSKILLS, math6: MATH6_UNIT_SUBSKILLS };
     var skills = (skillBanks[courseId] || {})[u.id] || [];
     function lines(list) {
       return '<ul class="unit-skills">' + list.map(function (skill) {
@@ -960,6 +1029,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
 
   var PREALGEBRA_LESSON_COUNT = 58;
   var PREALGEBRA7_LESSON_COUNT = 114;
+  var MATH6_LESSON_COUNT = 53;
   function courseView(c) {
     var n = courseCount(c);
     var inner =
@@ -967,23 +1037,23 @@ var GEOMETRY_UNIT_SUBSKILLS = {
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + (c.id === 'prealgebra7' ? PREALGEBRA7_LESSON_COUNT : PREALGEBRA_LESSON_COUNT) + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + (c.id === 'math6' ? MATH6_LESSON_COUNT : c.id === 'prealgebra7' ? PREALGEBRA7_LESSON_COUNT : PREALGEBRA_LESSON_COUNT) + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        ((c.id === 'prealgebra' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
+        ((c.id === 'math6' || c.id === 'prealgebra' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
-          if (!k && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7') {
+          if (!k && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7' && c.id !== 'math6') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' || c.id === 'prealgebra7') {
+          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
@@ -1032,7 +1102,7 @@ var GEOMETRY_UNIT_SUBSKILLS = {
       }).join('') + '</ul></div>';
   }
   function unitPager(c, u) {
-    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra' || c.id === 'prealgebra7'; });
+    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6'; });
     var i = list.indexOf(u);
     if (list.length < 2) return '';
     function link(t, dir) {
@@ -1086,8 +1156,8 @@ var GEOMETRY_UNIT_SUBSKILLS = {
   }
 
   function unitView(c, u) {
-    if (c.id === 'prealgebra' || c.id === 'prealgebra7') {
-      var skills = (c.id === 'prealgebra7' ? PREALGEBRA7_UNIT_SUBSKILLS : PREALGEBRA_UNIT_SUBSKILLS)[u.id] || [];
+    if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
+      var skills = (c.id === 'math6' ? MATH6_UNIT_SUBSKILLS : c.id === 'prealgebra7' ? PREALGEBRA7_UNIT_SUBSKILLS : PREALGEBRA_UNIT_SUBSKILLS)[u.id] || [];
       var intro = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
         '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
         '<p class="band-meta">' + skills.length + ' lessons · Grade 8 curriculum</p>';
