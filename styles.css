@@ -644,3 +644,7 @@ body { background:var(--paper); }
 /* Temporarily hide class navigation; only hide the back button on the home view. */
 .site-header .main-nav { display: none; }
 .back-btn[hidden] { display: none; }
+
+/* Keep the teacher tagline with the site name in the header. */
+.brand-tagline { margin-left: .2rem; padding-left: .75rem; border-left: 1px solid var(--line); color: var(--ink-soft); font-family: var(--body); font-size: .68rem; font-weight: 700; letter-spacing: .08em; line-height: 1.2; text-transform: uppercase; }
+@media (max-width: 560px) { .brand-tagline { margin-left: .05rem; padding-left: .45rem; font-size: .56rem; letter-spacing: .05em; } }
