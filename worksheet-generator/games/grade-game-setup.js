@@ -31,6 +31,8 @@ if(!tierPlans.cp1||!tierPlans.cp1.length){
  return;
 }
 root.MK_GRADE_GAME_TIERS=tierPlans;
+root.MK_GRADE_GAME_COURSE=course;
+root.MK_GRADE_GAME_LABELS={cp2:'Remedial',cp1:'Standard',honors:'Advanced'};
 // Limit retry attempts in middle-school games to curriculum-approved tiers.
 // This wrapper is installed only on the middle-school game page; Algebra 1
 // and Geometry use the original shared game bank unchanged.
