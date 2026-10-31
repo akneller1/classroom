@@ -640,3 +640,7 @@ body { background:var(--paper); }
 
 /* Temporarily hide class navigation until more classes are available. */
 .main-nav { display: none; }
+
+/* Temporarily hide class navigation; only hide the back button on the home view. */
+.site-header .main-nav { display: none; }
+.back-btn[hidden] { display: none; }
