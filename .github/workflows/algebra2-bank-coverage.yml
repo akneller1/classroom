@@ -6,6 +6,8 @@ on:
       - 'question-banks/assets/algebra2/**'
       - 'question-banks/manifest.json'
       - 'scripts/*algebra2*.cjs'
+      - 'scripts/test-published-question-banks.cjs'
+      - 'scripts/test-question-bank-loader.cjs'
       - 'scripts/check-question-bank.cjs'
       - 'worksheet-generator/algebra2-*'
       - 'worksheet-generator/bank-printable.*'
@@ -46,6 +48,7 @@ jobs:
           node-version: '22'
       - name: Validate all published banks and image paths
         run: node scripts/test-published-question-banks.cjs
+      - run: node scripts/test-algebra2-bank-approval.cjs
       - run: node scripts/check-algebra2-coverage.cjs
       - run: node scripts/test-algebra2-native.cjs
       - run: node scripts/test-classroom-presentation.cjs
