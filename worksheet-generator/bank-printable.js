@@ -68,9 +68,19 @@ function sectionQuestions(layout,used){
  const selections=[];
  layout.forEach(sec=>{
   const count=Math.max(0,Math.min(60,Number(sec.count)||0));
-  if(count===0)return;
+  if(!count)return;
   const eligible=pool.filter(q=>(!sec.skillIds.length||sec.skillIds.includes(q.skillId))&&!used.has(q.id));
-  const chosen=shuffle(eligible).slice(0,count);
+  // Mixed Review deliberately samples across distinct skills instead of allowing
+  // the largest question category to dominate the section.
+  const chosen=[];
+  if(sec.type==='Mixed Review'){
+   const grouped=new Map();
+   shuffle(eligible).forEach(q=>{if(!grouped.has(q.skillId))grouped.set(q.skillId,[]);grouped.get(q.skillId).push(q)});
+   const groups=shuffle(Array.from(grouped.values()));
+   while(chosen.length<count&&groups.some(g=>g.length)){
+    for(const group of groups){if(group.length&&chosen.length<count)chosen.push(group.pop())}
+   }
+  }else chosen.push(...shuffle(eligible).slice(0,count));
   chosen.forEach(q=>{used.add(q.id);selections.push({source:q,question:JSON.parse(JSON.stringify(q)),sectionId:sec.id})});
  });
  return selections;
