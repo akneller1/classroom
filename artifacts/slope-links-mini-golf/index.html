@@ -208,7 +208,9 @@ const HOLES = [
     walls: [[4.5, -10, 4.5, -7.5]], water: [[-2.5, -10, 2.5, 2.5], [-2.5, 5.5, 2.5, 10]], sand: [] },
   { name: "Zig-Zag", par: 4, ball: [-9, -9], cup: [9, 9], clubs: [3, 5, 7, 9],
     walls: [[-4.5, -10, -4.5, 3.5], [3.5, -3.5, 3.5, 10]], water: [[-3.5, 4.5, 2.5, 10]], sand: [[6.5, -6.5, 9.5, -2.5]] },
+  { name: "Ricochet Ridge", par: 4, ball: [-8,-6], cup: [7,6], clubs:[3,5,8,10], walls:[[-2,-4,4,-4]], water:[], sand:[] },
   { name: "Windmill Madness", par: 4, ball: [-8,-5], cup: [8,5], clubs: [3,5,8,10], walls: [[-2,-10,-2,-2],[3,2,3,10]], moving: [[0,0,0,3]], water: [], sand: [[4,-4,8,-1]] },
+  { name: "Tunnel Run", par: 4, ball: [-9,-3], cup:[8,5], clubs:[3,5,8,10], walls:[[0,-10,0,-4],[0,4,0,10]], tunnels:[[-6,1,5,-2]], water:[], sand:[] },
   { name: "Island Green", par: 4, ball: [-8,-7], cup: [7,7], clubs: [3,5,8,10], walls: [[-3,-10,-3,0]], water: [[3,3,5,10],[8,2,10,10],[3,8,10,10]], sand: [[-1,-3,2,0]] },
   { name: "Championship", par: 5, ball: [-9,-9], cup: [9,9], clubs: [3,6,8,10], walls: [[-4,-10,-4,3],[3,-3,3,10]], moving: [[-1,1,1,1]], water: [[-2,5,2,10]], sand: [[4,1,8,4]] }
 ];
@@ -255,6 +257,8 @@ function simulate(h, ball, m, dir, d, phase = 0) {
     if (hitsWall(h, px, py, x, y)) return finish("wall", px, py);
     if ((h.moving||[]).some(([cx,cy,rx,ry])=>{const a=phase/2000;return segCross(px,py,x,y,cx+rx*Math.cos(a),cy+ry*Math.sin(a),cx-rx*Math.cos(a),cy-ry*Math.sin(a));})) return finish("windmill",px,py);
     path.push([x, y]); px = x; py = y;
+    const tunnel=(h.tunnels||[]).find(v=>Math.hypot(x-v[0],y-v[1])<0.18);
+    if(tunnel){path.push([tunnel[2],tunnel[3]]);return finish("tunnel",tunnel[2],tunnel[3]);}
     const slow = h.sand.some(r => inRect(x, y, r));
     if (slow) sand = true;
     left -= step * (slow ? SAND_DRAG : 1);
@@ -525,6 +529,7 @@ function draw() {
     c.fillStyle="#ffe276";c.beginPath();c.arc(X(p.end[0]),Y(p.end[1]),U*.22,0,Math.PI*2);c.fill();c.restore();
    }
   }
+  (h.tunnels||[]).forEach(([ax,ay,bx,by])=>{c.fillStyle="#df96e7";for(const p of [[ax,ay],[bx,by]]){c.beginPath();c.arc(X(p[0]),Y(p[1]),U*.5,0,Math.PI*2);c.fill();}});
   // cup + flag
   const [hx, hy] = h.cup;
   c.fillStyle = "#101510"; c.beginPath(); c.arc(X(hx), Y(hy), U * 0.34, 0, 7); c.fill();
