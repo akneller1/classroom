@@ -82,7 +82,7 @@
       var cnt = NS.counts(S);
       bits.push('<span>' + S.versions.length + (S.versions.length > 1 ? ' versions' : ' version') + '</span>');
       if (cnt.failed) bits.push('<span class="bad">' + cnt.failed + ' missing</span>');
-      if (cnt.unverified) bits.push('<span class="warn">' + cnt.unverified + ' need approval</span>');
+      if (cnt.unverified) bits.push('<span class="warn">' + cnt.unverified + ' failed verification</span>');
       if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">' + (NS.skillSets[c.unitId] && NS.skillSets[c.unitId].authoredBank ? '✓ approved bank answers available for review' : '✓ every answer verified') + '</span>');
     }
     if (rules.errors.length) bits.push('<span class="bad">' + rules.errors.length + ' rule problem' + (rules.errors.length > 1 ? 's' : '') + '</span>');
@@ -325,7 +325,7 @@
     var st = p.verify && p.verify.status;
     if (st === 'verified') return (NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) ? '<span class="mm-badge ok" title="Unedited source item from Algebra 2 question bank; human sign-off pending">✓ From authored bank</span>' : '<span class="mm-badge ok" title="Answer recomputed independently from the printed problem">✓ Verified' + (p.edited ? ' (edited)' : '') + '</span>';
     if (p.approved) return '<span class="mm-badge warn" title="' + esc((p.verify.issues || []).join(' ')) + '">✓ Approved by you</span>';
-    return '<span class="mm-badge bad" title="' + esc((p.verify.issues || []).join(' ')) + '">! Needs your approval</span>';
+    return '<span class="mm-badge bad" title="' + esc((p.verify.issues || []).join(' ')) + '">! Not automatically verified</span>';
   }
   function dishCard(p, si, i) {
     var c = S.config, set = NS.skillSets[c.unitId], lab = NS.dishLabel(c, si, i), show = ui.showAns[p.uid];
@@ -346,7 +346,7 @@
       else body += '<p class="mm-fmtnote bad">Prints as short answer: ' + esc(p.mcFail || 'no choices could be made') + ' Try ↻ New problem, or move it to a short-answer part.</p>';
     }
     var issues = (!p.failed && p.verify && p.verify.status !== 'verified') ? '<div class="mm-issues">' + (p.verify.issues || []).map(function (x) { return '<div>' + esc(x) + '</div>'; }).join('') +
-      '<label class="chk"><input type="checkbox" class="mmApprove"' + (p.approved ? ' checked' : '') + '><span>I checked this answer myself and approve it for the key.</span></label></div>' : '';
+      '</div>' : '';
     var secOpts = c.sections.map(function (s, k) { return '<option value="' + k + '"' + (k === si ? ' disabled' : '') + '>' + esc(s.name) + '</option>'; }).join('');
     var curFmt = NS.sectionFormat(c, si), curC = NS.sectionC(c, si);
     var skillOpts = set.skills.map(function (s) { var bad = s.id !== p.skill && !NS.skillFormatOk(c.unitId, s.id, curFmt, curC); return '<option value="' + s.id + '"' + (s.id === p.skill ? ' selected' : '') + (bad ? ' disabled' : '') + '>' + esc(s.name) + (bad ? ' (not available as ' + esc(NS.FORMATS[curFmt]) + ')' : '') + '</option>'; }).join('');
@@ -418,7 +418,6 @@
         var h = function () { dishAction(act, id, b); };
         if (b.tagName === 'SELECT') b.onchange = h; else b.onclick = h;
       });
-      var ap = $('.mmApprove', card); if (ap) ap.onchange = function () { change(function () { NS.approve(S, ui.version, id, ap.checked); }, ap.checked ? 'Approved for the answer key.' : 'Approval removed.'); };
     });
     $$('[data-add]').forEach(function (b) { b.onclick = function () {
       var si = +b.getAttribute('data-add'), sk = $('.mmAddSkill[data-si="' + si + '"]').value, cc = +$('.mmAddC[data-si="' + si + '"]').value;
