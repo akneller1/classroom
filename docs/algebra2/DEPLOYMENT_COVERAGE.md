@@ -134,3 +134,5 @@ Readiness checks automatically grade source-marked choices. Written responses us
 ## Deployment evidence
 
 Initial integration commit: `93ef67f9f75c38c42d8ca8e4ae5b91a818984954`. GitHub Pages build and deployment succeeded in [run 41202137644](https://github.com/akneller1/classroom/actions/runs/41202137644). Existing Algebra 2 printable editing, versions, notes-only output, PDF output, and teacher-key toggle regression passed. The native adapter checks cover 186 available multiple-choice skill/difficulty combinations, and fail closed for the 75 combinations without source multiple-choice items.
+
+Expanded entry-route verification: all **157 browser routes passed** in [run 41202296854](https://github.com/akneller1/classroom/actions/runs/41202296854), including global worksheet, assessment, and lesson course selectors. Updated asset version URLs refresh previously cached generator and course scripts. The legacy visibility regression now checks the intentionally hidden middle-school entry pages redirect without restoring their navigation.
