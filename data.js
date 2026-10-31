@@ -6503,5 +6503,50 @@ window.LIBRARY = {
       ],
       "comingSoon": false
     }
+    ,  {
+      "id": "prealgebra",
+      "name": "Pre-Algebra",
+      "color": "purple",
+      "art": "curve",
+      "blurb": "Grade 8 mathematics: real numbers, equations, functions, data, transformations, and geometry.",
+      "units": [
+          {
+              "id": "real-numbers-exponents",
+              "name": "Real Numbers and Exponents",
+              "artifacts": []
+          },
+          {
+              "id": "equations-expressions",
+              "name": "Equations and Expressions",
+              "artifacts": []
+          },
+          {
+              "id": "linear-functional-relationships",
+              "name": "Linear and Functional Relationships",
+              "artifacts": []
+          },
+          {
+              "id": "systems-linear-equations",
+              "name": "Systems of Linear Equations",
+              "artifacts": []
+          },
+          {
+              "id": "patterns-bivariate-data",
+              "name": "Patterns and Bivariate Data",
+              "artifacts": []
+          },
+          {
+              "id": "congruence-similarity",
+              "name": "Congruence and Similarity",
+              "artifacts": []
+          },
+          {
+              "id": "geometry-applications",
+              "name": "Geometry",
+              "artifacts": []
+          }
+      ],
+      "comingSoon": false
+  }
   ]
 };
