@@ -545,14 +545,16 @@
 
   function unitView(c, u) {
     if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
-      var skills = window.MK_COURSE_CATALOG.getSkills(c.id, u.id);
+      var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
       var intro = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
         '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1>' +
-        '<p class="band-meta">' + skills.length + ' lessons · Grade 8 curriculum</p>';
+        '<p class="band-meta">' + skills.length + ' lessons · ' + esc(c.name) + ' curriculum</p>';
       return { title: unitLabel(c, u) + ', ' + c.name,
         html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
           unitPager(c, u) + '<section class="algebra-unit-section"><h2>Lessons and Subskills</h2>' +
-          '<ol class="unit-skills">' + skills.map(function (s) {return '<li class="unit-skill">' + esc(s) + '</li>';}).join('') + '</ol>' +
+          '<p class="course-skill-hint">Select lessons to prepare a structured content brief for future resource development.</p>' +
+          '<div class="course-skill-actions"><button type="button" class="course-skill-select" data-skill-action="all">Select all</button><button type="button" class="course-skill-select" data-skill-action="none">Clear</button><button type="button" class="course-skill-select" data-skill-action="copy">Copy content brief</button><span class="course-skill-status" role="status" aria-live="polite"></span></div>' +
+          '<ol class="course-skill-checklist" data-course-id="' + esc(c.id) + '" data-unit-id="' + esc(u.id) + '">' + skills.map(function (s) {return '<li><label><input type="checkbox" value="' + esc(s.id) + '" checked><span>' + esc(s.name) + '</span></label></li>';}).join('') + '</ol>' +
           '</section><section class="algebra-unit-section"><h2>Resources coming soon</h2>' +
           '<p>Worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
           unitPager(c, u) + '</div></section>' };
@@ -804,6 +806,32 @@
 
   document.addEventListener('click', function (e) {
     if (e.target.closest && e.target.closest('#clear-search')) { go(token); q.focus(); return; }
+    var skillButton = e.target.closest ? e.target.closest('[data-skill-action]') : null;
+    if (skillButton) {
+      var list = app.querySelector('.course-skill-checklist');
+      if (!list) return;
+      var checks = Array.prototype.slice.call(list.querySelectorAll('input[type="checkbox"]'));
+      var action = skillButton.getAttribute('data-skill-action');
+      if (action === 'all' || action === 'none') { checks.forEach(function (input) { input.checked = action === 'all'; }); return; }
+      if (action === 'copy') {
+        var courseId = list.getAttribute('data-course-id'), unitId = list.getAttribute('data-unit-id');
+        var records = window.MK_COURSE_CATALOG.getSkillRecords(courseId, unitId);
+        var chosen = checks.filter(function (input) { return input.checked; }).map(function (input) { return records.filter(function (s) { return s.id === input.value; })[0]; }).filter(Boolean);
+        var status = app.querySelector('.course-skill-status');
+        if (!chosen.length) { if (status) status.textContent = 'Select at least one lesson.'; return; }
+        var course = L.courses.filter(function (item) { return item.id === courseId; })[0];
+        var unit = course && course.units.filter(function (item) { return item.id === unitId; })[0];
+        var brief = JSON.stringify({schemaVersion:1,courseId:courseId,courseName:course.name,unitId:unitId,unitName:unit.name,selectedSkills:chosen,difficulties:['cp2','cp1','honors'],formats:['short-answer','multiple-choice','select-all','open-response'],requirements:['Generate verified answers and worked solutions','Multiple-choice answers and distractors must be independently checked','Open-response questions must contain at least four parts','Supply precise diagram specifications where needed','Do not modify existing course question banks'],questionBankSchema:'schemas/question-bank.schema.json'},null,2);
+        function fallback() {
+          var box = document.createElement('textarea'); box.value = brief; box.style.position = 'fixed'; box.style.opacity = '0'; document.body.appendChild(box); box.select();
+          var ok = false; try { ok = document.execCommand('copy'); } catch (_) {}
+          document.body.removeChild(box); if (status) status.textContent = ok ? 'Content brief copied.' : 'Copy unavailable in this browser.';
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(brief).then(function(){if(status) status.textContent='Content brief copied.';}, fallback);
+        else fallback();
+        return;
+      }
+    }
     if (e.target.closest && e.target.closest('#browse-clear')) {
       go('activities');
       var subject = document.getElementById('browse-subject');
