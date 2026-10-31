@@ -207,6 +207,28 @@
       '<path class="s" d="M 30 20 Q 100 200 170 20"/>' +
       '<circle class="f" cx="65" cy="87.5" r="7"/><circle class="f" cx="135" cy="87.5" r="7"/><circle class="f" cx="100" cy="110" r="7"/>' +
       '</svg>',
+    sixth:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="28" y="23" width="144" height="112" rx="8"/>' +
+      '<path class="s-thin" d="M 43 57 H 157 M 43 96 H 157 M 80 36 V 123 M 119 36 V 123"/>' +
+      '<circle class="f" cx="61" cy="46" r="8"/><circle class="f" cx="99" cy="46" r="8"/><circle class="f" cx="138" cy="46" r="8"/>' +
+      '<path class="s" d="M 54 83 H 106 M 80 68 V 97 M 128 82 H 153 M 128 91 H 153"/>' +
+      '</svg>',
+    seventh:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="20" y="28" width="160" height="105" rx="8"/>' +
+      '<path class="s" d="M 39 70 H 162 M 99 43 V 113"/>' +
+      '<text x="63" y="61" text-anchor="middle" font-size="25" font-weight="800" fill="currentColor">3</text>' +
+      '<text x="137" y="61" text-anchor="middle" font-size="25" font-weight="800" fill="currentColor">4</text>' +
+      '<text x="99" y="105" text-anchor="middle" font-size="27" font-weight="800" fill="currentColor">7</text>' +
+      '</svg>',
+    eighth:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="25" y="23" width="150" height="114" rx="8"/>' +
+      '<path class="s" d="M 47 79 H 150 M 53 49 L 103 79 L 151 40"/>' +
+      '<circle class="f" cx="53" cy="49" r="7"/><circle class="f" cx="103" cy="79" r="7"/><circle class="f" cx="151" cy="40" r="7"/>' +
+      '<path class="s-thin" d="M 103 79 L 103 113 M 47 113 H 150"/>' +
+      '</svg>',
     triangle:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
       '<polygon class="f-soft" points="100,20 30,130 170,130"/>' +
@@ -216,7 +238,7 @@
       '<circle class="f" cx="100" cy="20" r="7"/><circle class="f" cx="30" cy="130" r="7"/><circle class="f" cx="170" cy="130" r="7"/>' +
       '</svg>'
   };
-  function artFor(c) { return ART[c.id === 'algebra' ? 'linear' : c.art] || ''; }
+  function artFor(c) { var byCourse = { math6: 'sixth', prealgebra7: 'seventh', prealgebra: 'eighth', algebra: 'linear', geometry: 'triangle', algebra2: 'curve' }; return ART[byCourse[c.id] || c.art] || ''; }
 
   var STAR =
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2 6.3 20.3l1.2-6.4L2.8 9.5l6.4-.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
