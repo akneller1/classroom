@@ -8,7 +8,7 @@
 (function () {
   var requested = new URLSearchParams(location.search).get('unit') || '';
   var unit = /^[a-z0-9-]+$/.test(requested) ? requested : '';
-  location.replace('practice-test.html' + (unit ? '#unit=algebra2-' + unit : ''));
+  location.replace('practice-test.html?course=algebra2' + (unit ? '#unit=algebra2-' + unit : ''));
 })();
 </script>
 </head>
