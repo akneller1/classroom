@@ -65,6 +65,12 @@
     return { intOnly: intOnly, level: lv.id, questionPool: cfg.questionPool || ((cfg.mode === 'test' || cfg.mode === 'menu') ? 'formal' : null) };
   }
   NS.policyOf = policyOf;
+  function policyFor(cfg, si) {
+    var policy = policyOf(cfg), set = sets[cfg.unitId];
+    if (set && set.authoredBank && NS.authoredFormatForMenu)
+      policy.authoredFormats = NS.authoredFormatForMenu(cfg.unitId, NS.sectionFormat(cfg, si));
+    return policy;
+  }
   NS.sectionC = function (cfg, si) {
     var sec = cfg.sections[si], lv = NS.LEVELS[cfg.level] || NS.LEVELS.cp1;
     var tier = sec.tier === 'ramp' ? 1 : sec.tier !== undefined ? sec.tier : Math.min(si, 2);
@@ -563,7 +569,7 @@
   }
   function makeItem(state, slot, skill, c, salt, vIdx, si) {
     var cfg = state.config, set = sets[cfg.unitId];
-    var p = formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, skill, c, policyOf(cfg), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state)); });
+    var p = formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, skill, c, policyFor(cfg, si), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state)); });
     if (p.multiFail || p.mcasFail) return placeholder(slot, skill, c, set.byId[skill] ? set.byId[skill].tag : '', 'This skill cannot currently make the requested question format: ' + (p.multiFail || p.mcasFail) + ' Try another skill.');
     if (p.failed) return placeholder(slot, skill, c, set.byId[skill] ? set.byId[skill].tag : '', 'Could not make a verified ' + (set.byId[skill] ? set.byId[skill].name.toLowerCase() : skill) + ' problem at this difficulty (' + p.reason + '). Write your own or pick another skill.');
     p.slot = slot; return p;
@@ -779,7 +785,7 @@
     var loc = find(state, vIdx, uidStr); if (!loc) return null;
     var it = loc.item, salt = Math.floor(Math.random() * 1e9);
     var used = usedSets(state, null);  // includes the old one, so it is never handed back
-    var cfg = state.config, p = formatted(state, loc.si, function (t) { return NS.generateProblem(cfg.unitId, it.skill, it.c, policyOf(cfg), [cfg.seed, vIdx, it.slot, salt, t].join('|'), used); });
+    var cfg = state.config, p = formatted(state, loc.si, function (t) { return NS.generateProblem(cfg.unitId, it.skill, it.c, policyFor(cfg, loc.si), [cfg.seed, vIdx, it.slot, salt, t].join('|'), used); });
     if (p.failed) return { failed: true, reason: p.reason };
     return replaceAt(state, loc, p);
   };
@@ -801,14 +807,14 @@
     var loc = find(state, vIdx, uidStr); if (!loc) return;
     c = Math.max(NS.MIN_C, Math.min(NS.MAX_C, c));
     slotItems(state, loc.item.slot).forEach(function (l) {
-      var cfg = state.config, r0 = Math.random(), p = formatted(state, l.si, function (t) { return NS.generateProblem(cfg.unitId, l.item.skill, c, policyOf(cfg), [cfg.seed, l.v, l.item.slot, 'c' + c, r0, t].join('|'), usedSets(state, l.item.uid)); });
+      var cfg = state.config, r0 = Math.random(), p = formatted(state, l.si, function (t) { return NS.generateProblem(cfg.unitId, l.item.skill, c, policyFor(cfg, l.si), [cfg.seed, l.v, l.item.slot, 'c' + c, r0, t].join('|'), usedSets(state, l.item.uid)); });
       replaceAt(state, l, p.failed ? placeholder(l.item.slot, l.item.skill, c, l.item.tag, p.reason) : p);
     });
   };
   NS.changeSkill = function (state, vIdx, uidStr, skillId) {
     var loc = find(state, vIdx, uidStr); if (!loc) return;
     slotItems(state, loc.item.slot).forEach(function (l) {
-      var cfg = state.config, r0 = Math.random(), p = formatted(state, l.si, function (t) { return NS.generateProblem(cfg.unitId, skillId, l.item.c, policyOf(cfg), [cfg.seed, l.v, l.item.slot, skillId, r0, t].join('|'), usedSets(state, l.item.uid)); });
+      var cfg = state.config, r0 = Math.random(), p = formatted(state, l.si, function (t) { return NS.generateProblem(cfg.unitId, skillId, l.item.c, policyFor(cfg, l.si), [cfg.seed, l.v, l.item.slot, skillId, r0, t].join('|'), usedSets(state, l.item.uid)); });
       var set = sets[cfg.unitId];
       replaceAt(state, l, p.failed ? placeholder(l.item.slot, skillId, l.item.c, set.byId[skillId].tag, p.reason) : p);
     });
@@ -949,7 +955,7 @@
         if (locs.some(function (l) { return l.item.pinned || l.item.edited || l.item.manual; })) { kept++; return; }
         var skill = plan[i] || a.skill;
         locs.forEach(function (l) {
-          var r0 = Math.random(), p = formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, skill, c, policyOf(cfg), [cfg.seed, l.v, a.slot, 'rb', r0, t].join('|'), usedSets(state, l.item.uid)); });
+          var r0 = Math.random(), p = formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, skill, c, policyFor(cfg, si), [cfg.seed, l.v, a.slot, 'rb', r0, t].join('|'), usedSets(state, l.item.uid)); });
           var set = sets[cfg.unitId];
           replaceAt(state, l, p.failed ? placeholder(a.slot, skill, c, set.byId[skill].tag, p.reason) : p);
         });
