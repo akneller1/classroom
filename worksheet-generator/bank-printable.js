@@ -31,6 +31,49 @@ function renderQuestion(q,host,n,answerSide){
  }
 }
 let versions=[],activeVersion=0, pool=[],wantedCount=12;
+let versionSections=[];
+const DEFAULT_SECTIONS=[
+ ['Do Now',2],['Mixed Review',0],['Notes',0],['Examples',3],['Practice',5],['Challenge Problems',0],['Summary',0],['Exit Ticket',2]
+];
+let sections=[],sectionCounter=0;
+function newSection(type,count){return {id:'s'+(++sectionCounter),type,title:type,count:count===undefined?2:count,note:'',enabled:true,skillIds:[]}}
+function resetSections(){sections=DEFAULT_SECTIONS.map(x=>newSection(x[0],x[1]));renderSections()}
+function sectionSkills(){return Array.from(doc.querySelectorAll('#skills input:checked')).map(x=>x.value)}
+function renderSections(){
+ const host=$('sectionList');host.replaceChildren();
+ sections.forEach((sec,i)=>{
+  const card=elt('div',host);card.className='section-config';
+  const row=elt('div',card);row.className='controls';
+  const enabled=elt('input',row);enabled.type='checkbox';enabled.checked=sec.enabled;enabled.setAttribute('aria-label','Include '+sec.title);enabled.addEventListener('change',()=>{sec.enabled=enabled.checked});
+  const heading=elt('input',row);heading.value=sec.title;heading.setAttribute('aria-label','Section '+(i+1)+' heading');heading.addEventListener('input',()=>{sec.title=heading.value});
+  const countLabel=elt('label',row,'Problems');const count=elt('input',countLabel);count.type='number';count.min='0';count.max='60';count.value=sec.count;count.addEventListener('change',()=>{sec.count=Math.max(0,Math.min(60,Number(count.value)||0))});
+  function btn(label,fn,disabled){const b=elt('button',row,label);b.type='button';b.disabled=!!disabled;b.addEventListener('click',fn)}
+  btn('↑',()=>shiftSection(i,-1),i===0);btn('↓',()=>shiftSection(i,1),i===sections.length-1);
+  btn('Duplicate',()=>{sections.splice(i+1,0,{...sec,id:'s'+(++sectionCounter),skillIds:sec.skillIds.slice()});renderSections()});
+  btn('Remove',()=>{sections.splice(i,1);renderSections()});
+  const note=elt('textarea',card);note.value=sec.note;note.placeholder='Optional teacher notes, instructions or summary text';note.setAttribute('aria-label',sec.title+' notes');note.addEventListener('input',()=>{sec.note=note.value});
+  const select=elt('select',card);select.setAttribute('aria-label',sec.title+' skill selection');
+  option(select,'','Use selected skills above');catalog.getSkillRecords('algebra2',unitSelect.value).forEach(x=>option(select,x.id,x.name));
+  select.value=sec.skillIds[0]||'';select.addEventListener('change',()=>{sec.skillIds=select.value?[select.value]:[]});
+ });
+}
+function shiftSection(i,by){const j=i+by;if(j<0||j>=sections.length)return;[sections[i],sections[j]]=[sections[j],sections[i]];renderSections()}
+function sectionsSnapshot(){return sections.filter(x=>x.enabled).map(x=>({...x,skillIds:x.skillIds.slice()}))}
+function sectionQuestions(layout,used){
+ const selections=[];
+ layout.forEach(sec=>{
+  const count=Math.max(0,Math.min(60,sec.count));
+  if(count===0)return;
+  const eligible=pool.filter(q=>(!sec.skillIds.length||sec.skillIds.includes(q.skillId))&&!used.has(q.id));
+  const chosen=shuffle(eligible).slice(0,count);
+  chosen.forEach(q=>{used.add(q.id);selections.push({source:q,question:JSON.parse(JSON.stringify(q)),sectionId:sec.id})});
+ });
+ return selections;
+}
+$('addSection').addEventListener('click',()=>{sections.push(newSection($('sectionType').value));renderSections()});
+$('resetSections').addEventListener('click',resetSections);
+resetSections();
+
 function sample(count){return shuffle(pool).slice(0,count).map(q=>({source:q,question:JSON.parse(JSON.stringify(q))}))}
 function currentItems(){return versions[activeVersion]||[]}
 function build(){
@@ -41,7 +84,8 @@ function build(){
  wantedCount=Math.max(1,Math.min(60,Number($('count').value)||12));
  if(!pool.length){versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent='No matching questions for these settings.';return}
  const total=Math.max(1,Math.min(4,Number($('versions').value)||1));
- versions=Array.from({length:total},()=>sample(wantedCount));activeVersion=0;
+ versionSections=Array.from({length:total},sectionsSnapshot);
+ versions=versionSections.map(layout=>sectionQuestions(layout,new Set()));activeVersion=0;
  const chooser=$('currentVersion');chooser.replaceChildren();
  versions.forEach((_,i)=>option(chooser,String(i),'Version '+String.fromCharCode(65+i)));
  chooser.value='0';$('editor').hidden=false;$('print').disabled=false;
@@ -60,9 +104,9 @@ function renderEditor(){
   const down=addButton('Move down',()=>move(index,1));down.disabled=index===currentItems().length-1;
   addButton('Replace',()=>{
    const used=new Set(currentItems().filter((_,i)=>i!==index).map(x=>x.question.id));
-   const alternate=shuffle(pool.filter(q=>q.id!==item.question.id&&!used.has(q.id)))[0];
+   const alternate=shuffle(pool.filter(q=>q.id!==item.question.id&&!used.has(q.id)&&(!versionSections[activeVersion].find(sec=>sec.id===item.sectionId)?.skillIds.length||versionSections[activeVersion].find(sec=>sec.id===item.sectionId).skillIds.includes(q.skillId))))[0];
    if(!alternate){status.textContent='No unused replacement questions match the selected settings.';return}
-   currentItems()[index]={source:alternate,question:JSON.parse(JSON.stringify(alternate))};renderEditor();renderAll();
+   currentItems()[index]={source:alternate,question:JSON.parse(JSON.stringify(alternate)),sectionId:item.sectionId};renderEditor();renderAll();
   });
   addButton('Remove',()=>{currentItems().splice(index,1);renderEditor();renderAll()});
  });
@@ -78,11 +122,22 @@ function renderAll(){
   const paper=elt('section',out);paper.className='sheet';
   elt('h2',paper,($('customTitle').value.trim()||unit.name+' — '+(mode==='worksheet'?'Practice Worksheet':'Assessment'))+(versions.length>1?' · Version '+String.fromCharCode(65+vi):''));
   elt('p',paper,'Name: __________________________  Date: ______________');
-  items.forEach((item,i)=>renderQuestion(item.question,paper,i+1,false));
+  versionSections[vi].forEach(sec=>{
+   const block=elt('section',paper);block.className='section-print';
+   elt('h3',block,sec.title);
+   if(sec.note) {const p=elt('p',block,sec.note);p.className='section-notes'}
+   items.filter(item=>item.sectionId===sec.id).forEach((item,i)=>renderQuestion(item.question,block,i+1,false));
+  });
   if($('key').checked){
    const key=elt('section',out);key.className='sheet key';
    elt('h2',key,'Teacher Answer Key — '+unit.name+(versions.length>1?' · Version '+String.fromCharCode(65+vi):''));
-   items.forEach((item,i)=>renderQuestion(item.question,key,i+1,true));
+   versionSections[vi].forEach(sec=>{
+    const sectionItems=items.filter(item=>item.sectionId===sec.id);
+    if(!sectionItems.length)return;
+    const block=elt('section',key);block.className='section-print';
+    elt('h3',block,sec.title);
+    sectionItems.forEach((item,i)=>renderQuestion(item.question,block,i+1,true));
+   });
   }
  });
  const sizes=versions.map(v=>v.length);
@@ -90,14 +145,14 @@ function renderAll(){
  $('print').disabled=versions.every(v=>!v.length);
 }
 $('currentVersion').addEventListener('change',()=>{activeVersion=Number($('currentVersion').value);renderEditor()});
-$('refreshVersion').addEventListener('click',()=>{versions[activeVersion]=sample(wantedCount);renderEditor();renderAll()});
+$('refreshVersion').addEventListener('click',()=>{versions[activeVersion]=sectionQuestions(versionSections[activeVersion],new Set());renderEditor();renderAll()});
 $('resetEdits').addEventListener('click',()=>{versions[activeVersion]=currentItems().map(x=>({source:x.source,question:JSON.parse(JSON.stringify(x.source))}));renderEditor();renderAll()});
 $('key').addEventListener('change',()=>{if(versions.length)renderAll()});
 $('customTitle').addEventListener('input',()=>{if(versions.length)renderAll()});
 units.forEach((u,i)=>option(unitSelect,u.id,'Unit '+(i+1)+' · '+u.name));
 const requested=params.get('unit');if(units.some(u=>u.id===requested))unitSelect.value=requested;
 if(params.get('mode')==='assessment')$('mode').value='assessment';
-unitSelect.addEventListener('change',()=>{skills();versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.'});
+unitSelect.addEventListener('change',()=>{skills();renderSections();versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.'});
 $('all').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=true));
 $('none').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=false));
 $('build').addEventListener('click',build);$('print').addEventListener('click',()=>root.print());
