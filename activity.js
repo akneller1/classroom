@@ -16,7 +16,9 @@
   }
   var match = null;
   function shareableActivity(activity) {
-    if (!activity || /^worksheet-generator\//i.test(activity.path || '')) return false;
+    if (!activity) return false;
+    if (/^worksheet-generator\/algebra2-game\.html\?/i.test(activity.path || '')) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(activity.path);
+    if (/^worksheet-generator\//i.test(activity.path || '')) return false;
     if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path || '')) return false;
     var name = ((activity.path || '') + ' ' + (activity.title || '')).toLowerCase();
     var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
@@ -34,7 +36,7 @@
     });
   }
   // Only embed a known local activity, never an arbitrary URL from a query string.
-  if (!match || !/^(?:artifacts|worksheet-generator)\/[a-z0-9_\-/]+\.(?:html|pdf)$/i.test(match.path) || match.path.indexOf('..') >= 0) {
+  if (!match || !/^(?:artifacts|worksheet-generator)\/[a-z0-9_\-/]+\.(?:html|pdf)(?:\?[a-z0-9_=&%+,.~-]*)?(?:#[a-z0-9_=&%+,.~-]*)?$/i.test(match.path) || match.path.indexOf('..') >= 0) {
     title.textContent = 'Activity not found';
     message.textContent = 'This activity could not be found. Choose Home to browse the available activities.';
     return;

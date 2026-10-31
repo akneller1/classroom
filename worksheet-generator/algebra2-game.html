@@ -45,5 +45,10 @@
 <script src="games/bank.js?v=showdown-fix-20261031"></script>
 <script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=showdown-fix-20261031"></script><script>
 var params=new URLSearchParams(location.search),game=params.get('game')||'flashcards';
-location.replace((['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html')+'?course=algebra2&unit='+encodeURIComponent(params.get('unit')||'functions-transformations')+'&game='+encodeURIComponent(game));
+var target=new URL(['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html',location.href);
+target.searchParams.set('course','algebra2');
+target.searchParams.set('unit',params.get('unit')||'functions-transformations');
+target.searchParams.set('game',game);
+['student','skills','teacherShare'].forEach(function(key){if(params.has(key))target.searchParams.set(key,params.get(key));});
+location.replace(target.href);
 </script><script src="core/math-display.js?v=showdown-fix-20261031"></script></body></html>

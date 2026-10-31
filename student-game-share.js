@@ -1,7 +1,10 @@
 /* Share the same skill catalogue and filtering used by each individual game. */
 (function (G) {
   'use strict';
-  function supports(path) { return /^worksheet-generator\/course-(game|activity)\.html\?/.test(path) || /^artifacts\/[a-z0-9-]+\/index\.html$/i.test(path) && !/escape-room/i.test(path); }
+  function supports(path) {
+    if (/^worksheet-generator\/algebra2-game\.html\?/i.test(path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(path);
+    return /^worksheet-generator\/course-(game|activity)\.html\?/i.test(path) || /^artifacts\/[a-z0-9-]+\/index\.html(?:\?[a-z0-9_=&%+,.~-]*)?$/i.test(path) && !/escape-room/i.test(path);
+  }
   function open(path) {
     var doc = G.document, previous = doc.activeElement;
     var old = doc.getElementById('game-share-dialog'); if (old) old.close();
