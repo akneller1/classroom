@@ -9,6 +9,11 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
  fs.mkdirSync('test-results',{recursive:true});
  try{
  for(const unit of units){
+  for(const tool of ['worksheet','menu-assessment']){
+   await page.goto(base+'/worksheet-generator/'+tool+'.html#unit=algebra2-'+unit);
+   await page.waitForURL('**/bank-printable.html?unit='+unit+'&mode='+(tool==='worksheet'?'worksheet':'assessment'));
+   cases.push(unit+'/'+tool+'-entry');
+  }
   await page.goto(base+'/index.html#algebra2.'+unit);
   await page.waitForFunction(()=>document.querySelectorAll('a[href*="algebra2-game.html"]').length>=7);
   assert.equal(await page.locator('.generator-shortcuts a').count(),4);
@@ -42,6 +47,14 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
   await page.waitForFunction(()=>document.querySelector('#prPreview .page')||document.querySelector('#prPreview .mm-page'));
   assert.equal(await page.locator('#prUnit').inputValue(),'algebra2-'+unit);cases.push(unit+'/stations');
  }
+ for(const tool of ['worksheet','menu-assessment']){
+  await page.goto(base+'/worksheet-generator/'+tool+'.html');
+  await page.locator('#mmUnitSel').selectOption('algebra2-probability-statistics');
+  await page.waitForURL('**/bank-printable.html?unit=probability-statistics&mode='+(tool==='worksheet'?'worksheet':'assessment'));
+  cases.push('global/'+tool+'-selector');
+ }
+ await page.goto(base+'/worksheet-generator/lesson-planner.html');
+ await page.locator('#plCourse').selectOption('algebra2');await page.waitForURL('**/bank-printable.html?mode=lesson');cases.push('global/lesson-selector');
  assert.deepEqual(errors,[]);
  await page.screenshot({path:'test-results/algebra2-integration.png',fullPage:true});
  fs.writeFileSync('test-results/algebra2-browser-coverage.json',JSON.stringify({cases,errors},null,2));

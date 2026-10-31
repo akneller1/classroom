@@ -15,6 +15,13 @@
   /* The Worksheet Generator page (body data-mode="worksheet") is the same app locked to practice worksheets,
      with its own autosave per unit. */
   var PAGE_MODE = doc.body.getAttribute('data-mode') === 'worksheet' ? 'worksheet' : null;
+  function authoredRoute(id) {
+    if (!/^algebra2-/.test(id || '')) return false;
+    G.location.replace('bank-printable.html?unit='+encodeURIComponent(id.slice(9))+'&mode='+(PAGE_MODE?'worksheet':'assessment'));
+    return true;
+  }
+  var requestedBankUnit = /unit=(algebra2-[a-z0-9-]+)/.exec(G.location.hash || '');
+  if (requestedBankUnit && authoredRoute(requestedBankUnit[1])) return;
   function curKey(unit) { return KEY_CUR + ':' + unit + (PAGE_MODE ? ':' + PAGE_MODE : ''); }
   function hashUnit() { var m = /unit=([a-z0-9\-]+)/.exec(G.location.hash || ''); return m && NS.skillSets[m[1]] ? m[1] : null; }
   var defaultUnit = doc.body.getAttribute('data-unit') || 'algebra1-expressions-equations';
@@ -92,7 +99,7 @@
   function unitOptions(sel) {
     return NS.CATALOG.map(function (g) {
       return '<optgroup label="' + esc(g.course) + '">' + g.units.map(function (u) {
-        var ok = !!NS.skillSets[u[0]];
+        var ok = /^algebra2-/.test(u[0]) || !!NS.skillSets[u[0]];
         return '<option value="' + u[0] + '"' + (u[0] === sel ? ' selected' : '') + (ok ? '' : ' disabled') + '>' + esc(u[1]) + (ok ? '' : ' — not yet supported') + '</option>';
       }).join('') + '</optgroup>';
     }).join('');
@@ -196,7 +203,7 @@
   function bindSetup() {
     var c = cfg();
     function upd(fn, rerender) { return function (e) { if (S) snapshot(); fn(e); afterConfigChange(rerender); }; }
-    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); };   // a new unit starts in the same format
+    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (authoredRoute(id)) return; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); };   // a new unit starts in the same format
     $$('input[name=mmMode]').forEach(function (r) { r.onchange = function () {
       if (S) { change(function () { NS.setMode(S.config, r.value); S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }, r.value === 'test' ? 'Switched to a standard test. New questions were made for the test parts.' : 'Switched to a choice menu. New problems were made for the menu sections.'); }
       else { NS.setMode(draft, r.value); autosave(); render(); }

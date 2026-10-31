@@ -6,6 +6,7 @@
   'use strict';
   var h = {};
   try { (G.location && G.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); }); } catch (e) { /* no location */ }
+  if(h.course==='algebra2'||/^algebra2-/.test(h.unit||'')){G.location.replace('bank-printable.html?mode=lesson'+(h.unit?'&unit='+encodeURIComponent(h.unit.replace(/^algebra2-/,'')):''));return;}
   var geo = (h.course === 'geometry' || /^geometry-/.test(h.unit || '')) && G.MKPLAN_SCOPE_GEOMETRY && G.MKPLAN_SKILLS_GEOMETRY;
   G.MKPLAN_COURSE = geo ? 'geometry' : 'algebra1';
   if (geo) { G.MKPLAN_SCOPE = G.MKPLAN_SCOPE_GEOMETRY; G.MKPLAN_SKILLS = G.MKPLAN_SKILLS_GEOMETRY; }

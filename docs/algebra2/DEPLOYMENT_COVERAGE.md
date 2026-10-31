@@ -46,7 +46,7 @@ Readiness checks automatically grade source-marked choices. Written responses us
 - All 87 curriculum skills are registered in native players.
 - Native adapter tests verify source prompts, choices, keys, and difficulty without procedural substitutions.
 - Default native printable builds pass for all units.
-- GitHub browser matrix covers 132 unit/resource routes plus existing generator editing, versions, and PDF regression. Final CI results are recorded after deployment.
+- GitHub browser matrix covers 157 unit/resource routes plus existing generator editing, versions, and PDF regression. The initial 132-route matrix and existing editing/PDF regression passed in [GitHub Actions run 41202138061](https://github.com/akneller1/classroom/actions/runs/41202138061). The expanded matrix also checks direct generator entries and global course selectors.
 - Independent mathematical/human review was not performed.
 
 ## Multiple-choice source gaps
@@ -130,3 +130,7 @@ Readiness checks automatically grade source-marked choices. Written responses us
 | trigonometric-functions | trigonometric-functions-skill-08 | cp2 |
 | trigonometric-functions | trigonometric-functions-skill-08 | honors |
 | trigonometric-functions | trigonometric-functions-skill-09 | cp2 |
+
+## Deployment evidence
+
+Initial integration commit: `93ef67f9f75c38c42d8ca8e4ae5b91a818984954`. GitHub Pages build and deployment succeeded in [run 41202137644](https://github.com/akneller1/classroom/actions/runs/41202137644). Existing Algebra 2 printable editing, versions, notes-only output, PDF output, and teacher-key toggle regression passed. The native adapter checks cover 186 available multiple-choice skill/difficulty combinations, and fail closed for the 75 combinations without source multiple-choice items.
