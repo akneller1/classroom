@@ -18,4 +18,6 @@ assert.ok(js.includes("if(S.flipped){\\n  text('p',q.prompt,card)".replace('\\n'
 assert.ok(!js.includes('innerHTML'),'Question content must render as text rather than injected HTML');
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifest.json'),'utf8'));
 assert.deepEqual(manifest.banks,[],'No unreviewed content should be published');
+assert.ok(html.includes("['math6','prealgebra7','prealgebra']"),'Middle-school course detection required');
+for(const label of ['Remedial','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
 console.log('PASS approved flashcard player structure, gating and content rendering safeguards');
