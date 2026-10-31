@@ -425,7 +425,7 @@
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons; resources coming soon' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons; interactive practice available for selected topics' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
@@ -570,6 +570,23 @@
       '<div class="course-skill-actions"><button type="button" class="course-skill-select" data-skill-action="all">Select all</button><button type="button" class="course-skill-select" data-skill-action="none">Clear</button><button type="button" class="course-skill-select" data-skill-action="copy">Copy content brief</button><span class="course-skill-status" role="status" aria-live="polite"></span></div>' +
       '<ol class="course-skill-checklist" data-course-id="' + esc(c.id) + '" data-unit-id="' + esc(u.id) + '">' + skills.map(function (s) {return '<li><label><input type="checkbox" value="' + esc(s.id) + '" checked><span>' + esc(s.name) + '</span></label></li>';}).join('') + '</ol></section>';
   }
+  function gradePracticeLinks(c, u) {
+    var crosswalk = window.MK_SKILL_CROSSWALK;
+    if (!crosswalk || typeof crosswalk.matches !== 'function') return '';
+    var topics = crosswalk.matches().filter(function (m) {
+      return m.targets.some(function (t) { return t && t.courseId === c.id && t.unitId === u.id; });
+    });
+    if (!topics.length) return '';
+    return '<section class="algebra-unit-section"><h2>Interactive Practice</h2>' +
+      '<p>Practice questions with immediate answer feedback, organized by lesson topic.</p>' +
+      '<ul class="cards grouped-cards">' + topics.map(function (m) {
+        var target = m.targets.find(function (t) { return t && t.courseId === c.id && t.unitId === u.id; });
+        var url = 'worksheet-generator/grade-practice.html?course=' + encodeURIComponent(c.id) +
+          '&topic=' + encodeURIComponent(m.key) + '&level=cp1';
+        return '<li class="card"><a href="' + esc(url) + '"><strong>' + esc(target.name) +
+          '</strong><span> · Interactive Practice →</span></a></li>';
+      }).join('') + '</ul></section>';
+  }
   function unitView(c, u) {
     if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
       var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
@@ -578,7 +595,7 @@
         '<p class="band-meta">' + skills.length + ' lessons · ' + esc(c.name) + ' curriculum</p>';
       return { title: unitLabel(c, u) + ', ' + c.name,
         html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
-          unitPager(c, u) + contentBriefSection(c, u) + contentReadinessSection(c, u) +
+          unitPager(c, u) + gradePracticeLinks(c, u) + contentBriefSection(c, u) + contentReadinessSection(c, u) +
           '<section class="algebra-unit-section"><h2>Resources coming soon</h2>' +
           '<p>Worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
           unitPager(c, u) + '</div></section>' };
