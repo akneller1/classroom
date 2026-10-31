@@ -10,7 +10,7 @@ for(const file of ['data.js','course-catalog.js','question-bank-adapter.js','que
   const id='algebra2-'+unit.id,set=site.MKMENU.skillSets[id];assert.ok(set);
   const unitBank=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../question-banks/algebra2/'+unit.id+'.json')));
   for(const skill of set.skills)for(const [level,c] of [['cp2',1],['cp1',4],['honors',6]]){
-   const items=site.MKGAMES.makeItems(id,skill.id,c,{level},'integration-test',{keys:new Set()});const expected=unitBank.questions.filter(q=>q.skillId===skill.id&&q.level===level&&q.format==='multiple-choice');if(!expected.length){assert.equal(items.length,0);continue}assert.ok(items.length);
+   const items=site.MKGAMES.makeItems(id,skill.id,c,{level,authoredFormats:['multiple-choice']},'integration-test',{keys:new Set()});const expected=unitBank.questions.filter(q=>q.skillId===skill.id&&q.level===level&&q.format==='multiple-choice');if(!expected.length){assert.equal(items.length,0);continue}assert.ok(items.length);
    const q=unitBank.questions.find(q=>q.id===items[0].id);assert.ok(q);assert.equal(q.level,level);assert.equal(items[0].q.prompt,q.prompt);assert.equal(items[0].answer,String(q.answer));assert.deepEqual(JSON.parse(JSON.stringify(items[0].options)),q.options.map(o=>({a:o.text,ok:o.correct===true})));checks++;
   }
   const kinds=site.MKMENU.printables.KINDS.filter(k=>set.skills.some(s=>site.MKMENU.printables.capable(id,s.id,k.id))).map(k=>k.id);
