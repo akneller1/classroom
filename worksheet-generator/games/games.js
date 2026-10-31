@@ -34,7 +34,13 @@
   // answer parts. Only offer skills that can actually make game questions.
   skillIds = skillIds.filter(function (id) { return GB.hasGameItems(UNIT, id); });
   var flashcardSkills = skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
-  function skillsWithCardsAt(level) { return skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id, level); }); }
+  var flashcardAvailability = {};
+  function skillsWithCardsAt(level) {
+    if (!flashcardAvailability[level]) {
+      flashcardAvailability[level] = skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id, level); });
+    }
+    return skillIds.filter(function (id) { return flashcardAvailability[level].indexOf(id) >= 0; });
+  }
   if (GAME === 'flashcards') skillIds = flashcardSkills;
   var tags = Object.keys(SET.tags || {}).filter(function (t) { return skillIds.some(function (id) { return SET.byId[id].tag === t; }); });
   function skillName(id) { return SET.byId[id].name; }
