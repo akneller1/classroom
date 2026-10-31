@@ -48,12 +48,13 @@ GB.buildDeck=function(id,slots,opts,done){
 // drawing only from the approved bank and its authored answer keys.
 const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
 function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
+function menuSource(p){return JSON.stringify([p.prompt||'',(p.parts||[]).map(function(x){return [x.prompt||'',x.answer||'']}),p.fig||null,p.work||null])}
 const makeChoices=NS.makeChoices,makeMulti=NS.makeMultiSelect,makeMcas=NS.makeMcas;
 NS.makeChoices=function(p){
  const q=sourceQuestion(p);if(!q)return makeChoices.apply(this,arguments);
  const opts=q.options||[],correct=opts.map((o,i)=>o.correct===true?i:-1).filter(i=>i>=0);
  if(q.format!=='multiple-choice'||correct.length!==1||opts.length<2)return {fail:'This approved question is not a single-answer multiple-choice item.'};
- return {opts:opts.map(o=>o.text),key:correct[0],src:JSON.stringify([q.id,opts])};
+ return {opts:opts.map(o=>o.text),key:correct[0],src:menuSource(p)};
 };
 NS.makeMultiSelect=function(p){
  const q=sourceQuestion(p);if(!q)return makeMulti.apply(this,arguments);
