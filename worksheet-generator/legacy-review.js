@@ -1,7 +1,7 @@
 (function(root){'use strict';
 var doc=root.document,$=function(id){return doc.getElementById(id)};
 var entries=root.MK_LEGACY_CROSSWALK_AUDIT.inspect(root.MK_SKILL_CROSSWALK,root.MKMENU);
-var current=[],notes={};
+var current=[],notes={},stageIndex=0,stageCorrect=0;
 function node(tag,parent,content,className){var n=doc.createElement(tag);if(content!==undefined&&content!==null)n.textContent=String(content);if(className)n.className=className;if(parent)parent.appendChild(n);return n;}
 function relevant(){return entries.filter(function(e){return e.targets.some(function(t){return t&&t.courseId===$('reviewCourse').value;});});}
 function refreshTopics(){
@@ -34,11 +34,26 @@ function render(){
  addFinding(article,q);
  });$('reviewExport').hidden=!current.length;
 }
+function stageRender(){
+ var area=$('stagePanel');if(!area)return;area.replaceChildren();
+ if(!current.length){area.hidden=true;return;}area.hidden=false;
+ node('h2',area,'Private practice simulation — NOT approved');
+ node('p',area,'Answer only in this developer preview. These questions are not available to students.','muted');
+ var q=current[stageIndex];node('p',area,'Question '+(stageIndex+1)+' of '+current.length+' · Correct '+stageCorrect);
+ node('p',area,q.prompt,'prompt');if(q.partPrompt)node('p',area,q.partPrompt);
+ if(q.figure){node('p',area,'Diagram-required question: cannot safely simulate without its rendered diagram.','muted');}
+ else {var choices=node('div',area,null,'controls');q.options.forEach(function(o){
+ var b=node('button',choices,o.text);b.type='button';b.addEventListener('click',function(){
+  if(o.correct)stageCorrect++;node('p',area,o.correct?'Correct.':'Incorrect. Correct answer: '+q.answer);
+  Array.prototype.forEach.call(choices.querySelectorAll('button'),function(x){x.disabled=true;});
+ });});}
+ var next=node('button',area,stageIndex===current.length-1?'Restart practice':'Next question');next.type='button';next.addEventListener('click',function(){if(stageIndex===current.length-1){stageIndex=0;stageCorrect=0;}else stageIndex++;stageRender();});
+}
 function load(){
  var entry=entries.filter(function(e){return e.key===$('reviewTopic').value})[0];
  if(!entry){$('reviewStatus').textContent='No mapped skills for this course.';current=[];render();return;}
  var result=root.MK_LEGACY_REVIEW_SAMPLES.sample(entry,$('reviewCourse').value,$('reviewLevel').value,'manual-review',Number($('reviewCount').value));
- current=result.questions;render();
+ current=result.questions;stageIndex=0;stageCorrect=0;render();stageRender();
  $('reviewStatus').textContent=result.ready?current.length+' generated samples. These are NOT approved.':'Unavailable: '+result.reason;
 }
 $('reviewCourse').addEventListener('change',function(){refreshTopics();load();});
