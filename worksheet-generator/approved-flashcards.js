@@ -12,6 +12,8 @@ var unit=course&&course.units.find(function(u){return u.id===unitId;});
 if(!unit){status.textContent='Unknown course or unit. Return to the classroom and choose a unit.';return;}
 var skills=catalog.getSkillRecords(courseId,unitId), skillNames={};
 skills.forEach(function(s){skillNames[s.id]=s.name;var opt=doc.createElement('option');opt.value=s.id;opt.textContent=s.name;doc.getElementById('afSkill').appendChild(opt)});
+var legacyCards=[];
+var bridge=root.MK_GRADE_LEGACY_BRIDGE,isLegacy=bridge&&bridge.isGrade(courseId);
 var S={level:'cp1',skill:'',cards:[],order:[],index:0,flipped:false,missedOnly:false,ratings:{}};
 var selectors={level:doc.getElementById('afLevel'),skill:doc.getElementById('afSkill')};
 function el(id){return doc.getElementById(id)}
@@ -34,7 +36,7 @@ function diagram(q,card){
  }return true;
 }
 function refresh(){
- S.cards=banks.select({courseId:courseId,unitId:unitId,level:S.level,formats:['short-answer','multiple-choice'],skillIds:S.skill?[S.skill]:undefined}).filter(function(q){return imagePath(q)!==null;});
+ S.cards=(isLegacy?legacyCards:banks.select({courseId:courseId,unitId:unitId,level:S.level,formats:['short-answer','multiple-choice'],skillIds:S.skill?[S.skill]:undefined})).filter(function(q){return imagePath(q)!==null;});
  S.order=S.cards.map(function(_,i){return i}).filter(function(i){return !S.missedOnly||S.ratings[S.cards[i].id]==='need'});
  S.index=Math.min(S.index,Math.max(0,S.order.length-1));S.flipped=false;render();
 }
@@ -63,8 +65,10 @@ function render(){
 function flip(){if(current()){S.flipped=!S.flipped;render()}}
 function move(n){S.index=Math.max(0,Math.min(S.order.length-1,S.index+n));S.flipped=false;render()}
 function rate(value){var q=current();if(!q||el('afNeed').disabled||el('afGot').disabled)return;S.ratings[q.id]=value;if(S.missedOnly){refresh()}else if(S.index<S.order.length-1)move(1);else render()}
-selectors.level.addEventListener('change',function(){S.level=this.value;S.index=0;refresh()});
-selectors.skill.addEventListener('change',function(){S.skill=this.value;S.index=0;refresh()});
+var engine=null;
+function updateLegacy(){if(!engine)return;legacyCards=bridge.prepare(engine,{courseId:courseId,unitId:unitId,level:S.level,skillId:S.skill});S.index=0;refresh()}
+selectors.level.addEventListener('change',function(){S.level=this.value;S.index=0;if(isLegacy)updateLegacy();else refresh()});
+selectors.skill.addEventListener('change',function(){S.skill=this.value;S.index=0;if(isLegacy)updateLegacy();else refresh()});
 el('afCard').addEventListener('click',flip);el('afCard').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
 el('afFlip').addEventListener('click',flip);el('afPrev').addEventListener('click',function(){move(-1)});
 el('afNext').addEventListener('click',function(){move(1)});
@@ -72,6 +76,7 @@ el('afNeed').addEventListener('click',function(){rate('need')});el('afGot').addE
 el('afReset').addEventListener('click',function(){S.ratings={};S.missedOnly=false;refresh()});
 el('afMissed').addEventListener('click',function(){S.missedOnly=!S.missedOnly;S.index=0;refresh()});
 el('afShuffle').addEventListener('click',function(){for(var i=S.order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=S.order[i];S.order[i]=S.order[j];S.order[j]=t}S.index=0;S.flipped=false;render()});
+if(isLegacy){bridge.load().then(function(w){engine=w;status.textContent=course.name+' · '+unit.name+' · shared generator questions (teacher-reviewed sample format)';container.hidden=false;updateLegacy()}).catch(function(e){status.textContent='Unable to load shared generator: '+e.message});return;}
 root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(function(){
  if(!banks.available(courseId,unitId)){status.textContent='No independently approved flashcard bank is available for '+course.name+' — '+unit.name+'. Existing classroom resources are unaffected.';return;}
  status.textContent=course.name+' · '+unit.name+' · approved questions only';
