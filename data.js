@@ -6622,6 +6622,51 @@ window.LIBRARY = {
     }
   ],
   "comingSoon": false
+},
+{
+  "id": "math6",
+  "name": "6th Grade Math",
+  "color": "orange",
+  "art": "curve",
+  "blurb": "Ratios, fractions, rational numbers, expressions, equations, inequalities, geometry, and data.",
+  "units": [
+    {
+      "id": "ratios-rates-percent-proportions",
+      "name": "Ratios, Rate, Percent and Proportions",
+      "artifacts": []
+    },
+    {
+      "id": "fractions-decimals-operations",
+      "name": "Operations of Fractions and Decimals",
+      "artifacts": []
+    },
+    {
+      "id": "rational-numbers",
+      "name": "Rational Numbers",
+      "artifacts": []
+    },
+    {
+      "id": "expressions-equations",
+      "name": "Expressions and Equations",
+      "artifacts": []
+    },
+    {
+      "id": "inequalities",
+      "name": "Inequalities",
+      "artifacts": []
+    },
+    {
+      "id": "geometry",
+      "name": "Geometry",
+      "artifacts": []
+    },
+    {
+      "id": "data-displays",
+      "name": "Data Displays",
+      "artifacts": []
+    }
+  ],
+  "comingSoon": false
 }
   ]
 };
