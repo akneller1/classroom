@@ -25,6 +25,10 @@ const assert=require('node:assert/strict');
     assert.ok(math.inequality.includes('katex'),'Inequality must be rendered as math');
     assert.ok(!math.fraction.includes('\\\\frac'),'No raw TeX fraction in user-visible math');
   }
+  if(game!=='catapult'){
+    assert.equal(await page.locator('#fields').isVisible(),false,'Legacy fields should not appear with bank questions in '+game);
+    assert.equal(await page.locator('#controls').innerText().then(x=>x.includes('Boundary x =')),false);
+  }
   if(game==='catapult') {
     const answers=await page.evaluate(()=>answerFor(current));
     for(let i=0;i<answers.length;i++) await page.locator('#f'+i).fill(String(answers[i]));
