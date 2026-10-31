@@ -539,11 +539,28 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
-        (c.id === 'algebra2' ? contentBriefSection(c, u) : '') +
+        (c.id === 'algebra2' ? contentBriefSection(c, u) + contentReadinessSection(c, u) : '') +
         unitPager(c, u) + '</div></section>'
     };
   }
 
+  function contentReadinessSection(c, u) {
+    var list = [
+      ['flashcards', 'Flashcards'], ['connect-4', 'Connect 4'],
+      ['tic-tac-toe', 'Tic-Tac-Toe'], ['picture-reveal', 'Picture Reveal'],
+      ['showdown', 'Showdown'], ['detective', 'Detective'],
+      ['escape-room', 'Escape Rooms'], ['worksheets', 'Worksheets'],
+      ['assessments', 'Assessments'], ['readiness-check', 'Assessment Readiness Check']
+    ];
+    var adapter = window.MK_RESOURCE_ELIGIBILITY;
+    return '<section class="algebra-unit-section"><h2>Content readiness</h2>' +
+      '<p class="course-skill-hint">Future resources share the same approved question bank. This checks the new bank system only; it does not evaluate existing legacy resources.</p>' +
+      '<div class="resource-readiness-grid">' + list.map(function (item) {
+        var status = adapter.describe(item[0], c.id, u.id);
+        return '<div class="resource-readiness-row"><strong>' + esc(item[1]) + '</strong><span>' +
+          (status.ready ? status.count + ' approved questions' : 'Awaiting approved questions') + '</span></div>';
+      }).join('') + '</div></section>';
+  }
   function contentBriefSection(c, u) {
     var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
     return '<section class="algebra-unit-section"><h2>Lessons and Subskills</h2>' +
@@ -559,7 +576,7 @@
         '<p class="band-meta">' + skills.length + ' lessons · ' + esc(c.name) + ' curriculum</p>';
       return { title: unitLabel(c, u) + ', ' + c.name,
         html: bandHtml(c, intro) + '<section class="section"><div class="wrap algebra-unit-layout">' +
-          unitPager(c, u) + contentBriefSection(c, u) +
+          unitPager(c, u) + contentBriefSection(c, u) + contentReadinessSection(c, u) +
           '<section class="algebra-unit-section"><h2>Resources coming soon</h2>' +
           '<p>Worksheet generators, review games, and study guides are planned for this unit.</p></section>' +
           unitPager(c, u) + '</div></section>' };
