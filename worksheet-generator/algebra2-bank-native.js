@@ -89,7 +89,8 @@ NS.figHtml=function(fig){
  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  return '<img class="authored-bank-image" src="../'+esc(fig.src)+'" alt="'+esc(fig.alt)+'" style="display:block;max-width:100%;max-height:280px;object-fit:contain;margin:12px auto">';
 };
-G.MK_ALGEBRA2_NATIVE_READY=G.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json','../').then(function(){
+var loadBanks=G.MK_APPROVED_RESOURCE_BANKS?G.MK_APPROVED_RESOURCE_BANKS.ready:G.MK_BANK_LOADER.loadFromSite('question-banks/manifest.json','../');
+G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
  const course=G.LIBRARY.courses.find(c=>c.id==='algebra2');
  G.LIBRARY.courses.forEach(c=>{
   let group=NS.CATALOG.find(g=>g.course===c.name);if(!group){group={course:c.name,units:[]};NS.CATALOG.push(group)}
