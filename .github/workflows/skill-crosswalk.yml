@@ -23,6 +23,8 @@ on:
       - 'scripts/test-legacy-authorization.cjs'
       - 'staged-legacy-reuse.js'
       - 'browser-stage-review.js'
+      - 'scripts/authorize-staging.cjs'
+      - 'staging-reuse-allowlist.json'
       - 'scripts/staging-reuse-test.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
@@ -46,6 +48,8 @@ jobs:
       - run: node scripts/test-legacy-authorization.cjs
       - run: node --check staged-legacy-reuse.js
       - run: node --check browser-stage-review.js
+      - run: node --check scripts/authorize-staging.cjs
+      - run: node -e "const a=require('./scripts/authorize-staging.cjs').authorize(null,{},require('./staging-reuse-allowlist.json'));if(a.stagingAuthorized||a.productionEnabled)process.exit(1);console.log('PASS default-deny staging')"
       - run: node scripts/staging-reuse-test.cjs
       - run: npm install --no-save playwright@1.58.2
       - run: npx playwright install --with-deps chromium
