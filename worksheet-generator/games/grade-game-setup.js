@@ -15,6 +15,25 @@ if(!validCourses[course]||!validGames[game]||!source||!plan||!plan.eligible){
 }
 var set=root.MKMENU.skillSets[source.setId],skill=set&&set.byId[source.skillId];
 if(!skill){root.document.getElementById('app').textContent='Question generator unavailable.';return;}
+// Keep legacy game labels, but use course-specific curriculum tiers.
+var levels={cp2:'cp2',cp1:'cp1',honors:'honors'};
+var tierPlans={};
+Object.keys(levels).forEach(function(level){
+ var policy=root.MK_CROSS_COURSE_DIFFICULTY.plan(entry,course,level);
+ if(policy&&policy.eligible) {
+  var tiers=[];
+  for(var c=policy.tiers[0];c<=policy.tiers[1];c++)tiers.push(c);
+  tierPlans[level]=tiers;
+ }
+});
+if(!tierPlans.cp1||!tierPlans.cp1.length){
+ root.document.getElementById('app').textContent='No standard-level questions are available for this topic.';
+ return;
+}
+root.MK_GRADE_GAME_TIERS=tierPlans;
+Object.keys(tierPlans).forEach(function(level){
+ if(root.MKGAMES.LEVELS[level])root.MKGAMES.LEVELS[level].tiers=tierPlans[level].slice();
+});
 root.document.body.setAttribute('data-unit',source.setId);
 root.document.body.setAttribute('data-skills',source.skillId);
 root.document.body.setAttribute('data-game',game);
