@@ -308,12 +308,13 @@
   // These are illustrations of the existing game modes, not generated questions.
   function gameBoardThumbnail(a, it) {
     var f = activityFormat(a);
-    var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms'];
+    var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms','whodunnit','detective-games','topic-games'];
     if (supported.indexOf(f) < 0) return a.thumb || '';
     var topic = (it.u && (it.u.name || it.u.title)) || (it.c && it.c.name) || '';
     var title = {'tic-tac-toe':'TIC-TAC-TOE','connect-four':'CONNECT 4',
       'showdown':'SHOWDOWN','picture-reveal':'PICTURE REVEAL',
-      'flashcards':'FLASHCARDS','escape-rooms':'ESCAPE ROOM'}[f];
+      'flashcards':'FLASHCARDS','escape-rooms':'ESCAPE ROOM',
+      'whodunnit':'DETECTIVE','detective-games':'DETECTIVE','topic-games':'TEAM GAME'}[f];
     function rect(x,y,w,h,fill,rx,stroke) {
       return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(rx||0)+
         '" fill="'+fill+'"'+(stroke?' stroke="'+stroke+'" stroke-width="2"':'')+'/>';
@@ -366,6 +367,13 @@
       art += '<path d="M 191 116 V 96 Q 191 54 240 54 Q 289 54 289 96 V 116" fill="none" stroke="#e6b863" stroke-width="11"/>';
       art += rect(177,112,126,83,'#e6b863',10);
       art += '<circle cx="240" cy="144" r="10" fill="#243e72"/><path d="M 236 150 H 244 L 248 174 H 232 Z" fill="#243e72"/>';
+    }
+    if (f === 'whodunnit' || f === 'detective-games' || f === 'topic-games') {
+      art += rect(137,61,206,157,'#e6edf9',12,'#adbfdf');
+      art += rect(157,77,166,124,'#ffffff',7,'#afc3e0');
+      art += '<circle cx="228" cy="122" r="32" fill="none" stroke="#596fb6" stroke-width="9"/>';
+      art += '<path d="M 252 144 L 289 181" stroke="#334d83" stroke-width="13" stroke-linecap="round"/>';
+      art += txt(237,190,'CLUE 1 / 4',13,'#687ca5',700,'middle');
     }
     var topicLabel = String(topic).replace(/&/g,'&amp;').replace(/</g,'&lt;').slice(0,45);
     var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 272" role="img" aria-label="'+esc(title)+' game board preview">'+
