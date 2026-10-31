@@ -3,7 +3,7 @@
    A review is evidence only; the approved scope must also be declared in a
    checked-in allowlist reviewed through the normal repository process. */
 'use strict';
-const fs=require('node:fs'),path=require('node:path');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {assess}=require('./assess-legacy-authorization.cjs');
 const VALID_COURSES=new Set(['math6','prealgebra7','prealgebra']);
 const VALID_LEVELS=new Set(['cp2','cp1','honors']);
@@ -16,6 +16,7 @@ function authorize(review,settings,allowlist){
  if(matching.length!==1)issues.push('Expected one unique staging scope');
  const item=matching[0];
  if(item&&(!item.sourceSetId||!item.sourceSkillId))issues.push('Missing explicit generator reference');
+ if(item){const digest=crypto.createHash('sha256').update(JSON.stringify(review)).digest('hex');if(item.reviewDigest!==digest)issues.push('Staging review digest mismatch');}
  if(item){
   try {
    const root=path.resolve(__dirname,'..');
