@@ -15,7 +15,9 @@ function load(manifest, fetchJSON){
   var id=item.courseId+'/'+item.unitId;
   if(allowed[id])throw new Error('Duplicate manifest entry '+id);
   allowed[id]=true;
-  if(item.approved===true)entries.push(item);
+  // Algebra 2 authored banks may be used in teacher generators without editorial sign-off.
+  // This is NOT equivalent to manifest approved:true.
+  if(item.approved===true||(item.courseId==='algebra2'&&item.teacherUse===true))entries.push(item);
  });
  return Promise.all(entries.map(function(item){
   return Promise.resolve().then(function(){return fetchJSON(item.path)}).then(function(bank){
