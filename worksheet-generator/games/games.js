@@ -29,28 +29,10 @@
   function on(sel, ev, fn) { $$(sel).forEach(function (e) { e.addEventListener(ev, fn); }); }
   // data-skills="a,b,c" limits a page to some of the unit's skills (e.g. Foundations uses the expression skills)
   var only = (body.getAttribute('data-skills') || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean);
-  var nativeQuestionBank = body.hasAttribute('data-algebra2-game') || SET.authoredBank === true;
-  var bankBackedGame = nativeQuestionBank || !!G.MK_GRADE_GAME_COURSE;
-  var skillIds = SET.skills.map(function (s) { return s.id; }).filter(function (id) { return !only.length || only.indexOf(id) >= 0; });
-  // Legacy generated games need an actual game-compatible question. Authored
-  // banks are filtered directly by their supported flashcard formats instead.
-  if (!nativeQuestionBank) skillIds = skillIds.filter(function (id) { return GB.hasGameItems(UNIT, id); });
-  function authoredFlashcardAvailable(id, level) {
-    var source = G.MK_COURSE_ACTIVITY_SOURCE, levels = level ? [level] : ['cp2', 'cp1', 'honors'];
-    if (!source || !G.MK_QUESTION_BANKS || typeof G.MK_QUESTION_BANKS.select !== 'function') return false;
-    return levels.some(function (lev) {
-      return G.MK_QUESTION_BANKS.select({
-        courseId: source.courseId, unitId: source.unit.id, skillIds: [id],
-        level: lev, formats: ['short-answer', 'multiple-choice']
-      }).length > 0;
-    });
-  }
-  var flashcardSkills = nativeQuestionBank
-    ? (SET.authoredBank === true ? skillIds.filter(function (id) { return authoredFlashcardAvailable(id); }) : skillIds.slice())
-    : skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
+  var bankBackedGame = body.hasAttribute('data-algebra2-game') || SET.authoredBank === true || !!G.MK_GRADE_GAME_COURSE;
+  var flashcardSkills = bankBackedGame ? skillIds.slice() : skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id); });
   var flashcardAvailability = {};
   function skillsWithCardsAt(level) {
-    if (SET.authoredBank === true) return skillIds.filter(function (id) { return authoredFlashcardAvailable(id, level); });
     if (bankBackedGame) return skillIds.slice();
     if (!flashcardAvailability[level]) {
       flashcardAvailability[level] = skillIds.filter(function (id) { return GB.hasFlashcardItems(UNIT, id, level); });
