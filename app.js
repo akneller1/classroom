@@ -463,7 +463,7 @@
           }).join('') + SOON.map(function (c) {
             return '<li><div class="course soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
               '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
-          }).join('') + '</ul></div></section>' +
+          }).join('') + '</ul></div></section>'
 
     };
   }
