@@ -53,6 +53,40 @@ async function run(){
   await page.locator('#afFlip').click();
   await page.getByText('Worked solution').waitFor();
   await page.locator('#afGot').click();
+  // Complete a Tic-Tac-Toe game with the built-in reviewed-question fixtures.
+  await setup(page,'approved-games.html');
+  await page.locator('#agApp').waitFor({state:'visible'});
+  await page.locator('#agGame').selectOption('tic-tac-toe');
+  async function turnAt(index,correct){
+    await page.locator('.ag-cell').nth(index).click();
+    // Every other fixture is a teacher-judged short answer; MC items can also be judged.
+    await page.locator('#agReveal').click();
+    const manual=await page.locator('#agCorrect').isVisible();
+    assert.ok(manual,'Fixture turn must offer manual judgment');
+    await page.locator(correct?'#agCorrect':'#agWrong').click();
+  }
+  // Question order: MC, short answer, MC, short answer, MC.
+  // Player 1 claims top row; player 2 claims the middle row.
+  await turnAt(0,true);
+  await turnAt(3,true);
+  await turnAt(1,true);
+  await turnAt(4,true);
+  await turnAt(2,true);
+  assert.match(await page.locator('#agTurn').innerText(),/Player 1 wins!/);
+  assert.equal(await page.locator('.ag-cell:enabled').count(),0,'Winning board must lock');
+  await page.locator('#agReset').click();
+  assert.equal(await page.locator('.ag-cell:enabled').count(),9,'Reset must unlock game');
+  await turnAt(0,false);
+  assert.equal(await page.locator('.ag-cell[data-owner="1"]').count(),0,'Wrong answer cannot claim a square');
+  assert.match(await page.locator('#agTurn').innerText(),/Incorrect/);
+  // Mobile layout: board and controls fit within the viewport.
+  await page.setViewportSize({width:375,height:812});
+  for(const type of ['tic-tac-toe','connect-4','picture-reveal']){
+    await page.locator('#agGame').selectOption(type);
+    const widths=await page.evaluate(()=>({page:document.documentElement.scrollWidth,viewport:innerWidth,board:document.querySelector('#agGrid').getBoundingClientRect().width}));
+    assert.ok(widths.page<=widths.viewport+2,type+' causes horizontal page overflow on mobile');
+    assert.ok(widths.board>0&&widths.board<widths.viewport,type+' board does not fit mobile viewport');
+  }
   assert.equal(errors.length,0,'Unexpected browser JavaScript errors: '+errors.join('; '));
   console.log('PASS browser interactions: loading, MC scoring, turn handoff, gravity, reveal tiles, empty bank, flashcard flip');
  }finally{await browser.close()}
