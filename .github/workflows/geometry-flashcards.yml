@@ -3,7 +3,6 @@ on:
   push:
     paths:
       - 'worksheet-generator/**'
-      - 'data.js'
       - '.github/workflows/geometry-flashcards.yml'
   workflow_dispatch:
 jobs:
