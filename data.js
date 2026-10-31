@@ -6505,7 +6505,7 @@ window.LIBRARY = {
     }
     ,  {
       "id": "prealgebra",
-      "name": "Pre-Algebra",
+      "name": "Pre-Algebra (8th Grade)",
       "color": "purple",
       "art": "curve",
       "blurb": "Grade 8 mathematics: real numbers, equations, functions, data, transformations, and geometry.",
