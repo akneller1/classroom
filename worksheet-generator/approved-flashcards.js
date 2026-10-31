@@ -28,7 +28,7 @@ function diagram(q,card){
  if(src){
   var figure=doc.createElement('figure'),im=doc.createElement('img');
   im.src=src;im.alt=q.diagram.spec.alt;im.loading='lazy';
-  im.addEventListener('error',function(){figure.replaceChildren();text('p','Diagram image unavailable. Do not use this question until the asset is repaired.',figure)});
+  im.addEventListener('error',function(){figure.replaceChildren();text('p','Diagram image unavailable. Do not use this question until the asset is repaired.',figure);el('afFlip').disabled=true;el('afNeed').disabled=true;el('afGot').disabled=true;});
   figure.appendChild(im);if(q.diagram.spec.caption)text('figcaption',q.diagram.spec.caption,figure);
   card.appendChild(figure);
  }return true;
@@ -45,6 +45,8 @@ function render(){
  if(q){
  text('h2',S.flipped?'Answer':'Question',card);
  if(S.flipped){
+  text('p',q.prompt,card).className='af-prompt';
+  diagram(q,card);
   text('div',Array.isArray(q.answer)?q.answer.join(', '):String(q.answer),card).className='af-answer';
   if(q.solutionSteps&&q.solutionSteps.length){text('strong','Worked solution',card);var sol=doc.createElement('ol');sol.className='af-solution';q.solutionSteps.forEach(function(s){text('li',s,sol)});card.appendChild(sol)}
  }else{
@@ -55,12 +57,12 @@ function render(){
  text('small',skillNames[q.skillId]||q.skillId,card);
  }else text('p',S.missedOnly?'No missed cards for these settings.':'No approved flashcards available for this difficulty and skill.',card);
  el('afPrev').disabled=S.index===0||!q;el('afNext').disabled=S.index>=S.order.length-1||!q;
- el('afFlip').hidden=S.flipped;el('afFlip').disabled=!q;el('afNeed').hidden=!S.flipped||!q;el('afGot').hidden=!S.flipped||!q;
+ el('afFlip').hidden=S.flipped;el('afFlip').disabled=!q;el('afNeed').hidden=!S.flipped||!q;el('afNeed').disabled=!q;el('afGot').hidden=!S.flipped||!q;el('afGot').disabled=!q;
  el('afMissed').textContent=S.missedOnly?'Show all cards':'Practice missed';
 }
 function flip(){if(current()){S.flipped=!S.flipped;render()}}
 function move(n){S.index=Math.max(0,Math.min(S.order.length-1,S.index+n));S.flipped=false;render()}
-function rate(value){var q=current();if(!q)return;S.ratings[q.id]=value;if(S.missedOnly){refresh()}else if(S.index<S.order.length-1)move(1);else render()}
+function rate(value){var q=current();if(!q||el('afNeed').disabled||el('afGot').disabled)return;S.ratings[q.id]=value;if(S.missedOnly){refresh()}else if(S.index<S.order.length-1)move(1);else render()}
 selectors.level.addEventListener('change',function(){S.level=this.value;S.index=0;refresh()});
 selectors.skill.addEventListener('change',function(){S.skill=this.value;S.index=0;refresh()});
 el('afCard').addEventListener('click',flip);el('afCard').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});
