@@ -564,7 +564,7 @@
   function contentBriefSection(c, u) {
     var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
     return '<section class="algebra-unit-section"><h2>Lessons and Subskills</h2>' +
-      '<p class="course-skill-hint">Select lessons to prepare a structured content brief for future resource development.</p>' +
+      '<p class="course-skill-hint">Select lessons for a content brief. <a href="coverage.html?course=' + encodeURIComponent(c.id) + '">View course question coverage</a>.</p>' +
       '<div class="course-skill-actions"><button type="button" class="course-skill-select" data-skill-action="all">Select all</button><button type="button" class="course-skill-select" data-skill-action="none">Clear</button><button type="button" class="course-skill-select" data-skill-action="copy">Copy content brief</button><span class="course-skill-status" role="status" aria-live="polite"></span></div>' +
       '<ol class="course-skill-checklist" data-course-id="' + esc(c.id) + '" data-unit-id="' + esc(u.id) + '">' + skills.map(function (s) {return '<li><label><input type="checkbox" value="' + esc(s.id) + '" checked><span>' + esc(s.name) + '</span></label></li>';}).join('') + '</ol></section>';
   }
