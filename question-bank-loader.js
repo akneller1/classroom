@@ -33,11 +33,13 @@ function load(manifest, fetchJSON){
   });
  });
 }
-function loadFromSite(path){
+function loadFromSite(path,base){
+ base=base||'';
+ if(base!==''&&base!=='../')return Promise.reject(new Error('Invalid bank base path'));
  path=path||'question-banks/manifest.json';
  if(!/^question-banks\/[a-z0-9/_-]+\.json$/.test(path))return Promise.reject(new Error('Invalid manifest path'));
  if(typeof root.fetch!=='function')return Promise.reject(new Error('Fetch unavailable'));
- function read(url){return root.fetch(url,{cache:'no-store'}).then(function(res){if(!res.ok)throw new Error('Unable to load '+url);return res.json()});}
+ function read(url){return root.fetch(base+url,{cache:'no-store'}).then(function(res){if(!res.ok)throw new Error('Unable to load '+url);return res.json()});}
  return read(path).then(function(manifest){return load(manifest,read)});
 }
 root.MK_BANK_LOADER={version:1,load:load,loadFromSite:loadFromSite};
