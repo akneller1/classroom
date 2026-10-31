@@ -77,6 +77,36 @@ function sectionQuestions(layout,used){
 }
 $('addSection').addEventListener('click',()=>{sections.push(newSection($('sectionType').value));renderSections()});
 $('resetSections').addEventListener('click',resetSections);
+
+const LAYOUT_KEY='mk-algebra2-section-layout-v1';
+$('saveLayout').addEventListener('click',()=>{
+ const config={schema:1,unitId:unitSelect.value,sections:sections.map(x=>({...x,skillIds:x.skillIds.slice()})),
+  level:$('level').value,format:$('format').value,count:$('count').value,versions:$('versions').value,heading:$('customTitle').value,
+  selectedSkills:sectionSkills()};
+ try{root.localStorage.setItem(LAYOUT_KEY,JSON.stringify(config));status.textContent='Section configuration saved in this browser.'}
+ catch(e){status.textContent='Unable to save configuration in this browser.'}
+});
+$('loadLayout').addEventListener('click',()=>{
+ let saved;try{saved=JSON.parse(root.localStorage.getItem(LAYOUT_KEY)||'null')}catch(e){}
+ if(!saved||saved.schema!==1||!Array.isArray(saved.sections)||!units.some(u=>u.id===saved.unitId)){
+  status.textContent='No valid saved configuration found.';return;
+ }
+ unitSelect.value=saved.unitId;skills();
+ const selected=new Set(saved.selectedSkills||[]);
+ doc.querySelectorAll('#skills input').forEach(x=>x.checked=selected.has(x.value));
+ sections=saved.sections.filter(x=>x&&typeof x.title==='string'&&Number.isFinite(Number(x.count))).map(x=>({
+  id:'s'+(++sectionCounter),type:String(x.type||x.title),title:x.title,count:Math.max(0,Math.min(60,Number(x.count))),
+  enabled:x.enabled!==false,note:String(x.note||''),skillIds:Array.isArray(x.skillIds)?x.skillIds.filter(id=>catalog.getSkillRecords('algebra2',saved.unitId).some(k=>k.id===id)):[]
+ }));
+ if(!sections.length){status.textContent='Saved configuration had no usable sections.';resetSections();return}
+ $('level').value=['cp2','cp1','honors'].includes(saved.level)?saved.level:'cp1';
+ $('format').value=['all','short-answer','multiple-choice','select-all','open-response'].includes(saved.format)?saved.format:'all';
+ $('count').value=Math.max(1,Math.min(60,Number(saved.count)||12));
+ $('versions').value=Math.max(1,Math.min(4,Number(saved.versions)||1));
+ $('customTitle').value=String(saved.heading||'');
+ versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;
+ renderSections();status.textContent='Configuration loaded. Generate a fresh preview.';
+});
 resetSections();
 
 function sample(count){return shuffle(pool).slice(0,count).map(q=>({source:q,question:JSON.parse(JSON.stringify(q))}))}
