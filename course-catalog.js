@@ -642,12 +642,17 @@
   function get(courseId,unitId){
     return (skills[courseId] && skills[courseId][unitId] || []).slice();
   }
+  function getSkillRecords(courseId,unitId){
+    return get(courseId,unitId).map(function(name,i){
+      return {id:unitId+'-skill-'+String(i+1).padStart(2,'0'),name:name,index:i+1};
+    });
+  }
   function listCourses(library){
     return (library && library.courses || []).map(function(course){
       return {id:course.id,name:course.name,units:course.units.map(function(unit){
-        return {id:unit.id,name:unit.name,skills:get(course.id,unit.id),resources:(unit.artifacts||[]).map(function(a){return {title:a.title,path:a.path};})};
+        return {id:unit.id,name:unit.name,skills:getSkillRecords(course.id,unit.id),resources:(unit.artifacts||[]).map(function(a){return {title:a.title,path:a.path};})};
       })};
     });
   }
-  root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,listCourses:listCourses,version:1};
+  root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);
