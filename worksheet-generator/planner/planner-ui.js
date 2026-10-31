@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', CS = GEO ? '-geometry' : '';   // per-lesson saved data is kept separately for each course
+  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', CS = GEO ? '-geometry' : A2 ? '-algebra2' : '';   // per-lesson saved data is kept separately for each course
   var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_SECTION_ORDER = 'mk-planner-section-order-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1', KEY_COUNTS = 'mk-planner-section-counts-v1';
   KEY_NOTE_EDITS += CS; KEY_PROBLEM_LABELS += CS;
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
@@ -188,7 +188,7 @@
   /* ---------- hash ---------- */
   function readHash() {
     var h = {}; (location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); });
-    if (h.course && /^(algebra1|geometry)$/.test(h.course) && h.course !== COURSE) { G.location.reload(); return; }
+    if (h.course && /^(algebra1|geometry|algebra2)$/.test(h.course) && h.course !== COURSE) { G.location.reload(); return; }
     if (h.unit) {
       var num = null; Object.keys(G.MKPLAN_SKILLS.UNIT_SET).forEach(function (n) { if (P.unitSetId(+n) === h.unit || String(n) === h.unit) num = +n; });
       var u = num && P.unitOf(num); if (u) ui.day = u.start_day;
@@ -199,7 +199,7 @@
     if (h.view && /^(plan|student|key)$/.test(h.view)) ui.view = h.view;
   }
   function writeHash() {
-    var h = (GEO ? '#course=geometry&day=' : '#day=') + ui.day + '&level=' + ui.level + (ui.seed !== 'A' ? '&seed=' + encodeURIComponent(ui.seed) : '') + (ui.view !== 'plan' ? '&view=' + ui.view : '');
+    var h = (GEO ? '#course=geometry&day=' : A2 ? '#course=algebra2&day=' : '#day=') + ui.day + '&level=' + ui.level + (ui.seed !== 'A' ? '&seed=' + encodeURIComponent(ui.seed) : '') + (ui.view !== 'plan' ? '&view=' + ui.view : '');
     if (location.hash !== h) history.replaceState(null, '', h);
   }
 
@@ -255,7 +255,7 @@
       links.push(['Worksheet Generator', 'worksheet.html#unit=' + set], ['Assessment Generator', 'menu-assessment.html#unit=' + set]);
       if (/Practice|Review|Flex/.test(d.day_type)) links.push(['Maze', 'printables.html#unit=' + set + '&kind=maze'], ['Partner Check', 'printables.html#unit=' + set + '&kind=partner'], ['Stations', 'printables.html#unit=' + set + '&kind=stations']);
       if (/Quiz/.test(d.day_type)) links.splice(2, 0, ['Short quiz (versions A–C)', 'menu-assessment.html#unit=' + set]);
-      if (!GEO) links.push(['Unit page', '../index.html#algebra.' + unitPageId(d.unit)]);
+      if (COURSE === 'algebra1') links.push(['Unit page', '../index.html#algebra.' + unitPageId(d.unit)]);
     } else if (/Exam/.test(d.day_type)) {
       links.push(['Assessment Generator', 'menu-assessment.html']);
     }
@@ -602,7 +602,7 @@
       if (ui.selectedDays.indexOf(ui.day) < 0) ui.day = ui.selectedDays[0];
       render(); return;
     }
-    if (t.id === 'plCourse') { if(t.value==='algebra2'){G.location.href='bank-printable.html?mode=lesson';return;} G.location.hash = '#course=' + t.value + '&day=1'; return; }
+    if (t.id === 'plCourse') { G.location.hash = '#course=' + t.value + '&day=1'; return; }
     if (t.id === 'plUnit') { var g = dayGroups().filter(function (x) { return x.key === t.value; })[0]; if (g && g.days.length) { ui.day = g.days[0].day; resetSelection(); render(); } return; }
     if (t.name === 'plLevel') { ui.level = t.value; lsSet(KEY_LEVEL, ui.level); render(); return; }
     if (t.name === 'plNotes') {   // the notes setting changes only the printed notes, not the problems
@@ -621,7 +621,7 @@
     }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
-  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
+  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
 
   function applyTheme(t) { if (t) doc.documentElement.setAttribute('data-theme', t); else doc.documentElement.removeAttribute('data-theme'); }
   applyTheme(lsGet(KEY_THEME));
