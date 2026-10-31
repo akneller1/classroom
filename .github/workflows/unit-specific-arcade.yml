@@ -5,6 +5,7 @@ on:
       - 'artifacts/math-arcade/**'
       - 'unit-specific-arcade.js'
       - 'scripts/test-unit-specific-arcade.cjs'
+      - 'scripts/test-unit-specific-arcade-browser.cjs'
       - 'index.html'
       - '.github/workflows/unit-specific-arcade.yml'
   workflow_dispatch:
@@ -17,3 +18,7 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/test-unit-specific-arcade.cjs
+      - run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/arcade-http.log 2>&1 &
+      - run: node scripts/test-unit-specific-arcade-browser.cjs
