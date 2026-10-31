@@ -454,7 +454,7 @@
           '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
           '<div class="home-resource-panels">' +
             '<section class="home-subject-panel" aria-labelledby="subject-heading">' +
-              '<div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2 id="subject-heading">Browse by subject</h2>' +
+              '<div class="explore-heading"><h2 id="subject-heading">Browse by subject</h2>' +
               '<p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses home-subject-cards">' +
               L.courses.map(function (c) {
                 var n = courseCount(c);
