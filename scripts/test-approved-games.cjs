@@ -22,4 +22,12 @@ assert.ok(js.includes('||!items.length'),'Tiles should not be active without app
 assert.ok(js.includes("function outcome()"),'Game outcome helper missing');
 assert.ok(js.includes("type:'win'") && js.includes("type:'draw'") && js.includes("type:'complete'"),'Wins, draws and reveal completion must be distinct');
 assert.ok(js.includes("Player '+result.player+' wins!"),'Winning player must be named');
+const start=js.indexOf('function outcome(){'),end=js.indexOf('function render(){',start);
+assert.ok(start>=0&&end>start,'Outcome helper must exist');
+const resolve=new Function('board','mode',"function game(){return mode;}\\n".replace('\\n','\n')+js.slice(start,end)+'return outcome();');
+let t=Array(9).fill(null);t[0]=1;t[1]=1;t[2]=1;assert.equal(resolve(t,'tic-tac-toe').player,1);
+t=[1,2,1,1,2,2,2,1,1];assert.equal(resolve(t,'tic-tac-toe').type,'draw');
+let c=Array(42).fill(null);[35,36,37,38].forEach(i=>c[i]=2);assert.equal(resolve(c,'connect-4').player,2);
+assert.equal(resolve(Array(16).fill('-'),'picture-reveal').type,'complete');
+assert.equal(resolve(Array(16).fill(null),'picture-reveal'),null);
 console.log('PASS approved review game page structure and security gating');
