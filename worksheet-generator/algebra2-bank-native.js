@@ -49,6 +49,15 @@ GB.buildDeck=function(id,slots,opts,done){
 const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
 function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
 function menuSource(p){return JSON.stringify([p.prompt||'',(p.parts||[]).map(function(x){return [x.prompt||'',x.answer||'']}),p.fig||null,p.work||null])}
+// Only the exact unmodified source item may bypass manual teacher approval.
+// An edited item has source='edited'; a teacher-created item has source='manual'.
+NS.isUneditedAlgebra2BankQuestion=function(p){
+ if(!p||p.source!=='authored-bank'||p.edited||p.manual||!p.sourceId)return false;
+ const q=raw.get(p.sourceId);
+ if(!q||!p.skill||p.skill!==q.skillId)return false;
+ const original=problem(q,null,p.c);
+ return menuSource(p)===menuSource(original);
+};
 const makeChoices=NS.makeChoices,makeMulti=NS.makeMultiSelect,makeMcas=NS.makeMcas;
 NS.makeChoices=function(p){
  const q=sourceQuestion(p);if(!q)return makeChoices.apply(this,arguments);
