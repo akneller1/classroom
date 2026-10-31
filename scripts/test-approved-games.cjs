@@ -16,4 +16,7 @@ assert.ok(js.includes('selectedAnswer=-1'),'Clear answers between turns');
 assert.ok(js.includes("x==='-'"),'Picture Reveal must complete only when all tiles are cleared');
 assert.ok(js.includes("selectedAnswer>=0"),'Selected multiple choice must support automatic grading');
 assert.ok(js.includes("judge(ok)"),'Multiple choice responses must affect the board');
+assert.ok(html.includes('content:"MATH"'),'Picture Reveal must have a genuine visual beneath its tiles');
+assert.ok(html.includes('.ag-cell[data-owner="revealed"]{opacity:0'),'Solved tiles must reveal the artwork');
+assert.ok(js.includes('||!items.length'),'Tiles should not be active without approved questions');
 console.log('PASS approved review game page structure and security gating');
