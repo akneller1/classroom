@@ -157,7 +157,6 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'generators', name: 'Assessment Tools', formats: ['assessment-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'matching-game', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] }
   ];
@@ -309,6 +308,8 @@
   // Use game-board previews rather than captured setup/question dialogs.
   // These are illustrations of the existing game modes, not generated questions.
   function gameBoardThumbnail(a, it) {
+    // Each game with an authored thumbnail must use it rather than a generated generic preview.
+    if (a.thumb && (activityFormat(a) === 'topic-games' || /slope-links-mini-golf|zombie-fence/i.test(a.path || ''))) return a.thumb;
     if (/^artifacts\/math-arcade\/index\.html\?game=/.test(a.path || '')) return a.thumb || '';
     var f = activityFormat(a);
     var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms','whodunnit','detective-games','topic-games'];
@@ -787,7 +788,7 @@
   function browseResults(state) {
     return everything().filter(function (it) {
       // Lesson plans and worksheets are separate generator tools, not browseable activities.
-      if (['lesson-planner', 'worksheet-generator', 'printable-generator'].indexOf(activityFormat(it.a)) >= 0) return false;
+      if (['lesson-planner', 'worksheet-generator', 'printable-generator', 'assessment-generator'].indexOf(activityFormat(it.a)) >= 0) return false;
       return (!state.subject || it.c.id === state.subject) &&
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
         (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
