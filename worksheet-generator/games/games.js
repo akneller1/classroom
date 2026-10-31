@@ -102,7 +102,12 @@
   function flashcards() {
     var S = { level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false };
     GB._state = function () { return S; };
+    function availableSkills() {
+      var visible = skillsWithCardsAt(S.level);
+      return skillIds.filter(function (id) { return visible.indexOf(id) >= 0; });
+    }
     function build() {
+      var activeSkills = availableSkills();
       if (!activeSkills.length) { S.cards = []; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render(); return; }
       deck(levelSlots(S.level, activeSkills, Math.max(1, Math.ceil(20 / (activeSkills.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
         S.cards = its; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render();
@@ -116,8 +121,7 @@
     function cur() { return S.cards[S.order[S.i]]; }
     function render() {
       var c = cur(), got = 0, need = 0; Object.keys(S.rate).forEach(function (k) { if (S.rate[k] === 'got') got++; else need++; });
-      var visibleSkills = skillsWithCardsAt(S.level);
-      var activeSkills = skillIds.filter(function (id) { return visibleSkills.indexOf(id) >= 0; });
+      var visibleSkills = availableSkills();
       var h = head('Flip each card for the answer and the worked solution. Practice your selected skills at this level.') +
         '<div class="gm-ctl"><label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level, EASY_NAMES) +
         '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + visibleSkills.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + '</select>' +
