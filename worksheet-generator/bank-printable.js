@@ -32,6 +32,7 @@ function renderQuestion(q,host,n,answerSide){
 }
 let versions=[],activeVersion=0, pool=[],wantedCount=12;
 let versionSections=[];
+let spiralPool=[];
 const DEFAULT_SECTIONS=[
  ['Do Now',2],['Mixed Review',0],['Notes',0],['Examples',3],['Practice',5],['Challenge Problems',0],['Summary',0],['Exit Ticket',2]
 ];
@@ -63,13 +64,16 @@ function renderSections(){
  });
 }
 function shiftSection(i,by){const j=i+by;if(j<0||j>=sections.length)return;[sections[i],sections[j]]=[sections[j],sections[i]];renderSections()}
+function spiralSelections(){return Array.from(doc.querySelectorAll('#spiralUnits input:checked')).map(x=>x.value)}
+function renderSpiralUnits(){const host=$('spiralUnits');host.replaceChildren();const index=units.findIndex(u=>u.id===unitSelect.value);units.slice(0,index).forEach(u=>{const label=elt('label',host);label.className='skill';const cb=elt('input',label);cb.type='checkbox';cb.value=u.id;cb.checked=bank.available('algebra2',u.id);cb.disabled=!bank.available('algebra2',u.id);elt('span',label,u.name+(cb.disabled?' (no bank)':''))})}
 function sectionsSnapshot(){return sections.filter(x=>x.enabled).map(x=>({...x,skillIds:x.skillIds.slice()}))}
 function sectionQuestions(layout,used){
  const selections=[];
  layout.forEach(sec=>{
   const count=Math.max(0,Math.min(60,Number(sec.count)||0));
   if(!count)return;
-  const eligible=pool.filter(q=>(!sec.skillIds.length||sec.skillIds.includes(q.skillId))&&!used.has(q.id));
+  const source=sec.type==='Mixed Review'&&$('spiralEnabled').checked?pool.concat(spiralPool):pool;
+  const eligible=source.filter(q=>(sec.type==='Mixed Review'&&$('spiralEnabled').checked&&q._spiral===true||!sec.skillIds.length||sec.skillIds.includes(q.skillId))&&!used.has((q._origin||unitSelect.value)+'/'+q.id));
   // Mixed Review deliberately samples across distinct skills instead of allowing
   // the largest question category to dominate the section.
   const chosen=[];
@@ -81,7 +85,7 @@ function sectionQuestions(layout,used){
     for(const group of groups){if(group.length&&chosen.length<count)chosen.push(group.pop())}
    }
   }else chosen.push(...shuffle(eligible).slice(0,count));
-  chosen.forEach(q=>{used.add(q.id);selections.push({source:q,question:JSON.parse(JSON.stringify(q)),sectionId:sec.id})});
+  chosen.forEach(q=>{used.add((q._origin||unitSelect.value)+'/'+q.id);selections.push({source:q,question:JSON.parse(JSON.stringify(q)),sectionId:sec.id})});
  });
  return selections;
 }
@@ -92,7 +96,7 @@ const LAYOUT_KEY='mk-algebra2-section-layout-v1';
 function snapshotLayout(){
  return {schema:1,unitId:unitSelect.value,sections:sections.map(x=>({...x,skillIds:x.skillIds.slice()})),
  level:$('level').value,format:$('format').value,count:$('count').value,versions:$('versions').value,
- heading:$('customTitle').value,selectedSkills:sectionSkills()};
+ heading:$('customTitle').value,selectedSkills:sectionSkills(),spiralEnabled:$('spiralEnabled').checked,spiralUnits:spiralSelections()};
 }
 function applyLayout(saved){
  if(!saved||saved.schema!==1||!Array.isArray(saved.sections)||saved.sections.length>40||
@@ -110,6 +114,9 @@ function applyLayout(saved){
  const chosen=new Set(Array.isArray(saved.selectedSkills)?saved.selectedSkills:records.map(x=>x.id));
  doc.querySelectorAll('#skills input').forEach(x=>x.checked=chosen.has(x.value));
  sections=clean;
+ renderSpiralUnits();$('spiralEnabled').checked=!!saved.spiralEnabled;
+ const spiralSet=new Set(Array.isArray(saved.spiralUnits)?saved.spiralUnits:[]);
+ doc.querySelectorAll('#spiralUnits input').forEach(x=>x.checked=!x.disabled&&spiralSet.has(x.value));
  $('level').value=['cp2','cp1','honors'].includes(saved.level)?saved.level:'cp1';
  $('format').value=['all','short-answer','multiple-choice','select-all','open-response'].includes(saved.format)?saved.format:'all';
  $('count').value=Math.max(1,Math.min(60,Number(saved.count)||12));
@@ -169,6 +176,8 @@ function build(){
  const skillIds=Array.from(doc.querySelectorAll('#skills input:checked')).map(x=>x.value);
  if(!skillIds.length){status.textContent='Choose at least one skill.';return}
  pool=bank.select({courseId:'algebra2',unitId,level,skillIds,formats:fmt==='all'?undefined:[fmt]}).filter(q=>!q.diagram||q.diagram.type==='image');
+ spiralPool=[];
+ if($('spiralEnabled').checked){const fmtList=fmt==='all'?undefined:[fmt];spiralSelections().forEach(id=>{bank.select({courseId:'algebra2',unitId:id,level,formats:fmtList}).forEach(q=>{if(!q.diagram||q.diagram.type==='image')spiralPool.push({...q,_spiral:true,_origin:id})})})}
  wantedCount=Math.max(1,Math.min(60,Number($('count').value)||12));
  const requestedTotal=sections.filter(x=>x.enabled).reduce((sum,x)=>sum+Math.max(0,Number(x.count)||0),0);
  if(requestedTotal>wantedCount){status.textContent='Section counts exceed the total question limit. Increase the question limit or reduce section counts.';return;}
@@ -245,12 +254,12 @@ $('customTitle').addEventListener('input',()=>{if(versions.length)renderAll()});
 units.forEach((u,i)=>option(unitSelect,u.id,'Unit '+(i+1)+' · '+u.name));
 const requested=params.get('unit');if(units.some(u=>u.id===requested))unitSelect.value=requested;
 if(params.get('mode')==='assessment')$('mode').value='assessment';
-unitSelect.addEventListener('change',()=>{skills();renderSections();versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.'});
+unitSelect.addEventListener('change',()=>{skills();renderSpiralUnits();renderSections();versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.'});
 $('all').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=true));
 $('none').addEventListener('click',()=>doc.querySelectorAll('#skills input').forEach(x=>x.checked=false));
 $('build').addEventListener('click',build);$('print').addEventListener('click',()=>root.print());
-skills();
+skills();renderSpiralUnits();
 root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(()=>{
- status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.';
+ renderSpiralUnits();status.textContent=bank.available('algebra2',unitSelect.value)?'Ready to generate.':'No question bank available for this unit yet.';
 }).catch(e=>{status.textContent='Could not load question banks: '+e.message;$('build').disabled=true});
 })(window);
