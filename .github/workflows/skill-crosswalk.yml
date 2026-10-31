@@ -19,6 +19,8 @@ on:
       - 'scripts/test-legacy-review-browser.cjs'
       - 'scripts/validate-legacy-review.cjs'
       - 'scripts/test-legacy-review-validation.cjs'
+      - 'scripts/assess-legacy-authorization.cjs'
+      - 'scripts/test-legacy-authorization.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
 jobs:
@@ -38,6 +40,7 @@ jobs:
       - run: node scripts/test-legacy-review-samples.cjs
       - run: node scripts/test-legacy-review-page.cjs
       - run: node scripts/test-legacy-review-validation.cjs
+      - run: node scripts/test-legacy-authorization.cjs
       - run: npm install --no-save playwright@1.58.2
       - run: npx playwright install --with-deps chromium
       - name: Start local site
