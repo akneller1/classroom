@@ -36,6 +36,14 @@
         if (choices.length < 2 || (q.format === 'multiple-choice' && n !== 1) || (q.format === 'select-all' && n < 2)) errors.push(where + ' invalid choices');
       }
       if (q.format === 'open-response' && (!Array.isArray(q.parts) || q.parts.length < 4)) errors.push(where + ' needs four parts');
+      if (q.diagram) {
+        var d=q.diagram, spec=d.spec||{};
+        if (d.type==='image') {
+          if (typeof spec.src!=='string' || !spec.src.startsWith('question-banks/assets/') || !/^[a-zA-Z0-9_/-]+[.](png|jpg|jpeg|webp)$/.test(spec.src.slice(21)) || spec.src.includes('..') || typeof spec.alt!=='string' || !spec.alt.trim())
+            errors.push(where+' invalid local image diagram');
+        } else if (['svg','coordinate-plane','number-line','geometry-figure'].indexOf(d.type)<0)
+          errors.push(where+' unsupported diagram type');
+      }
     });
     return { ok: !errors.length, errors: errors };
   }
