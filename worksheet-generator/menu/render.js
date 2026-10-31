@@ -16,7 +16,7 @@
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function math(m) { return WS.render.math(m); }                       // trusted markup (reference page)
   /* Untrusted text (teacher edits, loaded files): escape everything outside ⟨…⟩; KaTeX renders the math safely. */
-  function mathSafe(m) { return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : esc(part); }).join(''); }
+  function mathSafe(m) { return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : (G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html(part) : esc(part)); }).join(''); }
   NS.mathSafe = mathSafe;
   function el(tag, cls, html) { var e = doc.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
 
