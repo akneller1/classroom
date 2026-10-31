@@ -518,7 +518,7 @@
     var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
       '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing functions (linear, quadratic, exponential and the Algebra 2 function units).' : (/^algebra2-/.test(unit)?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>CP2</b> (guided), <b>CP1</b> (standard) and <b>Honors</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
-      '<section class="card"><h2>Teacher guide</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels. Enter the teacher code to show the links. The PDF also asks for the code.</p><form id="pjCodeForm" class="pj-code"><input id="pjCode" type="password" inputmode="numeric" autocomplete="off" placeholder="Code" aria-label="Teacher code"><button type="submit" class="btn sm">Show</button></form><p class="hint" id="pjCodeMsg" aria-live="polite"></p></section>';
+      '<section class="card"><h2>Teacher guide &amp; answer keys</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels are available from each project card below.</p></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
     if (kind === 'match') {
       var fams = PR.MATCH.familiesFor(unit);
@@ -558,7 +558,7 @@
     if ($('#prPic')) $('#prPic').onchange = function (e) { cfg.picture = e.target.value; save(); rebuild(); };
     if (kind === 'project') {
       doc.title = 'Projects · Mr. K\'s Classroom'; $('#prCrumb').textContent = 'Printable Generator · Projects';
-      $('#pjCodeForm').onsubmit = function (e) { e.preventDefault(); var okc = $('#pjCode').value.trim() === '205'; ui.teacher = okc; $('#pjCodeMsg').textContent = okc ? 'Teacher guide links are shown.' : 'Incorrect code.'; drawProjects(); };
+      
       return;
     }
     if (kind === 'vocabulary') { doc.title = 'Vocabulary Builder · Mr. K\'s Classroom'; $('#prCrumb').textContent = 'Printable Generator · Vocabulary Builder'; return; }
@@ -600,7 +600,7 @@
               '<td><a class="btn ghost sm" href="' + esc(x.docx) + '" download>Word</a></td>' +
               '<td><a class="btn ghost sm" href="' + esc(x.pptx) + '" download>PowerPoint</a></td></tr>';
           }).join('') + '</tbody></table>' +
-          (ui.teacher ? '<p class="pj-teacher">\ud83d\udd12 Teacher guide: <a href="' + esc(f.teacher.pdf) + '">PDF</a> \u00b7 <a href="' + esc(f.teacher.docx) + '" download>Word</a></p>' : '') +
+          '<p class="pj-teacher">Teacher guide &amp; answer keys: <a href="' + esc(f.teacher.pdf) + '">PDF</a> · <a href="' + esc(f.teacher.docx) + '" download>Word</a></p>' +
           '</div></article>';
       }).join('');
     $('#prPreview').innerHTML = list.length ? html : '<div class="pr-busy">No projects for this unit yet.</div>';

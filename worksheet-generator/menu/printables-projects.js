@@ -1,6 +1,6 @@
 /* Projects for the Printable Generator (kind=project). Nothing is generated: each project is a ready-made
    2–3 day project saved as PDF, Word (.docx) and PowerPoint (.pptx) at CP2, CP1 and Honors, plus a teacher guide
-   (PDF encrypted with the teacher code). Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
+   with answer keys. Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
    Courses: Algebra 1, Geometry and Algebra 2. */
 (function (G) {
   'use strict';

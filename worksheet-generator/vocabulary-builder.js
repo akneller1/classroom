@@ -78,6 +78,6 @@ $('custom').addEventListener('input',updateCrossCount);
 $('allTerms').onclick=()=>{$('terms').querySelectorAll('input').forEach(x=>x.checked=true);selected=Array.from($('terms').querySelectorAll('input')).map(x=>x.dataset.id)};
 $('noTerms').onclick=()=>{$('terms').querySelectorAll('input').forEach(x=>x.checked=false);selected=[]};
 $('generate').onclick=render;$('reshuffle').onclick=render;$('print').onclick=()=>{if(!last)render();if(!last)return;document.body.classList.remove('print-key');window.print()};
-$('keyPrint').onclick=()=>{let p=prompt('Enter teacher access code');if(p!=='205'){if(p!==null)alert('Incorrect code');return}if(!last)render();if(!last)return;document.body.classList.add('print-key');window.print();document.body.classList.remove('print-key')};
+$('keyPrint').onclick=()=>{if(!last)render();if(!last)return;document.body.classList.add('print-key');window.print();document.body.classList.remove('print-key')};
 render();
 })();

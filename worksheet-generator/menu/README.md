@@ -395,11 +395,9 @@ Last run with N=1000: 948,499 checks on 154,000 generated problems, 0 failures, 
 
 Browser support: tested in Chromium (Chrome/Edge). Firefox and Safari print engines were not tested.
 
-## Answer keys and the code-205 prompt
-Keys are printed by the teacher and stay on the teacher's computer. The generator never publishes a key.
-If you post a key on the site, link it through the activity viewer (`resource-details.js` → `answerKey`),
-which shows the existing code-205 prompt. That prompt is a browser-side convenience, not security:
-anyone who has the file's address can open a publicly hosted file.
+## Answer keys
+Keys are available directly to teachers in the teacher-facing site. Generated worksheets and tests show the teacher key in the preview and print controls; project guides and activity keys are linked from their resource cards. No teacher code is required.
+
 
 ## Adding a unit (Geometry, Algebra 2, other Algebra 1 units)
 1. Create `menu/skills/<course>-<unit>.js`. Call `MKMENU.registerSkillSet({id, course, unit, unitName, title, tags,

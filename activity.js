@@ -85,28 +85,10 @@
     info.textContent = labels.join(' · ');
     if (details.answerKey && !studentFocus) {
       var key = document.createElement('a');
-      key.href = '#teacher-key';
-      key.setAttribute('aria-haspopup', 'dialog');
-      key.textContent = '🔒 Open teacher key (' + details.keyPages + (details.keyPages === 1 ? ' page' : ' pages') + ')';
-      var dialog = document.getElementById('teacher-key-dialog');
-      var code = document.getElementById('teacher-key-code');
-      var error = document.getElementById('teacher-key-error');
-      key.addEventListener('click', function (event) {
-        event.preventDefault();
-        code.value = ''; error.textContent = '';
-        dialog.showModal(); code.focus();
-      });
-      document.getElementById('teacher-key-cancel').addEventListener('click', function () { dialog.close(); });
-      document.getElementById('teacher-key-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (code.value.trim() !== '205') {
-          error.textContent = 'Incorrect code. Please try again.';
-          code.select(); return;
-        }
-        window.open(details.answerKey, '_blank', 'noopener');
-        dialog.close(); code.value = '';
-      });
-      dialog.addEventListener('close', function () { code.value = ''; key.focus(); });
+      key.href = details.answerKey;
+      key.target = '_blank';
+      key.rel = 'noopener';
+      key.textContent = 'Open teacher answer key (' + details.keyPages + (details.keyPages === 1 ? ' page' : ' pages') + ') ↗';
       info.appendChild(key);
     }
   }
