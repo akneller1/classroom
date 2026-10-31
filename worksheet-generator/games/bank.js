@@ -415,7 +415,8 @@
     var rng = G.MKWS.rng.make(G.MKWS.rng.hash(seed + '|deck'));
     function one(slot, n) {
       // the slot's difficulty first; if that skill makes no game items there, the nearest difficulty (so no card is missing)
-      var cs = [slot.c, slot.c - 1, slot.c + 1, slot.c - 2, slot.c + 2].filter(function (c) { return c >= 1 && c <= 7; });
+      var allowed = G.MK_GRADE_GAME_TIERS && Object.keys(G.MK_GRADE_GAME_TIERS).reduce(function (all, key) { return all.concat(G.MK_GRADE_GAME_TIERS[key]); }, []);
+      var cs = [slot.c, slot.c - 1, slot.c + 1, slot.c - 2, slot.c + 2].filter(function (c) { return c >= 1 && c <= 7 && (!allowed || allowed.indexOf(c) >= 0); });
       for (var k = 0; k < cs.length; k++) {
         var policy = { intOnly: cs[k] <= 5, level: 'game' };
         for (var tries = 0; tries < (k ? 6 : 10); tries++) {
