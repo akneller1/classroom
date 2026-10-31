@@ -27,6 +27,7 @@ on:
       - 'staging-reuse-allowlist.json'
       - 'scripts/export-legacy-reuse-handoff.cjs'
       - 'scripts/staging-reuse-test.cjs'
+      - 'scripts/audit-reuse-questions.cjs'
       - '.github/workflows/skill-crosswalk.yml'
   workflow_dispatch:
 jobs:
@@ -42,11 +43,12 @@ jobs:
       - run: node scripts/report-legacy-reuse.cjs
       - run: node scripts/export-legacy-reuse-handoff.cjs /tmp/legacy-reuse-handoff.json
       - run: node -e "const a=require('/tmp/legacy-reuse-handoff.json');if(a.publicationApproved!==false||a.topics.length!==15||a.topics.some(t=>t.targets.some(s=>(s.questions||[]).some(q=>q.reviewStatus!=='unreviewed'))))process.exit(1);console.log('PASS unapproved reviewer handoff')"
+      - run: node scripts/audit-reuse-questions.cjs /tmp/legacy-reuse-handoff.json /tmp/legacy-review-flags.json
       - name: Upload review handoff
         uses: actions/upload-artifact@v4
         with:
           name: legacy-reuse-review-handoff
-          path: /tmp/legacy-reuse-handoff.json
+          path: /tmp/legacy-*.json
           if-no-files-found: error
       - run: node scripts/test-crosswalk-generator-samples.cjs
       - run: node scripts/test-cross-course-difficulty.cjs
