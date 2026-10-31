@@ -580,10 +580,18 @@
     var base = 'worksheet-generator/', common = '?course=' + encodeURIComponent(c.id) + '&unit=' + encodeURIComponent(u.id);
     var first = topics[0].key;
     var practice = base + 'grade-practice.html?course=' + encodeURIComponent(c.id) + '&topic=' + encodeURIComponent(first) + '&level=cp1';
-    var games = [
-      {title:'Connect 4, Tic-Tac-Toe & Picture Reveal',path:base+'approved-games.html'+common,
-       thumb:'thumbs/foundations-algebra-connect-four.jpg',type:'Game',description:'Choose a game, difficulty, and lesson skill. Answer questions to claim squares or reveal a picture.'}
-    ];
+    var games = topics.flatMap(function(m) {
+      var target=m.targets.find(function(t){return t&&t.courseId===c.id&&t.unitId===u.id;});
+      return [
+        {mode:'tic-tac-toe',title:'Tic-Tac-Toe',thumb:'thumbs/foundations-algebra-tic-tac-toe.jpg'},
+        {mode:'connect-four',title:'Connect 4',thumb:'thumbs/foundations-algebra-connect-four.jpg'},
+        {mode:'picture-reveal',title:'Picture Reveal',thumb:'thumbs/foundations-algebra-picture-reveal.jpg'}
+      ].map(function(item){
+        return {title:item.title+' · '+target.name,
+          path:base+'middle-school-game.html?course='+encodeURIComponent(c.id)+'&topic='+encodeURIComponent(m.key)+'&game='+item.mode,
+          thumb:item.thumb,type:'Game',description:'Play the original Algebra/Geometry game with questions from '+target.name+'.'};
+      });
+    });
     var guides = [
       {title:'Flashcards',path:base+'approved-flashcards.html'+common,
        thumb:'thumbs/foundations-algebra-flashcards.jpg',type:'Study Guide',description:'Review generated questions, flip cards, shuffle, and practice missed answers.'},
