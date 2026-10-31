@@ -1,0 +1,26 @@
+name: Approved games browser interactions
+on:
+  push:
+    paths:
+      - 'worksheet-generator/approved-games.*'
+      - 'worksheet-generator/approved-flashcards.*'
+      - 'approved-game-items.js'
+      - 'question-bank-loader.js'
+      - 'scripts/test-approved-browser.cjs'
+      - '.github/workflows/approved-games-browser.yml'
+  workflow_dispatch:
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - name: Start local website
+        run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/mk-http.log 2>&1 &
+      - name: Browser interaction checks
+        run: node scripts/test-approved-browser.cjs
