@@ -275,6 +275,29 @@ if(themeButton){
   try{root.localStorage.setItem('mkws-theme',next)}catch(e){}
  });
 }
+function syncModePresentation(){
+ const mode=$('mode').value;
+ const names={lesson:'Lesson Plan',worksheet:'Worksheet',assessment:'Assessment'};
+ const label=names[mode]||'Resource';
+ const crumb=$('generatorCrumb');
+ if(crumb)crumb.textContent='Algebra 2 · '+label+' Generator';
+ doc.title='Algebra 2 '+label+' Generator · Mr. K\'s Classroom';
+ const sectionHeading=doc.querySelector('#lessonSections h2');
+ if(sectionHeading)sectionHeading.innerHTML='<span class="step">3</span>'+(mode==='lesson'?'Lesson sections':mode==='worksheet'?'Worksheet sections':'Assessment sections');
+ versions=[];$('output').replaceChildren();$('editor').hidden=true;$('print').disabled=true;
+}
+syncModePresentation();
+$('mode').addEventListener('change',()=>{syncModePresentation();status.textContent='Settings updated. Generate a new preview to continue.'});
+const themeButton=$('themeBtn');
+if(themeButton){
+ const storedTheme=(()=>{try{return root.localStorage.getItem('mkws-theme')}catch(e){return null}})();
+ if(storedTheme==='dark'||storedTheme==='light')doc.documentElement.setAttribute('data-theme',storedTheme);
+ themeButton.addEventListener('click',()=>{
+  const next=doc.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  doc.documentElement.setAttribute('data-theme',next);
+  try{root.localStorage.setItem('mkws-theme',next)}catch(e){}
+ });
+}
 $('currentVersion').addEventListener('change',()=>{activeVersion=Number($('currentVersion').value);renderEditor()});
 $('refreshVersion').addEventListener('click',()=>{versions[activeVersion]=sectionQuestions(versionSections[activeVersion],new Set());renderEditor();renderAll()});
 $('resetEdits').addEventListener('click',()=>{versions[activeVersion]=currentItems().map(x=>({source:x.source,question:JSON.parse(JSON.stringify(x.source)),sectionId:x.sectionId}));renderEditor();renderAll()});
