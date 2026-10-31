@@ -9,10 +9,10 @@ for(const file of ['course-catalog.js','skill-crosswalk.js','legacy-crosswalk-au
 const audit=env.MK_LEGACY_CROSSWALK_AUDIT.inspect(env.MK_SKILL_CROSSWALK,env.MKMENU);
 const sets=env.MKMENU.skillSets;
 const inventory=Object.keys(sets).map(id=>({setId:id,skills:(sets[id].skills||[]).map(s=>({id:s.id,name:s.name,hasGenerator:typeof s.generate==='function'}))}));
-const result={generatedAt:null,summary:{curriculumMappings:audit.length,exactGeneratorCandidates:audit.filter(x=>x.legacyCandidates.length>0).length,registeredSets:inventory.length,registeredGeneratorSkills:inventory.reduce((n,s)=>n+s.skills.filter(k=>k.hasGenerator).length,0),activatedMappings:0},audit:audit,inventory:inventory};
+const result={generatedAt:null,summary:{curriculumMappings:audit.length,exactGeneratorCandidates:audit.filter(x=>x.legacyCandidates.length>0).length,curatedGeneratorReferences:audit.filter(x=>x.curatedGenerator).length,registeredSets:inventory.length,registeredGeneratorSkills:inventory.reduce((n,s)=>n+s.skills.filter(k=>k.hasGenerator).length,0),activatedMappings:0},audit:audit,inventory:inventory};
 if(process.argv.includes('--json'))console.log(JSON.stringify(result,null,2));
 else{
  console.log('Legacy banks: '+result.summary.registeredSets+' sets, '+result.summary.registeredGeneratorSkills+' registered generators.');
- console.log('Curriculum overlaps: '+audit.length+'; exact-name generator matches: '+result.summary.exactGeneratorCandidates+'. None activated.');
- audit.forEach(e=>console.log(e.key.padEnd(27)+' '+(e.legacyCandidates.length?e.legacyCandidates.map(x=>x.setId+'/'+x.skillId).join(', '):'needs explicit skill-ID review')));
+ console.log('Curriculum overlaps: '+audit.length+'; exact-name generator matches: '+result.summary.exactGeneratorCandidates+', curated generator IDs: '+result.summary.curatedGeneratorReferences+'. None activated.');
+ audit.forEach(e=>console.log(e.key.padEnd(27)+' '+(e.curatedGenerator?e.curatedGenerator.setId+'/'+e.curatedGenerator.skillId:e.legacyCandidates.length?e.legacyCandidates.map(x=>x.setId+'/'+x.skillId).join(', '):'needs explicit skill-ID review')));
 }
