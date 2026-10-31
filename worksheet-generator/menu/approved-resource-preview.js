@@ -33,6 +33,48 @@
   [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function(x){
     var o=el('option',levelSel,x[1]);o.value=x[0];
   });levelSel.value='cp1';
+  var printBtn=el('button',controls,'Print approved questions');
+  printBtn.type='button';printBtn.disabled=true;
+  printBtn.style.cssText='padding:8px 12px;cursor:pointer';
+  // Do not print or mark teacher answers as independently verified. Publication
+  // approval is a content review flag, not proof from the symbolic verifier.
+  printBtn.onclick=function(){
+    if(!active.length)return;
+    var frame=G.document.createElement('iframe');
+    frame.style.cssText='position:absolute;width:0;height:0;border:0';
+    frame.setAttribute('title','Approved questions print view');
+    G.document.body.appendChild(frame);
+    var d=frame.contentDocument;
+    d.open();d.write('<!doctype html><html><head><title>Approved questions</title>'+
+      '<style>body{font:12pt/1.5 Arial,sans-serif;padding:24px;color:#111}'+
+      'h1{font-size:18pt}.item{break-inside:avoid;margin:18px 0 28px}'+
+      '.answer{margin-top:15px;border-top:1px solid #888;padding-top:10px}'+
+      '.key{break-before:page}p{white-space:pre-wrap}</style></head><body></body></html>');d.close();
+    var body=d.body;
+    function put(tag,parent,text){var node=d.createElement(tag);node.textContent=String(text===undefined?'':text);parent.appendChild(node);return node;}
+    put('h1',body,courseSel.selectedOptions[0].textContent+' · '+unitSel.selectedOptions[0].textContent);
+    put('p',body,'Approved source content · '+levelSel.selectedOptions[0].textContent+' · '+mode);
+    active.forEach(function(q,i){
+      var item=put('section',body,'');item.className='item';
+      put('h2',item,'Question '+(i+1));
+      put('p',item,q.prompt);
+      if(q.diagram)put('p',item,'Diagram from approved bank requires visual review before student distribution.');
+      (q.options||[]).forEach(function(o,j){put('p',item,String.fromCharCode(65+j)+'. '+o.text);});
+      (q.parts||[]).forEach(function(part,j){put('p',item,String.fromCharCode(97+j)+') '+part.prompt);});
+      put('p',item,'Work: __________________________________________________________');
+    });
+    var keySection=put('section',body,'');keySection.className='key';
+    put('h1',keySection,'Teacher key (approved source answers; not independently re-verified)');
+    active.forEach(function(q,i){
+      var part=put('section',keySection,'');part.className='item';
+      put('h2',part,'Question '+(i+1));
+      put('p',part,Array.isArray(q.answer)?q.answer.join(', '):q.answer);
+      (q.solutionSteps||[]).forEach(function(step){put('p',part,step);});
+    });
+    frame.contentWindow.focus();
+    frame.contentWindow.print();
+    G.setTimeout(function(){frame.remove();},5000);
+  };
   var status=el('p',container,'Checking approved question banks…');
   status.setAttribute('role','status');
   var preview=el('div',container);preview.id='approvedGradePreview';
@@ -46,12 +88,12 @@
     show();
   }
   function show(){
-    preview.replaceChildren();answers=false;key.textContent='Show teacher answers';
+    preview.replaceChildren();printBtn.disabled=true;answers=false;key.textContent='Show teacher answers';
     var state=api.status();
     if(state.state==='loading'){status.textContent='Checking approved question banks…';return;}
     if(state.state==='error'){status.textContent='Approved question-bank loading failed. No questions were imported: '+state.error;return;}
     active=api.select(mode,{courseId:courseSel.value,unitId:unitSel.value,level:levelSel.value});
-    key.disabled=!active.length;
+    key.disabled=!active.length;printBtn.disabled=!active.length;
     if(!active.length){
       status.textContent='No approved '+levelSel.selectedOptions[0].textContent.toLowerCase()+' questions for this unit. No substitute questions will be generated.';
       return;
