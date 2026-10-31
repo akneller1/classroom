@@ -79,3 +79,5 @@ The existing production games remain untouched. This is an infrastructure integr
 
 ## Middle-school difficulty naming
 For `math6` (Grade 6), `prealgebra7` (Grade 7), and `prealgebra` (Grade 8), the student-facing labels are **Remedial**, **Standard**, and **Advanced**, respectively mapped to internal bank codes `cp2`, `cp1`, and `honors`. This preserves the shared question-bank schema and existing high-school difficulty codes. High-school classes continue using CP2/CP1/Honors (or their established easy/medium/hard presentation). Apply the middle-school labels to any further generated resource interfaces.
+
+For Claude authoring, mathematical verification, diagrams, and explicit editorial approval, see [Claude question-bank handoff](CLAUDE_QUESTION_BANK_HANDOFF.md). Do not publish fixture data or automatically approve generated questions.
