@@ -1,5 +1,7 @@
 # Algebra 2 resource completion matrix
 
+Historical pre-package inventory. For current deployment, coverage, behavior and test results, see [the completed standardization report](CLASSROOM_STANDARDIZATION_REPORT.md). All 11 banks are now integrated; the counts below document the earlier planning state.
+
 Repository inventory checked 2026-10-31. Do not recreate existing activities.
 
 | Unit | Existing resource entries | New question-bank items | Next content work |
