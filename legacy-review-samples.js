@@ -17,7 +17,7 @@ function sample(entry,courseId,level,seed,count){
      if(!item||!item.p||!item.options||item.options.filter(function(o){return o.ok===true}).length!==1)return;
      var checked=item.options.every(function(o){return root.MKGAMES.answerOk(item.p,item.k,o.a).ok===o.ok});
      if(!checked)return;
-     items.push({sourceId:item.id,topic:entry.key,courseId:courseId,level:policy.level,tier:tier,
+     items.push({sourceId:item.id,reviewKey:[entry.key,courseId,policy.level,tier,item.id].join('|'),topic:entry.key,courseId:courseId,level:policy.level,tier:tier,
        prompt:item.q.prompt,partPrompt:item.q.ask||'',answer:item.answer,figure:item.q.fig||null,
        steps:item.steps,options:item.options.map(function(o){return {text:o.a,correct:o.ok}}),
        approved:false,publishable:false});
