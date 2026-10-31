@@ -204,9 +204,11 @@
   }
 
   /* ---------- problem pieces ---------- */
-  function promptHtml(p) {
-    if (p.failed) return '<div class="pl-missing">No ' + (A2 ? 'approved bank question' : 'verified problem') + ' for this slot (' + esc(p.reason || '') + '). Click “New problem” or write your own.</div>';
-    var h = '<div class="pl-q">' + ms(p.prompt || '') + '</div>';
+  function promptHtml(p, inlineLabel, meta) {
+    var label = inlineLabel ? '<b class="pl-qnum">' + esc(inlineLabel) + '</b> ' : '';
+    var suffix = meta ? '<small class="pl-qmeta">' + esc(meta) + '</small>' : '';
+    if (p.failed) return '<div class="pl-q">' + label + '<span class="pl-missing">No ' + (A2 ? 'approved bank question' : 'verified problem') + ' for this slot (' + esc(p.reason || '') + '). Click “New problem” or write your own.</span></div>';
+    var h = '<div class="pl-q">' + label + ms(p.prompt || '') + suffix + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + ms('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig) h += NS.figHtml(p.fig);
     if (p.authoredOptions && p.authoredOptions.length) h += '<ol class="pl-authored-options" style="list-style:none;padding-left:0">' + p.authoredOptions.map(function(o){return '<li>' + (p.authoredFormat === 'select-all' ? '☐ ' : '○ ') + ms(o.text) + '</li>';}).join('') + '</ol>';
@@ -313,7 +315,7 @@
   /* ---------- student handout (paper) ---------- */
   function studentProblem(p, label) {
     var space = p.failed ? 1 : Math.max(0.6, (p.space || [1, 1.3, 1.6])[1]);
-    return '<div class="pl-p"><div class="pl-ph"><b>' + esc(label || (p.num + '.')) + '</b></div>' + (p.failed ? '<div class="pl-q">&nbsp;</div>' : promptHtml(p)) + (p.challengeQuestion ? '<p class="pl-challenge"><b>Challenge:</b> ' + esc(p.challengeQuestion) + '</p><div class="pl-space" style="height:1.0in"></div>' : '<div class="pl-space" style="height:' + space.toFixed(2) + 'in"></div>') + '</div>';
+    return '<div class="pl-p">' + promptHtml(p, label || (p.num + '.')) + (p.challengeQuestion ? '<p class="pl-challenge"><b>Challenge:</b> ' + esc(p.challengeQuestion) + '</p><div class="pl-space" style="height:1.0in"></div>' : '<div class="pl-space" style="height:' + space.toFixed(2) + 'in"></div>') + '</div>';
   }
   function workedProblem(p, label) {
     return '<div class="pl-p pl-worked"><div class="pl-ph"><b>' + esc(label) + '</b></div>' + promptHtml(p) + stepsHtml(p) + answerHtml(p) + '</div>';
@@ -412,7 +414,7 @@
       s.groups.forEach(function (g) {
         if (!g.items.length) return;
         if (g.name && s.id !== 'notes') h += '<div class="pl-gh">' + esc(g.name) + '</div>';
-        h += rows(g.items.map(function (p) { return { wide: wide(p) && !!p.fig && /plane|twoway/.test(p.fig.kind), html: '<div class="pl-kitem"><div class="pl-ph"><b>' + (s.id === 'notes' ? displayProblemLabel(p, 'Example ' + p.num) : displayProblemLabel(p, p.num + '.')) + '</b> <small>' + esc(p.skillName) + ' · c' + (p.c || '') + '</small></div>' + promptHtml(p) + answerHtml(p) + stepsHtml(p) + '</div>' }; }));
+        h += rows(g.items.map(function (p) { var label = s.id === 'notes' ? displayProblemLabel(p, 'Example ' + p.num) : displayProblemLabel(p, p.num + '.'); return { wide: wide(p) && !!p.fig && /plane|twoway/.test(p.fig.kind), html: '<div class="pl-kitem">' + promptHtml(p, label, p.skillName + ' · c' + (p.c || '')) + answerHtml(p) + stepsHtml(p) + '</div>' }; }));
       });
     });
     return '<div class="pl-sheet pl-key">' + h + '</div>';
