@@ -574,3 +574,11 @@ body { background:var(--paper); }
 /* Align course navigation labels with the left edge of their allotted space. */
 .site-header .main-nav a { justify-content: flex-start; text-align: left; }
 .explore-courses .course h3 { text-align: left; align-self: stretch; }
+
+/* Course-specific palette: six distinct colors for the six subject tiles and banners. */
+:root {
+  --coral-bg: #ef607b; --coral-fg: #251329; --coral-tint: #ffe3e8; --coral-text: #a52749;
+  --teal-bg: #087f91; --teal-fg: #ffffff; --teal-tint: #d9f4f5; --teal-text: #076878;
+}
+[data-color="coral"] { --c-bg: var(--coral-bg); --c-fg: var(--coral-fg); --c-tint: var(--coral-tint); --c-text: var(--coral-text); }
+[data-color="teal"] { --c-bg: var(--teal-bg); --c-fg: var(--teal-fg); --c-tint: var(--teal-tint); --c-text: var(--teal-text); }
