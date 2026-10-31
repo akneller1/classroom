@@ -59,8 +59,13 @@ function load(){
 $('reviewCourse').addEventListener('change',function(){refreshTopics();load();});
 $('reviewTopic').addEventListener('change',load);$('reviewLevel').addEventListener('change',load);
 $('reviewLoad').addEventListener('click',load);
+function reviewData(){return {schemaVersion:1,type:'legacy-question-review',approved:false,courseId:$('reviewCourse').value,topic:$('reviewTopic').value,level:$('reviewLevel').value,results:current.map(function(q){return {sourceId:q.sourceId,reviewKey:q.reviewKey,tier:q.tier,review:notes[q.reviewKey]||{status:'unreviewed',note:''}};})};}
+$('stageCheck').addEventListener('click',function(){
+ var result=root.MK_BROWSER_STAGE_REVIEW.evaluate(reviewData(),$('reviewerName').value,$('stageConfirm').checked);
+ $('stageStatus').textContent=result.eligibleForStaging?'Eligible for staging review only. No production access enabled.':result.issues.join('; ');
+});
 $('reviewExport').addEventListener('click',function(){
- var exportData={schemaVersion:1,type:'legacy-question-review',approved:false,courseId:$('reviewCourse').value,topic:$('reviewTopic').value,level:$('reviewLevel').value,results:current.map(function(q){return {sourceId:q.sourceId,reviewKey:q.reviewKey,tier:q.tier,review:notes[q.reviewKey]||{status:'unreviewed',note:''}};})};
+ var exportData=reviewData();
  var blob=new Blob([JSON.stringify(exportData,null,2)],{type:'application/json'});
  var url=URL.createObjectURL(blob),a=node('a',doc.body);a.href=url;a.download='legacy-reuse-review.json';a.click();a.remove();root.setTimeout(function(){URL.revokeObjectURL(url);},1000);
 });
