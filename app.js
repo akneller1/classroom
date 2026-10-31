@@ -157,10 +157,9 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'printable-generator', 'assessment-generator'] },
+    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'matching-game', 'topic-games'] },
-    { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] },
-    { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
+    { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] }
   ];
   var FORMAT_SUMMARIES = {
     'lesson-planner': 'Plan a day: Do Now, notes, practice and exit ticket from the 180-day scope and sequence.',
@@ -776,12 +775,12 @@
 
   function browseState(defaultFormat) {
     var params = new URLSearchParams(token.split('?')[1] || '');
-    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || '',
+    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || '', unitSpecific: params.get('unitSpecific') || '',
       format: params.get('format') || defaultFormat || '', page: Math.max(1, parseInt(params.get('page'), 10) || 1) };
   }
   function browseToken(state) {
     var params = new URLSearchParams();
-    ['subject', 'unit', 'category', 'format', 'gameMode'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
+    ['subject', 'unit', 'category', 'format', 'gameMode', 'unitSpecific'].forEach(function (key) { if (state[key]) params.set(key, state[key]); });
     if (state.page > 1) params.set('page', state.page);
     return 'activities' + (params.toString() ? '?' + params.toString() : '');
   }
@@ -791,7 +790,8 @@
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
         (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
         (!state.format || activityFormat(it.a) === state.format) &&
-        (!state.gameMode || gameMode(it.a) === state.gameMode);
+        (!state.gameMode || gameMode(it.a) === state.gameMode) &&
+        (!state.unitSpecific || isUnitSpecificGame(it.a));
     });
   }
   function browseSelect(id, label, choices, selected, allLabel) {
@@ -827,7 +827,8 @@
       browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
       browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
       browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
-      ((state.category === 'games' || state.gameMode) ? browseSelect('gameMode', 'Game Mode', GAME_MODES.map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game modes') : '') +
+      ((state.category === 'games' || state.gameMode || state.unitSpecific) ? browseSelect('gameMode', 'Game Mode', GAME_MODES.map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game modes') : '') +
+      browseSelect('unitSpecific', 'Game Tag', [{id:'yes',name:'Unit Specific'}], state.unitSpecific, 'All games and activities') +
       '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
     var pager = '';
     if (pages > 1) {
@@ -876,7 +877,7 @@
     var terms = searchWords(text).split(/\s+/).filter(Boolean);
     var items = everything().filter(function (it) {
       var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === activityFormat(it.a); })[0];
-      var hay = searchWords([it.a.title, it.a.description, it.u.name, 'unit ' + unitNum(it.c, it.u), it.c.name, format ? format.name : '']
+      var hay = searchWords([it.a.title, it.a.description, it.u.name, 'unit ' + unitNum(it.c, it.u), it.c.name, format ? format.name : '', isUnitSpecificGame(it.a) ? 'unit specific' : '']
         .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' '));
       return terms.every(function (term) { return hay.indexOf(term) >= 0; });
     });
