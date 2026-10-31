@@ -12,10 +12,19 @@ const assert=require('node:assert/strict');
   await page.goto('http://127.0.0.1:8765/artifacts/math-arcade/index.html?game='+game,{waitUntil:'domcontentloaded'});
   await page.locator('#board').waitFor();
   assert.match(await page.locator('#heading').innerText(),/Rocket|Inequality|Laser|Mirror|Cannon|Portal|Catapult/);
-  await page.waitForFunction(()=>bankQuestion&&(bankQuestion.options?.length>=2||bankQuestion.typed!==null&&bankQuestion.typed!==undefined),{timeout:25000});
-  const answer=await page.evaluate(()=>({idx:bankQuestion.options?.findIndex(x=>x.ok),typed:bankQuestion.typed}));
-  if(answer.typed!==null&&answer.typed!==undefined)await page.locator('#bankTyped').fill(answer.typed);
-  else await page.locator('input[name="bankAnswer"]').nth(answer.idx).check();
+  if(game==='catapult') {
+    const answers=await page.evaluate(()=>answerFor(current));
+    for(let i=0;i<answers.length;i++) await page.locator('#f'+i).fill(String(answers[i]));
+  } else {
+    await page.waitForFunction(()=>bankQuestion&&(bankQuestion.options?.length>=2||bankQuestion.typed!=null),{timeout:25000});
+    const answer=await page.evaluate(()=>({
+      idx:bankQuestion.options?.findIndex(x=>x.ok),
+      typed:bankQuestion.typed==null?null:String(bankQuestion.typed),
+      hasOptions:!!bankQuestion.options?.length
+    }));
+    if(answer.hasOptions) await page.locator('input[name="bankAnswer"]').nth(answer.idx).check();
+    else await page.locator('#bankTyped').fill(answer.typed);
+  }
   await page.locator('#action').click();
   assert.equal(await page.locator('#next').isVisible(),true,'Next button should appear in '+game);
   assert.deepEqual(failures,[],'Browser errors in '+game);
