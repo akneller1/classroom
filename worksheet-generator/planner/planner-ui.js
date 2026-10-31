@@ -318,7 +318,7 @@
     return '<div class="pl-p">' + promptHtml(p, label || (p.num + '.')) + (p.challengeQuestion ? '<p class="pl-challenge"><b>Challenge:</b> ' + esc(p.challengeQuestion) + '</p><div class="pl-space" style="height:1.0in"></div>' : '<div class="pl-space" style="height:' + space.toFixed(2) + 'in"></div>') + '</div>';
   }
   function workedProblem(p, label) {
-    return '<div class="pl-p pl-worked"><div class="pl-ph"><b>' + esc(label) + '</b></div>' + promptHtml(p) + stepsHtml(p) + answerHtml(p) + '</div>';
+    return '<div class="pl-p pl-worked">' + promptHtml(p, label) + stepsHtml(p) + answerHtml(p) + '</div>';
   }
   function sheetHead(plan, kind) {
     var d = plan.day, u = d.unit ? 'Unit ' + d.unit + ': ' + d.unit_title : d.unit_title;
