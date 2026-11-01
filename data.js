@@ -5773,22 +5773,6 @@ window.LIBRARY = {
           "name": "Right Triangles and Trigonometry",
           "artifacts": [
             {
-              "title": "Shipwreck Salvage",
-              "path": "artifacts/geometry-shipwreck-salvage/index.html",
-              "thumb": "thumbs/geometry-shipwreck-salvage.jpg",
-              "description": "Navigate a coordinate grid to locate shipwrecks, find distances with the Pythagorean Theorem, and calculate midpoints across ten salvage missions.",
-              "type": "Game",
-              "bankFormat": "topic-games",
-              "unitSpecific": true,
-              "topics": [
-                "Coordinate plane",
-                "Distance formula",
-                "Pythagorean Theorem",
-                "Midpoint"
-              ],
-              "added": "2026-10-31"
-            },
-            {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
               "thumb": "thumbs/practice-test.svg",
