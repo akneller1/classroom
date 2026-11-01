@@ -48,7 +48,7 @@ function catalogue(entry){
 }
 let checked=0;
 for(const entry of entries){
- if(entry.path==='artifacts/relations-functions-function-machine-factory/index.html'){
+ if(entry.path==='artifacts/relations-functions-function-machine-factory/index.html'||entry.path==='artifacts/polynomials-garden-planner/index.html'){
   const host=environment('https://classroom.test/index.html');host.win.LIBRARY=data.window.LIBRARY;
   host.run('student-game-share.js');assert.equal(host.win.TeacherGameShare.supports(entry.path),false,'fixed-level game has no picker');
   const main=new Node();main.id='main';host.doc.body.appendChild(main);

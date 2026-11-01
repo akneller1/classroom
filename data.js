@@ -2273,6 +2273,22 @@ window.LIBRARY = {
           "name": "Polynomials",
           "artifacts": [
             {
+              "title": "Polynomial Garden Planner",
+              "path": "artifacts/polynomials-garden-planner/index.html",
+              "thumb": "thumbs/polynomials-garden-planner.jpg",
+              "description": "Arrange algebra tiles to multiply polynomials, find missing factors from area models, and calculate garden perimeters across ten levels.",
+              "type": "Game",
+              "bankFormat": "topic-games",
+              "unitSpecific": true,
+              "topics": [
+                "Multiplying polynomials",
+                "Factoring polynomials",
+                "Area models",
+                "Polynomial perimeter"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Assessment Readiness Check",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-polynomials",
               "thumb": "thumbs/practice-test.svg",
