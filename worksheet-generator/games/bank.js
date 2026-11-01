@@ -372,7 +372,7 @@
   GB.partQuestion = function (p, k) {
     var pt = p.parts[k], multi = p.parts.length > 1, ask = pt.prompt || '';
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
-    return { prompt: p.compactPrompt || (NS.displayPrompt ? NS.displayPrompt(p) : p.prompt), fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
+    return { prompt: p.compactPrompt || (NS.displayPrompt ? NS.displayPrompt(p) : p.prompt), flashcardPrompt: p.flashcardPrompt || null, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
   GB.makeItems = function (setId, skillId, c, policy, seed, used) {
     var p = NS.generateProblem(setId, skillId, c, policy, seed, used);
@@ -399,7 +399,7 @@
         parts: [{ answer: correct, check: { type: 'geo-congruence-criterion' } }] });
       items.push({ id:p.uid+'-criterion',p:cp,k:0,skill:skillId,skillName:set.byId[skillId].name,
         tag:p.tag,tagName:set.tags[p.tag]||p.tag,c:c,
-        q:{prompt:'Which congruence criterion is demonstrated by the marked triangles? Identify the criterion.',fig:p.fig,ask:'Choose SSS, SAS, ASA, AAS, HL, or NOT SUFFICIENT.'},
+        q:{prompt:'Which congruence criterion is demonstrated by the marked triangles?',fig:p.fig,ask:'Choose SSS, SAS, ASA, AAS, HL, or NOT SUFFICIENT.'},
         answer:correct,steps:[{t:'Identify the marked corresponding sides and angles, including whether a side is included between two angles or an angle between two sides.'}],
         options:options,typed:null });
     }
@@ -459,6 +459,19 @@
   GB.hasGameItems = function (setId, skillId) {
     var set = NS.skillSets[setId];
     return !!(set && set.byId && set.byId[skillId] && typeof set.byId[skillId].generate === 'function');
+  };
+  // Flashcard setup uses this content-level check so skills that only generate
+  // multi-part investigations (or otherwise produce no single-card items) are hidden.
+  GB.hasFlashcardItems = function (setId, skillId, level) {
+    var tiers = level && LEVELS[level] ? LEVELS[level].tiers : [1,2,3,4,5,6,7];
+    for (var ti = 0; ti < tiers.length; ti++) {
+      for (var attempt = 0; attempt < 3; attempt++) {
+        var c = tiers[ti], policy = { intOnly: c <= 5, level: 'game' };
+        var used = { keys: new Set(), sigs: new Set() };
+        if (GB.makeItems(setId, skillId, c, policy, 'flashcard-availability|' + setId + '|' + skillId + '|' + c + '|' + attempt, used).length) return true;
+      }
+    }
+    return false;
   };
   GB.skillsOf = function (setId) { return NS.skillSets[setId].skills.map(function (s) { return s.id; }); };
 })(typeof window !== 'undefined' ? window : globalThis);

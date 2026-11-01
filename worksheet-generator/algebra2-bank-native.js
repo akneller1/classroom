@@ -55,7 +55,7 @@ GB.hasGameItems=function(id,skill){return isBank(id)?pool(id,skill,4,{level:'cp1
 function item(q,id,c){return {id:q.id,sourceId:q.id,p:problem(q,id,c),k:0,skill:q.skillId,skillName:NS.skillSets[id].byId[q.skillId].name,tag:q.skillId,tagName:NS.skillSets[id].byId[q.skillId].name,c,q:{prompt:q.prompt,fig:figure(q),ask:(q.format==='select-all'?'Select all that apply.\n':'')+(q.parts||[]).map((p,i)=>'('+String.fromCharCode(97+i)+') '+p.prompt).join('\n')},answer:text(q.answer),steps:q.solutionSteps.map(t=>({t})),options:(q.options||[]).map(o=>({a:o.text,ok:o.correct===true})),typed:null}}
 GB.makeItems=function(id,skill,c,policy,seed,used){
  if(!isBank(id))return makeItems.apply(this,arguments);
- const q=choose(pool(id,skill,c,policy),seed,used);if(!q)return [];
+ const q=choose(pool(id,skill,c,policy,policy?.authoredFormats),seed,used);if(!q)return [];
  used?.keys?.add(q.id);return [item(q,id,c)];
 };
 // Keep each selected difficulty exact. Native procedural decks otherwise retry
@@ -78,6 +78,15 @@ GB.buildDeck=function(id,slots,opts,done){
 const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
 function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
 function menuSource(p){return JSON.stringify([p.prompt||'',(p.parts||[]).map(function(x){return [x.prompt||'',x.answer||'']}),p.fig||null,p.work||null])}
+// Only the exact unmodified source item may bypass manual teacher approval.
+// An edited item has source='edited'; a teacher-created item has source='manual'.
+NS.isUneditedAlgebra2BankQuestion=function(p){
+ if(!p||p.source!=='authored-bank'||p.edited||p.manual||!p.sourceId)return false;
+ const q=raw.get(p.sourceId);
+ if(!q||!p.skill||p.skill!==q.skillId)return false;
+ const original=problem(q,null,p.c);
+ return menuSource(p)===menuSource(original);
+};
 const makeChoices=NS.makeChoices,makeMulti=NS.makeMultiSelect,makeMcas=NS.makeMcas;
 NS.makeChoices=function(p){
  const q=sourceQuestion(p);if(!q)return makeChoices.apply(this,arguments);
