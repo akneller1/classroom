@@ -104,7 +104,7 @@
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
       '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
-      (PAGE_MODE ? '<p class="hint">' + (set.authoredBank ? 'Questions come from approved Algebra 2 banks with authored answers and worked steps. ' : 'Every problem is made fresh and its answer is checked by a separate verifier. ') + 'Choose short answer, multiple choice, choose all that apply, or Open Response (at least four parts) for each section in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
+      (PAGE_MODE ? '<p class="hint">' + (set.authoredBank ? 'Questions come from approved course banks with authored answers and worked steps. ' : 'Every problem is made fresh and its answer is checked by a separate verifier. ') + 'Choose short answer, multiple choice, choose all that apply, or Open Response (at least four parts) for each section in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
        : '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. For practice, use the <a href="worksheet.html#unit=' + esc(c.unitId) + '">Worksheet Generator</a>.</p>' +
       '<fieldset class="field mm-mode"><legend class="lbl">Format</legend>' +
       '<label class="chk"><input type="radio" name="mmMode" value="test"' + (NS.isTest(c) ? ' checked' : '') + '><span>Standard test<small>Everyone answers every question: multiple-choice and short-answer parts, easier to harder.</small></span></label>' +
@@ -114,7 +114,7 @@
     // 2
     h += '<section class="card mm-card" id="mmLevel"><h2><span class="step">2</span>Class level</h2><div class="mm-levels" role="radiogroup" aria-label="Class level">' +
       Object.keys(NS.LEVELS).map(function (k) { var L = NS.LEVELS[k];
-        return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(L.long) + '</b><small>' + esc(L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
+        return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(NS.courseLevelName(c.unitId,k)) + '</b><small>' + esc(L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
       }).join('') + '</div>' +
       '<label class="field"><span class="lbl">Answers</span><select id="mmAnswers">' +
       [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']].map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
@@ -142,14 +142,14 @@
       }).join('') + '<small class="hint">Leave all checked to require every category that appears on the menu.</small></div>' : '') +
       rulesHtml(rules) + '</section>';
     // 4
-    h += '<section class="card mm-card" id="mmSkills"><h2><span class="step">4</span>Skills and topics</h2><p class="hint">' + (set.authoredBank ? 'Uncheck a topic to leave it off the ' + noun() + '. Questions are selected from the approved bank at the chosen CP2, CP1, or Honors level.' : 'Uncheck a skill to leave it off the ' + noun() + '. Each skill gets harder with the difficulty number (1–7); the examples show what changes.') + '</p>' +
+    h += '<section class="card mm-card" id="mmSkills"><h2><span class="step">4</span>Skills and topics</h2><p class="hint">' + (set.authoredBank ? 'Uncheck a topic to leave it off the ' + noun() + '. Questions are selected from the approved bank at the selected class level.' : 'Uncheck a skill to leave it off the ' + noun() + '. Each skill gets harder with the difficulty number (1–7); the examples show what changes.') + '</p>' +
       Object.keys(set.tags).map(function (t) {
         var list = set.skills.filter(function (s) { return s.tag === t; });
         return '<fieldset class="mm-skillgrp"><legend><span class="mm-chip">' + esc(t) + '</span> ' + esc(set.tags[t]) + '</legend>' + list.map(function (s) {
           return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
         }).join('') + '</fieldset>';
       }).join('') +
-      '<div class="mm-gaps">' + (set.authoredBank ? '<b>Algebra 2 coverage:</b> all listed topics are available from approved question banks.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';
+      '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';
     // 5
     h += '<section class="card mm-card" id="mmBuild"><h2><span class="step">5</span>Build the ' + noun() + '</h2>' +
       '<label class="field"><span class="lbl">Versions</span><select id="mmVersions">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((c.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +

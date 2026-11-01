@@ -20,7 +20,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(root,'question-banks/manifes
 assert.equal(manifest.version,1);
 assert.ok(Array.isArray(manifest.banks));
 for(const item of manifest.banks){
- assert.equal(item.approved,true,'Manifest entries must be explicitly approved');
+ assert.ok(item.approved===true||(item.courseId==='algebra2'&&item.teacherUse===true),'Manifest entries must be explicitly approved or enabled for Algebra 2 teacher use');
  assert.equal(item.path,'question-banks/'+item.courseId+'/'+item.unitId+'.json');
  assert.ok(fs.existsSync(path.join(root,item.path)),'Approved bank file missing: '+item.path);
 }

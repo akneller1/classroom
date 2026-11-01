@@ -6,6 +6,7 @@ const NS=G.MKMENU, GB=G.MKGAMES;
 if(!NS||!GB||!G.MK_BANK_LOADER)return;
 const prefix='algebra2-', registry=new Map(),isBank=id=>registry.has(id);
 const raw=new Map();
+NS.courseLevelName=function(id,level){return /^(prealgebra(?:7)?|math6)-/.test(id)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[level]:(NS.LEVELS[level]||NS.LEVELS.cp1).long;};
 function level(c,policy){return policy&&['cp2','cp1','honors'].includes(policy.level)?policy.level:c<=2?'cp2':c<=5?'cp1':'honors'}
 function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['short-answer','multiple-choice','select-all','open-response']})}
 function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
@@ -45,7 +46,7 @@ NS.generateProblem=function(id,skill,c,policy,seed,used){
  if(!q)return {failed:true,reason:'No unused authored questions match these skills and difficulty.'};
  used?.keys?.add(q.id);used?.sigs?.add(q.id);
  const out=problem(q,id,c);
- if(from){out.bankLevel=from;out.verify.issues=['From the '+({cp2:'CP2',cp1:'CP1',honors:'Honors'}[from])+' bank: no unused '+({cp2:'CP2',cp1:'CP1',honors:'Honors'}[lv])+' question of this kind is left.']}
+ if(from){out.bankLevel=from;out.verify.issues=['From the '+NS.courseLevelName(id,from)+' bank: no unused '+NS.courseLevelName(id,lv)+' question of this kind is left.']}
  return out;
 };
 const distractors=GB.distractors, answerOk=GB.answerOk, makeItems=GB.makeItems, has=GB.hasGameItems, deck=GB.buildDeck;
@@ -141,7 +142,7 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
    const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
    registry.set(id,{courseId:c.id,unitId:u.id});
    G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved Algebra 2 bank.',print:['maze','color','partner','who','stations'],generate:function(){throw Error('Authored bank selection required')}}))});
+   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:['maze','color','partner','who','stations','tarsia'],generate:function(){throw Error('Authored bank selection required')}}))});
   });
  });
  // Preserve original levels while selecting authored banks by exact level.

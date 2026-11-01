@@ -1,7 +1,8 @@
 /* Non-mathematical game mechanics around unchanged, authored MC questions. */
 (function(G){'use strict';
+const courseId=new URLSearchParams(G.location.search).get('course')||'algebra2';
 const doc=document,app=doc.getElementById('app'),params=new URLSearchParams(location.search),unit=params.get('unit'),escape=params.get('game')==='escape-room';
-const records=G.MK_COURSE_CATALOG.getSkillRecords('algebra2',unit),title=escape?'Escape Room':'Detective',bank=G.MK_QUESTION_BANKS;
+const records=G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit),title=escape?'Escape Room':'Detective',bank=G.MK_QUESTION_BANKS;
 function el(tag,host,text){const n=doc.createElement(tag);if(text!==undefined)n.textContent=text;host.appendChild(n);return n}
 function setup(ids){
  app.replaceChildren();el('h1',app,title);el('p',app,escape?'Solve five locks in ten minutes. Each incorrect answer costs 30 seconds.':'Solve five clues to eliminate five suspects. The remaining suspect solves the case.');
@@ -10,7 +11,7 @@ function setup(ids){
 }
 let timer;
 function run(ids,level){
- const qs=bank.select({courseId:'algebra2',unitId:unit,skillIds:ids,level,formats:['multiple-choice']});
+ const qs=bank.select({courseId:courseId,unitId:unit,skillIds:ids,level,formats:['multiple-choice']});
  const shuffled=G.MKWS.rng.make(G.MKWS.rng.hash(String(Date.now()))).shuffle(qs),questions=shuffled.slice(0,5);
  if(questions.length<5){el('p',app,'Select more skills for five distinct multiple-choice questions at this difficulty.');return}
  let index=0,remaining=600,chosen=-1,solved=false,deadline=Date.now()+600000;

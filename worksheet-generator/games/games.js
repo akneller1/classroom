@@ -74,7 +74,7 @@
   /* flashcards show the levels as Easy / Medium / Hard (CP2 / CP1 / Honors problems underneath) */
   var EASY_NAMES = { cp2: 'Easy', cp1: 'Medium', honors: 'Hard' };
   function levelSel(id, cur, names) {
-    return '<select class="gm-sel" id="' + id + '">' + Object.keys(GB.LEVELS).map(function (k) { return '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + ((names && names[k]) || (G.MK_GRADE_GAME_LABELS && G.MK_GRADE_GAME_LABELS[k]) || GB.LEVELS[k].name) + '</option>'; }).join('') + '</select>';
+    return '<select class="gm-sel" id="' + id + '">' + Object.keys(GB.LEVELS).map(function (k) { return '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + ((G.MK_GRADE_GAME_LABELS && G.MK_GRADE_GAME_LABELS[k]) || (names && names[k]) || GB.LEVELS[k].name) + '</option>'; }).join('') + '</select>';
   }
   function loading(msg) { app.innerHTML = '<div class="gm-panel gm-loading" role="status"><div><div class="gm-spin"></div>' + esc(msg || 'Cooking up fresh problems…') + '<div class="gm-muted" id="gmProg"></div></div></div>'; }
   function progress(i, n) { var e = $('#gmProg'); if (e) e.textContent = i + ' of ' + n; }

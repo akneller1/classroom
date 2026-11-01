@@ -7003,3 +7003,14 @@ window.LIBRARY = {
   u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/algebra2-practice.html?unit='+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Interactive practice with feedback, worked solutions, and skill review.'});
  });
 })(window);
+
+/* Grade 8 authored banks use the established course players and native generators. */
+(function(G){
+ const course=G.LIBRARY.courses.find(c=>c.id==='prealgebra');if(!course)return;
+ course.units.forEach(u=>{
+  [['showdown','Showdown','showdown'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['escape-room','Escape Room','escape-rooms'],['detective','Detective','detective-games'],['picture-reveal','Picture Reveal','picture-reveal'],['flashcards','Flashcards','flashcards']].forEach(([game,title,format])=>{
+   u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course=prealgebra&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/previews/prealgebra/'+u.id+'-'+game+'.png',description:'Choose Grade 8 skills and Remedial, Standard, or Advanced questions.'});
+  });
+  u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit=prealgebra-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice Grade 8 skills, review worked solutions, and target skills for reassessment.'});
+ });
+})(window);

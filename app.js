@@ -524,12 +524,12 @@
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons; interactive practice available for selected topics' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons with generators, games, and study guides' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        ((c.id === 'math6' || c.id === 'prealgebra' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
+        ((c.id === 'math6' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
@@ -580,11 +580,11 @@
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
           url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
         }
-        if (c && c.id === 'algebra2') {
+        if (c && (c.id === 'algebra2' || c.id === 'prealgebra')) {
           var selectedUnit = u ? u.id : c.units[0].id;
           // Algebra 2 uses the same Lesson Planner, Worksheet and Assessment Generators as Algebra 1 and Geometry
           // (bank-printable.html stays available for old links).
-          url = 'worksheet-generator/' + ({ 'printable-generator': 'printables.html', 'lesson-planner': 'lesson-planner.html', 'assessment-generator': 'menu-assessment.html', 'worksheet-generator': 'worksheet.html' }[tool.format] || tool.page) + '#unit=algebra2-' + selectedUnit;
+          url = 'worksheet-generator/' + ({ 'printable-generator': 'printables.html', 'lesson-planner': 'lesson-planner.html', 'assessment-generator': 'menu-assessment.html', 'worksheet-generator': 'worksheet.html' }[tool.format] || tool.page) + '#unit=' + c.id + '-' + selectedUnit;
         }
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
@@ -753,6 +753,7 @@
     return group('Games', games) + group('Study Guides',guides) + group('Printable Resources',printables) + lessons;
   }
   function unitView(c, u) {
+    if (c.id === 'prealgebra') return algebraUnitView(c, u);
     if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
       var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
       var intro = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +

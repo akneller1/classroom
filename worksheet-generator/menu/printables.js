@@ -106,8 +106,8 @@
     var lim = PR.MODES[kind], set = NS.skillSets[cfg.unitId];
     var pol = NS.policyOf(cfg);
     if (/^geometry-/.test(cfg.unitId) && kind !== 'stations') pol = Object.assign({}, pol, { compact: true });   // small boxes: skills may give a shorter prompt because the diagram carries the marks
-    if (/^algebra2-/.test(cfg.unitId)) pol = Object.assign({},pol,{authoredFormats:lim.wrong?['multiple-choice']:['short-answer','multiple-choice']});
-    var p = NS.generateProblem(cfg.unitId, skill, c, pol, seed, /^algebra2-/.test(cfg.unitId)?null:used);
+    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong?['multiple-choice']:['short-answer','multiple-choice']});
+    var p = NS.generateProblem(cfg.unitId, skill, c, pol, seed, !!NS.skillSets[cfg.unitId]?.authoredBank?null:used);
     if (p.source==='authored-bank' && used && used.keys.has(p.key)) return null;
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
@@ -217,7 +217,7 @@
   PR.buildMaze = function (cfg, vIdx) {
     var R = 4, C = 4, rng = rngOf(cfg.seed, vIdx, 'maze');
     var authoredItems = null;
-    if (/^algebra2-/.test(cfg.unitId)) {
+    if (!!NS.skillSets[cfg.unitId]?.authoredBank) {
       authoredItems = gather(cfg,vIdx,15,'maze');
       var size = [[4,4],[3,4],[3,3],[2,3],[2,2]].find(function(s){return s[0]*s[1]-1<=authoredItems.length;});
       if(!size)return {error:'Not enough compatible authored questions for a maze at this difficulty. Choose more skills.'};
@@ -327,7 +327,7 @@
       if (rows.some(function (r) { return clash(r.A, pr.A); })) return;
       rows.push(pr); perSkill[pr.A.skill] = (perSkill[pr.A.skill] || 0) + 1;
     });
-    if (rows.length < (/^algebra2-/.test(cfg.unitId)?1:4)) return { error: 'These skills rarely give two different problems with the same answer (found ' + rows.length + '). Choose more skills (number answers match most often).' };
+    if (rows.length < (!!NS.skillSets[cfg.unitId]?.authoredBank?1:4)) return { error: 'These skills rarely give two different problems with the same answer (found ' + rows.length + '). Choose more skills (number answers match most often).' };
     rows.sort(function (x, y) { return Math.max(x.A.c, x.B.c) - Math.max(y.A.c, y.B.c); });
     rows.forEach(function (r) { if (rng.next() < 0.5) { var t = r.A; r.A = r.B; r.B = t; } });
     return { kind: 'partner', rows: rows };
@@ -522,7 +522,7 @@
       B = f(c2, vIdx || 0); if (!B.error) return B;
     }
     // Honors problems can be too long for a maze door or a Tarsia edge in some units: use Standard-level problems
-    if (!/^algebra2-/.test(cfg.unitId) && cfg.level === 'honors' && (cfg.kind === 'tarsia' || cfg.kind === 'maze')) {
+    if (!NS.skillSets[cfg.unitId]?.authoredBank && cfg.level === 'honors' && (cfg.kind === 'tarsia' || cfg.kind === 'maze')) {
       var c3 = Object.assign({}, cfg, { level: 'cp1' }), B2 = f(c3, vIdx || 0);
       if (!B2.error) { B2.levelNote = 'Honors problems in this unit are too long for a ' + PR.kind(cfg.kind).name.toLowerCase() + ', so it uses Standard (CP1) problems.'; return B2; }
     }

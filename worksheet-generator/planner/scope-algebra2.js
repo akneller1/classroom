@@ -2,7 +2,9 @@
    Each catalog skill is a selectable lesson topic; all questions come from the approved bank. */
 (function(G){
 'use strict';
-var course=G.LIBRARY.courses.filter(function(c){return c.id==='algebra2';})[0];
+['algebra2','prealgebra'].forEach(function(courseId){
+var course=G.LIBRARY.courses.filter(function(c){return c.id===courseId;})[0];
+var key=courseId==='algebra2'?'ALGEBRA2':'PREALGEBRA',prefix=courseId==='algebra2'?'A2':'PA8';
 var catalog=G.MK_COURSE_CATALOG;
 if(!course||!catalog||!catalog.getSkillRecords)throw new Error('Algebra 2 planner catalog is unavailable.');
 var days=[],units=[],lessons={},SETS={},UNIT_SET={},dayTypes={
@@ -15,17 +17,17 @@ var days=[],units=[],lessons={},SETS={},UNIT_SET={},dayTypes={
 };
 var day=0,previousLesson=null;
 course.units.forEach(function(unit,ui){
- var records=catalog.getSkillRecords('algebra2',unit.id),unitNo=ui+1,setKey='A2U'+unitNo,setId='algebra2-'+unit.id;
+ var records=catalog.getSkillRecords(courseId,unit.id),unitNo=ui+1,setKey=prefix+'U'+unitNo,setId=courseId+'-'+unit.id;
  SETS[setKey]=setId;UNIT_SET[unitNo]=setKey;
  var start=day+1,ids=[];
  records.forEach(function(skill,si){
-  var id='A2-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):null;
+  var id=prefix+'-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=courseId==='algebra2'&&G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):null;
   var verb=meta&&meta.obj?meta.obj:'work with '+title.charAt(0).toLowerCase()+title.slice(1);
   ids.push(id);lessons[id]={cover:'full',skills:[[setKey,skill.id,1,7]]};
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:(si+1)+' of '+records.length,
    day_type:'Lesson',lesson_id:id,title:title,
    content_objective:'Students will be able to '+verb+'.',
-   language_objective:'Students will explain their mathematical reasoning using accurate Algebra 2 vocabulary.',
+   language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
    sentence_frame:'To '+verb.split(/,| and /)[0]+', I first ___ and then ___.',
    key_vocabulary:meta&&meta.voc?meta.voc.map(function(w){return w[0];}).join(', '):'',common_misconception:meta&&meta.watch?meta.watch:'',notes_style:'Guided notes',
    do_now_strategy:previousLesson?'Review a previously learned topic.':'Settle in and preview today’s learning.',
@@ -35,22 +37,23 @@ course.units.forEach(function(unit,ui){
  });
  var endLessons=day;
  var extras=[
-  {type:'Practice',title:unit.name+' · Practice',id:'A2-U'+unitNo+'-PRACTICE'},
-  {type:'Review',title:unit.name+' · Review',id:'A2-U'+unitNo+'-REVIEW'},
-  {type:'Quiz',title:unit.name+' · Quiz',id:'A2-U'+unitNo+'-QUIZ'},
-  {type:'Assessment',title:unit.name+' · Assessment',id:'A2-U'+unitNo+'-ASSESSMENT'}
+  {type:'Practice',title:unit.name+' · Practice',id:prefix+'-U'+unitNo+'-PRACTICE'},
+  {type:'Review',title:unit.name+' · Review',id:prefix+'-U'+unitNo+'-REVIEW'},
+  {type:'Quiz',title:unit.name+' · Quiz',id:prefix+'-U'+unitNo+'-QUIZ'},
+  {type:'Assessment',title:unit.name+' · Assessment',id:prefix+'-U'+unitNo+'-ASSESSMENT'}
  ];
  extras.forEach(function(x){
   var number=++day;
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:x.type,
    day_type:x.type,lesson_id:x.id,title:x.title,content_objective:'Review and assess the selected topics in '+unit.name+'.',
-   language_objective:'Students will explain their mathematical reasoning using accurate Algebra 2 vocabulary.',
+   language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
    sentence_frame:'One strategy I used was ___.',key_vocabulary:'',common_misconception:'',
    notes_style:x.type==='Assessment'?'':'Guided review',do_now_strategy:'Review selected topics from this unit.',
    do_now_source_ids:ids.slice(-2),spiral_review_ids:ids,lessons_covered:ids.slice(),components:dayTypes[x.type]});
  });
  units.push({unit:unitNo,title:unit.name,start_day:start,end_day:day,total_days:day-start+1,lesson_ids:ids});
 });
-G.MKPLAN_SCOPE_ALGEBRA2={meta:{course:'Algebra 2',total_days:day,standards_framework:'Course skill catalog',version:'1.0',notes:'Skill-based planning topics are generated from the shared Algebra 2 course catalog. Questions are selected from the approved Algebra 2 banks; this is not a district pacing calendar.'},day_types:dayTypes,units:units,days:days};
-G.MKPLAN_SKILLS_ALGEBRA2={SETS:SETS,UNIT_SET:UNIT_SET,lessons:lessons};
+G['MKPLAN_SCOPE_'+key]={meta:{course:course.name,total_days:day,standards_framework:'Course skill catalog',version:'1.0',notes:'Skill-based planning topics are generated from the shared course catalog. Questions are selected from the approved course banks; this is not a district pacing calendar.'},day_types:dayTypes,units:units,days:days};
+G['MKPLAN_SKILLS_'+key]={SETS:SETS,UNIT_SET:UNIT_SET,lessons:lessons};
+});
 })(window);

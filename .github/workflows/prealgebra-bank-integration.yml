@@ -1,0 +1,22 @@
+name: Grade 8 question bank integration
+on:
+  push:
+    paths:
+      - 'question-banks/**'
+      - 'worksheet-generator/algebra2-bank-native.js'
+      - 'worksheet-generator/menu/**'
+      - 'worksheet-generator/planner/**'
+      - 'scripts/test-prealgebra-integration.cjs'
+      - '.github/workflows/prealgebra-bank-integration.yml'
+  workflow_dispatch:
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-published-question-banks.cjs
+      - run: node scripts/test-prealgebra-integration.cjs

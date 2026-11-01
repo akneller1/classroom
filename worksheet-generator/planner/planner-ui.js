@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', CS = GEO ? '-geometry' : A2 ? '-algebra2' : '';   // per-lesson saved data is kept separately for each course
+  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', PA8 = COURSE === 'prealgebra', CS = COURSE === 'algebra1' ? '' : '-'+COURSE;   // per-lesson saved data is kept separately for each course
   var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_SECTION_ORDER = 'mk-planner-section-order-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1', KEY_COUNTS = 'mk-planner-section-counts-v1';
   KEY_NOTE_EDITS += CS; KEY_PROBLEM_LABELS += CS;
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
@@ -195,7 +195,7 @@
   /* ---------- hash ---------- */
   function readHash() {
     var h = {}; (location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); });
-    if (h.course && /^(algebra1|geometry|algebra2)$/.test(h.course) && h.course !== COURSE) { G.location.reload(); return; }
+    if (h.course && /^(algebra1|geometry|algebra2|prealgebra)$/.test(h.course) && h.course !== COURSE) { G.location.reload(); return; }
     if (h.unit) {
       var num = null; Object.keys(G.MKPLAN_SKILLS.UNIT_SET).forEach(function (n) { if (P.unitSetId(+n) === h.unit || String(n) === h.unit) num = +n; });
       var u = num && P.unitOf(num); if (u) ui.day = u.start_day;
@@ -206,7 +206,7 @@
     if (h.view && /^(plan|student|key)$/.test(h.view)) ui.view = h.view;
   }
   function writeHash() {
-    var h = (GEO ? '#course=geometry&day=' : A2 ? '#course=algebra2&day=' : '#day=') + ui.day + '&level=' + ui.level + (ui.seed !== 'A' ? '&seed=' + encodeURIComponent(ui.seed) : '') + (ui.view !== 'plan' ? '&view=' + ui.view : '');
+    var h = (COURSE === 'algebra1' ? '#day=' : '#course='+COURSE+'&day=') + ui.day + '&level=' + ui.level + (ui.seed !== 'A' ? '&seed=' + encodeURIComponent(ui.seed) : '') + (ui.view !== 'plan' ? '&view=' + ui.view : '');
     if (location.hash !== h) history.replaceState(null, '', h);
   }
 
@@ -266,7 +266,7 @@
       if (/Quiz/.test(d.day_type)) links.splice(2, 0, ['Short quiz (versions A–C)', 'menu-assessment.html#unit=' + set]);
       if (COURSE === 'algebra1') links.push(['Unit page', '../index.html#algebra.' + unitPageId(d.unit)]);
       else {
-        var lc = (G.LIBRARY && G.LIBRARY.courses || []).filter(function (c) { return c.id === COURSE; })[0], bare = set.replace(/^(geometry|algebra2)-/, '');
+        var lc = (G.LIBRARY && G.LIBRARY.courses || []).filter(function (c) { return c.id === COURSE; })[0], bare = set.replace(/^(geometry|algebra2|prealgebra)-/, '');
         var lu = lc && lc.units.filter(function (u) { return u.id === bare || (u.artifacts || []).some(function (a) { return /#unit=/.test(a.path || '') && (a.path.split('#unit=')[1] || '').split('&')[0] === set; }); })[0];
         if (lu) links.push(['Unit page', '../index.html#' + COURSE + '.' + lu.id]);
       }
@@ -479,7 +479,7 @@
   /* ---------- page ---------- */
   function picker() {
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
-    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse"><option value="algebra1"' + (COURSE === 'algebra1' ? ' selected' : '') + '>Algebra 1</option>' + (G.MKPLAN_SCOPE_GEOMETRY ? '<option value="geometry"' + (GEO ? ' selected' : '') + '>Geometry</option>' : '') + '<option value="algebra2"' + (A2 ? ' selected' : '') + '>Algebra 2</option></select>';
+    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse"><option value="algebra1"' + (COURSE === 'algebra1' ? ' selected' : '') + '>Algebra 1</option>' + (G.MKPLAN_SCOPE_GEOMETRY ? '<option value="geometry"' + (GEO ? ' selected' : '') + '>Geometry</option>' : '') + '<option value="algebra2"' + (A2 ? ' selected' : '') + '>Algebra 2</option><option value="prealgebra"' + (PA8 ? ' selected' : '') + '>Pre-Algebra</option></select>';
     var sel = crs + '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
     var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
@@ -499,7 +499,7 @@
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
-      '<p class="hint">' + (A2 ? 'Questions use approved Algebra 2 bank content; review the supplied answers and worked steps before printing.' : 'Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.') + '</p>';
+      '<p class="hint">' + ((A2 || PA8) ? 'Questions use approved course bank content; review the supplied answers and worked steps before printing.' : 'Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.') + '</p>';
   }
   function render() {
     var d = P.day(ui.day);
@@ -521,7 +521,7 @@
     $('#plHead').innerHTML = '<div class="pl-nav"><button type="button" class="btn ghost sm" id="plPrev"' + (prev ? '' : ' disabled') + '>← Day ' + (ui.day - 1) + '</button>' +
       '<div class="pl-htitle"><div class="pl-kicker">' + (A2 ? 'Unit ' + d.unit + ' · ' + esc(d.unit_title) + ' · ' + esc(d.unit_day) : 'Day ' + d.day + ' · Quarter ' + d.quarter + ' · Week ' + d.week + (d.unit ? ' · Unit ' + d.unit + ', day ' + esc(d.unit_day) : ' · ' + esc(d.unit_title))) + '</div><h1>' + esc(d.title) + ' <span class="pl-type t-' + TYPE_CLS[d.day_type] + '">' + esc(d.day_type) + '</span></h1>' +
       (ui.plan.selectedLessonTitles.length > 1 ? '<p class="pl-hint">Combined lessons: ' + ui.plan.selectedLessonTitles.map(esc).join(' · ') + '</p>' : '') +
-      '<div class="pl-stat">' + sum.problems + ' problems' + (sum.failed ? ' · <b class="bad">' + sum.failed + ' need a new problem</b>' : sum.problems ? (A2 ? ' · approved bank questions' : ' · all answers checked') : '') + (d.day_type === 'Lesson' && ui.plan.sections.some(function (x) { return x.id === 'notes'; }) ? ' · <span class="nt-badge">' + (filled(ui.plan) ? 'Completed notes' : 'Guided notes') + '</span>' : '') + '</div></div>' +
+      '<div class="pl-stat">' + sum.problems + ' problems' + (sum.failed ? ' · <b class="bad">' + sum.failed + ' need a new problem</b>' : sum.problems ? ((A2 || PA8) ? ' · approved bank questions' : ' · all answers checked') : '') + (d.day_type === 'Lesson' && ui.plan.sections.some(function (x) { return x.id === 'notes'; }) ? ' · <span class="nt-badge">' + (filled(ui.plan) ? 'Completed notes' : 'Guided notes') + '</span>' : '') + '</div></div>' +
       '<button type="button" class="btn ghost sm" id="plNext"' + (next ? '' : ' disabled') + '>Day ' + (ui.day + 1) + ' →</button></div>' +
       '<div class="pl-tabs" role="tablist">' + [['plan', 'Plan'], ['student', 'Student handout'], ['key', 'Teacher key']].map(function (t) { return '<button type="button" role="tab" class="tab" data-view="' + t[0] + '" aria-selected="' + (ui.view === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
   }
@@ -688,7 +688,7 @@
     }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
-  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
+  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2|prealgebra)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
 
   function applyTheme(t) { if (t) doc.documentElement.setAttribute('data-theme', t); else doc.documentElement.removeAttribute('data-theme'); }
   applyTheme(lsGet(KEY_THEME));
@@ -698,5 +698,5 @@
   };
   (function () { var cr = doc.querySelector('.crumb'); if (cr) cr.textContent = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1'); doc.title = 'Daily Lesson Planner · ' + (SC.meta.course || 'Algebra 1') + ' · Mr. K\'s Classroom'; })();
   function startPlanner() { readHash(); resetSelection(); render(); P.ui = ui; }   // for tests
-  if (A2 && G.MK_COURSE_BANKS_READY) G.MK_COURSE_BANKS_READY.then(startPlanner, startPlanner); else startPlanner();
+  if ((A2 || PA8) && G.MK_COURSE_BANKS_READY) G.MK_COURSE_BANKS_READY.then(startPlanner, startPlanner); else startPlanner();
 })(window);

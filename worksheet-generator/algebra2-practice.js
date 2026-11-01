@@ -1,17 +1,18 @@
 /* Read-only selection of authored questions. Automatic grading is restricted
  * to source-marked choices; written responses use worked-solution self review. */
 (function(G){'use strict';
-const $=id=>document.getElementById(id),course=G.LIBRARY.courses.find(c=>c.id==='algebra2'),bank=G.MK_QUESTION_BANKS,catalog=G.MK_COURSE_CATALOG;
+const courseId=new URLSearchParams(G.location.search).get('course')||'algebra2';
+const $=id=>document.getElementById(id),course=G.LIBRARY.courses.find(c=>c.id===courseId),bank=G.MK_QUESTION_BANKS,catalog=G.MK_COURSE_CATALOG;
 let results=[];
 function el(tag,parent,text){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;parent.appendChild(n);return n}
 course.units.forEach(u=>{const o=el('option',$('unit'),u.name);o.value=u.id});
 const requested=new URLSearchParams(location.search).get('unit');if(course.units.some(u=>u.id===requested))$('unit').value=requested;
-function skills(){ $('skills').replaceChildren();catalog.getSkillRecords('algebra2',$('unit').value).forEach(s=>{const l=el('label',$('skills')),i=el('input',l);i.type='checkbox';i.value=s.id;i.checked=true;el('span',l,s.name)});$('questions').replaceChildren();$('report').replaceChildren();$('reportHeading').hidden=true;results=[]; }
-function report(){const host=$('report');host.replaceChildren();$('reportHeading').hidden=!results.length;catalog.getSkillRecords('algebra2',$('unit').value).forEach(s=>{const rows=results.filter(r=>r.skillId===s.id),done=rows.filter(r=>r.done);if(rows.length)el('p',host,s.name+': '+done.length+'/'+rows.length+' reviewed; '+done.filter(r=>r.correct).length+' correct or self-rated ready.')})}
+function skills(){ $('skills').replaceChildren();catalog.getSkillRecords(courseId,$('unit').value).forEach(s=>{const l=el('label',$('skills')),i=el('input',l);i.type='checkbox';i.value=s.id;i.checked=true;el('span',l,s.name)});$('questions').replaceChildren();$('report').replaceChildren();$('reportHeading').hidden=true;results=[]; }
+function report(){const host=$('report');host.replaceChildren();$('reportHeading').hidden=!results.length;catalog.getSkillRecords(courseId,$('unit').value).forEach(s=>{const rows=results.filter(r=>r.skillId===s.id),done=rows.filter(r=>r.done);if(rows.length)el('p',host,s.name+': '+done.length+'/'+rows.length+' reviewed; '+done.filter(r=>r.correct).length+' correct or self-rated ready.')})}
 function start(){
  results=[];$('questions').replaceChildren();const ids=Array.from(document.querySelectorAll('#skills input:checked')).map(i=>i.value);
  if(!ids.length){$('status').textContent='Select at least one skill.';return}
- const pools=ids.map(id=>bank.select({courseId:'algebra2',unitId:$('unit').value,skillIds:[id],level:$('level').value}).filter(q=>Number(q.id.match(/(\d+)$/)?.[1]||0)%2===0).sort(()=>Math.random()-.5));
+ const pools=ids.map(id=>bank.select({courseId:courseId,unitId:$('unit').value,skillIds:[id],level:$('level').value}).filter(q=>Number(q.id.match(/(\d+)$/)?.[1]||0)%2===0).sort(()=>Math.random()-.5));
  const count=Math.min(30,Math.max(1,Number($('count').value)||12)),list=[];
  while(list.length<count&&pools.some(p=>p.length)){for(const p of pools){if(p.length&&list.length<count)list.push(p.pop())}}
  for(const [n,q] of list.entries()){
