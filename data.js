@@ -1059,6 +1059,22 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
+              "title": "Function Machine Factory",
+              "path": "artifacts/relations-functions-function-machine-factory/index.html",
+              "thumb": "thumbs/function-machine-factory.jpg",
+              "description": "Build function machines by arranging operation gears to match input-output tables, then work backward to find missing inputs. Ten levels progress from one-step rules to two-step machines.",
+              "type": "Game",
+              "bankFormat": "topic-games",
+              "unitSpecific": true,
+              "topics": [
+                "Input-output tables",
+                "Function rules",
+                "Evaluating functions",
+                "Inverse operations"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "The Arcade Token Heist",
               "path": "artifacts/relations-functions-arcade-token-heist/index.html",
               "thumb": "thumbs/relations-functions-arcade-token-heist.jpg",
