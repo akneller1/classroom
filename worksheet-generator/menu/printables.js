@@ -106,26 +106,28 @@
     var lim = PR.MODES[kind], set = NS.skillSets[cfg.unitId];
     var pol = NS.policyOf(cfg);
     if (/^geometry-/.test(cfg.unitId) && kind !== 'stations') pol = Object.assign({}, pol, { compact: true });   // small boxes: skills may give a shorter prompt because the diagram carries the marks
-    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong?['multiple-choice']:['short-answer','multiple-choice']});
+    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong && kind!=='error'?['multiple-choice']:['short-answer','multiple-choice'],authoredErrorAnalysis:kind==='error',adjacentLevels:false});
     var p = NS.generateProblem(cfg.unitId, skill, c, pol, seed, !!NS.skillSets[cfg.unitId]?.authoredBank?null:used);
     if (p.source==='authored-bank' && used && used.keys.has(p.key)) return null;
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
-    if (!lim.fig && q.fig) return null;
+    if (!lim.fig && q.fig && !(kind === 'tarsia' && p.source === 'authored-bank')) return null;
     if (q.fig && lim.figPrompt && /^geometry-/.test(cfg.unitId) && plain(q.prompt).length > lim.figPrompt) return null;   // a Geometry diagram shares a small box with the text
     // boxes on a color-by-number page, a partner check or an error analysis are small: no histograms, long data tables or graphs to draw
     if ((kind === 'color' || kind === 'partner' || kind === 'error') && (q.fig && (q.fig.kind === 'histogram' || (q.fig.kind === 'table' && q.fig.rows.length > 5)) || p.parts.some(function (pt) { return pt.answerFig && pt.answerFig.kind === 'plane'; }))) return null;
     if ((q.parts[0].prompt || '') && !lim.fig) return null;
-    if (plain(key).length > lim.answer) return null;
+    if (!q.authoredErrorAnalysis && plain(key).length > lim.answer) return null;
     if (kind === 'maze' && (plain(key).match(/,/g) || []).length > 2) return null;   // long lists do not fit on a door
     if (lim.snippet && snippetsOf(q.prompt).some(function (m) { return plain('⟨' + m + '⟩').length > lim.snippet; })) return null;
     var it = { p: q, key: key, skill: skill, c: c, tag: set.byId[skill].tag, wrong: [] };
     if (lim.verb) {
-      var edge = tarsiaEdge(q.prompt); if (!edge || !tarsiaSafe(edge, lim.prompt) || !tarsiaSafe(key, lim.answer)) return null;
+      var edge = tarsiaEdge(q.prompt);
+      if (kind === 'tarsia' && p.source === 'authored-bank' && (q.fig || !edge || !tarsiaSafe(edge, lim.prompt))) { edge = 'Problem'; it.numberedEdge = true; }
+      if (!edge || !tarsiaSafe(edge, lim.prompt) || !tarsiaSafe(key, lim.answer)) return null;
       it.edge = edge;
-    } else if (plain(q.prompt).length + (q.parts[0].prompt ? plain(q.parts[0].prompt).length : 0) > lim.prompt) return null;
-    if (lim.steps && !(q.steps || []).some(function (s) { return s.m; })) return null;
-    if (lim.wrong) {
+    } else if (!q.authoredErrorAnalysis && plain(q.prompt).length + (q.parts[0].prompt ? plain(q.parts[0].prompt).length : 0) > lim.prompt) return null;
+    if (lim.steps && !q.authoredErrorAnalysis && !(q.steps || []).some(function (s) { return s.m; })) return null;
+    if (lim.wrong && !q.authoredErrorAnalysis) {
       it.wrong = wrongs(q, Math.max(lim.wrong, 3), seed).filter(function (w) { return kind === 'tarsia' ? tarsiaSafe(w, lim.answer) : plain(w).length <= lim.answer + 4; });
       if (it.wrong.length < Math.min(lim.wrong, 2)) return null;
     }
@@ -161,7 +163,7 @@
         var sk = order[(i + t) % order.length], cc = t < 12 ? c : t < 22 ? lv.tiers[t % 3] : Math.max(1, lv.tiers[0] - 1 - (t % 2));
         var it = makeItem(cfg, sk, cc, [cfg.seed, vIdx, kind, i, t].join('|'), used, kind);
         if (!it) continue;
-        if (out.some(function (o) { return clash(o, it) || nrm(o.p.prompt) === nrm(it.p.prompt); })) continue;
+        if (out.some(function (o) { return (!(kind === 'error' && it.p.authoredErrorAnalysis) && clash(o, it)) || nrm(o.p.prompt) === nrm(it.p.prompt); })) continue;
         if (extraOk && !extraOk(it, out)) continue;
         out.push(it); break;
       }
@@ -361,6 +363,7 @@
     if (items.length < 4) return { error: 'Not enough problems with worked steps for these skills (' + items.length + ').' };
     var names = rng.shuffle(NAMES.slice());
     var cases = items.map(function (it, i) {
+      if (it.p.authoredErrorAnalysis) return { item: it, authored: true, name: '', wrong: '', work: [] };
       var wrong = rng.pick(it.wrong.slice(0, 2));
       return { item: it, name: names[i % names.length], wrong: wrong, work: wrongWork(it, wrong) };
     });
@@ -407,7 +410,7 @@
     var pieces = tris.map(function (t) { return { pts: t, text: ['', '', ''], kind: ['', '', ''] }; });
     inner.forEach(function (k, n) {
       var it = placed[n], sides = rng.shuffle(edges[k].slice());
-      pieces[sides[0].t].text[sides[0].e] = it.num + '. ' + it.edge;
+      pieces[sides[0].t].text[sides[0].e] = it.numberedEdge ? 'Problem ' + it.num : it.num + '. ' + it.edge;
       pieces[sides[0].t].kind[sides[0].e] = 'q';
       pieces[sides[1].t].text[sides[1].e] = it.key;
       pieces[sides[1].t].kind[sides[1].e] = 'a';

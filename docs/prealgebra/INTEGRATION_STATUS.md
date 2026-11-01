@@ -19,4 +19,4 @@ The seven authored banks are published in the shared manifest with `approved: tr
 
 ## Format boundaries
 
-Questions are selected only where compatible with the chosen activity. Tight formats such as Maze and Tarsia have smaller pools; not every skill/level can fill a complete puzzle. Error Analysis printables require procedural marked-error steps that authored banks do not provide; the bank's error-analysis questions remain available through worksheets, assessments, and other compatible consumers. No new mathematical content or diagrams were generated for this integration.
+Questions are selected only where compatible with the chosen activity. Tight formats such as Maze and Tarsia have smaller pools; not every skill/level can fill a complete puzzle. Error Analysis printables now select the bank’s existing error-family questions and preserve their prompts and source solutions. Tarsia is linked in all seven units; longer prompts and diagrams use numbered puzzle edges and the included full-problem work pages. All seven units build both formats at Remedial, Standard, and Advanced levels. No new mathematical content or diagrams were generated for this integration.

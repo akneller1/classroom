@@ -7116,6 +7116,9 @@ window.LIBRARY = {
   [['showdown','Showdown','showdown'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['escape-room','Escape Room','escape-rooms'],['detective','Detective','detective-games'],['picture-reveal','Picture Reveal','picture-reveal'],['flashcards','Flashcards','flashcards']].forEach(([game,title,format])=>{
    u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course=prealgebra&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/previews/prealgebra/'+u.id+'-'+game+'.png',description:'Choose Grade 8 skills and Remedial, Standard, or Advanced questions.'});
   });
+  [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
+   u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit=prealgebra-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored Pre-Algebra questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',topics:['Printable generator',u.name]});
+  });
   u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit=prealgebra-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice Grade 8 skills, review worked solutions, and target skills for reassessment.'});
  });
 })(window);

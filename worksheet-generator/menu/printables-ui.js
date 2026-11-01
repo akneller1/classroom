@@ -238,8 +238,8 @@
       B.cases.slice(pg * 2, pg * 2 + 2).forEach(function (cs, k) {
         var no = pg * 2 + k + 1, bl = badLine(cs), sk = set.byId[cs.item.skill];
         h += '<div class="pe-box"><div class="pe-h">' + no + '. ' + esc(sk ? sk.name : 'Problem') + '</div><div class="pe-cols"><div class="pe-l">' +
-          '<div class="pe-cap">Original problem</div><div class="pe-q">' + prompt(cs.item.p) + '</div><div class="pe-cap">' + esc(cs.name) + '’s incorrect worked solution</div>' + workHtml(cs) + '</div><div class="pe-r">' +
-          '<div class="pe-cap">A. Explain the mistake (1 point)</div>' + (key ? '<div class="pe-green">' + (bl >= 0 ? 'Step ' + (bl + 1) + ' is wrong: it should give ' : 'The final answer is wrong; it should be ') + mathSafe(cs.item.key) + ', not ' + mathSafe(cs.wrong) + '.</div>' : '<div class="pe-hint">Describe exactly which step is wrong and why.</div><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i>') +
+          '<div class="pe-cap">' + (cs.authored ? 'Analyze the student’s claim or work' : 'Original problem') + '</div><div class="pe-q">' + prompt(cs.item.p) + '</div>' + (cs.authored ? '' : '<div class="pe-cap">' + esc(cs.name) + '’s incorrect worked solution</div>' + workHtml(cs)) + '</div><div class="pe-r">' +
+          '<div class="pe-cap">A. Explain the mistake (1 point)</div>' + (key ? '<div class="pe-green">' + (cs.authored ? 'Answer: ' : bl >= 0 ? 'Step ' + (bl + 1) + ' is wrong: it should give ' : 'The final answer is wrong; it should be ') + mathSafe(cs.item.key) + (cs.authored ? '' : ', not ' + mathSafe(cs.wrong)) + '.</div>' : '<div class="pe-hint">Describe exactly which step is wrong and why.</div><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i>') +
           '<div class="pe-cap">B. Show correct work (1 point)</div>' + (key ? '<div class="pe-green"><ol class="mm-steps">' + steps(cs.item.p) + '</ol><b>Answer:</b> ' + mathSafe(cs.item.key) + '</div>' : '<i class="ln full"></i><i class="ln full"></i><i class="ln full"></i><i class="ln full"></i>') +
           '</div></div></div>';
       });

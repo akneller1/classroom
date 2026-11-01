@@ -17,9 +17,11 @@ for(const u of c.units){
   context.document={body:{getAttribute:()=> 'connect-four'}};
   const slots=Array.from({length:20},(_,i)=>({skill:set.skills[i%set.skills.length].id,c:4,level}));
   context.MKGAMES.buildDeck(id,slots,{seed:'grade8-'+level},items=>{if(items.length!==20||new Set(items.map(x=>x.id)).size!==20)throw Error('Incomplete/duplicate '+id+' '+level+' deck');for(const item of items)if(!item.id.startsWith('pa8-')||item.options.filter(o=>o.ok).length!==1)throw Error('Invalid game choice');});decks++;
-  for(const kind of ['color','partner','who','stations']){
+  for(const kind of ['color','partner','who','stations','error','tarsia']){
    const cfg={unitId:id,level,answers:'auto',kind,seed:'grade8-'+level,skills:Object.fromEntries(set.skills.map(s=>[s.id,true])),stations:2,perStation:4,count:8};
-   const built=N.printables.build(cfg,0);if(built.error)throw Error(id+'/'+level+'/'+kind+': '+built.error);printables++;
+   const built=N.printables.build(cfg,0);if(built.error)throw Error(id+'/'+level+'/'+kind+': '+built.error);if(kind==='error' && built.cases.some(cs=>!cs.authored || !cs.item.p.authoredErrorAnalysis))throw Error('Un-authored error case');
+   if(kind==='tarsia' && (new Set(built.items.map(it=>it.key)).size!==built.items.length || built.items.some(it=>!it.p.sourceId.startsWith('pa8-'))))throw Error('Invalid Tarsia sources/keys');
+   printables++;
   }
  }
 }
