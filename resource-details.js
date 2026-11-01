@@ -616,6 +616,34 @@ window.RESOURCE_DETAILS = {
     "answerKey": "artifacts/geometry-similarity-stations/teacher-key.pdf",
     "keyPages": 1
   },
+  "artifacts/prealgebra-real-numbers-exponents-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra-equations-expressions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra-linear-functional-relationships-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra-systems-linear-equations-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra-patterns-bivariate-data-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra-congruence-similarity-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra-geometry-applications-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
   "artifacts/geometry-similarity-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true

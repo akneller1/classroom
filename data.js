@@ -6835,37 +6835,142 @@ window.LIBRARY = {
           {
               "id": "real-numbers-exponents",
               "name": "Real Numbers and Exponents",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Real Numbers and Exponents Cheat Sheet",
+                  "path": "artifacts/prealgebra-real-numbers-exponents-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-real-numbers-exponents-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Real Numbers and Exponents. Front: rational and irrational numbers, square and cube roots. Back: negative exponents, exponent rules and scientific notation. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Real Numbers and Exponents",
+                    "Unit 1"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           },
           {
               "id": "equations-expressions",
               "name": "Equations and Expressions",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Equations and Expressions Cheat Sheet",
+                  "path": "artifacts/prealgebra-equations-expressions-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-equations-expressions-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Equations and Expressions. Front: expressions with exponents and roots, writing linear equations. Back: variables on both sides, the distributive property and the number of solutions. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Equations and Expressions",
+                    "Unit 2"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           },
           {
               "id": "linear-functional-relationships",
               "name": "Linear and Functional Relationships",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Linear and Functional Relationships Cheat Sheet",
+                  "path": "artifacts/prealgebra-linear-functional-relationships-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-linear-functional-relationships-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Linear and Functional Relationships. Front: functions, function rules, tables and graphs. Back: linear vs. nonlinear, rate of change, intervals and graphs in context. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Linear and Functional Relationships",
+                    "Unit 3"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           },
           {
               "id": "systems-linear-equations",
               "name": "Systems of Linear Equations",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Systems of Linear Equations Cheat Sheet",
+                  "path": "artifacts/prealgebra-systems-linear-equations-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-systems-linear-equations-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Systems of Linear Equations. Front: slope-intercept form and solving systems by graphing. Back: substitution, elimination, inspection and word problems. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Systems of Linear Equations",
+                    "Unit 4"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           },
           {
               "id": "patterns-bivariate-data",
               "name": "Patterns and Bivariate Data",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Patterns and Bivariate Data Cheat Sheet",
+                  "path": "artifacts/prealgebra-patterns-bivariate-data-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-patterns-bivariate-data-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Patterns and Bivariate Data. Front: scatter plots, association and lines of best fit. Back: two-way tables, relative frequencies and making predictions. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Patterns and Bivariate Data",
+                    "Unit 5"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           },
           {
               "id": "congruence-similarity",
               "name": "Congruence and Similarity",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Congruence and Similarity Cheat Sheet",
+                  "path": "artifacts/prealgebra-congruence-similarity-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-congruence-similarity-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Congruence and Similarity. Front: translations, reflections, rotations and dilations on the coordinate plane. Back: congruence and similarity through transformations, triangle angles and parallel lines. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Congruence and Similarity",
+                    "Unit 6"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           },
           {
               "id": "geometry-applications",
               "name": "Geometry",
-              "artifacts": []
+              "artifacts": [
+                {
+                  "title": "Geometry Cheat Sheet",
+                  "path": "artifacts/prealgebra-geometry-applications-cheat-sheet/worksheet.pdf",
+                  "thumb": "thumbs/prealgebra-geometry-applications-cheat-sheet.jpg",
+                  "description": "Two-page printable cheat sheet for Geometry. Front: the Pythagorean theorem and its converse in 2-D, 3-D and on the coordinate plane. Back: volume of cylinders, cones, spheres and composite solids. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+                  "type": "Printable",
+                  "topics": [
+                    "Cheat sheet",
+                    "Reference",
+                    "Geometry",
+                    "Unit 7"
+                  ],
+                  "added": "2026-11-01"
+                }
+              ]
           }
       ],
       "comingSoon": false
