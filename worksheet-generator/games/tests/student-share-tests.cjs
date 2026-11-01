@@ -48,6 +48,19 @@ function catalogue(entry){
 }
 let checked=0;
 for(const entry of entries){
+ if(entry.path==='artifacts/relations-functions-function-machine-factory/index.html'){
+  const host=environment('https://classroom.test/index.html');host.win.LIBRARY=data.window.LIBRARY;
+  host.run('student-game-share.js');assert.equal(host.win.TeacherGameShare.supports(entry.path),false,'fixed-level game has no picker');
+  const main=new Node();main.id='main';host.doc.body.appendChild(main);
+  const card=new Node(),actions=new Node(),heading=new Node('h3');heading.textContent=entry.title;card.setAttribute('data-path',entry.path);
+  card.querySelector=selector=>selector==='.actions'?actions:selector==='h3'?heading:null;host.doc.querySelectorAll=()=>[card];
+  host.win.MutationObserver=class{observe(){}};let copied;host.win.prompt=(_,url)=>copied=url;
+  host.run('student-share-cards.js');actions.children[0].click();
+  const link=new URL(copied);assert.equal(link.pathname,'/'+entry.path);assert.equal(link.searchParams.get('student'),'1');assert.equal(link.searchParams.has('skills'),false);
+  assert(!source(entry.path).includes('games/skill-setup.js'),'standalone game has no setup dialog');
+  const script=source(entry.path.replace('index.html','script.js'));assert.match(script,/loadLevel\(0\);/,'game starts immediately');
+  checked++;console.log('PASS '+entry.path+' direct student link without skill selection');continue;
+ }
  // Both public entry points must route to configuration rather than copying.
  const cardHost=environment('https://classroom.test/index.html');cardHost.win.LIBRARY=data.window.LIBRARY;
  let opened=null;cardHost.win.TeacherGameShare={supports:()=>true,open:p=>opened=p};cardHost.win.MutationObserver=class{observe(){}};
