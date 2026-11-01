@@ -648,3 +648,27 @@ body { background:var(--paper); }
 /* Keep the teacher tagline with the site name in the header. */
 .brand-tagline { margin-left: .2rem; padding-left: .75rem; border-left: 1px solid var(--line); color: var(--ink-soft); font-family: var(--body); font-size: .68rem; font-weight: 700; letter-spacing: .08em; line-height: 1.2; text-transform: uppercase; }
 @media (max-width: 560px) { .brand-tagline { margin-left: .05rem; padding-left: .45rem; font-size: .56rem; letter-spacing: .05em; } }
+
+/* Homepage: square course tiles and wider, compact resource cards. */
+.home-subject-cards { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; align-content:start; }
+.home-subject-cards > li { display:flex; }
+.home-subject-card.course { height:auto; min-height:12rem; aspect-ratio:1; padding:1rem; gap:.5rem; }
+.home-subject-card h3 { font-size:clamp(1.05rem,1.45vw,1.35rem); line-height:1.15; }
+.home-subject-card p { line-height:1.4; }
+.home-subject-card .art { right:.2rem; bottom:1.4rem; width:52%; max-width:7rem; opacity:.22; }
+.home-subject-card .count { position:relative; z-index:1; padding-right:0; }
+.hero-generator-panel .generator-banner { display:flex; flex-direction:column; }
+.hero-generator-panel .generator-shortcuts { flex:1; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:1fr; gap:.8rem; }
+.hero-generator-panel .generator-shortcut { display:grid; grid-template-columns:2.3rem minmax(0,1fr); grid-template-rows:auto 1fr; align-content:start; align-items:start; min-height:7.5rem; height:100%; padding:1rem; gap:.6rem .7rem; }
+.hero-generator-panel .generator-shortcut-icon { grid-column:1; grid-row:1; }
+.hero-generator-panel .generator-shortcut-copy { display:contents; }
+.hero-generator-panel .generator-shortcut-copy strong { grid-column:2; grid-row:1; align-self:center; font-size:1rem; line-height:1.3; }
+.hero-generator-panel .generator-shortcut-copy small { grid-column:1 / -1; grid-row:2; font-size:.82rem; line-height:1.45; }
+@media (max-width:900px) {
+  .home-subject-card.course { aspect-ratio:auto; min-height:12rem; }
+}
+@media (max-width:480px) {
+  .home-subject-card.course { min-height:12.5rem; padding:.8rem; }
+  .hero-generator-panel .generator-shortcuts { grid-template-columns:1fr; }
+  .hero-generator-panel .generator-shortcut { min-height:6.5rem; }
+}
