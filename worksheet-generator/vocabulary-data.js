@@ -11,7 +11,7 @@ Object.assign(window.MKVOCAB_BANKS,{
   "prealgebra-congruence-similarity": "transformation|A rule that moves or resizes a figure.|⟨A \\to A'⟩;rigid motion|Translation, reflection or rotation: keeps size and shape.|same size;dilation|Enlarges or shrinks by a scale factor ⟨k⟩.|⟨k = 2⟩;congruent|Same size and shape (⟨\\cong⟩).|rigid motions only;similar|Same shape, sides proportional (⟨\\sim⟩).|add a dilation",
   "prealgebra-geometry-applications": "legs|The two sides that form the right angle.|⟨a⟩ and ⟨b⟩;hypotenuse|The longest side, across from the right angle.|⟨c⟩;Pythagorean triple|Whole-number sides of a right triangle.|3-4-5, 5-12-13, 8-15-17;converse|If ⟨a^2 + b^2 = c^2⟩, the triangle is right.|6, 8, 10 is right"
 });
-(function(G){const c=G.LIBRARY?.courses.find(c=>c.id==='prealgebra');if(c&&!G.MKMENU.CATALOG.some(g=>g.course===c.name))G.MKMENU.CATALOG.push({course:c.name,units:c.units.map(u=>[c.id+'-'+u.id,u.name])});})(window);
+(function(G){const c=G.LIBRARY?.courses.find(c=>c.id==='prealgebra');if(c&&G.MKMENU&&G.MKMENU.CATALOG&&!G.MKMENU.CATALOG.some(g=>g.course===c.name))G.MKMENU.CATALOG.push({course:c.name,units:c.units.map(u=>[c.id+'-'+u.id,u.name])});})(window);
 /* Supplement with relevant terms already used in the other courses; retain source definitions and examples. */
 (function(G){
  const B=G.MKVOCAB_BANKS, links={
@@ -31,3 +31,11 @@ Object.assign(window.MKVOCAB_BANKS,{
   B[key]=rows.join(';');
  }
 })(window);
+
+/* Fill remaining course vocabulary gaps from existing published cheat sheets. */
+Object.assign(window.MKVOCAB_BANKS,{
+  "algebra2-conic-sections": "conic section|A curve made by slicing a double cone with a plane.|circle, ellipse;focus|Fixed point(s) used to define the conic.|⟨(0, 2)⟩;directrix|Fixed line for a parabola: every point is as far from it as from the focus.|⟨y = -2⟩;vertices|Endpoints of the major axis (ellipse) or transverse axis (hyperbola).|⟨(\\pm 5, 0)⟩;asymptotes|Lines a hyperbola approaches.|⟨y = \\pm\\tfrac{3}{4}x⟩",
+  "algebra2-probability-statistics": "sample space|The set of all possible outcomes.|{H, T};permutation|An arrangement where order matters.|president, VP;combination|A selection where order does not matter.|a 3-person team;independent|One event does not change the other’s probability.|two dice;conditional probability|⟨P(A \\mid B)⟩: probability of ⟨A⟩ given ⟨B⟩ happened.|⟨\\tfrac{P(A \\cap B)}{P(B)}⟩",
+  "geometry-triangle-relationships": "median|Vertex to the midpoint of the opposite side.|three in every triangle;altitude|Vertex perpendicular to the opposite side.|⟨AD \\perp BC⟩;midsegment|Joins the midpoints of two sides.|⟨DE \\parallel BC⟩;exterior angle|Side and the extension of another side.|outside the triangle",
+  "geometry-quadrilaterals-polygons": "parallelogram|Quadrilateral with both pairs of opposite sides parallel.|⟨AB \\parallel DC⟩;rhombus|Parallelogram with four congruent sides.|diagonals are perpendicular;trapezoid|Quadrilateral with exactly one pair of parallel sides.|bases and legs;kite|Two pairs of adjacent congruent sides.|diagonals are perpendicular"
+});

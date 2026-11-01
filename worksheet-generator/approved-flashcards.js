@@ -14,7 +14,10 @@ var skills=catalog.getSkillRecords(courseId,unitId), skillNames={};
 skills.forEach(function(s){skillNames[s.id]=s.name;var opt=doc.createElement('option');opt.value=s.id;opt.textContent=s.name;doc.getElementById('afSkill').appendChild(opt)});
 var legacyCards=[];
 var bridge=root.MK_GRADE_LEGACY_BRIDGE,isLegacy=bridge&&bridge.isGrade(courseId);
-var S={level:'cp1',skill:skills.some(function(x){return x.id===params.get('skill')})?params.get('skill'):'',cards:[],order:[],index:0,flipped:false,missedOnly:false,ratings:{}};
+var vocabulary=(root.MK_VOCAB_FLASHCARDS?root.MK_VOCAB_FLASHCARDS.build((courseId==='algebra'?'algebra1':courseId)+'-'+unitId):[]).map(function(it){return {id:it.id,skillId:'__vocabulary',prompt:it.q.prompt,answer:it.answer,solutionSteps:it.steps.map(function(s){return s.t}),vocabulary:true};});
+skillNames.__vocabulary='Vocabulary';
+if(!vocabulary.length)el('afMode').value='skills';
+var S={mode:vocabulary.length?'mixed':'skills',level:'cp1',skill:skills.some(function(x){return x.id===params.get('skill')})?params.get('skill'):'',cards:[],order:[],index:0,flipped:false,missedOnly:false,ratings:{}};
 var selectors={level:doc.getElementById('afLevel'),skill:doc.getElementById('afSkill')};selectors.skill.value=S.skill;
 function el(id){return doc.getElementById(id)}
 function text(tag,value,parent){var n=doc.createElement(tag);n.textContent=value;parent.appendChild(n);return n}
@@ -37,6 +40,7 @@ function diagram(q,card){
 }
 function refresh(){
  S.cards=(isLegacy?legacyCards:banks.select({courseId:courseId,unitId:unitId,level:S.level,formats:['short-answer','multiple-choice'],skillIds:S.skill?[S.skill]:undefined})).filter(function(q){return imagePath(q)!==null;});
+ if(S.mode==='vocabulary')S.cards=vocabulary.slice();else if(S.mode==='mixed'&&!S.skill)S.cards=S.cards.concat(vocabulary);
  S.order=S.cards.map(function(_,i){return i}).filter(function(i){return !S.missedOnly||S.ratings[S.cards[i].id]==='need'});
  S.index=Math.min(S.index,Math.max(0,S.order.length-1));S.flipped=false;render();
 }
@@ -50,7 +54,7 @@ function render(){
   text('p',q.prompt,card).className='af-prompt';
   diagram(q,card);
   text('div',Array.isArray(q.answer)?q.answer.join(', '):String(q.answer),card).className='af-answer';
-  if(q.solutionSteps&&q.solutionSteps.length){text('strong','Worked solution',card);var sol=doc.createElement('ol');sol.className='af-solution';q.solutionSteps.forEach(function(s){text('li',s,sol)});card.appendChild(sol)}
+  if(q.solutionSteps&&q.solutionSteps.length){text('strong',q.vocabulary?'Example':'Worked solution',card);var sol=doc.createElement('ol');sol.className='af-solution';q.solutionSteps.forEach(function(s){text('li',s,sol)});card.appendChild(sol)}
  }else{
   text('p',q.prompt,card).className='af-prompt';
   diagram(q,card);
@@ -66,6 +70,7 @@ function flip(){if(current()){S.flipped=!S.flipped;render()}}
 function move(n){S.index=Math.max(0,Math.min(S.order.length-1,S.index+n));S.flipped=false;render()}
 function rate(value){var q=current();if(!q||el('afNeed').disabled||el('afGot').disabled)return;S.ratings[q.id]=value;if(S.missedOnly){refresh()}else if(S.index<S.order.length-1)move(1);else render()}
 var engine=null;
+el('afMode').addEventListener('change',function(){S.mode=this.value;S.skill='';selectors.skill.value='';selectors.skill.disabled=S.mode==='vocabulary';S.index=0;refresh()});
 function updateLegacy(){if(!engine)return;legacyCards=bridge.prepare(engine,{courseId:courseId,unitId:unitId,level:S.level,skillId:S.skill});S.index=0;refresh()}
 selectors.level.addEventListener('change',function(){S.level=this.value;S.index=0;if(isLegacy)updateLegacy();else refresh()});
 selectors.skill.addEventListener('change',function(){S.skill=this.value;S.index=0;if(isLegacy)updateLegacy();else refresh()});
@@ -78,6 +83,7 @@ el('afMissed').addEventListener('click',function(){S.missedOnly=!S.missedOnly;S.
 el('afShuffle').addEventListener('click',function(){for(var i=S.order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=S.order[i];S.order[i]=S.order[j];S.order[j]=t}S.index=0;S.flipped=false;render()});
 if(isLegacy){bridge.load().then(function(w){engine=w;status.textContent=course.name+' · '+unit.name+' · shared generator questions (teacher-reviewed sample format)';container.hidden=false;updateLegacy()}).catch(function(e){status.textContent='Unable to load shared generator: '+e.message});return;}
 root.MK_BANK_LOADER.loadFromSite(undefined,'../').then(function(){
+ if(!banks.available(courseId,unitId)&&vocabulary.length){S.mode='vocabulary';el('afMode').value='vocabulary';status.textContent=course.name+' · '+unit.name+' · vocabulary review';container.hidden=false;refresh();return;}
  if(!banks.available(courseId,unitId)){status.textContent='No independently approved flashcard bank is available for '+course.name+' — '+unit.name+'. Existing classroom resources are unaffected.';return;}
  status.textContent=course.name+' · '+unit.name+' · approved questions only';
  container.hidden=false;refresh();

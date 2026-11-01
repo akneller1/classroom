@@ -111,7 +111,7 @@
       function ready(its){S.cards=rng.shuffle(its.concat(S.mode==='skills'?[]:vocabCards));S.rate={};S.i=0;S.flip=false;S.missed=false;refilter();persist();render();}
       if(S.mode==='vocabulary'){ready([]);return;}
       var activeSkills = availableSkills();
-      if (!activeSkills.length) { S.cards = []; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render(); return; }
+      if (!activeSkills.length) { if(vocabCards.length && S.mode!=='skills'){ready([]);return;} S.cards = []; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render(); return; }
       deck(levelSlots(S.level, activeSkills, Math.max(1, Math.ceil(20 / (activeSkills.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
         ready(its);
       });
