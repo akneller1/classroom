@@ -43,6 +43,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 <div id="app"></div>
 <div id="key" class="panel"></div>
 <script>
+const studentView=new URLSearchParams(location.search).get('student')==='1';
 const fr=(a,b)=>`<span class="frac"><span>${a}</span><span>${b}</span></span>`;
 const sup=e=>`<sup>${e}</sup>`;
 const sub=e=>`<sub>${e}</sub>`;
@@ -152,6 +153,6 @@ function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():wrong('No
 function victory(){$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
 function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
 function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p><button onclick="start()">Begin</button></div>`}
-if(location.hash=='#key'){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
+if(!studentView&&location.hash=='#key'){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`}
 intro();
 </script></body></html>
