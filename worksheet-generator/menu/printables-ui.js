@@ -77,8 +77,8 @@
     B.rooms.forEach(function (rm) {
       h += '<div class="pm-room' + (rm.finish ? ' fin' : '') + '" style="left:' + g.X(rm.c) + 'in;top:' + g.Y(rm.r) + 'in;width:' + g.rw + 'in;height:' + g.rh + 'in">' +
         (rm.r === 0 && rm.c === 0 ? '<span class="pm-start">START</span>' : '') +
-        (rm.finish ? '<b>FINISH</b><small>You made it!</small>' : '<div class="pm-q">' + roomHtml(rm.item.p) + '</div>') + '</div>';
-      if (key && rm.step !== null && !rm.finish) h += '<span class="pm-num" style="left:' + g.X(rm.c) + 'in;top:' + (g.Y(rm.r) + g.rh * 0.36) + 'in">' + (rm.step + 1) + '</span>';
+        (rm.finish ? '<b>FINISH</b><small>You made it!</small>' : '<div class="pm-q">' + (rm.item.numberedRoom ? 'Problem ' + rm.item.num : roomHtml(rm.item.p)) + '</div>') + '</div>';
+      if (key && rm.step !== null && !rm.finish) h += '<span class="pm-num" style="left:' + g.X(rm.c) + 'in;top:' + (g.Y(rm.r) + g.rh * 0.36) + 'in">' + (rm.item.numberedRoom ? rm.item.num : rm.step + 1) + '</span>';
     });
     B.doors.forEach(function (d) {
       var dp = g.door(d), L = PR.plain(d.label).length + (/\\frac/.test(d.label) ? 2 : 0) + 1.5, fz = Math.max(6, Math.min(8.8, dp.max * 72 / (L * 0.6)));
@@ -94,6 +94,8 @@
   function mazePages(cfg, B, v, nV, key) {
     var ttl = title(cfg), line = 'Start in the top-left room. Solve the problem, find the door with your answer, and go through it. Show your work on your answer grid.';
     var P = [{ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, key, ttl, line) + mazeHtml(B, key) + '</div>' }];
+    var numbered = B.items.filter(function(it){return it.numberedRoom;});
+    if (numbered.length) P = P.concat(chunkPages(cfg,nV,v,key,'Maze Problems',numbered,4,function(list){return '<p>Use these numbered problems in the maze rooms. Follow the door showing your answer.</p>' + list.map(function(it){return '<section class="mm-box"><b>Problem '+it.num+'.</b> '+prompt(it.p)+(key?'<p><b>Answer:</b> '+mathSafe(it.key)+'</p><ol>'+steps(it.p)+'</ol>':'<div style="min-height:1in"></div>')+'</section>';}).join('');}));
     var rows = B.rooms.filter(function (r) { return r.step !== null && !r.finish; }).sort(function (a, b) { return a.step - b.step; });
     if (!key) {
       // A roomy 2-column × 5-row work grid. Longer mazes continue onto a second
@@ -104,7 +106,7 @@
           classicHead(cfg, nV, v, false, ttl + ': Answer Grid' + (start ? ' (continued)' : ''),
             'Show your work in each numbered box.') +
           '<div class="pm-answer-cards">' + part.map(function (r, i) {
-            return '<section class="pm-answer-card"><span class="pm-answer-number">' + (start + i + 1) +
+            return '<section class="pm-answer-card"><span class="pm-answer-number">' + (r.item.numberedRoom ? r.item.num : start + i + 1) +
               '</span></section>';
           }).join('') + '</div></div>' });
       }
@@ -114,7 +116,7 @@
         classicHead(cfg, nV, v, true, ttl + ': Answer Grid',
           'Answers and worked solutions for rooms on the correct path.', '') +
         '<table class="pm-grid">' + rows.map(function (r, i) {
-          return '<tr style="height:' + rh + 'in"><td class="pm-gn"><span>' + (i + 1) +
+          return '<tr style="height:' + rh + 'in"><td class="pm-gn"><span>' + (r.item.numberedRoom ? r.item.num : i + 1) +
             '</span></td><td class="pm-ga"><small>Answer:</small><div class="pm-gl"><b class="pc-red">' +
             mathSafe(r.item.key) + '</b></div></td><td class="pm-gw"><div class="pc-red pm-gs">' +
             stepsInline(r.item.p) + '</div></td></tr>';

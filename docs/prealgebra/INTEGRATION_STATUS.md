@@ -20,3 +20,11 @@ The seven authored banks are published in the shared manifest with `approved: tr
 ## Format boundaries
 
 Questions are selected only where compatible with the chosen activity. Tight formats such as Maze and Tarsia have smaller pools; not every skill/level can fill a complete puzzle. Error Analysis printables now select the bank’s existing error-family questions and preserve their prompts and source solutions. Tarsia is linked in all seven units; longer prompts and diagrams use numbered puzzle edges and the included full-problem work pages. All seven units build both formats at Remedial, Standard, and Advanced levels. No new mathematical content or diagrams were generated for this integration.
+
+## Activity parity additions — November 1, 2026
+
+- Linear and Functional Relationships supports the existing printable and online Matching Card Sort (graphs, equations, tables, descriptions).
+- All seven units have vocabulary activities and crosswords, reusing 102 term entries from the published cheat sheets and relevant existing course vocabulary.
+- Flashcards use the same vocabulary bank, with Skills + vocabulary, Skill questions, and Vocabulary only modes.
+- Authored mazes can use numbered rooms plus full question/diagram pages. This fixes the Patterns and Bivariate Data Remedial/Standard format gap without inventing questions or distractors.
+- Integration checks cover 147 printable builds including mazes at all three levels, nine matching card sorts, and seven flashcard players in all three content modes. Vocabulary/crossword rendering was additionally checked for all 21 unit/level combinations.

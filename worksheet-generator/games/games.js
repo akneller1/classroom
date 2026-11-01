@@ -59,7 +59,7 @@
   }
   function solHtml(it) {
     return '<div class="gm-sol"><h4>Answer</h4><div>' + M(it.answer) + '</div>' + (it.answerFigures||[]).map(function(fig){return NS.figHtml(fig);}).join('') +
-      (it.steps.length ? '<h4 style="margin-top:10px">Worked solution</h4><ol>' + it.steps.map(function (st) { return '<li>' + M(st.t || '') + (st.m ? ' ' + M('⟨' + st.m + '⟩') : '') + '</li>'; }).join('') + '</ol>' : '') + '</div>';
+      (it.steps.length ? '<h4 style="margin-top:10px">' + (it.vocabulary ? 'Example' : 'Worked solution') + '</h4><ol>' + it.steps.map(function (st) { return '<li>' + M(st.t || '') + (st.m ? ' ' + M('⟨' + st.m + '⟩') : '') + '</li>'; }).join('') + '</ol>' : '') + '</div>';
   }
   function optsHtml(it, st) {
     return '<div class="gm-opts" role="group" aria-label="Answer choices">' + it.options.map(function (o, i) {
@@ -100,20 +100,23 @@
 
   /* =========================== FLASHCARDS =========================== */
   function flashcards() {
-    var S = { level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false };
+    var vocabCards = G.MK_VOCAB_FLASHCARDS ? G.MK_VOCAB_FLASHCARDS.build(UNIT) : [];
+    var S = { mode: vocabCards.length && ['mixed','skills','vocabulary'].indexOf(saved.mode)>=0 ? saved.mode : vocabCards.length?'mixed':'skills', level: saved.level || 'cp1', skill: 'all', cards: [], order: [], i: 0, flip: false, rate: saved.rate || {}, missed: false };
     GB._state = function () { return S; };
     function availableSkills() {
       var visible = skillsWithCardsAt(S.level);
       return skillIds.filter(function (id) { return visible.indexOf(id) >= 0; });
     }
     function build() {
+      function ready(its){S.cards=rng.shuffle(its.concat(S.mode==='skills'?[]:vocabCards));S.rate={};S.i=0;S.flip=false;S.missed=false;refilter();persist();render();}
+      if(S.mode==='vocabulary'){ready([]);return;}
       var activeSkills = availableSkills();
       if (!activeSkills.length) { S.cards = []; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render(); return; }
       deck(levelSlots(S.level, activeSkills, Math.max(1, Math.ceil(20 / (activeSkills.length * 3)))), { msg: 'Shuffling a fresh deck…' }, function (its) {
-        S.cards = its; S.rate = {}; S.i = 0; S.flip = false; S.missed = false; refilter(); persist(); render();
+        ready(its);
       });
     }
-    function persist() { save({ level: S.level, rate: S.rate }); }
+    function persist() { save({ level: S.level, rate: S.rate, mode:S.mode }); }
     function refilter() {
       S.order = S.cards.map(function (_, k) { return k; }).filter(function (k) { var c = S.cards[k]; return (S.skill === 'all' || c.skill === S.skill) && (!S.missed || S.rate[c.id] === 'need'); });
       S.i = Math.min(S.i, Math.max(0, S.order.length - 1));
@@ -121,10 +124,10 @@
     function cur() { return S.cards[S.order[S.i]]; }
     function render() {
       var c = cur(), got = 0, need = 0; Object.keys(S.rate).forEach(function (k) { if (S.rate[k] === 'got') got++; else need++; });
-      var visibleSkills = availableSkills();
+      var visibleSkills = S.mode==='vocabulary'?[]:availableSkills();
       var h = head('Flip each card for the answer and the worked solution. Practice your selected skills at this level.') +
-        '<div class="gm-ctl"><label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level, EASY_NAMES) +
-        '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + visibleSkills.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + '</select>' +
+        '<div class="gm-ctl">' + (vocabCards.length?'<label for="fcMode">Cards:</label><select class="gm-sel" id="fcMode">'+[['mixed','Skills + vocabulary'],['skills','Skill questions'],['vocabulary','Vocabulary only']].map(function(o){return '<option value="'+o[0]+'"'+(S.mode===o[0]?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select>':'') + '<label for="fcLevel">Level:</label>' + levelSel('fcLevel', S.level, EASY_NAMES) +
+        '<label for="fcSkill">Skill:</label><select class="gm-sel" id="fcSkill"><option value="all">All skills</option>' + visibleSkills.map(function (id) { return '<option value="' + id + '"' + (S.skill === id ? ' selected' : '') + '>' + esc(skillName(id)) + '</option>'; }).join('') + (vocabCards.length&&S.mode==='mixed'?'<option value="__vocabulary"'+(S.skill==='__vocabulary'?' selected':'')+'>Vocabulary</option>':'') + '</select>' +
         '<button class="gm-btn" id="fcShuffle">Shuffle</button><button class="gm-btn" id="fcMissed"' + (need ? '' : ' disabled') + '>' + (S.missed ? 'All cards' : 'Practice missed') + '</button><button class="gm-btn" id="fcNew">New cards</button><button class="gm-btn" id="fcReset">Reset progress</button></div>' +
         '<div class="fc-stats"><span>' + (S.order.length ? 'Card ' + (S.i + 1) + ' of ' + S.order.length : 'No cards') + '</span><span>Got it: ' + got + ' • Need practice: ' + need + '</span></div>' +
         '<div class="gm-bar"><i style="width:' + (S.order.length ? (S.i + 1) / S.order.length * 100 : 0) + '%"></i></div>';
@@ -142,6 +145,7 @@
     function go(d) { S.i = Math.max(0, Math.min(S.order.length - 1, S.i + d)); S.flip = false; render(); }
     function rate(v) { var c = cur(); if (!c) return; S.rate[c.id] = v; persist(); if (S.missed && v === 'got') { refilter(); S.flip = false; render(); } else if (S.i < S.order.length - 1) go(1); else render(); }
     function wire() {
+      if($('#fcMode'))$('#fcMode').onchange=function(){S.mode=this.value;S.skill='all';persist();build();};
       $('#fcLevel').onchange = function () { S.level = this.value; var nextSkills = skillsWithCardsAt(S.level); if (S.skill !== 'all' && nextSkills.indexOf(S.skill) < 0) S.skill = 'all'; persist(); build(); };
       $('#fcSkill').onchange = function () { S.skill = this.value; S.i = 0; S.flip = false; refilter(); render(); };
       $('#fcShuffle').onclick = function () { S.cards = rng.shuffle(S.cards); S.i = 0; S.flip = false; refilter(); render(); };

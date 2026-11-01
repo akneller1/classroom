@@ -111,21 +111,22 @@
     if (p.source==='authored-bank' && used && used.keys.has(p.key)) return null;
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
-    if (!lim.fig && q.fig && !(kind === 'tarsia' && p.source === 'authored-bank')) return null;
+    var numberedRoom = kind === 'maze' && p.source === 'authored-bank' && (q.fig || plain(q.prompt).length > lim.prompt);
+    if (!lim.fig && q.fig && !numberedRoom && !(kind === 'tarsia' && p.source === 'authored-bank')) return null;
     if (q.fig && lim.figPrompt && /^geometry-/.test(cfg.unitId) && plain(q.prompt).length > lim.figPrompt) return null;   // a Geometry diagram shares a small box with the text
     // boxes on a color-by-number page, a partner check or an error analysis are small: no histograms, long data tables or graphs to draw
     if ((kind === 'color' || kind === 'partner' || kind === 'error') && (q.fig && (q.fig.kind === 'histogram' || (q.fig.kind === 'table' && q.fig.rows.length > 5)) || p.parts.some(function (pt) { return pt.answerFig && pt.answerFig.kind === 'plane'; }))) return null;
     if ((q.parts[0].prompt || '') && !lim.fig) return null;
     if (!q.authoredErrorAnalysis && plain(key).length > lim.answer) return null;
     if (kind === 'maze' && (plain(key).match(/,/g) || []).length > 2) return null;   // long lists do not fit on a door
-    if (lim.snippet && snippetsOf(q.prompt).some(function (m) { return plain('⟨' + m + '⟩').length > lim.snippet; })) return null;
-    var it = { p: q, key: key, skill: skill, c: c, tag: set.byId[skill].tag, wrong: [] };
+    if (!numberedRoom && lim.snippet && snippetsOf(q.prompt).some(function (m) { return plain('⟨' + m + '⟩').length > lim.snippet; })) return null;
+    var it = { p: q, key: key, skill: skill, c: c, tag: set.byId[skill].tag, wrong: [], numberedRoom: numberedRoom };
     if (lim.verb) {
       var edge = tarsiaEdge(q.prompt);
       if (kind === 'tarsia' && p.source === 'authored-bank' && (q.fig || !edge || !tarsiaSafe(edge, lim.prompt))) { edge = 'Problem'; it.numberedEdge = true; }
       if (!edge || !tarsiaSafe(edge, lim.prompt) || !tarsiaSafe(key, lim.answer)) return null;
       it.edge = edge;
-    } else if (!q.authoredErrorAnalysis && plain(q.prompt).length + (q.parts[0].prompt ? plain(q.parts[0].prompt).length : 0) > lim.prompt) return null;
+    } else if (!numberedRoom && !q.authoredErrorAnalysis && plain(q.prompt).length + (q.parts[0].prompt ? plain(q.parts[0].prompt).length : 0) > lim.prompt) return null;
     if (lim.steps && !q.authoredErrorAnalysis && !(q.steps || []).some(function (s) { return s.m; })) return null;
     if (lim.wrong && !q.authoredErrorAnalysis) {
       it.wrong = wrongs(q, Math.max(lim.wrong, 3), seed).filter(function (w) { return kind === 'tarsia' ? tarsiaSafe(w, lim.answer) : plain(w).length <= lim.answer + 4; });
@@ -231,6 +232,8 @@
     for (var br = 0; br < R - 1; br++) for (var bc = 0; bc < C - 1; bc++) if (!mp.blocks[br + ',' + bc]) mp.blocks[br + ',' + bc] = rng.next() < 0.5 ? 'd' : 'a';
     var nItems = R * C - 1, items = authoredItems ? authoredItems.slice(0,nItems) : gather(cfg, vIdx, nItems, 'maze');
     if (items.length < nItems) return { error: 'Not enough different maze problems for these skills and level (' + items.length + ' of ' + nItems + '). Choose more skills.' };
+    var numberedMaze=items.some(function(it){return it.numberedRoom;});
+    items.forEach(function(it,i){it.num=i+1;if(numberedMaze)it.numberedRoom=true;});
     var onPath = {}; path.forEach(function (q, i) { onPath[q[0] + ',' + q[1]] = i; });
     // spread the difficulty along the path; the dead ends get the rest
     var nP = path.length - 1, pick = [];

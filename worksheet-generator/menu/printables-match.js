@@ -20,6 +20,7 @@
     log: 'Logarithmic', rational: 'Rational (reciprocal)', cubic: 'Cubic polynomial', arith: 'Arithmetic sequence', geom: 'Geometric sequence'
   };
   M.UNITS = {
+    'prealgebra-linear-functional-relationships': { fams: ['linear'], def: ['linear'] },
     'algebra1-linear-equations-slope': { fams: ['linear'], def: ['linear'] },
     'algebra1-exponential-functions': { fams: ['exponential', 'linear'], def: ['exponential'] },
     'algebra1-quadratics': { fams: ['quadratic'], def: ['quadratic'] },

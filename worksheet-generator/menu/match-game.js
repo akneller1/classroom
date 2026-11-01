@@ -79,6 +79,7 @@
     NS.CATALOG.forEach(function (g) { g.units.forEach(function (u) { if (M.supported(u[0])) out.push({ id: u[0], name: u[1], course: g.course }); }); });
     return out;
   }
+  function levelName(unit,id){return /^prealgebra-/.test(unit)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[id]:NS.LEVELS[id].name;}
   function unitName(id) { var u = supportedUnits().filter(function (x) { return x.id === id; })[0]; return u ? u.name : id; }
   function parseHash() {
     var o = {}; String(G.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var i = kv.indexOf('='); if (i > 0) o[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1)); });
@@ -260,10 +261,11 @@
   function fmtTime(ms) { var s = Math.floor(ms / 1000); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
   function shell() {
     var c = S.cfg, L = NS.LEVELS[c.level];
+    if (/^prealgebra-/.test(c.unit)) { const back=$('#backBtn'),brand=$('.brand');if(back)back.hidden=true;if(brand)brand.hidden=true; }
     $('#mgApp').innerHTML =
       '<div class="mg-bar card">' +
         '<div class="mg-title"><h1>' + esc(unitName(c.unit).replace(/^Unit \d+ · /, '')) + ' <span>Matching</span></h1>' +
-          '<div class="mg-meta">' + esc(L.name) + ' · ' + S.N + ' sets · ' + c.fams.map(function (f) { return esc(M.FAMILIES[f]); }).join(', ') + (c.v ? ' · Version ' + 'ABC'[c.v] : '') + '</div></div>' +
+          '<div class="mg-meta">' + esc(levelName(c.unit,c.level)) + ' · ' + S.N + ' sets · ' + c.fams.map(function (f) { return esc(M.FAMILIES[f]); }).join(', ') + (c.v ? ' · Version ' + 'ABC'[c.v] : '') + '</div></div>' +
         '<div class="mg-prog" aria-label="Progress"><div class="mg-pt"><b id="mgOk">0</b> of ' + S.N + ' sets matched</div><div class="mg-pbar"><i id="mgPbar"></i></div><div class="mg-time" id="mgTime" aria-hidden="true"></div></div>' +
         '<div class="mg-acts">' +
           '<button type="button" class="btn" id="mgCheck">✔ Check sets</button>' +
@@ -291,6 +293,7 @@
     $('#mgRestart').onclick = function () { closeMenu(); if (G.confirm('Put every card back in the tray and start over?')) restart(); };
     $('#mgNew').onclick = function () { closeMenu(); var n = Object.assign({}, S.cfg, { seed: Math.floor(Math.random() * 1e9), v: 0 }); go(n); };
     $('#mgSettings').onclick = function () { closeMenu(); setup(S.cfg); };
+    if (/^prealgebra-/.test(c.unit)) { const print=$('a[href^="printables.html"]');if(print)print.remove(); }
     $('#mgShare').onclick = function () { closeMenu(); copy(linkOf(S.cfg), 'Link copied. Students who open it get these same cards.'); };
     $('#mgSize').oninput = function (e) { lsSet('mkmatch-size', e.target.value); applySize(); };
     showHow(!lsGet('mkmatch-how'));
@@ -509,7 +512,7 @@
     var m = doc.createElement('div'); m.className = 'mg-modal mg-done'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-label', 'All sets matched');
     m.innerHTML = '<div class="mg-mbox mg-win"><div class="mg-burst" aria-hidden="true">★</div><h2>All ' + S.N + ' sets matched!</h2>' +
       '<p class="mg-stats"><span><b>' + fmtTime(S.elapsed) + '</b> time</span><span><b>' + S.checks + '</b> check' + (S.checks === 1 ? '' : 's') + '</span><span><b>' + S.hints + '</b> hint' + (S.hints === 1 ? '' : 's') + '</span></p>' +
-      '<p class="hint">' + esc(unitName(S.cfg.unit)) + ' · ' + esc(NS.LEVELS[S.cfg.level].name) + (S.cfg.v ? ' · Version ' + 'ABC'[S.cfg.v] : '') + ' · ' + (S.wrongChecks ? S.wrongChecks + ' check' + (S.wrongChecks === 1 ? '' : 's') + ' found a mistake' : 'no mistakes found by Check') + '</p>' +
+      '<p class="hint">' + esc(unitName(S.cfg.unit)) + ' · ' + esc(levelName(S.cfg.unit,S.cfg.level)) + (S.cfg.v ? ' · Version ' + 'ABC'[S.cfg.v] : '') + ' · ' + (S.wrongChecks ? S.wrongChecks + ' check' + (S.wrongChecks === 1 ? '' : 's') + ' found a mistake' : 'no mistakes found by Check') + '</p>' +
       '<div class="mg-wbtn"><button type="button" class="btn ghost" data-act="review">Review my sets</button><button type="button" class="btn" data-act="again">Play again with new cards</button></div></div>';
     doc.body.appendChild(m);
     m.addEventListener('click', function (e) {
@@ -528,8 +531,8 @@
     var famBox = function (unit, chosen) { var u = M.UNITS[unit]; return u.fams.length > 1 ? u.fams.map(function (f) { return '<label class="chk"><input type="checkbox" class="mgFam" value="' + f + '"' + (chosen.indexOf(f) >= 0 ? ' checked' : '') + '><span>' + esc(M.FAMILIES[f]) + '</span></label>'; }).join('') : '<p class="hint">Function type: ' + esc(M.FAMILIES[u.fams[0]]) + '.</p>'; };
     $('#mgApp').innerHTML = '<div class="mg-setup card"><h1>Function Matching Game</h1>' +
       '<p class="hint">Match each function’s <b>graph</b>, <b>equation</b>, <b>table</b> and <b>description</b>. Every card fits exactly one set. These are the same verified cards as the printable Matching Card Sort.</p>' +
-      '<label class="field"><span class="lbl">Unit</span><select id="suUnit">' + ['Algebra 1', 'Algebra 2'].map(function (course) { var us = units.filter(function (u) { return u.course === course; }); return us.length ? '<optgroup label="' + course + '">' + us.map(function (u) { return '<option value="' + u.id + '"' + (u.id === c.unit ? ' selected' : '') + '>' + esc(u.name) + '</option>'; }).join('') + '</optgroup>' : ''; }).join('') + '</select></label>' +
-      '<fieldset class="field"><legend class="lbl">Level</legend><div class="mg-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="suLevel" value="' + id + '"' + (c.level === id ? ' checked' : '') + '><span>' + esc(NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div></fieldset>' +
+      '<label class="field"><span class="lbl">Unit</span><select id="suUnit">' + Array.from(new Set(units.map(function(u){return u.course;}))).map(function (course) { var us = units.filter(function (u) { return u.course === course; }); return us.length ? '<optgroup label="' + course + '">' + us.map(function (u) { return '<option value="' + u.id + '"' + (u.id === c.unit ? ' selected' : '') + '>' + esc(u.name) + '</option>'; }).join('') + '</optgroup>' : ''; }).join('') + '</select></label>' +
+      '<fieldset class="field"><legend class="lbl">Level</legend><div class="mg-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="suLevel" value="' + id + '"' + (c.level === id ? ' checked' : '') + '><span>' + esc(/^prealgebra-/.test(c.unit)?levelName(c.unit,id):NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div></fieldset>' +
       '<fieldset class="field"><legend class="lbl">Function types</legend><div id="suFams">' + famBox(c.unit, c.fams) + '</div></fieldset>' +
       '<label class="field"><span class="lbl">Number of sets</span><select id="suSets">' + [4, 6, 8, 10].map(function (n) { return '<option value="' + n + '"' + (c.sets === n ? ' selected' : '') + '>' + n + ' sets (' + 4 * n + ' cards)</option>'; }).join('') + '</select></label>' +
       '<label class="chk"><input type="checkbox" id="suEq"' + (c.eq ? ' checked' : '') + '><span>Start with each equation already in its set <small>Recommended: students find the graph, table and description for each equation.</small></span></label>' +
@@ -566,7 +569,7 @@
     $$('.mg-modal').forEach(function (m) { m.remove(); }); doc.body.classList.remove('mg-modal-open', 'mg-selecting', 'mg-dragging');
     S = st; S.expand = {};
     $('#mgCrumb').textContent = 'Function Matching · ' + unitName(cfg.unit);
-    doc.title = 'Function Matching Game · ' + unitName(cfg.unit).replace(/^Unit \d+ · /, '') + ' · Mr. K\'s Classroom';
+    doc.title = 'Function Matching Game · ' + unitName(cfg.unit).replace(/^Unit \d+ · /, '') + (/^prealgebra-/.test(cfg.unit) ? '' : ' · Mr. K\'s Classroom');
     shell(); draw(); tick();
     if (S.done) say('You matched every set. Press <b>More ▸ Start over</b> to play again.', 'good');
     else if (S.resumed) say('Welcome back! Your cards are where you left them.');
