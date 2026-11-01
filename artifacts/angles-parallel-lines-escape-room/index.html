@@ -158,7 +158,22 @@ function ordDraw(){const s=STAGES[stage];$('#ol').innerHTML=st.ord.map((v,p)=>`<
 function mv(p,d){const q=p+d;if(q<0||q>=st.ord.length)return;[st.ord[p],st.ord[q]]=[st.ord[q],st.ord[p]];ordDraw()}
 function chkOrder(){const s=STAGES[stage];st.ord.every((v,i)=>v==i)?pass():wrong(s.fail||'Not quite in order. Re-read the logic.' )}
 function lockShift(){const v=$('#shiftGuess').value.trim(),n=Number(v);if(!v||!Number.isInteger(n)||n<0||n>25){say('Enter a whole-number shift from 0 to 25.',false);return}if(n!==STAGES[stage].shift){wrong('Incorrect shift. Solve the clue before trying again.');return}st.shiftLocked=true;st.k=n;$('#shiftGuess').disabled=true;$('#shiftTools').style.display='block';sh(0);say('Shift locked. Decode the message and enter the password.',true)}
-function sh(d){if(!st.shiftLocked)return;const s=STAGES[stage];st.k=(st.k+d+26)%26;$('#kk').textContent='shift '+st.k;$('#wheel').textContent='written: '+ALPHA.split('').join(' ')+'\nreal   : '+ALPHA.split('').map(c=>caesar(c,-st.k)).join(' ');$('#dec').textContent=caesar(caesar(s.plain,s.shift),-st.k)}
+function renderDecodedCipher(s){
+ const decoded=caesar(caesar(s.plain,s.shift),-st.k),output=$('#dec');
+ output.textContent=decoded;
+ if(st.k!==s.shift)return;
+ const word=String(s.answer||'').trim();if(!word)return;
+ const pattern=new RegExp('\\b'+word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','gi');
+ let last=0;output.textContent='';
+ for(const match of decoded.matchAll(pattern)){
+  output.appendChild(document.createTextNode(decoded.slice(last,match.index)));
+  const clue=document.createElement('strong');clue.className='cipher-clue-word';
+  clue.style.cssText='color:var(--gold,#ffc857);text-decoration:underline;text-underline-offset:.2em';
+  clue.textContent=match[0];output.appendChild(clue);last=match.index+match[0].length;
+ }
+ output.appendChild(document.createTextNode(decoded.slice(last)));
+}
+function sh(d){if(!st.shiftLocked)return;const s=STAGES[stage];st.k=(st.k+d+26)%26;$('#kk').textContent='shift '+st.k;$('#wheel').textContent='written: '+ALPHA.split('').join(' ')+'\nreal   : '+ALPHA.split('').map(c=>caesar(c,-st.k)).join(' ');renderDecodedCipher(s)}
 function chkCipher(){if(!st.shiftLocked){say('Lock the shift before submitting the code.',false);return}const s=STAGES[stage];$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():wrong('Still locked. Check your shift.' )}
 function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.random()-.5);
  $('#app').innerHTML=`<main style="grid-template-columns:1fr"><div class="panel"><h2>The Final Door</h2><p class="story">${ROOM.finalStory}</p><div>${sh.map(c=>`<span class="card">${c.stamp}<b>${c.letter}</b></span>`).join('')}</div><div class="row">${ROOM.finalAsk} <input type="text" id="w" maxlength="12"> <button id="go" onclick="fin()">Open</button></div><div class="msg" id="m"></div></div></main>`}
