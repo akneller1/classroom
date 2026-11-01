@@ -1997,6 +1997,22 @@ window.LIBRARY = {
           "name": "Exponential Functions",
           "artifacts": [
             {
+              "title": "Outbreak Simulator",
+              "path": "artifacts/exponential-functions-outbreak-simulator/index.html",
+              "thumb": "thumbs/exponential-functions-outbreak-simulator.jpg",
+              "description": "Use exponential growth and decay models to project cases, find initial amounts and growth factors, and solve for time across ten simulation levels.",
+              "type": "Game",
+              "bankFormat": "topic-games",
+              "unitSpecific": true,
+              "topics": [
+                "Exponential growth",
+                "Exponential decay",
+                "Initial value and growth factor",
+                "Solving exponential models"
+              ],
+              "added": "2026-10-31"
+            },
+            {
               "title": "Exponential Functions Matching Game",
               "path": "worksheet-generator/match-game.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/matching-game-exponential-functions.svg",
