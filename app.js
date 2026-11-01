@@ -589,6 +589,18 @@
           '<span class="generator-shortcut-copy"><strong>' + (compact ? esc(tool.title) : 'Create a ' + esc(tool.title)) + '</strong>' +
           (!compact ? '<small>' + esc(tool.description) + '</small>' : '') +
           '</span></a></li>';
+      }).join('') +
+      ['games', 'study-guides'].map(function (category) {
+        var params = new URLSearchParams();
+        if (c) params.set('subject', c.id);
+        if (u) params.set('unit', unitToken(c, u));
+        params.set('category', category);
+        var isGames = category === 'games';
+        return '<li><a class="generator-shortcut resource-shortcut" href="#activities?' + params.toString() + '">' +
+          '<span class="generator-shortcut-icon" aria-hidden="true">' + (isGames ? '◈' : '▤') + '</span>' +
+          '<span class="generator-shortcut-copy"><strong>' + (isGames ? 'Games' : 'Study Guides') + '</strong>' +
+          (!compact ? '<small>' + (isGames ? 'Interactive challenges and team review.' : 'Flashcards, practice tests, and reference sheets.') + '</small>' : '') +
+          '</span></a></li>';
       }).join('') + '</ul></div>';
   }
   function unitPager(c, u) {
