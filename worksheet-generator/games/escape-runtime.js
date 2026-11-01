@@ -1,5 +1,6 @@
 (function(ROOM){
 const TOTAL=10*60, HINT_COST=90, STAGES=ROOM.stages;
+const studentView=new URLSearchParams(location.search).get('student')==='1';
 let t=TOTAL, used=0, stage=-1, timer=null, cards=[], hintsShown={}, st={};
 const $=s=>document.querySelector(s);
 const ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -64,7 +65,7 @@ function finalStage(){const sh=[...cards].sort(()=>Math.random()-.5);
 function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():wrong('Nothing happens. Re-check the order of the cards.' )}
 function victory(){clearInterval(timer);$('#app').innerHTML=`<div id="end" class="panel big"><div style="font-size:4rem">${ROOM.endEmoji}</div><h2>You escaped!</h2><p>${ROOM.outro}</p><p>Escape time: <b>${fmt(TOTAL-t)}</b> &nbsp; Hints used: <b>${used}</b></p><button onclick="location.reload()">Play again</button></div>`}
 function start(){stage=0;dots();timer=setInterval(tick,1000);show()}
-function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p><button onclick="showAnswerKey()">Teacher answer key</button><button onclick="start()">Begin</button></div>`}
-function showAnswerKey(){$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`} if(location.hash=='#key')showAnswerKey();Object.assign(window,{hot,dl,chkFields,pv,chkClass,mv,chkOrder,lockShift,sh,chkCipher,fin,start,getHint,pickSource,checkSource,chooseCipherAnswer,showAnswerKey});window.MK_ESCAPE_STATE=()=>({stage,t,used,st,cards});window.MK_ESCAPE_ROOM=ROOM;intro();
+function intro(){$('#app').innerHTML=`<div id="intro" class="panel big"><div style="font-size:3.5rem">${ROOM.endEmoji}</div><h2>${ROOM.title}</h2><p class="story">${ROOM.intro}</p><p>Work as a team. You have <b>10 minutes</b>. Each hint costs 1:30.</p>${studentView?'':'<button onclick="showAnswerKey()">Teacher answer key</button>'}<button onclick="start()">Begin</button></div>`}
+function showAnswerKey(){if(studentView)return;$('#key').style.display='block';$('#key').innerHTML='<h2>Teacher answer key</h2>'+STAGES.map((s,i)=>`<p><b>Room ${i+1} (${s.name}):</b> ${s.key}</p>`).join('')+`<p><b>Final:</b> sort stamps ${[...STAGES].sort((a,b)=>a.stamp-b.stamp).map(s=>s.stamp).join(', ')} to spell <b>${ROOM.word}</b>.</p>`} if(!studentView&&location.hash=='#key')showAnswerKey();Object.assign(window,{hot,dl,chkFields,pv,chkClass,mv,chkOrder,lockShift,sh,chkCipher,fin,start,getHint,pickSource,checkSource,chooseCipherAnswer,showAnswerKey});window.MK_ESCAPE_STATE=()=>({stage,t,used,st,cards});window.MK_ESCAPE_ROOM=ROOM;intro();
 
 })(window.MK_ACTIVE_ESCAPE_ROOM);
