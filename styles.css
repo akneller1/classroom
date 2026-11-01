@@ -711,3 +711,43 @@ body { background:var(--paper); }
 }
 .footer-bottom a { color: var(--ink-soft); text-underline-offset: .2rem; }
 .footer-bottom a:hover { color: var(--ink); }
+
+/* Six subject cards: 3 columns x 2 rows, matching the adjacent generator panel height. */
+.home-resource-panels { grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; }
+.home-subject-cards {
+  flex:1; min-height:0; display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:.55rem; align-content:stretch;
+}
+.home-subject-cards > li { display:flex; min-width:0; min-height:0; }
+.home-subject-card.course {
+  box-sizing:border-box; height:100%; width:100%; min-width:0; min-height:0;
+  aspect-ratio:auto; padding:.72rem .68rem; gap:.32rem; border-radius:12px;
+}
+.home-subject-card h3 { font-size:clamp(.88rem,1.12vw,1.07rem); line-height:1.22; overflow-wrap:break-word; }
+.home-subject-card p:not(.count) {
+  font-size:.72rem; line-height:1.3; max-width:none;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+}
+.home-subject-card .count { padding:0; font-size:.72rem; line-height:1.25; margin-top:auto; }
+.home-subject-card .art { width:34%; max-width:3.1rem; right:.12rem; bottom:1rem; opacity:.12; }
+.home-subject-card.soon {
+  opacity:.92; border-style:dashed;
+  background:color-mix(in srgb,var(--c-bg) 18%,var(--card));
+  color:var(--ink); box-shadow:none;
+}
+.home-subject-card.soon:hover { border-color:var(--ink-soft); background:var(--wash); text-decoration:none; }
+.home-subject-card.soon .count { font-weight:800; }
+.site-header .main-nav .soon-link { opacity:.75; }
+@media (max-width:900px) {
+  .home-resource-panels { grid-template-columns:1fr; }
+  .home-subject-cards { grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); }
+  .home-subject-card.course { min-height:9.1rem; }
+  .home-subject-card h3 { font-size:clamp(1rem,2.4vw,1.25rem); }
+}
+@media (max-width:540px) {
+  .home-subject-cards { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto; }
+  .home-subject-card.course { min-height:8.9rem; }
+  .home-subject-card h3 { font-size:clamp(1rem,3.6vw,1.2rem); }
+}

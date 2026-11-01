@@ -7,13 +7,10 @@
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
   });
-  /* Courses marked "comingSoon" in data.js stay in the files but are hidden from navigation, search and
-     browsing: the home page and the menu show them as "Coming soon". */
-  // Temporary publication switch: preserve all middle-school course data and resources.
-  // Remove these IDs from HIDDEN_COURSES when the owner is ready to publish them again.
-  var HIDDEN_COURSES = { math6: true, prealgebra7: true };
-  var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
-  L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
+  /* Grade 6 and Grade 7 are visible as "Coming soon", but their unfinished
+     units/resources are not published. Retain their source data for later. */
+  var SOON = L.courses.filter(function (c) { return c.comingSoon; });
+  L.courses = L.courses.filter(function (c) { return !c.comingSoon; });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
   var q = document.getElementById('q');
@@ -464,8 +461,8 @@
                   '<p class="count">' + (c.id === 'prealgebra' ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
                   artFor(c) + '</a></li>';
               }).join('') + SOON.map(function (c) {
-                return '<li><div class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
-                  '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
+                return '<li><a class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
+                  '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</a></li>';
               }).join('') + '</ul></section>' +
             '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
           '</div>' +
@@ -949,7 +946,10 @@
     var html = L.courses.map(function (c) {
       var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
-    }).join('') + SOON.map(function (c) { return '<span class="soon-link" title="Coming soon">' + esc(c.name) + ' <small>Coming soon</small></span>'; }).join('');
+    }).join('') + SOON.map(function (c) {
+      var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
+      return '<a class="soon-link" href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + ' <small>Coming soon</small></a>';
+    }).join('');
     nav.innerHTML = html;
     if (backBtn) backBtn.hidden = !query && r.name === 'home';
   }

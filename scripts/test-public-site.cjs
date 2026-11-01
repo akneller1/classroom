@@ -34,3 +34,19 @@ assert(!home.includes('.main-nav { display: none; }'),'Header navigation hidden'
 for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])assert(fs.existsSync(path.join(out,'assets',file)),'Missing branding asset '+file);
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');
 console.log('PASS public build: four visible courses, 40 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
+
+/* Placeholder courses must be visible in the interactive homepage but not published as live resources. */
+const publishedData=fs.readFileSync(path.join(out,'data.js'),'utf8');
+for(const courseId of ['prealgebra7','math6']){
+ const p=publishedData.indexOf('"id": "'+courseId+'"');
+ assert(p>=0,'Missing upcoming course '+courseId);
+ const marker=publishedData.indexOf('"comingSoon": true',p);
+ assert(marker>p&&marker-p<10000,'Upcoming course not marked coming soon: '+courseId);
+}
+const app=fs.readFileSync(path.join(out,'app.js'),'utf8');
+assert(app.includes('SOON.map(function (c)'),'Missing upcoming-course card list');
+assert(app.includes('home-subject-card soon'),'Missing upcoming-course cards');
+assert(app.includes('class="soon-link" href='),'Upcoming course header links not available');
+const stylesheet=fs.readFileSync(path.join(out,'styles.css'),'utf8');
+assert(stylesheet.includes('grid-template-columns:repeat(3,minmax(0,1fr))'),'Missing three-column homepage grid');
+console.log('PASS upcoming Grade 6/7 placeholders and three-column subject cards');

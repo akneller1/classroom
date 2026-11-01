@@ -7048,7 +7048,7 @@ window.LIBRARY = {
       "artifacts": []
     }
   ],
-  "comingSoon": false
+  "comingSoon": true
 },
 {
   "id": "math6",
@@ -7093,7 +7093,7 @@ window.LIBRARY = {
       "artifacts": []
     }
   ],
-  "comingSoon": false
+  "comingSoon": true
 }
   ]
 };
