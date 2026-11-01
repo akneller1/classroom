@@ -210,7 +210,7 @@
         '<div class="pp-dirs"><b>Directions:</b> Solve each problem. <i>Work on your own. Then compare answers with your partner after each problem. You have different problems with the same answers: if yours don’t match, find the mistake together before moving on.</i></div>' +
         '') + '<div class="pp-grid">' + items.slice(from, to).map(function (it, i0) {
           var i = from + i0;
-          return '<div class="pp-box"><span class="pp-n">' + (i + 1) + '</span><div class="pp-q">' + prompt(it.p) + '</div><div class="pp-ans"><b>Answer:</b> <i class="ln long"></i><span>Match? ☐ Yes ☐ No</span></div></div>';
+          return '<div class="pp-box"><div class="pp-q"><span class="pp-n">' + (i + 1) + '.</span> ' + prompt(it.p) + '</div><div class="pp-ans"><b>Answer:</b> <i class="ln long"></i><span>Match? ☐ Yes ☐ No</span></div></div>';
         }).join('') + '</div><div class="pp-foot"><span>' + esc(foot) + '</span><span>Partner ' + who + '</span></div></div>'; });
       fl[0].nofoot = true; fl[0].raw = true; P = P.concat(fl);
     });

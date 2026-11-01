@@ -93,6 +93,8 @@
 .pl-row>*{flex:1 1 0;min-width:0}
 .pl-p{break-inside:avoid;page-break-inside:avoid;min-width:0;padding:3px 0;border-top:1px solid #bbb}
 .pl-ph{font-size:10pt}
+/* Question labels share the first text line on screen and in print. */
+.pl-qnum{display:inline;font-weight:700;margin-right:.35em;white-space:nowrap}
 .pl-ph small{color:#555}
 .pl-space{min-height:.5in}
 .pl-sheet .mm-fig svg{max-width:3.2in}
