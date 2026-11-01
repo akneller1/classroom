@@ -529,10 +529,299 @@
     var hw = /(\d+) units? (right|left)/.exec(txt); if (!hw) return { status: 'mismatch', msg: 'Say how many units and which way.' };
     return new Q(BigInt(hw[1])).mul(new Q(hw[2] === 'right' ? 1n : -1n)).eq(h) && !/\b(up|down)\b/.test(txt) ? { status: 'verified' } : { status: 'mismatch', msg: 'Shifted ' + qText(absQ(h)) + (sgn(h) > 0 ? ' right.' : ' left.') };
   }
+  /* ---------- two-column congruence proofs (geo-proof-blank, geo-proof-write) ----------
+     Independent of the generator: reads the printed "Given: …. Prove: …." text, the drawn coordinates and
+     segments, and every row of the completed table, then decides whether the rows form a valid proof.
+     Accepted typing: ≅ / = / "is congruent to", ∠ / "angle" / m∠, △ / "triangle", any vertex order for a
+     segment, either side of a congruence first, reasons in common wordings (e.g. "reflexive", "vertical angles",
+     "def. of midpoint", "SAS postulate"). */
+  var PF = (function () {
+    var EPS = 1e-6;
+    function d(a, b) { return Math.hypot(a[0] - b[0], a[1] - b[1]); }
+    function un(a, b) { var m = d(a, b) || 1; return [(b[0] - a[0]) / m, (b[1] - a[1]) / m]; }
+    function cross(u, v) { return u[0] * v[1] - u[1] * v[0]; }
+    function same(u, v) { return Math.abs(u[0] - v[0]) < 1e-6 && Math.abs(u[1] - v[1]) < 1e-6; }
+    function opp(u, v) { return same(u, [-v[0], -v[1]]); }
+    function angDeg(P, V, Q) { var u = un(V, P), w = un(V, Q); return Math.acos(Math.max(-1, Math.min(1, u[0] * w[0] + u[1] * w[1]))) * 180 / Math.PI; }
+    function onSeg(a, b, x) { return Math.abs(d(a, x) + d(x, b) - d(a, b)) < 1e-6; }
+    function collinear(a, b, c) { return Math.abs(cross([b[0] - a[0], b[1] - a[1]], [c[0] - a[0], c[1] - a[1]])) < 1e-6 * (1 + d(a, b) * d(a, c)); }
+    function ctxOf(p) {
+      var f = p.fig;
+      if (!f || f.kind !== 'geo-cong' || !f.pts || !f.segs || !f.proof) throw new C.CheckError('missing proof diagram');
+      var words = C.plainText(p.prompt || '').replace(/\s+/g, ' ');
+      var m = /Given: (.+?)\. Prove: (.+?)\./.exec(words);
+      if (!m) throw new C.CheckError('cannot read Given and Prove');
+      var X = { pts: f.pts, segs: f.segs };
+      X.drawn = function (P, Q) { var a = X.pts[P], b = X.pts[Q]; return !!a && !!b && P !== Q && X.segs.some(function (s) { var u = X.pts[s[0]], v = X.pts[s[1]]; return onSeg(u, v, a) && onSeg(u, v, b); }); };
+      X.givens = m[1].split(/;\s*/).map(function (t) { var g = readGiven(t, X); if (!g) throw new C.CheckError('cannot read the given ' + t); if (!givenTrue(g, X)) throw new C.CheckError('the given ' + t + ' is not true in the diagram'); return g; });
+      var pv = readStatement(m[2], X);
+      if (!pv.ok || pv.st.t === 'right') throw new C.CheckError('cannot read the Prove statement');
+      if (!isTrue(pv.st, X)) throw new C.CheckError('the Prove statement is not true in the diagram');
+      X.prove = pv.st;
+      return X;
+    }
+    /* ---- reading ---- */
+    function norm(s) {
+      return String(s || '').replace(/[⟨⟩]/g, '')
+        .replace(/\bis congruent to\b|\bcongruent to\b|≅|=~|~=|\bcong\b/gi, '≅')
+        .replace(/\bm\s*∠/g, '∠').replace(/\b(?:triangles?|tri)\s+(?=[A-Za-z]{3}\b)|Δ|∆|△\s*/gi, '△')
+        .replace(/\b(?:angles?|ang)\s+(?=[A-Za-z]{1,3}\b)|∠\s*|</gi, '∠').replace(/\b(?:segments?|seg)\s+(?=[A-Za-z]{2}\b)/gi, '')
+        .replace(/[.]\s*$/, '').replace(/\s+/g, ' ').trim();
+    }
+    function angleName(str, X) {
+      str = str.toUpperCase();
+      if (str.length === 3) return X.pts[str[0]] && X.pts[str[1]] && X.pts[str[2]] && X.drawn(str[0], str[1]) && X.drawn(str[1], str[2]) && !collinearRays(str, X) ? str.split('') : null;
+      if (str.length !== 1 || !X.pts[str]) return null;
+      var V = X.pts[str], rays = [];
+      Object.keys(X.pts).forEach(function (k) { if (k !== str && X.drawn(str, k)) { var u = un(V, X.pts[k]); if (!rays.some(function (r) { return same(r.u, u); })) rays.push({ u: u, k: k }); } });
+      return rays.length === 2 ? [rays[0].k, str, rays[1].k] : null;
+    }
+    function collinearRays(a, X) { var V = X.pts[a[1]], u = un(V, X.pts[a[0]]), w = un(V, X.pts[a[2]]); return same(u, w) || opp(u, w); }
+    function readStatement(text, X) {
+      var s = norm(text), m;
+      if (!s) return { ok: false, msg: 'Write a statement.' };
+      if ((m = /^∠\s*([A-Za-z]{1,3}) and ∠\s*([A-Za-z]{1,3}) are (?:both )?right angles?$/i.exec(s))) {
+        var r1 = angleName(m[1], X), r2 = angleName(m[2], X);
+        return r1 && r2 ? { ok: true, st: { t: 'right', a: r1, b: r2 } } : { ok: false, msg: 'Name each angle with three letters, vertex in the middle.' };
+      }
+      var sides = s.split(/\s*[≅=]\s*/);
+      if (sides.length !== 2) return { ok: false, msg: 'Write one congruence, such as AB ≅ CD.' };
+      var L = sides[0].replace(/\s/g, ''), R = sides[1].replace(/\s/g, '');
+      if (/^△/.test(L) && /^△/.test(R)) {
+        L = L.slice(1).toUpperCase(); R = R.slice(1).toUpperCase();
+        if (!/^[A-Z]{3}$/.test(L) || !/^[A-Z]{3}$/.test(R) || !(L + R).split('').every(function (c) { return X.pts[c]; })) return { ok: false, msg: 'Name each triangle with three labeled points.' };
+        return { ok: true, st: { t: 'tri', a: L.split(''), b: R.split('') } };
+      }
+      if (/^∠/.test(L) && /^∠/.test(R)) {
+        var x = angleName(L.slice(1), X), y = angleName(R.slice(1), X);
+        return x && y ? { ok: true, st: { t: 'ang', a: x, b: y } } : { ok: false, msg: 'Name each angle with three letters (vertex in the middle).' };
+      }
+      L = L.toUpperCase(); R = R.toUpperCase();
+      if (/^[A-Z]{2}$/.test(L) && /^[A-Z]{2}$/.test(R)) {
+        if (!X.drawn(L[0], L[1]) || !X.drawn(R[0], R[1])) return { ok: false, msg: 'One of those segments is not in the diagram.' };
+        return { ok: true, st: { t: 'seg', a: L.split(''), b: R.split('') } };
+      }
+      return { ok: false, msg: 'Use forms like AB ≅ CD, ∠ABC ≅ ∠DEF or △ABC ≅ △DEF.' };
+    }
+    function readGiven(t, X) {
+      var m, s = String(t).trim();
+      if ((m = /^([A-Z])([A-Z]) ∥ ([A-Z])([A-Z])$/.exec(s))) return { t: 'par', a: [m[1], m[2]], b: [m[3], m[4]] };
+      if ((m = /^([A-Z])([A-Z]) ⊥ ([A-Z])([A-Z])$/.exec(s))) return { t: 'perp', a: [m[1], m[2]], b: [m[3], m[4]] };
+      if ((m = /^([A-Z]) is the midpoint of ([A-Z])([A-Z])$/.exec(s))) return { t: 'mid', m: m[1], a: m[2], b: m[3] };
+      if ((m = /^([A-Z])([A-Z]) bisects ∠([A-Z])([A-Z])([A-Z])$/.exec(s))) return m[1] === m[4] ? { t: 'bis', v: m[1], r: m[2], x: m[3], y: m[5] } : null;
+      var r = readStatement(s, X);
+      return r.ok && (r.st.t === 'seg' || r.st.t === 'ang') ? r.st : null;
+    }
+    function givenTrue(g, X) {
+      var P = X.pts;
+      function have() { for (var i = 0; i < arguments.length; i++) if (!P[arguments[i]]) return false; return true; }
+      if (g.t === 'par') return have(g.a[0], g.a[1], g.b[0], g.b[1]) && X.drawn(g.a[0], g.a[1]) && X.drawn(g.b[0], g.b[1]) && Math.abs(cross(un(P[g.a[0]], P[g.a[1]]), un(P[g.b[0]], P[g.b[1]]))) < EPS && !collinear(P[g.a[0]], P[g.a[1]], P[g.b[0]]);
+      if (g.t === 'perp') return have(g.a[0], g.a[1], g.b[0], g.b[1]) && X.drawn(g.a[0], g.a[1]) && X.drawn(g.b[0], g.b[1]) && Math.abs(un(P[g.a[0]], P[g.a[1]])[0] * un(P[g.b[0]], P[g.b[1]])[0] + un(P[g.a[0]], P[g.a[1]])[1] * un(P[g.b[0]], P[g.b[1]])[1]) < EPS;
+      if (g.t === 'mid') return have(g.m, g.a, g.b) && X.drawn(g.a, g.b) && d(P[g.m], [(P[g.a][0] + P[g.b][0]) / 2, (P[g.a][1] + P[g.b][1]) / 2]) < EPS;
+      if (g.t === 'bis') return have(g.v, g.r, g.x, g.y) && X.drawn(g.v, g.r) && X.drawn(g.v, g.x) && X.drawn(g.v, g.y) && Math.abs(angDeg(P[g.x], P[g.v], P[g.r]) - angDeg(P[g.r], P[g.v], P[g.y])) < 1e-5 && Math.abs(2 * angDeg(P[g.x], P[g.v], P[g.r]) - angDeg(P[g.x], P[g.v], P[g.y])) < 1e-5;
+      return isTrue(g, X);
+    }
+    /* ---- meaning in the figure ---- */
+    function meas(t, a, X) { return t === 'seg' ? d(X.pts[a[0]], X.pts[a[1]]) : angDeg(X.pts[a[0]], X.pts[a[1]], X.pts[a[2]]); }
+    function triOk(a, b, X) {
+      if (new Set(a).size !== 3 || new Set(b).size !== 3) return false;
+      for (var i = 0; i < 3; i++) { var j = (i + 1) % 3; if (Math.abs(d(X.pts[a[i]], X.pts[a[j]]) - d(X.pts[b[i]], X.pts[b[j]])) > EPS) return false; }
+      return !collinear(X.pts[a[0]], X.pts[a[1]], X.pts[a[2]]);
+    }
+    function isTrue(st, X) {
+      if (st.t === 'seg') return Math.abs(meas('seg', st.a, X) - meas('seg', st.b, X)) < EPS;
+      if (st.t === 'ang') return Math.abs(meas('ang', st.a, X) - meas('ang', st.b, X)) < 1e-5;
+      if (st.t === 'right') return Math.abs(meas('ang', st.a, X) - 90) < 1e-5 && Math.abs(meas('ang', st.b, X) - 90) < 1e-5;
+      if (st.t === 'tri') return triOk(st.a, st.b, X);
+      return false;
+    }
+    function rays(a, X) { var V = X.pts[a[1]]; return [un(V, X.pts[a[0]]), un(V, X.pts[a[2]])]; }
+    function sameAngle(a, b, X) { if (a[1] !== b[1]) return false; var r = rays(a, X), s = rays(b, X); return (same(r[0], s[0]) && same(r[1], s[1])) || (same(r[0], s[1]) && same(r[1], s[0])); }
+    function segKey(a) { return a.slice().sort().join(''); }
+    function samePair(st, x, y, X) {   // st's two parts are x and y (in either order)
+      if (st.t === 'seg') return (segKey(st.a) === segKey(x) && segKey(st.b) === segKey(y)) || (segKey(st.a) === segKey(y) && segKey(st.b) === segKey(x));
+      return (sameAngle(st.a, x, X) && sameAngle(st.b, y, X)) || (sameAngle(st.a, y, X) && sameAngle(st.b, x, X));
+    }
+    function sameFact(s, t, X) { return s.t === t.t && (s.t === 'right' || s.t === 'ang' || s.t === 'seg') && samePair(s, t.a, t.b, X); }
+    function rayDirs(a, X) { return rays(a, X); }
+    function setEq(r, s) { return (same(r[0], s[0]) && same(r[1], s[1])) || (same(r[0], s[1]) && same(r[1], s[0])); }
+    function onLine(P, a, b) { return collinear(P, a, b); }
+    function perpAt(a, X) {   // angle a is formed by two given perpendicular lines meeting at its vertex
+      return X.givens.some(function (g) {
+        if (g.t !== 'perp') return false;
+        var P = X.pts, V = P[a[1]], l1 = [P[g.a[0]], P[g.a[1]]], l2 = [P[g.b[0]], P[g.b[1]]];
+        if (!onLine(V, l1[0], l1[1]) || !onLine(V, l2[0], l2[1])) return false;
+        var r = rays(a, X), u = un(l1[0], l1[1]), w = un(l2[0], l2[1]);
+        var along = function (x, z) { return Math.abs(cross(x, z)) < EPS; };
+        return (along(r[0], u) && along(r[1], w)) || (along(r[0], w) && along(r[1], u));
+      });
+    }
+    /* ---- reasons ---- */
+    function reasonKey(text) {
+      var t = String(text || '').toLowerCase().replace(/[.’'()]/g, ' ').replace(/\s+/g, ' ').trim();
+      if (!t) return null;
+      if (/cpctc|corresponding parts/.test(t)) return 'cpctc';
+      var compact = t.replace(/[^a-z]/g, '').replace(/(congruence)?(postulate|theorem|criterion)$/, '').replace(/congruence$/, '');
+      var W = { sss: 'SSS', sidesideside: 'SSS', sas: 'SAS', sideangleside: 'SAS', asa: 'ASA', anglesideangle: 'ASA', aas: 'AAS', angleangleside: 'AAS', saa: 'AAS', hl: 'HL', hypotenuseleg: 'HL', rhs: 'HL', ssa: 'SSA', anglesideside: 'SSA', aaa: 'AAA', angleangleangle: 'AAA' };
+      if (W[compact]) return W[compact];
+      if (/^given$/.test(t)) return 'given';
+      if (/reflexive|identity|shared side|common side|shared angle|common angle/.test(t)) return 'reflexive';
+      if (/vertical/.test(t)) return 'vertical';
+      if (/alternate interior|alt int/.test(t)) return 'altint';
+      if (/corresponding angles?/.test(t)) return 'corresp';
+      if (/midpoint/.test(t)) return 'midpoint';
+      if (/bisect/.test(t)) return 'bisector';
+      if (/right angles? (are|is)? ?congruent|all right angles|right angle congruence|right angles theorem/.test(t)) return 'rightcong';
+      if (/perpendicular|⊥/.test(t)) return 'perp';
+      if (/segment addition|addition postulate|addition property/.test(t)) return 'segadd';
+      return null;
+    }
+    function justified(st, k, X) {
+      var P = X.pts, G = X.givens;
+      if (k === 'given') return G.some(function (g) { return sameFact(g, st, X); });
+      if (k === 'reflexive') return st.t === 'seg' ? segKey(st.a) === segKey(st.b) : st.t === 'ang' && sameAngle(st.a, st.b, X);
+      if (k === 'vertical') { if (st.t !== 'ang' || st.a[1] !== st.b[1]) return false; var r = rays(st.a, X), s = rays(st.b, X); return (opp(r[0], s[0]) && opp(r[1], s[1])) || (opp(r[0], s[1]) && opp(r[1], s[0])); }
+      if (k === 'altint' || k === 'corresp') {
+        if (st.t !== 'ang' || st.a[1] === st.b[1]) return false;
+        return G.some(function (g) {
+          if (g.t !== 'par') return false;
+          var l1 = [P[g.a[0]], P[g.a[1]]], l2 = [P[g.b[0]], P[g.b[1]]], u = un(l1[0], l1[1]);
+          return [[st.a, st.b], [st.b, st.a]].some(function (pr) {
+            var V1 = P[pr[0][1]], V2 = P[pr[1][1]];
+            if (!onLine(V1, l1[0], l1[1]) || !onLine(V2, l2[0], l2[1])) return false;
+            var t = un(V1, V2), ra = rayDirs(pr[0], X), rb = rayDirs(pr[1], X), mu = [-u[0], -u[1]], mt = [-t[0], -t[1]];
+            if (k === 'altint') return (setEq(ra, [t, u]) && setEq(rb, [mt, mu])) || (setEq(ra, [t, mu]) && setEq(rb, [mt, u]));
+            return [[t, u], [t, mu], [mt, u], [mt, mu]].some(function (pair) { return setEq(ra, pair) && setEq(rb, pair); });
+          });
+        });
+      }
+      if (k === 'midpoint') return st.t === 'seg' && G.some(function (g) { return g.t === 'mid' && samePair(st, [g.a, g.m], [g.m, g.b], X); });
+      if (k === 'bisector') return st.t === 'ang' && G.some(function (g) { return g.t === 'bis' && samePair(st, [g.x, g.v, g.r], [g.r, g.v, g.y], X); });
+      if (k === 'perp') return (st.t === 'right' || st.t === 'ang') && perpAt(st.a, X) && perpAt(st.b, X);
+      if (k === 'rightcong') return st.t === 'ang' && perpAt(st.a, X) && perpAt(st.b, X);
+      if (k === 'segadd') {
+        if (st.t !== 'seg') return false;
+        return G.some(function (g) {
+          if (g.t !== 'seg') return false;
+          var o = P[g.a[0]], dir = un(o, P[g.a[1]]), all = g.a.concat(g.b, st.a, st.b);
+          if (!all.every(function (n) { return collinear(o, P[g.a[1]], P[n]); })) return false;
+          var x = function (n) { return (P[n][0] - o[0]) * dir[0] + (P[n][1] - o[1]) * dir[1]; };
+          var iv = function (s) { var a = x(s[0]), b = x(s[1]); return [Math.min(a, b), Math.max(a, b)]; };
+          function rest(big, small) {   // big = small + K with K sharing an endpoint: return K, else null
+            if (small[0] < big[0] - EPS || small[1] > big[1] + EPS) return null;
+            if (Math.abs(small[0] - big[0]) < EPS && big[1] - small[1] > EPS) return [small[1], big[1]];
+            if (Math.abs(small[1] - big[1]) < EPS && small[0] - big[0] > EPS) return [big[0], small[0]];
+            return null;
+          }
+          var A = iv(st.a), B = iv(st.b), g1 = iv(g.a), g2 = iv(g.b);
+          return [[g1, g2], [g2, g1]].some(function (gg) { var k1 = rest(A, gg[0]), k2 = rest(B, gg[1]); return k1 && k2 && Math.abs(k1[0] - k2[0]) < EPS && Math.abs(k1[1] - k2[1]) < EPS; });
+        });
+      }
+      return false;
+    }
+    /* ---- correspondence and criteria ---- */
+    function partOf(st, tri, X) {   // which corresponding part of tri (a ↔ b) this fact names
+      var a = tri.a, b = tri.b, i, j;
+      if (st.t === 'seg') { var pairs = [[0, 1], [1, 2], [0, 2]]; for (i = 0; i < 3; i++) { var q = pairs[i]; if (samePair(st, [a[q[0]], a[q[1]]], [b[q[0]], b[q[1]]], X)) return { k: 'S', v: q }; } return null; }
+      for (i = 0; i < 3; i++) { var o = [0, 1, 2].filter(function (z) { return z !== i; }); if (samePair({ t: 'ang', a: st.a, b: st.b }, [a[o[0]], a[i], a[o[1]]], [b[o[0]], b[i], b[o[1]]], X)) return { k: st.t === 'right' ? 'R' : 'A', v: i }; }
+      void j; return null;
+    }
+    function proves(post, found) {
+      var S = found.filter(function (f) { return f.k === 'S'; }).map(function (f) { return f.v; }), R = found.filter(function (f) { return f.k === 'R'; }).map(function (f) { return f.v; });
+      var A = found.filter(function (f) { return f.k !== 'S'; }).map(function (f) { return f.v; });
+      var hasS = function (i, j) { return S.some(function (s) { return (s[0] === i && s[1] === j) || (s[0] === j && s[1] === i); }); };
+      var trio = [0, 1, 2];
+      if (post === 'SSS') return hasS(0, 1) && hasS(1, 2) && hasS(0, 2);
+      if (post === 'SAS') return trio.some(function (v) { var o = trio.filter(function (z) { return z !== v; }); return A.indexOf(v) >= 0 && hasS(v, o[0]) && hasS(v, o[1]); });
+      if (post === 'ASA') return trio.some(function (v) { return trio.some(function (w) { return v !== w && A.indexOf(v) >= 0 && A.indexOf(w) >= 0 && hasS(v, w); }); });
+      if (post === 'AAS') return trio.some(function (v) { return trio.some(function (w) { var z = 3 - v - w; return v !== w && A.indexOf(v) >= 0 && A.indexOf(w) >= 0 && hasS(w, z); }); });
+      if (post === 'HL') return R.some(function (v) { var o = trio.filter(function (z) { return z !== v; }); return hasS(o[0], o[1]) && (hasS(v, o[0]) || hasS(v, o[1])); });
+      return false;
+    }
+    function pairing(t) { return [0, 1, 2].map(function (i) { return [t.a[i], t.b[i]].sort().join(''); }).sort().join('|'); }
+    function triDrawn(v, X) { return X.drawn(v[0], v[1]) && X.drawn(v[1], v[2]) && X.drawn(v[0], v[2]); }
+    /* rows: [{s, r}] -> {ok, bad:[row indexes], msg:{row: text}} */
+    function check(X, rows) {
+      var res = rows.map(function () { return ''; }), n = rows.length, support = [];
+      var cp = X.prove.t !== 'tri', triIdx = cp ? n - 2 : n - 1;
+      if (n < 4 || triIdx < 1) return { ok: false, msg: ['The proof needs supporting rows, the triangle congruence' + (cp ? ' and the CPCTC step.' : '.')], bad: [0] };
+      var parsed = rows.map(function (r) { return readStatement(r.s, X); }), keys = rows.map(function (r) { return reasonKey(r.r); });
+      for (var i = 0; i < triIdx; i++) {
+        var p = parsed[i], k = keys[i];
+        if (!String(rows[i].s || '').trim()) { res[i] = 'Row ' + (i + 1) + ' has no statement.'; continue; }
+        if (!p.ok) { res[i] = 'Row ' + (i + 1) + ': ' + p.msg; continue; }
+        if (p.st.t === 'tri') { res[i] = 'Row ' + (i + 1) + ': prove three pairs of parts before stating the triangles are congruent.'; continue; }
+        if (!isTrue(p.st, X)) { res[i] = 'Row ' + (i + 1) + ': this congruence is not true in the diagram.'; continue; }
+        if (!k) { res[i] = 'Row ' + (i + 1) + ': give a standard reason (Given, Reflexive Property, Vertical angles, …).'; continue; }
+        if (/^(SSS|SAS|ASA|AAS|HL|SSA|AAA|cpctc)$/.test(k)) { res[i] = 'Row ' + (i + 1) + ': ' + k.toUpperCase() + ' proves triangles congruent, not this statement.'; continue; }
+        if (!justified(p.st, k, X)) { res[i] = 'Row ' + (i + 1) + ': this reason does not justify the statement.'; continue; }
+        if (support.some(function (f) { return sameFact(f.st, p.st, X); })) { res[i] = 'Row ' + (i + 1) + ' repeats an earlier row.'; continue; }
+        support.push({ st: p.st, row: i });
+      }
+      var tp = parsed[triIdx], tk = keys[triIdx], tri = null;
+      if (!tp.ok) res[triIdx] = 'Row ' + (triIdx + 1) + ': ' + tp.msg;
+      else if (tp.st.t !== 'tri') res[triIdx] = 'Row ' + (triIdx + 1) + ' must state that the two triangles are congruent.';
+      else if (!triDrawn(tp.st.a, X) || !triDrawn(tp.st.b, X)) res[triIdx] = 'Row ' + (triIdx + 1) + ': these triangles are not in the diagram.';
+      else if (!isTrue(tp.st, X)) res[triIdx] = 'Row ' + (triIdx + 1) + ': the vertices are not in corresponding order.';
+      else if (!cp && pairing(tp.st) !== pairing(X.prove)) res[triIdx] = 'Row ' + (triIdx + 1) + ' must be the Prove statement.';
+      else {
+        tri = tp.st;
+        var found = support.map(function (f) { return partOf(f.st, tri, X); }).filter(Boolean);
+        if (!/^(SSS|SAS|ASA|AAS|HL)$/.test(tk || '')) res[triIdx] = 'Row ' + (triIdx + 1) + ': name the criterion (SSS, SAS, ASA, AAS or HL)' + (tk === 'SSA' || tk === 'AAA' ? '; ' + tk + ' does not prove triangles congruent.' : '.');
+        else if (!proves(tk, found)) res[triIdx] = 'Row ' + (triIdx + 1) + ': the rows above do not give ' + tk + ' for these triangles.';
+      }
+      if (cp) {
+        var c0 = parsed[n - 1], ck = keys[n - 1];
+        if (!c0.ok) res[n - 1] = 'Row ' + n + ': ' + c0.msg;
+        else if (!sameFact(c0.st, X.prove, X)) res[n - 1] = 'Row ' + n + ' must be the Prove statement.';
+        else if (ck !== 'cpctc') res[n - 1] = 'Row ' + n + ': the reason is CPCTC (corresponding parts of congruent triangles are congruent).';
+        else if (!tri) res[n - 1] = 'Row ' + n + ': state the triangle congruence correctly first.';
+        else if (!partOf(c0.st, tri, X)) res[n - 1] = 'Row ' + n + ': these are not corresponding parts of the congruent triangles.';
+      }
+      var bad = []; res.forEach(function (m, i) { if (m) bad.push(i); });
+      return { ok: !bad.length, bad: bad, msg: res.filter(Boolean) };
+    }
+    function splitWritten(text) {
+      return String(text || '').replace(/[⟨⟩]/g, '').split(/\s*(?:;|\n)\s*/).filter(function (x) { return x.trim(); }).map(function (line, i) {
+        var num = /^\s*(?:step\s*)?(\d+)\s*[.):]\s*/i.exec(line);
+        if (num && +num[1] !== i + 1) return { s: '', r: '', badNumber: true };   // numbered rows must count 1, 2, 3, …
+        if (num) line = line.slice(num[0].length);
+        var m = /^(.*?)\s*(?:—|–|\||\s-\s|:|,\s*(?:by|because)\s)\s*(.*)$/.exec(line);
+        return m ? { s: m[1], r: m[2] } : { s: line, r: '' };
+      });
+    }
+    return { ctx: ctxOf, check: check, split: splitWritten, reasonKey: reasonKey, read: readStatement };
+  })();
+  NS.proofCheck = PF;
+  function checkProofPart(p, part) {
+    var X = PF.ctx(p), pr = p.fig.proof, chk = part.check, rows;
+    if (chk.type === 'geo-proof-write') {
+      if (!pr.write || p.parts.length !== 1) return { status: 'invalid', msg: 'A written proof needs one empty proof table.' };
+      rows = PF.split(part.answer);
+      if (!rows.length) return { status: 'mismatch', msg: 'Write the proof rows.' };
+      if (rows.some(function (r) { return r.badNumber; })) return { status: 'mismatch', msg: 'Number the rows 1, 2, 3, … in order.' };
+    } else {
+      rows = pr.rows.map(function (r) { return { s: r.s, r: r.r }; });
+      var blanks = 0;
+      pr.rows.forEach(function (r) { if (r.sb) blanks++; if (r.rb) blanks++; });
+      var mine = p.parts.filter(function (q) { return q.check && q.check.type === 'geo-proof-blank'; });
+      if (pr.write || mine.length !== blanks || mine.length !== p.parts.length) return { status: 'invalid', msg: 'Every blank in the proof needs exactly one answer.' };
+      for (var i = 0; i < mine.length; i++) {
+        var c = mine[i].check, row = pr.rows[c.row];
+        if (!row || (c.field !== 's' && c.field !== 'r') || row[c.field + 'b'] !== mine[i].label) return { status: 'invalid', msg: 'An answer does not match a blank in the proof.' };
+        rows[c.row][c.field] = mine[i].answer || '';
+      }
+    }
+    var res = PF.check(X, rows);
+    if (res.ok) return { status: 'verified' };
+    if (chk.type === 'geo-proof-blank' && res.bad.indexOf(chk.row) < 0) return { status: 'mismatch', msg: 'Another row of the proof is not valid: ' + res.msg[0] };
+    return { status: 'mismatch', msg: res.msg.join(' ') };
+  }
   function checkPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
     var t = chk.type;
+    if (t === 'geo-proof-blank' || t === 'geo-proof-write') return checkProofPart(p, part);
     if (t === 'geo-proof-reason') {
       var words = C.plainText(p.prompt || '');
       var shared = /Triangles ABC and ABD share side AB/.test(words);

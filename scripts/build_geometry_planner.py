@@ -248,11 +248,11 @@ UNITS = [
   L('Triangle Congruence Proofs', 'G-CO.B.8, G-CO.C.10', 'complete a two-column or flow proof that two triangles are congruent.',
     'Students will write a reason for each statement of a proof.', 'Statement ___ is true because ___.',
     ['two-column proof', 'flow proof', 'reflexive property', 'vertical angles', 'CPCTC'], 'Skipping the reason column; every statement needs a reason.', FILL, 'full',
-    [('C', 'congruence-structured-proof', 1, 7)], '', 'Start with the givens, add facts from the diagram (shared side, vertical angles), prove the triangles congruent, then use CPCTC.'),
+    [('C', 'congruence-proof-missing-reason', 1, 4), ('C', 'congruence-proof-reasons', 1, 7), ('C', 'congruence-proof-statements', 1, 7), ('C', 'congruence-proof-mixed', 2, 7), ('C', 'congruence-proof-write', 4, 7), ('C', 'congruence-structured-proof', 1, 7)], '', 'Start with the givens, add facts from the diagram (shared side, vertical angles), prove the triangles congruent, then use CPCTC.'),
   L('CPCTC Applications', 'G-CO.B.7, G-CO.B.8', 'combine a congruence criterion with CPCTC to find unknown sides and angles.',
     'Students will explain the order: prove congruent first, then use CPCTC.', 'I proved the triangles congruent by ___, so ___ by CPCTC.',
     ['CPCTC', 'congruent', 'corresponding parts'], 'Using CPCTC before the triangles are proven congruent.', FILL, 'full',
-    [('C', 'congruence-sss', 4, 7), ('C', 'congruence-sas', 4, 7), ('C', 'congruence-asa', 4, 7), ('C', 'congruence-aas', 4, 7), ('C', 'congruence-hl', 4, 7)], '', 'CPCTC can only be used after the triangles are proven congruent.'),
+    [('C', 'congruence-sss', 4, 7), ('C', 'congruence-sas', 4, 7), ('C', 'congruence-asa', 4, 7), ('C', 'congruence-aas', 4, 7), ('C', 'congruence-hl', 4, 7), ('C', 'congruence-proof-cpctc', 1, 7)], '', 'CPCTC can only be used after the triangles are proven congruent.'),
  ]),
  (4, 'Triangle Relationships', [
   L('Interior and Exterior Angles of Triangles', 'G-CO.C.10', 'use the triangle angle sum and the exterior angle theorem to find missing angles.',

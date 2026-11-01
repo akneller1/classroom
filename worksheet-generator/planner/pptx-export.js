@@ -22,6 +22,10 @@
   function problemText(p) {
     var t = T(p.prompt || '') + (p.challengeQuestion ? '\nGO FURTHER: ' + T(p.challengeQuestion) : ''), parts = (p.parts || []).filter(function (x) { return x.prompt; });
     if (p.work && p.work.length) t += '\n' + p.work.map(function (w, i) { return 'Line ' + (i + 1) + ': ' + T('⟨' + w + '⟩'); }).join('\n');
+    if (p.fig && p.fig.proof && !p.fig.proof.hide) {   // the two-column proof (an HTML table under the diagram) becomes text rows on the slide
+      var cell = function (r, f) { return r[f + 'b'] ? '(' + r[f + 'b'] + ') ________' : r[f] || '________'; };
+      return t + '\nStatements | Reasons\n' + p.fig.proof.rows.map(function (r, i) { return (i + 1) + '. ' + cell(r, 's') + '  |  ' + cell(r, 'r'); }).join('\n');
+    }
     if (parts.length) t += '\n' + parts.map(function (x) { return (x.label ? '(' + x.label + ') ' : '') + T(x.prompt); }).join('\n');
     return t;
   }

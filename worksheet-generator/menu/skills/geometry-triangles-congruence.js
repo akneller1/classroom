@@ -263,10 +263,170 @@ function investigationHL(ctx){
 }
 /* Printables with small boxes ask for a compact prompt: the diagram carries the marks, so the text only needs the givens. */
 function C(g){return function(ctx){var p=g(ctx);if(ctx.compact&&p.compactPrompt)p.prompt=p.compactPrompt;delete p.compactPrompt;return p;};}
+/* ---------- Two-column congruence proofs (statements and reasons) ----------
+   Each diagram is built by an exact construction (reflection, half-turn, parallelogram, isosceles triangle,
+   shared angle, translation), so every Given is true of the drawn coordinates and the two triangles really
+   are congruent. The proof table is printed under the diagram (fig.proof); each blank is one part.
+   The verifier (check 'geo-proof-blank' / 'geo-proof-write') re-reads the printed Given/Prove text, the
+   coordinates and every row, and decides independently whether the completed proof is valid. */
+var PR_REASON={given:'Given',reflexive:'Reflexive Property of Congruence',vertical:'Vertical angles are congruent',
+ altint:'Alternate interior angles are congruent',corresp:'Corresponding angles are congruent',midpoint:'Definition of midpoint',
+ bisector:'Definition of angle bisector',perp:'Definition of perpendicular lines',rightcong:'All right angles are congruent',
+ segadd:'Segment Addition Postulate',SSS:'SSS',SAS:'SAS',ASA:'ASA',AAS:'AAS',HL:'HL',cpctc:'CPCTC'};
+function prR(r,a,b){return a+(b-a)*r.next();}
+function prD(p,q){return Math.hypot(p[0]-q[0],p[1]-q[1]);}
+function prAng(P,V,Q){var u=[P[0]-V[0],P[1]-V[1]],w=[Q[0]-V[0],Q[1]-V[1]];return Math.acos(Math.max(-1,Math.min(1,(u[0]*w[0]+u[1]*w[1])/(Math.hypot(u[0],u[1])*Math.hypot(w[0],w[1])))))*180/Math.PI;}
+function prMin(P,a,b,c){return Math.min(prAng(P[b],P[a],P[c]),prAng(P[a],P[b],P[c]),prAng(P[a],P[c],P[b]));}
+var S_=function(a,b){return {t:'seg',a:a.split(''),b:b.split('')};},A_=function(a,b){return {t:'ang',a:a.split(''),b:b.split('')};};
+/* templates: roles -> coordinates, drawn segments, givens, support facts [statement, reason], triangles, CPCTC options */
+var PR_T={
+ kite:function(r,v){var P;for(var i=0;i<200;i++){var c=prR(r,6,8),bx=prR(r,1.8,c-1.6),by=prR(r,2.2,3.6);P={A:[0,0],C:[c,0],B:[bx,by],D:[bx,-by]};
+   if(Math.abs(prD(P.A,P.B)-prD(P.C,P.B))>0.9&&prAng(P.A,P.B,P.C)>40&&prAng(P.A,P.B,P.C)<140&&prMin(P,'A','B','C')>24)break;}
+  var sAB=S_('AB','AD'),sCB=S_('CB','CD'),refl=S_('AC','AC'),bisA=A_('BAC','DAC'),bisC=A_('BCA','DCA'),angB=A_('ABC','ADC'),gA={t:'bis',ray:['A','C'],ang:['B','A','D']},gC={t:'bis',ray:['C','A'],ang:['B','C','D']};
+  var T={points:P,segs:[['A','B'],['B','C'],['C','D'],['D','A'],['A','C']],tri:[['A','B','C'],['A','D','C']]};
+  if(v==='SSS'){T.givens=[sAB,sCB];T.facts=[[sAB,'given'],[sCB,'given'],[refl,'reflexive']];}
+  if(v==='SAS'){T.givens=[sAB,gA];T.facts=[[sAB,'given'],[bisA,'bisector'],[refl,'reflexive']];}
+  if(v==='ASA'){T.givens=[gA,gC];T.facts=[[bisA,'bisector'],[refl,'reflexive'],[bisC,'bisector']];}
+  if(v==='AAS'){T.givens=[angB,gA];T.facts=[[angB,'given'],[bisA,'bisector'],[refl,'reflexive']];}
+  T.cpctc=[S_('BC','DC'),A_('ABC','ADC'),A_('BCA','DCA'),S_('AB','AD')];return T;},
+ bowtie:function(r,v){var P;for(var i=0;i<200;i++){var a=prR(r,3,4.6),b=prR(r,2.4,4.2),t1=prR(r,2.3,2.9),t2=t1+prR(r,0.75,1.5),A=[a*Math.cos(t1),a*Math.sin(t1)],B=[b*Math.cos(t2),b*Math.sin(t2)];
+   P={M:[0,0],A:A,B:B,D:[-A[0],-A[1]],E:[-B[0],-B[1]]};var g=prAng(P.A,P.M,P.B);
+   if(g>45&&g<120&&Math.abs(a-b)>0.6&&prD(A,B)>2.2&&prAng(P.M,P.A,P.B)>30&&prAng(P.M,P.B,P.A)>30)break;}
+  var vert=A_('AMB','DME'),mA=S_('AM','DM'),mB=S_('BM','EM'),aiA=A_('BAM','EDM'),aiB=A_('ABM','DEM'),sAB=S_('AB','DE'),par={t:'par',a:['A','B'],b:['D','E']};
+  var T={points:P,segs:[['A','D'],['B','E'],['A','B'],['D','E']],tri:[['A','M','B'],['D','M','E']]};
+  var midA={t:'mid',m:'M',a:'A',b:'D'},midB={t:'mid',m:'M',a:'B',b:'E'};
+  if(v==='SAS'){T.givens=[midA,midB];T.facts=[[mA,'midpoint'],[vert,'vertical'],[mB,'midpoint']];}
+  if(v==='ASA'){T.givens=[par,midA];T.facts=[[aiA,'altint'],[mA,'midpoint'],[vert,'vertical']];}
+  if(v==='AAS'){T.givens=[par,sAB];T.facts=[[aiB,'altint'],[vert,'vertical'],[sAB,'given']];}
+  T.cpctc=[sAB,aiA,aiB,mB,mA];return T;},
+ para:function(r,v){var P;for(var i=0;i<200;i++){var w=prR(r,5.5,7.5),s=prR(r,1.2,2.6)*(r.next()<0.5?1:-1),h=prR(r,3.2,4.4);P={A:[0,0],B:[w,0],C:[w+s,h],D:[s,h]};
+   if(Math.abs(prD(P.A,P.D)-w)>1.2&&prMin(P,'A','B','C')>24&&prMin(P,'C','D','A')>24)break;}
+  var refl=S_('AC','CA'),ai1=A_('BAC','DCA'),ai2=A_('BCA','DAC'),sAB=S_('AB','CD'),sBC=S_('BC','DA'),p1={t:'par',a:['A','B'],b:['D','C']},p2={t:'par',a:['A','D'],b:['B','C']};
+  var T={points:P,segs:[['A','B'],['B','C'],['C','D'],['D','A'],['A','C']],tri:[['A','B','C'],['C','D','A']]};
+  if(v==='SAS'){T.givens=[p1,sAB];T.facts=[[sAB,'given'],[ai1,'altint'],[refl,'reflexive']];}
+  if(v==='ASA'){T.givens=[p1,p2];T.facts=[[ai1,'altint'],[refl,'reflexive'],[ai2,'altint']];}
+  if(v==='SSS'){T.givens=[sAB,sBC];T.facts=[[sAB,'given'],[sBC,'given'],[refl,'reflexive']];}
+  T.cpctc=[A_('ABC','CDA'),sBC,ai2,sAB,ai1];return T;},
+ iso:function(r,v){var b=prR(r,2.4,3.6),h=prR(r,3.8,5.2),P={A:[0,h],B:[-b,0],C:[b,0],D:[0,0]};
+  var refl=S_('AD','AD'),sAB=S_('AB','AC'),sBD=S_('BD','CD'),bis=A_('BAD','CAD'),rt=A_('ADB','ADC'),mid={t:'mid',m:'D',a:'B',b:'C'},perp={t:'perp',a:['A','D'],b:['B','C']};
+  var T={points:P,segs:[['A','B'],['A','C'],['B','C'],['A','D']],tri:[['A','D','B'],['A','D','C']]};
+  if(v==='SSS'){T.givens=[sAB,mid];T.facts=[[sAB,'given'],[sBD,'midpoint'],[refl,'reflexive']];}
+  if(v==='SAS'){T.givens=[sAB,{t:'bis',ray:['A','D'],ang:['B','A','C']}];T.facts=[[sAB,'given'],[bis,'bisector'],[refl,'reflexive']];}
+  if(v==='SAS2'){T.givens=[perp,mid];T.facts=[[sBD,'midpoint'],[rt,'perp'],[refl,'reflexive']];}
+  if(v==='HL'){T.givens=[perp,sAB];T.facts=[[{t:'right',a:['A','D','B'],b:['A','D','C']},'perp'],[sAB,'given'],[refl,'reflexive']];}
+  T.cpctc=[A_('ABD','ACD'),sBD,bis,sAB];return T;},
+ shared:function(r){var P;for(var i=0;i<200;i++){var open=prR(r,48,72)*Math.PI/180,base=prR(r,-0.4,0.4),p=prR(r,6.5,8),q=p*prR(r,0.45,0.6),u1=[Math.cos(base+open/2),Math.sin(base+open/2)],u2=[Math.cos(base-open/2),Math.sin(base-open/2)];
+   P={A:[0,0],B:[p*u1[0],p*u1[1]],D:[q*u1[0],q*u1[1]],C:[p*u2[0],p*u2[1]],E:[q*u2[0],q*u2[1]]};if(prD(P.B,P.C)>3)break;}
+  var sAB=S_('AB','AC'),sAE=S_('AE','AD');
+  return {points:P,segs:[['A','B'],['A','C'],['B','E'],['C','D']],tri:[['A','B','E'],['A','C','D']],givens:[sAB,sAE],facts:[[sAB,'given'],[A_('BAE','CAD'),'reflexive'],[sAE,'given']],
+   cpctc:[S_('BE','CD'),A_('ABE','ACD'),A_('AEB','ADC')]};},
+ slide:function(r,v){var P;for(var i=0;i<200;i++){var t=prR(r,1.6,2.4),c=prR(r,4.2,5.4),ex=prR(r,0.8,c-0.8),ey=prR(r,2.6,3.6);P={A:[0,0],B:[t,0],C:[c,0],D:[c+t,0],E:[ex,ey],F:[ex+t,ey]};
+   if(prAng(P.E,P.A,P.C)>35&&prAng(P.E,P.C,P.A)>35)break;}
+  var sAC=S_('AC','BD'),cA=A_('EAC','FBD'),cC=A_('ECA','FDB'),sAE=S_('AE','BF'),sCE=S_('CE','DF'),gAB=S_('AB','CD'),pA={t:'par',a:['A','E'],b:['B','F']},pC={t:'par',a:['C','E'],b:['D','F']};
+  var T={points:P,segs:[['A','D'],['A','E'],['E','C'],['B','F'],['F','D']],tri:[['A','C','E'],['B','D','F']]};
+  if(v==='SAS'){T.givens=[gAB,pA,sAE];T.facts=[[sAC,'segadd'],[cA,'corresp'],[sAE,'given']];}
+  if(v==='ASA'){T.givens=[gAB,pA,pC];T.facts=[[cA,'corresp'],[sAC,'segadd'],[cC,'corresp']];}
+  if(v==='SSS'){T.givens=[gAB,sAE,sCE];T.facts=[[sAE,'given'],[sCE,'given'],[sAC,'segadd']];}
+  T.cpctc=[sCE,cC,A_('AEC','BFD'),sAE];return T;}
+};
+var PR_POOLS={easy:[['kite','SSS'],['para','SSS'],['iso','SSS'],['bowtie','SAS'],['iso','SAS'],['kite','SAS'],['iso','HL']],
+ medium:[['para','ASA'],['kite','ASA'],['bowtie','ASA'],['iso','SAS2'],['para','SAS'],['slide','SSS'],['kite','AAS']],
+ hard:[['bowtie','AAS'],['shared','SAS'],['slide','SAS'],['slide','ASA']]};
+function prPool(c){var E=PR_POOLS.easy,Me=PR_POOLS.medium,H=PR_POOLS.hard;return c<=2?E:c===3?E.concat(Me):c===4?Me.concat(E.slice(0,3)):c===5?Me.concat(H):H.concat(Me.slice(0,4));}
+var PR_LET='ABCDEFGHJKLMNPQRSTUVWXYZ'.split('');
+function prShow(st){var g=function(p){return '∠'+p.join('');};
+ if(st.t==='seg')return st.a.join('')+' ≅ '+st.b.join('');if(st.t==='ang')return g(st.a)+' ≅ '+g(st.b);
+ if(st.t==='tri')return '△'+st.a.join('')+' ≅ △'+st.b.join('');if(st.t==='right')return g(st.a)+' and '+g(st.b)+' are right angles';
+ if(st.t==='par')return st.a.join('')+' ∥ '+st.b.join('');if(st.t==='perp')return st.a.join('')+' ⊥ '+st.b.join('');
+ if(st.t==='mid')return st.m+' is the midpoint of '+st.a+st.b;if(st.t==='bis')return st.ray.join('')+' bisects ∠'+st.ang.join('');return '';}
+function prMap(st,L){var o=JSON.parse(JSON.stringify(st)),m=function(x){return Array.isArray(x)?x.map(m):typeof x==='string'&&x.length===1&&L[x]?L[x]:x;};
+ Object.keys(o).forEach(function(k){if(k!=='t')o[k]=m(o[k]);});return o;}
+/* build one proof: {pts, segs, givens, prove, rows:[{st,rk}], tri, cp} */
+function prBuild(r,c,opts){
+ var pool=opts.pool||prPool(c),choice=r.pick(pool),T=PR_T[choice[0]](r,choice[1]),post=choice[1]==='SAS2'?'SAS':choice[1];
+ var roles=Object.keys(T.points),letters=c<=2&&r.next()<0.6?null:r.shuffle(PR_LET).slice(0,roles.length),L={};
+ roles.forEach(function(k,i){L[k]=letters?letters[i]:k;});
+ var th=prR(r,-Math.PI,Math.PI),flip=r.next()<0.5,pts={};
+ if(choice[0]==='iso'||choice[0]==='slide')th=prR(r,-0.35,0.35)+(r.next()<0.25?Math.PI:0);   // keep the base roughly level
+ roles.forEach(function(k){var p=T.points[k];if(flip)p=[-p[0],p[1]];pts[L[k]]=[p[0]*Math.cos(th)-p[1]*Math.sin(th),p[0]*Math.sin(th)+p[1]*Math.cos(th)];});
+ var rows=T.facts.map(function(f){return {st:prMap(f[0],L),rk:f[1]};}),tri={t:'tri',a:T.tri[0].map(function(x){return L[x];}),b:T.tri[1].map(function(x){return L[x];})};
+ rows.push({st:tri,rk:post});
+ var prove=tri,cp=null;
+ if(opts.cpctc){
+  var used=T.facts.map(function(f){return JSON.stringify(f[0]);}).concat(T.givens.map(function(g){return JSON.stringify(g);}));
+  var opt=T.cpctc.filter(function(s){return used.indexOf(JSON.stringify(s))<0&&used.indexOf(JSON.stringify({t:s.t,a:s.b,b:s.a}))<0;});
+  cp=prMap(r.pick(opt),L);if(r.next()<0.5)cp={t:cp.t,a:cp.b,b:cp.a};rows.push({st:cp,rk:'cpctc'});prove=cp;}
+ return {template:choice[0],variant:choice[1],post:post,pts:pts,segs:T.segs.map(function(s){return [L[s[0]],L[s[1]]];}),
+  givens:T.givens.map(function(g){return prMap(g,L);}),prove:prove,rows:rows,tri:tri,cpctc:!!cp};
+}
+/* marks for the givens: ticks, arcs, parallel arrows, right-angle marks */
+function prFig(B){
+ var f={kind:'geo-cong',pts:B.pts,segs:B.segs,tris:[B.tri.a.slice(),B.tri.b.slice()],sides:[],angles:[],right:[],par:[],w:300,h:175};
+ var ns=0,na=0,np=0;
+ B.givens.forEach(function(g){
+  if(g.t==='seg')f.sides.push({s:[g.a.slice(),g.b.slice()],n:++ns});
+  else if(g.t==='ang')f.angles.push({a:[g.a.slice(),g.b.slice()],n:++na});
+  else if(g.t==='mid')f.sides.push({s:[[g.a,g.m],[g.m,g.b]],n:++ns});
+  else if(g.t==='bis')f.angles.push({a:[[g.ang[0],g.ang[1],g.ray[1]],[g.ray[1],g.ang[1],g.ang[2]]],n:++na});
+  else if(g.t==='par')f.par.push({s:[g.a.slice(),g.b.slice()],n:++np});
+  else if(g.t==='perp'){var X=g.a[1];f.right.push([g.a[0],X,g.b[1]]);}   // in the isosceles template the foot is the second letter of the first line
+ });
+ return f;
+}
+var PR_MODE={reasons:'Complete the two-column proof by writing each missing reason.',statements:'Complete the two-column proof by writing each missing statement.',
+ mixed:'Complete the two-column proof by writing each missing statement and reason.',one:'Complete the two-column proof by writing the missing reason.',
+ write:'Write a two-column proof. Give a statement and a reason in each row.'};
+/* blanks: list of [row, 's'|'r'] */
+function prProblem(ctx,B,mode,blanks,kind){
+ var c=ctx.c,fig=prFig(B),LAB='abcdefghijklmnop',rows=B.rows.map(function(x){return {s:prShow(x.st),r:PR_REASON[x.rk]};});
+ var given='Given: '+B.givens.map(prShow).join('; ')+'. Prove: '+prShow(B.prove)+'.';
+ var parts=[],table=rows.map(function(x){return {s:x.s,r:x.r};});
+ if(mode==='write'){
+  table=rows.map(function(){return {s:'',r:''};});
+  parts=[{prompt:'Write the complete proof.',answer:rows.map(function(x,i){return (i+1)+'. '+x.s+' — '+x.r;}).join('; '),check:{type:'geo-proof-write'}}];
+  fig.proof={rows:table,write:true};
+ } else {
+  blanks.sort(function(p,q){return p[0]-q[0]||(p[1]==='s'?-1:1);});
+  blanks.forEach(function(bk,i){var lab=LAB[i];table[bk[0]][bk[1]]='';table[bk[0]][bk[1]+'b']=lab;
+   parts.push({label:lab,prompt:(bk[1]==='s'?'Statement for step ':'Reason for step ')+(bk[0]+1),answer:rows[bk[0]][bk[1]],check:{type:'geo-proof-blank',row:bk[0],field:bk[1]}});});
+  fig.proof={rows:table};
+ }
+ var steps=rows.map(function(x){return step(x.s+' — '+x.r);});
+ steps.push(step(B.cpctc?'The triangles are proved congruent first; only then does CPCTC give the Prove statement.':'Three pairs of corresponding parts ('+B.post+') prove the triangles congruent.'));
+ return {variant:'geo-proof-table-'+kind+'-'+B.template+'-'+B.variant.toLowerCase()+(B.cpctc?'-cpctc':'')+'-'+c,
+  prompt:given+' '+PR_MODE[mode],fig:fig,parts:parts,steps:steps,space:[0.2,0.3,0.4]};
+}
+function prPickBlanks(r,B,mode,n){
+ var nr=B.rows.length,cells=[];
+ for(var i=0;i<nr;i++){if(mode!=='statements')cells.push([i,'r']);if(mode!=='reasons')cells.push([i,'s']);}
+ if(mode==='mixed'){   // never blank both cells of one row; at least one of each kind
+  var out=[],rowsUsed={},sh=r.shuffle(cells);
+  var firstS=sh.filter(function(x){return x[1]==='s';})[0],firstR=sh.filter(function(x){return x[1]==='r'&&x[0]!==firstS[0];})[0];
+  [firstS,firstR].forEach(function(x){out.push(x);rowsUsed[x[0]]=1;});
+  sh.forEach(function(x){if(out.length<n&&!rowsUsed[x[0]]){out.push(x);rowsUsed[x[0]]=1;}});
+  return out;}
+ return r.shuffle(cells).slice(0,Math.min(n,cells.length));
+}
+function proofSkill(mode,cp){
+ return function(ctx){
+  var r=ctx.rng,c=ctx.c,cpctc=cp==='always'||(cp==='hi'&&c>=5&&r.next()<0.5);
+  var B=prBuild(r,c,{cpctc:cpctc}),nr=B.rows.length,n,kind;
+  if(mode==='one'){n=1;kind='one';}
+  else if(mode==='write'||(cp==='always'&&c>=6)){return prProblem(ctx,B,'write',[],cp==='always'?'cpctc-write':'write');}
+  else if(mode==='reasons'){n=c<=2?2:c<=4?3:nr;kind='reasons';}
+  else if(mode==='statements'){n=c<=2?2:c<=4?3:Math.min(nr,4);kind='statements';}
+  else {n=c<=2?2:c<=4?3:c<=5?4:nr;kind=cp==='always'?'cpctc':'mixed';}
+  var bl=prPickBlanks(r,B,mode==='one'?'reasons':mode==='cpctc'?'mixed':mode,n);
+  if(cp==='always'&&!bl.some(function(x){return x[0]===nr-1;}))bl[bl.length-1]=[nr-1,r.next()<0.5?'s':'r'];   // the CPCTC step is always part of the work
+  var seenRow={};bl=bl.filter(function(x){var k=x.join();if(seenRow[k])return false;seenRow[k]=1;return true;});
+  return prProblem(ctx,B,mode==='one'?'one':mode==='cpctc'?'mixed':mode,bl,kind);
+ };
+}
+
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning',CHAIN:'Multi-step congruence investigations'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
- gaps:['Proofs other than the shared-side and vertical-angle formats, and congruence by rigid motions, are not generated.'],
+ gaps:['Flow-chart and paragraph proofs are generated only in the shared-side and vertical-angle formats; congruence by rigid motions is not generated.'],
  skills:[
  {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1],generate:C(ctx=>corresponding(ctx,'side'))},
  {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1],generate:C(ctx=>corresponding(ctx,'angle'))},
@@ -284,6 +444,12 @@ NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',course
  {id:'congruence-investigation-overlap',tag:'CHAIN',name:'Four-part investigation: overlapping triangles and parallel lines',best:[2],generate:investigationOverlap},
  {id:'congruence-investigation-kite',tag:'CHAIN',name:'Four-part investigation: kite with a shared diagonal',best:[2],generate:investigationKite},
  {id:'congruence-investigation-hl',tag:'CHAIN',name:'Four-part investigation: right triangles congruent by HL',best:[2],generate:investigationHL},
- {id:'congruence-structured-proof',tag:'PROOFS',name:'Complete a two-column or flow proof',best:[0,1,2],generate:structuredProof}
+ {id:'congruence-structured-proof',tag:'PROOFS',name:'Complete a two-column or flow proof',best:[0,1,2],generate:structuredProof},
+ {id:'congruence-proof-missing-reason',tag:'PROOFS',name:'Proof: supply the missing reason',best:[0,1],generate:proofSkill('one','hi')},
+ {id:'congruence-proof-reasons',tag:'PROOFS',name:'Proof: fill in the missing reasons',best:[0,1],generate:proofSkill('reasons','hi')},
+ {id:'congruence-proof-statements',tag:'PROOFS',name:'Proof: fill in the missing statements',best:[0,1],generate:proofSkill('statements','hi')},
+ {id:'congruence-proof-mixed',tag:'PROOFS',name:'Proof: missing statements and reasons',best:[1,2],generate:proofSkill('mixed','hi')},
+ {id:'congruence-proof-write',tag:'PROOFS',name:'Write a triangle congruence proof',best:[2],generate:proofSkill('write','no')},
+ {id:'congruence-proof-cpctc',tag:'PROOFS',name:'CPCTC proofs (prove parts congruent)',best:[1,2],generate:proofSkill('cpctc','always')}
  ]});
 })(typeof window!=='undefined'?window:globalThis);

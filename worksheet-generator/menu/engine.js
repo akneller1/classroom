@@ -362,6 +362,12 @@
         var vw = NS.verifyProblem(w, { intOnly: false });
         if (vw.ok) { w.verify = { status: vw.status, issues: vw.issues }; m.derived = w; m.note = q !== p ? cands[i].note : m.note; return m; }
       }
+      if (m && q.parts[0].check && q.parts[0].check.type === 'geo-proof-write') {   // with choices, the student picks the valid proof (wording and table only; re-verified)
+        var wp = JSON.parse(JSON.stringify(q)); wp.prompt = wp.prompt.replace(/\s*Write a two-column proof\..*$/, ' Which two-column proof is correct?'); wp.parts[0].prompt = ''; wp.fig.proof.hide = true;
+        var vp = NS.verifyProblem(wp, { intOnly: false });
+        if (vp.ok) { wp.verify = { status: vp.status, issues: vp.issues }; m.derived = wp; return m; }
+        continue;
+      }
       if (m) { if (q !== p) { m.derived = q; m.note = cands[i].note; } return m; }
     }
     return { fail: cands.length ? 'There are not enough checked wrong answers for this problem, so it stays short answer.' : 'The answer is a graph, so it stays short answer.' };

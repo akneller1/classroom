@@ -339,6 +339,36 @@ window.MKPLAN_SKILLS_GEOMETRY = {
    "skills": [
     [
      "C",
+     "congruence-proof-missing-reason",
+     1,
+     4
+    ],
+    [
+     "C",
+     "congruence-proof-reasons",
+     1,
+     7
+    ],
+    [
+     "C",
+     "congruence-proof-statements",
+     1,
+     7
+    ],
+    [
+     "C",
+     "congruence-proof-mixed",
+     2,
+     7
+    ],
+    [
+     "C",
+     "congruence-proof-write",
+     4,
+     7
+    ],
+    [
+     "C",
      "congruence-structured-proof",
      1,
      7
@@ -376,6 +406,12 @@ window.MKPLAN_SKILLS_GEOMETRY = {
      "C",
      "congruence-hl",
      4,
+     7
+    ],
+    [
+     "C",
+     "congruence-proof-cpctc",
+     1,
      7
     ]
    ]

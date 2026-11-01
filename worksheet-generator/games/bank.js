@@ -142,6 +142,29 @@
         if (label !== key) cands.push({a:label,w:3});
       });
     }
+    // two-column proofs: the other standard reasons, and wrong vertex orders / other parts for a statement (each verified wrong below)
+    if ((p.parts[k].check || {}).type === 'geo-proof-blank') {
+      if (p.parts[k].check.field === 'r') ['Given', 'Reflexive Property of Congruence', 'Vertical angles are congruent', 'Alternate interior angles are congruent', 'Corresponding angles are congruent',
+        'Definition of midpoint', 'Definition of angle bisector', 'Definition of perpendicular lines', 'Segment Addition Postulate', 'SSS', 'SAS', 'ASA', 'AAS', 'HL', 'SSA', 'CPCTC'].forEach(function (r) { if (r !== key) cands.push({ a: r, w: /^(SSS|SAS|ASA|AAS|HL|SSA)$/.test(r) === /^(SSS|SAS|ASA|AAS|HL)$/.test(key) ? 4 : 2 }); });
+      else {
+        var tm = /^△([A-Z]{3}) ≅ △([A-Z])([A-Z])([A-Z])$/.exec(key);
+        if (tm) [[2, 4, 3], [3, 2, 4], [4, 3, 2], [3, 4, 2], [4, 2, 3]].forEach(function (o) { cands.push({ a: '△' + tm[1] + ' ≅ △' + tm[o[0]] + tm[o[1]] + tm[o[2]], w: 4 }); });
+        var sm = /^(∠?)([A-Z]+) ≅ (∠?)([A-Z]+)$/.exec(key);
+        if (sm) { var rv = sm[4].split('').reverse().join(''); if (sm[1] && rv !== sm[4]) cands.push({ a: sm[1] + sm[2] + ' ≅ ∠' + sm[4][1] + sm[4][0] + sm[4][2], w: 3 }); if (!sm[1]) cands.push({ a: sm[2] + ' ≅ ' + sm[2][0] + sm[4][0], w: 2 }); }
+        (p.fig && p.fig.proof ? p.fig.proof.rows : []).forEach(function (r) { if (r.s && r.s !== key && !/△/.test(r.s) === !/△/.test(key)) cands.push({ a: r.s, w: 2 }); });
+      }
+    }
+    // a whole written proof: the same proof with one classic flaw (wrong criterion, wrong vertex order, an unsupported "Given", CPCTC misused)
+    if ((p.parts[k].check || {}).type === 'geo-proof-write') {
+      var pw = key.split('; '), last = pw.length - 1, triAt = pw.map(function (x) { return /△/.test(x); }).lastIndexOf(true);
+      var swapRow = function (i, f) { var c = pw.slice(); c[i] = f(c[i]); return c.join('; '); };
+      if (triAt >= 0) {
+        ['SSS', 'SAS', 'ASA', 'AAS', 'HL', 'SSA'].forEach(function (cr) { cands.push({ a: swapRow(triAt, function (x) { return x.replace(/— [A-Z]{2,3}$/, '— ' + cr); }), w: cr === 'SSA' ? 3 : 4 }); });
+        cands.push({ a: swapRow(triAt, function (x) { return x.replace(/△([A-Z])([A-Z])([A-Z]) —/, '△$1$3$2 —'); }), w: 5 });
+      }
+      pw.forEach(function (x, i) { if (i < triAt && !/— Given$/.test(x)) cands.push({ a: swapRow(i, function (y) { return y.replace(/— .*$/, '— Given'); }), w: 3 }); });
+      if (last > triAt) cands.push({ a: swapRow(last, function (y) { return y.replace(/— CPCTC$/, '— Given'); }), w: 4 });
+    }
     // a "prime" key: offer factorizations a student might try (each one is checked and rejected)
     var ch0 = p.parts[k].check || {};
     if (ch0.type === 'factor' && /^\s*prime/i.test(key)) {
@@ -372,6 +395,10 @@
   GB.partQuestion = function (p, k) {
     var pt = p.parts[k], multi = p.parts.length > 1, ask = pt.prompt || '';
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
+    if (pt.check && pt.check.type === 'geo-proof-write' && p.fig && p.fig.proof) {   // a whole proof is chosen, not written: no empty table
+      var pf = JSON.parse(JSON.stringify(p.fig)); pf.proof.hide = true;
+      return { prompt: String(p.prompt || '').replace(/\s*Write a two-column proof\..*$/, ''), flashcardPrompt: null, fig: pf, work: null, ask: 'Which two-column proof is correct?', label: '' };
+    }
     return { prompt: p.compactPrompt || (NS.displayPrompt ? NS.displayPrompt(p) : p.prompt), flashcardPrompt: p.flashcardPrompt || null, fig: p.fig || null, work: p.work || null, ask: ask, label: multi && pt.label ? pt.label : '' };
   };
   GB.makeItems = function (setId, skillId, c, policy, seed, used) {

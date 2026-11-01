@@ -124,6 +124,14 @@
     text = text === undefined ? (p.prompt || '') : text;
     return /^geo-circle-/.test(p.variant || '') ? text.replace(/([XY]|\))\^2/g, '$1\u00b2') : text;
   };
+  /* answer key: the same proof table with the answers written into the blanks (a written proof shows the model rows) */
+  function proofKeyFig(p) {
+    var f = JSON.parse(JSON.stringify(p.fig)), pr = f.proof;
+    if (pr.write) pr.fillRows = String((p.parts[0] || {}).answer || '').split(/;\s*/).map(function (x) { var m = /^\d+\.\s*(.*?)\s+—\s+(.*)$/.exec(x); return m ? { s: m[1], r: m[2] } : { s: x, r: '' }; });
+    else { pr.fill = {}; (p.parts || []).forEach(function (pt) { if (pt.label) pr.fill[pt.label] = pt.answer || ''; }); }
+    return f;
+  }
+  NS.proofKeyFig = proofKeyFig;
   function promptHtml(p, forKey, inlineLabel, pointsLabel) {
     // Proof statements and the equation appear in the scaffold; do not print them twice.
     var questionText = p.prompt || '';
@@ -133,6 +141,7 @@
     questionText = NS.displayPrompt(p, questionText);
     var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + mathSafe(questionText) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
+    if (p.fig && p.fig.proof && NS.figHtml) return h + NS.figHtml(forKey ? proofKeyFig(p) : p.fig);   // the proof table under the diagram holds every blank
     if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p, forKey);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
@@ -141,7 +150,7 @@
   }
   NS.promptHtml = promptHtml;
   function isWide(p) {
-    if (/^geo-structured-proof-/.test(p.variant || '')) return true;
+    if (/^geo-structured-proof-/.test(p.variant || '') || (p.fig && p.fig.proof)) return true;
     var txt = WS.render ? (p.prompt || '').replace(/⟨[^⟩]*⟩/g, 'xxxxxxxxxx') : '';
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; }).length;
     // A Geometry diagram sits under its text in a half-width column, so a figure problem may run a little longer before it needs the full row.
@@ -152,7 +161,7 @@
   function workspace(p, cfg) {
     // The proof table or flowchart already provides every writing space.
     // An additional 1-3 inch blank workspace can push the figure off the page.
-    if (/^geo-structured-proof-/.test(p.variant || '')) return '';
+    if (/^geo-structured-proof-/.test(p.variant || '') || (p.fig && p.fig.proof)) return '';
     var d = DENS[cfg.layout.density]; if (d === undefined) d = 1;
     if (cfg.layout.format === 'menu-only') return '';
     var h = (p.space || [1, 1.3, 1.6])[d];

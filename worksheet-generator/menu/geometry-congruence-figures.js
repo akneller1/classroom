@@ -8,6 +8,12 @@
            angles:[{ a:[['B','A','C'],['E','D','F']], n:1 }]  equal-angle arc groups (vertex in the middle)
            right:[['A','B','C']]             right-angle marks (vertex in the middle)
            lab:{ AB:'x+3', DE:'25' }         segment label text (placed outside)
+           par:[{ s:[['A','B'],['D','C']], n:1 }]          parallel-arrow groups (every segment in a group is parallel)
+           w:330, h:120                      optional drawing box in px (proof figures use a taller box)
+           proof:{ rows:[{s:'AB ≅ AD', r:'Given'}, {s:'', sb:'a', r:'Reflexive Property of Congruence'}, ...] }
+                                             optional two-column proof printed under the drawing; a cell with sb/rb
+                                             is a labelled blank, proof.write marks an empty table the student fills in,
+                                             proof.fill = { a:'...' } prints key text in the blanks
            note:'' }
    F.cong.derive(spec) -> 'SSS'|'SAS'|'ASA'|'AAS'|'HL'|'SSA'|'AAA'|'NONE' from the marks alone.
    F.cong.pair(kind, flip) / shared() / cross() build exact, consistent specs for the skills.
@@ -46,6 +52,27 @@
       }
     }
     for (i = 0; i < (spec.right || []).length; i++) { var r = spec.right[i]; if (!pt(r[0]) || !pt(r[1]) || !pt(r[2]) || Math.abs(ang(pt(r[0]), pt(r[1]), pt(r[2])) - 90) > 1e-6) return { ok: false, msg: 'right-angle mark on a non-right angle' }; }
+    for (i = 0; i < (spec.par || []).length; i++) {
+      g = spec.par[i]; if (!(g.n >= 1 && g.n <= 3) || !g.s || g.s.length < 2) return { ok: false, msg: 'bad parallel group' };
+      for (j = 0; j < g.s.length; j++) {
+        if (!pt(g.s[j][0]) || !pt(g.s[j][1])) return { ok: false, msg: 'parallel mark on an undefined segment' };
+        var u0 = unit(pt(g.s[0][0]), pt(g.s[0][1])), uj = unit(pt(g.s[j][0]), pt(g.s[j][1]));
+        if (Math.abs(u0[0] * uj[1] - u0[1] * uj[0]) > 1e-6) return { ok: false, msg: 'segments ' + g.s[0].join('') + ' and ' + g.s[j].join('') + ' are marked parallel but are not' };
+      }
+    }
+    if (spec.proof) {
+      var pr = spec.proof, seenB = {};
+      if (!Array.isArray(pr.rows) || pr.rows.length < 2 || pr.rows.length > 12) return { ok: false, msg: 'bad proof table' };
+      for (i = 0; i < pr.rows.length; i++) {
+        var row = pr.rows[i];
+        for (j = 0; j < 2; j++) {
+          var fld = j ? 'r' : 's', bl = row[fld + 'b'];
+          if (typeof row[fld] !== 'string') return { ok: false, msg: 'bad proof cell' };
+          if (bl !== undefined) { if (!/^[a-z]$/.test(bl) || seenB[bl] || row[fld]) return { ok: false, msg: 'bad proof blank' }; seenB[bl] = 1; }
+          else if (!row[fld] && !pr.write) return { ok: false, msg: 'proof cell is empty but not a blank' };
+        }
+      }
+    }
     for (var k in (spec.lab || {})) { var n = numOf(spec.lab[k]); if (n === null && !/[a-z]/i.test(String(spec.lab[k]))) return { ok: false, msg: 'bad label ' + spec.lab[k] }; }
     for (i = 0; i < (spec.angLab || []).length; i++) { var al = spec.angLab[i]; if (!pt(al.p) || !pt(al.v) || !pt(al.q)) return { ok: false, msg: 'angle label on an undefined angle' }; var an2 = numOf(al.text); if (an2 !== null && !spec.nts && Math.abs(an2 - ang(pt(al.p), pt(al.v), pt(al.q))) > 0.6) return { ok: false, msg: 'angle labelled ' + al.text + ' is drawn as ' + Math.round(ang(pt(al.p), pt(al.v), pt(al.q))) + '°' }; }
     return { ok: true };
@@ -91,14 +118,30 @@
   function render(spec) {
     var P = spec.pts, names = Object.keys(P), xs = names.map(function (n) { return P[n][0]; }), ys = names.map(function (n) { return P[n][1]; });
     var mnx = Math.min.apply(null, xs), mxx = Math.max.apply(null, xs), mny = Math.min.apply(null, ys), mxy = Math.max.apply(null, ys);
-    var s = Math.min(330 / (mxx - mnx || 1), 120 / (mxy - mny || 1)), x0 = (W - (mxx - mnx) * s) / 2 - mnx * s, y0 = 46 + mxy * s;
+    var s = Math.min((spec.w || 330) / (mxx - mnx || 1), (spec.h || 120) / (mxy - mny || 1)), x0 = (W - (mxx - mnx) * s) / 2 - mnx * s, y0 = 46 + mxy * s;
     var S = {}; names.forEach(function (n) { S[n] = [x0 + P[n][0] * s, y0 - P[n][1] * s]; });
     var o = '', i, j, boxes = [];
     function box(x, y, t) { var w = String(t).length * 7.8 + 6, b = [x - w / 2, y - 9, x + w / 2, y + 9]; boxes.push(b); return b; }
     (spec.segs || []).forEach(function (sg) { o += L(S[sg[0]], S[sg[1]]); });
     var cen = {}, group = function (n) { var tt = (spec.tris || []).filter(function (t) { return t.indexOf(n) >= 0; })[0]; var pts = (tt || names).map(function (m) { return S[m]; }); return [pts.reduce(function (a, p) { return a + p[0]; }, 0) / pts.length, pts.reduce(function (a, p) { return a + p[1]; }, 0) / pts.length]; };
     names.forEach(function (n) { o += dot(S[n], 3); });
-    names.forEach(function (n) { var c = group(n), u = unit(c, S[n]); var x = S[n][0] + u[0] * 14, y = S[n][1] + u[1] * 14; o += T(x, y, n); box(x, y, n); });
+    function segDist(P, a, b) { var vx = b[0] - a[0], vy = b[1] - a[1], L2 = vx * vx + vy * vy || 1, t = Math.max(0, Math.min(1, ((P[0] - a[0]) * vx + (P[1] - a[1]) * vy) / L2)); return Math.hypot(P[0] - a[0] - t * vx, P[1] - a[1] - t * vy); }
+    var placed = [];
+    names.forEach(function (n) {
+      var c = group(n), u = unit(c, S[n]), x = S[n][0] + u[0] * 14, y = S[n][1] + u[1] * 14;
+      if (spec.proof) {   // proof diagrams: put each label where it is farthest from every drawn segment and earlier label
+        var best = -1;
+        for (var k = 0; k < 16; k++) {
+          var th = k * Math.PI / 8, cx = S[n][0] + Math.cos(th) * 15, cy = S[n][1] + Math.sin(th) * 15, sc = 99;
+          (spec.segs || []).forEach(function (sg) { sc = Math.min(sc, segDist([cx, cy], S[sg[0]], S[sg[1]])); });
+          placed.forEach(function (q) { sc = Math.min(sc, Math.hypot(cx - q[0], cy - q[1]) - 6); });
+          sc += 0.8 * ((Math.cos(th) * u[0] + Math.sin(th) * u[1]));   // ties: away from the triangle
+          if (sc > best) { best = sc; x = cx; y = cy; }
+        }
+        placed.push([x, y]);
+      }
+      o += T(x, y, n); box(x, y, n);
+    });
     function tick(p, q, n) {
       var m = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2], u = unit(p, q), nn = [-u[1], u[0]], r = '';
       for (var k = 0; k < n; k++) { var c = [m[0] + u[0] * (k - (n - 1) / 2) * 5, m[1] + u[1] * (k - (n - 1) / 2) * 5]; r += '<path d="M' + r1(c[0] - nn[0] * 6) + ' ' + r1(c[1] - nn[1] * 6) + ' L' + r1(c[0] + nn[0] * 6) + ' ' + r1(c[1] + nn[1] * 6) + '" stroke="' + INK + '" stroke-width="1.7"/>'; }
@@ -108,6 +151,15 @@
     function arc(V, u1, u2, r) { var p = [V[0] + u1[0] * r, V[1] + u1[1] * r], q = [V[0] + u2[0] * r, V[1] + u2[1] * r], cr = u1[0] * u2[1] - u1[1] * u2[0]; return '<path d="M' + r1(p[0]) + ' ' + r1(p[1]) + ' A' + r + ' ' + r + ' 0 0 ' + (cr > 0 ? 1 : 0) + ' ' + r1(q[0]) + ' ' + r1(q[1]) + '" stroke="' + INK + '" stroke-width="1.4" fill="none"/>'; }
     (spec.angles || []).forEach(function (g) { g.a.forEach(function (t) { var V = S[t[1]], u1 = unit(V, S[t[0]]), u2 = unit(V, S[t[2]]); for (var k = 0; k < g.n; k++) o += arc(V, u1, u2, 15 + k * 4); }); });
     (spec.right || []).forEach(function (r) { var V = S[r[1]], u = unit(V, S[r[0]]), v = unit(V, S[r[2]]), a = 10, p = [V[0] + u[0] * a, V[1] + u[1] * a], q = [p[0] + v[0] * a, p[1] + v[1] * a], z = [V[0] + v[0] * a, V[1] + v[1] * a]; o += '<path d="M' + r1(p[0]) + ' ' + r1(p[1]) + ' L' + r1(q[0]) + ' ' + r1(q[1]) + ' L' + r1(z[0]) + ' ' + r1(z[1]) + '" stroke="' + INK + '" stroke-width="1.5" fill="none"/>'; });
+    (spec.par || []).forEach(function (g) {
+      g.s.forEach(function (sg) {
+        var p = S[sg[0]], q = S[sg[1]], u = unit(p, q), nn = [-u[1], u[0]], ln = d(p, q), off = Math.min(26, ln / 4);
+        for (var k = 0; k < g.n; k++) {
+          var c = [(p[0] + q[0]) / 2 + u[0] * (off + k * 6), (p[1] + q[1]) / 2 + u[1] * (off + k * 6)];
+          o += '<path d="M' + r1(c[0] - u[0] * 6 + nn[0] * 5) + ' ' + r1(c[1] - u[1] * 6 + nn[1] * 5) + ' L' + r1(c[0]) + ' ' + r1(c[1]) + ' L' + r1(c[0] - u[0] * 6 - nn[0] * 5) + ' ' + r1(c[1] - u[1] * 6 - nn[1] * 5) + '" stroke="' + INK + '" stroke-width="1.7" fill="none"/>';
+        }
+      });
+    });
     (spec.angLab || []).forEach(function (al) {
       var V = S[al.v], u1 = unit(V, S[al.p]), u2 = unit(V, S[al.q]), bis = [u1[0] + u2[0], u1[1] + u2[1]], bm = Math.hypot(bis[0], bis[1]) || 1; bis = [bis[0] / bm, bis[1] / bm];
       var tw = String(al.text).length * 7.8 + 6, a = Math.acos(Math.max(-1, Math.min(1, u1[0] * u2[0] + u1[1] * u2[1]))), placed = false;
@@ -119,7 +171,21 @@
       var m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], c = group(key[0]), u = unit(c, m), tw = String(spec.lab[key]).length * 7.8 / 2;
       o += T(m[0] + u[0] * (13 + tw * Math.abs(u[0])), m[1] + u[1] * 15, spec.lab[key]);
     }
-    return H.wrap(o, Math.ceil(46 + (mxy - mny) * s + 40), 'Triangles with their congruent parts marked', spec.note || '');
+    var out = H.wrap(o, Math.ceil(46 + (mxy - mny) * s + 40), spec.proof ? 'Diagram for the proof' : 'Triangles with their congruent parts marked', spec.note || '');
+    return spec.proof && !spec.proof.hide ? out + proofTable(spec.proof) : out;
+  }
+  /* the two-column proof under a proof diagram: printed cells, labelled blanks (or key text), empty rows to write in */
+  function proofTable(pr) {
+    var esc = H.esc, cell = 'border:1px solid #555;padding:7px 8px;vertical-align:top;height:0.32in';
+    function txt(row, f, i) {
+      var b = row[f + 'b'], key = pr.fillRows && pr.fillRows[i] && pr.fillRows[i][f];
+      if (b === undefined) return row[f] ? esc(row[f]) : key ? '<span style="color:#0b5394;font-weight:600">' + esc(key) + '</span>' : '';
+      var fill = pr.fill && pr.fill[b];
+      return fill ? '<b>(' + b + ')</b> <span style="color:#0b5394;font-weight:600">' + esc(fill) + '</span>' : '<b>(' + b + ')</b> <span style="display:inline-block;min-width:1.9in;border-bottom:1px solid #111">&nbsp;</span>';
+    }
+    return '<table class="mm-proof-table mm-proof-grid" style="width:100%;max-width:6.8in;border-collapse:collapse;margin:8px 0 4px;font-size:13.5px;break-inside:avoid">' +
+      '<thead><tr><th style="border:1px solid #111;border-bottom:2px solid #111;text-align:left;padding:6px 8px;width:52%">Statements</th><th style="border:1px solid #111;border-bottom:2px solid #111;text-align:left;padding:6px 8px">Reasons</th></tr></thead><tbody>' +
+      pr.rows.map(function (row, i) { return '<tr><td style="' + cell + '">' + (i + 1) + '. ' + txt(row, 's', i) + '</td><td style="' + cell + '">' + txt(row, 'r', i) + '</td></tr>'; }).join('') + '</tbody></table>';
   }
 
   F.printedCong = function (spec) { var out = [], k, n; for (k in (spec.lab || {})) { n = numOf(spec.lab[k]); if (n !== null) out.push([k, n]); } (spec.angLab || []).forEach(function (al) { n = numOf(al.text); if (n !== null) out.push(['angle ' + al.v, n]); }); return out; };

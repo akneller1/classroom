@@ -216,6 +216,7 @@
     var h = '<div class="pl-q">' + (inlineLabel ? '<b class="pl-qnum">' + esc(inlineLabel) + '</b> ' : '') + ms(p.prompt || '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + ms('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig) h += NS.figHtml(p.fig);
+    if (p.fig && p.fig.proof) return h;   // the proof table under the diagram labels every blank
     if (p.authoredOptions && p.authoredOptions.length) h += '<ol class="pl-authored-options" style="list-style:none;padding-left:0">' + p.authoredOptions.map(function(o){return '<li>' + (p.authoredFormat === 'select-all' ? '☐ ' : '○ ') + ms(o.text) + '</li>';}).join('') + '</ol>';
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="pl-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + ms(pt.prompt) + '</div>'; }).join('') + '</div>';
@@ -231,7 +232,7 @@
     if (!st.length) return '';
     return '<ol class="pl-steps">' + st.map(function (s) { return '<li>' + ms(s.t || '') + (s.m ? ' ' + ms('⟨' + s.m + '⟩') : '') + '</li>'; }).join('') + '</ol>';
   }
-  function wide(p) { return (p.parts || []).filter(function (x) { return x.prompt; }).length > 1 || (p.prompt || '').replace(/⟨[^⟩]*⟩/g, 'xxxxxxxx').length > 140 || (p.fig && /twoway/.test(p.fig.kind)); }
+  function wide(p) { return !!(p.fig && p.fig.proof) || (p.parts || []).filter(function (x) { return x.prompt; }).length > 1 || (p.prompt || '').replace(/⟨[^⟩]*⟩/g, 'xxxxxxxx').length > 140 || (p.fig && /twoway/.test(p.fig.kind)); }
   function lessonTitle(id) { var l = P.lessonById(id); return l ? l.title : id; }
   function levelName() { return NS.LEVELS[ui.level].name; }
   function lines(n, label) { var h = '<div class="pl-lines">'; for (var i = 0; i < n; i++) h += '<div class="pl-line">' + (i === 0 && label ? '<span>' + esc(label) + '</span>' : '') + '</div>'; return h + '</div>'; }

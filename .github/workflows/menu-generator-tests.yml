@@ -22,6 +22,8 @@ jobs:
           node-version: '22'
       - name: Geometry SVG diagrams and starter-bank mathematics
         run: node worksheet-generator/menu/tests/geometry-diagrams-tests.cjs
+      - name: Two-column proof validity, mutations and typed answers
+        run: node worksheet-generator/menu/tests/geometry-proof-table-tests.cjs
       - name: Geometry unit coverage and curriculum alignment
         run: node worksheet-generator/menu/tests/geometry-curriculum-tests.cjs
       - name: Menu rules, versions, editing, save/load
