@@ -56,6 +56,32 @@
         </div>
     </div>
 
+    <script>
+const LEVELS = [
+    // BUILD MODE - Basics
+    { challenge: 'Build one-step additive function rules', mode: 'build', level: 1, inputs: [1, 2, 3, 4], outputs: [3, 4, 5, 6], gears: ['+1', '+2', '+3', '-1'], numSlots: 1 },
+    { challenge: 'Build one-step multiplicative function rules', mode: 'build', level: 2, inputs: [2, 4, 6, 8], outputs: [4, 8, 12, 16], gears: ['*2', '/2', '*3', '+2'], numSlots: 1 },
+    { challenge: 'Build two-step function rules', mode: 'build', level: 3, inputs: [1, 2, 3, 4], outputs: [5, 7, 9, 11], gears: ['*2', '+3', '-1', '*3', '+2'], numSlots: 2 },
+    
+    // GUESS MODE - Single Step
+    { challenge: 'Find missing inputs: one-step additive rules', mode: 'guess', level: 4, inputs: [1, 3, 5, 7], outputs: [4, 6, 8, 10], lockedGears: ['+3'], numSlots: 1 },
+    { challenge: 'Find missing inputs: one-step multiplicative rules', mode: 'guess', level: 5, inputs: [2, 4, 5, 10], outputs: [6, 12, 15, 30], lockedGears: ['*3'], numSlots: 1 },
+    
+    // BUILD MODE - Harder / Negatives
+    { challenge: 'Build one-step division rules', mode: 'build', level: 6, inputs: [2, 4, 6], outputs: [1, 2, 3], gears: ['/2', '-1', '+1', '*2'], numSlots: 1 },
+    { challenge: 'Build two-step function rules', mode: 'build', level: 7, inputs: [1, 3, 5], outputs: [1, 9, 17], gears: ['*4', '-3', '*3', '+2', '/2'], numSlots: 2 },
+    
+    // GUESS MODE - Two Step
+    { challenge: 'Find missing inputs: two-step rules', mode: 'guess', level: 8, inputs: [2, 4, 6], outputs: [7, 11, 15], lockedGears: ['*2', '+3'], numSlots: 2 },
+    
+    // BUILD MODE - 3 Options
+    { challenge: 'Build two-step function rules', mode: 'build', level: 9, inputs: [1, 2, 3], outputs: [4, 9, 14], gears: ['*5', '-1', '+2', '*4', '-2'], numSlots: 2 },
+    
+    // GUESS MODE - Tricky Reversal
+    { challenge: 'Find missing inputs: two-step rules', mode: 'guess', level: 10, inputs: [5, 10, 15], outputs: [2, 3, 4], lockedGears: ['/5', '+1'], numSlots: 2 }
+];
+    </script>
+    <script src="../../worksheet-generator/games/skill-setup.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

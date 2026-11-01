@@ -1,26 +1,4 @@
-const levels = [
-    // BUILD MODE - Basics
-    { mode: 'build', level: 1, inputs: [1, 2, 3, 4], outputs: [3, 4, 5, 6], gears: ['+1', '+2', '+3', '-1'], numSlots: 1 },
-    { mode: 'build', level: 2, inputs: [2, 4, 6, 8], outputs: [4, 8, 12, 16], gears: ['*2', '/2', '*3', '+2'], numSlots: 1 },
-    { mode: 'build', level: 3, inputs: [1, 2, 3, 4], outputs: [5, 7, 9, 11], gears: ['*2', '+3', '-1', '*3', '+2'], numSlots: 2 },
-    
-    // GUESS MODE - Single Step
-    { mode: 'guess', level: 4, inputs: [1, 3, 5, 7], outputs: [4, 6, 8, 10], lockedGears: ['+3'], numSlots: 1 },
-    { mode: 'guess', level: 5, inputs: [2, 4, 5, 10], outputs: [6, 12, 15, 30], lockedGears: ['*3'], numSlots: 1 },
-    
-    // BUILD MODE - Harder / Negatives
-    { mode: 'build', level: 6, inputs: [2, 4, 6], outputs: [1, 2, 3], gears: ['/2', '-1', '+1', '*2'], numSlots: 1 },
-    { mode: 'build', level: 7, inputs: [1, 3, 5], outputs: [1, 9, 17], gears: ['*4', '-3', '*3', '+2', '/2'], numSlots: 2 },
-    
-    // GUESS MODE - Two Step
-    { mode: 'guess', level: 8, inputs: [2, 4, 6], outputs: [7, 11, 15], lockedGears: ['*2', '+3'], numSlots: 2 },
-    
-    // BUILD MODE - 3 Options
-    { mode: 'build', level: 9, inputs: [1, 2, 3], outputs: [4, 9, 14], gears: ['*5', '-1', '+2', '*4', '-2'], numSlots: 2 },
-    
-    // GUESS MODE - Tricky Reversal
-    { mode: 'guess', level: 10, inputs: [5, 10, 15], outputs: [2, 3, 4], lockedGears: ['/5', '+1'], numSlots: 2 }
-];
+let levels = LEVELS.slice();
 
 let currentLevelIndex = 0;
 let draggedGear = null;
@@ -230,7 +208,7 @@ testBtn.addEventListener('click', () => {
         if (currentLevelIndex < levels.length - 1) {
             nextBtn.classList.remove('hidden');
         } else {
-            feedback.textContent = 'Congratulations! You beat all 10 levels!';
+            feedback.textContent = `Congratulations! You beat all ${levels.length} selected levels!`;
         }
     } else {
         feedback.textContent = levelData.mode === 'build' ? 'Machine malfunction! Outputs do not match.' : 'Incorrect inputs! Outputs do not match the targets.';
@@ -244,4 +222,8 @@ nextBtn.addEventListener('click', () => {
 });
 
 // Initialize game
-loadLevel(0);
+TeacherSkills.activityBank(LEVELS, level => level.challenge, selected => {
+    levels = selected;
+    currentLevelIndex = 0;
+    loadLevel(0);
+});
