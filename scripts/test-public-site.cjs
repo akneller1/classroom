@@ -15,13 +15,22 @@ const checkLinks=(file,text)=>{for(const match of text.matchAll(/(?:href|src)="(
  const target=path.resolve(path.dirname(file),decodeURIComponent(raw));assert(target===out||target.startsWith(out+path.sep),'Link escapes site: '+link);assert(fs.existsSync(target),'Missing generated link '+path.relative(out,file)+': '+link);
 }};
 checkLinks(path.join(out,'index.html'),home);
-for(const course of courses)for(const unit of fs.readdirSync(path.join(out,'u',course))){
+for(const course of courses){
+ const courseFile=path.join(out,'u',course,'index.html'),courseHtml=fs.readFileSync(courseFile,'utf8');
+ assert(courseHtml.includes('rel="canonical"'),'Missing course canonical: '+course);
+ assert(courseHtml.includes('meta name="description"'),'Missing course description: '+course);
+ checkLinks(courseFile,courseHtml);
+ for(const unit of fs.readdirSync(path.join(out,'u',course),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
  const file=path.join(out,'u',course,unit,'index.html'),html=fs.readFileSync(file,'utf8');
  assert(html.includes('../../../#'+course+'.'+unit),'Incorrect app route: '+course+'/'+unit);
  for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
+ assert(html.includes('<a href="../">'),'Missing course breadcrumb: '+course+'/'+unit);
  checkLinks(file,html);count++;
 }
-assert.equal(count,40);assert.equal((sitemap.match(/<loc>/g)||[]).length,41);
+}
+assert.equal(count,40);assert.equal((sitemap.match(/<loc>/g)||[]).length,45);
+assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
+assert(!home.includes('.main-nav { display: none; }'),'Header navigation hidden');
 for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])assert(fs.existsSync(path.join(out,'assets',file)),'Missing branding asset '+file);
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');
 console.log('PASS public build: four visible courses, 40 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');

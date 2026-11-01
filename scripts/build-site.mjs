@@ -187,6 +187,7 @@ const DESCRIPTION = `Free math activities for teachers${courseNames.length ? ` i
 
 const isExternal = (p) => /^(https?:)?\/\//i.test(p);
 const href = (p, depth) => isExternal(p) ? p : "../".repeat(depth) + String(p).replace(/^\.?\//, "");
+const courseUrl = (c) => `u/${c.slug}/`;
 const unitUrl = (c, u) => `u/${c.slug}/${u.slug}/`;
 
 function itemHtml(a, depth) {
@@ -246,6 +247,38 @@ const GOOGLE_FONTS_HOME = "https://fonts.googleapis.com/css2?family=Bricolage+Gr
 const sitemapUrls = [SITE_URL];
 
 for (const c of catalog) {
+  // Indexable course landing pages give teachers (and search engines) a clear
+  // subject-level directory without hiding Grade 6/7 on the public site.
+  const courseDepth = 2;
+  const courseAddress = SITE_URL + courseUrl(c);
+  const courseDescription = `Free ${c.title} resources for teachers: ${c.units.length} curriculum units with games, worksheets, printable activities, assessments and lesson plan generators.`;
+  const coursePage = `<!doctype html>
+<html lang="en">
+<head>
+${headTags({ title: `Free ${c.title} Activities, Worksheets & Games | ${SITE_NAME}`, description: courseDescription, url: courseAddress, depth: courseDepth, fontsHref: GOOGLE_FONTS_HOME })}
+<style>${PAGE_CSS}</style>
+</head>
+<body>
+<div class="wrap">
+<p class="crumbs"><a href="../../">${htmlEsc(SITE_NAME)}</a> / ${htmlEsc(c.title)}</p>
+<main>
+<h1>${htmlEsc(c.title)} Activities &amp; Worksheets</h1>
+<p class="lede">${htmlEsc(courseDescription)}</p>
+<h2>Explore ${htmlEsc(c.title)} units</h2>
+<ul class="mk-items">
+${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">(${u.items.length} classroom resources)</span></li>`).join("\n")}
+</ul>
+<a class="open-app" href="../../#${encodeURIComponent(c.id)}">Open ${htmlEsc(c.title)} in the full classroom site</a>
+</main>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
+</div>
+</body>
+</html>
+`;
+  const courseDir = path.join(OUT, courseUrl(c));
+  fs.mkdirSync(courseDir, { recursive: true });
+  fs.writeFileSync(path.join(courseDir, "index.html"), coursePage);
+  sitemapUrls.push(courseAddress);
   for (const u of c.units) {
     if (!u.items.length) continue;
     const depth = 3;
@@ -261,7 +294,7 @@ ${headTags({ title: `${u.title} – ${c.title} | ${SITE_NAME}`, description: des
 </head>
 <body>
 <div class="wrap">
-<p class="crumbs"><a href="../../../">${htmlEsc(SITE_NAME)}</a> / ${htmlEsc(c.title)}</p>
+<p class="crumbs"><a href="../../../">${htmlEsc(SITE_NAME)}</a> / <a href="../">${htmlEsc(c.title)}</a> / ${htmlEsc(u.title)}</p>
 <main>
 <h1>${htmlEsc(u.title)}</h1>
 <p class="lede">${htmlEsc(desc)}</p>
@@ -270,7 +303,7 @@ ${u.items.map((a) => itemHtml(a, depth)).join("\n")}
 </ul>
 <a class="open-app" href="${appLink}">Open this unit in the full classroom site</a>
 </main>
-<footer>Free for teachers. Made by Mr. K.</footer>
+<footer>© 2026 ${htmlEsc(SITE_NAME)} · <a href="https://github.com/akneller1/classroom/issues/new?title=Website%20feedback">Send feedback</a></footer>
 </div>
 </body>
 </html>
@@ -323,7 +356,7 @@ fs.writeFileSync(path.join(OUT, "sitemap.xml"),
     const staticHtml = `<div class="wrap mk-static">
 <h1>Free math activities for teachers</h1>
 <p>${htmlEsc(DESCRIPTION)}</p>
-${catalog.map((c) => `<h2>${htmlEsc(c.title)}</h2>
+${catalog.map((c) => `<h2><a href="${courseUrl(c)}">${htmlEsc(c.title)}</a></h2>
 <ul>
 ${c.units.map((u) => u.items.length
     ? `<li><a href="${unitUrl(c, u)}">${htmlEsc(u.title)}</a> (${u.items.length} activit${u.items.length === 1 ? "y" : "ies"})</li>`
@@ -414,4 +447,4 @@ await selfHostFonts();
 
 fs.writeFileSync(path.join(OUT,"robots.txt"),`User-agent: *\nAllow: /\nSitemap: ${SITE_URL}sitemap.xml\n`);
 
-console.log(`Done. ${sitemapUrls.length - 1} unit pages written. Output: _site/`);
+console.log(`Done. ${catalog.length} course pages and ${sitemapUrls.length - catalog.length - 1} unit pages written. Output: _site/`);

@@ -638,12 +638,30 @@ body { background:var(--paper); }
 .resource-readiness-row strong { font-size:.96rem; }
 .resource-readiness-row span { font-size:.84rem; color:var(--ink-soft); }
 
-/* Temporarily hide class navigation until more classes are available. */
-.main-nav { display: none; }
-
-/* Temporarily hide class navigation; only hide the back button on the home view. */
-.site-header .main-nav { display: none; }
+/* Four published courses: visible in the header, with private Grade 6/7 data
+   still excluded by app.js and the public-site builder. */
+.site-header .main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  gap: .3rem .6rem;
+  border-top: 1px solid var(--line);
+  padding-top: .45rem;
+}
+.site-header .main-nav a { padding: .35rem .8rem; white-space: nowrap; font-size: .93rem; }
 .back-btn[hidden] { display: none; }
+@media (max-width: 640px) {
+  .site-header .main-nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: .2rem;
+    scrollbar-width: thin;
+  }
+  .site-header .main-nav a { padding: .35rem .65rem; font-size: .85rem; }
+}
 
 /* Keep the teacher tagline with the site name in the header. */
 .brand-tagline { margin-left: .2rem; padding-left: .75rem; border-left: 1px solid var(--line); color: var(--ink-soft); font-family: var(--body); font-size: .68rem; font-weight: 700; letter-spacing: .08em; line-height: 1.2; text-transform: uppercase; }
@@ -672,3 +690,24 @@ body { background:var(--paper); }
   .hero-generator-panel .generator-shortcuts { grid-template-columns:1fr; }
   .hero-generator-panel .generator-shortcut { min-height:6.5rem; }
 }
+
+/* Quiet, optional support link: bottom of content, never floating or intrusive. */
+.support-banner { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 0; }
+.support-row { padding-block: 1rem; gap: .7rem 1.25rem; }
+.support-heading { font-size: .94rem; margin-bottom: .1rem; font-weight: 700; }
+.support-row p:not(.support-heading) { font-size: .85rem; color: var(--ink-soft); margin: 0; }
+.support-button {
+  background: transparent; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 999px;
+  box-shadow: none; padding: .45rem .8rem;
+  min-height: 38px; font-size: .86rem; font-weight: 700;
+}
+.support-button:hover { background: var(--wash); color: var(--ink); text-decoration: none; }
+.footer-bottom {
+  display: flex; flex-wrap: wrap; gap: .45rem 1.1rem;
+  align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--line); margin-top: .75rem; padding-top: .9rem;
+  font-size: .86rem;
+}
+.footer-bottom a { color: var(--ink-soft); text-underline-offset: .2rem; }
+.footer-bottom a:hover { color: var(--ink); }
