@@ -96,7 +96,6 @@
     { id: 'color-by-number', name: 'Color by Number', description: 'Solve math problems, match each answer to a color, and complete a themed picture. Printable activities for practice and review.' },
     { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
     { id: 'error-analysis', name: 'Error Analysis', description: 'Examine a worked example, identify the mistake, and explain how to fix it. Printable practice that builds mathematical reasoning.' },
-    { id: 'matching-game', name: 'Function Matching Game', description: 'Sort cards into sets: each function\u2019s graph, equation, table and description. Drag or tap to place cards, zoom in on graphs, check your sets and use hints. Same verified cards as the printable Matching Card Sort.' },
     { id: 'detective-games', name: 'Detective Games', description: 'Solve math problems to unlock clues, eliminate suspects, and crack a themed mystery. Type your answers and use the case board to identify the culprit.' },
     { id: 'escape-rooms', name: 'Escape Rooms', description: 'Work together to solve math puzzles, decode clues, and unlock five rooms before the timer runs out. Includes hints and a final challenge.' },
     { id: 'topic-games', name: 'Topic-Specific Games', description: 'Explore focused math challenges such as Slope Links Mini Golf and Zombie Fence, where the topic becomes part of the game.' },
@@ -119,7 +118,6 @@
     }
     if (/worksheet-generator\/practice-test\.html/i.test(a.path || '')) return 'interactive-practice-test';
     if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
-    if (/worksheet-generator\/match-game\.html/i.test(a.path || '')) return 'matching-game';
     if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
     if (/worksheet-generator\/menu-assessment/i.test(a.path || '')) return 'assessment-generator';
     if (/worksheet-generator\//i.test(a.path || '')) return 'worksheet-generator';
@@ -144,12 +142,11 @@
     return 'other';
   }
   /* Teaching mode metadata: derived from game mechanics, not the generic 'Game' type. */
-  function isUnitSpecificGame(a) { return a.unitSpecific === true || activityFormat(a) === 'topic-games'; }
   function gameMode(a) {
     var f = activityFormat(a);
     if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
     if (f === 'escape-rooms') return 'Collaborative Challenges';
-    if (['picture-reveal', 'detective-games', 'matching-game', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
+    if (['picture-reveal', 'detective-games', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
     return '';
   }
   var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges'];
@@ -157,8 +154,10 @@
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
   var RESOURCE_GROUPS = [
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'escape-rooms', 'detective-games', 'picture-reveal', 'matching-game', 'topic-games'] },
-    { id: 'study-guides', name: 'Study Guides', formats: ['flashcards', 'cheat-sheets', 'interactive-practice-test'] }
+    { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
+    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards', 'interactive-practice-test'] },
+    { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
     'lesson-planner': 'Plan a day: Do Now, notes, practice and exit ticket from the 180-day scope and sequence.',
@@ -275,7 +274,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { var path=a.path||''; if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return path; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
+  function activityUrl(a) { var path=a.path||''; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
@@ -308,9 +307,6 @@
   // Use game-board previews rather than captured setup/question dialogs.
   // These are illustrations of the existing game modes, not generated questions.
   function gameBoardThumbnail(a, it) {
-    // Each game with an authored thumbnail must use it rather than a generated generic preview.
-    if (a.thumb && (activityFormat(a) === 'topic-games' || /slope-links-mini-golf|zombie-fence/i.test(a.path || ''))) return a.thumb;
-    if (/^artifacts\/math-arcade\/index\.html\?game=/.test(a.path || '')) return a.thumb || '';
     var f = activityFormat(a);
     var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms','whodunnit','detective-games','topic-games'];
     if (supported.indexOf(f) < 0) return a.thumb || '';
@@ -400,7 +396,6 @@
         '<h3><a href="' + esc(activityUrl(a)) + '">' + esc(a.title) +
           '</a></h3>' +
         (gameMode(a) ? '<span class="game-mode-tag">' + esc(gameMode(a)) + '</span>' : '') +
-        (isUnitSpecificGame(a) ? '<span class="game-mode-tag">Unit Specific</span>' : '') +
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
           saveBtnHtml(a.path) + (/practice-test\.html#unit=([a-z0-9-]+)/i.test(a.path || '') ? '<button type="button" class="btn btn-ghost readiness-activity-share" data-readiness-unit="' + esc(/#unit=([a-z0-9-]+)/i.exec(a.path)[1]) + '">Copy student link</button>' : '') + '</div>' +
@@ -448,27 +443,27 @@
     return {
       title: L.title,
       html:
-        '<section class="hero"><div class="wrap home-layout">' +
-          '<div class="hero-copy home-intro">' +
-          '<h1 tabindex="-1">More learning. <span>Less planning.</span></h1>' +
-          '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes.</p></div>' +
-          '<div class="home-resource-panels">' +
-            '<section class="home-subject-panel" aria-labelledby="subject-heading">' +
-              '<div class="explore-heading"><h2 id="subject-heading">Browse by subject</h2>' +
-              '<p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses home-subject-cards">' +
-              L.courses.map(function (c) {
-                var n = courseCount(c);
-                return '<li><a class="course home-subject-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
-                  '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
-                  '<p class="count">' + (n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
-                  artFor(c) + '</a></li>';
-              }).join('') + SOON.map(function (c) {
-                return '<li><div class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
-                  '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
-              }).join('') + '</ul></section>' +
-            '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
-          '</div>' +
-        '</div></section>'
+        '<section class="hero"><div class="wrap">' +
+          '<div class="hero-copy"><p class="hero-eyebrow">MR. K’S CLASSROOM · BUILT FOR TEACHERS</p><h1 tabindex="-1">Less planning.<br><span>More teaching.</span></h1>' +
+          '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes. Spend less time preparing and more time teaching.</p></div>' +
+          '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
+        '</div></section>' +
+        '<section class="section explore-courses"><div class="wrap"><div class="explore-heading"><p class="section-kicker">YOUR CLASSROOM</p><h2>Explore by subject</h2><p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses">' +
+          L.courses.map(function (c) {
+            var n = courseCount(c);
+            return '<li><a class="course" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
+              '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
+              '<p class="count">' + (n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
+              artFor(c) + '</a></li>';
+          }).join('') + SOON.map(function (c) {
+            return '<li><div class="course soon" data-color="' + esc(c.color || '') + '" aria-disabled="true">' +
+              '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</div></li>';
+          }).join('') + '</ul></div></section>' +
+        '<section class="section more-resources-section"><div class="wrap"><div class="more-resources-heading"><div><p class="section-kicker">BEYOND THE GENERATORS</p><h2>Explore more resources</h2><p>Ready-to-use ways to practice, review, and reinforce skills.</p></div><a class="more-resources-all" href="#activities?subject=algebra">Browse all resources →</a></div>' +
+        '<div class="more-resource-links">' +
+          '<a class="more-resource-link" href="#activities?subject=algebra&category=games"><span class="more-resource-symbol" aria-hidden="true">◈</span><span><strong>Games</strong><small>Interactive challenges, team competitions, and engaging review.</small></span><span class="more-resource-arrow" aria-hidden="true">→</span></a>' +
+          '<a class="more-resource-link" href="#activities?subject=algebra&category=study-guides"><span class="more-resource-symbol" aria-hidden="true">▤</span><span><strong>Study Guides</strong><small>Helpful reference sheets, worked examples, and review resources.</small></span><span class="more-resource-arrow" aria-hidden="true">→</span></a>' +
+        '</div></div></section>'
     };
   }
 
@@ -581,26 +576,15 @@
         }
         if (c && c.id === 'algebra2') {
           var selectedUnit = u ? u.id : c.units[0].id;
-          if (tool.format === 'printable-generator') url = 'worksheet-generator/printables.html#unit=algebra2-' + selectedUnit;
-          else url = 'worksheet-generator/bank-printable.html?unit=' + selectedUnit + '&mode=' + ({'lesson-planner':'lesson','assessment-generator':'assessment','worksheet-generator':'worksheet'}[tool.format]);
+          // Algebra 2 uses the same Lesson Planner, Worksheet and Assessment Generators as Algebra 1 and Geometry
+          // (bank-printable.html stays available for old links).
+          url = 'worksheet-generator/' + ({ 'printable-generator': 'printables.html', 'lesson-planner': 'lesson-planner.html', 'assessment-generator': 'menu-assessment.html', 'worksheet-generator': 'worksheet.html' }[tool.format] || tool.page) + '#unit=algebra2-' + selectedUnit;
         }
         if (match && tool.format === 'printable-generator') url = url.replace(/&kind=[a-z]+$/, '');
         return '<li><a class="generator-shortcut" href="' + esc(url) + '">' +
           '<span class="generator-shortcut-icon" aria-hidden="true">' + ({'lesson-planner':'▤','worksheet-generator':'≡','printable-generator':'✦','assessment-generator':'☑'}[tool.format]) + '</span>' +
           '<span class="generator-shortcut-copy"><strong>' + (compact ? esc(tool.title) : 'Create a ' + esc(tool.title)) + '</strong>' +
           (!compact ? '<small>' + esc(tool.description) + '</small>' : '') +
-          '</span></a></li>';
-      }).join('') +
-      ['games', 'study-guides'].map(function (category) {
-        var params = new URLSearchParams();
-        if (c) params.set('subject', c.id);
-        if (u) params.set('unit', unitToken(c, u));
-        params.set('category', category);
-        var isGames = category === 'games';
-        return '<li><a class="generator-shortcut resource-shortcut" href="#activities?' + params.toString() + '">' +
-          '<span class="generator-shortcut-icon" aria-hidden="true">' + (isGames ? '◈' : '▤') + '</span>' +
-          '<span class="generator-shortcut-copy"><strong>' + (isGames ? 'Games' : 'Study Guides') + '</strong>' +
-          (!compact ? '<small>' + (isGames ? 'Interactive challenges and team review.' : 'Flashcards, practice tests, and reference sheets.') + '</small>' : '') +
           '</span></a></li>';
       }).join('') + '</ul></div>';
   }
@@ -632,10 +616,6 @@
     }
     function category(id, title, formats) {
       var matches = items.filter(function (it) { return formats.indexOf(activityFormat(it.a)) >= 0; });
-      // Stable, course-independent order. Keep multiple resources of one type in their original order.
-      matches = matches.map(function (it, index) { return { item: it, index: index }; }).sort(function (a, b) {
-        return formats.indexOf(activityFormat(a.item.a)) - formats.indexOf(activityFormat(b.item.a)) || a.index - b.index;
-      }).map(function (entry) { return entry.item; });
       // Include the practice test deterministically in each supported Algebra 1 unit.
       // Use the same card renderer and thumbnail as the other study guides.
       if (id === 'study-guides') {
@@ -681,7 +661,7 @@
             var games={'flashcards':'flashcards','connect-4':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','showdown':'showdown','detective':'detective','escape-room':'escape-room'};
             if(games[item[0]])return 'worksheet-generator/'+(['detective','escape-room'].includes(games[item[0]])?'course-activity':'course-game')+'.html?course='+c.id+'&unit='+u.id+'&game='+games[item[0]]+'&v=showdown-fix-20261031';
             if(item[0]==='readiness-check')return 'worksheet-generator/algebra2-practice.html?unit='+u.id;
-            return 'worksheet-generator/bank-printable.html?unit='+u.id+'&mode='+(item[0]==='assessments'?'assessment':'worksheet');
+            return 'worksheet-generator/'+(item[0]==='assessments'?'menu-assessment.html':'worksheet.html')+'#unit=algebra2-'+u.id;
           })()) + '">Open resource</a>' : '') + '</div>';
       }).join('') + '</div></section>';
   }
@@ -788,7 +768,7 @@
 
   function browseState(defaultFormat) {
     var params = new URLSearchParams(token.split('?')[1] || '');
-    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || (params.get('unitSpecific') ? 'Unit Specific' : ''),
+    return { subject: params.get('subject') || '', unit: params.get('unit') || '', category: params.get('category') || '', gameMode: params.get('gameMode') || '',
       format: params.get('format') || defaultFormat || '', page: Math.max(1, parseInt(params.get('page'), 10) || 1) };
   }
   function browseToken(state) {
@@ -799,13 +779,11 @@
   }
   function browseResults(state) {
     return everything().filter(function (it) {
-      // Lesson plans and worksheets are separate generator tools, not browseable activities.
-      if (['lesson-planner', 'worksheet-generator', 'printable-generator', 'assessment-generator'].indexOf(activityFormat(it.a)) >= 0) return false;
       return (!state.subject || it.c.id === state.subject) &&
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
         (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
         (!state.format || activityFormat(it.a) === state.format) &&
-        (!state.gameMode || (state.gameMode === 'Unit Specific' ? isUnitSpecificGame(it.a) : gameMode(it.a) === state.gameMode));
+        (!state.gameMode || gameMode(it.a) === state.gameMode);
     });
   }
   function browseSelect(id, label, choices, selected, allLabel) {
@@ -824,10 +802,8 @@
         id: unitToken(c, u), name: (state.subject ? '' : c.name + ' — ') + unitLabel(c, u)
       }); });
     });
-    var activeGroup = RESOURCE_GROUPS.filter(function (group) { return group.id === state.category; })[0];
-    var formatGroups = activeGroup ? [activeGroup] : RESOURCE_GROUPS;
     var formats = [];
-    formatGroups.forEach(function (group) {
+    RESOURCE_GROUPS.forEach(function (group) {
       group.formats.forEach(function (id) {
         var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === id; })[0];
         if (format && formatItems(format).length) formats.push(format);
@@ -842,8 +818,8 @@
       browseSelect('subject', 'Subject', L.courses, state.subject, 'All subjects') +
       browseSelect('unit', 'Unit', unitChoices, state.unit, 'All units') +
       browseSelect('category', 'Category', RESOURCE_GROUPS.map(function (g) { return { id: g.id, name: g.name }; }), state.category, 'All categories') +
-      browseSelect('format', 'Activity Type', formats, state.format, activeGroup ? 'All ' + (activeGroup.id === 'games' ? 'game' : 'study guide') + ' types' : 'All activity types') +
-      (state.category === 'study-guides' ? '' : browseSelect('gameMode', 'Game Type', GAME_MODES.concat(['Unit Specific']).map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game types')) +
+      browseSelect('format', 'Activity Type', formats, state.format, 'All activity types') +
+      ((state.category === 'games' || state.gameMode) ? browseSelect('gameMode', 'Game Mode', GAME_MODES.map(function (name) { return { id: name, name: name }; }), state.gameMode, 'All game modes') : '') +
       '<button type="button" class="btn browse-clear" id="browse-clear">Clear filters</button></div>';
     var pager = '';
     if (pages > 1) {
@@ -892,7 +868,7 @@
     var terms = searchWords(text).split(/\s+/).filter(Boolean);
     var items = everything().filter(function (it) {
       var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === activityFormat(it.a); })[0];
-      var hay = searchWords([it.a.title, it.a.description, it.u.name, 'unit ' + unitNum(it.c, it.u), it.c.name, format ? format.name : '', isUnitSpecificGame(it.a) ? 'unit specific' : '']
+      var hay = searchWords([it.a.title, it.a.description, it.u.name, 'unit ' + unitNum(it.c, it.u), it.c.name, format ? format.name : '']
         .concat(toArr(it.a.type), toArr(it.a.level), toArr(it.a.topics)).join(' '));
       return terms.every(function (term) { return hay.indexOf(term) >= 0; });
     });
@@ -954,7 +930,6 @@
       return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
     }).join('') + SOON.map(function (c) { return '<span class="soon-link" title="Coming soon">' + esc(c.name) + ' <small>Coming soon</small></span>'; }).join('');
     nav.innerHTML = html;
-    if (backBtn) backBtn.hidden = !query && r.name === 'home';
   }
 
   function render(keepFocus) {
@@ -1006,11 +981,6 @@
     var state = browseState(route.format ? route.format.id : '');
     state[key] = e.target.value;
     state.page = 1;
-    if (key === 'category') {
-      var selectedGroup = RESOURCE_GROUPS.filter(function (group) { return group.id === state.category; })[0];
-      if (selectedGroup && state.format && selectedGroup.formats.indexOf(state.format) < 0) state.format = '';
-      if (state.category !== 'games') state.gameMode = '';
-    }
     if (key === 'subject') state.unit = '';
     if (key === 'unit' && state.unit) state.subject = state.unit.split('.')[0];
     go(browseToken(state));

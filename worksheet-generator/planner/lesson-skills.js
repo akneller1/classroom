@@ -46,7 +46,7 @@
     'U3-L2': full([['I', 'ineq-solve', 1, 7]]),
     'U3-L3': full([['I', 'ineq-multi', 1, 7], ['I', 'ineq-special', 1, 7]]),
     'U3-L4': full([['I', 'compound-and', 1, 7], ['I', 'compound-or', 1, 7]]),
-    'U3-L5': full([['I', 'abs-eq', 1, 7], ['I', 'abs-ineq', 1, 7]]),
+    'U3-L5': full([['E', 'abs-eq', 1, 7], ['I', 'abs-ineq', 1, 7]]),
     'U3-L6': full([['I', 'apply', 1, 7]]),
     /* Unit 4 · Relations and Functions */
     'U4-L1': full([['R', 'domain-range', 1, 3], ['R', 'is-function', 1, 3]]),

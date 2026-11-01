@@ -53,10 +53,20 @@
   function uniq(a) { var s = {}; return a.filter(function (x) { if (s[x]) return false; s[x] = 1; return true; }); }
 
   /* ---------- generation ---------- */
-  function policy(plan) { var lv = NS.LEVELS[plan.level] || NS.LEVELS.cp1; return { intOnly: lv.intOnly, level: lv.id }; }
+  function policy(plan) { var lv = NS.LEVELS[plan.level] || NS.LEVELS.cp1; return { intOnly: lv.intOnly, level: lv.id, adjacentLevels: true }; }   // adjacentLevels: only the approved-bank (Algebra 2) adapter reads it
   function makeProblem(plan, slot, e, c, salt) {
-    var cc = clampC(e, c);
-    var p = NS.generateProblem(e.set, e.skill, cc, policy(plan), [plan.seed, plan.day.day, slot, salt || 0].join('|'), plan.used);
+    var cc = clampC(e, c), p, tries = 0;
+    /* Variety: a problem whose layout (its words and signs with the numbers taken out) already appears today is
+       redrawn a few times, so a set is not the same question with new numbers. */
+    plan.structs = plan.structs || {};
+    do {
+      p = NS.generateProblem(e.set, e.skill, cc, policy(plan), [plan.seed, plan.day.day, slot, (salt || 0) + tries * 1000].join('|'), plan.used);
+      if (p.failed) break;
+      var sk0 = structKey(p), bank = p.source === 'authored-bank';
+      if (!plan.structs[sk0] || tries >= (bank ? 3 : 5)) { plan.structs[sk0] = 1; break; }
+      // a problem passed over here stays available for a later slot (small skills have few distinct problems)
+      if (plan.used) { plan.used.keys.delete(p.key); plan.used.sigs.delete(p.sig); }
+    } while (++tries);
     var set = NS.skillSets[e.set], sk = set && set.byId[e.skill];
     if (p.failed) p = { failed: true, reason: p.reason, skill: e.skill, c: cc };
     /* Geometry skills write a step's math as ⟨TeX⟩ (the generators' own convention); the planner wraps it itself, so keep the bare TeX. */
@@ -64,14 +74,53 @@
     p.slot = slot; p.entry = e; p.lesson = e.lesson; p.skillName = sk ? sk.name : e.skill; p.setTitle = set ? set.unitName || set.title : e.set;
     return p;
   }
+  function structKey(p) {
+    // approved-bank items: compare the wording only, so "Find (f ∘ g)(x)…" twice with new functions counts as a repeat
+    if (p.source === 'authored-bank') return (p.skill || '') + '|' + (String(p.prompt || '').toLowerCase().match(/[a-z]{3,}/g) || []).join(' ') + '|' + (p.authoredFormat || '');
+    var strip = function (t) { return String(t || '').replace(/\d+(\.\d+)?/g, '#').replace(/\s+/g, ' '); };
+    return (p.skill || '') + '|' + strip(p.prompt) + '|' + (p.parts || []).map(function (x) { return strip(x.prompt); }).join('|');
+  }
   function items(plan, slotPrefix, rot, count, cAt) {
     var out = [];
     if (!rot.length) return out;
     for (var i = 0; i < count; i++) out.push(makeProblem(plan, slotPrefix + i, rot[i % rot.length], cAt(i, count)));
-    return out;
+    return byDifficulty(out);
   }
   function ramp(tiers) { return function (i, n) { return n <= 1 ? tiers[1] : tiers[Math.round(i * 2 / (n - 1))] ; }; }
   function fixed(c) { return function () { return c; }; }
+  /* ---------- variety and difficulty ----------
+     balanced(ids, n): n skill entries shared out evenly — round-robin over the lessons, then over each lesson's skills —
+     so two selected lessons get equal shares and no skill repeats while another is unused.
+     bandOf(i, n): position i of n → 0 Easy, 1 Medium, 2 Harder (n = 1 → Medium, n = 2 → Easy, Harder).
+     series(): one problem per entry at its band's difficulty, then ordered Easy → Medium → Harder. */
+  function balanced(ids, n, offset) {
+    var byLesson = uniq(ids || []).map(function (id) { return entriesFor([id]); }).filter(function (a) { return a.length; });
+    var out = [], L = byLesson.length; if (!L || n <= 0) return out;
+    var ptr = byLesson.map(function () { return 0; }), start = (offset || 0) % L;
+    for (var i = 0; i < n; i++) { var li = (start + i) % L, a = byLesson[li]; out.push(a[(ptr[li] + (offset || 0)) % a.length]); ptr[li]++; }
+    return out;
+  }
+  function bandOf(i, n) { return n <= 1 ? 1 : Math.round(i * 2 / (n - 1)); }
+  var BAND_NAMES = ['Easy', 'Medium', 'Harder'];
+  function series(plan, prefix, ids, n, tiers, offset) {
+    return byDifficulty(balanced(ids, n, offset).map(function (e, i) { var b = bandOf(i, n), p = makeProblem(plan, prefix + i, e, tiers[b]); p.band = b; return p; }));
+  }
+  /* Stable sort: band first (when known), then the difficulty c actually used. */
+  function byDifficulty(list) {
+    return list.map(function (p, i) { return [p, i]; }).sort(function (a, b) {
+      var ba = a[0].band === undefined ? -1 : a[0].band, bb = b[0].band === undefined ? -1 : b[0].band;
+      return (ba - bb) || ((a[0].c || 0) - (b[0].c || 0)) || (a[1] - b[1]);
+    }).map(function (x) { return x[0]; });
+  }
+  P.byDifficulty = byDifficulty; P.balanced = balanced; P.bandOf = bandOf;
+  P.series = function (plan, prefix, ids, n, tiers, offset) { return series(plan, prefix, ids, n, tiers || NS.LEVELS[plan.level].tiers, offset); };
+  /* Easy / Medium / Harder label for any problem: its band, or where its c sits in the class level's tiers. */
+  P.difficultyName = function (plan, p) {
+    if (p.band !== undefined) return BAND_NAMES[p.band];
+    var t = (NS.LEVELS[plan.level] || NS.LEVELS.cp1).tiers, c = p.c || 0;
+    return c <= t[0] ? 'Easy' : c >= t[2] ? 'Harder' : 'Medium';
+  };
+  function dnTiers(t) { return [Math.max(1, t[0] - 1), t[0], t[1]]; }
 
   /* Do Now lessons: the day's sources plus spiral review; sensible fallbacks when the scope lists none. */
   function doNowIds(d) {
@@ -86,15 +135,23 @@
     for (var n = d.day - 1; n >= 1; n--) { var x = P.day(n); if (x && x.day_type === 'Lesson' && x.unit === d.unit) return x.lesson_id; }
     return null;
   }
-  function doNow(plan, d, count, tiers) {
-    var ids = doNowIds(d), main = (d.do_now_source_ids || []).filter(function (id) { return entriesFor([id]).length; }), spiral = (d.spiral_review_ids || []).filter(function (id) { return entriesFor([id]).length && main.indexOf(id) < 0; });
-    if (!ids.length) return [];
+  /* Do Now: warm-up from the day's sources (every selected lesson's sources when lessons are combined) plus about
+     one spiral problem in three; skills are shared out evenly and the set runs Easy → Medium → Harder at a retrieval level. */
+  function doNow(plan, d, count, tiers, days) {
+    days = days && days.length ? days : [d];
+    var has = function (id) { return entriesFor([id]).length; };
+    var main = uniq([].concat.apply([], days.map(function (x) { return x.do_now_source_ids || []; }))).filter(has);
+    var spiral = uniq([].concat.apply([], days.map(function (x) { return x.spiral_review_ids || []; }))).filter(function (id) { return has(id) && main.indexOf(id) < 0; });
+    var ids = uniq([].concat.apply([], days.map(doNowIds)));
+    if (!ids.length && !main.length && !spiral.length) return [];
     if (!main.length) main = ids.filter(function (id) { return spiral.indexOf(id) < 0; });
     if (!main.length) { main = spiral; spiral = []; }
-    var nSpiral = spiral.length ? Math.min(spiral.length, Math.max(1, Math.floor(count / 3))) : 0;
-    var out = items(plan, 'dn', interleave(main), count - nSpiral, fixed(tiers[0]));
-    items(plan, 'dns', interleave(spiral), nSpiral, fixed(tiers[0])).forEach(function (p) { p.spiral = true; out.push(p); });
-    return out;
+    var dt = dnTiers(tiers), nSpiral = spiral.length ? Math.min(spiral.length, Math.max(1, Math.floor(count / 3))) : 0;
+    var all = balanced(main, count - nSpiral).map(function (e) { return { e: e }; }).concat(balanced(spiral, nSpiral).map(function (e) { return { e: e, spiral: true }; }));
+    // spread the spiral problems through the set so each band gets fresh skills
+    var mixed = [], si = all.filter(function (x) { return x.spiral; }), mi = all.filter(function (x) { return !x.spiral; });
+    while (mi.length || si.length) { if (mi.length) mixed.push(mi.shift()); if (mi.length) mixed.push(mi.shift()); if (si.length) mixed.push(si.shift()); }
+    return byDifficulty(mixed.map(function (x, i) { var b = bandOf(i, count), p = makeProblem(plan, (x.spiral ? 'dns' : 'dn') + i, x.e, dt[b]); p.band = b; if (x.spiral) p.spiral = true; return p; }));
   }
 
   /* ---------- the plan ---------- */
@@ -117,16 +174,20 @@
     var dn, notes, pr, ex;
     switch (d.day_type) {
       case 'Lesson':
-        dn = sec('donow', 'Do Now', { minutes: 5 }); group(dn, '', doNow(plan, d, 4, t));
+        /* Every problem set shares the selected lessons' skills out evenly and runs Easy → Medium → Harder.
+           Teacher-chosen counts (opts.counts) are used directly so the progression covers the whole set. */
+        var want = function (id, def) { var c = opts.counts && Object.prototype.hasOwnProperty.call(opts.counts, id) ? Math.round(Number(opts.counts[id])) : NaN; return isFinite(c) ? Math.max(0, Math.min(30, c)) : def; };
+        dn = sec('donow', 'Do Now', { minutes: 5, ids: cov, tiers: dnTiers(t) }); group(dn, '', doNow(plan, d, want('donow', 4), t, selectedDays));
         notes = sec('notes', 'Notes', { minutes: 15 });
-        var nEx = /pre-filled/i.test(d.notes_style || '') ? 2 : 3;
-        var examples = sec('examples', 'Examples', { minutes: 10 });
-        group(examples, '', items(plan, 'ex', interleave(cov), nEx, function (i) { return t[Math.min(2, i)]; }));
-        pr = sec('practice', 'Practice', { minutes: 20 });
-        var rot = interleave(cov);
-        group(pr, 'Practice set 1', items(plan, 'wd', rot, 2, fixed(t[0])));
-        group(pr, 'Practice set 2', items(plan, 'yd', rot.slice(1).concat(rot.slice(0, 1)), nPr - 2, ramp(t)));
-        ex = sec('exit', 'Exit Ticket', { minutes: 5, frame: d.sentence_frame }); group(ex, '', items(plan, 'et', rot, 2, fixed(t[1])));
+        var nEx = want('examples', /pre-filled/i.test(d.notes_style || '') ? 2 : 3);
+        var examples = sec('examples', 'Examples', { minutes: 10, ids: cov, tiers: t });
+        group(examples, '', series(plan, 'ex', cov, nEx, t, 0));
+        pr = sec('practice', 'Practice', { minutes: 20, ids: cov, tiers: t });
+        var prAll = series(plan, 'pr', cov, want('practice', nPr), t, 1);
+        if (prAll.length) group(pr, 'Practice set 1', prAll.slice(0, Math.min(2, prAll.length)));
+        if (prAll.length > 2) group(pr, 'Practice set 2', prAll.slice(2));
+        var etT = t;
+        ex = sec('exit', 'Exit Ticket', { minutes: 5, frame: d.sentence_frame, ids: cov, tiers: etT }); group(ex, '', series(plan, 'et', cov, want('exit', 2), etT, 2));
         break;
       case 'Practice':
         dn = sec('donow', 'Do Now', { minutes: 5 }); group(dn, '', doNow(plan, d, 4, t));
@@ -197,14 +258,14 @@
     // These are never mere additional routine exercises.
     if (opts.include && opts.include.challenge) {
       var challenge = sec('challenge', 'Challenge Problems', {
-        minutes: 10,
+        minutes: 10, ids: cov, tiers: [t[1], t[2], Math.min(7, t[2] + 1)],
         prompt: 'Solve the problem, then complete its specific challenge. Show your reasoning.'
       });
       var challengeEntries = interleave(cov);
       if (challengeEntries.length) {
         var howMany = opts.counts && Object.prototype.hasOwnProperty.call(opts.counts, 'challenge')
           ? Math.max(0, Math.min(12, Math.round(Number(opts.counts.challenge)) || 0)) : 2;
-        var challengeItems = items(plan, 'challenge-', challengeEntries, howMany, fixed(t[2]));
+        var challengeItems = series(plan, 'challenge-', cov, howMany, [t[1], t[2], Math.min(7, t[2] + 1)], 3);
         challengeItems.forEach(function(p, i) {
           p.challengeQuestion = P.challengeExtension(p, d.day + i);
         });
@@ -219,8 +280,8 @@
     }
     // Optional sections are generated only when requested; summary is an alternative to an exit ticket.
     if (opts.include && opts.include.mixed) {
-      var mixed = sec('mixed', 'Mixed Review', { minutes: 10 });
-      group(mixed, '', doNow(plan, d, 4, t));
+      var mixed = sec('mixed', 'Mixed Review', { minutes: 10, ids: cov, tiers: dnTiers(t) });
+      group(mixed, '', doNow(plan, d, opts.counts && opts.counts.mixed != null ? Math.max(0, Math.min(30, Math.round(+opts.counts.mixed) || 0)) : 4, t, selectedDays));
       var exitIndex = plan.sections.findIndex(function(s) { return s.id === 'exit'; });
       plan.sections.splice(plan.sections.indexOf(mixed), 1);
       plan.sections.splice(exitIndex >= 0 ? exitIndex : plan.sections.length, 0, mixed);
@@ -243,23 +304,33 @@
       if (!current.length) return;
       if (target === current.length) return;
       if (target < current.length) {
-        var remaining = target;
-        section.groups.forEach(function(g) { var kept = Math.min(remaining, g.items.length); g.items = g.items.slice(0, kept); remaining -= kept; });
+        // keep an evenly spaced selection so a shorter set still runs Easy → Harder
+        var keep = new Set();
+        for (var q = 0; q < target; q++) keep.add(current[target === 1 ? Math.floor((current.length - 1) / 2) : Math.round(q * (current.length - 1) / (target - 1))]);
+        section.groups.forEach(function(g) { g.items = g.items.filter(function(p) { return keep.has(p); }); });
         section.groups = section.groups.filter(function(g) { return g.items.length > 0; });
       } else {
         var last = section.groups.filter(function(g) { return g.items.length; }).slice(-1)[0];
         if (!last) return;
-        var rotation = current.map(function(p) { return p.entry; }).filter(Boolean);
-        if (!rotation.length) return;
+        var ids = section.ids || uniq(current.map(function(p) { return p.lesson; }).filter(Boolean));
+        var extra = balanced(ids, target - current.length, current.length);
+        if (!extra.length) return;
         var prefix = 'section-' + id + '-extra-';
-        for (var j = current.length; j < target; j++) {
-          var entry = rotation[(j - current.length) % rotation.length];
-          var tier = t[Math.min(2, Math.floor(j * 3 / Math.max(1, target)))];
-          var added = makeProblem(plan, prefix + j, entry, tier);
+        extra.forEach(function(entry, k) {
+          var j = current.length + k, b = bandOf(j, target);
+          var added = makeProblem(plan, prefix + j, entry, (section.tiers || t)[b]); added.band = b;
           if (id === 'challenge') added.challengeQuestion = P.challengeExtension(added, d.day + j);
           last.items.push(added);
-        }
+        });
+        last.items = byDifficulty(last.items);
       }
+    });
+    /* Teaching notes: one worked example per skill of each lesson in the notes (at most two per lesson), at the
+       easiest difficulty for the class level. They are separate from the Examples section and never repeat it. */
+    plan.worked = {};
+    if (notes && d.day_type === 'Lesson') (selectedDays.length ? selectedDays : [d]).forEach(function (x) {
+      var seen = {}, ents = entriesFor([x.lesson_id]).filter(function (e) { if (seen[e.skill]) return false; seen[e.skill] = 1; return true; }).slice(0, 2);
+      plan.worked[x.day] = ents.map(function (e, k) { var p = makeProblem(plan, 'nw' + x.day + '-' + k, e, t[0]); p.band = 0; return p; });
     });
     plan.notesMode = opts.notes === 'filled' || opts.notes === 'fill' ? opts.notes : P.lessonNotesMode(d);
     plan.sections.forEach(function (s) { s.defaultMinutes = s.minutes; });
@@ -311,9 +382,14 @@
     var old = plan.sections[si].groups[gi].items[ii];
     var salt = (old.salt || 0) + 1;
     var p = makeProblem(plan, old.slot, old.entry, old.c || old.entry.cmin, salt);
-    p.salt = salt; p.spiral = old.spiral; p.num = old.num; p.challengeQuestion = old.challengeQuestion ? P.challengeExtension(p, salt + plan.day.day) : undefined;
+    p.salt = salt; p.spiral = old.spiral; p.num = old.num; p.band = old.band; p.challengeQuestion = old.challengeQuestion ? P.challengeExtension(p, salt + plan.day.day) : undefined;
     plan.sections[si].groups[gi].items[ii] = p;
     return p;
+  };
+  P.regenerateWorked = function (plan, dayNum, k) {
+    var list = plan.worked && plan.worked[dayNum], old = list && list[k]; if (!old) return null;
+    var salt = (old.salt || 0) + 1, p = makeProblem(plan, old.slot, old.entry, old.c || old.entry.cmin, salt);
+    p.salt = salt; p.band = 0; list[k] = p; return p;
   };
   /* Fixed text for days without generated problems (launch tasks, routines, project checkpoints). */
   P.launchTask = function (d) {

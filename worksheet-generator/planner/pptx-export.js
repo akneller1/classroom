@@ -275,7 +275,9 @@
       }
       // Include notes for every selected lesson, not just the primary day.
       var noteDays = sec.lessonDay ? [sec.lessonDay] : plan.selectedDays && plan.selectedDays.length > 1 ? plan.selectedDays.map(function(n) { return P.day(n); }).filter(Boolean) : [d];
-      noteDays.forEach(function(d) {
+      for (var ndi = 0; ndi < noteDays.length; ndi++) {
+      await (async function (d) {
+      await teachSlides(sec, d, noteDays.length > 1);
       var voc = P.vocab(d);
       if (voc.length) {
         var s = content(noteDays.length > 1 ? d.title + ' — Vocabulary' : 'Key vocabulary', sec, sec.minutes), cols = voc.length > 4 ? 3 : 2, rows = Math.ceil(voc.length / cols), gp = 0.3;
@@ -295,7 +297,43 @@
       if (P.watchOut(d)) paras.push({ text: 'Watch out: ' + P.watchOut(d), size: 24, color: 'A33A1D' });
       if (P.myNotes(d)) P.myNotes(d).split(/\n+/).filter(Boolean).forEach(function (line) { paras.push({ text: line, size: 22, bullet: true }); });
       if (paras.length) textSlide(sec, noteDays.length > 1 ? d.title + ' — Key idea' : 'Key idea', paras, { notes: ['Model the sentence frame aloud before Example 1.'] });
-      });
+      })(noteDays[ndi]);
+      }
+    }
+    /* Teaching notes: one slide per explanation card (text left, diagram right), then the worked examples.
+       The student deck follows the handout's choice (guided notes print ________ for each blank); the teacher deck is completed. */
+    async function teachSlides(sec, d, many) {
+      if (!P.teachCards) return;
+      var mode = studentDeck && plan.notesMode !== 'filled' ? 'guided' : 'completed';
+      var cards = P.teachCards(d);
+      for (var ci = 0; ci < cards.length; ci++) {
+        var c = cards[ci], title = T(P.plainNoteText(c.h, 'completed')) + (many ? ' — ' + d.title : '');
+        var s = content(title, sec, ci === 0 ? sec.minutes : 0);
+        var figs = (c.figs || []).filter(function (f) { return f.t !== 'tbl'; }), tbl = (c.figs || []).filter(function (f) { return f.t === 'tbl'; })[0];
+        var side = figs.length || tbl, tw = side ? (W - 2 * MX) * 0.56 : W - 2 * MX;
+        var runs = [{ text: T(P.plainNoteText(c.big, mode)), options: { fontSize: 20, color: INK, breakLine: true, paraSpaceAfter: 12 } }];
+        c.steps.forEach(function (st, i) { runs.push({ text: T(P.plainNoteText(st, mode)), options: { fontSize: 18, color: INK, bullet: { type: 'number' }, breakLine: i < c.steps.length - 1, paraSpaceAfter: 6 } }); });
+        s.addText(runs, { x: MX, y: TOP, w: tw, h: BOTTOM - TOP, fontFace: BODY, valign: 'top', margin: 0, fit: 'shrink', isTextBox: true, objectName: 'Explanation' });
+        var bx = MX + tw + 0.3, bw = W - MX - bx;
+        if (figs.length) {
+          var fh = (BOTTOM - TOP - (tbl ? 1.6 : 0) - 0.2 * (figs.length - 1)) / figs.length;
+          for (var fi = 0; fi < figs.length; fi++) {
+            var im = await figImage(Object.assign({}, figs[fi], { __notesMode: mode }));
+            var ih = im ? Math.min(fh - (figs[fi].cap ? 0.35 : 0), bw * im.h / im.w) : 0;
+            if (im) placeImage(s, im, { x: bx, y: TOP + fi * (fh + 0.2), w: bw, h: ih });
+            if (figs[fi].cap) s.addText(T(P.plainNoteText(figs[fi].cap, mode)), { x: bx, y: TOP + fi * (fh + 0.2) + ih + 0.05, w: bw, h: 0.35, fontFace: BODY, fontSize: 12, color: INK2, align: 'center', margin: 0, isTextBox: true });
+          }
+        }
+        if (tbl) {
+          var rows = (tbl.head ? [tbl.head] : []).concat(tbl.rows).map(function (r, ri) { return r.map(function (cell) { return { text: T(P.plainNoteText(cell, mode)), options: ri === 0 && tbl.head ? { bold: true, fill: { color: 'EEEEEE' } } : {} }; }); });
+          s.addTable(rows, { x: bx, y: figs.length ? BOTTOM - 1.5 : TOP, w: bw, fontFace: BODY, fontSize: 12, color: INK, border: { type: 'solid', pt: 1, color: '555555' }, align: 'center', valign: 'middle', autoPage: false, objectName: 'Notes table' });
+        }
+        notes(s, ['Teaching notes (' + (plan.notesMode === 'filled' ? 'students have completed notes' : 'students have guided notes and fill in the blanks') + ').'].concat(P.hasBlanks(c.big) || c.steps.some(P.hasBlanks) ? ['Blanks: ' + [c.big].concat(c.steps).join(' ').match(/\{\{[\s\S]*?\}\}/g).map(function (x) { return T(x.slice(2, -2)); }).join(' · ')] : []));
+      }
+      var worked = (plan.worked && plan.worked[d.day] || []).filter(function (p) { return !p.failed; });
+      for (var wi = 0; wi < worked.length; wi++) {
+        await problemSlides(sec, 'Worked example' + (worked.length > 1 ? ' ' + (wi + 1) : '') + (many ? ' — ' + d.title : ''), [worked[wi]], { onePer: true, steps: true, labels: function () { return 'W' + (wi + 1); } });
+      }
     }
     async function exampleSlides(sec) {
       var ex = [];
@@ -340,6 +378,7 @@
         im.src = '../' + spec.src;
       });
     }
+    if (spec && spec.t && P.diagramSvg && !spec.kind) { var nsvg = P.diagramSvg(spec, spec.__notesMode || 'completed'); return nsvg ? svgToPng(nsvg) : Promise.resolve(null); }   // teaching-notes diagram
     var html = G.MKMENU.figHtml(spec), m = /<svg[\s\S]*<\/svg>/.exec(html);
     return m ? svgToPng(m[0]) : Promise.resolve(null);
   };

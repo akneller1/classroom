@@ -60,6 +60,30 @@ SC.days.forEach(d => ['cp2', 'cp1', 'honors'].forEach(lv => { for (let s = 0; s 
   if (d.day_type === 'Lesson') { const dn = plan.sections[0].groups[0].items.length; ok(dn === 4, 'day ' + d.day + ' Do Now has ' + dn); }
   counts[d.day_type] = (counts[d.day_type] || 0) + 1;
 } }));
+// 4. variety and difficulty: on every Lesson day each problem set runs Easy → Medium → Harder, shares the lesson's
+//    skills out evenly, and combined lessons each get problems
+const lessons = SC.days.filter(d => d.day_type === 'Lesson');
+lessons.forEach(d => ['cp2', 'cp1', 'honors'].forEach(lv => {
+  const plan = P.buildDay(d.day, { level: lv, seed: 'V', counts: { practice: 9 } });
+  ['donow', 'examples', 'practice', 'exit'].forEach(id => {
+    const items = []; plan.sections.find(x => x.id === id).groups.forEach(g => g.items.forEach(p => items.push(p)));
+    for (let i = 1; i < items.length; i++) ok(items[i].band >= items[i - 1].band, 'day ' + d.day + ' ' + lv + ' ' + id + ': difficulty goes down at #' + (i + 1));
+    if (items.length >= 3) ok(items[0].band === 0 && items[items.length - 1].band === 2, 'day ' + d.day + ' ' + lv + ' ' + id + ': not Easy → Harder');
+  });
+  const skills = new Set(P.entriesFor([d.lesson_id]).map(e => e.skill)), pr = [];
+  plan.sections.find(x => x.id === 'practice').groups.forEach(g => g.items.forEach(p => pr.push(p.skill)));
+  ok(new Set(pr).size === Math.min(skills.size, pr.length), 'day ' + d.day + ' ' + lv + ': practice uses ' + new Set(pr).size + ' of ' + skills.size + ' skills');
+}));
+for (let i = 0; i + 1 < lessons.length; i += 3) {
+  const a = lessons[i], b = lessons[i + 1]; if (a.unit !== b.unit) continue;
+  const plan = P.buildDay(a.day, { level: 'cp1', seed: 'M', selectedDays: [a.day, b.day] });
+  ['examples', 'practice'].forEach(id => {
+    const ls = new Set(); plan.sections.find(x => x.id === id).groups.forEach(g => g.items.forEach(p => ls.add(p.lesson)));
+    ok(ls.has(a.lesson_id) && ls.has(b.lesson_id), 'combined ' + a.lesson_id + ' + ' + b.lesson_id + ': ' + id + ' misses a lesson');
+  });
+  const per = {}; plan.sections.find(x => x.id === 'practice').groups.forEach(g => g.items.forEach(p => per[p.lesson] = (per[p.lesson] || 0) + 1));
+  const n = Object.values(per); ok(Math.max.apply(null, n) - Math.min.apply(null, n) <= 1, 'combined ' + a.lesson_id + ' + ' + b.lesson_id + ': unbalanced ' + JSON.stringify(per));
+}
 const sec = ((Date.now() - t0) / 1000).toFixed(1);
 fails.slice(0, 40).forEach(f => console.log('FAIL', f));
 console.log('planner: ' + checks + ' checks, ' + problems + ' problems on ' + SC.days.length + ' days × 3 levels × ' + SEEDS + ' seeds (' + sec + 's), ' + fails.length + ' failures');

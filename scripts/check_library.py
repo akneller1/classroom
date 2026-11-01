@@ -32,14 +32,22 @@ DATA = os.path.join(ROOT, 'data.js')
 PLACE = os.path.join(ROOT, 'scripts', 'library-placement.json')
 
 
+_TAIL = ''   # code after the LIBRARY object (e.g. the Algebra 2 bank-resource block); kept as written by save()
+
+
 def load():
+    global _TAIL
     s = open(DATA, encoding='utf-8').read()
     i = s.index('=')
-    return s[:i + 1], json.loads(s[i + 1:].strip().rstrip(';'))
+    body = s[i + 1:].lstrip()
+    d, end = json.JSONDecoder().raw_decode(body)
+    rest = body[end:]
+    _TAIL = rest[1:] if rest.startswith(';') else rest
+    return s[:i + 1], d
 
 
 def save(head, d):
-    open(DATA, 'w', encoding='utf-8').write(head + ' ' + json.dumps(d, indent=2, ensure_ascii=False) + ';\n')
+    open(DATA, 'w', encoding='utf-8').write(head + ' ' + json.dumps(d, indent=2, ensure_ascii=False) + ';' + (_TAIL if _TAIL.strip() else '\n'))
 
 
 _SETS = None
@@ -168,7 +176,7 @@ def main():
             for a in u['artifacts']:
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
-            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator', 'daily lesson planner'):
+            if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator', 'daily lesson planner', 'assessment readiness check'):   # per-unit generator pages share one title
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))
         for u in c['units']:
             for a in u['artifacts']:

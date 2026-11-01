@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Algebra 2 Games · Mr. K's Classroom</title><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=games-15"><script src="games/skill-setup.js?v=student-direct-20261031"></script></head><body data-algebra2-game><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Algebra 2 Games · Mr. K's Classroom</title><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=games-15"><script src="games/skill-setup.js?v=student-skills-2"></script></head><body data-algebra2-game><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
 <script src="core/rng.js"></script>
 <script src="core/frac.js"></script>
 <script src="core/tex.js"></script>
@@ -8,7 +8,7 @@
 <script src="menu/mathcheck.js?v=menu-gaps-2"></script>
 <script src="menu/figures.js?v=menu-gaps-2"></script>
 <script src="menu/verify.js?v=geo-v-15"></script>
-<script src="menu/engine.js?v=ci-fix-1"></script>
+<script src="menu/engine.js?v=ci-fix-2"></script>
 <script src="../data.js?v=grade-discovery-20261030"></script>
 <script src="../course-catalog.js?v=shared-course-skills-20261030"></script>
 <script src="menu/skills/kit.js?v=menu-gaps-2"></script>
@@ -42,13 +42,8 @@
 <script src="menu/skills/geometry-circles.js?v=geo-rigor-1"></script>
 <script src="menu/skills/geometry-area-surface-area-volume.js?v=geo-rigor-1"></script>
 <script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
-<script src="games/bank.js?v=showdown-fix-20261031"></script>
+<script src="games/bank.js?v=games-16"></script>
 <script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=showdown-fix-20261031"></script><script>
 var params=new URLSearchParams(location.search),game=params.get('game')||'flashcards';
-var target=new URL(['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html',location.href);
-target.searchParams.set('course','algebra2');
-target.searchParams.set('unit',params.get('unit')||'functions-transformations');
-target.searchParams.set('game',game);
-['student','skills','teacherShare'].forEach(function(key){if(params.has(key))target.searchParams.set(key,params.get(key));});
-location.replace(target.href);
+location.replace((['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html')+'?course=algebra2&unit='+encodeURIComponent(params.get('unit')||'functions-transformations')+'&game='+encodeURIComponent(game));
 </script><script src="core/math-display.js?v=showdown-fix-20261031"></script></body></html>

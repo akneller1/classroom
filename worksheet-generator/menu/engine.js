@@ -569,7 +569,14 @@
   }
   function makeItem(state, slot, skill, c, salt, vIdx, si) {
     var cfg = state.config, set = sets[cfg.unitId];
-    var p = formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, skill, c, policyFor(cfg, si), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state)); });
+    var gen = function (sk) { return formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, sk, c, policyFor(cfg, si), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state)); }); };
+    var p = gen(skill);
+    // An approved bank has a fixed number of questions per skill, level and form. When one skill runs out, use
+    // another selected skill of this section for the slot rather than leaving it empty.
+    if (p.failed && set && set.authoredBank && si !== undefined) {
+      var others = NS.sectionSkills(cfg, si).filter(function (id) { return id !== skill; });
+      for (var oi = 0; oi < others.length && p.failed; oi++) { var q = gen(others[oi]); if (!q.failed) { p = q; skill = others[oi]; } }
+    }
     if (p.multiFail || p.mcasFail) return placeholder(slot, skill, c, set.byId[skill] ? set.byId[skill].tag : '', 'This skill cannot currently make the requested question format: ' + (p.multiFail || p.mcasFail) + ' Try another skill.');
     if (p.failed) return placeholder(slot, skill, c, set.byId[skill] ? set.byId[skill].tag : '', 'Could not make a verified ' + (set.byId[skill] ? set.byId[skill].name.toLowerCase() : skill) + ' problem at this difficulty (' + p.reason + '). Write your own or pick another skill.');
     p.slot = slot; return p;
@@ -680,6 +687,7 @@
         var first = A.sections[si] && A.sections[si].items || [];
         first.forEach(function (item, index) {
           if (currentSet.byId[item.skill]) return;
+          if (item.manual || item.edited || item.pinned) return;   // a teacher-written, edited or pinned problem is the teacher's choice: never swap it out
           var replacement = allowed[index % allowed.length];
           if (!replacement) return;
           state.versions.forEach(function (version, vi) {
@@ -764,9 +772,33 @@
       }
     });
     if (NS.isTest(cfg)) cfg.sections.forEach(function (s) { s.required = s.offered; });
+    if (fresh && cfg.coverage && cfg.coverage.on) coverAfterBuild(state);
     NS.ensureFormats(state);
     return state;
   };
+  /* After a fresh build, every required skill category must actually be on Version A. The plan already asks for
+     that, but a slot can later be filled by a different skill (a format upgrade or a repair), so check the result
+     and, if a category is missing, give it a slot that holds a repeated skill (never a pinned or edited one). */
+  function coverAfterBuild(state) {
+    var cfg = state.config, set = sets[cfg.unitId], A = state.versions[0]; if (!set || !A) return;
+    NS.coverageTags(cfg, null).forEach(function (t) {
+      if (A.sections.some(function (s) { return s.items.some(function (it) { return it.tag === t && !it.failed; }); })) return;
+      for (var si = 0; si < A.sections.length; si++) {
+        if (NS.sectionFormat(cfg, si) === 'mcas') continue;
+        var cand = NS.sectionSkills(cfg, si).filter(function (id) { return set.byId[id].tag === t; }); if (!cand.length) continue;
+        var items = A.sections[si].items, seen = {}, at = -1, tagCount = {};
+        A.sections.forEach(function (sx) { sx.items.forEach(function (it) { tagCount[it.tag] = (tagCount[it.tag] || 0) + 1; }); });
+        items.forEach(function (it, k) { if (it.pinned || it.edited || it.manual) return; if (seen[it.skill] && at < 0) at = k; seen[it.skill] = 1; });
+        // otherwise a slot whose category is on the menu more than once
+        if (at < 0) for (var k2 = items.length - 1; k2 >= 0; k2--) { var x = items[k2]; if (!x.pinned && !x.edited && !x.manual && tagCount[x.tag] > 1) { at = k2; break; } }
+        if (at < 0) continue;
+        var slot = items[at].slot, c = items[at].c, made = state.versions.map(function (v, vi) { return makeItem(state, slot, cand[0], c, 'cover-' + t, vi, si); });
+        if (made.some(function (p) { return p.failed; })) continue;
+        state.versions.forEach(function (v, vi) { var list = v.sections[si].items, k = list.findIndex(function (x) { return x.slot === slot; }); if (k >= 0) { made[vi].required = list[k].required; list[k] = made[vi]; } });
+        return;
+      }
+    });
+  }
 
   function find(state, vIdx, uidStr) {
     var v = state.versions[vIdx];

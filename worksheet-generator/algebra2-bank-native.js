@@ -12,12 +12,41 @@ function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
 function figure(q){return q.diagram?.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null}
 function problem(q,id,c){const parts=Array.isArray(q.parts)&&q.parts.length?q.parts.map((part,i)=>({answer:text(part.answer),prompt:part.prompt||'',label:String.fromCharCode(97+i)})):[{answer:text(Array.isArray(q.answer)?q.answer.join('; '):q.answer),prompt:''}];return {uid:q.id,sourceId:q.id,source:'authored-bank',authoredFormat:q.format,authoredOptions:q.options||[],approved:true,skill:q.skillId,c,tag:q.skillId,prompt:q.prompt,fig:figure(q),parts,steps:(q.solutionSteps||[]).map(t=>({t})),key:q.id,sig:q.id,verify:{status:'source-key',issues:[]}}}
 function choose(items,seed,used){const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(seed)));return rng.shuffle(items).find(q=>!used?.keys?.has(q.id))}
+/* Easy → Medium → Harder inside one class level. Authored items carry no difficulty number, so each is scored by
+   the number of solution steps, parts and prompt length (open response a little higher).
+   The level's items are split into thirds by that score and c picks the third: the level's lowest tier → the easiest
+   third, its highest → the hardest. If that third is used up the nearest third is used; with policy.adjacentLevels
+   (the lesson planner) a neighbouring level is tried before the slot is reported empty. */
+const FORM_SCORE={'open-response':1.5};   // the form barely counts, so easy slots do not use up the few items of one form
+function itemScore(q){return (FORM_SCORE[q.format]||0)+0.45*(q.solutionSteps||[]).length+0.8*((q.parts||[]).length)+Math.min(2,String(q.prompt||'').length/160)+(q.diagram?0.3:0)}
+function third(c,lv){const t=(NS.LEVELS[lv]||NS.LEVELS.cp1).tiers;return c<=t[0]?0:c>=t[2]?2:1}
+function chooseGraded(items,seed,used,c,lv){
+ const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(seed))), sorted=items.slice().sort((a,b)=>itemScore(a)-itemScore(b)||(a.id<b.id?-1:1));
+ const n=sorted.length, cut=[0,Math.round(n/3),Math.round(2*n/3),n], want=third(c,lv);
+ for(const k of [0,1,2].sort((a,b)=>Math.abs(a-want)-Math.abs(b-want)||b-a)){
+  const q=rng.shuffle(sorted.slice(cut[k],cut[k+1])).find(q=>!used?.keys?.has(q.id)); if(q)return q;
+ }
+ return null;
+}
 const generate=NS.generateProblem;
 NS.generateProblem=function(id,skill,c,policy,seed,used){
  if(!isBank(id))return generate.apply(this,arguments);
- const q=choose(pool(id,skill,c,policy,policy?.authoredFormats),seed,used);
+ const lv=level(c,policy);
+ // formal tests and choice menus keep the original random draw from the level (their slots already ramp by tier)
+ let q=policy?.questionPool==='formal'?choose(pool(id,skill,c,policy,policy?.authoredFormats),seed,used):chooseGraded(pool(id,skill,c,policy,policy?.authoredFormats),seed,used,c,lv);
+ // The banks hold few CP2 and Honors questions per skill and form. Rather than leave a slot empty, the generators
+ // (worksheets, tests, menus, the planner) take an unused question from the nearest level and say so on the item.
+ // Games call GB.makeItems / GB.buildDeck instead and keep each level exact. policy.adjacentLevels === false turns this off.
+ let from=null;
+ if(!q&&policy?.adjacentLevels!==false&&policy?.level!=='mixed'){
+  const order={cp2:['cp1','honors'],cp1:third(c,lv)===2?['honors','cp2']:['cp2','honors'],honors:['cp1','cp2']}[lv]||[];
+  for(const alt of order){q=choose(pool(id,skill,c,Object.assign({},policy,{level:alt}),policy?.authoredFormats),seed,used);if(q){from=alt;break}}
+ }
  if(!q)return {failed:true,reason:'No unused authored questions match these skills and difficulty.'};
- used?.keys?.add(q.id);used?.sigs?.add(q.id);return problem(q,id,c);
+ used?.keys?.add(q.id);used?.sigs?.add(q.id);
+ const out=problem(q,id,c);
+ if(from){out.bankLevel=from;out.verify.issues=['From the '+({cp2:'CP2',cp1:'CP1',honors:'Honors'}[from])+' bank: no unused '+({cp2:'CP2',cp1:'CP1',honors:'Honors'}[lv])+' question of this kind is left.']}
+ return out;
 };
 const distractors=GB.distractors, answerOk=GB.answerOk, makeItems=GB.makeItems, has=GB.hasGameItems, deck=GB.buildDeck;
 GB.distractors=function(p,k,rng,n){if(p.source!=='authored-bank')return distractors.apply(this,arguments);return (raw.get(p.sourceId)?.options||[]).filter(o=>!o.correct).map(o=>o.text).slice(0,n)};
@@ -26,7 +55,7 @@ GB.hasGameItems=function(id,skill){return isBank(id)?pool(id,skill,4,{level:'cp1
 function item(q,id,c){return {id:q.id,sourceId:q.id,p:problem(q,id,c),k:0,skill:q.skillId,skillName:NS.skillSets[id].byId[q.skillId].name,tag:q.skillId,tagName:NS.skillSets[id].byId[q.skillId].name,c,q:{prompt:q.prompt,fig:figure(q),ask:(q.format==='select-all'?'Select all that apply.\n':'')+(q.parts||[]).map((p,i)=>'('+String.fromCharCode(97+i)+') '+p.prompt).join('\n')},answer:text(q.answer),steps:q.solutionSteps.map(t=>({t})),options:(q.options||[]).map(o=>({a:o.text,ok:o.correct===true})),typed:null}}
 GB.makeItems=function(id,skill,c,policy,seed,used){
  if(!isBank(id))return makeItems.apply(this,arguments);
- const q=choose(pool(id,skill,c,policy,policy?.authoredFormats),seed,used);if(!q)return [];
+ const q=choose(pool(id,skill,c,policy),seed,used);if(!q)return [];
  used?.keys?.add(q.id);return [item(q,id,c)];
 };
 // Keep each selected difficulty exact. Native procedural decks otherwise retry
@@ -49,15 +78,6 @@ GB.buildDeck=function(id,slots,opts,done){
 const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
 function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
 function menuSource(p){return JSON.stringify([p.prompt||'',(p.parts||[]).map(function(x){return [x.prompt||'',x.answer||'']}),p.fig||null,p.work||null])}
-// Only the exact unmodified source item may bypass manual teacher approval.
-// An edited item has source='edited'; a teacher-created item has source='manual'.
-NS.isUneditedAlgebra2BankQuestion=function(p){
- if(!p||p.source!=='authored-bank'||p.edited||p.manual||!p.sourceId)return false;
- const q=raw.get(p.sourceId);
- if(!q||!p.skill||p.skill!==q.skillId)return false;
- const original=problem(q,null,p.c);
- return menuSource(p)===menuSource(original);
-};
 const makeChoices=NS.makeChoices,makeMulti=NS.makeMultiSelect,makeMcas=NS.makeMcas;
 NS.makeChoices=function(p){
  const q=sourceQuestion(p);if(!q)return makeChoices.apply(this,arguments);

@@ -9,7 +9,7 @@
 const fs = require('fs'), path = require('path'), vm = require('vm');
 const env = require('../../menu/tests/load.cjs')();
 env.location = { hash: process.env.COURSE === 'geometry' ? '#course=geometry' : '' };   // COURSE=geometry tests the Geometry planner
-['planner/scope-algebra1.js', 'planner/lesson-skills.js', 'planner/scope-geometry.js', 'planner/lesson-skills-geometry.js', 'planner/course.js', 'planner/planner.js', 'planner/notes-content.js', 'planner/notes-data-geometry.js', 'planner/notes-geometry.js', 'planner/textmath.js', 'planner/pptx-export.js'].forEach(f =>
+['planner/scope-algebra1.js', 'planner/lesson-skills.js', 'planner/scope-geometry.js', 'planner/lesson-skills-geometry.js', 'planner/course.js', 'planner/planner.js', 'planner/notes-content.js', 'planner/notes-data-geometry.js', 'planner/notes-geometry.js', 'planner/notes-diagrams.js', 'planner/notes-teach-algebra1.js', 'planner/notes-teach-geometry.js', 'planner/notes-teach.js', 'planner/textmath.js', 'planner/pptx-export.js'].forEach(f =>
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', '..', f), 'utf8'), env, { filename: f }));
 const P = env.MKPLAN, SC = env.MKPLAN_SCOPE;
 let checks = 0; const fails = [];
@@ -33,6 +33,29 @@ SC.days.forEach(d => ['cp2', 'cp1', 'honors'].forEach(level => {
     strs.forEach(s => { texts++; const t = P.mathText(s); ok(!TEX.test(t), 'day ' + d.day + ' ' + p.skill + ': TeX left in "' + t + '" (from ' + s + ')'); });
   });
 }));
+
+// 2b. teaching notes: every lesson has cards that teach, blanks for guided notes, exact diagrams that render,
+//     and text that converts to plain slide text in both modes
+SC.days.filter(d => d.day_type === 'Lesson').forEach(d => {
+  const cards = P.teachCards(d);
+  ok(cards.length && !cards[0].fallback, d.lesson_id + ': no teaching notes');
+  let blanks = 0;
+  cards.forEach(c => {
+    ok(c.big && c.big.length > 60, d.lesson_id + ': explanation too short');
+    [c.h, c.big].concat(c.steps).forEach(t => {
+      ['guided', 'completed'].forEach(m => { const x = P.mathText(P.plainNoteText(t, m)); ok(!/\{\{|\}\}/.test(x) && !TEX.test(x), d.lesson_id + ' ' + m + ': text left in "' + x + '"'); });
+    });
+    blanks += ([c.big].concat(c.steps).join(' ') + JSON.stringify(c.figs || [])).split('{{').length - 1;
+    (c.figs || []).forEach(f => ['guided', 'completed', 'key'].forEach(m => {
+      let h = ''; try { h = P.diagramSvg(f, m); } catch (e) { h = 'ERR ' + e.message; }
+      ok(/^<svg|^<table/.test(h) && !/NaN|undefined/.test(h), d.lesson_id + ' diagram ' + f.t + ' (' + m + ') did not render: ' + h.slice(0, 80));
+      if (m === 'guided') ok(!/\{\{/.test(h), d.lesson_id + ': blank marks left in a guided diagram');
+    }));
+  });
+  ok(blanks >= 2, d.lesson_id + ': guided notes have fewer than 2 blanks');
+  const plan = P.buildDay(d.day, { seed: 'nt' });
+  ok((plan.worked[d.day] || []).length >= 1 && plan.worked[d.day].every(p => !p.failed), d.lesson_id + ': no worked example for the notes');
+});
 
 // 3. minutes and notes modes
 {

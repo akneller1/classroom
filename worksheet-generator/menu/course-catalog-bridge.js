@@ -13,6 +13,10 @@
     var course = library.courses.filter(function (c) { return c.id === id; })[0];
     if (!course) return;
     var existingGroup = ns.CATALOG.filter(function (g) { return g.course === course.name; })[0];
+    if (id === 'algebra2' && existingGroup) {   // every Algebra 2 unit, in course order, labelled like the other courses
+      existingGroup.units = course.units.map(function (unit, i) { seen['algebra2-' + unit.id] = true; return ['algebra2-' + unit.id, 'Unit ' + (i + 1) + ' · ' + unit.name]; });
+      return;
+    }
     var units = course.units.map(function (unit, i) {
       var bankId = (id === 'algebra2' ? 'algebra2-' : id + '-') + unit.id;
       return [bankId, 'Unit ' + (i + 1) + ' · ' + unit.name];

@@ -414,6 +414,8 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   await rf.close();
   }
 
+  // Algebra 2 questions come from the approved bank: their key is the approved source key, not a recomputed one
+  const okStatus = i => i.verify.status === 'verified' || (i.source === 'authored-bank' && i.verify.status === 'source-key');
   /* ---------- standard tests: every unit, numbered questions, multiple-choice parts, keys ---------- */
   const units = await page.evaluate(() => Object.keys(MKMENU.skillSets));
   for (const [ui, UNITID] of units.entries()) {
@@ -425,19 +427,19 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
     await tp.check('input[name=mmLevel][value="' + lvl + '"]'); await tp.selectOption('#mmVersions', '2');
     await tp.click('#mmBuildBtn'); await tp.waitForSelector('.mm-dcard');
     const T = await tp.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
-    assert.equal(T.config.mode, 'test'); assert.ok(T.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && i.verify.status === 'verified'))), UNITID + ' test: unverified item');
+    assert.equal(T.config.mode, 'test'); assert.ok(T.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && okStatus(i)))), UNITID + ' test: unverified item');
     for (const v of [0, 1]) for (const kind of ['student', 'key']) {
       const info = await tp.evaluate(async ({ v, kind }) => {
         const S = MKMENU.app.state(), pages = await MKMENU.renderPages(S, v, kind);
         const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
-        const mc = S.versions[v].sections[0].items.filter(it => it.mc).length;
-        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc };
+        const mcItems = S.versions[v].sections[0].items.filter(it => it.mc), mc = mcItems.length, opts = mcItems.reduce((n, it) => n + it.mc.opts.length, 0);
+        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc, opts };
         root.innerHTML = ''; return r;
       }, { v, kind });
       const tag = UNITID + ' test ' + lvl + ' v' + 'AB'[v] + ' ' + kind;
       assert.equal(info.overflow, 0, tag + ' overflows');
       assert.equal(info.choices, info.mc, tag + ': every multiple-choice question prints its choices');
-      assert.equal(info.bubbles, 4 * info.mc, tag + ': four lettered choices each');
+      assert.equal(info.bubbles, info.opts, tag + ': one lettered bubble per choice'); if (!/^algebra2-/.test(UNITID)) assert.equal(info.opts, 4 * info.mc, tag + ': four choices each (approved Algebra 2 items keep their authored number of choices)');
       if (kind === 'student') { assert.match(info.text, /Part 1/); assert.match(info.text, /16\.\s*\d+(\.\d+)? pts/); assert.doesNotMatch(info.text, /My pick|Answer:|Rubric|choose \d/); }
       else assert.match(info.text, /Quick key/);
     }
@@ -459,18 +461,18 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
     await wp.click('#mmBuildBtn'); await wp.waitForSelector('.mm-dcard');
     const W = await wp.evaluate(() => JSON.parse(MKMENU.serialize(MKMENU.app.state())));
     assert.equal(W.config.mode, 'worksheet'); assert.equal(W.config.sections.length, 2);
-    assert.ok(W.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && i.verify.status === 'verified'))), UNITID + ' worksheet: unverified item');
+    assert.ok(W.versions.every(v => v.sections.every(s => s.items.every(i => !i.failed && okStatus(i)))), UNITID + ' worksheet: unverified item');
     for (const v of [0, 1]) for (const kind of ['student', 'key']) {
       const info = await wp.evaluate(async ({ v, kind }) => {
         const S = MKMENU.app.state(), pages = await MKMENU.renderPages(S, v, kind);
         const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
-        const mc = S.versions[v].sections[0].items.filter(it => it.mc).length;
-        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc };
+        const mcItems = S.versions[v].sections[0].items.filter(it => it.mc), mc = mcItems.length, opts = mcItems.reduce((n, it) => n + it.mc.opts.length, 0);
+        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc, opts };
         root.innerHTML = ''; return r;
       }, { v, kind });
       const tag = UNITID + ' worksheet ' + lvl + ' v' + 'AB'[v] + ' ' + kind;
       assert.equal(info.overflow, 0, tag + ' overflows');
-      assert.equal(info.choices, info.mc, tag + ': choices print'); assert.equal(info.bubbles, 4 * info.mc, tag + ': four letters each');
+      assert.equal(info.choices, info.mc, tag + ': choices print'); assert.equal(info.bubbles, info.opts, tag + ': one letter per choice'); if (!/^algebra2-/.test(UNITID)) assert.equal(info.opts, 4 * info.mc, tag + ': four letters each');
       assert.doesNotMatch(info.text, /\d pts?\b|worth \d+ points|Rubric|My pick|Score \(teacher\)/, tag + ': no points or rubric on a worksheet');
       if (kind === 'student') { assert.match(info.text, /Part 2 · Show Your Work/); assert.match(info.text, /Answer all 14 questions/); assert.doesNotMatch(info.text, /Answer:/); }
       else { assert.match(info.text, /Answer Key/); assert.match(info.text, /Quick key/); }
@@ -479,9 +481,10 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
     await wp.close();
   }
   { // separate autosave: the test generator's saved work does not appear on the worksheet page
-    const a = await ctx.newPage(); await a.goto(URL + '#unit=algebra1-quadratics'); await a.waitForSelector('.mm-stepbtn');
+    const LAST = units[units.length - 1];   // the last unit built by both loops above
+    const a = await ctx.newPage(); await a.goto(URL + '#unit=' + LAST); await a.waitForSelector('.mm-stepbtn');
     assert.equal(await a.evaluate(() => MKMENU.app.state().config.mode), 'test', 'the test generator restores its own saved test'); await a.close();
-    const b = await ctx.newPage(); await b.goto(WURL + '#unit=algebra1-quadratics'); await b.waitForSelector('.mm-stepbtn');
+    const b = await ctx.newPage(); await b.goto(WURL + '#unit=' + LAST); await b.waitForSelector('.mm-stepbtn');
     assert.equal(await b.evaluate(() => MKMENU.app.state().config.mode), 'worksheet', 'the worksheet page restores its own saved worksheet'); await b.close();
   }
   ok('practice worksheets: every unit builds a verified multiple choice + show-your-work worksheet with two versions; no points; keys print and fit');
