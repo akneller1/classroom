@@ -1,0 +1,114 @@
+:root {
+    --water-light: #00b4d8;
+    --water-deep: #0077b6;
+    --sand: #e9c46a;
+    --panel-bg: #ffffff;
+    --text-dark: #023e8a;
+    --btn-color: #ff9f1c;
+    --btn-shadow: #c17713;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(180deg, var(--water-light), var(--water-deep));
+    color: var(--text-dark);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', 'Nunito', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fun Bubble Animations */
+.bubble {
+    position: absolute; bottom: -50px; width: 20px; height: 20px;
+    background: rgba(255, 255, 255, 0.4); border-radius: 50%;
+    animation: rise infinite ease-in; z-index: 1;
+}
+@keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+
+.dashboard {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px; width: 100%; max-width: 1200px; height: 96vh;
+    display: flex; flex-direction: column; position: relative; z-index: 10;
+    box-sizing: border-box; border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 5px solid #fff;
+}
+
+h1, h2 { margin: 0 0 5px 0; color: var(--text-dark); letter-spacing: 1px; }
+h1 { font-size: 1.8rem; text-align: center; text-shadow: 2px 2px 0px rgba(0,0,0,0.1); }
+h2 { font-size: 1.3rem; border-bottom: 3px dashed var(--water-light); padding-bottom: 5px; margin-bottom: 10px; }
+
+.header {
+    background: var(--sand); border-radius: 15px;
+    padding: 10px; margin-bottom: 15px;
+    box-shadow: 0 4px 0px #d4a74a; flex-shrink: 0;
+}
+
+.main-panel { display: flex; gap: 20px; flex: 1; min-height: 0; }
+
+.left-col { flex: 1.2; display: flex; flex-direction: column; gap: 15px; }
+
+.right-col {
+    flex: 2; display: flex; flex-direction: column;
+    border: 6px solid var(--text-dark); border-radius: 15px;
+    background: #03045e; /* Deep ocean canvas background */
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+    justify-content: center; align-items: center; padding: 5px;
+}
+
+.briefing-box, .input-box {
+    border: 3px solid var(--water-light); border-radius: 15px;
+    padding: 15px; background: #e0fbfc;
+    box-shadow: 0 5px 0px var(--water-light); display: flex; flex-direction: column;
+}
+.briefing-box { flex: 0 0 auto; }
+.input-box { flex: 1; justify-content: center; }
+
+.briefing-box p { font-size: 1.15rem; line-height: 1.5; margin: 0; min-height: 80px; font-weight: bold; }
+
+.input-row {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px; font-size: 1.2rem; font-weight: bold;
+    border-bottom: 2px dotted var(--water-deep); padding-bottom: 8px;
+}
+
+input {
+    background: #fff; border: 3px solid var(--text-dark); border-radius: 8px;
+    color: var(--text-dark); padding: 8px; font-family: inherit; font-weight: bold;
+    font-size: 1.2rem; width: 100px; text-align: center;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); outline: none;
+}
+input:focus { border-color: var(--btn-color); box-shadow: 0 0 10px var(--btn-color); }
+
+.action-btn {
+    background: var(--btn-color); border: none; border-radius: 10px;
+    color: #fff; padding: 15px; font-size: 1.3rem; font-family: inherit; font-weight: bold;
+    cursor: pointer; width: 100%; margin-top: 15px; transition: 0.1s;
+    box-shadow: 0 6px 0px var(--btn-shadow); text-transform: uppercase; letter-spacing: 2px;
+}
+.action-btn:hover { transform: translateY(2px); box-shadow: 0 4px 0px var(--btn-shadow); }
+.action-btn:active { transform: translateY(6px); box-shadow: 0 0px 0px var(--btn-shadow); }
+.action-btn.hidden { display: none; }
+
+.table-container {
+    position: relative; width: 100%; max-width: 700px;
+    aspect-ratio: 1/1; /* Square grid */
+}
+canvas {
+    width: 100%; height: 100%; display: block;
+    background-color: transparent; border-radius: 10px;
+}
+
+#feedback { margin-top: 15px; text-align: center; font-weight: bold; font-size: 1.2rem; min-height: 25px; }
+.error { color: #d62828; }
+.success { color: #2a9d8f; }
+
+/* Math font override */
+.math-font { font-family: 'Cambria Math', 'Times New Roman', serif; font-style: italic; font-size: 1.1em; }
