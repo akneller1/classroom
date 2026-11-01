@@ -2,6 +2,7 @@
 (function (G) {
   'use strict';
   function supports(path) {
+    if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(path)) return false;
     // This fixed ten-level game starts immediately and has no skill picker.
     if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return false;
     if (/^artifacts\/math-arcade\/index\.html\?/i.test(path)) return false;

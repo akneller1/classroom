@@ -5208,6 +5208,23 @@ window.LIBRARY = {
               "added": "2026-10-28"
             },
             {
+              "title": "Triangle Congruence Proofs",
+              "path": "artifacts/geometry-congruence-proofs/index.html",
+              "thumb": "thumbs/geometry-congruence-proofs.jpg",
+              "description": "Twelve two-column proofs on accurate generated diagrams that build from drag-and-drop statements, to reasons, to both, to written proofs and CPCTC. Every row is checked instantly; New set makes a fresh set, and teachers can print the worksheet and key.",
+              "type": "Practice",
+              "topics": [
+                "SSS",
+                "SAS",
+                "ASA",
+                "AAS",
+                "HL",
+                "CPCTC",
+                "Two-column proofs"
+              ],
+              "added": "2026-11-01"
+            },
+            {
               "title": "Triangles & Congruence Flashcards",
               "path": "artifacts/triangles-congruence-flashcards/index.html",
               "description": "Generated congruence flashcards (matching parts, SSS, SAS, ASA, AAS, HL and proofs) with Easy, Medium, and Hard settings, skill selection, and practice tracking.",

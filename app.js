@@ -122,6 +122,7 @@
     if (/worksheet-generator\/menu-assessment/i.test(a.path || '')) return 'assessment-generator';
     if (/worksheet-generator\//i.test(a.path || '')) return 'worksheet-generator';
     if (/partner-check/i.test(a.path || '')) return 'partner-checks';
+    if (/congruence-proofs/i.test(a.path || '')) return 'proofs';
     var path = a.path || '';
     if (/jeopardy|showdown/i.test(path)) return 'showdown';
     if (/connect-four|inequality-four/i.test(path)) return 'connect-four';
@@ -157,6 +158,7 @@
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards', 'interactive-practice-test'] },
+    { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
   var FORMAT_SUMMARIES = {
@@ -165,6 +167,7 @@
     'assessment-generator': 'Build a test or a menu assessment with verified answer keys.',
     'printable-generator': 'Make mazes, color-by-number pages, Tarsia puzzles, error analysis and partner checks with answer keys.',
     'partner-checks': 'Solve different problems, compare matching answers, and check each other’s work.',
+    'proofs': 'Two-column proofs on accurate diagrams, from drag-and-drop statements to written CPCTC proofs, checked row by row.',
     'showdown': 'Choose a question and point value for team review.',
     'connect-four': 'Solve problems to earn discs and connect four.',
     'tic-tac-toe': 'Answer correctly to claim a square and make three in a row.',
@@ -622,6 +625,7 @@
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var gameFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'games'; })[0].formats;
     var guideFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'study-guides'; })[0].formats;
+    var practiceFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'practice'; })[0].formats;
     // Unit pages must expose the online practice test directly, just like the global directory.
     // Keep one card per unit even when older cached catalogs or format filters are in use.
     var hasPractice = c.id === 'geometry' || items.some(function(it){return /practice-test[.]html/i.test(it.a.path||'');});
@@ -653,6 +657,7 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
+        category('practice', 'Practice Activities', practiceFormats) +
         unitPager(c, u) + '</div></section>'
     };
   }
