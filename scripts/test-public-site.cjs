@@ -30,6 +30,12 @@ for(const course of courses){
 }
 assert.equal(count,40);assert.equal((sitemap.match(/<loc>/g)||[]).length,45);
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
+assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
+assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
+const publicApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
+assert(publicApp.includes("'mailto:akneller@gmail.com?subject='"),'Per-resource issue reports must use direct email');
+assert(publicApp.includes("encodeURIComponent(body)"),'Per-resource report must include activity link and problem template');
+assert(!publicApp.includes('github.com/akneller1/classroom/issues/new'),'Per-resource reports must not send visitors to GitHub');
 assert(!home.includes('.main-nav { display: none; }'),'Header navigation hidden');
 for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])assert(fs.existsSync(path.join(out,'assets',file)),'Missing branding asset '+file);
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');

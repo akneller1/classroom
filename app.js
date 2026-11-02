@@ -302,7 +302,7 @@
   function reportUrl(a) {
     var url = 'https://akneller1.github.io/classroom/' + activityUrl(a);
     var body = 'Activity: ' + a.title + '\nLink: ' + url + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n';
-    return 'https://github.com/akneller1/classroom/issues/new?title=' + encodeURIComponent('Resource problem: ' + a.title) + '&body=' + encodeURIComponent(body);
+    return 'mailto:akneller@gmail.com?subject=' + encodeURIComponent('Mr. K\'s Classroom — Resource problem: ' + a.title) + '&body=' + encodeURIComponent(body);
   }
 
   // Use game-board previews rather than captured setup/question dialogs.
@@ -403,7 +403,7 @@
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
           saveBtnHtml(a.path) + (/practice-test\.html#unit=([a-z0-9-]+)/i.test(a.path || '') ? '<button type="button" class="btn btn-ghost readiness-activity-share" data-readiness-unit="' + esc(/#unit=([a-z0-9-]+)/i.exec(a.path)[1]) + '">Copy student link</button>' : '') + '</div>' +
-        '<a class="report-problem" href="' + esc(reportUrl(a)) + '" target="_blank" rel="noopener">Report a problem<span class="sr"> with ' + esc(a.title) + '</span> (GitHub)</a>' +
+        '<a class="report-problem" href="' + esc(reportUrl(a)) + '">Report a problem<span class="sr"> with ' + esc(a.title) + ' — opens an email draft</span></a>' +
       '</div></li>';
   }
 
