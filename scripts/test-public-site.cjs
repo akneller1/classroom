@@ -35,21 +35,22 @@ for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])as
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');
 console.log('PASS public build: four visible courses, 40 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
 
-/* Placeholder courses must be visible in the interactive homepage but not published as live resources. */
+/* Keep Grade 6/7 available in source data but absent from public course cards,
+ * navigation, and search. Retain the four published courses and 2 x 2 layout. */
 const publishedData=fs.readFileSync(path.join(out,'data.js'),'utf8');
 for(const courseId of ['prealgebra7','math6']){
  const p=publishedData.indexOf('"id": "'+courseId+'"');
- assert(p>=0,'Missing upcoming course '+courseId);
+ assert(p>=0,'Missing preserved course data: '+courseId);
  const marker=publishedData.indexOf('"comingSoon": true',p);
- assert(marker>p&&marker-p<10000,'Upcoming course not marked coming soon: '+courseId);
+ assert(marker>p&&marker-p<10000,'Hidden course must remain unpublished: '+courseId);
 }
 const app=fs.readFileSync(path.join(out,'app.js'),'utf8');
-assert(app.includes('SOON.map(function (c)'),'Missing upcoming-course card list');
-assert(app.includes('home-subject-card soon'),'Missing upcoming-course cards');
-assert(app.includes('class="soon-link" href='),'Upcoming course header links not available');
+assert(app.includes('var HIDDEN_COURSES = { math6: true, prealgebra7: true };'),'Grade 6/7 hide switch missing');
+assert(app.includes('c.comingSoon && !HIDDEN_COURSES[c.id]'),'Hidden courses must not appear as Coming soon cards or nav links');
+assert(app.includes('!c.comingSoon && !HIDDEN_COURSES[c.id]'),'Hidden courses must not appear in published course views or search');
 const stylesheet=fs.readFileSync(path.join(out,'styles.css'),'utf8');
-assert(stylesheet.includes('grid-template-columns:repeat(3,minmax(0,1fr))'),'Missing three-column homepage grid');
-console.log('PASS upcoming Grade 6/7 placeholders and three-column subject cards');
+assert(stylesheet.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Missing two-column homepage subject grid');
+console.log('PASS Grade 6/7 hidden with source preserved; four published courses in a two-by-two grid');
 
 /* Projects regression: previously authored Algebra 1, Geometry, and Algebra 2
  * projects must be available in the Activity Builder, with intact download assets. */

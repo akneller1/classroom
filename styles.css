@@ -712,11 +712,11 @@ body { background:var(--paper); }
 .footer-bottom a { color: var(--ink-soft); text-underline-offset: .2rem; }
 .footer-bottom a:hover { color: var(--ink); }
 
-/* Six subject cards: 3 columns x 2 rows, matching the adjacent generator panel height. */
+/* Four published subjects: balanced 2 x 2 grid alongside the generator panel. */
 .home-resource-panels { grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; }
 .home-subject-cards {
   flex:1; min-height:0; display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   grid-template-rows:repeat(2,minmax(0,1fr));
   gap:.55rem; align-content:stretch;
 }
@@ -742,7 +742,7 @@ body { background:var(--paper); }
 .site-header .main-nav .soon-link { opacity:.75; }
 @media (max-width:900px) {
   .home-resource-panels { grid-template-columns:1fr; }
-  .home-subject-cards { grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); }
+  .home-subject-cards { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:repeat(2,minmax(0,1fr)); }
   .home-subject-card.course { min-height:9.1rem; }
   .home-subject-card h3 { font-size:clamp(1rem,2.4vw,1.25rem); }
 }

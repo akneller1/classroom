@@ -7,10 +7,11 @@
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
   });
-  /* Grade 6 and Grade 7 are visible as "Coming soon", but their unfinished
-     units/resources are not published. Retain their source data for later. */
-  var SOON = L.courses.filter(function (c) { return c.comingSoon; });
-  L.courses = L.courses.filter(function (c) { return !c.comingSoon; });
+  /* Temporarily hide Grade 6 and Grade 7 everywhere in public browsing.
+     Keep their course definitions, units, and resources in data.js for later. */
+  var HIDDEN_COURSES = { math6: true, prealgebra7: true };
+  var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
+  L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
   var q = document.getElementById('q');
