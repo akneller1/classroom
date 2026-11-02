@@ -6,6 +6,8 @@ on:
       - 'unit-specific-arcade.js'
       - 'thumbs/arcade-*.svg'
       - 'app.js'
+      - 'data.js'
+      - 'scripts/test-browse-activities-browser.cjs'
       - 'activity.html'
       - 'scripts/test-arcade-links-thumbnails.cjs'
       - 'scripts/test-unit-specific-arcade.cjs'
@@ -27,3 +29,5 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/arcade-http.log 2>&1 &
       - run: node scripts/test-unit-specific-arcade-browser.cjs
+      - name: Browse Activities category and game tags
+        run: node scripts/test-browse-activities-browser.cjs

@@ -1285,6 +1285,8 @@ window.LIBRARY = {
               "thumb": "thumbs/slope-links-mini-golf.jpg",
               "description": "Enter a slope, pick a direction and a club, and hit. The ball follows a line through its starting point, and you only see where it went after the shot. Six holes with walls, sand, and water.",
               "type": "Game",
+              "bankFormat": "topic-games",
+              "unitSpecific": true,
               "topics": [
                 "Slope",
                 "Rise over run",
@@ -1599,6 +1601,8 @@ window.LIBRARY = {
               "thumb": "thumbs/zombie-fence.jpg",
               "description": "Build fences from inequalities in slope-intercept form. Keep every survivor in the safe zone and every zombie out, using solid and dashed lines and, on later nights, two inequalities at once.",
               "type": "Game",
+              "bankFormat": "topic-games",
+              "unitSpecific": true,
               "topics": [
                 "Graphing inequalities",
                 "Slope-intercept form",

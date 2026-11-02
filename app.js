@@ -114,6 +114,8 @@
       return ({'tic-tac-toe':'tic-tac-toe','connect-four':'connect-four',
         'picture-reveal':'picture-reveal','showdown':'showdown','flashcards':'flashcards'})[game] || 'other';
     }
+    // Matching games remain games even though their player lives in worksheet-generator/.
+    if (/worksheet-generator\/match-game\.html/i.test(a.path || '')) return 'topic-games';
     if (/worksheet-generator\/practice-test\.html/i.test(a.path || '')) return 'interactive-practice-test';
     if (/worksheet-generator\/lesson-planner\.html/i.test(a.path || '')) return 'lesson-planner';
     if (/worksheet-generator\/printables\.html/i.test(a.path || '')) return 'printable-generator';
@@ -143,12 +145,13 @@
   /* Teaching mode metadata: derived from game mechanics, not the generic 'Game' type. */
   function gameMode(a) {
     var f = activityFormat(a);
+    if (a.unitSpecific === true) return 'Unit-specific';
     if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
     if (f === 'escape-rooms') return 'Collaborative Challenges';
     if (['picture-reveal', 'detective-games', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
     return '';
   }
-  var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges'];
+  var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges', 'Unit-specific'];
   function formatItems(format) {
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
@@ -159,6 +162,12 @@
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
+  // Keep the game's catalog type authoritative across all Browse Activities sections.
+  function belongsToGroup(a, group) {
+    var isGame = toArr(a.type).indexOf('Game') >= 0;
+    var formatMatches = group.formats.indexOf(activityFormat(a)) >= 0;
+    return group.id === 'games' ? (isGame || formatMatches) : (!isGame && formatMatches);
+  }
   var FORMAT_SUMMARIES = {
     'lesson-planner': 'Plan a day: Do Now, notes, practice and exit ticket from the 180-day scope and sequence.',
     'worksheet-generator': 'Choose skills and create customized printable worksheets with answer keys.',
@@ -488,7 +497,7 @@
     var shown = applyFilters(items);
     if (!shown.length) return '<div class="empty"><h2>No matches</h2><p>No activities fit these filters. Choose All to see everything here.</p></div>';
     return '<div class="activity-groups">' + RESOURCE_GROUPS.map(function (group) {
-      var members = shown.filter(function (it) { return group.formats.indexOf(activityFormat(it.a)) !== -1; });
+      var members = shown.filter(function (it) { return belongsToGroup(it.a, group); });
       if (!members.length) return '';
       return '<section class="activity-group" aria-labelledby="group-' + group.id + '">' +
         '<h2 id="group-' + group.id + '">' + esc(group.name) + '<span>' + acts(members.length) + '</span></h2>' +
@@ -800,7 +809,7 @@
     return everything().filter(function (it) {
       return (!state.subject || it.c.id === state.subject) &&
         (!state.unit || unitToken(it.c, it.u) === state.unit) &&
-        (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && g.formats.indexOf(activityFormat(it.a)) >= 0; })) &&
+        (!state.category || RESOURCE_GROUPS.some(function (g) { return g.id === state.category && belongsToGroup(it.a, g); })) &&
         (!state.format || activityFormat(it.a) === state.format) &&
         (!state.gameMode || gameMode(it.a) === state.gameMode);
     });
@@ -822,7 +831,8 @@
       }); });
     });
     var formats = [];
-    RESOURCE_GROUPS.forEach(function (group) {
+    // Only offer formats in the selected category (e.g. games, not worksheets).
+    RESOURCE_GROUPS.filter(function (g) { return !state.category || g.id === state.category; }).forEach(function (group) {
       group.formats.forEach(function (id) {
         var format = ACTIVITY_FORMATS.filter(function (f) { return f.id === id; })[0];
         if (format && formatItems(format).length) formats.push(format);
@@ -1005,6 +1015,7 @@
     state[key] = e.target.value;
     state.page = 1;
     if (key === 'subject') state.unit = '';
+    if (key === 'category') { state.format = ''; state.gameMode = ''; }
     if (key === 'unit' && state.unit) state.subject = state.unit.split('.')[0];
     go(browseToken(state));
     var control = document.getElementById('browse-' + key);
