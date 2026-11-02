@@ -50,3 +50,35 @@ assert(app.includes('class="soon-link" href='),'Upcoming course header links not
 const stylesheet=fs.readFileSync(path.join(out,'styles.css'),'utf8');
 assert(stylesheet.includes('grid-template-columns:repeat(3,minmax(0,1fr))'),'Missing three-column homepage grid');
 console.log('PASS upcoming Grade 6/7 placeholders and three-column subject cards');
+
+/* Projects regression: previously authored Algebra 1, Geometry, and Algebra 2
+ * projects must be available in the Activity Builder, with intact download assets. */
+{
+ const vm=require('node:vm');
+ const builderPath=path.join(out,'worksheet-generator','printables.html');
+ const builderHtml=fs.readFileSync(builderPath,'utf8');
+ const scriptPath='menu/printables-projects.js';
+ assert(builderHtml.includes('src="'+scriptPath+'?v='),'Activity Builder does not load existing project catalog');
+ const catalogScript=fs.readFileSync(path.join(out,'worksheet-generator',scriptPath),'utf8');
+ const context={window:{}};
+ vm.runInNewContext(catalogScript,context,{timeout:5000,filename:scriptPath});
+ const pr=context.window.MKMENU?.printables;
+ assert(pr&&pr.PROJECTS&&typeof pr.projectFiles==='function','Project catalog did not initialize');
+ const projects=Object.values(pr.PROJECTS).flat();
+ assert.equal(projects.length,37,'Expected the 37 previously authored projects');
+ for(const project of projects){
+   const files=pr.projectFiles(project);
+   const refs=[files.thumb,files.page,files.teacher.pdf,files.teacher.docx];
+   for(const level of ['cp2','cp1','honors']){
+     refs.push(files[level].pdf,files[level].docx,files[level].pptx);
+   }
+   for(const ref of refs){
+     const asset=path.resolve(path.dirname(builderPath),ref);
+     assert(asset.startsWith(out+path.sep),'Project asset escapes public site: '+ref);
+     assert(fs.existsSync(asset),'Missing saved project asset: '+ref);
+   }
+ }
+ const kinds=fs.readFileSync(path.join(out,'worksheet-generator/menu/printables.js'),'utf8');
+ assert(kinds.includes("id: 'project'"),'Projects missing from Activity Builder formats');
+ console.log('PASS Activity Builder project catalog: '+projects.length+' projects with PDF, Word, PowerPoint and teacher guides');
+}
