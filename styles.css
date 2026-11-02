@@ -752,3 +752,31 @@ body { background:var(--paper); }
   .home-subject-card.course { min-height:8.9rem; }
   .home-subject-card h3 { font-size:clamp(1rem,3.6vw,1.2rem); }
 }
+
+/* Email feedback service chooser; all math content and activity styling unchanged. */
+.feedback-chooser {
+  box-sizing:border-box; width:min(440px,calc(100vw - 2rem)); max-width:100%;
+  max-height:calc(100dvh - 2rem); overflow-y:auto; margin:auto;
+  padding:1.25rem; background:var(--card); color:var(--ink);
+  border:1px solid var(--line); border-radius:18px; box-shadow:0 20px 65px #14223d44;
+}
+.feedback-chooser::backdrop { background:rgba(13,22,38,.53); }
+.feedback-chooser-header { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }
+.feedback-chooser-header h2 { margin:0 0 .45rem; font-size:1.3rem; line-height:1.2; }
+.feedback-chooser-header p { margin:0; color:var(--ink-soft); font-size:.9rem; line-height:1.5; }
+.feedback-chooser-header strong { color:var(--ink); }
+.feedback-chooser-close { border:0; border-radius:9px; background:transparent; color:var(--ink-soft); cursor:pointer; font:inherit; font-size:1.5rem; line-height:1; padding:.15rem .45rem; }
+.feedback-chooser-close:hover { background:var(--wash); color:var(--ink); }
+.feedback-chooser-options { display:grid; gap:.6rem; margin-top:1.2rem; }
+.feedback-choice { display:flex; gap:.85rem; align-items:center; min-height:4.15rem; padding:.7rem .85rem; border:1px solid var(--line); border-radius:12px; background:var(--paper); color:var(--ink); text-decoration:none; transition:border-color .15s,background-color .15s; }
+.feedback-choice:hover { background:var(--wash); border-color:var(--ink-soft); text-decoration:none; }
+.feedback-choice-icon { display:grid; place-items:center; width:2.3rem; height:2.3rem; flex:0 0 2.3rem; border-radius:9px; font-weight:800; font-size:1.1rem; }
+.feedback-gmail { background:#fce8e6; color:#b3261e; }
+.feedback-outlook { background:#e7f3ff; color:#0067b8; }
+.feedback-default { background:var(--wash); color:var(--ink); }
+.feedback-choice-text { display:flex; flex:1; flex-direction:column; gap:.13rem; min-width:0; }
+.feedback-choice-text strong { font-size:.96rem; font-weight:750; }
+.feedback-choice-text small { font-size:.78rem; line-height:1.35; color:var(--ink-soft); }
+.feedback-choice-arrow { font-size:1.35rem; color:var(--ink-soft); }
+.feedback-chooser-note { margin:1.1rem 0 0; color:var(--ink-soft); line-height:1.45; font-size:.8rem; }
+.feedback-chooser :focus-visible { outline:3px solid var(--blue-bg); outline-offset:2px; }
