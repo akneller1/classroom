@@ -731,7 +731,8 @@ body { background:var(--paper); }
   display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
 }
 .home-subject-card .count { padding:0; font-size:.72rem; line-height:1.25; margin-top:auto; }
-.home-subject-card .art { width:34%; max-width:3.1rem; right:.12rem; bottom:1rem; opacity:.12; }
+/* Keep the oversized math graph as a recognizable visual element on every subject tile. */
+.home-subject-card .art { width:60%; max-width:8rem; right:-.2rem; bottom:.35rem; opacity:.27; pointer-events:none; }
 .home-subject-card.soon {
   opacity:.92; border-style:dashed;
   background:color-mix(in srgb,var(--c-bg) 18%,var(--card));
