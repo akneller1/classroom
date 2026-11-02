@@ -82,3 +82,33 @@ console.log('PASS upcoming Grade 6/7 placeholders and three-column subject cards
  assert(kinds.includes("id: 'project'"),'Projects missing from Activity Builder formats');
  console.log('PASS Activity Builder project catalog: '+projects.length+' projects with PDF, Word, PowerPoint and teacher guides');
 }
+
+/* Protect every published activity link, thumbnail, and active teacher key from
+ * being silently disconnected by future UI/catalog changes. This is a link
+ * integrity check, not an assertion that the mathematics is human-reviewed. */
+{
+ const source=fs.readFileSync(path.join(out,'data.js'),'utf8');
+ const activePaths=new Set();
+ let checked=0;
+ for(const [,field,url] of source.matchAll(/"(path|thumb)"\s*:\s*"([^"]+)"/g)){
+  if(/^(?:https?:|data:|mailto:|#)/i.test(url))continue;
+  const plain=url.split(/[?#]/,1)[0];
+  const target=path.resolve(out,plain);
+  assert(target.startsWith(out+path.sep),'Catalog '+field+' escapes public site: '+url);
+  assert(fs.existsSync(target),'Broken catalog '+field+': '+url);
+  if(field==='path')activePaths.add(url);
+  checked++;
+ }
+ assert(checked>=1000,'Catalog seems to have lost activity or thumbnail records');
+ const meta=fs.readFileSync(path.join(out,'resource-details.js'),'utf8');
+ const details=JSON.parse(meta.replace(/^\s*window\.RESOURCE_DETAILS\s*=\s*/, '').replace(/;\s*$/, ''));
+ let keyCount=0;
+ for(const [resource,info] of Object.entries(details)){
+  if(!activePaths.has(resource)||!info.answerKey)continue;
+  const target=path.resolve(out,info.answerKey);
+  assert(target.startsWith(out+path.sep),'Teacher key escapes public site: '+info.answerKey);
+  assert(fs.existsSync(target),'Missing teacher key for '+resource+': '+info.answerKey);
+  keyCount++;
+ }
+ console.log('PASS catalog integrity: '+checked+' published activity/thumbnail references and '+keyCount+' active teacher answer keys');
+}

@@ -51,6 +51,9 @@ async function run(){
   assert.equal(await page.locator('.ag-cell:enabled').count(),0,'No approved questions should disable board');
   await setup(page,'approved-flashcards.html');
   await page.locator('#afApp').waitFor({state:'visible'});
+  // Default mixed mode now includes vocabulary cards in addition to the fixture items.
+  assert.match(await page.locator('#afProgress').innerText(),/Card 1 of [2-9][0-9]*/);
+  await page.locator('#afMode').selectOption('skills');
   assert.match(await page.locator('#afProgress').innerText(),/Card 1 of 2/);
   await page.locator('#afFlip').click();
   await page.getByText('Worked solution').waitFor();
