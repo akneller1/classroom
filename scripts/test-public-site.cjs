@@ -72,6 +72,34 @@ const stylesheet=fs.readFileSync(path.join(out,'styles.css'),'utf8');
 assert(stylesheet.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Missing two-column homepage subject grid');
 console.log('PASS Grade 6/7 restored; eight visible courses in a two-column grid');
 
+/* Regression: middle-school activity links must not redirect back home. */
+{
+ const gameFile=path.join(out,'worksheet-generator','middle-school-game.html');
+ const practiceFile=path.join(out,'worksheet-generator','grade-practice.html');
+ for(const file of [gameFile,practiceFile]){
+   const html=fs.readFileSync(file,'utf8');
+   assert(!/location\s*\.\s*replace\s*\(\s*['"]\.\.\/index\.html['"]\s*\)/.test(html),
+     'Middle-school activity redirects home: '+path.basename(file));
+   assert(!/get\s*\(\s*['"]course['"]\s*\)\s*!==\s*['"]prealgebra['"]/.test(html),
+     'Middle-school activity still blocks Grade 6/7: '+path.basename(file));
+ }
+ const practiceHtml=fs.readFileSync(practiceFile,'utf8');
+ for(const id of ['math6','prealgebra7','prealgebra'])
+   assert(practiceHtml.includes('<option value="'+id+'"'),
+     'Missing course in middle-school practice picker: '+id);
+ const gameHtml=fs.readFileSync(gameFile,'utf8');
+ assert(gameHtml.includes('games/grade-game-setup.js'),
+   'Middle-school game must load the grade-specific engine');
+ assert(publicApp.includes('middle-school-game.html?course=') &&
+        publicApp.includes('grade-practice.html?course='),
+   'Middle-school activity cards do not target the expected pages');
+ const publishedData=fs.readFileSync(path.join(out,'data.js'),'utf8');
+ assert(publishedData.includes('course=prealgebra&unit='),
+   'Grade 8 games must retain direct course/unit routes');
+ console.log('PASS Grade 6/7 activity navigation; Grade 8 links preserved');
+}
+
+
 /* Projects regression: previously authored Algebra 1, Geometry, and Algebra 2
  * projects must be available in the Activity Builder, with intact download assets. */
 {
