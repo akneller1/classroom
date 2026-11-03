@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5 };
+  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -222,6 +222,13 @@
       '<path class="s" d="M 20 135 H 185 M 35 145 V 10"/>' +
       '<path class="s" d="M 45 120 L 165 30"/>' +
       '<circle class="f" cx="65" cy="105" r="6"/><circle class="f" cx="105" cy="75" r="6"/><circle class="f" cx="145" cy="45" r="6"/>' +
+      '</svg>',
+    wave:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="25" y="23" width="150" height="114" rx="8"/>' +
+      '<path class="s-thin" d="M 15 80 H 185 M 100 10 V 150"/>' +
+      '<path class="s" d="M 20 80 C 33 20 47 20 60 80 S 87 140 100 80 S 127 20 140 80 S 167 140 180 80"/>' +
+      '<circle class="f" cx="40" cy="35" r="7"/><circle class="f" cx="100" cy="80" r="7"/><circle class="f" cx="160" cy="125" r="7"/>' +
       '</svg>',
     curve:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
@@ -468,7 +475,7 @@
                 var n = courseCount(c);
                 return '<li><a class="course home-subject-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
                   '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
-                  '<p class="count">' + (c.id === 'prealgebra' ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
+                  '<p class="count">' + (c.planned ? units(c.units.length) + ' · course outline' : c.id === 'prealgebra' ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
                   artFor(c) + '</a></li>';
               }).join('') + SOON.map(function (c) {
                 return '<li><a class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
@@ -536,18 +543,18 @@
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        ((c.id === 'math6' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
+        ((c.planned || c.id === 'math6' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
-          if (!k && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7' && c.id !== 'math6') {
+          if (!k && !c.planned && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7' && c.id !== 'math6') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
-          if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
+          if (c.planned || c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
             return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
@@ -614,7 +621,7 @@
       }).join('') + '</ul></div>';
   }
   function unitPager(c, u) {
-    var list = c.units.filter(function (x) { return x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6' || c.id === 'algebra2'; });
+    var list = c.units.filter(function (x) { return c.planned || x === u || x.artifacts.length || c.id === 'geometry' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6' || c.id === 'algebra2'; });
     var i = list.indexOf(u);
     if (list.length < 2) return '';
     function link(t, dir) {
@@ -760,6 +767,18 @@
     return group('Games', games) + group('Study Guides',guides) + group('Printable Resources',printables) + lessons;
   }
   function unitView(c, u) {
+    if (c.planned) {
+      var outline = window.MK_COURSE_CATALOG.getSkills(c.id, u.id);
+      var heading = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
+        '<h1 tabindex="-1">' + esc(unitLabel(c, u)) + '</h1><p class="band-meta">Course outline · Activities coming soon</p>';
+      return { title: unitLabel(c, u) + ', ' + c.name,
+        html: bandHtml(c, heading) + '<section class="section"><div class="wrap">' + unitPager(c, u) +
+          '<h2>Topics in this unit</h2><ul class="unit-skills">' + outline.map(function (skill) {
+            return '<li class="unit-skill">' + esc(skill) + '</li>';
+          }).join('') + '</ul><div class="empty"><h2>Activities coming soon</h2>' +
+          '<p>Lessons, games, and practice resources will be added as this course is built out.</p></div>' +
+          unitPager(c, u) + '</div></section>' };
+    }
     if (c.id === 'prealgebra') return algebraUnitView(c, u);
     if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
       var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
@@ -1142,3 +1161,4 @@
     render(true);
   })();
 })();
+

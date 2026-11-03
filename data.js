@@ -25,6 +25,56 @@ window.LIBRARY = {
   "footer": "Activities run in any modern browser. Saved activities are kept in this browser only.",
   "newDays": 30,
   "courses": [
+{
+  "id": "precalculus",
+  "name": "Precalculus",
+  "color": "purple",
+  "art": "wave",
+  "planned": true,
+  "blurb": "Functions, trigonometry, conics, matrices, vectors, and probability.",
+  "units": [
+    {
+      "id": "equations-inequalities",
+      "name": "Equations and Inequalities",
+      "artifacts": []
+    },
+    {
+      "id": "functions",
+      "name": "Functions",
+      "artifacts": []
+    },
+    {
+      "id": "conics",
+      "name": "Conics",
+      "artifacts": []
+    },
+    {
+      "id": "trigonometric-functions",
+      "name": "Trigonometric Functions",
+      "artifacts": []
+    },
+    {
+      "id": "general-triangle-trigonometry",
+      "name": "Trigonometry of General Triangles",
+      "artifacts": []
+    },
+    {
+      "id": "matrices",
+      "name": "Matrices",
+      "artifacts": []
+    },
+    {
+      "id": "vectors",
+      "name": "Vectors",
+      "artifacts": []
+    },
+    {
+      "id": "probability",
+      "name": "Probability",
+      "artifacts": []
+    }
+  ]
+},
     {
       "id": "algebra",
       "name": "Algebra 1",

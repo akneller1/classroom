@@ -3,6 +3,106 @@
 (function(root){
   'use strict';
   var skills = {
+  "precalculus": {
+  "equations-inequalities": [
+    "Writing Linear Equations",
+    "Parallel and Perpendicular Lines",
+    "Solving Equations Graphically",
+    "Applications of Equations",
+    "Linear, Compound, and Polynomial Inequalities",
+    "Interval Notation",
+    "Graphing Linear Inequalities",
+    "Systems of Equations in Two Variables",
+    "Systems of Equations in Three Variables",
+    "Systems of Linear Inequalities",
+    "Linear Programming"
+  ],
+  "functions": [
+    "Linear Graphs, Slope, Intercepts, and Zeros",
+    "Function Operations and Composition",
+    "Function Iteration",
+    "Twelve Basic Functions and Domains",
+    "Piecewise, Step, and Absolute Value Functions",
+    "Parent Functions and Graph Transformations",
+    "Families of Related Graphs",
+    "Nonlinear and Absolute Value Inequalities",
+    "Inverse Functions and Relations",
+    "Direct, Inverse, and Joint Variation",
+    "Quadratic Equations and Quadratic Form",
+    "Rational Functions and Asymptotes",
+    "Remainder and Factor Theorems",
+    "Locating Polynomial Zeros",
+    "Exponential and Logistic Functions",
+    "The Number e and Natural Exponential Functions",
+    "Logarithmic Functions and Graphs"
+  ],
+  "conics": [
+    "Circles and Their Equations",
+    "Parabolas: Focus, Directrix, and Standard Form",
+    "Ellipses: Graphs, Vertices, and Foci",
+    "Writing Equations of Ellipses",
+    "Hyperbolas: Graphs and Key Features",
+    "Writing Equations of Hyperbolas"
+  ],
+  "trigonometric-functions": [
+    "Unit Circle and Circular Functions",
+    "Exact Trigonometric Values",
+    "Angles and Radian Measure",
+    "Arc Length and Sector Area",
+    "Right Triangle Applications",
+    "Amplitude and Period",
+    "Sine Functions and Graphs",
+    "Cosine Functions and Graphs",
+    "Solving Trigonometric Equations",
+    "Inverse Trigonometric Functions and Graphs",
+    "Principal Values and Technology"
+  ],
+  "general-triangle-trigonometry": [
+    "Triangle Area and the Law of Sines",
+    "Solving Triangles with the Law of Sines",
+    "The Ambiguous Case: Zero, One, or Two Triangles",
+    "The Law of Cosines",
+    "Triangle Area from Three Sides",
+    "Deriving the Laws of Sines and Cosines",
+    "Sum and Difference Identities",
+    "Rotations with Identities and Matrices"
+  ],
+  "matrices": [
+    "Matrix Notation and Organizing Data",
+    "Adding and Subtracting Matrices",
+    "Scalar and Matrix Multiplication",
+    "Augmented Matrices and Row Reduction",
+    "Reduced Row Echelon Form with Technology",
+    "Networks and Matrix Models",
+    "Identity and Inverse Matrices",
+    "Determinants of 2 by 2 and 3 by 3 Matrices",
+    "Geometric Transformations with Matrices",
+    "Modeling Motion with Matrices",
+    "Solving Systems with Matrix Equations"
+  ],
+  "vectors": [
+    "Complex Number Operations and Quadratic Zeros",
+    "Distance, Midpoints, and Modulus in the Complex Plane",
+    "Geometric Vectors",
+    "Algebraic Vectors and Components",
+    "Vector Magnitude and Direction",
+    "Vector Applications in Geometry and Modeling",
+    "Vector Transformations Using Matrices",
+    "Dot Products and Projections",
+    "Polar and Rectangular Coordinates"
+  ],
+  "probability": [
+    "Probability, Odds, and Distributions",
+    "Independent and Dependent Events",
+    "Permutations and Combinations",
+    "Compound Event Probabilities",
+    "Probability Models and Decision Making",
+    "Data Types and Statistical Displays",
+    "Shapes of Distributions",
+    "Normal Distributions",
+    "Binomial Probabilities"
+  ]
+},
   "algebra": {
     "foundations-algebra": [
       "Variables, Expressions, and Verbal Phrases",
@@ -656,3 +756,4 @@
   }
   root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);
+
