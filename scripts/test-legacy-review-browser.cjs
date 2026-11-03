@@ -32,24 +32,24 @@ const assert=require('node:assert/strict');
   assert.equal(data.approved,false);
   assert.equal(data.results[0].review.status,'revise');
   assert.equal(data.results[0].review.note,'Check grade-level arithmetic.');
-  // Grade 6 and 7 are completely hidden from public navigation,
-  // while their standalone source files remain preserved and unpublished.
+  // Grade 6 and 7 are visible in public navigation.
+  // Unapproved standalone players still redirect to the course site.
   for (const entry of ['grade-practice.html','middle-school-game.html']) {
     await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/'+entry);
     await page.waitForURL('**/index.html');
-    assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),0);
+    assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
   }
   const coursePage=(process.env.MK_BASE_URL||'http://127.0.0.1:8765');
-  // Grade 7 must also be hidden in deep-link and mobile views.
+  // Grade 7 must remain visible in deep-link and mobile views.
   // Existing direct-access resources remain preserved, but not linked here.
   await page.goto(coursePage+'/index.html#prealgebra7.algebraic-expressions-integers');
   assert.ok(await page.locator('script[src^="skill-crosswalk.js"]').count()>0);
-  assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),0);
+  assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
   assert.equal(await page.locator('a[href*="approved-flashcards.html?course=prealgebra7"]').count(),0);
   // The Grade 7 resource bank remains unpublished until it has approved questions.
   // Resource-specific player tests run separately from visibility checks.
   await page.setViewportSize({width:375,height:812});
-  assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),0);
+  assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
   assert.equal(errors.length,0,errors.join('; '));
   console.log('PASS real browser course/skill selection, generated questions, reviewer notes, JSON download and mobile viewport');
  }finally{await browser.close()}
