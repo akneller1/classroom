@@ -3,6 +3,90 @@
 (function(root){
   'use strict';
   var skills = {
+  "calculus": {
+  "precalculus-review": [
+    "Factoring and Simplifying Expressions",
+    "Exponential Functions",
+    "Logarithmic Functions",
+    "Unit Circle and Exact Trigonometric Values",
+    "Graphical, Numerical, and Algebraic Representations"
+  ],
+  "limits-continuity": [
+    "Limit Notation and Interpretation",
+    "Estimating Limits from Graphs and Tables",
+    "Evaluating Limits Algebraically",
+    "One-Sided and Two-Sided Limits",
+    "Using Limits to Describe Function Behavior",
+    "Continuity on an Interval",
+    "Points and Types of Discontinuity",
+    "Applying Theorems Requiring Continuity"
+  ],
+  "derivatives": [
+    "The Derivative as a Limit of Difference Quotients",
+    "Estimating Derivatives from Graphs and Tables",
+    "Calculating Derivatives",
+    "Higher-Order Derivatives",
+    "Differentiability and Continuity",
+    "Tangent Lines and Their Slopes",
+    "Connecting a Function and Its Derivative"
+  ],
+  "applications-derivatives": [
+    "Interpreting Derivatives in Context",
+    "Analyzing Function Behavior with Derivatives",
+    "Increasing and Decreasing Intervals",
+    "Relative and Absolute Extrema",
+    "Concavity and Inflection Points",
+    "Related Rates",
+    "Optimization",
+    "Rectilinear Motion: Position, Velocity, and Acceleration",
+    "Rates of Change in Applied Contexts",
+    "The Mean Value Theorem",
+    "Midterm Review"
+  ],
+  "antiderivatives-definite-integrals": [
+    "Antidifferentiation as the Inverse of Differentiation",
+    "Antiderivatives of Basic Functions",
+    "Definite Integrals as Limits of Riemann Sums",
+    "Converting Riemann Sums to Integral Notation",
+    "Approximating Definite Integrals",
+    "Evaluating Integrals Using Geometry",
+    "Properties of Definite Integrals"
+  ],
+  "fundamental-theorem-calculus": [
+    "Connecting Differentiation and Integration",
+    "Accumulation Functions",
+    "Analyzing Functions Defined by Integrals",
+    "Differentiating Functions Defined by Integrals",
+    "Evaluating Definite Integrals with Antiderivatives"
+  ],
+  "applications-integrals": [
+    "Interpreting Definite Integrals in Context",
+    "Accumulation and Net Change",
+    "Average Value of a Function",
+    "Motion and Displacement",
+    "Total Distance Traveled",
+    "Area Between Curves",
+    "Volumes of Solids",
+    "Integral Models in Applied Contexts"
+  ],
+  "differential-equations": [
+    "Functions Defined by Their Rates of Change",
+    "Verifying Solutions to Differential Equations",
+    "Estimating Solutions to Differential Equations",
+    "Separating Variables",
+    "Solving Separable Differential Equations",
+    "Initial Conditions and Particular Solutions"
+  ],
+  "ap-review": [
+    "Limits and Continuity Review",
+    "Derivatives and Their Applications Review",
+    "Integrals and the Fundamental Theorem Review",
+    "Differential Equations Review",
+    "Connecting Graphs, Tables, Formulas, and Verbal Descriptions",
+    "Justifying Solutions with Definitions and Theorems",
+    "Calculus Notation and Written Explanations"
+  ]
+},
   "precalculus": {
   "equations-inequalities": [
     "Writing Linear Equations",
@@ -756,4 +840,3 @@
   }
   root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);
-

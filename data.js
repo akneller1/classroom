@@ -26,6 +26,61 @@ window.LIBRARY = {
   "newDays": 30,
   "courses": [
 {
+  "id": "calculus",
+  "name": "Calculus",
+  "color": "orange",
+  "art": "tangent",
+  "planned": true,
+  "blurb": "Limits, derivatives, integrals, and their applications. AP Calculus AB scope.",
+  "units": [
+    {
+      "id": "precalculus-review",
+      "name": "Precalculus Review",
+      "artifacts": []
+    },
+    {
+      "id": "limits-continuity",
+      "name": "Limits and Continuity",
+      "artifacts": []
+    },
+    {
+      "id": "derivatives",
+      "name": "Derivatives",
+      "artifacts": []
+    },
+    {
+      "id": "applications-derivatives",
+      "name": "Applications of Derivatives",
+      "artifacts": []
+    },
+    {
+      "id": "antiderivatives-definite-integrals",
+      "name": "Antiderivatives and Definite Integrals",
+      "artifacts": []
+    },
+    {
+      "id": "fundamental-theorem-calculus",
+      "name": "The Fundamental Theorem of Calculus",
+      "artifacts": []
+    },
+    {
+      "id": "applications-integrals",
+      "name": "Applications of Integrals",
+      "artifacts": []
+    },
+    {
+      "id": "differential-equations",
+      "name": "Differential Equations",
+      "artifacts": []
+    },
+    {
+      "id": "ap-review",
+      "name": "AP Calculus Review",
+      "artifacts": []
+    }
+  ]
+},
+{
   "id": "precalculus",
   "name": "Precalculus",
   "color": "purple",
@@ -7102,7 +7157,7 @@ window.LIBRARY = {
       "artifacts": []
     }
   ],
-  "comingSoon": true
+  "comingSoon": false
 },
 {
   "id": "math6",
@@ -7147,7 +7202,7 @@ window.LIBRARY = {
       "artifacts": []
     }
   ],
-  "comingSoon": true
+  "comingSoon": false
 }
   ]
 };

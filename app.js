@@ -2,14 +2,13 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6 };
+  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6, calculus: 7 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
   });
-  /* Temporarily hide Grade 6 and Grade 7 everywhere in public browsing.
-     Keep their course definitions, units, and resources in data.js for later. */
-  var HIDDEN_COURSES = { math6: true, prealgebra7: true };
+  /* Course visibility switches; all current courses are public. */
+  var HIDDEN_COURSES = {};
   var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
   L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
@@ -222,6 +221,14 @@
       '<path class="s" d="M 20 135 H 185 M 35 145 V 10"/>' +
       '<path class="s" d="M 45 120 L 165 30"/>' +
       '<circle class="f" cx="65" cy="105" r="6"/><circle class="f" cx="105" cy="75" r="6"/><circle class="f" cx="145" cy="45" r="6"/>' +
+      '</svg>',
+    tangent:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="25" y="23" width="150" height="114" rx="8"/>' +
+      '<path class="s-thin" d="M 15 135 H 190 M 30 15 V 150"/>' +
+      '<path class="s" d="M 35 125 Q 105 125 175 25"/>' +
+      '<path class="s-thin" d="M 49 140 L 161 60"/>' +
+      '<circle class="f" cx="105" cy="100" r="7"/>' +
       '</svg>',
     wave:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
@@ -475,7 +482,7 @@
                 var n = courseCount(c);
                 return '<li><a class="course home-subject-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
                   '<h3>' + esc(c.name) + '</h3><p>' + esc(c.blurb || '') + '</p>' +
-                  '<p class="count">' + (c.planned ? units(c.units.length) + ' · course outline' : c.id === 'prealgebra' ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
+                  '<p class="count">' + (c.planned ? units(c.units.length) + ' · course outline' : ['math6', 'prealgebra7', 'prealgebra'].indexOf(c.id) >= 0 ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
                   artFor(c) + '</a></li>';
               }).join('') + SOON.map(function (c) {
                 return '<li><a class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
@@ -1161,4 +1168,3 @@
     render(true);
   })();
 })();
-

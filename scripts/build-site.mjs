@@ -147,7 +147,7 @@ try {
   const roots = { ...sb.__mkTopLevel };
   for (const k of Object.keys(sb)) if (!["window", "self", "globalThis", "document", "console", "__mkTopLevel"].includes(k)) roots[k] = sb[k];
   const usedCourse = new Set();
-  const hiddenCourses = new Set(["math6", "prealgebra7"]);
+  const hiddenCourses = new Set();
   for (const { course, units } of findCourses(roots)) {
     if (hiddenCourses.has(course?.id) || course?.hidden === true) continue;
     const cTitle = label(course) || "Activities";
