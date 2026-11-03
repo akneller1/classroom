@@ -481,7 +481,7 @@
               L.courses.map(function (c) {
                 var n = courseCount(c);
                 return '<li><a class="course home-subject-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
-                  '<h3>' + esc(c.name) + '</h3>' + (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' ? '' : '<span class="course-wip-label">Work in Progress</span>') + '<p>' + esc(c.blurb || '') + '</p>' +
+                  '<h3>' + esc(c.name) + '</h3>' + (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' ? '' : '<span class="course-wip-label">Work in Progress</span>') + '<p>' + esc(c.blurb || '') + '</p>' +
                   '<p class="count">' + (c.planned ? units(c.units.length) + ' · course outline' : ['math6', 'prealgebra7', 'prealgebra'].indexOf(c.id) >= 0 ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
                   artFor(c) + '</a></li>';
               }).join('') + SOON.map(function (c) {
@@ -544,7 +544,7 @@
       '<div class="band-grid"><div>' +
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
-        (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' ? '' : '<span class="course-wip-label">Work in Progress</span>') +
+        (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'prealgebra' ? '' : '<span class="course-wip-label">Work in Progress</span>') +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
         '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons with generators, games, and study guides' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
