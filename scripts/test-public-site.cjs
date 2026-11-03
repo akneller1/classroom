@@ -8,7 +8,7 @@ for(const dir of ['.git','.github','scripts','audits','incoming','docs','tools',
 assert(!home.includes('u/math6/')&&!home.includes('u/prealgebra7/'),'Hidden courses exposed in catalog');
 const sitemap=fs.readFileSync(path.join(out,'sitemap.xml'),'utf8');
 assert(!sitemap.includes('/u/math6/')&&!sitemap.includes('/u/prealgebra7/'),'Hidden courses exposed in sitemap');
-const courses=fs.readdirSync(path.join(out,'u'));assert.equal(courses.length,4);let count=0;
+const courses=fs.readdirSync(path.join(out,'u'));assert.equal(courses.length,5);let count=0;
 const checkLinks=(file,text)=>{for(const match of text.matchAll(/(?:href|src)="([^"<>]+)"/g)){
  const link=match[1].replace(/&amp;/g,'&');if(/^(?:https?:|data:|mailto:|#)/.test(link))continue;
  const raw=link.split(/[?#]/)[0];if(!raw)continue;
@@ -23,12 +23,15 @@ for(const course of courses){
  for(const unit of fs.readdirSync(path.join(out,'u',course),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
  const file=path.join(out,'u',course,unit,'index.html'),html=fs.readFileSync(file,'utf8');
  assert(html.includes('../../../#'+course+'.'+unit),'Incorrect app route: '+course+'/'+unit);
- for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
+ if(course === 'precalculus') {
+   assert(html.includes('Activities coming soon'));
+   assert(!html.includes('worksheet-generator/'), 'Planned course must not link to unavailable generators');
+ } else for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
  assert(html.includes('<a href="../">'),'Missing course breadcrumb: '+course+'/'+unit);
  checkLinks(file,html);count++;
 }
 }
-assert.equal(count,40);assert.equal((sitemap.match(/<loc>/g)||[]).length,45);
+assert.equal(count,48);assert.equal((sitemap.match(/<loc>/g)||[]).length,54);
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
@@ -44,7 +47,7 @@ const publicApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
 assert(publicApp.includes("'mailto:akneller@gmail.com?subject='"),'Per-resource issue reports must use direct email');
 assert(publicApp.includes("encodeURIComponent(body)"),'Per-resource report must include activity link and problem template');
 assert(publicApp.includes('class="report-problem"'),'Activity report links must remain available for email chooser');
-assert(home.includes('app.js?v=browse-game-category-20261102'),'Homepage must load fresh Browsing filters');
+assert(home.includes('app.js?v=precalculus-20261103'),'Homepage must load fresh Browsing filters');
 assert(publicApp.includes('function belongsToGroup(a, group)'),'Browse Activities classification missing');
 assert(publicApp.includes("if (a.unitSpecific === true) return 'Unit-specific';"),'Unit-specific tag missing');
 assert(publicApp.includes("if (key === 'category') { state.format = ''; state.gameMode = ''; }"),'Category changes must clear stale choices');
@@ -53,10 +56,10 @@ assert(!publicApp.includes('github.com/akneller1/classroom/issues/new'),'Per-res
 assert(!home.includes('.main-nav { display: none; }'),'Header navigation hidden');
 for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])assert(fs.existsSync(path.join(out,'assets',file)),'Missing branding asset '+file);
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');
-console.log('PASS public build: four visible courses, 40 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
+console.log('PASS public build: five visible courses, 48 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
 
 /* Keep Grade 6/7 available in source data but absent from public course cards,
- * navigation, and search. Retain the four published courses and 2 x 2 layout. */
+ * navigation, and search. Retain the five published courses and 2 x 2 layout. */
 const publishedData=fs.readFileSync(path.join(out,'data.js'),'utf8');
 for(const courseId of ['prealgebra7','math6']){
  const p=publishedData.indexOf('"id": "'+courseId+'"');
@@ -70,7 +73,7 @@ assert(app.includes('c.comingSoon && !HIDDEN_COURSES[c.id]'),'Hidden courses mus
 assert(app.includes('!c.comingSoon && !HIDDEN_COURSES[c.id]'),'Hidden courses must not appear in published course views or search');
 const stylesheet=fs.readFileSync(path.join(out,'styles.css'),'utf8');
 assert(stylesheet.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Missing two-column homepage subject grid');
-console.log('PASS Grade 6/7 hidden with source preserved; four published courses in a two-by-two grid');
+console.log('PASS Grade 6/7 hidden with source preserved; five published courses in a two-column grid');
 
 /* Projects regression: previously authored Algebra 1, Geometry, and Algebra 2
  * projects must be available in the Activity Builder, with intact download assets. */

@@ -107,7 +107,7 @@ function loadData() {
   vm.createContext(sandbox);
   vm.runInContext(`${src}\n;globalThis.__mkTopLevel = {${grab}};`, sandbox, { filename: "data.js", timeout: 5000 });
   // Include resources attached by the same runtime supplements as the homepage.
-  for (const filename of ["unit-specific-arcade.js", "resource-details.js"]) {
+  for (const filename of ["unit-specific-arcade.js", "resource-details.js", "course-catalog.js"]) {
     const file = path.join(ROOT, filename);
     if (fs.existsSync(file)) vm.runInContext(fs.readFileSync(file,"utf8"),sandbox,{filename,timeout:5000});
   }
@@ -161,7 +161,9 @@ try {
       usedUnit.add(uSlug);
       return {
         id: u.id, title: label(u) || "Unit", slug: uSlug, description: u.description || "",
+        skills: sb.MK_COURSE_CATALOG.getSkills(course.id, u.id),
         items: (() => {
+          if (course.planned) return [];
           const items = u.artifacts.filter((a) => a && typeof a === "object" && (a.title || a.path));
           const aliases = {algebra:{"foundations-algebra":"foundations","exponents-exponential-functions":"exponents-scientific-notation","polynomials-factoring":"polynomials"},geometry:{"foundations-geometry":"basics-reasoning","triangle-congruence":"triangles-congruence"}};
           const setId = (course.id === "algebra" ? "algebra1" : course.id) + "-" + (aliases[course.id]?.[u.id] || u.id);
@@ -172,7 +174,7 @@ try {
         })(),
       };
     });
-    catalog.push({ id: course?.id, title: cTitle, slug: cSlug, color: course?.color, units: unitList });
+    catalog.push({ id: course?.id, title: cTitle, slug: cSlug, color: course?.color, planned: course?.planned, units: unitList });
   }
 } catch (e) {
   console.warn("Could not read data.js, so the catalog was not pre-written:", e.message);
@@ -251,7 +253,7 @@ for (const c of catalog) {
   // subject-level directory without hiding Grade 6/7 on the public site.
   const courseDepth = 2;
   const courseAddress = SITE_URL + courseUrl(c);
-  const courseDescription = `Free ${c.title} resources for teachers: ${c.units.length} curriculum units with games, worksheets, printable activities, assessments and lesson plan generators.`;
+  const courseDescription = c.planned ? `${c.title} course outline: ${c.units.length} curriculum units. Activities coming soon.` : `Free ${c.title} resources for teachers: ${c.units.length} curriculum units with games, worksheets, printable activities, assessments and lesson plan generators.`;
   const coursePage = `<!doctype html>
 <html lang="en">
 <head>
@@ -280,10 +282,10 @@ ${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> 
   fs.writeFileSync(path.join(courseDir, "index.html"), coursePage);
   sitemapUrls.push(courseAddress);
   for (const u of c.units) {
-    if (!u.items.length) continue;
+    if (!u.items.length && !c.planned) continue;
     const depth = 3;
     const url = SITE_URL + unitUrl(c, u);
-    const desc = (u.description || `${u.items.length} free ${c.title} activit${u.items.length === 1 ? "y" : "ies"} for ${u.title}: ${listNames([...new Set(u.items.map((a) => a.type).filter(Boolean))].slice(0, 4).map((t) => t.toLowerCase()))}.`).replace(/:\s*\.$/, ".");
+    const desc = c.planned ? `${u.title} — ${c.title} course outline. Activities coming soon.` : (u.description || `${u.items.length} free ${c.title} activit${u.items.length === 1 ? "y" : "ies"} for ${u.title}: ${listNames([...new Set(u.items.map((a) => a.type).filter(Boolean))].slice(0, 4).map((t) => t.toLowerCase()))}.`).replace(/:\s*\.$/, ".");
     const accent = COLOR[c.color] ? `<style>:root{--accent:${COLOR[c.color]}}@media (prefers-color-scheme:dark){:root{--accent:var(--link)}}</style>` : "";
     const appLink = u.id ? `../../../#${encodeURIComponent(c.id + "." + u.id)}` : "../../../";
     const page = `<!doctype html>
@@ -299,7 +301,7 @@ ${headTags({ title: `${u.title} – ${c.title} | ${SITE_NAME}`, description: des
 <h1>${htmlEsc(u.title)}</h1>
 <p class="lede">${htmlEsc(desc)}</p>
 <ul class="mk-items">
-${u.items.map((a) => itemHtml(a, depth)).join("\n")}
+${c.planned ? u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n") : u.items.map((a) => itemHtml(a, depth)).join("\n")}
 </ul>
 <a class="open-app" href="${appLink}">Open this unit in the full classroom site</a>
 </main>
