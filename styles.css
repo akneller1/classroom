@@ -780,3 +780,7 @@ body { background:var(--paper); }
 .feedback-choice-arrow { font-size:1.35rem; color:var(--ink-soft); }
 .feedback-chooser-note { margin:1.1rem 0 0; color:var(--ink-soft); line-height:1.45; font-size:.8rem; }
 .feedback-chooser :focus-visible { outline:3px solid var(--blue-bg); outline-offset:2px; }
+
+/* Subtle status for courses that are still being built out. */
+.course-wip-label { display:inline-flex; align-self:flex-start; width:max-content; max-width:100%; padding:.22rem .5rem; border:1px solid var(--line, #cbd5e1); border-radius:999px; background:var(--wash, #f1f5f9); color:var(--ink, #334155); font-size:.68rem; font-weight:750; letter-spacing:.025em; line-height:1.2; text-transform:uppercase; }
+.home-subject-card .course-wip-label { position:relative; z-index:1; }
