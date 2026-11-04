@@ -33,6 +33,31 @@ function copyStudentLink(){
 function bindShare(){var el=root.querySelector('#pt-share');if(el)el.onclick=copyStudentLink;}
 function controls(){return '<section class="pt-card"><span class="pt-eyebrow">ASSESSMENT READINESS · VERSION 2</span><h1>Assessment Readiness Check</h1><p>Take a unit-style assessment, review your performance by skill, and generate a targeted reassessment.</p><div class="pt-fields"><label>Unit<select id="pt-unit">'+units().map(u=>'<option value="'+esc(u[0])+'" '+(config.unit===u[0]?'selected':'')+'>'+esc(u[1])+'</option>').join('')+'</select></label><label>Level<select id="pt-level">'+['cp2','cp1','honors'].map(l=>'<option value="'+l+'" '+(config.level===l?'selected':'')+'>'+(/^prealgebra(?:7)?-|^math6-/.test(config.unit)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[l]:l.toUpperCase())+'</option>').join('')+'</select></label><label>Questions<select id="pt-count">'+[5,10,15,20,25].map(n=>'<option '+(config.count===n?'selected':'')+'>'+n+'</option>').join('')+'</select></label><label>Time limit<select id="pt-minutes">'+[0,20,30,45].map(n=>'<option value="'+n+'" '+(config.minutes===n?'selected':'')+'>'+(n?n+' minutes':'Untimed')+'</option>').join('')+'</select></label><label>Format<select id="pt-format">'+(chosen().authoredBank?'<option value="mixed" '+(config.format==='mixed'?'selected':'')+'>Mixed</option><option value="mc" '+(config.format==='mc'?'selected':'')+'>Multiple choice and select-all</option><option value="self" '+(config.format==='self'?'selected':'')+'>Written response (self-review)</option>':'<option value="mixed" '+(config.format==='mixed'?'selected':'')+'>Mixed</option><option value="mc" '+(config.format==='mc'?'selected':'')+'>Multiple choice</option><option value="self" '+(config.format==='self'?'selected':'')+'>Automatically graded short answer</option>')+'</select></label></div><h2>Choose skills</h2><div class="pt-skills">'+chosen().skills.map(s=>'<label><input type="checkbox" data-skill="'+esc(s.id)+'" '+(config.skills.includes(s.id)?'checked':'')+'> '+esc(s.name)+'</label>').join('')+'</div><div class="pt-actions"><button id="pt-all" class="pt-secondary">Select all</button><button id="pt-build">Generate printable assessment</button></div>'+shareControls()+'<p class="pt-muted">Results stay on this device. '+(chosen().authoredBank?'Approved bank questions are used. Multiple choice and select-all are graded from the bank key; written responses are self-reviewed against worked solutions.':'Every included question supports automatic grading; unsupported question formats are excluded.')+'</p></section>';}
 function setup(){config.mode='test';if(state&&!state.done){root.innerHTML='<section class="pt-card"><h1>Assessment saved</h1><p>Your unfinished assessment is saved in this browser.</p><div class="pt-actions"><button id="pt-resume">Resume assessment</button><button id="pt-discard" class="pt-secondary">Discard and create new</button></div>'+shareControls()+'</section>';bindShare();root.querySelector('#pt-resume').onclick=show;root.querySelector('#pt-discard').onclick=()=>{if(confirm('Discard your saved assessment?')){state=null;save();setup();}};return;}if(!N.skillSets[config.unit])config.unit=units()[0][0];root.innerHTML=controls();root.querySelector('#pt-unit').onchange=function(e){config.unit=e.target.value;config.skills=chosen().skills.map(function(s){return s.id;});try{G.history.replaceState(null,'','#unit='+config.unit);}catch(err){}state=null;save();setup();};['level','count','format','minutes'].forEach(f=>root.querySelector('#pt-'+f).onchange=e=>{config[f]=(f==='count'||f==='minutes')?+e.target.value:e.target.value;save();refreshStudentLink();});root.querySelectorAll('[data-skill]').forEach(x=>x.onchange=()=>{config.skills=Array.from(root.querySelectorAll('[data-skill]:checked')).map(el=>el.dataset.skill);save();refreshStudentLink();});root.querySelector('#pt-all').onclick=()=>{config.skills=chosen().skills.map(s=>s.id);save();setup();};root.querySelector('#pt-build').onclick=()=>build();bindShare();}
+/* Visual multiple choice for systems of linear inequalities.
+   Draw distractors from the verified teacher graph, never from an unverified text description. */
+function graphChoices(p,index){
+ if(!p||!p.parts||!p.parts[0]||!p.parts[0].answerFig)return null;
+ var original=p.parts[0].answerFig;
+ if(!original.halfplanes||!original.halfplanes.length)return null;
+ var copy=fig=>JSON.parse(JSON.stringify(fig));
+ function flipSide(fig,n){
+   var h=fig.halfplanes[n],atZero=h.a[1];
+   h.side[1]=2*atZero-h.side[1];
+ }
+ var figures=[copy(original),copy(original),copy(original),copy(original)];
+ flipSide(figures[1],0);
+ figures[2].halfplanes[0].dashed=!figures[2].halfplanes[0].dashed;
+ if(original.halfplanes.length>1)flipSide(figures[3],1);
+ else {flipSide(figures[3],0);figures[3].halfplanes[0].dashed=!figures[3].halfplanes[0].dashed;}
+ var slot=index%4;
+ var ordered=figures.slice(slot).concat(figures.slice(0,slot));
+ return {opts:['Graph A','Graph B','Graph C','Graph D'],key:(4-slot)%4,graphs:ordered};
+}
+function choiceMarkup(q,j){
+ return q.choices&&q.choices.graphs&&N.figHtml
+   ? '<span class="pt-graph-option">'+N.figHtml(q.choices.graphs[j])+'</span>'
+   : fmt(q.choices.opts[j]);
+}
 function makeQuestion(skill,seed,index,used){
  var policy={level:config.level,intOnly:config.level!=='honors'}, tier=levels[config.level]+(index%3===0?-1:index%3===2?1:0);
  var p=N.generateProblem(config.unit,skill.id,Math.max(1,Math.min(7,tier)),policy,seed,used);
@@ -40,8 +65,9 @@ function makeQuestion(skill,seed,index,used){
  var mode=config.format==='mc'?'mc':config.format==='self'?'self':index%2===0?'mc':'self';
  var choices=null;
  if(mode==='mc'){
-   var made=N.makeChoices(p);
-   if(!made.fail){if(made.derived)p=made.derived;choices={opts:made.opts,key:made.key};}
+   var visual=skill.id==='graph-hand'?graphChoices(p,index):null;
+   var made=visual||N.makeChoices(p);
+   if(!made.fail){if(made.derived)p=made.derived;choices=visual||{opts:made.opts,key:made.key};}
    else if(config.format==='mc')return null;
    else mode='self';
  }
@@ -159,7 +185,7 @@ function build(overrides){
  state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true,autoGraded:true,unsupportedExcluded:skipped,missingSkills:missing};
  save();show();
 }
-function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(p.prompt)+(p.fig&&N.figHtml?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
+function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(q.choices&&q.choices.graphs?p.prompt.replace(/^Graph the system of inequalities and shade the solution: /,'Which graph represents the solution to ').replace(/^Graph /,'Which graph represents ').replace(/ on the grid\\.$/,'?').replace(/\\.$/,'?'):p.prompt)+(p.fig&&N.figHtml&&!(q.choices&&q.choices.graphs)?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
 function solutionMath(value){
  var source=String(value==null?'':value).trim();
  if(!source)return '';
@@ -187,12 +213,12 @@ function diagnosticFeedback(q){
  return '<div class="pt-diagnostic"><strong>What to check:</strong> '+esc(tip)+'</div>';
 }
 function feedback(q){var p=q.problem,part=p.parts[0];var lines=(p.steps||[]).map(x=>'<li>'+(x.t?fmt(x.t):'')+(x.m?'<div class="pt-step-math">'+solutionMath(x.m)+'</div>':'')+'</li>').join('');return diagnosticFeedback(q)+'<div class="pt-explain"><strong>Answer:</strong> '+(p.parts||[]).map(x=>fmt(x.answer)).join(' · ')+(lines?'<h3>Worked solution</h3><ol>'+lines+'</ol>':'<p>Compare your process with the verified answer above.</p>')+(p.parts||[]).map(x=>x.answerFig&&N.figHtml?N.figHtml(x.answerFig):'').join('')+'</div>';}
-function item(q,i){var answered=isAnswered(q),visible=state.done||state.mode==='practice'&&q.checked,choice=q.kind==='mc'||q.kind==='multi';var options=choice?'<div class="pt-options">'+q.choices.opts.map(function(v,j){var checked=q.kind==='multi'?Array.isArray(q.response)&&q.response.indexOf(j)>=0:+q.response===j&&answered;return '<label class="pt-option"><input type="'+(q.kind==='multi'?'checkbox':'radio')+'" name="pt-answer-'+i+'" value="'+j+'" '+(checked?'checked':'')+' '+(visible?'disabled':'')+'> '+fmt(v)+'</label>';}).join('')+'</div>':'<label class="pt-response">Show your work and enter your response<textarea id="pt-written" rows="4" '+(visible?'disabled':'')+' placeholder="Explain your solution...">'+esc(q.response||'')+'</textarea></label>';return '<section class="pt-card"><div class="pt-top"><span class="pt-eyebrow">'+esc(q.skillName)+'</span><strong>Question '+(i+1)+' of '+state.questions.length+'</strong></div>'+problemHTML(q)+options+(visible?'<div class="pt-status '+(q.correct===true?'pt-good':q.correct===false?'pt-bad':'')+'">'+(q.correct===true?'Correct':q.correct===false?'Needs review':'Compare your work')+'</div>'+feedback(q)+(q.kind==='self'&&q.correct===null?'<div class="pt-actions"><button data-grade="yes">My work is correct</button><button data-grade="no" class="pt-secondary">I need more practice</button></div>':''):'')+'</section>';}
+function item(q,i){var answered=isAnswered(q),visible=state.done||state.mode==='practice'&&q.checked,choice=q.kind==='mc'||q.kind==='multi';var options=choice?'<div class="pt-options">'+q.choices.opts.map(function(v,j){var checked=q.kind==='multi'?Array.isArray(q.response)&&q.response.indexOf(j)>=0:+q.response===j&&answered;return '<label class="pt-option"><input type="'+(q.kind==='multi'?'checkbox':'radio')+'" name="pt-answer-'+i+'" value="'+j+'" '+(checked?'checked':'')+' '+(visible?'disabled':'')+'> '+choiceMarkup(q,j)+'</label>';}).join('')+'</div>':'<label class="pt-response">Show your work and enter your response<textarea id="pt-written" rows="4" '+(visible?'disabled':'')+' placeholder="Explain your solution...">'+esc(q.response||'')+'</textarea></label>';return '<section class="pt-card"><div class="pt-top"><span class="pt-eyebrow">'+esc(q.skillName)+'</span><strong>Question '+(i+1)+' of '+state.questions.length+'</strong></div>'+problemHTML(q)+options+(visible?'<div class="pt-status '+(q.correct===true?'pt-good':q.correct===false?'pt-bad':'')+'">'+(q.correct===true?'Correct':q.correct===false?'Needs review':'Compare your work')+'</div>'+feedback(q)+(q.kind==='self'&&q.correct===null?'<div class="pt-actions"><button data-grade="yes">My work is correct</button><button data-grade="no" class="pt-secondary">I need more practice</button></div>':''):'')+'</section>';}
 function paperHTML(){
  if(!state)return '';
  var ABC='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
  return '<div class="pt-paper-head"><span>MR. K’S CLASSROOM · ASSESSMENT READINESS</span><h2>'+esc(chosen().unitName||'Algebra 1')+'</h2><p>Name: ______________________________ Date: ______________</p><p><strong>Directions:</strong> Show all work on separate paper. Read the test below or print/save it as a PDF. Enter only your final answers into the numbered answer sheet on this page. Do not include your work in the answer boxes.</p></div>'+
- state.questions.map(function(q,i){return '<section class="pt-paper-question"><div class="pt-paper-number">'+(i+1)+'.</div><div class="pt-paper-content">'+problemHTML(q)+((q.kind==='mc'||q.kind==='multi')?'<div class="pt-paper-choices">'+q.choices.opts.map((v,j)=>'<div>'+ABC[j]+'. '+fmt(v)+'</div>').join('')+'</div>':'')+'</div></section>';}).join('');
+ state.questions.map(function(q,i){return '<section class="pt-paper-question"><div class="pt-paper-number">'+(i+1)+'.</div><div class="pt-paper-content">'+problemHTML(q)+((q.kind==='mc'||q.kind==='multi')?'<div class="pt-paper-choices">'+q.choices.opts.map((v,j)=>'<div>'+ABC[j]+'. '+choiceMarkup(q,j)+'</div>').join('')+'</div>':'')+'</div></section>';}).join('');
 }
 function isAnswered(q){return q.response!==null&&q.response!==undefined&&q.response!=='';}
 function updateProgress(){
@@ -221,7 +247,7 @@ function answerControl(q,i){
  if(G.MKPARABOLA&&G.MKPARABOLA.target(q))return G.MKPARABOLA.render(q,i);
  if(G.MKGRAPH&&G.MKGRAPH.supports(q))return G.MKGRAPH.render(q,i);
  if(G.MKGRAPH&&G.MKGRAPH.pointTarget(q))return G.MKGRAPH.pointHTML(q,i);
- if(q.kind==='mc'||q.kind==='multi')return '<fieldset class="pt-mc-row pt-mc-inline" data-mc-question="'+i+'"><legend>'+(q.kind==='multi'?'Select all that apply':'Choose your answer')+'</legend><div class="pt-mc-buttons">'+q.choices.opts.map(function(opt,j){var selected=q.kind==='multi'?Array.isArray(q.response)&&q.response.indexOf(j)>=0:q.response===j;return '<button type="button" class="pt-mc-choice'+(selected?' selected':'')+'" data-'+(q.kind==='multi'?'multi':'mc')+'-answer="'+i+'" data-mc-choice="'+j+'" aria-pressed="'+(selected?'true':'false')+'"><span class="pt-choice-letter">'+('ABCDEFGHIJKLMNOPQRSTUVWXYZ'[j]||String(j+1))+'</span><span class="pt-choice-text">'+fmt(opt)+'</span></button>';}).join('')+'</div></fieldset>';
+ if(q.kind==='mc'||q.kind==='multi')return '<fieldset class="pt-mc-row pt-mc-inline" data-mc-question="'+i+'"><legend>'+(q.kind==='multi'?'Select all that apply':'Choose your answer')+'</legend><div class="pt-mc-buttons">'+q.choices.opts.map(function(opt,j){var selected=q.kind==='multi'?Array.isArray(q.response)&&q.response.indexOf(j)>=0:q.response===j;return '<button type="button" class="pt-mc-choice'+(selected?' selected':'')+'" data-'+(q.kind==='multi'?'multi':'mc')+'-answer="'+i+'" data-mc-choice="'+j+'" aria-pressed="'+(selected?'true':'false')+'"><span class="pt-choice-letter">'+('ABCDEFGHIJKLMNOPQRSTUVWXYZ'[j]||String(j+1))+'</span><span class="pt-choice-text">'+choiceMarkup(q,j)+'</span></button>';}).join('')+'</div></fieldset>';
  if(q.kind==='self'&&q.problem.source==='authored-bank')return '<label class="pt-response">Show your work and enter your response<textarea data-authored-response="'+i+'" rows="5" placeholder="Explain your reasoning...">'+esc(value)+'</textarea></label><p class="pt-muted">After submitting, compare your work with the answer and worked solution, then rate your readiness.</p>';
  return '<div class="pt-math-response"><label class="pt-inline-answer" for="pt-answer-'+i+'">Final answer<input id="pt-answer-'+i+'" aria-label="Answer to question '+(i+1)+'" data-answer="'+i+'" autocomplete="off" inputmode="text" placeholder="Type or use the keypad" value="'+esc(value)+'"></label>'+
  '<div class="pt-live-preview"><div class="pt-preview-heading">Live math preview <span>Display only — not a correctness check</span></div><div class="pt-preview-content" data-preview="'+i+'" aria-label="Formatted preview of your answer"></div></div>'+ 
