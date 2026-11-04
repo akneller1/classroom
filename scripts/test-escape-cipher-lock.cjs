@@ -42,8 +42,8 @@ function run(source,filename,shared){
   }
  }else{
   const {env,get}=sandbox();
-  assert.match(source,/cipher\\(s\\)/,filename+': cipher renderer');
-  const scripts=[...source.matchAll(/<script\\b[^>]*>([\\s\\S]*?)<\\/script>/gi)];
+  assert.match(source,/cipher\(s\)/,filename+': cipher renderer');
+  const scripts=[...source.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
   scripts.forEach(m=>new vm.Script(m[1],{filename}));
   let code=scripts.map(m=>m[1]).find(x=>x.includes('const ROOM='));
   assert.ok(code,filename+': ROOM declaration');
@@ -62,7 +62,7 @@ function check(env,get,stage,label){
  const html=get('#app').innerHTML;
  assert.match(html,/Lock in this answer/,label+': numerical answer lock');
  assert.match(html,/id="cipherReveal"[^>]*hidden/,label+': +1 control initially hidden');
- assert.match(html,/onclick="sh\\(1\\)"/,label+': only +1 key');
+ assert.match(html,/onclick="sh\(1\)"/,label+': only +1 key');
  assert.doesNotMatch(html,/decodedShift|Shift the cipher BACKWARD/,label+': no automatic shift answer');
  const wrong=stage.shift===1?2:stage.shift-1;
  env.sh(1);
