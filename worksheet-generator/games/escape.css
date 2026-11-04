@@ -37,3 +37,10 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 #key{display:none;max-width:1050px;margin:0 auto 30px;padding:0 16px}
 
 .source-choices{display:grid;gap:8px}.source-choice{text-align:left}.source-choice[aria-pressed="true"]{outline:3px solid var(--gold)}.scene-image{width:100%;max-height:360px;object-fit:contain;background:#fff}.prompt{line-height:1.7}.fr .fn{border-color:currentColor}
+
+/* Visual graph choices for inequality locks and classification challenges. */
+.source-choices:has(svg),.sw:has(svg){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch}
+.source-choice:has(svg),.sw button:has(svg){display:block;min-width:0;padding:8px;background:#fff;color:#17223a;border:2px solid #b3c7e6;border-radius:10px;cursor:pointer}
+.source-choice .mm-fig,.sw button .mm-fig{margin:0;width:100%}
+.source-choice svg,.sw button svg{display:block;max-width:100%;width:100%;height:auto;max-height:300px}
+@media(max-width:500px){.source-choices:has(svg),.sw:has(svg){grid-template-columns:1fr}}
