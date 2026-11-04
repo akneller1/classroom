@@ -406,6 +406,13 @@
     for (var i = 0; i < cands.length; i++) {
       var q = cands[i].p;
       if (q !== p) { var v = NS.verifyProblem(q, { intOnly: false }); if (!v.ok) continue; q.verify = { status: v.status, issues: v.issues }; }
+      // Multipart Honors scenarios may offer a separate point-checking part.
+      // Convert that part to the same verified Yes/No format.
+      var special = NS.inequalityChoices(q);
+      if (special) {
+        if (q !== p) { special.derived=q; special.note=cands[i].note; }
+        return special;
+      }
       var m = choicesFor(q);
       if (m && /\bName one point that is\b/.test(q.prompt || '')) {   // with choices, ask "which point" (wording only; re-verified)
         var w = JSON.parse(JSON.stringify(q)); w.prompt = w.prompt.replace(/\bName one point that is\b/, 'Which point is');
