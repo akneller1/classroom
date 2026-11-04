@@ -342,7 +342,7 @@
     }
     if (!p.failed && NS.sectionFormat(c, si) === 'mcas' && p.mcasFail) body += '<p class="mm-fmtnote bad">Not a verified four-part Open Response problem: ' + esc(p.mcasFail) + '</p>';
     if (!p.failed && NS.sectionFormat(c, si) === 'mc') {
-      if (p.mc) body += '<ol class="mm-cchoices' + (p.mc.opts.some(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx').length > 24; }) ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li' + (show && k === p.mc.key ? ' class="ok"' : '') + '><b>' + 'ABCDEFGH'[k] + '</b> <span>' + mathSafe(o) + (show && k === p.mc.key ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>' + (p.mcNote ? '<p class="mm-fmtnote">' + esc(p.mcNote) + '</p>' : '');
+      if (p.mc) body += '<ol class="mm-cchoices' + (p.mc.graphs ? ' mm-graph-choices' : p.mc.opts.some(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx').length > 24; }) ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li' + (show && k === p.mc.key ? ' class="ok"' : '') + '><b>' + 'ABCDEFGH'[k] + '</b> <span>' + (p.mc.graphs && NS.figHtml ? NS.figHtml(p.mc.graphs[k]) : mathSafe(o)) + (show && k === p.mc.key ? ' ✓' : '') + '</span></li>'; }).join('') + '</ol>' + (p.mcNote ? '<p class="mm-fmtnote">' + esc(p.mcNote) + '</p>' : '');
       else body += '<p class="mm-fmtnote bad">Prints as short answer: ' + esc(p.mcFail || 'no choices could be made') + ' Try ↻ New problem, or move it to a short-answer part.</p>';
     }
     var issues = (!p.failed && p.verify && p.verify.status !== 'verified' && p.verify.status !== 'manual') ? '<div class="mm-issues">' + (p.verify.issues || []).map(function (x) { return '<div>' + esc(x) + '</div>'; }).join('') +
