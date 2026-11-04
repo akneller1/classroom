@@ -66,6 +66,7 @@ function makeQuestion(skill,seed,index,used){
  var choices=null;
  if(mode==='mc'){
    var visual=skill.id==='graph-hand'?graphChoices(p,index):null;
+   if(!visual&&skill.id==='sys-ineq'&&/^iq[14]$/.test(p.variant||'')&&p.parts&&p.parts.length===1){var yes=/^Yes\b/.test(p.parts[0].answer||'');visual={opts:['Yes','No'],key:yes?0:1};}
    var made=visual||N.makeChoices(p);
    if(!made.fail){if(made.derived)p=made.derived;choices=visual||{opts:made.opts,key:made.key};}
    else if(config.format==='mc')return null;
