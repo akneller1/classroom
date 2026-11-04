@@ -551,7 +551,7 @@
     return {
       title: c.name,
       html: bandHtml(c, inner) +
-        ((c.planned || c.id === 'math6' || c.id === 'prealgebra7') ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
+        (c.planned ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
           var k = u.artifacts.length;
@@ -602,7 +602,7 @@
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
           url = 'worksheet-generator/' + tool.page + (unitId ? '#unit=' + unitId : '');
         }
-        if (c && (c.id === 'algebra2' || c.id === 'prealgebra')) {
+        if (c && ['algebra2', 'prealgebra', 'prealgebra7', 'math6'].indexOf(c.id) >= 0) {
           var selectedUnit = u ? u.id : c.units[0].id;
           // Algebra 2 uses the same Lesson Planner, Worksheet and Assessment Generators as Algebra 1 and Geometry
           // (bank-printable.html stays available for old links).
