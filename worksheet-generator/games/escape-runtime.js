@@ -37,7 +37,22 @@ bankChoice(s){return '<h2>'+s.title+'</h2>'+s.prompt+'<div class="source-choices
 fields(s){return `<h2>${s.title||'Lock'}</h2><div>${s.prompt}</div><div class="row">${s.fields.map((f,i)=>s.ui=='dial'?`<div class="dialbox"><button onclick="dl(${i},1)">▲</button><div class="num" id="d${i}">0</div><button onclick="dl(${i},-1)">▼</button><small>${f.label}</small></div>`:`<span>${f.label}</span><input id="f${i}" type="number" step="any">`).join('')}<button id="go" onclick="chkFields()">${s.button||'Unlock'}</button></div>`},
 classify(s){return `<h2>${s.title||'Panels'}</h2><div>${s.prompt||''}</div>${s.items.map((it,i)=>`<div class="q">${it}</div><div class="sw" id="sw${i}">${s.options.map((o,j)=>`<button onclick="pv(${i},${j})">${o}</button>`).join('')}</div>`).join('')}<button id="go" onclick="chkClass()">${s.button||'Test the code'}</button>`},
 order(s){return `<h2>${s.title||'Put in order'}</h2><div>${s.prompt||''}</div><div id="ol"></div><button id="go" onclick="chkOrder()">${s.button||'Lock it in'}</button>`},
-cipher(s){return `<h2>${s.title||'The Cipher'}</h2><div id="note"></div>${s.sourceChoices?'<div class="source-choices">'+s.sourceChoices.map((o,i)=>'<button class="source-choice" data-cipher-choice="'+i+'" onclick="chooseCipherAnswer('+i+')" aria-pressed="false">'+o+'</button>').join('')+'</div>':''}<div class="cipher">${caesar(s.plain,s.shift)}</div><div>${s.prompt||'Each letter was moved FORWARD in the alphabet by the shift. Set the decoder to undo it.'}</div><div class="row"><label>Calculated shift: <input id="shiftGuess" type="number" min="0" max="25" step="1" style="width:85px"></label><button onclick="lockShift()">Lock shift (wrong: −0:30)</button></div><div id="shiftTools" style="display:none"><div class="row"><button class="ghost" onclick="sh(-1)">−</button><b id="kk">shift locked</b><button class="ghost" onclick="sh(1)">+</button></div></div><div class="wheel" id="wheel"></div><div class="cipher" id="dec" style="color:var(--blue)"></div><div class="row">${s.askLabel||'Answer word'}: <input type="text" id="w" maxlength="14"> <button id="go" onclick="chkCipher()">Open</button></div>`}};
+cipher(s){
+ return '<h2>'+(s.title||'The Cipher')+'</h2>'+
+ '<p class="cipher-instruction">Step 1: Solve the math problem. The numerical answer is your cipher shift.</p>'+
+ '<div class="cipher-problem">'+(s.prompt||'Find the numerical answer from the mathematical clue in this room.')+'</div>'+
+ '<div class="row cipher-lock"><label for="shiftGuess">Your numerical answer</label>'+
+ '<input id="shiftGuess" type="number" step="1" inputmode="numeric" autocomplete="off" aria-label="Numerical answer for the cipher">'+
+ '<button type="button" id="lockShiftButton" onclick="lockShift()">Lock in this answer</button></div>'+
+ '<section id="cipherReveal" class="cipher-reveal" hidden>'+
+ '<p class="cipher-success" role="status">Correct! Shift the cipher BACKWARD by <strong id="decodedShift"></strong> letters.</p>'+
+ '<p class="cipher-instruction">Step 2: Read the decoded clue to unlock the next room.</p>'+
+ '<div class="cipher" id="cipherEncoded"></div>'+
+ '<div class="cipher" id="dec" aria-label="Decoded cipher clue"></div>'+
+ '<div class="row"><label for="w">'+(s.askLabel||'Clue word')+'</label>'+
+ '<input type="text" id="w" maxlength="24" autocomplete="off">'+
+ '<button id="go" onclick="chkCipher()">Unlock next room</button></div></section>';
+}};
 function show(){
  if(stage>=STAGES.length){finalStage();return}
  const s=STAGES[stage];st={};
@@ -57,7 +72,19 @@ function ordDraw(){const s=STAGES[stage];$('#ol').innerHTML=st.ord.map((v,p)=>`<
 function mv(p,d){const q=p+d;if(q<0||q>=st.ord.length)return;[st.ord[p],st.ord[q]]=[st.ord[q],st.ord[p]];ordDraw()}
 function chkOrder(){const s=STAGES[stage];st.ord.every((v,i)=>v==i)?pass():wrong(s.fail||'Not quite in order. Re-read the logic.' )}
 function chooseCipherAnswer(i){st.cipherAnswer=i;document.querySelectorAll('[data-cipher-choice]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.cipherChoice===i)))}
-function lockShift(){if(STAGES[stage].sourceChoices&&st.cipherAnswer!==STAGES[stage].sourceCorrect){wrong('Solve the question and lock the correct answer first.');return;}const v=$('#shiftGuess').value.trim(),n=Number(v);if(!v||!Number.isInteger(n)||n<0||n>25){say('Enter a whole-number shift from 0 to 25.',false);return}if(n!==STAGES[stage].shift){wrong('Incorrect shift. Solve the clue before trying again.');return}st.shiftLocked=true;st.k=n;$('#shiftGuess').disabled=true;$('#shiftTools').style.display='block';sh(0);say('Shift locked. Decode the message and enter the password.',true)}
+function lockShift(){
+ const input=$('#shiftGuess'),raw=input&&input.value.trim();
+ if(!raw){say('Solve the math problem and enter your numerical answer.',false);return}
+ const n=Number(raw),s=STAGES[stage];
+ if(!Number.isInteger(n)||n!==s.shift){wrong('Incorrect answer. Recheck the math and try again.');return}
+ st.shiftLocked=true;st.k=n;
+ input.disabled=true;$('#lockShiftButton').disabled=true;
+ $('#cipherReveal').hidden=false;
+ $('#decodedShift').textContent=String(n);
+ $('#cipherEncoded').textContent=caesar(s.plain,n);
+ renderDecodedCipher(s);
+ say('Correct! Your answer is '+n+'. Shift backward '+n+' letters and read the decoded clue.',true);
+}
 function renderDecodedCipher(s){
  const decoded=caesar(caesar(s.plain,s.shift),-st.k),output=$('#dec');
  output.textContent=decoded;
