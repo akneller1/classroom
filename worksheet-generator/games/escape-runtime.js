@@ -45,11 +45,12 @@ cipher(s){
  '<input id="shiftGuess" type="number" step="1" inputmode="numeric" autocomplete="off" aria-label="Numerical answer for the cipher">'+
  '<button type="button" id="lockShiftButton" onclick="lockShift()">Lock in this answer</button></div>'+
  '<section id="cipherReveal" class="cipher-reveal" hidden>'+
- '<p class="cipher-success" role="status">Correct! Shift the cipher BACKWARD by <strong id="decodedShift"></strong> letters.</p>'+
- '<p class="cipher-instruction">Step 2: Read the decoded clue to unlock the next room.</p>'+
- '<div class="cipher" id="cipherEncoded"></div>'+
+ '<p class="cipher-success" role="status">Correct answer locked. Use the +1 key to shift the cipher FORWARD one letter at a time.</p>'+
+ '<p class="cipher-instruction">Step 2: Press +1 repeatedly until the message becomes readable. Each press shifts every letter forward by one.</p>'+
+ '<div class="row cipher-controls"><button type="button" id="cipherPlusOne" onclick="sh(1)" aria-label="Shift cipher forward one letter">+1</button><b id="kk">Shifts applied: 0</b></div>'+
  '<div class="cipher" id="dec" aria-label="Decoded cipher clue"></div>'+
- '<div class="row"><label for="w">'+(s.askLabel||'Clue word')+'</label>'+
+ '<div class="cipher" id="cipherEncoded" aria-label="Original encrypted message" hidden></div>'+ 
+ '<div class="row" id="cipherWordRow" hidden><label for="w">'+(s.askLabel||'Clue word')+'</label>'+
  '<input type="text" id="w" maxlength="24" autocomplete="off">'+
  '<button id="go" onclick="chkCipher()">Unlock next room</button></div></section>';
 }};
@@ -77,16 +78,16 @@ function lockShift(){
  if(!raw){say('Solve the math problem and enter your numerical answer.',false);return}
  const n=Number(raw),s=STAGES[stage];
  if(!Number.isInteger(n)||n!==s.shift){wrong('Incorrect answer. Recheck the math and try again.');return}
- st.shiftLocked=true;st.k=n;
+ st.shiftLocked=true;st.k=0;
  input.disabled=true;$('#lockShiftButton').disabled=true;
  $('#cipherReveal').hidden=false;
- $('#decodedShift').textContent=String(n);
- $('#cipherEncoded').textContent=caesar(s.plain,n);
+ $('#cipherEncoded').textContent=caesar(s.plain,-s.shift);
+ $('#cipherWordRow').hidden=true;
  renderDecodedCipher(s);
- say('Correct! Your answer is '+n+'. Shift backward '+n+' letters and read the decoded clue.',true);
+ say('Correct answer locked! Use the +1 key to shift the cipher forward one letter at a time.',true);
 }
 function renderDecodedCipher(s){
- const decoded=caesar(caesar(s.plain,s.shift),-st.k),output=$('#dec');
+ const decoded=caesar(caesar(s.plain,-s.shift),st.k),output=$('#dec');
  output.textContent=decoded;
  if(st.k!==s.shift)return;
  const word=String(s.answer||'').trim();if(!word)return;
@@ -100,8 +101,18 @@ function renderDecodedCipher(s){
  }
  output.appendChild(document.createTextNode(decoded.slice(last)));
 }
-function sh(d){if(!st.shiftLocked)return;const s=STAGES[stage];st.k=(st.k+d+26)%26;$('#kk').textContent='shift '+st.k;$('#wheel').textContent='written: '+ALPHA.split('').join(' ')+'\nreal   : '+ALPHA.split('').map(c=>caesar(c,-st.k)).join(' ');renderDecodedCipher(s)}
-function chkCipher(){if(!st.shiftLocked){say('Lock the shift before submitting the code.',false);return}const s=STAGES[stage];$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():wrong('Still locked. Check your shift.' )}
+function sh(d){
+ if(!st.shiftLocked||d!==1)return;
+ const s=STAGES[stage];
+ st.k=(st.k+1)%26;
+ $('#kk').textContent='Shifts applied: '+st.k;
+ renderDecodedCipher(s);
+ const found=st.k===s.shift;
+ $('#cipherWordRow').hidden=!found;
+ if(!found&&$('#w'))$('#w').value='';
+ if(found)say('The message is readable. Enter its highlighted clue word to unlock the next room.',true);
+}
+function chkCipher(){if(!st.shiftLocked){say('Lock the math answer before using the cipher.',false);return}const s=STAGES[stage];if(st.k!==s.shift){say('Keep shifting the cipher with +1 until you decode the clue.',false);return}$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():wrong('Still locked. Check your shift.' )}
 function finalStage(){const sh=[...cards].sort(()=>Math.random()-.5);
  $('#app').innerHTML=`<main style="grid-template-columns:1fr"><div class="panel"><h2>The Final Door</h2><p class="story">${ROOM.finalStory}</p><div>${sh.map(c=>`<span class="card">${c.stamp}<b>${c.letter}</b></span>`).join('')}</div><div class="row">${ROOM.finalAsk} <input type="text" id="w" maxlength="12"> <button id="go" onclick="fin()">Open</button></div><div class="msg" id="m"></div></div></main>`}
 function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():wrong('Nothing happens. Re-check the order of the cards.' )}
