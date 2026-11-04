@@ -77,3 +77,12 @@
 .pt-preview-empty,.pt-preview-plain{font-size:14px;color:#687c8f;overflow-wrap:anywhere}
 .pt-preview-plain{color:#243d53}
 .pt-preview-content .katex{max-width:100%}
+
+/* Visual answer cards for inequalities: comparable, readable coordinate-plane choices. */
+.pt-graph-option{display:block;width:100%;max-width:260px;margin:6px auto;overflow:hidden}
+.pt-graph-option svg{display:block;width:100%;height:auto;max-height:270px}
+.pt-mc-choice:has(.pt-graph-option){display:flex;flex-direction:column;align-items:center;min-width:0;gap:5px;text-align:center}
+.pt-mc-choice .pt-choice-text:has(.pt-graph-option){display:block;width:100%}
+.pt-mc-row:has(.pt-graph-option) .pt-mc-buttons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pt-option:has(.pt-graph-option){display:flex;align-items:flex-start;gap:10px}
+@media(max-width:560px){.pt-mc-row:has(.pt-graph-option) .pt-mc-buttons{grid-template-columns:1fr}}
