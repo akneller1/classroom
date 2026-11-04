@@ -45,3 +45,11 @@ Each family states its check from the problem's own data. Examples:
 The verifier never imports the families. It parses the text exactly as students see it.
 
 Every multiple-choice and select-all option is re-judged, and its truth must match its `correct` flag. Conceptual items whose answer is a definition or a name are checked against an authored key; the verification report lists them under `check:text`.
+
+## Precalculus and Calculus
+
+- Units: `pc_u01.py` … `pc_u08.py` (`precalculus`) and `ca_u01.py` … `ca_u09.py` (`calculus`), built with the same `gbuild.py` pipeline.
+- `hslib.py`: SymPy expression → site display text (`T`), interval/matrix/vector text helpers, curve, trig, triangle and conic diagram drawers.
+- `hschecks.py`: independent checks. `P(text)` parses the *displayed* text (√, π, e, ∞, superscripts, sin⁻¹, log bases, |…|, °); the `hs` check restates each problem in SymPy (`diff`, `integrate`, `limit`, `solve`, matrices…) and compares; custom checks cover piecewise limits, related rates, optimization, Riemann sums, differential equations, ambiguous-case triangles, linear programming, and more.
+- Build: `MG_OUT=<out> python3 gbuild.py precalculus pc_u03` · Verify: `MG_OUT=<out> python3 gverify.py precalculus` · Reports: `python3 greport.py precalculus` · Vocabulary: `python3 vocab.py <path>/vocabulary-data-middle-grades.js prealgebra7 math6 precalculus calculus`.
+- `gbuild.py` now drops any error-analysis item whose "student answer" passes the check, and `gverify.py` reports it if one slips through.

@@ -7272,3 +7272,45 @@ window.LIBRARY = {
   });
  });
 })(window);
+
+/* Precalculus and Calculus use the shared approved-bank activities. */
+/* Grade 7 and Grade 6 authored banks use the same course players and native generators as Grade 8. */
+(function(G){
+ [['precalculus','Precalculus'],['calculus','Calculus']].forEach(([courseId,label])=>{
+  const course=G.LIBRARY.courses.find(c=>c.id===courseId);if(!course)return;
+  course.units.forEach(u=>{
+   [['showdown','Showdown','showdown'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['escape-room','Escape Room','escape-rooms'],['detective','Detective','detective-games'],['picture-reveal','Picture Reveal','picture-reveal'],['flashcards','Flashcards','flashcards']].forEach(([game,title,format])=>{
+    u.artifacts.push({title:u.name+' '+title,path:'worksheet-generator/'+(['escape-room','detective'].includes(game)?'course-activity':'course-game')+'.html?course='+courseId+'&unit='+u.id+'&game='+game,bankFormat:format,type:game==='flashcards'?'Study Guide':'Game',thumb:'thumbs/foundations-algebra-'+(game==='flashcards'?'flashcards':['detective','escape-room'].includes(game)?'showdown':game)+'.jpg',description:'Choose '+label+' skills and CP2, CP1, or Honors questions from the approved bank.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   });
+   u.artifacts.push({title:'Vocabulary Activities and Crosswords',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind=vocabulary',type:'Printable',thumb:'thumbs/vocabulary-prealgebra.svg',description:'Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
+    u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored '+label+' questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   });
+   u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+  });
+ });
+})(window);
+
+/* Grade 6/7 printable activity links: all existing bank-driven generators, no new runtime. */
+(function(G){
+ [['precalculus','Precalculus'],['calculus','Calculus']].forEach(function(pair){
+  var c=G.LIBRARY.courses.find(function(item){return item.id===pair[0]});if(!c)return;
+  c.units.forEach(function(u){
+   [
+    ['maze','Maze','maze-generator-foundations.svg','Follow a route of correctly answered questions through a mathematical maze.'],
+    ['color','Color by Number','geometry-color-generator-basics-reasoning.svg','Solve problems to reveal a color-coded picture.'],
+    ['partner','Partner Check','partner-generator-foundations.svg','Solve and compare matched-answer problems in pairs.'],
+    ['stations','Station Work','stations-generator-foundations.svg','Rotate through independent stations with mixed problem types.'],
+    ['who','Whodunnit','foundations-algebra-whodunnit.jpg','Solve clues and narrow down the mystery.']
+   ].forEach(function(a){
+    var url='worksheet-generator/printables.html#unit='+c.id+'-'+u.id+'&kind='+a[0];
+    if(u.artifacts.some(function(x){return x.path===url}))return;
+    u.artifacts.push({title:a[1]+' Generator',path:url,bankFormat:'printable-generator',type:'Printable',
+      thumb:'thumbs/'+a[2],description:a[3]+' Uses '+pair[1]+' questions and a teacher key.',
+      level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   });
+  });
+ });
+})(window);
+
+(function(G){ G.LIBRARY.courses.filter(c=>["precalculus","calculus"].includes(c.id)).forEach(c=>{c.planned=false;}); })(window);

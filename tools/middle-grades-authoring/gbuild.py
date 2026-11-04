@@ -21,6 +21,8 @@ COURSES = {
     "prealgebra7": dict(prefix="pa7", units=["g7_u01", "g7_u02", "g7_u03", "g7_u04", "g7_u05", "g7_u06", "g7_u07",
                                              "g7_u08", "g7_u09", "g7_u10", "g7_u11", "g7_u12", "g7_u13"]),
     "math6": dict(prefix="m6", units=["g6_u01", "g6_u02", "g6_u03", "g6_u04", "g6_u05", "g6_u06", "g6_u07"]),
+    "precalculus": dict(prefix="pc", units=[f"pc_u0{i}" for i in range(1, 9)]),
+    "calculus": dict(prefix="cal", units=[f"ca_u0{i}" for i in range(1, 10)]),
 }
 TARGET = {"sa": 7, "mc": 6, "extra": 3}
 NOTE = ("Original Claude-authored item (family: {fam}). Answer computed in the authoring script and re-checked by the "
@@ -163,7 +165,23 @@ def make_one(cx, f, sk, L, attempt):
         return None, r
     if p is None:
         return None, r
+    if "error-analysis" in (p.get("tags") or []) and p.get("chk"):
+        import re as _re
+        mw = _re.search(r"'s answer: (.+)\nIdentify the mistake", p["prompt"])
+        if mw:
+            global _TRUTH
+            if _TRUTH is None:
+                import verify as _V, gchecks, hschecks  # noqa: F401
+                _TRUTH = _V.truth
+            try:
+                if _TRUTH(p["chk"], fix_text(mw.group(1))):
+                    return None, r   # the "student" answer is actually correct: not a usable error item
+            except Exception:
+                pass
     return p, r
+
+
+_TRUTH = None
 
 
 def build_skill(cx, rec, spec, L):

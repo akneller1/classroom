@@ -1,0 +1,34 @@
+Calculus (calculus) validation log
+Test copy: repository at commit 460f8c5 + patches/precalculus-calculus-integration.patch + these banks marked approved.
+
+== Independent verifier: python3 tools/middle-grades-authoring/gverify.py calculus  (MG_OUT = package root)
+precalculus-review errors: 0 q: 240
+limits-continuity errors: 0 q: 384
+derivatives errors: 0 q: 336
+applications-derivatives errors: 0 q: 528
+antiderivatives-definite-integrals errors: 0 q: 336
+fundamental-theorem-calculus errors: 0 q: 240
+applications-integrals errors: 0 q: 384
+differential-equations errors: 0 q: 288
+ap-review errors: 0 q: 336
+TOTAL ERRORS 0
+
+== Structural checker: node scripts/check-question-bank.cjs on every calculus bank
+PASS structural question-bank checks (all 9 banks)
+
+== MG_COURSE=calculus MG_PREFIX=cal- node scripts/test-hs-bank-integration.cjs
+PASS 9 flashcard players in mixed, vocabulary-only, and skill-only modes
+PASS 9 vocabulary banks with 8+ terms
+PRINTABLE FAILURES 0
+
+PASS 192 calculus lesson plans
+PASS 192 calculus skill/level selections, 27 unique-choice game decks, 189 printable builds
+exit 0
+
+== Existing repository tests in the same test copy (unchanged results)
+test-published-question-banks: PASS 55 published/teacher-use banks; 21221 unique questions; all local diagrams present
+test-vocabulary-flashcards: PASS 40 units across four courses
+test-question-bank-loader, test-resource-eligibility, test-approved-game-items, test-approved-resource-bridge, test-cross-course-difficulty, test-coverage-report: PASS
+test-algebra2-native, test-algebra2-bank-approval, test-prealgebra-integration (Grade 8), audit-course-catalog: PASS
+test-grade-bank-integration (Grade 6, regression): PASS 159 lesson plans, 147 printable builds, 0 printable failures
+test-escape-unit-ciphers: fails identically on the unchanged repository (Algebra 1 systems-of-equations assertion); not related to this work.

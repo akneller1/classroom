@@ -10,6 +10,7 @@ none of which import the authoring families. In addition to the Grade 8 checks i
   * activity readiness per skill/level: cipher-eligible integer 1–25, >= 4-step solution, text-only MC.
 Writes docs/<course>/VERIFICATION_REPORT.md and tools/middle-grades-authoring/out/<course>/verify-summary.json.
 """
+import re
 import json, os, re, sys
 from collections import Counter, defaultdict
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -19,6 +20,8 @@ import gbuild
 os.environ.setdefault("PA8_REPO", gbuild.REPO)
 import verify as Vf          # Grade 8 verifier (truth, distinct_key, display_check, texts_of)
 import gchecks  # noqa: F401  registers Grade 6/7 checks
+if len(sys.argv) > 1 and sys.argv[1] in ("precalculus", "calculus"):
+    import hschecks  # noqa: F401  optional high-school SymPy checks
 Vf.REPO = gbuild.REPO
 OUT = gbuild.OUT
 FORBID = re.compile(r"\blog|\bln\b|√-|\bi²|complex|derivative|matrix|sin⁻¹|cos⁻¹|tan⁻¹")
@@ -51,7 +54,7 @@ def verify_unit(course, uid, skills, allp):
             errs.append((q["id"], "bad level", q["level"]))
         if not q["solutionSteps"] or not all(str(s).strip() for s in q["solutionSteps"]):
             errs.append((q["id"], "missing solution steps", ""))
-        if FORBID.search(q["prompt"]):
+        if course in ("math6", "prealgebra7") and FORBID.search(q["prompt"]):
             errs.append((q["id"], "out-of-grade notation", q["prompt"][:80]))
         if FIG.search(q["prompt"]) and not q.get("diagram"):
             errs.append((q["id"], "refers to a figure that is not attached", q["prompt"][:80]))
@@ -64,6 +67,9 @@ def verify_unit(course, uid, skills, allp):
             if q["format"] == "short-answer":
                 if not Vf.truth(chk, q["answer"]):
                     errs.append((q["id"], "answer fails check", q["answer"]))
+                mw = re.search(r"'s answer: (.+)\nIdentify the mistake", q["prompt"])
+                if mw and Vf.truth(chk, mw.group(1)):
+                    errs.append((q["id"], "error-analysis student answer is actually correct", mw.group(1)))
             elif q["format"] in ("multiple-choice", "select-all"):
                 flags = [o["correct"] for o in q["options"]]
                 if len({o["text"] for o in q["options"]}) != len(q["options"]):
@@ -72,6 +78,20 @@ def verify_unit(course, uid, skills, allp):
                 if flags != calc:
                     errs.append((q["id"], "option truth mismatch", list(zip([o["text"] for o in q["options"]], flags, calc))))
                 keys = [Vf.distinct_key(chk, o["text"]) for o in q["options"]]
+                if q["format"] == "multiple-choice" and chk and chk.get("fn") == "hs" and chk.get("mode", "expr") == "expr":
+                    vals = []
+                    for o in q["options"]:
+                        try:
+                            vals.append(hschecks.P(hschecks.strip_units(o["text"])))
+                        except Exception:
+                            vals.append(None)
+                    for a_ in range(len(vals)):
+                        for b_ in range(a_ + 1, len(vals)):
+                            lhs = [re.match(r"^\s*([A-Za-z](?:⁻¹)?(?:\([A-Za-z]\))?)\s*=", q["options"][i_]["text"]) for i_ in (a_, b_)]
+                            if (lhs[0].group(1) if lhs[0] else None) != (lhs[1].group(1) if lhs[1] else None):
+                                continue
+                            if vals[a_] is not None and vals[b_] is not None and hschecks._num_eq(vals[a_], vals[b_]):
+                                errs.append((q["id"], "options mathematically equivalent", (q["options"][a_]["text"], q["options"][b_]["text"])))
                 if q["format"] == "multiple-choice":
                     if len(set(keys)) != len(keys):
                         errs.append((q["id"], "options not distinct after simplification", [o["text"] for o in q["options"]]))
@@ -116,7 +136,12 @@ def verify_unit(course, uid, skills, allp):
             pairs[(q["skillId"], q["level"], re.sub(r"^[a-z]\s*=\s*", "", q["answer"].lower().replace(" ", "")))].add(q["id"])
         if "error-analysis" in q["sourceNotes"] or q["id"] in ():
             pass
+    FUNCS = {"sin", "cos", "tan", "sec", "csc", "cot", "log", "lim", "sinh", "cosh"}
     for bad in Vf.display_check(bank["questions"]):
+        if course in ("precalculus", "calculus") and bad[2].startswith("word captured"):
+            words = re.findall(r"[A-Za-z]{3,}", bad[2].split(":", 1)[1])
+            if words and all(w in FUNCS for w in words):
+                continue  # a function name such as sin(68°) in a stacked denominator is intended
         errs.append((bad[0], "display: " + bad[2], bad[1]))
     groups = {k: v for k, v in pairs.items() if len(v) > 1}
     stats["partner-answer-groups"] = len(groups)
@@ -135,6 +160,11 @@ def main(course, units=None):
             continue
         skills = {s["id"] for s in cat[u]["skills"]}
         errs, stats, ready = verify_unit(course, u, skills, allp)
+        try:
+            import sympy, gc
+            sympy.core.cache.clear_cache(); gc.collect()   # SymPy's cache grows across the high-school units
+        except Exception:
+            pass
         total += len(errs)
         summary[u] = {"errors": len(errs), **stats}
         for (sk, lv), cnt in ready.items():

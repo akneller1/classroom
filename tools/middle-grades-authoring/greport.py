@@ -14,6 +14,7 @@ import gbuild
 OUT = gbuild.OUT
 LV = ["cp2", "cp1", "honors"]
 LABEL = {"cp2": "Remedial", "cp1": "Standard", "honors": "Advanced"}
+HS = False
 
 
 def plain(s):
@@ -58,6 +59,8 @@ def activity_flags(q):
 
 
 def main(course):
+    global HS
+    HS = course in ("precalculus", "calculus")
     cat = gbuild.catalog(course)
     vs = json.load(open(os.path.join(OUT, "tools", "middle-grades-authoring", "out", course, "verify-summary.json")))
     ddir = os.path.join(OUT, "docs", course)
@@ -92,8 +95,8 @@ def main(course):
             mu["skills"].append({"skillId": s["id"], "name": s["name"], "questions": dict(c)})
         manifest["units"].append(mu)
     L = [f"# {course} question-bank coverage", "",
-         "Difficulty codes: `cp2` = Remedial, `cp1` = Standard, `honors` = Advanced. Validation = independent verifier (gverify.py) result for the unit.", "",
-         "| Unit | Unit ID | Skills | CP2 (Remedial) | CP1 (Standard) | Honors (Advanced) | Total | Validation |", "|---|---|---:|---:|---:|---:|---:|---|"]
+         ("Difficulty codes: `cp2` = Remedial, `cp1` = Standard, `honors` = Advanced. " if not HS else "Difficulty levels: CP2, CP1, Honors (the site's high-school labels). ") + "Validation = independent verifier (gverify.py) result for the unit.", "",
+         ("| Unit | Unit ID | Skills | CP2 (Remedial) | CP1 (Standard) | Honors (Advanced) | Total | Validation |" if not HS else "| Unit | Unit ID | Skills | CP2 | CP1 | Honors | Total | Validation |"), "|---|---|---:|---:|---:|---:|---:|---|"]
     L += [f"| {u}. {n} | `{i}` | {s} | {a} | {b} | {c} | {t} | {v} |" for u, n, i, s, a, b, c, t, v in unit_rows]
     L += [f"| **Total** | | **{totals['skills']}** | **{totals['cp2']}** | **{totals['cp1']}** | **{totals['honors']}** | **{totals['q']}** | |", "",
           "## Skill-by-skill coverage", "",
@@ -111,7 +114,7 @@ def main(course):
          "Counts of questions eligible for each activity by unit and level, using the same limits as the site's printables and game adapters.",
          "The end-to-end build results in VALIDATION_LOG.txt come from running the site's own generators on these banks.", ""]
     for uid in cat:
-        A += [f"## {cat[uid]['name']} (`{uid}`)", "", "| Activity | Remedial | Standard | Advanced |", "|---|---:|---:|---:|"]
+        A += [f"## {cat[uid]['name']} (`{uid}`)", "", ("| Activity | Remedial | Standard | Advanced |" if not HS else "| Activity | CP2 | CP1 | Honors |"), "|---|---:|---:|---:|"]
         A += [f"| {k} | {act[uid]['cp2'][k]} | {act[uid]['cp1'][k]} | {act[uid]['honors'][k]} |" for k in keys]
         A.append("")
     rd = vs.get("readiness", {})

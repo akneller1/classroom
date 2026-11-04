@@ -480,3 +480,10 @@ def reuse(f, lv=(0, 1, 2), tag=""):
     g.levels = {L for L in range(3) if lv[L] in f.levels}
     g.mode = f.mode
     return g
+
+
+def mc_of(f, tag="mc"):
+    """The same verified family, used only for multiple-choice slots (short answers for Tarsia / matching activities)."""
+    g = reuse(f, (0, 1, 2), tag)
+    g.mode = "mc"
+    return g

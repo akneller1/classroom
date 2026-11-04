@@ -23,10 +23,7 @@ for(const course of courses){
  for(const unit of fs.readdirSync(path.join(out,'u',course),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
  const file=path.join(out,'u',course,unit,'index.html'),html=fs.readFileSync(file,'utf8');
  assert(html.includes('../../../#'+course+'.'+unit),'Incorrect app route: '+course+'/'+unit);
- if(course === 'precalculus' || course === 'calculus') {
-   assert(html.includes('Activities coming soon'));
-   assert(!html.includes('worksheet-generator/'), 'Planned course must not link to unavailable generators');
- } else for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
+ for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
  assert(html.includes('<a href="../">'),'Missing course breadcrumb: '+course+'/'+unit);
  checkLinks(file,html);count++;
 }
@@ -65,6 +62,11 @@ require('node:vm').runInNewContext(publishedData,dataContext);
 for(const courseId of ['prealgebra7','math6','calculus','precalculus']){
  const course=dataContext.window.LIBRARY.courses.find(c=>c.id===courseId);
  assert(course&&!course.comingSoon,'Course must be visible: '+courseId);
+ if(['precalculus','calculus'].includes(courseId)){
+  assert.equal(course.planned,false,'Course must expose activities: '+courseId);
+  for(const u of course.units)for(const game of ['showdown','connect-four','tic-tac-toe','escape-room','detective','picture-reveal','flashcards'])
+   assert(u.artifacts.some(a=>a.path.includes('course='+courseId+'&unit='+u.id+'&game='+game)),'Missing '+courseId+'/'+u.id+'/'+game);
+ }
 }
 const app=fs.readFileSync(path.join(out,'app.js'),'utf8');
 assert(app.includes('var HIDDEN_COURSES = {};'),'All courses must be unhidden');
