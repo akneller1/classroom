@@ -291,7 +291,7 @@ function create({courseId,unitId,level='cp1'}){
    steps=['Add horizontal components and vertical components separately.'];break;
  }
  case 'limits':{
-   p='Evaluate the limit as t approaches '+x+': (3t² − 3'+(x*x)+')/(t − '+x+
+   p='Evaluate the limit as t approaches '+x+': (3t² − '+(3*x*x)+')/(t − '+x+
      '), then divide the result by 6.';
    // The removable discontinuity resolves to 6x, yielding the desired shift.
    steps=['Factor the difference of squares.','Cancel t − '+x+' before substituting.'];break;
