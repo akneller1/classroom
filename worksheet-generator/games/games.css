@@ -145,3 +145,10 @@ body.dark .gm-sel{background:#13294a;color:#fff;border-color:#33507f}
 @media print{.gm-ctl,.fc-nav,.gm-note{display:none}}
 .mm-fig-dotplot svg,.mm-fig-boxplot svg{width:440px}.mm-fig-scatter svg{width:360px}
 .mm-twoway th{font-style:normal;text-align:left}.mm-twoway thead th{text-align:center}
+
+/* Graph-based multiple-choice answers share the verified inequality diagrams. */
+.gm-opt.gm-graph-choice{flex-direction:column;align-items:stretch;justify-content:center;min-width:0;padding:10px}
+.gm-graph-choice .mm-fig{width:100%;margin:0;min-width:0}
+.gm-graph-choice svg{display:block;width:100%;height:auto;max-height:330px}
+.gm-opts:has(.gm-graph-choice){grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:540px){.gm-opts:has(.gm-graph-choice){grid-template-columns:1fr}}
