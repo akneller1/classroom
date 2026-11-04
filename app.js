@@ -679,6 +679,7 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
+        ((c.id === 'prealgebra7' || c.id === 'math6') ? category('printables', 'Printable Activities', ['printable-generator']) : '') +
         category('practice', 'Practice Activities', practiceFormats) +
         unitPager(c, u) + '</div></section>'
     };
