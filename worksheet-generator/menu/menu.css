@@ -261,3 +261,12 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 
 /* Geometry diagrams on printed pages: keep a full-width problem from stretching its figure into a half-page picture. */
 .mm-page .mm-geometry-figure svg{max-height:2.3in !important;width:auto !important;max-width:100% !important;height:auto !important}
+
+/* Verified graphical multiple-choice for inequalities (editor and printed assessments). */
+.mm-graph-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;padding:0}
+.mm-graph-choices li{display:flex;align-items:flex-start;flex-direction:column;gap:4px;min-width:0;break-inside:avoid;page-break-inside:avoid}
+.mm-graph-choices li>.mm-bubble{flex:none}
+.mm-graph-choices .mm-fig{width:100%;max-width:2.5in;margin:0}
+.mm-graph-choices .mm-fig svg{display:block;width:100%;height:auto;max-height:2.7in}
+@media print{.mm-graph-choices .mm-fig{max-width:2.2in}.mm-graph-choices .mm-fig svg{max-height:2.3in}}
+@media(max-width:550px){.mm-cchoices.mm-graph-choices{grid-template-columns:1fr}}
