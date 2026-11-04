@@ -63,9 +63,9 @@
   }
   function optsHtml(it, st) {
     return '<div class="gm-opts" role="group" aria-label="Answer choices">' + it.options.map(function (o, i) {
-      var cls = 'gm-opt' + (st.sel === i ? ' sel' : '') + ((st.dead || []).indexOf(i) >= 0 ? ' dead' : '') + (st.reveal && o.ok ? ' right' : '') + (st.reveal && st.sel === i && !o.ok ? ' wrong' : '');
+      var cls = 'gm-opt' + (o.graph ? ' gm-graph-choice' : '') + (st.sel === i ? ' sel' : '') + ((st.dead || []).indexOf(i) >= 0 ? ' dead' : '') + (st.reveal && o.ok ? ' right' : '') + (st.reveal && st.sel === i && !o.ok ? ' wrong' : '');
       var dis = st.reveal || (st.dead || []).indexOf(i) >= 0;
-      return '<button type="button" class="' + cls + '" data-opt="' + i + '"' + (dis ? ' disabled' : '') + '><span class="ltr">' + LETTERS[i] + '</span><span>' + M(o.a) + '</span></button>';
+      return '<button type="button" class="' + cls + '" data-opt="' + i + '"' + (dis ? ' disabled' : '') + '><span class="ltr">' + LETTERS[i] + '</span><span>' + (o.graph && NS.figHtml ? NS.figHtml(o.graph) : M(o.a)) + '</span></button>';
     }).join('') + '</div>';
   }
   function head(sub, pill) {
