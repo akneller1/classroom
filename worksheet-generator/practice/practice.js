@@ -185,7 +185,7 @@ function build(overrides){
  state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true,autoGraded:true,unsupportedExcluded:skipped,missingSkills:missing};
  save();show();
 }
-function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(q.choices&&q.choices.graphs?p.prompt.replace(/^Graph the system of inequalities and shade the solution: /,'Which graph represents the solution to ').replace(/^Graph /,'Which graph represents ').replace(/ on the grid\\.$/,'?').replace(/\\.$/,'?'):p.prompt)+(p.fig&&N.figHtml&&!(q.choices&&q.choices.graphs)?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
+function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(q.choices&&q.choices.graphs?p.prompt.replace(/^Graph the (?:system of inequalities and shade the solution|solution to the system): /,'Which graph represents the solution to the system: ').replace(/^Graph /,'Which graph represents ').replace(/ on the grid\\.$/,'?').replace(/\\.$/,'?'):p.prompt)+(p.fig&&N.figHtml&&!(q.choices&&q.choices.graphs)?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
 function solutionMath(value){
  var source=String(value==null?'':value).trim();
  if(!source)return '';
