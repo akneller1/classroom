@@ -199,7 +199,7 @@
       steps.push(step('Count: at most ' + N + '.', 'x+y\\le ' + N, 1), step('Money: at least ' + T + '.', lin([[pa, 'x'], [pb, 'y']]) + '\\ge ' + T, 2), step('Substitute the point into both inequalities.', '', 1));
       return { variant: 'iq7', prompt: story + ' Let ' + M('x') + ' be the number of ' + J[5] + ' and ' + M('y') + ' the number of ' + J[6] + '.',
         parts: [{ label: 'a', prompt: 'Write a system of inequalities for the situation.', answer: M('x+y\\le ' + N) + ' and ' + M(lin([[pa, 'x'], [pb, 'y']]) + '\\ge ' + T), check: { type: 'ineq2', want: 'inequality', hrows: hr } },
-          { label: 'b', prompt: 'Can they sell ' + ta + ' ' + J[5] + ' and ' + tb + ' ' + J[6] + ', the point ' + M(pt(ta, tb)) + '? Explain.', answer: ok ? 'Yes: it satisfies both inequalities.' : 'No: it does not satisfy both inequalities.', check: { type: 'ineq2', want: 'is-solution', hrows: hr, point: pt(ta, tb) } }], steps: steps, space: [1.0, 1.2, 1.4] };
+          { label: 'b', prompt: 'Does the point ' + M(pt(ta, tb)) + ' satisfy BOTH constraints?', answer: ok ? 'Yes: it satisfies both inequalities.' : 'No: it does not satisfy both inequalities.', check: { type: 'ineq2', want: 'is-solution', hrows: hr, point: pt(ta, tb) } }], steps: steps, space: [1.0, 1.2, 1.4] };
     }
   });
 
