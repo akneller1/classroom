@@ -62,3 +62,8 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .cipher-controls #kk{font-family:monospace}
 #cipherWordRow[hidden],#cipherEncoded[hidden]{display:none!important}
 .cipher-reveal #dec{font:700 1.15rem/1.6 monospace;letter-spacing:2px;white-space:pre-wrap}
+
+/* Distinct primary action for the step-order puzzle, separate from answer/move controls. */
+#ol + #go{background:#3dd6bd;color:#092b2b;border:2px solid #b8fff0;box-shadow:0 4px 0 #147e70;font-weight:800}
+#ol + #go:hover{background:#6debd5;filter:none}
+#ol + #go:focus-visible{outline:3px solid #fff;outline-offset:3px}
