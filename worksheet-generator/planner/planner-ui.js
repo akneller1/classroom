@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', PA8 = COURSE === 'prealgebra', CS = COURSE === 'algebra1' ? '' : '-'+COURSE;   // per-lesson saved data is kept separately for each course
+  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', PA8 = ['prealgebra', 'prealgebra7', 'math6'].indexOf(COURSE) >= 0, CS = COURSE === 'algebra1' ? '' : '-'+COURSE;   // per-lesson saved data is kept separately for each course
   var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_SECTION_ORDER = 'mk-planner-section-order-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1', KEY_COUNTS = 'mk-planner-section-counts-v1';
   KEY_NOTE_EDITS += CS; KEY_PROBLEM_LABELS += CS;
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
