@@ -44,3 +44,15 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .source-choice .mm-fig,.sw button .mm-fig{margin:0;width:100%}
 .source-choice svg,.sw button svg{display:block;max-width:100%;width:100%;height:auto;max-height:300px}
 @media(max-width:500px){.source-choices:has(svg),.sw:has(svg){grid-template-columns:1fr}}
+
+/* Cipher unlock: solve first; only reveal the shift and clue on a correct lock. */
+.cipher-problem{margin:12px 0;padding:15px;border:1px solid #4a529a;border-radius:10px;background:#0b0e20;line-height:1.65;font-size:1.08rem}
+.cipher-instruction{line-height:1.55;color:var(--ink);margin:12px 0}
+.cipher-lock label,.cipher-reveal label{font-weight:700}
+.cipher-lock input{width:115px;max-width:100%}
+.cipher-reveal{margin-top:16px;padding:14px;border:2px solid var(--green);border-radius:12px;background:#0d2a2b}
+.cipher-reveal[hidden]{display:none!important}
+.cipher-success{font-size:1.13rem;font-weight:700;color:var(--green)}
+.cipher-reveal #dec{background:#102d2c;color:#e8fbef;white-space:pre-wrap;line-height:1.6}
+.cipher-reveal .cipher-clue-word{color:var(--gold)!important;text-decoration:underline;text-underline-offset:.2em}
+#lockShiftButton:disabled{opacity:.7;cursor:default}
