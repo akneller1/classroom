@@ -347,11 +347,61 @@
     }
     return out;
   }
+  /* Single source of truth for visual inequality MC across generators and games.
+     Only independently verified problems qualify. Graph distractors mutate
+     exactly one boundary/shading property of the verified teacher figure. */
+  NS.inequalityChoices = function (p) {
+    if (!p || p.failed || !p.verify || p.verify.status !== 'verified' ||
+        !p.parts || p.parts.length !== 1) return null;
+    var part = p.parts[0], chk = part.check || {};
+    if (chk.type === 'ineq2' && chk.want === 'is-solution') {
+      var answer = String(part.answer || '').trim();
+      if (!/^(Yes|No)\b/.test(answer)) return null;
+      return { opts: ['Yes', 'No'], key: /^Yes\b/.test(answer) ? 0 : 1,
+        prompt: p.prompt, src: mcSource(p), inequalityMode: 'point' };
+    }
+    var original = part.answerFig;
+    if (chk.type !== 'graph-key' || !Array.isArray(chk.ineqs) ||
+        !original || !Array.isArray(original.halfplanes) ||
+        !original.halfplanes.length || original.halfplanes.length > 2) return null;
+    function copy(o) { return JSON.parse(JSON.stringify(o)); }
+    function reverseShade(fig, index) {
+      var h = fig.halfplanes[index], a = h.a, b = h.b, s = h.side;
+      var dx = b[0] - a[0], dy = b[1] - a[1], den = dx*dx + dy*dy;
+      if (!den) return false;
+      var t = ((s[0]-a[0])*dx+(s[1]-a[1])*dy)/den;
+      var px = a[0]+t*dx, py = a[1]+t*dy;
+      h.side = [2*px-s[0], 2*py-s[1]];
+      return true;
+    }
+    var fig = [copy(original),copy(original),copy(original),copy(original)];
+    if (!reverseShade(fig[1],0)) return null;
+    fig[2].halfplanes[0].dashed = !fig[2].halfplanes[0].dashed;
+    if (fig[3].halfplanes.length > 1) {
+      if (!reverseShade(fig[3],1)) return null;
+    } else {
+      if (!reverseShade(fig[3],0)) return null;
+      fig[3].halfplanes[0].dashed = !fig[3].halfplanes[0].dashed;
+    }
+    // Deterministic placement for stable print keys, reloads, and games.
+    var position = WS.rng.hash('ineq-graph|' + mcSource(p)) % 4;
+    var ordered = fig.slice(position).concat(fig.slice(0,position));
+    var prompt = String(p.prompt || '').replace(/^Graph the solution to the system:/i,
+      'Which graph shows the solution to the system:')
+      .replace(/^Graph the system of inequalities and shade the solution:/i,
+        'Which graph shows the solution to the system:')
+      .replace(/^Graph (.+?) on the grid\./i, 'Which graph represents $1?');
+    return { opts: ['Graph A','Graph B','Graph C','Graph D'],
+      key: (4-position)%4, graphs: ordered, prompt: prompt,
+      src: mcSource(p), inequalityMode: 'graph' };
+  };
   NS.makeChoices = function (p) {
     var GB = G.MKGAMES;
     if (!GB || !GB.distractors) return { fail: 'The multiple-choice builder is not loaded.' };
     if (!p || p.failed) return { fail: 'No problem yet.' };
     if (!p.verify || p.verify.status !== 'verified') return { fail: 'The answer is not verified, so no choices were made.' };
+    var inequality = NS.inequalityChoices(p);
+    if (inequality) return inequality;
     var cands = mcCandidates(p);
     for (var i = 0; i < cands.length; i++) {
       var q = cands[i].p;
@@ -516,6 +566,13 @@
   NS.checkChoices = function (p) {
     var GB = G.MKGAMES; if (!p || !p.mc || !GB || !GB.answerOk) return false;
     if (p.mc.src !== mcSource(p) || !p.mc.opts || p.mc.opts.length < 2) return false;
+    if (p.mc.inequalityMode) {
+      var expected = NS.inequalityChoices(p);
+      return !!expected && expected.inequalityMode === p.mc.inequalityMode &&
+        expected.key === p.mc.key &&
+        JSON.stringify(expected.graphs || []) === JSON.stringify(p.mc.graphs || []) &&
+        JSON.stringify(expected.opts) === JSON.stringify(p.mc.opts);
+    }
     return p.mc.opts.every(function (a, i) { var ok; try { ok = GB.answerOk(p, 0, a).ok; } catch (e) { ok = false; } return i === p.mc.key ? ok : !ok; });
   };
   function applyFormat(p, fmt) {
