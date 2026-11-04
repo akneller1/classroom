@@ -1,0 +1,141 @@
+# prealgebra7 question-bank coverage
+
+Difficulty codes: `cp2` = Remedial, `cp1` = Standard, `honors` = Advanced. Validation = independent verifier (gverify.py) result for the unit.
+
+| Unit | Unit ID | Skills | CP2 (Remedial) | CP1 (Standard) | Honors (Advanced) | Total | Validation |
+|---|---|---:|---:|---:|---:|---:|---|
+| 1. Algebraic Expressions and Integers | `algebraic-expressions-integers` | 12 | 192 | 192 | 192 | 576 | PASS |
+| 2. Solving One-Step Equations and Inequalities | `one-step-equations-inequalities` | 10 | 160 | 160 | 160 | 480 | PASS |
+| 3. Decimals and Equations | `decimals-equations` | 7 | 112 | 112 | 112 | 336 | PASS |
+| 4. Factors, Fractions, and Exponents | `factors-fractions-exponents` | 10 | 160 | 160 | 160 | 480 | PASS |
+| 5. Operations with Fractions | `operations-fractions` | 8 | 128 | 128 | 128 | 384 | PASS |
+| 6. Ratios, Proportions, and Percentages | `ratios-proportions-percentages` | 10 | 160 | 160 | 160 | 480 | PASS |
+| 7. Solving Equations and Inequalities | `solving-equations-inequalities` | 8 | 128 | 128 | 128 | 384 | PASS |
+| 8. Linear Functions and Graphing | `linear-functions-graphing` | 8 | 128 | 128 | 128 | 384 | PASS |
+| 9. Spatial Thinking | `spatial-thinking` | 10 | 160 | 160 | 160 | 480 | PASS |
+| 10. Area and Volume | `area-volume` | 8 | 128 | 128 | 128 | 384 | PASS |
+| 11. Right Triangles in Algebra | `right-triangles-algebra` | 7 | 112 | 112 | 112 | 336 | PASS |
+| 12. Data Analysis and Probability | `data-analysis-probability` | 8 | 128 | 128 | 128 | 384 | PASS |
+| 13. Nonlinear Functions and Polynomials | `nonlinear-functions-polynomials` | 8 | 128 | 128 | 128 | 384 | PASS |
+| **Total** | | **114** | **1824** | **1824** | **1824** | **5472** | |
+
+## Skill-by-skill coverage
+
+Families = distinct problem families (structures) available at the least-covered level; SA/MC/Extra = short-answer, multiple-choice, select-all + open-response counts.
+
+| Unit | Skill ID | Skill | CP2 | CP1 | Honors | Total | Families (min/level) | SA | MC | Extra | Status |
+|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-01` | Place Value | 16 | 16 | 16 | 48 | 4 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-02` | Variables and Expressions | 16 | 16 | 16 | 48 | 4 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-03` | The Order of Operations | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-04` | Writing and Evaluating Expressions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-05` | Integers and Absolute Value | 16 | 16 | 16 | 48 | 4 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-06` | Adding Integers | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-07` | Subtracting Integers | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-08` | Problem Solving: Rounding and Estimating | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-09` | Inductive Reasoning | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-10` | Patterns | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-11` | Multiplying and Dividing Integers | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `algebraic-expressions-integers` | `algebraic-expressions-integers-skill-12` | The Coordinate Plane | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-01` | Properties of Numbers | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-02` | The Distributive Property | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-03` | Simplifying Variable Expressions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-04` | Variables and Equations | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-05` | Solving Equations by Adding or Subtracting | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-06` | Solving Equations by Multiplying or Dividing | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-07` | Guess, Check, and Revise | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-08` | Inequalities and Their Graphs | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-09` | Solving One-Step Inequalities by Adding or Subtracting | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `one-step-equations-inequalities` | `one-step-equations-inequalities-skill-10` | Solving One-Step Inequalities by Multiplying or Dividing | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-01` | Rounding and Estimating | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-02` | Estimating Decimal Products and Quotients | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-03` | Mean, Median, and Mode | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-04` | Using Formulas | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-05` | Solving Equations by Adding or Subtracting Decimals | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-06` | Solving Equations by Multiplying or Dividing Decimals | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `decimals-equations` | `decimals-equations-skill-07` | Using the Metric System | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-01` | Divisibility and Factors | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-02` | Exponents | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-03` | Prime Factorization and Greatest Common Factor | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-04` | Simplifying Fractions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-05` | Rational Numbers | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-06` | Irrational Numbers | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-07` | Exponents and Multiplication | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-08` | Exponents and Division | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-09` | Scientific Notation | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `factors-fractions-exponents` | `factors-fractions-exponents-skill-10` | Cube Roots | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-01` | Comparing and Ordering Rational Numbers | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-02` | Fractions and Decimals | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-03` | Adding and Subtracting Fractions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-04` | Multiplying and Dividing Fractions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-05` | Using Customary Units of Measurement | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-06` | Solving Equations by Adding or Subtracting Fractions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-07` | Solving Equations by Multiplying Fractions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `operations-fractions` | `operations-fractions-skill-08` | Powers of Products and Quotients | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-01` | Ratios and Unit Rates | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-02` | Proportions | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-03` | Similar Figures and Scale Drawings | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-04` | Probability | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-05` | Fractions, Decimals, and Percentages | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-06` | Proportions and Percentages | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-07` | Percentages and Equations | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-08` | Percent of Change | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-09` | Markup and Discount | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `ratios-proportions-percentages` | `ratios-proportions-percentages-skill-10` | Tables | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-01` | Solving Two-Step Equations | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-02` | Solving Multi-Step Equations | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-03` | Multi-Step Equations with Fractions and Decimals | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-04` | Write an Equation | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-05` | Solving Equations with Variables on Both Sides | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-06` | Solving Two-Step Inequalities | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-07` | Transforming Formulas | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `solving-equations-inequalities` | `solving-equations-inequalities-skill-08` | Simple and Compound Interest | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-01` | Relations and Functions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-02` | Equations with Two Variables | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-03` | Slope and y-intercept | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-04` | Writing Rules for Linear Functions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-05` | Scatter Plots | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-06` | Solving Systems of Linear Equations by Graphing | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-07` | Solving Systems of Linear Equations by Substitution | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `linear-functions-graphing` | `linear-functions-graphing-skill-08` | Graphing Linear Inequalities | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-01` | Introduction to Geometry: Points, Lines, and Planes | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-02` | Angle Relationships and Parallel Lines | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-03` | Classifying Polygons | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-04` | Draw a Diagram | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-05` | Congruence | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-06` | Circles | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-07` | Constructions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-08` | Translations | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-09` | Symmetry and Rotations | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `spatial-thinking` | `spatial-thinking-skill-10` | Rotations | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `area-volume` | `area-volume-skill-01` | Area of Parallelograms | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `area-volume` | `area-volume-skill-02` | Area of Triangles and Trapezoids | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `area-volume` | `area-volume-skill-03` | Area of Circles | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `area-volume` | `area-volume-skill-04` | Space Figures | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `area-volume` | `area-volume-skill-05` | Surface Area of Prisms and Cylinders | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `area-volume` | `area-volume-skill-06` | Surface Area of Pyramids, Cones, and Spheres | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `area-volume` | `area-volume-skill-07` | Volumes of Prisms and Cylinders | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `area-volume` | `area-volume-skill-08` | Volume of Pyramids, Cones, and Spheres | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-01` | Square Roots and Irrational Numbers | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-02` | The Pythagorean Theorem | 16 | 16 | 16 | 48 | 3 | 28 | 18 | 2 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-03` | Distance and Midpoint Formulas | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-04` | Write a Proportion | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-05` | Special Right Triangles | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-06` | Sine, Cosine, and Tangent Ratios | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `right-triangles-algebra` | `right-triangles-algebra-skill-07` | Angles of Elevation and Depression | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-01` | Frequency Tables, Line Plots, and Histograms | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-02` | Box-and-Whisker Plots | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-03` | Stem and Leaf Plots | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-04` | Counting Outcomes and Theoretical Probability | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-05` | Independent and Dependent Events | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-06` | Permutations and Combinations | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-07` | Experimental Probability | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `data-analysis-probability` | `data-analysis-probability-skill-08` | Random Samples and Surveys | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-01` | Patterns and Sequences | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-02` | Graphing Nonlinear Functions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-03` | Exponential Growth and Decay | 16 | 16 | 16 | 48 | 2 | 28 | 18 | 2 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-04` | Polynomials | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-05` | Adding and Subtracting Polynomials | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-06` | Multiplying a Polynomial by a Monomial | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-07` | Multiplying Binomials | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `nonlinear-functions-polynomials` | `nonlinear-functions-polynomials-skill-08` | Using Multiple Strategies | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
