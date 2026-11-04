@@ -97,9 +97,7 @@ function create({courseId,unitId,level='cp1'}){
  case 'slope':{
    const m=easy?1:hard?3:2,run=hard?3:2,y0=int(-4,3);
    const y1=y0+m*x;
-   p='A line passes through (0, '+y0+') and ('+run+', '+(y0+run*m*x)+
-     '). The equation is y = kx + '+y0+'. Find k.';
-   // This asks for k=m*x, therefore a shift outside range. Instead use run tied to slope x.
+   // Slope comes from two coordinates; not from a generic linear equation.
    p='A line passes through (0, '+y0+') and ('+run+', '+(y0+run*x)+
      '). What is its slope?';
    steps=['Slope = (change in y) ÷ (change in x).'];
@@ -120,8 +118,7 @@ function create({courseId,unitId,level='cp1'}){
  }
  case 'inequalities':{
    const s=hard?a:1;
-   p='Find the smallest positive integer x that satisfies '+s+'x > '+(s*x-s)+'.';
-   // For s>1, integer x is still the minimum. For all positive x use offset threshold:
+   // Compute the least integer solution to a strict inequality.
    p='Find the smallest integer n satisfying '+s+'n > '+(s*(x-1))+'.';
    steps=['Divide by the positive coefficient.','Because the inequality is strict, use the next integer.'];break;
  }
@@ -155,10 +152,7 @@ function create({courseId,unitId,level='cp1'}){
    steps=['A quadratic in vertex form has its vertex at (h, k).'];break;
  }
  case 'statistics':{
-   const low=int(1,8),high=2*x+low;
-   p='Two data values have mean '+(x+low)+'. One is '+low+
-     '. What is the other value?';
-   // To make the answer x, choose values x-d and x+d, ask central mean.
+   // Symmetrically spaced observations have mean equal to the middle value.
    p='The data set contains '+(x-b)+', '+x+', and '+(x+b)+
      '. Find the mean.';
    steps=['Add all three values and divide by 3.'];break;
@@ -169,9 +163,7 @@ function create({courseId,unitId,level='cp1'}){
  }
  case 'parallel':{
    const angle=int(35,60);
-   p='Two parallel lines are cut by a transversal. One angle measures '+(angle+x)+
-     '°. Its same-side interior partner measures n°. If the pair is supplementary, find n.';
-   // Correct n would 180-angle-x, not x; instead use constructed angle.
+   // Same-side interior angles are supplementary.
    p='Two parallel lines are cut by a transversal. An angle measures '+(180-x)+
      '°. Its same-side interior angle measures n°. Find n.';
    steps=['Same-side interior angles are supplementary.'];break;
@@ -197,9 +189,7 @@ function create({courseId,unitId,level='cp1'}){
  }
  case 'right-triangle':{
    const leg=3*x,hyp=5*x,other=4*x;
-   p='A right triangle has legs '+leg+' and '+other+
-     ', and hypotenuse '+hyp+'. Find the length of the shorter leg divided by 3.';
-   // Students should solve, not read the answer.
+   // The unknown leg must first be obtained from a right-triangle relationship.
    p='A right triangle has one leg '+(3*x)+' and hypotenuse '+(5*x)+
      '. The other leg is 4n. Use the Pythagorean theorem to find n.';
    steps=['Use a² + b² = c².','The missing leg is '+(4*x)+'. Divide by 4.'];break;
@@ -237,16 +227,12 @@ function create({courseId,unitId,level='cp1'}){
  }
  case 'logarithms':{
    const base=int(2,3),k=hard?2:1;
-   p='Solve for x: log_'+base+'('+base+'^'+x+') = x. What is the value of x?';
-   // Do not put answer in the prompt; use a positive power and ask logarithm value.
+   // The exponent is unknown; students evaluate the actual logarithm.
    p='Evaluate log base '+base+' of '+(base**x)+'.';
-   if(base**x>1e9){ // use smaller exponent via a different log identity
-     p='Solve for n: log base '+base+' of ('+base+'^n) = '+x+'.';
-   }
-   steps=['Logarithms undo exponentiation.'];break;
+    steps=['Logarithms undo exponentiation.'];break;
  }
  case 'rational':{
-   p='Solve the rational equation '+(a*x)+' / n = '+a+
+   p='Solve the rational equation '+(a*x)+'/n = '+a+
      ' for the positive integer n.';
    steps=['Multiply both sides by n, then divide by '+a+'.'];break;
  }
@@ -257,26 +243,18 @@ function create({courseId,unitId,level='cp1'}){
    steps=['The common difference is '+d+'.'];break;
  }
  case 'conics':{
-   const k=hard?2:1;
-   p='A circle has equation (u − '+x+')² + (v + '+b+')² = '+(c*c)+
+    p='A circle has equation (u − '+x+')² + (v + '+b+')² = '+(c*c)+
      '. Find the u-coordinate of its center.';
    steps=['The center of (u − h)² + (v − k)² = r² is (h, k).'];break;
  }
  case 'trigonometry':{
-   p='A right triangle has opposite side '+(3*x)+' and hypotenuse '+(5*x)+
-     '. If sin θ = 3/5, find the opposite side divided by 3.';
-   // The opposite is specified: reframe using sine and missing side.
-   p='In a right triangle, sin θ = 3/5 and the hypotenuse is '+(5*x)+
+    p='In a right triangle, sin θ = 3/5 and the hypotenuse is '+(5*x)+
      '. The opposite side is 3n. Find n.';
    steps=['Use opposite / hypotenuse = 3/5.','Solve for the opposite side, then divide by 3.'];break;
  }
  case 'probability':{
    const total=hard?5*x:2*x;
-   p='A bag has '+x+' winning tickets among '+total+' tickets. The probability of winning is '+
-     (hard?'1/5':'1/2')+'. How many tickets correspond to one-fifth'.replace('one-fifth',hard?'one-fifth':'one-half')+
-     ' of the total?';
-   // Better: ask for count without giving x in wording.
-   p='A bag has '+total+' tickets. The probability of drawing a marked ticket is '+
+    p='A bag has '+total+' tickets. The probability of drawing a marked ticket is '+
      (hard?'1/5':'1/2')+'. How many marked tickets are in the bag?';
    steps=['Multiply the total number of tickets by the probability.'];break;
  }
@@ -287,11 +265,9 @@ function create({courseId,unitId,level='cp1'}){
    steps=['Divide by '+tenths+'.'];break;
  }
  case 'fractions':{
-   p='Find n: ('+a+'/'+(a*b)+') × n = '+(x/b)+'.';
-   // Equivalent: n/b = x, solve a simple fractional equation.
-   p='A recipe uses '+b+' cups per batch. If '+(x*b)+
-     ' cups are available, how many batches can be made?';
-   steps=['Divide the total number of cups by cups per batch.'];break;
+   const k=int(2,5),den=int(2,7);
+   p='Solve the equivalent-fraction equation n/'+den+' = '+(x*k)+'/'+(den*k)+'.';
+   steps=['Simplify the right-hand fraction, or cross-multiply.'];break;
  }
  case 'ratios':{
    const ratio=int(2,5);
@@ -315,18 +291,21 @@ function create({courseId,unitId,level='cp1'}){
    steps=['Add horizontal components and vertical components separately.'];break;
  }
  case 'limits':{
-   p='Evaluate lim as t→'+x+' of (2t + '+b+') − '+b+', divided by 2.';
-   steps=['Use direct substitution for a continuous expression.'];break;
+   p='Evaluate the limit as t approaches '+x+': (3t² − 3'+(x*x)+')/(t − '+x+
+     '), then divide the result by 6.';
+   // The removable discontinuity resolves to 6x, yielding the desired shift.
+   steps=['Factor the difference of squares.','Cancel t − '+x+' before substituting.'];break;
  }
  case 'derivatives':{
-   p='For f(t) = '+(x)+'t² + '+b+'t, evaluate f’(1) − '+b+
-     ' and then divide by 2.';
-   steps=['Differentiate term by term: f’(t) = '+(2*x)+'t + '+b+'.'];break;
+   const factor=int(2,5);
+   p='For f(t) = '+factor+'t² + '+b+'t, find t if f’(t) = '+(2*factor*x+b)+'.';
+   steps=['Differentiate: f’(t) = '+(2*factor)+'t + '+b+'.','Isolate t.'];break;
  }
  case 'integrals':{
-   p='Evaluate the definite integral from 0 to 1 of '+x+
-     ' dt.';
-   steps=['The area under a constant function equals height × width.'];break;
+   const width=int(2,6);
+   p='Find n if the definite integral from 0 to '+width+
+     ' of the constant function n equals '+(width*x)+'.';
+   steps=['The integral of a constant n over an interval of width '+width+' equals n times width.'];break;
  }
  case 'differential':{
    p='A function solves y’(t) = '+a+' with initial condition y(0) = '+b+
