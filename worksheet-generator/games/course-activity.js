@@ -35,6 +35,37 @@ async function startEscape(qs,selectedLevel){
   return Number.isInteger(n)&&n>=1&&n<=25 &&
     !/\b(which of the following|choose (?:the|an) (?:answer|option)|select all|which graph)\b/i.test(q.prompt||'');
  }
+ function orderedSteps(q){
+  const original=(q.solutionSteps||[]).map(s=>String(s||'').trim()).filter(Boolean);
+  const unique=original.filter((step,i)=>original.findIndex(x=>x.toLowerCase()===step.toLowerCase())===i);
+  if(unique.length>=4)return unique;
+  // Two-line slope comparisons benefit from separate mathematical actions:
+  // calculate m1, calculate m2, compare, and classify.
+  if(unique.length>=2&&/\b(parallel|perpendicular)\b/i.test(q.prompt||'')){
+   const slope=/^(?:find|calculate|determine)\s+both\s+slopes:\s*(.+?)\s+and\s+(.+?)\.?$/i.exec(unique[0]);
+   if(slope){
+    return [
+      'Find the slope of the first line: '+slope[1].replace(/\.$/,'')+'.',
+      'Find the slope of the second line: '+slope[2].replace(/\.$/,'')+'.',
+      unique[1],
+      'Compare the slopes and classify the two lines: '+String(q.answer||'').trim()+'.'
+    ];
+   }
+  }
+  // A three-step solution needs a separate conclusion, not repeated filler.
+  if(unique.length===3)return unique.concat([
+   'State the final result and check that it answers the question: '+String(q.answer||'').trim()+'.'
+  ]);
+  if(unique.length===2){
+   return [
+    'Identify the mathematical relationship, property, or equation needed to solve the problem.',
+    unique[0],unique[1],
+    'Verify the result against the original information: '+String(q.answer||'').trim()+'.'
+   ];
+  }
+  // Do not manufacture a meaningless sorting puzzle from a one-line answer.
+  return null;
+ }
  function scene(q){return q.diagram?.type==='image'?{kind:'image',src:q.diagram.spec.src,alt:q.diagram.spec.alt.replace(/"/g,'&quot;')}:{kind:'emoji',bg:'#1d1530',floor:'#3a2b4a',items:[{e:'🏺',x:80,y:170,s:60},{e:'🖼️',x:170,y:150,s:56},{e:'📜',x:250,y:160,s:50},{e:'🗝️',x:330,y:170,s:50}]}}
  function prompt(q,includeOptions){return source.question(q)+(includeOptions&&q.options?'<ol type="A">'+q.options.map((o,i)=>'<li>'+(q._graphOptions?q._graphOptions[i]:source.html(o.text))+'</li>').join('')+'</ol>':'')}
  function stage(q,i){return {name:all.find(s=>s.id===q.skillId)?.name||'Gallery '+(i+1),sourceId:q.id,stamp:[41,12,87,23,55][i],letter:['M','C','T','O','E'][i],story:'Solve the gallery challenge to unlock the next door and collect its key card.',scene:scene(q),hints:q.solutionSteps.slice(0,3).map(source.html),key:source.html(String(q.answer))}}
@@ -57,7 +88,14 @@ async function startEscape(qs,selectedLevel){
    prompt:prompt(q2,false),plain:'THE NEXT KEY IS BEHIND THE PLANETS',
    shift:numericValue(q2),answer:'PLANETS',askLabel:'Where is the next key?'};
  const q3=take(q=>q.format==='multiple-choice');if(!q3)throw Error('Choose more skills for the classification room.');const classify={...stage(q3,2),type:'classify',title:'The Answer Panels',prompt:prompt(q3,false),items:['Choose the correct panel.'],options:q3._graphOptions||q3.options.map(o=>source.html(o.text)),answer:[q3.options.findIndex(o=>o.correct)]};
- const q4=take(q=>q.solutionSteps.length>=2);if(!q4)throw Error('Choose more skills for the step-order room.');const order={...stage(q4,3),type:'order',title:'Put the Work in Order',prompt:prompt(q4,true),steps:q4.solutionSteps.map(source.html)};
+ const q4=take(q=>orderedSteps(q)?.length>=4&&q.solutionSteps.length>=4)||
+   take(q=>orderedSteps(q)?.length>=4&&q.solutionSteps.length>=3)||
+   take(q=>orderedSteps(q)?.length>=4);
+ if(!q4)throw Error('This unit and level need a multi-step problem for the sorting room. Select additional skills.');
+ const sortedSteps=orderedSteps(q4);
+ if(!sortedSteps||sortedSteps.length<4)throw Error('Sorting room requires at least four meaningful reasoning steps.');
+ const order={...stage(q4,3),type:'order',title:'Put the Work in Order',
+   prompt:prompt(q4,true),steps:sortedSteps.map(source.html)};
  const q5=take(q=>numeric(q)&&Number.isInteger(Number(q.answer))&&Number(q.answer)>=0&&Number(q.answer)<=9)||take(numeric)||take(q=>q.format==='multiple-choice');if(!q5)throw Error('Choose more skills for the final lock.');
  const last=numeric(q5)?{...stage(q5,4),type:'fields',ui:Number.isInteger(Number(q5.answer))&&Number(q5.answer)>=0&&Number(q5.answer)<=9?'dial':'fields',title:'The Exit Vault',prompt:prompt(q5,true),fields:[{label:'Answer',answer:numericValue(q5)}],button:'Turn the handle'}:choice(q5,4);
  const room={...base,id:source.courseId+'-'+source.unit.id,title:source.unit.name+' Escape Room',intro:'The museum is locked for the night. Solve five gallery challenges, collect the key cards, and open the final door before the alarms reset.',stages:[first,cipher,classify,order,last]};G.MK_ACTIVE_ESCAPE_ROOM=room;
