@@ -25,9 +25,17 @@ test('every unit, level and seed: a full test with checked multiple-choice quest
       mcTotal++;
       if (!it.mc) { flagged++; return; }
       ok(it.parts.length === 1, unit + ': multiple choice has one answer');
-      ok(it.mc.opts.length === 4 && new Set(it.mc.opts.map(o => o.replace(/\s/g, ''))).size === 4, unit + ': four different choices');
-      ok(it.mc.opts[it.mc.key] === it.parts[0].answer, unit + ': the key letter points at the verified answer');
-      it.mc.opts.forEach((o, k) => ok(GB.answerOk(it, 0, o).ok === (k === it.mc.key), unit + ': only the key is accepted by the verifier: ' + o));
+      if(it.mc.inequalityMode){
+        const expected=M.inequalityChoices(it);
+        ok(!!expected, unit+': visual inequality choices require verified graph or point');
+        ok(!!expected && expected.key===it.mc.key, unit+': visual key matches teacher answer');
+        ok(it.mc.inequalityMode==='graph'?it.mc.graphs.length===4:it.mc.opts.join('|')==='Yes|No',
+          unit+': graphs or simple point membership choices');
+      } else {
+        ok(it.mc.opts.length === 4 && new Set(it.mc.opts.map(o => o.replace(/\s/g, ''))).size === 4, unit + ': four different choices');
+        ok(it.mc.opts[it.mc.key] === it.parts[0].answer, unit + ': the key letter points at the verified answer');
+        it.mc.opts.forEach((o, k) => ok(GB.answerOk(it, 0, o).ok === (k === it.mc.key), unit + ': only the key is accepted by the verifier: ' + o));
+      }
       ok(M.checkChoices(it), unit + ': stored choices re-check');
     });
   }
