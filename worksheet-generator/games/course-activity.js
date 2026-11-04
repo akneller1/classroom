@@ -18,7 +18,7 @@ function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.hre
 function script(path){return new Promise((resolve,reject)=>{const s=el('script',document.body);s.src=path+'?v=class-parity-20261031';s.onload=resolve;s.onerror=()=>reject(Error('Activity engine unavailable'))})}
 async function startMystery(qs,level){
  const data=await fetch('games/mystery-case.json',{cache:'no-store'}).then(r=>r.json());data.unit=source.courseId+'-'+source.unit.id+'-'+level;data.eyebrow=source.course.name+' · Detective';data.title=source.unit.name+' Detective';data.tagline='Solve each problem to earn evidence and crack the case.';data.inputHint='Choose an answer, then check it to unlock your evidence.';data.symbols=[];
- data.questions=qs.slice(0,10).map(q=>({sourceId:q.id,skill:all.find(s=>s.id===q.skillId)?.name||q.skillId,instr:'',html:source.question(q),answer:{t:'source-choice',v:q.options.findIndex(o=>o.correct)},options:q.options.map(o=>source.html(o.text)),hint:source.html(q.solutionSteps[0]||''),steps:q.solutionSteps.map(source.html)}));
+ data.questions=qs.slice(0,10).map(q=>({sourceId:q.id,skill:all.find(s=>s.id===q.skillId)?.name||q.skillId,instr:'',html:source.question(q),answer:{t:'source-choice',v:q.options.findIndex(o=>o.correct)},options:q._graphOptions||q.options.map(o=>source.html(o.text)),hint:source.html(q.solutionSteps[0]||''),steps:q.solutionSteps.map(source.html)}));
  G.MK_ACTIVE_MYSTERY_CASE=data;loadCSS('games/mystery.css');app.className='';document.getElementById('activityHeader').hidden=true;await script('games/mystery-runtime.js');
 }
 async function startEscape(qs){
