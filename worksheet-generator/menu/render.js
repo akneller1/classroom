@@ -134,7 +134,7 @@
   NS.proofKeyFig = proofKeyFig;
   function promptHtml(p, forKey, inlineLabel, pointsLabel) {
     // Proof statements and the equation appear in the scaffold; do not print them twice.
-    var questionText = p.prompt || '';
+    var questionText = (!forKey && p.mc && p.mc.prompt) ? p.mc.prompt : (p.prompt || '');
     if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
       questionText = questionText.split(' Establish:')[0];
     }
@@ -142,7 +142,7 @@
     var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + mathSafe(questionText) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
     if (p.fig && p.fig.proof && NS.figHtml) return h + NS.figHtml(forKey ? proofKeyFig(p) : p.fig);   // the proof table under the diagram holds every blank
-    if (p.fig && NS.figHtml && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
+    if (p.fig && NS.figHtml && !(p.mc && p.mc.graphs && !forKey) && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p, forKey);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
     if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
@@ -183,7 +183,7 @@
   var LET = 'ABCDEFGH';
   function choicesHtml(p) {
     var txt = p.mc.opts.map(function (o) { return o.replace(/⟨[^⟩]*⟩/g, 'xxxxxx'); }), long = txt.some(function (t) { return t.length > 34; });
-    return '<ol class="mm-choices' + (long ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li><span class="mm-bubble">' + LET[k] + '</span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>';
+    return '<ol class="mm-choices' + (p.mc.graphs ? ' mm-graph-choices' : long ? ' one' : '') + '">' + p.mc.opts.map(function (o, k) { return '<li><span class="mm-bubble">' + LET[k] + '</span><span>' + (p.mc.graphs && NS.figHtml ? NS.figHtml(p.mc.graphs[k]) : mathSafe(o)) + '</span></li>'; }).join('') + '</ol>';
   }
   NS.choicesHtml = choicesHtml;
   function multiHtml(p) { return '<div class="mm-multidir">' + esc(p.multi.direction || 'Select all values that satisfy the inequality.') + '</div><ol class="mm-choices one">' + p.multi.opts.map(function (o, k) { return '<li><span style="display:inline-flex;align-items:center;gap:7px;margin-right:9px;white-space:nowrap;"><span style="display:inline-block;width:15px;height:15px;border:1.5px solid currentColor;border-radius:2px;box-sizing:border-box;"></span><b>' + LET[k] + '</b></span><span>' + mathSafe(o) + '</span></li>'; }).join('') + '</ol>'; }
