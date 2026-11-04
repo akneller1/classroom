@@ -469,3 +469,14 @@ def dtext(x):
     s = s.lstrip("-")
     ip, _, fp = s.partition(".")
     return ("-" if neg else "") + f"{int(ip):,}" + ("." + fp if fp else "")
+
+
+def reuse(f, lv=(0, 1, 2), tag=""):
+    """Reuse a verified family at another grade: level L of the new skill uses level lv[L] of f.
+    The new name changes the random seeds, so the items differ from the original grade's items."""
+    def g(r, L):
+        return f(r, lv[L])
+    g.__name__ = "g6_" + f.__name__ + tag
+    g.levels = {L for L in range(3) if lv[L] in f.levels}
+    g.mode = f.mode
+    return g

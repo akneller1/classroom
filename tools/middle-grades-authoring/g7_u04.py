@@ -332,7 +332,7 @@ def s6_between(r, L):
     n = r.randint(3, 140 if L else 80)
     s = math.isqrt(n)
     need(s * s != n)
-    return Q(f"Between which two consecutive whole numbers is √{n}?", f"{s} and {s + 1}", [f"{s}² = {s * s} and {s + 1}² = {(s + 1) ** 2}.", f"{s * s} < {n} < {(s + 1) ** 2}.", f"So √{n} is between {s} and {s + 1}."],
+    return Q(f"√{n} lies between which two consecutive whole numbers?", f"{s} and {s + 1}", [f"{s}² = {s * s} and {s + 1}² = {(s + 1) ** 2}.", f"{s * s} < {n} < {(s + 1) ** 2}.", f"So √{n} is between {s} and {s + 1}."],
              [f"{s - 1} and {s}", f"{s + 1} and {s + 2}", f"{n // 2} and {n // 2 + 1}"], PY("between_ints", num=f"√{n}"), why=["Chose a pair one too low", "Chose a pair one too high", "Divided by 2 instead of taking a square root"])
 
 

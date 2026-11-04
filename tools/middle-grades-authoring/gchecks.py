@@ -1057,3 +1057,259 @@ def freq_most(chk, text):
     fr = chk["fr"]
     m = max(fr)
     return fr.count(m) == 1 and str(text) == chk["cats"][fr.index(m)]
+
+
+@reg
+def ratio_pair(chk, text):
+    m = re.fullmatch(r"\s*(\d+)\s*:\s*(\d+)\s*", str(text))
+    return bool(m) and (int(m.group(1)), int(m.group(2))) == (chk["a"], chk["b"])
+
+
+@reg
+def ratio_missing(chk, text):
+    a, b, k = chk["a"], chk["b"], chk["k"]
+    try:
+        n = F(M.val(text))
+    except Exception:
+        return False
+    return (F(a * k, n) == F(a, b)) if chk["pos"] else (F(n, b * k) == F(a, b))
+
+
+@reg
+def ratio_tables(chk, text):
+    rows = chk["tables"].get(str(text))
+    return rows is not None and all(F(x, y) == F(chk["a"], chk["b"]) for x, y in rows)
+
+
+@reg
+def mix_compare(chk, text):
+    (a1, b1), (a2, b2) = chk["a"], chk["b"]
+    want = "Mix A" if F(a1, b1) > F(a2, b2) else "Mix B" if F(a2, b2) > F(a1, b1) else "They are the same"
+    return str(text).strip() == want
+
+
+@reg
+def long_div(chk, text):
+    n, d = chk["n"], chk["d"]
+    q, rem = divmod(n, d)
+    t = str(text).replace(",", "").strip()
+    return t == (f"{q} R{rem}" if rem else str(q))
+
+
+@reg
+def signed_ctx(chk, text):
+    try:
+        return M.same(M.val(str(text).split(";")[0]), M.ev(chk["v"]))
+    except Exception:
+        return False
+
+
+@reg
+def ineq_stmt(chk, text):
+    a, b = M.ev(chk["a"]), M.ev(chk["b"])
+    want_op = ">" if a > b else "<"
+    m = re.fullmatch(r"\s*(\S+) ([<>]) (\S+); (.+)", str(text))
+    if not m:
+        return False
+    return m.group(2) == want_op and M.same(M.ev(m.group(1)), a) and M.same(M.ev(m.group(3)), b) and m.group(4).strip() == (chk["win"] if True else "")
+
+
+@reg
+def order_abs(chk, text):
+    items = C.split_list(text)
+    if sorted(items) != sorted(chk["items"]):
+        return False
+    vals = [abs(M.ev(s)) for s in items]
+    return all(x < y for x, y in zip(vals, vals[1:]))
+
+
+@reg
+def debt(chk, text):
+    a, b = chk["a"], chk["b"]
+    who = chk["n1"] if a > b else chk["n2"]
+    return str(text).strip() == f"{who}, ${abs(a - b)}"
+
+
+@reg
+def equiv_yn(chk, text):
+    v = chk["var"]
+    ok = all(M.same(M.ev(chk["a"], {v: F(x, 3)}), M.ev(chk["b"], {v: F(x, 3)})) for x in (1, 2, 5, 7, 11))
+    return str(text).strip() == ("Yes" if ok else "No")
+
+
+@reg
+def rule_xy(chk, text):
+    m = re.fullmatch(r"\s*([a-z])\s*=\s*(.+)", str(text))
+    if not m or m.group(1) != chk["yv"]:
+        return False
+    try:
+        return all(M.same(M.ev(m.group(2), {chk["xv"]: F(x)}), F(y)) for x, y in chk["pts"])
+    except Exception:
+        return False
+
+
+@reg
+def dep_eval(chk, text):
+    return str(text).strip() == f"c is dependent; c = {chk['k'] * chk['x']}"
+
+
+@reg
+def sol_list(chk, text):
+    f = _rel_fn(chk["ineq"], "x")
+    want = [x for x in chk["vals"] if f(F(x))]
+    try:
+        got = [int(s) for s in C.split_list(text)]
+    except ValueError:
+        return False
+    return got == want
+
+
+@reg
+def in_ineq(chk, text):
+    try:
+        return _rel_fn(chk["ineq"], "x")(F(M.val(text)))
+    except Exception:
+        return False
+
+
+@reg
+def in_ineq_nonwhole(chk, text):
+    try:
+        v = F(M.val(text))
+    except Exception:
+        return False
+    return v.denominator != 1 and _rel_fn(chk["ineq"], "x")(v)
+
+
+NETS = {"square pyramid": "1 square and 4 triangles", "triangular prism": "2 triangles and 3 rectangles", "rectangular prism": "6 rectangles", "triangular pyramid": "4 triangles",
+        "cube": "6 squares", "pentagonal prism": "2 pentagons and 5 rectangles"}
+
+
+@reg
+def net_faces(chk, text):
+    return str(text) == NETS[chk["solid"]]
+
+
+STATQ = {"How many hours do students in my class sleep on school nights?", "How tall are the players on the basketball team?", "How many pets do families on my street have?",
+         "What are the daily high temperatures in our town this month?", "How long does it take students in our school to get to school?", "How many books did each sixth grader read this summer?"}
+NONSTATQ = {"How tall is the school flagpole?", "How many students are in Room 12 right now?", "What is the capital of France?", "How many days are in March?",
+            "How old is my teacher?", "What time does school start today?"}
+
+
+@reg
+def stat_q(chk, text):
+    return (str(text) in STATQ) if chk["want"] == "is" else (str(text) in NONSTATQ)
+
+
+@reg
+def stat_q1(chk, text):
+    return str(text) == ("statistical" if chk["q"] in STATQ else "not statistical" if chk["q"] in NONSTATQ else "?")
+
+
+def _mad(xs):
+    m = F(sum(xs), len(xs))
+    return sum(abs(x - m) for x in xs) / len(xs)
+
+
+@reg
+def mad_compare(chk, text):
+    a, b = chk["a"], chk["b"]
+    ma, mb = _mad(a), _mad(b)
+    truth = {"Class B's scores are more spread out.": mb > ma, "Class A's scores are more spread out.": ma > mb, "Both classes have the same spread.": ma == mb,
+             "Class B has a greater mean.": F(sum(b), len(b)) > F(sum(a), len(a))}
+    return truth.get(str(text), False)
+
+
+@reg
+def team_compare(chk, text):
+    a, b, st = sorted(chk["a"]), sorted(chk["b"]), chk["st"]
+    def med(x):
+        k = len(x)
+        return F(x[k // 2]) if k % 2 else F(x[k // 2 - 1] + x[k // 2], 2)
+    va, vb = (med(a), med(b)) if st == "median" else (a[-1] - a[0], b[-1] - b[0])
+    truth = {f"Team A has the greater {st}.": va > vb, f"Team B has the greater {st}.": vb > va, f"The teams have the same {st}.": va == vb, "The data cannot be compared.": False}
+    return truth.get(str(text), False)
+
+
+@reg
+def shape(chk, text):
+    xs = chk["data"]
+    c = Counter(xs) if False else {}
+    from collections import Counter as Cn
+    c = Cn(xs)
+    lo, hi = min(xs), max(xs)
+    counts = [c.get(v, 0) for v in range(lo, hi + 1)]
+    n = len(xs)
+    srt = sorted(xs)
+    med = F(srt[n // 2]) if n % 2 else F(srt[n // 2 - 1] + srt[n // 2], 2)
+    mean = F(sum(xs), n)
+    if counts == counts[::-1]:
+        want = "symmetric"
+    elif mean - med > F(1, 5):
+        want = "skewed right"
+    elif med - mean > F(1, 5):
+        want = "skewed left"
+    else:
+        want = "?"
+    return str(text) == want
+
+
+@reg
+def best_center(chk, text):
+    xs = sorted(chk["data"])
+    n = len(xs)
+    q1 = (xs[n // 4 - 1] + xs[n // 4]) / 2 if n % 4 == 0 else xs[n // 4]
+    has_out = max(xs) - xs[-2] > 2 * (xs[-2] - xs[0])
+    want = "median, because the outlier pulls the mean" if has_out else "mean, because it uses every value"
+    return str(text) == want
+
+
+@reg
+def outlier_iqr(chk, text):
+    xs = sorted(chk["data"])
+    n = len(xs)
+    def med(a):
+        k = len(a)
+        return F(a[k // 2]) if k % 2 else F(a[k // 2 - 1] + a[k // 2], 2)
+    q1, q3 = med(xs[: n // 2]), med(xs[(n + 1) // 2:])
+    iqr = q3 - q1
+    outs = [x for x in xs if x < q1 - F(3, 2) * iqr or x > q3 + F(3, 2) * iqr]
+    return len(outs) == 1 and str(text).strip() == str(outs[0])
+
+
+@reg
+def med_iqr(chk, text):
+    xs = sorted(chk["data"])
+    n = len(xs)
+    def med(a):
+        k = len(a)
+        return F(a[k // 2]) if k % 2 else F(a[k // 2 - 1] + a[k // 2], 2)
+    want = (med(xs), med(xs[(n + 1) // 2:]) - med(xs[: n // 2]))
+    try:
+        a, b = [M.val(s) for s in str(text).split(",")]
+    except Exception:
+        return False
+    return M.same(a, want[0]) and M.same(b, want[1])
+
+
+@reg
+def mean_diff(chk, text):
+    a, b = chk["a"], chk["b"]
+    try:
+        return M.same(M.val(text), abs(F(sum(a), len(a)) - F(sum(b), len(b))))
+    except Exception:
+        return False
+
+
+@reg
+def count_ints(chk, text):
+    lo, hi = F(M.ev(chk["lo"])), F(M.ev(chk["hi"]))
+    n = sum(1 for k in range(math.floor(lo) - 1, math.ceil(hi) + 2) if lo < k < hi)
+    return str(text).strip() == str(n)
+
+
+@reg
+def count_abs(chk, text):
+    k, op = chk["k"], chk["op"]
+    n = sum(1 for x in range(-k - 2, k + 3) if (abs(x) < k if op == "<" else abs(x) <= k))
+    return str(text).strip() == str(n)

@@ -61,6 +61,13 @@ def nkey(p):
 
 
 NEAR = set()
+VSEEN = {}
+
+
+def vkey(q):
+    """Same duplicate key as the verifier: prompt, diagram alt text, option texts, part prompts."""
+    return " ".join(q["prompt"].lower().split()) + "|" + str(q.get("diagram", {}).get("spec", {}).get("alt", "")) + "|" + \
+        "|".join(p["prompt"] for p in q.get("parts", [])) + "|" + "|".join(sorted(o["text"] for o in q.get("options", [])))
 
 
 def build_mc(p, pos, r):
@@ -80,6 +87,32 @@ def build_mc(p, pos, r):
     r.shuffle(ds)
     ds.insert(pos, p["answer"])
     return [{"text": t, "correct": i == pos} for i, t in enumerate(ds)]
+
+
+SING = {"units": "unit", "feet": "foot", "inches": "inch", "meters": "meter", "miles": "mile", "cups": "cup", "hours": "hour", "blocks": "block", "visits": "visit",
+        "points": "point", "years": "year", "days": "day", "pages": "page", "students": "student", "tickets": "ticket", "bags": "bag", "servings": "serving", "buses": "bus",
+        "bottles": "bottle", "cells": "cell", "parts": "part", "gallons": "gallon", "centimeters": "centimeter", "kilometers": "kilometer", "liters": "liter", "grams": "gram",
+        "kilograms": "kilogram", "milliliters": "milliliter", "millimeters": "millimeter", "pounds": "pound", "ounces": "ounce", "quarts": "quart", "pints": "pint", "yards": "yard"}
+_SING_RE = __import__("re").compile(r"(?<![\d.,/])((?:-)?1) (" + "|".join(SING) + r")\b")
+
+
+def fix_text(t):
+    """Grammar: '1 units' -> '1 unit' (a whole-number 1 only)."""
+    return _SING_RE.sub(lambda m: m.group(1) + " " + SING[m.group(2)], t) if isinstance(t, str) else t
+
+
+def fix_q(q):
+    q["prompt"] = fix_text(q["prompt"])
+    if isinstance(q.get("answer"), str):
+        q["answer"] = fix_text(q["answer"])
+    elif isinstance(q.get("answer"), list):
+        q["answer"] = [fix_text(a) for a in q["answer"]]
+    for o in q.get("options", []) or []:
+        o["text"] = fix_text(o["text"])
+    for p in q.get("parts", []) or []:
+        p["prompt"], p["answer"] = fix_text(p["prompt"]), fix_text(p["answer"])
+    q["solutionSteps"] = [fix_text(s) for s in q["solutionSteps"]]
+    return q
 
 
 class Ctx:
@@ -116,6 +149,9 @@ def emit(cx, rec, std, L, idx, p, fmt, fname, r, pos=None):
     q["sourceNotes"] = NOTE.format(fam=fname)
     tags = sorted({t for t in p["tags"] if t in TAGS} | ({"graph"} if p.get("diagram") and "graph" in p["tags"] else set()))
     chk["family"] = fname
+    fix_q(q)
+    if chk.get("parts") is None and isinstance(chk.get("q"), dict) and chk["q"].get("fn") == "claims":
+        chk["q"]["table"] = {fix_text(k): v for k, v in chk["q"]["table"].items()}
     return q, tags, chk
 
 
@@ -190,6 +226,10 @@ def build_skill(cx, rec, spec, L):
         if fmt == "mc" and not p.get("options"):
             pi += 1
         q, tags, chk = emit(cx, rec, spec["std"], L, idx, p, full, f.__name__, r, pos if fmt == "mc" else None)
+        if vkey(q) in VSEEN:
+            fail(f.__name__)
+            continue
+        VSEEN[vkey(q)] = q["id"]
         SEEN[key] = q["id"]
         idx += 1
         need[fmt] -= 1
@@ -236,6 +276,10 @@ def build_skill(cx, rec, spec, L):
         if full == "multiple-choice" and p.get("options"):
             pos = [i for i, (t, c) in enumerate(p["options"]) if c][0]
         q, tags, chk = emit(cx, rec, spec["std"], L, idx, p, full, f.__name__, r, pos)
+        if vkey(q) in VSEEN:
+            fail(f.__name__)
+            continue
+        VSEEN[vkey(q)] = q["id"]
         SEEN[key] = q["id"]
         idx += 1
         got += 1
@@ -293,5 +337,18 @@ if __name__ == "__main__":
             if os.path.exists(f):
                 for q in json.load(open(f, encoding="utf-8"))["questions"]:
                     SEEN.setdefault(" ".join(q["prompt"].lower().split()), q["id"])
+    # published Grade 8 banks in the repository are also off limits
+    import glob
+    for f in glob.glob(os.path.join(REPO, "question-banks", "prealgebra", "*.json")):
+        for q in json.load(open(f, encoding="utf-8"))["questions"]:
+            VSEEN.setdefault(vkey(q), q["id"])
+    for c, cfg in COURSES.items():
+        for m in cfg["units"]:
+            if c == course and m in mods or not os.path.exists(os.path.join(HERE, m + ".py")):
+                continue
+            f = os.path.join(OUT, "question-banks", c, importlib.import_module(m).UNIT_ID + ".json")
+            if os.path.exists(f):
+                for q in json.load(open(f, encoding="utf-8"))["questions"]:
+                    VSEEN.setdefault(vkey(q), q["id"])
     for m in mods:
         print(*build_unit(course, m, draw))
