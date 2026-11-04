@@ -412,6 +412,23 @@
     // Do not turn extended prompts into misleading one-card exercises.
     var questionText = String(p.compactPrompt || p.prompt || '');
     if (/\b(open response|answer every part|four.part investigation|earlier parts and their results)\b/i.test(questionText)) return [];
+    // Both printable and interactive games use the same verified inequality answers.
+    // Never turn a graph into prose descriptions or fabricate four variants of Yes/No.
+    var visual = NS.inequalityChoices && NS.inequalityChoices(p);
+    if (visual) {
+      var vopts = visual.opts.map(function (answer,i) {
+        return { a:answer, ok:i===visual.key, graph:visual.graphs ? visual.graphs[i] : null };
+      });
+      var question = GB.partQuestion(p,0);
+      question.prompt = visual.prompt || question.prompt;
+      if (visual.graphs) { question.fig = null; question.ask = ''; }
+      items.push({id:p.uid+'-visual',p:p,k:0,skill:skillId,
+        skillName:set.byId[skillId].name,tag:p.tag,tagName:set.tags[p.tag]||p.tag,
+        c:c,q:question,answer:p.parts[0].answer,
+        answerFigures:visual.graphs?[p.parts[0].answerFig]:[],
+        steps:p.steps||[],options:vopts,typed:null,inequalityMode:visual.inequalityMode});
+      return items;
+    }
     // For congruence criteria, add an independent diagram-identification card.
     // Do not reveal the criterion in the question text.
     var criterionMatch = /^geo-criterion-(sss|sas|asa|aas|hl)-/.exec(p.variant || '');
