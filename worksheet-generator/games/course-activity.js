@@ -14,7 +14,7 @@ function setup(selected){
  start.onclick=async()=>{const qs=source.select(level.value,ids,G.MK_QUESTION_BANKS.available(source.courseId,source.unit.id)?120:20);const mc=qs.filter(q=>q.format==='multiple-choice');if((escape?qs.length:mc.length)<(escape?5:10)){status.textContent=qs.length?'Choose more skills at this difficulty to fill this activity.':'Questions are not available for this course and unit yet. The activity settings are ready for a future bank.';return}start.disabled=true;try{if(escape)await startEscape(qs,level.value);else await startMystery(mc,level.value)}catch(e){status.textContent='Unable to open activity: '+e.message;start.disabled=false}};
  if(!['algebra','geometry'].includes(source.courseId)&&!G.MK_QUESTION_BANKS.available(source.courseId,source.unit.id))status.textContent='Questions are not available for this course and unit yet. The activity settings are ready for a future bank.';
 }
-function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.href=path+'?v=cipher-lock-20261104'}
+function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.href=path+'?v=cipher-unit-skills-20261104'}
 function script(path){return new Promise((resolve,reject)=>{const s=el('script',document.body);s.src=path+'?v=cipher-lock-20261104';s.onload=resolve;s.onerror=()=>reject(Error('Activity engine unavailable'))})}
 async function startMystery(qs,level){
  const data=await fetch('games/mystery-case.json',{cache:'no-store'}).then(r=>r.json());data.unit=source.courseId+'-'+source.unit.id+'-'+level;data.eyebrow=source.course.name+' · Detective';data.title=source.unit.name+' Detective';data.tagline='Solve each problem to earn evidence and crack the case.';data.inputHint='Choose an answer, then check it to unlock your evidence.';data.symbols=[];
@@ -35,32 +35,21 @@ async function startEscape(qs,selectedLevel){
   return Number.isInteger(n)&&n>=1&&n<=25 &&
     !/\b(which of the following|choose (?:the|an) (?:answer|option)|select all|which graph)\b/i.test(q.prompt||'');
  }
- function backupShift(level){
-  // Prefer unit-bank numerics; never replace a missing numeric item with a
-  // publicly known constant such as 7 or a second guessing task.
-  const x=1+Math.floor(Math.random()*25),a=2+Math.floor(Math.random()*6);
-  const b=2+Math.floor(Math.random()*9),c=3+Math.floor(Math.random()*11);
-  let expression,steps;
-  if(level==='honors'){
-    expression=a+'(x + '+b+') - '+c+' = '+(a*(x+b)-c);
-    steps=['Distribute, isolate the x term, then divide.'];
-  } else if(level==='cp1'){
-    expression=a+'x + '+b+' = '+(a*x+b);
-    steps=['Subtract '+b+' from both sides, then divide by '+a+'.'];
-  } else {
-    expression='x + '+b+' = '+(x+b);
-    steps=['Subtract '+b+' from both sides.'];
-  }
-  return {id:'cipher-numeric-'+x+'-'+a+'-'+b+'-'+c,skillId:'cipher-numeric-lock',
-    prompt:'Solve for x: '+expression,answer:String(x),format:'short-answer',
-    solutionSteps:steps};
- }
  function scene(q){return q.diagram?.type==='image'?{kind:'image',src:q.diagram.spec.src,alt:q.diagram.spec.alt.replace(/"/g,'&quot;')}:{kind:'emoji',bg:'#1d1530',floor:'#3a2b4a',items:[{e:'🏺',x:80,y:170,s:60},{e:'🖼️',x:170,y:150,s:56},{e:'📜',x:250,y:160,s:50},{e:'🗝️',x:330,y:170,s:50}]}}
  function prompt(q,includeOptions){return source.question(q)+(includeOptions&&q.options?'<ol type="A">'+q.options.map((o,i)=>'<li>'+(q._graphOptions?q._graphOptions[i]:source.html(o.text))+'</li>').join('')+'</ol>':'')}
  function stage(q,i){return {name:all.find(s=>s.id===q.skillId)?.name||'Gallery '+(i+1),sourceId:q.id,stamp:[41,12,87,23,55][i],letter:['M','C','T','O','E'][i],story:'Solve the gallery challenge to unlock the next door and collect its key card.',scene:scene(q),hints:q.solutionSteps.slice(0,3).map(source.html),key:source.html(String(q.answer))}}
  function choice(q,i){return {...stage(q,i),type:'bankChoice',title:'Unlock the door',prompt:prompt(q,false),options:q._graphOptions||q.options.map(o=>source.html(o.text)),answer:q.options.findIndex(o=>o.correct)}}
  // Reserve a numerical item for the cipher before building other rooms.
- const q2=take(q=>q.format==='short-answer'&&shiftQuestion(q))||take(shiftQuestion)||backupShift(selectedLevel);
+ const unitCipher=G.MK_CIPHER_QUESTIONS&&G.MK_CIPHER_QUESTIONS.create({
+   courseId:source.courseId,unitId:source.unit.id,level:selectedLevel
+ });
+ // Systems must always require solving a system, not an unrelated numeric subskill.
+ // Other units prefer approved numeric items from the selected unit/skills, then a
+ // topic-specific numerical challenge. Never fall back to a generic equation.
+ const bankCipher=source.unit.id.includes('system')?null:
+   take(q=>q.format==='short-answer'&&shiftQuestion(q))||take(shiftQuestion);
+ const q2=bankCipher||unitCipher;
+ if(!q2||!shiftQuestion(q2))throw Error('No verified unit-aligned numerical cipher problem is available for this unit.');
  const q1=take(numeric)||take(q=>q.format==='multiple-choice');
  if(!q1)throw Error('This selection needs a numeric or multiple-choice lock question.');
  const first=numeric(q1)?{...stage(q1,0),type:'fields',title:'The Gallery Lock',prompt:prompt(q1,true),fields:[{label:'Answer =',answer:numericValue(q1)}],button:'Open the door'}:choice(q1,0);
