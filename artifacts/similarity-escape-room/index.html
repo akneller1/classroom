@@ -48,7 +48,7 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .cipher-reveal #dec{color:#e8fbef;white-space:pre-wrap}
 .cipher-reveal .cipher-clue-word{color:var(--gold)!important;text-decoration:underline}
 #lockShiftButton:disabled{opacity:.7;cursor:default}
-</style></head><body>
+.cipher-controls button{font-size:1.35rem;min-width:72px}.cipher-reveal #dec{font-family:monospace;letter-spacing:2px}#cipherWordRow[hidden]{display:none!important}</style></head><body>
 <header><h1>🔬 The Shrink-Ray Workshop</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
@@ -148,11 +148,11 @@ cipher(s){
  '<input id="shiftGuess" type="number" step="1" inputmode="numeric" autocomplete="off" aria-label="Numerical answer for the cipher">'+
  '<button type="button" id="lockShiftButton" onclick="lockShift()">Lock in this answer</button></div>'+
  '<section id="cipherReveal" class="cipher-reveal" hidden>'+
- '<p class="cipher-success" role="status">Correct! Shift the cipher BACKWARD by <strong id="decodedShift"></strong> letters.</p>'+
- '<p class="cipher-instruction">Step 2: Read the decoded clue and enter the clue word to unlock the next room.</p>'+
- '<div class="cipher" id="cipherEncoded"></div>'+
+ '<p class="cipher-success" role="status">Correct answer locked! Now shift the cipher FORWARD using the +1 key.</p>'+
+ '<p class="cipher-instruction">Step 2: Press +1 for each forward shift. Find the readable clue before opening the next room.</p>'+
+ '<div class="row cipher-controls"><button type="button" onclick="sh(1)" aria-label="Shift cipher forward one letter">+1</button><b id="kk">Shifts applied: 0</b></div>'+
  '<div class="cipher" id="dec" aria-label="Decoded cipher clue"></div>'+
- '<div class="row"><label for="w">'+(s.askLabel||'Clue word')+'</label><input type="text" id="w" maxlength="24" autocomplete="off">'+
+ '<div id="cipherWordRow" class="row" hidden><label for="w">'+(s.askLabel||'Clue word')+'</label><input type="text" id="w" maxlength="24" autocomplete="off">'+
  '<button id="go" onclick="chkCipher()">Unlock next room</button></div></section>';
 }};
 function show(){
@@ -176,15 +176,13 @@ function lockShift(){
  if(!raw){say('Find the math clue, solve it, and enter the numerical answer.',false);return}
  const n=Number(raw),s=STAGES[stage];
  if(!Number.isInteger(n)||n!==s.shift){wrong('Incorrect answer. Recheck the math and try again.');return}
- st.shiftLocked=true;st.k=n;input.disabled=true;$('#lockShiftButton').disabled=true;
- $('#cipherReveal').hidden=false;
- $('#decodedShift').textContent=String(n);
- $('#cipherEncoded').textContent=caesar(s.plain,n);
+ st.shiftLocked=true;st.k=0;input.disabled=true;$('#lockShiftButton').disabled=true;
+ $('#cipherReveal').hidden=false;$('#cipherWordRow').hidden=true;
  renderDecodedCipher(s);
- say('Correct! Your answer is '+n+'. Shift backward '+n+' letters and read the decoded clue.',true);
+ say('Correct answer locked! Use the +1 key to shift the cipher forward, one letter at a time.',true);
 }
 function renderDecodedCipher(s){
- const decoded=caesar(caesar(s.plain,s.shift),-st.k),output=$('#dec');
+ const decoded=caesar(caesar(s.plain,-s.shift),st.k),output=$('#dec');
  output.textContent=decoded;
  if(st.k!==s.shift)return;
  const word=String(s.answer||'').trim();if(!word)return;
@@ -198,8 +196,15 @@ function renderDecodedCipher(s){
  }
  output.appendChild(document.createTextNode(decoded.slice(last)));
 }
-function sh(d){if(!st.shiftLocked)return;const s=STAGES[stage];st.k=(st.k+d+26)%26;$('#kk').textContent='shift '+st.k;$('#wheel').textContent='written: '+ALPHA.split('').join(' ')+'\nreal   : '+ALPHA.split('').map(c=>caesar(c,-st.k)).join(' ');renderDecodedCipher(s)}
-function chkCipher(){if(!st.shiftLocked){say('Lock the shift before submitting the code.',false);return}const s=STAGES[stage];$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():wrong('Still locked. Check your shift.' )}
+function sh(d){
+ if(!st.shiftLocked||d!==1)return;
+ const s=STAGES[stage];st.k=(st.k+1)%26;
+ $('#kk').textContent='Shifts applied: '+st.k;renderDecodedCipher(s);
+ const found=st.k===s.shift;$('#cipherWordRow').hidden=!found;
+ if(!found&&$('#w'))$('#w').value='';
+ if(found)say('The message is readable. Enter its highlighted clue word.',true);
+}
+function chkCipher(){if(!st.shiftLocked){say('Lock the math answer first.',false);return}const s=STAGES[stage];if(st.k!==s.shift){say('Keep shifting forward with +1 until the clue is readable.',false);return}$('#w').value.trim().toUpperCase()==s.answer.toUpperCase()?pass():wrong('Still locked. Check your shift.' )}
 function finalStage(){clearInterval(timer);const sh=[...cards].sort(()=>Math.random()-.5);
  $('#app').innerHTML=`<main style="grid-template-columns:1fr"><div class="panel"><h2>The Final Door</h2><p class="story">${ROOM.finalStory}</p><div>${sh.map(c=>`<span class="card">${c.stamp}<b>${c.letter}</b></span>`).join('')}</div><div class="row">${ROOM.finalAsk} <input type="text" id="w" maxlength="12"> <button id="go" onclick="fin()">Open</button></div><div class="msg" id="m"></div></div></main>`}
 function fin(){$('#w').value.trim().toUpperCase()==ROOM.word?victory():wrong('Nothing happens. Re-check the order of the cards.' )}
