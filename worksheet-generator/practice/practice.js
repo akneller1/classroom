@@ -9,18 +9,15 @@ var fmt=s=>N.mathSafe(String(s||''));
 var levels={cp2:2,cp1:4,honors:6};
 function save(){try{localStorage.setItem(STORE_PREFIX+config.unit,JSON.stringify({state:state,config:config}));}catch(e){}if(state&&!state.done)updateProgress();}
 function upgradeInequalityChoices(){
- if(!state||!Array.isArray(state.questions)||state.done)return;
- state.questions.forEach(function(q,i){
+ if(!state||!Array.isArray(state.questions)||state.done||!N.inequalityChoices)return;
+ state.questions.forEach(function(q){
    if(!q||q.kind!=='mc'||!q.problem)return;
-   var p=q.problem;
-   if(q.skill==='graph-hand'&&/^gh[12567]$/.test(p.variant||'')){
-     var v=graphChoices(p,i);
-     if(v){q.choices=v;q.response=null;q.checked=false;q.correct=null;}
-   }
-   if(q.skill==='sys-ineq'&&/^iq[14]$/.test(p.variant||'')&&p.parts&&p.parts.length===1){
-     q.choices={opts:['Yes','No'],key:/^Yes\b/.test(p.parts[0].answer||'')?0:1};
-     q.response=null;q.checked=false;q.correct=null;
-   }
+   var v=N.inequalityChoices(q.problem);
+   if(!v)return;
+   if(q.choices&&q.choices.inequalityMode===v.inequalityMode&&
+      q.choices.key===v.key&&JSON.stringify(q.choices.graphs||[])===JSON.stringify(v.graphs||[]))return;
+   q.choices={opts:v.opts,key:v.key,graphs:v.graphs,prompt:v.prompt,inequalityMode:v.inequalityMode};
+   q.response=null;q.checked=false;q.correct=null;
  });
 }
 function read(){try{var routeUnit=new URLSearchParams((G.location.hash||'').replace(/^#/,'' )).get('unit'),raw=routeUnit?localStorage.getItem(STORE_PREFIX+routeUnit):null,d=raw?JSON.parse(raw):null;if(!d){d=JSON.parse(localStorage.getItem(STORE)||'null');if(routeUnit&&d&&d.config&&d.config.unit!==routeUnit)d=null;}if(d&&d.config){config=d.config;state=d.state||null;upgradeInequalityChoices();}}catch(e){}}
@@ -50,24 +47,7 @@ function controls(){return '<section class="pt-card"><span class="pt-eyebrow">AS
 function setup(){config.mode='test';if(state&&!state.done){root.innerHTML='<section class="pt-card"><h1>Assessment saved</h1><p>Your unfinished assessment is saved in this browser.</p><div class="pt-actions"><button id="pt-resume">Resume assessment</button><button id="pt-discard" class="pt-secondary">Discard and create new</button></div>'+shareControls()+'</section>';bindShare();root.querySelector('#pt-resume').onclick=show;root.querySelector('#pt-discard').onclick=()=>{if(confirm('Discard your saved assessment?')){state=null;save();setup();}};return;}if(!N.skillSets[config.unit])config.unit=units()[0][0];root.innerHTML=controls();root.querySelector('#pt-unit').onchange=function(e){config.unit=e.target.value;config.skills=chosen().skills.map(function(s){return s.id;});try{G.history.replaceState(null,'','#unit='+config.unit);}catch(err){}state=null;save();setup();};['level','count','format','minutes'].forEach(f=>root.querySelector('#pt-'+f).onchange=e=>{config[f]=(f==='count'||f==='minutes')?+e.target.value:e.target.value;save();refreshStudentLink();});root.querySelectorAll('[data-skill]').forEach(x=>x.onchange=()=>{config.skills=Array.from(root.querySelectorAll('[data-skill]:checked')).map(el=>el.dataset.skill);save();refreshStudentLink();});root.querySelector('#pt-all').onclick=()=>{config.skills=chosen().skills.map(s=>s.id);save();setup();};root.querySelector('#pt-build').onclick=()=>build();bindShare();}
 /* Visual multiple choice for systems of linear inequalities.
    Draw distractors from the verified teacher graph, never from an unverified text description. */
-function graphChoices(p,index){
- if(!p||!p.parts||!p.parts[0]||!p.parts[0].answerFig)return null;
- var original=p.parts[0].answerFig;
- if(!original.halfplanes||!original.halfplanes.length)return null;
- var copy=fig=>JSON.parse(JSON.stringify(fig));
- function flipSide(fig,n){
-   var h=fig.halfplanes[n],atZero=h.a[1];
-   h.side[1]=2*atZero-h.side[1];
- }
- var figures=[copy(original),copy(original),copy(original),copy(original)];
- flipSide(figures[1],0);
- figures[2].halfplanes[0].dashed=!figures[2].halfplanes[0].dashed;
- if(original.halfplanes.length>1)flipSide(figures[3],1);
- else {flipSide(figures[3],0);figures[3].halfplanes[0].dashed=!figures[3].halfplanes[0].dashed;}
- var slot=index%4;
- var ordered=figures.slice(slot).concat(figures.slice(0,slot));
- return {opts:['Graph A','Graph B','Graph C','Graph D'],key:(4-slot)%4,graphs:ordered};
-}
+function graphChoices(p){return N.inequalityChoices?N.inequalityChoices(p):null;}
 function choiceMarkup(q,j){
  return q.choices&&q.choices.graphs&&N.figHtml
    ? '<span class="pt-graph-option">'+N.figHtml(q.choices.graphs[j])+'</span>'
@@ -80,10 +60,8 @@ function makeQuestion(skill,seed,index,used){
  var mode=config.format==='mc'?'mc':config.format==='self'?'self':index%2===0?'mc':'self';
  var choices=null;
  if(mode==='mc'){
-   var visual=skill.id==='graph-hand'?graphChoices(p,index):null;
-   if(!visual&&skill.id==='sys-ineq'&&/^iq[14]$/.test(p.variant||'')&&p.parts&&p.parts.length===1){var yes=/^Yes\b/.test(p.parts[0].answer||'');visual={opts:['Yes','No'],key:yes?0:1};}
-   var made=visual||N.makeChoices(p);
-   if(!made.fail){if(made.derived)p=made.derived;choices=visual||{opts:made.opts,key:made.key};}
+   var made=N.makeChoices(p);
+   if(!made.fail){if(made.derived)p=made.derived;choices={opts:made.opts,key:made.key,graphs:made.graphs,prompt:made.prompt};}
    else if(config.format==='mc')return null;
    else mode='self';
  }
@@ -160,20 +138,16 @@ function build(overrides){
        if(candidates.length>=Math.max(requested*6,selected.length*5))return;
        var fingerprint=[p.skill,p.variant||'',N.studentText(p).replace(/\s+/g,'')].join('|');
        if(p.failed||seen.has(fingerprint)){skipped++;return;}
-       var choice=p.mc&&p.mc.opts&&p.mc.opts.length===4?{opts:p.mc.opts,key:p.mc.key}:null;
+       var choice=p.mc&&p.mc.opts&&p.mc.opts.length>=2?{opts:p.mc.opts,key:p.mc.key,graphs:p.mc.graphs,prompt:p.mc.prompt}:null;
        var graph={problem:p,kind:'auto'};
        if((G.MKEXPGRAPH&&G.MKEXPGRAPH.target(graph))||(G.MKSYSTEM&&G.MKSYSTEM.target(graph))||(G.MKLINE&&G.MKLINE.target(graph))||(G.MKPARABOLA&&G.MKPARABOLA.target(graph))||(G.MKGRAPH&&(G.MKGRAPH.supports(graph)||G.MKGRAPH.pointTarget(graph))))choice=null;
        var kind=autoKind(p,choice);
-       // The readiness builder uses newAssessment, NOT makeQuestion.
-       // Replace text distractors on the actual assessment item with rendered graph options.
-       if(p.skill==='graph-hand'&&/^gh[12567]$/.test(p.variant||'')){
-         var graphical=graphChoices(p,candidates.length);
-         if(!graphical){skipped++;return;} // Never show prose "boundaries/shade" choices.
-         choice=graphical;kind='mc';
-       }
-       if(p.skill==='sys-ineq'&&/^iq[14]$/.test(p.variant||'')&&p.parts&&p.parts.length===1){
-         var yes=/^Yes\b/.test(p.parts[0].answer||'');
-         choice={opts:['Yes','No'],key:yes?0:1};kind='mc';
+       if(choice && p.mc && p.mc.inequalityMode && N.inequalityChoices){
+         var verifiedChoice=N.inequalityChoices(p);
+         if(!verifiedChoice){skipped++;return;}
+         choice={opts:verifiedChoice.opts,key:verifiedChoice.key,
+                 graphs:verifiedChoice.graphs,prompt:verifiedChoice.prompt};
+         kind='mc';
        }
        if(!kind){skipped++;excludedBySkill[p.skill]=(excludedBySkill[p.skill]||0)+1;return;}
        var sk=chosen().byId[p.skill];
@@ -212,7 +186,13 @@ function build(overrides){
  state={questions:questions,index:0,done:false,started:Date.now(),deadline:config.minutes?Date.now()+config.minutes*60000:null,mode:'test',previousScore:overrides&&overrides.length?previous:null,source:'assessment-generator',paperView:true,autoGraded:true,unsupportedExcluded:skipped,missingSkills:missing};
  save();show();
 }
-function problemHTML(q){var p=q.problem;return '<div class="pt-problem">'+fmt(q.choices&&q.choices.graphs?p.prompt.replace(/^Graph the (?:system of inequalities and shade the solution|solution to the system): /,'Which graph represents the solution to the system: ').replace(/^Graph /,'Which graph represents ').replace(/ on the grid\\.$/,'?').replace(/\\.$/,'?'):p.prompt)+(p.fig&&N.figHtml&&!(q.choices&&q.choices.graphs)?N.figHtml(p.fig):'')+(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';}
+function problemHTML(q){
+ var p=q.problem,visual=q.choices&&q.choices.graphs;
+ var prompt=(q.choices&&q.choices.prompt)||(p.mc&&p.mc.prompt)||p.prompt;
+ return '<div class="pt-problem">'+fmt(prompt)
+   +(p.fig&&N.figHtml&&!visual?N.figHtml(p.fig):'')
+   +(p.parts||[]).map((part,i)=>part.prompt?'<div class="pt-part">'+(part.label?esc(part.label)+' ':'')+fmt(part.prompt)+'</div>':'').join('')+'</div>';
+}
 function solutionMath(value){
  var source=String(value==null?'':value).trim();
  if(!source)return '';
