@@ -18,7 +18,14 @@ for (const setId of Object.keys(M.skillSets).filter(id => !UNIT || id === UNIT))
       st.items++; st.opts += it.options.length; if (it.typed) st.typed++;
       const tag = sk.id + ' c' + c + ' #' + i + ' (' + (it.p.parts[it.k].label || '') + ') :: ' + it.p.prompt.slice(0, 90);
       ok(it.options.filter(o => o.ok).length === 1, tag + ': exactly one correct option');
-      it.options.forEach(o => { const r = GB.answerOk(it.p, it.k, o.a); ok(r.ok === o.ok, tag + ': option ' + o.a + (o.ok ? ' should verify' : ' should be rejected')); });
+      if(it.inequalityMode){
+        const expected=M.inequalityChoices(it.p);
+        ok(!!expected && expected.inequalityMode===it.inequalityMode, tag+': verified shared inequality choice model');
+        ok(it.options.findIndex(o=>o.ok)===expected.key, tag+': unique graph/point key');
+        ok(it.inequalityMode!=='graph'||it.options.every(o=>o.graph&&o.graph.halfplanes),tag+': actual graph choices');
+      } else {
+        it.options.forEach(o => { const r = GB.answerOk(it.p, it.k, o.a); ok(r.ok === o.ok, tag + ': option ' + o.a + (o.ok ? ' should verify' : ' should be rejected')); });
+      }
       ok(new Set(it.options.map(o => o.a.replace(/\s/g, ''))).size === it.options.length, tag + ': duplicate options');
       ok(it.options.length >= 2, tag + ': fewer than 2 options');
       if (it.typed) {
