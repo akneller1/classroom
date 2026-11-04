@@ -25,19 +25,19 @@ async function startEscape(qs,selectedLevel){
  const base=await fetch('games/escape-room.json',{cache:'no-store'}).then(r=>r.json()),used=new Set();
  function take(test){const q=qs.find(q=>!used.has(q.id)&&test(q));if(q)used.add(q.id);return q}
  function numericValue(q){
-  const raw=String(q&&q.answer==null?'':q.answer).trim().replace(/\u2212/g,'-');
-  const match=/^(?:(?:[a-zA-Z]|\\\\mathrm\\{[A-Za-z]+\\})\\s*=\\s*)?([+-]?\\d+(?:\\.0+)?)$/.exec(raw);
+  const raw=String(q && q.answer!=null?q.answer:'').trim().replace(/−/g,'-');
+  const match=/^(?:[A-Za-z]\s*=\s*)?([+-]?\d+(?:\.0+)?)$/.exec(raw);
   return match?Number(match[1]):null;
  }
  function numeric(q){return numericValue(q)!==null}
  function shiftQuestion(q){
   const n=numericValue(q);
   return Number.isInteger(n)&&n>=1&&n<=25 &&
-    !/\\b(which of the following|choose (?:the|an) (?:answer|option)|select all|which graph)\\b/i.test(q.prompt||'');
+    !/\b(which of the following|choose (?:the|an) (?:answer|option)|select all|which graph)\b/i.test(q.prompt||'');
  }
  function backupShift(level){
-  // An approved numeric bank item is preferred. When a unit has none, make a
-  // reproducible-to-the-student numerical lock rather than giving away a fixed shift.
+  // Prefer unit-bank numerics; never replace a missing numeric item with a
+  // publicly known constant such as 7 or a second guessing task.
   const x=1+Math.floor(Math.random()*25),a=2+Math.floor(Math.random()*6);
   const b=2+Math.floor(Math.random()*9),c=3+Math.floor(Math.random()*11);
   let expression,steps;
