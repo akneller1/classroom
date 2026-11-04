@@ -7250,3 +7250,25 @@ window.LIBRARY = {
   });
  });
 })(window);
+
+/* Grade 6/7 printable activity links: all existing bank-driven generators, no new runtime. */
+(function(G){
+ [['prealgebra7','Grade 7'],['math6','Grade 6']].forEach(function(pair){
+  var c=G.LIBRARY.courses.find(function(item){return item.id===pair[0]});if(!c)return;
+  c.units.forEach(function(u){
+   [
+    ['maze','Maze','maze-generator-foundations.svg','Follow a route of correctly answered questions through a mathematical maze.'],
+    ['color','Color by Number','geometry-color-generator-basics-reasoning.svg','Solve problems to reveal a color-coded picture.'],
+    ['partner','Partner Check','partner-generator-foundations.svg','Solve and compare matched-answer problems in pairs.'],
+    ['stations','Station Work','stations-generator-foundations.svg','Rotate through independent stations with mixed problem types.'],
+    ['who','Whodunnit','foundations-algebra-whodunnit.jpg','Solve clues and narrow down the mystery.']
+   ].forEach(function(a){
+    var url='worksheet-generator/printables.html#unit='+c.id+'-'+u.id+'&kind='+a[0];
+    if(u.artifacts.some(function(x){return x.path===url}))return;
+    u.artifacts.push({title:a[1]+' Generator',path:url,bankFormat:'printable-generator',type:'Printable',
+      thumb:'thumbs/'+a[2],description:a[3]+' Uses '+pair[1]+' questions and a teacher key.',
+      level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   });
+  });
+ });
+})(window);
