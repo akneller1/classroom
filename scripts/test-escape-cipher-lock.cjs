@@ -53,6 +53,8 @@ function run(source,filename,shared){
   }
 }
 function check(env,get,stage,label){
+  const time=()=>typeof env.MK_ESCAPE_STATE==='function'?env.MK_ESCAPE_STATE().t:vm.runInContext('t',env);
+  const roomIndex=()=>typeof env.MK_ESCAPE_STATE==='function'?env.MK_ESCAPE_STATE().stage:vm.runInContext('stage',env);
   env.start();
   const html=get('#app').innerHTML;
   assert.match(html,/Lock in this answer/,label+': numerical answer lock control');
@@ -61,18 +63,18 @@ function check(env,get,stage,label){
   const wrong=stage.shift===1?2:stage.shift-1;
   get('#shiftGuess').value=String(wrong);
   env.lockShift();
-  assert.equal(vm.runInContext('t',env),570,label+': wrong lock takes exactly 30 seconds');
+  assert.equal(time(),570,label+': wrong lock takes exactly 30 seconds');
   assert.notEqual(get('#cipherReveal').hidden,false,label+': wrong answer does not reveal clue');
   get('#shiftGuess').value=String(stage.shift);
   env.lockShift();
-  assert.equal(vm.runInContext('t',env),570,label+': correct answer has no penalty');
+  assert.equal(time(),570,label+': correct answer has no penalty');
   assert.equal(get('#cipherReveal').hidden,false,label+': correct lock reveals clue');
   assert.equal(get('#decodedShift').textContent,String(stage.shift),label+': displayed shift matches numerical answer');
   assert.equal(get('#dec').textContent,stage.plain,label+': clue is decoded correctly');
   assert.equal(get('#shiftGuess').disabled,true,label+': locked numeric answer is immutable');
   get('#w').value=stage.answer;
   env.chkCipher();
-  assert.equal(vm.runInContext('stage',env),1,label+': correct clue unlocks next room');
+  assert.equal(roomIndex(),1,label+': correct clue unlocks next room');
 }
 const shared='worksheet-generator/games/escape-runtime.js';
 run(fs.readFileSync(path.join(root,shared),'utf8'),shared,true);
