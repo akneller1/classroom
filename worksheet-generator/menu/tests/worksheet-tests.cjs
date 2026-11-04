@@ -41,9 +41,17 @@ test('every unit, level, preset and seed: verified questions; multiple choice is
       if (M.sectionFormat(cfg, si) !== 'mc') { ok(!it.mc, 'short-answer questions have no choices'); return; }
       mcTotal++;
       if (!it.mc) { flagged++; return; }
-      ok(it.mc.opts.length === 4 && new Set(it.mc.opts.map(o => o.replace(/\s/g, ''))).size === 4, unit + ': four different choices');
-      ok(it.mc.opts[it.mc.key] === it.parts[0].answer, unit + ': key letter points at the verified answer');
-      it.mc.opts.forEach((o, k) => ok(GB.answerOk(it, 0, o).ok === (k === it.mc.key), unit + ': only the key passes the verifier: ' + o));
+      if (it.mc.inequalityMode) {
+        const expected = M.inequalityChoices(it);
+        ok(!!expected && expected.key === it.mc.key, unit + ': verified graph/point answer key');
+        ok(it.mc.inequalityMode === 'graph' ? it.mc.graphs.length === 4
+          : it.mc.opts.join('|') === 'Yes|No', unit + ': correct visual or Yes/No format');
+        ok(M.checkChoices(it), unit + ': checked inequality options');
+      } else {
+        ok(it.mc.opts.length === 4 && new Set(it.mc.opts.map(o => o.replace(/\s/g, ''))).size === 4, unit + ': four different choices');
+        ok(it.mc.opts[it.mc.key] === it.parts[0].answer, unit + ': key letter points at the verified answer');
+        it.mc.opts.forEach((o, k) => ok(GB.answerOk(it, 0, o).ok === (k === it.mc.key), unit + ': only the key passes the verifier: ' + o));
+      }
     })));
   }
   console.log('    multiple-choice questions: ' + mcTotal + ', printed as short answer instead: ' + flagged);
