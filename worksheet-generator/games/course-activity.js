@@ -14,8 +14,8 @@ function setup(selected){
  start.onclick=async()=>{const qs=source.select(level.value,ids,G.MK_QUESTION_BANKS.available(source.courseId,source.unit.id)?120:20);const mc=qs.filter(q=>q.format==='multiple-choice');if((escape?qs.length:mc.length)<(escape?5:10)){status.textContent=qs.length?'Choose more skills at this difficulty to fill this activity.':'Questions are not available for this course and unit yet. The activity settings are ready for a future bank.';return}start.disabled=true;try{if(escape)await startEscape(qs,level.value);else await startMystery(mc,level.value)}catch(e){status.textContent='Unable to open activity: '+e.message;start.disabled=false}};
  if(!['algebra','geometry'].includes(source.courseId)&&!G.MK_QUESTION_BANKS.available(source.courseId,source.unit.id))status.textContent='Questions are not available for this course and unit yet. The activity settings are ready for a future bank.';
 }
-function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.href=path+'?v=detective-graphs-20261104'}
-function script(path){return new Promise((resolve,reject)=>{const s=el('script',document.body);s.src=path+'?v=class-parity-20261031';s.onload=resolve;s.onerror=()=>reject(Error('Activity engine unavailable'))})}
+function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.href=path+'?v=cipher-lock-20261104'}
+function script(path){return new Promise((resolve,reject)=>{const s=el('script',document.body);s.src=path+'?v=cipher-lock-20261104';s.onload=resolve;s.onerror=()=>reject(Error('Activity engine unavailable'))})}
 async function startMystery(qs,level){
  const data=await fetch('games/mystery-case.json',{cache:'no-store'}).then(r=>r.json());data.unit=source.courseId+'-'+source.unit.id+'-'+level;data.eyebrow=source.course.name+' · Detective';data.title=source.unit.name+' Detective';data.tagline='Solve each problem to earn evidence and crack the case.';data.inputHint='Choose an answer, then check it to unlock your evidence.';data.symbols=[];
  data.questions=qs.slice(0,10).map(q=>({sourceId:q.id,skill:all.find(s=>s.id===q.skillId)?.name||q.skillId,instr:'',html:source.question(q),answer:{t:'source-choice',v:q.options.findIndex(o=>o.correct)},options:q._graphOptions||q.options.map(o=>source.html(o.text)),hint:source.html(q.solutionSteps[0]||''),steps:q.solutionSteps.map(source.html)}));
@@ -60,7 +60,7 @@ async function startEscape(qs,selectedLevel){
  function stage(q,i){return {name:all.find(s=>s.id===q.skillId)?.name||'Gallery '+(i+1),sourceId:q.id,stamp:[41,12,87,23,55][i],letter:['M','C','T','O','E'][i],story:'Solve the gallery challenge to unlock the next door and collect its key card.',scene:scene(q),hints:q.solutionSteps.slice(0,3).map(source.html),key:source.html(String(q.answer))}}
  function choice(q,i){return {...stage(q,i),type:'bankChoice',title:'Unlock the door',prompt:prompt(q,false),options:q._graphOptions||q.options.map(o=>source.html(o.text)),answer:q.options.findIndex(o=>o.correct)}}
  // Reserve a numerical item for the cipher before building other rooms.
- const q2=take(shiftQuestion)||backupShift(selectedLevel);
+ const q2=take(q=>q.format==='short-answer'&&shiftQuestion(q))||take(shiftQuestion)||backupShift(selectedLevel);
  const q1=take(numeric)||take(q=>q.format==='multiple-choice');
  if(!q1)throw Error('This selection needs a numeric or multiple-choice lock question.');
  const first=numeric(q1)?{...stage(q1,0),type:'fields',title:'The Gallery Lock',prompt:prompt(q1,true),fields:[{label:'Answer =',answer:numericValue(q1)}],button:'Open the door'}:choice(q1,0);
