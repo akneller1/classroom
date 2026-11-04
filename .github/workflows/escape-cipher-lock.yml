@@ -4,17 +4,21 @@ on:
     paths:
       - 'worksheet-generator/games/escape-runtime.js'
       - 'worksheet-generator/games/course-activity.js'
+      - 'worksheet-generator/games/cipher-questions.js'
       - 'worksheet-generator/games/escape.css'
       - 'artifacts/*escape-room*/index.html'
       - 'scripts/test-escape-cipher-lock.cjs'
+      - 'scripts/test-escape-unit-ciphers.cjs'
       - '.github/workflows/escape-cipher-lock.yml'
   pull_request:
     paths:
       - 'worksheet-generator/games/escape-runtime.js'
       - 'worksheet-generator/games/course-activity.js'
+      - 'worksheet-generator/games/cipher-questions.js'
       - 'worksheet-generator/games/escape.css'
       - 'artifacts/*escape-room*/index.html'
       - 'scripts/test-escape-cipher-lock.cjs'
+      - 'scripts/test-escape-unit-ciphers.cjs'
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -26,7 +30,10 @@ jobs:
           node-version: '22'
       - name: All Escape Room cipher-lock regressions
         run: node scripts/test-escape-cipher-lock.cjs
+      - name: All unit-aligned numerical cipher questions
+        run: node scripts/test-escape-unit-ciphers.cjs
       - name: Syntax checks
         run: |
           node --check worksheet-generator/games/escape-runtime.js
           node --check worksheet-generator/games/course-activity.js
+          node --check worksheet-generator/games/cipher-questions.js
