@@ -49,7 +49,11 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .cipher-reveal #dec{color:#e8fbef;white-space:pre-wrap}
 .cipher-reveal .cipher-clue-word{color:var(--gold)!important;text-decoration:underline}
 #lockShiftButton:disabled{opacity:.7;cursor:default}
-.cipher-controls button{font-size:1.35rem;min-width:72px}.cipher-reveal #dec{font-family:monospace;letter-spacing:2px}#cipherWordRow[hidden]{display:none!important}</style></head><body>
+.cipher-controls button{font-size:1.35rem;min-width:72px}.cipher-reveal #dec{font-family:monospace;letter-spacing:2px}#cipherWordRow[hidden]{display:none!important}/* Step-order submission: teal, distinct from answer controls. */
+#ol + #go{background:#3dd6bd;color:#092b2b;border:2px solid #b8fff0;box-shadow:0 4px 0 #147e70;font-weight:800}
+#ol + #go:hover{background:#6debd5;filter:none}
+#ol + #go:focus-visible{outline:3px solid #fff;outline-offset:3px}
+</style></head><body>
 <header><h1>🚂 Crossing Tracks: Rail Yard Escape</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div></header>
 <div id="app"></div>
 <div id="key" class="panel"></div>
