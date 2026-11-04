@@ -406,8 +406,17 @@
     if (p.failed) return [];
     var set = NS.skillSets[setId], rng = G.MKWS.rng.make(G.MKWS.rng.hash(seed + '|mc'));
     var items = [];
-    // Multi-part investigations belong in assessments, not single-card games.
-    // Never reveal previous answers or isolate a dependent sub-question.
+    // A verified Honors systems-of-inequalities scenario contains a separable
+    // point-membership question. Isolate that part for game MC; leave every other
+    // multipart investigation intact in teacher assessments.
+    if (p.parts.length !== 1 && p.variant === 'iq7' && p.parts.some(function(part) {
+      return part.check && part.check.type === 'ineq2' && part.check.want === 'is-solution';
+    })) {
+      var checkChoice = NS.makeChoices(p);
+      if (checkChoice && checkChoice.inequalityMode === 'point' && checkChoice.derived)
+        p = checkChoice.derived;
+    }
+    // Other multipart investigations remain teacher-scored, not single-card games.
     if (p.parts.length !== 1) return [];
     // Do not turn extended prompts into misleading one-card exercises.
     var questionText = String(p.compactPrompt || p.prompt || '');
