@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Classroom Activities · Mr. K's Classroom</title><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=games-15"><script src="games/skill-setup.js?v=student-skills-2"></script></head><body><header id="activityHeader"></header><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Classroom Activities · Mr. K's Classroom</title><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=inequality-parity-20261104b"><script src="games/skill-setup.js?v=student-skills-2"></script></head><body><header id="activityHeader"></header><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
 <script src="core/rng.js"></script>
 <script src="core/frac.js"></script>
 <script src="core/tex.js"></script>
@@ -8,7 +8,7 @@
 <script src="menu/mathcheck.js?v=menu-gaps-2"></script>
 <script src="menu/figures.js?v=menu-gaps-2"></script>
 <script src="menu/verify.js?v=proofs-20261101"></script>
-<script src="menu/engine.js?v=proofs-20261101"></script>
+<script src="menu/engine.js?v=inequality-parity-20261104b"></script>
 <script src="../data.js?v=grade8-banks-20261101"></script>
 <script src="../course-catalog.js?v=shared-course-skills-20261030"></script>
 <script src="menu/skills/kit.js?v=menu-gaps-2"></script>
@@ -19,7 +19,7 @@
 <script src="menu/skills/algebra1-factoring-zero-product.js?v=algebra-skill-audit-20261026"></script>
 <script src="menu/skills/algebra1-statistics-data-modeling.js?v=algebra-skill-audit-20261026"></script>
 <script src="menu/skills/algebra1-linear-equations-slope.js?v=algebra-skill-audit-20261026"></script>
-<script src="menu/skills/algebra1-systems-of-equations.js?v=algebra-skill-audit-20261026"></script>
+<script src="menu/skills/algebra1-systems-of-equations.js?v=inequality-parity-20261104b"></script>
 <script src="menu/skills/algebra1-exponents-scientific-notation.js?v=algebra-skill-audit-20261026"></script>
 <script src="menu/skills/algebra1-polynomials.js?v=algebra-skill-audit-20261026"></script>
 <script src="menu/skills/algebra1-quadratics.js?v=algebra-skill-audit-20261026"></script>
@@ -42,8 +42,8 @@
 <script src="menu/skills/geometry-circles.js?v=geo-rigor-1"></script>
 <script src="menu/skills/geometry-area-surface-area-volume.js?v=geo-rigor-1"></script>
 <script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
-<script src="games/bank.js?v=proofs-20261101"></script>
-<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=grade8-banks-20261101"></script><script src="core/math-display.js?v=grade8-banks-20261101"></script><script src="vocabulary-data.js?v=prealgebra-vocab"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/course-source.js?v=showdown-fix-20261031"></script><script>
+<script src="games/bank.js?v=inequality-parity-20261104b"></script>
+<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=grade8-banks-20261101"></script><script src="core/math-display.js?v=grade8-banks-20261101"></script><script src="vocabulary-data.js?v=prealgebra-vocab"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/course-source.js?v=inequality-parity-20261104b"></script><script>
 (async function(){
  await MK_ALGEBRA2_NATIVE_READY;
  var source=MK_COURSE_ACTIVITY_SOURCE,p=new URLSearchParams(location.search),game=p.get('game')||'flashcards',id=source.setId,NS=MKMENU;
@@ -57,6 +57,6 @@
  document.body.setAttribute('data-unit',id);document.body.setAttribute('data-game',game);document.body.setAttribute('data-title',source.unit.name+' '+({'flashcards':'Flashcards','connect-four':'Connect 4','tic-tac-toe':'Tic-Tac-Toe','picture-reveal':'Picture Reveal','showdown':'Showdown'}[game]||''));
  if(MK_QUESTION_BANKS.available(source.courseId,source.unit.id))document.body.setAttribute('data-algebra2-game','');
  if(['math6','prealgebra7','prealgebra'].includes(source.courseId)){window.MK_GRADE_GAME_COURSE=source.courseId;window.MK_GRADE_GAME_LABELS={cp2:'Remedial',cp1:'Standard',honors:'Advanced'};}
- var script=document.createElement('script');script.src='games/games.js?v=showdown-fix-20261031';document.body.appendChild(script);
+ var script=document.createElement('script');script.src='games/games.js?v=inequality-parity-20261104b';document.body.appendChild(script);
 })().catch(function(e){document.getElementById('app').textContent='Unable to load course game: '+e.message;});
 </script></body></html>
