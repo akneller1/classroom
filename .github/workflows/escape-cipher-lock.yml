@@ -1,0 +1,32 @@
+name: Escape Room cipher locks
+on:
+  push:
+    paths:
+      - 'worksheet-generator/games/escape-runtime.js'
+      - 'worksheet-generator/games/course-activity.js'
+      - 'worksheet-generator/games/escape.css'
+      - 'artifacts/*escape-room*/index.html'
+      - 'scripts/test-escape-cipher-lock.cjs'
+      - '.github/workflows/escape-cipher-lock.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/games/escape-runtime.js'
+      - 'worksheet-generator/games/course-activity.js'
+      - 'worksheet-generator/games/escape.css'
+      - 'artifacts/*escape-room*/index.html'
+      - 'scripts/test-escape-cipher-lock.cjs'
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: All Escape Room cipher-lock regressions
+        run: node scripts/test-escape-cipher-lock.cjs
+      - name: Syntax checks
+        run: |
+          node --check worksheet-generator/games/escape-runtime.js
+          node --check worksheet-generator/games/course-activity.js
