@@ -8,7 +8,22 @@ var esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','
 var fmt=s=>N.mathSafe(String(s||''));
 var levels={cp2:2,cp1:4,honors:6};
 function save(){try{localStorage.setItem(STORE_PREFIX+config.unit,JSON.stringify({state:state,config:config}));}catch(e){}if(state&&!state.done)updateProgress();}
-function read(){try{var routeUnit=new URLSearchParams((G.location.hash||'').replace(/^#/,'' )).get('unit'),raw=routeUnit?localStorage.getItem(STORE_PREFIX+routeUnit):null,d=raw?JSON.parse(raw):null;if(!d){d=JSON.parse(localStorage.getItem(STORE)||'null');if(routeUnit&&d&&d.config&&d.config.unit!==routeUnit)d=null;}if(d&&d.config){config=d.config;state=d.state||null;}}catch(e){}}
+function upgradeInequalityChoices(){
+ if(!state||!Array.isArray(state.questions)||state.done)return;
+ state.questions.forEach(function(q,i){
+   if(!q||q.kind!=='mc'||!q.problem)return;
+   var p=q.problem;
+   if(q.skill==='graph-hand'&&/^gh[12567]$/.test(p.variant||'')){
+     var v=graphChoices(p,i);
+     if(v){q.choices=v;q.response=null;q.checked=false;q.correct=null;}
+   }
+   if(q.skill==='sys-ineq'&&/^iq[14]$/.test(p.variant||'')&&p.parts&&p.parts.length===1){
+     q.choices={opts:['Yes','No'],key:/^Yes\b/.test(p.parts[0].answer||'')?0:1};
+     q.response=null;q.checked=false;q.correct=null;
+   }
+ });
+}
+function read(){try{var routeUnit=new URLSearchParams((G.location.hash||'').replace(/^#/,'' )).get('unit'),raw=routeUnit?localStorage.getItem(STORE_PREFIX+routeUnit):null,d=raw?JSON.parse(raw):null;if(!d){d=JSON.parse(localStorage.getItem(STORE)||'null');if(routeUnit&&d&&d.config&&d.config.unit!==routeUnit)d=null;}if(d&&d.config){config=d.config;state=d.state||null;upgradeInequalityChoices();}}catch(e){}}
 function courseForUnit(unit){return N.CATALOG.filter(function(group){return group.units.some(function(u){return u[0]===unit;});})[0]||N.CATALOG[0];}
 function units(){var group=courseForUnit(config.unit);return group.units.filter(function(u){return N.skillSets[u[0]];});}
 function chosen(){return N.skillSets[config.unit];}
@@ -149,6 +164,17 @@ function build(overrides){
        var graph={problem:p,kind:'auto'};
        if((G.MKEXPGRAPH&&G.MKEXPGRAPH.target(graph))||(G.MKSYSTEM&&G.MKSYSTEM.target(graph))||(G.MKLINE&&G.MKLINE.target(graph))||(G.MKPARABOLA&&G.MKPARABOLA.target(graph))||(G.MKGRAPH&&(G.MKGRAPH.supports(graph)||G.MKGRAPH.pointTarget(graph))))choice=null;
        var kind=autoKind(p,choice);
+       // The readiness builder uses newAssessment, NOT makeQuestion.
+       // Replace text distractors on the actual assessment item with rendered graph options.
+       if(p.skill==='graph-hand'&&/^gh[12567]$/.test(p.variant||'')){
+         var graphical=graphChoices(p,candidates.length);
+         if(!graphical){skipped++;return;} // Never show prose "boundaries/shade" choices.
+         choice=graphical;kind='mc';
+       }
+       if(p.skill==='sys-ineq'&&/^iq[14]$/.test(p.variant||'')&&p.parts&&p.parts.length===1){
+         var yes=/^Yes\b/.test(p.parts[0].answer||'');
+         choice={opts:['Yes','No'],key:yes?0:1};kind='mc';
+       }
        if(!kind){skipped++;excludedBySkill[p.skill]=(excludedBySkill[p.skill]||0)+1;return;}
        var sk=chosen().byId[p.skill];
        seen.add(fingerprint);
