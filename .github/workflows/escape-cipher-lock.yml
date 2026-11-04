@@ -9,6 +9,7 @@ on:
       - 'artifacts/*escape-room*/index.html'
       - 'scripts/test-escape-cipher-lock.cjs'
       - 'scripts/test-escape-unit-ciphers.cjs'
+      - 'scripts/test-escape-order-minimum.cjs'
       - '.github/workflows/escape-cipher-lock.yml'
   pull_request:
     paths:
@@ -19,6 +20,7 @@ on:
       - 'artifacts/*escape-room*/index.html'
       - 'scripts/test-escape-cipher-lock.cjs'
       - 'scripts/test-escape-unit-ciphers.cjs'
+      - 'scripts/test-escape-order-minimum.cjs'
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -32,6 +34,8 @@ jobs:
         run: node scripts/test-escape-cipher-lock.cjs
       - name: All unit-aligned numerical cipher questions
         run: node scripts/test-escape-unit-ciphers.cjs
+      - name: Verify all Escape Room sorting puzzles have four or more steps
+        run: node scripts/test-escape-order-minimum.cjs
       - name: Syntax checks
         run: |
           node --check worksheet-generator/games/escape-runtime.js
