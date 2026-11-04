@@ -1,0 +1,49 @@
+name: Grade 6 and 7 bank integration
+on:
+  push:
+    paths:
+      - 'question-banks/manifest.json'
+      - 'question-banks/prealgebra7/**'
+      - 'question-banks/math6/**'
+      - 'question-banks/assets/prealgebra7/**'
+      - 'question-banks/assets/math6/**'
+      - 'worksheet-generator/**'
+      - 'course-catalog.js'
+      - 'data.js'
+      - 'app.js'
+      - 'scripts/test-grade-bank-integration.cjs'
+      - '.github/workflows/grade6-grade7-bank-integration.yml'
+  pull_request:
+    paths:
+      - 'question-banks/**'
+      - 'worksheet-generator/**'
+      - 'course-catalog.js'
+      - 'data.js'
+      - 'app.js'
+      - 'scripts/test-grade-bank-integration.cjs'
+      - '.github/workflows/grade6-grade7-bank-integration.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - course: prealgebra7
+            prefix: pa7-
+          - course: math6
+            prefix: m6-
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate every published question bank and its images
+        run: node scripts/test-published-question-banks.cjs
+      - name: Verify all units, skills, games, printables, flashcards and lesson plans
+        run: node scripts/test-grade-bank-integration.cjs
+        env:
+          MG_COURSE: ${{ matrix.course }}
+          MG_PREFIX: ${{ matrix.prefix }}
