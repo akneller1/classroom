@@ -179,7 +179,7 @@
         need(c === 1 || !h1.m.eq(h2.m)); var yes = list.every(function (h) { return inside(h, px, py); });
         need(c === 1 || yes || r.chance(0.6));
         steps.push(step('Substitute ' + M('x=' + px) + ' and ' + M('y=' + py) + ' into ' + (c === 1 ? 'the inequality' : 'each inequality') + '.', '', 2), step(yes ? 'Every inequality is true.' : 'A statement is false.', '', 2));
-        return { variant: 'iq' + c, prompt: 'Is ' + M(pt(px, py)) + ' a solution of ' + (c === 1 ? M(h1.tex) : 'the system ' + sysTeX(h1.tex, h2.tex)) + '? Explain.', parts: [{ answer: yes ? 'Yes: it makes ' + (c === 1 ? 'the inequality' : 'both inequalities') + ' true.' : 'No: it does not make ' + (c === 1 ? 'the inequality' : 'both inequalities') + ' true.', check: { type: 'ineq2', want: 'is-solution', ineqs: list.map(function (h) { return h.tex; }), point: pt(px, py) } }], steps: steps, space: [0.6, 0.8, 1.0] };
+        return { variant: 'iq' + c, prompt: 'Does the point ' + M(pt(px, py)) + ' satisfy ' + (c === 1 ? M(h1.tex) : 'BOTH inequalities: ' + sysTeX(h1.tex, h2.tex)) + '?', parts: [{ answer: yes ? 'Yes' : 'No', check: { type: 'ineq2', want: 'is-solution', ineqs: list.map(function (h) { return h.tex; }), point: pt(px, py) } }], steps: steps, space: [0.6, 0.8, 1.0] };
       }
       if (c === 2) { var h = hpSpec(r, false), fig = win(); fig.halfplanes = [h.fig];
         steps.push(step('Boundary line: read the slope and the y-intercept.', si(h.m, h.b), 2), step((h.fig.dashed ? 'Dashed line: < or >.' : 'Solid line: ≤ or ≥.') + ' Shading ' + (/>|ge/.test(h.rel) ? 'above: y is greater.' : 'below: y is less.'), h.tex, 2));
@@ -234,7 +234,7 @@
       }
       key.halfplanes = [A.fig, B.fig];
       steps.push(step('Graph each boundary line; dashed for < or >, solid for ≤ or ≥.', '', 2), step('Shade each side; the solution is where the shadings overlap.', '', 2));
-      return { variant: 'gh' + c, prompt: 'Graph the system of inequalities and shade the solution: ' + sysTeX(texA, B.tex) + '.', fig: blank,
+      return { variant: 'gh' + c, prompt: 'Graph the solution to the system: ' + sysTeX(texA, B.tex) + '.', fig: blank,
         parts: [{ answer: 'Boundaries ' + M(si(A.m, A.b)) + ' (' + (A.fig.dashed ? 'dashed' : 'solid') + ', shade ' + (/>|ge/.test(A.rel) ? 'above' : 'below') + ') and ' + M(si(B.m, B.b)) + ' (' + (B.fig.dashed ? 'dashed' : 'solid') + ', shade ' + (/>|ge/.test(B.rel) ? 'above' : 'below') + '); the solution is the overlap.',
           answerFig: key, check: { type: 'graph-key', ineqs: [texA, B.tex] } }], steps: steps, space: [0.5, 0.6, 0.7] };
     }
