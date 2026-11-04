@@ -26,9 +26,9 @@ async function startEscape(qs){
  function take(test){const q=qs.find(q=>!used.has(q.id)&&test(q));if(q)used.add(q.id);return q}
  function numeric(q){return /^[-+]?\d+(?:\.\d+)?$/.test(String(q.answer).trim())&&Number.isFinite(Number(q.answer))}
  function scene(q){return q.diagram?.type==='image'?{kind:'image',src:q.diagram.spec.src,alt:q.diagram.spec.alt.replace(/"/g,'&quot;')}:{kind:'emoji',bg:'#1d1530',floor:'#3a2b4a',items:[{e:'🏺',x:80,y:170,s:60},{e:'🖼️',x:170,y:150,s:56},{e:'📜',x:250,y:160,s:50},{e:'🗝️',x:330,y:170,s:50}]}}
- function prompt(q,includeOptions){return source.question(q)+(includeOptions&&q.options?'<ol type="A">'+q.options.map(o=>'<li>'+source.html(o.text)+'</li>').join('')+'</ol>':'')}
+ function prompt(q,includeOptions){return source.question(q)+(includeOptions&&q.options?'<ol type="A">'+q.options.map((o,i)=>'<li>'+(q._graphOptions?q._graphOptions[i]:source.html(o.text))+'</li>').join('')+'</ol>':'')}
  function stage(q,i){return {name:all.find(s=>s.id===q.skillId)?.name||'Gallery '+(i+1),sourceId:q.id,stamp:[41,12,87,23,55][i],letter:['M','C','T','O','E'][i],story:'Solve the gallery challenge to unlock the next door and collect its key card.',scene:scene(q),hints:q.solutionSteps.slice(0,3).map(source.html),key:source.html(String(q.answer))}}
- function choice(q,i){return {...stage(q,i),type:'bankChoice',title:'Unlock the door',prompt:prompt(q,false),options:q.options.map(o=>source.html(o.text)),answer:q.options.findIndex(o=>o.correct)}}
+ function choice(q,i){return {...stage(q,i),type:'bankChoice',title:'Unlock the door',prompt:prompt(q,false),options:q._graphOptions||q.options.map(o=>source.html(o.text)),answer:q.options.findIndex(o=>o.correct)}}
  const q1=take(numeric)||take(q=>q.format==='multiple-choice');if(!q1)throw Error('This selection needs a numeric or multiple-choice lock question.');
  const first=numeric(q1)?{...stage(q1,0),type:'fields',title:'The Gallery Lock',prompt:prompt(q1,true),fields:[{label:'Answer =',answer:Number(q1.answer)}],button:'Open the door'}:choice(q1,0);
  const q2=take(q=>numeric(q)&&Number.isInteger(Number(q.answer))&&Number(q.answer)>=0&&Number(q.answer)<=25)||take(q=>q.format==='multiple-choice');if(!q2)throw Error('Choose more skills for the cipher room.');
