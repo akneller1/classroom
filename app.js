@@ -787,7 +787,7 @@
           '<p>Lessons, games, and practice resources will be added as this course is built out.</p></div>' +
           unitPager(c, u) + '</div></section>' };
     }
-    if (c.id === 'prealgebra') return algebraUnitView(c, u);
+    if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') return algebraUnitView(c, u);
     if (c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
       var skills = window.MK_COURSE_CATALOG.getSkillRecords(c.id, u.id);
       var intro = crumbs([['Home', '#'], [c.name, href(courseToken(c))], [unitLabel(c, u), null]]) +
