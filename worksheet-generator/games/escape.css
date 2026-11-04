@@ -56,3 +56,9 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 .cipher-reveal #dec{background:#102d2c;color:#e8fbef;white-space:pre-wrap;line-height:1.6}
 .cipher-reveal .cipher-clue-word{color:var(--gold)!important;text-decoration:underline;text-underline-offset:.2em}
 #lockShiftButton:disabled{opacity:.7;cursor:default}
+
+/* Teacher-controlled numerical lock followed by student-controlled +1 Caesar shifts. */
+.cipher-controls button{font-size:1.4rem;min-width:80px}
+.cipher-controls #kk{font-family:monospace}
+#cipherWordRow[hidden],#cipherEncoded[hidden]{display:none!important}
+.cipher-reveal #dec{font:700 1.15rem/1.6 monospace;letter-spacing:2px;white-space:pre-wrap}
