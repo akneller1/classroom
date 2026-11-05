@@ -53,6 +53,7 @@ const units=require('../question-banks/manifest.json').banks.filter(b=>b.courseI
  }
  for(const tool of ['worksheet','menu-assessment']){
   await page.goto(base+'/worksheet-generator/'+tool+'.html');
+  await page.locator('#mmClassSel').selectOption({ label: 'Algebra 2' });
   await page.locator('#mmUnitSel').selectOption('algebra2-probability-statistics');
   await page.waitForFunction(()=>document.querySelector('#mmUnitSel')?.value==='algebra2-probability-statistics');
   assert.ok(page.url().includes('/'+tool+'.html#unit=algebra2-probability-statistics'));
