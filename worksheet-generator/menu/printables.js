@@ -527,6 +527,11 @@
       var c2 = Object.assign({}, cfg); if (k) c2.seed = cfg.seed + '|retry' + k;
       B = f(c2, vIdx || 0); if (!B.error) return B;
     }
+    // An authored bank with too few CP2 or Honors questions for this printable (Algebra 2): borrow Standard (CP1) questions
+    if (NS.skillSets[cfg.unitId]?.authoredBank && cfg.level !== 'cp1') {
+      var c4 = Object.assign({}, cfg, { level: 'cp1' }), B4 = f(c4, vIdx || 0);
+      if (!B4.error) { B4.levelNote = 'This unit does not have enough ' + (cfg.level === 'honors' ? 'Honors' : 'CP2') + ' questions for a ' + PR.kind(cfg.kind).name.toLowerCase() + ' yet, so it uses Standard (CP1) questions.'; return B4; }
+    }
     // Honors problems can be too long for a maze door or a Tarsia edge in some units: use Standard-level problems
     if (!NS.skillSets[cfg.unitId]?.authoredBank && cfg.level === 'honors' && (cfg.kind === 'tarsia' || cfg.kind === 'maze')) {
       var c3 = Object.assign({}, cfg, { level: 'cp1' }), B2 = f(c3, vIdx || 0);

@@ -479,7 +479,7 @@
   /* ---------- page ---------- */
   function picker() {
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
-    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse"><option value="algebra1"' + (COURSE === 'algebra1' ? ' selected' : '') + '>Algebra 1</option>' + (G.MKPLAN_SCOPE_GEOMETRY ? '<option value="geometry"' + (GEO ? ' selected' : '') + '>Geometry</option>' : '') + '<option value="algebra2"' + (A2 ? ' selected' : '') + '>Algebra 2</option><option value="prealgebra"' + (PA8 ? ' selected' : '') + '>Pre-Algebra</option></select>';
+    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse">' + [['math6', '6th Grade Math'], ['prealgebra7', 'Pre-Algebra (7th)'], ['prealgebra', 'Pre-Algebra (8th)'], ['algebra1', 'Algebra 1'], ['geometry', 'Geometry'], ['algebra2', 'Algebra 2'], ['precalculus', 'Precalculus'], ['calculus', 'Calculus']].filter(function (o) { return o[0] !== 'geometry' || G.MKPLAN_SCOPE_GEOMETRY || GEO; }).map(function (o) { return '<option value="' + o[0] + '"' + (COURSE === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select>';
     var sel = crs + '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
     var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
@@ -688,7 +688,7 @@
     }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
-  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2|prealgebra)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
+  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2|prealgebra|prealgebra7|math6|precalculus|calculus)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
 
   function applyTheme(t) { if (t) doc.documentElement.setAttribute('data-theme', t); else doc.documentElement.removeAttribute('data-theme'); }
   applyTheme(lsGet(KEY_THEME));
