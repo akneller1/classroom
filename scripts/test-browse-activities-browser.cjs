@@ -36,7 +36,7 @@ const base=process.env.MK_BASE_URL||'http://127.0.0.1:8765';
   const got=await active();if(p>1&&special.some(x=>x.title===got[0]?.title))break;
   special.push(...got);if(got.length<24)break;
  }
- assert.ok(special.length>=57,'Expected at least 57 unit-specific games (13 earlier games and 44 bank games), found '+special.length);
+ assert.equal(special.length,2,'Only Mini Golf and Zombie Fence should be listed');
  assert.ok(special.every(c=>c.type==='Game'&&c.unitSpecific===true&&c.tag==='Unit-specific'),'Missing or incorrect Unit-specific game tags: '+JSON.stringify(special));
  for(const title of ['Slope Links Mini Golf','Zombie Fence'])assert.ok(special.some(x=>x.title.includes(title)),title+' was not tagged');
  await page.goto(base+'/index.html#activities?subject=algebra&unit=algebra.linear-equations-slope&category=games&format=topic-games');
