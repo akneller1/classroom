@@ -512,12 +512,26 @@
   }
   function save() { lsSet(KEY + ':' + unit + ':' + kind, JSON.stringify(cfg)); }
   function setHash() { try { G.history.replaceState(null, '', '#unit=' + unit + '&kind=' + kind); } catch (e) { /* ignore */ } }
-  function unitOptions() {
-    return NS.CATALOG.map(function (g) { return '<optgroup label="' + esc(g.course) + '">' + g.units.filter(function (u) { return NS.skillSets[u[0]]; }).map(function (u) { return '<option value="' + u[0] + '"' + (u[0] === unit ? ' selected' : '') + '>' + esc(u[1]) + '</option>'; }).join('') + '</optgroup>'; }).join('');
+  function availableUnits(group) {
+    return group.units.filter(function (u) { return !!NS.skillSets[u[0]]; });
+  }
+  function classOptions(group) {
+    return NS.CATALOG.map(function (g, i) {
+      if (!availableUnits(g).length) return '';
+      return '<option value="' + i + '"' + (g === group ? ' selected' : '') + '>' + esc(g.course) + '</option>';
+    }).join('');
+  }
+  function unitOptions(group) {
+    return (group ? availableUnits(group) : NS.CATALOG.flatMap(availableUnits)).map(function (u) {
+      return '<option value="' + u[0] + '"' + (u[0] === unit ? ' selected' : '') + '>' + esc(u[1]) + '</option>';
+    }).join('');
   }
   function controls() {
     var set = NS.skillSets[unit], k = PR.kind(kind);
-    var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
+    var group = NS.CATALOG.find(function (g) { return g.units.some(function (u) { return u[0] === unit; }); });
+    var h = '<section class="card"><h2>Activity</h2>' +
+      '<label class="field"><span class="lbl">Class</span><select id="prClass">' + classOptions(group) + '</select></label>' +
+      '<label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions(group) + '</select></label>' +
       '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing functions (linear, quadratic, exponential and the Algebra 2 function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>CP2</b> (guided), <b>CP1</b> (standard) and <b>Honors</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
       '<section class="card"><h2>Teacher guide &amp; answer keys</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels are available from each project card below.</p></section>';
@@ -546,7 +560,12 @@
   }
   function render() {
     $('#prControls').innerHTML = controls();
-    $('#prUnit').onchange = function (e) { unit = e.target.value; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); };
+    function switchUnit(id) { unit = id; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); }
+    $('#prClass').onchange = function (e) {
+      var firstUnit = availableUnits(NS.CATALOG[e.target.value])[0];
+      if (firstUnit) switchUnit(firstUnit[0]);
+    };
+    $('#prUnit').onchange = function (e) { switchUnit(e.target.value); };
     $$('input[name=prKind]').forEach(function (r) { r.onchange = function () { kind = r.value; load(); setHash(); rebuild(); }; });
     $$('input[name=prLevel]').forEach(function (r) { r.onchange = function () { cfg.level = r.value; save(); rebuild(); }; });
     $$('.prSkill').forEach(function (b) { b.onchange = function () { cfg.skills[b.value] = b.checked; save(); rebuild(); }; });
