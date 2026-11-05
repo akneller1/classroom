@@ -90,8 +90,17 @@
   }
 
   /* ---------------- SETUP (steps 1–5) ---------------- */
-  function unitOptions(sel) {
-    return NS.CATALOG.map(function (g) {
+  function classGroup(unitId) {
+    return NS.CATALOG.find(function (g) { return g.units.some(function (u) { return u[0] === unitId; }); });
+  }
+  function classOptions(group) {
+    return NS.CATALOG.map(function (g, i) {
+      var supported = g.units.some(function (u) { return !!NS.skillSets[u[0]]; });
+      return '<option value="' + i + '"' + (g === group ? ' selected' : '') + (supported ? '' : ' disabled') + '>' + esc(g.course) + '</option>';
+    }).join('');
+  }
+  function unitOptions(sel, group) {
+    return (group ? [group] : NS.CATALOG).map(function (g) {
       return '<optgroup label="' + esc(g.course) + '">' + g.units.map(function (u) {
         var ok = !!NS.skillSets[u[0]];
         return '<option value="' + u[0] + '"' + (u[0] === sel ? ' selected' : '') + (ok ? '' : ' disabled') + '>' + esc(u[1]) + (ok ? '' : ' — not yet supported') + '</option>';
@@ -100,10 +109,12 @@
   }
   function viewSetup() {
     var c = cfg(), set = NS.skillSets[c.unitId], rules = NS.checkRules(c, S);
+    var group = PAGE_MODE ? null : classGroup(c.unitId);
     var h = '';
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
-      '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
+      (group ? '<label class="field"><span class="lbl">Class</span><select id="mmClassSel">' + classOptions(group) + '</select></label>' : '') +
+      '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId, group) + '</select></label>' +
       (PAGE_MODE ? '<p class="hint">' + (set.authoredBank ? 'Questions come from approved course banks with authored answers and worked steps. ' : 'Every problem is made fresh and its answer is checked by a separate verifier. ') + 'Choose short answer, multiple choice, choose all that apply, or Open Response (at least four parts) for each section in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
        : '<p class="hint">For practice, use the <a href="worksheet.html#unit=' + esc(c.unitId) + '">Worksheet Generator</a>.</p>' +
       '<fieldset class="field mm-mode"><legend class="lbl">Format</legend>' +
@@ -197,7 +208,14 @@
   function bindSetup() {
     var c = cfg();
     function upd(fn, rerender) { return function (e) { if (S) snapshot(); fn(e); afterConfigChange(rerender); }; }
-    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (authoredRoute(id)) return; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); };   // a new unit starts in the same format
+    var classSelect = $('#mmClassSel');
+    if (classSelect) classSelect.onchange = function () {
+      var group = NS.CATALOG[classSelect.value];
+      var firstUnit = group.units.find(function (u) { return !!NS.skillSets[u[0]]; });
+      if (firstUnit) switchUnit(firstUnit[0]);
+    };
+    $('#mmUnitSel').onchange = function (e) { switchUnit(e.target.value); };
+    function switchUnit(id) { if (authoredRoute(id)) return; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); }   // a new unit starts in the same format
     $$('input[name=mmMode]').forEach(function (r) { r.onchange = function () {
       if (S) { change(function () { NS.setMode(S.config, r.value); S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }, r.value === 'test' ? 'Switched to a standard test. New questions were made for the test parts.' : 'Switched to a choice menu. New problems were made for the menu sections.'); }
       else { NS.setMode(draft, r.value); autosave(); render(); }
