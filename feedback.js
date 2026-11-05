@@ -61,7 +61,7 @@
 })();
 
 /* Teacher Guide (guide.html): a footer link on every page, and a short "New here?" pointer added to the home page's
- * introduction line. Nothing is added to the header, so the layout stays exactly as it was. */
+ * introduction, on its own line. */
 (function () {
   'use strict';
   var doc = document;
@@ -81,7 +81,8 @@
     var a = doc.createElement('a');
     a.className = 'guide-hint'; a.href = 'guide.html';
     a.textContent = 'Read the teacher guide';
-    p.appendChild(doc.createTextNode(' New here? '));
+    p.appendChild(doc.createElement('br'));
+    p.appendChild(doc.createTextNode('New here? '));
     p.appendChild(a);
     p.appendChild(doc.createTextNode('.'));
   }
