@@ -5,7 +5,7 @@ const html=fs.readFileSync('artifacts/math-arcade/index.html','utf8');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 new vm.Script(script,{filename:'math-arcade'});
 const register=fs.readFileSync('unit-specific-arcade.js','utf8');
-const expected=[['algebra','expressions-equations','rocket'],['algebra','inequalities','inequality'],['algebra','systems-of-equations','laser'],['algebra','quadratics','catapult'],['geometry','transformations','mirror'],['geometry','right-triangles-trigonometry','cannon'],['algebra2','functions-transformations','portal']];
+const expected=[['algebra','expressions-equations','rocket'],['algebra','inequalities','inequality'],['algebra','systems-of-equations','laser'],['algebra','quadratics','catapult'],['geometry','transformations','mirror'],['geometry','right-triangles-trigonometry','cannon'],['algebra2','functions-transformations','portal'],['math6','expressions-equations','equation-launch'],['prealgebra7','solving-equations-inequalities','lava-bridge'],['prealgebra','systems-linear-equations','system-lasers'],['precalculus','functions','function-gates'],['calculus','derivatives','tangent-cannon']];
 for(const [course,unit,game] of expected){assert(register.includes("'"+course+"','"+unit+"','"+game+"'"),'Missing '+game+' registration');assert(html.includes(game+":")||html.includes("'"+game+"'")||html.includes(game+'{'),'Missing '+game+' mode')}
 const data=fs.readFileSync('data.js','utf8');for(const [,unit] of expected)assert(data.includes('"id": "'+unit+'"'),'Unknown unit '+unit);
 const source=html.match(/catapult:\s*(\[\[.*?\]\])\.map\(/s);
@@ -28,4 +28,4 @@ assert.equal(misses,4,'Four trajectories should miss');
 assert.ok(nonzero>=5,'Most questions need nonzero constant terms');
 assert.match(html,/standard form: h\(x\) = −x²/);
 assert.match(html,/ENEMY CASTLE/);
-console.log('PASS seven games, unit registrations, 6-hit castle sequence and script syntax');
+console.log('PASS twelve games, unit registrations, 6-hit castle sequence and script syntax');

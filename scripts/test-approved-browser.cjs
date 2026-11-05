@@ -52,7 +52,7 @@ async function run(){
   await setup(page,'approved-flashcards.html');
   await page.locator('#afApp').waitFor({state:'visible'});
   // Default mixed mode now includes vocabulary cards in addition to the fixture items.
-  assert.match(await page.locator('#afProgress').innerText(),/Card 1 of [2-9][0-9]*/);
+  assert.match(await page.locator('#afProgress').innerText(),/Card 1 of ([2-9]|[1-9][0-9]+)\b/);
   await page.locator('#afMode').selectOption('skills');
   assert.match(await page.locator('#afProgress').innerText(),/Card 1 of 2/);
   await page.locator('#afFlip').click();

@@ -1742,7 +1742,7 @@ window.LIBRARY = {
               "added": "2026-10-21"
             },
             {
-              "title": "Graphing Linear Inequalities Cheat Sheet",
+              "title": "Systems of Inequalities Cheat Sheet",
               "path": "artifacts/graphing-inequalities-cheat-sheet/worksheet.pdf",
               "thumb": "thumbs/graphing-inequalities-cheat-sheet.jpg",
               "description": "Two-page printable cheat sheet. Front: graphing linear inequalities in two variables. Back: systems of inequalities and feasible regions. Key vocabulary, worked examples with every answer checked, and common mistakes.",

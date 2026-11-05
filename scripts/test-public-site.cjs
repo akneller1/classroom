@@ -44,7 +44,7 @@ const publicApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
 assert(publicApp.includes("'mailto:akneller@gmail.com?subject='"),'Per-resource issue reports must use direct email');
 assert(publicApp.includes("encodeURIComponent(body)"),'Per-resource report must include activity link and problem template');
 assert(publicApp.includes('class="report-problem"'),'Activity report links must remain available for email chooser');
-assert(home.includes('app.js?v=quick-fixes-20261105'),'Homepage must load fresh Browsing filters');
+assert(home.includes('app.js?v=site-update-20261105c'),'Homepage must load fresh Browsing filters');
 assert(publicApp.includes('function belongsToGroup(a, group)'),'Browse Activities classification missing');
 assert(publicApp.includes("if (a.unitSpecific === true) return 'Unit-specific';"),'Unit-specific tag missing');
 assert(publicApp.includes("if (key === 'category') { state.format = ''; state.gameMode = ''; }"),'Category changes must clear stale choices');
@@ -116,7 +116,7 @@ console.log('PASS Grade 6/7 restored; eight visible courses in a two-column grid
  const pr=context.window.MKMENU?.printables;
  assert(pr&&pr.PROJECTS&&typeof pr.projectFiles==='function','Project catalog did not initialize');
  const projects=Object.values(pr.PROJECTS).flat();
- assert.equal(projects.length,74,'Expected 74 authored projects (37 Algebra 1, Geometry and Algebra 2 + 37 for 6th Grade, Pre-Algebra 7, Precalculus and Calculus)');
+ assert.equal(projects.length,81,'Expected 81 authored projects (37 Algebra 1, Geometry and Algebra 2 + 44 for 6th Grade, Pre-Algebra 7, Pre-Algebra 8, Precalculus and Calculus)');
  for(const project of projects){
    const files=pr.projectFiles(project);
    const refs=[files.thumb,files.page,files.teacher.pdf,files.teacher.docx];

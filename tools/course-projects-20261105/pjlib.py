@@ -21,7 +21,7 @@ LEVELS = [('cp2', 'CP2', 'Guided', '2E7D4F'), ('cp1', 'CP1', 'Standard', '2B6CB0
 LEVEL_BLURB = {'cp2': 'Guided version: step-by-step prompts, starter tables, sentence starters, and friendly numbers.',
                'cp1': 'Standard version: students set up and solve problems with less scaffolding.',
                'honors': 'Extension version: generalize, justify, and design with open-ended constraints.'}
-COURSE_NAME = {'math6': '6th Grade Math', 'prealgebra7': 'Pre-Algebra (7th)', 'precalculus': 'Precalculus', 'calculus': 'Calculus'}
+COURSE_NAME = {'math6': '6th Grade Math', 'prealgebra7': 'Pre-Algebra (7th)', 'prealgebra': 'Pre-Algebra (8th)', 'precalculus': 'Precalculus', 'calculus': 'Calculus'}
 PROJECTS = []
 FRAC = re.compile(r'\{([^{}|]+)\|([^{}|]+)\}')
 SUP = str.maketrans('0123456789+-()x', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁽⁾ˣ')
