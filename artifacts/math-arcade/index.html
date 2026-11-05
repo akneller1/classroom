@@ -2,6 +2,9 @@
 <style>
 :root{color-scheme:dark;--bg:#0e1728;--panel:#192840;--line:#38516d;--text:#f7fbff;--accent:#5bdfba}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 30% 0,#28436c,#0e1728 65%);color:var(--text);font:16px system-ui,sans-serif}.wrap{max-width:1150px;margin:auto;padding:22px}h1{font-size:clamp(25px,4vw,42px);margin:5px 0}.sub{color:#bcd0e5}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:18px;margin-top:18px}@media(max-width:790px){.layout{grid-template-columns:1fr}}.stage,.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 12px 30px #0003}canvas{width:100%;aspect-ratio:1.35;display:block;border-radius:12px;background:#102a41;touch-action:manipulation}button,input,select{font:inherit;border-radius:9px;border:1px solid #6984a5;padding:11px;color:var(--text);background:#253c59}button{cursor:pointer}button:hover{border-color:var(--accent)}button.primary{background:#087f70;border-color:#5bdfba;font-weight:700}.row{display:flex;gap:8px;flex-wrap:wrap;margin:11px 0}[hidden]{display:none!important}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}label{display:grid;gap:5px;font-size:14px}input{width:100%;min-width:0}.chip{display:inline-block;background:#28486a;padding:7px 11px;border-radius:12px;margin:5px 6px 5px 0}.status{padding:12px;border-radius:12px;background:#263f5a;min-height:65px;line-height:1.5}.progress{height:12px;border-radius:20px;background:#30455f;overflow:hidden}.fill{height:100%;background:#5bdfba;transition:width .3s}small{color:#bcd0e5}a{color:#a2f3dd}.controls{margin:14px 0}.castle{font-size:25px}button:disabled{opacity:.5;cursor:default}.mission-action{margin:14px 0 4px;padding:10px 12px;border-left:3px solid #5bdfba;border-radius:0 9px 9px 0;background:linear-gradient(90deg,#5bdfba1c,transparent);color:#d9fff5;font-weight:650}.stage{padding:13px}.stage canvas{background:#102033;box-shadow:0 10px 30px #02091566,inset 0 0 45px #02091555}#bankPrompt>p:first-child{color:#8ff0d4;letter-spacing:.05em;font-size:13px;text-transform:uppercase}#action{font-size:16px;min-height:48px}.arcade-figure-card{background:#fff!important;color:#182433!important;border:2px solid #bed2e4;border-radius:14px;padding:16px;margin:12px 0 18px;display:block;max-width:100%;overflow:auto;box-shadow:0 3px 12px #0004}.arcade-figure-card svg,.arcade-figure-card img,.arcade-figure-card canvas{display:block;max-width:100%;height:auto;background:#fff!important;border-radius:6px}.arcade-figure-card svg text{fill:#142d47!important}.arcade-figure-card svg .grid line,.arcade-figure-card svg .grid path{stroke:#8ca5ba!important;stroke-opacity:.9!important}.arcade-figure-card svg .axis,.arcade-figure-card svg .axes path{stroke:#24354b!important}.arcade-figure-card svg{min-width:260px}#bankPrompt .arcade-figure-card{line-height:normal}.stage{background:linear-gradient(150deg,#1b3552,#102032)}.panel{background:linear-gradient(145deg,#1b304c,#142439)}.panel h2{line-height:1.2;color:#fff}.status{border:1px solid #6b91b0;box-shadow:inset 0 2px 12px #0002}#bankPrompt{margin:15px 0;padding:17px;background:#0f2439;border:1px solid #6e95b5;border-radius:14px;line-height:1.65}#bankPrompt label{font-size:16px}#bankPrompt input[type=radio]{accent-color:#58dcbe;min-width:19px;min-height:19px}.bank-answer-wrap{display:flex;align-items:end;gap:8px;flex-wrap:wrap}.bank-answer-wrap>label{flex:1 1 220px}.bank-power-keys{display:flex;gap:6px;padding-bottom:1px}.bank-power-keys button{padding:8px 12px;min-width:48px;background:#1d574f;border-color:#5bdfba;font-weight:750}.bank-power-keys button:focus-visible{outline:3px solid #ffe08a;outline-offset:2px}.chip{border:1px solid #587a97;font-weight:700}#action{min-width:160px;box-shadow:0 4px 0 #054d48}canvas{border:2px solid #688ca7;box-shadow:inset 0 4px 30px #0004}#instructions{line-height:1.6}
+
+/* "and" / "or" inside a question or answer choice read as ordinary words */
+#bankPrompt .w{font-size:inherit;font-weight:inherit;letter-spacing:normal;text-transform:none;margin:0;opacity:1}
 </style><main class="wrap"><a href="../../index.html">← Mr. K's Classroom</a><h1 id="heading">Math Arcade</h1><p class="sub" id="subtitle"></p><div class="row"><span class="chip" id="roundLabel"></span><span class="chip" id="points"></span><span class="chip" id="level"></span></div><div class="progress"><div class="fill" id="fill"></div></div><div class="layout"><section class="stage"><canvas id="board" width="840" height="625" aria-label="Interactive mathematical game board"></canvas><p class="sub" id="boardHint"></p></section><section class="panel"><h2 id="mission"></h2><p id="instructions"></p><div id="bankSettings" hidden><label>Difficulty <select id="bankLevel"><option value="cp2">CP2</option><option value="cp1" selected>CP1</option><option value="honors">Honors</option></select></label></div><div id="bankPrompt" hidden></div><div id="fields" class="fields"></div><div class="controls" id="controls"></div><div class="row"><button class="primary" id="action">Play turn</button><button id="hint">Hint</button><button id="next" hidden>Next level →</button></div><div class="status" id="status" role="status" aria-live="polite"></div><div id="scorecard"></div></section></div></main>
 <script src="../../worksheet-generator/games/skill-setup.js?v=student-direct-20261031"></script>
 <script src="../../worksheet-generator/core/rng.js"></script>
@@ -13,8 +16,8 @@
 <script src="../../worksheet-generator/menu/mathcheck.js?v=menu-gaps-2"></script>
 <script src="../../worksheet-generator/menu/figures.js?v=menu-gaps-2"></script>
 <script src="../../worksheet-generator/menu/verify.js?v=proofs-20261101"></script>
-<script src="../../worksheet-generator/menu/engine.js?v=proofs-20261101"></script>
-<script src="../../worksheet-generator/../data.js?v=grade8-banks-20261101"></script>
+<script src="../../worksheet-generator/menu/engine.js?v=site-update-20261105c"></script>
+<script src="../../worksheet-generator/../data.js?v=site-update-20261105c"></script>
 <script src="../../worksheet-generator/../course-catalog.js?v=shared-course-skills-20261030"></script>
 <script src="../../worksheet-generator/menu/skills/kit.js?v=menu-gaps-2"></script>
 <script src="../../worksheet-generator/menu/skills/algebra1-expressions-equations.js?v=algebra-skill-audit-20261026"></script>
@@ -50,7 +53,7 @@
 <script src="../../worksheet-generator/games/bank.js?v=proofs-20261101"></script>
 <link rel="stylesheet" href="../../worksheet-generator/vendor/katex/katex.min.css">
 <script src="../../worksheet-generator/vendor/katex/katex.min.js"></script>
-<script src="../../worksheet-generator/core/math-display.js?v=grade8-banks-20261101"></script>
+<script src="../../worksheet-generator/core/math-display.js?v=site-update-20261105c"></script>
 <script>
 'use strict';
 const GAMES={
@@ -62,12 +65,33 @@ cannon:{title:'Trig Cannon',course:'Geometry',topic:'Right Triangles and Trigono
 portal:{title:'Function Portal',course:'Algebra 2',topic:'Function Transformations',intro:'Control function portals to land the energy ball on its target.',goal:'Find the output after applying the function transformation.'},
 catapult:{title:'Castle Catapult',course:'Algebra 1',topic:'Quadratic Functions',intro:'Master quadratic trajectories to crumble the enemy castle. Six successful hits bring it down!',goal:'Identify the two roots, vertex, and projectile height at the castle.'}
 };
-const key=new URLSearchParams(location.search).get('game')||'catapult',cfg=GAMES[key]||GAMES.catapult,$=x=>document.getElementById(x),canvas=$('board'),ctx=canvas.getContext('2d');
+/* Games for the newer courses: each reuses an existing engine's scene and motion, with questions from that unit's
+   authored bank (single-answer multiple choice only, so every answer is checked against the bank's key). */
+const UNIT_GAMES={
+ 'equation-launch':{engine:'rocket',bank:{course:'math6',unit:'expressions-equations',skills:['expressions-equations-skill-01','expressions-equations-skill-03','expressions-equations-skill-04','expressions-equations-skill-05','expressions-equations-skill-06']},levels:['Remedial','Standard','Advanced'],
+  title:'Equation Launch Pad',course:'6th Grade Math',topic:'Expressions and Equations',intro:'Evaluate expressions and solve one-step equations to fuel a rocket for its trip to the space station.',goal:'Solve the challenge to fire the next engine stage.',
+  action:{button:'Fire engine stage',move:'A correct answer fires the next engine stage. A miss costs fuel and keeps the rocket on the pad.'}},
+ 'lava-bridge':{engine:'inequality',bank:{course:'prealgebra7',unit:'solving-equations-inequalities',skills:['solving-equations-inequalities-skill-01','solving-equations-inequalities-skill-02','solving-equations-inequalities-skill-03','solving-equations-inequalities-skill-05','solving-equations-inequalities-skill-06']},levels:['Remedial','Standard','Advanced'],
+  title:'Lava Bridge Builder',course:'Pre-Algebra (7th)',topic:'Solving Equations and Inequalities',intro:'Solve two-step equations and inequalities to lay safe stones across the lava river.',goal:'Solve the challenge to place the next safe stone.',
+  action:{button:'Place stone',move:'A correct answer sets the next safe stone across the lava.'}},
+ 'system-lasers':{engine:'laser',bank:{course:'prealgebra',unit:'systems-linear-equations',skills:[]},levels:['Remedial','Standard','Advanced'],
+  title:'Laser Lock: Systems',course:'Pre-Algebra (8th)',topic:'Systems of Linear Equations',intro:'Two laser beams are lines. Find where they cross to lock onto each security node.',goal:'Solve the system challenge to lock both beams on the node.',
+  action:{button:'Lock beams',move:'A correct answer locks both laser beams onto the security node.'}},
+ 'function-gates':{engine:'portal',bank:{course:'precalculus',unit:'functions',skills:['functions-skill-01','functions-skill-02','functions-skill-03','functions-skill-05','functions-skill-06','functions-skill-07','functions-skill-09']},levels:['CP2','CP1','Honors'],
+  title:'Function Gates',course:'Precalculus',topic:'Functions',intro:'Evaluate, compose, shift and invert functions to route the energy ball through each gate.',goal:'Answer the function challenge to open the next gate.',
+  action:{button:'Open gate',move:'A correct answer opens the next function gate for the energy ball.'}},
+ 'tangent-cannon':{engine:'cannon',bank:{course:'calculus',unit:'derivatives',skills:[]},levels:['CP2','CP1','Honors'],
+  title:'Tangent Line Cannon',course:'Calculus',topic:'Derivatives',intro:'Every shot follows a tangent line. Find derivatives and slopes to hit each tower.',goal:'Answer the derivative challenge to aim the next shot.',
+  action:{button:'Fire',move:'A correct answer sets the slope of the shot and hits the tower.'}}
+};
+const gameId=new URLSearchParams(location.search).get('game')||'catapult',UNIT_GAME=UNIT_GAMES[gameId]||null;
+const key=UNIT_GAME?UNIT_GAME.engine:gameId,cfg=UNIT_GAME||GAMES[key]||GAMES.catapult,$=x=>document.getElementById(x),canvas=$('board'),ctx=canvas.getContext('2d');
 const sceneArt=new Image();let sceneReady=false;sceneArt.onload=()=>{sceneReady=true;draw();};sceneArt.onerror=()=>{sceneReady=false;draw();};sceneArt.src='../../assets/math-arcade/scenes/'+key+'.webp?v=arcade-scenes-1';
 $('heading').textContent=cfg.title;$('subtitle').textContent=cfg.course+' · '+cfg.topic+' — '+cfg.intro;$('boardHint').textContent='Each challenge controls a move in the game. Solve it to unlock the next checkpoint.';
 const total=key==='catapult'?10:6;
 const ACTIONS={rocket:{button:'Ignite engines',move:'A correct equation powers the next orbital leg. A miss costs fuel and keeps the checkpoint locked.'},inequality:{button:'Build safe bridge',move:'A correct inequality opens the next safe platform across the lava.'},laser:{button:'Fire synchronized beams',move:'A correct system solution locks both beams onto the security node.'},mirror:{button:'Open mirror gate',move:'A correct transformation carries the explorer through the next gate.'},cannon:{button:'Fire at tower',move:'A correct trigonometry solution sets the shot to reach the tower.'},portal:{button:'Open next portal',move:'A correct function result activates the next portal and moves the energy ball.'},catapult:{button:'Launch catapult',move:'Use the roots, vertex, and castle height to decide whether the shot can hit.'}};
-const BANK_GAME=key!=='catapult';let bankQuestion=null,bankUsed={keys:new Set(),sigs:new Set()},bankLevel='cp1',algebra2Bank=null,bankLoading=false,bankError='',motionFX=null,arcadeCombo=0,arcadeLives=3;
+if(UNIT_GAME)ACTIONS[key]=UNIT_GAME.action;
+const BANK_GAME=key!=='catapult',AUTHORED=key==='portal'||!!UNIT_GAME,AUTHORED_SPEC=UNIT_GAME?UNIT_GAME.bank:{course:'algebra2',unit:'functions-transformations',skills:[]};let bankQuestion=null,bankUsed={keys:new Set(),sigs:new Set()},bankLevel='cp1',algebra2Bank=null,bankLoading=false,bankError='',motionFX=null,arcadeCombo=0,arcadeLives=3;
 const BANK_SPECS={
  rocket:{set:'algebra1-expressions-equations',skills:['two-step','multi-step','both-sides','fraction-eq','special-solutions']},
  inequality:{set:'algebra1-inequalities',skills:[]},
@@ -102,22 +126,24 @@ function answerFor(q){
 function field(id,label,value='',kind='number'){return '<label>'+label+'<input id="f'+id+'" type="'+kind+'" step="any" inputmode="decimal" value="'+value+'" autocomplete="off"></label>'}
 function option(id,label,choices){return '<label>'+label+'<select id="f'+id+'">'+choices.map(z=>'<option>'+z+'</option>').join('')+'</select></label>'}
 async function loadAuthoredBank(){
- if(key!=='portal'||algebra2Bank)return;
+ if(!AUTHORED||algebra2Bank)return;
  bankLoading=true;
  try {
-  const response=await fetch('../../question-banks/algebra2/functions-transformations.json',{cache:'no-store'});
-  if(!response.ok)throw Error('Algebra 2 bank could not load');
+  const response=await fetch('../../question-banks/'+AUTHORED_SPEC.course+'/'+AUTHORED_SPEC.unit+'.json',{cache:'no-store'});
+  if(!response.ok)throw Error('The question bank could not load');
   const json=await response.json();
-  if(json.schemaVersion!==1||json.courseId!=='algebra2'||json.unitId!=='functions-transformations'||!Array.isArray(json.questions))throw Error('Unexpected Algebra 2 question-bank schema');
-  algebra2Bank=json.questions;
+  if(json.schemaVersion!==1||json.courseId!==AUTHORED_SPEC.course||json.unitId!==AUTHORED_SPEC.unit||!Array.isArray(json.questions))throw Error('Unexpected question-bank schema');
+  algebra2Bank=json.questions.filter(q=>!AUTHORED_SPEC.skills.length||AUTHORED_SPEC.skills.includes(q.skillId)).filter(q=>!UNIT_GAME||q.format==='multiple-choice'&&Array.isArray(q.options)&&q.options.filter(o=>o.correct).length===1);
   bankError='';
  }catch(e){bankError=e.message;algebra2Bank=[]}
  bankLoading=false;
 }
+function skillLabel(id){try{const r=(window.MK_COURSE_CATALOG?.getSkillRecords(AUTHORED_SPEC.course,AUTHORED_SPEC.unit)||[]).find(s=>s.id===id);return r?r.name:id}catch(e){return id}}
+function levelLabel(lv){const names=UNIT_GAME?UNIT_GAME.levels:['CP2','CP1','Honors'];return names[['cp2','cp1','honors'].indexOf(lv)]||lv}
 function effectiveBankLevel(){const order=['cp2','cp1','honors'],base=Math.max(0,order.indexOf(bankLevel)),stage=Math.min(2,Math.floor(turn*3/total));return order[Math.min(2,base+stage)];}
 function newBankQuestion(){
  bankQuestion=null;
- if(key==='portal'){
+ if(AUTHORED){
   if(!algebra2Bank)return false;
   const allSkills=[...new Set(algebra2Bank.map(q=>q.skillId))].sort();
   const stage=Math.min(allSkills.length-1,Math.floor(turn*allSkills.length/total));
@@ -128,7 +154,7 @@ function newBankQuestion(){
     &&(q.format==='multiple-choice'&&q.options?.some(o=>o.correct)||q.format==='short-answer'&&q.answer!=null));
   const sorted=pool.sort((a,b)=>{
     const score=q=>(q.skillId===skill?10:0)+(formats.indexOf(q.format)===0?4:0)
-      -(q.skillId===bankQuestion?.skillName?3:0);
+      -(q.skillId===bankQuestion?.skillId?3:0);
     return score(b)-score(a);
   });
   if(!sorted.length)return false;
@@ -136,7 +162,7 @@ function newBankQuestion(){
   const candidates=sorted.filter(q=>(q.skillId===skill)===topScore&&q.format===sorted[0].format);
   const q=candidates[Math.floor(Math.random()*Math.min(5,candidates.length))];
   bankUsed.keys.add(q.id);
-  bankQuestion={id:q.id,skillName:q.skillId,q:{prompt:q.prompt,ask:''},steps:(q.solutionSteps||[]).map(t=>({t})),
+  bankQuestion={id:q.id,skillId:q.skillId,skillName:skillLabel(q.skillId),q:{prompt:q.prompt,ask:''},steps:(q.solutionSteps||[]).map(t=>({t})),
     options:q.format==='multiple-choice'?q.options.map(o=>({a:o.text,ok:o.correct})):null,
     typed:q.format==='short-answer'?String(q.answer):null};
   return true;
@@ -214,7 +240,7 @@ function showBankQuestion(){
  $('bankSettings').hidden=false;box.hidden=false;
  if(!bankQuestion){box.textContent=bankLoading?'Loading existing questions…':(bankError||'No suitable bank question was available at this difficulty. Choose another difficulty.');$('action').disabled=true;return;} $('action').disabled=locked;
  const toHtml=renderArcadeMath;
- box.innerHTML='<p><strong>MISSION '+(turn+1)+' / '+total+' · '+bankQuestion.skillName+' · '+effectiveBankLevel().toUpperCase()+'</strong></p><div>'+toHtml(bankQuestion.q.prompt||'')+'</div><p class="mission-action">'+ACTIONS[key].move+'</p>'+(bankQuestion.q.ask?'<p>'+toHtml(bankQuestion.q.ask)+'</p>':'')+
+ box.innerHTML='<p><strong>MISSION '+(turn+1)+' / '+total+' · '+bankQuestion.skillName+' · '+levelLabel(effectiveBankLevel()).toUpperCase()+'</strong></p><div>'+toHtml(bankQuestion.q.prompt||'')+'</div><p class="mission-action">'+ACTIONS[key].move+'</p>'+(bankQuestion.q.ask?'<p>'+toHtml(bankQuestion.q.ask)+'</p>':'')+
  (bankQuestion.q.fig&&window.MKMENU.figHtml?'<div class="arcade-figure-card" role="group" aria-label="Question graph or diagram">'+MKMENU.figHtml(bankQuestion.q.fig)+'</div>':'')+
  (bankQuestion.options?'<div role="radiogroup" aria-label="Choose the correct answer">'+bankQuestion.options.map((o,i)=>'<label style="display:flex;align-items:center;gap:9px;padding:8px;margin:6px 0;background:#273f5b;border-radius:8px"><input type="radio" name="bankAnswer" value="'+i+'" style="width:auto">'+toHtml(o.a)+'</label>').join('')+'</div>':'<div class="bank-answer-wrap"><label for="bankTyped">Answer <input id="bankTyped" aria-label="Type your answer" autocomplete="off"></label><div class="bank-power-keys" role="group" aria-label="Exponent shortcuts"><button type="button" data-bank-power="2" aria-label="Insert squared">x²</button><button type="button" data-bank-power="n" aria-label="Insert an exponent template">xⁿ</button></div></div>');
  $('fields').hidden=true;
@@ -352,5 +378,6 @@ function draw(){
  if(locked&&latest){const good=latest.success;round(250,467,340,52,15,good?'rgba(7,48,43,.86)':'rgba(55,28,27,.88)',good?'#72e6c5':'#f49a7e');label(good?'MOVE UNLOCKED':'CHECK YOUR WORK',420,500,17,good?'#a7ffe0':'#ffd0bb','center')}
  c.strokeStyle='rgba(223,239,242,.55)';c.lineWidth=2;c.beginPath();c.roundRect(2,2,W-4,H-4,14);c.stroke();
 }
-setup();if(key==='portal'){loadAuthoredBank().then(()=>{if(!locked){newBankQuestion();showBankQuestion();}})}window.addEventListener('resize',draw);
+if(UNIT_GAME){document.title=UNIT_GAME.title+' · Math Arcade';[...$('bankLevel').options].forEach(o=>o.textContent=levelLabel(o.value));}
+setup();if(AUTHORED){loadAuthoredBank().then(()=>{if(!locked){newBankQuestion();showBankQuestion();}})}window.addEventListener('resize',draw);
 </script></html>
