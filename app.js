@@ -90,6 +90,7 @@
     { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
     { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', description: 'Two teams solve multiple-choice math problems to claim squares and make three in a row. A wrong answer gives the other team a chance to steal. Includes an optional timer.' },
+    { id: 'millionaire', name: 'Math Millionaire', description: 'A whole-class game show. Fifteen multiple-choice questions climb from warm-up to challenge on a prize ladder. Groups take turns in the hot seat, with 50:50, Ask the Class and Hint lifelines. Every game draws fresh questions.' },
     { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
     { id: 'interactive-practice-test', name: 'Assessment Readiness Check', description: 'Complete a generated online assessment, receive worked solutions and skill-by-skill feedback, and practice missed concepts with fresh questions.' },
     { id: 'flashcards', name: 'Flashcards', description: 'Practice at your own pace, reveal worked solutions, and mark cards to revisit. Useful for independent study and quick review.' },
@@ -148,7 +149,7 @@
   function gameMode(a) {
     var f = activityFormat(a);
     if (a.unitSpecific === true) return 'Unit-specific';
-    if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
+    if (['showdown', 'connect-four', 'tic-tac-toe', 'millionaire'].indexOf(f) >= 0) return 'Team Games';
     if (f === 'escape-rooms') return 'Collaborative Challenges';
     if (['picture-reveal', 'detective-games', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
     return '';
@@ -159,7 +160,7 @@
   }
   /* One order everywhere. Games: Showdown (Jeopardy-style), Connect 4, Tic-Tac-Toe, Detective, Escape Room,
      Picture Reveal, then unit-specific activities and games. Study Guides: Assessment Readiness, Flashcards, Cheat Sheets. */
-  var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
+  var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
     'interactive-practice-test', 'flashcards', 'cheat-sheets'];
   function orderRank(a) { var i = ACTIVITY_ORDER.indexOf(activityFormat(a)); return i < 0 ? ACTIVITY_ORDER.length : i; }
   function sortByActivityOrder(list, get) {
@@ -173,7 +174,7 @@
   }
   var RESOURCE_GROUPS = [
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
@@ -194,6 +195,7 @@
     'showdown': 'Choose a question and point value for team review.',
     'connect-four': 'Solve problems to earn discs and connect four.',
     'tic-tac-toe': 'Answer correctly to claim a square and make three in a row.',
+    'millionaire': 'Climb a 15-question prize ladder as a class, with three lifelines.',
     'picture-reveal': 'Solve problems to uncover a hidden picture.',
     'detective-games': 'Unlock clues, eliminate suspects, and solve the mystery.',
     'escape-rooms': 'Solve math puzzles and unlock rooms before time runs out.',
@@ -352,10 +354,10 @@
     if (a.thumb && (activityFormat(a) === 'topic-games' || /slope-links-mini-golf|zombie-fence/i.test(a.path || ''))) return a.thumb;
     if (/^artifacts\/math-arcade\/index\.html\?game=/.test(a.path || '')) return a.thumb || '';
     var f = activityFormat(a);
-    var supported = ['tic-tac-toe','connect-four','showdown','picture-reveal','flashcards','escape-rooms','whodunnit','detective-games','topic-games'];
+    var supported = ['tic-tac-toe','connect-four','showdown','millionaire','picture-reveal','flashcards','escape-rooms','whodunnit','detective-games','topic-games'];
     if (supported.indexOf(f) < 0) return a.thumb || '';
     var topic = (it.u && (it.u.name || it.u.title)) || (it.c && it.c.name) || '';
-    var title = {'tic-tac-toe':'TIC-TAC-TOE','connect-four':'CONNECT 4',
+    var title = {'tic-tac-toe':'TIC-TAC-TOE','connect-four':'CONNECT 4','millionaire':'MATH MILLIONAIRE',
       'showdown':'SHOWDOWN','picture-reveal':'PICTURE REVEAL',
       'flashcards':'FLASHCARDS','escape-rooms':'ESCAPE ROOM',
       'whodunnit':'DETECTIVE','detective-games':'DETECTIVE','topic-games':'TEAM GAME'}[f];
@@ -393,6 +395,21 @@
         art+=rect(xx,yy,60,33,rr===0?'#527bd2':'#173673',5,'#6387ca');
         art+=txt(xx+30,yy+22,rr===0?['A','B','C','D'][cc]:String(rr*100),rr===0?12:17,'#ffffff',700,'middle');
       }
+    } else if (f === 'millionaire') {
+      art += rect(96,56,288,172,'#0d1660',12);
+      function lozenge(x,y,w,h,fill){
+        var c=12;return '<path d="M '+(x+c)+' '+y+' H '+(x+w-c)+' L '+(x+w)+' '+(y+h/2)+' L '+(x+w-c)+' '+(y+h)+' H '+(x+c)+' L '+x+' '+(y+h/2)+' Z" fill="'+fill+'" stroke="#c5cff0" stroke-width="2"/>';
+      }
+      art += lozenge(108,68,180,46,'#1d2c9e');
+      art += txt(198,96,'Question 15',14,'#ffffff',700,'middle');
+      art += lozenge(108,126,86,30,'#1d2c9e')+txt(122,146,'A',13,'#f7a21b',700);
+      art += lozenge(202,126,86,30,'#f7a21b')+txt(216,146,'B',13,'#ffffff',700);
+      art += lozenge(108,164,86,30,'#1d2c9e')+txt(122,184,'C',13,'#f7a21b',700);
+      art += lozenge(202,164,86,30,'#22b84a')+txt(216,184,'D',13,'#ffffff',700);
+      ['$1,000,000','$500,000','$250,000','$125,000','$64,000','$32,000'].forEach(function(v,i){
+        if(i===2)art += rect(300,64+i*24,76,20,'#f7a21b',4);
+        art += txt(338,79+i*24,v,11,i===2?'#140b00':(i===0||i===5?'#ffffff':'#f7a21b'),700,'middle');
+      });
     } else if (f === 'picture-reveal') {
       art += rect(138,58,204,164,'#e9f7ed',12,'#abc7b5');
       art += '<circle cx="240" cy="129" r="51" fill="#f4c75b"/><path d="M 191 162 Q 240 101 289 162" fill="#75ae85"/>';
