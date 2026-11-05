@@ -62,6 +62,39 @@ Unit pages, the Activities browser and grouped views now use the same order:
 
 This was checked on all 77 unit pages. Geometry Unit 3 still has its existing "Practice Activities: Triangle Congruence Proofs" section after Study Guides.
 
+## 5. Projects for 6th Grade, Pre-Algebra (7th), Precalculus and Calculus
+
+There is now one project for every unit of the four new courses, 37 projects in all:
+
+| Course | Projects |
+| --- | --- |
+| 6th Grade | 7 |
+| Pre-Algebra (7th) | 13 |
+| Precalculus | 8 |
+| Calculus | 9 |
+
+The projects follow the Algebra 1 project format exactly.
+
+- **Each project includes:**
+  - CP2 (guided, with starters), CP1 (standard) and Honors (extension) versions, each as PDF, Word (.docx) and PowerPoint (.pptx)
+  - a teacher guide with pacing, standards, misconceptions, extension ideas and an answer key for every question at every level
+  - a project page and a thumbnail
+- **Layout of each student handout** (6 pages):
+  - Page 1: the scenario and illustration, learning goals and a timeline.
+  - Pages 2–4: the three daily parts with answer boxes.
+  - Page 5: the final product and reflection.
+  - Page 6: the scoring rubric.
+- **Fractions.** In the Word and PDF files, division is written as stacked fractions.
+- **Where they appear.** The projects are in the Activity Generator only: Printable → Projects for each unit, registered in `worksheet-generator/menu/printables-projects.js`. No unit-page cards were added.
+- **Files:**
+  - `artifacts/<course>-project-<slug>/`
+  - `thumbs/<course>-project-<slug>.jpg`
+- **Rebuilding.** The generator is in `tools/course-projects-20261105/`. Run `python3 buildall.py` from that folder to rebuild every file after editing the content files `p_g6.py`, `p_g7.py`, `p_pc.py` and `p_ca.py`. It needs python-docx, python-pptx, Playwright, and LibreOffice with its Math module.
+- **Checks.**
+  - Every computed answer was checked with a script.
+  - All 148 PDFs were scanned for blank or near-empty pages, and none were found.
+  - Each of the 37 units was opened in the Activity Generator: every project card and download link loaded, with no page errors.
+
 ## Cache-busting
 
 The `?v=` strings were bumped (`unit-refresh-20261105`) for these files, so browsers fetch the new versions:
@@ -69,6 +102,7 @@ The `?v=` strings were bumped (`unit-refresh-20261105`) for these files, so brow
 - `index.html`: `data.js`, `app.js` and `resource-details.js`
 - `activity.html`: `data.js` and `resource-details.js`
 - `course-activity.html`: `course-activity.js`
+- `printables.html`: `menu/printables-projects.js`
 
 ## Tests
 
@@ -77,7 +111,9 @@ The repository tests were run before and after the change:
 - Escape cipher, lock, highlight and order tests: pass.
 - Published question banks, grade, HS and Pre-Algebra bank integration: pass.
 - Vocabulary flashcards, resource eligibility, browse-activities browser, arcade links, Algebra 2 native and integration, unit-specific arcade, approved games and question-bank loader: pass.
-- `test-public-site` needs a built `_site/` folder and fails the same way on the original commit.
+- `test-public-site` (run after `node scripts/build-site.mjs`): passes. Two assertions in it were updated to match intended changes:
+  - the project count, from 37 to 74
+  - the `app.js?v=` version string
 
 ## Not changed
 
