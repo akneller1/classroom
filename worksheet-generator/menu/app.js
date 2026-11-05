@@ -109,7 +109,7 @@
   }
   function viewSetup() {
     var c = cfg(), set = NS.skillSets[c.unitId], rules = NS.checkRules(c, S);
-    var group = PAGE_MODE ? null : classGroup(c.unitId);
+    var group = classGroup(c.unitId);
     var h = '';
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
