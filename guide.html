@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teacher Guide · Mr. K's Classroom</title>
+<meta name="description" content="How to use Mr. K's Classroom: sharing student links, choosing class games and review games, and making lessons, worksheets, activities and assessments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+:root{
+  --paper:#f4f5fb;--wash:#e6e9f8;--card:#fff;--ink:#14173a;--ink-soft:#4a4f78;--line:#cfd3ea;--edge:#14173a;--shadow:#14173a;
+  --blue-bg:#3547f5;--blue-fg:#fff;--blue-tint:#e2e6ff;--blue-text:#2330c8;
+  --orange-tint:#ffe8d0;--orange-text:#a84700;--green-tint:#d6f5e8;--green-text:#0c7a55;--purple-tint:#ebe3ff;--purple-text:#5a2fd6;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0e1024;--wash:#181b3d;--card:#1a1e44;--ink:#eef0ff;--ink-soft:#aeb4dc;--line:#333a72;--edge:#8a91d6;--shadow:#05060f;
+  --blue-bg:#4152f0;--blue-tint:#1e2467;--blue-text:#a9b2ff;--orange-tint:#3d2916;--orange-text:#ffb470;--green-tint:#123b32;--green-text:#6fe3bb;--purple-tint:#2a1f5e;--purple-text:#bba6ff;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0e1024;--wash:#181b3d;--card:#1a1e44;--ink:#eef0ff;--ink-soft:#aeb4dc;--line:#333a72;--edge:#8a91d6;--shadow:#05060f;
+  --blue-bg:#4152f0;--blue-tint:#1e2467;--blue-text:#a9b2ff;--orange-tint:#3d2916;--orange-text:#ffb470;--green-tint:#123b32;--green-text:#6fe3bb;--purple-tint:#2a1f5e;--purple-text:#bba6ff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--blue-text);font-weight:700;text-underline-offset:3px}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--blue-bg);outline-offset:3px;border-radius:6px}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+.top{border-bottom:2px solid var(--edge);background:var(--card)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;flex-wrap:wrap}
+.home{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font:800 19px var(--display)}
+.home span{color:var(--blue-text)}
+.print{border:2px solid var(--edge);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 14px;font:700 15px var(--body);cursor:pointer}
+header.hero{padding:40px 0 18px}
+h1{font:800 clamp(34px,6vw,54px)/1.05 var(--display);margin:0 0 12px;letter-spacing:-.02em}
+.lede{font-size:19px;color:var(--ink-soft);margin:0 0 20px;max-width:46em}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.toc a{display:inline-block;padding:6px 12px;border:2px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}
+.toc a:hover{border-color:var(--edge)}
+section{padding:22px 0}
+h2{font:800 28px/1.15 var(--display);margin:0 0 6px}
+.sub{color:var(--ink-soft);margin:0 0 16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{background:var(--card);border:2px solid var(--edge);border-radius:14px;padding:16px;box-shadow:4px 4px 0 var(--shadow);counter-increment:s}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue-bg);color:var(--blue-fg);font:800 16px var(--display);margin-bottom:6px}
+.steps b{display:block;font-family:var(--display);font-size:19px}
+details{background:var(--card);border:2px solid var(--line);border-radius:14px;margin:0 0 10px}
+details[open]{border-color:var(--edge)}
+summary{cursor:pointer;list-style:none;padding:14px 48px 14px 16px;font:700 18px/1.35 var(--display);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font:800 24px var(--display);color:var(--blue-text)}
+details[open] summary::after{content:"–"}
+.body{padding:0 16px 14px}
+.body p,.body ul,.body ol{margin:0 0 10px}
+.body li{margin:3px 0}
+.note{border-left:5px solid var(--orange-text);background:var(--orange-tint);border-radius:8px;padding:10px 12px;margin:10px 0}
+.tip{border-left:5px solid var(--green-text);background:var(--green-tint);border-radius:8px;padding:10px 12px;margin:10px 0}
+.table{overflow-x:auto;border:2px solid var(--edge);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:16px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font:700 15px var(--display);background:var(--wash)}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;padding:1px 9px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.class{background:var(--purple-tint);color:var(--purple-text)}
+.solo{background:var(--green-tint);color:var(--green-text)}
+.both{background:var(--blue-tint);color:var(--blue-text)}
+.print-only{display:none}
+footer{border-top:2px solid var(--line);margin-top:24px;padding:20px 0 40px;color:var(--ink-soft);font-size:15px}
+@media (max-width:720px){.steps{grid-template-columns:1fr}h2{font-size:24px}}
+@media print{
+  .top,.toc,.print,footer{display:none}
+  details{border:0;break-inside:avoid}details .body{display:block}
+  summary::after{content:""}
+  body{background:#fff;color:#000;font-size:12pt}
+}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="home" href="index.html">← <span>Mr. K's Classroom</span></a>
+  <button type="button" class="print" id="printGuide">Print this guide</button>
+</div></div>
+
+<main class="wrap" id="main">
+<header class="hero">
+  <h1>Teacher Guide</h1>
+  <p class="lede">Everything on this site is free and needs no accounts. This page covers the few things that aren't obvious: sharing activities with students, which games are made for the whole class, and the options in each generator.</p>
+  <ul class="toc" aria-label="On this page">
+    <li><a href="#start">Quick start</a></li>
+    <li><a href="#share">Sharing with students</a></li>
+    <li><a href="#games">Which game when</a></li>
+    <li><a href="#create">Making resources</a></li>
+    <li><a href="#find">Finding things</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</header>
+
+<section id="start" aria-labelledby="h-start">
+  <h2 id="h-start">Quick start</h2>
+  <p class="sub">Most visits follow the same three steps.</p>
+  <ol class="steps">
+    <li><b>Pick a course</b>Use the course names across the top, or a subject tile on the home page.</li>
+    <li><b>Open a unit</b>Each unit page has everything for that unit: generators, games and study guides.</li>
+    <li><b>Create or play</b>Make a lesson, worksheet, activity or assessment, or open a game or study guide.</li>
+  </ol>
+</section>
+
+<section id="share" aria-labelledby="h-share">
+  <h2 id="h-share">Sharing with students</h2>
+  <p class="sub">Give students a link to one activity, without the rest of the site.</p>
+
+  <details open>
+    <summary>How do I send students to one game or study guide?</summary>
+    <div class="body">
+      <ol>
+        <li>Find the activity on its unit page or in Browse Activities.</li>
+        <li>Click <b>Copy student link</b> on its card.</li>
+        <li>For most games, a window opens first. Choose the skills students should practice, then copy the link.</li>
+        <li>Paste the link into Google Classroom, Canvas, Teams or an email.</li>
+      </ol>
+      <p>The student link opens only that activity, with only the skills you chose. Students don't see the site's menus, course pages, generators or answer keys.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Which activities have a student link?</summary>
+    <div class="body">
+      <p>Activities that students can do on their own:</p>
+      <ul>
+        <li>Flashcards</li>
+        <li>Picture Reveal</li>
+        <li>Detective</li>
+        <li>Escape Room</li>
+        <li>Slope Links Mini Golf</li>
+        <li>Zombie Fence</li>
+        <li>Cheat Sheets</li>
+        <li>The Assessment Readiness Check</li>
+      </ul>
+      <p>Whole-class games (Showdown, Connect 4 and Tic-Tac-Toe) don't have one, because they are meant to be run from the teacher's screen. Printables don't either: print them or share the PDF.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>How do I give students the Assessment Readiness Check?</summary>
+    <div class="body">
+      <p>On the unit page, use <b>Copy student link</b> on the Assessment Readiness Check card. A setup window opens first. In it you choose:</p>
+      <ul>
+        <li>level</li>
+        <li>number of questions (5–25)</li>
+        <li>time limit (none, 20, 30 or 45 minutes)</li>
+        <li>answer format (mixed, multiple choice, or short answer graded automatically)</li>
+        <li>skills</li>
+      </ul>
+      <p>Students take it online and get worked solutions and skill-by-skill feedback right away. Then they can practice what they missed with new questions.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Can students get from a student link to the rest of the site?</summary>
+    <div class="body">
+      <p>Not by clicking: a student link has no menus or links back to the site. It is a focused view, though, not a password. A student who edits the web address by hand could still reach the public pages.</p>
+      <div class="note">Answer keys only appear when you build or print them from a generator. They are never part of a student link. Keep printed keys and downloaded key PDFs out of shared folders.</div>
+    </div>
+  </details>
+</section>
+
+<section id="games" aria-labelledby="h-games">
+  <h2 id="h-games">Which game when</h2>
+  <p class="sub">Every unit has the same set of games, so this works in any course.</p>
+  <div class="table">
+    <table>
+      <thead><tr><th scope="col">Game</th><th scope="col">Best for</th><th scope="col">How it runs</th><th scope="col">Student link</th></tr></thead>
+      <tbody>
+        <tr><td><b>Showdown</b> (Jeopardy-style)</td><td><span class="pill class">Whole class, projected</span></td><td>Teams pick a category and point value. Reveal the worked solution after each question. It keeps team scores.</td><td>No</td></tr>
+        <tr><td><b>Connect 4</b></td><td><span class="pill class">Whole class, projected</span></td><td>Two teams answer to drop discs. A wrong answer lets the other team steal.</td><td>No</td></tr>
+        <tr><td><b>Tic-Tac-Toe</b></td><td><span class="pill class">Whole class, projected</span></td><td>Two teams answer multiple-choice questions to claim squares. A miss opens a steal. There is an optional timer.</td><td>No</td></tr>
+        <tr><td><b>Escape Room</b></td><td><span class="pill both">Class or small groups</span></td><td>Five rooms, a cipher and a final door, against a 10-minute timer. It works well projected or with groups on devices.</td><td>Yes</td></tr>
+        <tr><td><b>Detective</b></td><td><span class="pill both">Pairs or individual</span></td><td>Answers earn evidence to clear suspects, locations and methods, then students make the final accusation.</td><td>Yes</td></tr>
+        <tr><td><b>Picture Reveal</b></td><td><span class="pill solo">Individual review</span></td><td>Each correct answer uncovers part of a picture, with feedback and worked solutions.</td><td>Yes</td></tr>
+        <tr><td><b>Flashcards</b></td><td><span class="pill solo">Individual review</span></td><td>Self-paced. Students flip for worked solutions and mark cards to revisit. The decks include vocabulary cards.</td><td>Yes</td></tr>
+        <tr><td><b>Slope Links Mini Golf</b>, <b>Zombie Fence</b></td><td><span class="pill solo">Individual or pairs</span></td><td>Topic games for Algebra 1 Units 5 and 6, where the math is part of the play.</td><td>Yes</td></tr>
+        <tr><td><b>Matching Game</b></td><td><span class="pill solo">Individual or pairs</span></td><td>The online version of the Matching Card Sort: match each function's graph, equation, table and description.</td><td>Use <b>Play online</b> in the Activity Generator</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tip">To project a game, open it on the teacher computer and use your browser's full-screen mode (F11 on Windows, Control-Command-F on a Mac). Zoom in with Ctrl/Cmd and + if the back row can't read it.</div>
+</section>
+
+<section id="create" aria-labelledby="h-create">
+  <h2 id="h-create">Making resources</h2>
+  <p class="sub">Four generators sit at the top of every unit page and on the home page. All of them share a few options.</p>
+
+  <details open>
+    <summary>Options every generator shares</summary>
+    <div class="body">
+      <ul>
+        <li><b>Level.</b> CP2, CP1 or Honors in high school; Remedial, Standard or Advanced in 6th–8th grade. The level sets the difficulty of every problem.</li>
+        <li><b>Skills.</b> Tick the skills from the unit you want. Skills that don't suit a format are greyed out, with the reason shown.</li>
+        <li><b>Versions.</b> Up to three versions (A, B, C) with different numbers, which helps against copying.</li>
+        <li><b>Student copy and answer key.</b> Switch between the two views, and print each separately.</li>
+        <li><b>New problems.</b> Regenerates the problems with the same settings.</li>
+      </ul>
+      <p>Answers to generated problems are checked by the site. If you ever spot a mistake, use <b>Feedback or report an issue</b> at the bottom of any page.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Lesson Plan</summary>
+    <div class="body">
+      <p>This is a full day's lesson from the course's scope and sequence:</p>
+      <ul>
+        <li>objective</li>
+        <li>vocabulary</li>
+        <li>Do Now</li>
+        <li>notes</li>
+        <li>worked examples</li>
+        <li>practice</li>
+        <li>exit ticket</li>
+      </ul>
+      <ul>
+        <li><b>Course, unit and day.</b> Choose them at the top. On Lesson days you can tick other lessons in the unit to combine their problems.</li>
+        <li><b>Student notes.</b> <i>Completed notes</i> fill everything in; <i>Guided notes</i> leave key words and answers blank. The teacher key always prints completed.</li>
+        <li><b>Include in lesson.</b> Untick sections to leave them out. You can edit section minutes and notes; your edits are saved in your browser.</li>
+        <li><b>Output.</b> Print the student handout or the teacher key, or download the lesson as a PowerPoint.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Worksheet</summary>
+    <div class="body">
+      <ul>
+        <li><b>What it makes.</b> Practice worksheets for any unit, mixing multiple-choice and show-your-work problems.</li>
+        <li><b>Settings.</b> Choose skills, level and number of versions.</li>
+        <li><b>Answer key.</b> It includes worked solutions.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Activity (printables and projects)</summary>
+    <div class="body">
+      <p>Pick a printable on the left, then a level and skills:</p>
+      <ul>
+        <li><b>Maze</b>: each correct answer leads to the next room.</li>
+        <li><b>Color by Number</b>: answers map to colors that reveal a picture.</li>
+        <li><b>Tarsia Puzzle</b>: cut out triangles and match problems to answers.</li>
+        <li><b>Error Analysis</b>: find, explain and fix a student's mistake.</li>
+        <li><b>Partner Check</b>: Partner A and Partner B solve different problems with the same answers.</li>
+        <li><b>Whodunnit</b>: clue cards to post around the room, and a case board to solve.</li>
+        <li><b>Stations</b>: one page per station, plus an answer key.</li>
+        <li><b>Matching Card Sort</b>: function units only. Match graph, equation, table and description cards; <b>Play online</b> opens the digital version.</li>
+        <li><b>Vocabulary Builder</b>: matching, definition, diagram and crossword sheets.</li>
+        <li><b>Projects</b>: 2–3 day projects in CP2, CP1 and Honors versions. Download them as PDF, Word or PowerPoint, with a teacher guide.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Assessment</summary>
+    <div class="body">
+      <ul>
+        <li><b>Formats.</b> Build a standard unit test (multiple choice and short answer) or a choice-based menu assessment, where students pick problems to reach a point total.</li>
+        <li><b>Settings.</b> Choose skills, level, number of versions and point values.</li>
+        <li><b>Editing.</b> On the review screen you can replace, move, delete or edit any problem, or write your own.</li>
+        <li><b>Your own problems.</b> The site can't check an answer it didn't generate. Tick <b>I checked this answer</b> on the problem card to approve it before printing.</li>
+      </ul>
+      <p>Saved assessments stay in your browser, and you can download one as a file to keep or move to another computer.</p>
+    </div>
+  </details>
+</section>
+
+<section id="find" aria-labelledby="h-find">
+  <h2 id="h-find">Finding things</h2>
+  <details open>
+    <summary>Ways to get around</summary>
+    <div class="body">
+      <ul>
+        <li><b>Search</b> (top right) accepts a topic ("slope"), a format ("escape room") or both.</li>
+        <li><b>Unit pages</b> have <i>Previous unit</i> and <i>Next unit</i> buttons, and the <b>Back</b> button returns you to where you were.</li>
+        <li><b>Browse Activities</b> (the <i>Games</i> and <i>Study Guides</i> tiles) can be filtered by subject, unit, category and activity type.</li>
+        <li><b>Save</b> on any card adds it to <a href="index.html#saved">Saved activities</a> for quick access later.</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<section id="faq" aria-labelledby="h-faq">
+  <h2 id="h-faq">FAQ</h2>
+  <details>
+    <summary>Do students or teachers need an account?</summary>
+    <div class="body"><p>No. Nothing to sign up for, and nothing about students is collected.</p></div>
+  </details>
+  <details>
+    <summary>Where are my saved activities and edits stored?</summary>
+    <div class="body"><p>In the browser you used: saved activities, lesson-plan edits and saved assessments. They won't follow you to another computer or browser, and clearing browsing data removes them. To move an assessment, download it as a file and open it on the other computer.</p></div>
+  </details>
+  <details>
+    <summary>Why does a game ask me to choose skills when I open it?</summary>
+    <div class="body"><p>So one game can fit a whole unit or just today's lesson. Choose the skills and level, then start. A student link remembers the skills you picked.</p></div>
+  </details>
+  <details>
+    <summary>Something printed badly or an answer looks wrong. What do I do?</summary>
+    <div class="body">
+      <p>For printing, use the generator's own <b>Print</b> buttons. They set the page size and margins, so turn off "Fit to page" scaling in the print dialog.</p>
+      <p>For a wrong answer, use <b>Feedback or report an issue</b> at the bottom of any page. Include the link and the problem, and it will be fixed.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Which browsers work?</summary>
+    <div class="body"><p>Any current version of Chrome, Edge, Safari or Firefox, on computers, Chromebooks and tablets. Phones work for flashcards and review games; the generators are easier on a larger screen.</p></div>
+  </details>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <a href="index.html">← Back to Mr. K's Classroom</a>
+</div></footer>
+<script>
+(function(){
+  // Print: open every section so the whole guide prints, then restore what was open.
+  var btn=document.getElementById('printGuide');
+  if(btn)btn.addEventListener('click',function(){window.print();});
+  var opened=[];
+  window.addEventListener('beforeprint',function(){opened=[];document.querySelectorAll('details').forEach(function(d){if(!d.open){opened.push(d);d.open=true;}});});
+  window.addEventListener('afterprint',function(){opened.forEach(function(d){d.open=false;});});
+  // A link to a section (guide.html#share) opens the first question in it.
+  function openTarget(){var id=location.hash.slice(1);if(!id)return;var el=document.getElementById(id);if(!el)return;var d=el.tagName==='DETAILS'?el:el.querySelector('details');if(d)d.open=true;}
+  window.addEventListener('hashchange',openTarget);openTarget();
+})();
+</script>
+</body>
+</html>

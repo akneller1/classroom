@@ -59,3 +59,32 @@
     link.addEventListener('click', function () { dialog.close(); });
   });
 })();
+
+/* Teacher Guide (guide.html): a footer link on every page, and a short "New here?" pointer added to the home page's
+ * introduction line. Nothing is added to the header, so the layout stays exactly as it was. */
+(function () {
+  'use strict';
+  var doc = document;
+  var bottom = doc.querySelector('.site-footer .footer-bottom');
+  if (bottom && !bottom.querySelector('a[href="guide.html"]')) {
+    var f = doc.createElement('a');
+    f.href = 'guide.html'; f.textContent = 'Teacher guide';
+    var fb = bottom.querySelector('[data-feedback-chooser]');
+    if (fb) bottom.insertBefore(f, fb); else bottom.appendChild(f);
+  }
+  var main = doc.getElementById('main');
+  if (!main || typeof MutationObserver !== 'function') return;
+  function hint() {
+    // The home page's lede under "More learning. Less planning." (only the home page has .home-intro)
+    var p = main.querySelector('.home-intro .lede');
+    if (!p || p.querySelector('.guide-hint')) return;
+    var a = doc.createElement('a');
+    a.className = 'guide-hint'; a.href = 'guide.html';
+    a.textContent = 'Read the teacher guide';
+    p.appendChild(doc.createTextNode(' New here? '));
+    p.appendChild(a);
+    p.appendChild(doc.createTextNode('.'));
+  }
+  hint();
+  new MutationObserver(hint).observe(main, { childList: true, subtree: true });
+})();
