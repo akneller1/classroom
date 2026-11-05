@@ -58,17 +58,20 @@
   function unitNum(c, u) { return c.units.indexOf(u) + 1; }
   function unitLabel(c, u) { return 'Unit ' + unitNum(c, u) + ': ' + u.name; }
   function href(t) { return '#' + encodeURIComponent(t).replace(/%2E/g, '.'); }
+  /* Per-unit printable generator links (Maze, Tarsia, …) are reached through the Activity Generator,
+     so they are not listed or counted as activities (unit pages still use them for the generator shortcut). */
+  function listed(a) { return activityFormat(a) !== 'printable-generator'; }
   function courseCount(c) {
-    return c.units.reduce(function (n, u) { return n + u.artifacts.length; }, 0);
+    return c.units.reduce(function (n, u) { return n + u.artifacts.filter(listed).length; }, 0);
   }
   function unitsWithActivities(c) {
-    return c.units.filter(function (u) { return u.artifacts.length; }).length;
+    return c.units.filter(function (u) { return u.artifacts.some(listed); }).length;
   }
   function everything() {
     var out = [];
     L.courses.forEach(function (c) {
       c.units.forEach(function (u) {
-        u.artifacts.forEach(function (a) { out.push({ a: a, c: c, u: u }); });
+        u.artifacts.filter(listed).forEach(function (a) { out.push({ a: a, c: c, u: u }); });
       });
     });
     return out;
@@ -568,12 +571,12 @@
         (c.planned ? '' : '<section class="section"><div class="wrap">' + generatorLinks(c, null, true) + '</div></section>') +
         '<section class="section"><div class="wrap"><h2 class="course-units-title">Browse by unit</h2><ul class="units">' +
         c.units.map(function (u) {
-          var k = u.artifacts.length;
+          var k = u.artifacts.filter(listed).length;
           if (!k && !c.planned && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7' && c.id !== 'math6') {
             return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
-          var minis = u.artifacts.slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
+          var minis = u.artifacts.filter(listed).slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
           if (c.planned || c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
@@ -868,7 +871,7 @@
     var unitChoices = [];
     L.courses.forEach(function (c) {
       if (state.subject && state.subject !== c.id) return;
-      c.units.forEach(function (u) { if (u.artifacts.length) unitChoices.push({
+      c.units.forEach(function (u) { if (u.artifacts.some(listed)) unitChoices.push({
         id: unitToken(c, u), name: (state.subject ? '' : c.name + ' — ') + unitLabel(c, u)
       }); });
     });
