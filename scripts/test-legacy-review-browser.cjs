@@ -32,13 +32,23 @@ const assert=require('node:assert/strict');
   assert.equal(data.approved,false);
   assert.equal(data.results[0].review.status,'revise');
   assert.equal(data.results[0].review.note,'Check grade-level arithmetic.');
-  // Grade 6 and 7 are visible in public navigation.
-  // Unapproved standalone players still redirect to the course site.
-  for (const entry of ['grade-practice.html','middle-school-game.html']) {
-    await page.goto((process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/'+entry);
-    await page.waitForURL('**/index.html');
-    assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
-  }
+  // Direct middle-school resources remain on the requested activity.
+  const activityBase=(process.env.MK_BASE_URL||'http://127.0.0.1:8765')+'/worksheet-generator/';
+  await page.goto(activityBase+'grade-practice.html?course=prealgebra7&topic=evaluating-expressions');
+  await page.waitForFunction(()=>document.querySelector('#topic')?.options.length>0);
+  assert.equal(await page.locator('#course').inputValue(),'prealgebra7');
+  assert.equal(await page.locator('#topic').inputValue(),'evaluating-expressions');
+  assert.match(await page.locator('#status').innerText(),/draft questions generated/);
+  assert.ok(await page.locator('#practice button').count()>0,'Practice questions must be interactive');
+  assert.equal(new URL(page.url()).pathname,'/worksheet-generator/grade-practice.html');
+  await page.goto(activityBase+'middle-school-game.html');
+  await page.waitForFunction(()=>document.body.getAttribute('data-unit')==='unavailable');
+  assert.match(await page.locator('#app').innerText(),/not available for this unit yet/);
+  assert.equal(new URL(page.url()).pathname,'/worksheet-generator/middle-school-game.html');
+  await page.goto(activityBase+'middle-school-game.html?course=prealgebra7&topic=evaluating-expressions&game=connect-four');
+  await page.getByRole('button',{name:'Continue',exact:true}).click();
+  await page.locator('#tGo').waitFor();
+  assert.equal(new URL(page.url()).pathname,'/worksheet-generator/middle-school-game.html');
   const coursePage=(process.env.MK_BASE_URL||'http://127.0.0.1:8765');
   // Grade 7 must remain visible in deep-link and mobile views.
   // Existing direct-access resources remain preserved, but not linked here.
@@ -46,7 +56,7 @@ const assert=require('node:assert/strict');
   assert.ok(await page.locator('script[src^="skill-crosswalk.js"]').count()>0);
   assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);
   assert.equal(await page.locator('a[href*="approved-flashcards.html?course=prealgebra7"]').count(),0);
-  // The Grade 7 resource bank remains unpublished until it has approved questions.
+  // Approved course-bank players are checked in the integration workflows.
   // Resource-specific player tests run separately from visibility checks.
   await page.setViewportSize({width:375,height:812});
   assert.equal(await page.locator('#nav a[href="#prealgebra7"]').count(),1);

@@ -97,7 +97,7 @@ function check(env,get,stage,label){
 const shared='worksheet-generator/games/escape-runtime.js';
 run(fs.readFileSync(path.join(root,shared),'utf8'),shared,true);
 const artifacts=fs.readdirSync(path.join(root,'artifacts'))
-  .filter(d=>d.includes('escape-room')&&fs.existsSync(path.join(root,'artifacts',d,'index.html')));
+  .filter(d=>d.endsWith('-escape-room')&&fs.existsSync(path.join(root,'artifacts',d,'index.html')));
 for(const dir of artifacts){
  const file='artifacts/'+dir+'/index.html';
  run(fs.readFileSync(path.join(root,file),'utf8'),file,false);

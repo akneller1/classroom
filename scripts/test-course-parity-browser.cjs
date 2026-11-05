@@ -16,12 +16,26 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
     else for(const [j,f] of stage.fields.entries())await page.locator('#f'+j).fill(String(f.answer));
     await page.locator('#go').click();
    }else if(stage.type==='cipher'){
-    assert.equal(await page.locator('#shiftTools').isVisible(),false);
+    assert.equal(await page.locator('#cipherReveal').isVisible(),false);
+    assert.equal(await page.locator('#cipherWordRow').isVisible(),false);
     const before=await page.evaluate(()=>window.MK_ESCAPE_STATE().t);
-    if(stage.sourceChoices)await page.locator('[data-cipher-choice="'+stage.sourceCorrect+'"]').click();
-    await page.locator('#shiftGuess').fill(String((stage.shift+1)%26));await page.getByRole('button',{name:/Lock shift/}).click();
-    assert.equal(await page.locator('#shiftTools').isVisible(),false);const after=await page.evaluate(()=>window.MK_ESCAPE_STATE().t);assert.ok(before-after>=30&&before-after<=33,'Wrong shift must cost 30 seconds');
-    await page.locator('#shiftGuess').fill(String(stage.shift));await page.getByRole('button',{name:/Lock shift/}).click();assert.equal(await page.locator('#shiftTools').isVisible(),true);
+    await page.locator('#shiftGuess').fill(String((stage.shift+1)%26));
+    await page.locator('#lockShiftButton').click();
+    assert.equal(await page.locator('#cipherReveal').isVisible(),false);
+    const after=await page.evaluate(()=>window.MK_ESCAPE_STATE().t);
+    assert.ok(before-after>=30&&before-after<=33,'Wrong answer must cost 30 seconds');
+    await page.locator('#shiftGuess').fill(String(stage.shift));
+    await page.locator('#lockShiftButton').click();
+    assert.equal(await page.locator('#cipherReveal').isVisible(),true);
+    assert.equal(await page.evaluate(()=>window.MK_ESCAPE_STATE().st.k),0,'Correct math must not auto-decode the cipher');
+    assert.equal(await page.locator('#cipherWordRow').isVisible(),false);
+    for(let n=1;n<=stage.shift;n++){
+      await page.locator('#cipherPlusOne').click();
+      assert.equal(await page.evaluate(()=>window.MK_ESCAPE_STATE().st.k),n,'Each +1 press advances exactly one letter');
+      assert.equal(await page.locator('#cipherWordRow').isVisible(),n===stage.shift);
+    }
+    assert.equal(await page.locator('#dec').innerText(),stage.plain);
+    assert.equal((await page.locator('#dec .cipher-clue-word').first().innerText()).toUpperCase(),stage.answer.toUpperCase());
     await page.locator('#w').fill(stage.answer);await page.locator('#go').click();
    }else if(stage.type==='classify'){for(const [j,answer] of stage.answer.entries())await page.locator('#sw'+j+' button').nth(answer).click();await page.locator('#go').click();}
    else if(stage.type==='order'){

@@ -29,8 +29,8 @@ for(const [course,units] of Object.entries(skills)){
    if(q.cipherFamily==='systems'){
     systems++;
     assert.match(q.prompt,/Solve the system:/,course+'/'+unit+': must solve system');
-    assert.match(q.prompt,/x .* y =/,course+'/'+unit+': first equation contains x and y');
-    assert.match(q.prompt,/and .*x .* y =/,course+'/'+unit+': second equation contains x and y');
+    assert.match(q.prompt,/x .* \d*y =/,course+'/'+unit+': first equation contains x and y');
+    assert.match(q.prompt,/and .*x .* \d*y =/,course+'/'+unit+': second equation contains x and y');
     const shift=+q.answer;
     if(level==='cp2'){
       const m=q.prompt.match(/x \+ y = (-?\d+) and x − y = (-?\d+)/);
