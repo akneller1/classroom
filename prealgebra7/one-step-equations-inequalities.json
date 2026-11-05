@@ -3290,26 +3290,6 @@
    "sourceNotes": "Original Claude-authored item (family: s3_perimeter). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-osei-s03-cp1-014",
-   "skillId": "one-step-equations-inequalities-skill-03",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nSimplify: 3y + 5 + y + 11\nPriya's answer: 4y + 16\nIdentify the mistake and give the correct answer.",
-   "answer": "4y + 16",
-   "solutionSteps": [
-    "Mistake: Ignored the sign in front of a term.",
-    "Identify like terms (same variable part).",
-    "Group the variable terms and the constants.",
-    "Combine: 4y + 16.",
-    "The correct answer is 4y + 16, not 4y + 16."
-   ],
-   "standards": [
-    "7.EE.A.1",
-    "6.EE.A.4"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s3_combine_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-osei-s03-cp1-015",
    "skillId": "one-step-equations-inequalities-skill-03",
    "level": "cp1",
@@ -7992,27 +7972,6 @@
    "sourceNotes": "Original Claude-authored item (family: s7_sum_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-osei-s07-cp2-014",
-   "skillId": "one-step-equations-inequalities-skill-07",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Lena answered this problem incorrectly.\nAdult tickets cost $14 and child tickets cost $2. A group bought 24 tickets for $192. How many adult tickets did they buy?\nLena's answer: 12\nIdentify the mistake and give the correct answer.",
-   "answer": "12",
-   "solutionSteps": [
-    "Mistake: Gave the number of child tickets.",
-    "Guess a number of adult tickets, a; then child tickets = 24 - a.",
-    "Check: 14a + 2(24 - a) should equal 192.",
-    "Revise the guess based on whether the total is too high or too low.",
-    "a = 12: 14(12) + 2(12) = 192.",
-    "The correct answer is 12, not 12."
-   ],
-   "standards": [
-    "MP.1",
-    "7.EE.B.3"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_tickets_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-osei-s07-cp2-015",
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "cp2",
@@ -8860,27 +8819,6 @@
    "sourceNotes": "Original Claude-authored item (family: s7_sum_diff). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-osei-s07-honors-014",
-   "skillId": "one-step-equations-inequalities-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Uma answered this problem incorrectly.\nAdult tickets cost $13 and child tickets cost $3. A group bought 9 tickets for $97. How many adult tickets did they buy?\nUma's answer: 7\nIdentify the mistake and give the correct answer.",
-   "answer": "7",
-   "solutionSteps": [
-    "Mistake: Divided the total cost by the adult price.",
-    "Guess a number of adult tickets, a; then child tickets = 9 - a.",
-    "Check: 13a + 3(9 - a) should equal 97.",
-    "Revise the guess based on whether the total is too high or too low.",
-    "a = 7: 13(7) + 3(2) = 97.",
-    "The correct answer is 7, not 7."
-   ],
-   "standards": [
-    "MP.1",
-    "7.EE.B.3"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_tickets_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-osei-s07-honors-015",
    "skillId": "one-step-equations-inequalities-skill-07",
    "level": "honors",
@@ -8916,27 +8854,6 @@
     "7.EE.B.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s7_sum_diff_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
-   "id": "pa7-osei-s07-honors-016",
-   "skillId": "one-step-equations-inequalities-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Nia answered this problem incorrectly.\nAdult tickets cost $15 and child tickets cost $2. A group bought 15 tickets for $147. How many adult tickets did they buy?\nNia's answer: 9\nIdentify the mistake and give the correct answer.",
-   "answer": "9",
-   "solutionSteps": [
-    "Mistake: Divided the total cost by the adult price.",
-    "Guess a number of adult tickets, a; then child tickets = 15 - a.",
-    "Check: 15a + 2(15 - a) should equal 147.",
-    "Revise the guess based on whether the total is too high or too low.",
-    "a = 9: 15(9) + 2(6) = 147.",
-    "The correct answer is 9, not 9."
-   ],
-   "standards": [
-    "MP.1",
-    "7.EE.B.3"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_tickets_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
    "id": "pa7-osei-s08-cp2-001",
@@ -12892,6 +12809,89 @@
     "7.EE.B.4b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s10_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-osei-s03-cp1-017",
+   "skillId": "one-step-equations-inequalities-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nSimplify: 11x + 12 + x - 15\nIsla's answer: 9x\nIdentify the mistake and give the correct answer.",
+   "answer": "12x - 3",
+   "solutionSteps": [
+    "Mistake: Multiplied coefficients instead of adding.",
+    "Identify like terms (same variable part).",
+    "Group the variable terms and the constants.",
+    "Combine: 12x - 3.",
+    "The correct answer is 12x - 3, not 9x."
+   ],
+   "standards": [
+    "7.EE.A.1",
+    "6.EE.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_combine_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-osei-s07-cp2-017",
+   "skillId": "one-step-equations-inequalities-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nAdult tickets cost $7 and child tickets cost $4. A group bought 13 tickets for $73. How many adult tickets did they buy?\nBen's answer: 10\nIdentify the mistake and give the correct answer.",
+   "answer": "7",
+   "solutionSteps": [
+    "Mistake: Divided the total cost by the adult price.",
+    "Guess a number of adult tickets, a; then child tickets = 13 - a.",
+    "Check: 7a + 4(13 - a) should equal 73.",
+    "Revise the guess based on whether the total is too high or too low.",
+    "a = 7: 7(7) + 4(6) = 73.",
+    "The correct answer is 7, not 10."
+   ],
+   "standards": [
+    "MP.1",
+    "7.EE.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_tickets_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-osei-s07-honors-017",
+   "skillId": "one-step-equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Femi answered this problem incorrectly.\nAdult tickets cost $14 and child tickets cost $5. A group bought 10 tickets for $86. How many adult tickets did they buy?\nFemi's answer: 6\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Gave the number of child tickets.",
+    "Guess a number of adult tickets, a; then child tickets = 10 - a.",
+    "Check: 14a + 5(10 - a) should equal 86.",
+    "Revise the guess based on whether the total is too high or too low.",
+    "a = 4: 14(4) + 5(6) = 86.",
+    "The correct answer is 4, not 6."
+   ],
+   "standards": [
+    "MP.1",
+    "7.EE.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_tickets_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-osei-s07-honors-018",
+   "skillId": "one-step-equations-inequalities-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nAdult tickets cost $10 and child tickets cost $4. A group bought 18 tickets for $144. How many adult tickets did they buy?\nCarmen's answer: 14\nIdentify the mistake and give the correct answer.",
+   "answer": "12",
+   "solutionSteps": [
+    "Mistake: Divided the total cost by the adult price.",
+    "Guess a number of adult tickets, a; then child tickets = 18 - a.",
+    "Check: 10a + 4(18 - a) should equal 144.",
+    "Revise the guess based on whether the total is too high or too low.",
+    "a = 12: 10(12) + 4(6) = 144.",
+    "The correct answer is 12, not 14."
+   ],
+   "standards": [
+    "MP.1",
+    "7.EE.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_tickets_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

@@ -6995,25 +6995,6 @@
    "sourceNotes": "Original Claude-authored item (family: s6_circumference). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-spt-s06-cp1-014",
-   "skillId": "spatial-thinking-skill-06",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Carmen answered this problem incorrectly.\nA circle has a diameter of 4 m. Find its circumference. Use 3.14 for π and round to the nearest tenth.\nCarmen's answer: 12.6 m\nIdentify the mistake and give the correct answer.",
-   "answer": "12.6 m",
-   "solutionSteps": [
-    "Mistake: Found the area.",
-    "C = πd.",
-    "d = 4.",
-    "C = 3.14 × 4 ≈ 12.6 m.",
-    "The correct answer is 12.6 m, not 12.6 m."
-   ],
-   "standards": [
-    "7.G.B.4"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s6_circumference_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-spt-s06-cp1-015",
    "skillId": "spatial-thinking-skill-06",
    "level": "cp1",
@@ -9992,26 +9973,6 @@
    "sourceNotes": "Original Claude-authored item (family: s8_point_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-spt-s08-honors-016",
-   "skillId": "spatial-thinking-skill-08",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Quinn answered this problem incorrectly.\nPoint P(1, 7) is translated by the rule (x, y) → (x + 5, y + 5). What are the coordinates of P′?\nQuinn's answer: (6, 12)\nIdentify the mistake and give the correct answer.",
-   "answer": "(6, 12)",
-   "solutionSteps": [
-    "Mistake: Applied the horizontal and vertical shifts to the wrong coordinates.",
-    "Add 5 to the x-coordinate: 1 + 5 = 6.",
-    "Add 5 to the y-coordinate: 7 + 5 = 12.",
-    "P′(6, 12).",
-    "The correct answer is (6, 12), not (6, 12)."
-   ],
-   "standards": [
-    "8.G.A.1",
-    "8.G.A.3"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s8_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-spt-s09-cp2-001",
    "skillId": "spatial-thinking-skill-09",
    "level": "cp2",
@@ -12454,6 +12415,45 @@
     "8.G.A.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s10_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-spt-s06-cp1-017",
+   "skillId": "spatial-thinking-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nA circle has a radius of 7 m. Find its circumference. Use 3.14 for π and round to the nearest tenth.\nAva's answer: 153.9 m\nIdentify the mistake and give the correct answer.",
+   "answer": "44.0 m",
+   "solutionSteps": [
+    "Mistake: Found the area.",
+    "C = πd.",
+    "d = 14.",
+    "C = 3.14 × 14 ≈ 44.0 m.",
+    "The correct answer is 44.0 m, not 153.9 m."
+   ],
+   "standards": [
+    "7.G.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_circumference_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-spt-s08-honors-017",
+   "skillId": "spatial-thinking-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nPoint P(4, 8) is translated by the rule (x, y) → (x + 2, y + 4). What are the coordinates of P′?\nCarmen's answer: (2, 4)\nIdentify the mistake and give the correct answer.",
+   "answer": "(6, 12)",
+   "solutionSteps": [
+    "Mistake: Moved in the opposite directions.",
+    "Add 2 to the x-coordinate: 4 + 2 = 6.",
+    "Add 4 to the y-coordinate: 8 + 4 = 12.",
+    "P′(6, 12).",
+    "The correct answer is (6, 12), not (2, 4)."
+   ],
+   "standards": [
+    "8.G.A.1",
+    "8.G.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

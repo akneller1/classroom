@@ -1649,27 +1649,6 @@
    "sourceNotes": "Original Claude-authored item (family: s2_context). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-rpp-s02-cp2-014",
-   "skillId": "ratios-proportions-percentages-skill-02",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Wren answered this problem incorrectly.\nSolve the proportion: m/7 = 7/49\nWren's answer: m = 1\nIdentify the mistake and give the correct answer.",
-   "answer": "m = 1",
-   "solutionSteps": [
-    "Mistake: Multiplied the wrong pair of terms.",
-    "Use cross products (or find the scale factor).",
-    "Cross products are equal.",
-    "Solve for m: m = 1.",
-    "Check: the cross products match.",
-    "The correct answer is m = 1, not m = 1."
-   ],
-   "standards": [
-    "7.RP.A.2",
-    "7.RP.A.3"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s2_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-rpp-s02-cp2-015",
    "skillId": "ratios-proportions-percentages-skill-02",
    "level": "cp2",
@@ -4570,26 +4549,6 @@
     "7.SP.C.7a"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_simple). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
-   "id": "pa7-rpp-s04-cp1-014",
-   "skillId": "ratios-proportions-percentages-skill-04",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Zoe answered this problem incorrectly.\nA bag has 2 purple, 2 red, 4 blue marbles. One is picked at random. What is P(not blue)? Write a fraction in simplest form.\nZoe's answer: 1/2\nIdentify the mistake and give the correct answer.",
-   "answer": "1/2",
-   "solutionSteps": [
-    "Mistake: Found P(the color) instead of P(not the color).",
-    "P(blue) = 4/8.",
-    "P(not blue) = 1 - 4/8.",
-    "= 1/2.",
-    "The correct answer is 1/2, not 1/2."
-   ],
-   "standards": [
-    "7.SP.C.5",
-    "7.SP.C.7a"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s4_simple_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
    "id": "pa7-rpp-s04-cp1-015",
@@ -12665,6 +12624,47 @@
     "7.RP.A.2b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s10_missing_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-rpp-s02-cp2-017",
+   "skillId": "ratios-proportions-percentages-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nSolve the proportion: x/4 = 8/32\nTariq's answer: x = 5\nIdentify the mistake and give the correct answer.",
+   "answer": "x = 1",
+   "solutionSteps": [
+    "Mistake: Added the difference instead of multiplying by the scale factor.",
+    "Use cross products (or find the scale factor).",
+    "Cross products are equal.",
+    "Solve for x: x = 1.",
+    "Check: the cross products match.",
+    "The correct answer is x = 1, not x = 5."
+   ],
+   "standards": [
+    "7.RP.A.2",
+    "7.RP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-rpp-s04-cp1-017",
+   "skillId": "ratios-proportions-percentages-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nA bag has 6 red, 6 blue, 8 yellow marbles. One is picked at random. What is P(not blue)? Write a fraction in simplest form.\nNia's answer: 1/3\nIdentify the mistake and give the correct answer.",
+   "answer": "7/10",
+   "solutionSteps": [
+    "Mistake: Assumed the colors are equally likely.",
+    "P(blue) = 6/20.",
+    "P(not blue) = 1 - 6/20.",
+    "= 7/10.",
+    "The correct answer is 7/10, not 1/3."
+   ],
+   "standards": [
+    "7.SP.C.5",
+    "7.SP.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_simple_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

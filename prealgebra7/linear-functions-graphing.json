@@ -2427,26 +2427,6 @@
    "sourceNotes": "Original Claude-authored item (family: s2_is_solution). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-lfg-s02-honors-014",
-   "skillId": "linear-functions-graphing-skill-02",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Yusuf answered this problem incorrectly.\nFind the value of y when x = -4 for the equation -4x + 5y = -4.\nYusuf's answer: y = -4\nIdentify the mistake and give the correct answer.",
-   "answer": "y = -4",
-   "solutionSteps": [
-    "Mistake: Gave the x-value.",
-    "Substitute x = -4.",
-    "Solve for y.",
-    "y = -4.",
-    "The correct answer is y = -4, not y = -4."
-   ],
-   "standards": [
-    "8.EE.C.8",
-    "6.EE.C.9"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s2_find_y_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-lfg-s02-honors-015",
    "skillId": "linear-functions-graphing-skill-02",
    "level": "honors",
@@ -6733,32 +6713,6 @@
    "sourceNotes": "Original Claude-authored item (family: s6_graph). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-lfg-s06-cp2-014",
-   "skillId": "linear-functions-graphing-skill-06",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Kai answered this problem incorrectly.\nThe graph shows y = -x + 4 and y = 3x - 4. What is the solution of the system?\nKai's answer: (2, 2)\nIdentify the mistake and give the correct answer.",
-   "answer": "(2, 2)",
-   "solutionSteps": [
-    "Mistake: Switched the coordinates.",
-    "The solution is the point where the lines intersect.",
-    "They intersect at (2, 2).",
-    "Check: 2 = -1(2) + 4 and 2 = 3(2) + -4.",
-    "The correct answer is (2, 2), not (2, 2)."
-   ],
-   "diagram": {
-    "type": "image",
-    "spec": {
-     "src": "question-banks/assets/prealgebra7/linear-functions-graphing/pa7-lfg-s06-cp2-014.png",
-     "alt": "Coordinate plane with the lines y = -x + 4 and y = 3x - 4, which intersect at (2, 2)."
-    }
-   },
-   "standards": [
-    "8.EE.C.8a"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s6_graph_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-lfg-s06-cp2-015",
    "skillId": "linear-functions-graphing-skill-06",
    "level": "cp2",
@@ -10303,6 +10257,52 @@
     "A-REI.D.12"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-lfg-s02-honors-017",
+   "skillId": "linear-functions-graphing-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nFind the value of y when x = -3 for the equation 6x - 5y = -33.\nQuinn's answer: y = -3\nIdentify the mistake and give the correct answer.",
+   "answer": "y = 3",
+   "solutionSteps": [
+    "Mistake: Made a sign error.",
+    "Substitute x = -3.",
+    "Solve for y.",
+    "y = 3.",
+    "The correct answer is y = 3, not y = -3."
+   ],
+   "standards": [
+    "8.EE.C.8",
+    "6.EE.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_find_y_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-lfg-s06-cp2-017",
+   "skillId": "linear-functions-graphing-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nThe graph shows y = -2x + 1 and y = 2x - 7. What is the solution of the system?\nRosa's answer: (0, 1)\nIdentify the mistake and give the correct answer.",
+   "answer": "(2, -3)",
+   "solutionSteps": [
+    "Mistake: Gave a y-intercept.",
+    "The solution is the point where the lines intersect.",
+    "They intersect at (2, -3).",
+    "Check: -3 = -2(2) + 1 and -3 = 2(2) + -7.",
+    "The correct answer is (2, -3), not (0, 1)."
+   ],
+   "diagram": {
+    "type": "image",
+    "spec": {
+     "src": "question-banks/assets/prealgebra7/linear-functions-graphing/pa7-lfg-s06-cp2-017.png",
+     "alt": "Coordinate plane with the lines y = -2x + 1 and y = 2x - 7, which intersect at (2, -3)."
+    }
+   },
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_graph_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

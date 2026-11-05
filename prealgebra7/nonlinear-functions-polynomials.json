@@ -2006,25 +2006,6 @@
    "sourceNotes": "Original Claude-authored item (family: s2_table). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-nfp-s02-cp1-014",
-   "skillId": "nonlinear-functions-polynomials-skill-02",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Jamal answered this problem incorrectly.\nFor y = |x|, find y when x = 3.\nJamal's answer: 3\nIdentify the mistake and give the correct answer.",
-   "answer": "3",
-   "solutionSteps": [
-    "Mistake: Multiplied by the exponent instead of using it as a power.",
-    "Substitute x = 3.",
-    "|3| = 3.",
-    "The correct answer is 3, not 3."
-   ],
-   "standards": [
-    "8.F.A.3",
-    "F-IF.C.7"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s2_table_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-nfp-s02-cp1-015",
    "skillId": "nonlinear-functions-polynomials-skill-02",
    "level": "cp1",
@@ -4056,25 +4037,6 @@
     "A-SSE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s4_degree). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
-   "id": "pa7-nfp-s04-cp2-014",
-   "skillId": "nonlinear-functions-polynomials-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Grace answered this problem incorrectly.\nEvaluate 4x² + 5x - 3 when x = 2.\nGrace's answer: 23\nIdentify the mistake and give the correct answer.",
-   "answer": "23",
-   "solutionSteps": [
-    "Mistake: Multiplied by the exponent instead of raising to a power.",
-    "Substitute x = 2: 4(2)² + 5(2) + -3.",
-    "Evaluate powers, then multiply, then add.",
-    "= 23.",
-    "The correct answer is 23, not 23."
-   ],
-   "standards": [
-    "A-SSE.A.1"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s4_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
    "id": "pa7-nfp-s04-cp2-015",
@@ -9892,6 +9854,44 @@
     "7.EE.B.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_problem_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-nfp-s02-cp1-017",
+   "skillId": "nonlinear-functions-polynomials-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nFor y = x³, find y when x = -3.\nOmar's answer: -9\nIdentify the mistake and give the correct answer.",
+   "answer": "-27",
+   "solutionSteps": [
+    "Mistake: Multiplied by the exponent instead of using it as a power.",
+    "Substitute x = -3.",
+    "(-3)³ = -27.",
+    "The correct answer is -27, not -9."
+   ],
+   "standards": [
+    "8.F.A.3",
+    "F-IF.C.7"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_table_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-nfp-s04-cp2-017",
+   "skillId": "nonlinear-functions-polynomials-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nEvaluate -x² - 4x - 2 when x = -3.\nBen's answer: 16\nIdentify the mistake and give the correct answer.",
+   "answer": "1",
+   "solutionSteps": [
+    "Mistake: Multiplied by the exponent instead of raising to a power.",
+    "Substitute x = -3: -1(-3)² + -4(-3) + -2.",
+    "Evaluate powers, then multiply, then add.",
+    "= 1.",
+    "The correct answer is 1, not 16."
+   ],
+   "standards": [
+    "A-SSE.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

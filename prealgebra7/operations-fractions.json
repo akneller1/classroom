@@ -822,26 +822,6 @@
    "sourceNotes": "Original Claude-authored item (family: s1_compare_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-opf-s01-cp1-016",
-   "skillId": "operations-fractions-skill-01",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Sam answered this problem incorrectly.\nOrder from least to greatest: 0.5, 9/10, 2/3, 7/10\nSam's answer: 0.5, 2/3, 7/10, 9/10\nIdentify the mistake and give the correct answer.",
-   "answer": "0.5, 2/3, 7/10, 9/10",
-   "solutionSteps": [
-    "Mistake: Compared as text.",
-    "Rewrite with a common denominator or as decimals.",
-    "0.5 = 0.5, 2/3 = 0.667, 7/10 = 0.7, 9/10 = 0.9.",
-    "Order: 0.5, 2/3, 7/10, 9/10.",
-    "The correct answer is 0.5, 2/3, 7/10, 9/10, not 0.5, 2/3, 7/10, 9/10."
-   ],
-   "standards": [
-    "7.NS.A.2d",
-    "6.NS.C.7a"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s1_order_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-opf-s01-honors-001",
    "skillId": "operations-fractions-skill-01",
    "level": "honors",
@@ -10222,6 +10202,26 @@
     "8.EE.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_product_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-opf-s01-cp1-017",
+   "skillId": "operations-fractions-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nOrder from least to greatest: 1/2, 1/3, 0.6, 0.2\nQuinn's answer: 0.6, 1/2, 1/3, 0.2\nIdentify the mistake and give the correct answer.",
+   "answer": "0.2, 1/3, 1/2, 0.6",
+   "solutionSteps": [
+    "Mistake: Ordered from greatest to least.",
+    "Rewrite with a common denominator or as decimals.",
+    "0.2 = 0.2, 1/3 = 0.333, 1/2 = 0.5, 0.6 = 0.6.",
+    "Order: 0.2, 1/3, 1/2, 0.6.",
+    "The correct answer is 0.2, 1/3, 1/2, 0.6, not 0.6, 1/2, 1/3, 0.2."
+   ],
+   "standards": [
+    "7.NS.A.2d",
+    "6.NS.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_order_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

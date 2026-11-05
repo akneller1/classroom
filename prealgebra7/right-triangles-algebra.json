@@ -4192,26 +4192,6 @@
    "sourceNotes": "Original Claude-authored item (family: s4_shadow). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "pa7-rta-s04-cp2-014",
-   "skillId": "right-triangles-algebra-skill-04",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Priya answered this problem incorrectly.\nWren is 6 ft tall and casts a 6-ft shadow. At the same time, a tree casts a 18-ft shadow. How tall is the tree?\nPriya's answer: 18 feet\nIdentify the mistake and give the correct answer.",
-   "answer": "18 feet",
-   "solutionSteps": [
-    "Mistake: Added the difference instead of using a proportion.",
-    "Write a proportion: height ÷ shadow is the same for both.",
-    "6/6 = t/18.",
-    "t = 6 × 18 ÷ 6 = 18 feet.",
-    "The correct answer is 18 feet, not 18 feet."
-   ],
-   "standards": [
-    "7.RP.A.2c",
-    "7.RP.A.3"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s4_shadow_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "pa7-rta-s04-cp2-015",
    "skillId": "right-triangles-algebra-skill-04",
    "level": "cp2",
@@ -8900,6 +8880,26 @@
     "G-SRT.C.8"
    ],
    "sourceNotes": "Original Claude-authored item (family: s7_height_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-rta-s04-cp2-017",
+   "skillId": "right-triangles-algebra-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nBen is 4 ft tall and casts a 4-ft shadow. At the same time, a tree casts a 36-ft shadow. How tall is the tree?\nCarmen's answer: 144 feet\nIdentify the mistake and give the correct answer.",
+   "answer": "36 feet",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by the person's shadow.",
+    "Write a proportion: height ÷ shadow is the same for both.",
+    "4/4 = t/36.",
+    "t = 4 × 36 ÷ 4 = 36 feet.",
+    "The correct answer is 36 feet, not 144 feet."
+   ],
+   "standards": [
+    "7.RP.A.2c",
+    "7.RP.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_shadow_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }
