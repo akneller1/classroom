@@ -6,7 +6,7 @@
 - Check methods: eq 20, equiv 31, none 14, py:absval 33, py:budget 6, py:claims 21, py:cmp_abs 8, py:counter 10, py:est 19, py:next_term 35, py:nth_term 18, py:order 4, py:point 17, py:quadrant 18, py:repeat_pos 10, py:round_place 20, py:rule_fits 7, py:set_eq 2, text 9, val 274
 - Multiple-choice correct positions A/B/C/D: 47/59/48/62
 - Open-response parts checked: 56; unchecked: 0
-- Partner Check answer-sharing groups: 43
+- Partner Check answer-sharing groups: 42
 
 ## one-step-equations-inequalities
 
@@ -14,7 +14,7 @@
 - Check methods: eq 90, equiv 45, none 13, py:claims 17, py:classify_eq 12, py:conds 45, py:eq_same 18, py:factored 8, py:ineq 103, py:is_solution 25, py:max_int 16, py:missing_num 19, py:poly_std 25, py:ray_match 6, text 12, val 26
 - Multiple-choice correct positions A/B/C/D: 45/45/53/37
 - Open-response parts checked: 52; unchecked: 0
-- Partner Check answer-sharing groups: 33
+- Partner Check answer-sharing groups: 34
 
 ## decimals-equations
 
@@ -86,7 +86,7 @@
 - Check methods: eq 27, none 16, py:claims 3, py:closest_int 14, py:is_irrational 4, py:is_rational 2, py:point 18, py:right_tri 12, py:trig_angle 8, py:trig_ratio 31, py:trig_side 49, text 3, val 149
 - Multiple-choice correct positions A/B/C/D: 31/30/32/33
 - Open-response parts checked: 64; unchecked: 0
-- Partner Check answer-sharing groups: 37
+- Partner Check answer-sharing groups: 38
 
 ## data-analysis-probability
 

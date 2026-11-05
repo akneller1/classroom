@@ -18,11 +18,11 @@
 
 ## conics
 
-- Questions: 288; verification failures: 0
-- Check methods: none 18, py:asym 12, py:conic_type 6, py:hs 252
-- Multiple-choice correct positions A/B/C/D: 29/25/28/26
+- Questions: 432; verification failures: 0
+- Check methods: none 18, py:asym 18, py:conic_type 9, py:hs 387
+- Multiple-choice correct positions A/B/C/D: 39/38/43/42
 - Open-response parts checked: 72; unchecked: 0
-- Partner Check answer-sharing groups: 16
+- Partner Check answer-sharing groups: 40
 
 ## trigonometric-functions
 

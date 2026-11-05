@@ -51,23 +51,23 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 
 | Activity | CP2 | CP1 | Honors |
 |---|---:|---:|---:|
-| Showdown / worksheets / assessments / lesson plans / readiness check | 96 | 96 | 96 |
-| Flashcards (skill questions) | 90 | 90 | 90 |
-| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 28 | 28 | 36 |
-| Detective (MC) | 36 | 36 | 36 |
-| Escape Room numeric lock | 24 | 26 | 32 |
-| Escape Room cipher (integer 1–25) | 23 | 23 | 32 |
-| Escape Room step-order (≥ 4 distinct steps) | 40 | 37 | 40 |
-| Maze (MC; numbered rooms allowed for long prompts) | 24 | 24 | 30 |
-| Color by Number (SA/MC, answer ≤ 30) | 90 | 90 | 89 |
-| Whodunnit (MC, answer ≤ 30) | 36 | 36 | 36 |
-| Stations (SA/MC, answer ≤ 60) | 90 | 90 | 90 |
-| Partner Check (SA/MC, answer ≤ 40) | 90 | 90 | 90 |
-| Tarsia (MC, answer ≤ 12) | 23 | 23 | 30 |
-| Error Analysis printable (authored error family) | 12 | 12 | 12 |
+| Showdown / worksheets / assessments / lesson plans / readiness check | 144 | 144 | 144 |
+| Flashcards (skill questions) | 138 | 138 | 138 |
+| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 42 | 42 | 54 |
+| Detective (MC) | 54 | 54 | 54 |
+| Escape Room numeric lock | 37 | 39 | 52 |
+| Escape Room cipher (integer 1–25) | 33 | 36 | 50 |
+| Escape Room step-order (≥ 4 distinct steps) | 61 | 55 | 60 |
+| Maze (MC; numbered rooms allowed for long prompts) | 37 | 35 | 43 |
+| Color by Number (SA/MC, answer ≤ 30) | 138 | 138 | 135 |
+| Whodunnit (MC, answer ≤ 30) | 54 | 54 | 53 |
+| Stations (SA/MC, answer ≤ 60) | 138 | 138 | 138 |
+| Partner Check (SA/MC, answer ≤ 40) | 138 | 138 | 138 |
+| Tarsia (MC, answer ≤ 12) | 36 | 34 | 43 |
+| Error Analysis printable (authored error family) | 18 | 18 | 18 |
 | Select-all | 0 | 0 | 0 |
 | Open response (4 parts) | 6 | 6 | 6 |
-| Diagram / graph | 8 | 8 | 0 |
+| Diagram / graph | 12 | 12 | 0 |
 
 ## Trigonometric Functions (`trigonometric-functions`)
 

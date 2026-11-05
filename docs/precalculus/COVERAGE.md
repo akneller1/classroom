@@ -6,13 +6,13 @@ Difficulty levels: CP2, CP1, Honors (the site's high-school labels). Validation 
 |---|---|---:|---:|---:|---:|---:|---|
 | 1. Equations and Inequalities | `equations-inequalities` | 11 | 176 | 176 | 176 | 528 | PASS |
 | 2. Functions | `functions` | 17 | 272 | 272 | 272 | 816 | PASS |
-| 3. Conics | `conics` | 6 | 96 | 96 | 96 | 288 | PASS |
+| 3. Conics | `conics` | 6 | 144 | 144 | 144 | 432 | PASS |
 | 4. Trigonometric Functions | `trigonometric-functions` | 11 | 176 | 176 | 176 | 528 | PASS |
 | 5. Trigonometry of General Triangles | `general-triangle-trigonometry` | 8 | 128 | 128 | 128 | 384 | PASS |
 | 6. Matrices | `matrices` | 11 | 176 | 176 | 176 | 528 | PASS |
 | 7. Vectors | `vectors` | 9 | 144 | 144 | 144 | 432 | PASS |
 | 8. Probability | `probability` | 9 | 144 | 144 | 144 | 432 | PASS |
-| **Total** | | **82** | **1312** | **1312** | **1312** | **3936** | |
+| **Total** | | **82** | **1360** | **1360** | **1360** | **4080** | |
 
 ## Skill-by-skill coverage
 
@@ -48,12 +48,12 @@ Families = distinct problem families (structures) available at the least-covered
 | `functions` | `functions-skill-15` | Exponential and Logistic Functions | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
 | `functions` | `functions-skill-16` | The Number e and Natural Exponential Functions | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
 | `functions` | `functions-skill-17` | Logarithmic Functions and Graphs | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
-| `conics` | `conics-skill-01` | Circles and Their Equations | 16 | 16 | 16 | 48 | 6 | 27 | 18 | 3 | PASS |
-| `conics` | `conics-skill-02` | Parabolas: Focus, Directrix, and Standard Form | 16 | 16 | 16 | 48 | 6 | 27 | 18 | 3 | PASS |
-| `conics` | `conics-skill-03` | Ellipses: Graphs, Vertices, and Foci | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
-| `conics` | `conics-skill-04` | Writing Equations of Ellipses | 16 | 16 | 16 | 48 | 5 | 27 | 18 | 3 | PASS |
-| `conics` | `conics-skill-05` | Hyperbolas: Graphs and Key Features | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
-| `conics` | `conics-skill-06` | Writing Equations of Hyperbolas | 16 | 16 | 16 | 48 | 4 | 27 | 18 | 3 | PASS |
+| `conics` | `conics-skill-01` | Circles and Their Equations | 24 | 24 | 24 | 72 | 6 | 42 | 27 | 3 | PASS |
+| `conics` | `conics-skill-02` | Parabolas: Focus, Directrix, and Standard Form | 24 | 24 | 24 | 72 | 6 | 42 | 27 | 3 | PASS |
+| `conics` | `conics-skill-03` | Ellipses: Graphs, Vertices, and Foci | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
+| `conics` | `conics-skill-04` | Writing Equations of Ellipses | 24 | 24 | 24 | 72 | 5 | 42 | 27 | 3 | PASS |
+| `conics` | `conics-skill-05` | Hyperbolas: Graphs and Key Features | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
+| `conics` | `conics-skill-06` | Writing Equations of Hyperbolas | 24 | 24 | 24 | 72 | 4 | 42 | 27 | 3 | PASS |
 | `trigonometric-functions` | `trigonometric-functions-skill-01` | Unit Circle and Circular Functions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
 | `trigonometric-functions` | `trigonometric-functions-skill-02` | Exact Trigonometric Values | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
 | `trigonometric-functions` | `trigonometric-functions-skill-03` | Angles and Radian Measure | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |

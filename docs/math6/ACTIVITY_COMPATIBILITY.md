@@ -55,8 +55,8 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 | Flashcards (skill questions) | 137 | 137 | 137 |
 | Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 46 | 46 | 46 |
 | Detective (MC) | 54 | 54 | 54 |
-| Escape Room numeric lock | 43 | 31 | 25 |
-| Escape Room cipher (integer 1–25) | 29 | 18 | 18 |
+| Escape Room numeric lock | 43 | 30 | 25 |
+| Escape Room cipher (integer 1–25) | 28 | 17 | 18 |
 | Escape Room step-order (≥ 4 distinct steps) | 27 | 27 | 42 |
 | Maze (MC; numbered rooms allowed for long prompts) | 48 | 39 | 42 |
 | Color by Number (SA/MC, answer ≤ 30) | 137 | 137 | 134 |
@@ -78,7 +78,7 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 | Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 42 | 42 | 42 |
 | Detective (MC) | 42 | 42 | 42 |
 | Escape Room numeric lock | 52 | 46 | 43 |
-| Escape Room cipher (integer 1–25) | 30 | 21 | 20 |
+| Escape Room cipher (integer 1–25) | 31 | 21 | 20 |
 | Escape Room step-order (≥ 4 distinct steps) | 26 | 26 | 26 |
 | Maze (MC; numbered rooms allowed for long prompts) | 40 | 37 | 37 |
 | Color by Number (SA/MC, answer ≤ 30) | 105 | 105 | 105 |
@@ -95,23 +95,23 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 
 | Activity | Remedial | Standard | Advanced |
 |---|---:|---:|---:|
-| Showdown / worksheets / assessments / lesson plans / readiness check | 80 | 80 | 80 |
-| Flashcards (skill questions) | 76 | 76 | 76 |
-| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 24 | 24 | 24 |
-| Detective (MC) | 30 | 30 | 30 |
-| Escape Room numeric lock | 6 | 10 | 9 |
-| Escape Room cipher (integer 1–25) | 6 | 6 | 6 |
-| Escape Room step-order (≥ 4 distinct steps) | 29 | 32 | 31 |
-| Maze (MC; numbered rooms allowed for long prompts) | 26 | 26 | 26 |
-| Color by Number (SA/MC, answer ≤ 30) | 76 | 75 | 75 |
-| Whodunnit (MC, answer ≤ 30) | 30 | 29 | 29 |
-| Stations (SA/MC, answer ≤ 60) | 76 | 76 | 76 |
-| Partner Check (SA/MC, answer ≤ 40) | 76 | 76 | 76 |
-| Tarsia (MC, answer ≤ 12) | 25 | 25 | 26 |
-| Error Analysis printable (authored error family) | 11 | 11 | 11 |
+| Showdown / worksheets / assessments / lesson plans / readiness check | 120 | 120 | 120 |
+| Flashcards (skill questions) | 116 | 116 | 116 |
+| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 36 | 36 | 36 |
+| Detective (MC) | 45 | 45 | 45 |
+| Escape Room numeric lock | 9 | 15 | 13 |
+| Escape Room cipher (integer 1–25) | 9 | 10 | 8 |
+| Escape Room step-order (≥ 4 distinct steps) | 42 | 44 | 45 |
+| Maze (MC; numbered rooms allowed for long prompts) | 39 | 39 | 39 |
+| Color by Number (SA/MC, answer ≤ 30) | 115 | 115 | 114 |
+| Whodunnit (MC, answer ≤ 30) | 44 | 44 | 43 |
+| Stations (SA/MC, answer ≤ 60) | 116 | 116 | 116 |
+| Partner Check (SA/MC, answer ≤ 40) | 116 | 116 | 116 |
+| Tarsia (MC, answer ≤ 12) | 38 | 38 | 39 |
+| Error Analysis printable (authored error family) | 16 | 16 | 16 |
 | Select-all | 1 | 1 | 1 |
 | Open response (4 parts) | 3 | 3 | 3 |
-| Diagram / graph | 16 | 16 | 16 |
+| Diagram / graph | 24 | 24 | 24 |
 
 ## Geometry (`geometry`)
 
@@ -143,8 +143,8 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 | Flashcards (skill questions) | 123 | 123 | 123 |
 | Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 33 | 34 | 34 |
 | Detective (MC) | 48 | 48 | 48 |
-| Escape Room numeric lock | 79 | 63 | 57 |
-| Escape Room cipher (integer 1–25) | 49 | 40 | 32 |
+| Escape Room numeric lock | 79 | 64 | 57 |
+| Escape Room cipher (integer 1–25) | 49 | 41 | 32 |
 | Escape Room step-order (≥ 4 distinct steps) | 43 | 39 | 38 |
 | Maze (MC; numbered rooms allowed for long prompts) | 35 | 31 | 30 |
 | Color by Number (SA/MC, answer ≤ 30) | 114 | 111 | 111 |
@@ -159,6 +159,6 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 
 ## Per-skill readiness gaps
 
-- Skill/levels with no bank item whose answer is an integer 1–25 (Escape Room falls back to the unit-aligned generator in `games/cipher-questions.js`, which already covers every math6 unit): 80 of 159.
+- Skill/levels with no bank item whose answer is an integer 1–25 (Escape Room falls back to the unit-aligned generator in `games/cipher-questions.js`, which already covers every math6 unit): 79 of 159.
 - Skill/levels with no solution of ≥ 4 distinct steps (step-order room): 0.
 - Skill/levels with no text-only multiple-choice item (Connect 4 / Tic-Tac-Toe / Picture Reveal): 14: rational-numbers-skill-08|cp2, rational-numbers-skill-08|cp1, rational-numbers-skill-08|honors, inequalities-skill-04|cp2, inequalities-skill-04|cp1, inequalities-skill-04|honors, geometry-skill-02|cp2, geometry-skill-03|cp2, geometry-skill-04|cp2, geometry-skill-04|cp1, geometry-skill-04|honors, data-displays-skill-07|cp2, data-displays-skill-07|cp1, data-displays-skill-07|honors

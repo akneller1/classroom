@@ -166,7 +166,7 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 | Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 39 | 37 | 37 |
 | Detective (MC) | 48 | 48 | 48 |
 | Escape Room numeric lock | 31 | 37 | 32 |
-| Escape Room cipher (integer 1–25) | 14 | 11 | 19 |
+| Escape Room cipher (integer 1–25) | 14 | 11 | 20 |
 | Escape Room step-order (≥ 4 distinct steps) | 40 | 44 | 44 |
 | Maze (MC; numbered rooms allowed for long prompts) | 37 | 34 | 37 |
 | Color by Number (SA/MC, answer ≤ 30) | 120 | 117 | 117 |
@@ -276,7 +276,7 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 | Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 48 | 45 | 45 |
 | Detective (MC) | 48 | 48 | 48 |
 | Escape Room numeric lock | 56 | 46 | 48 |
-| Escape Room cipher (integer 1–25) | 32 | 27 | 25 |
+| Escape Room cipher (integer 1–25) | 32 | 26 | 25 |
 | Escape Room step-order (≥ 4 distinct steps) | 24 | 28 | 25 |
 | Maze (MC; numbered rooms allowed for long prompts) | 44 | 43 | 41 |
 | Color by Number (SA/MC, answer ≤ 30) | 121 | 120 | 120 |

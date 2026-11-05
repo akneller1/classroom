@@ -4,16 +4,16 @@ Difficulty levels: CP2, CP1, Honors (the site's high-school labels). Validation 
 
 | Unit | Unit ID | Skills | CP2 | CP1 | Honors | Total | Validation |
 |---|---|---:|---:|---:|---:|---:|---|
-| 1. Precalculus Review | `precalculus-review` | 5 | 80 | 80 | 80 | 240 | PASS |
+| 1. Precalculus Review | `precalculus-review` | 5 | 119 | 120 | 119 | 358 | PASS |
 | 2. Limits and Continuity | `limits-continuity` | 8 | 128 | 128 | 128 | 384 | PASS |
 | 3. Derivatives | `derivatives` | 7 | 112 | 112 | 112 | 336 | PASS |
 | 4. Applications of Derivatives | `applications-derivatives` | 11 | 176 | 176 | 176 | 528 | PASS |
 | 5. Antiderivatives and Definite Integrals | `antiderivatives-definite-integrals` | 7 | 112 | 112 | 112 | 336 | PASS |
-| 6. The Fundamental Theorem of Calculus | `fundamental-theorem-calculus` | 5 | 80 | 80 | 80 | 240 | PASS |
+| 6. The Fundamental Theorem of Calculus | `fundamental-theorem-calculus` | 5 | 120 | 120 | 120 | 360 | PASS |
 | 7. Applications of Integrals | `applications-integrals` | 8 | 128 | 128 | 128 | 384 | PASS |
 | 8. Differential Equations | `differential-equations` | 6 | 96 | 96 | 96 | 288 | PASS |
 | 9. AP Calculus Review | `ap-review` | 7 | 112 | 112 | 112 | 336 | PASS |
-| **Total** | | **64** | **1024** | **1024** | **1024** | **3072** | |
+| **Total** | | **64** | **1103** | **1104** | **1103** | **3310** | |
 
 ## Skill-by-skill coverage
 
@@ -21,11 +21,11 @@ Families = distinct problem families (structures) available at the least-covered
 
 | Unit | Skill ID | Skill | CP2 | CP1 | Honors | Total | Families (min/level) | SA | MC | Extra | Status |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| `precalculus-review` | `precalculus-review-skill-01` | Factoring and Simplifying Expressions | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
-| `precalculus-review` | `precalculus-review-skill-02` | Exponential Functions | 16 | 16 | 16 | 48 | 5 | 27 | 18 | 3 | PASS |
-| `precalculus-review` | `precalculus-review-skill-03` | Logarithmic Functions | 16 | 16 | 16 | 48 | 4 | 27 | 18 | 3 | PASS |
-| `precalculus-review` | `precalculus-review-skill-04` | Unit Circle and Exact Trigonometric Values | 16 | 16 | 16 | 48 | 5 | 27 | 18 | 3 | PASS |
-| `precalculus-review` | `precalculus-review-skill-05` | Graphical, Numerical, and Algebraic Representations | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
+| `precalculus-review` | `precalculus-review-skill-01` | Factoring and Simplifying Expressions | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
+| `precalculus-review` | `precalculus-review-skill-02` | Exponential Functions | 24 | 24 | 24 | 72 | 5 | 42 | 27 | 3 | PASS |
+| `precalculus-review` | `precalculus-review-skill-03` | Logarithmic Functions | 23 | 24 | 24 | 71 | 4 | 42 | 26 | 3 | PASS |
+| `precalculus-review` | `precalculus-review-skill-04` | Unit Circle and Exact Trigonometric Values | 24 | 24 | 23 | 71 | 5 | 42 | 26 | 3 | PASS |
+| `precalculus-review` | `precalculus-review-skill-05` | Graphical, Numerical, and Algebraic Representations | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
 | `limits-continuity` | `limits-continuity-skill-01` | Limit Notation and Interpretation | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
 | `limits-continuity` | `limits-continuity-skill-02` | Estimating Limits from Graphs and Tables | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
 | `limits-continuity` | `limits-continuity-skill-03` | Evaluating Limits Algebraically | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
@@ -59,11 +59,11 @@ Families = distinct problem families (structures) available at the least-covered
 | `antiderivatives-definite-integrals` | `antiderivatives-definite-integrals-skill-05` | Approximating Definite Integrals | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
 | `antiderivatives-definite-integrals` | `antiderivatives-definite-integrals-skill-06` | Evaluating Integrals Using Geometry | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
 | `antiderivatives-definite-integrals` | `antiderivatives-definite-integrals-skill-07` | Properties of Definite Integrals | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
-| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-01` | Connecting Differentiation and Integration | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
-| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-02` | Accumulation Functions | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
-| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-03` | Analyzing Functions Defined by Integrals | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
-| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-04` | Differentiating Functions Defined by Integrals | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
-| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-05` | Evaluating Definite Integrals with Antiderivatives | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
+| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-01` | Connecting Differentiation and Integration | 24 | 24 | 24 | 72 | 2 | 42 | 27 | 3 | PASS |
+| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-02` | Accumulation Functions | 24 | 24 | 24 | 72 | 2 | 42 | 27 | 3 | PASS |
+| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-03` | Analyzing Functions Defined by Integrals | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
+| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-04` | Differentiating Functions Defined by Integrals | 24 | 24 | 24 | 72 | 1 | 42 | 27 | 3 | PASS |
+| `fundamental-theorem-calculus` | `fundamental-theorem-calculus-skill-05` | Evaluating Definite Integrals with Antiderivatives | 24 | 24 | 24 | 72 | 1 | 42 | 27 | 3 | PASS |
 | `applications-integrals` | `applications-integrals-skill-01` | Interpreting Definite Integrals in Context | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
 | `applications-integrals` | `applications-integrals-skill-02` | Accumulation and Net Change | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |
 | `applications-integrals` | `applications-integrals-skill-03` | Average Value of a Function | 16 | 16 | 16 | 48 | 1 | 27 | 18 | 3 | PASS |

@@ -8,10 +8,10 @@ Difficulty codes: `cp2` = Remedial, `cp1` = Standard, `honors` = Advanced. Valid
 | 2. Operations of Fractions and Decimals | `fractions-decimals-operations` | 8 | 128 | 128 | 128 | 384 | PASS |
 | 3. Rational Numbers | `rational-numbers` | 9 | 144 | 144 | 144 | 432 | PASS |
 | 4. Expressions and Equations | `expressions-equations` | 7 | 112 | 112 | 112 | 336 | PASS |
-| 5. Inequalities | `inequalities` | 5 | 80 | 80 | 80 | 240 | PASS |
+| 5. Inequalities | `inequalities` | 5 | 120 | 120 | 120 | 360 | PASS |
 | 6. Geometry | `geometry` | 8 | 128 | 128 | 128 | 384 | PASS |
 | 7. Data Displays | `data-displays` | 8 | 128 | 128 | 128 | 384 | PASS |
-| **Total** | | **53** | **848** | **848** | **848** | **2544** | |
+| **Total** | | **53** | **888** | **888** | **888** | **2664** | |
 
 ## Skill-by-skill coverage
 
@@ -51,11 +51,11 @@ Families = distinct problem families (structures) available at the least-covered
 | `expressions-equations` | `expressions-equations-skill-05` | Solutions of Equations | 16 | 16 | 16 | 48 | 5 | 27 | 18 | 3 | PASS |
 | `expressions-equations` | `expressions-equations-skill-06` | Solving One-Variable Equations | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
 | `expressions-equations` | `expressions-equations-skill-07` | Dependent and Independent Variables | 16 | 16 | 16 | 48 | 2 | 27 | 18 | 3 | PASS |
-| `inequalities` | `inequalities-skill-01` | Inequalities | 16 | 16 | 16 | 48 | 5 | 27 | 18 | 3 | PASS |
-| `inequalities` | `inequalities-skill-02` | Solving One-Variable Inequalities | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
-| `inequalities` | `inequalities-skill-03` | Solutions of Inequalities | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
-| `inequalities` | `inequalities-skill-04` | Solutions of Inequalities on the Number Line | 16 | 16 | 16 | 48 | 4 | 30 | 18 | 0 | PASS |
-| `inequalities` | `inequalities-skill-05` | Applications of Inequalities | 16 | 16 | 16 | 48 | 5 | 27 | 18 | 3 | PASS |
+| `inequalities` | `inequalities-skill-01` | Inequalities | 24 | 24 | 24 | 72 | 5 | 42 | 27 | 3 | PASS |
+| `inequalities` | `inequalities-skill-02` | Solving One-Variable Inequalities | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
+| `inequalities` | `inequalities-skill-03` | Solutions of Inequalities | 24 | 24 | 24 | 72 | 3 | 42 | 27 | 3 | PASS |
+| `inequalities` | `inequalities-skill-04` | Solutions of Inequalities on the Number Line | 24 | 24 | 24 | 72 | 4 | 45 | 27 | 0 | PASS |
+| `inequalities` | `inequalities-skill-05` | Applications of Inequalities | 24 | 24 | 24 | 72 | 5 | 42 | 27 | 3 | PASS |
 | `geometry` | `geometry-skill-01` | Area of Special Quadrilaterals | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |
 | `geometry` | `geometry-skill-02` | Area of Right Triangles | 16 | 16 | 16 | 48 | 1 | 28 | 18 | 2 | PASS |
 | `geometry` | `geometry-skill-03` | Area of All Triangles | 16 | 16 | 16 | 48 | 3 | 27 | 18 | 3 | PASS |

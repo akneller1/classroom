@@ -14,7 +14,7 @@
 - Check methods: approx 10, none 5, py:claims 19, py:conds 18, py:est 18, py:factored 20, py:frac_simplest 129, py:gcf 16, py:lcm 29, py:long_div 21, text 6, val 93
 - Multiple-choice correct positions A/B/C/D: 40/36/38/30
 - Open-response parts checked: 20; unchecked: 0
-- Partner Check answer-sharing groups: 16
+- Partner Check answer-sharing groups: 15
 
 ## rational-numbers
 
@@ -34,11 +34,11 @@
 
 ## inequalities
 
-- Questions: 240; verification failures: 0
-- Check methods: none 9, py:claims 3, py:in_ineq 7, py:in_ineq_nonwhole 3, py:ineq 129, py:is_solution 24, py:max_int 18, py:ray_match 12, py:sol_list 23, text 12
-- Multiple-choice correct positions A/B/C/D: 20/23/26/21
+- Questions: 360; verification failures: 0
+- Check methods: none 9, py:claims 3, py:in_ineq 10, py:in_ineq_nonwhole 5, py:ineq 198, py:is_solution 36, py:max_int 27, py:ray_match 18, py:sol_list 36, text 18
+- Multiple-choice correct positions A/B/C/D: 26/35/42/32
 - Open-response parts checked: 36; unchecked: 0
-- Partner Check answer-sharing groups: 10
+- Partner Check answer-sharing groups: 19
 
 ## geometry
 

@@ -2,11 +2,11 @@
 
 ## precalculus-review
 
-- Questions: 240; verification failures: 0
-- Check methods: none 15, py:exact_approx 6, py:factored 21, py:hs 161, py:log_expand 14, py:log_form 8, py:simp_rat 15
-- Multiple-choice correct positions A/B/C/D: 24/24/20/22
+- Questions: 358; verification failures: 0
+- Check methods: none 15, py:exact_approx 10, py:factored 33, py:hs 245, py:log_expand 20, py:log_form 11, py:simp_rat 24
+- Multiple-choice correct positions A/B/C/D: 35/35/31/32
 - Open-response parts checked: 60; unchecked: 0
-- Partner Check answer-sharing groups: 13
+- Partner Check answer-sharing groups: 26
 
 ## limits-continuity
 
@@ -42,11 +42,11 @@
 
 ## fundamental-theorem-calculus
 
-- Questions: 240; verification failures: 0
-- Check methods: none 15, py:ftc1 12, py:ftc_net 23, py:ftc_net2 10, py:g_inc 12, py:hs 120, py:pl_integral 39, py:pl_value 9
-- Multiple-choice correct positions A/B/C/D: 23/26/17/24
+- Questions: 360; verification failures: 0
+- Check methods: none 15, py:ftc1 18, py:ftc_net 35, py:ftc_net2 16, py:g_inc 19, py:g_max 1, py:hs 183, py:pl_integral 60, py:pl_value 13
+- Multiple-choice correct positions A/B/C/D: 33/40/27/35
 - Open-response parts checked: 60; unchecked: 0
-- Partner Check answer-sharing groups: 12
+- Partner Check answer-sharing groups: 24
 
 ## applications-integrals
 

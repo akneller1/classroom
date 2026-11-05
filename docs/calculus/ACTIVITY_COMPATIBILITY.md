@@ -7,23 +7,23 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 
 | Activity | CP2 | CP1 | Honors |
 |---|---:|---:|---:|
-| Showdown / worksheets / assessments / lesson plans / readiness check | 80 | 80 | 80 |
-| Flashcards (skill questions) | 75 | 75 | 75 |
-| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 29 | 29 | 29 |
-| Detective (MC) | 30 | 30 | 30 |
-| Escape Room numeric lock | 30 | 22 | 21 |
-| Escape Room cipher (integer 1–25) | 13 | 10 | 6 |
-| Escape Room step-order (≥ 4 distinct steps) | 15 | 15 | 15 |
-| Maze (MC; numbered rooms allowed for long prompts) | 26 | 21 | 22 |
-| Color by Number (SA/MC, answer ≤ 30) | 75 | 75 | 75 |
-| Whodunnit (MC, answer ≤ 30) | 30 | 30 | 30 |
-| Stations (SA/MC, answer ≤ 60) | 75 | 75 | 75 |
-| Partner Check (SA/MC, answer ≤ 40) | 75 | 75 | 75 |
-| Tarsia (MC, answer ≤ 12) | 20 | 20 | 19 |
-| Error Analysis printable (authored error family) | 10 | 10 | 10 |
+| Showdown / worksheets / assessments / lesson plans / readiness check | 119 | 120 | 119 |
+| Flashcards (skill questions) | 114 | 115 | 114 |
+| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 42 | 43 | 42 |
+| Detective (MC) | 44 | 45 | 44 |
+| Escape Room numeric lock | 40 | 34 | 31 |
+| Escape Room cipher (integer 1–25) | 18 | 16 | 11 |
+| Escape Room step-order (≥ 4 distinct steps) | 20 | 20 | 20 |
+| Maze (MC; numbered rooms allowed for long prompts) | 37 | 30 | 34 |
+| Color by Number (SA/MC, answer ≤ 30) | 114 | 115 | 114 |
+| Whodunnit (MC, answer ≤ 30) | 44 | 45 | 44 |
+| Stations (SA/MC, answer ≤ 60) | 114 | 115 | 114 |
+| Partner Check (SA/MC, answer ≤ 40) | 114 | 115 | 114 |
+| Tarsia (MC, answer ≤ 12) | 29 | 28 | 29 |
+| Error Analysis printable (authored error family) | 15 | 15 | 15 |
 | Select-all | 0 | 0 | 0 |
 | Open response (4 parts) | 5 | 5 | 5 |
-| Diagram / graph | 5 | 5 | 4 |
+| Diagram / graph | 8 | 8 | 7 |
 
 ## Limits and Continuity (`limits-continuity`)
 
@@ -117,23 +117,23 @@ The end-to-end build results in VALIDATION_LOG.txt come from running the site's 
 
 | Activity | CP2 | CP1 | Honors |
 |---|---:|---:|---:|
-| Showdown / worksheets / assessments / lesson plans / readiness check | 80 | 80 | 80 |
-| Flashcards (skill questions) | 75 | 75 | 75 |
-| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 21 | 21 | 21 |
-| Detective (MC) | 30 | 30 | 30 |
-| Escape Room numeric lock | 41 | 35 | 35 |
-| Escape Room cipher (integer 1–25) | 10 | 12 | 11 |
-| Escape Room step-order (≥ 4 distinct steps) | 15 | 15 | 15 |
-| Maze (MC; numbered rooms allowed for long prompts) | 25 | 24 | 23 |
-| Color by Number (SA/MC, answer ≤ 30) | 75 | 75 | 73 |
-| Whodunnit (MC, answer ≤ 30) | 30 | 30 | 30 |
-| Stations (SA/MC, answer ≤ 60) | 75 | 75 | 75 |
-| Partner Check (SA/MC, answer ≤ 40) | 75 | 75 | 75 |
-| Tarsia (MC, answer ≤ 12) | 25 | 24 | 21 |
-| Error Analysis printable (authored error family) | 10 | 10 | 10 |
+| Showdown / worksheets / assessments / lesson plans / readiness check | 120 | 120 | 120 |
+| Flashcards (skill questions) | 115 | 115 | 115 |
+| Connect 4 / Tic-Tac-Toe / Picture Reveal (text-only MC) | 32 | 32 | 31 |
+| Detective (MC) | 45 | 45 | 45 |
+| Escape Room numeric lock | 63 | 55 | 56 |
+| Escape Room cipher (integer 1–25) | 17 | 17 | 18 |
+| Escape Room step-order (≥ 4 distinct steps) | 20 | 20 | 20 |
+| Maze (MC; numbered rooms allowed for long prompts) | 37 | 37 | 34 |
+| Color by Number (SA/MC, answer ≤ 30) | 115 | 115 | 113 |
+| Whodunnit (MC, answer ≤ 30) | 45 | 45 | 45 |
+| Stations (SA/MC, answer ≤ 60) | 115 | 115 | 115 |
+| Partner Check (SA/MC, answer ≤ 40) | 115 | 115 | 115 |
+| Tarsia (MC, answer ≤ 12) | 36 | 37 | 32 |
+| Error Analysis printable (authored error family) | 15 | 15 | 15 |
 | Select-all | 0 | 0 | 0 |
 | Open response (4 parts) | 5 | 5 | 5 |
-| Diagram / graph | 20 | 20 | 20 |
+| Diagram / graph | 31 | 31 | 31 |
 
 ## Applications of Integrals (`applications-integrals`)
 
