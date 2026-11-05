@@ -1,7 +1,7 @@
 /* Projects for the Printable Generator (kind=project). Nothing is generated: each project is a ready-made
    2–3 day project saved as PDF, Word (.docx) and PowerPoint (.pptx) at CP2, CP1 and Honors, plus a teacher guide
    with answer keys. Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
-   Courses: Algebra 1, Geometry and Algebra 2. */
+   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Precalculus and Calculus. */
 (function (G) {
   'use strict';
   var NS = G.MKMENU = G.MKMENU || {}, PR = NS.printables = NS.printables || {};
@@ -404,7 +404,414 @@
       "theme": "Games & Fundraising",
       "product": "Booth Proposal"
     }
-  ]
+  ],
+    "math6-ratios-rates-percent-proportions": [
+      {
+        "folder": "math6-project-bake-sale-boss",
+        "slug": "bake-sale-boss",
+        "title": "Bake Sale Boss",
+        "tagline": "Scale recipes, compare prices, and price your treats for a school bake sale.",
+        "description": "Students run the class bake sale. They scale cookie and muffin recipes with ratio tables, find unit prices to choose the best deals on supplies, use percents for discounts and profit, and design their own booth menu.",
+        "theme": "Food & Business",
+        "product": "Bake Sale Business Plan"
+      }
+    ],
+    "math6-fractions-decimals-operations": [
+      {
+        "folder": "math6-project-quilt-shop-makers",
+        "slug": "quilt-shop-makers",
+        "title": "Quilt Shop Makers",
+        "tagline": "Measure, cut, and price fabric to sew a class quilt.",
+        "description": "Students plan a class quilt for the school auction. They add, subtract, multiply, and divide fractions and mixed numbers to measure and cut fabric, use decimals to price materials, and design and cost their own quilt square.",
+        "theme": "Art & Design",
+        "product": "Quilt Plan & Price Sheet"
+      }
+    ],
+    "math6-rational-numbers": [
+      {
+        "folder": "math6-project-weather-station-watch",
+        "slug": "weather-station-watch",
+        "title": "Weather Station Watch",
+        "tagline": "Track below-zero temperatures, elevations, and locations with rational numbers.",
+        "description": "Students run a winter weather station. They compare and order positive and negative temperatures, use absolute value to describe changes and distances, plot weather stations on the coordinate plane, and write a forecast report.",
+        "theme": "Science & Weather",
+        "product": "Weather Station Report"
+      }
+    ],
+    "math6-expressions-equations": [
+      {
+        "folder": "math6-project-arcade-party-planner",
+        "slug": "arcade-party-planner",
+        "title": "Arcade Party Planner",
+        "tagline": "Write expressions and solve equations to plan a birthday party at the arcade.",
+        "description": "Students plan an arcade birthday party. They write and evaluate expressions for game cards, food, and prizes, use the distributive property and exponents, solve one-step equations for budgets and tickets, and design their own party package.",
+        "theme": "Games & Events",
+        "product": "Party Package Proposal"
+      }
+    ],
+    "math6-inequalities": [
+      {
+        "folder": "math6-project-theme-park-rules",
+        "slug": "theme-park-rules",
+        "title": "Theme Park Rules",
+        "tagline": "Use inequalities to check ride rules, budgets, and wait times at a theme park.",
+        "description": "Students plan a class trip to a theme park. They write and graph inequalities for height rules and age limits, solve one-step inequalities for budgets and wait times, and design a fair rule for a new ride.",
+        "theme": "Travel & Recreation",
+        "product": "Theme Park Day Plan"
+      }
+    ],
+    "math6-geometry": [
+      {
+        "folder": "math6-project-dream-bedroom-makeover",
+        "slug": "dream-bedroom-makeover",
+        "title": "Dream Bedroom Makeover",
+        "tagline": "Use area, surface area, and volume to redesign a bedroom on a budget.",
+        "description": "Students redesign a bedroom. They find the area of the floor and of composite and triangular shapes for rugs and wall art, use nets to find the surface area to paint, find the volume of storage boxes, and price their makeover.",
+        "theme": "Home & Design",
+        "product": "Makeover Design Board"
+      }
+    ],
+    "math6-data-displays": [
+      {
+        "folder": "math6-project-lunch-menu-survey",
+        "slug": "lunch-menu-survey",
+        "title": "Lunch Menu Survey",
+        "tagline": "Survey classmates and use data displays to recommend a new lunch menu.",
+        "description": "Students act as the school food committee. They ask statistical questions, organize survey data in dot plots, histograms, and box plots, find measures of center and spread, and present a data-backed lunch menu recommendation.",
+        "theme": "School & Health",
+        "product": "Menu Recommendation Report"
+      }
+    ],
+    "prealgebra7-algebraic-expressions-integers": [
+      {
+        "folder": "prealgebra7-project-deep-sea-expedition",
+        "slug": "deep-sea-expedition",
+        "title": "Deep Sea Expedition",
+        "tagline": "Use integers and expressions to guide a submarine to the ocean floor and back.",
+        "description": "Students pilot a research submarine. They use integers for depths and temperature changes, write and evaluate expressions for dives, apply the order of operations to sonar readings, find patterns in the dive log, and map discoveries on the coordinate plane.",
+        "theme": "Ocean Science",
+        "product": "Expedition Log"
+      }
+    ],
+    "prealgebra7-one-step-equations-inequalities": [
+      {
+        "folder": "prealgebra7-project-movie-night-fundraiser",
+        "slug": "movie-night-fundraiser",
+        "title": "Movie Night Fundraiser",
+        "tagline": "Simplify expressions and solve one-step equations and inequalities to run a school movie night.",
+        "description": "Students run a school movie night. They simplify cost expressions with properties and the distributive property, solve one-step equations to find ticket and snack sales, solve and graph one-step inequalities for goals and limits, and present a profit plan.",
+        "theme": "Events & Fundraising",
+        "product": "Fundraiser Plan"
+      }
+    ],
+    "prealgebra7-decimals-equations": [
+      {
+        "folder": "prealgebra7-project-road-trip-planner",
+        "slug": "road-trip-planner",
+        "title": "Road Trip Planner",
+        "tagline": "Use decimals, formulas, and equations to plan a family road trip.",
+        "description": "Students plan a family road trip. They round and estimate costs, compute mean and median driving times, use the formula d = rt, solve one-step decimal equations for fuel and money, and convert metric units for a stop in Canada.",
+        "theme": "Travel & Planning",
+        "product": "Road Trip Itinerary"
+      }
+    ],
+    "prealgebra7-factors-fractions-exponents": [
+      {
+        "folder": "prealgebra7-project-space-mission-packer",
+        "slug": "space-mission-packer",
+        "title": "Space Mission Packer",
+        "tagline": "Use factors, fractions, exponents, and scientific notation to pack a mission to Mars.",
+        "description": "Students pack supplies for a Mars mission. They use divisibility, prime factorization, and the GCF to make identical supply kits, simplify fractions of cargo, apply exponent rules, and use scientific notation for planet distances and travel times.",
+        "theme": "Space & Engineering",
+        "product": "Mission Packing Manifest"
+      }
+    ],
+    "prealgebra7-operations-fractions": [
+      {
+        "folder": "prealgebra7-project-birdhouse-builders",
+        "slug": "birdhouse-builders",
+        "title": "Birdhouse Builders",
+        "tagline": "Measure, cut, and assemble birdhouses using fraction and mixed-number operations.",
+        "description": "Students build birdhouses in woodshop. They compare and order measurements, add, subtract, multiply, and divide fractions and mixed numbers to plan cuts from boards, convert customary units, solve fraction equations, and design their own birdhouse.",
+        "theme": "Building & Nature",
+        "product": "Birdhouse Build Plan"
+      }
+    ],
+    "prealgebra7-ratios-proportions-percentages": [
+      {
+        "folder": "prealgebra7-project-sneaker-store-manager",
+        "slug": "sneaker-store-manager",
+        "title": "Sneaker Store Manager",
+        "tagline": "Use rates, proportions, and percents to run a sneaker store for a week.",
+        "description": "Students manage a sneaker store. They compare unit rates for wholesale orders, use proportions and a scale drawing to plan the store layout, run a raffle with probability, and set prices with markups, discounts, and percent change.",
+        "theme": "Business & Retail",
+        "product": "Store Manager Report"
+      }
+    ],
+    "prealgebra7-solving-equations-inequalities": [
+      {
+        "folder": "prealgebra7-project-summer-job-savings",
+        "slug": "summer-job-savings",
+        "title": "Summer Job Savings",
+        "tagline": "Compare summer jobs and savings plans with multi-step equations, inequalities, and interest.",
+        "description": "Students plan a summer job and savings goal. They write and solve two-step and multi-step equations for earnings, compare jobs with variables on both sides, use two-step inequalities for savings goals, transform formulas, and compare simple and compound interest.",
+        "theme": "Money & Careers",
+        "product": "Summer Savings Plan"
+      }
+    ],
+    "prealgebra7-linear-functions-graphing": [
+      {
+        "folder": "prealgebra7-project-bike-share-showdown",
+        "slug": "bike-share-showdown",
+        "title": "Bike Share Showdown",
+        "tagline": "Graph linear functions to choose the best bike or scooter rental.",
+        "description": "Students compare bike-share and scooter companies. They decide whether relations are functions, make tables and graphs, find slope and y-intercept, use scatter plots and trend lines of real ride data, solve systems by graphing, and graph inequalities for a budget.",
+        "theme": "Transportation & City Life",
+        "product": "Rental Comparison Guide"
+      }
+    ],
+    "prealgebra7-spatial-thinking": [
+      {
+        "folder": "prealgebra7-project-skate-park-designer",
+        "slug": "skate-park-designer",
+        "title": "Skate Park Designer",
+        "tagline": "Use angles, polygons, circles, and transformations to design a town skate park.",
+        "description": "Students design a town skate park. They classify and measure angle pairs on ramps and rails, use parallel lines and transversals for the layout, find polygon angle sums for the deck, use circles for the bowl, and create a logo with translations, rotations, and symmetry.",
+        "theme": "Sports & Design",
+        "product": "Skate Park Blueprint"
+      }
+    ],
+    "prealgebra7-area-volume": [
+      {
+        "folder": "prealgebra7-project-backyard-pool-makeover",
+        "slug": "backyard-pool-makeover",
+        "title": "Backyard Pool Makeover",
+        "tagline": "Use area, surface area, and volume to design a backyard with a pool and patio.",
+        "description": "Students design a backyard. They find areas of parallelograms, triangles, trapezoids, and circles for patios and gardens, the surface area of a pool liner, the volume of water for cylindrical and rectangular pools, and price the project.",
+        "theme": "Home & Engineering",
+        "product": "Backyard Design Proposal"
+      }
+    ],
+    "prealgebra7-right-triangles-algebra": [
+      {
+        "folder": "prealgebra7-project-zip-line-engineer",
+        "slug": "zip-line-engineer",
+        "title": "Zip Line Engineer",
+        "tagline": "Use the Pythagorean theorem, distance, and trig ratios to build a safe zip line.",
+        "description": "Students engineer a summer camp zip line. They estimate square roots, use the Pythagorean theorem for cable lengths, find distances and midpoints on a site map, use similar triangles and special right triangles, and apply sine, cosine, and tangent to set a safe angle.",
+        "theme": "Engineering & Outdoors",
+        "product": "Zip Line Engineering Report"
+      }
+    ],
+    "prealgebra7-data-analysis-probability": [
+      {
+        "folder": "prealgebra7-project-board-game-inventor",
+        "slug": "board-game-inventor",
+        "title": "Board Game Inventor",
+        "tagline": "Use probability, counting, and data to invent and test a fair board game.",
+        "description": "Students invent a board game. They count outcomes with tree diagrams and the counting principle, find theoretical and experimental probabilities of dice and spinners, analyze independent and dependent events, use permutations and combinations, display playtest data, and adjust rules to make the game fair.",
+        "theme": "Games & Design",
+        "product": "Game Box & Rule Book"
+      }
+    ],
+    "prealgebra7-nonlinear-functions-polynomials": [
+      {
+        "folder": "prealgebra7-project-rabbit-island-population",
+        "slug": "rabbit-island-population",
+        "title": "Rabbit Island Population",
+        "tagline": "Model a growing rabbit population with sequences, exponential functions, and polynomials.",
+        "description": "Students act as wildlife biologists on an island. They extend arithmetic and geometric sequences, graph nonlinear functions, model population growth and decay with exponential functions, and use polynomial expressions to design fenced habitats.",
+        "theme": "Biology & Environment",
+        "product": "Wildlife Management Report"
+      }
+    ],
+    "precalculus-equations-inequalities": [
+      {
+        "folder": "precalculus-project-concert-venue-planner",
+        "slug": "concert-venue-planner",
+        "title": "Concert Venue Planner",
+        "tagline": "Use equations and inequalities to set ticket prices, tolerances, and capacity for a concert.",
+        "description": "Students plan a concert at an outdoor venue. They model revenue with quadratic equations, use absolute value inequalities for sound and temperature tolerances, solve polynomial and rational inequalities for profit and average cost, and solve a radical equation for sound distance.",
+        "theme": "Music & Business",
+        "product": "Venue Operations Plan"
+      }
+    ],
+    "precalculus-functions": [
+      {
+        "folder": "precalculus-project-streaming-service-analyst",
+        "slug": "streaming-service-analyst",
+        "title": "Streaming Service Analyst",
+        "tagline": "Use function families, transformations, compositions, and inverses to analyze a streaming business.",
+        "description": "Students analyze a music streaming company. They describe domain and range, transform subscriber graphs, model plans with piecewise functions, compose conversion functions, find inverses, and use exponential and logarithmic models for subscriber growth.",
+        "theme": "Technology & Business",
+        "product": "Analyst Briefing"
+      }
+    ],
+    "precalculus-conics": [
+      {
+        "folder": "precalculus-project-science-museum-conics",
+        "slug": "science-museum-conics",
+        "title": "Science Museum Conics",
+        "tagline": "Design a science museum exhibit with a parabolic dish, an elliptical whispering gallery, and a hyperbolic tower.",
+        "description": "Students design exhibits for a science museum. They write equations of circles for a planetarium dome, place the receiver at the focus of a parabolic satellite dish, design an elliptical whispering gallery using foci, and model a cooling tower and navigation with hyperbolas.",
+        "theme": "Science & Architecture",
+        "product": "Exhibit Design Packet"
+      }
+    ],
+    "precalculus-trigonometric-functions": [
+      {
+        "folder": "precalculus-project-daylight-and-seasons",
+        "slug": "daylight-and-seasons",
+        "title": "Daylight and Seasons",
+        "tagline": "Model hours of daylight and temperatures with sinusoidal functions.",
+        "description": "Students study daylight in Boston. They use radians and the unit circle to describe Earth’s orbit, model hours of daylight and average temperatures with sinusoidal functions, identify amplitude, period, phase shift, and midline, and solve trigonometric equations to plan outdoor events.",
+        "theme": "Earth Science",
+        "product": "Seasonal Planning Report"
+      }
+    ],
+    "precalculus-general-triangle-trigonometry": [
+      {
+        "folder": "precalculus-project-search-and-rescue",
+        "slug": "search-and-rescue",
+        "title": "Search and Rescue",
+        "tagline": "Use the Laws of Sines and Cosines and bearings to locate a lost hiker.",
+        "description": "Students coordinate a mountain search and rescue. They use right-triangle trig for elevations, the Law of Sines for sightings from two ranger towers (including the ambiguous case), the Law of Cosines for distances between teams, and triangle area formulas to divide the search region.",
+        "theme": "Emergency Response",
+        "product": "Rescue Operations Brief"
+      }
+    ],
+    "precalculus-matrices": [
+      {
+        "folder": "precalculus-project-spy-agency-codes",
+        "slug": "spy-agency-codes",
+        "title": "Spy Agency Codes",
+        "tagline": "Use matrices to manage inventory, encode secret messages, and solve systems.",
+        "description": "Students work for a spy agency. They use matrix addition and scalar multiplication for gadget inventory, matrix multiplication for costs, encode and decode messages with a 2 × 2 key matrix and its inverse, and solve systems with inverse matrices and determinants.",
+        "theme": "Codes & Technology",
+        "product": "Agent Mission File"
+      }
+    ],
+    "precalculus-vectors": [
+      {
+        "folder": "precalculus-project-flight-path-navigator",
+        "slug": "flight-path-navigator",
+        "title": "Flight Path Navigator",
+        "tagline": "Use vectors to fly a small plane through wind, find ground speed, and plan a delivery route.",
+        "description": "Students plan flights for a regional air delivery service. They write velocity and wind vectors in component form, add vectors to find ground speed and true course, find the heading needed to correct for wind, use dot products for angles and work, and plan a multi-leg route.",
+        "theme": "Aviation & Physics",
+        "product": "Flight Plan"
+      }
+    ],
+    "precalculus-probability": [
+      {
+        "folder": "precalculus-project-sports-draft-analytics",
+        "slug": "sports-draft-analytics",
+        "title": "Sports Draft Analytics",
+        "tagline": "Use counting, conditional probability, and expected value to run a basketball team’s draft room.",
+        "description": "Students run the analytics department of a basketball team. They count lineups with permutations and combinations, compute probabilities of draft lottery outcomes, use two-way tables for conditional probability, apply the binomial distribution to free throws, and use expected value to make trade decisions.",
+        "theme": "Sports & Data Science",
+        "product": "Draft Room Report"
+      }
+    ],
+    "calculus-precalculus-review": [
+      {
+        "folder": "calculus-project-phone-battery-lab",
+        "slug": "phone-battery-lab",
+        "title": "Phone Battery Lab",
+        "tagline": "Review function families by modeling a phone’s battery, charging, and app data.",
+        "description": "Students model a smartphone. They use linear and exponential models for battery drain and charging, piecewise functions for data plans, compositions and inverses for unit conversions, logarithms to solve for time, and a sinusoidal model for daily screen brightness.",
+        "theme": "Technology",
+        "product": "Battery Lab Report"
+      }
+    ],
+    "calculus-limits-continuity": [
+      {
+        "folder": "calculus-project-toll-road-pricing",
+        "slug": "toll-road-pricing",
+        "title": "Toll Road Pricing",
+        "tagline": "Use limits and continuity to design fair prices for a new toll road and parking garage.",
+        "description": "Students design pricing for a highway authority. They read limits from graphs and tables of toll schedules, find one-sided limits at price jumps, make piecewise prices continuous, use limits at infinity for average cost per trip, and apply the Intermediate Value Theorem to traffic data.",
+        "theme": "Transportation & Economics",
+        "product": "Pricing Proposal"
+      }
+    ],
+    "calculus-derivatives": [
+      {
+        "folder": "calculus-project-sprint-coach-analytics",
+        "slug": "sprint-coach-analytics",
+        "title": "Sprint Coach Analytics",
+        "tagline": "Use derivatives to analyze a sprinter’s position, velocity, and acceleration in a 100-meter race.",
+        "description": "Students coach a track team. They estimate instantaneous velocity from race-timing data, use the limit definition of the derivative, apply derivative rules (power, product, quotient, chain) to position models, interpret velocity and acceleration, and write tangent-line estimates for split times.",
+        "theme": "Sports Science",
+        "product": "Coaching Analytics Report"
+      }
+    ],
+    "calculus-applications-derivatives": [
+      {
+        "folder": "calculus-project-package-design-studio",
+        "slug": "package-design-studio",
+        "title": "Package Design Studio",
+        "tagline": "Use optimization, related rates, and curve analysis to design packaging for a juice company.",
+        "description": "Students design packaging for a juice company. They optimize box and can dimensions to minimize material, use related rates for a filling tank, analyze a sales curve with first and second derivatives, apply linearization, and justify extrema with the Mean Value and Extreme Value Theorems.",
+        "theme": "Engineering & Business",
+        "product": "Design Proposal"
+      }
+    ],
+    "calculus-antiderivatives-definite-integrals": [
+      {
+        "folder": "calculus-project-solar-energy-audit",
+        "slug": "solar-energy-audit",
+        "title": "Solar Energy Audit",
+        "tagline": "Use Riemann sums, antiderivatives, and definite integrals to measure a school’s solar energy.",
+        "description": "Students audit the school’s solar panels. They estimate the energy produced from power readings with left, right, midpoint, and trapezoidal sums, find antiderivatives of power models, evaluate definite integrals with properties and u-substitution, and recommend how many panels to add.",
+        "theme": "Energy & Environment",
+        "product": "Energy Audit Report"
+      }
+    ],
+    "calculus-fundamental-theorem-calculus": [
+      {
+        "folder": "calculus-project-coffee-shop-rush",
+        "slug": "coffee-shop-rush",
+        "title": "Coffee Shop Rush",
+        "tagline": "Use the Fundamental Theorem of Calculus to track customers, inventory, and wait times at a coffee shop.",
+        "description": "Students manage a coffee shop’s morning rush. They use rates of arriving and served customers to find net change in the line, apply both parts of the Fundamental Theorem, analyze accumulation functions defined by integrals, find average values, and recommend staffing.",
+        "theme": "Business Operations",
+        "product": "Rush-Hour Staffing Plan"
+      }
+    ],
+    "calculus-applications-integrals": [
+      {
+        "folder": "calculus-project-glass-vase-studio",
+        "slug": "glass-vase-studio",
+        "title": "Glass Vase Studio",
+        "tagline": "Use area between curves and volumes of revolution to design glass vases and bottles.",
+        "description": "Students design products for a glassblowing studio. They find the area of a logo between curves, the volume of a vase with the disc method, the glass in a hollow vase with the washer method, a decorative cross-section volume, and the average value and net change of a production rate.",
+        "theme": "Art & Manufacturing",
+        "product": "Product Design Portfolio"
+      }
+    ],
+    "calculus-differential-equations": [
+      {
+        "folder": "calculus-project-cold-case-cooling",
+        "slug": "cold-case-cooling",
+        "title": "Cold Case: Newton’s Cooling",
+        "tagline": "Use differential equations, slope fields, and Euler’s method to solve a mystery with Newton’s Law of Cooling.",
+        "description": "Students act as forensic scientists. They verify solutions to differential equations, sketch slope fields for cooling, approximate temperatures with Euler’s method, solve Newton’s Law of Cooling by separation of variables, and use exponential models to estimate when a mystery mug of cocoa was poured.",
+        "theme": "Forensic Science",
+        "product": "Case File Report"
+      }
+    ],
+    "calculus-ap-review": [
+      {
+        "folder": "calculus-project-water-park-engineering",
+        "slug": "water-park-engineering",
+        "title": "Water Park Engineering",
+        "tagline": "Review AP Calculus by engineering a water park: rates, motion, accumulation, area, volume, and differential equations.",
+        "description": "Students engineer a new water park in an AP free-response style. They analyze a table of pump rates with Riemann sums and the FTC, model a raft’s motion on a lazy river with velocity and acceleration, find the area and volume of a wave pool, and solve a differential equation for chlorine levels.",
+        "theme": "Engineering & Recreation",
+        "product": "AP-Style Engineering Portfolio"
+      }
+    ]
 };
   PR.projectFiles = function (p) {
     var slug = p.slug, dir = '../artifacts/' + p.folder + '/', f = {};

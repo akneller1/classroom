@@ -1,0 +1,838 @@
+diff --git a/activity.html b/activity.html
+index 322c582..bb3d67c 100644
+--- a/activity.html
++++ b/activity.html
+@@ -5,9 +5,9 @@
+ <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <title>Activity | Mr. K’s Classroom</title>
+ <link rel="stylesheet" href="activity.css?v=nav-20261025">
+-<script src="data.js?v=pa8-cheatsheets-20261101" defer></script>
++<script src="data.js?v=unit-refresh-20261105" defer></script>
+ <script src="unit-specific-arcade.js?v=20261031" defer></script>
+-<script src="resource-details.js?v=pa8-cheatsheets-20261101" defer></script>
++<script src="resource-details.js?v=unit-refresh-20261105" defer></script>
+ <script src="student-game-share.js?v=proofs-20261101" defer></script>
+ <script src="activity.js?v=proofs-20261101" defer></script>
+ <script>
+diff --git a/app.js b/app.js
+index 9ff8d39..f128ade 100644
+--- a/app.js
++++ b/app.js
+@@ -154,10 +154,24 @@
+   function formatItems(format) {
+     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
+   }
++  /* One order everywhere. Games: Showdown (Jeopardy-style), Connect 4, Tic-Tac-Toe, Detective, Escape Room,
++     Picture Reveal, then unit-specific activities and games. Study Guides: Assessment Readiness, Flashcards, Cheat Sheets. */
++  var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
++    'interactive-practice-test', 'flashcards', 'cheat-sheets'];
++  function orderRank(a) { var i = ACTIVITY_ORDER.indexOf(activityFormat(a)); return i < 0 ? ACTIVITY_ORDER.length : i; }
++  function sortByActivityOrder(list, get) {
++    get = get || function (it) { return it.a; };
++    var unitOrder = [];
++    list.forEach(function (it) { var k = it.c && it.u ? it.c.id + '.' + it.u.id : ''; if (unitOrder.indexOf(k) < 0) unitOrder.push(k); });
++    return list.map(function (it, i) { return { it: it, i: i }; }).sort(function (x, y) {
++      var kx = x.it.c && x.it.u ? x.it.c.id + '.' + x.it.u.id : '', ky = y.it.c && y.it.u ? y.it.c.id + '.' + y.it.u.id : '';
++      return (unitOrder.indexOf(kx) - unitOrder.indexOf(ky)) || (orderRank(get(x.it)) - orderRank(get(y.it))) || (x.i - y.i);
++    }).map(function (o) { return o.it; });
++  }
+   var RESOURCE_GROUPS = [
+     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
+-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
+-    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards', 'interactive-practice-test'] },
++    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
++    { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
+     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
+     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
+   ];
+@@ -511,7 +525,7 @@
+     var shown = applyFilters(items);
+     if (!shown.length) return '<div class="empty"><h2>No matches</h2><p>No activities fit these filters. Choose All to see everything here.</p></div>';
+     return '<div class="activity-groups">' + RESOURCE_GROUPS.map(function (group) {
+-      var members = shown.filter(function (it) { return belongsToGroup(it.a, group); });
++      var members = sortByActivityOrder(shown.filter(function (it) { return belongsToGroup(it.a, group); }));
+       if (!members.length) return '';
+       return '<section class="activity-group" aria-labelledby="group-' + group.id + '">' +
+         '<h2 id="group-' + group.id + '">' + esc(group.name) + '<span>' + acts(members.length) + '</span></h2>' +
+@@ -664,6 +678,7 @@
+         if (current.length && !matches.some(function (it) { return /practice-test[.]html/i.test(it.a.path || ''); })) matches.push(current[0]);
+       }
+       if (!matches.length) return '';
++      matches = sortByActivityOrder(matches);
+       return '<section class="algebra-unit-section" aria-labelledby="algebra-' + id + '">' +
+         '<h2 id="algebra-' + id + '">' + esc(title) + '</h2>' +
+         '<ul class="cards grouped-cards">' + matches.map(function (it) { return cardHtml(it, false, true); }).join('') + '</ul>' +
+@@ -679,7 +694,6 @@
+         generatorLinks(c, u, true) +
+         category('games', 'Games', gameFormats) +
+         category('study-guides', 'Study Guides', guideFormats) +
+-        ((['prealgebra7', 'math6', 'precalculus', 'calculus'].includes(c.id)) ? category('printables', 'Printable Activities', ['printable-generator']) : '') +
+         category('practice', 'Practice Activities', practiceFormats) +
+         unitPager(c, u) + '</div></section>'
+     };
+@@ -866,7 +880,7 @@
+         if (format && formatItems(format).length) formats.push(format);
+       });
+     });
+-    var items = browseResults(state);
++    var items = sortByActivityOrder(browseResults(state));
+     var pages = Math.max(1, Math.ceil(items.length / 24));
+     state.page = Math.min(state.page, pages);
+     var offset = (state.page - 1) * 24;
+diff --git a/data.js b/data.js
+index 0ac49f1..49f8924 100644
+--- a/data.js
++++ b/data.js
+@@ -7314,3 +7314,9 @@ window.LIBRARY = {
+ })(window);
+ 
+ (function(G){ G.LIBRARY.courses.filter(c=>["precalculus","calculus"].includes(c.id)).forEach(c=>{c.planned=false;}); })(window);
++
++/* Unit cheat sheets for 6th Grade, Pre-Algebra (7th), Precalculus and Calculus (built by scripts/cheat-sheets). */
++(function(G){
++ var S={"calculus":{"antiderivatives-definite-integrals":{"title":"Antiderivatives and Definite Integrals Cheat Sheet","path":"artifacts/calculus-antiderivatives-definite-integrals-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-antiderivatives-definite-integrals-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: antiderivatives, indefinite integrals and u-substitution. Back: Riemann sums, definite integrals and their properties. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Antiderivatives and Definite Integrals","Unit 5"],"added":"2026-11-05"},"ap-review":{"title":"AP Review Cheat Sheet","path":"artifacts/calculus-ap-review-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-ap-review-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: limits, derivatives and their applications. Back: integrals, FTC and free-response tips. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","AP Review","Unit 9"],"added":"2026-11-05"},"applications-derivatives":{"title":"Applications of Derivatives Cheat Sheet","path":"artifacts/calculus-applications-derivatives-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-applications-derivatives-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: related rates, motion and linearization. Back: extrema, the MVT, curve sketching and optimization. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Applications of Derivatives","Unit 4"],"added":"2026-11-05"},"applications-integrals":{"title":"Applications of Integrals Cheat Sheet","path":"artifacts/calculus-applications-integrals-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-applications-integrals-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area between curves. Back: volumes by discs, washers and cross sections. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Applications of Integrals","Unit 7"],"added":"2026-11-05"},"derivatives":{"title":"Derivatives Cheat Sheet","path":"artifacts/calculus-derivatives-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-derivatives-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: the definition of the derivative and basic rules. Back: product, quotient and chain rules, implicit and higher derivatives. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Derivatives","Unit 3"],"added":"2026-11-05"},"differential-equations":{"title":"Differential Equations Cheat Sheet","path":"artifacts/calculus-differential-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-differential-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: slope fields and verifying solutions. Back: separation of variables and exponential growth and decay. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Differential Equations","Unit 8"],"added":"2026-11-05"},"fundamental-theorem-calculus":{"title":"The Fundamental Theorem of Calculus Cheat Sheet","path":"artifacts/calculus-fundamental-theorem-calculus-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-fundamental-theorem-calculus-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: FTC part 1 and part 2. Back: average value, accumulation functions and net change. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","The Fundamental Theorem of Calculus","Unit 6"],"added":"2026-11-05"},"limits-continuity":{"title":"Limits and Continuity Cheat Sheet","path":"artifacts/calculus-limits-continuity-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-limits-continuity-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: limit notation, evaluating limits algebraically and graphically. Back: one-sided and infinite limits, continuity and the IVT. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Limits and Continuity","Unit 2"],"added":"2026-11-05"},"precalculus-review":{"title":"Precalculus Review Cheat Sheet","path":"artifacts/calculus-precalculus-review-cheat-sheet/worksheet.pdf","thumb":"thumbs/calculus-precalculus-review-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: functions, domain, graphs and transformations. Back: exponentials, logarithms and trigonometry you will need. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Precalculus Review","Unit 1"],"added":"2026-11-05"}},"math6":{"data-displays":{"title":"Data Displays Cheat Sheet","path":"artifacts/math6-data-displays-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-data-displays-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: statistical questions, dot plots, histograms and box plots. Back: mean, median, range, IQR, MAD and the shape of a distribution. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Data Displays","Unit 7"],"added":"2026-11-05"},"expressions-equations":{"title":"Expressions and Equations Cheat Sheet","path":"artifacts/math6-expressions-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-expressions-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: exponents, the order of operations and algebraic expressions. Back: equivalent expressions, one-step equations and variables. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Expressions and Equations","Unit 4"],"added":"2026-11-05"},"fractions-decimals-operations":{"title":"Operations of Fractions and Decimals Cheat Sheet","path":"artifacts/math6-fractions-decimals-operations-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-fractions-decimals-operations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: dividing fractions and mixed numbers. Back: multi-digit decimals, GCF, LCM and the distributive property. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Operations of Fractions and Decimals","Unit 2"],"added":"2026-11-05"},"geometry":{"title":"Geometry Cheat Sheet","path":"artifacts/math6-geometry-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-geometry-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area of quadrilaterals, triangles and composite polygons. Back: volume, polygons on the coordinate plane, nets and surface area. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Geometry","Unit 6"],"added":"2026-11-05"},"inequalities":{"title":"Inequalities Cheat Sheet","path":"artifacts/math6-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: inequality symbols, solutions and graphs. Back: solving one-step inequalities and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Inequalities","Unit 5"],"added":"2026-11-05"},"rational-numbers":{"title":"Rational Numbers Cheat Sheet","path":"artifacts/math6-rational-numbers-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-rational-numbers-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: positive and negative numbers, the number line, comparing and ordering. Back: absolute value and the coordinate plane. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Rational Numbers","Unit 3"],"added":"2026-11-05"},"ratios-rates-percent-proportions":{"title":"Ratios, Rate, Percent and Proportions Cheat Sheet","path":"artifacts/math6-ratios-rates-percent-proportions-cheat-sheet/worksheet.pdf","thumb":"thumbs/math6-ratios-rates-percent-proportions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: ratios, unit rates, equivalent ratios and tables. Back: proportions, percents and unit conversions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Ratios, Rate, Percent and Proportions","Unit 1"],"added":"2026-11-05"}},"prealgebra7":{"algebraic-expressions-integers":{"title":"Algebraic Expressions and Integers Cheat Sheet","path":"artifacts/prealgebra7-algebraic-expressions-integers-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-algebraic-expressions-integers-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: place value, variables, expressions and the order of operations. Back: integer operations, estimation, patterns and the coordinate plane. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Algebraic Expressions and Integers","Unit 1"],"added":"2026-11-05"},"area-volume":{"title":"Area and Volume Cheat Sheet","path":"artifacts/prealgebra7-area-volume-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-area-volume-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: area of parallelograms, triangles, trapezoids and circles. Back: space figures, surface area and volume. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Area and Volume","Unit 10"],"added":"2026-11-05"},"data-analysis-probability":{"title":"Data Analysis and Probability Cheat Sheet","path":"artifacts/prealgebra7-data-analysis-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-data-analysis-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: frequency tables, histograms, box plots and stem-and-leaf plots. Back: probability, independent and dependent events, counting and sampling. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Data Analysis and Probability","Unit 12"],"added":"2026-11-05"},"decimals-equations":{"title":"Decimals and Equations Cheat Sheet","path":"artifacts/prealgebra7-decimals-equations-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-decimals-equations-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: rounding, estimating and measures of center. Back: formulas, decimal equations and the metric system. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Decimals and Equations","Unit 3"],"added":"2026-11-05"},"factors-fractions-exponents":{"title":"Factors, Fractions, and Exponents Cheat Sheet","path":"artifacts/prealgebra7-factors-fractions-exponents-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-factors-fractions-exponents-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: divisibility, prime factorization, GCF and simplifying fractions. Back: rational and irrational numbers, exponent rules, scientific notation and cube roots. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Factors, Fractions, and Exponents","Unit 4"],"added":"2026-11-05"},"linear-functions-graphing":{"title":"Linear Functions and Graphing Cheat Sheet","path":"artifacts/prealgebra7-linear-functions-graphing-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-linear-functions-graphing-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: relations, functions, two-variable equations, slope and intercepts. Back: writing rules, scatter plots, systems and graphing inequalities. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Linear Functions and Graphing","Unit 8"],"added":"2026-11-05"},"nonlinear-functions-polynomials":{"title":"Nonlinear Functions and Polynomials Cheat Sheet","path":"artifacts/prealgebra7-nonlinear-functions-polynomials-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-nonlinear-functions-polynomials-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: sequences, nonlinear graphs and exponential growth and decay. Back: adding, subtracting and multiplying polynomials. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Nonlinear Functions and Polynomials","Unit 13"],"added":"2026-11-05"},"one-step-equations-inequalities":{"title":"Solving One-Step Equations and Inequalities Cheat Sheet","path":"artifacts/prealgebra7-one-step-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-one-step-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: number properties, the distributive property and simplifying. Back: one-step equations and inequalities and their graphs. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Solving One-Step Equations and Inequalities","Unit 2"],"added":"2026-11-05"},"operations-fractions":{"title":"Operations with Fractions Cheat Sheet","path":"artifacts/prealgebra7-operations-fractions-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-operations-fractions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: comparing rational numbers, fractions and decimals, the four operations. Back: customary units, fraction equations and powers of quotients. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Operations with Fractions","Unit 5"],"added":"2026-11-05"},"ratios-proportions-percentages":{"title":"Ratios, Proportions, and Percentages Cheat Sheet","path":"artifacts/prealgebra7-ratios-proportions-percentages-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-ratios-proportions-percentages-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: ratios, unit rates, proportions, scale drawings and probability. Back: percents, percent of change, markup, discount and tables. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Ratios, Proportions, and Percentages","Unit 6"],"added":"2026-11-05"},"right-triangles-algebra":{"title":"Right Triangles in Algebra Cheat Sheet","path":"artifacts/prealgebra7-right-triangles-algebra-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-right-triangles-algebra-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: square roots, the Pythagorean theorem, distance and midpoint. Back: proportions, special right triangles and trigonometric ratios. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Right Triangles in Algebra","Unit 11"],"added":"2026-11-05"},"solving-equations-inequalities":{"title":"Solving Equations and Inequalities Cheat Sheet","path":"artifacts/prealgebra7-solving-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-solving-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: two-step and multi-step equations, fractions and decimals. Back: variables on both sides, two-step inequalities, formulas and interest. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Solving Equations and Inequalities","Unit 7"],"added":"2026-11-05"},"spatial-thinking":{"title":"Spatial Thinking Cheat Sheet","path":"artifacts/prealgebra7-spatial-thinking-cheat-sheet/worksheet.pdf","thumb":"thumbs/prealgebra7-spatial-thinking-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: points, lines, planes, angle pairs, parallel lines and polygons. Back: congruence, circles, constructions, translations, symmetry and rotations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Spatial Thinking","Unit 9"],"added":"2026-11-05"}},"precalculus":{"conics":{"title":"Conics Cheat Sheet","path":"artifacts/precalculus-conics-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-conics-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: parabolas and circles. Back: ellipses, hyperbolas and identifying conics. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Conics","Unit 3"],"added":"2026-11-05"},"equations-inequalities":{"title":"Equations and Inequalities Cheat Sheet","path":"artifacts/precalculus-equations-inequalities-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-equations-inequalities-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: linear, absolute value and quadratic equations. Back: polynomial, rational and radical equations and inequalities. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Equations and Inequalities","Unit 1"],"added":"2026-11-05"},"functions":{"title":"Functions Cheat Sheet","path":"artifacts/precalculus-functions-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-functions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: domain, range, graphs and transformations. Back: combinations, inverses, polynomial, rational, exponential and logarithmic functions. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Functions","Unit 2"],"added":"2026-11-05"},"general-triangle-trigonometry":{"title":"Trigonometry of General Triangles Cheat Sheet","path":"artifacts/precalculus-general-triangle-trigonometry-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-general-triangle-trigonometry-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: right-triangle trig and the Law of Sines. Back: the Law of Cosines, the ambiguous case and triangle area. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Trigonometry of General Triangles","Unit 5"],"added":"2026-11-05"},"matrices":{"title":"Matrices Cheat Sheet","path":"artifacts/precalculus-matrices-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-matrices-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: matrix operations and multiplication. Back: determinants, inverses and solving systems. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Matrices","Unit 6"],"added":"2026-11-05"},"probability":{"title":"Probability Cheat Sheet","path":"artifacts/precalculus-probability-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-probability-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: counting, permutations, combinations and basic probability. Back: conditional probability, independence, the binomial theorem and expected value. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Probability","Unit 8"],"added":"2026-11-05"},"trigonometric-functions":{"title":"Trigonometric Functions Cheat Sheet","path":"artifacts/precalculus-trigonometric-functions-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-trigonometric-functions-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: angles, radians, the unit circle and graphs. Back: inverse trig functions, identities and trig equations. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Trigonometric Functions","Unit 4"],"added":"2026-11-05"},"vectors":{"title":"Vectors Cheat Sheet","path":"artifacts/precalculus-vectors-cheat-sheet/worksheet.pdf","thumb":"thumbs/precalculus-vectors-cheat-sheet.jpg","description":"Two-page printable cheat sheet. Front: vector components, magnitude, direction and operations. Back: dot product, angles between vectors, projections and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.","type":"Printable","topics":["Cheat sheet","Reference","Vectors","Unit 7"],"added":"2026-11-05"}}};
++ G.LIBRARY.courses.forEach(function(c){var m=S[c.id];if(!m)return;c.units.forEach(function(u){var a=m[u.id];if(!a||u.artifacts.some(function(x){return x.path===a.path}))return;u.artifacts.push(a);});});
++})(window);
+diff --git a/index.html b/index.html
+index 35160a9..215247b 100644
+--- a/index.html
++++ b/index.html
+@@ -56,16 +56,16 @@
+   <p class="feedback-chooser-note">Your message opens as a draft. Review it and click Send in your email app.</p>
+ </dialog>
+ <script src="feedback.js?v=email-choice-20261102"></script>
+-<script src="data.js?v=calculus-20261103"></script>
++<script src="data.js?v=unit-refresh-20261105"></script>
+ <script src="unit-specific-arcade.js?v=20261031"></script>
+-<script src="resource-details.js?v=pa8-cheatsheets-20261101"></script>
++<script src="resource-details.js?v=unit-refresh-20261105"></script>
+ <script src="course-catalog.js?v=calculus-20261103"></script>
+ <script src="question-bank-adapter.js?v=resource-ready-1"></script>
+ <script src="resource-eligibility.js?v=algebra2-integrated-20261031"></script>
+ <script src="question-bank-loader.js?v=1"></script>
+ <script src="skill-crosswalk.js?v=grade-practice-20261031"></script>
+ <script src="thumbs/resource-previews.js?v=previews-73c0d84c14c59e762d6bf58dc7b47652b95064c6"></script><script src="resource-standards.js?v=thumbnail-selection-20261031"></script>
+-<script src="app.js?v=calculus-20261103"></script>
++<script src="app.js?v=unit-refresh-20261105"></script>
+ <script>window.MK_BANK_LOADER.loadFromSite().then(function(){window.dispatchEvent(new Event("mk-banks-ready"));}).catch(function(e){console.warn("Approved bank loading unavailable:",e.message);});</script>
+ <script src="student-game-share.js?v=proofs-20261101"></script>
+ <script src="student-share-cards.js?v=proofs-20261101"></script>
+diff --git a/resource-details.js b/resource-details.js
+index 96940e0..06ec7b4 100644
+--- a/resource-details.js
++++ b/resource-details.js
+@@ -1016,5 +1016,153 @@ window.RESOURCE_DETAILS = {
+   "artifacts/polynomials-cheat-sheet/worksheet.pdf": {
+     "pages": 2,
+     "referenceSheet": true
++  },
++  "artifacts/calculus-antiderivatives-definite-integrals-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-ap-review-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-applications-derivatives-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-applications-integrals-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-derivatives-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-differential-equations-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-fundamental-theorem-calculus-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-limits-continuity-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/calculus-precalculus-review-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-data-displays-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-expressions-equations-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-fractions-decimals-operations-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-geometry-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-inequalities-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-rational-numbers-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/math6-ratios-rates-percent-proportions-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-algebraic-expressions-integers-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-area-volume-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-data-analysis-probability-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-decimals-equations-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-factors-fractions-exponents-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-linear-functions-graphing-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-nonlinear-functions-polynomials-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-one-step-equations-inequalities-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-operations-fractions-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-ratios-proportions-percentages-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-right-triangles-algebra-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-solving-equations-inequalities-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/prealgebra7-spatial-thinking-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-conics-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-equations-inequalities-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-functions-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-general-triangle-trigonometry-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-matrices-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-probability-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-trigonometric-functions-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
++  },
++  "artifacts/precalculus-vectors-cheat-sheet/worksheet.pdf": {
++    "pages": 2,
++    "referenceSheet": true
+   }
+ };
+diff --git a/scripts/test-public-site.cjs b/scripts/test-public-site.cjs
+index 515ed25..572fd20 100644
+--- a/scripts/test-public-site.cjs
++++ b/scripts/test-public-site.cjs
+@@ -44,7 +44,7 @@ const publicApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
+ assert(publicApp.includes("'mailto:akneller@gmail.com?subject='"),'Per-resource issue reports must use direct email');
+ assert(publicApp.includes("encodeURIComponent(body)"),'Per-resource report must include activity link and problem template');
+ assert(publicApp.includes('class="report-problem"'),'Activity report links must remain available for email chooser');
+-assert(home.includes('app.js?v=calculus-20261103'),'Homepage must load fresh Browsing filters');
++assert(home.includes('app.js?v=unit-refresh-20261105'),'Homepage must load fresh Browsing filters');
+ assert(publicApp.includes('function belongsToGroup(a, group)'),'Browse Activities classification missing');
+ assert(publicApp.includes("if (a.unitSpecific === true) return 'Unit-specific';"),'Unit-specific tag missing');
+ assert(publicApp.includes("if (key === 'category') { state.format = ''; state.gameMode = ''; }"),'Category changes must clear stale choices');
+@@ -116,7 +116,7 @@ console.log('PASS Grade 6/7 restored; eight visible courses in a two-column grid
+  const pr=context.window.MKMENU?.printables;
+  assert(pr&&pr.PROJECTS&&typeof pr.projectFiles==='function','Project catalog did not initialize');
+  const projects=Object.values(pr.PROJECTS).flat();
+- assert.equal(projects.length,37,'Expected the 37 previously authored projects');
++ assert.equal(projects.length,74,'Expected 74 authored projects (37 Algebra 1, Geometry and Algebra 2 + 37 for 6th Grade, Pre-Algebra 7, Precalculus and Calculus)');
+  for(const project of projects){
+    const files=pr.projectFiles(project);
+    const refs=[files.thumb,files.page,files.teacher.pdf,files.teacher.docx];
+diff --git a/worksheet-generator/course-activity.html b/worksheet-generator/course-activity.html
+index 9cb7faf..d688539 100644
+--- a/worksheet-generator/course-activity.html
++++ b/worksheet-generator/course-activity.html
+@@ -43,4 +43,4 @@
+ <script src="menu/skills/geometry-area-surface-area-volume.js?v=geo-rigor-1"></script>
+ <script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
+ <script src="games/bank.js?v=inequality-parity-20261104d"></script>
+-<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=grade8-banks-20261101"></script><script src="core/math-display.js?v=grade8-banks-20261101"></script><script src="games/course-source.js?v=inequality-parity-20261104b"></script><script src="games/cipher-questions.js?v=cipher-unit-skills-20261104"></script><script src="games/course-activity.js?v=escape-order-four-steps-20261104"></script></body></html>
+\ No newline at end of file
++<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=grade8-banks-20261101"></script><script src="core/math-display.js?v=grade8-banks-20261101"></script><script src="games/course-source.js?v=inequality-parity-20261104b"></script><script src="games/cipher-questions.js?v=cipher-unit-skills-20261104"></script><script src="games/course-activity.js?v=unit-themes-20261105"></script></body></html>
+\ No newline at end of file
+diff --git a/worksheet-generator/games/course-activity.js b/worksheet-generator/games/course-activity.js
+index d72c897..74e1ec5 100644
+--- a/worksheet-generator/games/course-activity.js
++++ b/worksheet-generator/games/course-activity.js
+@@ -14,8 +14,8 @@ function setup(selected){
+  start.onclick=async()=>{const qs=source.select(level.value,ids,G.MK_QUESTION_BANKS.available(source.courseId,source.unit.id)?120:20);const mc=qs.filter(q=>q.format==='multiple-choice');if((escape?qs.length:mc.length)<(escape?5:10)){status.textContent=qs.length?'Choose more skills at this difficulty to fill this activity.':'Questions are not available for this course and unit yet. The activity settings are ready for a future bank.';return}start.disabled=true;try{if(escape)await startEscape(qs,level.value);else await startMystery(mc,level.value)}catch(e){status.textContent='Unable to open activity: '+e.message;start.disabled=false}};
+  if(!['algebra','geometry'].includes(source.courseId)&&!G.MK_QUESTION_BANKS.available(source.courseId,source.unit.id))status.textContent='Questions are not available for this course and unit yet. The activity settings are ready for a future bank.';
+ }
+-function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.href=path+'?v=cipher-forward-plusone-20261104'}
+-function script(path){return new Promise((resolve,reject)=>{const s=el('script',document.body);s.src=path+'?v=cipher-forward-plusone-20261104';s.onload=resolve;s.onerror=()=>reject(Error('Activity engine unavailable'))})}
++function loadCSS(path){const l=el('link',document.head);l.rel='stylesheet';l.href=path+'?v=unit-themes-20261105'}
++function script(path){return new Promise((resolve,reject)=>{const s=el('script',document.body);s.src=path+'?v=unit-themes-20261105';s.onload=resolve;s.onerror=()=>reject(Error('Activity engine unavailable'))})}
+ async function startMystery(qs,level){
+  const data=await fetch('games/mystery-case.json',{cache:'no-store'}).then(r=>r.json());data.unit=source.courseId+'-'+source.unit.id+'-'+level;data.eyebrow=source.course.name+' · Detective';data.title=source.unit.name+' Detective';data.tagline='Solve each problem to earn evidence and crack the case.';data.inputHint='Choose an answer, then check it to unlock your evidence.';data.symbols=[];
+  data.questions=qs.slice(0,10).map(q=>({sourceId:q.id,skill:all.find(s=>s.id===q.skillId)?.name||q.skillId,instr:'',html:source.question(q),answer:{t:'source-choice',v:q.options.findIndex(o=>o.correct)},options:q._graphOptions||q.options.map(o=>source.html(o.text)),hint:source.html(q.solutionSteps[0]||''),steps:q.solutionSteps.map(source.html)}));
+@@ -23,6 +23,10 @@ async function startMystery(qs,level){
+ }
+ async function startEscape(qs,selectedLevel){
+  const base=await fetch('games/escape-room.json',{cache:'no-store'}).then(r=>r.json()),used=new Set();
++ // Every course unit has its own story, password, cipher message and clue word (games/escape-themes.json).
++ const themes=await fetch('games/escape-themes.json',{cache:'no-store'}).then(r=>r.ok?r.json():{}).catch(()=>({}));
++ const theme=themes[source.courseId+'/'+source.unit.id]||null;
++ const roomWord=theme?theme.room:'gallery',RoomWord=roomWord.replace(/\b\w/g,c=>c.toUpperCase());
+  function take(test){const q=qs.find(q=>!used.has(q.id)&&test(q));if(q)used.add(q.id);return q}
+  function numericValue(q){
+   const raw=String(q && q.answer!=null?q.answer:'').trim().replace(/−/g,'-');
+@@ -66,9 +70,9 @@ async function startEscape(qs,selectedLevel){
+   // Do not manufacture a meaningless sorting puzzle from a one-line answer.
+   return null;
+  }
+- function scene(q){return q.diagram?.type==='image'?{kind:'image',src:q.diagram.spec.src,alt:q.diagram.spec.alt.replace(/"/g,'&quot;')}:{kind:'emoji',bg:'#1d1530',floor:'#3a2b4a',items:[{e:'🏺',x:80,y:170,s:60},{e:'🖼️',x:170,y:150,s:56},{e:'📜',x:250,y:160,s:50},{e:'🗝️',x:330,y:170,s:50}]}}
++ function scene(q){const em=theme?theme.scene:['🏺','🖼️','📜','🗝️'];return q.diagram?.type==='image'?{kind:'image',src:q.diagram.spec.src,alt:q.diagram.spec.alt.replace(/"/g,'&quot;')}:{kind:'emoji',bg:theme?theme.bg:'#1d1530',floor:theme?theme.floor:'#3a2b4a',items:[{e:em[0],x:80,y:170,s:60},{e:em[1],x:170,y:150,s:56},{e:em[2],x:250,y:160,s:50},{e:em[3],x:330,y:170,s:50}]}}
+  function prompt(q,includeOptions){return source.question(q)+(includeOptions&&q.options?'<ol type="A">'+q.options.map((o,i)=>'<li>'+(q._graphOptions?q._graphOptions[i]:source.html(o.text))+'</li>').join('')+'</ol>':'')}
+- function stage(q,i){return {name:all.find(s=>s.id===q.skillId)?.name||'Gallery '+(i+1),sourceId:q.id,stamp:[41,12,87,23,55][i],letter:['M','C','T','O','E'][i],story:'Solve the gallery challenge to unlock the next door and collect its key card.',scene:scene(q),hints:q.solutionSteps.slice(0,3).map(source.html),key:source.html(String(q.answer))}}
++ function stage(q,i){return {name:all.find(s=>s.id===q.skillId)?.name||RoomWord+' '+(i+1),sourceId:q.id,stamp:(theme?theme.stamps:[41,12,87,23,55])[i],letter:(theme?theme.letters:['M','C','T','O','E'])[i],story:'Solve the '+roomWord+' challenge to unlock the next door and collect its key card.',scene:scene(q),hints:q.solutionSteps.slice(0,3).map(source.html),key:source.html(String(q.answer))}}
+  function choice(q,i){return {...stage(q,i),type:'bankChoice',title:'Unlock the door',prompt:prompt(q,false),options:q._graphOptions||q.options.map(o=>source.html(o.text)),answer:q.options.findIndex(o=>o.correct)}}
+  // Reserve a numerical item for the cipher before building other rooms.
+  const unitCipher=G.MK_CIPHER_QUESTIONS&&G.MK_CIPHER_QUESTIONS.create({
+@@ -83,10 +87,10 @@ async function startEscape(qs,selectedLevel){
+  if(!q2||!shiftQuestion(q2))throw Error('No verified unit-aligned numerical cipher problem is available for this unit.');
+  const q1=take(numeric)||take(q=>q.format==='multiple-choice');
+  if(!q1)throw Error('This selection needs a numeric or multiple-choice lock question.');
+- const first=numeric(q1)?{...stage(q1,0),type:'fields',title:'The Gallery Lock',prompt:prompt(q1,true),fields:[{label:'Answer =',answer:numericValue(q1)}],button:'Open the door'}:choice(q1,0);
++ const first=numeric(q1)?{...stage(q1,0),type:'fields',title:'The '+RoomWord+' Lock',prompt:prompt(q1,true),fields:[{label:'Answer =',answer:numericValue(q1)}],button:'Open the door'}:choice(q1,0);
+  const cipher={...stage(q2,1),type:'cipher',title:'The Cipher',
+-   prompt:prompt(q2,false),plain:'THE NEXT KEY IS BEHIND THE PLANETS',
+-   shift:numericValue(q2),answer:'PLANETS',askLabel:'Where is the next key?'};
++   prompt:prompt(q2,false),plain:theme?theme.cipher:'THE NEXT KEY IS BEHIND THE PLANETS',
++   shift:numericValue(q2),answer:theme?theme.clue:'PLANETS',askLabel:theme?theme.ask:'Where is the next key?'};
+  const q3=take(q=>q.format==='multiple-choice');if(!q3)throw Error('Choose more skills for the classification room.');const classify={...stage(q3,2),type:'classify',title:'The Answer Panels',prompt:prompt(q3,false),items:['Choose the correct panel.'],options:q3._graphOptions||q3.options.map(o=>source.html(o.text)),answer:[q3.options.findIndex(o=>o.correct)]};
+  const q4=take(q=>orderedSteps(q)?.length>=4&&q.solutionSteps.length>=4)||
+    take(q=>orderedSteps(q)?.length>=4&&q.solutionSteps.length>=3)||
+@@ -97,8 +101,11 @@ async function startEscape(qs,selectedLevel){
+  const order={...stage(q4,3),type:'order',title:'Put the Work in Order',
+    prompt:prompt(q4,true),steps:sortedSteps.map(source.html)};
+  const q5=take(q=>numeric(q)&&Number.isInteger(Number(q.answer))&&Number(q.answer)>=0&&Number(q.answer)<=9)||take(numeric)||take(q=>q.format==='multiple-choice');if(!q5)throw Error('Choose more skills for the final lock.');
+- const last=numeric(q5)?{...stage(q5,4),type:'fields',ui:Number.isInteger(Number(q5.answer))&&Number(q5.answer)>=0&&Number(q5.answer)<=9?'dial':'fields',title:'The Exit Vault',prompt:prompt(q5,true),fields:[{label:'Answer',answer:numericValue(q5)}],button:'Turn the handle'}:choice(q5,4);
+- const room={...base,id:source.courseId+'-'+source.unit.id,title:source.unit.name+' Escape Room',intro:'The museum is locked for the night. Solve five gallery challenges, collect the key cards, and open the final door before the alarms reset.',stages:[first,cipher,classify,order,last]};G.MK_ACTIVE_ESCAPE_ROOM=room;
++ const last=numeric(q5)?{...stage(q5,4),type:'fields',ui:Number.isInteger(Number(q5.answer))&&Number(q5.answer)>=0&&Number(q5.answer)<=9?'dial':'fields',title:'The Final '+RoomWord,prompt:prompt(q5,true),fields:[{label:'Answer',answer:numericValue(q5)}],button:'Turn the handle'}:choice(q5,4);
++ const story=theme?{title:theme.title,emoji:theme.introEmoji,endEmoji:theme.endEmoji,intro:theme.intro,word:theme.word,outro:theme.outro,
++   finalStory:'The last door has a five-letter keypad. A note on it says: “Lay your key cards from the smallest stamp to the largest. The letters spell the password.”',finalAsk:'Password?'}:
++   {title:source.unit.name+' Escape Room',intro:'The museum is locked for the night. Solve five gallery challenges, collect the key cards, and open the final door before the alarms reset.'};
++ const room={...base,...story,id:source.courseId+'-'+source.unit.id,stages:[first,cipher,classify,order,last]};G.MK_ACTIVE_ESCAPE_ROOM=room;
+  loadCSS('games/escape.css');const header=document.getElementById('activityHeader');header.innerHTML='<h1>'+source.unit.name+' Escape Room</h1><div id="dots"></div><div>Hints used: <b id="hu">0</b> &nbsp; <span id="clock">10:00</span></div>';
+  const host=document.createElement('div');host.id='app';app.replaceWith(host);el('div',document.body).id='key';await script('games/escape-runtime.js');
+ }
+diff --git a/worksheet-generator/games/escape.css b/worksheet-generator/games/escape.css
+index eda00c8..c772f5a 100644
+--- a/worksheet-generator/games/escape.css
++++ b/worksheet-generator/games/escape.css
+@@ -67,3 +67,14 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
+ #ol + #go{background:#3dd6bd;color:#092b2b;border:2px solid #b8fff0;box-shadow:0 4px 0 #147e70;font-weight:800}
+ #ol + #go:hover{background:#6debd5;filter:none}
+ #ol + #go:focus-visible{outline:3px solid #fff;outline-offset:3px}
++
++/* Choices vs. submit: answer choices are neutral tiles (gold outline when picked); every "lock in" / submit
++   button is green with a lock icon, so students never confuse picking an answer with submitting it. */
++.source-choice,.sw button{background:#2b3166;color:var(--ink);border:2px solid #4a529a}
++.source-choice[aria-pressed="true"],.sw button.on{background:#3b4396;color:#fff;border-color:var(--gold);outline:3px solid var(--gold);outline-offset:1px}
++#go,#lockShiftButton,#ol + #go,#app #go,#app #lockShiftButton{background:#2fbf71;color:#04230f;border:2px solid #b9f5d2;box-shadow:0 4px 0 #157a43;font-weight:800;margin-top:10px}
++#go::before,#lockShiftButton::before{content:"🔒 "}
++#go:hover,#lockShiftButton:hover,#ol + #go:hover,#app #go:hover,#app #lockShiftButton:hover{background:#45d687;filter:none}
++#go:focus-visible,#lockShiftButton:focus-visible{outline:3px solid #fff;outline-offset:3px}
++#app #go:disabled,#app #lockShiftButton:disabled{background:#4b5a52;color:#c9d3cd;box-shadow:none;cursor:default}
++#cipherPlusOne{background:var(--blue);color:#06233a}
+diff --git a/worksheet-generator/menu/printables-projects.js b/worksheet-generator/menu/printables-projects.js
+index ccc2975..f131eed 100644
+--- a/worksheet-generator/menu/printables-projects.js
++++ b/worksheet-generator/menu/printables-projects.js
+@@ -1,7 +1,7 @@
+ /* Projects for the Printable Generator (kind=project). Nothing is generated: each project is a ready-made
+    2–3 day project saved as PDF, Word (.docx) and PowerPoint (.pptx) at CP2, CP1 and Honors, plus a teacher guide
+    with answer keys. Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
+-   Courses: Algebra 1, Geometry and Algebra 2. */
++   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Precalculus and Calculus. */
+ (function (G) {
+   'use strict';
+   var NS = G.MKMENU = G.MKMENU || {}, PR = NS.printables = NS.printables || {};
+@@ -404,7 +404,414 @@
+       "theme": "Games & Fundraising",
+       "product": "Booth Proposal"
+     }
+-  ]
++  ],
++    "math6-ratios-rates-percent-proportions": [
++      {
++        "folder": "math6-project-bake-sale-boss",
++        "slug": "bake-sale-boss",
++        "title": "Bake Sale Boss",
++        "tagline": "Scale recipes, compare prices, and price your treats for a school bake sale.",
++        "description": "Students run the class bake sale. They scale cookie and muffin recipes with ratio tables, find unit prices to choose the best deals on supplies, use percents for discounts and profit, and design their own booth menu.",
++        "theme": "Food & Business",
++        "product": "Bake Sale Business Plan"
++      }
++    ],
++    "math6-fractions-decimals-operations": [
++      {
++        "folder": "math6-project-quilt-shop-makers",
++        "slug": "quilt-shop-makers",
++        "title": "Quilt Shop Makers",
++        "tagline": "Measure, cut, and price fabric to sew a class quilt.",
++        "description": "Students plan a class quilt for the school auction. They add, subtract, multiply, and divide fractions and mixed numbers to measure and cut fabric, use decimals to price materials, and design and cost their own quilt square.",
++        "theme": "Art & Design",
++        "product": "Quilt Plan & Price Sheet"
++      }
++    ],
++    "math6-rational-numbers": [
++      {
++        "folder": "math6-project-weather-station-watch",
++        "slug": "weather-station-watch",
++        "title": "Weather Station Watch",
++        "tagline": "Track below-zero temperatures, elevations, and locations with rational numbers.",
++        "description": "Students run a winter weather station. They compare and order positive and negative temperatures, use absolute value to describe changes and distances, plot weather stations on the coordinate plane, and write a forecast report.",
++        "theme": "Science & Weather",
++        "product": "Weather Station Report"
++      }
++    ],
++    "math6-expressions-equations": [
++      {
++        "folder": "math6-project-arcade-party-planner",
++        "slug": "arcade-party-planner",
++        "title": "Arcade Party Planner",
++        "tagline": "Write expressions and solve equations to plan a birthday party at the arcade.",
++        "description": "Students plan an arcade birthday party. They write and evaluate expressions for game cards, food, and prizes, use the distributive property and exponents, solve one-step equations for budgets and tickets, and design their own party package.",
++        "theme": "Games & Events",
++        "product": "Party Package Proposal"
++      }
++    ],
++    "math6-inequalities": [
++      {
++        "folder": "math6-project-theme-park-rules",
++        "slug": "theme-park-rules",
++        "title": "Theme Park Rules",
++        "tagline": "Use inequalities to check ride rules, budgets, and wait times at a theme park.",
++        "description": "Students plan a class trip to a theme park. They write and graph inequalities for height rules and age limits, solve one-step inequalities for budgets and wait times, and design a fair rule for a new ride.",
++        "theme": "Travel & Recreation",
++        "product": "Theme Park Day Plan"
++      }
++    ],
++    "math6-geometry": [
++      {
++        "folder": "math6-project-dream-bedroom-makeover",
++        "slug": "dream-bedroom-makeover",
++        "title": "Dream Bedroom Makeover",
++        "tagline": "Use area, surface area, and volume to redesign a bedroom on a budget.",
++        "description": "Students redesign a bedroom. They find the area of the floor and of composite and triangular shapes for rugs and wall art, use nets to find the surface area to paint, find the volume of storage boxes, and price their makeover.",
++        "theme": "Home & Design",
++        "product": "Makeover Design Board"
++      }
++    ],
++    "math6-data-displays": [
++      {
++        "folder": "math6-project-lunch-menu-survey",
++        "slug": "lunch-menu-survey",
++        "title": "Lunch Menu Survey",
++        "tagline": "Survey classmates and use data displays to recommend a new lunch menu.",
++        "description": "Students act as the school food committee. They ask statistical questions, organize survey data in dot plots, histograms, and box plots, find measures of center and spread, and present a data-backed lunch menu recommendation.",
++        "theme": "School & Health",
++        "product": "Menu Recommendation Report"
++      }
++    ],
++    "prealgebra7-algebraic-expressions-integers": [
++      {
++        "folder": "prealgebra7-project-deep-sea-expedition",
++        "slug": "deep-sea-expedition",
++        "title": "Deep Sea Expedition",
++        "tagline": "Use integers and expressions to guide a submarine to the ocean floor and back.",
++        "description": "Students pilot a research submarine. They use integers for depths and temperature changes, write and evaluate expressions for dives, apply the order of operations to sonar readings, find patterns in the dive log, and map discoveries on the coordinate plane.",
++        "theme": "Ocean Science",
++        "product": "Expedition Log"
++      }
++    ],
++    "prealgebra7-one-step-equations-inequalities": [
++      {
++        "folder": "prealgebra7-project-movie-night-fundraiser",
++        "slug": "movie-night-fundraiser",
++        "title": "Movie Night Fundraiser",
++        "tagline": "Simplify expressions and solve one-step equations and inequalities to run a school movie night.",
++        "description": "Students run a school movie night. They simplify cost expressions with properties and the distributive property, solve one-step equations to find ticket and snack sales, solve and graph one-step inequalities for goals and limits, and present a profit plan.",
++        "theme": "Events & Fundraising",
++        "product": "Fundraiser Plan"
++      }
++    ],
++    "prealgebra7-decimals-equations": [
++      {
++        "folder": "prealgebra7-project-road-trip-planner",
++        "slug": "road-trip-planner",
++        "title": "Road Trip Planner",
++        "tagline": "Use decimals, formulas, and equations to plan a family road trip.",
++        "description": "Students plan a family road trip. They round and estimate costs, compute mean and median driving times, use the formula d = rt, solve one-step decimal equations for fuel and money, and convert metric units for a stop in Canada.",
++        "theme": "Travel & Planning",
++        "product": "Road Trip Itinerary"
++      }
++    ],
++    "prealgebra7-factors-fractions-exponents": [
++      {
++        "folder": "prealgebra7-project-space-mission-packer",
++        "slug": "space-mission-packer",
++        "title": "Space Mission Packer",
++        "tagline": "Use factors, fractions, exponents, and scientific notation to pack a mission to Mars.",
++        "description": "Students pack supplies for a Mars mission. They use divisibility, prime factorization, and the GCF to make identical supply kits, simplify fractions of cargo, apply exponent rules, and use scientific notation for planet distances and travel times.",
++        "theme": "Space & Engineering",
++        "product": "Mission Packing Manifest"
++      }
++    ],
++    "prealgebra7-operations-fractions": [
++      {
++        "folder": "prealgebra7-project-birdhouse-builders",
++        "slug": "birdhouse-builders",
++        "title": "Birdhouse Builders",
++        "tagline": "Measure, cut, and assemble birdhouses using fraction and mixed-number operations.",
++        "description": "Students build birdhouses in woodshop. They compare and order measurements, add, subtract, multiply, and divide fractions and mixed numbers to plan cuts from boards, convert customary units, solve fraction equations, and design their own birdhouse.",
++        "theme": "Building & Nature",
++        "product": "Birdhouse Build Plan"
++      }
++    ],
++    "prealgebra7-ratios-proportions-percentages": [
++      {
++        "folder": "prealgebra7-project-sneaker-store-manager",
++        "slug": "sneaker-store-manager",
++        "title": "Sneaker Store Manager",
++        "tagline": "Use rates, proportions, and percents to run a sneaker store for a week.",
++        "description": "Students manage a sneaker store. They compare unit rates for wholesale orders, use proportions and a scale drawing to plan the store layout, run a raffle with probability, and set prices with markups, discounts, and percent change.",
++        "theme": "Business & Retail",
++        "product": "Store Manager Report"
++      }
++    ],
++    "prealgebra7-solving-equations-inequalities": [
++      {
++        "folder": "prealgebra7-project-summer-job-savings",
++        "slug": "summer-job-savings",
++        "title": "Summer Job Savings",
++        "tagline": "Compare summer jobs and savings plans with multi-step equations, inequalities, and interest.",
++        "description": "Students plan a summer job and savings goal. They write and solve two-step and multi-step equations for earnings, compare jobs with variables on both sides, use two-step inequalities for savings goals, transform formulas, and compare simple and compound interest.",
++        "theme": "Money & Careers",
++        "product": "Summer Savings Plan"
++      }
++    ],
++    "prealgebra7-linear-functions-graphing": [
++      {
++        "folder": "prealgebra7-project-bike-share-showdown",
++        "slug": "bike-share-showdown",
++        "title": "Bike Share Showdown",
++        "tagline": "Graph linear functions to choose the best bike or scooter rental.",
++        "description": "Students compare bike-share and scooter companies. They decide whether relations are functions, make tables and graphs, find slope and y-intercept, use scatter plots and trend lines of real ride data, solve systems by graphing, and graph inequalities for a budget.",
++        "theme": "Transportation & City Life",
++        "product": "Rental Comparison Guide"
++      }
++    ],
++    "prealgebra7-spatial-thinking": [
++      {
++        "folder": "prealgebra7-project-skate-park-designer",
++        "slug": "skate-park-designer",
++        "title": "Skate Park Designer",
++        "tagline": "Use angles, polygons, circles, and transformations to design a town skate park.",
++        "description": "Students design a town skate park. They classify and measure angle pairs on ramps and rails, use parallel lines and transversals for the layout, find polygon angle sums for the deck, use circles for the bowl, and create a logo with translations, rotations, and symmetry.",
++        "theme": "Sports & Design",
++        "product": "Skate Park Blueprint"
++      }
++    ],
++    "prealgebra7-area-volume": [
++      {
++        "folder": "prealgebra7-project-backyard-pool-makeover",
++        "slug": "backyard-pool-makeover",
++        "title": "Backyard Pool Makeover",
++        "tagline": "Use area, surface area, and volume to design a backyard with a pool and patio.",
++        "description": "Students design a backyard. They find areas of parallelograms, triangles, trapezoids, and circles for patios and gardens, the surface area of a pool liner, the volume of water for cylindrical and rectangular pools, and price the project.",
++        "theme": "Home & Engineering",
++        "product": "Backyard Design Proposal"
++      }
++    ],
++    "prealgebra7-right-triangles-algebra": [
++      {
++        "folder": "prealgebra7-project-zip-line-engineer",
++        "slug": "zip-line-engineer",
++        "title": "Zip Line Engineer",
++        "tagline": "Use the Pythagorean theorem, distance, and trig ratios to build a safe zip line.",
++        "description": "Students engineer a summer camp zip line. They estimate square roots, use the Pythagorean theorem for cable lengths, find distances and midpoints on a site map, use similar triangles and special right triangles, and apply sine, cosine, and tangent to set a safe angle.",
++        "theme": "Engineering & Outdoors",
++        "product": "Zip Line Engineering Report"
++      }
++    ],
++    "prealgebra7-data-analysis-probability": [
++      {
++        "folder": "prealgebra7-project-board-game-inventor",
++        "slug": "board-game-inventor",
++        "title": "Board Game Inventor",
++        "tagline": "Use probability, counting, and data to invent and test a fair board game.",
++        "description": "Students invent a board game. They count outcomes with tree diagrams and the counting principle, find theoretical and experimental probabilities of dice and spinners, analyze independent and dependent events, use permutations and combinations, display playtest data, and adjust rules to make the game fair.",
++        "theme": "Games & Design",
++        "product": "Game Box & Rule Book"
++      }
++    ],
++    "prealgebra7-nonlinear-functions-polynomials": [
++      {
++        "folder": "prealgebra7-project-rabbit-island-population",
++        "slug": "rabbit-island-population",
++        "title": "Rabbit Island Population",
++        "tagline": "Model a growing rabbit population with sequences, exponential functions, and polynomials.",
++        "description": "Students act as wildlife biologists on an island. They extend arithmetic and geometric sequences, graph nonlinear functions, model population growth and decay with exponential functions, and use polynomial expressions to design fenced habitats.",
++        "theme": "Biology & Environment",
++        "product": "Wildlife Management Report"
++      }
++    ],
++    "precalculus-equations-inequalities": [
++      {
++        "folder": "precalculus-project-concert-venue-planner",
++        "slug": "concert-venue-planner",
++        "title": "Concert Venue Planner",
++        "tagline": "Use equations and inequalities to set ticket prices, tolerances, and capacity for a concert.",
++        "description": "Students plan a concert at an outdoor venue. They model revenue with quadratic equations, use absolute value inequalities for sound and temperature tolerances, solve polynomial and rational inequalities for profit and average cost, and solve a radical equation for sound distance.",
++        "theme": "Music & Business",
++        "product": "Venue Operations Plan"
++      }
++    ],
++    "precalculus-functions": [
++      {
++        "folder": "precalculus-project-streaming-service-analyst",
++        "slug": "streaming-service-analyst",
++        "title": "Streaming Service Analyst",
++        "tagline": "Use function families, transformations, compositions, and inverses to analyze a streaming business.",
++        "description": "Students analyze a music streaming company. They describe domain and range, transform subscriber graphs, model plans with piecewise functions, compose conversion functions, find inverses, and use exponential and logarithmic models for subscriber growth.",
++        "theme": "Technology & Business",
++        "product": "Analyst Briefing"
++      }
++    ],
++    "precalculus-conics": [
++      {
++        "folder": "precalculus-project-science-museum-conics",
++        "slug": "science-museum-conics",
++        "title": "Science Museum Conics",
++        "tagline": "Design a science museum exhibit with a parabolic dish, an elliptical whispering gallery, and a hyperbolic tower.",
++        "description": "Students design exhibits for a science museum. They write equations of circles for a planetarium dome, place the receiver at the focus of a parabolic satellite dish, design an elliptical whispering gallery using foci, and model a cooling tower and navigation with hyperbolas.",
++        "theme": "Science & Architecture",
++        "product": "Exhibit Design Packet"
++      }
++    ],
++    "precalculus-trigonometric-functions": [
++      {
++        "folder": "precalculus-project-daylight-and-seasons",
++        "slug": "daylight-and-seasons",
++        "title": "Daylight and Seasons",
++        "tagline": "Model hours of daylight and temperatures with sinusoidal functions.",
++        "description": "Students study daylight in Boston. They use radians and the unit circle to describe Earth’s orbit, model hours of daylight and average temperatures with sinusoidal functions, identify amplitude, period, phase shift, and midline, and solve trigonometric equations to plan outdoor events.",
++        "theme": "Earth Science",
++        "product": "Seasonal Planning Report"
++      }
++    ],
++    "precalculus-general-triangle-trigonometry": [
++      {
++        "folder": "precalculus-project-search-and-rescue",
++        "slug": "search-and-rescue",
++        "title": "Search and Rescue",
++        "tagline": "Use the Laws of Sines and Cosines and bearings to locate a lost hiker.",
++        "description": "Students coordinate a mountain search and rescue. They use right-triangle trig for elevations, the Law of Sines for sightings from two ranger towers (including the ambiguous case), the Law of Cosines for distances between teams, and triangle area formulas to divide the search region.",
++        "theme": "Emergency Response",
++        "product": "Rescue Operations Brief"
++      }
++    ],
++    "precalculus-matrices": [
++      {
++        "folder": "precalculus-project-spy-agency-codes",
++        "slug": "spy-agency-codes",
++        "title": "Spy Agency Codes",
++        "tagline": "Use matrices to manage inventory, encode secret messages, and solve systems.",
++        "description": "Students work for a spy agency. They use matrix addition and scalar multiplication for gadget inventory, matrix multiplication for costs, encode and decode messages with a 2 × 2 key matrix and its inverse, and solve systems with inverse matrices and determinants.",
++        "theme": "Codes & Technology",
++        "product": "Agent Mission File"
++      }
++    ],
++    "precalculus-vectors": [
++      {
++        "folder": "precalculus-project-flight-path-navigator",
++        "slug": "flight-path-navigator",
++        "title": "Flight Path Navigator",
++        "tagline": "Use vectors to fly a small plane through wind, find ground speed, and plan a delivery route.",
++        "description": "Students plan flights for a regional air delivery service. They write velocity and wind vectors in component form, add vectors to find ground speed and true course, find the heading needed to correct for wind, use dot products for angles and work, and plan a multi-leg route.",
++        "theme": "Aviation & Physics",
++        "product": "Flight Plan"
++      }
++    ],
++    "precalculus-probability": [
++      {
++        "folder": "precalculus-project-sports-draft-analytics",
++        "slug": "sports-draft-analytics",
++        "title": "Sports Draft Analytics",
++        "tagline": "Use counting, conditional probability, and expected value to run a basketball team’s draft room.",
++        "description": "Students run the analytics department of a basketball team. They count lineups with permutations and combinations, compute probabilities of draft lottery outcomes, use two-way tables for conditional probability, apply the binomial distribution to free throws, and use expected value to make trade decisions.",
++        "theme": "Sports & Data Science",
++        "product": "Draft Room Report"
++      }
++    ],
++    "calculus-precalculus-review": [
++      {
++        "folder": "calculus-project-phone-battery-lab",
++        "slug": "phone-battery-lab",
++        "title": "Phone Battery Lab",
++        "tagline": "Review function families by modeling a phone’s battery, charging, and app data.",
++        "description": "Students model a smartphone. They use linear and exponential models for battery drain and charging, piecewise functions for data plans, compositions and inverses for unit conversions, logarithms to solve for time, and a sinusoidal model for daily screen brightness.",
++        "theme": "Technology",
++        "product": "Battery Lab Report"
++      }
++    ],
++    "calculus-limits-continuity": [
++      {
++        "folder": "calculus-project-toll-road-pricing",
++        "slug": "toll-road-pricing",
++        "title": "Toll Road Pricing",
++        "tagline": "Use limits and continuity to design fair prices for a new toll road and parking garage.",
++        "description": "Students design pricing for a highway authority. They read limits from graphs and tables of toll schedules, find one-sided limits at price jumps, make piecewise prices continuous, use limits at infinity for average cost per trip, and apply the Intermediate Value Theorem to traffic data.",
++        "theme": "Transportation & Economics",
++        "product": "Pricing Proposal"
++      }
++    ],
++    "calculus-derivatives": [
++      {
++        "folder": "calculus-project-sprint-coach-analytics",
++        "slug": "sprint-coach-analytics",
++        "title": "Sprint Coach Analytics",
++        "tagline": "Use derivatives to analyze a sprinter’s position, velocity, and acceleration in a 100-meter race.",
++        "description": "Students coach a track team. They estimate instantaneous velocity from race-timing data, use the limit definition of the derivative, apply derivative rules (power, product, quotient, chain) to position models, interpret velocity and acceleration, and write tangent-line estimates for split times.",
++        "theme": "Sports Science",
++        "product": "Coaching Analytics Report"
++      }
++    ],
++    "calculus-applications-derivatives": [
++      {
++        "folder": "calculus-project-package-design-studio",
++        "slug": "package-design-studio",
++        "title": "Package Design Studio",
++        "tagline": "Use optimization, related rates, and curve analysis to design packaging for a juice company.",
++        "description": "Students design packaging for a juice company. They optimize box and can dimensions to minimize material, use related rates for a filling tank, analyze a sales curve with first and second derivatives, apply linearization, and justify extrema with the Mean Value and Extreme Value Theorems.",
++        "theme": "Engineering & Business",
++        "product": "Design Proposal"
++      }
++    ],
++    "calculus-antiderivatives-definite-integrals": [
++      {
++        "folder": "calculus-project-solar-energy-audit",
++        "slug": "solar-energy-audit",
++        "title": "Solar Energy Audit",
++        "tagline": "Use Riemann sums, antiderivatives, and definite integrals to measure a school’s solar energy.",
++        "description": "Students audit the school’s solar panels. They estimate the energy produced from power readings with left, right, midpoint, and trapezoidal sums, find antiderivatives of power models, evaluate definite integrals with properties and u-substitution, and recommend how many panels to add.",
++        "theme": "Energy & Environment",
++        "product": "Energy Audit Report"
++      }
++    ],
++    "calculus-fundamental-theorem-calculus": [
++      {
++        "folder": "calculus-project-coffee-shop-rush",
++        "slug": "coffee-shop-rush",
++        "title": "Coffee Shop Rush",
++        "tagline": "Use the Fundamental Theorem of Calculus to track customers, inventory, and wait times at a coffee shop.",
++        "description": "Students manage a coffee shop’s morning rush. They use rates of arriving and served customers to find net change in the line, apply both parts of the Fundamental Theorem, analyze accumulation functions defined by integrals, find average values, and recommend staffing.",
++        "theme": "Business Operations",
++        "product": "Rush-Hour Staffing Plan"
++      }
++    ],
++    "calculus-applications-integrals": [
++      {
++        "folder": "calculus-project-glass-vase-studio",
++        "slug": "glass-vase-studio",
++        "title": "Glass Vase Studio",
++        "tagline": "Use area between curves and volumes of revolution to design glass vases and bottles.",
++        "description": "Students design products for a glassblowing studio. They find the area of a logo between curves, the volume of a vase with the disc method, the glass in a hollow vase with the washer method, a decorative cross-section volume, and the average value and net change of a production rate.",
++        "theme": "Art & Manufacturing",
++        "product": "Product Design Portfolio"
++      }
++    ],
++    "calculus-differential-equations": [
++      {
++        "folder": "calculus-project-cold-case-cooling",
++        "slug": "cold-case-cooling",
++        "title": "Cold Case: Newton’s Cooling",
++        "tagline": "Use differential equations, slope fields, and Euler’s method to solve a mystery with Newton’s Law of Cooling.",
++        "description": "Students act as forensic scientists. They verify solutions to differential equations, sketch slope fields for cooling, approximate temperatures with Euler’s method, solve Newton’s Law of Cooling by separation of variables, and use exponential models to estimate when a mystery mug of cocoa was poured.",
++        "theme": "Forensic Science",
++        "product": "Case File Report"
++      }
++    ],
++    "calculus-ap-review": [
++      {
++        "folder": "calculus-project-water-park-engineering",
++        "slug": "water-park-engineering",
++        "title": "Water Park Engineering",
++        "tagline": "Review AP Calculus by engineering a water park: rates, motion, accumulation, area, volume, and differential equations.",
++        "description": "Students engineer a new water park in an AP free-response style. They analyze a table of pump rates with Riemann sums and the FTC, model a raft’s motion on a lazy river with velocity and acceleration, find the area and volume of a wave pool, and solve a differential equation for chlorine levels.",
++        "theme": "Engineering & Recreation",
++        "product": "AP-Style Engineering Portfolio"
++      }
++    ]
+ };
+   PR.projectFiles = function (p) {
+     var slug = p.slug, dir = '../artifacts/' + p.folder + '/', f = {};
+diff --git a/worksheet-generator/printables.html b/worksheet-generator/printables.html
+index 9dcda25..b5379a8 100644
+--- a/worksheet-generator/printables.html
++++ b/worksheet-generator/printables.html
+@@ -69,7 +69,7 @@
+ <script src="menu/render.js?v=inequality-parity-20261104b"></script>
+ <script src="games/bank.js?v=inequality-parity-20261104d"></script>
+ <script src="menu/printables.js?v=grade8-banks-20261101"></script>
+-<script src="menu/printables-projects.js?v=restore-projects-20261101"></script>
++<script src="menu/printables-projects.js?v=new-course-projects-20261105"></script>
+ <script src="menu/printables-match.js?v=match-1"></script>
+ <script src="menu/printables-scenes.js?v=print-4"></script>
+ <script src="menu/printables-cases.js?v=print-4"></script>
