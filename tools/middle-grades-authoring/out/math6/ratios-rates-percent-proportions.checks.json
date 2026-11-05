@@ -3072,14 +3072,6 @@
 },
 "family": "g6_s2_context"
 },
-"m6-rrp-s05-cp2-014": {
-"q": {
-"kind": "eq",
-"eq": "(n)*(14) = (7)*(2)",
-"var": "n"
-},
-"family": "g6_s2_solvee_error"
-},
 "m6-rrp-s05-cp2-015": {
 "q": null,
 "parts": [
@@ -3404,14 +3396,6 @@
 },
 "family": "g6_s2_solve"
 },
-"m6-rrp-s05-honors-014": {
-"q": {
-"kind": "eq",
-"eq": "(n)*(78) = (13)*(66)",
-"var": "n"
-},
-"family": "g6_s2_solvee_error"
-},
 "m6-rrp-s05-honors-015": {
 "q": null,
 "parts": [
@@ -3580,13 +3564,6 @@
 }
 },
 "family": "s6_rate100_sel"
-},
-"m6-rrp-s06-cp2-016": {
-"q": {
-"kind": "val",
-"expr": "80/100*100"
-},
-"family": "s6_rate100_error"
 },
 "m6-rrp-s06-cp1-001": {
 "q": {
@@ -3862,13 +3839,6 @@
 }
 },
 "family": "s6_rate100_sel"
-},
-"m6-rrp-s06-honors-016": {
-"q": {
-"kind": "val",
-"expr": "50/100*300"
-},
-"family": "s6_rate100_error"
 },
 "m6-rrp-s07-cp2-001": {
 "q": {
@@ -4705,5 +4675,35 @@
 "expr": "(27/4)*36/1"
 },
 "family": "g6_s5_converte_error"
+},
+"m6-rrp-s05-cp2-017": {
+"q": {
+"kind": "eq",
+"eq": "(n)*(65) = (13)*(35)",
+"var": "n"
+},
+"family": "g6_s2_solvee_error"
+},
+"m6-rrp-s05-honors-017": {
+"q": {
+"kind": "eq",
+"eq": "(10)*(14) = (n)*(20)",
+"var": "n"
+},
+"family": "g6_s2_solvee_error"
+},
+"m6-rrp-s06-cp2-017": {
+"q": {
+"kind": "val",
+"expr": "70/100*100"
+},
+"family": "s6_rate100_error"
+},
+"m6-rrp-s06-honors-017": {
+"q": {
+"kind": "val",
+"expr": "9/100*400"
+},
+"family": "s6_rate100_error"
 }
 }

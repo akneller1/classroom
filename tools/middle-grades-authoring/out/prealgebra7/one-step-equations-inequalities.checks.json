@@ -1359,17 +1359,6 @@
 },
 "family": "s3_perimeter"
 },
-"pa7-osei-s03-cp1-014": {
-"q": {
-"kind": "py",
-"fn": "poly_std",
-"expr": "3y + 5 + y + 11",
-"vars": [
-"y"
-]
-},
-"family": "s3_combine_error"
-},
 "pa7-osei-s03-cp1-015": {
 "q": {
 "kind": "py",
@@ -3299,19 +3288,6 @@
 },
 "family": "s7_sum_diff"
 },
-"pa7-osei-s07-cp2-014": {
-"q": {
-"kind": "py",
-"fn": "conds",
-"vars": [
-"a"
-],
-"conds": [
-"14a + 2(24 - a) = 192"
-]
-},
-"family": "s7_tickets_error"
-},
 "pa7-osei-s07-cp2-015": {
 "q": null,
 "parts": [
@@ -3826,19 +3802,6 @@
 },
 "family": "s7_sum_diff"
 },
-"pa7-osei-s07-honors-014": {
-"q": {
-"kind": "py",
-"fn": "conds",
-"vars": [
-"a"
-],
-"conds": [
-"13a + 3(9 - a) = 97"
-]
-},
-"family": "s7_tickets_error"
-},
 "pa7-osei-s07-honors-015": {
 "q": null,
 "parts": [
@@ -3892,19 +3855,6 @@
 }
 ],
 "family": "s7_sum_diff_open"
-},
-"pa7-osei-s07-honors-016": {
-"q": {
-"kind": "py",
-"fn": "conds",
-"vars": [
-"a"
-],
-"conds": [
-"15a + 2(15 - a) = 147"
-]
-},
-"family": "s7_tickets_error"
 },
 "pa7-osei-s08-cp2-001": {
 "q": {
@@ -5571,5 +5521,55 @@ false
 "var": "a"
 },
 "family": "s10_solve_error"
+},
+"pa7-osei-s03-cp1-017": {
+"q": {
+"kind": "py",
+"fn": "poly_std",
+"expr": "11x + 12 + x - 15",
+"vars": [
+"x"
+]
+},
+"family": "s3_combine_error"
+},
+"pa7-osei-s07-cp2-017": {
+"q": {
+"kind": "py",
+"fn": "conds",
+"vars": [
+"a"
+],
+"conds": [
+"7a + 4(13 - a) = 73"
+]
+},
+"family": "s7_tickets_error"
+},
+"pa7-osei-s07-honors-017": {
+"q": {
+"kind": "py",
+"fn": "conds",
+"vars": [
+"a"
+],
+"conds": [
+"14a + 5(10 - a) = 86"
+]
+},
+"family": "s7_tickets_error"
+},
+"pa7-osei-s07-honors-018": {
+"q": {
+"kind": "py",
+"fn": "conds",
+"vars": [
+"a"
+],
+"conds": [
+"10a + 4(18 - a) = 144"
+]
+},
+"family": "s7_tickets_error"
 }
 }

@@ -518,8 +518,7 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   assert.equal(await site.getAttribute('a.generator-shortcut:has-text("Assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions');
   await site.goto(base + '/index.html#activity.assessment-generator'); await site.waitForTimeout(500);
   assert.match(await site.textContent("body"), /Assessment Generator/);
-  await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForTimeout(800);
-  assert.ok(await site.locator('#pages .page').count() >= 0);
+  await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForURL(/worksheet\.html#unit=algebra1-expressions-equations/, { timeout: 10000 });   // the retired single-unit page forwards to the Worksheet Generator
   await site.goto(base + '/activity.html?path=' + encodeURIComponent('artifacts/expressions-equations-assessment-menu/worksheet.pdf')); await site.waitForTimeout(500);
   // every thumbnail and path referenced from data.js exists
   const missing = await site.evaluate(async () => {

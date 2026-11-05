@@ -53,3 +53,16 @@ Every multiple-choice and select-all option is re-judged, and its truth must mat
 - `hschecks.py`: independent checks. `P(text)` parses the *displayed* text (√, π, e, ∞, superscripts, sin⁻¹, log bases, |…|, °); the `hs` check restates each problem in SymPy (`diff`, `integrate`, `limit`, `solve`, matrices…) and compares; custom checks cover piecewise limits, related rates, optimization, Riemann sums, differential equations, ambiguous-case triangles, linear programming, and more.
 - Build: `MG_OUT=<out> python3 gbuild.py precalculus pc_u03` · Verify: `MG_OUT=<out> python3 gverify.py precalculus` · Reports: `python3 greport.py precalculus` · Vocabulary: `python3 vocab.py <path>/vocabulary-data-middle-grades.js prealgebra7 math6 precalculus calculus`.
 - `gbuild.py` now drops any error-analysis item whose "student answer" passes the check, and `gverify.py` reports it if one slips through.
+
+## Adding to or repairing a published bank
+
+Both options keep every published question exactly as it is. They only add or swap items, and IDs continue after the highest existing number. Point `MG_OUT` at a folder holding the current banks, tags, images and `out/<course>/<unit>.checks.json`, then run `gverify.py` on the result before copying it back.
+
+- **Deepen** (`MG_DEEPEN="g6_u05:8,pc_u03:8"`): adds that many questions per skill and level after the published ones (4 short-answer, 3 multiple-choice, 1 extra for 8). It was used on November 5, 2026 to take 6th Grade Inequalities, Precalculus Conics, Calculus Precalculus Review and Calculus Fundamental Theorem from 16 to 24 per skill and level.
+- **Replace** (`MG_REPLACE="id1,id2"`): drops those items and builds a new error-analysis item for the same skill and level. It was used the same day for 32 older Grade 6/7 error-analysis items whose "student answer" was actually correct.
+
+Example:
+
+```
+MG_OUT=<folder> MG_DEEPEN=g6_u05:8 python3 gbuild.py math6 g6_u05
+```

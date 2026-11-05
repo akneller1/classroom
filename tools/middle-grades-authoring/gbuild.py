@@ -25,6 +25,10 @@ COURSES = {
     "calculus": dict(prefix="cal", units=[f"ca_u0{i}" for i in range(1, 10)]),
 }
 TARGET = {"sa": 7, "mc": 6, "extra": 3}
+# MG_DEEPEN="g6_u05:8,ca_u01:8": add that many questions per skill and level to those units, after the published ones
+DEEPEN = {k: int(v) for k, v in (x.split(":") for x in os.environ.get("MG_DEEPEN", "").split(",") if x)}
+# MG_REPLACE="id1,id2": drop those published items and build a new error-analysis item for the same skill and level
+REPLACE = {x for x in os.environ.get("MG_REPLACE", "").split(",") if x}
 NOTE = ("Original Claude-authored item (family: {fam}). Answer computed in the authoring script and re-checked by the "
         "independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review.")
 SEEN = {}
@@ -184,16 +188,18 @@ def make_one(cx, f, sk, L, attempt):
 _TRUTH = None
 
 
-def build_skill(cx, rec, spec, L):
+def build_skill(cx, rec, spec, L, target=None, start=1, ea_only=False):
+    """target/start: deepen mode adds more items after the published ones (ids continue at `start`)."""
+    T = target or TARGET
     fams = [f for f in spec["fams"] if L in f.levels]
     extras = [f for f in spec.get("extra", []) if L in f.levels]
-    out, need = [], {"sa": TARGET["sa"], "mc": TARGET["mc"]}
+    out, need = [], {"sa": T["sa"], "mc": T["mc"]}
     used, attempts, fails, dead = Counter(), Counter(), Counter(), set()
     famcount = defaultdict(Counter)
     pr = seed_rng("pos", cx.unit.UNIT_ID, rec["id"], L)
     positions = [0, 1, 2, 3] * 3
     pr.shuffle(positions)
-    pi, idx = 0, 1
+    pi, idx = 0, start
 
     def fail(fn):
         fails[fn] += 1
@@ -215,6 +221,7 @@ def build_skill(cx, rec, spec, L):
             continue
         key = pnorm(p)
         if key in SEEN or nkey(p) in NEAR:
+            NEAR.add(nkey(p))
             fail(f.__name__)
             continue
         NEAR.add(nkey(p))
@@ -255,14 +262,14 @@ def build_skill(cx, rec, spec, L):
         famcount[f.__name__][full] += 1
         out.append((q, tags, chk, p.get("diagram")))
     got, k, ea = 0, 0, Counter()
-    while got < TARGET["extra"]:
+    while got < T["extra"]:
         live = [f for f in extras if f.__name__ not in dead]
         if not live:
             raise RuntimeError(f"{rec['id']} L{L}: extras exhausted")
         errs = [g for g in live if g.__name__.endswith("_error")]
         rest = [g for g in live if not g.__name__.endswith("_error")]
         # slot 0 and 2: error analysis (the Error Analysis printable needs >= 2 per skill and level); slot 1: other formats
-        pool_ = (errs or rest) if got != 1 else (rest or errs)
+        pool_ = (errs or rest) if (got != 1 or ea_only) else (rest or errs)
         f = pool_[(k // 2) % len(pool_)] if got != 1 else pool_[k % len(pool_)]
         k += 1
         ea[f.__name__] += 1
@@ -272,6 +279,7 @@ def build_skill(cx, rec, spec, L):
             continue
         key = pnorm(p)
         if key in SEEN or nkey(p) in NEAR:
+            NEAR.add(nkey(p))
             fail(f.__name__)
             continue
         NEAR.add(nkey(p))
@@ -311,11 +319,38 @@ def build_unit(course, modname, draw=True):
     recs = catalog(course)[unit.UNIT_ID]["skills"]
     assert len(recs) == len(unit.SKILLS), (unit.UNIT_ID, len(recs), len(unit.SKILLS))
     questions, tags, checks, diagrams = [], {}, {}, []
+    deepen = DEEPEN.get(modname, 0)
+    bf = os.path.join(OUT, "question-banks", course, unit.UNIT_ID + ".json")
+    replaced = Counter()
+    if REPLACE and os.path.exists(bf):
+        replaced = Counter((q["skillId"], q["level"]) for q in json.load(open(bf, encoding="utf-8"))["questions"] if q["id"] in REPLACE)
+    if deepen or replaced:   # keep every published item; add `deepen` more per skill and level after them
+        bf = os.path.join(OUT, "question-banks", course, unit.UNIT_ID + ".json")
+        old = json.load(open(bf, encoding="utf-8"))["questions"]
+        oldtags = json.load(open(os.path.join(OUT, "question-banks", course, "meta", unit.UNIT_ID + ".tags.json"), encoding="utf-8"))
+        oldchecks = json.load(open(os.path.join(OUT, "tools", "middle-grades-authoring", "out", course, unit.UNIT_ID + ".checks.json"), encoding="utf-8"))
+        for q in old:
+            SEEN.setdefault(" ".join(q["prompt"].lower().split()), q["id"]); VSEEN.setdefault(vkey(q), q["id"])
+            if q["id"] in REPLACE:
+                continue
+            questions.append(q); tags[q["id"]] = oldtags.get(q["id"], []); checks[q["id"]] = oldchecks[q["id"]]
+        draw = True
     for rec in recs:
         spec = unit.SKILLS[rec["index"]]
         assert spec["name"] == rec["name"], (spec["name"], rec["name"])
         for L in range(3):
-            for q, t, c, d in build_skill(cx, rec, spec, L):
+            k = replaced[(rec["id"], LEVELS[L])]
+            if (deepen or replaced) and not (deepen or k):
+                built = []   # deepen/replace run: this skill and level keeps its published items as they are
+            elif deepen or k:
+                ids = [q["id"] for q in old if q["skillId"] == rec["id"] and q["level"] == LEVELS[L]]
+                have = max(int(i.rsplit("-", 1)[1]) for i in ids) if ids else 0   # new ids continue after every published id
+                tgt = {"sa": deepen * 7 // 16 + (1 if deepen % 16 else 0), "mc": deepen * 6 // 16, "extra": 0} if deepen else {"sa": 0, "mc": 0, "extra": 0}
+                tgt["extra"] = deepen - tgt["sa"] - tgt["mc"] + k   # a replacement is built in an error-analysis slot
+                built = build_skill(cx, rec, spec, L, tgt, have + 1, ea_only=not deepen) if tgt["sa"] + tgt["mc"] + tgt["extra"] else []
+            else:
+                built = build_skill(cx, rec, spec, L)
+            for q, t, c, d in built:
                 questions.append(q)
                 tags[q["id"]] = t
                 checks[q["id"]] = c
@@ -331,7 +366,7 @@ def build_unit(course, modname, draw=True):
     json.dump(checks, open(os.path.join(cdir, unit.UNIT_ID + ".checks.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=0, default=str)
     if draw:
         adir = os.path.join(OUT, "question-banks", "assets", course, unit.UNIT_ID)
-        if os.path.isdir(adir):
+        if os.path.isdir(adir) and not (deepen or replaced):
             for fn in os.listdir(adir):
                 os.remove(os.path.join(adir, fn))
         for d in diagrams:

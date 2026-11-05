@@ -19,10 +19,8 @@ function load(name){
   if(name==='linear-functions'){
     ['common','lessons-slope','lessons-graphing','lessons-writing','lessons-forms','lessons-applications','index'].forEach(f=>run(read('units/algebra1/linear-functions/'+f+'.js'),f));
   }else{
-    const html=read('algebra1-'+name+'.html');
-    const m=html.match(/<script>\s*([\s\S]*?)\s*<\/script>/);
-    assert(m,'Missing embedded lesson registration for '+name);
-    run(m[1],name+'-inline');
+    // the single-unit pages were retired; their lesson registrations live in units/algebra1/legacy-banks/
+    run(read('units/algebra1/legacy-banks/'+name+'.js'),name+'-bank');
     if(name==='systems-of-equations')run(read('units/algebra1/systems-of-equations/extra-skills.js'),'systems-extra');
     else{
       run(read('core/algebra1-expanded-skills.js'),'algebra1-expanded');

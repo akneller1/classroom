@@ -19,6 +19,18 @@
    "or" and "and" become connector words. "pi" becomes π. */
 const FM_UPRIGHT_CAPS=new Set(['SSS','SAS','ASA','AAS','HL','AA','SSA','SAA','CPCTC','SOH','CAH','TOA','LL','LA','HA','AAA','NO','IF','OR','AND','II','III','IV','QI','ZPP','FOIL','GCF','LCD','LCM','PEMDAS','SA','RHS','RSH','SOHCAHTOA','AM','PM']);
 const FM_UNITS=new Set(['cm','mm','km','ft','in','yd','mi','ln','if','is','no','of','to','at','or','as','by','on','so','up','it','be','we','my','us','am','pm','mph','sq','cu']);
+/* "a" / "an" used as an article in a sentence ("cut by a transversal", "solve an equation", "A circle has ...") is a
+   word, not a variable: lowercase before a word of 3+ letters unless a variable is being named (let a, if a, when a ...);
+   capital A/An only at the start of a sentence, so point names ("angle A measures") stay italic. */
+const FM_VARCTX=new Set(['let','if','when','where','for','solve','find','and','of','with','then','than']);
+function fmArticle(s,i,m){
+  if(!/^(a|an|A|An)$/.test(m))return false;
+  const next=/^ ([a-z][a-z]+)/.exec(s.slice(i+m.length));
+  if(!next||next[1].length<3||next[1]==='and'||next[1]==='or')return false;
+  const before=s.slice(0,i),prev=(/([A-Za-z]+)\s*$/.exec(before)||[])[1];
+  if(m[0]==='A')return /(^|[.!?:\n]\s*)$/.test(before);
+  return !(prev&&FM_VARCTX.has(prev.toLowerCase()));
+}
 function fmEsc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function fmMatch(s,i,open,close){ /* s[i..] starts with open; return index just after the matching close */
   let d=0;
@@ -73,6 +85,7 @@ function fm(s){
       /* a trailing digit-free run; handle special words */
       if(m==='or'||m==='and'){out+=`<span class="w">${m}</span>`;}
       else if(m==='pi'){out+='π';}
+      else if(fmArticle(s,i,m)){out+=`<span class="tx">${m}</span>`;}
       else if(m.length===1){out+=`<i>${m}</i>`;}
       else if(FM_UPRIGHT_CAPS.has(m)||FM_UNITS.has(m)){out+=`<span class="tx">${m}</span>`;}
       else if(/^[A-Z]{2,4}$/.test(m)){out+=`<i>${m}</i>`;}

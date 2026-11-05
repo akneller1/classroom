@@ -1035,14 +1035,6 @@
 },
 "family": "s2_table"
 },
-"pa7-nfp-s02-cp1-014": {
-"q": {
-"kind": "py",
-"fn": "absval",
-"expr": "|(3)|"
-},
-"family": "s2_table_error"
-},
 "pa7-nfp-s02-cp1-015": {
 "q": null,
 "parts": [
@@ -1743,13 +1735,6 @@
 "p": "-9x"
 },
 "family": "s4_degree"
-},
-"pa7-nfp-s04-cp2-014": {
-"q": {
-"kind": "val",
-"expr": "4(2)² + 5(2) - 3"
-},
-"family": "s4_eval_error"
 },
 "pa7-nfp-s04-cp2-015": {
 "q": null,
@@ -4182,5 +4167,20 @@
 ]
 },
 "family": "s8_problem_error"
+},
+"pa7-nfp-s02-cp1-017": {
+"q": {
+"kind": "py",
+"fn": "absval",
+"expr": "(-3)³"
+},
+"family": "s2_table_error"
+},
+"pa7-nfp-s04-cp2-017": {
+"q": {
+"kind": "val",
+"expr": "-(-3)² - 4(-3) - 2"
+},
+"family": "s4_eval_error"
 }
 }

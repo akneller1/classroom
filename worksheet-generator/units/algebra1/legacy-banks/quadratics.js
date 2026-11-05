@@ -1,0 +1,72 @@
+/* Algebra 1 worksheet bank registration, moved from the retired page worksheet-generator/algebra1-quadratics.html.
+   Used only by worksheet-generator/tests/math-audit.cjs, which checks the shared graph and render code with it. */
+(function(G){'use strict';
+var NS=G.MKWS,T=NS.tex,M=T.M;
+var defs=[["expressions-equations","Expressions & Equations",[["Combine like terms","terms"],["Apply the distributive property","distribute"],["Solve two-step equations","equation"],["Solve equations with variables on both sides","both"],["Evaluate expressions","evaluate"],["Solve proportions","proportion"]]],["inequalities","Inequalities",[["Solve one-step inequalities","inequality"],["Solve multi-step inequalities","inequalityMulti"],["Solve compound AND inequalities","compoundAnd"],["Solve compound OR inequalities","compoundOr"],["Solve absolute value inequalities","absolute"]]],["graphing-inequalities","Graphing Inequalities on the Coordinate Plane",[["Determine if a point satisfies an inequality","testPoint"],["Identify solid or dashed boundary","boundary"],["Find slope and boundary line","graphBoundary"],["Graph a linear inequality","graphInequality"]]],["exponents-exponential-functions","Exponents & Exponential Functions",[["Multiply powers with the same base","multiplyPowers"],["Divide powers with the same base","dividePowers"],["Power of a power","powerPower"],["Evaluate exponential expressions","expEval"],["Exponential growth and decay","growth"]]],["polynomials-factoring","Polynomials & Factoring",[["Add and subtract polynomials","addPoly"],["Multiply binomials","multiplyBinomials"],["Factor trinomials","factor"],["Factor a difference of squares","diffSquares"],["Solve by factoring","solveFactor"]]],["quadratics","Quadratics",[["Find the vertex from vertex form","vertex"],["Find x-intercepts by factoring","roots"],["Evaluate a quadratic function","quadEval"],["Convert factored form to standard form","expandQuad"],["Calculate the discriminant","discriminant"],["Solve using the quadratic formula","formula"]]]];
+var unitId=document.body.getAttribute('data-unit');
+var def=defs.find(function(d){return 'algebra1-'+d[0]===unitId;});
+if(!def)throw new Error('No worksheet unit definition for '+unitId);
+function num(r,a,b){return r.int(a,b)}
+function nonzero(r,a,b){var v=0;while(!v)v=num(r,a,b);return v}
+function latex(t){return M(t)}
+function lesson(kind){
+return function(ctx){
+var r=ctx.rng,a=nonzero(r,-7,7),b=nonzero(r,-6,6),c=nonzero(r,-6,6),d=nonzero(r,-5,5),x=num(r,-6,6),v,w,prompt,answer,steps;
+switch(kind){
+case 'terms':prompt=latex(a+'x'+(b>=0?'+':'')+b+'x'+(c>=0?'+':'')+c);answer=latex((a+b)+'x'+(c>=0?'+':'')+c);break;
+case 'distribute':prompt=latex(a+'('+b+'x'+(c>=0?'+':'')+c+')');answer=latex(a*b+'x'+(a*c>=0?'+':'')+(a*c));break;
+case 'equation':v=a*x+b;prompt=latex(a+'x'+(b>=0?'+':'')+b+'='+v);answer=latex('x='+x);break;
+case 'both':v=a*x+b;prompt=latex(a+'x'+(b>=0?'+':'')+b+'='+c+'x'+((v-c*x)>=0?'+':'')+(v-c*x));answer=latex('x='+x);NS.gen.need(a!==c);break;
+case 'evaluate':prompt='Evaluate '+latex(a+'x'+(b>=0?'+':'')+b)+' when '+latex('x='+x)+'.';answer=latex(String(a*x+b));break;
+case 'proportion':NS.gen.need(a>0&&b>0);prompt=latex('\\frac{x}{'+b+'}=\\frac{'+(x*a)+'}{'+(b*a)+'}');answer=latex('x='+x);break;
+case 'inequality':v=a*x+b;prompt=latex(a+'x'+(b>=0?'+':'')+b+(a>0?'>':'<')+v);answer=latex('x>'+x);break;
+case 'inequalityMulti':NS.gen.need(a>0);v=a*(x+b);prompt=latex(a+'(x'+(b>=0?'+':'')+b+')\\le '+v);answer=latex('x\\le '+x);break;
+case 'compoundAnd':v=Math.min(a,b);w=Math.max(a,b);NS.gen.need(v<w);prompt='Write as one compound inequality: '+latex('x>'+v+'\\text{ and }x<'+w);answer=latex(v+'<x<'+w);break;
+case 'compoundOr':v=Math.min(a,b);w=Math.max(a,b);NS.gen.need(v<w);prompt='Express the solution set: '+latex('x<'+v+'\\text{ or }x>'+w);answer=latex('x<'+v+'\\text{ or }x>'+w);break;
+case 'absolute':v=Math.abs(a)+1;prompt=latex('\\left|x-'+x+'\\right|<'+v);answer=latex((x-v)+'<x<'+(x+v));break;
+case 'testPoint':v=a*x+b;prompt='Does '+latex('('+x+','+v+')')+' satisfy '+latex('y\\ge '+a+'x'+(b>=0?'+':'')+b)+'?';answer='Yes';break;
+case 'boundary':prompt='For '+latex('y<'+a+'x'+(b>=0?'+':'')+b)+', is the boundary solid or dashed?';answer='Dashed';break;
+case 'graphBoundary':prompt='Identify the slope and y-intercept of the boundary '+latex('y\\ge '+a+'x'+(b>=0?'+':'')+b)+'.';answer=latex('m='+a+',\\ b='+b);break;
+case 'graphInequality':prompt='Sketch '+latex('y\\le '+a+'x'+(b>=0?'+':'')+b)+' on your own coordinate plane. Shade the solution region.';answer='Solid boundary line, shaded below.';break;
+case 'multiplyPowers':v=Math.abs(a)+1;w=Math.abs(b)+1;prompt=latex('x^{'+v+'}\\cdot x^{'+w+'}');answer=latex('x^{'+(v+w)+'}');break;
+case 'dividePowers':v=Math.abs(a)+Math.abs(b)+2;w=Math.abs(b);prompt=latex('\\frac{x^{'+v+'}}{x^{'+w+'}}');answer=latex('x^{'+(v-w)+'}');break;
+case 'powerPower':v=Math.abs(a)+1;w=Math.abs(b)+1;prompt=latex('(x^{'+v+'})^{'+w+'}');answer=latex('x^{'+(v*w)+'}');break;
+case 'expEval':v=num(r,2,5);w=num(r,2,4);prompt=latex(v+'^{'+w+'}');answer=latex(String(Math.pow(v,w)));break;
+case 'growth':v=num(r,100,500);w=num(r,5,15);prompt='A balance of $'+v+' grows by '+w+'% in one year. Find its value after one year.';answer='$'+(v*(100+w)/100).toFixed(2);break;
+case 'addPoly':prompt=latex('('+a+'x^2+'+b+'x+'+c+')+('+d+'x^2+'+x+'x+'+Math.abs(b)+')');answer=latex((a+d)+'x^2'+(b+x>=0?'+':'')+(b+x)+'x+'+(c+Math.abs(b)));break;
+case 'multiplyBinomials':prompt=latex('(x'+(a>=0?'+':'')+a+')(x'+(b>=0?'+':'')+b+')');answer=latex('x^2'+(a+b>=0?'+':'')+(a+b)+'x'+(a*b>=0?'+':'')+(a*b));break;
+case 'factor':prompt=latex('x^2'+(a+b>=0?'+':'')+(a+b)+'x'+(a*b>=0?'+':'')+(a*b));answer=latex('(x'+(a>=0?'+':'')+a+')(x'+(b>=0?'+':'')+b+')');break;
+case 'diffSquares':v=Math.abs(a)+1;prompt=latex('x^2-'+(v*v));answer=latex('(x-'+v+')(x+'+v+')');break;
+case 'solveFactor':prompt=latex('(x'+(a>=0?'+':'')+a+')(x'+(b>=0?'+':'')+b+')=0');answer=latex('x='+(-a)+'\\text{ or }x='+(-b));break;
+case 'vertex':prompt=latex('y='+a+'(x-'+x+')^2'+(b>=0?'+':'')+b);answer=latex('('+x+','+b+')');break;
+case 'roots':prompt=latex('y=(x'+(a>=0?'+':'')+a+')(x'+(b>=0?'+':'')+b+')');answer=latex('x='+(-a)+'\\text{ or }x='+(-b));break;
+case 'quadEval':prompt='Evaluate '+latex('f(x)='+a+'x^2'+(b>=0?'+':'')+b+'x'+(c>=0?'+':'')+c)+' at '+latex('x='+x)+'.';answer=latex(String(a*x*x+b*x+c));break;
+case 'expandQuad':prompt='Expand '+latex('(x'+(a>=0?'+':'')+a+')(x'+(b>=0?'+':'')+b+')')+'.';answer=latex('x^2'+(a+b>=0?'+':'')+(a+b)+'x'+(a*b>=0?'+':'')+(a*b));break;
+case 'discriminant':v=b*b-4*a*c;prompt='Find the discriminant of '+latex(a+'x^2'+(b>=0?'+':'')+b+'x'+(c>=0?'+':'')+c+'=0')+'.';answer=latex(String(v));break;
+case 'formula':v=a+b;w=a*b;prompt='Solve '+latex('x^2'+(v>=0?'+':'')+v+'x'+(w>=0?'+':'')+w+'=0')+'.';answer=latex('x='+(-a)+'\\text{ or }x='+(-b));break;
+default:throw new Error('Unknown generator '+kind);
+}
+steps=['Answer: '+answer];
+return {prompt:prompt,answer:answer,steps:steps,key:kind+'|'+prompt,equiv:kind+'|'+prompt};
+};}
+var categories=def[2].map(function(item,i){var id='a1-'+def[0]+'-'+item[1];NS.registerLesson({id:id,unit:unitId,category:'skills',num:i+1,title:item[0],instruction:item[0],layout:'half',space:[.6,1.05,1.65],generate:lesson(item[1])});return id;});
+function expanded(type){return function(ctx){var r=ctx.rng,a=r.int(2,8),b=r.int(1,7),x=r.int(-6,6),p,q,ans,steps,fig=null;
+switch(type){
+case 'paren':p=M(a+'(x+'+b+')='+a*(x+b));ans=M('x='+x);steps=['Divide both sides by '+a+', then subtract '+b+'.'];break;
+case 'verbal':p='Write an expression for '+b+' less than '+a+' times x.';ans=M(a+'x-'+b);steps=['Multiply x by '+a+' and subtract '+b+'.'];break;
+case 'negative':p=M('-'+a+'x+'+b+'>'+(-a*x+b));ans=M('x<'+x);steps=['Subtract '+b+' and divide by -'+a+'. Reverse the inequality.'];break;
+case 'absGreater':p=M('|x-'+x+'|>'+a);ans=M('x<'+(x-a)+'\\text{ or }x>'+(x+a));steps=['The distance from '+x+' is greater than '+a+'.'];break;
+case 'shading':p='For '+M('y>'+a+'x-'+b)+', should the region above or below the line be shaded?';ans='Above';steps=['The greater-than sign selects points above the line.'];break;
+case 'boundary':p='Write the boundary-line equation for '+M('y\\le '+a+'x+'+b)+'.';ans=M('y='+a+'x+'+b);steps=['Replace the inequality sign with an equals sign.'];break;
+case 'negExp':p='Rewrite using positive exponents: '+M('x^{-'+a+'}');ans=M('\\frac{1}{x^{'+a+'}}');steps=['Use the reciprocal of the base raised to the positive exponent.'];break;
+case 'zeroExp':p='Evaluate '+M('('+a+'x)^0')+' given '+M('x\\ne 0')+'.';ans=M('1');steps=['Every nonzero expression to the zeroth power equals 1.'];break;
+case 'gcf':p='Factor '+M((a*b)+'x^2+'+a+'x')+'.';ans=M(a+'x('+b+'x+1)');steps=['Take out the common factor '+M(a+'x')+'.'];break;
+case 'group':p='Factor '+M(a+'x^2+'+(a*b)+'x+'+b+'x+'+(b*b))+'.';ans=M('(x+'+b+')('+a+'x+'+b+')');steps=['Group the first two terms and the last two terms.'];break;
+case 'axis':p='Find the axis of symmetry of '+M('y='+a+'(x-'+x+')^2+'+b)+'.';ans=M('x='+x);steps=['The x-coordinate of the vertex gives the axis.'];break;
+case 'sqrt':p='Solve '+M('x^2='+a*a)+'.';ans=M('x=\\pm '+a);steps=['Include both positive and negative square roots.'];break;
+default:throw Error('Unknown type '+type);}
+return {prompt:p,answer:ans,steps:steps,fig:fig,key:type+'|'+p,equiv:type+'|'+p};};}
+
+var newTypes=[["Find the axis of symmetry","axis"],["Solve using square roots","sqrt"]];newTypes.forEach(function(item,i){var id='a1-'+def[0]+'-'+item[1];NS.registerLesson({id:id,unit:unitId,category:'skills',num:def[2].length+i+1,title:item[0],instruction:item[0],layout:'half',space:[.6,1.05,1.65],generate:expanded(item[1])});categories.push(id);});
+NS.registerUnit({id:unitId,course:'Algebra 1',name:def[1],color:'blue',defaultTitle:def[1]+' Practice',categories:[{id:'skills',letter:'A',name:'Skills',lessons:categories}]});
+})(typeof window!=='undefined'?window:globalThis);

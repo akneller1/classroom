@@ -1747,24 +1747,6 @@
 ],
 "family": "g6_s3_stato_open"
 },
-"m6-dd-s03-cp2-016": {
-"q": {
-"kind": "py",
-"fn": "stat",
-"data": [
-"20",
-"1",
-"23",
-"15",
-"16",
-"3",
-"22",
-"20"
-],
-"stat": "mode"
-},
-"family": "g6_s3_state_error"
-},
 "m6-dd-s03-cp1-001": {
 "q": {
 "kind": "py",
@@ -4975,23 +4957,6 @@
 },
 "family": "s6_diff"
 },
-"m6-dd-s06-cp1-014": {
-"q": {
-"kind": "py",
-"fn": "stat",
-"data": [
-"3.1",
-"19.4",
-"3.3",
-"3.4",
-"13.4",
-"6.4",
-"19.4"
-],
-"stat": "mode"
-},
-"family": "g6_s3_statc_error"
-},
 "m6-dd-s06-cp1-015": {
 "q": {
 "kind": "py",
@@ -7734,5 +7699,38 @@
 ]
 },
 "family": "s8_outlier_error"
+},
+"m6-dd-s03-cp2-017": {
+"q": {
+"kind": "py",
+"fn": "stat",
+"data": [
+"18",
+"20",
+"22",
+"28",
+"30",
+"22"
+],
+"stat": "mode"
+},
+"family": "g6_s3_state_error"
+},
+"m6-dd-s06-cp1-017": {
+"q": {
+"kind": "py",
+"fn": "stat",
+"data": [
+"6.1",
+"8.3",
+"8.4",
+"4.6",
+"2.1",
+"16.2",
+"10.3"
+],
+"stat": "mean"
+},
+"family": "g6_s3_statc_error"
 }
 }

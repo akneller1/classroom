@@ -6,4 +6,3 @@ cd "$(dirname "$0")/.."
 N=${N:-1000} node tests/run-tests.js | tail -3
 node tests/framework-tests.js | tail -2
 N=${STRESS:-2000} node tests/seed-stress.js | tail -2
-if [ -n "$CHROME" ]; then node tests/browser-test.js | tail -8; node tests/ui-test.js | tail -3; else echo "(browser tests skipped: set PW and CHROME)"; fi

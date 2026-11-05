@@ -625,14 +625,6 @@
 },
 "family": "s2_context"
 },
-"pa7-rpp-s02-cp2-014": {
-"q": {
-"kind": "eq",
-"eq": "(m)*(49) = (7)*(7)",
-"var": "m"
-},
-"family": "s2_solve_error"
-},
 "pa7-rpp-s02-cp2-015": {
 "q": {
 "kind": "py",
@@ -1690,15 +1682,6 @@
 "mixed": false
 },
 "family": "s4_simple"
-},
-"pa7-rpp-s04-cp1-014": {
-"q": {
-"kind": "py",
-"fn": "frac_simplest",
-"expr": "1 - 4/8",
-"mixed": false
-},
-"family": "s4_simple_error"
 },
 "pa7-rpp-s04-cp1-015": {
 "q": null,
@@ -5194,5 +5177,22 @@
 "expr": "21/3*11"
 },
 "family": "s10_missing_error"
+},
+"pa7-rpp-s02-cp2-017": {
+"q": {
+"kind": "eq",
+"eq": "(x)*(32) = (4)*(8)",
+"var": "x"
+},
+"family": "s2_solve_error"
+},
+"pa7-rpp-s04-cp1-017": {
+"q": {
+"kind": "py",
+"fn": "frac_simplest",
+"expr": "1 - 6/20",
+"mixed": false
+},
+"family": "s4_simple_error"
 }
 }
