@@ -5,13 +5,14 @@ const assert=require('node:assert/strict');
 (async()=>{
  const browser=await chromium.launch({headless:true});
  try{
- const cases=['rocket','inequality','laser','mirror','cannon','portal','catapult','equation-launch','lava-bridge','system-lasers','function-gates','tangent-cannon'];
+ const ctx={};require('node:vm').runInNewContext(require('node:fs').readFileSync('unit-specific-arcade.js','utf8'),{window:ctx});
+ const cases=['rocket','inequality','laser','mirror','cannon','portal','catapult'].concat(Object.keys(ctx.MK_UNIT_GAMES));
  for(const game of cases){
   const page=await browser.newPage({viewport:{width:1024,height:800}});
   const failures=[];page.on('pageerror',e=>failures.push(e.message));
   await page.goto('http://127.0.0.1:8765/artifacts/math-arcade/index.html?game='+game,{waitUntil:'domcontentloaded'});
   await page.locator('#board').waitFor();
-  assert.match(await page.locator('#heading').innerText(),/Rocket|Inequality|Laser|Mirror|Cannon|Portal|Catapult|Launch|Lava|Gates/);
+  assert.match(await page.locator('#heading').innerText(),/\S/);
   if(game==='rocket'||game==='inequality'){
     const math=await page.evaluate(()=>({
       fraction:renderArcadeMath(String.raw`Solve \\frac{x}{3}+3=4.`),
@@ -47,6 +48,6 @@ const assert=require('node:assert/strict');
   assert.deepEqual(failures,[],'Browser errors in '+game);
   await page.close();
  }
- console.log('PASS twelve arcade routes, valid turns, interaction controls and no page errors');
+ console.log('PASS '+cases.length+' arcade routes, valid turns, interaction controls and no page errors');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -346,26 +346,6 @@
    "sourceNotes": "Original Claude-authored item (family: s1_div). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "m6-fdo-s01-cp2-014",
-   "skillId": "fractions-decimals-operations-skill-01",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Ava answered this problem incorrectly.\nDivide. Write the answer in simplest form: 3/4 ÷ 1/2\nAva's answer: 1 1/2\nIdentify the mistake and give the correct answer.",
-   "answer": "1 1/2",
-   "solutionSteps": [
-    "Mistake: Divided numerators and denominators separately.",
-    "Keep 3/4, change ÷ to ×, and use the reciprocal of 1/2: 2.",
-    "3/4 × 2 = 3/2.",
-    "Simplify (rename as a mixed number if needed).",
-    "Answer: 1 1/2.",
-    "The correct answer is 1 1/2, not 1 1/2."
-   ],
-   "standards": [
-    "6.NS.A.1"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s1_div_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "m6-fdo-s01-cp2-015",
    "skillId": "fractions-decimals-operations-skill-01",
    "level": "cp2",
@@ -10090,6 +10070,26 @@
     "6.NS.B.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_decimal_dist_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-fdo-s01-cp2-017",
+   "skillId": "fractions-decimals-operations-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nDivide. Write the answer in simplest form: 5/8 ÷ 1/5\nIsla's answer: 5/13\nIdentify the mistake and give the correct answer.",
+   "answer": "3 1/8",
+   "solutionSteps": [
+    "Mistake: Divided numerators and denominators separately.",
+    "Keep 5/8, change ÷ to ×, and use the reciprocal of 1/5: 5.",
+    "5/8 × 5 = 25/8.",
+    "Simplify (rename as a mixed number if needed).",
+    "Answer: 3 1/8.",
+    "The correct answer is 3 1/8, not 5/13."
+   ],
+   "standards": [
+    "6.NS.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_div_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

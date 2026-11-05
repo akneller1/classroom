@@ -2913,28 +2913,6 @@
    "sourceNotes": "Original Claude-authored item (family: g6_s3_evals_sel). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "m6-exq-s03-cp2-016",
-   "skillId": "expressions-equations-skill-03",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Quinn answered this problem incorrectly.\nEvaluate: 14 × 8 + 5\nQuinn's answer: 117\nIdentify the mistake and give the correct answer.",
-   "answer": "117",
-   "solutionSteps": [
-    "Mistake: Worked left to right without following the order of operations.",
-    "Grouping symbols first (innermost first).",
-    "Then exponents.",
-    "Then multiply and divide from left to right.",
-    "Then add and subtract from left to right.",
-    "Result: 117.",
-    "The correct answer is 117, not 117."
-   ],
-   "standards": [
-    "6.EE.A.2c",
-    "5.OA.A.1"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: g6_s3_evale_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "m6-exq-s03-cp1-001",
    "skillId": "expressions-equations-skill-03",
    "level": "cp1",
@@ -7862,25 +7840,6 @@
    "sourceNotes": "Original Claude-authored item (family: s7_equation). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "m6-exq-s07-cp2-014",
-   "skillId": "expressions-equations-skill-07",
-   "level": "cp2",
-   "format": "short-answer",
-   "prompt": "Rosa answered this problem incorrectly.\nA table shows items (n): 1, 5, 9 and dollars (c): 12, 60, 108. Write an equation for c in terms of n.\nRosa's answer: c = 12n\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 12n",
-   "solutionSteps": [
-    "Mistake: Used the first y-value as the rate.",
-    "Look for how the dependent variable changes as the independent variable changes.",
-    "c increases by 12 for each 1 added to n.",
-    "c = 12n.",
-    "The correct answer is c = 12n, not c = 12n."
-   ],
-   "standards": [
-    "6.EE.C.9"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "m6-exq-s07-cp2-015",
    "skillId": "expressions-equations-skill-07",
    "level": "cp2",
@@ -8316,25 +8275,6 @@
    "sourceNotes": "Original Claude-authored item (family: s7_equation_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "m6-exq-s07-cp1-016",
-   "skillId": "expressions-equations-skill-07",
-   "level": "cp1",
-   "format": "short-answer",
-   "prompt": "Quinn answered this problem incorrectly.\nA table shows items (n): 1, 7, 9 and dollars (c): 6, 42, 54. Write an equation for c in terms of n.\nQuinn's answer: c = 6n\nIdentify the mistake and give the correct answer.",
-   "answer": "c = 6n",
-   "solutionSteps": [
-    "Mistake: Used the first y-value as the rate.",
-    "Look for how the dependent variable changes as the independent variable changes.",
-    "c increases by 6 for each 1 added to n.",
-    "c = 6n.",
-    "The correct answer is c = 6n, not c = 6n."
-   ],
-   "standards": [
-    "6.EE.C.9"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_equation_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "m6-exq-s07-honors-001",
    "skillId": "expressions-equations-skill-07",
    "level": "honors",
@@ -8727,6 +8667,66 @@
     "c increases by 8 for each 1 added to n.",
     "c = 8n + 8. Check the starting amount with a table value.",
     "The correct answer is c = 8n + 8, not n = 8c."
+   ],
+   "standards": [
+    "6.EE.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_equation_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-exq-s03-cp2-017",
+   "skillId": "expressions-equations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nEvaluate: 4 + 3 × 2\nQuinn's answer: 16\nIdentify the mistake and give the correct answer.",
+   "answer": "10",
+   "solutionSteps": [
+    "Mistake: Made an arithmetic error.",
+    "Grouping symbols first (innermost first).",
+    "Then exponents.",
+    "Then multiply and divide from left to right.",
+    "Then add and subtract from left to right.",
+    "Result: 10.",
+    "The correct answer is 10, not 16."
+   ],
+   "standards": [
+    "6.EE.A.2c",
+    "5.OA.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_evale_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-exq-s07-cp2-017",
+   "skillId": "expressions-equations-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nA table shows weeks (w): 4, 6, 7 and pages (p): 60, 90, 105. Write an equation for p in terms of w.\nOmar's answer: p = 60w\nIdentify the mistake and give the correct answer.",
+   "answer": "p = 15w",
+   "solutionSteps": [
+    "Mistake: Used the first y-value as the rate.",
+    "Look for how the dependent variable changes as the independent variable changes.",
+    "p increases by 15 for each 1 added to w.",
+    "p = 15w.",
+    "The correct answer is p = 15w, not p = 60w."
+   ],
+   "standards": [
+    "6.EE.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_equation_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-exq-s07-cp1-017",
+   "skillId": "expressions-equations-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nA table shows items (n): 1, 3, 6 and dollars (c): 15, 45, 90. Write an equation for c in terms of n.\nIsla's answer: c = n + 14\nIdentify the mistake and give the correct answer.",
+   "answer": "c = 15n",
+   "solutionSteps": [
+    "Mistake: Used a constant difference between x and y.",
+    "Look for how the dependent variable changes as the independent variable changes.",
+    "c increases by 15 for each 1 added to n.",
+    "c = 15n.",
+    "The correct answer is c = 15n, not c = n + 14."
    ],
    "standards": [
     "6.EE.C.9"

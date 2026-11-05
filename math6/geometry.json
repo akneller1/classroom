@@ -9272,25 +9272,6 @@
    "sourceNotes": "Original Claude-authored item (family: g6_s12_recto_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   },
   {
-   "id": "m6-geo-s07-honors-016",
-   "skillId": "geometry-skill-07",
-   "level": "honors",
-   "format": "short-answer",
-   "prompt": "Jamal answered this problem incorrectly.\nFind the area of the rectangle with vertices (-3, 0), (3, 0), (3, 3), (-3, 3).\nJamal's answer: 18 units²\nIdentify the mistake and give the correct answer.",
-   "answer": "18 units²",
-   "solutionSteps": [
-    "Mistake: Found the wrong measure.",
-    "Width = 6, height = 3.",
-    "Area = w × h = 18.",
-    "The correct answer is 18 units², not 18 units²."
-   ],
-   "standards": [
-    "6.G.A.3",
-    "6.NS.C.8"
-   ],
-   "sourceNotes": "Original Claude-authored item (family: s7_area_grid_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
-  },
-  {
    "id": "m6-geo-s08-cp2-001",
    "skillId": "geometry-skill-08",
    "level": "cp2",
@@ -10515,6 +10496,25 @@
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_cube_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-geo-s07-honors-017",
+   "skillId": "geometry-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nFind the perimeter of the rectangle with vertices (-5, -5), (-3, -5), (-3, 0), (-5, 0).\nDev's answer: 10 units\nIdentify the mistake and give the correct answer.",
+   "answer": "14 units",
+   "solutionSteps": [
+    "Mistake: Found the wrong measure.",
+    "Width = 2, height = 5.",
+    "Perimeter = 2(w + h) = 14.",
+    "The correct answer is 14 units, not 10 units."
+   ],
+   "standards": [
+    "6.G.A.3",
+    "6.NS.C.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_area_grid_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

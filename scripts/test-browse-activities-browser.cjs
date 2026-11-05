@@ -28,10 +28,15 @@ const base=process.env.MK_BASE_URL||'http://127.0.0.1:8765';
  assert.equal(await page.locator('#browse-format').inputValue(),'','Changing category did not reset activity type');
  assert.equal(await page.locator('#browse-gameMode').count(),0,'Game mode should be hidden outside Games');
  assert.ok((await active()).every(c=>c.type!=='Game'),'Study Guides includes Games');
- await page.goto(base+'/index.html#activities?category=games&gameMode=Unit-specific');
- await page.locator('li.card').first().waitFor();
- const special=await active();
- assert.ok(special.length>=13,'Expected thirteen unit-specific games, found '+special.length);
+ // results come 24 to a page: collect every page of unit-specific games
+ const special=[];
+ for(let p=1;p<=10;p++){
+  await page.goto(base+'/index.html#activities?category=games&gameMode=Unit-specific'+(p>1?'&page='+p:''));
+  await page.locator('li.card').first().waitFor();
+  const got=await active();if(p>1&&special.some(x=>x.title===got[0]?.title))break;
+  special.push(...got);if(got.length<24)break;
+ }
+ assert.ok(special.length>=57,'Expected at least 57 unit-specific games (13 earlier games and 44 bank games), found '+special.length);
  assert.ok(special.every(c=>c.type==='Game'&&c.unitSpecific===true&&c.tag==='Unit-specific'),'Missing or incorrect Unit-specific game tags: '+JSON.stringify(special));
  for(const title of ['Slope Links Mini Golf','Zombie Fence'])assert.ok(special.some(x=>x.title.includes(title)),title+' was not tagged');
  await page.goto(base+'/index.html#activities?subject=algebra&unit=algebra.linear-equations-slope&category=games&format=topic-games');

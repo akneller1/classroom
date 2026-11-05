@@ -5,7 +5,14 @@ const html=fs.readFileSync('artifacts/math-arcade/index.html','utf8');
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 new vm.Script(script,{filename:'math-arcade'});
 const register=fs.readFileSync('unit-specific-arcade.js','utf8');
-const expected=[['algebra','expressions-equations','rocket'],['algebra','inequalities','inequality'],['algebra','systems-of-equations','laser'],['algebra','quadratics','catapult'],['geometry','transformations','mirror'],['geometry','right-triangles-trigonometry','cannon'],['algebra2','functions-transformations','portal'],['math6','expressions-equations','equation-launch'],['prealgebra7','solving-equations-inequalities','lava-bridge'],['prealgebra','systems-linear-equations','system-lasers'],['precalculus','functions','function-gates'],['calculus','derivatives','tangent-cannon']];
+const expected=[['algebra','expressions-equations','rocket'],['algebra','inequalities','inequality'],['algebra','systems-of-equations','laser'],['algebra','quadratics','catapult'],['geometry','transformations','mirror'],['geometry','right-triangles-trigonometry','cannon'],['algebra2','functions-transformations','portal'],];
+// bank games for the newer courses: one per unit, defined in MK_UNIT_GAMES
+const ctx={};vm.runInNewContext(register,{window:ctx});const UG=ctx.MK_UNIT_GAMES;
+assert.equal(Object.keys(UG).length,44,'44 bank games (every unit of 6th Grade, both Pre-Algebras, Precalculus and Calculus)');
+const engines=['rocket','inequality','laser','mirror','cannon','portal'];
+for(const [id,g] of Object.entries(UG)){assert(engines.includes(g.engine),id+' engine');assert(fs.existsSync('question-banks/'+g.bank.course+'/'+g.bank.unit+'.json'),id+' bank');assert(g.title&&g.intro&&g.levels.length===3,id+' text');}
+assert.equal(new Set(Object.values(UG).map(g=>g.bank.course+'/'+g.bank.unit)).size,44,'one game per unit');
+const checkHtml=html.includes('MK_UNIT_GAMES')&&html.includes('unit-specific-arcade.js');assert(checkHtml,'arcade page loads the bank games');
 for(const [course,unit,game] of expected){assert(register.includes("'"+course+"','"+unit+"','"+game+"'"),'Missing '+game+' registration');assert(html.includes(game+":")||html.includes("'"+game+"'")||html.includes(game+'{'),'Missing '+game+' mode')}
 const data=fs.readFileSync('data.js','utf8');for(const [,unit] of expected)assert(data.includes('"id": "'+unit+'"'),'Unknown unit '+unit);
 const source=html.match(/catapult:\s*(\[\[.*?\]\])\.map\(/s);
@@ -28,4 +35,4 @@ assert.equal(misses,4,'Four trajectories should miss');
 assert.ok(nonzero>=5,'Most questions need nonzero constant terms');
 assert.match(html,/standard form: h\(x\) = −x²/);
 assert.match(html,/ENEMY CASTLE/);
-console.log('PASS twelve games, unit registrations, 6-hit castle sequence and script syntax');
+console.log('PASS 51 games (7 original + 44 bank games), unit registrations, 6-hit castle sequence and script syntax');

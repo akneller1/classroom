@@ -5,8 +5,8 @@ const data=fs.readFileSync('data.js','utf8');
 const loader=fs.readFileSync('unit-specific-arcade.js','utf8');
 const app=fs.readFileSync('app.js','utf8');
 const context={window:{}};vm.runInNewContext(data+'\n'+loader,context);
-const names=['rocket','inequality','laser','catapult','mirror','cannon','portal','equation-launch','lava-bridge','system-lasers','function-gates','tangent-cannon'];
-assert.equal(names.length,12);
+const names=['rocket','inequality','laser','catapult','mirror','cannon','portal'].concat(Object.keys(context.window.MK_UNIT_GAMES));
+assert.equal(names.length,51);
 for(const name of names){
  const path='artifacts/math-arcade/index.html?game='+name;
  const matches=context.window.LIBRARY.courses.flatMap(c=>c.units.flatMap(u=>(u.artifacts||[]).filter(a=>a.path===path).map(a=>({c,u,a}))));
@@ -20,4 +20,4 @@ assert.ok(app.includes('math-arcade\\/index\\.html\\?game='),'Homepage should li
 assert.ok(app.includes("return a.thumb || ''"),'Arcade cards must prioritize game-specific thumbnails');
 const viewer=fs.readFileSync('activity.html','utf8');
 assert.ok(viewer.includes('unit-specific-arcade.js'),'Activity viewer should recognize game registrations');
-console.log('PASS all twelve arcade cards, unique thumbnails and valid direct launch routing');
+console.log('PASS all 51 arcade cards, unique thumbnails and valid direct launch routing');
