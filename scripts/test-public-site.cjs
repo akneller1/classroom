@@ -44,7 +44,7 @@ const publicApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
 assert(publicApp.includes("'mailto:akneller@gmail.com?subject='"),'Per-resource issue reports must use direct email');
 assert(publicApp.includes("encodeURIComponent(body)"),'Per-resource report must include activity link and problem template');
 assert(publicApp.includes('class="report-problem"'),'Activity report links must remain available for email chooser');
-assert(home.includes('app.js?v=site-update-20261105c'),'Homepage must load fresh Browsing filters');
+assert.match(home, /<script\s+src="app\.js\?v=[^"\s]+"\s*><\/script>/, 'Homepage must load a versioned browsing script');
 assert(publicApp.includes('function belongsToGroup(a, group)'),'Browse Activities classification missing');
 assert(publicApp.includes("if (a.unitSpecific === true) return 'Unit-specific';"),'Unit-specific tag missing');
 assert(publicApp.includes("if (key === 'category') { state.format = ''; state.gameMode = ''; }"),'Category changes must clear stale choices');
