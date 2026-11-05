@@ -287,7 +287,7 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   const tampered = path.join(OUT, 'tampered.json'); fs.writeFileSync(tampered, JSON.stringify(o));
   await page.click('.mm-stepbtn[data-step="7"]');
   await page.setInputFiles('#mmOpenFile', tampered); await page.waitForTimeout(400);
-  assert.match(await page.textContent('#mmSummary'), /need approval/);
+  assert.match(await page.textContent('#mmSummary'), /need approval|failed verification/);
   ok('opening a file re-checks every answer (a tampered key is flagged)');
   await page.click('.mm-stepbtn[data-step="7"]');
   await page.click('[data-load]'); await page.waitForTimeout(300);
@@ -433,14 +433,15 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
         const S = MKMENU.app.state(), pages = await MKMENU.renderPages(S, v, kind);
         const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
         const mcItems = S.versions[v].sections[0].items.filter(it => it.mc), mc = mcItems.length, opts = mcItems.reduce((n, it) => n + it.mc.opts.length, 0);
-        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc, opts };
+        const yn = mcItems.filter(it => it.mc.opts.length === 2 && /^yes$/i.test(String(it.mc.opts[0]))).length, bank = mcItems.some(it => it.source === 'authored-bank');
+        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc, opts, yn, bank };
         root.innerHTML = ''; return r;
       }, { v, kind });
       const tag = UNITID + ' test ' + lvl + ' v' + 'AB'[v] + ' ' + kind;
       assert.equal(info.overflow, 0, tag + ' overflows');
       assert.equal(info.choices, info.mc, tag + ': every multiple-choice question prints its choices');
-      assert.equal(info.bubbles, info.opts, tag + ': one lettered bubble per choice'); if (!/^algebra2-/.test(UNITID)) assert.equal(info.opts, 4 * info.mc, tag + ': four choices each (approved Algebra 2 items keep their authored number of choices)');
-      if (kind === 'student') { assert.match(info.text, /Part 1/); assert.match(info.text, /16\.\s*\d+(\.\d+)? pts/); assert.doesNotMatch(info.text, /My pick|Answer:|Rubric|choose \d/); }
+      assert.equal(info.bubbles, info.opts, tag + ': one lettered bubble per choice'); if (!info.bank) assert.equal(info.opts, 4 * (info.mc - info.yn) + 2 * info.yn, tag + ': four choices each, Yes/No questions two (approved bank items keep their authored number of choices)');
+      if (kind === 'student') { assert.match(info.text, /Part 1/); assert.match(info.text, /16\.\s+\S[\s\S]*?\d+(\.\d+)? pts/); assert.doesNotMatch(info.text, /My pick|Answer:|Rubric|each · choose \d/); }
       else assert.match(info.text, /Quick key/);
     }
     assert.deepEqual(tErr, [], UNITID + ' test page errors: ' + tErr.join('\n'));
@@ -467,12 +468,13 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
         const S = MKMENU.app.state(), pages = await MKMENU.renderPages(S, v, kind);
         const root = document.getElementById('printRoot'); root.innerHTML = ''; pages.forEach(p => root.appendChild(p));
         const mcItems = S.versions[v].sections[0].items.filter(it => it.mc), mc = mcItems.length, opts = mcItems.reduce((n, it) => n + it.mc.opts.length, 0);
-        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc, opts };
+        const yn = mcItems.filter(it => it.mc.opts.length === 2 && /^yes$/i.test(String(it.mc.opts[0]))).length, bank = mcItems.some(it => it.source === 'authored-bank');
+        const r = { pages: pages.length, overflow: pages.overflow.length, text: root.innerText, choices: root.querySelectorAll('.mm-choices').length, bubbles: root.querySelectorAll('.mm-bubble').length, mc, opts, yn, bank };
         root.innerHTML = ''; return r;
       }, { v, kind });
       const tag = UNITID + ' worksheet ' + lvl + ' v' + 'AB'[v] + ' ' + kind;
       assert.equal(info.overflow, 0, tag + ' overflows');
-      assert.equal(info.choices, info.mc, tag + ': choices print'); assert.equal(info.bubbles, info.opts, tag + ': one letter per choice'); if (!/^algebra2-/.test(UNITID)) assert.equal(info.opts, 4 * info.mc, tag + ': four letters each');
+      assert.equal(info.choices, info.mc, tag + ': choices print'); assert.equal(info.bubbles, info.opts, tag + ': one letter per choice'); if (!info.bank) assert.equal(info.opts, 4 * (info.mc - info.yn) + 2 * info.yn, tag + ': four letters each, Yes/No questions two');
       assert.doesNotMatch(info.text, /\d pts?\b|worth \d+ points|Rubric|My pick|Score \(teacher\)/, tag + ': no points or rubric on a worksheet');
       if (kind === 'student') { assert.match(info.text, /Part 2 · Show Your Work/); assert.match(info.text, /Answer all 14 questions/); assert.doesNotMatch(info.text, /Answer:/); }
       else { assert.match(info.text, /Answer Key/); assert.match(info.text, /Quick key/); }
@@ -494,26 +496,26 @@ let n = 0; const ok = (name) => { n++; console.log('  ✓ ' + name); };
   site.on('pageerror', e => siteErr.push(e.message)); site.on('console', m => { if (m.type() === 'error') siteErr.push(m.text()); });
   await site.goto(base + '/index.html#algebra.expressions-equations'); await site.waitForTimeout(800);
   const unitText = await site.textContent('body');
-  assert.match(unitText, /Build an assessment/); assert.match(unitText, /Assessment Generator/); assert.doesNotMatch(unitText, /The Equation Bistro: Assessment Menu/);   // the generator replaces the fixed menu PDFs
-  const href = await site.getAttribute('a.btn:has-text("Build an assessment")', 'href');
+  assert.match(unitText, /Create Resources for This Unit/); assert.match(unitText, /Assessment/); assert.doesNotMatch(unitText, /The Equation Bistro: Assessment Menu/);   // the generator replaces the fixed menu PDFs
+  const href = await site.getAttribute('a.generator-shortcut:has-text("Assessment")', 'href');
   assert.equal(href, 'worksheet-generator/menu-assessment.html#unit=algebra1-expressions-equations');
-  assert.equal(await site.getAttribute('a.btn:has-text("Create a worksheet")', 'href'), 'worksheet-generator/worksheet.html#unit=algebra1-expressions-equations', 'the unit page links the verified Worksheet Generator');
+  assert.equal(await site.getAttribute('a.generator-shortcut:has-text("Worksheet")', 'href'), 'worksheet-generator/worksheet.html#unit=algebra1-expressions-equations', 'the unit page links the verified Worksheet Generator');
   assert.doesNotMatch(unitText, /Expressions & Equations Worksheet Generator/);   // the old template generator is no longer listed
   { // Foundations of Algebra has its own generators; the Assessment Generator opens as a standard test
     await site.goto(base + '/index.html#algebra.foundations-algebra'); await site.waitForTimeout(400);
-    assert.equal(await site.getAttribute('a.btn:has-text("Build an assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-foundations');
+    assert.equal(await site.getAttribute('a.generator-shortcut:has-text("Assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-foundations');
     const f = await ctx.newPage(); await f.goto(base + '/worksheet-generator/menu-assessment.html'); await f.evaluate(() => localStorage.clear());
     await f.goto(base + '/worksheet-generator/menu-assessment.html#unit=algebra1-foundations'); await f.reload(); await f.waitForSelector('#mmUnitSel');
     assert.equal(await f.inputValue('input[name=mmMode]:checked'), 'test', 'a standard test is the default'); assert.equal(await f.inputValue('#mmTitle'), 'Foundations of Algebra Test'); await f.close();
   }
   for (const [tok, sid] of [['algebra.quadratics', 'algebra1-quadratics'], ['algebra.linear-equations-slope', 'algebra1-linear-equations-slope'], ['algebra.polynomials-factoring', 'algebra1-polynomials']]) {
     await site.goto(base + '/index.html#' + tok); await site.waitForTimeout(400);
-    assert.equal(await site.getAttribute('a.btn:has-text("Create a worksheet")', 'href'), 'worksheet-generator/worksheet.html#unit=' + sid, tok + ' worksheet link');
+    assert.equal(await site.getAttribute('a.generator-shortcut:has-text("Worksheet")', 'href'), 'worksheet-generator/worksheet.html#unit=' + sid, tok + ' worksheet link');
   }
   await site.goto(base + '/index.html#algebra.inequalities'); await site.waitForTimeout(500);
-  assert.equal(await site.getAttribute('a.btn:has-text("Build an assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-inequalities');
+  assert.equal(await site.getAttribute('a.generator-shortcut:has-text("Assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-inequalities');
   await site.goto(base + '/index.html#algebra.relations-functions'); await site.waitForTimeout(500);
-  assert.equal(await site.getAttribute('a.btn:has-text("Build an assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions');
+  assert.equal(await site.getAttribute('a.generator-shortcut:has-text("Assessment")', 'href'), 'worksheet-generator/menu-assessment.html#unit=algebra1-relations-functions');
   await site.goto(base + '/index.html#activity.assessment-generator'); await site.waitForTimeout(500);
   assert.match(await site.textContent("body"), /Assessment Generator/);
   await site.goto(base + '/worksheet-generator/algebra1-expressions-equations.html'); await site.waitForTimeout(800);

@@ -1073,10 +1073,10 @@
 
   /* ---------------- summaries ---------------- */
   NS.counts = function (state) {
-    var v = state.versions[0], cfg = state.config, out = { offered: 0, problems: 0, unverified: 0, failed: 0, pinned: 0, edited: 0 };
+    var v = state.versions[0], cfg = state.config, out = { offered: 0, problems: 0, unverified: 0, approval: 0, failed: 0, pinned: 0, edited: 0, manual: 0 };
     state.versions.forEach(function (ver) { ver.sections.forEach(function (s) { s.items.forEach(function (it) {
-      out.problems++; if (it.failed) out.failed++; else if (it.verify && it.verify.status !== 'verified' && !it.approved) out.unverified++;
-      if (it.pinned) out.pinned++; if (it.edited) out.edited++;
+      out.problems++; if (it.failed) out.failed++; else if (it.verify && it.verify.status !== 'verified' && !it.approved) { out.unverified++; if (it.verify.status === 'manual') out.approval++; }
+      if (it.pinned) out.pinned++; if (it.edited) out.edited++; if (it.manual || it.edited) out.manual++;
     }); }); });
     v.sections.forEach(function (s) { out.offered += s.items.length; });
     return out;

@@ -351,3 +351,13 @@
 .pj-code{display:flex;gap:6px;align-items:center}
 .pj-code input{width:90px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;font:inherit}
 @media (max-width:700px){.pj-card{grid-template-columns:1fr}}
+
+/* question-bank pictures inside small activity boxes */
+.pc-box img.authored-bank-image,.pp-box img.authored-bank-image,.pe-box img.authored-bank-image,.pw-card img.authored-bank-image,.ps-q img.authored-bank-image,.pm-room img.authored-bank-image{max-height:.9in!important;max-width:55%!important;float:right;margin:0 0 4px 8px!important}
+
+/* Numbered problem lists beside a maze or Tarsia: keep diagrams compact so three or four problems fit a page */
+.pm-listed .mm-fig,.pm-listed .gd-fig,.pm-listed > svg{max-width:100%}
+.pm-listed svg,.mm-page .pm-listed .mm-geometry-figure svg{max-height:1.5in!important;width:auto!important;max-width:100%!important;height:auto!important}
+.pm-listgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start}.pm-listgrid .mm-box{margin:0;break-inside:avoid}
+/* In problem text "and" / "or" are ordinary words, not answer connectors */
+.pm-listed .w,.pt-grid .w,.pm-q .w{font-size:inherit;font-weight:inherit;letter-spacing:normal;text-transform:none;margin:0;opacity:1}

@@ -182,7 +182,7 @@ function decorate(root){
 }
 G.MK_MATH_DISPLAY={html,fractions,decorate};
 if(G.document){
- const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css',script.src).href;G.document.head.appendChild(link);
+ const script=G.document.currentScript,link=G.document.createElement('link');link.rel='stylesheet';link.href=new URL('math-display.css?v=site-update-20261105c',script.src).href;G.document.head.appendChild(link);
  const selector='.af-prompt,.gm-q,.gm-opt,.gm-sol,.prompt,.statement,.choices,.problem,.display,.eq,.q,.solution,.steps,.st,.item,.ord,.pm-text,.pm-big,#prPreview .page';
  let pending=false;function scan(){pending=false;G.document.querySelectorAll(selector).forEach(decorate)}
  function schedule(){if(!pending){pending=true;queueMicrotask(scan)}}

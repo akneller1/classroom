@@ -26,15 +26,15 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
 
     /* ---- flashcards ---- */
     await visit(url('flashcards')); await ready('#fcCard');
-    let S = await st(); const nSkills = new Set(S.cards.map(c => c.skill)).size; assert.equal(S.cards.length % (3 * nSkills), 0, 'a CP1 deck has every skill at three difficulties'); assert.ok(S.cards.length >= 20); assert.ok(nSkills >= 3);
-    assert.deepEqual([...new Set(S.cards.map(c => c.c))].sort(), [3, 4, 5]);
+    let S = await st(); const probCards = S.cards.filter(c => c.skill !== '__vocabulary'); const nSkills = new Set(probCards.map(c => c.skill)).size; assert.equal(probCards.length % (3 * nSkills), 0, 'a CP1 deck has every skill at three difficulties (vocabulary cards are extra)'); assert.ok(S.cards.length >= 20); assert.ok(nSkills >= 3);
+    assert.deepEqual([...new Set(probCards.map(c => c.c))].sort(), [3, 4, 5]);
     assert.equal(await page.locator('.gm-sol').count(), 0, 'the answer is hidden on the question side');
     await page.keyboard.press(' '); await ready('.gm-sol');
     await page.keyboard.press('2'); S = await st(); assert.equal(Object.values(S.rate).filter(v => v === 'got').length, 1);
     await page.keyboard.press(' '); await page.keyboard.press('1'); S = await st(); assert.equal(Object.values(S.rate).filter(v => v === 'need').length, 1);
     await page.click('#fcMissed'); S = await st(); assert.equal(S.order.length, 1, 'practice missed shows only the missed card');
     await page.selectOption('#fcLevel', 'honors'); await ready('#fcCard'); S = await st();
-    assert.deepEqual([...new Set(S.cards.map(c => c.c))].sort(), [5, 6, 7]);
+    { const cs = [...new Set(S.cards.filter(c => c.skill !== "__vocabulary").map(c => c.c))]; assert.ok([5, 6, 7].every(v => cs.includes(v)) && cs.every(v => v >= 4), "Honors deck difficulties: " + cs); }   // a skill short of a top-tier problem may use its next-hardest one
     await page.reload(); await acceptSkills(); await ready('#fcCard'); S = await st(); assert.equal(S.level, 'honors', 'the level is remembered');
     ok(unit + ' flashcards: ' + S.cards.length + ' verified cards per level, flip, rate, practice missed, level change');
 
@@ -43,8 +43,9 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
     const cells = await page.locator('.sd-cell[data-cell]').count(), ncat = await page.locator('.sd-cat').count(); assert.equal(cells, 5 * ncat, 'board filled (' + cells + ')'); assert.ok(ncat >= 3);
     await page.click('.sd-cell[data-cell="0,4"]'); await ready('.sd-q');
     assert.equal(await page.locator('.gm-sol').count(), 0);
-    await page.click('#sdOpts'); assert.equal(await page.locator('.gm-opt.right').count(), 0, 'choices do not give the answer away');
-    await page.keyboard.press(' '); await ready('.gm-sol'); assert.equal(await page.locator('.gm-opt.right').count(), 1);
+    if (await page.locator('#sdOpts').count()) await page.click('#sdOpts');   // open-response cells have no choices to show
+    assert.equal(await page.locator('.gm-opt.right').count(), 0, 'choices do not give the answer away');
+    await page.keyboard.press(' '); await ready('.gm-sol'); if (await page.locator('.gm-opt').count()) assert.equal(await page.locator('.gm-opt.right').count(), 1);
     await page.click('[data-aw="1"][data-s="1"]'); S = await st(); assert.equal(S.score[1], 500);
     await page.keyboard.press('Escape'); await ready('.sd-board');
     assert.ok(await page.locator('.sd-cell[data-cell="0,4"]').isDisabled(), 'a used value is closed');
@@ -61,12 +62,14 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
       const r = await rightOpt('S.it');
       await page.click(`.gm-opt[data-opt="${r}"]`); await page.click('#c4Lock'); await ready('.c4-board.pick');
       await page.click(`.c4-hole[data-col="${move % 2 === 0 ? 0 : 1}"]`);
-      if (move < 6) await ready('#c4Lock');
+      if (move < 6) { await ready('#c4Next, #c4Lock'); if (await page.locator('#c4Next').count()) await page.click('#c4Next'); await ready('#c4Lock'); }   // a placed disc now shows the worked answer and a Next turn button
     }
     await ready('#c4Again'); S = await st(); assert.equal(S.wins.L, 1, 'four in a column wins');
     assert.equal(await page.locator('.c4-hole.win').count(), 4);
     await page.click('#c4Again'); await ready('#c4Lock');
-    let w = await wrongOpt('S.it'); await page.click(`.gm-opt[data-opt="${w}"]`); await page.click('#c4Lock'); await ready('#c4Next');
+    let w = await wrongOpt('S.it'); await page.click(`.gm-opt[data-opt="${w}"]`); await page.click('#c4Lock'); await ready('#c4Next, #c4Pass');
+    if (await page.locator('#c4Pass').count()) await page.click('#c4Pass');   // the other team is offered a steal first; it passes
+    await ready('#c4Next');
     assert.equal(await page.locator('.gm-opt.right').count(), 1); assert.equal(await page.locator('.gm-sol').count(), 1);
     await page.click('#c4Next'); await ready('#c4Lock'); S = await st(); assert.equal(S.turn, 'L', 'after a miss the turn passes (Right started this game)');
     ok(unit + ' connect four: correct answers drop discs, four in a row wins, a miss shows the solution and passes the turn');
@@ -88,12 +91,12 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
 
     /* ---- picture reveal ---- */
     await visit(url('picture-reveal')); await ready('.pr-pic');
-    S = await st(); assert.equal(S.items.length, 10);
+    S = await st(); const nPic = S.items.length; assert.ok(nPic >= 4 && nPic <= 12, 'picture pieces: ' + nPic);   // one piece per question; the count follows the unit's skills
     // preferTyped chooses typed parts when a generated problem has them;
     // random skill/difficulty slots do not guarantee a fixed typed count.
     const typedCount = S.items.filter(i => i.typed).length;
     assert.ok(S.items.every(i => i.typed || i.options.length >= 2), 'every question has a supported answer format');
-    for (let k = 0; k < 10; k++) {
+    for (let k = 0; k < nPic; k++) {
       await page.click(`[data-q="${k}"]`);
       const info = await page.evaluate(k => { const it = MKGAMES._state().items[k]; return { typed: it.typed, key: it.typed ? MKGAMES.keyTyped(it) : null, r: it.options.findIndex(o => o.ok), w: it.options.findIndex(o => !o.ok), wtyped: it.typed ? (it.typed === 'percent' ? it.options.find(o => !o.ok).a : MKGAMES.typedForm({ answer: it.options.find(o => !o.ok).a })) : null }; }, k);
       if (info.typed) {
@@ -102,8 +105,8 @@ function ok(m) { passed++; console.log('  ✓ ' + m); }
       } else { await page.click(`.gm-opt[data-opt="${info.r}"]`); await page.click('#prCheck'); }
       assert.match(await page.textContent('.gm-msg'), /Correct/, 'question ' + (k + 1) + ' (' + (info.typed || 'choice') + ': ' + info.key + ')');
     }
-    assert.equal(await page.locator('.pr-tile.gone').count(), 10, 'the whole picture is uncovered');
-    ok(unit + ' picture reveal: 10 questions (' + typedCount + ' typed, checked by the verifier), wrong answers rejected, every piece uncovers');
+    assert.equal(await page.locator('.pr-tile.gone').count(), nPic, 'the whole picture is uncovered');
+    ok(unit + ' picture reveal: ' + nPic + ' questions (' + typedCount + ' typed, checked by the verifier), wrong answers rejected, every piece uncovers');
 
     assert.deepEqual(errors, [], 'page errors: ' + errors.join('\n'));
     await page.close();

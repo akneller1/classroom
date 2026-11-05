@@ -1,7 +1,7 @@
 /* Projects for the Printable Generator (kind=project). Nothing is generated: each project is a ready-made
    2–3 day project saved as PDF, Word (.docx) and PowerPoint (.pptx) at CP2, CP1 and Honors, plus a teacher guide
    with answer keys. Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
-   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Precalculus and Calculus. */
+   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Pre-Algebra (8th), Precalculus and Calculus. */
 (function (G) {
   'use strict';
   var NS = G.MKMENU = G.MKMENU || {}, PR = NS.printables = NS.printables || {};
@@ -811,6 +811,83 @@
         "theme": "Engineering & Recreation",
         "product": "AP-Style Engineering Portfolio"
       }
+    ],
+    "prealgebra-real-numbers-exponents": [
+          {
+                "folder": "prealgebra-project-space-mission-planner",
+                "slug": "space-mission-planner",
+                "title": "Space Mission Planner",
+                "tagline": "Use scientific notation, exponents, and roots to plan a crewed mission to Mars.",
+                "description": "Students plan a space mission. They write huge distances in scientific notation, compute travel times and radio delays, use exponent rules and roots to size habitat modules, and classify real numbers they meet along the way.",
+                "theme": "Space & Science",
+                "product": "Mission Plan"
+          }
+    ],
+    "prealgebra-equations-expressions": [
+          {
+                "folder": "prealgebra-project-phone-plan-showdown",
+                "slug": "phone-plan-showdown",
+                "title": "Phone Plan Showdown",
+                "tagline": "Write and solve equations to find the best cell phone plan for any customer.",
+                "description": "Students compare cell phone plans. They write expressions for monthly costs, solve one-variable equations (including variables on both sides) to find break-even points, and decide when equations have one, no, or infinitely many solutions.",
+                "theme": "Money & Technology",
+                "product": "Plan Comparison Guide"
+          }
+    ],
+    "prealgebra-linear-functional-relationships": [
+          {
+                "folder": "prealgebra-project-road-trip-rate-lab",
+                "slug": "road-trip-rate-lab",
+                "title": "Road Trip Rate Lab",
+                "tagline": "Compare cars on a road trip using tables, graphs, and equations.",
+                "description": "Students plan a road trip. They find rates of change from tables, graphs, and equations, write linear functions, compare functions in different forms, decide whether relationships are linear, and plan travel time and fuel cost.",
+                "theme": "Travel & Transportation",
+                "product": "Road Trip Plan"
+          }
+    ],
+    "prealgebra-systems-linear-equations": [
+          {
+                "folder": "prealgebra-project-food-truck-face-off",
+                "slug": "food-truck-face-off",
+                "title": "Food Truck Face-Off",
+                "tagline": "Use systems of equations to compare food trucks and find break-even points.",
+                "description": "Students run two food trucks at a festival. They write cost and revenue equations, solve systems by graphing, substitution, and elimination, interpret solutions, recognize systems with no or infinitely many solutions, and recommend a business plan.",
+                "theme": "Food & Business",
+                "product": "Food Truck Business Report"
+          }
+    ],
+    "prealgebra-patterns-bivariate-data": [
+          {
+                "folder": "prealgebra-project-screen-time-sleep-study",
+                "slug": "screen-time-sleep-study",
+                "title": "Screen Time & Sleep Study",
+                "tagline": "Use scatter plots, lines of fit, and two-way tables to study screen time and sleep.",
+                "description": "Students study data on screen time and sleep. They build scatter plots, describe associations and outliers, use a line of best fit to make predictions and interpret slope and intercept, and use two-way tables to look for association in categorical data.",
+                "theme": "Health & Data Science",
+                "product": "Research Poster"
+          }
+    ],
+    "prealgebra-congruence-similarity": [
+          {
+                "folder": "prealgebra-project-tile-pattern-studio",
+                "slug": "tile-pattern-studio",
+                "title": "Tile Pattern Studio",
+                "tagline": "Design floor tile patterns with transformations, similarity, and angle facts.",
+                "description": "Students design a tile floor for a community center. They translate, reflect, rotate, and dilate a triangular tile on a grid, use similarity for indirect measurement, and use angle relationships with parallel lines and triangles to make the pattern fit.",
+                "theme": "Art & Design",
+                "product": "Tile Design Portfolio"
+          }
+    ],
+    "prealgebra-geometry-applications": [
+          {
+                "folder": "prealgebra-project-skate-park-design",
+                "slug": "skate-park-design",
+                "title": "Skate Park Design",
+                "tagline": "Use the Pythagorean Theorem, distance, and volume to design a skate park.",
+                "description": "Students design a community skate park. They use the Pythagorean Theorem and its converse to build ramps and rails, find distances on a coordinate map, and compute volumes of cylinders, cones, and spheres for the concrete bowl, planters, and decorations.",
+                "theme": "Sports & Architecture",
+                "product": "Skate Park Blueprint"
+          }
     ]
 };
   PR.projectFiles = function (p) {

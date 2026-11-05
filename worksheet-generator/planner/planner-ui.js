@@ -195,7 +195,9 @@
   /* ---------- hash ---------- */
   function readHash() {
     var h = {}; (location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); });
-    if (h.course && /^(algebra1|geometry|algebra2|prealgebra)$/.test(h.course) && h.course !== COURSE) { G.location.reload(); return; }
+    // A link to another course (by #course= or by a #unit= from another course) needs a reload: the course's scope loads at start-up
+    var target = h.course || (/^(algebra1|geometry|algebra2|prealgebra7|prealgebra|math6|precalculus|calculus)-/.exec(h.unit || '') || [])[1];
+    if (target && /^(algebra1|geometry|algebra2|prealgebra|prealgebra7|math6|precalculus|calculus)$/.test(target) && target !== COURSE) { G.location.reload(); return; }
     if (h.unit) {
       var num = null; Object.keys(G.MKPLAN_SKILLS.UNIT_SET).forEach(function (n) { if (P.unitSetId(+n) === h.unit || String(n) === h.unit) num = +n; });
       var u = num && P.unitOf(num); if (u) ui.day = u.start_day;

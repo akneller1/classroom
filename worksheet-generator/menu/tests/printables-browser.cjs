@@ -33,9 +33,19 @@ let n = 0; const ok = name => { n++; console.log('  ✓ ' + name); };
   assert.equal(await page.isDisabled('#prPrintS'), false);
   ok('controls: printable, level, versions, student/key preview and print buttons');
   // every unit × kind × level fits
-  const bad = await page.evaluate(async () => {
+  // one unit per call and a fresh page every few units, so thousands of drawn pages do not exhaust the browser's memory
+  const unitIds = await page.evaluate(() => Object.keys(MKMENU.skillSets));
+  const bad = []; let wp = null;
+  for (const [ui, unitId] of unitIds.entries()) {
+  if (ui % 6 === 0) {
+    if (wp) await wp.close();
+    wp = await browser.newPage({ viewport: { width: 1350, height: 950 } });
+    wp.on('pageerror', e => errors.push(e.message)); wp.on('console', m => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) errors.push(m.text()); });
+    await wp.goto(base + '/worksheet-generator/printables.html#unit=' + unitId + '&kind=color'); await wp.waitForSelector('.pr-page', { timeout: 120000 });
+  }
+  bad.push(...await wp.evaluate(async (unit) => {
     const PR = MKMENU.printables, out = [];
-    for (const unit of Object.keys(MKMENU.skillSets)) for (const kind of PR.KINDS.map(k => k.id)) for (const level of ['cp2', 'cp1', 'honors']) {
+    for (const kind of PR.KINDS.map(k => k.id)) for (const level of ['cp2', 'cp1', 'honors']) {
       const cfg = PR.defaultConfig(unit, kind); cfg.level = level; cfg.seed = 77;
       const B = PR.build(cfg, 0);
       if (B.error) {
@@ -43,27 +53,31 @@ let n = 0; const ok = name => { n++; console.log('  ✓ ' + name); };
         const off = kind === 'vocabulary' || kind === 'project' || (kind === 'match' && !PR.MATCH.supported(unit)) || (/^geometry-/.test(unit) && !MKMENU.skillSets[unit].skills.some(s => PR.capable(unit, s.id, kind)));
         if (!off && !(unit === 'algebra1-statistics-data-modeling' && kind === 'tarsia')) out.push(unit + ' ' + kind + ' ' + level + ': ' + B.error); continue;
       }
+      // "undefined" is a correct answer for some problems (a vertical line's slope, tan 90°); it is only flagged when no question or answer uses the word
+      let legitUndefined = false; try { legitUndefined = /undefined/.test(JSON.stringify(B, (k, v) => typeof v === 'function' ? undefined : v)); } catch (e) { /* circular data: keep the strict check */ }
       for (const key of [false, true]) {
-        const els = PR.pageEls(cfg, B, 0, 1, key), r = document.createElement('div'); r.style.cssText = 'position:absolute;left:-9999px;top:0'; document.body.appendChild(r); els.forEach(e => r.appendChild(e));
+        const els = PR.pageEls(cfg, B, 0, 1, key), r = document.createElement('div'); r.style.cssText = 'position:absolute;left:-9999px;top:0'; document.body.appendChild(r); els.forEach(e => r.appendChild(e)); if (PR.fitBoxes) PR.fitBoxes(r);   // the preview and the print both fit long problems into their boxes
         els.forEach((e, i) => {
           const bd = e.querySelector('.mm-body'); if (bd.scrollHeight > bd.clientHeight + 2) out.push(unit + ' ' + kind + ' ' + level + (key ? ' key' : '') + ' page ' + (i + 1) + ' runs past the page');
           e.querySelectorAll('.pm-room,.pm-q,.pm-big,.pc-box,.pp-box,.pe-box,.pt-grid>div,.pc-code td,.pw-card,.ps-q').forEach(x => { if (x.scrollHeight > x.clientHeight + 5 || x.scrollWidth > x.clientWidth + 5) out.push(unit + ' ' + kind + ' ' + level + (key ? ' key' : '') + ': text runs past a ' + x.className); });
-          if (/NaN|\[object|\bundefined\b(?! \(a vertical)/.test(e.textContent)) out.push(unit + ' ' + kind + ' ' + level + ': bad text on page ' + (i + 1));
+          if ((legitUndefined ? /NaN|\[object/ : /NaN|\[object|\bundefined\b(?! \(a vertical)/).test(e.textContent)) out.push(unit + ' ' + kind + ' ' + level + ': bad text on page ' + (i + 1));
           if (!key && /Answer key|TEACHER KEY/.test(e.textContent)) out.push(unit + ' ' + kind + ': key text on a student page');
         });
         r.remove();
       }
     }
     return out;
-  });
+  }, unitId));
+  }
+  if (wp) await wp.close();
   if (bad.length) console.log(bad.join('\n')); assert.deepEqual(bad, []);
   ok('every unit, printable and level: student and key pages fit, nothing runs past a room, door or box');
   // site: a unit page links each generator straight to printables.html
   await page.goto(base + '/index.html#algebra.quadratics'); await page.waitForTimeout(700);
   const links = await page.evaluate(() => [...document.querySelectorAll('a')].map(a => a.getAttribute('href')).filter(h => /printables\.html/.test(h || '')));
-  ['maze', 'color', 'tarsia', 'error', 'partner', 'who', 'stations'].forEach(k => assert.ok(links.includes('worksheet-generator/printables.html#unit=algebra1-quadratics&kind=' + k), 'unit page links the ' + k + ' generator'));
+  assert.ok(links.includes('worksheet-generator/printables.html#unit=algebra1-quadratics'), 'unit page links the Activity Generator for its unit');
   assert.doesNotMatch(await page.textContent('body'), /Solving Quadratics Maze|Quadratics Color By Number/);
-  ok('site: unit pages link the five printable generators and no longer list the fixed PDFs');
+  ok('site: unit pages link the Activity Generator and no longer list the fixed PDFs');
   assert.deepEqual(errors, []);
   await browser.close(); server.close();
   console.log('PASS: ' + n + ' printable browser checks');

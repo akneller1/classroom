@@ -6382,6 +6382,4555 @@
     "F-BF.A.2"
    ],
    "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp2-013",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the 26th term of the arithmetic sequence 13, 25, 37, 49, …",
+   "answer": "313",
+   "solutionSteps": [
+    "a₁ = 13, d = 12.",
+    "aₙ = a₁ + (n - 1)d, so a₂₆ = 13 + (26 - 1)(12).",
+    "a₂₆ = 313."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp2-014",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In an arithmetic sequence, a₂ = 25 and a₆ = 37. Find the common difference d.",
+   "answer": "3",
+   "solutionSteps": [
+    "From term 2 to term 6 there are 4 steps of d.",
+    "d = (37 - 25) ÷ 4 = 3."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp2-015",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nFind the 13th term of the arithmetic sequence 16, 10, 4, -2, …\nPriya's answer: -78\nIdentify the mistake and give the correct answer.",
+   "answer": "-56",
+   "solutionSteps": [
+    "Mistake: Forgot the first term.",
+    "a₁ = 16, d = -6.",
+    "aₙ = a₁ + (n - 1)d, so a₁₃ = 16 + (13 - 1)(-6).",
+    "a₁₃ = -56.",
+    "The correct answer is -56, not -78."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp2-016",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nIn an arithmetic sequence, a₁₀ = -39 and a₁₃ = -57. Find a₁.\nTariq's answer: -33\nIdentify the mistake and give the correct answer.",
+   "answer": "15",
+   "solutionSteps": [
+    "Mistake: Subtracted only one difference.",
+    "d = (-57 - (-39)) ÷ 3 = -6.",
+    "a₁ = a₁₀ - (10 - 1)d = -39 - 9(-6) = 15.",
+    "The correct answer is 15, not -33."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp1-014",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the 47th term of the arithmetic sequence 24, 32, 40, 48, …",
+   "answer": "392",
+   "solutionSteps": [
+    "a₁ = 24, d = 8.",
+    "aₙ = a₁ + (n - 1)d, so a₄₇ = 24 + (47 - 1)(8).",
+    "a₄₇ = 392."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp1-015",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nFind the 47th term of the arithmetic sequence -18, -6, 6, 18, …\nRosa's answer: -570\nIdentify the mistake and give the correct answer.",
+   "answer": "534",
+   "solutionSteps": [
+    "Mistake: Used the wrong sign for the common difference.",
+    "a₁ = -18, d = 12.",
+    "aₙ = a₁ + (n - 1)d, so a₄₇ = -18 + (47 - 1)(12).",
+    "a₄₇ = 534.",
+    "The correct answer is 534, not -570."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp1-016",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nIn an arithmetic sequence, a₉ = -21 and a₁₃ = -25. Find the common difference d.\nIsla's answer: -4\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by the number of steps.",
+    "From term 9 to term 13 there are 4 steps of d.",
+    "d = (-25 - (-21)) ÷ 4 = -1.",
+    "The correct answer is -1, not -4."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-006",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the 13th term of the arithmetic sequence -11, -16, -21, -26, …",
+   "answer": "-71",
+   "solutionSteps": [
+    "a₁ = -11, d = -5.",
+    "aₙ = a₁ + (n - 1)d, so a₁₃ = -11 + (13 - 1)(-5).",
+    "a₁₃ = -71."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-007",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In an arithmetic sequence, a₃ = -4 and a₆ = 11. Write an explicit formula for aₙ in simplest form.",
+   "answer": "aₙ = 5n - 19",
+   "solutionSteps": [
+    "d = (11 - (-4)) ÷ 3 = 5.",
+    "a₁ = -4 - 2(5) = -14.",
+    "aₙ = -14 + (n - 1)(5) = 5n - 19."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-008",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the 60th term of the arithmetic sequence 20, 22, 24, 26, …",
+   "answer": "138",
+   "options": [
+    {
+     "text": "140",
+     "correct": false
+    },
+    {
+     "text": "-98",
+     "correct": false
+    },
+    {
+     "text": "138",
+     "correct": true
+    },
+    {
+     "text": "120",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 20, d = 2.",
+    "aₙ = a₁ + (n - 1)d, so a₆₀ = 20 + (60 - 1)(2).",
+    "a₆₀ = 138."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-009",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In an arithmetic sequence, a₇ = 0 and a₉ = -2. Write an explicit formula for aₙ in simplest form.",
+   "answer": "aₙ = -n + 7",
+   "options": [
+    {
+     "text": "aₙ = -n",
+     "correct": false
+    },
+    {
+     "text": "aₙ = -n + 7",
+     "correct": true
+    },
+    {
+     "text": "aₙ = -n + 6",
+     "correct": false
+    },
+    {
+     "text": "aₙ = 6n - 1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "d = (-2 - 0) ÷ 2 = -1.",
+    "a₁ = 0 - 6(-1) = 6.",
+    "aₙ = 6 + (n - 1)(-1) = -n + 7."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-010",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the 33rd term of the arithmetic sequence 2, 7, 12, 17, …",
+   "answer": "162",
+   "solutionSteps": [
+    "a₁ = 2, d = 5.",
+    "aₙ = a₁ + (n - 1)d, so a₃₃ = 2 + (33 - 1)(5).",
+    "a₃₃ = 162."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-011",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In an arithmetic sequence, a₁₀ = 18 and a₁₃ = 27. Write an explicit formula for aₙ in simplest form.",
+   "answer": "aₙ = 3n - 12",
+   "solutionSteps": [
+    "d = (27 - 18) ÷ 3 = 3.",
+    "a₁ = 18 - 9(3) = -9.",
+    "aₙ = -9 + (n - 1)(3) = 3n - 12."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-012",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the 51st term of the arithmetic sequence 28, 57/2, 29, 59/2, …",
+   "answer": "53",
+   "options": [
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "107/2",
+     "correct": false
+    },
+    {
+     "text": "51/2",
+     "correct": false
+    },
+    {
+     "text": "53",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 28, d = 1/2.",
+    "aₙ = a₁ + (n - 1)d, so a₅₁ = 28 + (51 - 1)(1/2).",
+    "a₅₁ = 53."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-013",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In an arithmetic sequence, a₆ = -23 and a₈ = -39. Write an explicit formula for aₙ in simplest form.",
+   "answer": "aₙ = -8n + 25",
+   "solutionSteps": [
+    "d = (-39 - (-23)) ÷ 2 = -8.",
+    "a₁ = -23 - 5(-8) = 17.",
+    "aₙ = 17 + (n - 1)(-8) = -8n + 25."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-014",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nFind the 52nd term of the arithmetic sequence -5, 5, 15, 25, …\nAva's answer: 520\nIdentify the mistake and give the correct answer.",
+   "answer": "505",
+   "solutionSteps": [
+    "Mistake: Forgot the first term.",
+    "a₁ = -5, d = 10.",
+    "aₙ = a₁ + (n - 1)d, so a₅₂ = -5 + (52 - 1)(10).",
+    "a₅₂ = 505.",
+    "The correct answer is 505, not 520."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-015",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nIn an arithmetic sequence, a₆ = 6 and a₁₄ = 22. Write an explicit formula for aₙ in simplest form.\nSam's answer: aₙ = 2n + 6\nIdentify the mistake and give the correct answer.",
+   "answer": "aₙ = 2n - 6",
+   "solutionSteps": [
+    "Mistake: Used a later term as the starting term.",
+    "d = (22 - 6) ÷ 8 = 2.",
+    "a₁ = 6 - 5(2) = -4.",
+    "aₙ = -4 + (n - 1)(2) = 2n - 6.",
+    "The correct answer is aₙ = 2n - 6, not aₙ = 2n + 6."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_two_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-016",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the 39th term of the arithmetic sequence -13, -29/2, -16, -35/2, …",
+     "answer": "-70"
+    },
+    {
+     "prompt": "Find the 52nd term of the arithmetic sequence 5, 16, 27, 38, …",
+     "answer": "566"
+    },
+    {
+     "prompt": "Find the 34th term of the arithmetic sequence 13, 9, 5, 1, …",
+     "answer": "-119"
+    },
+    {
+     "prompt": "Find the 22nd term of the arithmetic sequence -10, -17, -24, -31, …",
+     "answer": "-157"
+    }
+   ],
+   "answer": "(a) -70; (b) 566; (c) -119; (d) -157",
+   "solutionSteps": [
+    "(a) aₙ = a₁ + (n - 1)d, so a₃₉ = -13 + (39 - 1)(-3/2). a₃₉ = -70.",
+    "(b) aₙ = a₁ + (n - 1)d, so a₅₂ = 5 + (52 - 1)(11). a₅₂ = 566.",
+    "(c) aₙ = a₁ + (n - 1)d, so a₃₄ = 13 + (34 - 1)(-4). a₃₄ = -119.",
+    "(d) aₙ = a₁ + (n - 1)d, so a₂₂ = -10 + (22 - 1)(-7). a₂₂ = -157."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_nth_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp2-013",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the 6th term of the geometric sequence 1, -2, 4, -8, …",
+   "answer": "-32",
+   "solutionSteps": [
+    "a₁ = 1, r = -2.",
+    "aₙ = a₁·r^(n - 1), so a₆ = 1(-2)^5.",
+    "a₆ = -32."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp2-014",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the next term of the geometric sequence -4, 12, -36, 108, …",
+   "answer": "-324",
+   "solutionSteps": [
+    "r = 12 ÷ -4 = -3.",
+    "Next term = 108 · -3 = -324."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp2-015",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nFind the 6th term of the geometric sequence -3, -9, -27, -81, …\nWren's answer: -45\nIdentify the mistake and give the correct answer.",
+   "answer": "-729",
+   "solutionSteps": [
+    "Mistake: Multiplied by n - 1 instead of raising to the power.",
+    "a₁ = -3, r = 3.",
+    "aₙ = a₁·r^(n - 1), so a₆ = -3(3)^5.",
+    "a₆ = -729.",
+    "The correct answer is -729, not -45."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp2-016",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Hiro answered this problem incorrectly.\nFind the next term of the geometric sequence 3, 6, 12, 24, …\nHiro's answer: 36\nIdentify the mistake and give the correct answer.",
+   "answer": "48",
+   "solutionSteps": [
+    "Mistake: Added the last difference instead of multiplying.",
+    "r = 6 ÷ 3 = 2.",
+    "Next term = 24 · 2 = 48.",
+    "The correct answer is 48, not 36."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp1-016",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nFind the 5th term of the geometric sequence -48, 24, -12, 6, …\nIsla's answer: 331776\nIdentify the mistake and give the correct answer.",
+   "answer": "-3",
+   "solutionSteps": [
+    "Mistake: Raised a₁ to the power as well.",
+    "a₁ = -48, r = -1/2.",
+    "aₙ = a₁·r^(n - 1), so a₅ = -48(-1/2)^4.",
+    "a₅ = -3.",
+    "The correct answer is -3, not 331776."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp1-017",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nFind the common ratio of the geometric sequence -2, -8, -32, -128, …\nZoe's answer: 1/4\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Divided in the wrong order.",
+    "r = a₂ ÷ a₁ = -8 ÷ -2.",
+    "r = 4.",
+    "The correct answer is 4, not 1/4."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-004",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the 5th term of the geometric sequence 8, -24, 72, -216, …",
+   "answer": "648",
+   "solutionSteps": [
+    "a₁ = 8, r = -3.",
+    "aₙ = a₁·r^(n - 1), so a₅ = 8(-3)^4.",
+    "a₅ = 648."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-005",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the next term of the geometric sequence -9, -18, -36, -72, …",
+   "answer": "-144",
+   "solutionSteps": [
+    "r = -18 ÷ -9 = 2.",
+    "Next term = -72 · 2 = -144."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-006",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the 8th term of the geometric sequence 567, 378, 252, 168, …",
+   "answer": "896/27",
+   "options": [
+    {
+     "text": "896/27",
+     "correct": true
+    },
+    {
+     "text": "2646",
+     "correct": false
+    },
+    {
+     "text": "1792/81",
+     "correct": false
+    },
+    {
+     "text": "1102662484205853312",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 567, r = 2/3.",
+    "aₙ = a₁·r^(n - 1), so a₈ = 567(2/3)^7.",
+    "a₈ = 896/27."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-007",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the next term of the geometric sequence 32, 16, 8, 4, …",
+   "answer": "2",
+   "options": [
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = 16 ÷ 32 = 1/2.",
+    "Next term = 4 · 1/2 = 2."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-008",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the 8th term of the geometric sequence -32, 16, -8, 4, …",
+   "answer": "1/4",
+   "solutionSteps": [
+    "a₁ = -32, r = -1/2.",
+    "aₙ = a₁·r^(n - 1), so a₈ = -32(-1/2)^7.",
+    "a₈ = 1/4."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-009",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the next term of the geometric sequence -16, -8, -4, -2, …",
+   "answer": "-1",
+   "solutionSteps": [
+    "r = -8 ÷ -16 = 1/2.",
+    "Next term = -2 · 1/2 = -1."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-010",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the 6th term of the geometric sequence 16, 8, 4, 2, …",
+   "answer": "1/2",
+   "options": [
+    {
+     "text": "1/2",
+     "correct": true
+    },
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "32768",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 16, r = 1/2.",
+    "aₙ = a₁·r^(n - 1), so a₆ = 16(1/2)^5.",
+    "a₆ = 1/2."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-011",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the common ratio of the geometric sequence -40, -20, -10, -5, …",
+   "answer": "1/2",
+   "options": [
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": true
+    },
+    {
+     "text": "-1/2",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = a₂ ÷ a₁ = -20 ÷ -40.",
+    "r = 1/2."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-012",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the 5th term of the geometric sequence -3, -6, -12, -24, …",
+   "answer": "-48",
+   "solutionSteps": [
+    "a₁ = -3, r = 2.",
+    "aₙ = a₁·r^(n - 1), so a₅ = -3(2)^4.",
+    "a₅ = -48."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-013",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the next term of the geometric sequence 7, -21, 63, -189, …",
+   "answer": "567",
+   "solutionSteps": [
+    "r = -21 ÷ 7 = -3.",
+    "Next term = -189 · -3 = 567."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-014",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nFind the 5th term of the geometric sequence -16, -8, -4, -2, …\nWren's answer: 4096\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mistake: Raised a₁ to the power as well.",
+    "a₁ = -16, r = 1/2.",
+    "aₙ = a₁·r^(n - 1), so a₅ = -16(1/2)^4.",
+    "a₅ = -1.",
+    "The correct answer is -1, not 4096."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-015",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nFind the next term of the geometric sequence -27, -9, -3, -1, …\nSam's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "-1/3",
+   "solutionSteps": [
+    "Mistake: Divided by the ratio.",
+    "r = -9 ÷ -27 = 1/3.",
+    "Next term = -1 · 1/3 = -1/3.",
+    "The correct answer is -1/3, not -3."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_ratio_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-honors-016",
+   "skillId": "sequences-series-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the 5th term of the geometric sequence 7, 21, 63, 189, …",
+     "answer": "567"
+    },
+    {
+     "prompt": "Find the 6th term of the geometric sequence -64, -32, -16, -8, …",
+     "answer": "-2"
+    },
+    {
+     "prompt": "Find the 5th term of the geometric sequence 2, -4, 8, -16, …",
+     "answer": "32"
+    },
+    {
+     "prompt": "Find the 6th term of the geometric sequence 7, -21, 63, -189, …",
+     "answer": "-1701"
+    }
+   ],
+   "answer": "(a) 567; (b) -2; (c) 32; (d) -1701",
+   "solutionSteps": [
+    "(a) aₙ = a₁·r^(n - 1), so a₅ = 7(3)^4. a₅ = 567.",
+    "(b) aₙ = a₁·r^(n - 1), so a₆ = -64(1/2)^5. a₆ = -2.",
+    "(c) aₙ = a₁·r^(n - 1), so a₅ = 2(-2)^4. a₅ = 32.",
+    "(d) aₙ = a₁·r^(n - 1), so a₆ = 7(-3)^5. a₆ = -1701."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_nth_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-006",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a₁ = -4 and aₙ = 3aₙ₋₁ for n ≥ 2. Find a₄.",
+   "answer": "-108",
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = -4, a₂ = -12, a₃ = -36, a₄ = -108."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-007",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write an explicit formula for the sequence a₁ = 6, aₙ = aₙ₋₁ - 8 (n ≥ 2).",
+   "answer": "aₙ = -8n + 14",
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = 6 and d = -8.",
+    "aₙ = 6 + (n - 1)(-8).",
+    "aₙ = -8n + 14."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-008",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A sequence is defined by a₁ = 6 and aₙ = -2aₙ₋₁ for n ≥ 2. Find a₄.",
+   "answer": "-48",
+   "options": [
+    {
+     "text": "-42",
+     "correct": false
+    },
+    {
+     "text": "96",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "-48",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = 6, a₂ = -12, a₃ = 24, a₄ = -48."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-009",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Write an explicit formula for the sequence a₁ = 5, aₙ = aₙ₋₁ + 2 (n ≥ 2).",
+   "answer": "aₙ = 2n + 3",
+   "options": [
+    {
+     "text": "aₙ = -2n + 7",
+     "correct": false
+    },
+    {
+     "text": "aₙ = 2n + 5",
+     "correct": false
+    },
+    {
+     "text": "aₙ = 5n + 2",
+     "correct": false
+    },
+    {
+     "text": "aₙ = 2n + 3",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = 5 and d = 2.",
+    "aₙ = 5 + (n - 1)(2).",
+    "aₙ = 2n + 3."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-010",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a₁ = 11 and aₙ = aₙ₋₁ + 1 for n ≥ 2. Find a₄.",
+   "answer": "14",
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = 11, a₂ = 12, a₃ = 13, a₄ = 14."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-011",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write an explicit formula for the sequence a₁ = 3, aₙ = aₙ₋₁ + 1 (n ≥ 2).",
+   "answer": "aₙ = n + 2",
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = 3 and d = 1.",
+    "aₙ = 3 + (n - 1)(1).",
+    "aₙ = n + 2."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-012",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A sequence is defined by a₁ = 3 and aₙ = aₙ₋₁ - 5 for n ≥ 2. Find a₄.",
+   "answer": "-12",
+   "options": [
+    {
+     "text": "-12",
+     "correct": true
+    },
+    {
+     "text": "-11",
+     "correct": false
+    },
+    {
+     "text": "-17",
+     "correct": false
+    },
+    {
+     "text": "-7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = 3, a₂ = -2, a₃ = -7, a₄ = -12."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-013",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Write an explicit formula for the sequence a₁ = -9, aₙ = aₙ₋₁ + 6 (n ≥ 2).",
+   "answer": "aₙ = 6n - 15",
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = -9 and d = 6.",
+    "aₙ = -9 + (n - 1)(6).",
+    "aₙ = 6n - 15."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-014",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nA sequence is defined by a₁ = 2 and aₙ = 2aₙ₋₁ for n ≥ 2. Find a₄.\nIsla's answer: 18\nIdentify the mistake and give the correct answer.",
+   "answer": "16",
+   "solutionSteps": [
+    "Mistake: Made an arithmetic error in the last step.",
+    "Apply the rule one term at a time.",
+    "a₁ = 2, a₂ = 4, a₃ = 8, a₄ = 16.",
+    "The correct answer is 16, not 18."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-015",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nWrite an explicit formula for the sequence a₁ = 6, aₙ = aₙ₋₁ - 2 (n ≥ 2).\nUma's answer: aₙ = 6n - 2\nIdentify the mistake and give the correct answer.",
+   "answer": "aₙ = -2n + 8",
+   "solutionSteps": [
+    "Mistake: Switched the first term and the difference.",
+    "The sequence is arithmetic with a₁ = 6 and d = -2.",
+    "aₙ = 6 + (n - 1)(-2).",
+    "aₙ = -2n + 8.",
+    "The correct answer is aₙ = -2n + 8, not aₙ = 6n - 2."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp2-016",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A sequence is defined by a₁ = 8 and aₙ = aₙ₋₁ - 2 for n ≥ 2. Find a₄.",
+     "answer": "2"
+    },
+    {
+     "prompt": "A sequence is defined by a₁ = 5 and aₙ = -aₙ₋₁ for n ≥ 2. Find a₄.",
+     "answer": "-5"
+    },
+    {
+     "prompt": "A sequence is defined by a₁ = 1 and aₙ = 2aₙ₋₁ for n ≥ 2. Find a₄.",
+     "answer": "8"
+    },
+    {
+     "prompt": "A sequence is defined by a₁ = 2 and aₙ = 2aₙ₋₁ for n ≥ 2. Find a₄.",
+     "answer": "16"
+    }
+   ],
+   "answer": "(a) 2; (b) -5; (c) 8; (d) 16",
+   "solutionSteps": [
+    "(a) Apply the rule one term at a time. a₁ = 8, a₂ = 6, a₃ = 4, a₄ = 2.",
+    "(b) Apply the rule one term at a time. a₁ = 5, a₂ = -5, a₃ = 5, a₄ = -5.",
+    "(c) Apply the rule one term at a time. a₁ = 1, a₂ = 2, a₃ = 4, a₄ = 8.",
+    "(d) Apply the rule one term at a time. a₁ = 2, a₂ = 4, a₃ = 8, a₄ = 16."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp1-022",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Kai answered this problem incorrectly.\nA sequence is defined by a₁ = 4 and aₙ = aₙ₋₁ + 5 for n ≥ 2. Find a₄.\nKai's answer: 20\nIdentify the mistake and give the correct answer.",
+   "answer": "19",
+   "solutionSteps": [
+    "Mistake: Made an arithmetic error in the last step.",
+    "Apply the rule one term at a time.",
+    "a₁ = 4, a₂ = 9, a₃ = 14, a₄ = 19.",
+    "The correct answer is 19, not 20."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-cp1-023",
+   "skillId": "sequences-series-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nWrite an explicit formula for the sequence a₁ = -6, aₙ = aₙ₋₁ - 2 (n ≥ 2).\nBen's answer: aₙ = 2n - 8\nIdentify the mistake and give the correct answer.",
+   "answer": "aₙ = -2n - 4",
+   "solutionSteps": [
+    "Mistake: Used the wrong sign for the difference.",
+    "The sequence is arithmetic with a₁ = -6 and d = -2.",
+    "aₙ = -6 + (n - 1)(-2).",
+    "aₙ = -2n - 4.",
+    "The correct answer is aₙ = -2n - 4, not aₙ = 2n - 8."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-005",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a₁ = 6 and aₙ = 2aₙ₋₁ for n ≥ 2. Find a₄.",
+   "answer": "48",
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = 6, a₂ = 12, a₃ = 24, a₄ = 48."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-006",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write an explicit formula for the sequence a₁ = 2, aₙ = -2aₙ₋₁ (n ≥ 2).",
+   "answer": "aₙ = 2(-2)^(n - 1)",
+   "options": [
+    {
+     "text": "aₙ = 2(-2)^(n - 1)",
+     "correct": true
+    },
+    {
+     "text": "aₙ = 2(-2)ⁿ",
+     "correct": false
+    },
+    {
+     "text": "aₙ = -2(2)^(n - 1)",
+     "correct": false
+    },
+    {
+     "text": "aₙ = 2 + -2(n - 1)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The sequence is geometric with a₁ = 2 and r = -2.",
+    "aₙ = a₁·r^(n - 1).",
+    "aₙ = 2(-2)^(n - 1)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-007",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A sequence is defined by a₁ = 10 and aₙ = aₙ₋₁ - 2 for n ≥ 2. Find a₄.",
+   "answer": "4",
+   "options": [
+    {
+     "text": "5",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = 10, a₂ = 8, a₃ = 6, a₄ = 4."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-008",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write an explicit formula for the sequence a₁ = -2, aₙ = aₙ₋₁ - 5 (n ≥ 2).",
+   "answer": "aₙ = -5n + 3",
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = -2 and d = -5.",
+    "aₙ = -2 + (n - 1)(-5).",
+    "aₙ = -5n + 3."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-009",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a₁ = 10 and aₙ = aₙ₋₁ + 6 for n ≥ 2. Find a₅.",
+   "answer": "34",
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = 10, a₂ = 16, a₃ = 22, a₄ = 28, a₅ = 34."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-010",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write an explicit formula for the sequence a₁ = 12, aₙ = aₙ₋₁ + 4 (n ≥ 2).",
+   "answer": "aₙ = 4n + 8",
+   "options": [
+    {
+     "text": "aₙ = 4n + 8",
+     "correct": true
+    },
+    {
+     "text": "aₙ = 4n + 12",
+     "correct": false
+    },
+    {
+     "text": "aₙ = 12n + 4",
+     "correct": false
+    },
+    {
+     "text": "aₙ = -4n + 16",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = 12 and d = 4.",
+    "aₙ = 12 + (n - 1)(4).",
+    "aₙ = 4n + 8."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-011",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A sequence is defined by a₁ = -5 and aₙ = -2aₙ₋₁ for n ≥ 2. Find a₄.",
+   "answer": "40",
+   "options": [
+    {
+     "text": "40",
+     "correct": true
+    },
+    {
+     "text": "-20",
+     "correct": false
+    },
+    {
+     "text": "35",
+     "correct": false
+    },
+    {
+     "text": "-80",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = -5, a₂ = 10, a₃ = -20, a₄ = 40."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-012",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write an explicit formula for the sequence a₁ = 5, aₙ = aₙ₋₁ - 3 (n ≥ 2).",
+   "answer": "aₙ = -3n + 8",
+   "solutionSteps": [
+    "The sequence is arithmetic with a₁ = 5 and d = -3.",
+    "aₙ = 5 + (n - 1)(-3).",
+    "aₙ = -3n + 8."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_to_explicit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-013",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a₁ = -1 and aₙ = 3aₙ₋₁ - 4 for n ≥ 2. Find a₄.",
+   "answer": "-79",
+   "solutionSteps": [
+    "Apply the rule one term at a time.",
+    "a₁ = -1, a₂ = -7, a₃ = -25, a₄ = -79."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-014",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nA sequence is defined by a₁ = -2 and aₙ = 3aₙ₋₁ + 3 for n ≥ 2. Find a₅.\nWren's answer: -15\nIdentify the mistake and give the correct answer.",
+   "answer": "-42",
+   "solutionSteps": [
+    "Mistake: Stopped one term too early.",
+    "Apply the rule one term at a time.",
+    "a₁ = -2, a₂ = -3, a₃ = -6, a₄ = -15, a₅ = -42.",
+    "The correct answer is -42, not -15."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-015",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Kai answered this problem incorrectly.\nA sequence is defined by a₁ = -2 and aₙ = aₙ₋₁ + 2 for n ≥ 2. Find a₄.\nKai's answer: 2\nIdentify the mistake and give the correct answer.",
+   "answer": "4",
+   "solutionSteps": [
+    "Mistake: Stopped one term too early.",
+    "Apply the rule one term at a time.",
+    "a₁ = -2, a₂ = 0, a₃ = 2, a₄ = 4.",
+    "The correct answer is 4, not 2."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s03-honors-016",
+   "skillId": "sequences-series-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A sequence is defined by a₁ = -5 and aₙ = 3aₙ₋₁ for n ≥ 2. Find a₅.",
+     "answer": "-405"
+    },
+    {
+     "prompt": "A sequence is defined by a₁ = -1 and aₙ = -aₙ₋₁ + 1 for n ≥ 2. Find a₄.",
+     "answer": "2"
+    },
+    {
+     "prompt": "A sequence is defined by a₁ = 1 and aₙ = 3aₙ₋₁ + 4 for n ≥ 2. Find a₄.",
+     "answer": "79"
+    },
+    {
+     "prompt": "A sequence is defined by a₁ = -2 and aₙ = 2aₙ₋₁ + 2 for n ≥ 2. Find a₄.",
+     "answer": "-2"
+    }
+   ],
+   "answer": "(a) -405; (b) 2; (c) 79; (d) -2",
+   "solutionSteps": [
+    "(a) Apply the rule one term at a time. a₁ = -5, a₂ = -15, a₃ = -45, a₄ = -135, a₅ = -405.",
+    "(b) Apply the rule one term at a time. a₁ = -1, a₂ = 2, a₃ = -1, a₄ = 2.",
+    "(c) Apply the rule one term at a time. a₁ = 1, a₂ = 7, a₃ = 25, a₄ = 79.",
+    "(d) Apply the rule one term at a time. a₁ = -2, a₂ = -2, a₃ = -2, a₄ = -2."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-IF.A.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s3_rec_terms_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-004",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 29 terms of the arithmetic series 10 + 12 + 14 + …",
+   "answer": "1102",
+   "solutionSteps": [
+    "a₂₉ = 10 + (29 - 1)(2) = 66.",
+    "Sₙ = n(a₁ + aₙ)/2 = 29(10 + 66)/2.",
+    "S = 1102."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-005",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 29 terms of the arithmetic series 7 + 13 + 19 + …",
+   "answer": "2639",
+   "options": [
+    {
+     "text": "2726",
+     "correct": false
+    },
+    {
+     "text": "5075",
+     "correct": false
+    },
+    {
+     "text": "5278",
+     "correct": false
+    },
+    {
+     "text": "2639",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "a₂₉ = 7 + (29 - 1)(6) = 175.",
+    "Sₙ = n(a₁ + aₙ)/2 = 29(7 + 175)/2.",
+    "S = 2639."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-006",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 40 terms of the arithmetic series -10 + (-9) + (-8) + …",
+   "answer": "380",
+   "solutionSteps": [
+    "a₄₀ = -10 + (40 - 1)(1) = 29.",
+    "Sₙ = n(a₁ + aₙ)/2 = 40(-10 + 29)/2.",
+    "S = 380."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-007",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 35 terms of the arithmetic series 13 + 15 + 17 + …",
+   "answer": "1645",
+   "options": [
+    {
+     "text": "3290",
+     "correct": false
+    },
+    {
+     "text": "1680",
+     "correct": false
+    },
+    {
+     "text": "1645",
+     "correct": true
+    },
+    {
+     "text": "2835",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₃₅ = 13 + (35 - 1)(2) = 81.",
+    "Sₙ = n(a₁ + aₙ)/2 = 35(13 + 81)/2.",
+    "S = 1645."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-008",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 35 terms of the arithmetic series -5 + (-3) + (-1) + …",
+   "answer": "1015",
+   "solutionSteps": [
+    "a₃₅ = -5 + (35 - 1)(2) = 63.",
+    "Sₙ = n(a₁ + aₙ)/2 = 35(-5 + 63)/2.",
+    "S = 1015."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-009",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 18 terms of the arithmetic series -4 + 4 + 12 + …",
+   "answer": "1152",
+   "options": [
+    {
+     "text": "2304",
+     "correct": false
+    },
+    {
+     "text": "1152",
+     "correct": true
+    },
+    {
+     "text": "1224",
+     "correct": false
+    },
+    {
+     "text": "2376",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁₈ = -4 + (18 - 1)(8) = 132.",
+    "Sₙ = n(a₁ + aₙ)/2 = 18(-4 + 132)/2.",
+    "S = 1152."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-010",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 24 terms of the arithmetic series -2 + (-7) + (-12) + …",
+   "answer": "-1428",
+   "solutionSteps": [
+    "a₂₄ = -2 + (24 - 1)(-5) = -117.",
+    "Sₙ = n(a₁ + aₙ)/2 = 24(-2 + (-117))/2.",
+    "S = -1428."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-011",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 37 terms of the arithmetic series 10 + 5 + 0 + …",
+   "answer": "-2960",
+   "options": [
+    {
+     "text": "-5920",
+     "correct": false
+    },
+    {
+     "text": "-6105/2",
+     "correct": false
+    },
+    {
+     "text": "-6290",
+     "correct": false
+    },
+    {
+     "text": "-2960",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "a₃₇ = 10 + (37 - 1)(-5) = -170.",
+    "Sₙ = n(a₁ + aₙ)/2 = 37(10 + (-170))/2.",
+    "S = -2960."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-012",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 13 terms of the arithmetic series 2 + 3 + 4 + …",
+   "answer": "104",
+   "solutionSteps": [
+    "a₁₃ = 2 + (13 - 1)(1) = 14.",
+    "Sₙ = n(a₁ + aₙ)/2 = 13(2 + 14)/2.",
+    "S = 104."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-013",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 22 terms of the arithmetic series 1 + 7 + 13 + …",
+   "answer": "1408",
+   "solutionSteps": [
+    "a₂₂ = 1 + (22 - 1)(6) = 127.",
+    "Sₙ = n(a₁ + aₙ)/2 = 22(1 + 127)/2.",
+    "S = 1408."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-014",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nFind the sum of the first 21 terms of the arithmetic series -6 + (-5) + (-4) + …\nWren's answer: 189/2\nIdentify the mistake and give the correct answer.",
+   "answer": "84",
+   "solutionSteps": [
+    "Mistake: Used the wrong last term.",
+    "a₂₁ = -6 + (21 - 1)(1) = 14.",
+    "Sₙ = n(a₁ + aₙ)/2 = 21(-6 + 14)/2.",
+    "S = 84.",
+    "The correct answer is 84, not 189/2."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-015",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nFind the sum of the first 40 terms of the arithmetic series -7 + (-2) + 3 + …\nAva's answer: 7520\nIdentify the mistake and give the correct answer.",
+   "answer": "3620",
+   "solutionSteps": [
+    "Mistake: Multiplied the last term by n.",
+    "a₄₀ = -7 + (40 - 1)(5) = 188.",
+    "Sₙ = n(a₁ + aₙ)/2 = 40(-7 + 188)/2.",
+    "S = 3620.",
+    "The correct answer is 3620, not 7520."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp2-016",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the sum of the first 28 terms of the arithmetic series -3 + 0 + 3 + …",
+     "answer": "1050"
+    },
+    {
+     "prompt": "Find the sum of the first 12 terms of the arithmetic series -1 + 6 + 13 + …",
+     "answer": "450"
+    },
+    {
+     "prompt": "Find the sum of the first 13 terms of the arithmetic series 3 + 2 + 1 + …",
+     "answer": "-39"
+    },
+    {
+     "prompt": "Find the sum of the first 26 terms of the arithmetic series 14 + 22 + 30 + …",
+     "answer": "2964"
+    }
+   ],
+   "answer": "(a) 1050; (b) 450; (c) -39; (d) 2964",
+   "solutionSteps": [
+    "(a) Sₙ = n(a₁ + aₙ)/2 = 28(-3 + 78)/2. S = 1050.",
+    "(b) Sₙ = n(a₁ + aₙ)/2 = 12(-1 + 76)/2. S = 450.",
+    "(c) Sₙ = n(a₁ + aₙ)/2 = 13(3 + (-9))/2. S = -39.",
+    "(d) Sₙ = n(a₁ + aₙ)/2 = 26(14 + 214)/2. S = 2964."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp1-024",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nFind the sum of the first 13 terms of the arithmetic series -5 + (-6) + (-7) + …\nIsla's answer: -221\nIdentify the mistake and give the correct answer.",
+   "answer": "-143",
+   "solutionSteps": [
+    "Mistake: Multiplied the last term by n.",
+    "a₁₃ = -5 + (13 - 1)(-1) = -17.",
+    "Sₙ = n(a₁ + aₙ)/2 = 13(-5 + (-17))/2.",
+    "S = -143.",
+    "The correct answer is -143, not -221."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp1-025",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nFind the sum of the first 39 terms of the arithmetic series 14 + 17 + 20 + …\nZoe's answer: 5655/2\nIdentify the mistake and give the correct answer.",
+   "answer": "2769",
+   "solutionSteps": [
+    "Mistake: Used the wrong last term.",
+    "a₃₉ = 14 + (39 - 1)(3) = 128.",
+    "Sₙ = n(a₁ + aₙ)/2 = 39(14 + 128)/2.",
+    "S = 2769.",
+    "The correct answer is 2769, not 5655/2."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-005",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the arithmetic series with a₁ = 4, d = 4, and n = 34 terms.",
+   "answer": "2380",
+   "solutionSteps": [
+    "a₃₄ = 4 + (34 - 1)(4) = 136.",
+    "Sₙ = n(a₁ + aₙ)/2 = 34(4 + 136)/2.",
+    "S = 2380."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-006",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the arithmetic series with a₁ = -9, d = 5, and n = 14 terms.",
+   "answer": "329",
+   "options": [
+    {
+     "text": "329",
+     "correct": true
+    },
+    {
+     "text": "784",
+     "correct": false
+    },
+    {
+     "text": "658",
+     "correct": false
+    },
+    {
+     "text": "364",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁₄ = -9 + (14 - 1)(5) = 56.",
+    "Sₙ = n(a₁ + aₙ)/2 = 14(-9 + 56)/2.",
+    "S = 329."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-007",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the arithmetic series with a₁ = 15, d = 2, and n = 15 terms.",
+   "answer": "435",
+   "solutionSteps": [
+    "a₁₅ = 15 + (15 - 1)(2) = 43.",
+    "Sₙ = n(a₁ + aₙ)/2 = 15(15 + 43)/2.",
+    "S = 435."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-008",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the arithmetic series with a₁ = 10, d = -5, and n = 13 terms.",
+   "answer": "-260",
+   "options": [
+    {
+     "text": "-585/2",
+     "correct": false
+    },
+    {
+     "text": "-650",
+     "correct": false
+    },
+    {
+     "text": "-260",
+     "correct": true
+    },
+    {
+     "text": "-520",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁₃ = 10 + (13 - 1)(-5) = -50.",
+    "Sₙ = n(a₁ + aₙ)/2 = 13(10 + (-50))/2.",
+    "S = -260."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-009",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the arithmetic series with a₁ = 19, d = 6, and n = 20 terms.",
+   "answer": "1520",
+   "solutionSteps": [
+    "a₂₀ = 19 + (20 - 1)(6) = 133.",
+    "Sₙ = n(a₁ + aₙ)/2 = 20(19 + 133)/2.",
+    "S = 1520."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-010",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the arithmetic series with a₁ = -8, d = 1, and n = 21 terms.",
+   "answer": "42",
+   "options": [
+    {
+     "text": "84",
+     "correct": false
+    },
+    {
+     "text": "42",
+     "correct": true
+    },
+    {
+     "text": "252",
+     "correct": false
+    },
+    {
+     "text": "105/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₂₁ = -8 + (21 - 1)(1) = 12.",
+    "Sₙ = n(a₁ + aₙ)/2 = 21(-8 + 12)/2.",
+    "S = 42."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-011",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the arithmetic series with a₁ = 18, d = 1, and n = 10 terms.",
+   "answer": "225",
+   "solutionSteps": [
+    "a₁₀ = 18 + (10 - 1)(1) = 27.",
+    "Sₙ = n(a₁ + aₙ)/2 = 10(18 + 27)/2.",
+    "S = 225."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-012",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the arithmetic series with a₁ = 4, d = 6, and n = 35 terms.",
+   "answer": "3710",
+   "options": [
+    {
+     "text": "3710",
+     "correct": true
+    },
+    {
+     "text": "7420",
+     "correct": false
+    },
+    {
+     "text": "3815",
+     "correct": false
+    },
+    {
+     "text": "7280",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₃₅ = 4 + (35 - 1)(6) = 208.",
+    "Sₙ = n(a₁ + aₙ)/2 = 35(4 + 208)/2.",
+    "S = 3710."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-013",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the arithmetic series with a₁ = -8, d = 6, and n = 20 terms.",
+   "answer": "980",
+   "solutionSteps": [
+    "a₂₀ = -8 + (20 - 1)(6) = 106.",
+    "Sₙ = n(a₁ + aₙ)/2 = 20(-8 + 106)/2.",
+    "S = 980."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-014",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nFind the sum of the arithmetic series with a₁ = 20, d = -4, and n = 36 terms.\nQuinn's answer: -1872\nIdentify the mistake and give the correct answer.",
+   "answer": "-1800",
+   "solutionSteps": [
+    "Mistake: Used the wrong last term.",
+    "a₃₆ = 20 + (36 - 1)(-4) = -120.",
+    "Sₙ = n(a₁ + aₙ)/2 = 36(20 + (-120))/2.",
+    "S = -1800.",
+    "The correct answer is -1800, not -1872."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-015",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nFind the sum of the arithmetic series with a₁ = 5, d = 4, and n = 18 terms.\nMarco's answer: 1404\nIdentify the mistake and give the correct answer.",
+   "answer": "702",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by 2.",
+    "a₁₈ = 5 + (18 - 1)(4) = 73.",
+    "Sₙ = n(a₁ + aₙ)/2 = 18(5 + 73)/2.",
+    "S = 702.",
+    "The correct answer is 702, not 1404."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-016",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the sum of the arithmetic series with a₁ = 1, d = -4, and n = 32 terms.",
+     "answer": "-1952"
+    },
+    {
+     "prompt": "Find the sum of the arithmetic series with a₁ = 14, d = -5, and n = 12 terms.",
+     "answer": "-162"
+    },
+    {
+     "prompt": "Find the sum of the arithmetic series with a₁ = -6, d = 1, and n = 14 terms.",
+     "answer": "7"
+    },
+    {
+     "prompt": "Find the sum of the arithmetic series with a₁ = 3, d = -4, and n = 9 terms.",
+     "answer": "-117"
+    }
+   ],
+   "answer": "(a) -1952; (b) -162; (c) 7; (d) -117",
+   "solutionSteps": [
+    "(a) Sₙ = n(a₁ + aₙ)/2 = 32(1 + (-123))/2. S = -1952.",
+    "(b) Sₙ = n(a₁ + aₙ)/2 = 12(14 + (-41))/2. S = -162.",
+    "(c) Sₙ = n(a₁ + aₙ)/2 = 14(-6 + 7)/2. S = 7.",
+    "(d) Sₙ = n(a₁ + aₙ)/2 = 9(3 + (-29))/2. S = -117."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_sum_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-003",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 6 terms of the geometric series 3 + 6 + 12 + …",
+   "answer": "189",
+   "solutionSteps": [
+    "a₁ = 3, r = 2, n = 6.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (2)⁶)/(1 - (2)).",
+    "S = 189."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-004",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 4 terms of the geometric series -1 + (-2) + (-4) + …",
+   "answer": "-15",
+   "options": [
+    {
+     "text": "17",
+     "correct": false
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "-15",
+     "correct": true
+    },
+    {
+     "text": "-7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -1, r = 2, n = 4.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -1(1 - (2)⁴)/(1 - (2)).",
+    "S = -15."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-005",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 5 terms of the geometric series -1 + 2 + (-4) + …",
+   "answer": "-11",
+   "solutionSteps": [
+    "a₁ = -1, r = -2, n = 5.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -1(1 - (-2)⁵)/(1 - (-2)).",
+    "S = -11."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-006",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series -3 + (-9) + (-27) + …",
+   "answer": "-9840",
+   "options": [
+    {
+     "text": "-6561",
+     "correct": false
+    },
+    {
+     "text": "-9840",
+     "correct": true
+    },
+    {
+     "text": "-3279",
+     "correct": false
+    },
+    {
+     "text": "9843",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -3, r = 3, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (3)⁸)/(1 - (3)).",
+    "S = -9840."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-007",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 3 + (-6) + 12 + …",
+   "answer": "-255",
+   "solutionSteps": [
+    "a₁ = 3, r = -2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-2)⁸)/(1 - (-2)).",
+    "S = -255."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-008",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 1 + (-2) + 4 + …",
+   "answer": "-85",
+   "options": [
+    {
+     "text": "257/3",
+     "correct": false
+    },
+    {
+     "text": "-85",
+     "correct": true
+    },
+    {
+     "text": "-128",
+     "correct": false
+    },
+    {
+     "text": "43",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 1, r = -2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 1(1 - (-2)⁸)/(1 - (-2)).",
+    "S = -85."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-009",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 1 + 2 + 4 + …",
+   "answer": "255",
+   "solutionSteps": [
+    "a₁ = 1, r = 2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 1(1 - (2)⁸)/(1 - (2)).",
+    "S = 255."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-010",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series -1 + (-3) + (-9) + …",
+   "answer": "-3280",
+   "options": [
+    {
+     "text": "-2187",
+     "correct": false
+    },
+    {
+     "text": "-1093",
+     "correct": false
+    },
+    {
+     "text": "3281",
+     "correct": false
+    },
+    {
+     "text": "-3280",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -1, r = 3, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -1(1 - (3)⁸)/(1 - (3)).",
+    "S = -3280."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-011",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 3 + 6 + 12 + …",
+   "answer": "765",
+   "solutionSteps": [
+    "a₁ = 3, r = 2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (2)⁸)/(1 - (2)).",
+    "S = 765."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-012",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 5 terms of the geometric series 8 + (-16) + 32 + …",
+   "answer": "88",
+   "options": [
+    {
+     "text": "128",
+     "correct": false
+    },
+    {
+     "text": "-40",
+     "correct": false
+    },
+    {
+     "text": "88",
+     "correct": true
+    },
+    {
+     "text": "-248/3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 8, r = -2, n = 5.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 8(1 - (-2)⁵)/(1 - (-2)).",
+    "S = 88."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-013",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 5 terms of the geometric series 3 + 9 + 27 + …",
+   "answer": "363",
+   "solutionSteps": [
+    "a₁ = 3, r = 3, n = 5.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (3)⁵)/(1 - (3)).",
+    "S = 363."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-014",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nFind the sum of the first 6 terms of the geometric series 4 + 12 + 36 + …\nZoe's answer: -1460\nIdentify the mistake and give the correct answer.",
+   "answer": "1456",
+   "solutionSteps": [
+    "Mistake: Made a sign error in the formula.",
+    "a₁ = 4, r = 3, n = 6.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 4(1 - (3)⁶)/(1 - (3)).",
+    "S = 1456.",
+    "The correct answer is 1456, not -1460."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-015",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nFind the sum of the first 8 terms of the geometric series -3 + (-6) + (-12) + …\nSam's answer: -381\nIdentify the mistake and give the correct answer.",
+   "answer": "-765",
+   "solutionSteps": [
+    "Mistake: Used n - 1 terms.",
+    "a₁ = -3, r = 2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (2)⁸)/(1 - (2)).",
+    "S = -765.",
+    "The correct answer is -765, not -381."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp2-016",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the sum of the first 8 terms of the geometric series 7 + 21 + 63 + …",
+     "answer": "22960"
+    },
+    {
+     "prompt": "Find the sum of the first 7 terms of the geometric series -2 + (-4) + (-8) + …",
+     "answer": "-254"
+    },
+    {
+     "prompt": "Find the sum of the first 7 terms of the geometric series -2 + (-6) + (-18) + …",
+     "answer": "-2186"
+    },
+    {
+     "prompt": "Find the sum of the first 5 terms of the geometric series 7 + 21 + 63 + …",
+     "answer": "847"
+    }
+   ],
+   "answer": "(a) 22960; (b) -254; (c) -2186; (d) 847",
+   "solutionSteps": [
+    "(a) Sₙ = a₁(1 - rⁿ)/(1 - r) = 7(1 - (3)⁸)/(1 - (3)). S = 22960.",
+    "(b) Sₙ = a₁(1 - rⁿ)/(1 - r) = -2(1 - (2)⁷)/(1 - (2)). S = -254.",
+    "(c) Sₙ = a₁(1 - rⁿ)/(1 - r) = -2(1 - (3)⁷)/(1 - (3)). S = -2186.",
+    "(d) Sₙ = a₁(1 - rⁿ)/(1 - r) = 7(1 - (3)⁵)/(1 - (3)). S = 847."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp1-023",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nFind the sum of the first 4 terms of the geometric series 4 + 16 + 64 + …\nQuinn's answer: 256\nIdentify the mistake and give the correct answer.",
+   "answer": "340",
+   "solutionSteps": [
+    "Mistake: Gave the last term instead of the sum.",
+    "a₁ = 4, r = 4, n = 4.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 4(1 - (4)⁴)/(1 - (4)).",
+    "S = 340.",
+    "The correct answer is 340, not 256."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp1-024",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Elena answered this problem incorrectly.\nFind the sum of the first 5 terms of the geometric series 6 + 18 + 54 + …\nElena's answer: -732\nIdentify the mistake and give the correct answer.",
+   "answer": "726",
+   "solutionSteps": [
+    "Mistake: Made a sign error in the formula.",
+    "a₁ = 6, r = 3, n = 5.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 6(1 - (3)⁵)/(1 - (3)).",
+    "S = 726.",
+    "The correct answer is 726, not -732."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-007",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 4 + 8 + 16 + …",
+   "answer": "1020",
+   "solutionSteps": [
+    "a₁ = 4, r = 2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 4(1 - (2)⁸)/(1 - (2)).",
+    "S = 1020."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-008",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 8 + 16 + 32 + …",
+   "answer": "2040",
+   "options": [
+    {
+     "text": "1016",
+     "correct": false
+    },
+    {
+     "text": "-2056",
+     "correct": false
+    },
+    {
+     "text": "2040",
+     "correct": true
+    },
+    {
+     "text": "1024",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 8, r = 2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 8(1 - (2)⁸)/(1 - (2)).",
+    "S = 2040."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-009",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 6 terms of the geometric series -5 + 15 + (-45) + …",
+   "answer": "910",
+   "solutionSteps": [
+    "a₁ = -5, r = -3, n = 6.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (-3)⁶)/(1 - (-3)).",
+    "S = 910."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-010",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series -3 + (-12) + (-48) + …",
+   "answer": "-65535",
+   "options": [
+    {
+     "text": "-65535",
+     "correct": true
+    },
+    {
+     "text": "-16383",
+     "correct": false
+    },
+    {
+     "text": "65537",
+     "correct": false
+    },
+    {
+     "text": "-49152",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -3, r = 4, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -3(1 - (4)⁸)/(1 - (4)).",
+    "S = -65535."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-011",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 4 terms of the geometric series 3 + (-9) + 27 + …",
+   "answer": "-60",
+   "solutionSteps": [
+    "a₁ = 3, r = -3, n = 4.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-3)⁴)/(1 - (-3)).",
+    "S = -60."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-012",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 7 terms of the geometric series 5 + 20 + 80 + …",
+   "answer": "27305",
+   "options": [
+    {
+     "text": "27305",
+     "correct": true
+    },
+    {
+     "text": "-81925/3",
+     "correct": false
+    },
+    {
+     "text": "6825",
+     "correct": false
+    },
+    {
+     "text": "20480",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = 5, r = 4, n = 7.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 5(1 - (4)⁷)/(1 - (4)).",
+    "S = 27305."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-013",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 5 terms of the geometric series 3 + 12 + 48 + …",
+   "answer": "1023",
+   "solutionSteps": [
+    "a₁ = 3, r = 4, n = 5.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (4)⁵)/(1 - (4)).",
+    "S = 1023."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-014",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nFind the sum of the first 5 terms of the geometric series 3 + (-9) + 27 + …\nNia's answer: -60\nIdentify the mistake and give the correct answer.",
+   "answer": "183",
+   "solutionSteps": [
+    "Mistake: Used n - 1 terms.",
+    "a₁ = 3, r = -3, n = 5.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 3(1 - (-3)⁵)/(1 - (-3)).",
+    "S = 183.",
+    "The correct answer is 183, not -60."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-015",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nFind the sum of the first 4 terms of the geometric series 4 + (-8) + 16 + …\nCarmen's answer: 68/3\nIdentify the mistake and give the correct answer.",
+   "answer": "-20",
+   "solutionSteps": [
+    "Mistake: Made a sign error in the formula.",
+    "a₁ = 4, r = -2, n = 4.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 4(1 - (-2)⁴)/(1 - (-2)).",
+    "S = -20.",
+    "The correct answer is -20, not 68/3."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-016",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the sum of the first 6 terms of the geometric series 5 + 10 + 20 + …",
+     "answer": "315"
+    },
+    {
+     "prompt": "Find the sum of the first 6 terms of the geometric series 96 + 48 + 24 + …",
+     "answer": "189"
+    },
+    {
+     "prompt": "Find the sum of the first 4 terms of the geometric series 5 + 10 + 20 + …",
+     "answer": "75"
+    },
+    {
+     "prompt": "Find the sum of the first 8 terms of the geometric series 512 + 256 + 128 + …",
+     "answer": "1020"
+    }
+   ],
+   "answer": "(a) 315; (b) 189; (c) 75; (d) 1020",
+   "solutionSteps": [
+    "(a) Sₙ = a₁(1 - rⁿ)/(1 - r) = 5(1 - (2)⁶)/(1 - (2)). S = 315.",
+    "(b) Sₙ = a₁(1 - rⁿ)/(1 - r) = 96(1 - (1/2)⁶)/(1 - (1/2)). S = 189.",
+    "(c) Sₙ = a₁(1 - rⁿ)/(1 - r) = 5(1 - (2)⁴)/(1 - (2)). S = 75.",
+    "(d) Sₙ = a₁(1 - rⁿ)/(1 - r) = 512(1 - (1/2)⁸)/(1 - (1/2)). S = 1020."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-006",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 7) (2k - 2).",
+   "answer": "42",
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 7 into 2k - 2.",
+    "There are 7 terms.",
+    "Add them: 42."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-007",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Evaluate Σ (k = 1 to 7) (-5k + 1).",
+   "answer": "-133",
+   "options": [
+    {
+     "text": "-99",
+     "correct": false
+    },
+    {
+     "text": "-129",
+     "correct": false
+    },
+    {
+     "text": "-34",
+     "correct": false
+    },
+    {
+     "text": "-133",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 7 into -5k + 1.",
+    "There are 7 terms.",
+    "Add them: -133."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-008",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 8) (-3k + 8).",
+   "answer": "-44",
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 8 into -3k + 8.",
+    "There are 8 terms.",
+    "Add them: -44."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-009",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Evaluate Σ (k = 1 to 7) (7k + 5).",
+   "answer": "231",
+   "options": [
+    {
+     "text": "54",
+     "correct": false
+    },
+    {
+     "text": "177",
+     "correct": false
+    },
+    {
+     "text": "231",
+     "correct": true
+    },
+    {
+     "text": "219",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 7 into 7k + 5.",
+    "There are 7 terms.",
+    "Add them: 231."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-010",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 5) (-3k - 7).",
+   "answer": "-80",
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 5 into -3k - 7.",
+    "There are 5 terms.",
+    "Add them: -80."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-011",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Evaluate Σ (k = 1 to 5) (-k).",
+   "answer": "-15",
+   "options": [
+    {
+     "text": "-14",
+     "correct": false
+    },
+    {
+     "text": "-10",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "-15",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 5 into -k.",
+    "There are 5 terms.",
+    "Add them: -15."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-012",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 8) (-6k - 9).",
+   "answer": "-288",
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 8 into -6k - 9.",
+    "There are 8 terms.",
+    "Add them: -288."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-013",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 6) (5k).",
+   "answer": "105",
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 6 into 5k.",
+    "There are 6 terms.",
+    "Add them: 105."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-014",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nEvaluate Σ (k = 1 to 7) (7k + 4).\nYusuf's answer: 213\nIdentify the mistake and give the correct answer.",
+   "answer": "224",
+   "solutionSteps": [
+    "Mistake: Started at the wrong index.",
+    "Substitute k = 1, 2, …, 7 into 7k + 4.",
+    "There are 7 terms.",
+    "Add them: 224.",
+    "The correct answer is 224, not 213."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-015",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nEvaluate Σ (k = 1 to 5) (-k - 5).\nQuinn's answer: -10\nIdentify the mistake and give the correct answer.",
+   "answer": "-40",
+   "solutionSteps": [
+    "Mistake: Gave only the last term.",
+    "Substitute k = 1, 2, …, 5 into -k - 5.",
+    "There are 5 terms.",
+    "Add them: -40.",
+    "The correct answer is -40, not -10."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp2-016",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Evaluate Σ (k = 1 to 4) (-4k - 5).",
+     "answer": "-60"
+    },
+    {
+     "prompt": "Evaluate Σ (k = 1 to 5) (-6k - 2).",
+     "answer": "-100"
+    },
+    {
+     "prompt": "Evaluate Σ (k = 1 to 7) (-k + 5).",
+     "answer": "7"
+    },
+    {
+     "prompt": "Evaluate Σ (k = 1 to 8) (3k + 2).",
+     "answer": "124"
+    }
+   ],
+   "answer": "(a) -60; (b) -100; (c) 7; (d) 124",
+   "solutionSteps": [
+    "(a) There are 4 terms. Add them: -60.",
+    "(b) There are 5 terms. Add them: -100.",
+    "(c) There are 7 terms. Add them: 7.",
+    "(d) There are 8 terms. Add them: 124."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp1-023",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vic answered this problem incorrectly.\nEvaluate Σ (k = 1 to 8) (2(-2)^(k - 1)).\nVic's answer: 86\nIdentify the mistake and give the correct answer.",
+   "answer": "-170",
+   "solutionSteps": [
+    "Mistake: Stopped one term early.",
+    "Substitute k = 1, 2, …, 8 into 2(-2)^(k - 1).",
+    "There are 8 terms.",
+    "Add them: -170.",
+    "The correct answer is -170, not 86."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-cp1-024",
+   "skillId": "sequences-series-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nWrite the series 3 + 12 + 21 + … + 39 in sigma notation.\nOmar's answer: Σ (k = 1 to 4) (9k - 6)\nIdentify the mistake and give the correct answer.",
+   "answer": "Σ (k = 1 to 5) (9k - 6)",
+   "solutionSteps": [
+    "Mistake: Counted one term too few.",
+    "Common difference 9, first term 3: the k-th term is 3 + (k - 1)(9) = 9k - 6.",
+    "Solve 9k - 6 = 39: k = 5.",
+    "Σ (k = 1 to 5) (9k - 6).",
+    "The correct answer is Σ (k = 1 to 5) (9k - 6), not Σ (k = 1 to 4) (9k - 6)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-004",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 2 to 11) (-k + 6).",
+   "answer": "-5",
+   "solutionSteps": [
+    "Substitute k = 2, 3, …, 11 into -k + 6.",
+    "There are 10 terms.",
+    "Add them: -5."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-005",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write the series 0 + (-4) + (-8) + … + (-44) in sigma notation.",
+   "answer": "Σ (k = 1 to 12) (-4k + 4)",
+   "solutionSteps": [
+    "Common difference -4, first term 0: the k-th term is 0 + (k - 1)(-4) = -4k + 4.",
+    "Solve -4k + 4 = -44: k = 12.",
+    "Σ (k = 1 to 12) (-4k + 4)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-006",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate Σ (k = 2 to 9) (-3k + 3).",
+   "answer": "-108",
+   "options": [
+    {
+     "text": "-105",
+     "correct": false
+    },
+    {
+     "text": "-108",
+     "correct": true
+    },
+    {
+     "text": "-84",
+     "correct": false
+    },
+    {
+     "text": "-24",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute k = 2, 3, …, 9 into -3k + 3.",
+    "There are 8 terms.",
+    "Add them: -108."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-007",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write the series -5 + (-3) + (-1) + … + 3 in sigma notation.",
+   "answer": "Σ (k = 1 to 5) (2k - 7)",
+   "options": [
+    {
+     "text": "Σ (k = 0 to 5) (2k - 7)",
+     "correct": false
+    },
+    {
+     "text": "Σ (k = 1 to 5) (2k - 5)",
+     "correct": false
+    },
+    {
+     "text": "Σ (k = 1 to 4) (2k - 7)",
+     "correct": false
+    },
+    {
+     "text": "Σ (k = 1 to 5) (2k - 7)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Common difference 2, first term -5: the k-th term is -5 + (k - 1)(2) = 2k - 7.",
+    "Solve 2k - 7 = 3: k = 5.",
+    "Σ (k = 1 to 5) (2k - 7)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-008",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 7) (-(-2)^(k - 1)).",
+   "answer": "-43",
+   "solutionSteps": [
+    "Substitute k = 1, 2, …, 7 into -(-2)^(k - 1).",
+    "There are 7 terms.",
+    "Add them: -43."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-009",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write the series 5 + 12 + 19 + … + 54 in sigma notation.",
+   "answer": "Σ (k = 1 to 8) (7k - 2)",
+   "solutionSteps": [
+    "Common difference 7, first term 5: the k-th term is 5 + (k - 1)(7) = 7k - 2.",
+    "Solve 7k - 2 = 54: k = 8.",
+    "Σ (k = 1 to 8) (7k - 2)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-010",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate Σ (k = 3 to 8) (-k + 2).",
+   "answer": "-21",
+   "options": [
+    {
+     "text": "-20",
+     "correct": false
+    },
+    {
+     "text": "-21",
+     "correct": true
+    },
+    {
+     "text": "-6",
+     "correct": false
+    },
+    {
+     "text": "-15",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute k = 3, 4, …, 8 into -k + 2.",
+    "There are 6 terms.",
+    "Add them: -21."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-011",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Write the series 7 + 4 + 1 + … + (-5) in sigma notation.",
+   "answer": "Σ (k = 1 to 5) (-3k + 10)",
+   "options": [
+    {
+     "text": "Σ (k = 0 to 5) (-3k + 10)",
+     "correct": false
+    },
+    {
+     "text": "Σ (k = 1 to 5) (-3k + 7)",
+     "correct": false
+    },
+    {
+     "text": "Σ (k = 1 to 4) (-3k + 10)",
+     "correct": false
+    },
+    {
+     "text": "Σ (k = 1 to 5) (-3k + 10)",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Common difference -3, first term 7: the k-th term is 7 + (k - 1)(-3) = -3k + 10.",
+    "Solve -3k + 10 = -5: k = 5.",
+    "Σ (k = 1 to 5) (-3k + 10)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-012",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 3 to 10) (3(-2)^(k - 1)).",
+   "answer": "-1020",
+   "solutionSteps": [
+    "Substitute k = 3, 4, …, 10 into 3(-2)^(k - 1).",
+    "There are 8 terms.",
+    "Add them: -1020."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-013",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write the series 9 + 12 + 15 + … + 27 in sigma notation.",
+   "answer": "Σ (k = 1 to 7) (3k + 6)",
+   "solutionSteps": [
+    "Common difference 3, first term 9: the k-th term is 9 + (k - 1)(3) = 3k + 6.",
+    "Solve 3k + 6 = 27: k = 7.",
+    "Σ (k = 1 to 7) (3k + 6)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-014",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nEvaluate Σ (k = 3 to 12) (-4(2)^(k - 1)).\nNia's answer: -16352\nIdentify the mistake and give the correct answer.",
+   "answer": "-16368",
+   "solutionSteps": [
+    "Mistake: Started at the wrong index.",
+    "Substitute k = 3, 4, …, 12 into -4(2)^(k - 1).",
+    "There are 10 terms.",
+    "Add them: -16368.",
+    "The correct answer is -16368, not -16352."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-015",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nWrite the series -5 + (-11) + (-17) + … + (-53) in sigma notation.\nMarco's answer: Σ (k = 1 to 9) (-6k - 5)\nIdentify the mistake and give the correct answer.",
+   "answer": "Σ (k = 1 to 9) (-6k + 1)",
+   "solutionSteps": [
+    "Mistake: Did not adjust the constant term for k starting at 1.",
+    "Common difference -6, first term -5: the k-th term is -5 + (k - 1)(-6) = -6k + 1.",
+    "Solve -6k + 1 = -53: k = 9.",
+    "Σ (k = 1 to 9) (-6k + 1).",
+    "The correct answer is Σ (k = 1 to 9) (-6k + 1), not Σ (k = 1 to 9) (-6k - 5)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_write_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-016",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Evaluate Σ (k = 1 to 7) (-3(3)^(k - 1)).",
+     "answer": "-3279"
+    },
+    {
+     "prompt": "Evaluate Σ (k = 2 to 9) (-4(-2)^(k - 1)).",
+     "answer": "-680"
+    },
+    {
+     "prompt": "Evaluate Σ (k = 3 to 9) ((3)^(k - 1)).",
+     "answer": "9837"
+    },
+    {
+     "prompt": "Evaluate Σ (k = 3 to 6) (-k + 5).",
+     "answer": "2"
+    }
+   ],
+   "answer": "(a) -3279; (b) -680; (c) 9837; (d) 2",
+   "solutionSteps": [
+    "(a) There are 7 terms. Add them: -3279.",
+    "(b) There are 8 terms. Add them: -680.",
+    "(c) There are 7 terms. Add them: 9837.",
+    "(d) There are 4 terms. Add them: 2."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s6_eval_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-002",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the infinite geometric series -28 + (-14) + (-7) + …, or state that it diverges.",
+   "answer": "-56",
+   "solutionSteps": [
+    "r = 1/2.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = -28 ÷ (1 - (1/2)) = -56."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-003",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 7 terms of the geometric series -2 + (-4) + (-8) + …",
+   "answer": "-254",
+   "solutionSteps": [
+    "a₁ = -2, r = 2, n = 7.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -2(1 - (2)⁷)/(1 - (2)).",
+    "S = -254."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-004",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the infinite geometric series 9 + (-3) + 1 + …, or state that it diverges.",
+   "answer": "27/4",
+   "options": [
+    {
+     "text": "27/4",
+     "correct": true
+    },
+    {
+     "text": "-9/4",
+     "correct": false
+    },
+    {
+     "text": "27/2",
+     "correct": false
+    },
+    {
+     "text": "The series diverges (no sum).",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = -1/3.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = 9 ÷ (1 - (-1/3)) = 27/4."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-005",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 7 terms of the geometric series -5 + (-10) + (-20) + …",
+   "answer": "-635",
+   "options": [
+    {
+     "text": "-315",
+     "correct": false
+    },
+    {
+     "text": "645",
+     "correct": false
+    },
+    {
+     "text": "-635",
+     "correct": true
+    },
+    {
+     "text": "-320",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -5, r = 2, n = 7.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (2)⁷)/(1 - (2)).",
+    "S = -635."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-006",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the infinite geometric series -16 + (-24) + (-36) + …, or state that it diverges.",
+   "answer": "The series diverges (no sum).",
+   "solutionSteps": [
+    "r = 3/2.",
+    "|r| = 3/2 ≥ 1, so the terms do not shrink.",
+    "The series diverges (no sum)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-007",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 7 terms of the geometric series -1 + 2 + (-4) + …",
+   "answer": "-43",
+   "solutionSteps": [
+    "a₁ = -1, r = -2, n = 7.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -1(1 - (-2)⁷)/(1 - (-2)).",
+    "S = -43."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-008",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the infinite geometric series 2 + 4 + 8 + …, or state that it diverges.",
+   "answer": "The series diverges (no sum).",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "The series diverges (no sum).",
+     "correct": true
+    },
+    {
+     "text": "-2",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = 2.",
+    "|r| = 2 ≥ 1, so the terms do not shrink.",
+    "The series diverges (no sum)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-009",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series -5 + 10 + (-20) + …",
+   "answer": "425",
+   "options": [
+    {
+     "text": "-1285/3",
+     "correct": false
+    },
+    {
+     "text": "425",
+     "correct": true
+    },
+    {
+     "text": "-215",
+     "correct": false
+    },
+    {
+     "text": "640",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -5, r = -2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -5(1 - (-2)⁸)/(1 - (-2)).",
+    "S = 425."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-010",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the infinite geometric series 20 + (-40) + 80 + …, or state that it diverges.",
+   "answer": "The series diverges (no sum).",
+   "solutionSteps": [
+    "r = -2.",
+    "|r| = 2 ≥ 1, so the terms do not shrink.",
+    "The series diverges (no sum)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-011",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 4 terms of the geometric series 4 + (-8) + 16 + …",
+   "answer": "-20",
+   "solutionSteps": [
+    "a₁ = 4, r = -2, n = 4.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 4(1 - (-2)⁴)/(1 - (-2)).",
+    "S = -20."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-012",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the infinite geometric series -32 + (-24) + (-18) + …, or state that it diverges.",
+   "answer": "-128",
+   "options": [
+    {
+     "text": "The series diverges (no sum).",
+     "correct": false
+    },
+    {
+     "text": "-96",
+     "correct": false
+    },
+    {
+     "text": "-128",
+     "correct": true
+    },
+    {
+     "text": "-128/7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = 3/4.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = -32 ÷ (1 - (3/4)) = -128."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-013",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 8 terms of the geometric series 6 + 12 + 24 + …",
+   "answer": "1530",
+   "solutionSteps": [
+    "a₁ = 6, r = 2, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = 6(1 - (2)⁸)/(1 - (2)).",
+    "S = 1530."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-014",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nFind the sum of the infinite geometric series 56 + (-28) + 14 + …, or state that it diverges.\nMarco's answer: The series diverges (no sum).\nIdentify the mistake and give the correct answer.",
+   "answer": "112/3",
+   "solutionSteps": [
+    "Mistake: Thought the series diverges even though |r| < 1.",
+    "r = -1/2.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = 56 ÷ (1 - (-1/2)) = 112/3.",
+    "The correct answer is 112/3, not The series diverges (no sum).."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-015",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nFind the sum of the infinite geometric series -18 + (-12) + (-8) + …, or state that it diverges.\nUma's answer: -36\nIdentify the mistake and give the correct answer.",
+   "answer": "-54",
+   "solutionSteps": [
+    "Mistake: Started the sum at the second term.",
+    "r = 2/3.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = -18 ÷ (1 - (2/3)) = -54.",
+    "The correct answer is -54, not -36."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp2-016",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the sum of the infinite geometric series -28 + 14 + (-7) + …, or state that it diverges.",
+     "answer": "-56/3"
+    },
+    {
+     "prompt": "Find the sum of the infinite geometric series -16 + (-8) + (-4) + …, or state that it diverges.",
+     "answer": "-32"
+    },
+    {
+     "prompt": "Find the sum of the infinite geometric series 52 + 78 + 117 + …, or state that it diverges.",
+     "answer": "The series diverges (no sum)."
+    },
+    {
+     "prompt": "Find the sum of the infinite geometric series 6 + (-12) + 24 + …, or state that it diverges.",
+     "answer": "The series diverges (no sum)."
+    }
+   ],
+   "answer": "(a) -56/3; (b) -32; (c) The series diverges (no sum).; (d) The series diverges (no sum).",
+   "solutionSteps": [
+    "(a) An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r). S = -28 ÷ (1 - (-1/2)) = -56/3.",
+    "(b) An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r). S = -16 ÷ (1 - (1/2)) = -32.",
+    "(c) |r| = 3/2 ≥ 1, so the terms do not shrink. The series diverges (no sum).",
+    "(d) |r| = 2 ≥ 1, so the terms do not shrink. The series diverges (no sum)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp1-023",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nFind the sum of the infinite geometric series 48 + 72 + 108 + …, or state that it diverges.\nNia's answer: -96\nIdentify the mistake and give the correct answer.",
+   "answer": "The series diverges (no sum).",
+   "solutionSteps": [
+    "Mistake: Applied the formula even though |r| ≥ 1.",
+    "r = 3/2.",
+    "|r| = 3/2 ≥ 1, so the terms do not shrink.",
+    "The series diverges (no sum).",
+    "The correct answer is The series diverges (no sum)., not -96."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp1-024",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vic answered this problem incorrectly.\nFind the sum of the infinite geometric series 48 + 36 + 27 + …, or state that it diverges.\nVic's answer: The series diverges (no sum).\nIdentify the mistake and give the correct answer.",
+   "answer": "192",
+   "solutionSteps": [
+    "Mistake: Thought the series diverges even though |r| < 1.",
+    "r = 3/4.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = 48 ÷ (1 - (3/4)) = 192.",
+    "The correct answer is 192, not The series diverges (no sum).."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-009",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the infinite geometric series -9 + (-6) + (-4) + …, or state that it diverges.",
+   "answer": "-27",
+   "solutionSteps": [
+    "r = 2/3.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = -9 ÷ (1 - (2/3)) = -27."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-010",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the first 8 terms of the geometric series -1 + 3 + (-9) + …",
+   "answer": "1640",
+   "options": [
+    {
+     "text": "1640",
+     "correct": true
+    },
+    {
+     "text": "-547",
+     "correct": false
+    },
+    {
+     "text": "2187",
+     "correct": false
+    },
+    {
+     "text": "-3281/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "a₁ = -1, r = -3, n = 8.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -1(1 - (-3)⁸)/(1 - (-3)).",
+    "S = 1640."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-011",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the sum of the infinite geometric series -4 + 2 + (-1) + …, or state that it diverges.",
+   "answer": "-8/3",
+   "options": [
+    {
+     "text": "4/3",
+     "correct": false
+    },
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "-8/3",
+     "correct": true
+    },
+    {
+     "text": "The series diverges (no sum).",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "r = -1/2.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = -4 ÷ (1 - (-1/2)) = -8/3."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-012",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 4 terms of the geometric series -4 + (-12) + (-36) + …",
+   "answer": "-160",
+   "solutionSteps": [
+    "a₁ = -4, r = 3, n = 4.",
+    "Sₙ = a₁(1 - rⁿ)/(1 - r) = -4(1 - (3)⁴)/(1 - (3)).",
+    "S = -160."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_sum). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-013",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the infinite geometric series 6 + (-12) + 24 + …, or state that it diverges.",
+   "answer": "The series diverges (no sum).",
+   "solutionSteps": [
+    "r = -2.",
+    "|r| = 2 ≥ 1, so the terms do not shrink.",
+    "The series diverges (no sum)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-014",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nFind the sum of the infinite geometric series 144 + (-48) + 16 + …, or state that it diverges.\nIsla's answer: -36\nIdentify the mistake and give the correct answer.",
+   "answer": "108",
+   "solutionSteps": [
+    "Mistake: Started the sum at the second term.",
+    "r = -1/3.",
+    "An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r).",
+    "S = 144 ÷ (1 - (-1/3)) = 108.",
+    "The correct answer is 108, not -36."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-015",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Femi answered this problem incorrectly.\nFind the sum of the infinite geometric series -12 + (-18) + (-27) + …, or state that it diverges.\nFemi's answer: -36\nIdentify the mistake and give the correct answer.",
+   "answer": "The series diverges (no sum).",
+   "solutionSteps": [
+    "Mistake: Used the reciprocal of r.",
+    "r = 3/2.",
+    "|r| = 3/2 ≥ 1, so the terms do not shrink.",
+    "The series diverges (no sum).",
+    "The correct answer is The series diverges (no sum)., not -36."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-016",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find the sum of the infinite geometric series 17 + (-34) + 68 + …, or state that it diverges.",
+     "answer": "The series diverges (no sum)."
+    },
+    {
+     "prompt": "Find the sum of the infinite geometric series 16 + 24 + 36 + …, or state that it diverges.",
+     "answer": "The series diverges (no sum)."
+    },
+    {
+     "prompt": "Find the sum of the infinite geometric series 224 + 168 + 126 + …, or state that it diverges.",
+     "answer": "896"
+    },
+    {
+     "prompt": "Find the sum of the infinite geometric series 16 + (-32) + 64 + …, or state that it diverges.",
+     "answer": "The series diverges (no sum)."
+    }
+   ],
+   "answer": "(a) The series diverges (no sum).; (b) The series diverges (no sum).; (c) 896; (d) The series diverges (no sum).",
+   "solutionSteps": [
+    "(a) |r| = 2 ≥ 1, so the terms do not shrink. The series diverges (no sum).",
+    "(b) |r| = 3/2 ≥ 1, so the terms do not shrink. The series diverges (no sum).",
+    "(c) An infinite geometric series converges only when |r| < 1; then S = a₁ ÷ (1 - r). S = 224 ÷ (1 - (3/4)) = 896.",
+    "(d) |r| = 2 ≥ 1, so the terms do not shrink. The series diverges (no sum)."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_infinite_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-003",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A theater has 17 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 24?",
+   "answer": "63 seats",
+   "solutionSteps": [
+    "Arithmetic: a₁ = 17, d = 2.",
+    "a₂₄ = 17 + (24 - 1)(2) = 63."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-004",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A theater has 27 seats in the first row, and each row has 4 more seats than the row in front of it. How many seats are in row 20?",
+   "answer": "103 seats",
+   "options": [
+    {
+     "text": "103 seats",
+     "correct": true
+    },
+    {
+     "text": "107 seats",
+     "correct": false
+    },
+    {
+     "text": "80 seats",
+     "correct": false
+    },
+    {
+     "text": "540 seats",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Arithmetic: a₁ = 27, d = 4.",
+    "a₂₀ = 27 + (20 - 1)(4) = 103."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-005",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A job pays $58,000 in year 1, with a 3% raise each year. What is the salary in year 12, to the nearest dollar?",
+   "answer": "$80,286",
+   "solutionSteps": [
+    "Geometric: a₁ = 58000, r = 1.03.",
+    "a₁₂ = 58000(1.03)^11 ≈ 80,286."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-006",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A job pays $69,000 in year 1, with a 4% raise each year. What is the salary in year 3, to the nearest dollar?",
+   "answer": "$74,630",
+   "options": [
+    {
+     "text": "$74,630",
+     "correct": true
+    },
+    {
+     "text": "$8,280",
+     "correct": false
+    },
+    {
+     "text": "$74,520",
+     "correct": false
+    },
+    {
+     "text": "$77,616",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Geometric: a₁ = 69000, r = 1.04.",
+    "a₃ = 69000(1.04)^2 ≈ 74,630."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-007",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A theater has 15 seats in the first row, and each row has 4 more seats than the row in front of it. How many seats are in row 16?",
+   "answer": "75 seats",
+   "solutionSteps": [
+    "Arithmetic: a₁ = 15, d = 4.",
+    "a₁₆ = 15 + (16 - 1)(4) = 75."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-008",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A theater has 22 seats in the first row, and each row has 4 more seats than the row in front of it. How many seats are in row 25?",
+   "answer": "118 seats",
+   "options": [
+    {
+     "text": "122 seats",
+     "correct": false
+    },
+    {
+     "text": "550 seats",
+     "correct": false
+    },
+    {
+     "text": "100 seats",
+     "correct": false
+    },
+    {
+     "text": "118 seats",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Arithmetic: a₁ = 22, d = 4.",
+    "a₂₅ = 22 + (25 - 1)(4) = 118."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-009",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A theater has 28 seats in the first row, and each row has 4 more seats than the row in front of it. How many seats are in row 28?",
+   "answer": "136 seats",
+   "solutionSteps": [
+    "Arithmetic: a₁ = 28, d = 4.",
+    "a₂₈ = 28 + (28 - 1)(4) = 136."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-010",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A job pays $62,000 in year 1, with a 5% raise each year. What is the salary in year 12, to the nearest dollar?",
+   "answer": "$106,041",
+   "options": [
+    {
+     "text": "$106,041",
+     "correct": true
+    },
+    {
+     "text": "$96,100",
+     "correct": false
+    },
+    {
+     "text": "$111,343",
+     "correct": false
+    },
+    {
+     "text": "$37,200",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Geometric: a₁ = 62000, r = 1.05.",
+    "a₁₂ = 62000(1.05)^11 ≈ 106,041."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-011",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A job pays $54,000 in year 1, with a 3% raise each year. What is the salary in year 8, to the nearest dollar?",
+   "answer": "$66,413",
+   "solutionSteps": [
+    "Geometric: a₁ = 54000, r = 1.03.",
+    "a₈ = 54000(1.03)^7 ≈ 66,413."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-012",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A job pays $49,000 in year 1, with a 2% raise each year. What is the salary in year 9, to the nearest dollar?",
+   "answer": "$57,411",
+   "options": [
+    {
+     "text": "$8,820",
+     "correct": false
+    },
+    {
+     "text": "$58,560",
+     "correct": false
+    },
+    {
+     "text": "$57,411",
+     "correct": true
+    },
+    {
+     "text": "$56,840",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Geometric: a₁ = 49000, r = 1.02.",
+    "a₉ = 49000(1.02)^8 ≈ 57,411."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-013",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A theater has 25 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 29?",
+   "answer": "81 seats",
+   "solutionSteps": [
+    "Arithmetic: a₁ = 25, d = 2.",
+    "a₂₉ = 25 + (29 - 1)(2) = 81."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-014",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nA theater has 14 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 17?\nDev's answer: 48 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "46 seats",
+   "solutionSteps": [
+    "Mistake: Used n instead of n - 1.",
+    "Arithmetic: a₁ = 14, d = 2.",
+    "a₁₇ = 14 + (17 - 1)(2) = 46.",
+    "The correct answer is 46 seats, not 48 seats."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-015",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nA theater has 24 seats in the first row, and each row has 3 more seats than the row in front of it. How many seats are in row 18?\nYusuf's answer: 54 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "75 seats",
+   "solutionSteps": [
+    "Mistake: Forgot the first row's seats.",
+    "Arithmetic: a₁ = 24, d = 3.",
+    "a₁₈ = 24 + (18 - 1)(3) = 75.",
+    "The correct answer is 75 seats, not 54 seats."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp2-016",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A theater has 30 seats in the first row, and each row has 3 more seats than the row in front of it. How many seats are in row 14?",
+     "answer": "69 seats"
+    },
+    {
+     "prompt": "A job pays $39,000 in year 1, with a 5% raise each year. What is the salary in year 7, to the nearest dollar?",
+     "answer": "$52,264"
+    },
+    {
+     "prompt": "A theater has 25 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 25?",
+     "answer": "73 seats"
+    },
+    {
+     "prompt": "A theater has 17 seats in the first row, and each row has 3 more seats than the row in front of it. How many seats are in row 30?",
+     "answer": "104 seats"
+    }
+   ],
+   "answer": "(a) 69 seats; (b) $52,264; (c) 73 seats; (d) 104 seats",
+   "solutionSteps": [
+    "(a) Arithmetic: a₁ = 30, d = 3. a₁₄ = 30 + (14 - 1)(3) = 69.",
+    "(b) Geometric: a₁ = 39000, r = 1.05. a₇ = 39000(1.05)^6 ≈ 52,264.",
+    "(c) Arithmetic: a₁ = 25, d = 2. a₂₅ = 25 + (25 - 1)(2) = 73.",
+    "(d) Arithmetic: a₁ = 17, d = 3. a₃₀ = 17 + (30 - 1)(3) = 104."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp1-021",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA theater has 16 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 26?\nQuinn's answer: 416 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "66 seats",
+   "solutionSteps": [
+    "Mistake: Multiplied the first row by the number of rows.",
+    "Arithmetic: a₁ = 16, d = 2.",
+    "a₂₆ = 16 + (26 - 1)(2) = 66.",
+    "The correct answer is 66 seats, not 416 seats."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp1-022",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nA theater has 12 seats in the first row, and each row has 3 more seats than the row in front of it. There are 25 rows. How many seats are there in all?\nYusuf's answer: 84 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "1200 seats",
+   "solutionSteps": [
+    "Mistake: Gave only the last row.",
+    "Last row: 12 + (25 - 1)(3) = 84.",
+    "Sum = 25(12 + 84)/2 = 1200.",
+    "The correct answer is 1200 seats, not 84 seats."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-009",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A theater has 19 seats in the first row, and each row has 4 more seats than the row in front of it. How many seats are in row 23?",
+   "answer": "107 seats",
+   "solutionSteps": [
+    "Arithmetic: a₁ = 19, d = 4.",
+    "a₂₃ = 19 + (23 - 1)(4) = 107."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-010",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A job pays $47,000 in year 1, with a 4% raise each year. What is the salary in year 5, to the nearest dollar?",
+   "answer": "$54,983",
+   "options": [
+    {
+     "text": "$54,983",
+     "correct": true
+    },
+    {
+     "text": "$57,183",
+     "correct": false
+    },
+    {
+     "text": "$54,520",
+     "correct": false
+    },
+    {
+     "text": "$9,400",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Geometric: a₁ = 47000, r = 1.04.",
+    "a₅ = 47000(1.04)^4 ≈ 54,983."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-011",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A job pays $56,000 in year 1, with a 3% raise each year. What is the salary in year 11, to the nearest dollar?",
+   "answer": "$75,259",
+   "solutionSteps": [
+    "Geometric: a₁ = 56000, r = 1.03.",
+    "a₁₁ = 56000(1.03)^10 ≈ 75,259."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-012",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A job pays $69,000 in year 1, with a 5% raise each year. What is the salary in year 8, to the nearest dollar?",
+   "answer": "$97,090",
+   "options": [
+    {
+     "text": "$27,600",
+     "correct": false
+    },
+    {
+     "text": "$93,150",
+     "correct": false
+    },
+    {
+     "text": "$97,090",
+     "correct": true
+    },
+    {
+     "text": "$101,944",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Geometric: a₁ = 69000, r = 1.05.",
+    "a₈ = 69000(1.05)^7 ≈ 97,090."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-013",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A theater has 27 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 20?",
+   "answer": "65 seats",
+   "solutionSteps": [
+    "Arithmetic: a₁ = 27, d = 2.",
+    "a₂₀ = 27 + (20 - 1)(2) = 65."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-014",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nA theater has 23 seats in the first row, and each row has 3 more seats than the row in front of it. How many seats are in row 27?\nUma's answer: 81 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "101 seats",
+   "solutionSteps": [
+    "Mistake: Forgot the first row's seats.",
+    "Arithmetic: a₁ = 23, d = 3.",
+    "a₂₇ = 23 + (27 - 1)(3) = 101.",
+    "The correct answer is 101 seats, not 81 seats."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-015",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nA theater has 21 seats in the first row, and each row has 4 more seats than the row in front of it. There are 30 rows. How many seats are there in all?\nYusuf's answer: 4740 seats\nIdentify the mistake and give the correct answer.",
+   "answer": "2370 seats",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by 2.",
+    "Last row: 21 + (30 - 1)(4) = 137.",
+    "Sum = 30(21 + 137)/2 = 2370.",
+    "The correct answer is 2370 seats, not 4740 seats."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-honors-016",
+   "skillId": "sequences-series-skill-08",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A theater has 14 seats in the first row, and each row has 2 more seats than the row in front of it. There are 11 rows. How many seats are there in all?",
+     "answer": "264 seats"
+    },
+    {
+     "prompt": "A theater has 28 seats in the first row, and each row has 4 more seats than the row in front of it. How many seats are in row 26?",
+     "answer": "128 seats"
+    },
+    {
+     "prompt": "A job pays $59,000 in year 1, with a 4% raise each year. What is the salary in year 7, to the nearest dollar?",
+     "answer": "$74,654"
+    },
+    {
+     "prompt": "A theater has 25 seats in the first row, and each row has 2 more seats than the row in front of it. How many seats are in row 14?",
+     "answer": "51 seats"
+    }
+   ],
+   "answer": "(a) 264 seats; (b) 128 seats; (c) $74,654; (d) 51 seats",
+   "solutionSteps": [
+    "(a) Last row: 14 + (11 - 1)(2) = 34. Sum = 11(14 + 34)/2 = 264.",
+    "(b) Arithmetic: a₁ = 28, d = 4. a₂₆ = 28 + (26 - 1)(4) = 128.",
+    "(c) Geometric: a₁ = 59000, r = 1.04. a₇ = 59000(1.04)^6 ≈ 74,654.",
+    "(d) Arithmetic: a₁ = 25, d = 2. a₁₄ = 25 + (14 - 1)(2) = 51."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_apps_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

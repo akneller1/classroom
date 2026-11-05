@@ -7416,6 +7416,3213 @@
     "F-IF.B.4"
    ],
    "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp2-013",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -x² + 2x + 4. Find f(-3).",
+   "answer": "-11",
+   "solutionSteps": [
+    "Substitute -3 for every x: f(-3) = -(-3)² + 2(-3) + 4.",
+    "Evaluate powers first, then multiply, then add.",
+    "f(-3) = -11."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp2-014",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For h(x) = -4x + 7, find all x such that h(x) = -21.",
+   "answer": "x = 7",
+   "solutionSteps": [
+    "Set the rule equal to -21: -4x + 7 = -21.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = 7."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp2-015",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nFor g(x) = -4x + 12, find all x such that g(x) = 36.\nBen's answer: x = -96\nIdentify the mistake and give the correct answer.",
+   "answer": "x = -6",
+   "solutionSteps": [
+    "Mistake: Multiplied by the slope instead of dividing.",
+    "Set the rule equal to 36: -4x + 12 = 36.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = -6.",
+    "The correct answer is x = -6, not x = -96."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp2-016",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ben answered this problem incorrectly.\nLet h(x) = -2x² + 2x - 9. Find h(-3).\nBen's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "-33",
+   "solutionSteps": [
+    "Mistake: Multiplied by the exponent instead of raising to a power.",
+    "Substitute -3 for every x: h(-3) = -2(-3)² + 2(-3) - 9.",
+    "Evaluate powers first, then multiply, then add.",
+    "h(-3) = -33.",
+    "The correct answer is -33, not -3."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp1-016",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Kai answered this problem incorrectly.\nFor h(x) = x² - 9x + 14, find all x such that h(x) = -6.\nKai's answer: x = -4 or x = -5\nIdentify the mistake and give the correct answer.",
+   "answer": "x = 4 or x = 5",
+   "solutionSteps": [
+    "Mistake: Used the opposite sign for both solutions.",
+    "Set the rule equal to -6: x² - 9x + 14 = -6.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = 4 or x = 5.",
+    "The correct answer is x = 4 or x = 5, not x = -4 or x = -5."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-cp1-017",
+   "skillId": "functions-transformations-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nFor f(x) = x² - 12x + 38, find all x such that f(x) = 3.\nPriya's answer: x = 5\nIdentify the mistake and give the correct answer.",
+   "answer": "x = 5 or x = 7",
+   "solutionSteps": [
+    "Mistake: Gave only one of the two solutions.",
+    "Set the rule equal to 3: x² - 12x + 38 = 3.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = 5 or x = 7.",
+    "The correct answer is x = 5 or x = 7, not x = 5."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-009",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let f(x) = 4x³ - 5. Find f(3).",
+   "answer": "103",
+   "solutionSteps": [
+    "Substitute 3 for every x: f(3) = 4(3)³ - 5.",
+    "Evaluate powers first, then multiply, then add.",
+    "f(3) = 103."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-010",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = -x² + 5x - 7, find all x such that f(x) = -3.",
+   "answer": "x = 1 or x = 4",
+   "options": [
+    {
+     "text": "x = 1",
+     "correct": false
+    },
+    {
+     "text": "x = -7",
+     "correct": false
+    },
+    {
+     "text": "x = -1 or x = -4",
+     "correct": false
+    },
+    {
+     "text": "x = 1 or x = 4",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Set the rule equal to -3: -x² + 5x - 7 = -3.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = 1 or x = 4."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-011",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -x² + 4x + 6. Find and simplify f(x - 4).",
+   "answer": "-x² + 12x - 26",
+   "solutionSteps": [
+    "Replace every x with (x - 4).",
+    "Expand (x - 4)² = x² - 8x + 16 and distribute.",
+    "Combine like terms: -x² + 12x - 26."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_expr). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-012",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Let f(x) = -2x³ - 3x² - 6. Find f(-3).",
+   "answer": "21",
+   "options": [
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "-87",
+     "correct": false
+    },
+    {
+     "text": "21",
+     "correct": true
+    },
+    {
+     "text": "33",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Substitute -3 for every x: f(-3) = -2(-3)³ - 3(-3)² - 6.",
+    "Evaluate powers first, then multiply, then add.",
+    "f(-3) = 21."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_eval). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-013",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For g(x) = 2x² - 12x + 1, find all x such that g(x) = 1.",
+   "answer": "x = 0 or x = 6",
+   "solutionSteps": [
+    "Set the rule equal to 1: 2x² - 12x + 1 = 1.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = 0 or x = 6."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-014",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nLet g(x) = 4x³ - x² + 9. Find g(4).\nYusuf's answer: 231\nIdentify the mistake and give the correct answer.",
+   "answer": "249",
+   "solutionSteps": [
+    "Mistake: Made a sign error on one term.",
+    "Substitute 4 for every x: g(4) = 4(4)³ - (4)² + 9.",
+    "Evaluate powers first, then multiply, then add.",
+    "g(4) = 249.",
+    "The correct answer is 249, not 231."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_eval_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-015",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nFor h(x) = 2x² + 14x + 27, find all x such that h(x) = 3.\nJamal's answer: x = 27\nIdentify the mistake and give the correct answer.",
+   "answer": "x = -4 or x = -3",
+   "solutionSteps": [
+    "Mistake: Evaluated the function at 0 instead of solving.",
+    "Set the rule equal to 3: 2x² + 14x + 27 = 3.",
+    "Solve the equation (move everything to one side and factor if needed).",
+    "x = -4 or x = -3.",
+    "The correct answer is x = -4 or x = -3, not x = 27."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_solve_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-016",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Let f(x) = 3x³ + 2x² + 1. Find f(3).",
+     "answer": "100"
+    },
+    {
+     "prompt": "Let g(x) = -2x³ + x² + 3. Find g(-1).",
+     "answer": "6"
+    },
+    {
+     "prompt": "Let h(x) = x³ - 5x² - 3. Find h(2).",
+     "answer": "-15"
+    },
+    {
+     "prompt": "Let f(x) = -4x³ - 6x² + 9. Find f(-1).",
+     "answer": "7"
+    }
+   ],
+   "answer": "(a) 100; (b) 6; (c) -15; (d) 7",
+   "solutionSteps": [
+    "(a) Evaluate powers first, then multiply, then add. f(3) = 100.",
+    "(b) Evaluate powers first, then multiply, then add. g(-1) = 6.",
+    "(c) Evaluate powers first, then multiply, then add. h(2) = -15.",
+    "(d) Evaluate powers first, then multiply, then add. f(-1) = 7."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_eval_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-010",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the range of f(x) = 2(x - 4)² - 5. Use interval notation.",
+   "answer": "[-5, ∞)",
+   "solutionSteps": [
+    "The vertex is (4, -5).",
+    "The leading coefficient 2 is positive, so the graph rises from there.",
+    "Range: [-5, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-011",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find the domain of f(x) = 1/(x - 4). Use interval notation.",
+   "answer": "(-∞, 4) ∪ (4, ∞)",
+   "options": [
+    {
+     "text": "(-∞, -4) ∪ (-4, ∞)",
+     "correct": false
+    },
+    {
+     "text": "(-∞, 4) ∪ (4, ∞)",
+     "correct": true
+    },
+    {
+     "text": "(4, ∞)",
+     "correct": false
+    },
+    {
+     "text": "(-∞, ∞)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: (-∞, 4) ∪ (4, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-012",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A function is the set of points (-3, 2), (2, -2), (5, -5), (7, -4). What is its range?",
+   "answer": "{-5, -4, -2, 2}",
+   "options": [
+    {
+     "text": "{-5, -4, -2, 2}",
+     "correct": true
+    },
+    {
+     "text": "{-3, 2, 5, 7}",
+     "correct": false
+    },
+    {
+     "text": "{-5, -4, -3, -2, 2, 5, 7}",
+     "correct": false
+    },
+    {
+     "text": "{-2, 2, 4, 5}",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The range is the set of all y-values.",
+    "List them once each, in order: {-5, -4, -2, 2}."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_from_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-013",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the range of f(x) = (x - 2)² - 6. Use interval notation.",
+   "answer": "[-6, ∞)",
+   "solutionSteps": [
+    "The vertex is (2, -6).",
+    "The leading coefficient 1 is positive, so the graph rises from there.",
+    "Range: [-6, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-014",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the domain of f(x) = 1/(x + 7). Use interval notation.",
+   "answer": "(-∞, -7) ∪ (-7, ∞)",
+   "solutionSteps": [
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: (-∞, -7) ∪ (-7, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-015",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nFind the range of f(x) = |x - 3| + 3. Use interval notation.\nJamal's answer: (-∞, ∞)\nIdentify the mistake and give the correct answer.",
+   "answer": "[3, ∞)",
+   "solutionSteps": [
+    "Mistake: Used the x-coordinate of the vertex.",
+    "The vertex of the V is (3, 3).",
+    "The leading coefficient 1 is positive, so the graph rises from there.",
+    "Range: [3, ∞).",
+    "The correct answer is [3, ∞), not (-∞, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp2-016",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Lena answered this problem incorrectly.\nFind the domain of f(x) = √(x + 1). Use interval notation.\nLena's answer: [1, ∞)\nIdentify the mistake and give the correct answer.",
+   "answer": "[-1, ∞)",
+   "solutionSteps": [
+    "Mistake: Used the opposite of the boundary value.",
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: [-1, ∞).",
+    "The correct answer is [-1, ∞), not [1, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-017",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nFind the range of f(x) = -2x² + 1. Use interval notation.\nMarco's answer: [1, ∞)\nIdentify the mistake and give the correct answer.",
+   "answer": "(-∞, 1]",
+   "solutionSteps": [
+    "Mistake: Reversed the direction of the range.",
+    "The vertex is (0, 1).",
+    "The leading coefficient -2 is negative, so the graph falls from there.",
+    "Range: (-∞, 1].",
+    "The correct answer is (-∞, 1], not [1, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-cp1-018",
+   "skillId": "functions-transformations-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nFind the domain of f(x) = 1/(x + 3). Use interval notation.\nTariq's answer: (-∞, 3) ∪ (3, ∞)\nIdentify the mistake and give the correct answer.",
+   "answer": "(-∞, -3) ∪ (-3, ∞)",
+   "solutionSteps": [
+    "Mistake: Excluded or included the endpoint incorrectly.",
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: (-∞, -3) ∪ (-3, ∞).",
+    "The correct answer is (-∞, -3) ∪ (-3, ∞), not (-∞, 3) ∪ (3, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-010",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the range of f(x) = -2|x - 5| + 6. Use interval notation.",
+   "answer": "(-∞, 6]",
+   "solutionSteps": [
+    "The vertex of the V is (5, 6).",
+    "The leading coefficient -2 is negative, so the graph falls from there.",
+    "Range: (-∞, 6]."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-011",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find the domain of f(x) = √(x - 5). Use interval notation.",
+   "answer": "[5, ∞)",
+   "options": [
+    {
+     "text": "(5, ∞)",
+     "correct": false
+    },
+    {
+     "text": "(-∞, ∞)",
+     "correct": false
+    },
+    {
+     "text": "[5, ∞)",
+     "correct": true
+    },
+    {
+     "text": "[-5, ∞)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: [5, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-012",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A function is the set of points (-6, -7), (-2, 5), (3, -2), (4, -5), (5, 8), (7, 4). What is its domain?",
+   "answer": "{-6, -2, 3, 4, 5, 7}",
+   "options": [
+    {
+     "text": "{-6, -2, 3, 4, 5, 7}",
+     "correct": true
+    },
+    {
+     "text": "{-7, -5, -2, 4, 5, 8}",
+     "correct": false
+    },
+    {
+     "text": "{-7, -6, -5, -2, 3, 4, 5, 7, 8}",
+     "correct": false
+    },
+    {
+     "text": "{-7, -5, -4, -3, 2, 6}",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The domain is the set of all x-values.",
+    "List them once each, in order: {-6, -2, 3, 4, 5, 7}."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_from_points). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-013",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the range of f(x) = 2√(x + 1) + 6. Use interval notation.",
+   "answer": "[6, ∞)",
+   "solutionSteps": [
+    "The starting point is (-1, 6).",
+    "The leading coefficient 2 is positive, so the graph rises from there.",
+    "Range: [6, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-014",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the domain of f(x) = 1/(x - 3). Use interval notation.",
+   "answer": "(-∞, 3) ∪ (3, ∞)",
+   "solutionSteps": [
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: (-∞, 3) ∪ (3, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-015",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Vic answered this problem incorrectly.\nFind the range of f(x) = -3√(x - 2) + 3. Use interval notation.\nVic's answer: (-∞, ∞)\nIdentify the mistake and give the correct answer.",
+   "answer": "(-∞, 3]",
+   "solutionSteps": [
+    "Mistake: Ignored the minimum or maximum value.",
+    "The starting point is (2, 3).",
+    "The leading coefficient -3 is negative, so the graph falls from there.",
+    "Range: (-∞, 3].",
+    "The correct answer is (-∞, 3], not (-∞, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_range_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-016",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nFind the domain of f(x) = ln(x - 8). Use interval notation.\nJamal's answer: [8, ∞)\nIdentify the mistake and give the correct answer.",
+   "answer": "(8, ∞)",
+   "solutionSteps": [
+    "Mistake: Excluded or included the endpoint incorrectly.",
+    "Square roots need a nonnegative radicand; denominators cannot be 0; logarithms need a positive argument.",
+    "Solve the restriction for x.",
+    "Domain: (8, ∞).",
+    "The correct answer is (8, ∞), not [8, ∞)."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_domaina2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-008",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -3x + 9 and g(x) = -4x + 5. Find (f ∘ g)(3).",
+   "answer": "30",
+   "solutionSteps": [
+    "(f ∘ g)(3) = f(g(3)).",
+    "Inside first: g(3) = -7.",
+    "Then apply f: 30."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-009",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -x and g(x) = 3x - 7. Find (f + g)(x).",
+   "answer": "2x - 7",
+   "solutionSteps": [
+    "(f + g)(x) = (-x) + (3x - 7).",
+    "Combine like terms.",
+    "2x - 7."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_opsa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-010",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Let f(x) = x + 8 and g(x) = 3x + 4. Find (f ∘ g)(4).",
+   "answer": "24",
+   "options": [
+    {
+     "text": "40",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "24",
+     "correct": true
+    },
+    {
+     "text": "192",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "(f ∘ g)(4) = f(g(4)).",
+    "Inside first: g(4) = 16.",
+    "Then apply f: 24."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-011",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Let f(x) = 6x - 6 and g(x) = 4x - 9. Find (f · g)(x).",
+   "answer": "24x² - 78x + 54",
+   "options": [
+    {
+     "text": "24x² - 78x + 54",
+     "correct": true
+    },
+    {
+     "text": "10x - 14",
+     "correct": false
+    },
+    {
+     "text": "24x - 60",
+     "correct": false
+    },
+    {
+     "text": "2x + 3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "(f · g)(x) = (6x - 6) · (4x - 9).",
+    "Multiply each term (FOIL).",
+    "24x² - 78x + 54."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_opsa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-012",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -x + 2 and g(x) = 2x - 8. Find (g ∘ f)(1).",
+   "answer": "-6",
+   "solutionSteps": [
+    "(g ∘ f)(1) = g(f(1)).",
+    "Inside first: f(1) = 1.",
+    "Then apply g: -6."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-013",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Let f(x) = x + 3 and g(x) = 2x + 3. Find (f - g)(x).",
+   "answer": "-x",
+   "solutionSteps": [
+    "(f - g)(x) = (x + 3) - (2x + 3).",
+    "Combine like terms.",
+    "-x."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_opsa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-014",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nLet f(x) = -4x + 3 and g(x) = 6x. Find (g ∘ f)(3).\nIsla's answer: -162\nIdentify the mistake and give the correct answer.",
+   "answer": "-54",
+   "solutionSteps": [
+    "Mistake: Multiplied the functions.",
+    "(g ∘ f)(3) = g(f(3)).",
+    "Inside first: f(3) = -9.",
+    "Then apply g: -54.",
+    "The correct answer is -54, not -162."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-015",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nLet f(x) = x - 3 and g(x) = 2x. Find (g ∘ f)(0).\nQuinn's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "-6",
+   "solutionSteps": [
+    "Mistake: Added the functions.",
+    "(g ∘ f)(0) = g(f(0)).",
+    "Inside first: f(0) = -3.",
+    "Then apply g: -6.",
+    "The correct answer is -6, not -3."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp2-016",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Let f(x) = -x + 4 and g(x) = -3x - 8. Find (g ∘ f)(-3).",
+     "answer": "-29"
+    },
+    {
+     "prompt": "Let f(x) = x and g(x) = -6x - 2. Find (g ∘ f)(0).",
+     "answer": "-2"
+    },
+    {
+     "prompt": "Let f(x) = 2x + 7 and g(x) = -6x - 1. Find (f ∘ g)(-1).",
+     "answer": "17"
+    },
+    {
+     "prompt": "Let f(x) = x + 9 and g(x) = -x - 7. Find (g ∘ f)(-3).",
+     "answer": "-13"
+    }
+   ],
+   "answer": "(a) -29; (b) -2; (c) 17; (d) -13",
+   "solutionSteps": [
+    "(a) Inside first: f(-3) = 7. Then apply g: -29.",
+    "(b) Inside first: f(0) = 0. Then apply g: -2.",
+    "(c) Inside first: g(-1) = 5. Then apply f: 17.",
+    "(d) Inside first: f(-3) = 6. Then apply g: -13."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-014",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Let f(x) = x + 3 and g(x) = -6x + 3. Find (g ∘ f)(3).",
+   "answer": "-33",
+   "solutionSteps": [
+    "(g ∘ f)(3) = g(f(3)).",
+    "Inside first: f(3) = 6.",
+    "Then apply g: -33."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-015",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nLet f(x) = -6x - 3 and g(x) = -x - 7. Find (g ∘ f)(3).\nYusuf's answer: 57\nIdentify the mistake and give the correct answer.",
+   "answer": "14",
+   "solutionSteps": [
+    "Mistake: Composed in the wrong order.",
+    "(g ∘ f)(3) = g(f(3)).",
+    "Inside first: f(3) = -21.",
+    "Then apply g: 14.",
+    "The correct answer is 14, not 57."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-cp1-016",
+   "skillId": "functions-transformations-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nLet f(x) = -3x - 2 and g(x) = 3x + 8. Find (g ∘ f)(-4).\nNia's answer: -40\nIdentify the mistake and give the correct answer.",
+   "answer": "38",
+   "solutionSteps": [
+    "Mistake: Multiplied the functions.",
+    "(g ∘ f)(-4) = g(f(-4)).",
+    "Inside first: f(-4) = 10.",
+    "Then apply g: 38.",
+    "The correct answer is 38, not -40."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-011",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -3x² - 5x + 1 and g(x) = 5x - 4. Find (f ∘ g)(4).",
+   "answer": "-847",
+   "solutionSteps": [
+    "(f ∘ g)(4) = f(g(4)).",
+    "Inside first: g(4) = 16.",
+    "Then apply f: -847."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-012",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let f(x) = -4x - 9 and g(x) = 3x - 7. Find (f ∘ g)(x) and simplify.",
+   "answer": "-12x + 19",
+   "solutionSteps": [
+    "(f ∘ g)(x) = f(g(x)) = f(3x - 7).",
+    "Substitute 3x - 7 for x in f.",
+    "Expand: -12x + 19."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_expra2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-013",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Let f(x) = 5x + 9 and g(x) = 5x + 1. Find (f - g)(x).",
+   "answer": "8",
+   "options": [
+    {
+     "text": "10x + 8",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    },
+    {
+     "text": "10x + 10",
+     "correct": false
+    },
+    {
+     "text": "25x + 14",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "(f - g)(x) = (5x + 9) - (5x + 1).",
+    "Combine like terms.",
+    "8."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_opsa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-014",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let f(x) = 3x² - 5 and g(x) = -4x - 8. Find (g ∘ f)(-3).",
+   "answer": "-96",
+   "solutionSteps": [
+    "(g ∘ f)(-3) = g(f(-3)).",
+    "Inside first: f(-3) = 22.",
+    "Then apply g: -96."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-015",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nLet f(x) = -2x² - 4x - 6 and g(x) = -3x - 4. Find (g ∘ f)(-2).\nZoe's answer: -22\nIdentify the mistake and give the correct answer.",
+   "answer": "14",
+   "solutionSteps": [
+    "Mistake: Composed in the wrong order.",
+    "(g ∘ f)(-2) = g(f(-2)).",
+    "Inside first: f(-2) = -6.",
+    "Then apply g: 14.",
+    "The correct answer is 14, not -22."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_numa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-016",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Vic answered this problem incorrectly.\nLet f(x) = -2x - 3 and g(x) = 6x - 2. Find (f ∘ g)(x) and simplify.\nVic's answer: -12x² - 14x + 6\nIdentify the mistake and give the correct answer.",
+   "answer": "-12x + 1",
+   "solutionSteps": [
+    "Mistake: Multiplied the functions.",
+    "(f ∘ g)(x) = f(g(x)) = f(6x - 2).",
+    "Substitute 6x - 2 for x in f.",
+    "Expand: -12x + 1.",
+    "The correct answer is -12x + 1, not -12x² - 14x + 6."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_compose_expra2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-009",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find f⁻¹(x) for f(x) = 5x + 7.",
+   "answer": "f⁻¹(x) = (1/5)x - 7/5",
+   "solutionSteps": [
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = (1/5)x - 7/5."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-010",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = -3x - 5, find f⁻¹(7).",
+   "answer": "-4",
+   "options": [
+    {
+     "text": "-4",
+     "correct": true
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "-26",
+     "correct": false
+    },
+    {
+     "text": "1/7",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(7) is the x-value with f(x) = 7.",
+    "Solve -3x - 5 = 7.",
+    "x = -4."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-011",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find f⁻¹(x) for f(x) = -3x + 5.",
+   "answer": "f⁻¹(x) = -(1/3)x + 5/3",
+   "options": [
+    {
+     "text": "f⁻¹(x) = -1/(3x - 5)",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = (1/3)(x + 5)",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = -(1/3)x + 5/3",
+     "correct": true
+    },
+    {
+     "text": "f⁻¹(x) = 3x - 5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = -(1/3)x + 5/3."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-012",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For f(x) = 4x + 5, find f⁻¹(17).",
+   "answer": "3",
+   "solutionSteps": [
+    "f⁻¹(17) is the x-value with f(x) = 17.",
+    "Solve 4x + 5 = 17.",
+    "x = 3."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-013",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find f⁻¹(x) for f(x) = -x - 8.",
+   "answer": "f⁻¹(x) = -x - 8",
+   "solutionSteps": [
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = -x - 8."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-014",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nFind f⁻¹(x) for f(x) = 5x - 4.\nWren's answer: f⁻¹(x) = (1/5)(-x + 4)\nIdentify the mistake and give the correct answer.",
+   "answer": "f⁻¹(x) = (1/5)x + 4/5",
+   "solutionSteps": [
+    "Mistake: Made a sign error while solving.",
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = (1/5)x + 4/5.",
+    "The correct answer is f⁻¹(x) = (1/5)x + 4/5, not f⁻¹(x) = (1/5)(-x + 4)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-015",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nFor f(x) = -3x - 8, find f⁻¹(-5).\nUma's answer: -1/5\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mistake: Took the reciprocal.",
+    "f⁻¹(-5) is the x-value with f(x) = -5.",
+    "Solve -3x - 8 = -5.",
+    "x = -1.",
+    "The correct answer is -1, not -1/5."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp2-016",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "For f(x) = 3x - 1, find f⁻¹(-1).",
+     "answer": "0"
+    },
+    {
+     "prompt": "For f(x) = -4x - 4, find f⁻¹(0).",
+     "answer": "-1"
+    },
+    {
+     "prompt": "For f(x) = 6x + 9, find f⁻¹(33).",
+     "answer": "4"
+    },
+    {
+     "prompt": "For f(x) = -2x + 3, find f⁻¹(11).",
+     "answer": "-4"
+    }
+   ],
+   "answer": "(a) 0; (b) -1; (c) 4; (d) -4",
+   "solutionSteps": [
+    "(a) Solve 3x - 1 = -1. x = 0.",
+    "(b) Solve -4x - 4 = 0. x = -1.",
+    "(c) Solve 6x + 9 = 33. x = 4.",
+    "(d) Solve -2x + 3 = 11. x = -4."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-020",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nFind f⁻¹(x) for f(x) = 3x + 1.\nWren's answer: f⁻¹(x) = (1/3)(-x - 1)\nIdentify the mistake and give the correct answer.",
+   "answer": "f⁻¹(x) = (1/3)x - 1/3",
+   "solutionSteps": [
+    "Mistake: Made a sign error while solving.",
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = (1/3)x - 1/3.",
+    "The correct answer is f⁻¹(x) = (1/3)x - 1/3, not f⁻¹(x) = (1/3)(-x - 1)."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-cp1-021",
+   "skillId": "functions-transformations-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hiro answered this problem incorrectly.\nFor f(x) = 4x + 4, find f⁻¹(-12).\nHiro's answer: -44\nIdentify the mistake and give the correct answer.",
+   "answer": "-4",
+   "solutionSteps": [
+    "Mistake: Evaluated f instead of f⁻¹.",
+    "f⁻¹(-12) is the x-value with f(x) = -12.",
+    "Solve 4x + 4 = -12.",
+    "x = -4.",
+    "The correct answer is -4, not -44."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-008",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find f⁻¹(x) for f(x) = 3√x + 1. (Domain of f: x ≥ 0.)",
+   "answer": "f⁻¹(x) = (1/9)(x - 1)²",
+   "solutionSteps": [
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = (1/9)(x - 1)²."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-009",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For f(x) = -4x + 3, find f⁻¹(-1).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(-1) is the x-value with f(x) = -1.",
+    "Solve -4x + 3 = -1.",
+    "x = 1."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-010",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find f⁻¹(x) for f(x) = 2x + 3.",
+   "answer": "f⁻¹(x) = (1/2)x - 3/2",
+   "options": [
+    {
+     "text": "f⁻¹(x) = 1/(2x + 3)",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = -2x - 3",
+     "correct": false
+    },
+    {
+     "text": "f⁻¹(x) = (1/2)x - 3/2",
+     "correct": true
+    },
+    {
+     "text": "f⁻¹(x) = (1/2)(-x - 3)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = (1/2)x - 3/2."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-011",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 5x + 9, find f⁻¹(14).",
+   "answer": "1",
+   "options": [
+    {
+     "text": "1/14",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": true
+    },
+    {
+     "text": "79",
+     "correct": false
+    },
+    {
+     "text": "-1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "f⁻¹(14) is the x-value with f(x) = 14.",
+    "Solve 5x + 9 = 14.",
+    "x = 1."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-012",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find f⁻¹(x) for f(x) = (5/2)x + 5.",
+   "answer": "f⁻¹(x) = (2/5)x - 2",
+   "solutionSteps": [
+    "Write y = f(x).",
+    "Swap x and y.",
+    "Solve for y.",
+    "f⁻¹(x) = (2/5)x - 2."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_inversea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-013",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For f(x) = 6x - 7, find f⁻¹(-1).",
+   "answer": "1",
+   "solutionSteps": [
+    "f⁻¹(-1) is the x-value with f(x) = -1.",
+    "Solve 6x - 7 = -1.",
+    "x = 1."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-014",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Lena answered this problem incorrectly.\nFor f(x) = x - 3, find f⁻¹(0).\nLena's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: Evaluated f instead of f⁻¹.",
+    "f⁻¹(0) is the x-value with f(x) = 0.",
+    "Solve x - 3 = 0.",
+    "x = 3.",
+    "The correct answer is 3, not -3."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-015",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Elena answered this problem incorrectly.\nFor f(x) = -3x + 6, find f⁻¹(3).\nElena's answer: -3\nIdentify the mistake and give the correct answer.",
+   "answer": "1",
+   "solutionSteps": [
+    "Mistake: Evaluated f instead of f⁻¹.",
+    "f⁻¹(3) is the x-value with f(x) = 3.",
+    "Solve -3x + 6 = 3.",
+    "x = 1.",
+    "The correct answer is 1, not -3."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s04-honors-016",
+   "skillId": "functions-transformations-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "For f(x) = -2x - 1, find f⁻¹(5).",
+     "answer": "-3"
+    },
+    {
+     "prompt": "For f(x) = 5x + 5, find f⁻¹(20).",
+     "answer": "3"
+    },
+    {
+     "prompt": "For f(x) = -3x + 3, find f⁻¹(15).",
+     "answer": "-4"
+    },
+    {
+     "prompt": "For f(x) = -2x + 3, find f⁻¹(-1).",
+     "answer": "2"
+    }
+   ],
+   "answer": "(a) -3; (b) 3; (c) -4; (d) 2",
+   "solutionSteps": [
+    "(a) Solve -2x - 1 = 5. x = -3.",
+    "(b) Solve 5x + 5 = 20. x = 3.",
+    "(c) Solve -3x + 3 = 15. x = -4.",
+    "(d) Solve -2x + 3 = -1. x = 2."
+   ],
+   "standards": [
+    "F-BF.B.4a",
+    "F-BF.B.4c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s9_valuea2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-010",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The graph of f(x) = |x| is shifted 4 units right, then shifted 3 units up. Write an equation for the new function g.",
+   "answer": "g(x) = |x - 4| + 3",
+   "solutionSteps": [
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = |x - 4| + 3."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-011",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "How is the graph of y = √(x - 3) - 3 related to the graph of y = √x?",
+   "answer": "3 units right and 3 units down",
+   "options": [
+    {
+     "text": "3 units left and 3 units down",
+     "correct": false
+    },
+    {
+     "text": "3 units left and 3 units up",
+     "correct": false
+    },
+    {
+     "text": "3 units right and 3 units down",
+     "correct": true
+    },
+    {
+     "text": "3 units right and 3 units up",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y = f(x - h) + k shifts the graph h units horizontally and k units vertically.",
+    "h = 3, k = -3."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_familya2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-012",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The point (-1, 4) is on the graph of y = f(x). What point must be on the graph of y = f(x + 3) + 4?",
+   "answer": "(-4, 8)",
+   "solutionSteps": [
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (-4, 8)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-013",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "The graph of f(x) = x² is shifted 3 units left, then shifted 1 unit down. Write an equation for the new function g.",
+   "answer": "g(x) = (x + 3)² - 1",
+   "options": [
+    {
+     "text": "g(x) = (x + 3)² - 1",
+     "correct": true
+    },
+    {
+     "text": "g(x) = (x + 1)² - 3",
+     "correct": false
+    },
+    {
+     "text": "g(x) = (x + 3)² + 1",
+     "correct": false
+    },
+    {
+     "text": "g(x) = (x - 3)² - 1",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = (x + 3)² - 1."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-014",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The point (0, -1) is on the graph of y = f(x). What point must be on the graph of y = f(x - 3) + 2?",
+   "answer": "(3, 1)",
+   "solutionSteps": [
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (3, 1)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-015",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nThe graph of f(x) = √x is shifted 3 units right, then shifted 4 units down. Write an equation for the new function g.\nUma's answer: g(x) = √(x + 3) - 4\nIdentify the mistake and give the correct answer.",
+   "answer": "g(x) = √(x - 3) - 4",
+   "solutionSteps": [
+    "Mistake: Shifted horizontally in the wrong direction.",
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = √(x - 3) - 4.",
+    "The correct answer is g(x) = √(x - 3) - 4, not g(x) = √(x + 3) - 4."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp2-016",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nThe point (-2, -6) is on the graph of y = f(x). What point must be on the graph of y = f(x - 3) + 2?\nCarmen's answer: (1, -8)\nIdentify the mistake and give the correct answer.",
+   "answer": "(1, -4)",
+   "solutionSteps": [
+    "Mistake: Shifted y the wrong way.",
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (1, -4).",
+    "The correct answer is (1, -4), not (1, -8)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-018",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nThe graph of f(x) = x² is shifted 1 unit right, then shifted 4 units up. Write an equation for the new function g.\nSam's answer: g(x) = (x + 1)² + 4\nIdentify the mistake and give the correct answer.",
+   "answer": "g(x) = (x - 1)² + 4",
+   "solutionSteps": [
+    "Mistake: Shifted horizontally in the wrong direction.",
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = (x - 1)² + 4.",
+    "The correct answer is g(x) = (x - 1)² + 4, not g(x) = (x + 1)² + 4."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-cp1-019",
+   "skillId": "functions-transformations-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vic answered this problem incorrectly.\nThe point (6, -2) is on the graph of y = f(x). What point must be on the graph of y = f(x - 1) + 2?\nVic's answer: (5, 0)\nIdentify the mistake and give the correct answer.",
+   "answer": "(7, 0)",
+   "solutionSteps": [
+    "Mistake: Shifted x in the wrong direction.",
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (7, 0).",
+    "The correct answer is (7, 0), not (5, 0)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-010",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The graph of f(x) = |x| is vertically stretched by a factor of 2, then shifted 2 units right, then shifted 4 units up. Write an equation for the new function g.",
+   "answer": "g(x) = 2|x - 2| + 4",
+   "solutionSteps": [
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = 2|x - 2| + 4."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-011",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How is the graph of y = √(x + 2) + 5 related to the graph of y = √x?",
+   "answer": "2 units left and 5 units up",
+   "options": [
+    {
+     "text": "2 units left and 5 units up",
+     "correct": true
+    },
+    {
+     "text": "5 units right and 2 units down",
+     "correct": false
+    },
+    {
+     "text": "2 units left and 5 units down",
+     "correct": false
+    },
+    {
+     "text": "2 units right and 5 units up",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "y = f(x - h) + k shifts the graph h units horizontally and k units vertically.",
+    "h = -2, k = 5."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_familya2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-012",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The point (5, -6) is on the graph of y = f(x). What point must be on the graph of y = 2f(x + 0) + 0?",
+   "answer": "(5, -12)",
+   "solutionSteps": [
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (5, -12)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-013",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of f(x) = 1/x is vertically compressed by a factor of 1/2, then shifted 4 units left, then shifted 2 units up. Write an equation for the new function g.",
+   "answer": "g(x) = 1/(2x + 8) + 2",
+   "options": [
+    {
+     "text": "g(x) = 1/(2x - 4) - 4",
+     "correct": false
+    },
+    {
+     "text": "g(x) = 1/(2x - 8) + 2",
+     "correct": false
+    },
+    {
+     "text": "g(x) = 1/(2x + 8) - 2",
+     "correct": false
+    },
+    {
+     "text": "g(x) = 1/(2x + 8) + 2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = 1/(2x + 8) + 2."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-014",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The point (-2, -6) is on the graph of y = f(x). What point must be on the graph of y = 3f(x - 5) + 1?",
+   "answer": "(3, -17)",
+   "solutionSteps": [
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (3, -17)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-015",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nThe graph of f(x) = x³ is reflected over the x-axis, then vertically stretched by a factor of 2, then shifted 5 units up. Write an equation for the new function g.\nZoe's answer: g(x) = -2x³ - 5\nIdentify the mistake and give the correct answer.",
+   "answer": "g(x) = -2x³ + 5",
+   "solutionSteps": [
+    "Mistake: Shifted vertically in the wrong direction.",
+    "Horizontal shift h: replace x with x - h.",
+    "Vertical shift k: add k.",
+    "Stretch or reflect by multiplying by a.",
+    "g(x) = -2x³ + 5.",
+    "The correct answer is g(x) = -2x³ + 5, not g(x) = -2x³ - 5."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s6_writea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-016",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nThe point (-5, -2) is on the graph of y = f(x). What point must be on the graph of y = -2f(x - 5) + 2?\nYusuf's answer: (6, 0)\nIdentify the mistake and give the correct answer.",
+   "answer": "(0, 6)",
+   "solutionSteps": [
+    "Mistake: Switched the coordinates.",
+    "Horizontal changes act on x in the opposite way: x → x/b + h.",
+    "Vertical changes act on y: y → a·y + k.",
+    "New point: (0, 6).",
+    "The correct answer is (0, 6), not (6, 0)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s7_pointa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-007",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f(x) = 4x if x < 0; f(x) = 3x - 5 if x ≥ 0. Find f(-2).",
+   "answer": "-8",
+   "solutionSteps": [
+    "Decide which piece applies: -2 < 0.",
+    "Use 4x.",
+    "f(-2) = -8."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-008",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate f(6) for f(x) = -3|x| + 4.",
+   "answer": "-14",
+   "solutionSteps": [
+    "Substitute 6 for x.",
+    "|6| = 6.",
+    "f(6) = -14."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_step_absa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-009",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -3x - 5 if x < 3; f(x) = 2x + 8 if x ≥ 3. Find f(-1).",
+   "answer": "-2",
+   "options": [
+    {
+     "text": "-2",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Decide which piece applies: -1 < 3.",
+    "Use -3x - 5.",
+    "f(-1) = -2."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-010",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate the greatest integer function: ⌊0.2⌋",
+   "answer": "0",
+   "solutionSteps": [
+    "⌊x⌋ is the greatest integer less than or equal to x.",
+    "0.2 lies between 0 and 1.",
+    "⌊0.2⌋ = 0."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_step_absa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-011",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2x + 1 if x < 1; f(x) = 5x + 6 if x ≥ 1. Find f(-2).",
+   "answer": "5",
+   "options": [
+    {
+     "text": "5",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-5",
+     "correct": false
+    },
+    {
+     "text": "-4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Decide which piece applies: -2 < 1.",
+    "Use -2x + 1.",
+    "f(-2) = 5."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-012",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate the greatest integer function: ⌊-7.5⌋",
+   "answer": "-8",
+   "solutionSteps": [
+    "⌊x⌋ is the greatest integer less than or equal to x.",
+    "-7.5 lies between -8 and -7.",
+    "⌊-7.5⌋ = -8."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_step_absa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-013",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -x + 5 if x < 3; f(x) = 2x if x ≥ 3. Find f(-1).",
+   "answer": "6",
+   "options": [
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "-6",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "-2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Decide which piece applies: -1 < 3.",
+    "Use -x + 5.",
+    "f(-1) = 6."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-014",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nf(x) = -6x + 2 if x < 0; f(x) = -x - 9 if x ≥ 0. Find f(0).\nZoe's answer: 9\nIdentify the mistake and give the correct answer.",
+   "answer": "-9",
+   "solutionSteps": [
+    "Mistake: Made a sign error.",
+    "Decide which piece applies: 0 ≥ 0.",
+    "Use -x - 9.",
+    "f(0) = -9.",
+    "The correct answer is -9, not 9."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-015",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nf(x) = -2x - 6 if x < 3; f(x) = 4x - 7 if x ≥ 3. Find f(4).\nDev's answer: -5\nIdentify the mistake and give the correct answer.",
+   "answer": "9",
+   "solutionSteps": [
+    "Mistake: Added both pieces.",
+    "Decide which piece applies: 4 ≥ 3.",
+    "Use 4x - 7.",
+    "f(4) = 9.",
+    "The correct answer is 9, not -5."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp2-016",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = -x + 3 if x < 1; f(x) = 4x + 9 if x ≥ 1. Find f(1).",
+     "answer": "13"
+    },
+    {
+     "prompt": "f(x) = -6x + 8 if x < -2; f(x) = -3x - 6 if x ≥ -2. Find f(-1).",
+     "answer": "-3"
+    },
+    {
+     "prompt": "f(x) = -x + 5 if x < 3; f(x) = 5x - 5 if x ≥ 3. Find f(6).",
+     "answer": "25"
+    },
+    {
+     "prompt": "f(x) = -2x - 1 if x < 0; f(x) = 4x - 1 if x ≥ 0. Find f(0).",
+     "answer": "-1"
+    }
+   ],
+   "answer": "(a) 13; (b) -3; (c) 25; (d) -1",
+   "solutionSteps": [
+    "(a) Use 4x + 9. f(1) = 13.",
+    "(b) Use -3x - 6. f(-1) = -3.",
+    "(c) Use 5x - 5. f(6) = 25.",
+    "(d) Use 4x - 1. f(0) = -1."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-019",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Elena answered this problem incorrectly.\nf(x) = -4x + 3 if x < 2; f(x) = -3x + 7 if x ≥ 2. Find f(-1).\nElena's answer: 10\nIdentify the mistake and give the correct answer.",
+   "answer": "7",
+   "solutionSteps": [
+    "Mistake: Used the wrong piece.",
+    "Decide which piece applies: -1 < 2.",
+    "Use -4x + 3.",
+    "f(-1) = 7.",
+    "The correct answer is 7, not 10."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-cp1-020",
+   "skillId": "functions-transformations-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nf(x) = 2x + 6 if x < -3; f(x) = 2x if x ≥ -3. Find f(-4).\nDev's answer: 2\nIdentify the mistake and give the correct answer.",
+   "answer": "-2",
+   "solutionSteps": [
+    "Mistake: Made a sign error.",
+    "Decide which piece applies: -4 < -3.",
+    "Use 2x + 6.",
+    "f(-4) = -2.",
+    "The correct answer is -2, not 2."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-008",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = -6x - 2 if x < -2; f(x) = -4x - 4 if x ≥ -2. Find f(1).",
+   "answer": "-8",
+   "solutionSteps": [
+    "Decide which piece applies: 1 ≥ -2.",
+    "Use -4x - 4.",
+    "f(1) = -8."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-009",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate the greatest integer function: ⌊6.8⌋",
+   "answer": "6",
+   "solutionSteps": [
+    "⌊x⌋ is the greatest integer less than or equal to x.",
+    "6.8 lies between 6 and 7.",
+    "⌊6.8⌋ = 6."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_step_absa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-010",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = -2x + 2 if x < -2; f(x) = 5x + 8 if x ≥ -2. Find f(-3).",
+   "answer": "8",
+   "options": [
+    {
+     "text": "-8",
+     "correct": false
+    },
+    {
+     "text": "-7",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Decide which piece applies: -3 < -2.",
+    "Use -2x + 2.",
+    "f(-3) = 8."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-011",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate the greatest integer function: ⌊-4.5⌋",
+   "answer": "-5",
+   "solutionSteps": [
+    "⌊x⌋ is the greatest integer less than or equal to x.",
+    "-4.5 lies between -5 and -4.",
+    "⌊-4.5⌋ = -5."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_step_absa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-012",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 4x - 5 if x < 1; f(x) = -6x - 3 if x ≥ 1. Find f(1).",
+   "answer": "-9",
+   "options": [
+    {
+     "text": "-9",
+     "correct": true
+    },
+    {
+     "text": "-1",
+     "correct": false
+    },
+    {
+     "text": "-10",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Decide which piece applies: 1 ≥ 1.",
+    "Use -6x - 3.",
+    "f(1) = -9."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-013",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate f(4) for f(x) = -3|x + 4| + 5.",
+   "answer": "-19",
+   "solutionSteps": [
+    "Substitute 4 for x.",
+    "|8| = 8.",
+    "f(4) = -19."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_step_absa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-014",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nf(x) = -x - 6 if x < -1; f(x) = -5x + 7 if x ≥ -1. Find f(-5).\nMarco's answer: 1\nIdentify the mistake and give the correct answer.",
+   "answer": "-1",
+   "solutionSteps": [
+    "Mistake: Made a sign error.",
+    "Decide which piece applies: -5 < -1.",
+    "Use -x - 6.",
+    "f(-5) = -1.",
+    "The correct answer is -1, not 1."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-015",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nf(x) = -x + 7 if x < -3; f(x) = 4x + 5 if x ≥ -3. Find f(-3).\nPriya's answer: 10\nIdentify the mistake and give the correct answer.",
+   "answer": "-7",
+   "solutionSteps": [
+    "Mistake: Used the wrong piece.",
+    "Decide which piece applies: -3 ≥ -3.",
+    "Use 4x + 5.",
+    "f(-3) = -7.",
+    "The correct answer is -7, not 10."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-016",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "f(x) = x - 6 if x < 3; f(x) = -2x + 8 if x ≥ 3. Find f(3).",
+     "answer": "2"
+    },
+    {
+     "prompt": "f(x) = 6x + 9 if x < 1; f(x) = 5x + 6 if x ≥ 1. Find f(-1).",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = -x if x < 1; f(x) = -4x + 7 if x ≥ 1. Find f(1).",
+     "answer": "3"
+    },
+    {
+     "prompt": "f(x) = -4x if x < 3; f(x) = -3x - 7 if x ≥ 3. Find f(7).",
+     "answer": "-28"
+    }
+   ],
+   "answer": "(a) 2; (b) 3; (c) 3; (d) -28",
+   "solutionSteps": [
+    "(a) Use -2x + 8. f(3) = 2.",
+    "(b) Use 6x + 9. f(-1) = 3.",
+    "(c) Use -4x + 7. f(1) = 3.",
+    "(d) Use -3x - 7. f(7) = -28."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_piecewisea2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-014",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Is f(x) = 3x² + 4x even, odd, or neither?",
+   "answer": "neither",
+   "solutionSteps": [
+    "Find f(-x) = x(3x - 4).",
+    "Compare with f(x) = 3x² + 4x and -f(x) = -3x² - 4x.",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is neither."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-015",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nIs f(x) = x² - 5x even, odd, or neither?\nDev's answer: odd\nIdentify the mistake and give the correct answer.",
+   "answer": "neither",
+   "solutionSteps": [
+    "Mistake: Looked only at the leading term.",
+    "Find f(-x) = x(x + 5).",
+    "Compare with f(x) = x² - 5x and -f(x) = -x² + 5x.",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is neither.",
+    "The correct answer is neither, not odd."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp2-016",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Grace answered this problem incorrectly.\nThe graph of an odd function passes through (1, 1). Which other point must be on the graph?\nGrace's answer: (1, 1)\nIdentify the mistake and give the correct answer.",
+   "answer": "(-1, -1)",
+   "solutionSteps": [
+    "Mistake: Switched x and y.",
+    "An odd function is symmetric about the origin: (x, y) → (-x, -y).",
+    "Apply this to (1, 1).",
+    "(-1, -1).",
+    "The correct answer is (-1, -1), not (1, 1)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-014",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Is f(x) = -3x³ + 3x² + 1 even, odd, or neither?",
+   "answer": "neither",
+   "solutionSteps": [
+    "Find f(-x) = 3x³ + 3x² + 1.",
+    "Compare with f(x) = -3x³ + 3x² + 1 and -f(x) = 3x³ - 3x² - 1.",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is neither."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-015",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nIs f(x) = 2x³ - 4x² - 3 even, odd, or neither?\nDev's answer: odd\nIdentify the mistake and give the correct answer.",
+   "answer": "neither",
+   "solutionSteps": [
+    "Mistake: Looked only at the leading term.",
+    "Find f(-x) = -2x³ - 4x² - 3.",
+    "Compare with f(x) = 2x³ - 4x² - 3 and -f(x) = -2x³ + 4x² + 3.",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is neither.",
+    "The correct answer is neither, not odd."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-cp1-016",
+   "skillId": "functions-transformations-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nThe graph of an even function passes through (-1, 7). Which other point must be on the graph?\nUma's answer: (1, -7)\nIdentify the mistake and give the correct answer.",
+   "answer": "(1, 7)",
+   "solutionSteps": [
+    "Mistake: Used the symmetry rule for the other type of function.",
+    "An even function is symmetric about the y-axis: (x, y) → (-x, y).",
+    "Apply this to (-1, 7).",
+    "(1, 7).",
+    "The correct answer is (1, 7), not (1, -7)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-008",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Is f(x) = 3/(x² + 4) even, odd, or neither?",
+   "answer": "even",
+   "solutionSteps": [
+    "Find f(-x) = 3/(x² + 4).",
+    "Compare with f(x) = 3/(x² + 4) and -f(x) = -3/(x² + 4).",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is even."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-009",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The graph of an odd function passes through (3, -9). Which other point must be on the graph?",
+   "answer": "(-3, 9)",
+   "solutionSteps": [
+    "An odd function is symmetric about the origin: (x, y) → (-x, -y).",
+    "Apply this to (3, -9).",
+    "(-3, 9)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-010",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Is f(x) = 5x³ + 4x² - 1 even, odd, or neither?",
+   "answer": "neither",
+   "options": [
+    {
+     "text": "odd",
+     "correct": false
+    },
+    {
+     "text": "both even and odd",
+     "correct": false
+    },
+    {
+     "text": "neither",
+     "correct": true
+    },
+    {
+     "text": "even",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Find f(-x) = -5x³ + 4x² - 1.",
+    "Compare with f(x) = 5x³ + 4x² - 1 and -f(x) = -5x³ - 4x² + 1.",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is neither."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-011",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "The graph of an even function passes through (8, 4). Which other point must be on the graph?",
+   "answer": "(-8, 4)",
+   "options": [
+    {
+     "text": "(-8, 4)",
+     "correct": true
+    },
+    {
+     "text": "(4, 8)",
+     "correct": false
+    },
+    {
+     "text": "(8, -4)",
+     "correct": false
+    },
+    {
+     "text": "(-8, -4)",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An even function is symmetric about the y-axis: (x, y) → (-x, y).",
+    "Apply this to (8, 4).",
+    "(-8, 4)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-012",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Is f(x) = -3/(x² + 4) even, odd, or neither?",
+   "answer": "even",
+   "solutionSteps": [
+    "Find f(-x) = -3/(x² + 4).",
+    "Compare with f(x) = -3/(x² + 4) and -f(x) = 3/(x² + 4).",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is even."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-013",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The graph of an even function passes through (7, -1). Which other point must be on the graph?",
+   "answer": "(-7, -1)",
+   "solutionSteps": [
+    "An even function is symmetric about the y-axis: (x, y) → (-x, y).",
+    "Apply this to (7, -1).",
+    "(-7, -1)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-014",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nIs f(x) = -4x³ - 2x even, odd, or neither?\nPriya's answer: even\nIdentify the mistake and give the correct answer.",
+   "answer": "odd",
+   "solutionSteps": [
+    "Mistake: Assumed a function with only an x² term must be even even though other terms change sign.",
+    "Find f(-x) = 4x³ + 2x.",
+    "Compare with f(x) = -4x³ - 2x and -f(x) = 4x³ + 2x.",
+    "f(-x) = f(x) means even; f(-x) = -f(x) means odd; otherwise neither.",
+    "The function is odd.",
+    "The correct answer is odd, not even."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_classify_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-015",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nThe graph of an even function passes through (-2, 1). Which other point must be on the graph?\nRosa's answer: (-2, -1)\nIdentify the mistake and give the correct answer.",
+   "answer": "(2, 1)",
+   "solutionSteps": [
+    "Mistake: Reflected across the x-axis instead.",
+    "An even function is symmetric about the y-axis: (x, y) → (-x, y).",
+    "Apply this to (-2, 1).",
+    "(2, 1).",
+    "The correct answer is (2, 1), not (-2, -1)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s07-honors-016",
+   "skillId": "functions-transformations-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "The graph of an odd function passes through (9, 9). Which other point must be on the graph?",
+     "answer": "(-9, -9)"
+    },
+    {
+     "prompt": "The graph of an odd function passes through (-7, -4). Which other point must be on the graph?",
+     "answer": "(7, 4)"
+    },
+    {
+     "prompt": "The graph of an odd function passes through (3, -7). Which other point must be on the graph?",
+     "answer": "(-3, 7)"
+    },
+    {
+     "prompt": "The graph of an odd function passes through (-9, 7). Which other point must be on the graph?",
+     "answer": "(9, -7)"
+    }
+   ],
+   "answer": "(a) (-9, -9); (b) (7, 4); (c) (-3, 7); (d) (9, -7)",
+   "solutionSteps": [
+    "(a) Apply this to (9, 9). (-9, -9).",
+    "(b) Apply this to (-7, -4). (7, 4).",
+    "(c) Apply this to (3, -7). (-3, 7).",
+    "(d) Apply this to (-9, 7). (9, -7)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s7_point_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-007",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A club sells shirts. The cost to make x of them is C(x) = 10x + 360 dollars and the revenue is R(x) = 22x dollars. How many must they sell to break even?",
+   "answer": "30 shirts",
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 22x = 10x + 360.",
+    "12x = 360.",
+    "x = 30."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-008",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A club sells bracelets. The cost to make x of them is C(x) = 2x + 300 dollars and the revenue is R(x) = 5x dollars. How many must they sell to break even?",
+   "answer": "100 bracelets",
+   "options": [
+    {
+     "text": "100 bracelets",
+     "correct": true
+    },
+    {
+     "text": "150 bracelets",
+     "correct": false
+    },
+    {
+     "text": "200 bracelets",
+     "correct": false
+    },
+    {
+     "text": "60 bracelets",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 5x = 2x + 300.",
+    "3x = 300.",
+    "x = 100."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-009",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A club sells phone cases. The cost to make x of them is C(x) = 11x + 240 dollars and the revenue is R(x) = 23x dollars. How many must they sell to break even?",
+   "answer": "20 phone cases",
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 23x = 11x + 240.",
+    "12x = 240.",
+    "x = 20."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-010",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A club sells posters. The cost to make x of them is C(x) = 4x + 450 dollars and the revenue is R(x) = 14x dollars. How many must they sell to break even?",
+   "answer": "45 posters",
+   "options": [
+    {
+     "text": "90 posters",
+     "correct": false
+    },
+    {
+     "text": "45 posters",
+     "correct": true
+    },
+    {
+     "text": "33 posters",
+     "correct": false
+    },
+    {
+     "text": "112 posters",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 14x = 4x + 450.",
+    "10x = 450.",
+    "x = 45."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-011",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A club sells shirts. The cost to make x of them is C(x) = 8x + 500 dollars and the revenue is R(x) = 18x dollars. How many must they sell to break even?",
+   "answer": "50 shirts",
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 18x = 8x + 500.",
+    "10x = 500.",
+    "x = 50."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-012",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A club sells phone cases. The cost to make x of them is C(x) = 8x + 240 dollars and the revenue is R(x) = 13x dollars. How many must they sell to break even?",
+   "answer": "48 phone cases",
+   "options": [
+    {
+     "text": "19 phone cases",
+     "correct": false
+    },
+    {
+     "text": "96 phone cases",
+     "correct": false
+    },
+    {
+     "text": "30 phone cases",
+     "correct": false
+    },
+    {
+     "text": "48 phone cases",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 13x = 8x + 240.",
+    "5x = 240.",
+    "x = 48."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-013",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A club sells bracelets. The cost to make x of them is C(x) = 14x + 500 dollars and the revenue is R(x) = 16x dollars. How many must they sell to break even?",
+   "answer": "250 bracelets",
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 16x = 14x + 500.",
+    "2x = 500.",
+    "x = 250."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-014",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nA club sells mugs. The cost to make x of them is C(x) = 6x + 300 dollars and the revenue is R(x) = 10x dollars. How many must they sell to break even?\nJamal's answer: 50 mugs\nIdentify the mistake and give the correct answer.",
+   "answer": "75 mugs",
+   "solutionSteps": [
+    "Mistake: Divided the fixed cost by the cost per item.",
+    "Break even when R(x) = C(x): 10x = 6x + 300.",
+    "4x = 300.",
+    "x = 75.",
+    "The correct answer is 75 mugs, not 50 mugs."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-015",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nA club sells candles. The cost to make x of them is C(x) = 3x + 500 dollars and the revenue is R(x) = 7x dollars. How many must they sell to break even?\nCarmen's answer: 167 candles\nIdentify the mistake and give the correct answer.",
+   "answer": "125 candles",
+   "solutionSteps": [
+    "Mistake: Divided the fixed cost by the cost per item.",
+    "Break even when R(x) = C(x): 7x = 3x + 500.",
+    "4x = 500.",
+    "x = 125.",
+    "The correct answer is 125 candles, not 167 candles."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp2-016",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A club sells phone cases. The cost to make x of them is C(x) = 14x + 240 dollars and the revenue is R(x) = 24x dollars. How many must they sell to break even?",
+     "answer": "24 phone cases"
+    },
+    {
+     "prompt": "A club sells shirts. The cost to make x of them is C(x) = 13x + 200 dollars and the revenue is R(x) = 15x dollars. How many must they sell to break even?",
+     "answer": "100 shirts"
+    },
+    {
+     "prompt": "A club sells phone cases. The cost to make x of them is C(x) = 6x + 240 dollars and the revenue is R(x) = 18x dollars. How many must they sell to break even?",
+     "answer": "20 phone cases"
+    },
+    {
+     "prompt": "A club sells bracelets. The cost to make x of them is C(x) = 4x + 720 dollars and the revenue is R(x) = 16x dollars. How many must they sell to break even?",
+     "answer": "60 bracelets"
+    }
+   ],
+   "answer": "(a) 24 phone cases; (b) 100 shirts; (c) 20 phone cases; (d) 60 bracelets",
+   "solutionSteps": [
+    "(a) 10x = 240. x = 24.",
+    "(b) 2x = 200. x = 100.",
+    "(c) 12x = 240. x = 20.",
+    "(d) 12x = 720. x = 60."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-016",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nA club sells mugs. The cost to make x of them is C(x) = 7x + 500 dollars and the revenue is R(x) = 9x dollars. Write P(x) = R(x) - C(x) and find the profit from selling 289 mugs.\nMarco's answer: $2601\nIdentify the mistake and give the correct answer.",
+   "answer": "$78",
+   "solutionSteps": [
+    "Mistake: Gave the revenue instead of the profit.",
+    "P(x) = 9x - (7x + 500) = 2x - 500.",
+    "P(289) = 2(289) - 500.",
+    "P(289) = 78 dollars.",
+    "The correct answer is $78, not $2601."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-cp1-017",
+   "skillId": "functions-transformations-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nA rectangular pen uses 64 feet of fencing. Its area is A(w) = w(32 - w), where w is the width. What is the greatest possible area?\nJamal's answer: 512 square feet\nIdentify the mistake and give the correct answer.",
+   "answer": "256 square feet",
+   "solutionSteps": [
+    "Mistake: Used the full half-perimeter as the length.",
+    "A(w) = -w² + 32w opens down, so the maximum is at the vertex.",
+    "w = 32 ÷ 2 = 16.",
+    "A(16) = 16(32 - 16) = 256.",
+    "The correct answer is 256 square feet, not 512 square feet."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_area_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-010",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A club sells phone cases. The cost to make x of them is C(x) = 5x + 240 dollars and the revenue is R(x) = 9x dollars. Write P(x) = R(x) - C(x) and find the profit from selling 83 phone cases.",
+   "answer": "$92",
+   "solutionSteps": [
+    "P(x) = 9x - (5x + 240) = 4x - 240.",
+    "P(83) = 4(83) - 240.",
+    "P(83) = 92 dollars."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-011",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A rectangular garden is fenced on three sides with 40 feet of fencing (a wall forms the fourth side). Its area is A(w) = w(40 - 2w). What is the greatest possible area?",
+   "answer": "200 square feet",
+   "options": [
+    {
+     "text": "100 square feet",
+     "correct": false
+    },
+    {
+     "text": "400 square feet",
+     "correct": false
+    },
+    {
+     "text": "182 square feet",
+     "correct": false
+    },
+    {
+     "text": "200 square feet",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "A(w) = -2w² + 40w opens down, so the maximum is at w = -b/(2a) = 40/4 = 10.",
+    "Length = 40 - 2(10) = 20.",
+    "A = 10(20) = 200."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-012",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A club sells candles. The cost to make x of them is C(x) = 5x + 300 dollars and the revenue is R(x) = 8x dollars. How many must they sell to break even?",
+   "answer": "100 candles",
+   "options": [
+    {
+     "text": "100 candles",
+     "correct": true
+    },
+    {
+     "text": "60 candles",
+     "correct": false
+    },
+    {
+     "text": "38 candles",
+     "correct": false
+    },
+    {
+     "text": "200 candles",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 8x = 5x + 300.",
+    "3x = 300.",
+    "x = 100."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-013",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A rectangular pen uses 64 feet of fencing. Its area is A(w) = w(32 - w), where w is the width. What is the greatest possible area?",
+   "answer": "256 square feet",
+   "solutionSteps": [
+    "A(w) = -w² + 32w opens down, so the maximum is at the vertex.",
+    "w = 32 ÷ 2 = 16.",
+    "A(16) = 16(32 - 16) = 256."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_area). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-014",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A club sells posters. The cost to make x of them is C(x) = 12x + 720 dollars and the revenue is R(x) = 20x dollars. How many must they sell to break even?",
+   "answer": "90 posters",
+   "solutionSteps": [
+    "Break even when R(x) = C(x): 20x = 12x + 720.",
+    "8x = 720.",
+    "x = 90."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-015",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Kai answered this problem incorrectly.\nA club sells candles. The cost to make x of them is C(x) = 3x + 500 dollars and the revenue is R(x) = 7x dollars. Write P(x) = R(x) - C(x) and find the profit from selling 180 candles.\nKai's answer: $1260\nIdentify the mistake and give the correct answer.",
+   "answer": "$220",
+   "solutionSteps": [
+    "Mistake: Gave the revenue instead of the profit.",
+    "P(x) = 7x - (3x + 500) = 4x - 500.",
+    "P(180) = 4(180) - 500.",
+    "P(180) = 220 dollars.",
+    "The correct answer is $220, not $1260."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_profit_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s08-honors-016",
+   "skillId": "functions-transformations-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nA rectangular pen uses 80 feet of fencing. Its area is A(w) = w(40 - w), where w is the width. What is the greatest possible area?\nWren's answer: 800 square feet\nIdentify the mistake and give the correct answer.",
+   "answer": "400 square feet",
+   "solutionSteps": [
+    "Mistake: Used the full half-perimeter as the length.",
+    "A(w) = -w² + 40w opens down, so the maximum is at the vertex.",
+    "w = 40 ÷ 2 = 20.",
+    "A(20) = 20(40 - 20) = 400.",
+    "The correct answer is 400 square feet, not 800 square feet."
+   ],
+   "standards": [
+    "F-BF.A.1",
+    "F-IF.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_area_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

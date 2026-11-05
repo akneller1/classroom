@@ -9,10 +9,7 @@ let checks = 0, builds = 0; const ok = (c, m) => { checks++; assert.ok(c, m); };
 const accepts = (p, a) => GB.answerOk(p, 0, a).ok;
 /* Printables a unit cannot make (too few short problems): listed here so a new gap fails the test. */
 const UNSUPPORTED = { 'algebra1-statistics-data-modeling': ['tarsia'] };
-/* Every Geometry problem carries its diagram, and mazes and Tarsia pieces have no room for one, so the printables page
-   offers those two kinds as unavailable for Geometry (printables-ui.js supported()) and the site does not list them. */
-['basics-reasoning', 'angles-parallel-lines', 'triangle-relationships', 'triangles-congruence', 'quadrilaterals-polygons', 'similarity',
- 'right-triangles-trigonometry', 'transformations', 'circles', 'area-surface-area-volume'].forEach(u => { UNSUPPORTED['geometry-' + u] = ['maze', 'tarsia']; });
+/* Geometry mazes and Tarsia puzzles print each problem, diagram included, on numbered problem pages (the room or edge shows the number), so they are supported. */
 
 function verified(it, tag) {
   ok(it.p.verify && it.p.verify.status === 'verified', tag + ': problem verified');
@@ -115,7 +112,7 @@ const CHECK = {
   }
 };
 
-for (const unit of Object.keys(M.skillSets)) for (const kind of PR.KINDS.map(k => k.id).filter(k => k !== 'vocabulary' && k !== 'match')) for (const level of ['cp2', 'cp1', 'honors']) for (let s = 0; s < SEEDS; s++) {
+for (const unit of Object.keys(M.skillSets)) for (const kind of PR.KINDS.map(k => k.id).filter(k => k !== 'vocabulary' && k !== 'match' && k !== 'project')) for (const level of ['cp2', 'cp1', 'honors']) for (let s = 0; s < SEEDS; s++) {
   const cfg = PR.defaultConfig(unit, kind); cfg.level = level; cfg.seed = 500 + s;
   const B = PR.build(cfg, s % 2), tag = unit + ' ' + kind + ' ' + level;
   if ((UNSUPPORTED[unit] || []).includes(kind)) { ok(!!B.error, tag + ': listed as unsupported (remove it from UNSUPPORTED if it works now)'); continue; }

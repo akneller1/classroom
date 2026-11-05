@@ -142,7 +142,7 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
    const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
    registry.set(id,{courseId:c.id,unitId:u.id});
    G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:['maze','color','partner','who','stations'].concat(['prealgebra','prealgebra7','math6','precalculus','calculus'].includes(c.id)?['tarsia','error']:[]),generate:function(){throw Error('Authored bank selection required')}}))});
+   NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:['maze','color','partner','who','stations','tarsia','error'],generate:function(){throw Error('Authored bank selection required')}}))});
   });
  });
  // Preserve original levels while selecting authored banks by exact level.

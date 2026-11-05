@@ -82,25 +82,17 @@
       var cnt = NS.counts(S);
       bits.push('<span>' + S.versions.length + (S.versions.length > 1 ? ' versions' : ' version') + '</span>');
       if (cnt.failed) bits.push('<span class="bad">' + cnt.failed + ' missing</span>');
-      if (cnt.unverified) bits.push('<span class="warn">' + cnt.unverified + ' failed verification</span>');
-      if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">' + (NS.skillSets[c.unitId] && NS.skillSets[c.unitId].authoredBank ? '✓ approved bank answers available for review' : '✓ ready to print (manual answers are not automatically checked)') + '</span>');
+      if (cnt.approval) bits.push('<span class="warn">' + 'need approval: ' + cnt.approval + ' teacher-written problem' + (cnt.approval > 1 ? 's' : '') + '</span>');
+      if (cnt.unverified - cnt.approval) bits.push('<span class="warn">' + (cnt.unverified - cnt.approval) + ' failed verification</span>');
+      if (!cnt.failed && !cnt.unverified) bits.push('<span class="ok">' + (NS.skillSets[c.unitId] && NS.skillSets[c.unitId].authoredBank ? '✓ approved bank answers available for review' : (cnt.manual ? '✓ every generated answer verified (' + cnt.manual + ' teacher-written or edited problem' + (cnt.manual > 1 ? 's are' : ' is') + ' not automatically checked)' : '✓ ready to print — every answer verified')) + '</span>');
     }
     if (rules.errors.length) bits.push('<span class="bad">' + rules.errors.length + ' rule problem' + (rules.errors.length > 1 ? 's' : '') + '</span>');
     box.innerHTML = bits.join('');
   }
 
   /* ---------------- SETUP (steps 1–5) ---------------- */
-  function classGroup(unitId) {
-    return NS.CATALOG.find(function (g) { return g.units.some(function (u) { return u[0] === unitId; }); });
-  }
-  function classOptions(group) {
-    return NS.CATALOG.map(function (g, i) {
-      var supported = g.units.some(function (u) { return !!NS.skillSets[u[0]]; });
-      return '<option value="' + i + '"' + (g === group ? ' selected' : '') + (supported ? '' : ' disabled') + '>' + esc(g.course) + '</option>';
-    }).join('');
-  }
-  function unitOptions(sel, group) {
-    return (group ? [group] : NS.CATALOG).map(function (g) {
+  function unitOptions(sel) {
+    return NS.CATALOG.map(function (g) {
       return '<optgroup label="' + esc(g.course) + '">' + g.units.map(function (u) {
         var ok = !!NS.skillSets[u[0]];
         return '<option value="' + u[0] + '"' + (u[0] === sel ? ' selected' : '') + (ok ? '' : ' disabled') + '>' + esc(u[1]) + (ok ? '' : ' — not yet supported') + '</option>';
@@ -109,14 +101,12 @@
   }
   function viewSetup() {
     var c = cfg(), set = NS.skillSets[c.unitId], rules = NS.checkRules(c, S);
-    var group = classGroup(c.unitId);
     var h = '';
     // 1
     h += '<section class="card mm-card" id="mmUnit"><h2><span class="step">1</span>Course and unit</h2>' +
-      (group ? '<label class="field"><span class="lbl">Class</span><select id="mmClassSel">' + classOptions(group) + '</select></label>' : '') +
-      '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId, group) + '</select></label>' +
+      '<label class="field"><span class="lbl">Unit</span><select id="mmUnitSel">' + unitOptions(c.unitId) + '</select></label>' +
       (PAGE_MODE ? '<p class="hint">' + (set.authoredBank ? 'Questions come from approved course banks with authored answers and worked steps. ' : 'Every problem is made fresh and its answer is checked by a separate verifier. ') + 'Choose short answer, multiple choice, choose all that apply, or Open Response (at least four parts) for each section in step 3. For a test or a choice menu, use the <a href="menu-assessment.html#unit=' + esc(c.unitId) + '">Assessment Generator</a>.</p>'
-       : '<p class="hint">For practice, use the <a href="worksheet.html#unit=' + esc(c.unitId) + '">Worksheet Generator</a>.</p>' +
+       : '<p class="hint">Available now: <b>' + Object.keys(NS.skillSets).filter(function (k) { return NS.skillSets[k].courseName; }).map(function (k) { return esc(NS.skillSets[k].courseName + ' · ' + NS.skillSets[k].unitName); }).join('</b>, <b>') + '</b>. Other units are listed so you can see what is planned; each one is added only after its problem generators pass the same verification tests. For practice, use the <a href="worksheet.html#unit=' + esc(c.unitId) + '">Worksheet Generator</a>.</p>' +
       '<fieldset class="field mm-mode"><legend class="lbl">Format</legend>' +
       '<label class="chk"><input type="radio" name="mmMode" value="test"' + (NS.isTest(c) ? ' checked' : '') + '><span>Standard test<small>Everyone answers every question: multiple-choice and short-answer parts, easier to harder.</small></span></label>' +
       '<label class="chk"><input type="radio" name="mmMode" value="menu"' + (NS.isTest(c) ? '' : ' checked') + '><span>Choice menu<small>Students choose problems from Appetizers, Entrées and Chef’s Specials.</small></span></label></fieldset>') +
@@ -208,14 +198,7 @@
   function bindSetup() {
     var c = cfg();
     function upd(fn, rerender) { return function (e) { if (S) snapshot(); fn(e); afterConfigChange(rerender); }; }
-    var classSelect = $('#mmClassSel');
-    if (classSelect) classSelect.onchange = function () {
-      var group = NS.CATALOG[classSelect.value];
-      var firstUnit = group.units.find(function (u) { return !!NS.skillSets[u[0]]; });
-      if (firstUnit) switchUnit(firstUnit[0]);
-    };
-    $('#mmUnitSel').onchange = function (e) { switchUnit(e.target.value); };
-    function switchUnit(id) { if (authoredRoute(id)) return; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); }   // a new unit starts in the same format
+    $('#mmUnitSel').onchange = function (e) { var id = e.target.value; if (authoredRoute(id)) return; if (!NS.skillSets[id]) return; snapshot(); autosave(); try { G.history.replaceState(null, '', '#unit=' + id + (c.mode === 'menu' ? '&mode=menu' : '')); } catch (er) { /* ignore */ } loadUnit(id, c.level); render(); autosave(); };   // a new unit starts in the same format
     $$('input[name=mmMode]').forEach(function (r) { r.onchange = function () {
       if (S) { change(function () { NS.setMode(S.config, r.value); S.versions.forEach(function (v) { v.sections = []; }); NS.syncStructure(S); }, r.value === 'test' ? 'Switched to a standard test. New questions were made for the test parts.' : 'Switched to a choice menu. New problems were made for the menu sections.'); }
       else { NS.setMode(draft, r.value); autosave(); render(); }
@@ -382,7 +365,9 @@
       '<button type="button" class="btn sm ghost" data-act="up" aria-label="Move ' + lab + ' up"' + (i === 0 ? ' disabled' : '') + '>↑</button>' +
       '<button type="button" class="btn sm ghost" data-act="down" aria-label="Move ' + lab + ' down"' + (i === S.versions[ui.version].sections[si].items.length - 1 ? ' disabled' : '') + '>↓</button>' +
       (NS.isTest(c) ? '' : '<button type="button" class="btn sm ghost" data-act="required" aria-pressed="' + !!p.required + '">' + (p.required ? '★ Required' : '☆ Make required') + '</button>') +
-      '<button type="button" class="btn sm ghost danger" data-act="delete" aria-label="Delete ' + lab + '">🗑 Delete</button></span></div>';
+      '<button type="button" class="btn sm ghost danger" data-act="delete" aria-label="Delete ' + lab + '">🗑 Delete</button></span>' +
+      // Answers the site cannot check (teacher-written, or failed re-verification) print only after the teacher approves them
+      (!p.failed && p.verify && p.verify.status !== 'verified' ? '<label class="mm-approve" style="display:inline-flex;gap:6px;align-items:center;margin-left:8px;font-weight:600"><input type="checkbox" class="mmApprove"' + (p.approved ? ' checked' : '') + '> I checked this answer</label>' : '') + '</div>';
     return '<article class="mm-dcard' + (p.failed ? ' failed' : '') + (p.pinned ? ' pinned' : '') + '" data-uid="' + p.uid + '" aria-label="' + lab + ' ' + esc(skillName) + '">' + head +
       '<div class="mm-cskill">' + esc(skillName) + lockedNote + '</div>' + body + issues + (show && !p.failed ? answerBlock(p) : '') + tools + '</article>';
   }
@@ -431,6 +416,8 @@
     $('#mmToPreview').onclick = function () { ui.view = 'preview'; render(); G.scrollTo(0, 0); };
     $$('.mm-dcard').forEach(function (card) {
       var id = card.getAttribute('data-uid');
+      var ap = $('.mmApprove', card);
+      if (ap) ap.onchange = function () { var on = ap.checked; change(function () { NS.approve(S, ui.version, id, on); }, on ? 'Answer approved.' : 'Approval removed.'); };
       $$('[data-act]', card).forEach(function (b) {
         var act = b.getAttribute('data-act');
         var h = function () { dishAction(act, id, b); };

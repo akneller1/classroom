@@ -21,6 +21,10 @@
   };
   M.UNITS = {
     'prealgebra-linear-functional-relationships': { fams: ['linear'], def: ['linear'] },
+    'prealgebra7-linear-functions-graphing': { fams: ['linear'], def: ['linear'] },
+    'prealgebra7-nonlinear-functions-polynomials': { fams: ['quadratic', 'exponential', 'linear', 'arith', 'geom'], def: ['quadratic', 'exponential', 'linear'] },
+    'precalculus-functions': { fams: ['linear', 'quadratic', 'absolute', 'sqrt', 'cubic', 'rational', 'exponential', 'log'], def: ['quadratic', 'absolute', 'sqrt', 'rational', 'exponential'], a2: true, xform: true },
+    'calculus-precalculus-review': { fams: ['exponential', 'log', 'quadratic', 'cubic', 'rational'], def: ['exponential', 'log', 'quadratic'], a2: true },
     'algebra1-linear-equations-slope': { fams: ['linear'], def: ['linear'] },
     'algebra1-exponential-functions': { fams: ['exponential', 'linear'], def: ['exponential'] },
     'algebra1-quadratics': { fams: ['quadratic'], def: ['quadratic'] },

@@ -79,7 +79,7 @@
     NS.CATALOG.forEach(function (g) { g.units.forEach(function (u) { if (M.supported(u[0])) out.push({ id: u[0], name: u[1], course: g.course }); }); });
     return out;
   }
-  function levelName(unit,id){return /^prealgebra-/.test(unit)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[id]:NS.LEVELS[id].name;}
+  function levelName(unit,id){return /^(prealgebra7?|math6)-/.test(unit)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[id]:NS.LEVELS[id].name;}
   function unitName(id) { var u = supportedUnits().filter(function (x) { return x.id === id; })[0]; return u ? u.name : id; }
   function parseHash() {
     var o = {}; String(G.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var i = kv.indexOf('='); if (i > 0) o[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1)); });
@@ -532,7 +532,7 @@
     $('#mgApp').innerHTML = '<div class="mg-setup card"><h1>Function Matching Game</h1>' +
       '<p class="hint">Match each function’s <b>graph</b>, <b>equation</b>, <b>table</b> and <b>description</b>. Every card fits exactly one set. These are the same verified cards as the printable Matching Card Sort.</p>' +
       '<label class="field"><span class="lbl">Unit</span><select id="suUnit">' + Array.from(new Set(units.map(function(u){return u.course;}))).map(function (course) { var us = units.filter(function (u) { return u.course === course; }); return us.length ? '<optgroup label="' + course + '">' + us.map(function (u) { return '<option value="' + u.id + '"' + (u.id === c.unit ? ' selected' : '') + '>' + esc(u.name) + '</option>'; }).join('') + '</optgroup>' : ''; }).join('') + '</select></label>' +
-      '<fieldset class="field"><legend class="lbl">Level</legend><div class="mg-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="suLevel" value="' + id + '"' + (c.level === id ? ' checked' : '') + '><span>' + esc(/^prealgebra-/.test(c.unit)?levelName(c.unit,id):NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div></fieldset>' +
+      '<fieldset class="field"><legend class="lbl">Level</legend><div class="mg-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="suLevel" value="' + id + '"' + (c.level === id ? ' checked' : '') + '><span>' + esc(/^(prealgebra7?|math6)-/.test(c.unit)?levelName(c.unit,id):NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div></fieldset>' +
       '<fieldset class="field"><legend class="lbl">Function types</legend><div id="suFams">' + famBox(c.unit, c.fams) + '</div></fieldset>' +
       '<label class="field"><span class="lbl">Number of sets</span><select id="suSets">' + [4, 6, 8, 10].map(function (n) { return '<option value="' + n + '"' + (c.sets === n ? ' selected' : '') + '>' + n + ' sets (' + 4 * n + ' cards)</option>'; }).join('') + '</select></label>' +
       '<label class="chk"><input type="checkbox" id="suEq"' + (c.eq ? ' checked' : '') + '><span>Start with each equation already in its set <small>Recommended: students find the graph, table and description for each equation.</small></span></label>' +

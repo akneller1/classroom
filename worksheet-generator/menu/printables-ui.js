@@ -95,7 +95,7 @@
     var ttl = title(cfg), line = 'Start in the top-left room. Solve the problem, find the door with your answer, and go through it. Show your work on your answer grid.';
     var P = [{ land: true, nofoot: true, html: '<div class="mm-body pc">' + classicHead(cfg, nV, v, key, ttl, line) + mazeHtml(B, key) + '</div>' }];
     var numbered = B.items.filter(function(it){return it.numberedRoom;});
-    if (numbered.length) P = P.concat(chunkPages(cfg,nV,v,key,'Maze Problems',numbered,4,function(list){return '<p>Use these numbered problems in the maze rooms. Follow the door showing your answer.</p>' + list.map(function(it){return '<section class="mm-box"><b>Problem '+it.num+'.</b> '+prompt(it.p)+(key?'<p><b>Answer:</b> '+mathSafe(it.key)+'</p><ol>'+steps(it.p)+'</ol>':'<div style="min-height:1in"></div>')+'</section>';}).join('');}));
+    if (numbered.length) P = P.concat(chunkPages(cfg,nV,v,key,'Maze Problems',numbered,8,function(list){return '<p>Use these numbered problems in the maze rooms. Follow the door showing your answer.</p><div class="pm-listgrid">' + list.map(function(it){return '<section class="mm-box pm-listed"><b>Problem '+it.num+'.</b> '+prompt(it.p)+(key?'<p><b>Answer:</b> '+mathSafe(it.key)+'</p><ol>'+steps(it.p)+'</ol>':'<div style="min-height:1in"></div>')+'</section>';}).join('')+'</div>';}));
     var rows = B.rooms.filter(function (r) { return r.step !== null && !r.finish; }).sort(function (a, b) { return a.step - b.step; });
     if (!key) {
       // A roomy 2-column × 5-row work grid. Longer mazes continue onto a second
@@ -143,7 +143,7 @@
         var n = Math.min(p.per, p.list.length - i), pg;
         for (; n >= 1; n--) {
           pg = p.raw ? { html: p.html(i, i + n), nofoot: true } : page(p.cfg, p.nV, p.v, p.key, p.html(i, i + n));
-          var e = doc.createElement('div'); e.className = 'page mm-page pr-page'; e.innerHTML = pg.html; stage.appendChild(e);
+          var e = doc.createElement('div'); e.className = 'page mm-page pr-page'; e.innerHTML = pg.html; mathDisplay(e); stage.appendChild(e);
           var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight + 1; stage.removeChild(e);
           if (fits || n === 1) break;
         }
@@ -301,7 +301,9 @@
         '<div class="pr-tbox">' + tarsiaSvg(B, false, layout, 0) + '</div></div>' });
       if (large) for (var ls = 1; ls < Math.ceil(B.pieces.length / 6); ls++) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl, 'Large print · Cut-out sheet ' + (ls + 1), false) + '<div class="pr-tbox">' + tarsiaSvg(B, false, layout, ls) + '</div></div>' });
       var sorted = B.items.slice().sort(function (a, b) { return a.num - b.num; });
-      for (var i = 0; i < n; i += 15) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, 'Show Your Work', ttl + ' · Problems ' + (i + 1) + '–' + Math.min(n, i + 15), true) +
+      // Problems with a diagram (Geometry, bank graphs) print in full, diagram included, with room to work; text-only problems use the compact grid
+      if (sorted.some(function (it) { return it.p.fig; })) P = P.concat(chunkPages(cfg, nV, v, false, 'Tarsia Problems: Show Your Work', sorted, 8, function (list) { return '<p>Solve each numbered problem, then find its answer on a triangle edge.</p><div class="pm-listgrid">' + list.map(function (it) { return '<section class="mm-box pm-listed"><b>Problem ' + it.num + '.</b> ' + prompt(it.p) + '<div style="min-height:.8in"></div></section>'; }).join('') + '</div>'; }));
+      else for (var i = 0; i < n; i += 15) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, 'Show Your Work', ttl + ' · Problems ' + (i + 1) + '–' + Math.min(n, i + 15), true) +
         '<div class="pt-grid">' + sorted.slice(i, i + 15).map(function (it) { return '<div><b>' + it.num + '.</b><div>' + mathSafe(it.p.prompt) + '</div></div>'; }).join('') + '</div></div>' });
     } else {
       P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl + ': Answer Key', 'Solved ' + B.shape + '. Each shared edge pairs a problem with its answer.', false) + '<div class="pr-tbox">' + tarsiaSvg(B, true, layout, 0) + '</div></div>' });
@@ -478,6 +480,8 @@
     return P;
   }
 
+  /* Division written with a slash in bank questions (2/5, (x + 1)/(x - 3)) prints as a stacked fraction, like the worksheets and games. */
+  function mathDisplay(e) { if (G.MK_MATH_DISPLAY && G.MK_MATH_DISPLAY.decorate) G.MK_MATH_DISPLAY.decorate(e); }
   PR.pages = function (cfg, B, v, nV, key) {
     return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages, match: matchPages })[cfg.kind](cfg, B, v, nV, key);
   };
@@ -486,6 +490,7 @@
     return P.map(function (p, i) {
       var e = doc.createElement('div'); e.className = 'page mm-page pr-page' + (p.land ? ' pr-land' : '') + (p.cls ? ' ' + p.cls : '');
       e.innerHTML = p.html + (p.nofoot ? (p.brand ? '<div class="pc-brand">Mr. K\'s Classroom</div>' : '') : '<div class="mm-foot"><span>' + p.foot + '</span><span>Page ' + (i + 1) + ' of ' + P.length + '</span></div>');
+      mathDisplay(e);
       return e;
     });
   };
@@ -512,27 +517,13 @@
   }
   function save() { lsSet(KEY + ':' + unit + ':' + kind, JSON.stringify(cfg)); }
   function setHash() { try { G.history.replaceState(null, '', '#unit=' + unit + '&kind=' + kind); } catch (e) { /* ignore */ } }
-  function availableUnits(group) {
-    return group.units.filter(function (u) { return !!NS.skillSets[u[0]]; });
-  }
-  function classOptions(group) {
-    return NS.CATALOG.map(function (g, i) {
-      if (!availableUnits(g).length) return '';
-      return '<option value="' + i + '"' + (g === group ? ' selected' : '') + '>' + esc(g.course) + '</option>';
-    }).join('');
-  }
-  function unitOptions(group) {
-    return (group ? availableUnits(group) : NS.CATALOG.flatMap(availableUnits)).map(function (u) {
-      return '<option value="' + u[0] + '"' + (u[0] === unit ? ' selected' : '') + '>' + esc(u[1]) + '</option>';
-    }).join('');
+  function unitOptions() {
+    return NS.CATALOG.map(function (g) { return '<optgroup label="' + esc(g.course) + '">' + g.units.filter(function (u) { return NS.skillSets[u[0]]; }).map(function (u) { return '<option value="' + u[0] + '"' + (u[0] === unit ? ' selected' : '') + '>' + esc(u[1]) + '</option>'; }).join('') + '</optgroup>'; }).join('');
   }
   function controls() {
     var set = NS.skillSets[unit], k = PR.kind(kind);
-    var group = NS.CATALOG.find(function (g) { return g.units.some(function (u) { return u[0] === unit; }); });
-    var h = '<section class="card"><h2>Activity</h2>' +
-      '<label class="field"><span class="lbl">Class</span><select id="prClass">' + classOptions(group) + '</select></label>' +
-      '<label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions(group) + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing functions (linear, quadratic, exponential and the Algebra 2 function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+    var h = '<section class="card"><h2>Activity</h2><label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions() + '</select></label>' +
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing families of functions (linear, quadratic, exponential and other function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
     if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>CP2</b> (guided), <b>CP1</b> (standard) and <b>Honors</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
       '<section class="card"><h2>Teacher guide &amp; answer keys</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels are available from each project card below.</p></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
@@ -560,12 +551,7 @@
   }
   function render() {
     $('#prControls').innerHTML = controls();
-    function switchUnit(id) { unit = id; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); }
-    $('#prClass').onchange = function (e) {
-      var firstUnit = availableUnits(NS.CATALOG[e.target.value])[0];
-      if (firstUnit) switchUnit(firstUnit[0]);
-    };
-    $('#prUnit').onchange = function (e) { switchUnit(e.target.value); };
+    $('#prUnit').onchange = function (e) { unit = e.target.value; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); };
     $$('input[name=prKind]').forEach(function (r) { r.onchange = function () { kind = r.value; load(); setHash(); rebuild(); }; });
     $$('input[name=prLevel]').forEach(function (r) { r.onchange = function () { cfg.level = r.value; save(); rebuild(); }; });
     $$('.prSkill').forEach(function (b) { b.onchange = function () { cfg.skills[b.value] = b.checked; save(); rebuild(); }; });
@@ -640,7 +626,7 @@
     pv.innerHTML = tools + (built[ui.v].levelNote ? '<div class="pr-busy">' + esc(built[ui.v].levelNote) + '</div>' : '') + '<div class="pr-pages"></div>';
     var box = $('.pr-pages', pv);
     PR.pageEls(cfg, built[ui.v], ui.v, built.length, ui.doc === 'key').forEach(function (p) { var w = doc.createElement('div'); w.className = 'pr-pwrap'; w.appendChild(p); box.appendChild(w); });
-    fit(); fitTarsiaLabels(pv); bindTools();
+    fit(); fitTarsiaLabels(pv); fitBoxes(pv); bindTools();
   }
   /* Fit the rendered KaTeX, not a character-count estimate. Keep each label inside
      its own edge strip, including rotated labels and stacked fractions. */
@@ -660,6 +646,19 @@
       fo.setAttribute('data-readable', scale >= 0.72 ? 'true' : 'false');
     });
   }
+  /* Fixed-size boxes (Color by Number, Partner Check, Error Analysis, Whodunnit cards, stations, maze rooms):
+     a long problem or a tall picture shrinks to fit instead of being cut off at the bottom of its box. */
+  function fitBoxes(root) {
+    $$('.pc-box,.pp-box,.pe-box,.pw-card,.ps-q,.pm-room,.pm-q,.pm-big', root).forEach(function (b) {
+      var fs = parseFloat(G.getComputedStyle(b).fontSize) || 12, n = 0;
+      while ((b.scrollHeight > b.clientHeight + 2 || b.scrollWidth > b.clientWidth + 2) && n < 14) {
+        fs *= 0.93; b.style.fontSize = fs.toFixed(2) + 'px'; n++;
+        $$('img,svg', b).forEach(function (im) { if (n > 4) im.style.maxHeight = Math.max(0.45, 0.9 - (n - 4) * 0.06).toFixed(2) + 'in'; });
+      }
+      if (n) b.setAttribute('data-fit-steps', n);
+    });
+  }
+  PR.fitBoxes = fitBoxes;
   function fit() { var box = $('.pr-pages'); if (!box) return; $$('.pr-pwrap', box).forEach(function (w) { var pw = w.firstChild && w.firstChild.classList.contains('pr-land') ? 11 : 8.5; w.style.zoom = Math.min(1, (box.clientWidth - 8) / (pw * 96)); }); }
   function bindTools() {
     $$('[data-doc]').forEach(function (b) { b.onclick = function () { ui.doc = b.getAttribute('data-doc'); drawPreview(); }; });
@@ -672,6 +671,7 @@
     built.forEach(function (B, v) { PR.pageEls(cfg, B, v, built.length, key).forEach(function (p) { root.appendChild(p); }); });
     doc.body.classList.add('printing');
     fitTarsiaLabels(root);
+    fitBoxes(root);
     var done = function () { doc.body.classList.remove('printing'); root.innerHTML = ''; G.removeEventListener('afterprint', done); };
     G.addEventListener('afterprint', done);
     setTimeout(function () { G.print(); setTimeout(function () { if (doc.body.classList.contains('printing') && !G.matchMedia('print').matches) done(); }, 1500); }, 60);

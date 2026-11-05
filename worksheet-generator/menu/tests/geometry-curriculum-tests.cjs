@@ -6,7 +6,7 @@ const vm=require('node:vm');
 const env=require('./load.cjs')();
 const menu=env.MKMENU;
 const ctx={window:{}};vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('data.js','utf8'),ctx);
+vm.runInContext(fs.readFileSync(require('node:path').resolve(__dirname,'../../../data.js'),'utf8'),ctx);
 const published=ctx.window.LIBRARY.courses.find(c=>c.id==='geometry');
 const catalog=menu.CATALOG.find(c=>c.course==='Geometry');
 assert.equal(published.units.length,10,'Published Geometry should have ten units');

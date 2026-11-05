@@ -6547,6 +6547,4677 @@
     "S-IC.B.4"
    ],
    "sourceNotes": "Original Claude-authored item; answer computed and checked in authoring script. Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-007",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In how many different orders can 4 runners line up?",
+   "answer": "24",
+   "solutionSteps": [
+    "Use 4! = 4 · 3 · 2 · 1.",
+    "= 24."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-008",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "How many ways can a club of 10 members choose a president, a vice president, and a secretary?",
+   "answer": "720",
+   "options": [
+    {
+     "text": "720",
+     "correct": true
+    },
+    {
+     "text": "1000",
+     "correct": false
+    },
+    {
+     "text": "120",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order matters: use P(10, 3).",
+    "n! ÷ (n - k)!.",
+    "= 720."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-009",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "There are 5 shirts, 4 pants, and 2 pairs of shoes. How many different outfits use one of each?",
+   "answer": "40",
+   "options": [
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "22",
+     "correct": false
+    },
+    {
+     "text": "40",
+     "correct": true
+    },
+    {
+     "text": "165",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Fundamental counting principle: multiply the choices.",
+    "5 · 4 · 2 = 40."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-010",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "How many ways can a club of 12 members choose a president, a vice president, a secretary, and a treasurer?",
+   "answer": "11880",
+   "solutionSteps": [
+    "Order matters: use P(12, 4).",
+    "n! ÷ (n - k)!.",
+    "= 11880."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-011",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In how many different orders can 7 runners line up?",
+   "answer": "5040",
+   "solutionSteps": [
+    "Use 7! = 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "= 5040."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-012",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "How many different 2-topping pizzas can be made from 9 toppings?",
+   "answer": "36",
+   "options": [
+    {
+     "text": "72",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "81",
+     "correct": false
+    },
+    {
+     "text": "36",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Order does not matter: use C(9, 2).",
+    "n! ÷ (k!(n - k)!).",
+    "= 36."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-013",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In how many different orders can 4 students sit in a row?",
+   "answer": "24",
+   "solutionSteps": [
+    "Use 4! = 4 · 3 · 2 · 1.",
+    "= 24."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-014",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nIn how many different orders can 8 runners line up?\nDev's answer: 256\nIdentify the mistake and give the correct answer.",
+   "answer": "40320",
+   "solutionSteps": [
+    "Mistake: Used 2ⁿ.",
+    "Use 8! = 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "= 40320.",
+    "The correct answer is 40320, not 256."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-015",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nHow many different 5-topping pizzas can be made from 13 toppings?\nWren's answer: 65\nIdentify the mistake and give the correct answer.",
+   "answer": "1287",
+   "solutionSteps": [
+    "Mistake: Multiplied n by k.",
+    "Order does not matter: use C(13, 5).",
+    "n! ÷ (k!(n - k)!).",
+    "= 1287.",
+    "The correct answer is 1287, not 65."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp2-016",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "There are 4 appetizers, 2 entrées, and 4 desserts. How many different meals use one of each?",
+     "answer": "32"
+    },
+    {
+     "prompt": "In how many different orders can 7 students sit in a row?",
+     "answer": "5040"
+    },
+    {
+     "prompt": "There are 4 shirts, 3 pants, and 3 pairs of shoes. How many different outfits use one of each?",
+     "answer": "36"
+    },
+    {
+     "prompt": "In how many different orders can 5 students sit in a row?",
+     "answer": "120"
+    }
+   ],
+   "answer": "(a) 32; (b) 5040; (c) 36; (d) 120",
+   "solutionSteps": [
+    "(a) Fundamental counting principle: multiply the choices. 4 · 2 · 4 = 32.",
+    "(b) Use 7! = 7 · 6 · 5 · 4 · 3 · 2 · 1. = 5040.",
+    "(c) Fundamental counting principle: multiply the choices. 4 · 3 · 3 = 36.",
+    "(d) Use 5! = 5 · 4 · 3 · 2 · 1. = 120."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-021",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nThere are 2 appetizers, 3 entrées, and 4 desserts. How many different meals use one of each?\nAva's answer: 9\nIdentify the mistake and give the correct answer.",
+   "answer": "24",
+   "solutionSteps": [
+    "Mistake: Added the choices.",
+    "Fundamental counting principle: multiply the choices.",
+    "2 · 3 · 4 = 24.",
+    "The correct answer is 24, not 9."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-cp1-022",
+   "skillId": "probability-statistics-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nIn how many ways can 2 runners finish first through second in a race with 5 runners?\nRosa's answer: 10\nIdentify the mistake and give the correct answer.",
+   "answer": "20",
+   "solutionSteps": [
+    "Mistake: Used combinations.",
+    "Order matters: use P(5, 2).",
+    "n! ÷ (n - k)!.",
+    "= 20.",
+    "The correct answer is 20, not 10."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-005",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "From 12 people, how many ways can a captain and co-captain be chosen?",
+   "answer": "132",
+   "solutionSteps": [
+    "Order matters, so use ₙPᵣ = 12! ÷ (12 - 2)!.",
+    "= 12 · 11 = 132."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-006",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many ways can a committee of 5 be chosen from 10 people?",
+   "answer": "252",
+   "options": [
+    {
+     "text": "100000",
+     "correct": false
+    },
+    {
+     "text": "50",
+     "correct": false
+    },
+    {
+     "text": "252",
+     "correct": true
+    },
+    {
+     "text": "30240",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order does not matter: use C(10, 5).",
+    "n! ÷ (k!(n - k)!).",
+    "= 252."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-007",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "There are 3 appetizers, 4 entrées, and 4 desserts. How many different meals use one of each?",
+   "answer": "48",
+   "options": [
+    {
+     "text": "16",
+     "correct": false
+    },
+    {
+     "text": "165",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    },
+    {
+     "text": "48",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Fundamental counting principle: multiply the choices.",
+    "3 · 4 · 4 = 48."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-008",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many ways can a committee of 3 be chosen from 14 people?",
+   "answer": "364",
+   "solutionSteps": [
+    "Order does not matter: use C(14, 3).",
+    "n! ÷ (k!(n - k)!).",
+    "= 364."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-009",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In how many different orders can 8 runners line up?",
+   "answer": "40320",
+   "solutionSteps": [
+    "Use 8! = 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1.",
+    "= 40320."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-010",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many ways can a club of 11 members choose a president, a vice president, a secretary, and a treasurer?",
+   "answer": "7920",
+   "options": [
+    {
+     "text": "44",
+     "correct": false
+    },
+    {
+     "text": "7920",
+     "correct": true
+    },
+    {
+     "text": "330",
+     "correct": false
+    },
+    {
+     "text": "14641",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order matters: use P(11, 4).",
+    "n! ÷ (n - k)!.",
+    "= 7920."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-011",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "From 9 people, how many ways can 4 different officer positions be chosen?",
+   "answer": "3024",
+   "options": [
+    {
+     "text": "6561",
+     "correct": false
+    },
+    {
+     "text": "126",
+     "correct": false
+    },
+    {
+     "text": "3024",
+     "correct": true
+    },
+    {
+     "text": "36",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order matters, so use ₙPᵣ = 9! ÷ (9 - 4)!.",
+    "= 9 · 8 · 7 · 6 = 3024."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-012",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many ways can a committee of 4 be chosen from 13 people?",
+   "answer": "715",
+   "solutionSteps": [
+    "Order does not matter: use C(13, 4).",
+    "n! ÷ (k!(n - k)!).",
+    "= 715."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-013",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "There are 5 appetizers, 2 entrées, and 2 desserts. How many different meals use one of each?",
+   "answer": "20",
+   "solutionSteps": [
+    "Fundamental counting principle: multiply the choices.",
+    "5 · 2 · 2 = 20."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-014",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nFrom 11 people, how many ways can first, second, and third place be chosen?\nAva's answer: 33\nIdentify the mistake and give the correct answer.",
+   "answer": "990",
+   "solutionSteps": [
+    "Mistake: Multiplied n by r.",
+    "Order matters, so use ₙPᵣ = 11! ÷ (11 - 3)!.",
+    "= 11 · 10 · 9 = 990.",
+    "The correct answer is 990, not 33."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-015",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nHow many ways can a club of 5 members choose a president, a vice president, and a secretary?\nWren's answer: 125\nIdentify the mistake and give the correct answer.",
+   "answer": "60",
+   "solutionSteps": [
+    "Mistake: Allowed repetition.",
+    "Order matters: use P(5, 3).",
+    "n! ÷ (n - k)!.",
+    "= 60.",
+    "The correct answer is 60, not 125."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_counta2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s01-honors-016",
+   "skillId": "probability-statistics-skill-01",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "There are 2 shirts, 3 pants, and 2 pairs of shoes. How many different outfits use one of each?",
+     "answer": "12"
+    },
+    {
+     "prompt": "From 7 people, how many ways can a captain and co-captain be chosen?",
+     "answer": "42"
+    },
+    {
+     "prompt": "From 6 people, how many ways can a president, vice president, and secretary be chosen?",
+     "answer": "120"
+    },
+    {
+     "prompt": "From 10 people, how many ways can a president, vice president, and secretary be chosen?",
+     "answer": "720"
+    }
+   ],
+   "answer": "(a) 12; (b) 42; (c) 120; (d) 720",
+   "solutionSteps": [
+    "(a) Fundamental counting principle: multiply the choices. 2 · 3 · 2 = 12.",
+    "(b) Order matters, so use ₙPᵣ = 7! ÷ (7 - 2)!. = 7 · 6 = 42.",
+    "(c) Order matters, so use ₙPᵣ = 6! ÷ (6 - 3)!. = 6 · 5 · 4 = 120.",
+    "(d) Order matters, so use ₙPᵣ = 10! ÷ (10 - 3)!. = 10 · 9 · 8 = 720."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s1_perm_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-005",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "How many ways can you choose a committee of 4 from 12 students?",
+   "answer": "495",
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(12, 4) = 495."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-006",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A group has 3 girls and 4 boys. A committee of 4 is chosen at random. Find the probability that exactly 1 are girls. Give an exact fraction.",
+   "answer": "12/35",
+   "options": [
+    {
+     "text": "12/35",
+     "correct": true
+    },
+    {
+     "text": "192/2401",
+     "correct": false
+    },
+    {
+     "text": "1/4",
+     "correct": false
+    },
+    {
+     "text": "3/35",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Favorable: C(3, 1)·C(4, 3) = 12.",
+    "Total: C(7, 4) = 35.",
+    "P = 12/35."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-007",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "How many ways can you choose a committee of 4 from 7 students?",
+   "answer": "35",
+   "options": [
+    {
+     "text": "35",
+     "correct": true
+    },
+    {
+     "text": "42",
+     "correct": false
+    },
+    {
+     "text": "28",
+     "correct": false
+    },
+    {
+     "text": "840",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(7, 4) = 35."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-008",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A group has 8 girls and 3 boys. A committee of 4 is chosen at random. Find the probability that exactly 2 are girls. Give an exact fraction.",
+   "answer": "14/55",
+   "solutionSteps": [
+    "Favorable: C(8, 2)·C(3, 2) = 84.",
+    "Total: C(11, 4) = 330.",
+    "P = 14/55."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-009",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "How many ways can you choose 2 books to read from a list of 9?",
+   "answer": "36",
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(9, 2) = 36."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-010",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A group has 8 girls and 9 boys. A committee of 4 is chosen at random. Find the probability that exactly 2 are girls. Give an exact fraction.",
+   "answer": "36/85",
+   "options": [
+    {
+     "text": "1/85",
+     "correct": false
+    },
+    {
+     "text": "36/85",
+     "correct": true
+    },
+    {
+     "text": "5184/83521",
+     "correct": false
+    },
+    {
+     "text": "1/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Favorable: C(8, 2)·C(9, 2) = 1008.",
+    "Total: C(17, 4) = 2380.",
+    "P = 36/85."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-011",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "How many ways can you choose a team of 5 players from 6 players?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "720",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(6, 5) = 6."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-012",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A group has 8 girls and 5 boys. A committee of 2 is chosen at random. Find the probability that exactly 0 are girls. Give an exact fraction.",
+   "answer": "5/39",
+   "solutionSteps": [
+    "Favorable: C(8, 0)·C(5, 2) = 10.",
+    "Total: C(13, 2) = 78.",
+    "P = 5/39."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-013",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "How many ways can you choose 5 toppings from 12 available toppings?",
+   "answer": "792",
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(12, 5) = 792."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-014",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nHow many ways can you choose a team of 4 players from 7 players?\nAva's answer: 28\nIdentify the mistake and give the correct answer.",
+   "answer": "35",
+   "solutionSteps": [
+    "Mistake: Multiplied n by r.",
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(7, 4) = 35.",
+    "The correct answer is 35, not 28."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-015",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nHow many ways can you choose a committee of 2 from 11 students?\nQuinn's answer: 110\nIdentify the mistake and give the correct answer.",
+   "answer": "55",
+   "solutionSteps": [
+    "Mistake: Used permutations even though order does not matter.",
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(11, 2) = 55.",
+    "The correct answer is 55, not 110."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp2-016",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "How many ways can you choose 3 toppings from 10 available toppings?",
+     "answer": "120"
+    },
+    {
+     "prompt": "How many ways can you choose 5 toppings from 7 available toppings?",
+     "answer": "21"
+    },
+    {
+     "prompt": "How many ways can you choose 2 books to read from a list of 13?",
+     "answer": "78"
+    },
+    {
+     "prompt": "How many ways can you choose a team of 5 players from 15 players?",
+     "answer": "3003"
+    }
+   ],
+   "answer": "(a) 120; (b) 21; (c) 78; (d) 3003",
+   "solutionSteps": [
+    "(a) Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!). C(10, 3) = 120.",
+    "(b) Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!). C(7, 5) = 21.",
+    "(c) Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!). C(13, 2) = 78.",
+    "(d) Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!). C(15, 5) = 3003."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-021",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nHow many ways can you choose a team of 5 players from 11 players?\nNia's answer: 55\nIdentify the mistake and give the correct answer.",
+   "answer": "462",
+   "solutionSteps": [
+    "Mistake: Multiplied n by r.",
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(11, 5) = 462.",
+    "The correct answer is 462, not 55."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-cp1-022",
+   "skillId": "probability-statistics-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nHow many ways can you choose a committee of 2 from 15 students?\nJamal's answer: 30\nIdentify the mistake and give the correct answer.",
+   "answer": "105",
+   "solutionSteps": [
+    "Mistake: Multiplied n by r.",
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(15, 2) = 105.",
+    "The correct answer is 105, not 30."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-007",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A club has 7 juniors and 6 seniors. How many ways can a group of 5 juniors and 2 seniors be chosen?",
+   "answer": "315",
+   "solutionSteps": [
+    "Juniors: ₙCᵣ = C(7, 5) = 21.",
+    "Seniors: C(6, 2) = 15.",
+    "Multiply: 315."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-008",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A group has 8 girls and 7 boys. A committee of 3 is chosen at random. Find the probability that exactly 1 are girls. Give an exact fraction.",
+   "answer": "24/65",
+   "options": [
+    {
+     "text": "1/3",
+     "correct": false
+    },
+    {
+     "text": "392/3375",
+     "correct": false
+    },
+    {
+     "text": "24/65",
+     "correct": true
+    },
+    {
+     "text": "8/455",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Favorable: C(8, 1)·C(7, 2) = 168.",
+    "Total: C(15, 3) = 455.",
+    "P = 24/65."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-009",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many ways can you choose a team of 3 players from 14 players?",
+   "answer": "364",
+   "options": [
+    {
+     "text": "364",
+     "correct": true
+    },
+    {
+     "text": "91",
+     "correct": false
+    },
+    {
+     "text": "2184",
+     "correct": false
+    },
+    {
+     "text": "42",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(14, 3) = 364."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-010",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A group has 6 girls and 4 boys. A committee of 3 is chosen at random. Find the probability that exactly 2 are girls. Give an exact fraction.",
+   "answer": "1/2",
+   "solutionSteps": [
+    "Favorable: C(6, 2)·C(4, 1) = 60.",
+    "Total: C(10, 3) = 120.",
+    "P = 1/2."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-011",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many ways can you choose 4 books to read from a list of 12?",
+   "answer": "495",
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(12, 4) = 495."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-012",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A group has 9 girls and 3 boys. A committee of 3 is chosen at random. Find the probability that exactly 0 are girls. Give an exact fraction.",
+   "answer": "1/220",
+   "solutionSteps": [
+    "Favorable: C(9, 0)·C(3, 3) = 1.",
+    "Total: C(12, 3) = 220.",
+    "P = 1/220."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s3_proba2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-013",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "How many ways can you choose a team of 3 players from 6 players?",
+   "answer": "20",
+   "options": [
+    {
+     "text": "20",
+     "correct": true
+    },
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "120",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Order does not matter, so use ₙCᵣ = n! ÷ (r!(n - r)!).",
+    "C(6, 3) = 20."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-014",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nA club has 11 juniors and 6 seniors. How many ways can a group of 3 juniors and 3 seniors be chosen?\nYusuf's answer: 12376\nIdentify the mistake and give the correct answer.",
+   "answer": "3300",
+   "solutionSteps": [
+    "Mistake: Ignored the class restriction.",
+    "Juniors: ₙCᵣ = C(11, 3) = 165.",
+    "Seniors: C(6, 3) = 20.",
+    "Multiply: 3300.",
+    "The correct answer is 3300, not 12376."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-015",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Zoe answered this problem incorrectly.\nA club has 5 juniors and 6 seniors. How many ways can a group of 4 juniors and 3 seniors be chosen?\nZoe's answer: 14400\nIdentify the mistake and give the correct answer.",
+   "answer": "100",
+   "solutionSteps": [
+    "Mistake: Used permutations even though order does not matter.",
+    "Juniors: ₙCᵣ = C(5, 4) = 5.",
+    "Seniors: C(6, 3) = 20.",
+    "Multiply: 100.",
+    "The correct answer is 100, not 14400."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s02-honors-016",
+   "skillId": "probability-statistics-skill-02",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A club has 14 juniors and 5 seniors. How many ways can a group of 4 juniors and 1 seniors be chosen?",
+     "answer": "5005"
+    },
+    {
+     "prompt": "A club has 10 juniors and 5 seniors. How many ways can a group of 2 juniors and 1 seniors be chosen?",
+     "answer": "225"
+    },
+    {
+     "prompt": "A club has 8 juniors and 7 seniors. How many ways can a group of 2 juniors and 2 seniors be chosen?",
+     "answer": "588"
+    },
+    {
+     "prompt": "A club has 14 juniors and 6 seniors. How many ways can a group of 4 juniors and 2 seniors be chosen?",
+     "answer": "15015"
+    }
+   ],
+   "answer": "(a) 5005; (b) 225; (c) 588; (d) 15015",
+   "solutionSteps": [
+    "(a) Seniors: C(5, 1) = 5. Multiply: 5005.",
+    "(b) Seniors: C(5, 1) = 5. Multiply: 225.",
+    "(c) Seniors: C(7, 2) = 21. Multiply: 588.",
+    "(d) Seniors: C(6, 2) = 15. Multiply: 15015."
+   ],
+   "standards": [
+    "S-CP.B.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s2_comb_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-007",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bag holds 4 black, 4 blue, 3 white marbles. Two are drawn with replacement. Find P(first black, then black).",
+   "answer": "16/121",
+   "solutionSteps": [
+    "P(first black) = 4/11.",
+    "P(second black | first black) = 4/11 (the first marble is returned).",
+    "Multiply: 16/121."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-008",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 7 white, 2 blue, 2 red marbles. Two are drawn with replacement. Find P(first red, then white).",
+   "answer": "14/121",
+   "options": [
+    {
+     "text": "2/11",
+     "correct": false
+    },
+    {
+     "text": "7/55",
+     "correct": false
+    },
+    {
+     "text": "14/121",
+     "correct": true
+    },
+    {
+     "text": "9/11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first red) = 2/11.",
+    "P(second white | first red) = 7/11 (the first marble is returned).",
+    "Multiply: 14/121."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-009",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bag holds 2 red, 9 black, 2 green marbles. Two are drawn with replacement. Find P(first black, then green).",
+   "answer": "18/169",
+   "solutionSteps": [
+    "P(first black) = 9/13.",
+    "P(second green | first black) = 2/13 (the first marble is returned).",
+    "Multiply: 18/169."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-010",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 2 blue, 6 white, 9 black marbles. Two are drawn with replacement. Find P(first blue, then black).",
+   "answer": "18/289",
+   "options": [
+    {
+     "text": "18/289",
+     "correct": true
+    },
+    {
+     "text": "9/136",
+     "correct": false
+    },
+    {
+     "text": "2/17",
+     "correct": false
+    },
+    {
+     "text": "11/17",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first blue) = 2/17.",
+    "P(second black | first blue) = 9/17 (the first marble is returned).",
+    "Multiply: 18/289."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-011",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bag holds 5 red, 7 white, 7 green marbles. Two are drawn with replacement. Find P(first green, then green).",
+   "answer": "49/361",
+   "solutionSteps": [
+    "P(first green) = 7/19.",
+    "P(second green | first green) = 7/19 (the first marble is returned).",
+    "Multiply: 49/361."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-012",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 5 white, 3 black, 5 red marbles. Two are drawn with replacement. Find P(first red, then red).",
+   "answer": "25/169",
+   "options": [
+    {
+     "text": "25/169",
+     "correct": true
+    },
+    {
+     "text": "5/39",
+     "correct": false
+    },
+    {
+     "text": "10/13",
+     "correct": false
+    },
+    {
+     "text": "5/13",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first red) = 5/13.",
+    "P(second red | first red) = 5/13 (the first marble is returned).",
+    "Multiply: 25/169."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-013",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bag holds 8 white, 8 red, 2 green marbles. Two are drawn with replacement. Find P(first green, then white).",
+   "answer": "4/81",
+   "solutionSteps": [
+    "P(first green) = 1/9.",
+    "P(second white | first green) = 4/9 (the first marble is returned).",
+    "Multiply: 4/81."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-014",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kai answered this problem incorrectly.\nA bag holds 8 green, 4 red, 5 white marbles. Two are drawn with replacement. Find P(first white, then red).\nKai's answer: 5/17\nIdentify the mistake and give the correct answer.",
+   "answer": "20/289",
+   "solutionSteps": [
+    "Mistake: Found only the first draw.",
+    "P(first white) = 5/17.",
+    "P(second red | first white) = 4/17 (the first marble is returned).",
+    "Multiply: 20/289.",
+    "The correct answer is 20/289, not 5/17."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-015",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA bag holds 2 yellow, 5 red, 9 black marbles. Two are drawn with replacement. Find P(first red, then black).\nQuinn's answer: 5/16\nIdentify the mistake and give the correct answer.",
+   "answer": "45/256",
+   "solutionSteps": [
+    "Mistake: Found only the first draw.",
+    "P(first red) = 5/16.",
+    "P(second black | first red) = 9/16 (the first marble is returned).",
+    "Multiply: 45/256.",
+    "The correct answer is 45/256, not 5/16."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp2-016",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A bag holds 4 red, 3 white, 8 green marbles. Two are drawn with replacement. Find P(first white, then red).",
+     "answer": "4/75"
+    },
+    {
+     "prompt": "A bag holds 5 yellow, 7 white, 2 black marbles. Two are drawn with replacement. Find P(first white, then yellow).",
+     "answer": "5/28"
+    },
+    {
+     "prompt": "A bag holds 7 red, 5 green, 8 black marbles. Two are drawn with replacement. Find P(first black, then green).",
+     "answer": "1/10"
+    },
+    {
+     "prompt": "A bag holds 2 black, 8 green, 7 yellow marbles. Two are drawn with replacement. Find P(first green, then black).",
+     "answer": "16/289"
+    }
+   ],
+   "answer": "(a) 4/75; (b) 5/28; (c) 1/10; (d) 16/289",
+   "solutionSteps": [
+    "(a) P(second red | first white) = 4/15 (the first marble is returned). Multiply: 4/75.",
+    "(b) P(second yellow | first white) = 5/14 (the first marble is returned). Multiply: 5/28.",
+    "(c) P(second green | first black) = 1/4 (the first marble is returned). Multiply: 1/10.",
+    "(d) P(second black | first green) = 2/17 (the first marble is returned). Multiply: 16/289."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-023",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA bag holds 8 white, 9 black, 4 red marbles. Two are drawn with replacement. Find P(first black, then black).\nQuinn's answer: 3/7\nIdentify the mistake and give the correct answer.",
+   "answer": "9/49",
+   "solutionSteps": [
+    "Mistake: Found only the first draw.",
+    "P(first black) = 3/7.",
+    "P(second black | first black) = 3/7 (the first marble is returned).",
+    "Multiply: 9/49.",
+    "The correct answer is 9/49, not 3/7."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-cp1-024",
+   "skillId": "probability-statistics-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Marco answered this problem incorrectly.\nA bag holds 5 red, 8 green, 3 black marbles. Two are drawn without replacement. Find P(first red, then black).\nMarco's answer: 5/16\nIdentify the mistake and give the correct answer.",
+   "answer": "1/16",
+   "solutionSteps": [
+    "Mistake: Found only the first draw.",
+    "P(first red) = 5/16.",
+    "P(second black | first red) = 1/5 (one fewer marble).",
+    "Multiply: 1/16.",
+    "The correct answer is 1/16, not 5/16."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-004",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 4 black, 2 yellow, 2 green marbles. Two are drawn without replacement. Find P(first yellow, then green).",
+   "answer": "1/14",
+   "solutionSteps": [
+    "P(first yellow) = 1/4.",
+    "P(second green | first yellow) = 2/7 (one fewer marble).",
+    "Multiply: 1/14."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-005",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 4 white, 4 blue, 2 green marbles. Two are drawn with replacement. Find P(first white, then white).",
+   "answer": "4/25",
+   "options": [
+    {
+     "text": "2/15",
+     "correct": false
+    },
+    {
+     "text": "4/25",
+     "correct": true
+    },
+    {
+     "text": "2/5",
+     "correct": false
+    },
+    {
+     "text": "4/5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first white) = 2/5.",
+    "P(second white | first white) = 2/5 (the first marble is returned).",
+    "Multiply: 4/25."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-006",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 5 red, 8 yellow, 6 black marbles. Two are drawn without replacement. Find P(first yellow, then red).",
+   "answer": "20/171",
+   "solutionSteps": [
+    "P(first yellow) = 8/19.",
+    "P(second red | first yellow) = 5/18 (one fewer marble).",
+    "Multiply: 20/171."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-007",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 8 green, 6 yellow, 4 red marbles. Two are drawn without replacement. Find P(first yellow, then green).",
+   "answer": "8/51",
+   "options": [
+    {
+     "text": "8/51",
+     "correct": true
+    },
+    {
+     "text": "4/27",
+     "correct": false
+    },
+    {
+     "text": "7/9",
+     "correct": false
+    },
+    {
+     "text": "1/3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first yellow) = 1/3.",
+    "P(second green | first yellow) = 8/17 (one fewer marble).",
+    "Multiply: 8/51."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-008",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 9 black, 7 yellow, 9 white marbles. Two are drawn with replacement. Find P(first yellow, then white).",
+   "answer": "63/625",
+   "solutionSteps": [
+    "P(first yellow) = 7/25.",
+    "P(second white | first yellow) = 9/25 (the first marble is returned).",
+    "Multiply: 63/625."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-009",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 4 white, 5 green, 4 red marbles. Two are drawn without replacement. Find P(first red, then red).",
+   "answer": "1/13",
+   "options": [
+    {
+     "text": "16/169",
+     "correct": false
+    },
+    {
+     "text": "8/13",
+     "correct": false
+    },
+    {
+     "text": "1/13",
+     "correct": true
+    },
+    {
+     "text": "4/13",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first red) = 4/13.",
+    "P(second red | first red) = 1/4 (one fewer marble).",
+    "Multiply: 1/13."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-010",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 2 red, 9 black, 2 green marbles. Two are drawn without replacement. Find P(first black, then black).",
+   "answer": "6/13",
+   "solutionSteps": [
+    "P(first black) = 9/13.",
+    "P(second black | first black) = 2/3 (one fewer marble).",
+    "Multiply: 6/13."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-011",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 5 white, 6 red, 2 black marbles. Two are drawn without replacement. Find P(first red, then white).",
+   "answer": "5/26",
+   "options": [
+    {
+     "text": "5/26",
+     "correct": true
+    },
+    {
+     "text": "30/169",
+     "correct": false
+    },
+    {
+     "text": "6/13",
+     "correct": false
+    },
+    {
+     "text": "11/13",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(first red) = 6/13.",
+    "P(second white | first red) = 5/12 (one fewer marble).",
+    "Multiply: 5/26."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-012",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 8 red, 3 black, 6 blue marbles. Two are drawn without replacement. Find P(first black, then red).",
+   "answer": "3/34",
+   "solutionSteps": [
+    "P(first black) = 3/17.",
+    "P(second red | first black) = 1/2 (one fewer marble).",
+    "Multiply: 3/34."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-013",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 2 blue, 3 green, 5 black marbles. Two are drawn without replacement. Find P(first green, then black).",
+   "answer": "1/6",
+   "solutionSteps": [
+    "P(first green) = 3/10.",
+    "P(second black | first green) = 5/9 (one fewer marble).",
+    "Multiply: 1/6."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-014",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nA bag holds 7 yellow, 4 green, 9 black marbles. Two are drawn without replacement. Find P(first green, then black).\nPriya's answer: 1/5\nIdentify the mistake and give the correct answer.",
+   "answer": "9/95",
+   "solutionSteps": [
+    "Mistake: Found only the first draw.",
+    "P(first green) = 1/5.",
+    "P(second black | first green) = 9/19 (one fewer marble).",
+    "Multiply: 9/95.",
+    "The correct answer is 9/95, not 1/5."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-015",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA bag holds 2 black, 4 yellow, 6 blue marbles. Two are drawn without replacement. Find P(first blue, then black).\nQuinn's answer: 1/12\nIdentify the mistake and give the correct answer.",
+   "answer": "1/11",
+   "solutionSteps": [
+    "Mistake: Treated the draws as independent.",
+    "P(first blue) = 1/2.",
+    "P(second black | first blue) = 2/11 (one fewer marble).",
+    "Multiply: 1/11.",
+    "The correct answer is 1/11, not 1/12."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s03-honors-016",
+   "skillId": "probability-statistics-skill-03",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A bag holds 9 white, 2 green, 9 yellow marbles. Two are drawn without replacement. Find P(first green, then green).",
+     "answer": "1/190"
+    },
+    {
+     "prompt": "A bag holds 4 black, 8 red, 8 white marbles. Two are drawn without replacement. Find P(first black, then red).",
+     "answer": "8/95"
+    },
+    {
+     "prompt": "A bag holds 6 blue, 3 red, 6 white marbles. Two are drawn without replacement. Find P(first blue, then blue).",
+     "answer": "1/7"
+    },
+    {
+     "prompt": "A bag holds 3 green, 4 yellow, 7 white marbles. Two are drawn without replacement. Find P(first yellow, then green).",
+     "answer": "6/91"
+    }
+   ],
+   "answer": "(a) 1/190; (b) 8/95; (c) 1/7; (d) 6/91",
+   "solutionSteps": [
+    "(a) P(second green | first green) = 1/19 (one fewer marble). Multiply: 1/190.",
+    "(b) P(second red | first black) = 8/19 (one fewer marble). Multiply: 8/95.",
+    "(c) P(second blue | first blue) = 5/14 (one fewer marble). Multiply: 1/7.",
+    "(d) P(second green | first yellow) = 3/13 (one fewer marble). Multiply: 6/91."
+   ],
+   "standards": [
+    "S-CP.A.2",
+    "S-CP.B.8"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s2_drawa2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-006",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(it is cloudy) = 0.8 and P(it rains and it is cloudy) = 0.5. Find the probability that it rains, given that it is cloudy.",
+   "answer": "5/8",
+   "solutionSteps": [
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.5 ÷ 0.8 = 5/8."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-007",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Survey results — 9th graders: 25 prefer cats, 36 prefer dogs; 10th graders: 16 prefer cats, 34 prefer dogs. One student is chosen at random. Find P(10th grader and prefers dogs).",
+   "answer": "34/111",
+   "solutionSteps": [
+    "Total = 111.",
+    "P = 34 ÷ 111 = 34/111."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_tablea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-008",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In a survey of 100 students, 25 play a sport, 32 play an instrument, and 11 do both. A student is chosen at random. Find P(sport or instrument).",
+   "answer": "23/50",
+   "options": [
+    {
+     "text": "7/20",
+     "correct": false
+    },
+    {
+     "text": "23/50",
+     "correct": true
+    },
+    {
+     "text": "57/100",
+     "correct": false
+    },
+    {
+     "text": "2/25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "1/4 + 8/25 - 11/100.",
+    "= 23/50."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-009",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "P(it is cloudy) = 0.7 and P(it rains and it is cloudy) = 0.5. Find the probability that it rains, given that it is cloudy.",
+   "answer": "5/7",
+   "options": [
+    {
+     "text": "7/20",
+     "correct": false
+    },
+    {
+     "text": "0.5",
+     "correct": false
+    },
+    {
+     "text": "7/5",
+     "correct": false
+    },
+    {
+     "text": "5/7",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.5 ÷ 0.7 = 5/7."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-010",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Survey results — 9th graders: 10 prefer cats, 24 prefer dogs; 10th graders: 39 prefer cats, 16 prefer dogs. One student is chosen at random. Find P(10th grader and prefers cats).",
+   "answer": "39/89",
+   "options": [
+    {
+     "text": "39/49",
+     "correct": false
+    },
+    {
+     "text": "2695/7921",
+     "correct": false
+    },
+    {
+     "text": "39/89",
+     "correct": true
+    },
+    {
+     "text": "39/55",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Total = 89.",
+    "P = 39 ÷ 89 = 39/89."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_tablea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-011",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In a survey of 100 students, 35 play a sport, 26 play an instrument, and 22 do both. A student is chosen at random. Find P(sport or instrument).",
+   "answer": "39/100",
+   "solutionSteps": [
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "7/20 + 13/50 - 11/50.",
+    "= 39/100."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-012",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "P(the customer buys a sandwich) = 0.9 and P(a customer buys a drink and the customer buys a sandwich) = 0.4. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
+   "answer": "4/9",
+   "solutionSteps": [
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.4 ÷ 0.9 = 4/9."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-013",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Survey results — 9th graders: 21 prefer cats, 24 prefer dogs; 10th graders: 35 prefer cats, 18 prefer dogs. One student is chosen at random. Find P(10th grader and prefers cats).",
+   "answer": "5/14",
+   "solutionSteps": [
+    "Total = 98.",
+    "P = 35 ÷ 98 = 5/14."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_tablea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-014",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nP(the customer buys a sandwich) = 0.6 and P(a customer buys a drink and the customer buys a sandwich) = 0.2. Find the probability that a customer buys a drink, given that the customer buys a sandwich.\nYusuf's answer: 3\nIdentify the mistake and give the correct answer.",
+   "answer": "1/3",
+   "solutionSteps": [
+    "Mistake: Divided in the wrong order.",
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.2 ÷ 0.6 = 1/3.",
+    "The correct answer is 1/3, not 3."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-015",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nIn a survey of 100 students, 40 play a sport, 55 play an instrument, and 12 do both. A student is chosen at random. Find P(sport or instrument).\nIsla's answer: 11/50\nIdentify the mistake and give the correct answer.",
+   "answer": "83/100",
+   "solutionSteps": [
+    "Mistake: Multiplied the probabilities.",
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "2/5 + 11/20 - 3/25.",
+    "= 83/100.",
+    "The correct answer is 83/100, not 11/50."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp2-016",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "P(the customer buys a sandwich) = 0.5 and P(a customer buys a drink and the customer buys a sandwich) = 0.4. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
+     "answer": "4/5"
+    },
+    {
+     "prompt": "P(it is cloudy) = 0.3 and P(it rains and it is cloudy) = 0.1. Find the probability that it rains, given that it is cloudy.",
+     "answer": "1/3"
+    },
+    {
+     "prompt": "P(the student takes art) = 0.4 and P(a student plays a sport and the student takes art) = 0.1. Find the probability that a student plays a sport, given that the student takes art.",
+     "answer": "1/4"
+    },
+    {
+     "prompt": "P(the car is an SUV) = 0.7 and P(a car is red and the car is an SUV) = 0.1. Find the probability that a car is red, given that the car is an SUV.",
+     "answer": "1/7"
+    }
+   ],
+   "answer": "(a) 4/5; (b) 1/3; (c) 1/4; (d) 1/7",
+   "solutionSteps": [
+    "(a) P(A | B) = P(A and B) ÷ P(B). = 0.4 ÷ 0.5 = 4/5.",
+    "(b) P(A | B) = P(A and B) ÷ P(B). = 0.1 ÷ 0.3 = 1/3.",
+    "(c) P(A | B) = P(A and B) ÷ P(B). = 0.1 ÷ 0.4 = 1/4.",
+    "(d) P(A | B) = P(A and B) ÷ P(B). = 0.1 ÷ 0.7 = 1/7."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-020",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nP(the customer buys a sandwich) = 0.2 and P(a customer buys a drink and the customer buys a sandwich) = 0.1. Find the probability that a customer buys a drink, given that the customer buys a sandwich.\nRosa's answer: 2\nIdentify the mistake and give the correct answer.",
+   "answer": "1/2",
+   "solutionSteps": [
+    "Mistake: Divided in the wrong order.",
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.1 ÷ 0.2 = 1/2.",
+    "The correct answer is 1/2, not 2."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-cp1-021",
+   "skillId": "probability-statistics-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Vic answered this problem incorrectly.\nIn a survey of 100 students, 57 play a sport, 54 play an instrument, and 19 do both. A student is chosen at random. Find P(sport or instrument).\nVic's answer: 1539/5000\nIdentify the mistake and give the correct answer.",
+   "answer": "23/25",
+   "solutionSteps": [
+    "Mistake: Multiplied the probabilities.",
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "57/100 + 27/50 - 19/100.",
+    "= 23/25.",
+    "The correct answer is 23/25, not 1539/5000."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-007",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "P(it is cloudy) = 0.5 and P(it rains and it is cloudy) = 0.2. Find the probability that it rains, given that it is cloudy.",
+   "answer": "2/5",
+   "solutionSteps": [
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.2 ÷ 0.5 = 2/5."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-008",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Survey results — 9th graders: 10 prefer cats, 17 prefer dogs; 10th graders: 19 prefer cats, 33 prefer dogs. Find P(prefers dogs | 10th grader).",
+   "answer": "33/52",
+   "options": [
+    {
+     "text": "33/50",
+     "correct": false
+    },
+    {
+     "text": "33/52",
+     "correct": true
+    },
+    {
+     "text": "50/79",
+     "correct": false
+    },
+    {
+     "text": "33/79",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Conditional probability: restrict to the given group.",
+    "P = 33 ÷ 52 = 33/52."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_tablea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-009",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In a survey of 100 students, 44 play a sport, 37 play an instrument, and 12 do both. A student is chosen at random. Find P(sport or instrument).",
+   "answer": "69/100",
+   "solutionSteps": [
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "11/25 + 37/100 - 3/25.",
+    "= 69/100."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-010",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "P(the student takes art) = 0.7 and P(a student plays a sport and the student takes art) = 0.4. Find the probability that a student plays a sport, given that the student takes art.",
+   "answer": "4/7",
+   "options": [
+    {
+     "text": "4/7",
+     "correct": true
+    },
+    {
+     "text": "0.4",
+     "correct": false
+    },
+    {
+     "text": "7/4",
+     "correct": false
+    },
+    {
+     "text": "7/25",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.4 ÷ 0.7 = 4/7."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-011",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Survey results — 9th graders: 27 prefer cats, 24 prefer dogs; 10th graders: 33 prefer cats, 13 prefer dogs. Find P(prefers dogs | 9th grader).",
+   "answer": "8/17",
+   "solutionSteps": [
+    "Conditional probability: restrict to the given group.",
+    "P = 24 ÷ 51 = 8/17."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_tablea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-012",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In a survey of 100 students, 32 play a sport, 30 play an instrument, and 26 do both. A student is chosen at random. Find P(sport or instrument).",
+   "answer": "9/25",
+   "options": [
+    {
+     "text": "9/25",
+     "correct": true
+    },
+    {
+     "text": "12/125",
+     "correct": false
+    },
+    {
+     "text": "31/50",
+     "correct": false
+    },
+    {
+     "text": "1/10",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "8/25 + 3/10 - 13/50.",
+    "= 9/25."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-013",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "P(the student takes art) = 0.9 and P(a student plays a sport and the student takes art) = 0.1. Find the probability that a student plays a sport, given that the student takes art.",
+   "answer": "1/9",
+   "solutionSteps": [
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.1 ÷ 0.9 = 1/9."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-014",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Carmen answered this problem incorrectly.\nP(the car is an SUV) = 0.6 and P(a car is red and the car is an SUV) = 0.1. Find the probability that a car is red, given that the car is an SUV.\nCarmen's answer: 6\nIdentify the mistake and give the correct answer.",
+   "answer": "1/6",
+   "solutionSteps": [
+    "Mistake: Divided in the wrong order.",
+    "P(A | B) = P(A and B) ÷ P(B).",
+    "= 0.1 ÷ 0.6 = 1/6.",
+    "The correct answer is 1/6, not 6."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-015",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nIn a survey of 100 students, 30 play a sport, 38 play an instrument, and 14 do both. A student is chosen at random. Find P(sport or instrument).\nPriya's answer: 17/25\nIdentify the mistake and give the correct answer.",
+   "answer": "27/50",
+   "solutionSteps": [
+    "Mistake: Forgot to subtract the overlap.",
+    "P(A or B) = P(A) + P(B) - P(A and B).",
+    "3/10 + 19/50 - 7/50.",
+    "= 27/50.",
+    "The correct answer is 27/50, not 17/25."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s4_ora2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s04-honors-016",
+   "skillId": "probability-statistics-skill-04",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "P(the customer buys a sandwich) = 0.6 and P(a customer buys a drink and the customer buys a sandwich) = 0.1. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
+     "answer": "1/6"
+    },
+    {
+     "prompt": "P(the student takes art) = 0.6 and P(a student plays a sport and the student takes art) = 0.1. Find the probability that a student plays a sport, given that the student takes art.",
+     "answer": "1/6"
+    },
+    {
+     "prompt": "P(it is cloudy) = 0.8 and P(it rains and it is cloudy) = 0.1. Find the probability that it rains, given that it is cloudy.",
+     "answer": "1/8"
+    },
+    {
+     "prompt": "P(the customer buys a sandwich) = 0.9 and P(a customer buys a drink and the customer buys a sandwich) = 0.8. Find the probability that a customer buys a drink, given that the customer buys a sandwich.",
+     "answer": "8/9"
+    }
+   ],
+   "answer": "(a) 1/6; (b) 1/6; (c) 1/8; (d) 8/9",
+   "solutionSteps": [
+    "(a) P(A | B) = P(A and B) ÷ P(B). = 0.1 ÷ 0.6 = 1/6.",
+    "(b) P(A | B) = P(A and B) ÷ P(B). = 0.1 ÷ 0.6 = 1/6.",
+    "(c) P(A | B) = P(A and B) ÷ P(B). = 0.1 ÷ 0.8 = 1/8.",
+    "(d) P(A | B) = P(A and B) ÷ P(B). = 0.8 ÷ 0.9 = 8/9."
+   ],
+   "standards": [
+    "S-CP.A.3",
+    "S-CP.A.4",
+    "S-CP.B.6"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s4_cond_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-005",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A probability distribution has P(X = 0) = p; P(X = 1) = 0.27; P(X = 2) = 0.26; P(X = 3) = 0.23; P(X = 4) = 0.14. Find p.",
+   "answer": "0.1",
+   "solutionSteps": [
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.27 + 0.26 + 0.23 + 0.14) = 0.1."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-006",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 8 yellow, 5 red, 4 green marbles. One is drawn at random. Find P(red).",
+   "answer": "5/17",
+   "options": [
+    {
+     "text": "5/12",
+     "correct": false
+    },
+    {
+     "text": "5/17",
+     "correct": true
+    },
+    {
+     "text": "1/3",
+     "correct": false
+    },
+    {
+     "text": "12/17",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Total = 17.",
+    "P = 5 ÷ 17 = 5/17."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-007",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 1) = 2/5; P(X = 7) = 2/5; P(X = 8) = 1/5. Find the expected value E(X).",
+   "answer": "24/5",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "1(2/5) + 7(2/5) + 8(1/5).",
+    "E(X) = 24/5."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-008",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A probability distribution has P(X = 0) = p; P(X = 1) = 0.29; P(X = 2) = 0.08; P(X = 3) = 0.11; P(X = 4) = 0.07. Find p.",
+   "answer": "0.45",
+   "options": [
+    {
+     "text": "0.45",
+     "correct": true
+    },
+    {
+     "text": "45",
+     "correct": false
+    },
+    {
+     "text": "0.55",
+     "correct": false
+    },
+    {
+     "text": "0.71",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.29 + 0.08 + 0.11 + 0.07) = 0.45."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-009",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A bag holds 2 yellow, 9 green, 7 black marbles. One is drawn at random. Find P(not green).",
+   "answer": "1/2",
+   "solutionSteps": [
+    "P(green) = 1/2.",
+    "P(not green) = 1 - 1/2 = 1/2."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-010",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A random variable X has P(X = 1) = 1/5; P(X = 4) = 2/5; P(X = 8) = 2/5. Find the expected value E(X).",
+   "answer": "5",
+   "options": [
+    {
+     "text": "18/5",
+     "correct": false
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "13/3",
+     "correct": false
+    },
+    {
+     "text": "5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "1(1/5) + 4(2/5) + 8(2/5).",
+    "E(X) = 5."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-011",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A probability distribution has P(X = 0) = 0.21; P(X = 1) = p; P(X = 2) = 0.06; P(X = 3) = 0.13. Find p.",
+   "answer": "0.6",
+   "solutionSteps": [
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.21 + 0.06 + 0.13) = 0.6."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-012",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 4 blue, 9 yellow, 7 green marbles. One is drawn at random. Find P(not green).",
+   "answer": "13/20",
+   "options": [
+    {
+     "text": "2/3",
+     "correct": false
+    },
+    {
+     "text": "13/7",
+     "correct": false
+    },
+    {
+     "text": "7/20",
+     "correct": false
+    },
+    {
+     "text": "13/20",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "P(green) = 7/20.",
+    "P(not green) = 1 - 7/20 = 13/20."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-013",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 1) = 1/5; P(X = 4) = 1/5; P(X = 7) = 3/5. Find the expected value E(X).",
+   "answer": "26/5",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "1(1/5) + 4(1/5) + 7(3/5).",
+    "E(X) = 26/5."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-014",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nA probability distribution has P(X = 0) = 0.16; P(X = 1) = 0.12; P(X = 2) = p; P(X = 3) = 0.28; P(X = 4) = 0.09. Find p.\nSam's answer: 35\nIdentify the mistake and give the correct answer.",
+   "answer": "0.35",
+   "solutionSteps": [
+    "Mistake: Wrote the probability as a percent number.",
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.16 + 0.12 + 0.28 + 0.09) = 0.35.",
+    "The correct answer is 0.35, not 35."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-015",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Yusuf answered this problem incorrectly.\nA bag holds 5 white, 8 black, 8 yellow marbles. One is drawn at random. Find P(not white).\nYusuf's answer: 5/21\nIdentify the mistake and give the correct answer.",
+   "answer": "16/21",
+   "solutionSteps": [
+    "Mistake: Found P(event) instead.",
+    "P(white) = 5/21.",
+    "P(not white) = 1 - 5/21 = 16/21.",
+    "The correct answer is 16/21, not 5/21."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp2-016",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A probability distribution has P(X = 0) = 0.29; P(X = 1) = 0.15; P(X = 2) = 0.19; P(X = 3) = 0.27; P(X = 4) = p. Find p.",
+     "answer": "0.1"
+    },
+    {
+     "prompt": "A probability distribution has P(X = 0) = 0.29; P(X = 1) = p; P(X = 2) = 0.05; P(X = 3) = 0.24. Find p.",
+     "answer": "0.42"
+    },
+    {
+     "prompt": "A probability distribution has P(X = 0) = 0.17; P(X = 1) = 0.23; P(X = 2) = p; P(X = 3) = 0.2. Find p.",
+     "answer": "0.4"
+    },
+    {
+     "prompt": "A probability distribution has P(X = 0) = p; P(X = 1) = 0.21; P(X = 2) = 0.26; P(X = 3) = 0.3. Find p.",
+     "answer": "0.23"
+    }
+   ],
+   "answer": "(a) 0.1; (b) 0.42; (c) 0.4; (d) 0.23",
+   "solutionSteps": [
+    "(a) The probabilities in a distribution add to 1. p = 1 - (0.29 + 0.15 + 0.19 + 0.27) = 0.1.",
+    "(b) The probabilities in a distribution add to 1. p = 1 - (0.29 + 0.05 + 0.24) = 0.42.",
+    "(c) The probabilities in a distribution add to 1. p = 1 - (0.17 + 0.23 + 0.2) = 0.4.",
+    "(d) The probabilities in a distribution add to 1. p = 1 - (0.21 + 0.26 + 0.3) = 0.23."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-022",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nA probability distribution has P(X = 0) = 0.28; P(X = 1) = 0.09; P(X = 2) = 0.28; P(X = 3) = p; P(X = 4) = 0.14. Find p.\nNia's answer: 21\nIdentify the mistake and give the correct answer.",
+   "answer": "0.21",
+   "solutionSteps": [
+    "Mistake: Wrote the probability as a percent number.",
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.28 + 0.09 + 0.28 + 0.14) = 0.21.",
+    "The correct answer is 0.21, not 21."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-cp1-023",
+   "skillId": "probability-statistics-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Hiro answered this problem incorrectly.\nA bag holds 5 black, 5 green, 6 blue marbles. One is drawn at random. Find P(green).\nHiro's answer: 1/3\nIdentify the mistake and give the correct answer.",
+   "answer": "5/16",
+   "solutionSteps": [
+    "Mistake: Assumed the colors are equally likely.",
+    "Total = 16.",
+    "P = 5 ÷ 16 = 5/16.",
+    "The correct answer is 5/16, not 1/3."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-006",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A probability distribution has P(X = 0) = 0.28; P(X = 1) = 0.09; P(X = 2) = p; P(X = 3) = 0.06; P(X = 4) = 0.06. Find p.",
+   "answer": "0.51",
+   "solutionSteps": [
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.28 + 0.09 + 0.06 + 0.06) = 0.51."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-007",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 6 red, 9 white, 3 green marbles. One is drawn at random. What are the odds in favor of drawing red?",
+   "answer": "1 : 2",
+   "solutionSteps": [
+    "Odds in favor = favorable : unfavorable.",
+    "6 : 12.",
+    "Simplified: 1 : 2."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-008",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A random variable X has P(X = 3) = 4/11; P(X = 4) = 1/11; P(X = 6) = 5/11; P(X = 8) = 1/11. Find the expected value E(X).",
+   "answer": "54/11",
+   "options": [
+    {
+     "text": "54/11",
+     "correct": true
+    },
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "21/4",
+     "correct": false
+    },
+    {
+     "text": "61/11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "3(4/11) + 4(1/11) + 6(5/11) + 8(1/11).",
+    "E(X) = 54/11."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-009",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A probability distribution has P(X = 0) = 0.16; P(X = 1) = p; P(X = 2) = 0.05; P(X = 3) = 0.12. Find p.",
+   "answer": "0.67",
+   "options": [
+    {
+     "text": "0.84",
+     "correct": false
+    },
+    {
+     "text": "0.67",
+     "correct": true
+    },
+    {
+     "text": "67",
+     "correct": false
+    },
+    {
+     "text": "0.33",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.16 + 0.05 + 0.12) = 0.67."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-010",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A bag holds 8 red, 2 yellow, 2 blue marbles. One is drawn at random. Find P(blue).",
+   "answer": "1/6",
+   "options": [
+    {
+     "text": "1/3",
+     "correct": false
+    },
+    {
+     "text": "5/6",
+     "correct": false
+    },
+    {
+     "text": "1/5",
+     "correct": false
+    },
+    {
+     "text": "1/6",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Total = 12.",
+    "P = 2 ÷ 12 = 1/6."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-011",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 0) = 2/7; P(X = 1) = 5/21; P(X = 3) = 2/7; P(X = 8) = 4/21. Find the expected value E(X).",
+   "answer": "55/21",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(2/7) + 1(5/21) + 3(2/7) + 8(4/21).",
+    "E(X) = 55/21."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-012",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A probability distribution has P(X = 0) = p; P(X = 1) = 0.19; P(X = 2) = 0.15. Find p.",
+   "answer": "0.66",
+   "solutionSteps": [
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.19 + 0.15) = 0.66."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-013",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A bag holds 6 blue, 9 yellow, 4 red marbles. One is drawn at random. Find P(blue).",
+   "answer": "6/19",
+   "solutionSteps": [
+    "Total = 19.",
+    "P = 6 ÷ 19 = 6/19."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-014",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA probability distribution has P(X = 0) = 0.19; P(X = 1) = p; P(X = 2) = 0.08. Find p.\nQuinn's answer: 0.27\nIdentify the mistake and give the correct answer.",
+   "answer": "0.73",
+   "solutionSteps": [
+    "Mistake: Gave the sum of the known probabilities.",
+    "The probabilities in a distribution add to 1.",
+    "p = 1 - (0.19 + 0.08) = 0.73.",
+    "The correct answer is 0.73, not 0.27."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-015",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nA bag holds 8 yellow, 9 black, 4 blue marbles. One is drawn at random. Find P(not blue).\nDev's answer: 2/3\nIdentify the mistake and give the correct answer.",
+   "answer": "17/21",
+   "solutionSteps": [
+    "Mistake: Assumed equally likely colors.",
+    "P(blue) = 4/21.",
+    "P(not blue) = 1 - 4/21 = 17/21.",
+    "The correct answer is 17/21, not 2/3."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_basica2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s05-honors-016",
+   "skillId": "probability-statistics-skill-05",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A probability distribution has P(X = 0) = 0.25; P(X = 1) = p; P(X = 2) = 0.12. Find p.",
+     "answer": "0.63"
+    },
+    {
+     "prompt": "A probability distribution has P(X = 0) = 0.05; P(X = 1) = 0.16; P(X = 2) = p; P(X = 3) = 0.12. Find p.",
+     "answer": "0.67"
+    },
+    {
+     "prompt": "A probability distribution has P(X = 0) = 0.26; P(X = 1) = p; P(X = 2) = 0.25; P(X = 3) = 0.14. Find p.",
+     "answer": "0.35"
+    },
+    {
+     "prompt": "A probability distribution has P(X = 0) = p; P(X = 1) = 0.13; P(X = 2) = 0.18; P(X = 3) = 0.05; P(X = 4) = 0.3. Find p.",
+     "answer": "0.34"
+    }
+   ],
+   "answer": "(a) 0.63; (b) 0.67; (c) 0.35; (d) 0.34",
+   "solutionSteps": [
+    "(a) The probabilities in a distribution add to 1. p = 1 - (0.25 + 0.12) = 0.63.",
+    "(b) The probabilities in a distribution add to 1. p = 1 - (0.05 + 0.16 + 0.12) = 0.67.",
+    "(c) The probabilities in a distribution add to 1. p = 1 - (0.26 + 0.25 + 0.14) = 0.35.",
+    "(d) The probabilities in a distribution add to 1. p = 1 - (0.13 + 0.18 + 0.05 + 0.3) = 0.34."
+   ],
+   "standards": [
+    "S-MD.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s5_missing_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-003",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 0) = 1/5; P(X = 5) = 3/5; P(X = 9) = 1/5. Find the expected value E(X).",
+   "answer": "24/5",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(1/5) + 5(3/5) + 9(1/5).",
+    "E(X) = 24/5."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-004",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A game costs $2 to play. A player wins $28 with probability 1/10 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "$0.80",
+   "options": [
+    {
+     "text": "$2.80",
+     "correct": false
+    },
+    {
+     "text": "$26.00",
+     "correct": false
+    },
+    {
+     "text": "-$1.20",
+     "correct": false
+    },
+    {
+     "text": "$0.80",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Expected winnings = 28(1/10) = $2.80.",
+    "Subtract the cost: $0.80."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-005",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A random variable X has P(X = 0) = 3/10; P(X = 1) = 2/5; P(X = 4) = 3/10. Find the expected value E(X).",
+   "answer": "8/5",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "3/2",
+     "correct": false
+    },
+    {
+     "text": "5/3",
+     "correct": false
+    },
+    {
+     "text": "8/5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(3/10) + 1(2/5) + 4(3/10).",
+    "E(X) = 8/5."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-006",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A game costs $10 to play. A player wins $44 with probability 1/10 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "-$5.60",
+   "solutionSteps": [
+    "Expected winnings = 44(1/10) = $4.40.",
+    "Subtract the cost: -$5.60."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-007",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 0) = 2/5; P(X = 3) = 1/5; P(X = 4) = 2/5. Find the expected value E(X).",
+   "answer": "11/5",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(2/5) + 3(1/5) + 4(2/5).",
+    "E(X) = 11/5."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-008",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A game costs $1 to play. A player wins $56 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "$10.20",
+   "options": [
+    {
+     "text": "$11.20",
+     "correct": false
+    },
+    {
+     "text": "$55.00",
+     "correct": false
+    },
+    {
+     "text": "$10.20",
+     "correct": true
+    },
+    {
+     "text": "$9.20",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected winnings = 56(1/5) = $11.20.",
+    "Subtract the cost: $10.20."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-009",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A random variable X has P(X = 6) = 2/5; P(X = 8) = 1/10; P(X = 9) = 1/2. Find the expected value E(X).",
+   "answer": "77/10",
+   "options": [
+    {
+     "text": "77/10",
+     "correct": true
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "23/3",
+     "correct": false
+    },
+    {
+     "text": "41/5",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "6(2/5) + 8(1/10) + 9(1/2).",
+    "E(X) = 77/10."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-010",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A game costs $7 to play. A player wins $46 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "$2.20",
+   "solutionSteps": [
+    "Expected winnings = 46(1/5) = $9.20.",
+    "Subtract the cost: $2.20."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-011",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 4) = 1/4; P(X = 7) = 3/8; P(X = 8) = 3/8. Find the expected value E(X).",
+   "answer": "53/8",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "4(1/4) + 7(3/8) + 8(3/8).",
+    "E(X) = 53/8."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-012",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A game costs $8 to play. A player wins $14 with probability 1/20 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "-$7.30",
+   "options": [
+    {
+     "text": "$0.70",
+     "correct": false
+    },
+    {
+     "text": "-$7.30",
+     "correct": true
+    },
+    {
+     "text": "$6.00",
+     "correct": false
+    },
+    {
+     "text": "-$15.30",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected winnings = 14(1/20) = $0.70.",
+    "Subtract the cost: -$7.30."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-013",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 0) = 1/2; P(X = 7) = 1/10; P(X = 8) = 2/5. Find the expected value E(X).",
+   "answer": "39/10",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(1/2) + 7(1/10) + 8(2/5).",
+    "E(X) = 39/10."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-014",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nA game costs $2 to play. A player wins $5 with probability 1/20 (prizes do not include the cost). Find the expected net gain per game, in dollars.\nOmar's answer: $0.25\nIdentify the mistake and give the correct answer.",
+   "answer": "-$1.75",
+   "solutionSteps": [
+    "Mistake: Forgot to subtract the cost.",
+    "Expected winnings = 5(1/20) = $0.25.",
+    "Subtract the cost: -$1.75.",
+    "The correct answer is -$1.75, not $0.25."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-015",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Tariq answered this problem incorrectly.\nA game costs $4 to play. A player wins $25 with probability 1/4 (prizes do not include the cost). Find the expected net gain per game, in dollars.\nTariq's answer: $21.00\nIdentify the mistake and give the correct answer.",
+   "answer": "$2.25",
+   "solutionSteps": [
+    "Mistake: Ignored the probabilities.",
+    "Expected winnings = 25(1/4) = $6.25.",
+    "Subtract the cost: $2.25.",
+    "The correct answer is $2.25, not $21.00."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp2-016",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A game costs $9 to play. A player wins $51 with probability 1/20 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "-$6.45"
+    },
+    {
+     "prompt": "A game costs $3 to play. A player wins $25 with probability 1/4 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "$3.25"
+    },
+    {
+     "prompt": "A game costs $6 to play. A player wins $52 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "$4.40"
+    },
+    {
+     "prompt": "A game costs $3 to play. A player wins $55 with probability 1/10 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "$2.50"
+    }
+   ],
+   "answer": "(a) -$6.45; (b) $3.25; (c) $4.40; (d) $2.50",
+   "solutionSteps": [
+    "(a) Expected winnings = 51(1/20) = $2.55. Subtract the cost: -$6.45.",
+    "(b) Expected winnings = 25(1/4) = $6.25. Subtract the cost: $3.25.",
+    "(c) Expected winnings = 52(1/5) = $10.40. Subtract the cost: $4.40.",
+    "(d) Expected winnings = 55(1/10) = $5.50. Subtract the cost: $2.50."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-024",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Elena answered this problem incorrectly.\nA game costs $8 to play. A player wins $23 with probability 1/10 and wins $3 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.\nElena's answer: $2.90\nIdentify the mistake and give the correct answer.",
+   "answer": "-$5.10",
+   "solutionSteps": [
+    "Mistake: Forgot to subtract the cost.",
+    "Expected winnings = 23(1/10) + 3(1/5) = $2.90.",
+    "Subtract the cost: -$5.10.",
+    "The correct answer is -$5.10, not $2.90."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-cp1-025",
+   "skillId": "probability-statistics-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Elena answered this problem incorrectly.\nA random variable X has P(X = 3) = 3/8; P(X = 6) = 1/8; P(X = 7) = 1/4; P(X = 8) = 1/4. Find the expected value E(X).\nElena's answer: 8\nIdentify the mistake and give the correct answer.",
+   "answer": "45/8",
+   "solutionSteps": [
+    "Mistake: Used only the largest value.",
+    "E(X) = Σ x·P(x).",
+    "3(3/8) + 6(1/8) + 7(1/4) + 8(1/4).",
+    "E(X) = 45/8.",
+    "The correct answer is 45/8, not 8."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-006",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 0) = 6/13; P(X = 2) = 1/13; P(X = 7) = 1/13; P(X = 8) = 5/13. Find the expected value E(X).",
+   "answer": "49/13",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(6/13) + 2(1/13) + 7(1/13) + 8(5/13).",
+    "E(X) = 49/13."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-007",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A game costs $3 to play. A player wins $57 with probability 1/5 and wins $7 with probability 1/2 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "$11.90",
+   "solutionSteps": [
+    "Expected winnings = 57(1/5) + 7(1/2) = $14.90.",
+    "Subtract the cost: $11.90."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-008",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A random variable X has P(X = 0) = 1/3; P(X = 5) = 2/9; P(X = 6) = 2/9; P(X = 7) = 2/9. Find the expected value E(X).",
+   "answer": "4",
+   "options": [
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "43/9",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": true
+    },
+    {
+     "text": "9/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(1/3) + 5(2/9) + 6(2/9) + 7(2/9).",
+    "E(X) = 4."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-009",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A game costs $2 to play. A player wins $15 with probability 1/4 and wins $2 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "$2.15",
+   "options": [
+    {
+     "text": "$15.00",
+     "correct": false
+    },
+    {
+     "text": "$0.15",
+     "correct": false
+    },
+    {
+     "text": "$2.15",
+     "correct": true
+    },
+    {
+     "text": "$4.15",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Expected winnings = 15(1/4) + 2(1/5) = $4.15.",
+    "Subtract the cost: $2.15."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-010",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random variable X has P(X = 0) = 2/9; P(X = 1) = 1/9; P(X = 5) = 1/3; P(X = 8) = 1/3. Find the expected value E(X).",
+   "answer": "40/9",
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "0(2/9) + 1(1/9) + 5(1/3) + 8(1/3).",
+    "E(X) = 40/9."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-011",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A game costs $5 to play. A player wins $43 with probability 1/20 and wins $8 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "-$1.25",
+   "solutionSteps": [
+    "Expected winnings = 43(1/20) + 8(1/5) = $3.75.",
+    "Subtract the cost: -$1.25."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-012",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A random variable X has P(X = 3) = 1/3; P(X = 5) = 1/5; P(X = 8) = 1/15; P(X = 9) = 2/5. Find the expected value E(X).",
+   "answer": "92/15",
+   "options": [
+    {
+     "text": "92/15",
+     "correct": true
+    },
+    {
+     "text": "25/4",
+     "correct": false
+    },
+    {
+     "text": "9",
+     "correct": false
+    },
+    {
+     "text": "107/15",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "E(X) = Σ x·P(x).",
+    "3(1/3) + 5(1/5) + 8(1/15) + 9(2/5).",
+    "E(X) = 92/15."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2v). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-013",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A game costs $4 to play. A player wins $20 with probability 1/5 and wins $4 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+   "answer": "$0.80",
+   "solutionSteps": [
+    "Expected winnings = 20(1/5) + 4(1/5) = $4.80.",
+    "Subtract the cost: $0.80."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-014",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nA game costs $4 to play. A player wins $10 with probability 1/4 and wins $2 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.\nRosa's answer: $2.90\nIdentify the mistake and give the correct answer.",
+   "answer": "-$1.10",
+   "solutionSteps": [
+    "Mistake: Forgot to subtract the cost.",
+    "Expected winnings = 10(1/4) + 2(1/5) = $2.90.",
+    "Subtract the cost: -$1.10.",
+    "The correct answer is -$1.10, not $2.90."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-015",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Quinn answered this problem incorrectly.\nA random variable X has P(X = 1) = 3/19; P(X = 3) = 6/19; P(X = 6) = 4/19; P(X = 9) = 6/19. Find the expected value E(X).\nQuinn's answer: 9\nIdentify the mistake and give the correct answer.",
+   "answer": "99/19",
+   "solutionSteps": [
+    "Mistake: Used only the largest value.",
+    "E(X) = Σ x·P(x).",
+    "1(3/19) + 3(6/19) + 6(4/19) + 9(6/19).",
+    "E(X) = 99/19.",
+    "The correct answer is 99/19, not 9."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s1_eva2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s06-honors-016",
+   "skillId": "probability-statistics-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A game costs $8 to play. A player wins $16 with probability 1/8 and wins $6 with probability 1/2 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "-$3.00"
+    },
+    {
+     "prompt": "A game costs $4 to play. A player wins $23 with probability 1/4 and wins $6 with probability 1/2 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "$4.75"
+    },
+    {
+     "prompt": "A game costs $5 to play. A player wins $23 with probability 1/5 and wins $6 with probability 1/4 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "$1.10"
+    },
+    {
+     "prompt": "A game costs $1 to play. A player wins $16 with probability 1/10 and wins $4 with probability 1/5 (prizes do not include the cost). Find the expected net gain per game, in dollars.",
+     "answer": "$1.40"
+    }
+   ],
+   "answer": "(a) -$3.00; (b) $4.75; (c) $1.10; (d) $1.40",
+   "solutionSteps": [
+    "(a) Expected winnings = 16(1/8) + 6(1/2) = $5.00. Subtract the cost: -$3.00.",
+    "(b) Expected winnings = 23(1/4) + 6(1/2) = $8.75. Subtract the cost: $4.75.",
+    "(c) Expected winnings = 23(1/5) + 6(1/4) = $6.10. Subtract the cost: $1.10.",
+    "(d) Expected winnings = 16(1/10) + 4(1/5) = $2.40. Subtract the cost: $1.40."
+   ],
+   "standards": [
+    "S-MD.A.2",
+    "S-MD.B.5"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s5_gamea2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-010",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A normal distribution has mean 41 and standard deviation 12. Use the empirical rule to estimate the percent of data between 5 and 77.",
+   "answer": "99.7%",
+   "solutionSteps": [
+    "5 is -3 SD and 77 is 3 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 99.7%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-011",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Scores are normally distributed with mean 53 and standard deviation 18. Find the z-score of 65. Round to the nearest hundredth.",
+   "answer": "0.67",
+   "options": [
+    {
+     "text": "-0.67",
+     "correct": false
+    },
+    {
+     "text": "0.67",
+     "correct": true
+    },
+    {
+     "text": "12.00",
+     "correct": false
+    },
+    {
+     "text": "1.50",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(65 - 53) ÷ 18.",
+    "z ≈ 0.67."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-012",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A normal distribution has mean 74 and standard deviation 5. Use the empirical rule to estimate the percent of data between 59 and 89.",
+   "answer": "99.7%",
+   "options": [
+    {
+     "text": "81.5%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "95%",
+     "correct": false
+    },
+    {
+     "text": "99.7%",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "59 is -3 SD and 89 is 3 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 99.7%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-013",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Scores are normally distributed with mean 59 and standard deviation 5. Find the z-score of 73. Round to the nearest hundredth.",
+   "answer": "2.80",
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(73 - 59) ÷ 5.",
+    "z ≈ 2.80."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-014",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A normal distribution has mean 48 and standard deviation 9. Use the empirical rule to estimate the percent of data between 21 and 75.",
+   "answer": "99.7%",
+   "solutionSteps": [
+    "21 is -3 SD and 75 is 3 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 99.7%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-015",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kai answered this problem incorrectly.\nScores are normally distributed with mean 60 and standard deviation 4. Find the z-score of 48. Round to the nearest hundredth.\nKai's answer: 3.00\nIdentify the mistake and give the correct answer.",
+   "answer": "-3.00",
+   "solutionSteps": [
+    "Mistake: Subtracted in the wrong order.",
+    "z = (x - μ) ÷ σ.",
+    "(48 - 60) ÷ 4.",
+    "z ≈ -3.00.",
+    "The correct answer is -3.00, not 3.00."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp2-016",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Dev answered this problem incorrectly.\nScores are normally distributed with mean 77 and standard deviation 8. Find the z-score of 75. Round to the nearest hundredth.\nDev's answer: -2.00\nIdentify the mistake and give the correct answer.",
+   "answer": "-0.25",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by σ.",
+    "z = (x - μ) ÷ σ.",
+    "(75 - 77) ÷ 8.",
+    "z ≈ -0.25.",
+    "The correct answer is -0.25, not -2.00."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-019",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Isla answered this problem incorrectly.\nScores are normally distributed with mean 80 and standard deviation 14. Find the z-score of 79. Round to the nearest hundredth.\nIsla's answer: -14.00\nIdentify the mistake and give the correct answer.",
+   "answer": "-0.07",
+   "solutionSteps": [
+    "Mistake: Divided σ by the difference.",
+    "z = (x - μ) ÷ σ.",
+    "(79 - 80) ÷ 14.",
+    "z ≈ -0.07.",
+    "The correct answer is -0.07, not -14.00."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-cp1-020",
+   "skillId": "probability-statistics-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nScores are normally distributed with mean 93 and standard deviation 5. Find the z-score of 81. Round to the nearest hundredth.\nSam's answer: 2.40\nIdentify the mistake and give the correct answer.",
+   "answer": "-2.40",
+   "solutionSteps": [
+    "Mistake: Subtracted in the wrong order.",
+    "z = (x - μ) ÷ σ.",
+    "(81 - 93) ÷ 5.",
+    "z ≈ -2.40.",
+    "The correct answer is -2.40, not 2.40."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-004",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A normal distribution has mean 111 and standard deviation 13. Use the empirical rule to estimate the percent of data between 111 and 124.",
+   "answer": "34%",
+   "solutionSteps": [
+    "111 is 0 SD and 124 is 1 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 34%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-005",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Scores are normally distributed with mean 68 and standard deviation 4. Find the z-score of 63. Round to the nearest hundredth.",
+   "answer": "-1.25",
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(63 - 68) ÷ 4.",
+    "z ≈ -1.25."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-006",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A normal distribution has mean 46 and standard deviation 15. Use the empirical rule to estimate the percent of data between 16 and 46.",
+   "answer": "47.5%",
+   "options": [
+    {
+     "text": "34%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "47.5%",
+     "correct": true
+    },
+    {
+     "text": "50%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "16 is -2 SD and 46 is 0 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 47.5%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-007",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Scores are normally distributed with mean 117 and standard deviation 5. Find the z-score of 144. Round to the nearest hundredth.",
+   "answer": "5.40",
+   "options": [
+    {
+     "text": "27.00",
+     "correct": false
+    },
+    {
+     "text": "-5.40",
+     "correct": false
+    },
+    {
+     "text": "5.40",
+     "correct": true
+    },
+    {
+     "text": "0.19",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(144 - 117) ÷ 5.",
+    "z ≈ 5.40."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-008",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A normal distribution has mean 98 and standard deviation 4. Use the empirical rule to estimate the percent of data between 90 and 98.",
+   "answer": "47.5%",
+   "solutionSteps": [
+    "90 is -2 SD and 98 is 0 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 47.5%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-009",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Scores are normally distributed with mean 87 and standard deviation 5. Find the z-score of 116. Round to the nearest hundredth.",
+   "answer": "5.80",
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(116 - 87) ÷ 5.",
+    "z ≈ 5.80."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-010",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A normal distribution has mean 72 and standard deviation 6. Use the empirical rule to estimate the percent of data between 60 and 72.",
+   "answer": "47.5%",
+   "options": [
+    {
+     "text": "34%",
+     "correct": false
+    },
+    {
+     "text": "68%",
+     "correct": false
+    },
+    {
+     "text": "50%",
+     "correct": false
+    },
+    {
+     "text": "47.5%",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "60 is -2 SD and 72 is 0 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 47.5%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-011",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Scores are normally distributed with mean 74 and standard deviation 14. Find the z-score of 52. Round to the nearest hundredth.",
+   "answer": "-1.57",
+   "options": [
+    {
+     "text": "-22.00",
+     "correct": false
+    },
+    {
+     "text": "-0.64",
+     "correct": false
+    },
+    {
+     "text": "1.57",
+     "correct": false
+    },
+    {
+     "text": "-1.57",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(52 - 74) ÷ 14.",
+    "z ≈ -1.57."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-012",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A normal distribution has mean 68 and standard deviation 13. Use the empirical rule to estimate the percent of data between 81 and 94.",
+   "answer": "13.5%",
+   "solutionSteps": [
+    "81 is 1 SD and 94 is 2 SD from the mean.",
+    "68–95–99.7 rule: 34% from the mean to 1 SD, 13.5% from 1 to 2 SD.",
+    "≈ 13.5%."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_empiricala2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-013",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Scores are normally distributed with mean 110 and standard deviation 7. Find the z-score of 106. Round to the nearest hundredth.",
+   "answer": "-0.57",
+   "solutionSteps": [
+    "z = (x - μ) ÷ σ.",
+    "(106 - 110) ÷ 7.",
+    "z ≈ -0.57."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-014",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Uma answered this problem incorrectly.\nScores are normally distributed with mean 120 and standard deviation 14. Find the z-score of 147. Round to the nearest hundredth.\nUma's answer: 27.00\nIdentify the mistake and give the correct answer.",
+   "answer": "1.93",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by σ.",
+    "z = (x - μ) ÷ σ.",
+    "(147 - 120) ÷ 14.",
+    "z ≈ 1.93.",
+    "The correct answer is 1.93, not 27.00."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-015",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nScores are normally distributed with mean 111 and standard deviation 4. Find the z-score of 133. Round to the nearest hundredth.\nPriya's answer: 0.18\nIdentify the mistake and give the correct answer.",
+   "answer": "5.50",
+   "solutionSteps": [
+    "Mistake: Divided σ by the difference.",
+    "z = (x - μ) ÷ σ.",
+    "(133 - 111) ÷ 4.",
+    "z ≈ 5.50.",
+    "The correct answer is 5.50, not 0.18."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2e_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s07-honors-016",
+   "skillId": "probability-statistics-skill-07",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Scores are normally distributed with mean 98 and standard deviation 9. Find the z-score of 104. Round to the nearest hundredth.",
+     "answer": "0.67"
+    },
+    {
+     "prompt": "Scores are normally distributed with mean 118 and standard deviation 10. Find the z-score of 118. Round to the nearest hundredth.",
+     "answer": "0.00"
+    },
+    {
+     "prompt": "Scores are normally distributed with mean 95 and standard deviation 6. Find the z-score of 106. Round to the nearest hundredth.",
+     "answer": "1.83"
+    },
+    {
+     "prompt": "Scores are normally distributed with mean 92 and standard deviation 12. Find the z-score of 121. Round to the nearest hundredth.",
+     "answer": "2.42"
+    }
+   ],
+   "answer": "(a) 0.67; (b) 0.00; (c) 1.83; (d) 2.42",
+   "solutionSteps": [
+    "(a) (104 - 98) ÷ 9. z ≈ 0.67.",
+    "(b) (118 - 118) ÷ 10. z ≈ 0.00.",
+    "(c) (106 - 95) ÷ 6. z ≈ 1.83.",
+    "(d) (121 - 92) ÷ 12. z ≈ 2.42."
+   ],
+   "standards": [
+    "S-ID.A.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: g6_s8_za2o_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-009",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random survey of 900 people finds 79% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "3.3%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√900) ≈ 0.0333 = 3.3%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-010",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Identify the type of study: A pollster calls 1,000 randomly selected voters to ask about a ballot question.",
+   "answer": "sample survey",
+   "options": [
+    {
+     "text": "sample survey",
+     "correct": true
+    },
+    {
+     "text": "observational study",
+     "correct": false
+    },
+    {
+     "text": "experiment",
+     "correct": false
+    },
+    {
+     "text": "census",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An experiment imposes a treatment; an observational study records without intervening; a sample survey asks a sample questions.",
+    "This is a sample survey."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-011",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "A random survey of 900 people finds 78% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "3.3%",
+   "options": [
+    {
+     "text": "0.1%",
+     "correct": false
+    },
+    {
+     "text": "0.3%",
+     "correct": false
+    },
+    {
+     "text": "3.3%",
+     "correct": true
+    },
+    {
+     "text": "6.7%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√900) ≈ 0.0333 = 3.3%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-012",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random survey of 900 people finds 69% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "3.3%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√900) ≈ 0.0333 = 3.3%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-013",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A random survey of 1600 people finds 36% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "2.5%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√1600) ≈ 0.0250 = 2.5%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-014",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nA random survey of 900 people finds 41% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.\nRosa's answer: 0.3%\nIdentify the mistake and give the correct answer.",
+   "answer": "3.3%",
+   "solutionSteps": [
+    "Mistake: Used √n ÷ 100.",
+    "Margin of error ≈ 1/(√n).",
+    "1/(√900) ≈ 0.0333 = 3.3%.",
+    "The correct answer is 3.3%, not 0.3%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-015",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Lena answered this problem incorrectly.\nA random survey of 100 people finds 57% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.\nLena's answer: 1.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "10.0%",
+   "solutionSteps": [
+    "Mistake: Used 1 ÷ n instead of 1 ÷ √n.",
+    "Margin of error ≈ 1/(√n).",
+    "1/(√100) ≈ 0.1000 = 10.0%.",
+    "The correct answer is 10.0%, not 1.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp2-016",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A random survey of 1600 people finds 51% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+     "answer": "2.5%"
+    },
+    {
+     "prompt": "A random survey of 900 people finds 79% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+     "answer": "3.3%"
+    },
+    {
+     "prompt": "A random survey of 2500 people finds 58% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+     "answer": "2.0%"
+    },
+    {
+     "prompt": "A random survey of 2500 people finds 78% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+     "answer": "2.0%"
+    }
+   ],
+   "answer": "(a) 2.5%; (b) 3.3%; (c) 2.0%; (d) 2.0%",
+   "solutionSteps": [
+    "(a) Margin of error ≈ 1/(√n). 1/(√1600) ≈ 0.0250 = 2.5%.",
+    "(b) Margin of error ≈ 1/(√n). 1/(√900) ≈ 0.0333 = 3.3%.",
+    "(c) Margin of error ≈ 1/(√n). 1/(√2500) ≈ 0.0200 = 2.0%.",
+    "(d) Margin of error ≈ 1/(√n). 1/(√2500) ≈ 0.0200 = 2.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-019",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Jamal answered this problem incorrectly.\nA random survey of 625 people finds 75% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.\nJamal's answer: 8.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "4.0%",
+   "solutionSteps": [
+    "Mistake: Doubled the margin of error.",
+    "Margin of error ≈ 1/(√n).",
+    "1/(√625) ≈ 0.0400 = 4.0%.",
+    "The correct answer is 4.0%, not 8.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-cp1-020",
+   "skillId": "probability-statistics-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nA random survey of 1600 people finds 70% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.\nRosa's answer: 5.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "2.5%",
+   "solutionSteps": [
+    "Mistake: Doubled the margin of error.",
+    "Margin of error ≈ 1/(√n).",
+    "1/(√1600) ≈ 0.0250 = 2.5%.",
+    "The correct answer is 2.5%, not 5.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-005",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random survey of 100 people finds 47% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+   "answer": "37.0% to 57.0%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√100) = 10.0%.",
+    "47% ± 10.0% gives 37.0% to 57.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-006",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Identify the type of study: A scientist records the diets and heart health of 500 adults without changing their habits.",
+   "answer": "observational study",
+   "options": [
+    {
+     "text": "sample survey",
+     "correct": false
+    },
+    {
+     "text": "observational study",
+     "correct": true
+    },
+    {
+     "text": "experiment",
+     "correct": false
+    },
+    {
+     "text": "census",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An experiment imposes a treatment; an observational study records without intervening; a sample survey asks a sample questions.",
+    "This is an observational study."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-007",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "A random survey of 1200 people finds 50% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+   "answer": "47.1% to 52.9%",
+   "options": [
+    {
+     "text": "44.2% to 55.8%",
+     "correct": false
+    },
+    {
+     "text": "50% to 52.9%",
+     "correct": false
+    },
+    {
+     "text": "47.1% to 52.9%",
+     "correct": true
+    },
+    {
+     "text": "49.9% to 50.1%",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√1200) = 2.9%.",
+    "50% ± 2.9% gives 47.1% to 52.9%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-008",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Identify the type of study: Researchers compare test scores of students who chose to join a study club with those who did not.",
+   "answer": "observational study",
+   "options": [
+    {
+     "text": "sample survey",
+     "correct": false
+    },
+    {
+     "text": "observational study",
+     "correct": true
+    },
+    {
+     "text": "experiment",
+     "correct": false
+    },
+    {
+     "text": "census",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An experiment imposes a treatment; an observational study records without intervening; a sample survey asks a sample questions.",
+    "This is an observational study."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-009",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random survey of 2500 people finds 21% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "2.0%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√2500) ≈ 0.0200 = 2.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-010",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Identify the type of study: A city records how many people use each bus route during one week.",
+   "answer": "observational study",
+   "options": [
+    {
+     "text": "sample survey",
+     "correct": false
+    },
+    {
+     "text": "observational study",
+     "correct": true
+    },
+    {
+     "text": "experiment",
+     "correct": false
+    },
+    {
+     "text": "census",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "An experiment imposes a treatment; an observational study records without intervening; a sample survey asks a sample questions.",
+    "This is an observational study."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_type). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-011",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random survey of 100 people finds 65% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "10.0%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√100) ≈ 0.1000 = 10.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-012",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random survey of 625 people finds 55% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+   "answer": "51.0% to 59.0%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√625) = 4.0%.",
+    "55% ± 4.0% gives 51.0% to 59.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-013",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A random survey of 1600 people finds 28% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.",
+   "answer": "2.5%",
+   "solutionSteps": [
+    "Margin of error ≈ 1/(√n).",
+    "1/(√1600) ≈ 0.0250 = 2.5%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-014",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Wren answered this problem incorrectly.\nA random survey of 1200 people finds 41% support a proposal. Use 1/(√n) to estimate the margin of error, as a percent to the nearest tenth.\nWren's answer: 0.3%\nIdentify the mistake and give the correct answer.",
+   "answer": "2.9%",
+   "solutionSteps": [
+    "Mistake: Used √n ÷ 100.",
+    "Margin of error ≈ 1/(√n).",
+    "1/(√1200) ≈ 0.0289 = 2.9%.",
+    "The correct answer is 2.9%, not 0.3%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-015",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Femi answered this problem incorrectly.\nA random survey of 100 people finds 67% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.\nFemi's answer: 47.0% to 87.0%\nIdentify the mistake and give the correct answer.",
+   "answer": "57.0% to 77.0%",
+   "solutionSteps": [
+    "Mistake: Doubled the margin of error.",
+    "Margin of error ≈ 1/(√100) = 10.0%.",
+    "67% ± 10.0% gives 57.0% to 77.0%.",
+    "The correct answer is 57.0% to 77.0%, not 47.0% to 87.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ps-s08-honors-016",
+   "skillId": "probability-statistics-skill-08",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "A random survey of 400 people finds 66% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+     "answer": "61.0% to 71.0%"
+    },
+    {
+     "prompt": "A random survey of 2500 people finds 36% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+     "answer": "34.0% to 38.0%"
+    },
+    {
+     "prompt": "A random survey of 1200 people finds 39% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+     "answer": "36.1% to 41.9%"
+    },
+    {
+     "prompt": "A random survey of 400 people finds 64% support a proposal. Using a margin of error of 1/(√n), give the interval of likely values, in percent to the nearest tenth.",
+     "answer": "59.0% to 69.0%"
+    }
+   ],
+   "answer": "(a) 61.0% to 71.0%; (b) 34.0% to 38.0%; (c) 36.1% to 41.9%; (d) 59.0% to 69.0%",
+   "solutionSteps": [
+    "(a) Margin of error ≈ 1/(√400) = 5.0%. 66% ± 5.0% gives 61.0% to 71.0%.",
+    "(b) Margin of error ≈ 1/(√2500) = 2.0%. 36% ± 2.0% gives 34.0% to 38.0%.",
+    "(c) Margin of error ≈ 1/(√1200) = 2.9%. 39% ± 2.9% gives 36.1% to 41.9%.",
+    "(d) Margin of error ≈ 1/(√400) = 5.0%. 64% ± 5.0% gives 59.0% to 69.0%."
+   ],
+   "standards": [
+    "S-IC.A.1",
+    "S-IC.B.3",
+    "S-IC.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: s8_moe_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
   }
  ]
 }

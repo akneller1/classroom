@@ -106,16 +106,24 @@
     var lim = PR.MODES[kind], set = NS.skillSets[cfg.unitId];
     var pol = NS.policyOf(cfg);
     if (/^geometry-/.test(cfg.unitId) && kind !== 'stations') pol = Object.assign({}, pol, { compact: true });   // small boxes: skills may give a shorter prompt because the diagram carries the marks
-    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong && kind!=='error'?['multiple-choice']:['short-answer','multiple-choice'],authoredErrorAnalysis:kind==='error',adjacentLevels:false});
+    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong && kind!=='error' && kind!=='tarsia'?['multiple-choice']:['short-answer','multiple-choice'],authoredErrorAnalysis:kind==='error',adjacentLevels:false});
     var p = NS.generateProblem(cfg.unitId, skill, c, pol, seed, !!NS.skillSets[cfg.unitId]?.authoredBank?null:used);
     if (p.source==='authored-bank' && used && used.keys.has(p.key)) return null;
+    if (kind !== 'error' && p.authoredErrorAnalysis) return null;   // "a student answered this incorrectly" items belong on the Error Analysis sheet only
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
-    var numberedRoom = kind === 'maze' && p.source === 'authored-bank' && (q.fig || plain(q.prompt).length > lim.prompt);
-    if (!lim.fig && q.fig && !numberedRoom && !(kind === 'tarsia' && p.source === 'authored-bank')) return null;
+    // Problems with a diagram (authored-bank items and every Geometry problem) print in a numbered list beside the
+    // maze or Tarsia; the room or edge shows only the problem number.
+    var listed = p.source === 'authored-bank' || /^geometry-/.test(cfg.unitId);
+    var numberedRoom = kind === 'maze' && listed && (q.fig || plain(q.prompt).length > lim.prompt);
+    if (!lim.fig && q.fig && !numberedRoom && !(kind === 'tarsia' && listed)) return null;
     if (q.fig && lim.figPrompt && /^geometry-/.test(cfg.unitId) && plain(q.prompt).length > lim.figPrompt) return null;   // a Geometry diagram shares a small box with the text
     // boxes on a color-by-number page, a partner check or an error analysis are small: no histograms, long data tables or graphs to draw
     if ((kind === 'color' || kind === 'partner' || kind === 'error') && (q.fig && (q.fig.kind === 'histogram' || (q.fig.kind === 'table' && q.fig.rows.length > 5)) || p.parts.some(function (pt) { return pt.answerFig && pt.answerFig.kind === 'plane'; }))) return null;
+    // a two-column proof (statements, reasons and a diagram) is far taller than a Color by Number box
+    if (kind === 'color' && /two-column proof/i.test(plain(q.prompt))) return null;
+    // a bank graph plus four answer choices does not fit a Color by Number or Partner Check box
+    if ((kind === 'color' || kind === 'partner') && p.source === 'authored-bank' && q.fig && (p.authoredOptions || []).length) return null;
     if ((q.parts[0].prompt || '') && !lim.fig) return null;
     if (!q.authoredErrorAnalysis && plain(key).length > lim.answer) return null;
     if (kind === 'maze' && (plain(key).match(/,/g) || []).length > 2) return null;   // long lists do not fit on a door
@@ -123,14 +131,15 @@
     var it = { p: q, key: key, skill: skill, c: c, tag: set.byId[skill].tag, wrong: [], numberedRoom: numberedRoom };
     if (lim.verb) {
       var edge = tarsiaEdge(q.prompt);
-      if (kind === 'tarsia' && p.source === 'authored-bank' && (q.fig || !edge || !tarsiaSafe(edge, lim.prompt))) { edge = 'Problem'; it.numberedEdge = true; }
+      if (kind === 'tarsia' && listed && (q.fig || !edge || !tarsiaSafe(edge, lim.prompt))) { edge = 'Problem'; it.numberedEdge = true; }
       if (!edge || !tarsiaSafe(edge, lim.prompt) || !tarsiaSafe(key, lim.answer)) return null;
       it.edge = edge;
     } else if (!numberedRoom && !q.authoredErrorAnalysis && plain(q.prompt).length + (q.parts[0].prompt ? plain(q.parts[0].prompt).length : 0) > lim.prompt) return null;
     if (lim.steps && !q.authoredErrorAnalysis && !(q.steps || []).some(function (s) { return s.m; })) return null;
     if (lim.wrong && !q.authoredErrorAnalysis) {
       it.wrong = wrongs(q, Math.max(lim.wrong, 3), seed).filter(function (w) { return kind === 'tarsia' ? tarsiaSafe(w, lim.answer) : plain(w).length <= lim.answer + 4; });
-      if (it.wrong.length < Math.min(lim.wrong, 2)) return null;
+      // Tarsia uses wrong answers only as border decoys, so a bank short-answer item (no authored distractors) may still be a piece
+      if (it.wrong.length < Math.min(lim.wrong, 2) && !(kind === 'tarsia' && p.source === 'authored-bank')) return null;
     }
     if (p.source==='authored-bank' && used) { used.keys.add(p.key); used.sigs.add(p.sig); }
     return it;
@@ -310,7 +319,8 @@
     var want = 8, pool = [], used = { keys: new Set(), sigs: new Set() };
     for (var i = 0; i < 1600 && pool.length < (i < 360 ? 340 : 1200); i++) {
       if (i === 360 && countPairs(pool) >= want + 2) break;   // most units find enough pairs quickly
-      var sk = skills[i % skills.length], c = lv.tiers[i % 3];
+      // step the difficulty once per pass over the skills, so every skill is tried at every tier (3, 6 or 9 skills would otherwise pin each skill to one tier)
+      var sk = skills[i % skills.length], c = lv.tiers[Math.floor(i / skills.length) % 3];
       var it = makeItem(cfg, sk, c, [cfg.seed, vIdx, 'pc', i].join('|'), used, 'partner');
       if (it) pool.push(it);
     }
