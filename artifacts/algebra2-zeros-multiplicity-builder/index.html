@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Zeros &amp; Multiplicity Builder · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Algebra 2", "unit": "Polynomial Functions", "title": "Zeros & Multiplicity Builder", "intro": "Build a polynomial from its zeros. Choose how many times each zero repeats and watch the graph cross or bounce."});
+var st = { z: [-3, 1, 4], m: [1, 1, 1], a: 0.25, seen: {} };
+var g = L.graph(P.stage, { xmin: -7, xmax: 7, ymin: -20, ymax: 20, width: 600, height: 600, xstep: 1, ystep: 2, ylabelStep: 4, label: 'Polynomial built from its zeros' });
+L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>polynomial</span><span><i style="background:var(--green)"></i>crosses</span><span><i style="background:var(--orange)"></i>bounces</span><span><i style="background:var(--purple)"></i>flattens and crosses</span>');
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var COLORS = ['blue', 'orange', 'purple'];
+[0, 1, 2].forEach(function (i) {
+  L.h('h2', null, P.panel, 'Zero ' + (i + 1));
+  L.slider(P.panel, { id: 'z' + i, label: 'position', min: -6, max: 6, step: 0.5, value: st.z[i], color: COLORS[i], format: L.nice, onInput: function (v) { st.z[i] = v; draw(); } });
+  L.chips(P.panel, { label: 'multiplicity', value: st.m[i], options: [{ value: 0, label: 'off' }, { value: 1, label: '1' }, { value: 2, label: '2' }, { value: 3, label: '3' }], onChange: function (v) { st.m[i] = v; draw(); } });
+});
+L.slider(P.panel, { id: 'a', label: 'leading coefficient', min: -1, max: 1, step: 0.05, value: st.a, color: 'red', format: function (v) { return L.num(v); }, onInput: function (v) { st.a = v; draw(); } });
+var info = L.h('dl', { class: 'kv' }, P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Make the graph <b>bounce</b> off the ' + L.V('x') + '-axis at a zero.', check: function () { return st.seen.bounce; } },
+  { text: 'Make the graph <b>flatten</b> as it crosses at a zero.', check: function () { return st.seen.flat; } },
+  { text: 'Make both ends of the graph point <b>up</b>.', check: function () { return st.seen.upup; } },
+  { text: 'Make both ends point <b>down</b>.', check: function () { return st.seen.dndn; } },
+  { text: 'Build a polynomial of degree 7.', check: function () { return st.seen.d7; } }
+]);
+function fac(z, m) { var b = z === 0 ? L.V('x') : '(' + L.V('x') + (z > 0 ? ' − ' : ' + ') + L.nice(Math.abs(z)) + ')'; return b + (m > 1 ? '<sup>' + m + '</sup>' : ''); }
+var draw = L.scheduler(function () {
+  var a = st.a, deg = 0, parts = [];
+  st.m.forEach(function (m, i) { if (m) { deg += m; parts.push([st.z[i], m, i]); } });
+  var f = function (x) { var y = a; parts.forEach(function (p) { y *= Math.pow(x - p[0], p[1]); }); return y; };
+  g.clear();
+  if (a === 0) { read.innerHTML = '<span class="c-red">With a leading coefficient of 0 the whole polynomial is 0.</span>'; info.innerHTML = ''; ch.update(); return; }
+  g.fn(f, { color: 'blue', samples: 900 });
+  parts.forEach(function (p) {
+    var col = p[1] === 1 ? 'green' : p[1] === 2 ? 'orange' : 'purple';
+    g.dot(p[0], 0, { color: col, r: 9, stroke: 'ink', strokeWidth: 2 });
+    if (p[1] === 2) st.seen.bounce = true; if (p[1] === 3) st.seen.flat = true;
+  });
+  var left = deg % 2 === 0 ? (a > 0 ? 'up' : 'down') : (a > 0 ? 'down' : 'up'), right = a > 0 ? 'up' : 'down';
+  if (deg === 0) left = right = 'flat';
+  if (left === 'up' && right === 'up') st.seen.upup = true; if (left === 'down' && right === 'down') st.seen.dndn = true; if (deg === 7) st.seen.d7 = true;
+  read.innerHTML = L.V('f') + '(' + L.V('x') + ') = ' + (a === 1 ? '' : a === -1 ? '−' : L.num(a)) + (parts.length ? parts.map(function (p) { return fac(p[0], p[1]); }).join('') : '');
+  var arrow = { up: '↑ up', down: '↓ down', flat: 'flat' };
+  info.innerHTML = '<dt>Degree</dt><dd>' + deg + ' (' + (deg % 2 ? 'odd' : 'even') + ')</dd><dt>Leading coefficient</dt><dd>' + L.num(a) + ' (' + (a > 0 ? 'positive' : 'negative') + ')</dd>' +
+    '<dt>Left end</dt><dd>' + arrow[left] + '</dd><dt>Right end</dt><dd>' + arrow[right] + '</dd>' +
+    parts.map(function (p) { return '<dt>At ' + L.V('x') + ' = ' + L.nice(p[0]) + '</dt><dd>' + (p[1] === 1 ? 'crosses' : p[1] === 2 ? 'bounces (touches and turns)' : 'flattens, then crosses') + '</dd>'; }).join('');
+  ch.update();
+});
+draw();
+
+})();
+</script>
+</body></html>

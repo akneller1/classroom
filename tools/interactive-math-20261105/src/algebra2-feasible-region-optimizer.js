@@ -1,0 +1,51 @@
+/* A bakery makes x trays of muffins and y trays of cookies.
+   Constraints: x ≥ 0, y ≥ 0, x + y ≤ 10 (trays), 2x + y ≤ oven (oven hours), y ≤ 8 (cookie dough). Profit P = px + qy. */
+var st = { p: 30, q: 20, oven: 16, P: 120, seen: {} };
+var g = L.graph(P.stage, { xmin: -0.8, xmax: 12, ymin: -0.8, ymax: 12, width: 600, height: 600, xstep: 1, ystep: 1, xlabelStep: 2, ylabelStep: 2, label: 'Feasible region and profit line' });
+L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>feasible region</span><span><i style="background:var(--orange)"></i>profit line</span><span><i style="background:var(--green)"></i>best corner</span>');
+L.h('p', { class: 'sub', style: 'margin:4px 6px 0' }, P.stage, L.V('x') + ' = trays of muffins, ' + L.V('y') + ' = trays of cookies.');
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+L.h('div', { class: 'sub' }, P.panel, '<b>Rules:</b> ' + L.V('x') + ' ≥ 0, ' + L.V('y') + ' ≥ 0, ' + L.V('x') + ' + ' + L.V('y') + ' ≤ 10 trays, 2' + L.V('x') + ' + ' + L.V('y') + ' ≤ oven hours, ' + L.V('y') + ' ≤ 8 trays of cookie dough.');
+L.slider(P.panel, { id: 'p', label: 'Profit per muffin tray ($)', min: 5, max: 60, step: 5, value: st.p, color: 'blue', format: function (v) { return '$' + v; }, onInput: function (v) { st.p = v; draw(); } });
+L.slider(P.panel, { id: 'q', label: 'Profit per cookie tray ($)', min: 5, max: 60, step: 5, value: st.q, color: 'blue', format: function (v) { return '$' + v; }, onInput: function (v) { st.q = v; draw(); } });
+L.slider(P.panel, { id: 'oven', label: 'Oven hours available', min: 10, max: 20, value: st.oven, color: 'purple', format: L.num, onInput: function (v) { st.oven = v; draw(); } });
+var sP = L.slider(P.panel, { id: 'P', label: 'Profit line: P = ', min: 0, max: 600, step: 10, value: st.P, color: 'orange', format: function (v) { return '$' + v; }, onInput: function (v) { st.P = v; draw(); } });
+var tbl = L.table(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Slide the profit line to the <b>largest</b> profit that still touches the region.', check: function () { return st.seen.max; } },
+  { text: 'Change the profits so a <b>different corner</b> is best.', check: function () { return st.seen.corners && Object.keys(st.seen.corners).length > 1; } },
+  { text: 'Make two corners tie for the best profit. What does the profit line do?', check: function () { return st.seen.tie; } },
+  { text: 'Add oven hours. Does the best plan change?', check: function () { return st.oven !== 16; } }
+]);
+var CONS = function () { return [[1, 0, 0, -1], [0, 1, 0, -1], [1, 1, 10, 1], [2, 1, st.oven, 1], [0, 1, 8, 1]]; }; // a x + b y (≤ c if s=1, ≥ c if s=-1)
+function feasible(x, y) { return CONS().every(function (c) { var v = c[0] * x + c[1] * y; return c[3] > 0 ? v <= c[2] + 1e-9 : v >= c[2] - 1e-9; }); }
+function vertices() {
+  var cs = CONS(), out = [];
+  for (var i = 0; i < cs.length; i++) for (var j = i + 1; j < cs.length; j++) {
+    var a1 = cs[i][0], b1 = cs[i][1], c1 = cs[i][2], a2 = cs[j][0], b2 = cs[j][1], c2 = cs[j][2], det = a1 * b2 - a2 * b1;
+    if (Math.abs(det) < 1e-12) continue;
+    var x = (c1 * b2 - c2 * b1) / det, y = (a1 * c2 - a2 * c1) / det;
+    if (feasible(x, y) && !out.some(function (p) { return Math.abs(p[0] - x) < 1e-9 && Math.abs(p[1] - y) < 1e-9; })) out.push([L.round(x, 6), L.round(y, 6)]);
+  }
+  var cx = 0, cy = 0; out.forEach(function (p) { cx += p[0]; cy += p[1]; }); cx /= out.length; cy /= out.length;
+  return out.sort(function (A, B) { return Math.atan2(A[1] - cy, A[0] - cx) - Math.atan2(B[1] - cy, B[0] - cx); });
+}
+var draw = L.scheduler(function () {
+  var V = vertices(), p = st.p, q = st.q;
+  g.clear();
+  g.poly(V, { fill: 'blue', opacity: 0.22, stroke: 'blue', width: 3 });
+  var best = -1, bestV = [];
+  V.forEach(function (v) { var val = p * v[0] + q * v[1]; if (val > best + 1e-9) { best = val; bestV = [v]; } else if (Math.abs(val - best) < 1e-9) bestV.push(v); });
+  // profit line px + qy = P
+  g.fullLine(0, st.P / q, st.P / p, 0, { color: 'orange', width: 4 });
+  var touches = V.some(function (v) { return p * v[0] + q * v[1] >= st.P - 1e-9; });
+  V.forEach(function (v) { var isBest = bestV.indexOf(v) >= 0; g.dot(v[0], v[1], { color: isBest ? 'green' : 'blue', r: isBest ? 9 : 6, stroke: 'ink', strokeWidth: 2 }); g.text(v[0], v[1], '(' + L.num(v[0]) + ', ' + L.num(v[1]) + ')', { dx: 8, dy: -10, size: 13 }); });
+  if (Math.abs(st.P - best) < 1e-9 || (touches && st.P + 10 > best && st.P <= best + 1e-9)) st.seen.max = true;
+  st.seen.corners = st.seen.corners || {}; if (bestV.length === 1) st.seen.corners[bestV[0].join(',')] = true;
+  if (bestV.length > 1) st.seen.tie = true;
+  tbl.set(['Corner (' + L.V('x') + ', ' + L.V('y') + ')', 'Profit'], V.map(function (v) { var val = p * v[0] + q * v[1]; return ['(' + L.nice(v[0]) + ', ' + L.nice(v[1]) + ')', (bestV.indexOf(v) >= 0 ? '<b class="c-green">$' + L.num(val) + '</b>' : '$' + L.num(val))]; }));
+  read.innerHTML = 'P = ' + p + L.V('x') + ' + ' + q + L.V('y') + '<div class="sub" style="margin-top:6px">' + (touches ? 'The profit line still crosses the region: a profit of $' + st.P + ' is possible.' : '<span class="c-red">The profit line has left the region: $' + st.P + ' is not possible.</span>') + '</div>' +
+    '<div class="sub">Best: $' + L.num(best) + ' at ' + bestV.map(function (v) { return '(' + L.nice(v[0]) + ', ' + L.nice(v[1]) + ')'; }).join(' and ') + (bestV.length > 1 ? ' (a tie: every point on the edge between them earns the same)' : '') + '</div>';
+  ch.update();
+});
+draw();

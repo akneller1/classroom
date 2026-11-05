@@ -13,7 +13,7 @@
     if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path)) return false;
     var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
     var label = (activity.path + ' ' + (activity.title || '')).toLowerCase();
-    return types.some(function (type) { return /^game$/i.test(type); }) ||
+    return types.some(function (type) { return /^(game|interactive)$/i.test(type); }) ||
       /flashcard|cheat.sheet|study.guide|picture.reveal|connect.four|jeopardy|showdown|tic.tac.toe|escape.room|detective|mini.golf|zombie.fence/.test(label);
   }
   library.courses.forEach(function (course) {

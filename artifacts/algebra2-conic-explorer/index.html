@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Conic Explorer · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Algebra 2", "unit": "Conic Sections", "title": "Conic Explorer", "intro": "Change the numbers in the standard form of each conic and watch the shape, its center, its foci and its directrix move."});
+var st = { type: 'ellipse', h: 0, k: 0, a: 5, b: 2, r: 4, p: 1, dir: 'h', seen: {} };
+var g = L.graph(P.stage, { xmin: -12, xmax: 12, ymin: -12, ymax: 12, width: 600, height: 600, xstep: 1, ystep: 1, xlabelStep: 2, ylabelStep: 2, label: 'Conic section' });
+L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>conic</span><span><i style="background:var(--orange)"></i>center / vertex</span><span><i style="background:var(--red)"></i>foci</span><span><i style="background:var(--ghost)"></i>asymptotes / directrix</span>');
+L.chips(P.panel, { label: 'Conic', value: st.type, options: [{ value: 'circle', label: 'Circle' }, { value: 'ellipse', label: 'Ellipse' }, { value: 'hyperbola', label: 'Hyperbola' }, { value: 'parabola', label: 'Parabola' }], onChange: function (v) { st.type = v; build(); draw(); } });
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
+var info = L.h('dl', { class: 'kv' }, P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Make a circle with center (2, −1) and radius 5.', check: function () { return st.type === 'circle' && st.h === 2 && st.k === -1 && st.r === 5; } },
+  { text: 'Make an ellipse with its foci on a <b>vertical</b> line.', check: function () { return st.seen.vEllipse; } },
+  { text: 'Make an ellipse with foci 4 units from the center.', check: function () { return st.seen.c4; } },
+  { text: 'Make a hyperbola whose asymptotes have slopes ±2.', check: function () { return st.seen.slope2; } },
+  { text: 'Make a parabola that opens to the <b>left</b>.', check: function () { return st.seen.left; } }
+]);
+function build() {
+  ctrl.innerHTML = '';
+  L.slider(ctrl, { id: 'h', label: 'h (center x)', min: -6, max: 6, value: st.h, color: 'orange', format: L.num, onInput: function (v) { st.h = v; draw(); } });
+  L.slider(ctrl, { id: 'k', label: 'k (center y)', min: -6, max: 6, value: st.k, color: 'orange', format: L.num, onInput: function (v) { st.k = v; draw(); } });
+  if (st.type === 'circle') L.slider(ctrl, { id: 'r', label: 'r (radius)', min: 1, max: 8, value: st.r, color: 'blue', format: L.num, onInput: function (v) { st.r = v; draw(); } });
+  else if (st.type === 'parabola') {
+    L.slider(ctrl, { id: 'p', label: 'p (vertex to focus, signed)', min: -4, max: 4, step: 0.5, value: st.p, color: 'blue', format: L.nice, onInput: function (v) { st.p = v; draw(); } });
+    L.chips(ctrl, { label: 'Axis of symmetry', value: st.dir, options: [{ value: 'v', label: 'vertical (opens up/down)' }, { value: 'h', label: 'horizontal (opens left/right)' }], onChange: function (v) { st.dir = v; draw(); } });
+  } else {
+    L.slider(ctrl, { id: 'a', label: 'a (under ' + L.V('x') + ')', min: 1, max: 8, value: st.a, color: 'blue', format: L.num, onInput: function (v) { st.a = v; draw(); } });
+    L.slider(ctrl, { id: 'b', label: 'b (under ' + L.V('y') + ')', min: 1, max: 8, value: st.b, color: 'purple', format: L.num, onInput: function (v) { st.b = v; draw(); } });
+    if (st.type === 'hyperbola') L.chips(ctrl, { label: 'Opens', value: st.dir, options: [{ value: 'h', label: 'left and right' }, { value: 'v', label: 'up and down' }], onChange: function (v) { st.dir = v; draw(); } });
+  }
+}
+function sq(v, c) { return c ? '(' + L.V(v) + (c > 0 ? ' − ' : ' + ') + Math.abs(c) + ')²' : L.V(v) + '²'; }
+function lin(v, c) { return c ? '(' + L.V(v) + (c > 0 ? ' − ' : ' + ') + Math.abs(c) + ')' : L.V(v); }
+var draw = L.scheduler(function () {
+  var h = st.h, k = st.k, a = st.a, b = st.b, c, rows = '';
+  g.clear();
+  g.dot(h, k, { color: 'orange', r: 7 });
+  if (st.type === 'circle') {
+    var r = st.r;
+    g.param(function (t) { return h + r * Math.cos(t); }, function (t) { return k + r * Math.sin(t); }, 0, 2 * Math.PI, { color: 'blue' });
+    g.line(h, k, h + r, k, { color: 'orange', width: 2, dash: '5 5' });
+    read.innerHTML = sq('x', h) + ' + ' + sq('y', k) + ' = ' + r * r;
+    rows = '<dt>Center</dt><dd>(' + h + ', ' + k + ')</dd><dt>Radius</dt><dd>' + r + ' (the right side is ' + L.V('r') + '² = ' + r * r + ')</dd>';
+  } else if (st.type === 'ellipse') {
+    g.param(function (t) { return h + a * Math.cos(t); }, function (t) { return k + b * Math.sin(t); }, 0, 2 * Math.PI, { color: 'blue' });
+    var big = Math.max(a, b), small = Math.min(a, b); c = Math.sqrt(big * big - small * small);
+    var fx = a >= b ? [[h - c, k], [h + c, k]] : [[h, k - c], [h, k + c]];
+    if (a !== b) fx.forEach(function (f) { g.dot(f[0], f[1], { color: 'red', r: 7 }); });
+    if (b > a) st.seen.vEllipse = true; if (Math.abs(c - 4) < 1e-9) st.seen.c4 = true;
+    read.innerHTML = L.frac(sq('x', h), a * a) + ' + ' + L.frac(sq('y', k), b * b) + ' = 1';
+    rows = '<dt>Center</dt><dd>(' + h + ', ' + k + ')</dd><dt>Major axis</dt><dd>' + (a === b ? 'none: a = b makes a circle' : (a > b ? 'horizontal' : 'vertical') + ', length ' + 2 * big) + '</dd>' +
+      '<dt>c² = big² − small²</dt><dd>' + big * big + ' − ' + small * small + ' = ' + L.num(c * c) + ', so c = ' + L.num(c, 3) + '</dd><dt>Foci</dt><dd>' + (a === b ? 'both at the center' : fx.map(function (f) { return '(' + L.num(f[0], 2) + ', ' + L.num(f[1], 2) + ')'; }).join(', ')) + '</dd>';
+  } else if (st.type === 'hyperbola') {
+    c = Math.sqrt(a * a + b * b);
+    var hz = st.dir === 'h';
+    [-1, 1].forEach(function (sgn) {
+      if (hz) g.param(function (t) { return h + sgn * a * Math.cosh(t); }, function (t) { return k + b * Math.sinh(t); }, -3.2, 3.2, { color: 'blue' });
+      else g.param(function (t) { return h + a * Math.sinh(t); }, function (t) { return k + sgn * b * Math.cosh(t); }, -3.2, 3.2, { color: 'blue' });
+    });
+    g.fullLine(h, k, h + a, k + b, { color: 'ghost', width: 2, dash: '8 6' }); g.fullLine(h, k, h + a, k - b, { color: 'ghost', width: 2, dash: '8 6' });
+    var foci = hz ? [[h - c, k], [h + c, k]] : [[h, k - c], [h, k + c]];
+    foci.forEach(function (f) { g.dot(f[0], f[1], { color: 'red', r: 7 }); });
+    if (Math.abs(b / a - 2) < 1e-9) st.seen.slope2 = true;
+    read.innerHTML = hz ? L.frac(sq('x', h), a * a) + ' − ' + L.frac(sq('y', k), b * b) + ' = 1' : L.frac(sq('y', k), b * b) + ' − ' + L.frac(sq('x', h), a * a) + ' = 1';
+    rows = '<dt>Center</dt><dd>(' + h + ', ' + k + ')</dd><dt>Asymptote slopes</dt><dd>±' + L.frac(L.V('b'), L.V('a')) + ' = ±' + L.nice(b / a) + '</dd><dt>c² = a² + b²</dt><dd>' + a * a + ' + ' + b * b + ' = ' + (a * a + b * b) + ', so c = ' + L.num(c, 3) + '</dd><dt>Foci</dt><dd>' + foci.map(function (f) { return '(' + L.num(f[0], 2) + ', ' + L.num(f[1], 2) + ')'; }).join(', ') + '</dd>';
+  } else {
+    var p = st.p;
+    if (p === 0) { read.innerHTML = '<span class="c-red">' + L.V('p') + ' can\'t be 0: the focus would sit on the vertex.</span>'; info.innerHTML = ''; ch.update(); return; }
+    if (st.dir === 'v') {
+      g.fn(function (x) { return k + (x - h) * (x - h) / (4 * p); }, { color: 'blue' });
+      g.dot(h, k + p, { color: 'red', r: 7 }); g.line(-13, k - p, 13, k - p, { color: 'ghost', width: 3, dash: '8 6' });
+      read.innerHTML = sq('x', h) + ' = ' + L.num(4 * p) + lin('y', k);
+      rows = '<dt>Vertex</dt><dd>(' + h + ', ' + k + ')</dd><dt>Opens</dt><dd>' + (p > 0 ? 'up' : 'down') + '</dd><dt>Focus</dt><dd>(' + h + ', ' + L.nice(k + p) + ')</dd><dt>Directrix</dt><dd>' + L.V('y') + ' = ' + L.nice(k - p) + '</dd>';
+    } else {
+      g.param(function (t) { return h + t * t / (4 * p); }, function (t) { return k + t; }, -14, 14, { color: 'blue' });
+      g.dot(h + p, k, { color: 'red', r: 7 }); g.line(h - p, -13, h - p, 13, { color: 'ghost', width: 3, dash: '8 6' });
+      if (p < 0) st.seen.left = true;
+      read.innerHTML = sq('y', k) + ' = ' + L.num(4 * p) + lin('x', h);
+      rows = '<dt>Vertex</dt><dd>(' + h + ', ' + k + ')</dd><dt>Opens</dt><dd>' + (p > 0 ? 'right' : 'left') + '</dd><dt>Focus</dt><dd>(' + L.nice(h + p) + ', ' + k + ')</dd><dt>Directrix</dt><dd>' + L.V('x') + ' = ' + L.nice(h - p) + '</dd>';
+    }
+    rows += '<dt>Every point on it</dt><dd>is the same distance from the focus as from the directrix</dd>';
+  }
+  info.innerHTML = rows;
+  ch.update();
+});
+build(); draw();
+
+})();
+</script>
+</body></html>

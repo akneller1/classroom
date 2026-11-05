@@ -91,6 +91,7 @@
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
     { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', description: 'Two teams solve multiple-choice math problems to claim squares and make three in a row. A wrong answer gives the other team a chance to steal. Includes an optional timer.' },
     { id: 'millionaire', name: 'Math Millionaire', description: 'A whole-class game show. Fifteen multiple-choice questions climb from warm-up to challenge on a prize ladder. Groups take turns in the hot seat, with 50:50, Ask the Class and Hint lifelines. Every game draws fresh questions.' },
+    { id: 'interactive-math', name: 'Interactive Math', description: 'Hands-on tools students explore on their own device: sliders, draggable graphs and models with built-in Try this challenges. Each comes with a printable Explore & Reflect worksheet and a teacher key.' },
     { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
     { id: 'interactive-practice-test', name: 'Assessment Readiness Check', description: 'Complete a generated online assessment, receive worked solutions and skill-by-skill feedback, and practice missed concepts with fresh questions.' },
     { id: 'flashcards', name: 'Flashcards', description: 'Practice at your own pace, reveal worked solutions, and mark cards to revisit. Useful for independent study and quick review.' },
@@ -176,6 +177,7 @@
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
     { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
+    { id: 'interactive', name: 'Interactive Math', formats: ['interactive-math'] },
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
@@ -195,6 +197,7 @@
     'showdown': 'Choose a question and point value for team review.',
     'connect-four': 'Solve problems to earn discs and connect four.',
     'tic-tac-toe': 'Answer correctly to claim a square and make three in a row.',
+    'interactive-math': 'Explore a concept hands-on, then reflect on a printable worksheet.',
     'millionaire': 'Climb a 15-question prize ladder as a class, with three lifelines.',
     'picture-reveal': 'Solve problems to uncover a hidden picture.',
     'detective-games': 'Unlock clues, eliminate suspects, and solve the mystery.',
@@ -326,12 +329,15 @@
     if (format === 'worksheet-generator') return 'Create worksheet';
     if (format === 'assessment-generator') return 'Build assessment';
     if (format === 'cheat-sheets') return 'View study guide';
+    if (format === 'interactive-math') return 'Explore';
     if (format === 'interactive-practice-test') return 'Take practice test';
     if (format === 'flashcards') return 'Study flashcards';
     if (/\.pdf$/i.test(a.path)) return 'Open PDF';
     return toArr(a.type).indexOf('Game') >= 0 ? 'Play' : 'Open activity';
   }
   function resourceInfo(a) {
+    if (a.worksheet) return '<p class="resource-info">Printable: <a href="' + esc(a.worksheet) + '" target="_blank" rel="noopener">Explore &amp; Reflect worksheet</a>' +
+      (a.answerKey ? ' · <a href="' + esc(a.answerKey) + '" target="_blank" rel="noopener">Teacher key</a>' : '') + '</p>';
     var m = (window.RESOURCE_DETAILS || {})[a.path];
     if (!m) return '';
     var labels = [m.pages + (m.pages === 1 ? ' page' : ' pages')];
@@ -649,16 +655,22 @@
           (!compact ? '<small>' + esc(tool.description) + '</small>' : '') +
           '</span></a></li>';
       }).join('') +
-      ['games', 'study-guides'].map(function (category) {
+      ['games', 'study-guides', 'interactive'].filter(function (category) {
+        if (category !== 'interactive') return true;
+        // Only offer Interactive Math where this course (or unit) has tools.
+        return (c ? (u ? [u] : c.units) : L.courses.reduce(function (all, cc) { return all.concat(cc.units); }, [])).some(function (uu) {
+          return uu.artifacts.some(function (a) { return activityFormat(a) === 'interactive-math'; });
+        });
+      }).map(function (category) {
         var params = new URLSearchParams();
         if (c) params.set('subject', c.id);
         if (u) params.set('unit', unitToken(c, u));
         params.set('category', category);
-        var isGames = category === 'games';
+        var isGames = category === 'games', label = { games: 'Games', 'study-guides': 'Study Guides', interactive: 'Interactive Math' }[category];
         return '<li><a class="generator-shortcut resource-shortcut" href="#activities?' + params.toString() + '">' +
-          '<span class="generator-shortcut-icon" aria-hidden="true">' + (isGames ? '◈' : '▤') + '</span>' +
-          '<span class="generator-shortcut-copy"><strong>' + (isGames ? 'Games' : 'Study Guides') + '</strong>' +
-          (!compact ? '<small>' + (isGames ? 'Interactive challenges and team review.' : 'Flashcards, practice tests, and reference sheets.') + '</small>' : '') +
+          '<span class="generator-shortcut-icon" aria-hidden="true">' + ({ games: '◈', 'study-guides': '▤', interactive: '⟡' }[category]) + '</span>' +
+          '<span class="generator-shortcut-copy"><strong>' + label + '</strong>' +
+          (!compact ? '<small>' + ({ games: 'Interactive challenges and team review.', 'study-guides': 'Flashcards, practice tests, and reference sheets.', interactive: 'Hands-on tools with printable reflection worksheets.' }[category]) + '</small>' : '') +
           '</span></a></li>';
       }).join('') + '</ul></div>';
   }
@@ -681,6 +693,7 @@
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var gameFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'games'; })[0].formats;
     var guideFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'study-guides'; })[0].formats;
+    var interactiveFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'interactive'; })[0].formats;
     var practiceFormats = RESOURCE_GROUPS.filter(function (g) { return g.id === 'practice'; })[0].formats;
     // Unit pages must expose the online practice test directly, just like the global directory.
     // Keep one card per unit even when older cached catalogs or format filters are in use.
@@ -714,6 +727,7 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
+        category('interactive', 'Interactive Math', interactiveFormats) +
         category('practice', 'Practice Activities', practiceFormats) +
         unitPager(c, u) + '</div></section>'
     };

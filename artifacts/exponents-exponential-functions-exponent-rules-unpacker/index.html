@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Exponent Rules Unpacker · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Algebra 1", "unit": "Exponents and Scientific Notation", "title": "Exponent Rules Unpacker", "intro": "Every exponent rule is a shortcut for counting factors. Unpack the powers, count the x's, and the rule writes itself."});
+var st = { mode: 'product', a: 3, b: 2, base: 2, seen: {} };
+L.tabs(P.stage, [{ id: 'product', label: 'Product rule' }, { id: 'quotient', label: 'Quotient rule' }, { id: 'power', label: 'Power rule' }, { id: 'zero', label: 'Zero & negative' }], function (id) { st.mode = id; build(); draw(); });
+var view = L.h('div', { style: 'display:grid;gap:14px;padding:14px 6px' }, P.stage);
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'In the product rule, make a product with exactly 7 factors of ' + L.V('x') + '.', check: function () { return st.seen.p7; } },
+  { text: 'In the quotient rule, make every factor cancel. What power is left?', check: function () { return st.seen.q0; } },
+  { text: 'In the quotient rule, leave the extra ' + L.V('x') + '\'s in the <b>denominator</b>.', check: function () { return st.seen.qneg; } },
+  { text: 'In the power rule, make 12 factors in total.', check: function () { return st.seen.w12; } },
+  { text: 'In Zero & negative, follow the pattern down to a negative exponent.', check: function () { return st.seen.zero; } }
+]);
+function chip(color, text, struck) { return '<span style="display:inline-grid;place-items:center;min-width:38px;height:38px;padding:0 6px;border-radius:8px;border:2.5px solid var(--ink);background:var(--' + color + '-tint);font:italic 700 20px/1 \'Times New Roman\',serif;' + (struck ? 'opacity:.35;text-decoration:line-through;' : '') + '">' + text + '</span>'; }
+function row(items) { return '<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:22px;font-weight:700">' + items.join('') + '</div>'; }
+function pw(base, e) { return base + '<sup>' + L.num(e) + '</sup>'; }
+function build() {
+  ctrl.innerHTML = '';
+  if (st.mode === 'zero') {
+    L.slider(ctrl, { id: 'base', label: 'Base', min: 2, max: 5, value: st.base, color: 'blue', format: L.num, onInput: function (v) { st.base = v; draw(); } });
+    L.h('p', { class: 'sub' }, ctrl, 'Each row going down divides by the base one more time. Watch what that does to the exponent.');
+    st.seen.zero = true;
+    return;
+  }
+  var max = st.mode === 'power' ? 4 : 6;
+  st.a = Math.min(st.a, max); st.b = Math.min(st.b, max);
+  L.slider(ctrl, { id: 'a', label: st.mode === 'power' ? 'Inside exponent' : 'First exponent', min: 1, max: max, value: st.a, color: 'blue', format: L.num, onInput: function (v) { st.a = v; draw(); } });
+  L.slider(ctrl, { id: 'b', label: st.mode === 'power' ? 'Outside exponent' : 'Second exponent', min: 1, max: max, value: st.b, color: 'orange', format: L.num, onInput: function (v) { st.b = v; draw(); } });
+}
+var draw = L.scheduler(function () {
+  var a = st.a, b = st.b, x = '<i>x</i>', i, html = '';
+  if (st.mode === 'product') {
+    var f = []; for (i = 0; i < a; i++) f.push(chip('blue', 'x')); f.push('<span style="margin:0 6px">·</span>'); for (i = 0; i < b; i++) f.push(chip('orange', 'x'));
+    html = '<p class="sub">' + pw(x, a) + ' · ' + pw(x, b) + ' unpacked:</p>' + row(f) + '<p style="font-size:20px;margin:0">Count the factors: ' + a + ' + ' + b + ' = <b>' + (a + b) + '</b></p>';
+    read.innerHTML = pw(x, a) + ' · ' + pw(x, b) + ' = ' + pw(x, a + b);
+    if (a + b === 7) st.seen.p7 = true;
+  } else if (st.mode === 'quotient') {
+    var c = Math.min(a, b), top = [], bot = [];
+    for (i = 0; i < a; i++) top.push(chip('blue', 'x', i < c)); for (i = 0; i < b; i++) bot.push(chip('orange', 'x', i < c));
+    html = '<p class="sub">' + L.frac(pw(x, a), pw(x, b)) + ' unpacked. Each ' + x + ' on top cancels one on the bottom, because ' + L.frac(x, x) + ' = 1.</p>' +
+      '<div style="display:inline-grid;gap:8px;justify-items:center">' + row(top) + '<div style="height:4px;background:var(--ink);width:100%;border-radius:2px"></div>' + row(bot) + '</div>' +
+      '<p style="font-size:20px;margin:0">' + c + ' pairs cancel. Left over: ' + (a > b ? (a - b) + ' on top' : a < b ? (b - a) + ' on the bottom' : 'nothing (just 1)') + '</p>';
+    var res = a > b ? pw(x, a - b) : a < b ? L.frac('1', pw(x, b - a)) + ' = ' + pw(x, '−' + (b - a)) : '1 = ' + pw(x, 0);
+    read.innerHTML = L.frac(pw(x, a), pw(x, b)) + ' = ' + pw(x, a + ' − ' + b) + ' = ' + res;
+    if (a === b) st.seen.q0 = true; if (a < b) st.seen.qneg = true;
+  } else if (st.mode === 'power') {
+    var groups = [];
+    for (var gI = 0; gI < b; gI++) { var gr = []; for (i = 0; i < a; i++) gr.push(chip(gI % 2 ? 'orange' : 'blue', 'x')); groups.push('<span style="display:inline-flex;gap:4px;padding:4px;border:2px dashed var(--ink-soft);border-radius:10px">' + gr.join('') + '</span>'); }
+    html = '<p class="sub">(' + pw(x, a) + ')<sup>' + b + '</sup> means ' + b + ' groups of ' + pw(x, a) + ':</p>' + row(groups) + '<p style="font-size:20px;margin:0">' + b + ' groups × ' + a + ' factors = <b>' + (a * b) + '</b> factors</p>';
+    read.innerHTML = '(' + pw(x, a) + ')<sup>' + b + '</sup> = ' + pw(x, a * b);
+    if (a * b === 12) st.seen.w12 = true;
+  } else {
+    var B = st.base, rows = [];
+    for (var n = 4; n >= -3; n--) rows.push('<tr' + (n === 0 ? ' style="background:var(--sun);color:#14173a"' : '') + '><td>' + pw(B, n) + '</td><td>' + (n >= 0 ? L.num(Math.pow(B, n)) : L.frac(1, Math.pow(B, -n)) + ' = ' + L.frac(1, pw(B, -n))) + '</td><td>' + (n < 4 ? '÷ ' + B : '') + '</td></tr>');
+    html = '<table class="lab-table" style="font-size:20px"><thead><tr><th>Power</th><th>Value</th><th>Step</th></tr></thead><tbody>' + rows.join('') + '</tbody></table>';
+    read.innerHTML = pw(B, 0) + ' = 1 &nbsp; and &nbsp; ' + pw(B, '−n') + ' = ' + L.frac(1, pw(B, 'n'));
+  }
+  view.innerHTML = html;
+  ch.update();
+});
+build(); draw();
+
+})();
+</script>
+</body></html>

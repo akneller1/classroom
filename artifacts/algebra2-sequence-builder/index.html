@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sequence Builder · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Algebra 2", "unit": "Sequences & Series", "title": "Sequence Builder", "intro": "Arithmetic sequences add the same amount. Geometric sequences multiply by the same amount. Build both and watch their sums."});
+var st = { kind: 'geo', a1: 8, d: 3, r: 0.75, n: 10, sums: true, seen: {} };
+var g = L.graph(P.stage, { xmin: -0.7, xmax: 11, ymin: -20, ymax: 40, width: 620, height: 520, xstep: 1, label: 'Terms and partial sums' });
+var legend = L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>terms ' + L.V('a') + '<sub>' + L.V('n') + '</sub></span><span><i style="background:var(--orange)"></i>running sum ' + L.V('S') + '<sub>' + L.V('n') + '</sub></span><span><i style="background:var(--red)"></i>limit of the sum</span>');
+L.chips(P.panel, { label: 'Type of sequence', value: st.kind, options: [{ value: 'ari', label: 'Arithmetic (add d)' }, { value: 'geo', label: 'Geometric (multiply by r)' }], onChange: function (v) { st.kind = v; build(); draw(); } });
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
+L.chips(P.panel, { label: 'Show the running sum', value: true, options: [{ value: true, label: 'yes' }, { value: false, label: 'no' }], onChange: function (v) { st.sums = v; draw(); } });
+var tbl = L.table(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Make a <b>decreasing</b> arithmetic sequence.', check: function () { return st.seen.ariDown; } },
+  { text: 'Make a geometric sequence whose terms <b>alternate</b> between positive and negative.', check: function () { return st.seen.alt; } },
+  { text: 'Make a geometric series whose sum gets closer and closer to 16.', check: function () { return st.seen.lim16; } },
+  { text: 'Make a geometric series that does <b>not</b> settle down to a limit.', check: function () { return st.seen.diverge; } },
+  { text: 'Make an arithmetic sequence whose 10th term is 0.', check: function () { return st.kind === 'ari' && st.a1 + 9 * st.d === 0; } }
+]);
+function build() {
+  ctrl.innerHTML = '';
+  L.slider(ctrl, { id: 'a1', label: 'First term ' + L.V('a') + '<sub>1</sub>', min: -10, max: 10, value: st.a1, color: 'blue', format: L.num, onInput: function (v) { st.a1 = v; draw(); } });
+  if (st.kind === 'ari') L.slider(ctrl, { id: 'd', label: 'Common difference ' + L.V('d'), min: -5, max: 5, step: 0.5, value: st.d, color: 'purple', format: L.nice, onInput: function (v) { st.d = v; draw(); } });
+  else L.slider(ctrl, { id: 'r', label: 'Common ratio ' + L.V('r'), min: -2, max: 2, step: 0.05, value: st.r, color: 'purple', format: function (v) { return L.nice(v, 20); }, onInput: function (v) { st.r = v; draw(); } });
+}
+var draw = L.scheduler(function () {
+  var a1 = st.a1, terms = [], sums = [], s = 0;
+  for (var i = 1; i <= st.n; i++) { var t = st.kind === 'ari' ? a1 + (i - 1) * st.d : a1 * Math.pow(st.r, i - 1); terms.push(t); s += t; sums.push(s); }
+  var lim = st.kind === 'geo' && Math.abs(st.r) < 1 ? a1 / (1 - st.r) : null;
+  var vals = terms.concat(st.sums ? sums : []).concat(lim !== null ? [lim] : []).filter(isFinite);
+  var lo = Math.min.apply(null, vals.concat([0])), hi = Math.max.apply(null, vals.concat([0]));
+  lo = Math.max(lo, -2000); hi = Math.min(hi, 2000);
+  var pad = Math.max(2, (hi - lo) * 0.1);
+  g.setView({ ymin: lo - pad, ymax: hi + pad }); g.clear();
+  if (lim !== null && st.sums) g.line(0, lim, 11, lim, { color: 'red', width: 2, dash: '8 6' });
+  terms.forEach(function (t, i) { if (st.sums && i) g.line(i, sums[i - 1], i + 1, sums[i], { color: 'orange', width: 3 }); });
+  terms.forEach(function (t, i) { g.line(i + 1, 0, i + 1, t, { color: 'blue', width: 6, opacity: 0.5 }); g.dot(i + 1, t, { color: 'blue', r: 7 }); if (st.sums) g.dot(i + 1, sums[i], { color: 'orange', r: 5 }); });
+  var formula = st.kind === 'ari' ? L.V('a') + '<sub>' + L.V('n') + '</sub> = ' + L.num(a1) + (st.d ? (st.d > 0 ? ' + ' : ' − ') + L.nice(Math.abs(st.d)) + '(' + L.V('n') + ' − 1)' : '')
+    : L.V('a') + '<sub>' + L.V('n') + '</sub> = ' + L.num(a1) + ' · ' + (Number.isInteger(st.r) && st.r >= 0 ? L.num(st.r) : '(' + L.nice(st.r, 20) + ')') + '<sup>' + L.V('n') + ' − 1</sup>';
+  read.innerHTML = formula + '<div class="sub" style="margin-top:6px">' + terms.slice(0, 5).map(function (t) { return L.num(t, 3); }).join(', ') + ', …</div>' +
+    (st.kind === 'geo' ? '<div class="sub">' + (lim !== null ? 'Because |' + L.V('r') + '| &lt; 1, the infinite sum approaches ' + L.frac(L.V('a') + '<sub>1</sub>', '1 − ' + L.V('r')) + ' = ' + L.num(lim, 3) : (a1 === 0 ? '' : 'Because |' + L.V('r') + '| ≥ 1, the sum has no limit.')) + '</div>' : '<div class="sub">An arithmetic series with ' + L.V('d') + ' ≠ 0 has no limit.</div>');
+  tbl.set([L.V('n'), L.V('a') + '<sub>' + L.V('n') + '</sub>', L.V('S') + '<sub>' + L.V('n') + '</sub>'], terms.map(function (t, i) { return [i + 1, L.num(t, 3), L.num(sums[i], 3)]; }));
+  if (st.kind === 'ari' && st.d < 0) st.seen.ariDown = true;
+  if (st.kind === 'geo' && st.r < 0 && a1 !== 0) st.seen.alt = true;
+  if (lim !== null && Math.abs(lim - 16) < 1e-9) st.seen.lim16 = true;
+  if (st.kind === 'geo' && Math.abs(st.r) >= 1 && a1 !== 0) st.seen.diverge = true;
+  ch.update();
+});
+build(); draw();
+
+})();
+</script>
+</body></html>

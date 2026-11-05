@@ -1,0 +1,77 @@
+var st = { mode: 'coins', heads: 0, flips: 0, hist: [], dice: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rolls: 0, mu: 70, sd: 8, shade: 1, seen: {} };
+L.tabs(P.stage, [{ id: 'coins', label: 'Coin flips' }, { id: 'dice', label: 'Sum of two dice' }, { id: 'normal', label: 'Normal curve' }], function (id) { st.mode = id; build(); draw(); });
+var g = L.graph(P.stage, { xmin: 0, xmax: 100, ymin: 0, ymax: 1, width: 620, height: 460, label: 'Simulation results' });
+var legend = L.h('div', { class: 'legend' }, P.stage);
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
+var info = L.h('dl', { class: 'kv' }, P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Flip at least 1,000 coins in total.', check: function () { return st.flips >= 1000; } },
+  { text: 'After 500 or more flips, get the share of heads within 0.02 of 0.5.', check: function () { return st.seen.close; } },
+  { text: 'Roll the two dice at least 500 times.', check: function () { return st.rolls >= 500; } },
+  { text: 'With 500+ rolls, see which sum comes up most often. How many ways can you roll it?', check: function () { return st.seen.seven; } },
+  { text: 'On the normal curve, shade everything within 2 standard deviations of the mean.', check: function () { return st.mode === 'normal' && st.shade === 2; } }
+]);
+var CHOOSE = [0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1];
+function flip(n) { for (var i = 0; i < n; i++) { if (Math.random() < 0.5) st.heads++; st.flips++; st.hist.push(st.heads / st.flips); } if (st.flips >= 500 && Math.abs(st.heads / st.flips - 0.5) <= 0.02) st.seen.close = true; draw(); }
+function roll(n) { for (var i = 0; i < n; i++) { var s = 2 + Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6); st.dice[s]++; st.rolls++; } draw(); }
+function erf(x) { var t = 1 / (1 + 0.3275911 * Math.abs(x)), y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return x >= 0 ? y : -y; }
+function build() {
+  ctrl.innerHTML = '';
+  if (st.mode === 'coins') {
+    var r = L.h('div', { class: 'btn-row' }, ctrl);
+    [1, 10, 100, 1000].forEach(function (n) { L.button(r, 'Flip ' + n.toLocaleString(), function () { flip(n); }, n !== 100); });
+    L.button(ctrl, 'Start over', function () { st.heads = 0; st.flips = 0; st.hist = []; draw(); }, true).style.justifySelf = 'start';
+    legend.innerHTML = '<span><i style="background:var(--blue)"></i>share of heads so far</span><span><i style="background:var(--red)"></i>theoretical probability ' + L.frac(1, 2) + '</span>';
+  } else if (st.mode === 'dice') {
+    var r2 = L.h('div', { class: 'btn-row' }, ctrl);
+    [1, 10, 100, 1000].forEach(function (n) { L.button(r2, 'Roll ' + n.toLocaleString(), function () { roll(n); }, n !== 100); });
+    L.button(ctrl, 'Start over', function () { st.dice = st.dice.map(function () { return 0; }); st.rolls = 0; draw(); }, true).style.justifySelf = 'start';
+    legend.innerHTML = '<span><i style="background:var(--orange)"></i>experimental share</span><span><i style="background:var(--ink)"></i>theoretical probability (outline)</span>';
+  } else {
+    L.slider(ctrl, { id: 'mu', label: 'Mean μ', min: 40, max: 100, value: st.mu, color: 'blue', format: L.num, onInput: function (v) { st.mu = v; draw(); } });
+    L.slider(ctrl, { id: 'sd', label: 'Standard deviation σ', min: 2, max: 15, value: st.sd, color: 'purple', format: L.num, onInput: function (v) { st.sd = v; draw(); } });
+    L.chips(ctrl, { label: 'Shade within', value: st.shade, options: [{ value: 1, label: '1σ' }, { value: 2, label: '2σ' }, { value: 3, label: '3σ' }], onChange: function (v) { st.shade = v; draw(); } });
+    legend.innerHTML = '<span><i style="background:var(--blue)"></i>normal curve</span><span><i style="background:var(--orange)"></i>shaded area = probability</span>';
+  }
+}
+var draw = L.scheduler(function () {
+  g.clear();
+  if (st.mode === 'coins') {
+    var n = Math.max(10, st.flips);
+    g.setView({ xmin: -n * 0.07, xmax: n, ymin: -0.04, ymax: 1 });
+    g.line(0, 0.5, n, 0.5, { color: 'red', width: 2, dash: '8 6' });
+    var step = Math.max(1, Math.floor(st.hist.length / 500)), pts = [];
+    for (var i = 0; i < st.hist.length; i += step) pts.push([i + 1, st.hist[i]]);
+    if (st.hist.length) pts.push([st.hist.length, st.hist[st.hist.length - 1]]);
+    if (pts.length > 1) { var d = pts.map(function (p, j) { return (j ? 'L' : 'M') + g.X(p[0]).toFixed(1) + ' ' + g.Y(p[1]).toFixed(1); }).join(''); L.s('path', { d: d, fill: 'none', stroke: 'var(--blue)', 'stroke-width': 3 }, g.layer); }
+    var p = st.flips ? st.heads / st.flips : 0;
+    read.innerHTML = st.flips ? L.frac(st.heads.toLocaleString() + ' heads', st.flips.toLocaleString() + ' flips') + ' = ' + L.num(p, 3) : 'Flip some coins.';
+    info.innerHTML = '<dt>Experimental</dt><dd>' + (st.flips ? L.num(p, 3) : '—') + '</dd><dt>Theoretical</dt><dd>' + L.frac(1, 2) + ' = 0.5</dd><dt>Difference</dt><dd>' + (st.flips ? L.num(Math.abs(p - 0.5), 3) : '—') + '</dd>';
+  } else if (st.mode === 'dice') {
+    g.setView({ xmin: 0.6, xmax: 12.8, ymin: -0.01, ymax: 0.25 });
+    var max = 0, mode = 7;
+    for (var s = 2; s <= 12; s++) {
+      var ex = st.rolls ? st.dice[s] / st.rolls : 0, th = CHOOSE[s] / 36;
+      g.rect(s - 0.35, 0, 0.7, Math.min(ex, 0.25), { fill: 'orange', opacity: 0.85 });
+      g.rect(s - 0.35, 0, 0.7, th, { fill: 'none', stroke: 'ink', width: 2 });
+      if (st.dice[s] > max) { max = st.dice[s]; mode = s; }
+    }
+    if (st.rolls >= 500 && mode === 7) st.seen.seven = true;
+    read.innerHTML = st.rolls ? st.rolls.toLocaleString() + ' rolls · most common sum: ' + mode : 'Roll some dice.';
+    info.innerHTML = '<dt>Sum of 7</dt><dd>experimental ' + (st.rolls ? L.num(st.dice[7] / st.rolls, 3) : '—') + ' · theoretical ' + L.frac(6, 36) + ' ≈ 0.167</dd><dt>Sum of 2</dt><dd>experimental ' + (st.rolls ? L.num(st.dice[2] / st.rolls, 3) : '—') + ' · theoretical ' + L.frac(1, 36) + ' ≈ 0.028</dd>';
+  } else {
+    var mu = st.mu, sd = st.sd, k = st.shade;
+    g.setView({ xmin: mu - 4 * sd, xmax: mu + 4 * sd, ymin: 0, ymax: 0.45 / sd });
+    var f = function (x) { return Math.exp(-0.5 * Math.pow((x - mu) / sd, 2)) / (sd * Math.sqrt(2 * Math.PI)); };
+    var pts2 = [[mu - k * sd, 0]]; for (var x = mu - k * sd; x <= mu + k * sd + 1e-9; x += sd / 20) pts2.push([x, f(x)]); pts2.push([mu + k * sd, 0]);
+    g.poly(pts2, { fill: 'orange', opacity: 0.45 });
+    g.fn(f, { color: 'blue' });
+    for (var j = -3; j <= 3; j++) { g.line(mu + j * sd, 0, mu + j * sd, f(mu + j * sd), { color: 'ink', width: 1.5, dash: '4 4' }); }
+    var area = erf(k / Math.SQRT2);
+    read.innerHTML = 'P(' + L.num(mu - k * sd) + ' ≤ ' + L.V('X') + ' ≤ ' + L.num(mu + k * sd) + ') ≈ ' + L.num(area * 100, 1) + '%';
+    info.innerHTML = '<dt>Within 1σ</dt><dd>about 68%</dd><dt>Within 2σ</dt><dd>about 95%</dd><dt>Within 3σ</dt><dd>about 99.7%</dd><dt>Changing σ</dt><dd>a bigger σ spreads the curve out and lowers its peak, but the percentages stay the same</dd>';
+  }
+  ch.update();
+});
+build(); draw();
