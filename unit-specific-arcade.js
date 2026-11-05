@@ -79,4 +79,13 @@ entries.forEach(function(e){
  if(unit.artifacts.some(function(a){return a.path===path}))return;
  unit.artifacts.push({title:e[3],path:path,thumb:'thumbs/arcade-'+e[2]+'.svg',type:'Game',bankFormat:'topic-games',unitSpecific:true,description:e[4],topics:[e[1].replace(/-/g,' '),'Interactive math game'],added:(e[5]||'2026-10-31')});
 });
+// Keep old direct game links playable while limiting the public catalog.
+var featured = new Set(['artifacts/slope-links-mini-golf/index.html', 'artifacts/zombie-fence/index.html']);
+root.LIBRARY.courses.forEach(function (course) {
+ course.units.forEach(function (unit) {
+  if (unit.artifacts) unit.artifacts = unit.artifacts.filter(function (activity) {
+   return activity.unitSpecific !== true || featured.has(activity.path);
+  });
+ });
+});
 })(window);

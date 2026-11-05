@@ -3,21 +3,13 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const data=fs.readFileSync('data.js','utf8');
 const loader=fs.readFileSync('unit-specific-arcade.js','utf8');
-const app=fs.readFileSync('app.js','utf8');
 const context={window:{}};vm.runInNewContext(data+'\n'+loader,context);
-const names=['rocket','inequality','laser','catapult','mirror','cannon','portal'].concat(Object.keys(context.window.MK_UNIT_GAMES));
-assert.equal(names.length,51);
-for(const name of names){
- const path='artifacts/math-arcade/index.html?game='+name;
- const matches=context.window.LIBRARY.courses.flatMap(c=>c.units.flatMap(u=>(u.artifacts||[]).filter(a=>a.path===path).map(a=>({c,u,a}))));
- assert.equal(matches.length,1,name+' must belong to exactly one unit');
- const a=matches[0].a;
- assert.match(a.thumb,new RegExp('^thumbs/arcade-'+name+'\\.svg$'));
- assert.ok(fs.existsSync(a.thumb),name+' thumbnail missing');
- assert.ok(fs.readFileSync(a.thumb,'utf8').includes('<svg'),name+' invalid thumbnail');
+const activities=context.window.LIBRARY.courses.flatMap(c=>c.units.flatMap(u=>u.artifacts||[]));
+const visible=activities.filter(a=>a.unitSpecific===true);
+assert.deepEqual(Array.from(visible,a=>a.title).sort(),['Slope Links Mini Golf','Zombie Fence']);
+assert.ok(!activities.some(a=>a.path.startsWith('artifacts/math-arcade/index.html?game=')));
+for(const a of visible){
+ assert.ok(fs.existsSync(a.path),a.title+' game missing');
+ assert.ok(fs.existsSync(a.thumb),a.title+' thumbnail missing');
 }
-assert.ok(app.includes('math-arcade\\/index\\.html\\?game='),'Homepage should link directly to arcade modes');
-assert.ok(app.includes("return a.thumb || ''"),'Arcade cards must prioritize game-specific thumbnails');
-const viewer=fs.readFileSync('activity.html','utf8');
-assert.ok(viewer.includes('unit-specific-arcade.js'),'Activity viewer should recognize game registrations');
-console.log('PASS all 51 arcade cards, unique thumbnails and valid direct launch routing');
+console.log('PASS only Mini Golf and Zombie Fence appear in the unit-specific game catalog');
