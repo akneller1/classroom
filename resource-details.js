@@ -1016,5 +1016,153 @@ window.RESOURCE_DETAILS = {
   "artifacts/polynomials-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
+  },
+  "artifacts/calculus-antiderivatives-definite-integrals-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-ap-review-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-applications-derivatives-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-applications-integrals-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-derivatives-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-differential-equations-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-fundamental-theorem-calculus-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-limits-continuity-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/calculus-precalculus-review-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-data-displays-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-expressions-equations-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-fractions-decimals-operations-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-geometry-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-inequalities-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-rational-numbers-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/math6-ratios-rates-percent-proportions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-algebraic-expressions-integers-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-area-volume-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-data-analysis-probability-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-decimals-equations-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-factors-fractions-exponents-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-linear-functions-graphing-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-nonlinear-functions-polynomials-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-one-step-equations-inequalities-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-operations-fractions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-ratios-proportions-percentages-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-right-triangles-algebra-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-solving-equations-inequalities-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/prealgebra7-spatial-thinking-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-conics-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-equations-inequalities-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-functions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-general-triangle-trigonometry-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-matrices-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-probability-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-trigonometric-functions-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/precalculus-vectors-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
   }
 };

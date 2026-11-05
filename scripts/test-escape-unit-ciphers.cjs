@@ -14,6 +14,22 @@ const env={Math,console};env.window=env;env.globalThis=env;
 execute('course-catalog.js',env);
 execute('worksheet-generator/games/cipher-questions.js',env);
 const model=env.MK_CIPHER_QUESTIONS,skills=env.MK_COURSE_CATALOG.skills;
+// Every catalog unit needs its own complete Escape Room theme and solvable key cards.
+const themes=JSON.parse(fs.readFileSync(path.join(root,'worksheet-generator/games/escape-themes.json'),'utf8'));
+const themeKeys=Object.entries(skills).flatMap(([course,units])=>Object.keys(units).map(unit=>course+'/'+unit));
+assert.deepEqual(Object.keys(themes).sort(),themeKeys.sort(),'Theme coverage must match the course catalog');
+for(const key of themeKeys){
+ const t=themes[key];
+ for(const field of ['title','room','intro','introEmoji','endEmoji','word','cipher','clue','ask','outro'])assert.ok(typeof t[field]==='string'&&t[field].trim(),key+': missing '+field);
+ assert.match(t.word,/^[A-Z]{5}$/,key+': five-letter final password');
+ assert.ok(t.cipher.split(/[^A-Z]+/).includes(t.clue),key+': cipher contains its clue word');
+ assert.equal(t.stamps.length,5,key+': five key cards');
+ assert.equal(new Set(t.stamps).size,5,key+': stamps must have an unambiguous order');
+ assert.equal(t.letters.length,5,key+': five key-card letters');
+ assert.equal(t.stamps.map((stamp,i)=>({stamp,letter:t.letters[i]})).sort((a,b)=>a.stamp-b.stamp).map(c=>c.letter).join(''),t.word,key+': ordered key cards spell the final password');
+}
+for(const field of ['title','word','clue'])assert.equal(new Set(Object.values(themes).map(t=>t[field])).size,themeKeys.length,'Every unit must have a distinct '+field);
+console.log('PASS '+themeKeys.length+' unique Escape Room themes, cipher clues and key-card passwords');
 let count=0,systems=0;
 for(const [course,units] of Object.entries(skills)){
  for(const unit of Object.keys(units)){

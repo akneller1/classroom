@@ -154,10 +154,24 @@
   function formatItems(format) {
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
+  /* One order everywhere. Games: Showdown (Jeopardy-style), Connect 4, Tic-Tac-Toe, Detective, Escape Room,
+     Picture Reveal, then unit-specific activities and games. Study Guides: Assessment Readiness, Flashcards, Cheat Sheets. */
+  var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
+    'interactive-practice-test', 'flashcards', 'cheat-sheets'];
+  function orderRank(a) { var i = ACTIVITY_ORDER.indexOf(activityFormat(a)); return i < 0 ? ACTIVITY_ORDER.length : i; }
+  function sortByActivityOrder(list, get) {
+    get = get || function (it) { return it.a; };
+    var unitOrder = [];
+    list.forEach(function (it) { var k = it.c && it.u ? it.c.id + '.' + it.u.id : ''; if (unitOrder.indexOf(k) < 0) unitOrder.push(k); });
+    return list.map(function (it, i) { return { it: it, i: i }; }).sort(function (x, y) {
+      var kx = x.it.c && x.it.u ? x.it.c.id + '.' + x.it.u.id : '', ky = y.it.c && y.it.u ? y.it.c.id + '.' + y.it.u.id : '';
+      return (unitOrder.indexOf(kx) - unitOrder.indexOf(ky)) || (orderRank(get(x.it)) - orderRank(get(y.it))) || (x.i - y.i);
+    }).map(function (o) { return o.it; });
+  }
   var RESOURCE_GROUPS = [
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'picture-reveal', 'detective-games', 'escape-rooms', 'topic-games'] },
-    { id: 'study-guides', name: 'Study Guides', formats: ['cheat-sheets', 'flashcards', 'interactive-practice-test'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
+    { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
     { id: 'worksheets', name: 'Printable Worksheets', formats: ['partner-checks', 'mazes', 'color-by-number', 'error-analysis', 'stations', 'whodunnit', 'tarsia', 'assessment-menus', 'other'] }
   ];
@@ -511,7 +525,7 @@
     var shown = applyFilters(items);
     if (!shown.length) return '<div class="empty"><h2>No matches</h2><p>No activities fit these filters. Choose All to see everything here.</p></div>';
     return '<div class="activity-groups">' + RESOURCE_GROUPS.map(function (group) {
-      var members = shown.filter(function (it) { return belongsToGroup(it.a, group); });
+      var members = sortByActivityOrder(shown.filter(function (it) { return belongsToGroup(it.a, group); }));
       if (!members.length) return '';
       return '<section class="activity-group" aria-labelledby="group-' + group.id + '">' +
         '<h2 id="group-' + group.id + '">' + esc(group.name) + '<span>' + acts(members.length) + '</span></h2>' +
@@ -664,6 +678,7 @@
         if (current.length && !matches.some(function (it) { return /practice-test[.]html/i.test(it.a.path || ''); })) matches.push(current[0]);
       }
       if (!matches.length) return '';
+      matches = sortByActivityOrder(matches);
       return '<section class="algebra-unit-section" aria-labelledby="algebra-' + id + '">' +
         '<h2 id="algebra-' + id + '">' + esc(title) + '</h2>' +
         '<ul class="cards grouped-cards">' + matches.map(function (it) { return cardHtml(it, false, true); }).join('') + '</ul>' +
@@ -679,7 +694,6 @@
         generatorLinks(c, u, true) +
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
-        ((['prealgebra7', 'math6', 'precalculus', 'calculus'].includes(c.id)) ? category('printables', 'Printable Activities', ['printable-generator']) : '') +
         category('practice', 'Practice Activities', practiceFormats) +
         unitPager(c, u) + '</div></section>'
     };
@@ -866,7 +880,7 @@
         if (format && formatItems(format).length) formats.push(format);
       });
     });
-    var items = browseResults(state);
+    var items = sortByActivityOrder(browseResults(state));
     var pages = Math.max(1, Math.ceil(items.length / 24));
     state.page = Math.min(state.page, pages);
     var offset = (state.page - 1) * 24;

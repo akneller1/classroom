@@ -67,3 +67,14 @@ button.ghost{background:transparent;color:var(--dim);border:2px solid #4a529a}bu
 #ol + #go{background:#3dd6bd;color:#092b2b;border:2px solid #b8fff0;box-shadow:0 4px 0 #147e70;font-weight:800}
 #ol + #go:hover{background:#6debd5;filter:none}
 #ol + #go:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+/* Choices vs. submit: answer choices are neutral tiles (gold outline when picked); every "lock in" / submit
+   button is green with a lock icon, so students never confuse picking an answer with submitting it. */
+.source-choice,.sw button{background:#2b3166;color:var(--ink);border:2px solid #4a529a}
+.source-choice[aria-pressed="true"],.sw button.on{background:#3b4396;color:#fff;border-color:var(--gold);outline:3px solid var(--gold);outline-offset:1px}
+#go,#lockShiftButton,#ol + #go,#app #go,#app #lockShiftButton{background:#2fbf71;color:#04230f;border:2px solid #b9f5d2;box-shadow:0 4px 0 #157a43;font-weight:800;margin-top:10px}
+#go::before,#lockShiftButton::before{content:"🔒 "}
+#go:hover,#lockShiftButton:hover,#ol + #go:hover,#app #go:hover,#app #lockShiftButton:hover{background:#45d687;filter:none}
+#go:focus-visible,#lockShiftButton:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#app #go:disabled,#app #lockShiftButton:disabled{background:#4b5a52;color:#c9d3cd;box-shadow:none;cursor:default}
+#cipherPlusOne{background:var(--blue);color:#06233a}
