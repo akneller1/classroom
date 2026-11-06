@@ -1,0 +1,79 @@
+var Gm = L.geo;
+var PRESETS = { square: [[-3, -3], [3, -3], [3, 3], [-3, 3]], rect: [[-5, -2], [4, -2], [4, 3], [-5, 3]], rhombus: [[0, -4], [3, 0], [0, 4], [-3, 0]], para: [[-5, -2], [2, -2], [5, 3], [-2, 3]], trap: [[-5, -3], [5, -3], [2, 3], [-3, 3]], kite: [[0, -5], [3, 0], [0, 2], [-3, 0]] };
+var st = { mode: 'poly', n: 5, Q: PRESETS.para.map(function (p) { return p.slice(); }), seen: {}, names: {} };
+L.tabs(P.stage, [{ id: 'poly', label: 'Polygon angle sums' }, { id: 'quad', label: 'Quadrilateral detective' }], function (id) { st.mode = id; build(); draw(); });
+var g = L.graph(P.stage, { xmin: -8, xmax: 8, ymin: -7, ymax: 7, width: 600, height: 525, label: 'Polygon' });
+var gg = L.geoGraph(g);
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
+var info = L.h('dl', { class: 'kv' }, P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Find the interior angle sum of a hexagon.', check: function () { return st.seen.hex; } },
+  { text: 'Find the regular polygon whose interior angles are each 140°.', check: function () { return st.seen.n9; } },
+  { text: 'In the detective, make a <b>rhombus</b> that is not a square.', check: function () { return st.names.rhombus; } },
+  { text: 'Make a <b>rectangle</b>. What is true about its diagonals?', check: function () { return st.names.rectangle; } },
+  { text: 'Make a <b>kite</b> and an <b>isosceles trapezoid</b>.', check: function () { return st.names.kite && st.names['isosceles trapezoid']; } }
+]);
+function build() {
+  ctrl.innerHTML = '';
+  if (st.mode === 'poly') {
+    L.slider(ctrl, { id: 'n', label: 'Number of sides n', min: 3, max: 12, value: st.n, color: 'blue', format: L.num, onInput: function (v) { st.n = v; draw(); } });
+  } else {
+    L.h('p', { class: 'sub' }, ctrl, 'Drag the four corners, or start from a shape:');
+    var row = L.h('div', { class: 'btn-row' }, ctrl);
+    Object.keys(PRESETS).forEach(function (k) { L.button(row, { square: 'Square', rect: 'Rectangle', rhombus: 'Rhombus', para: 'Parallelogram', trap: 'Trapezoid', kite: 'Kite' }[k], function () { st.Q = PRESETS[k].map(function (p) { return p.slice(); }); draw(); }, true); });
+  }
+}
+function par(A, B, C, D) { return Math.abs((B[0] - A[0]) * (D[1] - C[1]) - (B[1] - A[1]) * (D[0] - C[0])) < 1e-9; }
+function eq(x, y) { return Math.abs(x - y) < 1e-6; }
+function classify(Q) {
+  var s = [0, 1, 2, 3].map(function (i) { return Gm.dist(Q[i], Q[(i + 1) % 4]); });
+  var ang = [0, 1, 2, 3].map(function (i) { return Gm.angle(Q[(i + 3) % 4], Q[i], Q[(i + 1) % 4]); });
+  var p1 = par(Q[0], Q[1], Q[3], Q[2]), p2 = par(Q[1], Q[2], Q[0], Q[3]);
+  var d1 = Gm.dist(Q[0], Q[2]), d2 = Gm.dist(Q[1], Q[3]);
+  var perp = Math.abs((Q[2][0] - Q[0][0]) * (Q[3][0] - Q[1][0]) + (Q[2][1] - Q[0][1]) * (Q[3][1] - Q[1][1])) < 1e-9;
+  var bis = eq(Q[0][0] + Q[2][0], Q[1][0] + Q[3][0]) && eq(Q[0][1] + Q[2][1], Q[1][1] + Q[3][1]);
+  var allEq = eq(s[0], s[1]) && eq(s[1], s[2]) && eq(s[2], s[3]), right = ang.every(function (a) { return Math.abs(a - 90) < 1e-6; });
+  var kite = !allEq && ((eq(s[0], s[1]) && eq(s[2], s[3])) || (eq(s[1], s[2]) && eq(s[3], s[0])));
+  var name;
+  if (p1 && p2) name = allEq && right ? 'square' : right ? 'rectangle' : allEq ? 'rhombus' : 'parallelogram';
+  else if (p1 || p2) { var legs = p1 ? [s[1], s[3]] : [s[0], s[2]]; name = eq(legs[0], legs[1]) ? 'isosceles trapezoid' : 'trapezoid'; }
+  else name = kite ? 'kite' : 'quadrilateral';
+  return { s: s, ang: ang, p: (p1 ? 1 : 0) + (p2 ? 1 : 0), d1: d1, d2: d2, perp: perp, bis: bis, name: name };
+}
+function convex(Q) { var sg = 0; for (var i = 0; i < 4; i++) { var a = Q[i], b = Q[(i + 1) % 4], c = Q[(i + 2) % 4], cr = (b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0]); if (Math.abs(cr) < 1e-9) return false; if (!sg) sg = Math.sign(cr); else if (Math.sign(cr) !== sg) return false; } return true; }
+var draw = L.scheduler(function () {
+  g.clear();
+  if (st.mode === 'poly') {
+    var n = st.n, V = [];
+    for (var i = 0; i < n; i++) V.push(Gm.polar([0, -0.3], 5.5, 90 + 360 * i / n + (n % 2 ? 0 : 180 / n)));
+    var cols = ['blue', 'orange', 'green', 'purple', 'red'];
+    for (i = 1; i < n - 1; i++) gg.polygon([V[0], V[i], V[i + 1]], { stroke: 'none', fill: cols[i % 5], fillOpacity: 0.22, width: 0 });
+    gg.polygon(V, { stroke: 'ink', width: 4 });
+    for (i = 2; i < n - 1; i++) g.line(V[0][0], V[0][1], V[i][0], V[i][1], { color: 'ink', width: 2, dash: '6 5' });
+    var ext = Gm.polar(V[1], 2.4, Gm.dir(V[0], V[1]));
+    g.line(V[1][0], V[1][1], ext[0], ext[1], { color: 'red', width: 2.5, dash: '6 5' });
+    gg.angle(ext, V[1], V[2], { r: 0.9, color: 'red', width: 3 });
+    g.dot(V[0][0], V[0][1], { color: 'ink', r: 6 });
+    var sum = (n - 2) * 180, each = sum / n;
+    read.innerHTML = '(' + n + ' − 2) × 180° = <b>' + sum + '°</b><div class="sub" style="margin-top:6px">Drawing every diagonal from one vertex makes ' + (n - 2) + ' triangles, each with 180°.</div>';
+    info.innerHTML = '<dt>Each interior angle (regular)</dt><dd>' + L.frac(sum + '°', n) + ' = ' + L.num(each, 2) + '°</dd><dt>Each exterior angle (regular)</dt><dd>' + L.frac('360°', n) + ' = ' + L.num(360 / n, 2) + '° <span class="c-red">(red)</span></dd><dt>Sum of exterior angles</dt><dd>360°, for every polygon</dd>';
+    if (n === 6) st.seen.hex = true; if (n === 9) st.seen.n9 = true;
+  } else {
+    var Q = st.Q, c = classify(Q), cv = convex(Q);
+    gg.polygon(Q, { stroke: 'blue', fill: 'blue', fillOpacity: 0.1 });
+    g.line(Q[0][0], Q[0][1], Q[2][0], Q[2][1], { color: 'purple', width: 2, dash: '6 5' }); g.line(Q[1][0], Q[1][1], Q[3][0], Q[3][1], { color: 'purple', width: 2, dash: '6 5' });
+    var cen = [(Q[0][0] + Q[1][0] + Q[2][0] + Q[3][0]) / 4, (Q[0][1] + Q[1][1] + Q[2][1] + Q[3][1]) / 4];
+    var groups = {}; c.s.forEach(function (len, i) { var key = Object.keys(groups).find(function (k) { return eq(+k, len); }); if (key == null) { key = String(len); groups[key] = []; } groups[key].push(i); });
+    var t = 1; Object.keys(groups).forEach(function (k) { if (groups[k].length > 1) { groups[k].forEach(function (i) { gg.ticks(Q[i], Q[(i + 1) % 4], t); }); t++; } });
+    ['A', 'B', 'C', 'D'].forEach(function (nm, i) { gg.vertexLabel(Q[i], cen, nm + ' ' + L.num(c.ang[i], 0) + '°'); g.handle(Q[i][0], Q[i][1], { color: 'orange', snap: 1, r: 10, label: 'Vertex ' + nm, onDrag: function (x, y) { st.Q[i] = [x, y]; draw(); } }); });
+    var name = cv ? c.name : 'not a convex quadrilateral';
+    if (cv) st.names[name] = true;
+    read.innerHTML = 'ABCD is a <b>' + name + '</b>';
+    var yes = function (b) { return b ? '<span class="c-green">yes</span>' : 'no'; };
+    info.innerHTML = '<dt>Pairs of parallel sides</dt><dd>' + c.p + '</dd><dt>All sides congruent</dt><dd>' + yes(c.s.every(function (x) { return eq(x, c.s[0]); })) + '</dd><dt>Four right angles</dt><dd>' + yes(c.ang.every(function (a) { return Math.abs(a - 90) < 1e-6; })) + '</dd>' +
+      '<dt>Diagonals bisect each other</dt><dd>' + yes(c.bis) + '</dd><dt>Diagonals congruent</dt><dd>' + yes(eq(c.d1, c.d2)) + ' (' + L.num(c.d1, 2) + ', ' + L.num(c.d2, 2) + ')</dd><dt>Diagonals perpendicular</dt><dd>' + yes(c.perp) + '</dd><dt>Angle sum</dt><dd>' + L.num(c.ang.reduce(function (a, b) { return a + b; }, 0), 0) + '°</dd>';
+  }
+  ch.update();
+});
+build(); draw();

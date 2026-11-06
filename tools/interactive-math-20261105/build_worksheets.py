@@ -5,8 +5,10 @@ import html, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from worksheets import W
+from worksheets_geometry import W as WG
+W.update(WG)
 M = json.load(open(os.path.join(HERE, 'manifest.json'), encoding='utf-8'))
-COURSE = {'algebra': 'Algebra 1', 'algebra2': 'Algebra 2'}
+COURSE = {'algebra': 'Algebra 1', 'algebra2': 'Algebra 2', 'geometry': 'Geometry'}
 FONTS = open(sys.argv[1], encoding='utf-8').read() if len(sys.argv) > 1 else ''
 OUT = os.path.join(HERE, 'worksheet-html')
 os.makedirs(OUT, exist_ok=True)
