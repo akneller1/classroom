@@ -882,3 +882,25 @@ body { background:var(--paper); }
   .task-workspace .task-grid { grid-template-columns:minmax(0,1fr); }
   .task-workspace .task-card { min-height:0; }
 }
+
+/* Compact two-column task navigation aligned with the course panel. */
+@media(min-width:761px) {
+  .task-home > .home-dashboard { align-items:stretch; }
+  .task-workspace { display:flex; flex-direction:column; }
+  .task-workspace .task-grid { flex:1; grid-auto-rows:1fr; }
+}
+.task-workspace .task-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.task-workspace .task-card {
+  display:grid; grid-template-columns:2rem minmax(0,1fr);
+  grid-template-rows:auto 1fr auto; align-items:start;
+  gap:0 .7rem; min-height:9rem; padding:1rem;
+}
+.task-workspace .task-icon { grid-column:1; grid-row:1; width:2rem; height:2rem; font-size:1.35rem; margin:0; border-radius:8px; }
+.task-workspace .task-card h2 { grid-column:2; grid-row:1; align-self:center; margin:0; font-size:1.12rem; }
+.task-workspace .task-card p { grid-column:1 / -1; grid-row:2; margin:.6rem 0 .8rem; font-size:.85rem; line-height:1.45; }
+.task-workspace .task-action { grid-column:1 / -1; grid-row:3; font-size:.81rem; }
+.task-workspace .task-browse { margin-top:1rem; }
+@media(max-width:480px) {
+  .task-workspace .task-grid { grid-template-columns:minmax(0,1fr); }
+  .task-workspace .task-card { min-height:0; }
+}
