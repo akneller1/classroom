@@ -347,8 +347,10 @@ def numbers(text):
     return out
 
 
-def contains_all(text, exp, tol):
+def contains_all(text, exp, tol, key_decimals=None):
     got = numbers(text)
+    if key_decimals is not None:  # judge distractors at the key's displayed precision
+        got = [(v, max(d, key_decimals)) for v, d in got]
     if "%" in text:
         got = got + [(v / 100, d + 2) for v, d in got]
     for e in exp:
@@ -411,7 +413,8 @@ for qid, c in CHECKS.items():
         if exp and not contains_all(key, exp, tol):
             fails.append(f"{qid}: MC key {key!r} does not show {[round(x, 5) for x in exp]}")
         for o in q["options"]:
-            if not o["correct"] and not c.get("skip_distractors") and exp and contains_all(o["text"], exp, tol) and numbers(o["text"]):
+            kd = max((d for _, d in numbers(key)), default=0)
+            if not o["correct"] and not c.get("skip_distractors") and exp and contains_all(o["text"], exp, tol, kd) and numbers(o["text"]):
                 fails.append(f"{qid}: distractor {o['text']!r} also matches")
     else:
         text = q["answer"] if isinstance(q["answer"], str) else " ".join(map(str, q["answer"]))

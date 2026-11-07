@@ -231,3 +231,93 @@ def build():
         assert len(prompt) <= 110 and "\n" not in prompt and len(ans) <= 20, (prompt, ans)
         SA(u, k, lv, prompt, ans, [step], family=f"{PREFIX[u]}_s{k:02d}_tarsia", std=STD[u][k],
            check={"kind": "expr", "expr": expr, "no_print_check": "short form"} if expr else None)
+
+
+# ---------------------------------------------------------------------------------------
+# Multiple-choice conversion: wrong options for each Tarsia item, keyed by (unit, level, answer).
+# Converted items stay Tarsia-eligible (MC, short answer, short prompt) and now also count
+# toward the multiple-choice pools used by Detective and Millionaire.
+_P = float(2 * st.t.sf(2.6, 9))
+DISTRACT = {
+    (ED, "cp2"): {"9": ["8", "10", "45"], "8": ["9", "8.33", "7"], "19": ["30", "11", "15"], "5.5": ["5", "6", "8"], "1.5": ["−1.5", "12", "0.67"],
+                  "22": ["38", "28", "26"], "30": ["26", "22", "27"], "25%": ["30%", "4%", "40%"], "24": ["22", "20.5", "29"], "−3": ["3", "−18", "15"]},
+    (ED, "cp1"): {"4.8": ["4", "6", "24"], "36": ["6", "12", "3"], "7.2": ["2.4", "5.4", "21.6"], "3": ["8", "15", "12"], "7.5": ["14", "8", "9"],
+                  "75th": ["18th", "25th", "24th"], "95%": ["68%", "99.7%", "47.5%"], "16%": ["32%", "34%", "84%"], "79": ["71.8", "61", "88"],
+                  "22": ["28", "34", "70"], "0.35": ["0.28", "0.65", "0.8"], "0.36": ["−0.36", "0.6", "0.77"], "2": ["0.125", "8", "0.5"], "8": ["32", "−8", "20"],
+                  "−3": ["3", "4", "−1"]},
+    (ED, "honors"): {"16.43": ["19.17", "20", "15"], "2.14": ["2", "4.57", "2.83"], "17": ["20", "23", "14"], "6": ["−6", "7", "24"], "12": ["8", "14", "18"],
+                     "52": ["40", "46", "58"], "0.9772": ["0.0228", "0.9544", "0.6915"], "0.0808": ["0.9192", "0.4192", "0.1616"],
+                     "0.6247": ["0.3753", "0.6826", "0.8664"], "70.3": ["49.7", "68.0", "75.0"], "0.67": ["0.75", "1.15", "0.25"],
+                     "0.6": ["0.21", "0.35", "0.42"], "0.1": ["25", "0.05", "0.3"], "0.83": ["2.11", "0.33", "0.69"], "−0.7": ["0.7", "−0.49", "0.49"],
+                     "2.4": ["0.27", "3", "12"], "57.2": ["36", "43.2", "62"], "1.5": ["0.24", "4.17", "3.1"], "2": ["−2", "6", "0"], "2.83": ["2.68", "8", "2.56"],
+                     "skewed right": ["skewed left", "symmetric", "uniform"], "16.7%": ["5%", "20%", "13.3%"], "102": ["15", "34", "312"]},
+    (SE, "cp2"): {"census": ["sample", "survey", "SRS"], "4%": ["40%", "0.4%", "25%"], "subjects": ["factors", "treatments", "responses"],
+                  "factor": ["response", "subject", "block"], "SRS": ["stratified", "cluster sample", "systematic"], "cluster sample": ["stratified", "SRS", "convenience"],
+                  "stratified": ["cluster sample", "systematic", "SRS"], "systematic": ["SRS", "stratified", "cluster sample"], "replication": ["blocking", "control", "blinding"],
+                  "voluntary response": ["undercoverage", "nonresponse", "response bias"], "undercoverage": ["nonresponse", "voluntary response", "response bias"],
+                  "response bias": ["undercoverage", "nonresponse", "voluntary response"], "observational": ["experiment", "census", "matched pairs"],
+                  "experiment": ["observational", "survey", "census"], "response variable": ["factor", "treatment", "explanatory variable"], "6": ["5", "3", "2"],
+                  "20": ["9", "5", "4"], "placebo": ["control", "treatment", "block"], "double-blind": ["single-blind", "placebo", "blocking"],
+                  "matched pairs": ["randomized block", "completely randomized", "cluster sample"], "cause and effect": ["association only", "all people", "the sample only"],
+                  "population": ["sample only", "cause and effect", "volunteers"]},
+    (SE, "cp1"): {"comparison": ["replication", "blocking", "blinding"], "p̂": ["p", "x̄", "μ"], "μ": ["x̄", "p", "σ"], "inference": ["census", "sampling", "bias"],
+                  "60": ["66.7", "30", "20"], "120": ["133", "80", "200"], "07, 13, 39": ["07, 52, 13", "07, 13, 07", "52, 13, 39"],
+                  "multistage": ["cluster sample", "stratified", "systematic"], "bias": ["variability", "precision", "sampling error"],
+                  "nonresponse": ["undercoverage", "voluntary response", "response bias"], "undercoverage": ["nonresponse", "voluntary response", "response bias"],
+                  "voluntary response": ["undercoverage", "nonresponse", "response bias"], "retrospective": ["prospective", "experiment", "matched pairs"],
+                  "prospective": ["retrospective", "experiment", "census"], "lurking variable": ["response variable", "explanatory variable", "placebo"],
+                  "12": ["7", "6", "24"], "replication": ["blinding", "blocking", "control group"], "control group": ["placebo", "block", "treatment"],
+                  "confounded": ["blinded", "randomized", "replicated"], "placebo effect": ["confounding", "bias", "blinding"], "block": ["stratum", "cluster", "treatment"],
+                  "matched pairs": ["randomized block", "completely randomized", "observational"], "significant": ["biased", "practically important", "random"],
+                  "similar volunteers": ["all adults", "no one", "the population"]},
+    (SE, "honors"): {"0.033": ["0.3", "0.0033", "3.3"], "sampling variability": ["undercoverage", "nonresponse", "response bias"], "75": ["187.5", "250", "100"],
+                     "35": ["30", "40", "24"], "stratified": ["cluster sample", "systematic", "multistage"], "cluster sample": ["stratified", "systematic", "SRS"],
+                     "429": ["714", "077", "870"], "underestimate": ["overestimate", "no effect", "unbiased"],
+                     "voluntary response": ["undercoverage", "nonresponse", "response bias"], "undercoverage": ["nonresponse", "voluntary response", "response bias"],
+                     "response bias": ["undercoverage", "nonresponse", "voluntary response"], "case-control": ["experiment", "prospective", "matched pairs"],
+                     "lurking variable": ["response variable", "placebo", "factor"], "observational": ["experiment", "matched pairs", "randomized block"],
+                     "36": ["12", "18", "7"], "24": ["9", "8", "12"], "control": ["replication", "blinding", "blocking"], "blinding": ["randomization", "replication", "control"],
+                     "confounded": ["blinded", "replicated", "randomized"], "2": ["3", "6", "18"], "carryover": ["placebo", "confounding", "nonresponse"],
+                     "randomized block": ["matched pairs", "completely randomized", "cluster sample"], "common response": ["reverse causation", "placebo effect", "coincidence"],
+                     "reverse causation": ["common response", "placebo effect", "coincidence"], "scope of inference": ["sample size", "response bias", "placebo effect"]},
+    (AP, "cp2"): {"0.5": ["45", "0.45", "2"], "0.65": ["0.35", "−0.35", "1.35"], "0.3": ["0.048", "0.52", "0.4"], "$2": ["$10", "$5", "$0.20"],
+                  "18": ["60", "0.3", "42"], "6": ["2", "3", "18"]},
+    (AP, "cp1"): {"0.2": ["0.9", "0.1", "0.45"], "0.8": ["0.9", "0.7", "0.2"], "0.3056": ["0.3333", "0.0278", "0.6944"], "0.3": ["1.1", "0.12", "0.83"],
+                  "0.6": ["0.5", "0.4", "0.7"], "0.15": ["0.85", "0.25", "0.1"], "1": ["0.33", "1.5", "3"], "12": ["5", "−9", "4"],
+                  "0.0313": ["0.5", "0.1563", "0.0625"], "5": ["0.2", "4", "20"], "10": ["14", "2", "7"], "0.05": ["0.25", "0.005", "0.5"], "4": ["2", "1.41", "16"]},
+    (AP, "honors"): {"0.616": ["308", "0.384", "0.5"], "0.06": ["0.5", "0.44", "0.25"], "0.5787": ["0.4213", "0.0046", "0.5"],
+                     "0.0585": ["0.009", "0.95", "0.0495"], "0.1538": ["0.9", "0.009", "0.0585"], "0.35": ["0.34", "0.36", "0.65"], "6": ["3", "5", "10"],
+                     "0.45": ["1.15", "0.8", "0.35"], "0.4": ["0.6", "0.2", "3"], "1.732": ["3", "2", "1.5"], "−19": ["19", "−29", "−24"], "81": ["27", "28", "9"],
+                     "0.0107": ["0.0098", "0.0010", "0.9893"], "0.2965": ["0.0900", "0.1176", "0.5518"], "0.5905": ["0.4095", "0.6561", "0.0001"],
+                     "2.828": ["8", "2", "1.6"], "13": ["17", "7", "169"], "79.37": ["210", "30", "11.34"], "0.2266": ["0.7734", "0.2420", "0.5"],
+                     "0.0192": ["0.0004", "0.2713", "0.08"], "1.414": ["0.5", "2", "2.828"], "57": ["56", "8", "225"], "250": ["240", "25", "400"]},
+    (SI, "cp2"): {"2.8": ["5.6", "45.4", "1.4"], "0.34": ["0.08", "0.04", "0.38"], "0.04": ["0.08", "0.34", "0.02"], "1.96": ["1.645", "2.576", "1.282"],
+                  "2.576": ["1.96", "2.326", "3.09"], "20": ["21", "19", "22"], "power": ["α", "Type I error", "confidence"], "0.2": ["0.8", "0.05", "1.8"]},
+    (SI, "cp1"): {"0.050": ["0.25", "0.005", "0.5"], "2": ["0.33", "6", "12"], "0.0425": ["0.0217", "0.0357", "0.0559"], "10": ["90", "5", "20"],
+                  "385": ["384", "97", "1068"], "1.645": ["1.96", "1.282", "2.576"], "2.262": ["2.228", "1.96", "1.833"], "16": ["24", "40", "25"],
+                  "p ≠ 0.4": ["p > 0.4", "p̂ ≠ 0.4", "p = 0.4"], "0.0228": ["0.0456", "0.9772", "0.0500"], "2.0": ["0.2", "4.0", "1.0"],
+                  "1.5": ["0.3", "7.5", "3.0"], "0.4": ["0.8", "0.3", "0.5"], "18": ["19", "20", "17"]},
+    (SI, "honors"): {"1.359": ["7.6", "0.68", "10.629"], "0.5": ["0.25", "2", "4"], "10": ["190", "5", "20"], "4148": ["4147", "1068", "2401"],
+                     "0.0866": ["0.0442", "0.0727", "0.1138"], "3.012": ["2.160", "2.977", "2.576"], "78": ["77", "9", "312"],
+                     "μ ≠ 18": ["μ > 18", "x̄ ≠ 18", "μ = 18"], "0.05": ["0.025", "0.10", "0.95"],
+                     fmt(_P, 4): [fmt(_P / 2, 4), fmt(1 - _P / 2, 4), fmt(min(0.99, 2 * _P), 4)],
+                     "2.00": ["0.40", "8.00", "2.40"], "−2.236": ["2.236", "−0.500", "−10.000"], "0.5822": ["0.5980", "0.5641", "0.6645"],
+                     "increases": ["decreases", "stays the same", "becomes 0"], "0.10": ["0.62", "0.31", "0.05"], "0.31": ["0.62", "0.155", "0.36"],
+                     "11": ["12", "10", "22"], "2.887": ["0.833", "2.764", "10.000"], "3.407": ["0.293", "2.069", "0.920"],
+                     "2.069": ["2.064", "1.96", "2.060"], "no": ["yes", "only if n > 30", "cannot tell"]},
+}
+
+
+def build():  # noqa: F811  (replaces the short-answer-only builder above)
+    missing = []
+    for u, k, lv, prompt, ans, step, expr in ROWS:
+        assert len(prompt) <= 110 and "\n" not in prompt and len(ans) <= 20, (prompt, ans)
+        chk = {"kind": "expr", "expr": expr, "no_print_check": "short form"} if expr else None
+        wr = DISTRACT.get((u, lv), {}).get(ans)
+        if wr:
+            MC(u, k, lv, prompt, ans, wr, [step], family=f"{PREFIX[u]}_s{k:02d}_tarsia", std=STD[u][k], check=chk)
+        else:
+            missing.append((u, lv, ans))
+            SA(u, k, lv, prompt, ans, [step], family=f"{PREFIX[u]}_s{k:02d}_tarsia", std=STD[u][k], check=chk)
+    if missing:
+        print("Tarsia items left as short answer (no distractor set):", missing)
