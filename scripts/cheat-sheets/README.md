@@ -12,7 +12,7 @@ Every cheat sheet on the site is built here in one style: the newest unit-pack s
   - `list`
   - `mistakes`: `good`, `bad`
   - `html`
-- Any section can add a `fig`: an SVG from `figs.cjs` (number lines, coordinate planes with curves, shading and polygons) or from `geo.cjs` (angles, segments, parallel lines, triangles). `figFirst: true` puts the figure above the text.
+- Any section can add a `fig`: an SVG from `figs.cjs` (number lines, coordinate planes with curves, shading and polygons) or from `geo.cjs` (angles, segments, parallel lines, triangles) or from `statfigs.cjs` (box plots, scatterplots and residual plots, normal curves with shaded areas; `upper(z)` gives P(Z > z) for checks). `figFirst: true` puts the figure above the text.
 - `check` on a section (or a list of checks) is verified before anything is written. Check types:
   - `{num, is}`
   - `{expr, is}` (expressions in x, y)

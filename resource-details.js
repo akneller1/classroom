@@ -1164,5 +1164,21 @@ window.RESOURCE_DETAILS = {
   "artifacts/precalculus-vectors-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true
+  },
+  "artifacts/statistics-exploring-data-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/statistics-sampling-experimentation-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/statistics-anticipating-patterns-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
+  "artifacts/statistics-statistical-inference-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
   }
 };
