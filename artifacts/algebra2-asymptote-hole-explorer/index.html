@@ -42,6 +42,7 @@ var draw = L.scheduler(function () {
   // cancel common factors
   var n2 = N.slice(), d2 = [], holes = [];
   D.forEach(function (r) { var i = n2.indexOf(r); if (i >= 0) { n2.splice(i, 1); holes.push(r); } else d2.push(r); });
+  holes = holes.filter(function (r, i) { return holes.indexOf(r) === i && d2.indexOf(r) < 0; }); // still in the denominator → asymptote, not a hole
   var f = function (x) { var y = k; N.forEach(function (r) { y *= x - r; }); D.forEach(function (r) { y /= x - r; }); return y; };
   var fs = function (x) { var y = k; n2.forEach(function (r) { y *= x - r; }); d2.forEach(function (r) { y /= x - r; }); return y; };
   g.clear();
@@ -53,7 +54,7 @@ var draw = L.scheduler(function () {
   if (ha !== null) g.line(-11, ha, 11, ha, { color: 'red', width: 2, dash: '8 6' });
   g.fn(function (x) { return d2.some(function (r) { return Math.abs(x - r) < 1e-9; }) ? NaN : fs(x); }, { color: 'blue', samples: 1600 });
   holes.forEach(function (r) { var y = fs(r); if (isFinite(y) && Math.abs(y) <= 10) g.dot(r, y, { open: true, color: 'blue', r: 7 }); });
-  var zeros = n2.filter(function (r, i) { return n2.indexOf(r) === i && d2.indexOf(r) < 0; });
+  var zeros = n2.filter(function (r, i) { return n2.indexOf(r) === i && d2.indexOf(r) < 0 && holes.indexOf(r) < 0; }); // f is undefined at a hole, so a hole is never an x-intercept
   zeros.forEach(function (r) { g.dot(r, 0, { color: 'green', r: 7 }); });
   var top = N.length ? N.map(fac).join('') : '1', bot = D.length ? D.map(fac).join('') : '';
   read.innerHTML = L.V('f') + '(' + L.V('x') + ') = ' + (k === 1 ? '' : k === -1 ? '−' : L.nice(k)) + (bot ? L.frac(top, bot) : top);

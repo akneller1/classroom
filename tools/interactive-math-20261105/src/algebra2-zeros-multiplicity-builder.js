@@ -20,15 +20,15 @@ var ch = L.challenges(P.panel, [
 function fac(z, m) { var b = z === 0 ? L.V('x') : '(' + L.V('x') + (z > 0 ? ' − ' : ' + ') + L.nice(Math.abs(z)) + ')'; return b + (m > 1 ? '<sup>' + m + '</sup>' : ''); }
 var draw = L.scheduler(function () {
   var a = st.a, deg = 0, parts = [];
-  st.m.forEach(function (m, i) { if (m) { deg += m; parts.push([st.z[i], m, i]); } });
+  st.m.forEach(function (m, i) { if (!m) return; deg += m; var same = parts.filter(function (q) { return q[0] === st.z[i]; })[0]; if (same) same[1] += m; else parts.push([st.z[i], m, i]); }); // zeros at the same x combine
   var f = function (x) { var y = a; parts.forEach(function (p) { y *= Math.pow(x - p[0], p[1]); }); return y; };
   g.clear();
   if (a === 0) { read.innerHTML = '<span class="c-red">With a leading coefficient of 0 the whole polynomial is 0.</span>'; info.innerHTML = ''; ch.update(); return; }
   g.fn(f, { color: 'blue', samples: 900 });
   parts.forEach(function (p) {
-    var col = p[1] === 1 ? 'green' : p[1] === 2 ? 'orange' : 'purple';
+    var col = p[1] === 1 ? 'green' : p[1] % 2 === 0 ? 'orange' : 'purple';
     g.dot(p[0], 0, { color: col, r: 9, stroke: 'ink', strokeWidth: 2 });
-    if (p[1] === 2) st.seen.bounce = true; if (p[1] === 3) st.seen.flat = true;
+    if (p[1] % 2 === 0) st.seen.bounce = true; if (p[1] % 2 === 1 && p[1] >= 3) st.seen.flat = true;
   });
   var left = deg % 2 === 0 ? (a > 0 ? 'up' : 'down') : (a > 0 ? 'down' : 'up'), right = a > 0 ? 'up' : 'down';
   if (deg === 0) left = right = 'flat';
@@ -37,7 +37,7 @@ var draw = L.scheduler(function () {
   var arrow = { up: '↑ up', down: '↓ down', flat: 'flat' };
   info.innerHTML = '<dt>Degree</dt><dd>' + deg + ' (' + (deg % 2 ? 'odd' : 'even') + ')</dd><dt>Leading coefficient</dt><dd>' + L.num(a) + ' (' + (a > 0 ? 'positive' : 'negative') + ')</dd>' +
     '<dt>Left end</dt><dd>' + arrow[left] + '</dd><dt>Right end</dt><dd>' + arrow[right] + '</dd>' +
-    parts.map(function (p) { return '<dt>At ' + L.V('x') + ' = ' + L.nice(p[0]) + '</dt><dd>' + (p[1] === 1 ? 'crosses' : p[1] === 2 ? 'bounces (touches and turns)' : 'flattens, then crosses') + '</dd>'; }).join('');
+    parts.map(function (p) { return '<dt>At ' + L.V('x') + ' = ' + L.nice(p[0]) + '</dt><dd>' + (p[1] === 1 ? 'crosses' : p[1] % 2 === 0 ? 'bounces (touches and turns)' : 'flattens, then crosses') + (p[1] > 1 ? ' · multiplicity ' + p[1] : '') + '</dd>'; }).join('');
   ch.update();
 });
 draw();

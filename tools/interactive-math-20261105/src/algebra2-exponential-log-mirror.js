@@ -9,7 +9,7 @@ var tbl = L.table(P.panel);
 var ch = L.challenges(P.panel, [
   { text: 'Use the matching points to show that log<sub>2</sub> 8 = 3.', check: function () { return st.b === 2 && st.t === 3; } },
   { text: 'Make a base between 0 and 1. What happens to both graphs?', check: function () { return st.b < 1; } },
-  { text: 'Find a base where the two graphs just touch the line ' + L.V('y') + ' = ' + L.V('x') + '.', check: function () { return st.b >= 1.4 && st.b <= 1.5; } },
+  { text: 'Find the two neighboring bases on the slider where the graphs change from <b>crossing</b> the line ' + L.V('y') + ' = ' + L.V('x') + ' to <b>missing</b> it. (The base where they just touch is between them.)', check: function () { return st.seen.b140 && st.seen.b145; } },
   { text: 'In Finding e, compound every <b>day</b>. How close to ' + L.V('e') + ' are you?', check: function () { return st.n >= 365; } },
   { text: 'Find ' + L.V('e') + ' correct to 4 decimal places.', check: function () { return st.n >= 525600; } }
 ]);
@@ -29,6 +29,7 @@ var draw = L.scheduler(function () {
   if (st.mode === 'mirror') {
     g.setView({ xmin: -6, xmax: 8, ymin: -6, ymax: 8 });
     var b = st.b;
+    if (Math.abs(b - 1.4) < 1e-9) st.seen.b140 = true; if (Math.abs(b - 1.45) < 1e-9) st.seen.b145 = true;
     if (Math.abs(b - 1) < 1e-9) { read.innerHTML = '<span class="c-red">Base 1 doesn\'t work: 1<sup>' + L.V('x') + '</sup> is always 1, so it has no inverse function.</span>'; tbl.set([], []); ch.update(); return; }
     g.fn(function (x) { return x; }, { color: 'ghost', width: 2, dash: '8 6' });
     g.fn(function (x) { return Math.pow(b, x); }, { color: 'blue' });

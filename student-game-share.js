@@ -1,8 +1,18 @@
 /* Share the same skill catalogue and filtering used by each individual game. */
 (function (G) {
   'use strict';
+  var interactiveMath = null;
+  function isInteractiveMath(path) {
+    // Interactive Math tools have no skill catalogue, so they use the plain student link (not the skill picker).
+    if (!interactiveMath) {
+      interactiveMath = Object.create(null);
+      ((G.LIBRARY && G.LIBRARY.courses) || []).forEach(function (c) { (c.units || []).forEach(function (u) { (u.artifacts || []).forEach(function (a) { if (a && a.bankFormat === 'interactive-math') interactiveMath[a.path] = true; }); }); });
+    }
+    return !!interactiveMath[path];
+  }
   function supports(path) {
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(path)) return false;
+    if (isInteractiveMath(path)) return false;
     // This fixed ten-level game starts immediately and has no skill picker.
     if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return false;
     if (/^artifacts\/math-arcade\/index\.html\?/i.test(path)) return false;

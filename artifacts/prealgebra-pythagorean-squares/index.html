@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pythagorean Squares Explorer · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261107"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Pre-Algebra (8th)", "unit": "Geometry", "title": "Pythagorean Squares Explorer", "intro": "Drag the corners of a triangle on the grid. A square sits on each side. When do the two smaller squares exactly fill the biggest one?"});
+/* Triangle with whole-number vertices; a square is drawn outward on each side. Squared lengths are exact integers
+   (dx² + dy²), so a² + b² = c² is tested exactly. The converse: equality happens exactly when the angle opposite c is 90°. */
+var BOX = { x0: 0, x1: 10, y0: 0, y1: 8 };
+var st = { P: [[1, 1], [7, 1], [3, 6]], trick: false, seen: {} };
+var g = L.graph(P.stage, { xmin: -9, xmax: 19, ymin: -9, ymax: 17, width: 620, height: 576, xstep: 1, ystep: 1, noLabels: true, noXAxis: true, noYAxis: true, label: 'Triangle with a square on each side' });
+L.h('p', { class: 'sub', style: 'margin:4px 6px 0' }, P.stage, 'Drag the three corners (or use the arrow keys). Each grid square is 1 square unit. Corners stay inside the shaded box.');
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var info = L.h('dl', { class: 'kv' }, P.panel);
+var btns = L.h('div', { class: 'btn-row' }, P.panel);
+var bT = L.button(btns, 'Show the tilted-square trick', function () { st.trick = !st.trick; bT.textContent = st.trick ? 'Hide the trick' : 'Show the tilted-square trick'; draw(); }, true);
+L.reset(btns, function () { st.P = [[1, 1], [7, 1], [3, 6]]; draw(); });
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Make a right triangle. Predict: how do the two smaller square areas compare with the biggest one?', check: function () { return st.seen.right; } },
+  { text: 'Make a right triangle with <b>no</b> horizontal or vertical side, then use the tilted-square trick to explain the biggest square’s area.', check: function () { return st.seen.tiltRight; } },
+  { text: 'Make an <b>obtuse</b> triangle. Is a² + b² bigger or smaller than c²?', check: function () { return st.seen.obtuse; } },
+  { text: 'Make a² + b² exactly 2 more than c². Is the triangle right? Look at the angle.', check: function () { return st.seen.near; } },
+  { text: 'Make a right triangle whose hypotenuse has a whole-number length other than 5.', check: function () { return st.seen.triple; } },
+  { text: 'Make a right triangle whose biggest square has an area of 2. How long is the hypotenuse?', check: function () { return st.seen.root2; } }
+]);
+L.notice(P.below, '<p><b>In a right triangle, the two smaller squares together have exactly the same area as the square on the hypotenuse:</b> a² + b² = c².</p>' +
+  '<p>It works the other way too (the <b>converse</b>): if a² + b² = c², the angle opposite c is exactly 90°. If a² + b² &gt; c² the triangle is acute; if a² + b² &lt; c² it is obtuse. “Close” is not equal: even 2 square units off means the angle is not 90°.</p>' +
+  '<p>A tilted square’s area can be found without measuring its side: take the square around it and subtract the four corner triangles. A square of area 2 has side √2, which is not a whole number.</p>');
+function sub(p, q) { return [q[0] - p[0], q[1] - p[1]]; }
+function d2(p, q) { var v = sub(p, q); return v[0] * v[0] + v[1] * v[1]; }
+function cross(p, q, r) { var u = sub(p, q), v = sub(p, r); return u[0] * v[1] - u[1] * v[0]; }
+function sideName(i) { return ['A', 'B', 'C'][i]; }
+function rootTxt(n) { var r = Math.round(Math.sqrt(n)); if (r * r === n) return String(r); var out = 1, ins = n; for (var f = 2; f * f <= ins; f++) while (ins % (f * f) === 0) { ins /= f * f; out *= f; } return (out > 1 ? out : '') + '√' + ins + ' ≈ ' + L.num(Math.sqrt(n), 2); }
+var draw = L.scheduler(function () {
+  var P3 = st.P;
+  g.clear();
+  g.rect(BOX.x0 - 0.5, BOX.y0 - 0.5, BOX.x1 - BOX.x0 + 1, BOX.y1 - BOX.y0 + 1, { fill: 'wash', opacity: 0.6, layer: g.shadeLayer });
+  var area2 = cross(P3[0], P3[1], P3[2]);
+  /* sides: side i joins P[i] and P[(i+1)%3]; opposite vertex P[(i+2)%3] */
+  var sides = [0, 1, 2].map(function (i) { var p = P3[i], q = P3[(i + 1) % 3], r = P3[(i + 2) % 3]; return { i: i, p: p, q: q, r: r, s2: d2(p, q) }; });
+  var order = sides.slice().sort(function (x, y) { return x.s2 - y.s2; });
+  var aS = order[0], bS = order[1], cS = order[2];
+  var colorOf = function (s) { return s === cS ? 'purple' : s === bS ? 'orange' : 'blue'; };
+  if (area2 !== 0) sides.forEach(function (s) {
+    var v = sub(s.p, s.q), n = [-v[1], v[0]], w = sub(s.p, s.r);
+    if (n[0] * w[0] + n[1] * w[1] > 0) n = [-n[0], -n[1]];
+    var sq = [s.p, s.q, [s.q[0] + n[0], s.q[1] + n[1]], [s.p[0] + n[0], s.p[1] + n[1]]], col = colorOf(s);
+    g.poly(sq, { fill: col, opacity: 0.2, stroke: col, width: 3 });
+    var cx = (s.p[0] + s.q[0] + n[0]) / 2, cy = (s.p[1] + s.q[1] + n[1]) / 2;
+    g.text(cx, cy, String(s.s2), { anchor: 'middle', dy: 6, color: col, size: 18 });
+    if (st.trick && s === cS && v[0] !== 0 && v[1] !== 0) {
+      var xs = sq.map(function (p) { return p[0]; }), ys = sq.map(function (p) { return p[1]; });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      g.rect(x0, y0, x1 - x0, y1 - y0, { fill: 'none', stroke: 'red', width: 2 });
+      [[0, 1], [1, 2], [2, 3], [3, 0]].forEach(function (e) { var p1 = sq[e[0]], p2 = sq[e[1]];
+        var isCorner = function (c) { return (c[0] === x0 || c[0] === x1) && (c[1] === y0 || c[1] === y1); };
+        var corner = isCorner([p1[0], p2[1]]) ? [p1[0], p2[1]] : [p2[0], p1[1]];
+        g.poly([p1, p2, corner], { fill: 'red', opacity: 0.18, stroke: 'red', width: 1.5 }); });
+    }
+  });
+  g.poly(P3, { fill: 'card', opacity: 1, stroke: 'ink', width: 4 });
+  P3.forEach(function (p, i) {
+    g.text(p[0], p[1], sideName(i), { dx: 10, dy: -10, size: 16 });
+    g.handle(p[0], p[1], { color: 'green', snap: 1, r: 10, label: 'Corner ' + sideName(i), onDrag: function (x, y) {
+      x = Math.max(BOX.x0, Math.min(BOX.x1, Math.round(x))); y = Math.max(BOX.y0, Math.min(BOX.y1, Math.round(y)));
+      if (st.P.some(function (q, j) { return j !== i && q[0] === x && q[1] === y; })) return;
+      st.P[i] = [x, y]; draw(); } });
+  });
+  if (area2 === 0) {
+    read.innerHTML = '<span class="c-red">The three corners are on one line, so there is no triangle.</span>'; info.innerHTML = ''; fb.set('Move a corner off the line.', 'warn'); ch.update(); return;
+  }
+  var a2 = aS.s2, b2 = bS.s2, c2 = cS.s2, sum = a2 + b2;
+  var ang = Math.acos(Math.max(-1, Math.min(1, (a2 + b2 - c2) / (2 * Math.sqrt(a2 * b2))))) * 180 / Math.PI;
+  var kind = sum === c2 ? 'right' : sum > c2 ? 'acute' : 'obtuse';
+  read.innerHTML = '<span class="c-blue">' + a2 + '</span> + <span class="c-orange">' + b2 + '</span> ' + (sum === c2 ? '=' : sum > c2 ? '&gt;' : '&lt;') + ' <span class="c-purple">' + c2 + '</span>' +
+    '<div class="sub" style="margin-top:6px">a² + b² ' + (sum === c2 ? '=' : sum > c2 ? '&gt;' : '&lt;') + ' c² · the triangle is <b>' + kind + '</b></div>';
+  info.innerHTML = '<dt class="c-blue">a</dt><dd>' + rootTxt(a2) + '</dd><dt class="c-orange">b</dt><dd>' + rootTxt(b2) + '</dd><dt class="c-purple">c (longest)</dt><dd>' + rootTxt(c2) + '</dd>' +
+    '<dt>Angle opposite c</dt><dd>' + (sum === c2 ? '90° exactly' : '≈ ' + L.num(ang, 1) + '°') + '</dd>';
+  var cv = sub(cS.p, cS.q);
+  var trickTxt = st.trick ? (cv[0] && cv[1] ? ' Tilted-square trick (red): ' + (Math.abs(cv[0]) + Math.abs(cv[1])) + '² − 4 × ' + L.frac(1, 2) + ' × ' + Math.abs(cv[0]) + ' × ' + Math.abs(cv[1]) + ' = ' + c2 + '.' : ' The biggest square is not tilted, so just count its side: ' + Math.round(Math.sqrt(c2)) + ' × ' + Math.round(Math.sqrt(c2)) + '.') : '';
+  fb.set((sum === c2 ? 'The two smaller squares (' + a2 + ' + ' + b2 + ') fill exactly the biggest square (' + c2 + '). The angle opposite the longest side is a right angle.' :
+    'The smaller squares add to ' + sum + ', which is ' + Math.abs(sum - c2) + ' ' + (sum > c2 ? 'more' : 'less') + ' than ' + c2 + '. ' + (sum > c2 ? 'All angles are less than 90°.' : 'The angle opposite c is more than 90°.')) + trickTxt, sum === c2 ? 'good' : '');
+  var axisAligned = function (s) { var v = sub(s.p, s.q); return v[0] === 0 || v[1] === 0; };
+  if (kind === 'right') st.seen.right = true;
+  if (kind === 'right' && st.trick && !sides.some(axisAligned)) st.seen.tiltRight = true;
+  if (kind === 'obtuse') st.seen.obtuse = true;
+  if (sum - c2 === 2) st.seen.near = true;
+  var rc = Math.round(Math.sqrt(c2));
+  if (kind === 'right' && rc * rc === c2 && rc !== 5) st.seen.triple = true;
+  if (kind === 'right' && c2 === 2) st.seen.root2 = true;
+  ch.update();
+});
+draw();
+
+})();
+</script>
+</body></html>

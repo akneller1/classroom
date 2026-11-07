@@ -17,12 +17,32 @@ function rad(deg) { // degrees as a multiple of π, stacked fraction
 }
 var PI_TICKS = [];
 [-4, -3, -2, -1, 1, 2, 3, 4].forEach(function (k) { var sg = k < 0 ? '−' : '', a = Math.abs(k); PI_TICKS.push(a % 2 ? { x: k * Math.PI / 2, num: sg + (a === 1 ? '' : a) + 'π', den: '2' } : { x: k * Math.PI / 2, num: sg + (a === 2 ? '' : a / 2) + 'π' }); });
-var st = { mode: 'circle', deg: 30, snap: true, A: 1, B: 1, C: 0, D: 0, seen: {} };
-L.tabs(P.stage, [{ id: 'circle', label: 'Unit circle to wave' }, { id: 'wave', label: 'Transform the wave' }], function (id) { st.mode = id; build(); draw(); });
+var st = { mode: 'circle', deg: 30, snap: true, A: 1, B: 1, C: 0, D: 0, th: 0.5, r: 2, radSeen: {}, seen: {} };
+L.tabs(P.stage, [{ id: 'circle', label: 'Unit circle to wave' }, { id: 'radian', label: 'What is a radian?' }, { id: 'wave', label: 'Transform the wave' }], function (id) { st.mode = id; function drawRadian() {
+  var r = st.r, t = st.th;
+  gr.clear();
+  gr.poly([[0, 0]].concat(Array.from({ length: 61 }, function (_, i) { var u = t * i / 60; return [r * Math.cos(u), r * Math.sin(u)]; })), { fill: 'purple', opacity: 0.12 });
+  gr.param(function (u) { return r * Math.cos(u); }, function (u) { return r * Math.sin(u); }, 0, 2 * Math.PI, { color: 'ink', width: 2 });
+  gr.param(function (u) { return r * Math.cos(u); }, function (u) { return r * Math.sin(u); }, 0, t, { color: 'orange', width: 7 });
+  gr.line(0, 0, r, 0, { color: 'blue', width: 4 }); gr.text(r / 2, 0, 'r', { dy: 20, anchor: 'middle', color: 'blue' });
+  gr.line(0, 0, r * Math.cos(t), r * Math.sin(t), { color: 'blue', width: 4 });
+  for (var k = 1; k <= 6; k++) { var cx = Math.cos(k), sy = Math.sin(k);
+    gr.line(r * 0.9 * cx, r * 0.9 * sy, r * 1.1 * cx, r * 1.1 * sy, { color: 'ink', width: 2 });
+    gr.text(r * 1.22 * cx, r * 1.22 * sy, String(k), { anchor: 'middle', dy: 5, size: 13, color: 'ink-soft' }); }
+  var deg = t * 180 / Math.PI;
+  read.innerHTML = 'θ = ' + L.num(t, 2) + ' rad ≈ ' + L.num(deg, 1) + '°';
+  info.innerHTML = '<dt>Arc length ' + L.V('s') + '</dt><dd>' + L.V('r') + 'θ = ' + L.nice(r) + ' × ' + L.num(t, 2) + ' = ' + L.num(r * t, 3) + '</dd>' +
+    '<dt>' + L.frac(L.V('s'), L.V('r')) + '</dt><dd>' + L.num(t, 2) + ' radius lengths of arc</dd><dt>Full turn</dt><dd>2π ≈ 6.28 radius lengths (the tick marks count 1, 2, 3, … radians)</dd>';
+  if (Math.abs(t - 1) < 1e-9) st.seen.oneRad = true;
+  st.radSeen[t] = st.radSeen[t] || {}; st.radSeen[t][r] = true; if (t > 0 && Object.keys(st.radSeen[t]).length >= 2) st.seen.radR = true;
+}
+build(); draw(); });
 var row = L.h('div', { style: 'display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:8px;align-items:center;margin-top:8px' }, P.stage);
 var cBox = L.h('div', null, row), wBox = L.h('div', null, row);
 var gc = L.graph(cBox, { xmin: -1.35, xmax: 1.35, ymin: -1.35, ymax: 1.35, width: 360, height: 360, xstep: 0.5, ystep: 0.5, noLabels: true, label: 'Unit circle' });
 var gw = L.graph(wBox, { xmin: -0.3, xmax: 2 * Math.PI + 0.3, ymin: -1.4, ymax: 1.4, width: 520, height: 300, xstep: Math.PI / 6, ystep: 0.5, xticks: PI_TICKS, label: 'Sine and cosine graphs' });
+var rBox = L.h('div', { style: 'margin-top:8px' }, P.stage); rBox.hidden = true;
+var gr = L.graph(rBox, { xmin: -3.6, xmax: 3.6, ymin: -3.6, ymax: 3.6, width: 520, height: 520, xstep: 0.5, ystep: 0.5, noLabels: true, label: 'Circle with an arc measured in radius lengths' });
 var legend = L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--orange)"></i>sine = height (' + L.V('y') + ')</span><span><i style="background:var(--blue)"></i>cosine = horizontal position (' + L.V('x') + ')</span>');
 var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
 var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
@@ -31,11 +51,18 @@ var ch = L.challenges(P.panel, [
   { text: 'Find the angle where sine is at its <b>maximum</b>.', check: function () { return st.seen.max; } },
   { text: 'Find an angle where sine is negative but cosine is positive.', check: function () { return st.seen.q4; } },
   { text: 'Find an angle where sine and cosine are equal.', check: function () { return st.seen.eq; } },
-  { text: 'In Transform the wave, make the amplitude 3.', check: function () { return Math.abs(st.A) === 3; } },
-  { text: 'Make the period π. What value of ' + L.V('B') + ' does that take?', check: function () { return st.B === 2; } }
+  { text: 'In What is a radian?, make the arc exactly as long as the radius. About how many degrees is 1 radian?', check: function () { return st.seen.oneRad; } },
+  { text: 'In What is a radian?, keep the angle the same and change the radius. Does the angle in radians change? What does?', check: function () { return st.seen.radR; } },
+  { text: 'In Transform the wave, make a wave that repeats every π units and whose highest point is at ' + L.V('y') + ' = 3.', check: function () { return st.mode === 'wave' && st.B === 2 && Math.abs(Math.abs(st.A) + st.D - 3) < 1e-9; } }
 ]);
 function build() {
   ctrl.innerHTML = '';
+  row.hidden = st.mode === 'radian'; rBox.hidden = st.mode !== 'radian';
+  if (st.mode === 'radian') {
+    L.slider(ctrl, { id: 'radians', label: 'Angle θ in radians', min: 0, max: 6.3, step: 0.05, value: st.th, color: 'purple', format: function (v) { return L.num(v, 2); }, onInput: function (v) { st.th = v; draw(); } });
+    L.slider(ctrl, { id: 'radius', label: 'Radius r', min: 1, max: 3, step: 0.5, value: st.r, color: 'blue', format: L.nice, onInput: function (v) { st.r = v; draw(); } });
+    legend.hidden = true; return;
+  }
   if (st.mode === 'circle') {
     cBox.hidden = false; row.style.gridTemplateColumns = 'minmax(0,0.8fr) minmax(0,1.2fr)';
     gw.setView({ xmin: -0.3, xmax: 2 * Math.PI + 0.3, ymin: -1.4, ymax: 1.4 });
@@ -54,6 +81,7 @@ function build() {
 }
 var draw = L.scheduler(function () {
   gw.clear();
+  if (st.mode === 'radian') { drawRadian(); ch.update(); return; }
   if (st.mode === 'circle') {
     var t = st.deg * Math.PI / 180, c = Math.cos(t), s = Math.sin(t);
     gc.clear();
@@ -91,4 +119,22 @@ var draw = L.scheduler(function () {
   }
   ch.update();
 });
+function drawRadian() {
+  var r = st.r, t = st.th;
+  gr.clear();
+  gr.poly([[0, 0]].concat(Array.from({ length: 61 }, function (_, i) { var u = t * i / 60; return [r * Math.cos(u), r * Math.sin(u)]; })), { fill: 'purple', opacity: 0.12 });
+  gr.param(function (u) { return r * Math.cos(u); }, function (u) { return r * Math.sin(u); }, 0, 2 * Math.PI, { color: 'ink', width: 2 });
+  gr.param(function (u) { return r * Math.cos(u); }, function (u) { return r * Math.sin(u); }, 0, t, { color: 'orange', width: 7 });
+  gr.line(0, 0, r, 0, { color: 'blue', width: 4 }); gr.text(r / 2, 0, 'r', { dy: 20, anchor: 'middle', color: 'blue' });
+  gr.line(0, 0, r * Math.cos(t), r * Math.sin(t), { color: 'blue', width: 4 });
+  for (var k = 1; k <= 6; k++) { var cx = Math.cos(k), sy = Math.sin(k);
+    gr.line(r * 0.9 * cx, r * 0.9 * sy, r * 1.1 * cx, r * 1.1 * sy, { color: 'ink', width: 2 });
+    gr.text(r * 1.22 * cx, r * 1.22 * sy, String(k), { anchor: 'middle', dy: 5, size: 13, color: 'ink-soft' }); }
+  var deg = t * 180 / Math.PI;
+  read.innerHTML = 'θ = ' + L.num(t, 2) + ' rad ≈ ' + L.num(deg, 1) + '°';
+  info.innerHTML = '<dt>Arc length ' + L.V('s') + '</dt><dd>' + L.V('r') + 'θ = ' + L.nice(r) + ' × ' + L.num(t, 2) + ' = ' + L.num(r * t, 3) + '</dd>' +
+    '<dt>' + L.frac(L.V('s'), L.V('r')) + '</dt><dd>' + L.num(t, 2) + ' radius lengths of arc</dd><dt>Full turn</dt><dd>2π ≈ 6.28 radius lengths (the tick marks count 1, 2, 3, … radians)</dd>';
+  if (Math.abs(t - 1) < 1e-9) st.seen.oneRad = true;
+  st.radSeen[t] = st.radSeen[t] || {}; st.radSeen[t][r] = true; if (t > 0 && Object.keys(st.radSeen[t]).length >= 2) st.seen.radR = true;
+}
 build(); draw();

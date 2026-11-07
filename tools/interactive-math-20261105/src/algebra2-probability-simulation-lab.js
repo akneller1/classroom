@@ -6,14 +6,14 @@ var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
 var ctrl = L.h('div', { style: 'display:grid;gap:12px' }, P.panel);
 var info = L.h('dl', { class: 'kv' }, P.panel);
 var ch = L.challenges(P.panel, [
-  { text: 'Flip at least 1,000 coins in total.', check: function () { return st.flips >= 1000; } },
+  { text: 'Start over and flip only 10 coins. Get a share of heads of 0.7 or more (or 0.3 or less). Does that mean the coin is unfair?', check: function () { return st.seen.small; } },
   { text: 'After 500 or more flips, get the share of heads within 0.02 of 0.5.', check: function () { return st.seen.close; } },
-  { text: 'Roll the two dice at least 500 times.', check: function () { return st.rolls >= 500; } },
+  { text: 'With 500 or more rolls, get the share of 7s within 0.01 of ' + L.frac(6, 36) + '. Why is 7 more likely than 2?', check: function () { return st.seen.seven01; } },
   { text: 'With 500+ rolls, see which sum comes up most often. How many ways can you roll it?', check: function () { return st.seen.seven; } },
-  { text: 'On the normal curve, shade everything within 2 standard deviations of the mean.', check: function () { return st.mode === 'normal' && st.shade === 2; } }
+  { text: 'On the normal curve, shade within 2σ for two <b>different</b> values of σ. Does the shaded probability change?', check: function () { return st.seen.sd2 && Object.keys(st.seen.sd2).length >= 2; } }
 ]);
 var CHOOSE = [0, 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1];
-function flip(n) { for (var i = 0; i < n; i++) { if (Math.random() < 0.5) st.heads++; st.flips++; st.hist.push(st.heads / st.flips); } if (st.flips >= 500 && Math.abs(st.heads / st.flips - 0.5) <= 0.02) st.seen.close = true; draw(); }
+function flip(n) { for (var i = 0; i < n; i++) { if (Math.random() < 0.5) st.heads++; st.flips++; st.hist.push(st.heads / st.flips); } if (st.flips === 10 && Math.abs(st.heads / 10 - 0.5) >= 0.2 - 1e-9) st.seen.small = true; if (st.flips >= 500 && Math.abs(st.heads / st.flips - 0.5) <= 0.02) st.seen.close = true; draw(); }
 function roll(n) { for (var i = 0; i < n; i++) { var s = 2 + Math.floor(Math.random() * 6) + Math.floor(Math.random() * 6); st.dice[s]++; st.rolls++; } draw(); }
 function erf(x) { var t = 1 / (1 + 0.3275911 * Math.abs(x)), y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return x >= 0 ? y : -y; }
 function build() {
@@ -58,6 +58,7 @@ var draw = L.scheduler(function () {
       if (st.dice[s] > max) { max = st.dice[s]; mode = s; }
     }
     if (st.rolls >= 500 && mode === 7) st.seen.seven = true;
+    if (st.rolls >= 500 && Math.abs(st.dice[7] / st.rolls - 6 / 36) <= 0.01) st.seen.seven01 = true;
     read.innerHTML = st.rolls ? st.rolls.toLocaleString() + ' rolls · most common sum: ' + mode : 'Roll some dice.';
     info.innerHTML = '<dt>Sum of 7</dt><dd>experimental ' + (st.rolls ? L.num(st.dice[7] / st.rolls, 3) : '—') + ' · theoretical ' + L.frac(6, 36) + ' ≈ 0.167</dd><dt>Sum of 2</dt><dd>experimental ' + (st.rolls ? L.num(st.dice[2] / st.rolls, 3) : '—') + ' · theoretical ' + L.frac(1, 36) + ' ≈ 0.028</dd>';
   } else {
@@ -69,6 +70,7 @@ var draw = L.scheduler(function () {
     g.fn(f, { color: 'blue' });
     for (var j = -3; j <= 3; j++) { g.line(mu + j * sd, 0, mu + j * sd, f(mu + j * sd), { color: 'ink', width: 1.5, dash: '4 4' }); }
     var area = erf(k / Math.SQRT2);
+    if (k === 2) { st.seen.sd2 = st.seen.sd2 || {}; st.seen.sd2[sd] = true; }
     read.innerHTML = 'P(' + L.num(mu - k * sd) + ' ≤ ' + L.V('X') + ' ≤ ' + L.num(mu + k * sd) + ') ≈ ' + L.num(area * 100, 1) + '%';
     info.innerHTML = '<dt>Within 1σ</dt><dd>about 68%</dd><dt>Within 2σ</dt><dd>about 95%</dd><dt>Within 3σ</dt><dd>about 99.7%</dd><dt>Changing σ</dt><dd>a bigger σ spreads the curve out and lowers its peak, but the percentages stay the same</dd>';
   }

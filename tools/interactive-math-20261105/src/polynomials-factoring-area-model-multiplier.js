@@ -1,4 +1,4 @@
-var st = { a: 1, b: 2, c: 1, d: 3, seen: {} };
+var st = { a: 1, b: 1, c: 1, d: 4, seen: {} };
 var W = 640, H = 560, XL = 104, U = 21;
 var svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Area model rectangle' }, P.stage);
 L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>' + L.V('x') + '² pieces</span><span><i style="background:var(--green)"></i>' + L.V('x') + ' pieces</span><span><i style="background:var(--orange)"></i>number pieces</span><span><i style="background:var(--red)"></i>negative pieces</span>');

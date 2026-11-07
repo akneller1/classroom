@@ -8,7 +8,7 @@ L.slider(P.panel, { id: 'c', label: 'c', min: -8, max: 12, value: st.c, color: '
 L.h('h2', null, P.panel, 'Roots on the complex plane');
 var cp = L.graph(P.panel, { xmin: -6, xmax: 6, ymin: -4.5, ymax: 4.5, width: 400, height: 300, xstep: 1, ystep: 1, label: 'Complex plane: real part across, imaginary part up', yfmt: function (t) { return L.num(t) + 'i'; } });
 var ch = L.challenges(P.panel, [
-  { text: 'Make a quadratic with two real roots.', check: function () { return st.seen.two; } },
+  { text: 'Make a quadratic with two real roots where ' + L.V('c') + ' is <b>positive</b>. What has to be true about ' + L.V('b') + '?', check: function () { return st.seen.twoPos; } },
   { text: 'Make the discriminant exactly 0. How many roots are there?', check: function () { return st.seen.one; } },
   { text: 'Lift the parabola off the ' + L.V('x') + '-axis so the roots become complex.', check: function () { return st.seen.complex; } },
   { text: 'Make the roots ±2' + L.V('i') + '.', check: function () { return st.a !== 0 && st.b === 0 && Math.abs(st.c / st.a - 4) < 1e-9; } },
@@ -25,7 +25,7 @@ var draw = L.scheduler(function () {
   if (a === 0) { g.fn(function (x) { return b * x + c; }, { color: 'blue' }); read.innerHTML = '<span class="c-red">With ' + L.V('a') + ' = 0 there is no ' + L.V('x') + '² term, so it isn\'t quadratic.</span>'; ch.update(); return; }
   g.fn(function (x) { return a * x * x + b * x + c; }, { color: 'blue' });
   var D = b * b - 4 * a * c, re = -b / (2 * a), roots;
-  if (D > 1e-9) { var r = Math.sqrt(D) / (2 * Math.abs(a)); roots = [[re - r, 0], [re + r, 0]]; st.seen.two = true; }
+  if (D > 1e-9) { var r = Math.sqrt(D) / (2 * Math.abs(a)); roots = [[re - r, 0], [re + r, 0]]; st.seen.two = true; if (c > 0) st.seen.twoPos = true; }
   else if (Math.abs(D) <= 1e-9) { roots = [[re, 0]]; st.seen.one = true; }
   else { var im = Math.sqrt(-D) / (2 * Math.abs(a)); roots = [[re, im], [re, -im]]; st.seen.complex = true; }
   roots.forEach(function (z) {

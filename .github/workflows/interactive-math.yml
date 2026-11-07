@@ -1,0 +1,28 @@
+name: Interactive Math integration
+on:
+  push:
+    paths:
+      - 'data.js'
+      - 'student-game-share.js'
+      - 'artifacts/**'
+      - 'thumbs/**'
+      - 'tools/interactive-math-20261107/**'
+      - 'scripts/test-interactive-math-update.cjs'
+      - '.github/workflows/interactive-math.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check catalog resources, course preservation, and student links
+        run: node scripts/test-interactive-math-update.cjs
+      - name: Independently recompute worksheet answers
+        run: python tools/interactive-math-20261107/tests/worksheet-answers.py

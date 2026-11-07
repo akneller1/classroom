@@ -16,7 +16,7 @@ var info = L.h('dl', { class: 'kv' }, P.panel);
 var ch = L.challenges(P.panel, [
   { text: 'Make a rectangular prism with a volume of 60 cubic units.', check: function () { return st.seen.p60; } },
   { text: 'Compare a cone with a cylinder that has the same radius and height. What fraction is the cone?', check: function () { return st.seen.cmp; } },
-  { text: 'Set the scale factor to 2. How many times bigger is the volume? The surface area?', check: function () { return st.k === 2; } },
+  { text: 'Predict, then test: what scale factor makes the volume exactly 27 times as big? What happens to the surface area?', check: function () { return st.k === 3; } },
   { text: 'Find the volume of a sphere with radius 3.', check: function () { return st.solid === 'sphere' && st.v.spherer === 3; } },
   { text: 'Make a cylinder whose volume is exactly 72π.', check: function () { return st.seen.c72; } }
 ]);

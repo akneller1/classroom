@@ -1,5 +1,5 @@
 var Gm = L.geo;
-var st = { A: [1, 1], B: [4, 1], C: [1, 3], O: [-3, -2], k: 1.5, seen: {} };
+var st = { A: [1, 1], B: [4, 1], C: [1, 3], O: [-1, 0], k: 1.5, seen: {} };
 var g = L.graph(P.stage, { xmin: -10, xmax: 12, ymin: -8, ymax: 12, width: 600, height: 545, label: 'Dilation of triangle ABC' });
 var gg = L.geoGraph(g);
 L.h('div', { class: 'legend' }, P.stage, '<span><i style="background:var(--blue)"></i>preimage ABC</span><span><i style="background:var(--orange)"></i>image A′B′C′</span><span><i style="background:var(--purple)"></i>center of dilation O</span>');
@@ -10,11 +10,15 @@ var tbl = L.table(P.panel);
 var info = L.h('dl', { class: 'kv' }, P.panel);
 var ch = L.challenges(P.panel, [
   { text: 'Make an <b>enlargement</b> that doubles every side. What happens to the area?', check: function () { return st.k === 2; } },
-  { text: 'Make a <b>reduction</b>. What kind of number is k?', check: function () { return st.k < 1; } },
+  { text: 'Make a <b>reduction</b> whose image fits completely inside the original triangle. Where did you have to put O?', check: function () { return st.seen.inside; } },
   { text: 'Put the center O on vertex A. Which point doesn\'t move?', check: function () { return st.seen.onA; } },
   { text: 'Find the scale factor that makes the image\'s area 9 times the original.', check: function () { return st.k === 3; } },
-  { text: 'Set k = 1. What is true about the two triangles?', check: function () { return st.k === 1; } }
+  { text: 'With k ≠ 1, move O so the image and the original don’t overlap at all. Did the side ratios or the angles change?', check: function () { return st.seen.apart; } }
 ]);
+function cr(o, a, b) { return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]); }
+function inTri(q, T) { var d1 = cr(T[0], T[1], q), d2 = cr(T[1], T[2], q), d3 = cr(T[2], T[0], q); return !((d1 < -1e-9 || d2 < -1e-9 || d3 < -1e-9) && (d1 > 1e-9 || d2 > 1e-9 || d3 > 1e-9)); }
+function segX(p1, p2, q1, q2) { var a = cr(p1, p2, q1), b = cr(p1, p2, q2), c = cr(q1, q2, p1), d = cr(q1, q2, p2); return a * b <= 1e-9 && c * d <= 1e-9 && [0, 1].every(function (axis) { return Math.max(Math.min(p1[axis], p2[axis]), Math.min(q1[axis], q2[axis])) <= Math.min(Math.max(p1[axis], p2[axis]), Math.max(q1[axis], q2[axis])) + 1e-9; }); }
+function apart(T, I) { for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++) if (segX(T[i], T[(i + 1) % 3], I[j], I[(j + 1) % 3])) return false; return !inTri(I[0], T) && !inTri(T[0], I); }
 function dil(P0) { return [st.O[0] + st.k * (P0[0] - st.O[0]), st.O[1] + st.k * (P0[1] - st.O[1])]; }
 var draw = L.scheduler(function () {
   var T = [st.A, st.B, st.C], I = T.map(dil), k = st.k;
@@ -31,6 +35,8 @@ var draw = L.scheduler(function () {
   g.handle(st.O[0], st.O[1], { color: 'purple', snap: 1, label: 'Center O', onDrag: function (x, y) { st.O = [x, y]; draw(); } });
   g.text(st.O[0], st.O[1], 'O', { dx: -14, dy: -10, anchor: 'end', color: 'purple' });
   if (st.O[0] === st.A[0] && st.O[1] === st.A[1]) st.seen.onA = true;
+  if (k < 1 && Math.abs(Gm.area(T)) > 1e-9 && I.every(function (q) { return inTri(q, T); })) st.seen.inside = true;
+  if (k !== 1 && Math.abs(Gm.area(T)) > 1e-9 && apart(T, I)) st.seen.apart = true;
   var names = [['AB', 0, 1], ['BC', 1, 2], ['AC', 0, 2]];
   tbl.set(['Side', 'Original', 'Image', 'Image ÷ original'], names.map(function (n) {
     var o = Gm.dist(T[n[1]], T[n[2]]), im = Gm.dist(I[n[1]], I[n[2]]);
@@ -39,7 +45,8 @@ var draw = L.scheduler(function () {
   var angs = [Gm.angle(T[1], T[0], T[2]), Gm.angle(T[0], T[1], T[2]), Gm.angle(T[0], T[2], T[1])];
   var per = function (Q) { return Gm.dist(Q[0], Q[1]) + Gm.dist(Q[1], Q[2]) + Gm.dist(Q[0], Q[2]); };
   var a0 = Math.abs(Gm.area(T)), a1 = Math.abs(Gm.area(I));
-  read.innerHTML = '(' + L.V('x') + ', ' + L.V('y') + ') → (' + L.nice(k) + L.V('x') + ', ' + L.nice(k) + L.V('y') + ')' + (st.O[0] || st.O[1] ? '<div class="sub">about O(' + st.O[0] + ', ' + st.O[1] + ')</div>' : '') +
+  var ox = st.O[0], oy = st.O[1], rule = function (v, c) { return c === 0 ? L.nice(k) + L.V(v) : L.nice(c) + ' + ' + L.nice(k) + '(' + L.V(v) + (c > 0 ? ' − ' : ' + ') + L.nice(Math.abs(c)) + ')'; };
+  read.innerHTML = '(' + L.V('x') + ', ' + L.V('y') + ') → (' + rule('x', ox) + ', ' + rule('y', oy) + ')' + (ox || oy ? '<div class="sub">dilation centered at O(' + L.num(ox) + ', ' + L.num(oy) + '). The rule (' + L.V('kx') + ', ' + L.V('ky') + ') only works when O is the origin.</div>' : '<div class="sub">centered at the origin</div>') +
     '<div class="sub" style="margin-top:6px">' + (k > 1 ? 'Enlargement' : k < 1 ? 'Reduction' : 'Same size: the image is congruent') + ' · △ABC ~ △A′B′C′</div>';
   info.innerHTML = '<dt>Angles</dt><dd>' + angs.map(function (x) { return L.num(x, 1) + '°'; }).join(', ') + ' in both triangles</dd>' +
     '<dt>Perimeter</dt><dd>' + L.num(per(T), 2) + ' → ' + L.num(per(I), 2) + ' (× ' + L.nice(k) + ')</dd>' +
