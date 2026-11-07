@@ -3,6 +3,54 @@
 (function(root){
   'use strict';
   var skills = {
+  "statistics": {
+  "exploring-data": [
+    "Exploring Data: Variables, Dot Plots, Stem Plots, and Histograms",
+    "Describing Shape, Center, Spread, and Outliers",
+    "Mean, Median, Range, Interquartile Range, and Standard Deviation",
+    "Quartiles, Percentiles, Box Plots, and Comparing Distributions",
+    "Modeling Distributions: Density Curves, Normal Models, and z-Scores",
+    "Categorical Data: Two-Way Tables and Conditional Relative Frequencies",
+    "Describing Relationships: Scatterplots and Correlation",
+    "Least-Squares Regression, Predictions, and Coefficient of Determination",
+    "Residuals, Influential Points, and Limits of Linear Models"
+  ],
+  "sampling-experimentation": [
+    "Sampling: Populations, Samples, Censuses, and Surveys",
+    "Simple Random, Stratified, and Cluster Sampling",
+    "Undercoverage, Nonresponse, and Response Bias",
+    "Observational Studies and Experiments",
+    "Experimenting: Treatments, Controls, Random Assignment, and Replication",
+    "Confounding, Placebos, and Blinding",
+    "Completely Randomized, Randomized Block, and Matched Pairs Designs",
+    "Generalizing Results and Distinguishing Association from Causation"
+  ],
+  "anticipating-patterns": [
+    "Probability: Long-Run Relative Frequency and the Law of Large Numbers",
+    "Addition and Multiplication Rules",
+    "Conditional Probability and Independent Events",
+    "Simulating Random Behavior",
+    "Random Variables: Discrete Probability Distributions",
+    "Expected Value, Standard Deviation, and Linear Transformations",
+    "Binomial and Geometric Distributions",
+    "Combining Independent Random Variables",
+    "Sampling Distributions of Proportions and Means",
+    "Bias, Variability, Sample Size, and the Central Limit Theorem"
+  ],
+  "statistical-inference": [
+    "Confidence Intervals: Point Estimates, Standard Error, and Margin of Error",
+    "Interpreting Confidence Levels and Checking Inference Conditions",
+    "One-Proportion z-Intervals and Sample Size",
+    "One-Mean t-Intervals and Degrees of Freedom",
+    "Significance Tests: Null and Alternative Hypotheses",
+    "Test Statistics, p-Values, and Conclusions in Context",
+    "One-Proportion z-Tests and One-Mean t-Tests",
+    "Type I and Type II Errors and Statistical Power",
+    "Comparing Two Populations: Intervals and Tests for Two Proportions",
+    "Independent Two-Sample and Paired t-Procedures",
+    "Extension: Confidence Intervals for a Regression Slope"
+  ]
+},
   "calculus": {
   "precalculus-review": [
     "Factoring and Simplifying Expressions",

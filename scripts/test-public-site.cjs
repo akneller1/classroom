@@ -8,7 +8,7 @@ for(const dir of ['.git','.github','scripts','audits','incoming','docs','tools',
 assert(home.includes('u/math6/')&&home.includes('u/prealgebra7/'),'Grade 6/7 missing from catalog');
 const sitemap=fs.readFileSync(path.join(out,'sitemap.xml'),'utf8');
 assert(sitemap.includes('/u/math6/')&&sitemap.includes('/u/prealgebra7/'),'Grade 6/7 missing from sitemap');
-const courses=fs.readdirSync(path.join(out,'u'));assert.equal(courses.length,8);let count=0;
+const courses=fs.readdirSync(path.join(out,'u'));assert.equal(courses.length,9);let count=0;
 const checkLinks=(file,text)=>{for(const match of text.matchAll(/(?:href|src)="([^"<>]+)"/g)){
  const link=match[1].replace(/&amp;/g,'&');if(/^(?:https?:|data:|mailto:|#)/.test(link))continue;
  const raw=link.split(/[?#]/)[0];if(!raw)continue;
@@ -23,12 +23,15 @@ for(const course of courses){
  for(const unit of fs.readdirSync(path.join(out,'u',course),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
  const file=path.join(out,'u',course,unit,'index.html'),html=fs.readFileSync(file,'utf8');
  assert(html.includes('../../../#'+course+'.'+unit),'Incorrect app route: '+course+'/'+unit);
- for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
+ if(course === 'statistics') {
+  assert(html.includes('Activities coming soon'),'Statistics must identify the course outline');
+  assert(!html.includes('worksheet-generator/'),'Statistics must not link to unavailable generators');
+ } else for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
  assert(html.includes('<a href="../">'),'Missing course breadcrumb: '+course+'/'+unit);
  checkLinks(file,html);count++;
 }
 }
-assert.equal(count,77);assert.equal((sitemap.match(/<loc>/g)||[]).length,86);
+assert.equal(count,81);assert.equal((sitemap.match(/<loc>/g)||[]).length,91);
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
@@ -53,9 +56,9 @@ assert(!publicApp.includes('github.com/akneller1/classroom/issues/new'),'Per-res
 assert(!home.includes('.main-nav { display: none; }'),'Header navigation hidden');
 for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])assert(fs.existsSync(path.join(out,'assets',file)),'Missing branding asset '+file);
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');
-console.log('PASS public build: eight visible courses, 77 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
+console.log('PASS public build: nine visible courses, 81 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
 
-/* All eight courses are public, including restored Grade 6 and Grade 7. */
+/* All nine courses are public, including restored Grade 6 and Grade 7. */
 const publishedData=fs.readFileSync(path.join(out,'data.js'),'utf8');
 const dataContext={window:{}};
 require('node:vm').runInNewContext(publishedData,dataContext);
@@ -72,7 +75,7 @@ const app=fs.readFileSync(path.join(out,'app.js'),'utf8');
 assert(app.includes('var HIDDEN_COURSES = {};'),'All courses must be unhidden');
 const stylesheet=fs.readFileSync(path.join(out,'styles.css'),'utf8');
 assert(stylesheet.includes('grid-template-columns:repeat(2,minmax(0,1fr))'),'Missing two-column homepage subject grid');
-console.log('PASS Grade 6/7 restored; eight visible courses in a two-column grid');
+console.log('PASS Grade 6/7 restored; nine visible courses in a two-column grid');
 
 /* Regression: middle-school activity links must not redirect back home. */
 {

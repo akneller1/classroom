@@ -26,6 +26,41 @@ window.LIBRARY = {
   "newDays": 30,
   "courses": [
 {
+  "id": "statistics",
+  "name": "Statistics",
+  "color": "blue",
+  "art": "distribution",
+  "planned": true,
+  "blurb": "Explore data, design studies, model chance, and draw conclusions with statistical inference.",
+  "curriculumSource": "https://resources.finalsite.net/images/v1623872059/parkhillk12mous/cskhg83dim7bbtbfbqej/StatisticsCourseSummary--BoardApprovedMarch302017.pdf",
+  "units": [
+    {
+      "id": "exploring-data",
+      "name": "Exploring Data",
+      "weeks": 4,
+      "artifacts": []
+    },
+    {
+      "id": "sampling-experimentation",
+      "name": "Sampling and Experimentation",
+      "weeks": 2,
+      "artifacts": []
+    },
+    {
+      "id": "anticipating-patterns",
+      "name": "Anticipating Patterns",
+      "weeks": 5,
+      "artifacts": []
+    },
+    {
+      "id": "statistical-inference",
+      "name": "Statistical Inference",
+      "weeks": 7,
+      "artifacts": []
+    }
+  ]
+},
+{
   "id": "calculus",
   "name": "Calculus",
   "color": "orange",
@@ -7325,6 +7360,7 @@ window.LIBRARY = {
    from the unit's verified question bank, easiest first (worksheet-generator/millionaire.html). */
 (function(G){
  G.LIBRARY.courses.forEach(function(c){
+  if(c.planned)return;
   c.units.forEach(function(u){
    var path='worksheet-generator/millionaire.html?course='+c.id+'&unit='+u.id;
    if(u.artifacts.some(function(a){return a.path===path;}))return;

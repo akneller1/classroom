@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6, calculus: 7 };
+  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6, calculus: 7, statistics: 8 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -243,6 +243,14 @@
       '<path class="s" d="M 20 135 H 185 M 35 145 V 10"/>' +
       '<path class="s" d="M 45 120 L 165 30"/>' +
       '<circle class="f" cx="65" cy="105" r="6"/><circle class="f" cx="105" cy="75" r="6"/><circle class="f" cx="145" cy="45" r="6"/>' +
+      '</svg>',
+    distribution:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="25" y="23" width="150" height="114" rx="8"/>' +
+      '<path class="s-thin" d="M 20 135 H 185 M 30 145 V 20"/>' +
+      '<path class="f-soft" d="M 45 135 V 116 H 65 V 87 H 85 V 51 H 105 V 51 H 125 V 87 H 145 V 116 H 165 V 135 Z"/>' +
+      '<path class="s" d="M 35 133 C 65 133 72 40 105 40 S 145 133 175 133"/>' +
+      '<path class="s-thin" d="M 105 40 V 135"/>' +
       '</svg>',
     tangent:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
@@ -586,7 +594,7 @@
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (['algebra', 'geometry', 'algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus'].indexOf(c.id) >= 0 ? '' : '<span class="course-wip-label">Coming Soon</span>') +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + ((c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons with generators, games, and study guides' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + (c.planned ? units(c.units.length) + ' · course outline · activities coming soon' : (c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons with generators, games, and study guides' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
