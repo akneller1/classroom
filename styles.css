@@ -840,3 +840,9 @@ body { background:var(--paper); }
 @media(prefers-reduced-motion:reduce) {
   .task-card,.site-header .main-nav .course-nav-card { transition:none; }
 }
+
+/* Unique course-card colors; preserve each course’s math illustration. */
+.course-nav-card[data-course="precalculus"] { --c-bg:#b52c78; --c-fg:#ffffff; }
+.course-nav-card[data-course="calculus"] { --c-bg:#a6442d; --c-fg:#ffffff; }
+.course-nav-card[data-course="statistics"] { --c-bg:#f2d15b; --c-fg:#17213d; }
+.course-nav-card[data-course="discrete"] { --c-bg:#465b72; --c-fg:#ffffff; }

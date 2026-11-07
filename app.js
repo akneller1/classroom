@@ -530,8 +530,6 @@
       { title: 'Play a Math Game', description: 'Bring on team review, escape rooms, mysteries, and individual challenges.', url: '#activities?category=games', icon: '◈', color: 'coral', action: 'Find a game' },
       { title: 'Explore Interactive Math', description: 'Make concepts click with hands-on graphs, models, and investigations.', url: '#activities?category=interactive', icon: '⟡', color: 'green', action: 'Explore the tools' },
       { title: 'Review & Study', description: 'Find flashcards, cheat sheets, and reference guides for your next unit.', url: '#activities?category=study-guides', icon: '▥', color: 'purple', action: 'Find study resources' },
-      { title: 'Check Readiness', description: 'Use a practice assessment to spot strengths and skills that need more work.', url: '#activity.interactive-practice-test', icon: '◎', color: 'teal', action: 'Choose a readiness check' },
-      { title: 'Open Saved Resources', description: 'Pick up where you left off with the activities saved in this browser.', url: '#saved', icon: '☆', color: 'orange', action: 'View saved resources' }
     ];
     return {
       title: L.title,
@@ -1054,7 +1052,7 @@
       '<div class="course-nav-grid">' + courses.map(function (c) {
         var current = r && r.c && r.c.id === c.id;
         var soon = c.comingSoon || c.planned;
-        return '<a class="course-nav-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
+        return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
           (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
           '<small>' + (soon ? 'Coming soon · course outline' : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
       }).join('') + '</div></details>';
