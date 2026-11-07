@@ -523,6 +523,7 @@
   /* ---------- views ---------- */
   function homeView() {
     var tasks = [
+      { title: 'Read the Teacher Guide', description: 'Get to know the tools, choose resources, and plan your first lesson.', url: 'guide.html', icon: '?', color: 'blue', action: 'Open the teacher guide' },
       { title: 'Plan a Lesson', description: 'Build your day with notes, examples, practice, and an exit ticket.', url: 'worksheet-generator/lesson-planner.html', icon: '▤', color: 'blue', action: 'Start planning' },
       { title: 'Create a Worksheet', description: 'Choose skills, difficulty, and versions. Print with worked answer keys.', url: 'worksheet-generator/worksheet.html', icon: '≡', color: 'teal', action: 'Build a worksheet' },
       { title: 'Create an Activity', description: 'Make mazes, Tarsia puzzles, partner checks, vocabulary, and more.', url: 'worksheet-generator/printables.html', icon: '✦', color: 'purple', action: 'Choose an activity' },
@@ -537,7 +538,7 @@
         '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
         '<h1 tabindex="-1">What would you like to do today?</h1>' +
         '<p class="lede">Classroom-ready math, your way. Choose a task below or explore a course from the menu.</p>' +
-        '<p class="task-guide">New here? <a href="guide.html">Read the teacher guide</a>.</p></div>' +
+        '</div>' +
         '<ul class="task-grid" aria-label="Teaching tasks">' + tasks.map(function (task) {
           return '<li><a class="task-card" data-color="' + task.color + '" href="' + esc(task.url) + '">' +
             '<span class="task-icon" aria-hidden="true">' + task.icon + '</span><h2>' + task.title + '</h2>' +
