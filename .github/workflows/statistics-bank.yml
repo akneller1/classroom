@@ -1,0 +1,38 @@
+name: Statistics bank integration
+on:
+  push:
+    paths:
+      - 'question-banks/statistics/**'
+      - 'question-banks/assets/statistics/**'
+      - 'question-banks/manifest.json'
+      - 'worksheet-generator/**'
+      - 'data.js'
+      - 'app.js'
+      - 'scripts/test-statistics-bank.cjs'
+      - 'scripts/test-hs-bank-integration.cjs'
+      - 'tools/statistics-expansion-20261107/**'
+      - '.github/workflows/statistics-bank.yml'
+  workflow_dispatch:
+jobs:
+  statistics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical verifier dependency
+        run: python -m pip install scipy
+      - name: Recompute new numerical answers independently
+        run: python tools/statistics-expansion-20261107/scripts/verification/verify_expansion.py .
+      - name: Validate Statistics coverage, keys, figures, and activity pools
+        run: node scripts/test-statistics-bank.cjs
+      - name: Exercise Statistics generators, games, vocabulary, and lesson plans
+        run: node scripts/test-hs-bank-integration.cjs
+        env:
+          MG_COURSE: statistics
+          MG_PREFIX: stat-

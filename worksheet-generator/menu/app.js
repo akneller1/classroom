@@ -126,10 +126,10 @@
     // 2
     h += '<section class="card mm-card" id="mmLevel"><h2><span class="step">2</span>Class level</h2><div class="mm-levels" role="radiogroup" aria-label="Class level">' +
       Object.keys(NS.LEVELS).map(function (k) { var L = NS.LEVELS[k];
-        return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(NS.courseLevelName(c.unitId,k)) + '</b><small>' + esc(L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
+        return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(NS.courseLevelName(c.unitId,k)) + '</b><small>' + esc(/^statistics-/.test(c.unitId) ? {cp2:'Scaffolded statistical concepts, clear wording, and guided calculations.',cp1:'Standard statistical calculations, study design, and interpretation.',honors:'Deeper reasoning, multi-part investigations, and interpretation of assumptions.'}[k] : L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
       }).join('') + '</div>' +
       '<label class="field"><span class="lbl">Answers</span><select id="mmAnswers">' +
-      [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']].map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
+      (/^statistics-/.test(c.unitId) ? [['auto', 'Use the answer forms and rounding stated in each question']] : [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']]).map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
     // 3
     if (NS.isTest(c)) h += testPartsHtml(c, rules); else
     h += '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>Menu sections and rules</h2>' +
@@ -165,7 +165,7 @@
     // 5
     h += '<section class="card mm-card" id="mmBuild"><h2><span class="step">5</span>Build the ' + noun() + '</h2>' +
       '<label class="field"><span class="lbl">Versions</span><select id="mmVersions">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((c.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
-      '<p class="hint">Versions share the same skills, difficulty and layout, with different numbers' + (isTest() ? ' (multiple-choice letters are reshuffled).' : '.') + '</p>' +
+      '<p class="hint">' + (/^statistics-/.test(c.unitId) ? 'Versions keep the same layout and draw different questions from the selected topic banks.' : 'Versions share the same skills, difficulty and layout, with different numbers' + (isTest() ? ' (multiple-choice letters are reshuffled).' : '.')) + '</p>' +
       (S ? '<p><button type="button" class="btn" id="mmGoReview">Review my ' + noun() + ' →</button> <button type="button" class="btn ghost" id="mmRebuild">Rebuild with these settings</button></p><p class="hint">Rebuilding keeps every pinned or edited problem and replaces the rest.</p>'
          : '<p><button type="button" class="btn" id="mmBuildBtn"' + (rules.errors.length ? ' disabled' : '') + '>Build my ' + noun() + '</button></p>' + (rules.errors.length ? '<p class="hint bad">Fix the rule problems in step 3 first.</p>' : '')) +
       '</section>';

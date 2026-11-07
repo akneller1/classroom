@@ -4,7 +4,7 @@ const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),asse
 const root=path.resolve(__dirname,'..'),ctx={window:{}};
 for(const file of ['data.js','student-game-share.js'])vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),ctx,{filename:file});
 const courses=ctx.window.LIBRARY.courses;
-for(const [id,count] of [['statistics',4],['discrete',10]]){const c=courses.find(c=>c.id===id);assert(c&&c.planned&&c.units.length===count,'New course outline lost: '+id);}
+for(const [id,count] of [['statistics',4],['discrete',10]]){const c=courses.find(c=>c.id===id);assert(c&&c.units.length===count,'New course outline lost: '+id);}
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'tools/interactive-math-20261107/manifest.json'),'utf8'));
 assert.equal(manifest.tools.length,14);
 for(const tool of manifest.tools){

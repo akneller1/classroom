@@ -10,6 +10,17 @@ for(const m of html.matchAll(/<script[^>]*src="([^"?]+)[^"]*"[^>]*><\/script>/g)
 }
 context.MK_COURSE_BANKS_READY.then(()=>{const N=context.MKMENU,c=context.LIBRARY.courses.find(c=>c.id===COURSE);let n=0;for(const u of c.units){const id=COURSE+'-'+u.id,set=N.skillSets[id];if(!set.authoredBank)throw Error(id+' not authored');for(const s of set.skills)for(const level of ['cp2','cp1','honors']){const p=N.generateProblem(id,s.id,4,{level,adjacentLevels:false},n++,{keys:new Set(),sigs:new Set()});if(p.failed||!p.sourceId.startsWith(PREFIX))throw Error(id+'/'+s.id+'/'+level+' failed');}}
 
+if(COURSE==='statistics'){
+ let failures=[];
+ for(const u of c.units)for(const level of ['cp2','cp1','honors'])for(const mode of ['worksheet','test','menu']){
+  const cfg=N.defaultConfig(COURSE+'-'+u.id,mode);cfg.level=level;cfg.versions=1;cfg.seed='statistics-default';
+  const state=N.newAssessment(cfg);const items=state.versions.flatMap(v=>v.sections.flatMap(s=>s.items));
+  const failed=items.filter(p=>p.failed);if(failed.length)failures.push(u.id+'/'+level+'/'+mode+': '+failed.length+' placeholders');
+ }
+ if(failures.length)throw Error(failures.join('\n'));
+ console.log('PASS 36 Statistics default worksheets, tests and menu assessments');
+}
+
 for(const name of ['printables','printables-scenes','printables-cases','printables-match'])vm.runInContext(fs.readFileSync(path.join(root,'worksheet-generator/menu/'+name+'.js'),'utf8'),context);
 let decks=0,printables=0;
 for(const u of c.units){
@@ -18,7 +29,7 @@ for(const u of c.units){
   context.document={body:{getAttribute:()=> 'connect-four'}};
   const slots=Array.from({length:20},(_,i)=>({skill:set.skills[i%set.skills.length].id,c:4,level}));
   context.MKGAMES.buildDeck(id,slots,{seed:'mg-'+level},items=>{if(items.length!==20||new Set(items.map(x=>x.id)).size!==20)throw Error('Incomplete/duplicate '+id+' '+level+' deck');for(const item of items)if(!item.id.startsWith(PREFIX)||item.options.filter(o=>o.ok).length!==1)throw Error('Invalid game choice');});decks++;
-  for(const kind of ['color','partner','who','stations','error','tarsia','maze']){
+  for(const kind of ['color','partner','who','stations','error','tarsia','maze'].filter(k=>COURSE!=='statistics'||(u.id==='sampling-experimentation'?['maze','stations']:['color','who','stations','tarsia','maze']).includes(k))){
    const cfg={unitId:id,level,answers:'auto',kind,seed:'mg-'+level,skills:Object.fromEntries(set.skills.map(s=>[s.id,true])),stations:2,perStation:4,count:8};
    const built=N.printables.build(cfg,0);if(built.error){(globalThis.FAILS=globalThis.FAILS||[]).push(id+'/'+level+'/'+kind+': '+built.error.slice(0,90));continue;}if(kind==='error' && built.cases.some(cs=>!cs.authored || !cs.item.p.authoredErrorAnalysis))throw Error('Un-authored error case');
    if(kind==='tarsia' && (new Set(built.items.map(it=>it.key)).size!==built.items.length || built.items.some(it=>!it.p.sourceId.startsWith(PREFIX))))throw Error('Invalid Tarsia sources/keys');

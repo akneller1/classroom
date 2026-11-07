@@ -101,7 +101,7 @@ window.LIBRARY = {
   "name": "Statistics",
   "color": "blue",
   "art": "distribution",
-  "planned": true,
+  "planned": false,
   "blurb": "Explore data, design studies, model chance, and draw conclusions with statistical inference.",
   "curriculumSource": "https://resources.finalsite.net/images/v1623872059/parkhillk12mous/cskhg83dim7bbtbfbqej/StatisticsCourseSummary--BoardApprovedMarch302017.pdf",
   "units": [
@@ -7350,6 +7350,7 @@ window.LIBRARY = {
    });
    u.artifacts.push({title:'Vocabulary Activities and Crosswords',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind=vocabulary',type:'Printable',thumb:'thumbs/vocabulary-prealgebra.svg',description:'Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
+    if(courseId==='statistics'&&(kind==='error'||u.id==='sampling-experimentation'&&kind==='tarsia'))return;
     u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored '+label+' questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    });
    u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
@@ -7369,6 +7370,7 @@ window.LIBRARY = {
     ['stations','Station Work','stations-generator-foundations.svg','Rotate through independent stations with mixed problem types.'],
     ['who','Whodunnit','foundations-algebra-whodunnit.jpg','Solve clues and narrow down the mystery.']
    ].forEach(function(a){
+    if(c.id==='statistics'&&(a[0]==='partner'||u.id==='sampling-experimentation'&&['color','who'].includes(a[0])))return;
     var url='worksheet-generator/printables.html#unit='+c.id+'-'+u.id+'&kind='+a[0];
     if(u.artifacts.some(function(x){return x.path===url}))return;
     u.artifacts.push({title:a[1]+' Generator',path:url,bankFormat:'printable-generator',type:'Printable',
@@ -7382,7 +7384,7 @@ window.LIBRARY = {
 /* Precalculus and Calculus use the shared approved-bank activities. */
 /* Grade 7 and Grade 6 authored banks use the same course players and native generators as Grade 8. */
 (function(G){
- [['precalculus','Precalculus'],['calculus','Calculus']].forEach(([courseId,label])=>{
+ [['precalculus','Precalculus'],['calculus','Calculus'],['statistics','Statistics']].forEach(([courseId,label])=>{
   const course=G.LIBRARY.courses.find(c=>c.id===courseId);if(!course)return;
   course.units.forEach(u=>{
    [['showdown','Showdown','showdown'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['escape-room','Escape Room','escape-rooms'],['detective','Detective','detective-games'],['picture-reveal','Picture Reveal','picture-reveal'],['flashcards','Flashcards','flashcards']].forEach(([game,title,format])=>{
@@ -7390,6 +7392,7 @@ window.LIBRARY = {
    });
    u.artifacts.push({title:'Vocabulary Activities and Crosswords',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind=vocabulary',type:'Printable',thumb:'thumbs/vocabulary-prealgebra.svg',description:'Matching, fill-in-the-blank, examples, and crosswords using the unit vocabulary.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
+    if(courseId==='statistics'&&(kind==='error'||u.id==='sampling-experimentation'&&kind==='tarsia'))return;
     u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored '+label+' questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    });
    u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
@@ -7399,7 +7402,7 @@ window.LIBRARY = {
 
 /* Grade 6/7 printable activity links: all existing bank-driven generators, no new runtime. */
 (function(G){
- [['precalculus','Precalculus'],['calculus','Calculus']].forEach(function(pair){
+ [['precalculus','Precalculus'],['calculus','Calculus'],['statistics','Statistics']].forEach(function(pair){
   var c=G.LIBRARY.courses.find(function(item){return item.id===pair[0]});if(!c)return;
   c.units.forEach(function(u){
    [
@@ -7409,6 +7412,7 @@ window.LIBRARY = {
     ['stations','Station Work','stations-generator-foundations.svg','Rotate through independent stations with mixed problem types.'],
     ['who','Whodunnit','foundations-algebra-whodunnit.jpg','Solve clues and narrow down the mystery.']
    ].forEach(function(a){
+    if(c.id==='statistics'&&(a[0]==='partner'||u.id==='sampling-experimentation'&&['color','who'].includes(a[0])))return;
     var url='worksheet-generator/printables.html#unit='+c.id+'-'+u.id+'&kind='+a[0];
     if(u.artifacts.some(function(x){return x.path===url}))return;
     u.artifacts.push({title:a[1]+' Generator',path:url,bankFormat:'printable-generator',type:'Printable',
