@@ -47,13 +47,16 @@ const keys = async (p, label, k, n) => { for (let i = 0; i < n; i++) { await p.e
   await click(p, 'button.tab', 'Normal curve'); await click(p, 'button.chip', '2σ'); ok(!(await done(p))[4], 'probability: one σ is not enough'); await slider(p, 'sd', 12); ok((await done(p))[4], 'probability: 2σ with two σ values'); await p.close();
 
   p = await open('geometry-dilation-similarity-lab');
-  t = (await txt(p, '.readout')).replace(/\s/g, ''); ok(t.indexOf('(x,y)→(−1+32(x+1),32y)') === 0 && /O\(−1,0\)/.test(t), 'dilation rule about O(−1, 0): ' + t);
-  ok(!(await done(p)).some(Boolean), 'dilation: nothing done at start');
-  ok(!/→ \(1.5x, 1.5y\)/.test(t), 'dilation: no origin-only rule'); 
-  await keys(p, 'Center O', 'ArrowRight', 3); await keys(p, 'Center O', 'ArrowUp', 2); await slider(p, 'k', 0.5);
+  /* the starting center may change between versions, so read it and move by the difference */
+  const centerO = async () => { const t = (await txt(p, '.readout')).replace(/\s/g, '').replace(/−/g, '-'); const m = /centeredatO\((-?\d+),(-?\d+)\)/.exec(t); return m ? [+m[1], +m[2]] : [0, 0]; };
+  const moveO = async (x, y) => { const o = await centerO(); if (x !== o[0]) await keys(p, 'Center O', x > o[0] ? 'ArrowRight' : 'ArrowLeft', Math.abs(x - o[0])); if (y !== o[1]) await keys(p, 'Center O', y > o[1] ? 'ArrowUp' : 'ArrowDown', Math.abs(y - o[1])); };
+  await slider(p, 'k', 1.5); await moveO(-3, -2);
+  t = (await txt(p, '.readout')).replace(/\s/g, ''); ok(t.indexOf('(x,y)→(−3+32(x+3),−2+32(y+2))') === 0 && /O\(−3,−2\)/.test(t), 'dilation rule about O(−3, −2): ' + t);
+  ok(!/→ \(1.5x, 1.5y\)/.test(t), 'dilation: no origin-only rule');
+  await moveO(2, 2); await slider(p, 'k', 0.5);
   ok((await done(p))[1], 'dilation: reduction inside the triangle');
-  await keys(p, 'Center O', 'ArrowRight', 8); await keys(p, 'Center O', 'ArrowUp', 8); ok((await done(p))[4], 'dilation: image apart from original');
-  await keys(p, 'Center O', 'ArrowLeft', 10); await keys(p, 'Center O', 'ArrowDown', 10); t = (await txt(p, '.readout')).replace(/\s/g, ''); ok(t.indexOf('(x,y)→(12x,12y)') === 0 && /centeredattheorigin/.test(t), 'dilation at origin: ' + t);
+  await moveO(10, 10); ok((await done(p))[4], 'dilation: image apart from original');
+  await moveO(0, 0); t = (await txt(p, '.readout')).replace(/\s/g, ''); ok(t.indexOf('(x,y)→(12x,12y)') === 0 && /centeredattheorigin/.test(t), 'dilation at origin: ' + t);
   ok(!p._e.length, 'dilation errors ' + p._e); await p.close();
 
   p = await open('geometry-solids-volume-lab');

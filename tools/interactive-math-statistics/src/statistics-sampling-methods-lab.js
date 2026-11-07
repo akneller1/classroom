@@ -1,0 +1,92 @@
+/* A fixed population of 160 students (seed 20261108): 8 rows of 20 seats, two rows per grade
+   (12th grade in the front by the door). Variable: hours of sleep last night. Grade means are 8.0, 7.5, 7.0, 6.5 hours.
+   Homerooms (clusters) are blocks of 8 students from ONE grade. Methods: SRS, stratified by grade, cluster (homerooms),
+   systematic (every k-th seat), convenience (the n seats nearest the door). */
+var S = L.stats, R = S.rng(S.seedFromURL());
+var GR = [12, 12, 11, 11, 10, 10, 9, 9], GMEAN = { 9: 8.0, 10: 7.5, 11: 7.0, 12: 6.5 }, GCOL = { 9: 'blue', 10: 'green', 11: 'orange', 12: 'purple' };
+var POP = (function () { var r = S.rng(20261108), out = []; for (var row = 0; row < 8; row++) for (var col = 0; col < 20; col++) {
+  var g = GR[row]; out.push({ i: out.length, row: row, col: col, grade: g, room: g + '-' + Math.floor(col / 4), y: Math.round((GMEAN[g] + 0.6 * S.randNormal(r)) * 10) / 10 }); } return out; })();
+var MU = S.mean(POP.map(function (s) { return s.y; }));
+var ROOMS = {}; POP.forEach(function (s) { (ROOMS[s.room] = ROOMS[s.room] || []).push(s.i); }); var ROOMKEYS = Object.keys(ROOMS);
+var METHODS = { srs: 'Simple random sample', strat: 'Stratified by grade', cluster: 'Cluster (whole homerooms)', sys: 'Systematic (every k-th seat)', conv: 'Convenience (nearest the door)' };
+var st = { m: 'srs', n: 16, last: [], means: [], runs: {}, singles: 0, seen: {} };
+function pickK(arr, k) { var a = arr.slice(); for (var i = 0; i < k; i++) { var j = i + Math.floor(R() * (a.length - i)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a.slice(0, k); }
+function sample() {
+  var n = st.n, all = POP.map(function (s) { return s.i; });
+  if (st.m === 'srs') return pickK(all, n);
+  if (st.m === 'strat') { var out = []; [9, 10, 11, 12].forEach(function (g) { out = out.concat(pickK(POP.filter(function (s) { return s.grade === g; }).map(function (s) { return s.i; }), n / 4)); }); return out; }
+  if (st.m === 'cluster') { var rooms = pickK(ROOMKEYS, n / 8), o2 = []; rooms.forEach(function (r) { o2 = o2.concat(ROOMS[r]); }); return o2; }
+  if (st.m === 'sys') { var k = 160 / n, start = R() * k, o3 = []; for (var j = 0; j < n; j++) o3.push(Math.floor(start + j * k)); return o3; }   /* k may be 2.5, so seats are floor(start + j·k) */
+  return all.slice(0, n);   /* convenience: front seats, nearest the door */
+}
+function take(k) {
+  for (var t = 0; t < k; t++) { st.last = sample(); st.means.push(S.mean(st.last.map(function (i) { return POP[i].y; }))); }
+  if (k === 1 && st.m === 'srs') st.singles++;
+  var key = st.m + '|' + st.n; st.runs[key] = { m: st.m, n: st.n, count: st.means.length, center: S.mean(st.means), sd: st.means.length > 1 ? S.sd(st.means) : 0 };
+  check(); draw();
+}
+function clearAll() { st.means = []; st.last = []; draw(); }
+
+var W = 640, svg = L.s('svg', { viewBox: '0 0 ' + W + ' 300', role: 'img', 'aria-label': 'Seating chart of the population' }, P.stage);
+L.h('div', { class: 'legend', style: 'margin:6px' }, P.stage, '<span><i style="background:var(--purple)"></i>12th</span><span><i style="background:var(--orange)"></i>11th</span><span><i style="background:var(--green)"></i>10th</span><span><i style="background:var(--blue)"></i>9th grade</span><span>● ringed seats = the latest sample</span>');
+var GO = { xmin: 5.5, xmax: 8.5, ymin: 0, ymax: 1, width: 640, height: 230, noYAxis: true, yfmt: function () { return ''; }, xstep: 0.1, xlabelStep: 0.5, label: 'Sample means from repeated samples' };
+L.h('p', { class: 'sub', style: 'margin:8px 6px 0;font-weight:700' }, P.stage, 'Sample means (hours of sleep) from every sample taken with this method');
+var g = L.graph(P.stage, GO);
+L.chips(P.panel, { label: 'Sampling method', value: st.m, options: Object.keys(METHODS).map(function (k) { return { value: k, label: METHODS[k] }; }), onChange: function (v) { st.m = v; clearAll(); } });
+L.chips(P.panel, { label: 'Sample size n', value: st.n, options: [8, 16, 32, 64].map(function (v) { return { value: v, label: String(v) }; }), onChange: function (v) { st.n = v; clearAll(); } });
+var how = L.h('p', { class: 'lp-mini' }, P.panel);
+var row = L.h('div', { class: 'btn-row' }, P.panel);
+L.button(row, 'Take 1 sample', function () { take(1); });
+L.button(row, 'Take 100 samples', function () { take(100); }, true);
+var row2 = L.h('div', { class: 'btn-row' }, P.panel);
+L.button(row2, 'Clear samples', clearAll, true);
+L.reset(row2, function () { st.runs = {}; st.singles = 0; P.panel.querySelectorAll('.chips')[0].querySelector('button').click(); P.panel.querySelectorAll('.chips')[1].querySelectorAll('button')[1].click(); clearAll(); });
+var read = L.h('div', { class: 'readout small', 'aria-live': 'polite' }, P.panel);
+var tbl = L.table(P.panel);
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Take three simple random samples, one at a time. Is any sample mean exactly the population mean μ? Is a random sample guaranteed to be representative?', check: function () { return st.singles >= 3; } },
+  { text: 'Take 200+ convenience samples. Where is their center compared with μ? Why?', check: function () { return st.seen.conv; } },
+  { text: 'A classmate says a bigger convenience sample fixes the problem. Test it with n = 64 (200+ samples) and compare with a smaller n.', check: function () { return st.seen.convBig; } },
+  { text: 'With n = 16, take 200+ simple random samples and 200+ stratified samples. Which method gives less variable estimates? Why?', check: function () { return st.seen.stratVsSrs; } },
+  { text: 'With n = 16, take 200+ cluster samples. Are they biased? Compare their spread with SRS. Why are these homerooms poor clusters?', check: function () { return st.seen.cluster; } }
+]);
+L.notice(P.below, '<p><b>Bias is about the center; variability is about the spread.</b> A method is unbiased when its estimates are centered on the parameter over many samples. Convenience sampling here is biased because the students nearest the door are mostly 12th graders, who sleep less. Taking more of them does not remove the bias; it only makes the wrong answer more consistent.</p>' +
+  '<p>Random sampling is unbiased, but any one random sample can still miss μ. Larger samples reduce variability. <b>Stratifying</b> by a variable related to the response (grade) reduces variability further, because each sample has the right mix of grades.</p>' +
+  '<p>Cluster sampling is unbiased too, but these homerooms each contain only one grade, so a few homerooms can easily over-represent one grade: high variability. Clusters work best when each one looks like a small version of the population.</p>');
+var draw = L.scheduler(function () {
+  svg.innerHTML = ''; var X0 = 92, CW = 26.5, Y0 = 40, RH = 30, inS = {}; st.last.forEach(function (i) { inS[i] = true; });
+  var door = L.s('text', { x: 10, y: 28, class: 'g-label', 'font-size': 13 }, svg); door.textContent = '🚪 door (front)';
+  POP.forEach(function (s) {
+    var cx = X0 + s.col * CW + CW / 2, cy = Y0 + s.row * RH + RH / 2;
+    if (s.col % 4 === 0 && s.row % 2 === 0) L.s('rect', { x: X0 + s.col * CW + 1, y: Y0 + s.row * RH + 1, width: 4 * CW - 2, height: 2 * RH - 2, rx: 6, fill: 'none', stroke: 'var(--line)', 'stroke-width': 1.5, 'stroke-dasharray': '3 3' }, svg);
+    L.s('circle', { cx: cx, cy: cy, r: inS[s.i] ? 10 : 7, fill: 'var(--' + GCOL[s.grade] + ')', opacity: inS[s.i] ? 1 : 0.35, stroke: inS[s.i] ? 'var(--ink)' : 'none', 'stroke-width': 3 }, svg);
+  });
+  for (var r = 0; r < 8; r += 2) { var t = L.s('text', { x: 10, y: Y0 + r * RH + RH + 5, class: 'g-label', 'font-size': 13, fill: 'var(--' + GCOL[GR[r]] + ')' }, svg); t.textContent = GR[r] + 'th grade'; }
+  var cap = L.s('text', { x: X0, y: Y0 + 8 * RH + 18, class: 'g-tick', 'font-size': 12 }, svg); cap.textContent = 'Dashed boxes: homerooms of 8 (each is one grade). Population mean μ = ' + L.num(MU, 3) + ' hours.';
+  /* sample means */
+  g.clear(); var bw = 0.05, cnt = {}, top = 1;
+  st.means.forEach(function (m) { var k = Math.round(m / bw); cnt[k] = (cnt[k] || 0) + 1; top = Math.max(top, cnt[k]); });
+  g.setView({ ymin: -top * 0.08, ymax: top * 1.2 });
+  Object.keys(cnt).forEach(function (k) { g.rect(k * bw - bw / 2, 0, bw, cnt[k], { fill: 'blue', opacity: 0.55, stroke: 'ink', width: 0.8 }); });
+  g.line(MU, 0, MU, top * 1.15, { color: 'red', width: 3 }); g.text(MU, top * 1.12, 'μ = ' + L.num(MU, 2), { dx: 6, color: 'red', size: 13 });
+  if (st.means.length) { var c = S.mean(st.means); g.line(c, 0, c, top * 0.95, { color: 'ink', width: 2, dash: '6 5' }); }
+  how.textContent = { srs: 'Every group of n students is equally likely.', strat: 'n/4 random students from each grade.', cluster: n8() + ' whole homeroom' + (st.n / 8 > 1 ? 's' : '') + ' chosen at random (8 students each).', sys: 'Random start, then every ' + L.num(160 / st.n) + ' seats in seat order (rounded down).', conv: 'The ' + st.n + ' seats nearest the door. No randomness.' }[st.m];
+  var lastMean = st.last.length ? S.mean(st.last.map(function (i) { return POP[i].y; })) : null;
+  read.innerHTML = lastMean === null ? METHODS[st.m] + ', n = ' + st.n : 'Latest sample mean x̄ = ' + L.num(lastMean, 3) + ' h<div class="sub" style="margin-top:4px">μ = ' + L.num(MU, 3) + ' h · error ' + (lastMean - MU >= 0 ? '+' : '−') + L.num(Math.abs(lastMean - MU), 3) + '</div>';
+  var rows = Object.keys(st.runs).map(function (k) { var x = st.runs[k]; return [METHODS[x.m].split(' (')[0], x.n, x.count, L.num(x.center, 3), (x.center - MU >= 0 ? '+' : '−') + L.num(Math.abs(x.center - MU), 3), x.count > 1 ? L.num(x.sd, 3) : '—']; });
+  tbl.set(['Method', 'n', 'Samples', 'Center of x̄', 'Center − μ', 'SD of x̄'], rows.length ? rows : [['—', '', '', '', '', '']]);
+  var cur = st.runs[st.m + '|' + st.n];
+  fb.set(!cur || cur.count < 50 ? 'Take 100 or more samples to judge this method’s bias (center) and variability (spread). The table keeps every method you try.' :
+    (Math.abs(cur.center - MU) > 0.15 ? 'The center of the sample means is ' + L.num(Math.abs(cur.center - MU), 2) + ' hours ' + (cur.center < MU ? 'below' : 'above') + ' μ: this method is <b>biased</b>.' : 'The center of the sample means is close to μ: no sign of bias. Spread (SD of x̄) = ' + L.num(cur.sd, 3) + ' hours.'), !cur || cur.count < 50 ? '' : Math.abs(cur.center - MU) > 0.15 ? 'bad' : 'good');
+  ch.update();
+});
+function n8() { return st.n / 8; }
+function check() {
+  var r = st.runs, ok = function (k) { return r[k] && r[k].count >= 200; };
+  if (ok('conv|' + st.n) && st.m === 'conv') st.seen.conv = true;
+  if (ok('conv|64') && [8, 16, 32].some(function (n) { return ok('conv|' + n); })) st.seen.convBig = true;
+  if (ok('srs|16') && ok('strat|16')) st.seen.stratVsSrs = true;
+  if (ok('srs|16') && ok('cluster|16')) st.seen.cluster = true;
+}
+draw();
