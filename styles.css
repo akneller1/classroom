@@ -912,3 +912,13 @@ body { background:var(--paper); }
   .task-workspace .task-card { padding:.9rem; }
   .task-workspace .task-card h2 { font-size:1.05rem; }
 }
+
+/* Give the course heading the same hierarchy as the teaching-task heading. */
+.sidebar-heading h2 {
+  font-size:clamp(1.9rem,3.1vw,2.7rem);
+  line-height:1.12; letter-spacing:-.035em; margin:0 0 .7rem;
+}
+.sidebar-heading p { font-size:1.05rem; color:var(--ink-soft); }
+@media(min-width:761px) {
+  .course-sidebar .sidebar-heading { align-self:start; margin:0; }
+}

@@ -1057,7 +1057,7 @@
     if (sidebar) {
       sidebar.appendChild(nav);
       nav.setAttribute('aria-label', 'Courses');
-      nav.innerHTML = '<div class="sidebar-heading"><h2>Courses</h2><p>Find resources for every unit.</p></div><div class="course-nav-grid">' + cards + '</div>';
+      nav.innerHTML = '<div class="sidebar-heading"><h2>Courses</h2><p>Browse available resources by unit.</p></div><div class="course-nav-grid">' + cards + '</div>';
     } else {
       document.querySelector('.site-header .bar').appendChild(nav);
       nav.setAttribute('aria-label', 'Courses');
