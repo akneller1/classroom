@@ -955,3 +955,16 @@ body { background:var(--paper); }
 @media(max-width:760px) {
   .task-workspace .task-grid { gap:1.1rem; }
 }
+
+/* Muted course-card palette: keep course identities without saturated color blocks. */
+.course-nav-card[data-course] { --c-fg:#17213d; }
+.course-nav-card[data-color="coral"] { --c-bg:#f8d7e0; }
+.course-nav-card[data-color="green"] { --c-bg:#c9ede0; }
+.course-nav-card[data-color="teal"] { --c-bg:#cbe7ec; }
+.course-nav-card[data-color="blue"] { --c-bg:#dce3ff; }
+.course-nav-card[data-color="orange"] { --c-bg:#ffe0bd; }
+.course-nav-card[data-color="purple"] { --c-bg:#e3d8fa; }
+.course-nav-card[data-course="precalculus"] { --c-bg:#efd2e3; }
+.course-nav-card[data-course="calculus"] { --c-bg:#efd7c9; }
+.course-nav-card[data-course="statistics"] { --c-bg:#f6ecc1; }
+.course-nav-card[data-course="discrete"] { --c-bg:#d5dfe9; }
