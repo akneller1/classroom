@@ -533,16 +533,16 @@
     ];
     return {
       title: L.title,
-      html: '<section class="task-home"><div class="wrap">' +
+      html: '<section class="task-home"><div class="wrap home-dashboard"><aside class="course-sidebar" aria-label="Choose a course"></aside><div class="task-workspace">' +
         '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
         '<h1 tabindex="-1">What would you like to do today?</h1>' +
-        '<p class="lede">Classroom-ready math, your way. Choose a task below or explore a course above.</p>' +
+        '<p class="lede">Classroom-ready math, your way. Choose a task below or explore a course from the menu.</p>' +
         '<p class="task-guide">New here? <a href="guide.html">Read the teacher guide</a>.</p></div>' +
         '<ul class="task-grid" aria-label="Teaching tasks">' + tasks.map(function (task) {
           return '<li><a class="task-card" data-color="' + task.color + '" href="' + esc(task.url) + '">' +
             '<span class="task-icon" aria-hidden="true">' + task.icon + '</span><h2>' + task.title + '</h2>' +
             '<p>' + task.description + '</p><span class="task-action">' + task.action + ' <span aria-hidden="true">→</span></span></a></li>';
-        }).join('') + '</ul><p class="task-browse">Looking for something specific? <a href="#activities">Browse all resources →</a></p></div></section>'
+        }).join('') + '</ul><p class="task-browse">Looking for something specific? <a href="#activities">Browse all resources →</a></p></div></div></section>'
     };
   }
 
@@ -1046,16 +1046,26 @@
     var courses = L.courses.concat(SOON).slice().sort(function (a, b) {
       return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) - (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
     });
-    nav.innerHTML = '<details class="course-menu"' + (expanded ? ' open' : '') + '><summary><span>Courses' +
-      (r && r.c ? ' <span class="course-menu-current">/ ' + esc(r.c.name) + '</span>' : '') +
-      '</span><span class="course-menu-hint">Choose your course <span aria-hidden="true">⌄</span></span></summary>' +
-      '<div class="course-nav-grid">' + courses.map(function (c) {
-        var current = r && r.c && r.c.id === c.id;
-        var soon = c.comingSoon || c.planned;
-        return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
-          (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
-          '<small>' + (soon ? 'Coming soon · course outline' : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
-      }).join('') + '</div></details>';
+    var cards = courses.map(function (c) {
+      var current = r && r.c && r.c.id === c.id;
+      var soon = c.comingSoon || c.planned;
+      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
+        (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
+        '<small>' + (soon ? 'Coming soon · course outline' : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
+    }).join('');
+    var sidebar = expanded && app.querySelector('.course-sidebar');
+    if (sidebar) {
+      sidebar.appendChild(nav);
+      nav.setAttribute('aria-label', 'Courses');
+      nav.innerHTML = '<div class="sidebar-heading"><h2>Courses</h2><p>Find resources for every unit.</p></div><div class="course-nav-grid">' + cards + '</div>';
+    } else {
+      document.querySelector('.site-header .bar').appendChild(nav);
+      nav.setAttribute('aria-label', 'Courses');
+      nav.innerHTML = '<details class="course-menu"><summary><span>Courses' +
+        (r && r.c ? ' <span class="course-menu-current">/ ' + esc(r.c.name) + '</span>' : '') +
+        '</span><span class="course-menu-hint">Choose your course <span aria-hidden="true">⌄</span></span></summary>' +
+        '<div class="course-nav-grid">' + cards + '</div></details>';
+    }
     if (backBtn) backBtn.hidden = !query && r && r.name === 'home';
   }
 
