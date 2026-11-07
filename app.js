@@ -522,30 +522,29 @@
 
   /* ---------- views ---------- */
   function homeView() {
+    var tasks = [
+      { title: 'Plan a Lesson', description: 'Build your day with notes, examples, practice, and an exit ticket.', url: 'worksheet-generator/lesson-planner.html', icon: '▤', color: 'blue', action: 'Start planning' },
+      { title: 'Create a Worksheet', description: 'Choose skills, difficulty, and versions. Print with worked answer keys.', url: 'worksheet-generator/worksheet.html', icon: '≡', color: 'teal', action: 'Build a worksheet' },
+      { title: 'Create an Activity', description: 'Make mazes, Tarsia puzzles, partner checks, vocabulary, and more.', url: 'worksheet-generator/printables.html', icon: '✦', color: 'purple', action: 'Choose an activity' },
+      { title: 'Build an Assessment', description: 'Create a test or choice-based assessment, then edit before printing.', url: 'worksheet-generator/menu-assessment.html', icon: '☑', color: 'orange', action: 'Build an assessment' },
+      { title: 'Play a Math Game', description: 'Bring on team review, escape rooms, mysteries, and individual challenges.', url: '#activities?category=games', icon: '◈', color: 'coral', action: 'Find a game' },
+      { title: 'Explore Interactive Math', description: 'Make concepts click with hands-on graphs, models, and investigations.', url: '#activities?category=interactive', icon: '⟡', color: 'green', action: 'Explore the tools' },
+      { title: 'Review & Study', description: 'Find flashcards, cheat sheets, and reference guides for your next unit.', url: '#activities?category=study-guides', icon: '▥', color: 'purple', action: 'Find study resources' },
+      { title: 'Check Readiness', description: 'Use a practice assessment to spot strengths and skills that need more work.', url: '#activity.interactive-practice-test', icon: '◎', color: 'teal', action: 'Choose a readiness check' },
+      { title: 'Open Saved Resources', description: 'Pick up where you left off with the activities saved in this browser.', url: '#saved', icon: '☆', color: 'orange', action: 'View saved resources' }
+    ];
     return {
       title: L.title,
-      html:
-        '<section class="hero"><div class="wrap home-layout">' +
-          '<div class="hero-copy home-intro">' +
-          '<h1 tabindex="-1">More learning. <span>Less planning.</span></h1>' +
-          '<p class="lede">Create differentiated math lessons, worksheets, activities, and assessments in minutes.</p></div>' +
-          '<div class="home-resource-panels">' +
-            '<section class="home-subject-panel" aria-labelledby="subject-heading">' +
-              '<div class="explore-heading"><h2 id="subject-heading">Browse by subject</h2>' +
-              '<p>Find curriculum-aligned resources and tools for every unit.</p></div><ul class="courses home-subject-cards">' +
-              L.courses.map(function (c) {
-                var n = courseCount(c);
-                return '<li><a class="course home-subject-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
-                  '<h3>' + esc(c.name) + '</h3>' + (['algebra', 'geometry', 'algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics'].indexOf(c.id) >= 0 ? '' : '<span class="course-wip-label">Coming Soon</span>') + '<p>' + esc(c.blurb || '') + '</p>' +
-                  '<p class="count">' + (c.planned ? units(c.units.length) + ' · course outline' : ['math6', 'prealgebra7', 'prealgebra'].indexOf(c.id) >= 0 ? units(c.units.length) + ' ready to explore' : n ? units(unitsWithActivities(c)) + ' ready to explore' : 'Coming soon') + '</p>' +
-                  artFor(c) + '</a></li>';
-              }).join('') + SOON.map(function (c) {
-                return '<li><a class="course home-subject-card soon" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '">' +
-                  '<h3>' + esc(c.name) + '</h3><span class="course-wip-label">Coming Soon</span><p>' + esc(c.blurb || '') + '</p><p class="count">Coming soon</p>' + artFor(c) + '</a></li>';
-              }).join('') + '</ul></section>' +
-            '<div class="hero-generator-panel">' + generatorLinks(null, null, false) + '</div>' +
-          '</div>' +
-        '</div></section>'
+      html: '<section class="task-home"><div class="wrap">' +
+        '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
+        '<h1 tabindex="-1">What would you like to do today?</h1>' +
+        '<p class="lede">Classroom-ready math, your way. Choose a task below or explore a course above.</p>' +
+        '<p class="task-guide">New here? <a href="guide.html">Read the teacher guide</a>.</p></div>' +
+        '<ul class="task-grid" aria-label="Teaching tasks">' + tasks.map(function (task) {
+          return '<li><a class="task-card" data-color="' + task.color + '" href="' + esc(task.url) + '">' +
+            '<span class="task-icon" aria-hidden="true">' + task.icon + '</span><h2>' + task.title + '</h2>' +
+            '<p>' + task.description + '</p><span class="task-action">' + task.action + ' <span aria-hidden="true">→</span></span></a></li>';
+        }).join('') + '</ul><p class="task-browse">Looking for something specific? <a href="#activities">Browse all resources →</a></p></div></section>'
     };
   }
 
@@ -1045,15 +1044,21 @@
 
   /* ---------- render ---------- */
   function updateNav(r) {
-    var html = L.courses.map(function (c) {
-      var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
-      return '<a href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + '</a>';
-    }).join('') + SOON.map(function (c) {
-      var cur = r && r.c && r.c.id === c.id ? ' aria-current="page"' : '';
-      return '<a class="soon-link" href="' + href(courseToken(c)) + '"' + cur + '>' + esc(c.name) + ' <small>Coming soon</small></a>';
-    }).join('');
-    nav.innerHTML = html;
-    if (backBtn) backBtn.hidden = !query && r.name === 'home';
+    var expanded = r && r.name === 'home';
+    var courses = L.courses.concat(SOON).slice().sort(function (a, b) {
+      return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) - (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
+    });
+    nav.innerHTML = '<details class="course-menu"' + (expanded ? ' open' : '') + '><summary><span>Courses' +
+      (r && r.c ? ' <span class="course-menu-current">/ ' + esc(r.c.name) + '</span>' : '') +
+      '</span><span class="course-menu-hint">Choose your course <span aria-hidden="true">⌄</span></span></summary>' +
+      '<div class="course-nav-grid">' + courses.map(function (c) {
+        var current = r && r.c && r.c.id === c.id;
+        var soon = c.comingSoon || c.planned;
+        return '<a class="course-nav-card" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
+          (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
+          '<small>' + (soon ? 'Coming soon · course outline' : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
+      }).join('') + '</div></details>';
+    if (backBtn) backBtn.hidden = !query && r && r.name === 'home';
   }
 
   function render(keepFocus) {
@@ -1233,3 +1238,4 @@
     render(true);
   })();
 })();
+
