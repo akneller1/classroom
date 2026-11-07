@@ -933,7 +933,7 @@ body { background:var(--paper); }
 }
 
 /* Smaller teaching-task cards with generous space between rows and columns. */
-.task-workspace .task-grid { gap:1.5rem; }
+.task-workspace .task-grid { gap:.75rem; }
 .task-workspace .task-card {
   display:grid; grid-template-columns:2rem minmax(0,1fr);
   grid-template-rows:auto 1fr auto; align-items:start;
@@ -945,15 +945,15 @@ body { background:var(--paper); }
 .task-workspace .task-action { grid-column:1 / -1; grid-row:3; font-size:.78rem; line-height:1.35; }
 @media(min-width:1101px) {
   .task-workspace .task-grid {
-    /* Three cards at 75% of their former width, with the space distributed between them. */
-    grid-template-columns:repeat(3,minmax(0,calc((100% - 1.7rem) / 4)));
-    justify-content:space-between;
+    /* Halve the preceding row and column gaps while keeping both card grids aligned. */
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    justify-content:stretch;
     grid-template-rows:repeat(3,minmax(0,1fr));
-    row-gap:calc(12.5% + .6375rem);
+    gap:calc(6.25% + .31875rem);
   }
 }
 @media(max-width:760px) {
-  .task-workspace .task-grid { gap:1.1rem; }
+  .task-workspace .task-grid { gap:.55rem; }
 }
 
 /* Muted course-card palette: keep course identities without saturated color blocks. */
