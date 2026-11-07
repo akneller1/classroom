@@ -1,4 +1,4 @@
-// Site integration for the Statistics Interactive Math entries (the course stays planned; app.js lists the tools on its unit pages): every new or reused card appears in its unit's
+// Site integration for the Statistics Interactive Math entries (the active course lists tools alongside bank-driven resources): every new or reused card appears in its unit's
 // Interactive Math section with Explore, worksheet, teacher key and Copy student link; the activity viewer loads the tool;
 // the copied student link opens the tool; the Interactive Math shortcut appears only where a unit has tools.
 // Usage (repository root): node tools/interactive-math-statistics/tests/site-integration.cjs
@@ -22,7 +22,7 @@ let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; con
     }, e.a.path);
     ok(card, `${e.c}.${e.u}: card for ${e.a.title}`);
     if (card) { ok(card.explore === 'Explore' && card.ws && card.key && card.share, `${e.a.title}: card controls ${JSON.stringify(card)}`); ok(card.heads.some(h => /Interactive Math/.test(h)), `${e.a.title}: in Interactive Math section ${card.heads}`); }
-    /* planned courses have no shortcut bar (no generators); the Interactive Math section is on the unit page itself */
+    /* Active Statistics units retain the Interactive Math section alongside generators. */
     ok(await p.evaluate(() => !!document.querySelector('#algebra-interactive')), `${e.c}.${e.u}: Interactive Math section`);
     /* copy student link from the card, then open it */
     await p.evaluate(path => { window.__copied = ''; navigator.clipboard.writeText = t => { window.__copied = t; return Promise.resolve(); }; window.prompt = (m, t) => { window.__copied = t; }; document.querySelector('li.card[data-path="' + path + '"] .share-student').click(); }, e.a.path); await p.waitForTimeout(150);
@@ -35,10 +35,10 @@ let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; con
     const title = await v.evaluate(() => { const f = document.querySelector('iframe'); return f && f.contentDocument && f.contentDocument.querySelector('.lab-title') ? f.contentDocument.querySelector('.lab-title').textContent : null; });
     ok(title === e.a.title, `${e.a.title}: viewer shows tool (${title})`); ok(!ve.length && !errs.length, `${e.a.title}: errors ${ve} ${errs}`); await v.close(); await p.close();
   }
-  /* planned-course pages: Statistics shows Interactive Math, Discrete Math (no tools) is unchanged */
+  /* Statistics remains active; Discrete Math remains an outline. */
   { const q = await context.newPage(); await q.goto(`${base}/index.html#statistics.statistical-inference`); await q.waitForTimeout(800);
-    ok(await q.evaluate(() => /Interactive Math available/.test(document.querySelector('.band-meta').textContent) && !!document.querySelector('#algebra-interactive') && /Topics in this unit/.test(document.body.textContent)), 'Statistics unit page: outline plus Interactive Math');
-    await q.goto(`${base}/index.html#statistics`); await q.waitForTimeout(800); ok(await q.evaluate(() => /Interactive Math in 4 units/.test(document.body.textContent)), 'Statistics course page note');
+    ok(await q.evaluate(() => !!document.querySelector('#algebra-interactive') && !!document.querySelector('a[href*="lesson-planner.html"]')), 'Statistics unit page: generators plus Interactive Math');
+    await q.goto(`${base}/index.html#statistics`); await q.waitForTimeout(800); ok(await q.evaluate(() => /4 units with skills, generators, games, and study guides/.test(document.body.textContent)), 'Statistics course page note');
     await q.goto(`${base}/index.html#discrete`); await q.waitForTimeout(800); ok(await q.evaluate(() => /course outline · activities coming soon/.test(document.body.textContent) && !/Interactive Math in/.test(document.body.textContent)), 'Discrete Math planned page unchanged');
     await q.goto(`${base}/index.html#discrete.${ctx.window.LIBRARY.courses.find(c => c.id === 'discrete').units[0].id}`); await q.waitForTimeout(800);
     ok(await q.evaluate(() => /Activities coming soon/.test(document.querySelector('.band-meta').textContent) && !document.querySelector('#algebra-interactive')), 'Discrete Math unit page unchanged'); await q.close(); }

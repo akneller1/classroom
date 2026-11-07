@@ -4,7 +4,7 @@ const fs = require('node:fs'), vm = require('node:vm'), path = require('node:pat
 const root = path.resolve(__dirname, '..'), ctx = { window: {} };
 for (const file of ['data.js', 'student-game-share.js']) vm.runInNewContext(fs.readFileSync(path.join(root, file), 'utf8'), ctx, { filename: file });
 const courses = ctx.window.LIBRARY.courses, stats = courses.find(c => c.id === 'statistics');
-assert(stats && stats.planned && stats.units.length === 4, 'Statistics must stay a planned course with 4 units');
+assert(stats && !stats.planned && !stats.comingSoon && stats.units.length === 4, 'Statistics must remain active with 4 units');
 assert.equal(stats.units.map(u => u.id).join(','), 'exploring-data,sampling-experimentation,anticipating-patterns,statistical-inference');
 const manifest = JSON.parse(fs.readFileSync(path.join(root, 'tools/interactive-math-statistics/manifest.json'), 'utf8'));
 assert.equal(manifest.tools.length, 7);
@@ -19,5 +19,5 @@ for (const tool of manifest.tools) {
 }
 assert(stats.units.find(u => u.id === 'anticipating-patterns').artifacts.some(a => a.path === 'artifacts/algebra2-probability-simulation-lab/index.html'), 'Probability Simulation Lab reuse missing');
 const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
-assert(/function plannedInteractive\(c, u\)/.test(app) && /var tools = plannedInteractive\(c, u\);/.test(app), 'Planned unit pages must list Interactive Math tools');
-console.log(`PASS ${manifest.tools.length} Statistics tools placed with worksheets, keys, thumbnails and runtimes; course still planned; student links route directly`);
+assert(app.includes("c.id === 'statistics'"), 'Statistics must use the shared course resources');
+console.log(`PASS ${manifest.tools.length} Statistics tools placed with worksheets, keys, thumbnails and runtimes; course active; student links route directly`);
