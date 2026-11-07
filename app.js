@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6, calculus: 7, statistics: 8 };
+  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6, calculus: 7, statistics: 8, discrete: 9 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -243,6 +243,13 @@
       '<path class="s" d="M 20 135 H 185 M 35 145 V 10"/>' +
       '<path class="s" d="M 45 120 L 165 30"/>' +
       '<circle class="f" cx="65" cy="105" r="6"/><circle class="f" cx="105" cy="75" r="6"/><circle class="f" cx="145" cy="45" r="6"/>' +
+      '</svg>',
+    network:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="25" y="23" width="150" height="114" rx="8"/>' +
+      '<path class="s-thin" d="M 45 80 L 85 35 L 145 45 L 165 110 L 100 130 Z M 45 80 L 145 45 M 85 35 L 100 130 M 45 80 L 165 110"/>' +
+      '<circle class="f" cx="45" cy="80" r="9"/><circle class="f" cx="85" cy="35" r="9"/>' +
+      '<circle class="f" cx="145" cy="45" r="9"/><circle class="f" cx="165" cy="110" r="9"/><circle class="f" cx="100" cy="130" r="9"/>' +
       '</svg>',
     distribution:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +

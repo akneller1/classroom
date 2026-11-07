@@ -26,6 +26,77 @@ window.LIBRARY = {
   "newDays": 30,
   "courses": [
 {
+  "id": "discrete",
+  "name": "Discrete Math",
+  "color": "green",
+  "art": "network",
+  "planned": true,
+  "blurb": "Logic, proofs, counting, graphs, voting, and optimization.",
+  "curriculumSource": "https://www.stjohns.k12.fl.us/year-at-a-glance/wp-content/uploads/sites/101/2025/08/Discrete-Math-Honors-Year-at-a-Glance-25-26.pdf",
+  "units": [
+    {
+      "id": "speaking-mathematically",
+      "name": "Speaking Mathematically",
+      "quarter": 1,
+      "artifacts": []
+    },
+    {
+      "id": "compound-statements-logic",
+      "name": "The Logic of Compound Statements",
+      "quarter": 1,
+      "artifacts": []
+    },
+    {
+      "id": "number-theory-proof",
+      "name": "Elementary Number Theory and Methods of Proof",
+      "quarter": 1,
+      "artifacts": []
+    },
+    {
+      "id": "sequences-induction-recursion",
+      "name": "Sequences, Mathematical Induction, and Recursion",
+      "quarter": 2,
+      "artifacts": []
+    },
+    {
+      "id": "set-theory",
+      "name": "Set Theory",
+      "quarter": 2,
+      "artifacts": []
+    },
+    {
+      "id": "properties-relations",
+      "name": "Properties of Relations",
+      "quarter": 3,
+      "artifacts": []
+    },
+    {
+      "id": "counting-probability",
+      "name": "Counting and Probability",
+      "quarter": 3,
+      "artifacts": []
+    },
+    {
+      "id": "graphs-trees",
+      "name": "Theory of Graphs and Trees",
+      "quarter": 3,
+      "artifacts": []
+    },
+    {
+      "id": "election-theory",
+      "name": "Election Theory",
+      "quarter": 4,
+      "artifacts": []
+    },
+    {
+      "id": "linear-programming",
+      "name": "Linear Programming",
+      "quarter": 4,
+      "artifacts": []
+    }
+  ]
+},
+{
   "id": "statistics",
   "name": "Statistics",
   "color": "blue",

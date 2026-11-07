@@ -638,8 +638,7 @@ body { background:var(--paper); }
 .resource-readiness-row strong { font-size:.96rem; }
 .resource-readiness-row span { font-size:.84rem; color:var(--ink-soft); }
 
-/* Four published courses: visible in the header, with private Grade 6/7 data
-   still excluded by app.js and the public-site builder. */
+/* Course links keep compact widths when additional subjects wrap. */
 .site-header .main-nav {
   display: flex;
   justify-content: center;
@@ -649,7 +648,7 @@ body { background:var(--paper); }
   border-top: 1px solid var(--line);
   padding-top: .45rem;
 }
-.site-header .main-nav a { padding: .35rem .8rem; white-space: nowrap; font-size: .93rem; }
+.site-header .main-nav a { flex: 0 0 auto; padding: .35rem .6rem; white-space: nowrap; font-size: .88rem; }
 .back-btn[hidden] { display: none; }
 @media (max-width: 640px) {
   .site-header .main-nav {

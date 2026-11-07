@@ -3,6 +3,105 @@
 (function(root){
   'use strict';
   var skills = {
+  "discrete": {
+  "speaking-mathematically": [
+    "Variables and Mathematical Statements",
+    "Universal and Existential Statements",
+    "Conditional Statements",
+    "Set-Roster and Set-Builder Notation",
+    "Subsets and Set Membership",
+    "Cartesian Products and Ordered Pairs",
+    "Strings and Mathematical Notation"
+  ],
+  "compound-statements-logic": [
+    "Negation, Conjunction, and Disjunction",
+    "Truth Tables and Truth Values",
+    "Logical Equivalence",
+    "Conditional Statements and Equivalent Forms",
+    "Negating Conditional Statements",
+    "Converse, Inverse, and Contrapositive",
+    "Rules of Inference and Valid Arguments",
+    "Fallacies and Contradictions"
+  ],
+  "number-theory-proof": [
+    "Definitions, Conjectures, and Counterexamples",
+    "Direct Proof",
+    "Proving Existential and Universal Statements",
+    "Properties of Integers and Rational Numbers",
+    "Divisibility and Number-Theory Arguments",
+    "Proof by Contradiction",
+    "Proof by Contraposition",
+    "Choosing a Proof Strategy"
+  ],
+  "sequences-induction-recursion": [
+    "Sequences and Explicit Formulas",
+    "Arithmetic and Geometric Patterns",
+    "Factorials and Binomial Coefficient Notation",
+    "Fibonacci Sequences",
+    "Recursively Defined Sequences",
+    "Iteration and Recursive Computation",
+    "The Principle of Mathematical Induction",
+    "Writing Inductive Proofs",
+    "Patterns and Tessellations"
+  ],
+  "set-theory": [
+    "Set Equality and the Empty Set",
+    "Union, Intersection, and Difference",
+    "Complements and Set Operations",
+    "Venn Diagrams",
+    "Power Sets",
+    "Proving Subset Relations",
+    "Proving Set Equality and Set Identities",
+    "Disproving Set Statements"
+  ],
+  "properties-relations": [
+    "Relations and Their Inverses",
+    "Directed Graphs of Relations",
+    "Reflexive, Symmetric, and Transitive Properties",
+    "Relations on Finite and Infinite Sets",
+    "Partitions and Induced Relations",
+    "Equivalence Relations",
+    "Equivalence Classes"
+  ],
+  "counting-probability": [
+    "Sample Spaces and Events",
+    "Lists, Sublists, and One-Dimensional Arrays",
+    "Possibility Trees",
+    "The Addition Counting Rule",
+    "The Multiplication Counting Rule",
+    "Counting Outcomes Systematically",
+    "Probability with Equally Likely Outcomes",
+    "Applying Counting Rules to Probability"
+  ],
+  "graphs-trees": [
+    "Vertices, Edges, Endpoints, and Loops",
+    "Directed and Undirected Graphs",
+    "Constructing Graphs from Given Characteristics",
+    "Graph Coloring",
+    "Trails and Paths",
+    "Circuits",
+    "Constructing and Characterizing Trees"
+  ],
+  "election-theory": [
+    "Voting Terminology and Preference Data",
+    "Comparing Voting Methods",
+    "Analyzing Election Results",
+    "Weighted Voting Systems and Quotas",
+    "Coalitions and Voting Power",
+    "Fair-Division Methods",
+    "Apportionment Methods",
+    "Comparing Fairness and Outcomes"
+  ],
+  "linear-programming": [
+    "Writing Constraints from Real-World Situations",
+    "Graphing Systems of Linear Inequalities",
+    "Feasible Regions",
+    "Objective Functions",
+    "Vertices and Candidate Solutions",
+    "Maximizing and Minimizing in Two Variables",
+    "Interpreting Optimal Solutions in Context"
+  ]
+},
   "statistics": {
   "exploring-data": [
     "Exploring Data: Variables, Dot Plots, Stem Plots, and Histograms",
