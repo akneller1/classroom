@@ -956,18 +956,18 @@ body { background:var(--paper); }
   .task-workspace .task-grid { gap:.55rem; }
 }
 
-/* Muted course-card palette: keep course identities without saturated color blocks. */
+/* Soft rainbow in curriculum order, from red through violet. */
 .course-nav-card[data-course] { --c-fg:#17213d; }
-.course-nav-card[data-color="coral"] { --c-bg:#f8d7e0; }
-.course-nav-card[data-color="green"] { --c-bg:#c9ede0; }
-.course-nav-card[data-color="teal"] { --c-bg:#cbe7ec; }
-.course-nav-card[data-color="blue"] { --c-bg:#dce3ff; }
-.course-nav-card[data-color="orange"] { --c-bg:#ffe0bd; }
-.course-nav-card[data-color="purple"] { --c-bg:#e3d8fa; }
-.course-nav-card[data-course="precalculus"] { --c-bg:#efd2e3; }
-.course-nav-card[data-course="calculus"] { --c-bg:#efd7c9; }
-.course-nav-card[data-course="statistics"] { --c-bg:#f6ecc1; }
-.course-nav-card[data-course="discrete"] { --c-bg:#d5dfe9; }
+.course-nav-card[data-course="math6"] { --c-bg:hsl(0 60% 88%); }
+.course-nav-card[data-course="prealgebra7"] { --c-bg:hsl(25 60% 88%); }
+.course-nav-card[data-course="prealgebra"] { --c-bg:hsl(50 60% 88%); }
+.course-nav-card[data-course="algebra"] { --c-bg:hsl(80 60% 88%); }
+.course-nav-card[data-course="geometry"] { --c-bg:hsl(120 60% 88%); }
+.course-nav-card[data-course="algebra2"] { --c-bg:hsl(160 60% 88%); }
+.course-nav-card[data-course="precalculus"] { --c-bg:hsl(190 60% 88%); }
+.course-nav-card[data-course="calculus"] { --c-bg:hsl(220 60% 88%); }
+.course-nav-card[data-course="statistics"] { --c-bg:hsl(255 60% 88%); }
+.course-nav-card[data-course="discrete"] { --c-bg:hsl(285 60% 88%); }
 
 /* Let the course list begin directly below its heading while sharing the task-grid bottom edge. */
 @media(min-width:761px) {
