@@ -24,9 +24,9 @@ os.makedirs(os.path.join(OUT, "scripts", "verification"), exist_ok=True)
 import plots
 plots.OUT = os.path.join(OUT, "question-banks", "assets", "statistics")
 import common as C
-import u1, u2, u3, u4, u5_topup, u6_breadth
+import u1, u2, u3, u4, u5_topup, u6_breadth, u7_tarsia
 
-for m in (u1, u2, u3, u4, u5_topup, u6_breadth):
+for m in (u1, u2, u3, u4, u5_topup, u6_breadth, u7_tarsia):
     m.build()
 
 # Corrections to baseline items: the normalized open responses carried rubric

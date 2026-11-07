@@ -7745,6 +7745,636 @@
         "APSTATS.III.A.4"
       ],
       "sourceNotes": "Original Claude-authored item (family: u3_binom_escape). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s01-cp2-x07",
+      "skillId": "anticipating-patterns-skill-01",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "45 heads in 90 tosses. What is the relative frequency of heads?",
+      "answer": "0.5",
+      "solutionSteps": [
+        "45/90 = 0.5."
+      ],
+      "standards": [
+        "APSTATS.III.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s02-cp2-x07",
+      "skillId": "anticipating-patterns-skill-02",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "P(A) = 0.35. Find P(not A).",
+      "answer": "0.65",
+      "solutionSteps": [
+        "1 − 0.35."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s03-cp2-x09",
+      "skillId": "anticipating-patterns-skill-03",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "P(A and B) = 0.12 and P(B) = 0.4. Find P(A | B).",
+      "answer": "0.3",
+      "solutionSteps": [
+        "0.12/0.4."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s06-cp2-x07",
+      "skillId": "anticipating-patterns-skill-06",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "A game pays $10 with probability 0.2, else $0. Expected payout?",
+      "answer": "$2",
+      "solutionSteps": [
+        "10 × 0.2."
+      ],
+      "standards": [
+        "APSTATS.III.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-cp2-x07",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "n = 60 and p = 0.3. What is the binomial mean?",
+      "answer": "18",
+      "solutionSteps": [
+        "np = 18."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s09-cp2-x07",
+      "skillId": "anticipating-patterns-skill-09",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "σ = 18 and n = 9. What is the SD of x̄?",
+      "answer": "6",
+      "solutionSteps": [
+        "18/√9 = 6."
+      ],
+      "standards": [
+        "APSTATS.III.D.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s02-cp1-x06",
+      "skillId": "anticipating-patterns-skill-02",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "P(A) = 0.5, P(B) = 0.4, independent. Find P(A and B).",
+      "answer": "0.2",
+      "solutionSteps": [
+        "0.5 × 0.4."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s02-cp1-x07",
+      "skillId": "anticipating-patterns-skill-02",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "P(A) = 0.5, P(B) = 0.4, P(A and B) = 0.1. Find P(A or B).",
+      "answer": "0.8",
+      "solutionSteps": [
+        "0.5 + 0.4 − 0.1."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s02-cp1-x08",
+      "skillId": "anticipating-patterns-skill-02",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "P(at least one 6) in 2 rolls of a fair die? (4 dp)",
+      "answer": "0.3056",
+      "solutionSteps": [
+        "1 − (5/6)²."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s03-cp1-x07",
+      "skillId": "anticipating-patterns-skill-03",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "P(B | A) = 0.6 and P(A) = 0.5. Find P(A and B).",
+      "answer": "0.3",
+      "solutionSteps": [
+        "0.5 × 0.6."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s04-cp1-x08",
+      "skillId": "anticipating-patterns-skill-04",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "Digits 0–5 mean success; 6–9 mean failure. Modeled probability?",
+      "answer": "0.6",
+      "solutionSteps": [
+        "6 of 10 digits."
+      ],
+      "standards": [
+        "APSTATS.III.A.5"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s05-cp1-x09",
+      "skillId": "anticipating-patterns-skill-05",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "X has probabilities 0.1, 0.3, 0.45, k. Find k.",
+      "answer": "0.15",
+      "solutionSteps": [
+        "1 − 0.85."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s05_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s06-cp1-x06",
+      "skillId": "anticipating-patterns-skill-06",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "X = 0, 1, 2 with probabilities 0.3, 0.4, 0.3. Find E(X).",
+      "answer": "1",
+      "solutionSteps": [
+        "0.4 + 0.6 = 1."
+      ],
+      "standards": [
+        "APSTATS.III.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s06-cp1-x07",
+      "skillId": "anticipating-patterns-skill-06",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "SD(X) = 4. What is SD(3X − 7)?",
+      "answer": "12",
+      "solutionSteps": [
+        "|3| × 4."
+      ],
+      "standards": [
+        "APSTATS.III.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-cp1-x06",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "n = 5 and p = 0.5. Find P(X = 5). (4 dp)",
+      "answer": "0.0313",
+      "solutionSteps": [
+        "0.5⁵ = 0.03125."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-cp1-x07",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "Geometric with p = 0.2. Mean number of trials until success?",
+      "answer": "5",
+      "solutionSteps": [
+        "1/p = 5."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s08-cp1-x08",
+      "skillId": "anticipating-patterns-skill-08",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "Independent X and Y have SDs 6 and 8. SD of X + Y?",
+      "answer": "10",
+      "solutionSteps": [
+        "√(36 + 64)."
+      ],
+      "standards": [
+        "APSTATS.III.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s09-cp1-x05",
+      "skillId": "anticipating-patterns-skill-09",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "p = 0.5 and n = 100. What is the SD of p̂?",
+      "answer": "0.05",
+      "solutionSteps": [
+        "√(0.25/100)."
+      ],
+      "standards": [
+        "APSTATS.III.D.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s10-cp1-x05",
+      "skillId": "anticipating-patterns-skill-10",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "To halve the SD of x̄, multiply the sample size by …",
+      "answer": "4",
+      "solutionSteps": [
+        "SD ∝ 1/√n."
+      ],
+      "standards": [
+        "APSTATS.III.D.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s10_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s01-honors-x09",
+      "skillId": "anticipating-patterns-skill-01",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "A thumbtack lands point up 308 times in 500 tosses. Estimate P(up).",
+      "answer": "0.616",
+      "solutionSteps": [
+        "308/500."
+      ],
+      "standards": [
+        "APSTATS.III.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s02-honors-x07",
+      "skillId": "anticipating-patterns-skill-02",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Two sensors fail independently with P = 0.2 and 0.3. P(both fail)?",
+      "answer": "0.06",
+      "solutionSteps": [
+        "0.2 × 0.3."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s02-honors-x08",
+      "skillId": "anticipating-patterns-skill-02",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "P(no 6 in 3 rolls of a fair die)? (4 dp)",
+      "answer": "0.5787",
+      "solutionSteps": [
+        "(5/6)³."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s03-honors-x04",
+      "skillId": "anticipating-patterns-skill-03",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "P(D) = 0.01, P(+ | D) = 0.9, P(+ | not D) = 0.05. Find P(+). (4 dp)",
+      "answer": "0.0585",
+      "solutionSteps": [
+        "0.009 + 0.0495."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s03-honors-x05",
+      "skillId": "anticipating-patterns-skill-03",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "P(D) = 0.01, P(+ | D) = 0.9, P(+ | not D) = 0.05. Find P(D | +). (4 dp)",
+      "answer": "0.1538",
+      "solutionSteps": [
+        "0.009/0.0585."
+      ],
+      "standards": [
+        "APSTATS.III.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s04-honors-x08",
+      "skillId": "anticipating-patterns-skill-04",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Pairs 00–34 mean success out of 00–99. Modeled probability?",
+      "answer": "0.35",
+      "solutionSteps": [
+        "35/100."
+      ],
+      "standards": [
+        "APSTATS.III.A.5"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s04-honors-x09",
+      "skillId": "anticipating-patterns-skill-04",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Two fair dice: how many of 36 outcomes have a sum of 10 or more?",
+      "answer": "6",
+      "solutionSteps": [
+        "3 + 2 + 1."
+      ],
+      "standards": [
+        "APSTATS.III.A.5"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s05-honors-x09",
+      "skillId": "anticipating-patterns-skill-05",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "P(X ≤ 1) = 0.35 and P(X ≤ 2) = 0.8. Find P(X = 2).",
+      "answer": "0.45",
+      "solutionSteps": [
+        "0.8 − 0.35."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s05_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s05-honors-x10",
+      "skillId": "anticipating-patterns-skill-05",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "X is uniform from 0 to 5. Find P(1 < X < 3).",
+      "answer": "0.4",
+      "solutionSteps": [
+        "2/5."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s05_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s06-honors-x06",
+      "skillId": "anticipating-patterns-skill-06",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "X = 1 or 5 with probabilities 0.75 and 0.25. Find SD(X). (3 dp)",
+      "answer": "1.732",
+      "solutionSteps": [
+        "Mean 2; variance 3."
+      ],
+      "standards": [
+        "APSTATS.III.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s06-honors-x07",
+      "skillId": "anticipating-patterns-skill-06",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "E(X) = 8. Find E(5 − 3X).",
+      "answer": "−19",
+      "solutionSteps": [
+        "5 − 24."
+      ],
+      "standards": [
+        "APSTATS.III.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s06-honors-x08",
+      "skillId": "anticipating-patterns-skill-06",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "SD(X) = 3. Find Var(3X + 1).",
+      "answer": "81",
+      "solutionSteps": [
+        "9 × 9."
+      ],
+      "standards": [
+        "APSTATS.III.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-honors-x06",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "n = 10 and p = 0.5. Find P(X ≥ 9). (4 dp)",
+      "answer": "0.0107",
+      "solutionSteps": [
+        "11/1024."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-honors-x07",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "n = 8 and p = 0.3. Find P(X = 2). (4 dp)",
+      "answer": "0.2965",
+      "solutionSteps": [
+        "C(8,2)(0.3)²(0.7)⁶."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-honors-x08",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Geometric with p = 0.1. Find P(X > 5). (4 dp)",
+      "answer": "0.5905",
+      "solutionSteps": [
+        "0.9⁵."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s07-honors-x09",
+      "skillId": "anticipating-patterns-skill-07",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "n = 50 and p = 0.2. Find the binomial SD. (3 dp)",
+      "answer": "2.828",
+      "solutionSteps": [
+        "√8."
+      ],
+      "standards": [
+        "APSTATS.III.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s08-honors-x06",
+      "skillId": "anticipating-patterns-skill-08",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Independent SDs 5 and 12. SD of X − Y?",
+      "answer": "13",
+      "solutionSteps": [
+        "√(25 + 144)."
+      ],
+      "standards": [
+        "APSTATS.III.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s08-honors-x07",
+      "skillId": "anticipating-patterns-skill-08",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "7 independent weights, each with SD 30. SD of the total? (2 dp)",
+      "answer": "79.37",
+      "solutionSteps": [
+        "√(7 × 900)."
+      ],
+      "standards": [
+        "APSTATS.III.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s08-honors-x08",
+      "skillId": "anticipating-patterns-skill-08",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "D is Normal with mean 15 and SD 20. Find P(D < 0). (4 dp)",
+      "answer": "0.2266",
+      "solutionSteps": [
+        "z = −0.75."
+      ],
+      "standards": [
+        "APSTATS.III.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s09-honors-x05",
+      "skillId": "anticipating-patterns-skill-09",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "p = 0.08 and n = 200. Find the SD of p̂. (4 dp)",
+      "answer": "0.0192",
+      "solutionSteps": [
+        "√(0.0736/200)."
+      ],
+      "standards": [
+        "APSTATS.III.D.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s09-honors-x06",
+      "skillId": "anticipating-patterns-skill-09",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "σ = 4 and n = 8. Find the SD of x̄. (3 dp)",
+      "answer": "1.414",
+      "solutionSteps": [
+        "4/√8."
+      ],
+      "standards": [
+        "APSTATS.III.D.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s10-honors-x06",
+      "skillId": "anticipating-patterns-skill-10",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "σ = 15. Smallest n so that the SD of x̄ is at most 2?",
+      "answer": "57",
+      "solutionSteps": [
+        "n ≥ 56.25."
+      ],
+      "standards": [
+        "APSTATS.III.D.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s10_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u3-s10-honors-x07",
+      "skillId": "anticipating-patterns-skill-10",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "p = 0.04. Smallest n with np ≥ 10?",
+      "answer": "250",
+      "solutionSteps": [
+        "10/0.04."
+      ],
+      "standards": [
+        "APSTATS.III.D.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u3_s10_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
     }
   ]
 }

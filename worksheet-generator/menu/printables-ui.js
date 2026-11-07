@@ -668,7 +668,7 @@
   /* Fixed-size boxes (Color by Number, Partner Check, Error Analysis, Whodunnit cards, stations, maze rooms):
      a long problem or a tall picture shrinks to fit instead of being cut off at the bottom of its box. */
   function fitBoxes(root) {
-    $$('.pc-box,.pp-box,.pe-box,.pw-card,.ps-q,.pm-room,.pm-q,.pm-big', root).forEach(function (b) {
+    $$('.pc-box,.pp-box,.pe-box,.pw-card,.ps-q,.pm-room,.pm-q,.pm-big,.pt-grid>div', root).forEach(function (b) {
       var fs = parseFloat(G.getComputedStyle(b).fontSize) || 12, n = 0;
       while ((b.scrollHeight > b.clientHeight + 2 || b.scrollWidth > b.clientWidth + 2) && n < 14) {
         fs *= 0.93; b.style.fontSize = fs.toFixed(2) + 'px'; n++;
@@ -701,3 +701,4 @@
   load(); setHash(); rebuild();
   PR.app = { cfg: function () { return cfg; }, built: function () { return built; }, ui: ui };   // for tests
 })(window);
+

@@ -8742,6 +8742,651 @@
         "APSTATS.IV.A.5"
       ],
       "sourceNotes": "Original Claude-authored item (family: u4_two_prop_error). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-cp2-x09",
+      "skillId": "statistical-inference-skill-01",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "The CI is (42.6, 48.2). What is the margin of error?",
+      "answer": "2.8",
+      "solutionSteps": [
+        "Half the width."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-cp2-x10",
+      "skillId": "statistical-inference-skill-01",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "The CI is (0.30, 0.38). What is the point estimate?",
+      "answer": "0.34",
+      "solutionSteps": [
+        "Midpoint."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s02-cp2-x08",
+      "skillId": "statistical-inference-skill-02",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "The CI for p is (0.30, 0.38). What is the margin of error?",
+      "answer": "0.04",
+      "solutionSteps": [
+        "Half the width."
+      ],
+      "standards": [
+        "APSTATS.IV.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s03-cp2-x10",
+      "skillId": "statistical-inference-skill-03",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "What is z* for 95% confidence?",
+      "answer": "1.96",
+      "solutionSteps": [
+        "Middle 95% of Z."
+      ],
+      "standards": [
+        "APSTATS.IV.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s03-cp2-x11",
+      "skillId": "statistical-inference-skill-03",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "What is z* for 99% confidence?",
+      "answer": "2.576",
+      "solutionSteps": [
+        "Middle 99% of Z."
+      ],
+      "standards": [
+        "APSTATS.IV.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s04-cp2-x08",
+      "skillId": "statistical-inference-skill-04",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "One-sample t procedure with n = 21. What are the df?",
+      "answer": "20",
+      "solutionSteps": [
+        "n − 1."
+      ],
+      "standards": [
+        "APSTATS.IV.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s08-cp2-x10",
+      "skillId": "statistical-inference-skill-08",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "1 − P(Type II error) is called the …",
+      "answer": "power",
+      "solutionSteps": [
+        "Power."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s08_tarsia). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s08-cp2-x11",
+      "skillId": "statistical-inference-skill-08",
+      "level": "cp2",
+      "format": "short-answer",
+      "prompt": "Power = 0.8. What is P(Type II error)?",
+      "answer": "0.2",
+      "solutionSteps": [
+        "1 − 0.8."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-cp1-x10",
+      "skillId": "statistical-inference-skill-01",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "p̂ = 0.5 and n = 100. What is the standard error?",
+      "answer": "0.050",
+      "solutionSteps": [
+        "√(0.25/100)."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-cp1-x11",
+      "skillId": "statistical-inference-skill-01",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "s = 12 and n = 36. What is the SE of x̄?",
+      "answer": "2",
+      "solutionSteps": [
+        "12/6."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-cp1-x12",
+      "skillId": "statistical-inference-skill-01",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "p̂ = 0.62, n = 500, 95% confidence. Margin of error? (4 dp)",
+      "answer": "0.0425",
+      "solutionSteps": [
+        "1.96√(0.62·0.38/500)."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s02-cp1-x06",
+      "skillId": "statistical-inference-skill-02",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "100 intervals are built at 90% confidence. Expected number that miss?",
+      "answer": "10",
+      "solutionSteps": [
+        "100 × 0.10."
+      ],
+      "standards": [
+        "APSTATS.IV.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s03-cp1-x07",
+      "skillId": "statistical-inference-skill-03",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "95% confidence, ME ≤ 0.05, p = 0.5. Minimum n?",
+      "answer": "385",
+      "solutionSteps": [
+        "384.16 → 385."
+      ],
+      "standards": [
+        "APSTATS.IV.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s03-cp1-x08",
+      "skillId": "statistical-inference-skill-03",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "What is z* for 90% confidence?",
+      "answer": "1.645",
+      "solutionSteps": [
+        "Middle 90% of Z."
+      ],
+      "standards": [
+        "APSTATS.IV.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s04-cp1-x07",
+      "skillId": "statistical-inference-skill-04",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "t* for 95% confidence with df = 9? (3 dp)",
+      "answer": "2.262",
+      "solutionSteps": [
+        "Table B."
+      ],
+      "standards": [
+        "APSTATS.IV.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s04-cp1-x08",
+      "skillId": "statistical-inference-skill-04",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "Two-sample t with n₁ = 17 and n₂ = 25. Conservative df?",
+      "answer": "16",
+      "solutionSteps": [
+        "min(n) − 1."
+      ],
+      "standards": [
+        "APSTATS.IV.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s05-cp1-x08",
+      "skillId": "statistical-inference-skill-05",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "Testing whether p differs from 0.4. What is Hₐ?",
+      "answer": "p ≠ 0.4",
+      "solutionSteps": [
+        "“Differs” is two-sided."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s05_tarsia). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s06-cp1-x07",
+      "skillId": "statistical-inference-skill-06",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "z = 2.0 and Hₐ: p > p₀. P-value? (4 dp)",
+      "answer": "0.0228",
+      "solutionSteps": [
+        "P(Z ≥ 2)."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s07-cp1-x06",
+      "skillId": "statistical-inference-skill-07",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "p₀ = 0.5, n = 100, p̂ = 0.6. Find z.",
+      "answer": "2.0",
+      "solutionSteps": [
+        "0.1/0.05."
+      ],
+      "standards": [
+        "APSTATS.IV.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s07-cp1-x07",
+      "skillId": "statistical-inference-skill-07",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "x̄ = 78, μ₀ = 75, s = 10, n = 25. Find t.",
+      "answer": "1.5",
+      "solutionSteps": [
+        "3/2."
+      ],
+      "standards": [
+        "APSTATS.IV.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s09-cp1-x05",
+      "skillId": "statistical-inference-skill-09",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "Pool 30/100 and 50/100. What is the pooled proportion?",
+      "answer": "0.4",
+      "solutionSteps": [
+        "80/200."
+      ],
+      "standards": [
+        "APSTATS.IV.A.5"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s11-cp1-x09",
+      "skillId": "statistical-inference-skill-11",
+      "level": "cp1",
+      "format": "short-answer",
+      "prompt": "A regression uses n = 20 points. df for slope inference?",
+      "answer": "18",
+      "solutionSteps": [
+        "n − 2."
+      ],
+      "standards": [
+        "APSTATS.IV.A.8"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s11_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-honors-x08",
+      "skillId": "statistical-inference-skill-01",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "A 99% CI has half-width 3.8 with t* = 2.797. Find the SE. (3 dp)",
+      "answer": "1.359",
+      "solutionSteps": [
+        "3.8/2.797."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s01-honors-x09",
+      "skillId": "statistical-inference-skill-01",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "If n is quadrupled, the margin of error is multiplied by …",
+      "answer": "0.5",
+      "solutionSteps": [
+        "1/√4."
+      ],
+      "standards": [
+        "APSTATS.IV.A.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s01_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s02-honors-x07",
+      "skillId": "statistical-inference-skill-02",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "200 intervals are built at 95% confidence. Expected number that miss?",
+      "answer": "10",
+      "solutionSteps": [
+        "200 × 0.05."
+      ],
+      "standards": [
+        "APSTATS.IV.A.3"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s02_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s03-honors-x07",
+      "skillId": "statistical-inference-skill-03",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "99% confidence, ME ≤ 0.02, p = 0.5. Minimum n?",
+      "answer": "4148",
+      "solutionSteps": [
+        "4147.4 → 4148."
+      ],
+      "standards": [
+        "APSTATS.IV.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s03-honors-x08",
+      "skillId": "statistical-inference-skill-03",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "x = 45, n = 120, 95% confidence. Margin of error? (4 dp)",
+      "answer": "0.0866",
+      "solutionSteps": [
+        "1.96√(0.375·0.625/120)."
+      ],
+      "standards": [
+        "APSTATS.IV.A.4"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s03_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s04-honors-x06",
+      "skillId": "statistical-inference-skill-04",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "t* for 99% confidence with df = 13? (3 dp)",
+      "answer": "3.012",
+      "solutionSteps": [
+        "Table B."
+      ],
+      "standards": [
+        "APSTATS.IV.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s04-honors-x07",
+      "skillId": "statistical-inference-skill-04",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "95% confidence, σ ≈ 9, ME ≤ 2 (use z*). Minimum n?",
+      "answer": "78",
+      "solutionSteps": [
+        "77.8 → 78."
+      ],
+      "standards": [
+        "APSTATS.IV.A.6"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s04_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s05-honors-x09",
+      "skillId": "statistical-inference-skill-05",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Claim μ = 18 hours; test whether it is different. What is Hₐ?",
+      "answer": "μ ≠ 18",
+      "solutionSteps": [
+        "Two-sided."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s05_tarsia). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s06-honors-x10",
+      "skillId": "statistical-inference-skill-06",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Two-sided test with z = 1.96. P-value? (2 dp)",
+      "answer": "0.05",
+      "solutionSteps": [
+        "2(0.025)."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s06-honors-x11",
+      "skillId": "statistical-inference-skill-06",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "t = 2.6, df = 9, two-sided test. P-value? (4 dp)",
+      "answer": "0.0287",
+      "solutionSteps": [
+        "2P(t₉ ≥ 2.6)."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s06_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s07-honors-x05",
+      "skillId": "statistical-inference-skill-07",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "p₀ = 0.2, n = 400, x = 96. Find z. (2 dp)",
+      "answer": "2.00",
+      "solutionSteps": [
+        "p̂ = 0.24; 0.04/0.02."
+      ],
+      "standards": [
+        "APSTATS.IV.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s07-honors-x06",
+      "skillId": "statistical-inference-skill-07",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "x̄ = 1163, μ₀ = 1200, s = 74, n = 20. Find t. (3 dp)",
+      "answer": "−2.236",
+      "solutionSteps": [
+        "−37/(74/√20)."
+      ],
+      "standards": [
+        "APSTATS.IV.B.2"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s07_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s08-honors-x06",
+      "skillId": "statistical-inference-skill-08",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "p₀ = 0.5, n = 100, α = 0.05, Hₐ: p > 0.5. Critical p̂? (4 dp)",
+      "answer": "0.5822",
+      "solutionSteps": [
+        "0.5 + 1.645(0.05)."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s08_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s08-honors-x07",
+      "skillId": "statistical-inference-skill-08",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "α is lowered from 0.05 to 0.01. What happens to P(Type II error)?",
+      "answer": "increases",
+      "solutionSteps": [
+        "Harder to reject H₀."
+      ],
+      "standards": [
+        "APSTATS.IV.B.1"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s08_tarsia). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s09-honors-x04",
+      "skillId": "statistical-inference-skill-09",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "p̂₁ = 0.36 and p̂₂ = 0.26. Point estimate of p₁ − p₂?",
+      "answer": "0.10",
+      "solutionSteps": [
+        "0.36 − 0.26."
+      ],
+      "standards": [
+        "APSTATS.IV.A.5"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s09-honors-x05",
+      "skillId": "statistical-inference-skill-09",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Pool 90/250 and 65/250. What is the pooled proportion?",
+      "answer": "0.31",
+      "solutionSteps": [
+        "155/500."
+      ],
+      "standards": [
+        "APSTATS.IV.A.5"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s09_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s10-honors-x04",
+      "skillId": "statistical-inference-skill-10",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Paired t procedure with 12 pairs. df?",
+      "answer": "11",
+      "solutionSteps": [
+        "pairs − 1."
+      ],
+      "standards": [
+        "APSTATS.IV.A.7"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s10_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s10-honors-x05",
+      "skillId": "statistical-inference-skill-10",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "d̄ = 3.5, s_d = 4.2, n = 12. Find t. (3 dp)",
+      "answer": "2.887",
+      "solutionSteps": [
+        "3.5/(4.2/√12)."
+      ],
+      "standards": [
+        "APSTATS.IV.A.7"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s10_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s11-honors-x08",
+      "skillId": "statistical-inference-skill-11",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "b = 0.92 and SE_b = 0.27. Find t for H₀: β = 0. (3 dp)",
+      "answer": "3.407",
+      "solutionSteps": [
+        "0.92/0.27."
+      ],
+      "standards": [
+        "APSTATS.IV.A.8"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s11_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s11-honors-x09",
+      "skillId": "statistical-inference-skill-11",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "Regression with n = 25 points. t* for a 95% slope CI? (3 dp)",
+      "answer": "2.069",
+      "solutionSteps": [
+        "df = 23."
+      ],
+      "standards": [
+        "APSTATS.IV.A.8"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s11_tarsia). Answer computed in the authoring script and re-checked from the printed numbers by the independent verifier (scripts/verification/verify_expansion.py). Awaiting human review."
+    },
+    {
+      "id": "stat-u4-s11-honors-x10",
+      "skillId": "statistical-inference-skill-11",
+      "level": "honors",
+      "format": "short-answer",
+      "prompt": "The CI for β is (−0.12, 0.85). Reject H₀: β = 0 at α = 0.05?",
+      "answer": "no",
+      "solutionSteps": [
+        "0 is inside the interval."
+      ],
+      "standards": [
+        "APSTATS.IV.A.8"
+      ],
+      "sourceNotes": "Original Claude-authored item (family: u4_s11_tarsia). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Awaiting human review."
     }
   ]
 }

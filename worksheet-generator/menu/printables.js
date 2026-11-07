@@ -36,7 +36,7 @@
   function nrm(a) { return String(a).replace(/\s+|⟨|⟩|\\,|\\left|\\right/g, ''); }
   function ok(p, ans) { try { return !!GB().answerOk(p, 0, ans).ok; } catch (e) { return false; } }
   /* Two problems clash when either one accepts the other's answer. */
-  function clash(a, b) { return nrm(a.key) === nrm(b.key) || ok(a.p, b.key) || ok(b.p, a.key); }
+  function clash(a, b) { return nrm(a.key).toLowerCase() === nrm(b.key).toLowerCase() || ok(a.p, b.key) || ok(b.p, a.key); }
   PR.clash = clash;
   function snippetsOf(s) { var m, out = [], re = /⟨([^⟩]*)⟩/g; while ((m = re.exec(s))) out.push(m[1]); return out; }
 
@@ -94,7 +94,7 @@
   var TARSIA_VERB = /^(Solve|Simplify|Factor completely|Factor|Evaluate|Multiply|Expand|Add|Subtract|Divide|Write in scientific notation|Write in standard form|Find the slope of)\s*:?\s*⟨([^⟩]+)⟩\s*\.?$/;
   PR.MODES = {
     maze: { prompt: 92, answer: 14, fig: false, wrong: 4, snippet: 26 },
-    tarsia: { prompt: 22, answer: 12, fig: false, wrong: 2, verb: true },
+    tarsia: { prompt: 22, answer: 20, fig: false, wrong: 2, verb: true },
     color: { prompt: 170, answer: 30, fig: true, wrong: 0, figPrompt: 140 },
     error: { prompt: 170, answer: 40, fig: true, wrong: 2, steps: true },
     partner: { prompt: 170, answer: 40, fig: true, wrong: 0 },
@@ -106,15 +106,16 @@
     var lim = PR.MODES[kind], set = NS.skillSets[cfg.unitId];
     var pol = NS.policyOf(cfg);
     if (/^geometry-/.test(cfg.unitId) && kind !== 'stations') pol = Object.assign({}, pol, { compact: true });   // small boxes: skills may give a shorter prompt because the diagram carries the marks
-    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong && kind!=='error' && kind!=='tarsia'?['multiple-choice']:['short-answer','multiple-choice'],authoredErrorAnalysis:kind==='error',adjacentLevels:false});
+    if (!!NS.skillSets[cfg.unitId]?.authoredBank) pol = Object.assign({},pol,{authoredFormats:lim.wrong && kind!=='error' && kind!=='tarsia'?['multiple-choice']:['short-answer','multiple-choice'],authoredErrorAnalysis:kind==='error',authoredTarsia:kind==='tarsia',adjacentLevels:false});
     var p = NS.generateProblem(cfg.unitId, skill, c, pol, seed, !!NS.skillSets[cfg.unitId]?.authoredBank?null:used);
     if (p.source==='authored-bank' && used && used.keys.has(p.key)) return null;
     if (kind !== 'error' && p.authoredErrorAnalysis) return null;   // "a student answered this incorrectly" items belong on the Error Analysis sheet only
     var o = onePart(p); if (!o) return null;
     var q = o.p, key = q.parts[0].answer;
+    if (kind === 'tarsia' && p.source === 'authored-bank' && (typeof key !== 'string' || !key.trim() || key.length > 20 || q.prompt.length > 110 || /[\r\n]|<table|\\begin\{(?:array|matrix)/i.test(q.prompt) || q.fig)) return null;
     // Problems with a diagram (authored-bank items and every Geometry problem) print in a numbered list beside the
     // maze or Tarsia; the room or edge shows only the problem number.
-    var listed = p.source === 'authored-bank' || /^geometry-/.test(cfg.unitId);
+    var listed = kind === 'tarsia' || p.source === 'authored-bank' || /^geometry-/.test(cfg.unitId);
     var numberedRoom = kind === 'maze' && listed && (q.fig || plain(q.prompt).length > lim.prompt);
     if (!lim.fig && q.fig && !numberedRoom && !(kind === 'tarsia' && listed)) return null;
     if (q.fig && lim.figPrompt && /^geometry-/.test(cfg.unitId) && plain(q.prompt).length > lim.figPrompt) return null;   // a Geometry diagram shares a small box with the text
@@ -550,3 +551,4 @@
     return B;
   };
 })(typeof window !== 'undefined' ? window : globalThis);
+

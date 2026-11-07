@@ -22,7 +22,8 @@ for(const unit of course.units){
  }
  const kinds=unit.artifacts.map(a=>(/kind=([a-z]+)/.exec(a.path)||[])[1]);
  assert(!kinds.includes('partner')&&!kinds.includes('error'),'Unready printable linked');
- if(unit.id==='sampling-experimentation')for(const kind of ['color','who','tarsia'])assert(!kinds.includes(kind),'Unready sampling printable '+kind);
+ if(unit.id==='sampling-experimentation')for(const kind of ['color','who'])assert(!kinds.includes(kind),'Unready sampling printable '+kind);
 }
-assert.equal(total,1017);assert.equal(cells,114);assert(g.window.LIBRARY.courses.find(c=>c.id==='discrete').planned,'Discrete outline must be preserved');
-console.log('PASS 1,017 Statistics questions, all 114 topic/level cells, figure assets, answer keys, whole-unit game pools, and supported resource links');
+assert.equal(total,1221);assert.equal(cells,114);assert(g.window.LIBRARY.courses.find(c=>c.id==='discrete').planned,'Discrete outline must be preserved');
+console.log('PASS 1,221 Statistics questions, all 114 topic/level cells, figure assets, answer keys, whole-unit game pools, and supported resource links');
+

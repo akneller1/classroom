@@ -328,6 +328,10 @@ def K(c):
         # one-sided upper z test for a proportion: reject if p-hat > p0 + z*·SD0; power at pa
         sd0 = math.sqrt(c["p0"] * (1 - c["p0"]) / c["n"]); crit = c["p0"] + ZSTAR[{0.05: 90, 0.01: 98}[c["alpha"]]] * sd0
         sda = math.sqrt(c["pa"] * (1 - c["pa"]) / c["n"]); return [crit, 1 - Phi((crit - c["pa"]) / sda)]
+    if k == "expr":
+        env = {"Phi": Phi, "Phi_inv": Phi_inv, "tstar": tstar, "tcdf": tcdf, "sqrt": math.sqrt,
+               "comb": math.comb, "ceil": math.ceil, "__builtins__": {}}
+        return [eval(c["expr"], env)]
     raise KeyError(k)
 
 
@@ -368,7 +372,7 @@ def printed(q, c):
     vals = [v for v, _ in numbers(text)]
     miss = []
     for key, val in c.items():
-        if key in ("kind", "type", "alt", "expect", "expect_out", "key_lo", "out", "tol", "pct", "cond", "sets", "signs", "rank", "digits", "width", "row", "col", "lo_k", "hi_k", "verify_only", "skip_distractors", "no_print_check"):
+        if key in ("kind", "type", "alt", "expect", "expect_out", "key_lo", "out", "tol", "pct", "cond", "sets", "signs", "rank", "digits", "width", "row", "col", "expr", "lo_k", "hi_k", "verify_only", "skip_distractors", "no_print_check"):
             continue
         flat = val if isinstance(val, list) else [val]
         fl = []

@@ -8,7 +8,10 @@ const prefix='algebra2-', registry=new Map(),isBank=id=>registry.has(id);
 const raw=new Map();
 NS.courseLevelName=function(id,level){return /^(prealgebra(?:7)?|math6)-/.test(id)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[level]:(NS.LEVELS[level]||NS.LEVELS.cp1).long;};
 function level(c,policy){return policy&&['cp2','cp1','honors'].includes(policy.level)?policy.level:c<=2?'cp2':c<=5?'cp1':'honors'}
-function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['short-answer','multiple-choice','select-all','open-response']}).filter(q=>!policy?.authoredErrorAnalysis || /family: [^)]*_error\)/.test(q.sourceNotes||''))}
+function tarsiaEligible(q){return ['short-answer','multiple-choice'].includes(q.format)&&typeof q.answer==='string'&&q.answer.trim().length>0&&q.answer.length<=20&&typeof q.prompt==='string'&&q.prompt.length<=110&&!/[\r\n]|<table|\\begin\{(?:array|matrix)/i.test(q.prompt)&&!q.diagram&&!(q.parts||[]).length}
+NS.tarsiaEligible=tarsiaEligible;
+function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['short-answer','multiple-choice','select-all','open-response']}).filter(q=>(!policy?.authoredErrorAnalysis || /family: [^)]*_error\)/.test(q.sourceNotes||''))&&(!policy?.authoredTarsia||tarsiaEligible(q)))}
+
 function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
 function figure(q){return q.diagram?.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null}
 function problem(q,id,c){const parts=Array.isArray(q.parts)&&q.parts.length?q.parts.map((part,i)=>({answer:text(part.answer),prompt:part.prompt||'',label:String.fromCharCode(97+i)})):[{answer:text(Array.isArray(q.answer)?q.answer.join('; '):q.answer),prompt:''}];return {uid:q.id,sourceId:q.id,source:'authored-bank',authoredFormat:q.format,authoredErrorAnalysis:/family: [^)]*_error\)/.test(q.sourceNotes||''),authoredOptions:q.options||[],approved:true,skill:q.skillId,c,tag:q.skillId,prompt:q.prompt,fig:figure(q),parts,steps:(q.solutionSteps||[]).map(t=>({t})),key:q.id,sig:q.id,verify:{status:'source-key',issues:[]}}}
@@ -142,7 +145,7 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
    const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
    registry.set(id,{courseId:c.id,unitId:u.id});
    G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-   const printableKinds=c.id==='statistics'?(u.id==='sampling-experimentation'?['maze','stations']:['maze','color','who','stations','tarsia']):['maze','color','partner','who','stations','tarsia','error'];
+   const printableKinds=c.id==='statistics'?(u.id==='sampling-experimentation'?['maze','stations','tarsia']:['maze','color','who','stations','tarsia']):['maze','color','partner','who','stations','tarsia','error'];
    NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:printableKinds,generate:function(){throw Error('Authored bank selection required')}}))});
   });
  });
@@ -152,3 +155,4 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
 });
 G.MK_COURSE_BANKS_READY=G.MK_ALGEBRA2_NATIVE_READY;
 })(window);
+

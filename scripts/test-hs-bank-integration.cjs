@@ -29,7 +29,7 @@ for(const u of c.units){
   context.document={body:{getAttribute:()=> 'connect-four'}};
   const slots=Array.from({length:20},(_,i)=>({skill:set.skills[i%set.skills.length].id,c:4,level}));
   context.MKGAMES.buildDeck(id,slots,{seed:'mg-'+level},items=>{if(items.length!==20||new Set(items.map(x=>x.id)).size!==20)throw Error('Incomplete/duplicate '+id+' '+level+' deck');for(const item of items)if(!item.id.startsWith(PREFIX)||item.options.filter(o=>o.ok).length!==1)throw Error('Invalid game choice');});decks++;
-  for(const kind of ['color','partner','who','stations','error','tarsia','maze'].filter(k=>COURSE!=='statistics'||(u.id==='sampling-experimentation'?['maze','stations']:['color','who','stations','tarsia','maze']).includes(k))){
+  for(const kind of ['color','partner','who','stations','error','tarsia','maze'].filter(k=>COURSE!=='statistics'||(u.id==='sampling-experimentation'?['maze','stations','tarsia']:['color','who','stations','tarsia','maze']).includes(k))){
    const cfg={unitId:id,level,answers:'auto',kind,seed:'mg-'+level,skills:Object.fromEntries(set.skills.map(s=>[s.id,true])),stations:2,perStation:4,count:8};
    const built=N.printables.build(cfg,0);if(built.error){(globalThis.FAILS=globalThis.FAILS||[]).push(id+'/'+level+'/'+kind+': '+built.error.slice(0,90));continue;}if(kind==='error' && built.cases.some(cs=>!cs.authored || !cs.item.p.authoredErrorAnalysis))throw Error('Un-authored error case');
    if(kind==='tarsia' && (new Set(built.items.map(it=>it.key)).size!==built.items.length || built.items.some(it=>!it.p.sourceId.startsWith(PREFIX))))throw Error('Invalid Tarsia sources/keys');
@@ -78,3 +78,4 @@ for(const day of context.MKPLAN_SCOPE.days.filter(d=>d.day_type==='Lesson'))for(
 console.log('PASS '+plans+' '+COURSE+' lesson plans');
 console.log('PASS '+n+' '+COURSE+' skill/level selections, '+decks+' unique-choice game decks, '+printables+' printable builds');
 }).catch(e=>{console.error(e);process.exitCode=1});
+
