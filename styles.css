@@ -931,3 +931,27 @@ body { background:var(--paper); }
 @media(max-width:480px) {
   .task-workspace .task-card { min-height:0; }
 }
+
+/* Smaller teaching-task cards with generous space between rows and columns. */
+.task-workspace .task-grid { gap:1.5rem; }
+.task-workspace .task-card {
+  display:grid; grid-template-columns:2rem minmax(0,1fr);
+  grid-template-rows:auto 1fr auto; align-items:start;
+  gap:.5rem .55rem; min-height:0; padding:.9rem;
+}
+.task-workspace .task-icon { grid-column:1; grid-row:1; width:2rem; height:2rem; margin:0; }
+.task-workspace .task-card h2 { grid-column:2; grid-row:1; align-self:center; font-size:1.05rem; margin:0; }
+.task-workspace .task-card p { grid-column:1 / -1; grid-row:2; margin:0; }
+.task-workspace .task-action { grid-column:1 / -1; grid-row:3; font-size:.78rem; line-height:1.35; }
+@media(min-width:1101px) {
+  .task-workspace .task-grid {
+    /* Three cards at 75% of their former width, with the space distributed between them. */
+    grid-template-columns:repeat(3,minmax(0,calc((100% - 1.7rem) / 4)));
+    justify-content:space-between;
+    grid-template-rows:repeat(3,minmax(0,1fr));
+    row-gap:calc(12.5% + .6375rem);
+  }
+}
+@media(max-width:760px) {
+  .task-workspace .task-grid { gap:1.1rem; }
+}
