@@ -8,15 +8,17 @@ unapproved pending human review.
 ## Totals
 | Unit | Baseline | New | Total |
 |---|---|---|---|
-| exploring-data | 101 | 214 | 315 |
-| sampling-experimentation | 42 | 241 | 283 |
-| anticipating-patterns | 69 | 229 | 298 |
-| statistical-inference | 63 | 262 | 325 |
-| **All** | **275** | **946** | **1,221** |
+| exploring-data | 101 | 371 | 472 |
+| sampling-experimentation | 42 | 362 | 404 |
+| anticipating-patterns | 69 | 432 | 501 |
+| statistical-inference | 63 | 473 | 536 |
+| **All** | **275** | **1,638** | **1,913** |
 
 Update 2: added 204 Tarsia-sized items (family `…_tarsia`); see TARSIA-FIX.md.
+Update 3: added 114 Partner Check pairs and 114 Error Analysis items; see PARTNER-CHECK-AND-ERROR-ANALYSIS.md.
+Update 4: 114 Escape Room items, 204 Tarsia items converted to multiple choice, 236 new multiple-choice items (every skill × level now has ≥ 10 MC), and a teacher review packet; see ACTIVITIES-AND-REVIEW.md.
 
-By format: multiple choice 732, short answer 402,
+By format: multiple choice 1,172, short answer 654,
 select-all 41, open response 46 (each with ≥4 parts and a 4-point scoring guide).
 All 114 skill/level cells have ≥ 8 questions (28 cells have ≥ 10; 86 have 8–9).
 After collapsing prompts that differ only by numbers (>85% similar), 979 distinct items remain;
@@ -34,7 +36,7 @@ criteria stored as part answers (4 also had "See rubric." as the answer). Each p
 actual answer; the rubric stays in solutionSteps. No other baseline item was edited.
 
 ## Checks actually run
-- verify_expansion.py: 421/421 new computed items independently recomputed and passed (MC keys
+- verify_expansion.py: 839/839 new computed items independently recomputed and passed (MC keys
   unique among options). During authoring it caught real errors that were fixed, including a
   food-truck expected value (E(X) is 16.5, not 16), mismatched distractors, and tolerance
   problems. 11 warnings are inputs written in words or implied (e.g., "fair die", "Twelve").

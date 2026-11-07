@@ -15,6 +15,23 @@ function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({cour
 function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
 function figure(q){return q.diagram?.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null}
 function problem(q,id,c){const parts=Array.isArray(q.parts)&&q.parts.length?q.parts.map((part,i)=>({answer:text(part.answer),prompt:part.prompt||'',label:String.fromCharCode(97+i)})):[{answer:text(Array.isArray(q.answer)?q.answer.join('; '):q.answer),prompt:''}];return {uid:q.id,sourceId:q.id,source:'authored-bank',authoredFormat:q.format,authoredErrorAnalysis:/family: [^)]*_error\)/.test(q.sourceNotes||''),authoredOptions:q.options||[],approved:true,skill:q.skillId,c,tag:q.skillId,prompt:q.prompt,fig:figure(q),parts,steps:(q.solutionSteps||[]).map(t=>({t})),key:q.id,sig:q.id,verify:{status:'source-key',issues:[]}}}
+// Match only the author's explicit A/B pair IDs; coincidentally equal answers are not a pair.
+NS.authoredPartnerPairs=function(id,skills,lv){
+ if(!isBank(id))return [];
+ const rec=registry.get(id), groups=new Map();
+ for(const q of G.MK_QUESTION_BANKS.select({courseId:rec.courseId,unitId:rec.unitId,skillIds:skills,level:lv==='mixed'?undefined:lv,formats:['short-answer']})){
+  const m=/Partner Check pair (\S+) \((A|B)\)/.exec(q.sourceNotes||'');if(!m)continue;
+  if(!groups.has(m[1]))groups.set(m[1],{});groups.get(m[1])[m[2]]=q;
+ }
+ const out=[];
+ for(const [pairId,g] of groups){
+  if(!g.A||!g.B||g.A.skillId!==g.B.skillId||g.A.level!==g.B.level||g.A.answer!==g.B.answer||g.A.prompt===g.B.prompt)continue;
+  const c=(NS.LEVELS[g.A.level]||NS.LEVELS.cp1).tiers[1];
+  const make=q=>{const p=problem(q,id,c);p.prompt=p.prompt.replace(/^Partner [AB]\.\s*/,'');return {p,key:p.parts[0].answer,skill:q.skillId,c,tag:q.skillId,wrong:[]}};
+  out.push({A:make(g.A),B:make(g.B),same:true,pairId});
+ }
+ return out;
+};
 function choose(items,seed,used){const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(seed)));return rng.shuffle(items).find(q=>!used?.keys?.has(q.id))}
 /* Easy → Medium → Harder inside one class level. Authored items carry no difficulty number, so each is scored by
    the number of solution steps, parts and prompt length (open response a little higher).
@@ -145,7 +162,7 @@ G.MK_ALGEBRA2_NATIVE_READY=loadBanks.then(function(){
    const records=G.MK_COURSE_CATALOG.getSkillRecords(c.id,u.id),tags={};records.forEach(s=>tags[s.name]=s.name);
    registry.set(id,{courseId:c.id,unitId:u.id});
    G.MK_QUESTION_BANKS.select({courseId:c.id,unitId:u.id}).forEach(q=>raw.set(q.id,q));
-   const printableKinds=c.id==='statistics'?(u.id==='sampling-experimentation'?['maze','stations','tarsia']:['maze','color','who','stations','tarsia']):['maze','color','partner','who','stations','tarsia','error'];
+   const printableKinds=['maze','color','partner','who','stations','tarsia','error'];
    NS.registerSkillSet({id,unitName:u.name,courseName:c.name,authoredBank:true,title:u.name+' Activities',tags,gaps:[],skills:records.map(s=>({id:s.id,name:s.name,tag:s.name,blurb:'Questions selected from the approved '+c.name+' bank.',print:printableKinds,generate:function(){throw Error('Authored bank selection required')}}))});
   });
  });

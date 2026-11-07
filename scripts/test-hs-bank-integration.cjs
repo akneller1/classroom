@@ -29,9 +29,10 @@ for(const u of c.units){
   context.document={body:{getAttribute:()=> 'connect-four'}};
   const slots=Array.from({length:20},(_,i)=>({skill:set.skills[i%set.skills.length].id,c:4,level}));
   context.MKGAMES.buildDeck(id,slots,{seed:'mg-'+level},items=>{if(items.length!==20||new Set(items.map(x=>x.id)).size!==20)throw Error('Incomplete/duplicate '+id+' '+level+' deck');for(const item of items)if(!item.id.startsWith(PREFIX)||item.options.filter(o=>o.ok).length!==1)throw Error('Invalid game choice');});decks++;
-  for(const kind of ['color','partner','who','stations','error','tarsia','maze'].filter(k=>COURSE!=='statistics'||(u.id==='sampling-experimentation'?['maze','stations','tarsia']:['color','who','stations','tarsia','maze']).includes(k))){
+  for(const kind of ['color','partner','who','stations','error','tarsia','maze']){
    const cfg={unitId:id,level,answers:'auto',kind,seed:'mg-'+level,skills:Object.fromEntries(set.skills.map(s=>[s.id,true])),stations:2,perStation:4,count:8};
    const built=N.printables.build(cfg,0);if(built.error){(globalThis.FAILS=globalThis.FAILS||[]).push(id+'/'+level+'/'+kind+': '+built.error.slice(0,90));continue;}if(kind==='error' && built.cases.some(cs=>!cs.authored || !cs.item.p.authoredErrorAnalysis))throw Error('Un-authored error case');
+   if(kind==='partner' && COURSE==='statistics' && (built.rows.length<8 || built.rows.some(r=>!r.pairId || r.A.key!==r.B.key || r.A.p.prompt===r.B.p.prompt || r.A.skill!==r.B.skill)))throw Error('Invalid authored partner pairing '+id+'/'+level);
    if(kind==='tarsia' && (new Set(built.items.map(it=>it.key)).size!==built.items.length || built.items.some(it=>!it.p.sourceId.startsWith(PREFIX))))throw Error('Invalid Tarsia sources/keys');
    if(kind==='maze')for(const rm of built.rooms.filter(r=>!r.finish)){const doors=built.doors.filter(d=>[d.a,d.b].some(p=>p[0]===rm.r&&p[1]===rm.c));const accepted=doors.filter(d=>context.MKGAMES.answerOk(rm.item.p,0,d.label).ok);if(accepted.length!==(rm.step===null?0:1))throw Error('Ambiguous maze room');}
    printables++;
@@ -39,7 +40,20 @@ for(const u of c.units){
  }
 }
 
-
+if(COURSE==='statistics'){
+ let checked=0;
+ for(const u of c.units){const id=COURSE+'-'+u.id,set=N.skillSets[id];
+  for(const skill of set.skills)for(const level of ['cp2','cp1','honors']){
+   const cfg={unitId:id,level,answers:'auto',seed:'single-skill',skills:{[skill.id]:true}};
+   const partner=N.printables.build({...cfg,kind:'partner'},0);
+   if(partner.error||partner.rows.length!==1||partner.rows.some(r=>!r.pairId||r.A.skill!==skill.id||r.B.skill!==skill.id||r.A.key!==r.B.key))throw Error('Single-skill partner '+id+'/'+skill.id+'/'+level);
+   const error=N.printables.build({...cfg,kind:'error'},0);
+   if(error.error||!error.cases.length||error.cases.some(cs=>!cs.authored||cs.item.skill!==skill.id))throw Error('Single-skill error '+id+'/'+skill.id+'/'+level);
+   checked++;
+  }
+ }
+ console.log('PASS '+checked+' individual skill/level partner and error-analysis selections');
+}
 
 vm.runInContext(fs.readFileSync(path.join(root,'worksheet-generator/vocabulary-data.js'),'utf8'),context);
 vm.runInContext(fs.readFileSync(path.join(root,'worksheet-generator/vocabulary-data-middle-grades.js'),'utf8'),context);

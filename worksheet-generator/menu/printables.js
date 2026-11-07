@@ -317,6 +317,12 @@
   PR.buildPartner = function (cfg, vIdx) {
     var lv = NS.LEVELS[cfg.level] || NS.LEVELS.cp1, skills = PR.skillsFor(cfg), rng = rngOf(cfg.seed, vIdx, 'partner');
     if (!skills.length) return { error: 'None of the selected skills can make partner problems.' };
+    // Statistics has authored pairs covering every selected skill and level.
+    if (/^statistics-/.test(cfg.unitId) && NS.authoredPartnerPairs) {
+      var authored = rng.shuffle(NS.authoredPartnerPairs(cfg.unitId, skills, cfg.level));
+      if (!authored.length) return { error: 'No authored partner pairs match these skills and level.' };
+      return { kind: 'partner', rows: authored.slice(0, 8) };
+    }
     var want = 8, pool = [], used = { keys: new Set(), sigs: new Set() };
     for (var i = 0; i < 1600 && pool.length < (i < 360 ? 340 : 1200); i++) {
       if (i === 360 && countPairs(pool) >= want + 2) break;   // most units find enough pairs quickly
@@ -374,7 +380,7 @@
   PR.buildError = function (cfg, vIdx) {
     var rng = rngOf(cfg.seed, vIdx, 'error'), n = 6;
     var items = gather(cfg, vIdx, n, 'error');
-    if (items.length < 4) return { error: 'Not enough problems with worked steps for these skills (' + items.length + ').' };
+    if (items.length < (NS.skillSets[cfg.unitId]?.authoredBank ? 1 : 4)) return { error: 'Not enough problems with worked steps for these skills (' + items.length + ').' };
     var names = rng.shuffle(NAMES.slice());
     var cases = items.map(function (it, i) {
       if (it.p.authoredErrorAnalysis) return { item: it, authored: true, name: '', wrong: '', work: [] };

@@ -50,7 +50,7 @@ def _rng(tag):
 
 
 def Q(unit, k, level, fmt_, prompt, answer, steps, *, family, std, options=None, parts=None,
-      check=None, diagram=None, concept=None):
+      check=None, diagram=None, concept=None, note=None):
     qid = nid(unit, k, level)
     computed = check is not None
     q = {
@@ -69,7 +69,7 @@ def Q(unit, k, level, fmt_, prompt, answer, steps, *, family, std, options=None,
     if diagram is not None:
         q["diagram"] = diagram
     q["standards"] = std
-    q["sourceNotes"] = NOTE.format(fam=family, how=HOW_COMPUTED if computed else HOW_CONCEPT)
+    q["sourceNotes"] = NOTE.format(fam=family, how=HOW_COMPUTED if computed else HOW_CONCEPT) + (" " + note if note else "")
     ITEMS[unit].append(q)
     if check is not None:
         CHECKS[qid] = check
@@ -125,8 +125,8 @@ def num_mc(unit, k, level, prompt, value, wrong_values, d, steps, *, family, std
     return MC(unit, k, level, prompt, key, wr[:3], steps, family=family, std=std, check=check, diagram=diagram)
 
 
-def SA(unit, k, level, prompt, answer, steps, *, family, std, check=None, diagram=None):
-    return Q(unit, k, level, "short-answer", prompt, answer, steps, family=family, std=std, check=check, diagram=diagram)
+def SA(unit, k, level, prompt, answer, steps, *, family, std, check=None, diagram=None, note=None):
+    return Q(unit, k, level, "short-answer", prompt, answer, steps, family=family, std=std, check=check, diagram=diagram, note=note)
 
 
 def SEL(unit, k, level, prompt, corrects, wrongs, steps, *, family, std, check=None):

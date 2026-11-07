@@ -329,7 +329,7 @@ def K(c):
         sd0 = math.sqrt(c["p0"] * (1 - c["p0"]) / c["n"]); crit = c["p0"] + ZSTAR[{0.05: 90, 0.01: 98}[c["alpha"]]] * sd0
         sda = math.sqrt(c["pa"] * (1 - c["pa"]) / c["n"]); return [crit, 1 - Phi((crit - c["pa"]) / sda)]
     if k == "expr":
-        env = {"Phi": Phi, "Phi_inv": Phi_inv, "tstar": tstar, "tcdf": tcdf, "sqrt": math.sqrt,
+        env = {"corr": corr, "Phi": Phi, "Phi_inv": Phi_inv, "tstar": tstar, "tcdf": tcdf, "sqrt": math.sqrt,
                "comb": math.comb, "ceil": math.ceil, "__builtins__": {}}
         return [eval(c["expr"], env)]
     raise KeyError(k)
@@ -347,8 +347,10 @@ def numbers(text):
     return out
 
 
-def contains_all(text, exp, tol):
+def contains_all(text, exp, tol, key_decimals=None):
     got = numbers(text)
+    if key_decimals is not None:  # judge distractors at the key's displayed precision
+        got = [(v, max(d, key_decimals)) for v, d in got]
     if "%" in text:
         got = got + [(v / 100, d + 2) for v, d in got]
     for e in exp:
@@ -411,7 +413,8 @@ for qid, c in CHECKS.items():
         if exp and not contains_all(key, exp, tol):
             fails.append(f"{qid}: MC key {key!r} does not show {[round(x, 5) for x in exp]}")
         for o in q["options"]:
-            if not o["correct"] and not c.get("skip_distractors") and exp and contains_all(o["text"], exp, tol) and numbers(o["text"]):
+            kd = max((d for _, d in numbers(key)), default=0)
+            if not o["correct"] and not c.get("skip_distractors") and exp and contains_all(o["text"], exp, tol, kd) and numbers(o["text"]):
                 fails.append(f"{qid}: distractor {o['text']!r} also matches")
     else:
         text = q["answer"] if isinstance(q["answer"], str) else " ".join(map(str, q["answer"]))
@@ -423,6 +426,24 @@ for qid, c in CHECKS.items():
         warns.append(f"{qid}: input {m} not found in printed text")
     n_ok += 1
 
+# Partner Check pairs: exactly one A and one B per pair id, same skill/level, same answer,
+# different prompts.
+pairs = {}
+for q in Qs.values():
+    m = re.search(r"Partner Check pair (\S+) \((A|B)\)", q.get("sourceNotes", ""))
+    if m:
+        pairs.setdefault(m.group(1), {})[m.group(2)] = q
+for pid, d in pairs.items():
+    if set(d) != {"A", "B"}:
+        fails.append(f"{pid}: pair incomplete {sorted(d)}"); continue
+    a, b = d["A"], d["B"]
+    if a["answer"] != b["answer"]:
+        fails.append(f"{pid}: answers differ {a['answer']!r} vs {b['answer']!r}")
+    if (a["skillId"], a["level"]) != (b["skillId"], b["level"]):
+        fails.append(f"{pid}: pair spans different skill/level")
+    if a["prompt"].split(". ", 1)[-1] == b["prompt"].split(". ", 1)[-1]:
+        fails.append(f"{pid}: partners have identical problems")
+print(f"partner pairs checked: {len(pairs)}")
 print(f"checked {n_ok}/{len(CHECKS)} computed items")
 for w in warns:
     print("WARN", w)
