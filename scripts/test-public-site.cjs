@@ -119,7 +119,7 @@ console.log('PASS Grade 6/7 restored; ten visible courses in a two-column grid')
  const pr=context.window.MKMENU?.printables;
  assert(pr&&pr.PROJECTS&&typeof pr.projectFiles==='function','Project catalog did not initialize');
  const projects=Object.values(pr.PROJECTS).flat();
- assert.equal(projects.length,81,'Expected 81 authored projects (37 Algebra 1, Geometry and Algebra 2 + 44 for 6th Grade, Pre-Algebra 7, Pre-Algebra 8, Precalculus and Calculus)');
+ assert.equal(projects.length,85,'Expected 85 authored projects (37 Algebra 1, Geometry and Algebra 2 + 44 for 6th Grade, Pre-Algebra 7, Pre-Algebra 8, Precalculus and Calculus + 4 Statistics)');
  for(const project of projects){
    const files=pr.projectFiles(project);
    const refs=[files.thumb,files.page,files.teacher.pdf,files.teacher.docx];

@@ -1,7 +1,7 @@
 /* Projects for the Printable Generator (kind=project). Nothing is generated: each project is a ready-made
    2–3 day project saved as PDF, Word (.docx) and PowerPoint (.pptx) at CP2, CP1 and Honors, plus a teacher guide
    with answer keys. Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
-   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Pre-Algebra (8th), Precalculus and Calculus. */
+   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Pre-Algebra (8th), Precalculus, Calculus and Statistics. */
 (function (G) {
   'use strict';
   var NS = G.MKMENU = G.MKMENU || {}, PR = NS.printables = NS.printables || {};
@@ -887,6 +887,50 @@
                 "description": "Students design a community skate park. They use the Pythagorean Theorem and its converse to build ramps and rails, find distances on a coordinate map, and compute volumes of cylinders, cones, and spheres for the concrete bowl, planters, and decorations.",
                 "theme": "Sports & Architecture",
                 "product": "Skate Park Blueprint"
+          }
+    ],
+    "statistics-exploring-data": [
+          {
+                "folder": "statistics-project-lunch-line-data-detectives",
+                "slug": "lunch-line-data-detectives",
+                "title": "Lunch Line Data Detectives",
+                "tagline": "Use displays, summary statistics, normal models, and regression to fix the school lunch line.",
+                "description": "Students analyze cafeteria data. They compare wait times at two serving lines with dot plots, box plots, and summary statistics, identify outliers, use a normal model and z-scores, read a two-way table of lunch choices by grade, and fit a least-squares line that predicts wait time from line length.",
+                "theme": "School Life & Data Science",
+                "product": "Data Report to the Principal"
+          }
+    ],
+    "statistics-sampling-experimentation": [
+          {
+                "folder": "statistics-project-study-music-experiment",
+                "slug": "study-music-experiment",
+                "title": "The Study Music Experiment",
+                "tagline": "Design a survey and a randomized experiment to find out whether music helps students study.",
+                "description": "Students investigate whether music helps students study. They choose random, stratified, and cluster samples of the school, identify sources of bias in survey questions, then design a randomized experiment with a control group, blinding, blocking or matched pairs, and use a simulation to decide whether the results show a real effect.",
+                "theme": "Psychology & Research",
+                "product": "Study Design Proposal"
+          }
+    ],
+    "statistics-anticipating-patterns": [
+          {
+                "folder": "statistics-project-mystery-box-pop-up",
+                "slug": "mystery-box-pop-up",
+                "title": "Mystery Box Pop-Up",
+                "tagline": "Use probability, random variables, and sampling distributions to run a profitable mystery box shop.",
+                "description": "Students run a mystery box stand at the school fair. They use probability rules and conditional probability, simulate purchases with random digits, find the expected value and standard deviation of a prize, use binomial and geometric models for rare prizes, combine random variables, and use sampling distributions and the Central Limit Theorem to predict a day of sales.",
+                "theme": "Business & Games of Chance",
+                "product": "Business Pitch"
+          }
+    ],
+    "statistics-statistical-inference": [
+          {
+                "folder": "statistics-project-later-start-investigation",
+                "slug": "later-start-investigation",
+                "title": "The Later Start Investigation",
+                "tagline": "Use confidence intervals and significance tests to advise the school board on a later start time.",
+                "description": "Students advise the school board on moving the start of the school day later. They build and interpret confidence intervals for the proportion of students who support the change and for mean sleep, choose a sample size, run one-sample z- and t-tests, compare two grades with two-proportion procedures, analyze a matched pairs pilot study, and explain Type I and Type II errors in context.",
+                "theme": "Health & Public Policy",
+                "product": "Report to the School Board"
           }
     ]
 };
