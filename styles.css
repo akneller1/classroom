@@ -848,7 +848,7 @@ body { background:var(--paper); }
 .course-nav-card[data-course="discrete"] { --c-bg:#465b72; --c-fg:#ffffff; }
 
 /* Homepage workspace: course menu on the left, teaching tasks on the right. */
-.task-home > .home-dashboard { max-width:86rem; display:grid; grid-template-columns:minmax(13rem,.7fr) minmax(0,2.45fr); gap:2rem; align-items:start; }
+.task-home > .home-dashboard { max-width:86rem; display:grid; grid-template-columns:minmax(13rem,.76fr) minmax(0,2.39fr); gap:2rem; align-items:start; }
 .course-sidebar { min-width:0; padding:1.15rem; background:var(--wash); border:1px solid var(--line); border-radius:18px; }
 .course-sidebar .main-nav { display:block; width:100%; margin:0; padding:0; overflow:visible; border:0; }
 .sidebar-heading { margin:0 0 1rem; }
@@ -866,7 +866,7 @@ body { background:var(--paper); }
 .task-workspace .task-card p { font-size:.87rem; }
 .task-workspace .task-browse { text-align:left; }
 @media(max-width:1100px) and (min-width:761px) {
-  .task-home > .home-dashboard { grid-template-columns:minmax(12rem,.65fr) minmax(0,2.2fr); gap:1.2rem; }
+  .task-home > .home-dashboard { grid-template-columns:minmax(12rem,.71fr) minmax(0,2.14fr); gap:1.2rem; }
   .course-sidebar { padding:.85rem; }
   .task-workspace .task-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }

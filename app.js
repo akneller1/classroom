@@ -537,7 +537,7 @@
       html: '<section class="task-home"><div class="wrap home-dashboard"><aside class="course-sidebar" aria-label="Choose a course"></aside><div class="task-workspace">' +
         '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
         '<h1 tabindex="-1">What would you like to do today?</h1>' +
-        '<p class="lede">Classroom-ready math, your way. Choose a task below or explore a course from the menu.</p>' +
+        '<p class="lede">Choose a task below or explore a course from the menu.</p>' +
         '</div>' +
         '<ul class="task-grid" aria-label="Teaching tasks">' + tasks.map(function (task) {
           return '<li><a class="task-card" data-color="' + task.color + '" href="' + esc(task.url) + '">' +
