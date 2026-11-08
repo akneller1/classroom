@@ -528,17 +528,44 @@
       '<button type="button" class="btn ghost sm" id="plNext"' + (next ? '' : ' disabled') + '>Day ' + (ui.day + 1) + ' →</button></div>' +
       '<div class="pl-tabs" role="tablist">' + [['plan', 'Plan'], ['student', 'Student handout'], ['key', 'Teacher key']].map(function (t) { return '<button type="button" role="tab" class="tab" data-view="' + t[0] + '" aria-selected="' + (ui.view === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>';
   }
+  var previewRevision = 0;
   function renderView() {
-    var v = $('#plView');
+    var v = $('#plView'), revision = ++previewRevision;
     v.className = 'pl-view v-' + ui.view;
-    v.innerHTML = ui.view === 'plan' ? planView(ui.plan) : '<div class="pl-paperwrap">' + (ui.view === 'student' ? studentSheet(ui.plan) : keySheet(ui.plan)) + '</div>';
+    if (ui.view === 'student') {
+      var html = studentSheet(ui.plan);
+      v.innerHTML = '<div class="pl-paperwrap"><p class="pl-paging-status" role="status">Laying out printable pages…</p></div>';
+      Promise.resolve(doc.fonts && doc.fonts.ready).then(function () {
+        if (revision !== previewRevision || ui.view !== 'student') return;
+        var pages = P.paginateStudent(html), wrap = v.querySelector('.pl-paperwrap');
+        if (!wrap) return;
+        wrap.replaceChildren();
+        var count = doc.createElement('p');
+        count.className = 'pl-paging-status';
+        count.textContent = pages.length + ' letter-size page' + (pages.length === 1 ? '' : 's') + ' · preview matches the student print layout';
+        wrap.appendChild(count);
+        pages.forEach(function (page) { wrap.appendChild(page); });
+      }).catch(function (err) {
+        if (revision !== previewRevision) return;
+        v.innerHTML = '<p class="pl-paging-status" role="alert">Page preview could not be laid out; printing will use browser pagination.</p><div class="pl-paperwrap">' + html + '</div>';
+        if (G.console && G.console.error) G.console.error('Lesson handout pagination:', err);
+      });
+    } else {
+      v.innerHTML = ui.view === 'plan' ? planView(ui.plan) : '<div class="pl-paperwrap">' + keySheet(ui.plan) + '</div>';
+    }
     Array.prototype.forEach.call(doc.querySelectorAll('.pl-tabs .tab'), function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-view') === ui.view)); });
   }
   function doPrint(kind) {
     var root = $('#printRoot');
-    root.innerHTML = kind === 'student' ? studentSheet(ui.plan) : keySheet(ui.plan);
-    doc.body.classList.add('printing');
-    setTimeout(function () { G.print(); }, 60);
+    function beginPrint() {
+      root.replaceChildren();
+      if (kind === 'student') {
+        P.paginateStudent(studentSheet(ui.plan)).forEach(function (page) { root.appendChild(page); });
+      } else root.innerHTML = keySheet(ui.plan);
+      doc.body.classList.add('printing');
+      setTimeout(function () { G.print(); }, 60);
+    }
+    Promise.resolve(doc.fonts && doc.fonts.ready).then(beginPrint, beginPrint);
   }
   G.addEventListener('afterprint', function () { doc.body.classList.remove('printing'); $('#printRoot').innerHTML = ''; });
 
