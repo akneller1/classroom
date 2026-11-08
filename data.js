@@ -3806,7 +3806,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Function Operations & Evaluation",
               "path": "artifacts/algebra2-functions-transformations-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-functions-transformations-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -3818,7 +3818,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Transformations of Functions",
               "path": "artifacts/algebra2-functions-transformations-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-functions-transformations-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4056,7 +4056,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Linear Equations & Graphs",
               "path": "artifacts/algebra2-linear-functions-systems-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-linear-functions-systems-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4068,7 +4068,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Systems of Equations & Inequalities",
               "path": "artifacts/algebra2-linear-functions-systems-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-linear-functions-systems-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4306,7 +4306,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Solving Quadratic Equations",
               "path": "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4318,7 +4318,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Complex Numbers & Parabolas",
               "path": "artifacts/algebra2-quadratic-functions-complex-numbers-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-quadratic-functions-complex-numbers-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4349,7 +4349,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Polynomial Operations & Graphs",
               "path": "artifacts/algebra2-polynomial-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-polynomial-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4361,7 +4361,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Zeros, Factoring & Inequalities",
               "path": "artifacts/algebra2-polynomial-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-polynomial-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4406,7 +4406,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Simplifying Radicals & Exponents",
               "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4418,7 +4418,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Radical Equations & Functions",
               "path": "artifacts/algebra2-radicals-rational-exponents-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-radicals-rational-exponents-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4670,7 +4670,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Exponential & Log Basics",
               "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4682,7 +4682,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Exp & Log Equations and Graphs",
               "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4713,7 +4713,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Rational Expressions & Equations",
               "path": "artifacts/algebra2-rational-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-rational-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4725,7 +4725,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Graphs of Rational Functions",
               "path": "artifacts/algebra2-rational-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-rational-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4770,7 +4770,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Arithmetic & Geometric Sequences",
               "path": "artifacts/algebra2-sequences-series-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-sequences-series-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4782,7 +4782,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Series, Binomials & Applications",
               "path": "artifacts/algebra2-sequences-series-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-sequences-series-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4814,7 +4814,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Circles & Parabolas",
               "path": "artifacts/algebra2-conic-sections-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-conic-sections-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4826,7 +4826,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Ellipses & Hyperbolas",
               "path": "artifacts/algebra2-conic-sections-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-conic-sections-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4858,7 +4858,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Radians, Unit Circle & Right-Triangle Trig",
               "path": "artifacts/algebra2-trigonometric-functions-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4870,7 +4870,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Graphs of Trig Functions & Trig Equations",
               "path": "artifacts/algebra2-trigonometric-functions-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4902,7 +4902,7 @@ window.LIBRARY = {
               "title": "Partner Check 1: Counting & Probability",
               "path": "artifacts/algebra2-probability-statistics-partner-check-1/worksheet.pdf",
               "thumb": "thumbs/algebra2-probability-statistics-partner-check-1.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
@@ -4914,7 +4914,7 @@ window.LIBRARY = {
               "title": "Partner Check 2: Statistics & Normal Distributions",
               "path": "artifacts/algebra2-probability-statistics-partner-check-2/worksheet.pdf",
               "thumb": "thumbs/algebra2-probability-statistics-partner-check-2.jpg",
-              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key included.",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
               "type": "Printable",
               "topics": [
                 "Partner Check",
