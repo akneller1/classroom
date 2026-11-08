@@ -470,7 +470,7 @@
     if (isNew(a)) tags.push('<li class="tag tag-new">New</li>');
     toArr(a.type).concat(toArr(a.level)).forEach(function (t) { tags.push('<li class="tag">' + esc(t) + '</li>'); });
     var topics = toArr(a.topics);
-    return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-path="' + esc(a.path) + '">' +
+    return '<li class="card" data-color="' + esc(it.c.color || '') + '" data-course="' + esc(it.c.id) + '" data-path="' + esc(a.path) + '">' +
       '<a class="thumb" href="' + esc(activityUrl(a)) + '" tabindex="-1" aria-hidden="true">' +
         (gameBoardThumbnail(a, it) ? '<img src="' + esc(gameBoardThumbnail(a, it)) + '" alt="" loading="lazy">' : '') + '</a>' +
       '<div class="card-body">' +
@@ -549,7 +549,7 @@
   }
 
   function bandHtml(c, inner, extra) {
-    return '<section class="band"' + (c ? ' data-color="' + esc(c.color || '') + '"' : '') + '><div class="wrap">' + inner + '</div></section>';
+    return '<section class="band"' + (c ? ' data-color="' + esc(c.color || '') + '" data-course="' + esc(c.id) + '"' : '') + '><div class="wrap">' + inner + '</div></section>';
   }
 
 
@@ -610,20 +610,20 @@
         c.units.map(function (u) {
           var k = u.artifacts.filter(listed).length;
           if (!k && !c.planned && c.id !== 'geometry' && c.id !== 'algebra2' && c.id !== 'prealgebra' && c.id !== 'prealgebra7' && c.id !== 'math6') {
-            return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
+            return '<li><div class="unit soon" data-color="' + esc(c.color || '') + '" data-course="' + esc(c.id) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
               '<div class="unit-meta"><span class="unit-count">Coming soon</span></div></div></li>';
           }
           var minis = u.artifacts.filter(listed).slice(0, 3).filter(function (a) { return a.thumb; }).map(function (a) {
             return '<img src="' + esc(a.thumb) + '" alt="" loading="lazy">';
           }).join('');
           if (c.planned || c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus' || c.id === 'statistics' || c.id === 'discrete' || c.id === 'prealgebra' || c.id === 'prealgebra7' || c.id === 'math6') {
-            return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '">' +
+            return '<li><div class="unit algebra-unit-card" data-color="' + esc(c.color || '') + '" data-course="' + esc(c.id) + '">' +
               '<h3><a class="unit-title-link" href="' + href(unitToken(c, u)) + '">' +
               '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</a></h3>' +
               '<div class="unit-meta" data-lesson-list="true">' + subskillsHtml(u, c.id) + '</div>' +
               '<a class="unit-open-link" href="' + href(unitToken(c, u)) + '">Open unit →</a></div></li>';
           }
-          return '<li><a class="unit" data-color="' + esc(c.color || '') + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
+          return '<li><a class="unit" data-color="' + esc(c.color || '') + '" data-course="' + esc(c.id) + '" href="' + href(unitToken(c, u)) + '"><h3>' + '<span class="unit-num">Unit ' + unitNum(c, u) + '</span>' + esc(u.name) + '</h3>' +
             '<div class="unit-meta"><span class="unit-count">' + acts(k) + '</span>' + (minis ? '<span class="minis">' + minis + '</span>' : '') + '</div></a></li>';
         }).join('') + '</ul></div></section>'
     };
@@ -700,7 +700,7 @@
       return '<a class="pager-link pager-' + dir + '" href="' + href(unitToken(c, t)) + '" rel="' + dir + '">' +
         (dir === 'prev' ? arrow + text : text + arrow) + '</a>';
     }
-    return '<nav class="unit-pager" data-color="' + esc(c.color || '') + '" aria-label="Unit navigation">' +
+    return '<nav class="unit-pager" data-color="' + esc(c.color || '') + '" data-course="' + esc(c.id) + '" aria-label="Unit navigation">' +
       link(list[i - 1], 'prev') + link(list[i + 1], 'next') + '</nav>';
   }
   function algebraUnitView(c, u) {
