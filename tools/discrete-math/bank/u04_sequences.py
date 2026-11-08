@@ -1,7 +1,7 @@
 """Unit 4: Sequences, Mathematical Induction, and Recursion (9 skills). All terms, sums and counts computed."""
 import math
 from fractions import Fraction
-from core import Bank, frac
+from core import Bank, frac, fix_text
 
 U = 'sequences-induction-recursion'
 C = math.comb
@@ -9,7 +9,7 @@ C = math.comb
 
 def build():
     b = Bank(U, 'sq', 9)
-    for f in (s1, s2, s3, s4, s5, s6, s7, s8, s9, topup, topup2, errors):
+    for f in (s1, s2, s3, s4, s5, s6, s7, s8, s9, topup, topup2, errors, honors_partners):
         f(b)
     return b
 
@@ -554,3 +554,146 @@ def topup2(b):
     b.mc(8, 'honors', 'Inductive step for "7 | (8ⁿ − 1)": which rewriting of 8ᵏ⁺¹ − 1 uses the hypothesis 7 | (8ᵏ − 1)?', '8(8ᵏ − 1) + 7',
          ['8(8ᵏ − 1)', '(8ᵏ − 1) + 8', '7(8ᵏ − 1) + 1'], ['8ᵏ⁺¹ − 1 = 8·8ᵏ − 8 + 7 = 8(8ᵏ − 1) + 7, a sum of multiples of 7.'], 'induction_divisibility')
     assert all(8 ** (k + 1) - 1 == 8 * (8 ** k - 1) + 7 for k in range(10))
+
+
+# ---------------------------------------------------------------- Honors Partner Check pairs (added 2026-11-08)
+# The Partner Check printable needs two DIFFERENT Honors problems with the SAME answer for each row (and different answers
+# across rows). The Honors pool had no shared answers, so the sheet fell back to CP1. Each item below is a new Honors
+# short-answer problem whose answer is computed here from its own parameters (brute force or direct iteration, not copied)
+# and then asserted equal to its partner's answer string. Partners are existing Honors items (found by prompt) or, for
+# skills 7 and 8, a second new item. Appended last so no existing question ID changes.
+def _least_threshold(holds, top=400):
+    """Least N with holds(n) for every N <= n <= top, and holds(N - 1) false."""
+    assert holds(top)
+    n = top
+    while n > 1 and holds(n - 1):
+        n -= 1
+    return n
+
+
+def honors_partners(b):
+    H = 'honors'
+
+    def find(prefix):
+        hits = [q for q in b.q if q['level'] == H and q['prompt'].startswith(fix_text(prefix))]
+        assert len(hits) == 1, (prefix, len(hits))
+        return hits[0]
+
+    def add(skill, partner, prompt, value, steps):
+        ans = frac(value) if isinstance(value, Fraction) else str(value)
+        assert ans == str(partner['answer']), (prompt, ans, partner['answer'])
+        assert partner['format'] in ('short-answer', 'multiple-choice') and fix_text(prompt).strip() != partner['prompt']
+        r = b.sa(skill, H, prompt, ans, list(steps) + ['Answer: %s' % ans], 'partner_pair')
+        r['sourceNotes'] = ('Partner-check companion to %s (same answer, different problem). ' % partner['id']) + r['sourceNotes']
+        return r
+
+    # ---- skill 1: sums, products, explicit formulas
+    v = sum(Fraction(2, (k + 1) * (k + 2)) for k in range(1, 9))
+    add(1, find('Evaluate Σ_{k=1}^{4} 1/(k(k + 1))'), 'Evaluate the telescoping sum Σ_{k=1}^{8} 2/((k + 1)(k + 2)). (Give a fraction a/b.)', v,
+        ['2/((k + 1)(k + 2)) = 2(1/(k + 1) − 1/(k + 2)).', 'The middle terms cancel: 2(1/2 − 1/10) = 2 · 2/5.', 'Value: 4/5'])
+    v = sum(Fraction(1, k * (k + 1)) for k in range(4, 20))
+    add(1, find('Evaluate Π_{k=2}^{5} (1 − 1/k)'), 'Evaluate Σ_{k=4}^{19} 1/(k(k + 1)). (Give a fraction a/b.)', v,
+        ['1/(k(k + 1)) = 1/k − 1/(k + 1).', 'The sum telescopes from k = 4 to k = 19: 1/4 − 1/20.', '5/20 − 1/20 = 4/20 = 1/5'])
+    v = sum((-1) ** (k + 1) * (2 * k - 1) for k in range(1, 20))
+    add(1, find('For a_n = (n² − 1)/(n + 1), find a_20'), 'Let a_n = Σ_{k=1}^{n} (−1)ᵏ⁺¹(2k − 1), so a_n = 1 − 3 + 5 − ... ± (2n − 1). Find a₁₉.', v,
+        ['Pair the terms: (1 − 3) + (5 − 7) + ... and each pair is −2.', 'n = 19: nine pairs give −18, and the last term is 2·19 − 1 = 37.', 'a₁₉ = −18 + 37 = 19 (in general a_n = n for odd n).'])
+
+    # ---- skill 2: arithmetic and geometric sequences and series
+    d = Fraction(35 - 27, 12 - 4); a1 = 27 - 3 * d
+    v = sum(a1 + i * d for i in range(20))
+    add(2, find('Find the sum: 5 + 8 + 11'), 'An arithmetic sequence has a₄ = 27 and a₁₂ = 35. Find the sum of its first 20 terms.', int(v),
+        ['8d = 35 − 27, so d = 1 and a₁ = 27 − 3d = 24.', 'a₂₀ = 24 + 19 = 43.', 'S₂₀ = 20 · (24 + 43) ÷ 2 = 10 · 67 = 670'])
+    r = next(x for x in range(1, 10) if 12 * x ** 4 == 192); a1 = Fraction(12, r * r)
+    v = sum(a1 * r ** i for i in range(9))
+    add(2, find('Find the sum: 3 + 6 + 12'), 'A geometric sequence with positive terms has a₃ = 12 and a₇ = 192. Find a₁ + a₂ + ... + a₉.', int(v),
+        ['r⁴ = a₇/a₃ = 16, so r = 2 (the terms are positive).', 'a₁ = a₃/r² = 3.', 'S₉ = 3(2⁹ − 1)/(2 − 1) = 3 · 511 = 1533'])
+    r = next(x for x in range(1, 10) if 2 * x ** 3 == 16)
+    add(2, find('A geometric sequence has a₁ = 1/4'), 'A geometric sequence has a₃ = 2 and a₆ = 16. Find a₉.', 16 * r ** 3,
+        ['a₆/a₃ = r³ = 8, so r = 2.', 'a₉ = a₆ · r³ = 16 · 8 = 128'])
+
+    # ---- skill 3: factorials and binomial coefficients
+    v = sum(C(m, 2) for m in range(2, 12))
+    assert v == C(12, 3)
+    add(3, find('Evaluate C(12, 3)'), 'Use the hockey stick identity to evaluate C(2, 2) + C(3, 2) + C(4, 2) + ... + C(11, 2).', v,
+        ['Hockey stick identity: Σ_{m=r}^{n} C(m, r) = C(n + 1, r + 1).', 'Here r = 2 and n = 11, so the sum is C(12, 3).', 'C(12, 3) = (12 · 11 · 10) ÷ 6 = 220'])
+    v = sum(C(5, k) ** 2 for k in range(6))
+    add(3, find('Evaluate C(10, 5)'), 'Evaluate C(5, 0)² + C(5, 1)² + C(5, 2)² + C(5, 3)² + C(5, 4)² + C(5, 5)².', v,
+        ['Row 5 of Pascal\'s triangle is 1, 5, 10, 10, 5, 1.', 'Squares: 1 + 25 + 100 + 100 + 25 + 1 = 252.', 'Check: Σ C(n, k)² = C(2n, n) = C(10, 5) = 252.'])
+    v = Fraction(math.factorial(8), 2 ** 4 * math.factorial(4))
+    assert v == 1 * 3 * 5 * 7
+    add(3, find('Evaluate C(15, 13)'), 'Evaluate 8!/(2⁴ · 4!).', int(v),
+        ['8! = 40320 and 2⁴ · 4! = 16 · 24 = 384.', '40320/384 = 105.', 'Check: 8!/(2⁴·4!) = 1·3·5·7, the number of ways to split 8 people into 4 pairs.'])
+
+    # ---- skill 4: Fibonacci numbers
+    assert F(16) == F(8) * (F(7) + F(9))
+    add(4, find('Compute F₁ + F₃ + F₅'), 'Use F_(2n) = F_n(F_(n−1) + F_(n+1)) with n = 8 to find F₁₆ (F₁ = F₂ = 1).', F(8) * (F(7) + F(9)),
+        ['F₇ = 13, F₈ = 21, F₉ = 34.', 'F₁₆ = 21(13 + 34) = 21 · 47 = 987'])
+    v = sum(1 for m in range(2 ** 16) if m & (m >> 1) == 0)   # brute force over all 65536 strings
+    add(4, find('With F₁ = F₂ = 1 and F_n = F_(n−1) + F_(n−2), what is F_18'), 'How many bit strings of length 16 have no two consecutive 1s?', v,
+        ['Let b_n count them. A valid string ends in 0 (after any valid string of length n − 1) or in 01 (after any valid string of length n − 2).',
+         'So b_n = b_(n−1) + b_(n−2) with b₁ = 2, b₂ = 3, which gives b_n = F_(n+2).', 'b₁₆ = F₁₈ = 2584'])
+    v = sum(C(10 - k, k) for k in range(6))   # k = number of stacked horizontal pairs
+    add(4, find('The number of ways to climb n stairs'), 'In how many ways can a 2 × 10 rectangle be tiled with 1 × 2 dominoes?', v,
+        ['Let t_n count tilings of a 2 × n rectangle. The left end is one vertical domino (leaving 2 × (n − 1)) or two stacked horizontal dominoes (leaving 2 × (n − 2)).',
+         't_n = t_(n−1) + t_(n−2) with t₁ = 1, t₂ = 2, so t_n = F_(n+1).', 't₁₀ = F₁₁ = 89'])
+
+    # ---- skill 5: recursively defined sequences
+    t = run(lambda a, n: 4 * a + 1, 1, 0, 4)
+    assert t[-1] == (4 ** 4 - 1) // 3
+    add(5, find('For a₁ = 1, a₂ = 3, a_n = a_(n−1) + 2a_(n−2), find a_7'), 'Let a₀ = 1 and a_n = 4a_(n−1) + 1 for n ≥ 1. Find a₃, then check it with the closed form a_n = (4ⁿ⁺¹ − 1)/3.', t[-1],
+        ['a₁ = 5, a₂ = 21, a₃ = 85.', 'Closed form: (4⁴ − 1)/3 = 255/3 = 85'])
+    f = [3]
+    while len(f) < 5:
+        f.append(math.prod(f) + 2)
+    assert f[-1] == 2 ** 16 + 1
+    add(5, find('For a₁ = 3, a_n = a_(n−1)² − 2a_(n−1) + 2, find a_5'), 'Fermat numbers satisfy f₀ = 3 and f_n = f₀ · f₁ ··· f_(n−1) + 2 for n ≥ 1. Find f₄.', f[-1],
+        ['f₁ = 3 + 2 = 5, f₂ = 3·5 + 2 = 17, f₃ = 3·5·17 + 2 = 257.', 'f₄ = 3 · 5 · 17 · 257 + 2 = 65535 + 2 = 65537'])
+
+    # ---- skill 6: solving recurrences by iteration
+    T = {1: 1}
+    for k in range(1, 10):
+        T[2 ** k] = 2 * T[2 ** (k - 1)] + 1
+    add(6, find('Tower of Hanoi: m₁ = 1'), 'T(n) = 2T(n/2) + 1 with T(1) = 1, for n a power of 2. Find T(512).', T[512],
+        ['Iterate: T(n) = 2ᵏT(n/2ᵏ) + (2ᵏ − 1).', 'With 2ᵏ = n: T(n) = n + (n − 1) = 2n − 1.', 'T(512) = 1023'])
+    t = run(lambda a, n: a + 3 * n * n - 3 * n + 1, 1, 1, 4)
+    assert t == [n ** 3 for n in range(1, 5)]
+    add(6, find('T(n) = 2T(n/2) + n with T(1) = 0'), 'Iterate a₁ = 1, a_n = a_(n−1) + 3n² − 3n + 1 to find a₄. (Compare the terms with perfect cubes.)', t[-1],
+        ['a₂ = 1 + 7 = 8, a₃ = 8 + 19 = 27, a₄ = 27 + 37 = 64.', 'Since n³ − (n − 1)³ = 3n² − 3n + 1, a_n = n³.', 'a₄ = 64'])
+    t = run(lambda a, n: a + (-1) ** n * n, 0, 0, 6)
+    add(6, find('Iterate a_n = −a_(n−1) + 2 with a₀ = 5'), 'Iterate a₀ = 0, a_n = a_(n−1) + (−1)ⁿ · n to find a₅.', t[-1],
+        ['a₁ = −1, a₂ = 1, a₃ = −2, a₄ = 2, a₅ = −3.', 'Pattern: a_n = −(n + 1)/2 for odd n.', 'a₅ = −3'])
+    t = run(lambda a, n: 2 * a + 1, 4, 1, 4)
+    assert t[-1] == 5 * 2 ** 3 - 1
+    add(6, find('If T(1) = 1 and T(n) = T(n − 1) + 3n − 1'), 'Iterate a₁ = 4, a_n = 2a_(n−1) + 1 to find a₄, and check it with a_n = 5 · 2ⁿ⁻¹ − 1.', t[-1],
+        ['a₂ = 9, a₃ = 19, a₄ = 39.', 'Closed form: 5 · 2³ − 1 = 39'])
+
+    # ---- skill 7: principle of induction (choosing the base case); both partners are new
+    pa = b.sa(7, H, 'Find the least integer N such that 2ⁿ > n² + n for every integer n ≥ N. (This N is the base case of an induction proof.)',
+              _least_threshold(lambda n: 2 ** n > n * n + n),
+              ['n = 4: 16 < 20, so N > 4; n = 5: 32 > 30.', 'Step for k ≥ 5: 2ᵏ⁺¹ = 2·2ᵏ > 2k² + 2k ≥ (k + 1)² + (k + 1), because k² ≥ k + 2 for k ≥ 2.', 'Answer: 5'], 'partner_pair')
+    add(7, pa, 'Find the least integer N such that n! > 2ⁿ⁺¹ for every integer n ≥ N.', _least_threshold(lambda n: math.factorial(n) > 2 ** (n + 1)),
+        ['n = 4: 24 < 32, so N > 4; n = 5: 120 > 64.', 'Step for k ≥ 5: (k + 1)! = (k + 1)k! > (k + 1)2ᵏ⁺¹ ≥ 2 · 2ᵏ⁺¹ = 2ᵏ⁺².'])
+    pa = b.sa(7, H, 'Find the least integer N such that n! > 3ⁿ for every integer n ≥ N.', _least_threshold(lambda n: math.factorial(n) > 3 ** n),
+              ['n = 6: 720 < 729, so N > 6; n = 7: 5040 > 2187.', 'Step for k ≥ 7: (k + 1)! = (k + 1)k! > (k + 1)3ᵏ ≥ 3 · 3ᵏ = 3ᵏ⁺¹.', 'Answer: 7'], 'partner_pair')
+    reach = lambda n: any((n - 5 * y) % 3 == 0 for y in range(n // 5 + 1))
+    add(7, pa, 'Strong induction shows that every amount of at least 8 cents can be made with 3-cent and 5-cent stamps. What is the largest amount (in cents) that CANNOT be made?',
+        max(n for n in range(1, 200) if not reach(n)),
+        ['7 cannot be made: 7, 7 − 5 = 2 are not multiples of 3.', 'Base cases 8 = 3 + 5, 9 = 3·3, 10 = 5·2; step: k + 1 = (k − 2) + 3 uses the case k − 2 ≥ 8.', 'So every amount ≥ 8 works and 7 is the largest that does not.'])
+
+    # ---- skill 8: writing inductive proofs (the algebra of the inductive step); both partners are new
+    cs = {7 ** (k + 1) - 1 - 7 * (7 ** k - 1) for k in range(12)}
+    assert len(cs) == 1
+    pa = b.sa(8, H, 'Inductive step for 6 | (7ⁿ − 1): write 7ᵏ⁺¹ − 1 = 7(7ᵏ − 1) + c. Find the integer c.', cs.pop(),
+              ['7ᵏ⁺¹ − 1 = 7·7ᵏ − 7 + 6 = 7(7ᵏ − 1) + 6.', 'Both 7(7ᵏ − 1) (by the hypothesis) and 6 are multiples of 6.', 'Answer: 6'], 'partner_pair')
+    cs = {Fraction((k + 1) ** 3 - (k + 1) - (k ** 3 - k), k * (k + 1) // 2) for k in range(1, 15)}
+    assert len(cs) == 1
+    add(8, pa, 'Inductive step for 6 | (n³ − n): (k + 1)³ − (k + 1) = (k³ − k) + c · T_k, where T_k = k(k + 1)/2 is an integer. Find the integer c.', cs.pop(),
+        ['(k + 1)³ − (k + 1) = k³ + 3k² + 2k = (k³ − k) + 3k(k + 1).', '3k(k + 1) = 6 · k(k + 1)/2 = 6T_k, so c = 6.', 'Both terms are multiples of 6, which completes the step.'])
+
+    # ---- skill 9: patterns and tessellations
+    v = sum(k * k for k in range(1, 7))
+    add(9, find('A hexagonal tile pattern has 1 tile'), 'Cannonballs are stacked in a square pyramid: 1 ball on top, then layers of 4, 9, 16, ... balls. How many balls are in a pyramid with 6 layers?', v,
+        ['Total = 1 + 4 + 9 + 16 + 25 + 36 = 91.', 'Check with the sum of squares: n(n + 1)(2n + 1) ÷ 6 = (6 · 7 · 13) ÷ 6 = 91.'])
+    n = next(m for m in range(4, 100) if m * (m - 3) == 340)
+    add(9, find('Find the measure of each interior angle of a regular 20'), 'A regular polygon has 170 diagonals. Find the measure of each interior angle, in degrees.', frac(Fraction(180 * (n - 2), n)),
+        ['n(n − 3)/2 = 170 gives n² − 3n − 340 = 0, so (n − 20)(n + 17) = 0 and n = 20.', 'Each interior angle = (20 − 2) · 180° ÷ 20 = 3240° ÷ 20 = 162°.'])

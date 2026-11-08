@@ -7137,6 +7137,385 @@
     "Correct answer: They fit around one vertex (5.5.10), but they do not extend to a tessellation of the plane"
    ],
    "sourceNotes": "Original Claude-authored Discrete Math item (family: vertex_not_tiling_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+  },
+  {
+   "id": "dm-sq-s01-honors-011",
+   "skillId": "sequences-induction-recursion-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate the telescoping sum Σ_{k=1}^{8} 2/((k + 1)(k + 2)). (Give a fraction a/b.)",
+   "answer": "4/5",
+   "solutionSteps": [
+    "2/((k + 1)(k + 2)) = 2(1/(k + 1) − 1/(k + 2)).",
+    "The middle terms cancel: 2(1/2 − 1/10) = 2 · 2/5.",
+    "Value: 4/5",
+    "Answer: 4/5"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s01-honors-006 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s01-honors-012",
+   "skillId": "sequences-induction-recursion-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ_{k=4}^{19} 1/(k(k + 1)). (Give a fraction a/b.)",
+   "answer": "1/5",
+   "solutionSteps": [
+    "1/(k(k + 1)) = 1/k − 1/(k + 1).",
+    "The sum telescopes from k = 4 to k = 19: 1/4 − 1/20.",
+    "5/20 − 1/20 = 4/20 = 1/5",
+    "Answer: 1/5"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s01-honors-007 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s01-honors-013",
+   "skillId": "sequences-induction-recursion-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let a_n = Σ_{k=1}^{n} (−1)ᵏ⁺¹(2k − 1), so a_n = 1 − 3 + 5 − ... ± (2n − 1). Find a₁₉.",
+   "answer": "19",
+   "solutionSteps": [
+    "Pair the terms: (1 − 3) + (5 − 7) + ... and each pair is −2.",
+    "n = 19: nine pairs give −18, and the last term is 2·19 − 1 = 37.",
+    "a₁₉ = −18 + 37 = 19 (in general a_n = n for odd n).",
+    "Answer: 19"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s01-honors-010 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s02-honors-011",
+   "skillId": "sequences-induction-recursion-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a₄ = 27 and a₁₂ = 35. Find the sum of its first 20 terms.",
+   "answer": "670",
+   "solutionSteps": [
+    "8d = 35 − 27, so d = 1 and a₁ = 27 − 3d = 24.",
+    "a₂₀ = 24 + 19 = 43.",
+    "S₂₀ = 20 · (24 + 43) ÷ 2 = 10 · 67 = 670",
+    "Answer: 670"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s02-honors-003 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s02-honors-012",
+   "skillId": "sequences-induction-recursion-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A geometric sequence with positive terms has a₃ = 12 and a₇ = 192. Find a₁ + a₂ + ... + a₉.",
+   "answer": "1533",
+   "solutionSteps": [
+    "r⁴ = a₇/a₃ = 16, so r = 2 (the terms are positive).",
+    "a₁ = a₃/r² = 3.",
+    "S₉ = 3(2⁹ − 1)/(2 − 1) = 3 · 511 = 1533",
+    "Answer: 1533"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s02-honors-004 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s02-honors-013",
+   "skillId": "sequences-induction-recursion-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A geometric sequence has a₃ = 2 and a₆ = 16. Find a₉.",
+   "answer": "128",
+   "solutionSteps": [
+    "a₆/a₃ = r³ = 8, so r = 2.",
+    "a₉ = a₆ · r³ = 16 · 8 = 128",
+    "Answer: 128"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s02-honors-002 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s03-honors-011",
+   "skillId": "sequences-induction-recursion-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use the hockey stick identity to evaluate C(2, 2) + C(3, 2) + C(4, 2) + ... + C(11, 2).",
+   "answer": "220",
+   "solutionSteps": [
+    "Hockey stick identity: Σ_{m=r}^{n} C(m, r) = C(n + 1, r + 1).",
+    "Here r = 2 and n = 11, so the sum is C(12, 3).",
+    "C(12, 3) = (12 · 11 · 10) ÷ 6 = 220",
+    "Answer: 220"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s03-honors-002 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s03-honors-012",
+   "skillId": "sequences-induction-recursion-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate C(5, 0)² + C(5, 1)² + C(5, 2)² + C(5, 3)² + C(5, 4)² + C(5, 5)².",
+   "answer": "252",
+   "solutionSteps": [
+    "Row 5 of Pascal's triangle is 1, 5, 10, 10, 5, 1.",
+    "Squares: 1 + 25 + 100 + 100 + 25 + 1 = 252.",
+    "Check: Σ C(n, k)² = C(2n, n) = C(10, 5) = 252.",
+    "Answer: 252"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s03-honors-003 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s03-honors-013",
+   "skillId": "sequences-induction-recursion-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate 8!/(2⁴ · 4!).",
+   "answer": "105",
+   "solutionSteps": [
+    "8! = 40320 and 2⁴ · 4! = 16 · 24 = 384.",
+    "40320/384 = 105.",
+    "Check: 8!/(2⁴·4!) = 1·3·5·7, the number of ways to split 8 people into 4 pairs.",
+    "Answer: 105"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s03-honors-009 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s04-honors-011",
+   "skillId": "sequences-induction-recursion-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use F_(2n) = F_n(F_(n−1) + F_(n+1)) with n = 8 to find F₁₆ (F₁ = F₂ = 1).",
+   "answer": "987",
+   "solutionSteps": [
+    "F₇ = 13, F₈ = 21, F₉ = 34.",
+    "F₁₆ = 21(13 + 34) = 21 · 47 = 987",
+    "Answer: 987"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s04-honors-003 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s04-honors-012",
+   "skillId": "sequences-induction-recursion-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many bit strings of length 16 have no two consecutive 1s?",
+   "answer": "2584",
+   "solutionSteps": [
+    "Let b_n count them. A valid string ends in 0 (after any valid string of length n − 1) or in 01 (after any valid string of length n − 2).",
+    "So b_n = b_(n−1) + b_(n−2) with b₁ = 2, b₂ = 3, which gives b_n = F_(n+2).",
+    "b₁₆ = F₁₈ = 2584",
+    "Answer: 2584"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s04-honors-008 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s04-honors-013",
+   "skillId": "sequences-induction-recursion-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In how many ways can a 2 × 10 rectangle be tiled with 1 × 2 dominoes?",
+   "answer": "89",
+   "solutionSteps": [
+    "Let t_n count tilings of a 2 × n rectangle. The left end is one vertical domino (leaving 2 × (n − 1)) or two stacked horizontal dominoes (leaving 2 × (n − 2)).",
+    "t_n = t_(n−1) + t_(n−2) with t₁ = 1, t₂ = 2, so t_n = F_(n+1).",
+    "t₁₀ = F₁₁ = 89",
+    "Answer: 89"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s04-honors-004 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s05-honors-011",
+   "skillId": "sequences-induction-recursion-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let a₀ = 1 and a_n = 4a_(n−1) + 1 for n ≥ 1. Find a₃, then check it with the closed form a_n = (4ⁿ⁺¹ − 1)/3.",
+   "answer": "85",
+   "solutionSteps": [
+    "a₁ = 5, a₂ = 21, a₃ = 85.",
+    "Closed form: (4⁴ − 1)/3 = 255/3 = 85",
+    "Answer: 85"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s05-honors-007 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s05-honors-012",
+   "skillId": "sequences-induction-recursion-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Fermat numbers satisfy f₀ = 3 and f_n = f₀ · f₁ ··· f_(n−1) + 2 for n ≥ 1. Find f₄.",
+   "answer": "65537",
+   "solutionSteps": [
+    "f₁ = 3 + 2 = 5, f₂ = 3·5 + 2 = 17, f₃ = 3·5·17 + 2 = 257.",
+    "f₄ = 3 · 5 · 17 · 257 + 2 = 65535 + 2 = 65537",
+    "Answer: 65537"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s05-honors-008 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s06-honors-011",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "T(n) = 2T(n/2) + 1 with T(1) = 1, for n a power of 2. Find T(512).",
+   "answer": "1023",
+   "solutionSteps": [
+    "Iterate: T(n) = 2ᵏT(n/2ᵏ) + (2ᵏ − 1).",
+    "With 2ᵏ = n: T(n) = n + (n − 1) = 2n − 1.",
+    "T(512) = 1023",
+    "Answer: 1023"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s06-honors-003 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s06-honors-012",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Iterate a₁ = 1, a_n = a_(n−1) + 3n² − 3n + 1 to find a₄. (Compare the terms with perfect cubes.)",
+   "answer": "64",
+   "solutionSteps": [
+    "a₂ = 1 + 7 = 8, a₃ = 8 + 19 = 27, a₄ = 27 + 37 = 64.",
+    "Since n³ − (n − 1)³ = 3n² − 3n + 1, a_n = n³.",
+    "a₄ = 64",
+    "Answer: 64"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s06-honors-004 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s06-honors-013",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Iterate a₀ = 0, a_n = a_(n−1) + (−1)ⁿ · n to find a₅.",
+   "answer": "-3",
+   "solutionSteps": [
+    "a₁ = −1, a₂ = 1, a₃ = −2, a₄ = 2, a₅ = −3.",
+    "Pattern: a_n = −(n + 1)/2 for odd n.",
+    "a₅ = −3",
+    "Answer: -3"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s06-honors-005 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s06-honors-014",
+   "skillId": "sequences-induction-recursion-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Iterate a₁ = 4, a_n = 2a_(n−1) + 1 to find a₄, and check it with a_n = 5 · 2ⁿ⁻¹ − 1.",
+   "answer": "39",
+   "solutionSteps": [
+    "a₂ = 9, a₃ = 19, a₄ = 39.",
+    "Closed form: 5 · 2³ − 1 = 39",
+    "Answer: 39"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s06-honors-009 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s07-honors-011",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the least integer N such that 2ⁿ > n² + n for every integer n ≥ N. (This N is the base case of an induction proof.)",
+   "answer": "5",
+   "solutionSteps": [
+    "n = 4: 16 < 20, so N > 4; n = 5: 32 > 30.",
+    "Step for k ≥ 5: 2ᵏ⁺¹ = 2·2ᵏ > 2k² + 2k ≥ (k + 1)² + (k + 1), because k² ≥ k + 2 for k ≥ 2.",
+    "Answer: 5"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s07-honors-012",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the least integer N such that n! > 2ⁿ⁺¹ for every integer n ≥ N.",
+   "answer": "5",
+   "solutionSteps": [
+    "n = 4: 24 < 32, so N > 4; n = 5: 120 > 64.",
+    "Step for k ≥ 5: (k + 1)! = (k + 1)k! > (k + 1)2ᵏ⁺¹ ≥ 2 · 2ᵏ⁺¹ = 2ᵏ⁺².",
+    "Answer: 5"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s07-honors-011 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s07-honors-013",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the least integer N such that n! > 3ⁿ for every integer n ≥ N.",
+   "answer": "7",
+   "solutionSteps": [
+    "n = 6: 720 < 729, so N > 6; n = 7: 5040 > 2187.",
+    "Step for k ≥ 7: (k + 1)! = (k + 1)k! > (k + 1)3ᵏ ≥ 3 · 3ᵏ = 3ᵏ⁺¹.",
+    "Answer: 7"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s07-honors-014",
+   "skillId": "sequences-induction-recursion-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Strong induction shows that every amount of at least 8 cents can be made with 3‑cent and 5‑cent stamps. What is the largest amount (in cents) that CANNOT be made?",
+   "answer": "7",
+   "solutionSteps": [
+    "7 cannot be made: 7, 7 − 5 = 2 are not multiples of 3.",
+    "Base cases 8 = 3 + 5, 9 = 3·3, 10 = 5·2; step: k + 1 = (k − 2) + 3 uses the case k − 2 ≥ 8.",
+    "So every amount ≥ 8 works and 7 is the largest that does not.",
+    "Answer: 7"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s07-honors-013 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s08-honors-011",
+   "skillId": "sequences-induction-recursion-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Inductive step for 6 | (7ⁿ − 1): write 7ᵏ⁺¹ − 1 = 7(7ᵏ − 1) + c. Find the integer c.",
+   "answer": "6",
+   "solutionSteps": [
+    "7ᵏ⁺¹ − 1 = 7·7ᵏ − 7 + 6 = 7(7ᵏ − 1) + 6.",
+    "Both 7(7ᵏ − 1) (by the hypothesis) and 6 are multiples of 6.",
+    "Answer: 6"
+   ],
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s08-honors-012",
+   "skillId": "sequences-induction-recursion-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Inductive step for 6 | (n³ − n): (k + 1)³ − (k + 1) = (k³ − k) + c · T_k, where T_k = k(k + 1)/2 is an integer. Find the integer c.",
+   "answer": "6",
+   "solutionSteps": [
+    "(k + 1)³ − (k + 1) = k³ + 3k² + 2k = (k³ − k) + 3k(k + 1).",
+    "3k(k + 1) = 6 · k(k + 1)/2 = 6T_k, so c = 6.",
+    "Both terms are multiples of 6, which completes the step.",
+    "Answer: 6"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s08-honors-011 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s09-honors-011",
+   "skillId": "sequences-induction-recursion-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Cannonballs are stacked in a square pyramid: 1 ball on top, then layers of 4, 9, 16, ... balls. How many balls are in a pyramid with 6 layers?",
+   "answer": "91",
+   "solutionSteps": [
+    "Total = 1 + 4 + 9 + 16 + 25 + 36 = 91.",
+    "Check with the sum of squares: n(n + 1)(2n + 1) ÷ 6 = (6 · 7 · 13) ÷ 6 = 91.",
+    "Answer: 91"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s09-honors-001 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+  },
+  {
+   "id": "dm-sq-s09-honors-012",
+   "skillId": "sequences-induction-recursion-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A regular polygon has 170 diagonals. Find the measure of each interior angle, in degrees.",
+   "answer": "162",
+   "solutionSteps": [
+    "n(n − 3)/2 = 170 gives n² − 3n − 340 = 0, so (n − 20)(n + 17) = 0 and n = 20.",
+    "Each interior angle = (20 − 2) · 180° ÷ 20 = 3240° ÷ 20 = 162°.",
+    "Answer: 162"
+   ],
+   "sourceNotes": "Partner-check companion to dm-sq-s09-honors-003 (same answer, different problem). Original Claude-authored Discrete Math item (family: partner_pair). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
   }
  ]
 }
