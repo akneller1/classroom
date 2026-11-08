@@ -933,7 +933,7 @@ body { background:var(--paper); }
 }
 
 /* Smaller teaching-task cards with generous space between rows and columns. */
-.task-workspace .task-grid { gap:.75rem; }
+.task-workspace .task-grid { gap:.375rem; }
 .task-workspace .task-card {
   display:grid; grid-template-columns:2rem minmax(0,1fr);
   grid-template-rows:auto 1fr auto; align-items:start;
@@ -949,11 +949,11 @@ body { background:var(--paper); }
     grid-template-columns:repeat(3,minmax(0,1fr));
     justify-content:stretch;
     grid-template-rows:repeat(3,minmax(0,1fr));
-    gap:calc(6.25% + .31875rem);
+    gap:calc(3.125% + .159375rem);
   }
 }
 @media(max-width:760px) {
-  .task-workspace .task-grid { gap:.55rem; }
+  .task-workspace .task-grid { gap:.275rem; }
 }
 
 /* Soft rainbow in curriculum order, from red through violet. */
