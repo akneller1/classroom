@@ -22,7 +22,7 @@
 (function () {
   'use strict';
   if (typeof window === 'undefined' || typeof document === 'undefined' || !window.location) return;
-  var WEBSITE_ID = '';                                   // ← paste your Umami Website ID here
+  var WEBSITE_ID = '309c294f-46be-4e91-bc1d-480170c70a3d';                                   // ← paste your Umami Website ID here
   var SCRIPT_URL = 'https://cloud.umami.is/script.js';   // the src in Umami's Tracking code
   var DOMAINS = ['akneller1.github.io'];                 // only count visits to the live site
 
