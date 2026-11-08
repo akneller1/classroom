@@ -30,5 +30,6 @@ for(const entry of entries){
   assert.ok((errors.get(skill+'|'+lv)||0)>=2,skill+' '+lv+' has fewer than 2 error-analysis questions');
  }
 }
-assert.equal(total,4586);assert.equal(skills.size,87);
-console.log('PASS 11 Algebra 2 banks, 4,586 questions, 87 skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');
+assert.equal(total,4667);   // 4,586 + 81 partner-check companions (tools/partner-check-companions-20261107)
+assert.equal(skills.size,87);
+console.log('PASS 11 Algebra 2 banks, 4,667 questions, 87 skills, every skill with 16+ questions per level, '+imageCount+' image references; human review not asserted');

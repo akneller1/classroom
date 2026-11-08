@@ -10843,6 +10843,248 @@
     "A-CED.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_work_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s01-cp1-pc01",
+   "skillId": "rational-functions-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (x² - 9)/(2x + 6).",
+   "answer": "(x - 3)/2",
+   "solutionSteps": [
+    "x² - 9 = (x - 3)(x + 3) and 2x + 6 = 2(x + 3).",
+    "Cancel x + 3.",
+    "(x - 3)/2."
+   ],
+   "standards": [
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s01-cp1-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s02-cp1-pc01",
+   "skillId": "rational-functions-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Divide and simplify: (x² + 3x)/(x - 4) ÷ (2x + 6)/(x - 4).",
+   "answer": "x/2",
+   "solutionSteps": [
+    "Multiply by the reciprocal: x(x + 3)/(x - 4) · (x - 4)/(2(x + 3)).",
+    "Cancel x - 4 and x + 3.",
+    "x/2."
+   ],
+   "standards": [
+    "A-APR.D.7"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s02-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s03-cp1-pc01",
+   "skillId": "rational-functions-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify 4/(x² - 2x - 3) + 1/(x + 1).",
+   "answer": "1/(x - 3)",
+   "solutionSteps": [
+    "x² - 2x - 3 = (x - 3)(x + 1).",
+    "4/((x - 3)(x + 1)) + (x - 3)/((x - 3)(x + 1)) = (x + 1)/((x - 3)(x + 1)).",
+    "1/(x - 3)."
+   ],
+   "standards": [
+    "A-APR.D.7"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s03-cp1-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s04-cp1-pc01",
+   "skillId": "rational-functions-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve x/(x - 3) = 2.",
+   "answer": "x = 6",
+   "solutionSteps": [
+    "x = 2(x - 3), x ≠ 3.",
+    "x = 2x - 6.",
+    "x = 6."
+   ],
+   "standards": [
+    "A-REI.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s04-cp1-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s08-cp1-pc01",
+   "skillId": "rational-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A new machine wraps a day’s orders in 2.5 hours and an old machine takes 10 hours. How long do they take working together?",
+   "answer": "2 hours",
+   "solutionSteps": [
+    "Rates: 1/2.5 = 0.4 and 1/10 = 0.1 job per hour.",
+    "Together 0.5 job per hour.",
+    "Time = 1/0.5 = 2 hours."
+   ],
+   "standards": [
+    "A-CED.A.1",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s08-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s08-cp1-pc02",
+   "skillId": "rational-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The time to finish a job varies inversely with the number of workers. Six workers take 10 h. How long do 15 workers take?",
+   "answer": "4 h",
+   "solutionSteps": [
+    "t = k/n with k = 6 · 10 = 60.",
+    "t = 60/15.",
+    "4 h."
+   ],
+   "standards": [
+    "A-CED.A.1",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s08-cp1-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s06-cp1-pc01",
+   "skillId": "rational-functions-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the horizontal asymptote of y = (6x² + 1)/(3x² - 5x).",
+   "answer": "y = 2",
+   "solutionSteps": [
+    "The degrees are equal.",
+    "HA: ratio of leading coefficients 6/3.",
+    "y = 2."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s06-cp1-014 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s01-honors-pc01",
+   "skillId": "rational-functions-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Simplify (x³ + 3x² - 4x - 12)/(x² - 4).",
+   "answer": "x + 3",
+   "solutionSteps": [
+    "Group: x²(x + 3) - 4(x + 3) = (x + 3)(x² - 4).",
+    "Cancel x² - 4.",
+    "x + 3."
+   ],
+   "standards": [
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s01-honors-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s02-honors-pc01",
+   "skillId": "rational-functions-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Simplify the complex fraction (1 + 2/x)/(1 + 1/x - 2/x²).",
+   "answer": "x/(x - 1)",
+   "solutionSteps": [
+    "Multiply top and bottom by x²: (x² + 2x)/(x² + x - 2).",
+    "= x(x + 2)/((x + 2)(x - 1)).",
+    "x/(x - 1)."
+   ],
+   "standards": [
+    "A-APR.D.7"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s02-honors-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s04-honors-pc01",
+   "skillId": "rational-functions-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve x/(x - 2) + 1/(x - 2) = 4.",
+   "answer": "x = 3",
+   "solutionSteps": [
+    "(x + 1)/(x - 2) = 4, x ≠ 2.",
+    "x + 1 = 4x - 8.",
+    "x = 3."
+   ],
+   "standards": [
+    "A-REI.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s04-honors-008 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s05-honors-pc01",
+   "skillId": "rational-functions-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve x²/(x - 3) = (5x - 6)/(x - 3). Identify any extraneous solutions.",
+   "answer": "x = 2 (x = 3 is extraneous)",
+   "solutionSteps": [
+    "Multiply by x - 3 (x ≠ 3): x² = 5x - 6.",
+    "x² - 5x + 6 = 0, so x = 2 or x = 3.",
+    "x = 3 makes a denominator 0: x = 2 (x = 3 is extraneous)."
+   ],
+   "standards": [
+    "A-REI.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s05-honors-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s08-honors-pc01",
+   "skillId": "rational-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Pipe A fills a tank in 4 h. With pipe B also open, the tank fills in 3 h. How long would pipe B take alone?",
+   "answer": "12 h",
+   "solutionSteps": [
+    "1/4 + 1/b = 1/3.",
+    "1/b = 1/3 - 1/4 = 1/12.",
+    "b = 12 h."
+   ],
+   "standards": [
+    "A-CED.A.1",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s08-honors-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s08-honors-pc02",
+   "skillId": "rational-functions-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "y varies inversely with x, and y = 8 when x = 6. Find y when x = 3.",
+   "answer": "16",
+   "solutionSteps": [
+    "y = k/x with k = 48.",
+    "y = 48/3.",
+    "16."
+   ],
+   "standards": [
+    "A-CED.A.1",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s08-honors-011 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-rf-s07-honors-pc01",
+   "skillId": "rational-functions-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find all vertical asymptotes of f(x) = (x² - 2x)/(x³ - 2x² - 9x + 18).",
+   "answer": "x = -3 and x = 3",
+   "solutionSteps": [
+    "Denominator: x²(x - 2) - 9(x - 2) = (x - 2)(x - 3)(x + 3); numerator x(x - 2).",
+    "x - 2 cancels (a hole at x = 2).",
+    "Vertical asymptotes: x = -3 and x = 3."
+   ],
+   "standards": [
+    "F-IF.C.7d"
+   ],
+   "sourceNotes": "Partner-check companion to a2-rf-s07-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

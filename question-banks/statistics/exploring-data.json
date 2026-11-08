@@ -13368,6 +13368,287 @@
         "APSTATS.I.D"
       ],
       "sourceNotes": "Original Claude-authored item (family: u1_s09_mcfill). Conceptual key and distractors reviewed by hand against standard AP Statistics usage. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s02-honors-h01",
+      "skillId": "exploring-data-skill-02",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "A data set has Q1 = 22 and Q3 = 34. Using the 1.5 × IQR rule, what is the upper fence for outliers?",
+      "answer": "52",
+      "solutionSteps": [
+        "IQR = 34 − 22 = 12.",
+        "Upper fence = Q3 + 1.5(IQR) = 34 + 18 = 52."
+      ],
+      "options": [
+        {
+          "text": "52",
+          "correct": true
+        },
+        {
+          "text": "46",
+          "correct": false
+        },
+        {
+          "text": "40",
+          "correct": false
+        },
+        {
+          "text": "58",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.A.3",
+        "APSTATS.I.B.4"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s04-honors-h02",
+      "skillId": "exploring-data-skill-04",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "A five-number summary is 41, 58, 66, 79, 97. About what percent of the values lie between 58 and 97?",
+      "answer": "about 75%",
+      "solutionSteps": [
+        "58 is Q1 and 97 is the maximum.",
+        "From Q1 to the maximum covers three quarters of the data: about 75%."
+      ],
+      "options": [
+        {
+          "text": "about 75%",
+          "correct": true
+        },
+        {
+          "text": "about 50%",
+          "correct": false
+        },
+        {
+          "text": "about 25%",
+          "correct": false
+        },
+        {
+          "text": "about 100%",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.B.2",
+        "APSTATS.I.B.3",
+        "APSTATS.I.B.4"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s06-honors-h03",
+      "skillId": "exploring-data-skill-06",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "48 of 120 juniors and 36 of 80 seniors drive to school. Find P(drives | senior) − P(drives | junior).",
+      "answer": "0.05",
+      "solutionSteps": [
+        "P(drives | senior) = 36/80 = 0.45.",
+        "P(drives | junior) = 48/120 = 0.40.",
+        "Difference: 0.45 − 0.40 = 0.05."
+      ],
+      "options": [
+        {
+          "text": "-0.05",
+          "correct": false
+        },
+        {
+          "text": "0.05",
+          "correct": true
+        },
+        {
+          "text": "0.15",
+          "correct": false
+        },
+        {
+          "text": "0.425",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.E.2",
+        "APSTATS.I.E.3"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s07-honors-h04",
+      "skillId": "exploring-data-skill-07",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "A scatterplot has r = -0.6. Every x-value is doubled and 10 is added to every y-value. What is the new correlation?",
+      "answer": "-0.6",
+      "solutionSteps": [
+        "Correlation has no units.",
+        "A positive scale change or a shift of either variable does not change r.",
+        "r = -0.6."
+      ],
+      "options": [
+        {
+          "text": "-1.2",
+          "correct": false
+        },
+        {
+          "text": "0.6",
+          "correct": false
+        },
+        {
+          "text": "-0.6",
+          "correct": true
+        },
+        {
+          "text": "-0.3",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.D.2"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s08-honors-h05",
+      "skillId": "exploring-data-skill-08",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "The least-squares line is ŷ = 12 + 0.8x and the mean of x is 30. What is the mean of y?",
+      "answer": "36",
+      "solutionSteps": [
+        "The least-squares line passes through (x̄, ȳ).",
+        "ȳ = 12 + 0.8(30) = 36."
+      ],
+      "options": [
+        {
+          "text": "24",
+          "correct": false
+        },
+        {
+          "text": "42",
+          "correct": false
+        },
+        {
+          "text": "36",
+          "correct": true
+        },
+        {
+          "text": "30",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.D.3"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s09-honors-h06",
+      "skillId": "exploring-data-skill-09",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "The least-squares line is ŷ = 4.2 + 1.5x. The point (10, 21) is in the data. What is its residual?",
+      "answer": "1.8",
+      "solutionSteps": [
+        "ŷ = 4.2 + 1.5(10) = 19.2.",
+        "Residual = y − ŷ = 21 − 19.2 = 1.8."
+      ],
+      "options": [
+        {
+          "text": "-1.8",
+          "correct": false
+        },
+        {
+          "text": "19.2",
+          "correct": false
+        },
+        {
+          "text": "21",
+          "correct": false
+        },
+        {
+          "text": "1.8",
+          "correct": true
+        }
+      ],
+      "standards": [
+        "APSTATS.I.D.3",
+        "APSTATS.I.D.4"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s01-honors-h07",
+      "skillId": "exploring-data-skill-01",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "40 values all fall in bins of width 5 starting at 10. Bins 10–15, 15–20 and 20–25 hold 6, 14 and 12. What proportion are 25 or more?",
+      "answer": "0.2",
+      "solutionSteps": [
+        "Values below 25: 6 + 14 + 12 = 32.",
+        "40 − 32 = 8 values are 25 or more.",
+        "8/40 = 0.2."
+      ],
+      "options": [
+        {
+          "text": "0.3",
+          "correct": false
+        },
+        {
+          "text": "0.2",
+          "correct": true
+        },
+        {
+          "text": "0.8",
+          "correct": false
+        },
+        {
+          "text": "0.12",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.A",
+        "APSTATS.I.B.3"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
+    },
+    {
+      "id": "stat-u1-s05-honors-h08",
+      "skillId": "exploring-data-skill-05",
+      "level": "honors",
+      "format": "multiple-choice",
+      "prompt": "Heights are approximately Normal with mean 64 in and standard deviation 2.5 in. What height has a z-score of 1.2?",
+      "answer": "67 in",
+      "solutionSteps": [
+        "x = μ + zσ.",
+        "x = 64 + 1.2(2.5) = 64 + 3 = 67 in."
+      ],
+      "options": [
+        {
+          "text": "65.2 in",
+          "correct": false
+        },
+        {
+          "text": "61 in",
+          "correct": false
+        },
+        {
+          "text": "67 in",
+          "correct": true
+        },
+        {
+          "text": "66.5 in",
+          "correct": false
+        }
+      ],
+      "standards": [
+        "APSTATS.I.B.3"
+      ],
+      "sourceNotes": "Original Claude-authored Honors item (2026-11-07) added so the Exploring Data printable Whodunnit builds from Honors questions; answer recomputed in tools/statistics-honors-formats-20261107/add_honors.py. Awaiting human review."
     }
   ]
 }

@@ -10623,6 +10623,129 @@
     "F-IF.B.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_area_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-pc01",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Determine the range of f(x) = 2x² + 8x + 10. Justify algebraically.",
+   "answer": "y ≥ 2",
+   "solutionSteps": [
+    "f(x) = 2(x + 2)² + 2.",
+    "2(x + 2)² ≥ 0, with equality at x = -2.",
+    "Range: y ≥ 2."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s02-honors-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-pc01",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f(x) = √(x - 3) and g(x) = x/3. Find the domain of (f ∘ g)(x).",
+   "answer": "x ≥ 9",
+   "solutionSteps": [
+    "(f ∘ g)(x) = √(x/3 - 3).",
+    "Need x/3 - 3 ≥ 0.",
+    "x ≥ 9."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s03-honors-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s01-honors-pc01",
+   "skillId": "functions-transformations-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For f(x) = -x² + 6x + 5, find all x such that f(x) = 5.",
+   "answer": "x = 0 or x = 6",
+   "solutionSteps": [
+    "-x² + 6x + 5 = 5, so -x² + 6x = 0.",
+    "-x(x - 6) = 0.",
+    "x = 0 or x = 6."
+   ],
+   "standards": [
+    "F-IF.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s01-honors-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s05-honors-pc01",
+   "skillId": "functions-transformations-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The point (-6, 3) is on y = f(x). Find the corresponding point on y = f(x - 8) + 4.",
+   "answer": "(2, 7)",
+   "solutionSteps": [
+    "f(x - 8) shifts right 8: x = -6 + 8 = 2.",
+    "+4 shifts up 4: y = 3 + 4 = 7.",
+    "The point is (2, 7)."
+   ],
+   "standards": [
+    "F-BF.B.3"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s05-honors-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s06-honors-pc01",
+   "skillId": "functions-transformations-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find k so that f(x) = { x² + k if x < 1; 3x - k if x ≥ 1 } is continuous.",
+   "answer": "k = 1",
+   "solutionSteps": [
+    "Match the pieces at x = 1: 1 + k = 3 - k.",
+    "2k = 2.",
+    "k = 1."
+   ],
+   "standards": [
+    "F-IF.C.7b"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s06-honors-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s03-honors-pc02",
+   "skillId": "functions-transformations-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Let f(x) = 4x + 3 and g(x) = -3x + 4. Find (f ∘ g)(x) and simplify.",
+   "answer": "-12x + 19",
+   "solutionSteps": [
+    "(f ∘ g)(x) = 4(-3x + 4) + 3.",
+    "= -12x + 16 + 3.",
+    "= -12x + 19."
+   ],
+   "standards": [
+    "F-BF.A.1b",
+    "F-BF.A.1c"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s03-honors-012 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ft-s02-honors-pc02",
+   "skillId": "functions-transformations-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the range of f(x) = -x² + 4x + 2. Use interval notation.",
+   "answer": "(-∞, 6]",
+   "solutionSteps": [
+    "f(x) = -(x - 2)² + 6.",
+    "The maximum value is 6 at x = 2.",
+    "Range (-∞, 6]."
+   ],
+   "standards": [
+    "F-IF.A.1",
+    "F-IF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ft-s02-honors-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

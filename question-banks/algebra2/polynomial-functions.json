@@ -11497,6 +11497,142 @@
     "A-APR.B.3"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_solve_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s01-cp1-pc01",
+   "skillId": "polynomial-functions-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Multiply and write in standard form: (x - 2)³ + 6x(x - 2).",
+   "answer": "x³ - 8",
+   "solutionSteps": [
+    "(x - 2)³ = x³ - 6x² + 12x - 8.",
+    "6x(x - 2) = 6x² - 12x.",
+    "Sum: x³ - 8."
+   ],
+   "standards": [
+    "A-APR.A.1"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s01-cp1-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s04-cp1-pc01",
+   "skillId": "polynomial-functions-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use the Remainder Theorem to find the remainder when g(x) = 2x³ - 3x² + x + 5 is divided by x - 2.",
+   "answer": "11",
+   "solutionSteps": [
+    "The remainder is g(2).",
+    "g(2) = 16 - 12 + 2 + 5.",
+    "Remainder 11."
+   ],
+   "standards": [
+    "A-APR.B.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s04-cp1-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s04-cp1-pc02",
+   "skillId": "polynomial-functions-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find k so that x + 1 is a factor of 2x³ + kx² - 4x + 1.",
+   "answer": "k = -3",
+   "solutionSteps": [
+    "x + 1 is a factor when f(-1) = 0.",
+    "-2 + k + 4 + 1 = 0.",
+    "k = -3."
+   ],
+   "standards": [
+    "A-APR.B.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s04-cp1-008 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s05-cp1-pc01",
+   "skillId": "polynomial-functions-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the zeros of f(x) = x⁵ - 4x³.",
+   "answer": "-2, 0, 2",
+   "solutionSteps": [
+    "Factor: x³(x² - 4) = x³(x - 2)(x + 2).",
+    "Zeros: -2, 0, 2."
+   ],
+   "standards": [
+    "A-APR.B.3"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s05-cp1-014 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s05-cp1-pc02",
+   "skillId": "polynomial-functions-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use the Rational Root Theorem to find all zeros of f(x) = x³ + 3x² - 4.",
+   "answer": "-2, 1",
+   "solutionSteps": [
+    "Possible rational zeros: ±1, ±2, ±4. f(1) = 0.",
+    "Divide by x - 1: x² + 4x + 4 = (x + 2)².",
+    "Zeros: -2, 1."
+   ],
+   "standards": [
+    "A-APR.B.3"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s05-cp1-017 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s08-cp1-pc01",
+   "skillId": "polynomial-functions-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve (x + 1)(x² + x - 2) = 0.",
+   "answer": "x = -2, x = -1, x = 1",
+   "solutionSteps": [
+    "x² + x - 2 = (x + 2)(x - 1).",
+    "(x + 1)(x + 2)(x - 1) = 0.",
+    "x = -2, x = -1, x = 1."
+   ],
+   "standards": [
+    "A-CED.A.1",
+    "A-APR.B.3"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s08-cp1-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s03-cp1-pc01",
+   "skillId": "polynomial-functions-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use synthetic division to divide x³ - 2x² - 4x + 8 by x - 2.",
+   "answer": "x² - 4",
+   "solutionSteps": [
+    "Coefficients 1, -2, -4, 8 with 2: bring down 1; 1·2 - 2 = 0; 0·2 - 4 = -4; -4·2 + 8 = 0.",
+    "Quotient x² + 0x - 4, remainder 0.",
+    "x² - 4."
+   ],
+   "standards": [
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s03-cp1-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-pf-s05-cp1-pc03",
+   "skillId": "polynomial-functions-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the zeros of f(x) = (x + 1)(x² - 3x - 4).",
+   "answer": "-1, 4",
+   "solutionSteps": [
+    "x² - 3x - 4 = (x - 4)(x + 1).",
+    "f(x) = (x + 1)²(x - 4).",
+    "Zeros: -1, 4."
+   ],
+   "standards": [
+    "A-APR.B.3"
+   ],
+   "sourceNotes": "Partner-check companion to a2-pf-s05-cp1-015 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

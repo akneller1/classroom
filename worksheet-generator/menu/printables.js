@@ -149,16 +149,27 @@
 
   /* Which selected skills can make items for this kind (sampled once, cached). */
   var capCache = {};
-  PR.capable = function (unitId, skill, kind) {
-    var k = unitId + '|' + skill + '|' + kind; if (capCache[k] !== undefined) return capCache[k];
+  /* Authored banks hold different questions at each level, so their capability is sampled at the level being
+     built (a skill whose CP1 questions are too long for a maze door may still have short Honors questions).
+     Generated skills are level-independent and keep the CP1 sample. */
+  PR.capable = function (unitId, skill, kind, level) {
+    var authored = !!(NS.skillSets[unitId] && NS.skillSets[unitId].authoredBank);
+    var lvl = authored && NS.LEVELS[level] ? level : 'cp1';
+    var k = unitId + '|' + skill + '|' + kind + (lvl === 'cp1' ? '' : '|' + lvl); if (capCache[k] !== undefined) return capCache[k];
     var sd = NS.skillSets[unitId] && NS.skillSets[unitId].byId[skill]; if (sd && sd.print && sd.print.indexOf(kind) < 0) return (capCache[k] = false);   // a skill may list the printables it suits
-    var hits = 0, cfg = { unitId: unitId, level: 'cp1', answers: 'auto' };
+    var hits = 0, cfg = { unitId: unitId, level: lvl, answers: 'auto' };
+    if (authored) {
+      // bank draws are random within each third of the level, so 90 draws (30 per third) reach practically every
+      // question of the skill; the skill is capable when one of its questions at this level fits the printable
+      for (var j = 0; j < 90 && !hits; j++) if (makeItem(cfg, skill, NS.LEVELS[lvl].tiers[j % 3], 'cap|' + j, null, kind)) hits++;
+      return (capCache[k] = hits >= 1);
+    }
     [2, 3, 4, 5, 6].forEach(function (c) { for (var i = 0; i < 3; i++) if (makeItem(cfg, skill, c, 'cap|' + c + '|' + i, null, kind)) { hits++; break; } });
     return (capCache[k] = hits >= 2);
   };
   PR.skillsFor = function (cfg) {
     var set = NS.skillSets[cfg.unitId];
-    return set.skills.filter(function (s) { return cfg.skills[s.id] && PR.capable(cfg.unitId, s.id, cfg.kind); }).map(function (s) { return s.id; });
+    return set.skills.filter(function (s) { return cfg.skills[s.id] && PR.capable(cfg.unitId, s.id, cfg.kind, cfg.level); }).map(function (s) { return s.id; });
   };
 
   /* n items with pairwise different answers; difficulty rises from the level's easiest to hardest tier. */
@@ -313,15 +324,29 @@
 
   /* =========================== PARTNER CHECK =========================== */
   /* Pairs of different problems whose answers each verifier accepts for the other (same answer). */
-  function countPairs(pool) { var g = {}; pool.forEach(function (it) { var k = nrm(it.key).replace(/^[a-z]=/, ''); g[k] = (g[k] || 0) + 1; }); return Object.keys(g).filter(function (k) { return g[k] > 1; }).length; }
+  /* Answer identity for authored-bank items: their checker is an exact string match, so "x = 2" and "2" or a
+     typographic minus would never pair although they are the same answer. The canonical form drops spacing,
+     case, a typographic minus and a leading one-letter "x =" (only when the answer is a single value). The same
+     form keeps two rows from sharing one answer. Generated items keep using their verifiers. */
+  function canon(a) { var t = nrm(a).toLowerCase().replace(/\u2212/g, '-'); return /^[a-z]=[^=,;]*$/.test(t) ? t.slice(2) : t; }
+  PR.partnerAnswerKey = canon;
+  function bankItem(it) { return it.p.source === 'authored-bank'; }
+  function sameAnswer(a, b) { return bankItem(a) && bankItem(b) ? canon(a.key) === canon(b.key) : ok(a.p, b.key) && ok(b.p, a.key); }
+  function rowClash(a, b) { return clash(a, b) || (bankItem(a) && bankItem(b) && canon(a.key) === canon(b.key)); }
+  function countPairs(pool) { var g = {}; pool.forEach(function (it) { var k = canon(it.key); g[k] = (g[k] || 0) + 1; }); return Object.keys(g).filter(function (k) { return g[k] > 1; }).length; }
   PR.buildPartner = function (cfg, vIdx) {
     var lv = NS.LEVELS[cfg.level] || NS.LEVELS.cp1, skills = PR.skillsFor(cfg), rng = rngOf(cfg.seed, vIdx, 'partner');
     if (!skills.length) return { error: 'None of the selected skills can make partner problems.' };
     // Statistics has authored pairs covering every selected skill and level.
     if (/^statistics-/.test(cfg.unitId) && NS.authoredPartnerPairs) {
-      var authored = rng.shuffle(NS.authoredPartnerPairs(cfg.unitId, skills, cfg.level));
+      var authored = rng.shuffle(NS.authoredPartnerPairs(cfg.unitId, skills, cfg.level)), selected = [];
       if (!authored.length) return { error: 'No authored partner pairs match these skills and level.' };
-      return { kind: 'partner', rows: authored.slice(0, 8) };
+      authored.forEach(function (pair) {
+        if (selected.length < 8 && !selected.some(function (row) { return rowClash(row.A, pair.A); })) selected.push(pair);
+      });
+      var authoredSheet = { kind: 'partner', rows: selected };
+      if (selected.length < 8) authoredSheet.levelNote = 'This sheet has ' + selected.length + ' of 8 partner pairs: the selected skills have only ' + selected.length + ' distinct authored pair answers at this level. Select more skills for a full sheet.';
+      return authoredSheet;
     }
     var want = 8, pool = [], used = { keys: new Set(), sigs: new Set() };
     for (var i = 0; i < 1600 && pool.length < (i < 360 ? 340 : 1200); i++) {
@@ -331,28 +356,40 @@
       var it = makeItem(cfg, sk, c, [cfg.seed, vIdx, 'pc', i].join('|'), used, 'partner');
       if (it) pool.push(it);
     }
-    var groups = {}; pool.forEach(function (it) { var k = nrm(it.key).replace(/^[a-z]=/, ''); (groups[k] = groups[k] || []).push(it); });
+    var groups = {}; pool.forEach(function (it) { var k = canon(it.key); (groups[k] = groups[k] || []).push(it); });
     var pairs = [];
     Object.keys(groups).forEach(function (k) {
       var L = groups[k]; if (L.length < 2) return;
+      // prefer two problems of the same skill when the answer group has a choice
+      var cand = [];
       for (var a = 0; a < L.length; a++) for (var b = a + 1; b < L.length; b++) {
         if (nrm(L[a].p.prompt) === nrm(L[b].p.prompt)) continue;
-        if (ok(L[a].p, L[b].key) && ok(L[b].p, L[a].key)) { pairs.push({ A: L[a], B: L[b], same: L[a].skill === L[b].skill }); return; }
+        if (sameAnswer(L[a], L[b])) cand.push({ A: L[a], B: L[b], same: L[a].skill === L[b].skill });
       }
+      if (cand.length) pairs.push(cand.filter(function (x) { return x.same; })[0] || cand[0]);
     });
-    // prefer same-skill pairs, spread over skills, no two rows with the same answer
+    // prefer same-skill pairs, spread over skills (one per skill per round), no two rows with the same answer.
+    // Rounds continue until the sheet is full, so a unit whose matches sit in a few skills still reaches 8 rows.
     pairs = rng.shuffle(pairs).sort(function (x, y) { return (y.same ? 1 : 0) - (x.same ? 1 : 0); });
     var rows = [], perSkill = {};
-    for (var round = 0; round < 4 && rows.length < want; round++) pairs.forEach(function (pr) {
+    for (var round = 0; round < want && rows.length < want; round++) pairs.forEach(function (pr) {
       if (rows.length >= want || rows.indexOf(pr) >= 0) return;
       if ((perSkill[pr.A.skill] || 0) > round) return;
-      if (rows.some(function (r) { return clash(r.A, pr.A); })) return;
+      if (rows.some(function (r) { return rowClash(r.A, pr.A); })) return;
       rows.push(pr); perSkill[pr.A.skill] = (perSkill[pr.A.skill] || 0) + 1;
     });
     if (rows.length < (!!NS.skillSets[cfg.unitId]?.authoredBank?1:4)) return { error: 'These skills rarely give two different problems with the same answer (found ' + rows.length + '). Choose more skills (number answers match most often).' };
     rows.sort(function (x, y) { return Math.max(x.A.c, x.B.c) - Math.max(y.A.c, y.B.c); });
     rows.forEach(function (r) { if (rng.next() < 0.5) { var t = r.A; r.A = r.B; r.B = t; } });
-    return { kind: 'partner', rows: rows };
+    var out = { kind: 'partner', rows: rows };
+    if (rows.length < want) {
+      var all = NS.skillSets[cfg.unitId].skills.filter(function (s) { return PR.capable(cfg.unitId, s.id, 'partner', cfg.level); }).length;
+      out.levelNote = 'This sheet has ' + rows.length + ' of ' + want + ' partner pairs: ' + (skills.length < all
+        ? 'the selected skills only have ' + rows.length + ' different answers that two different problems share at this level. Select more skills for a full sheet.'
+        : (NS.skillSets[cfg.unitId].authoredBank ? 'the approved question bank for this unit and level has only ' + rows.length + ' answers shared by two different problems.' : 'these skills rarely give two different problems with the same answer.')) +
+        ' Problems are never repeated, reworded or taken from another level to fill rows.';
+    }
+    return out;
   };
 
   /* =========================== ERROR ANALYSIS =========================== */

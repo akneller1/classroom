@@ -11010,6 +11010,122 @@
     "F-IF.C.8b"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_compound_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-el-s05-cp1-pc01",
+   "skillId": "exponential-logarithmic-functions-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate log₂(0.25).",
+   "answer": "-2",
+   "solutionSteps": [
+    "0.25 = 1/4 = 2^(-2).",
+    "log₂(0.25) = -2."
+   ],
+   "standards": [
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s05-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-el-s05-cp1-pc02",
+   "skillId": "exponential-logarithmic-functions-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate log₂₅(5).",
+   "answer": "1/2",
+   "solutionSteps": [
+    "25^(1/2) = 5.",
+    "log₂₅(5) = 1/2."
+   ],
+   "standards": [
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s05-cp1-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-el-s05-cp1-pc03",
+   "skillId": "exponential-logarithmic-functions-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate log₂₇(9).",
+   "answer": "2/3",
+   "solutionSteps": [
+    "27 = 3³ and 9 = 3², so 27^(2/3) = 9.",
+    "log₂₇(9) = 2/3."
+   ],
+   "standards": [
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s05-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-el-s04-cp1-pc01",
+   "skillId": "exponential-logarithmic-functions-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Condense into a single logarithm (or evaluate): log₃ 18 - log₃ 2.",
+   "answer": "2",
+   "solutionSteps": [
+    "log₃ 18 - log₃ 2 = log₃(18/2) = log₃ 9.",
+    "log₃ 9 = 2."
+   ],
+   "standards": [
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s04-cp1-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-el-s06-cp1-pc01",
+   "skillId": "exponential-logarithmic-functions-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve 25^x = 5^(x + 2).",
+   "answer": "x = 2",
+   "solutionSteps": [
+    "25^x = 5^(2x).",
+    "2x = x + 2.",
+    "x = 2."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "A-SSE.B.3c"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s06-cp1-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-el-s06-cp1-pc02",
+   "skillId": "exponential-logarithmic-functions-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve 3^(x + 1) = 1/27.",
+   "answer": "x = -4",
+   "solutionSteps": [
+    "1/27 = 3^(-3).",
+    "x + 1 = -3.",
+    "x = -4."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "A-SSE.B.3c"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s06-cp1-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-el-s07-cp1-pc01",
+   "skillId": "exponential-logarithmic-functions-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve log₂(x + 2) = 3.",
+   "answer": "x = 6",
+   "solutionSteps": [
+    "x + 2 = 2³ = 8.",
+    "x = 6."
+   ],
+   "standards": [
+    "F-LE.A.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-el-s07-cp1-019 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

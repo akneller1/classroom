@@ -8514,6 +8514,90 @@
     "AP FUN-6.B"
    ],
    "sourceNotes": "Original Claude-authored item (family: s7_props_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "cal-int-s06-honors-pc01",
+   "skillId": "antiderivatives-definite-integrals-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use geometry (areas) to evaluate ∫ from -3 to 3 2√(9 - x²) dx.",
+   "answer": "9π",
+   "solutionSteps": [
+    "y = √(9 - x²) is the upper half of a circle of radius 3: area 9π/2.",
+    "The factor 2 doubles it.",
+    "9π."
+   ],
+   "standards": [
+    "AP FUN-6.A"
+   ],
+   "sourceNotes": "Partner-check companion to cal-int-s06-honors-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-int-s06-honors-pc02",
+   "skillId": "antiderivatives-definite-integrals-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use geometry (areas) to evaluate ∫ from 0 to 6 2√(36 - x²) dx.",
+   "answer": "18π",
+   "solutionSteps": [
+    "y = √(36 - x²) on [0, 6] is a quarter circle of radius 6: area 9π.",
+    "The factor 2 doubles it.",
+    "18π."
+   ],
+   "standards": [
+    "AP FUN-6.A"
+   ],
+   "sourceNotes": "Partner-check companion to cal-int-s06-honors-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-int-s07-honors-pc01",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Given ∫ from 0 to 5 f(x) dx = 7 and ∫ from 0 to 5 g(x) dx = -3, find ∫ from 0 to 5 (2f(x) + 2g(x)) dx.",
+   "answer": "8",
+   "solutionSteps": [
+    "Linearity: 2∫f + 2∫g.",
+    "2(7) + 2(-3) = 8."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Partner-check companion to cal-int-s07-honors-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-int-s07-honors-pc02",
+   "skillId": "antiderivatives-definite-integrals-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Given ∫ from 2 to 6 f(x) dx = 9, find ∫ from 6 to 2 4f(x) dx.",
+   "answer": "-36",
+   "solutionSteps": [
+    "Reversing the limits changes the sign: ∫ from 6 to 2 f(x) dx = -9.",
+    "4(-9) = -36."
+   ],
+   "standards": [
+    "AP FUN-6.B"
+   ],
+   "sourceNotes": "Partner-check companion to cal-int-s07-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-int-s03-honors-pc01",
+   "skillId": "antiderivatives-definite-integrals-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Approximate ∫ from 0 to 4 (x³ - 2x + 2) dx using a right Riemann sum with 4 equal subintervals.",
+   "answer": "88",
+   "solutionSteps": [
+    "Δx = 1; right endpoints 1, 2, 3, 4.",
+    "f(1) + f(2) + f(3) + f(4) = 1 + 6 + 23 + 58.",
+    "88."
+   ],
+   "standards": [
+    "AP LIM-5.A",
+    "AP LIM-5.B"
+   ],
+   "sourceNotes": "Partner-check companion to cal-int-s03-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

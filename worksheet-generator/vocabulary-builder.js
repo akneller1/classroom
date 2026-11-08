@@ -1,6 +1,12 @@
 (function(){
 'use strict';
-const catalog=(window.MKMENU&&MKMENU.CATALOG)||[],$=id=>document.getElementById(id);
+const $=id=>document.getElementById(id);
+/* Courses and units come from the shared curriculum catalog (MKMENU.CATALOG, extended from data.js by
+   menu/course-catalog-bridge.js). A unit is offered when a vocabulary bank exists for it, so new
+   courses appear without another hand-kept list here. */
+const bankId=id=>window.MKVOCAB_BANK_ID?window.MKVOCAB_BANK_ID(id):id;
+const bankText=id=>(window.MKVOCAB_BANKS||{})[bankId(id)]||'';
+const catalog=((window.MKMENU&&MKMENU.CATALOG)||[]).map(g=>({course:g.course,units:g.units.filter(u=>bankText(u[0]))})).filter(g=>g.units.length);
 const math=value=>window.MK_MATH_DISPLAY?window.MK_MATH_DISPLAY.html(value):esc(value);
 const types=[['match','Matching',5],['blank','Fill in the blank',4],['draw','Draw / illustrate',2],['example','Write an example',2],['cross','Crossword',8]];
 let selected=[],last=null,turn=0;
@@ -10,7 +16,7 @@ const parse=(str)=>String(str||'').split(';').filter(Boolean).map((row,i)=>{let 
 const crosswordUnitIds=()=>Array.from(document.querySelectorAll('#crossUnits input:checked')).map(x=>x.value);
 function crossVocabulary(){
  const units=crosswordUnitIds(),seen=new Set(),out=[];
- units.forEach(id=>parse((window.MKVOCAB_BANKS||{})[id]).forEach(t=>{
+ units.forEach(id=>parse(bankText(id)).forEach(t=>{
    const key=normalize(t.term);
    if(key.length<3||key.length>23||seen.has(key)||!t.definition)return;
    seen.add(key);out.push({...t,id:id+':'+t.id,unitId:id});
@@ -34,9 +40,10 @@ function updateCrossCount(){
  const n=crossVocabulary().length;
  $('crossCount').textContent=crosswordUnitIds().length+' units · '+n+' unique crossword words available';
 }
-const current=()=>{let id=$('unit').value,source=parse((window.MKVOCAB_BANKS||{})[id]),extra=$('custom').value.split('\n').filter(x=>x.includes('|')).map((r,i)=>{let [term,definition,example,draw]=r.split('|');return {id:'extra'+i,term:term.trim(),definition:(definition||'').trim(),example:(example||'').trim(),draw:(draw||'').trim()}});return source.filter(x=>selected.includes(x.id)).concat(extra).filter(x=>x.term&&x.definition)};
-function loadUnits(){let c=catalog.find(x=>x.course===$('course').value);$('unit').innerHTML=(c?c.units:[]).map(x=>'<option value="'+esc(x[0])+'">'+esc(x[1])+'</option>').join('');let url=new URL(location.href),u=url.searchParams.get('unit');if(u&&Array.from($('unit').options).some(x=>x.value===u))$('unit').value=u;loadTerms();loadCrossUnits()}
-function loadTerms(){const middle=/^(prealgebra7?|math6)-/.test($('unit').value);Array.from($('level').options).forEach(o=>o.textContent=middle?({cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[o.value]||o.value):o.value.toUpperCase());let all=parse((window.MKVOCAB_BANKS||{})[$('unit').value]);selected=all.map(x=>x.id);$('terms').innerHTML=all.map(x=>'<label><input type="checkbox" data-id="'+x.id+'" checked> '+esc(x.term)+'</label>').join('');$('terms').querySelectorAll('input').forEach(x=>x.addEventListener('change',()=>{selected=Array.from($('terms').querySelectorAll('input:checked')).map(x=>x.dataset.id)}))}
+const current=()=>{let id=$('unit').value,source=parse(bankText(id)),extra=$('custom').value.split('\n').filter(x=>x.includes('|')).map((r,i)=>{let [term,definition,example,draw]=r.split('|');return {id:'extra'+i,term:term.trim(),definition:(definition||'').trim(),example:(example||'').trim(),draw:(draw||'').trim()}});return source.filter(x=>selected.includes(x.id)).concat(extra).filter(x=>x.term&&x.definition)};
+function requestedUnit(){const u=new URL(location.href).searchParams.get('unit');if(!u)return null;const all=catalog.flatMap(c=>c.units.map(x=>x[0]));if(all.includes(u))return u;return all.find(id=>bankId(id)===u)||u;}
+function loadUnits(){let c=catalog.find(x=>x.course===$('course').value);$('unit').innerHTML=(c?c.units:[]).map(x=>'<option value="'+esc(x[0])+'">'+esc(x[1])+'</option>').join('');let u=requestedUnit();if(u&&Array.from($('unit').options).some(x=>x.value===u))$('unit').value=u;loadTerms();loadCrossUnits()}
+function loadTerms(){const middle=/^(prealgebra7?|math6)-/.test($('unit').value);Array.from($('level').options).forEach(o=>o.textContent=middle?({cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[o.value]||o.value):o.value.toUpperCase());let all=parse(bankText($('unit').value));selected=all.map(x=>x.id);$('terms').innerHTML=all.map(x=>'<label><input type="checkbox" data-id="'+x.id+'" checked> '+esc(x.term)+'</label>').join('');$('terms').querySelectorAll('input').forEach(x=>x.addEventListener('change',()=>{selected=Array.from($('terms').querySelectorAll('input:checked')).map(x=>x.dataset.id)}))}
 function config(){return Object.fromEntries(types.map(([id])=>[id,$('use_'+id).checked?Math.max(0,Math.min(20,Number($('f_'+id).value)||0)):0]))}
 function fit(terms,n){return shuffle(terms).slice(0,Math.min(n,terms.length))}
 function normalize(t){return t.toUpperCase().replace(/[^A-Z]/g,'')}
@@ -72,7 +79,7 @@ if(allowed.includes('cross')&&counts.cross){
 }
 key+='</div>';if(!made){$('status').textContent='Choose at least one activity available at this mastery level.';return}last={h,key};$('preview').innerHTML=h+key;$('status').textContent='Generated '+made+' sections with '+vocab.length+' selected terms. '+notes.join(' ');document.body.classList.remove('print-key')}
 types.forEach(([id,name,n])=>{$('formats').insertAdjacentHTML('beforeend','<div class="section"><label><input type="checkbox" id="use_'+id+'" checked> Include '+name+'</label><label for="f_'+id+'">Questions / terms</label><input style="width:80px" id="f_'+id+'" type="number" min="0" max="20" value="'+n+'"></div>');$('use_'+id).onchange=()=>{$('f_'+id).disabled=!$('use_'+id).checked;render()};$('f_'+id).onchange=render});
-$('course').innerHTML=catalog.map(x=>'<option>'+esc(x.course)+'</option>').join('');$('course').onchange=()=>{$('crossUnits').innerHTML='';loadUnits()};$('unit').onchange=()=>{history.replaceState(null,'',location.pathname+'?unit='+encodeURIComponent($('unit').value));loadTerms();loadCrossUnits()};let requested=new URL(location.href).searchParams.get('unit');if(requested){let found=catalog.find(c=>c.units.some(u=>u[0]===requested));if(found)$('course').value=found.course}loadUnits();
+$('course').innerHTML=catalog.map(x=>'<option>'+esc(x.course)+'</option>').join('');$('course').onchange=()=>{$('crossUnits').innerHTML='';loadUnits()};$('unit').onchange=()=>{history.replaceState(null,'',location.pathname+'?unit='+encodeURIComponent($('unit').value));loadTerms();loadCrossUnits()};let requested=requestedUnit(),found=requested&&catalog.find(c=>c.units.some(u=>u[0]===requested));if(found)$('course').value=found.course;else if(catalog.some(c=>c.course==='Algebra 1'))$('course').value='Algebra 1';if(requested&&!found)$('status').textContent='No vocabulary bank is available for '+requested+'.';loadUnits();
 $('crossAll').onclick=()=>{$('crossUnits').querySelectorAll('input').forEach(x=>x.checked=true);updateCrossCount()};
 $('crossNone').onclick=()=>{$('crossUnits').querySelectorAll('input').forEach(x=>x.checked=false);updateCrossCount()};
 $('custom').addEventListener('input',updateCrossCount);

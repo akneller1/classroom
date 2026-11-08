@@ -10036,6 +10036,354 @@
     "A-CED.A.1"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_rect_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s01-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the vertex of the parabola y = -2x² - 12x - 11.",
+   "answer": "(-3, 7)",
+   "solutionSteps": [
+    "x = -b/(2a) = 12/(2·(-2)) = -3.",
+    "y = -2(9) - 12(-3) - 11 = 7.",
+    "Vertex (-3, 7)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s01-cp1-012 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s01-cp1-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the axis of symmetry of y = 3x² - 6x + 4.",
+   "answer": "x = 1",
+   "solutionSteps": [
+    "x = -b/(2a) = 6/6 = 1.",
+    "Axis of symmetry: x = 1."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s01-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s02-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A parabola has vertex (3, -8) and passes through (5, -4). Write its equation in vertex form.",
+   "answer": "y = (x - 3)² - 8",
+   "solutionSteps": [
+    "y = a(x - 3)² - 8.",
+    "Substitute (5, -4): -4 = 4a - 8, so a = 1.",
+    "y = (x - 3)² - 8."
+   ],
+   "standards": [
+    "F-IF.C.8a",
+    "A-SSE.B.3a"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s02-cp1-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s04-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve (x + 3)² = 16 by taking square roots.",
+   "answer": "x = -7 or x = 1",
+   "solutionSteps": [
+    "x + 3 = ±4.",
+    "x = -3 + 4 = 1 or x = -3 - 4 = -7."
+   ],
+   "standards": [
+    "A-REI.B.4a",
+    "A-REI.B.4b"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s04-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s04-cp1-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve 2(x + 2)² = 10 by taking square roots.",
+   "answer": "x = -2 ± √5",
+   "solutionSteps": [
+    "Divide by 2: (x + 2)² = 5.",
+    "x + 2 = ±√5.",
+    "x = -2 ± √5."
+   ],
+   "standards": [
+    "A-REI.B.4a",
+    "A-REI.B.4b"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s04-cp1-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s05-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find all k such that 9x² + kx + 1 = 0 has exactly one real solution.",
+   "answer": "k = ±6",
+   "solutionSteps": [
+    "Exactly one real solution when b² - 4ac = 0.",
+    "k² - 4(9)(1) = 0, so k² = 36.",
+    "k = ±6."
+   ],
+   "standards": [
+    "A-REI.B.4b"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s05-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s06-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (5 + 2i)(3 + i) - (2 + i).",
+   "answer": "11 + 10i",
+   "solutionSteps": [
+    "(5 + 2i)(3 + i) = 15 + 5i + 6i + 2i² = 13 + 11i.",
+    "(13 + 11i) - (2 + i) = 11 + 10i."
+   ],
+   "standards": [
+    "N-CN.A.1",
+    "N-CN.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s06-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s07-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve (x - 2)² + 9 = 0 over the complex numbers.",
+   "answer": "x = 2 ± 3i",
+   "solutionSteps": [
+    "(x - 2)² = -9.",
+    "x - 2 = ±3i.",
+    "x = 2 ± 3i."
+   ],
+   "standards": [
+    "N-CN.C.7"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s07-cp1-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A rectangular pool 12 m by 8 m is surrounded by a deck of uniform width. The pool and deck together cover 192 m². How wide is the deck?",
+   "answer": "2 m",
+   "solutionSteps": [
+    "(12 + 2w)(8 + 2w) = 192.",
+    "4w² + 40w + 96 = 192, so w² + 10w - 24 = 0.",
+    "(w + 12)(w - 2) = 0; the width is 2 m."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s08-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-cp1-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find two consecutive positive even integers whose squares add to 340.",
+   "answer": "12 and 14",
+   "solutionSteps": [
+    "n² + (n + 2)² = 340, so 2n² + 4n - 336 = 0.",
+    "n² + 2n - 168 = 0, so (n + 14)(n - 12) = 0.",
+    "n = 12: the integers are 12 and 14."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s08-cp1-018 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s01-honors-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The parabola y = x² + bx + c has axis of symmetry x = -4 and passes through (0, 12). Find its vertex.",
+   "answer": "(-4, -4)",
+   "solutionSteps": [
+    "Axis x = -b/2 = -4, so b = 8; (0, 12) gives c = 12.",
+    "y(-4) = 16 - 32 + 12 = -4.",
+    "Vertex (-4, -4)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s01-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s02-honors-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A parabola has vertex (1, -3) and passes through (3, -11). Write its equation in vertex form y = a(x - h)² + k.",
+   "answer": "y = -2(x - 1)² - 3",
+   "solutionSteps": [
+    "y = a(x - 1)² - 3.",
+    "Substitute (3, -11): -11 = 4a - 3, so a = -2.",
+    "y = -2(x - 1)² - 3."
+   ],
+   "standards": [
+    "F-IF.C.8a",
+    "A-SSE.B.3a"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s02-honors-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s04-honors-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve x² + 14x + 45 = 0 by completing the square. Give exact answers.",
+   "answer": "x = -9 or x = -5",
+   "solutionSteps": [
+    "x² + 14x + 49 = -45 + 49.",
+    "(x + 7)² = 4, so x + 7 = ±2.",
+    "x = -9 or x = -5."
+   ],
+   "standards": [
+    "A-REI.B.4a",
+    "A-REI.B.4b"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s04-honors-012 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s04-honors-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve by taking square roots: 5(x + 6)² - 4 = 6. Give exact answers.",
+   "answer": "x = -6 - √2 or x = -6 + √2",
+   "solutionSteps": [
+    "5(x + 6)² = 10, so (x + 6)² = 2.",
+    "x + 6 = ±√2.",
+    "x = -6 - √2 or x = -6 + √2."
+   ],
+   "standards": [
+    "A-REI.B.4a",
+    "A-REI.B.4b"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s04-honors-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s06-honors-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Multiply (2 + 2√3·i)(2 - 2√3·i).",
+   "answer": "16",
+   "solutionSteps": [
+    "A complex number times its conjugate is a² + b².",
+    "2² + (2√3)² = 4 + 12 = 16."
+   ],
+   "standards": [
+    "N-CN.A.1",
+    "N-CN.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s06-honors-004 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s06-honors-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Simplify √-6 · √-24.",
+   "answer": "-12",
+   "solutionSteps": [
+    "√-6 = i√6 and √-24 = i√24.",
+    "i² · √144 = -12."
+   ],
+   "standards": [
+    "N-CN.A.1",
+    "N-CN.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s06-honors-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s07-honors-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve (2x + 1)² + 4 = 0. Write the solutions in a + bi form.",
+   "answer": "x = -1/2 ± i",
+   "solutionSteps": [
+    "(2x + 1)² = -4, so 2x + 1 = ±2i.",
+    "x = (-1 ± 2i)/2.",
+    "x = -1/2 ± i."
+   ],
+   "standards": [
+    "N-CN.C.7"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s07-honors-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s07-honors-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "One solution of a quadratic equation x² + bx + c = 0 with real coefficients is 2 - 3i. Write the equation.",
+   "answer": "x² - 4x + 13 = 0",
+   "solutionSteps": [
+    "The other solution is the conjugate 2 + 3i.",
+    "Sum 4, product (2 - 3i)(2 + 3i) = 13.",
+    "x² - 4x + 13 = 0."
+   ],
+   "standards": [
+    "N-CN.C.7"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s07-honors-004 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-pc01",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A 12 in × 9 in poster gets a uniform border; the total area is 154 in². Find the border width.",
+   "answer": "1 in",
+   "solutionSteps": [
+    "(12 + 2w)(9 + 2w) = 154.",
+    "4w² + 42w - 46 = 0, so 2w² + 21w - 23 = 0.",
+    "(2w + 23)(w - 1) = 0; the width is 1 in."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s08-honors-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qc-s08-honors-pc02",
+   "skillId": "quadratic-functions-complex-numbers-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A rectangle is 3 feet longer than twice its width, and its area is 44 square feet. Find its width.",
+   "answer": "4 feet",
+   "solutionSteps": [
+    "w(2w + 3) = 44, so 2w² + 3w - 44 = 0.",
+    "(2w + 11)(w - 4) = 0.",
+    "The width is 4 feet."
+   ],
+   "standards": [
+    "F-IF.B.4",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Partner-check companion to a2-qc-s08-honors-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

@@ -7357,9 +7357,10 @@ window.LIBRARY = {
  });
 })(window);
 
-/* Grade 6/7 printable activity links: all existing bank-driven generators, no new runtime. */
+/* Grade 6/7/8 printable activity links: all existing bank-driven generators, no new runtime.
+   Grade 8 (prealgebra) joined 2026-11-07: its units already build these formats in the printable generator. */
 (function(G){
- [['prealgebra7','Grade 7'],['math6','Grade 6']].forEach(function(pair){
+ [['prealgebra','Grade 8','2026-11-07'],['prealgebra7','Grade 7'],['math6','Grade 6']].forEach(function(pair){
   var c=G.LIBRARY.courses.find(function(item){return item.id===pair[0]});if(!c)return;
   c.units.forEach(function(u){
    [
@@ -7373,7 +7374,7 @@ window.LIBRARY = {
     if(u.artifacts.some(function(x){return x.path===url}))return;
     u.artifacts.push({title:a[1]+' Generator',path:url,bankFormat:'printable-generator',type:'Printable',
       thumb:'thumbs/'+a[2],description:a[3]+' Uses '+pair[1]+' questions and a teacher key.',
-      level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+      level:['CP2','CP1','Honors'],topics:[u.name],added:pair[2]||'2026-11-04'});
    });
   });
  });

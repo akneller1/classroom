@@ -6278,6 +6278,391 @@
     "F-IF.C.9"
    ],
    "sourceNotes": "Original Claude-authored item (family: s5_aroc_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s02-cp2-pc01",
+   "skillId": "precalculus-review-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate g(3) for g(x) = 10(3)ˣ.",
+   "answer": "270",
+   "solutionSteps": [
+    "g(3) = 10 · 3³.",
+    "= 10 · 27 = 270."
+   ],
+   "standards": [
+    "F-LE.A.1",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s02-cp2-008 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s03-cp2-pc01",
+   "skillId": "precalculus-review-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate log₂(8).",
+   "answer": "3",
+   "solutionSteps": [
+    "2³ = 8.",
+    "log₂(8) = 3."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "F-BF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s03-cp2-008 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s03-cp2-pc02",
+   "skillId": "precalculus-review-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ln(e⁵).",
+   "answer": "5",
+   "solutionSteps": [
+    "ln and eˣ undo each other.",
+    "ln(e⁵) = 5."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "F-BF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s03-cp2-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s05-cp2-pc01",
+   "skillId": "precalculus-review-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the average rate of change of f(x) = x² + 3 on [10, 14].",
+   "answer": "24",
+   "solutionSteps": [
+    "f(14) = 199 and f(10) = 103.",
+    "(199 - 103)/(14 - 10) = 96/4.",
+    "24."
+   ],
+   "standards": [
+    "F-IF.B.6",
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s05-cp2-004 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s05-cp2-pc02",
+   "skillId": "precalculus-review-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the average rate of change of f(x) = x² + 5x on [12, 14].",
+   "answer": "31",
+   "solutionSteps": [
+    "f(14) = 266 and f(12) = 204.",
+    "(266 - 204)/(14 - 12) = 62/2.",
+    "31."
+   ],
+   "standards": [
+    "F-IF.B.6",
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s05-cp2-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s04-cp2-pc01",
+   "skillId": "precalculus-review-skill-04",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the exact value of tan(210°).",
+   "answer": "(√3)/3",
+   "solutionSteps": [
+    "210° is in Quadrant III, where tangent is positive.",
+    "Reference angle 30°: tan(210°) = tan(30°).",
+    "(√3)/3."
+   ],
+   "standards": [
+    "F-TF.A.2",
+    "F-TF.A.3"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s04-cp2-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s02-cp2-pc02",
+   "skillId": "precalculus-review-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Simplify (e^(2x))³.",
+   "answer": "e^(6x)",
+   "solutionSteps": [
+    "Power of a power: multiply the exponents.",
+    "(e^(2x))³ = e^(6x)."
+   ],
+   "standards": [
+    "F-LE.A.1",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s02-cp2-011 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s02-honors-pc01",
+   "skillId": "precalculus-review-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve 9^(x - 2) = 81.",
+   "answer": "x = 4",
+   "solutionSteps": [
+    "81 = 9².",
+    "x - 2 = 2.",
+    "x = 4."
+   ],
+   "standards": [
+    "F-LE.A.1",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s02-honors-012 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s02-honors-pc02",
+   "skillId": "precalculus-review-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate f(2) for f(x) = 1000(0.2)ˣ.",
+   "answer": "40",
+   "solutionSteps": [
+    "f(2) = 1000 · 0.2².",
+    "= 1000 · 0.04 = 40."
+   ],
+   "standards": [
+    "F-LE.A.1",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s02-honors-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s03-honors-pc01",
+   "skillId": "precalculus-review-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate ln(e²) + log(10).",
+   "answer": "3",
+   "solutionSteps": [
+    "ln(e²) = 2 and log(10) = 1.",
+    "2 + 1 = 3."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "F-BF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s03-honors-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s03-honors-pc02",
+   "skillId": "precalculus-review-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve log₄(x + 43) = 3.",
+   "answer": "x = 21",
+   "solutionSteps": [
+    "x + 43 = 4³ = 64.",
+    "x = 21."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "F-BF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s03-honors-011 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s03-honors-pc03",
+   "skillId": "precalculus-review-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Write ln(4x³) - ln(2xy) as a single logarithm.",
+   "answer": "ln((2x²)/y)",
+   "solutionSteps": [
+    "ln(4x³) - ln(2xy) = ln(4x³/(2xy)).",
+    "Simplify: 4x³/(2xy) = 2x²/y.",
+    "ln((2x²)/y)."
+   ],
+   "standards": [
+    "F-LE.A.4",
+    "F-BF.B.5"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s03-honors-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s04-honors-pc01",
+   "skillId": "precalculus-review-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the exact value of tan(11π/6).",
+   "answer": "-(√3)/3",
+   "solutionSteps": [
+    "11π/6 is in Quadrant IV, where tangent is negative.",
+    "Reference angle π/6: tan(π/6) = (√3)/3.",
+    "-(√3)/3."
+   ],
+   "standards": [
+    "F-TF.A.2",
+    "F-TF.A.3"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s04-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s04-honors-pc02",
+   "skillId": "precalculus-review-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve sin²(x) - 2sin(x) + 1 = 0 for 0 ≤ x < 2π.",
+   "answer": "x = π/2",
+   "solutionSteps": [
+    "(sin(x) - 1)² = 0, so sin(x) = 1.",
+    "On [0, 2π), sin(x) = 1 only at x = π/2."
+   ],
+   "standards": [
+    "F-TF.A.2",
+    "F-TF.A.3"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s04-honors-009 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s05-honors-pc01",
+   "skillId": "precalculus-review-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the average rate of change of f(x) = x³ on [0, 8].",
+   "answer": "64",
+   "solutionSteps": [
+    "f(8) = 512 and f(0) = 0.",
+    "(512 - 0)/(8 - 0).",
+    "64."
+   ],
+   "standards": [
+    "F-IF.B.6",
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s05-honors-004 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s05-honors-pc02",
+   "skillId": "precalculus-review-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the average rate of change of f(x) = x² + 2x on [1, 7].",
+   "answer": "10",
+   "solutionSteps": [
+    "f(7) = 63 and f(1) = 3.",
+    "(63 - 3)/(7 - 1) = 60/6.",
+    "10."
+   ],
+   "standards": [
+    "F-IF.B.6",
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s05-honors-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s05-honors-pc03",
+   "skillId": "precalculus-review-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the average rate of change of f(x) = -x³ on [1, 2].",
+   "answer": "-7",
+   "solutionSteps": [
+    "f(2) = -8 and f(1) = -1.",
+    "(-8 - (-1))/(2 - 1).",
+    "-7."
+   ],
+   "standards": [
+    "F-IF.B.6",
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s05-honors-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s02-cp1-pc01",
+   "skillId": "precalculus-review-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate f(3) for f(x) = 210(3)^(x - 1).",
+   "answer": "1890",
+   "solutionSteps": [
+    "f(3) = 210 · 3².",
+    "= 210 · 9 = 1890."
+   ],
+   "standards": [
+    "F-LE.A.1",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s02-cp1-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s02-cp1-pc02",
+   "skillId": "precalculus-review-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify e^(7x) ÷ e^(2x).",
+   "answer": "e^(5x)",
+   "solutionSteps": [
+    "Quotient of powers: subtract the exponents.",
+    "e^(7x - 2x) = e^(5x)."
+   ],
+   "standards": [
+    "F-LE.A.1",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s02-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s04-cp1-pc01",
+   "skillId": "precalculus-review-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the exact value of cos(5π/6).",
+   "answer": "-(√3)/2",
+   "solutionSteps": [
+    "5π/6 is in Quadrant II, where cosine is negative.",
+    "Reference angle π/6: cos(π/6) = (√3)/2.",
+    "-(√3)/2."
+   ],
+   "standards": [
+    "F-TF.A.2",
+    "F-TF.A.3"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s04-cp1-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s05-cp1-pc01",
+   "skillId": "precalculus-review-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the average rate of change of f(x) = √(x + 5) on [-1, 4].",
+   "answer": "1/5",
+   "solutionSteps": [
+    "f(4) = √9 = 3 and f(-1) = √4 = 2.",
+    "(3 - 2)/(4 - (-1)) = 1/5."
+   ],
+   "standards": [
+    "F-IF.B.6",
+    "F-IF.C.9"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s05-cp1-012 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-pcr-s01-cp1-pc01",
+   "skillId": "precalculus-review-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Simplify (2x² - 2x - 4)/(2x - 4) and state the excluded value from the original expression that cancels.",
+   "answer": "x + 1, x ≠ 2",
+   "solutionSteps": [
+    "2x² - 2x - 4 = 2(x - 2)(x + 1) and 2x - 4 = 2(x - 2).",
+    "Cancel 2(x - 2).",
+    "x + 1, x ≠ 2."
+   ],
+   "standards": [
+    "A-SSE.A.2",
+    "A-APR.D.6"
+   ],
+   "sourceNotes": "Partner-check companion to cal-pcr-s01-cp1-013 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }

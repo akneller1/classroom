@@ -39,3 +39,25 @@ Object.assign(window.MKVOCAB_BANKS,{
   "geometry-triangle-relationships": "median|Vertex to the midpoint of the opposite side.|three in every triangle;altitude|Vertex perpendicular to the opposite side.|⟨AD \\perp BC⟩;midsegment|Joins the midpoints of two sides.|⟨DE \\parallel BC⟩;exterior angle|Side and the extension of another side.|outside the triangle;perpendicular bisector|A line perpendicular to a segment at its midpoint.|Every point on it is equidistant from the endpoints;angle bisector|A ray that divides an angle into two congruent angles.|Splits a 60° angle into two 30° angles;circumcenter|The point where the perpendicular bisectors of a triangle's sides meet.|Center of the circle through all three vertices;incenter|The point where the angle bisectors of a triangle meet.|Center of the circle inside the triangle;centroid|The point where the three medians of a triangle meet.|Divides each median in a 2:1 ratio;orthocenter|The point where the lines containing the three altitudes of a triangle meet.|Outside the triangle when it is obtuse;Triangle Inequality Theorem|The sum of any two side lengths of a triangle is greater than the third side length.|3, 4, 8 cannot form a triangle;Exterior Angle Theorem|An exterior angle equals the sum of the two remote interior angles.|40° + 65° = 105°",
   "geometry-quadrilaterals-polygons": "parallelogram|Quadrilateral with both pairs of opposite sides parallel.|⟨AB \\parallel DC⟩;rhombus|Parallelogram with four congruent sides.|diagonals are perpendicular;trapezoid|Quadrilateral with exactly one pair of parallel sides.|bases and legs;kite|Two pairs of adjacent congruent sides.|diagonals are perpendicular;polygon|A closed plane figure made of three or more segments that meet only at their endpoints.|Pentagon, hexagon;regular polygon|A polygon with all sides congruent and all angles congruent.|Equilateral triangle, square;interior angle sum|The total of the interior angles of a polygon: (n - 2)·180°.|Hexagon: 720°;exterior angle sum|The exterior angles of any convex polygon, one at each vertex, add to 360°.|Each exterior angle of a regular octagon is 45°;rectangle|A parallelogram with four right angles.|Its diagonals are congruent;square|A parallelogram that is both a rectangle and a rhombus.|Four congruent sides and four right angles;diagonal|A segment joining two nonconsecutive vertices of a polygon.|A pentagon has 5 diagonals;isosceles trapezoid|A trapezoid whose legs are congruent.|Its base angles are congruent"
 });
+
+/* One shared alias table for unit ids whose vocabulary is stored under an older bank id.
+   Both the printable Vocabulary Builder and the vocabulary flashcards resolve through it, so a
+   bank is never duplicated under a second key. (Geometry Transformations: the shared catalog and
+   skill set use `geometry-transformations`; its bank is stored as
+   `geometry-coordinate-geometry-transformations`.) */
+(function(G){
+ const A=G.MKVOCAB_ALIASES=Object.assign(G.MKVOCAB_ALIASES||{},{
+  'geometry-transformations':'geometry-coordinate-geometry-transformations',
+  'geometry-foundations-geometry':'geometry-basics-reasoning',
+  'geometry-triangle-congruence':'geometry-triangles-congruence',
+  'algebra1-foundations-algebra':'algebra1-foundations',
+  'algebra1-exponents-exponential-functions':'algebra1-exponents-scientific-notation',
+  'algebra1-polynomials-factoring':'algebra1-polynomials'
+ });
+ G.MKVOCAB_BANK_ID=function(id){
+  const B=G.MKVOCAB_BANKS||{};id=String(id||'');
+  if(Object.prototype.hasOwnProperty.call(B,id))return id;
+  return A[id]&&Object.prototype.hasOwnProperty.call(B,A[id])?A[id]:id;
+ };
+ G.MKVOCAB_BANK=function(id){return (G.MKVOCAB_BANKS||{})[G.MKVOCAB_BANK_ID(id)]||'';};
+})(window);

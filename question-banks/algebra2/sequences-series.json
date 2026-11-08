@@ -10931,6 +10931,214 @@
     "F-BF.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_apps_open). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-cp1-pc01",
+   "skillId": "sequences-series-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a₁ = 5 and d = 6. Find a₃₁.",
+   "answer": "185",
+   "solutionSteps": [
+    "aₙ = a₁ + (n - 1)d.",
+    "a₃₁ = 5 + 30 · 6.",
+    "185."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s01-cp1-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s02-cp1-pc01",
+   "skillId": "sequences-series-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A geometric sequence has a₁ = 10 and r = 2. Find a₆.",
+   "answer": "320",
+   "solutionSteps": [
+    "aₙ = a₁rⁿ⁻¹.",
+    "a₆ = 10 · 2⁵.",
+    "320."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s02-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-cp1-pc01",
+   "skillId": "sequences-series-skill-04",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 50 positive integers.",
+   "answer": "1275",
+   "solutionSteps": [
+    "Sₙ = n(a₁ + aₙ)/2.",
+    "S₅₀ = 50(1 + 50)/2.",
+    "1275."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s04-cp1-005 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-cp1-pc01",
+   "skillId": "sequences-series-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 7 terms of the geometric series 1, 2, 4, …",
+   "answer": "127",
+   "solutionSteps": [
+    "Sₙ = a₁(rⁿ - 1)/(r - 1).",
+    "S₇ = (2⁷ - 1)/(2 - 1).",
+    "127."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s05-cp1-002 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-cp1-pc01",
+   "skillId": "sequences-series-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the sum of the infinite geometric series 18, 9/2, 9/8, …",
+   "answer": "24",
+   "solutionSteps": [
+    "r = (9/2)/18 = 1/4, and |r| < 1.",
+    "S = 18/(1 - 1/4).",
+    "24."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s07-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s08-cp1-pc01",
+   "skillId": "sequences-series-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A display has 4 cans in the top row, and each row below has 4 more cans than the row above. How many cans are in 8 rows?",
+   "answer": "144",
+   "solutionSteps": [
+    "Arithmetic series: a₁ = 4, d = 4, n = 8, so a₈ = 32.",
+    "S₈ = 8(4 + 32)/2.",
+    "144."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s08-cp1-003 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-pc01",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "How many terms of 2 + 6 + 10 + … give a sum of 450?",
+   "answer": "15",
+   "solutionSteps": [
+    "Sₙ = n/2 · (4 + 4(n - 1)) = 2n².",
+    "2n² = 450, so n² = 225.",
+    "n = 15."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s04-honors-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s05-honors-pc01",
+   "skillId": "sequences-series-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A geometric series has r = 3 and S₅ = 363. Find a₁.",
+   "answer": "3",
+   "solutionSteps": [
+    "S₅ = a₁(3⁵ - 1)/(3 - 1) = 121a₁.",
+    "121a₁ = 363.",
+    "a₁ = 3."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s05-honors-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s06-honors-pc01",
+   "skillId": "sequences-series-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate Σ (k = 1 to 10) (5 - k).",
+   "answer": "-5",
+   "solutionSteps": [
+    "The terms 4, 3, 2, …, -5 form an arithmetic series with 10 terms.",
+    "Sum = 10(4 + (-5))/2.",
+    "-5."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s06-honors-004 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s07-honors-pc01",
+   "skillId": "sequences-series-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An infinite geometric series has a₁ = 6, a₃ = 8/3, and sum 18. Find r.",
+   "answer": "r = 2/3",
+   "solutionSteps": [
+    "r² = (8/3)/6 = 4/9, so r = ±2/3.",
+    "S = 6/(1 - r) = 18 gives 1 - r = 1/3.",
+    "r = 2/3."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s07-honors-006 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s01-honors-pc01",
+   "skillId": "sequences-series-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In an arithmetic sequence, a₅ = 42 and a₁₂ = 98. Find a₂₀.",
+   "answer": "162",
+   "solutionSteps": [
+    "7d = 98 - 42 = 56, so d = 8.",
+    "a₂₀ = a₁₂ + 8d = 98 + 64.",
+    "162."
+   ],
+   "standards": [
+    "F-IF.A.3",
+    "F-BF.A.2"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s01-honors-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-ss-s04-honors-pc02",
+   "skillId": "sequences-series-skill-04",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the sum of the first 15 odd positive integers.",
+   "answer": "225",
+   "solutionSteps": [
+    "1 + 3 + … + 29 is arithmetic with n = 15.",
+    "S = 15(1 + 29)/2.",
+    "225."
+   ],
+   "standards": [
+    "A-SSE.B.4"
+   ],
+   "sourceNotes": "Partner-check companion to a2-ss-s04-honors-011 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
   }
  ]
 }
