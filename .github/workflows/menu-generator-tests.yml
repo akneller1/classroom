@@ -5,12 +5,14 @@ on:
       - 'worksheet-generator/menu/**'
       - 'worksheet-generator/menu-assessment.html'
       - 'worksheet-generator/core/**'
+      - 'scripts/*standards*.cjs'
       - '.github/workflows/menu-generator-tests.yml'
   pull_request:
     paths:
       - 'worksheet-generator/menu/**'
       - 'worksheet-generator/menu-assessment.html'
       - 'worksheet-generator/core/**'
+      - 'scripts/*standards*.cjs'
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -20,6 +22,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Standards mappings and teacher key integration
+        run: node scripts/test-standards.cjs
       - name: Geometry SVG diagrams and starter-bank mathematics
         run: node worksheet-generator/menu/tests/geometry-diagrams-tests.cjs
       - name: Two-column proof validity, mutations and typed answers

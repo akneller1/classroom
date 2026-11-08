@@ -214,8 +214,8 @@
       t1.addText([{ text: 'Today ', options: { bold: true } }, { text: P.iCan(d.content_objective) }], { x: MX + 0.45, y: 4.1, w: W - 2 * MX - 0.9, h: 1.35, fontFace: BODY, fontSize: 24, color: INK, valign: 'middle', margin: 0, fit: 'shrink', isTextBox: true, objectName: 'Objective' });
     }
     if (d.language_objective) t1.addText(d.language_objective.replace(/^Students will/i, 'I will'), { x: MX + 0.1, y: 5.8, w: W - 2 * MX - 0.2, h: 0.8, fontFace: BODY, fontSize: 16, italic: true, color: 'C9D3E6', valign: 'top', margin: 0, fit: 'shrink', isTextBox: true });
-    t1.addText(d.standards ? 'Standards: ' + d.standards + '   ·   ' + NSL.name : NSL.name, { x: MX + 0.1, y: 6.85, w: W - 2 * MX, h: 0.3, fontFace: BODY, fontSize: 11, color: '9AA7BF', margin: 0, isTextBox: true });
-    notes(t1, ['Standards: ' + (d.standards || ''), 'Content objective: ' + (d.content_objective || ''), 'Language objective: ' + (d.language_objective || ''), P.watchOut(d) ? 'Watch for: ' + P.watchOut(d) : '', d.do_now_strategy ? 'Do Now: ' + d.do_now_strategy : '']
+    t1.addText(d.standards && !studentDeck ? 'Standards: ' + d.standards + '   ·   ' + NSL.name : NSL.name, { x: MX + 0.1, y: 6.85, w: W - 2 * MX, h: 0.3, fontFace: BODY, fontSize: 11, color: '9AA7BF', margin: 0, isTextBox: true });
+    notes(t1, ['Standards: ' + (d.standards || '')].concat(G.MKSTD && d.standards ? G.MKSTD.split(d.standards).map(function (c) { var t = G.MKSTD.describe(c); return t ? '  ' + c + ': ' + t : ''; }) : []).concat([ 'Content objective: ' + (d.content_objective || ''), 'Language objective: ' + (d.language_objective || ''), P.watchOut(d) ? 'Watch for: ' + P.watchOut(d) : '', d.do_now_strategy ? 'Do Now: ' + d.do_now_strategy : ''])
       .concat(plan.coverage.filter(function (c) { return c.cover !== 'full'; }).map(function (c) { return 'Add your own (' + c.id + '): ' + c.note; })));
 
     /* ---- 2. agenda ---- */

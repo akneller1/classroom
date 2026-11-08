@@ -98,6 +98,8 @@ GB.buildDeck=function(id,slots,opts,done){
 // drawing only from the approved bank and its authored answer keys.
 const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
 function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
+// Teacher keys list each approved question's own standards tags (menu/standards.js).
+NS.sourceStandards=function(p){const q=p&&p.sourceId?raw.get(p.sourceId):null;return q&&Array.isArray(q.standards)?q.standards.slice():[]};
 function menuSource(p){return JSON.stringify([p.prompt||'',(p.parts||[]).map(function(x){return [x.prompt||'',x.answer||'']}),p.fig||null,p.work||null])}
 // Only the exact unmodified source item may bypass manual teacher approval.
 // An edited item has source='edited'; a teacher-created item has source='manual'.

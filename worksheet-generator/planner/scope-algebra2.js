@@ -19,13 +19,14 @@ var day=0,previousLesson=null;
 course.units.forEach(function(unit,ui){
  var records=catalog.getSkillRecords(courseId,unit.id),unitNo=ui+1,setKey=prefix+'U'+unitNo,setId=courseId+'-'+unit.id;
  SETS[setKey]=setId;UNIT_SET[unitNo]=setKey;
- var start=day+1,ids=[];
+ var start=day+1,ids=[],unitStd=[];
+ var std=function(skillId){var list=G.MKSTD?G.MKSTD.content(G.MKSTD.forSkill(setId,skillId)):[];list.forEach(function(c){if(unitStd.indexOf(c)<0)unitStd.push(c);});return list.join(', ');};
  records.forEach(function(skill,si){
   var id=prefix+'-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=courseId==='algebra2'&&G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):null;
   var verb=meta&&meta.obj?meta.obj:'work with '+title.charAt(0).toLowerCase()+title.slice(1);
   ids.push(id);lessons[id]={cover:'full',skills:[[setKey,skill.id,1,7]]};
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:(si+1)+' of '+records.length,
-   day_type:'Lesson',lesson_id:id,title:title,
+   day_type:'Lesson',lesson_id:id,title:title,standards:std(skill.id),
    content_objective:'Students will be able to '+verb+'.',
    language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
    sentence_frame:'To '+verb.split(/,| and /)[0]+', I first ___ and then ___.',
@@ -45,7 +46,7 @@ course.units.forEach(function(unit,ui){
  extras.forEach(function(x){
   var number=++day;
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:x.type,
-   day_type:x.type,lesson_id:x.id,title:x.title,content_objective:'Review and assess the selected topics in '+unit.name+'.',
+   day_type:x.type,lesson_id:x.id,title:x.title,standards:G.MKSTD?G.MKSTD.sort(unitStd).join(', '):'',content_objective:'Review and assess the selected topics in '+unit.name+'.',
    language_objective:'Students will explain their mathematical reasoning using accurate mathematical vocabulary.',
    sentence_frame:'One strategy I used was ___.',key_vocabulary:'',common_misconception:'',
    notes_style:x.type==='Assessment'?'':'Guided review',do_now_strategy:'Review selected topics from this unit.',

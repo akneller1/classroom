@@ -243,7 +243,7 @@
   /* ---------- the plan view (teacher, interactive) ---------- */
   function planInfo(plan) {
     var d = plan.day, T = P.template(d), u = d.unit ? P.unitOf(d.unit) : null;
-    var meta = [['Standards', esc(d.standards)], ['Content objective', esc(d.content_objective)], ['Language objective', esc(d.language_objective)]];
+    var meta = [['Standards', G.MKSTD && d.standards ? G.MKSTD.listHtml(d.standards) : esc(d.standards)], ['Content objective', esc(d.content_objective)], ['Language objective', esc(d.language_objective)]];
     if (d.sentence_frame) meta.push(['Sentence frame', '<i>' + frameHtml(d.sentence_frame) + '</i>']);
     if (d.key_vocabulary) meta.push(['Key vocabulary', P.vocab(d).map(function (v) { return '<span class="pl-chip">' + esc(v) + '</span>'; }).join(' ')]);
     if (P.watchOut(d)) meta.push(['Watch for', esc(P.watchOut(d))]);
@@ -453,6 +453,7 @@
     var d = plan.day, h = sheetHead(plan, 'key');
     var info = [['Standards', d.standards], ['Content objective', d.content_objective], ['Language objective', d.language_objective], ['Sentence frame', d.sentence_frame], ['Key vocabulary', d.key_vocabulary], ['Watch for', P.watchOut(d)], ['My notes', P.myNotes(d)], ['Notes style', d.notes_style], ['Do Now', d.do_now_strategy]].filter(function (r) { return r[1]; });
     if (P.keyIdea(d.lesson_id)) info.splice(4, 0, ['Key idea', P.keyIdea(d.lesson_id)]);
+    if (G.MKSTD && d.standards) info = info.map(function (r) { return r[0] === 'Standards' ? ['Standards', r[1], G.MKSTD.listHtml(r[1])] : r; });
     var kv = P.vocab(d);
     if (kv.length && d.day_type === 'Lesson') info = info.map(function (r) { return r[0] === 'Key vocabulary' ? ['Key vocabulary', r[1], kv.map(function (v) { return '<b>' + esc(v) + '</b>: ' + esc(P.define(v, d)); }).join('<br>')] : r; });
     h += '<table class="pl-tbl pl-keyinfo"><tbody>' + info.map(function (r) { return '<tr><th>' + r[0] + '</th><td>' + (r[2] ? r[2] : r[0] === 'Sentence frame' ? frameHtml(r[1]) : esc(r[1])) + '</td></tr>'; }).join('') + '</tbody></table>';

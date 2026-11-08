@@ -485,8 +485,26 @@
   PR.pages = function (cfg, B, v, nV, key) {
     return ({ maze: mazePages, color: colorPages, partner: partnerPages, error: errorPages, tarsia: tarsiaPages, who: whoPages, stations: stationPages, match: matchPages })[cfg.kind](cfg, B, v, nV, key);
   };
+  /* Teacher key only: a closing page listing the standards the printable's problems address (menu/standards.js). */
+  function problemsIn(B) {
+    var out = [], seen = new Set();
+    (function walk(x, depth) {
+      if (!x || typeof x !== 'object' || depth > 6 || seen.has(x)) return;
+      seen.add(x);
+      if (typeof x.skill === 'string' && (x.prompt !== undefined || x.parts) && !x.failed) { out.push(x); return; }
+      (Array.isArray(x) ? x : Object.keys(x).map(function (k) { return x[k]; })).forEach(function (y) { walk(y, depth + 1); });
+    })(B, 0);
+    return out;
+  }
+  PR.standardsPage = function (cfg, B, v, nV) {
+    if (!G.MKSTD || !B || B.error) return null;
+    var rows = problemsIn(B).map(function (p) { return { codes: G.MKSTD.forProblem(p, cfg.unitId) }; });
+    var html = G.MKSTD.summaryHtml(rows, { note: 'Teacher copy only; the student pages do not show standards.' });
+    return html ? page(cfg, nV, v, true, head(cfg, nV, v, true, 'Standards addressed by the problems on this printable') + html) : null;
+  };
   PR.pageEls = function (cfg, B, v, nV, key) {
     var P = expandFlow(PR.pages(cfg, B, v, nV, key));
+    if (key) { var sp = PR.standardsPage(cfg, B, v, nV); if (sp) P.push(sp); }
     return P.map(function (p, i) {
       var e = doc.createElement('div'); e.className = 'page mm-page pr-page' + (p.land ? ' pr-land' : '') + (p.cls ? ' ' + p.cls : '');
       e.innerHTML = p.html + (p.nofoot ? (p.brand ? '<div class="pc-brand">Mr. K\'s Classroom</div>' : '') : '<div class="mm-foot"><span>' + p.foot + '</span><span>Page ' + (i + 1) + ' of ' + P.length + '</span></div>');

@@ -285,6 +285,17 @@
     if (p.approved) return '<span class="mm-flag warn">teacher-entered answer · approved</span>';
     return '<span class="mm-flag bad">answer NOT verified</span>';
   }
+  /* Standards on the teacher key (menu/standards.js + standards-map.js; nothing shows when they are not loaded). */
+  function stdOf(p, cfg) { return G.MKSTD ? G.MKSTD.forProblem(p, cfg.unitId) : []; }
+  function stdChips(p, cfg) { return G.MKSTD ? G.MKSTD.chipsHtml(stdOf(p, cfg)) : ''; }
+  function standardsBlock(state, vIdx) {
+    if (!G.MKSTD) return null;
+    var cfg = state.config, ver = state.versions[vIdx], rows = [];
+    ver.sections.forEach(function (s, si) { s.items.forEach(function (it, i) { rows.push({ label: dishLabel(cfg, si, i), codes: stdOf(it, cfg) }); }); });
+    var html = G.MKSTD.summaryHtml(rows, { labelHead: NS.isTest(cfg) || NS.isWorksheet(cfg) ? 'Questions' : 'Dishes', note: 'Each question\u2019s standards are also listed under its number in the answer key. Teacher copy only; the student pages do not show them.' });
+    return html ? { html: html } : null;
+  }
+  NS.standardsBlock = standardsBlock;
   function keyRow(p, cfg, si, i, sec) {
     var lab = dishLabel(cfg, si, i);
     if (p.failed) return '<tr><td><b>' + lab + '</b></td><td colspan="3">' + statusBadge(p) + '</td></tr>';
@@ -298,7 +309,7 @@
     var rub = mcasOn ? mcasRub : multiOn ? '<li><b>' + ptsText(+sec.points) + '</b>: select every correct statement and no incorrect statements.</li>' : mcOn ? '<li><b>' + ptsText(+sec.points) + '</b>: choice ' + 'ABCDEFGH'[p.mc.key] + '. No partial credit.</li>' : NS.rubric(p, +sec.points).map(function (r) { return '<li><b>' + ptsText(r.pts) + '</b>: ' + mathSafe(r.text) + '</li>'; }).join('');
     if (NS.sectionFormat(cfg, si) === 'mc' && !p.mc && !p.failed) rub = '<li><span class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</span></li>' + rub;
     var ws = NS.isWorksheet(cfg), fallback = NS.sectionFormat(cfg, si) === 'mc' && !p.mc ? '<div class="mm-flag warn">Printed as short answer: ' + esc(p.mcFail || 'no choices') + '</div>' : '';
-    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : multiOn ? multiHtml(p) : '') + statusBadge(p) + '</td>' +
+    return '<tr><td><b>' + lab + '</b><div class="mm-chip">' + esc(p.tag || '') + '</div>' + stdChips(p, cfg) + (p.required && !NS.isTest(cfg) ? '<div class="mm-req">must do</div>' : '') + '</td><td>' + promptHtml(p, true) + (mcOn ? choicesHtml(p) : multiOn ? multiHtml(p) : '') + statusBadge(p) + '</td>' +
       '<td><div class="mm-ans"><b>Answer:</b> ' + ans + '</div>' + (ws ? fallback : '') + (steps ? '<ol class="mm-steps">' + steps + '</ol>' : '') + '</td>' + (ws ? '' : '<td><ul class="mm-rub">' + rub + '</ul></td>') + '</tr>';
   }
   function guideBlocks(state, vIdx) {
@@ -337,6 +348,8 @@
   function keyBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], B = [], test = NS.isTest(cfg), ws = NS.isWorksheet(cfg);
     if (cfg.layout.guide !== false) B = test ? testGuideBlocks(state, vIdx) : guideBlocks(state, vIdx);
+    var stdB = standardsBlock(state, vIdx);
+    if (stdB) { if (!B.length) stdB.html = '<div class="mm-head"><div><div class="mm-title">' + esc(cfg.title) + ': ' + (ws ? 'Answer Key' : 'Teacher Key') + '</div><div class="mm-sub">' + esc(NS.LEVELS[cfg.level].long) + '</div></div>' + verTag(state, vIdx, 'key') + '</div>' + stdB.html; B.push(stdB); }
     cfg.sections.forEach(function (sec, si) {
       B.push({ html: '<div class="mm-head"><div><div class="mm-title mm-t2">Answer Key: ' + (test ? 'Part ' + (si + 1) + ' · ' : '') + esc(sec.name) + (ws ? '' : ' (' + ptsText(+sec.points) + ' each)') + '</div><div class="mm-sub">' + (ws ? 'Every question, with the answer and a worked solution.' : test ? 'Every question, with the answer and a worked solution' + (NS.sectionFormat(cfg, si) === 'mc' ? '.' : ' and a suggested partial-credit rubric.') : 'Every offered dish, with worked solutions and a suggested partial-credit rubric.') + '</div></div>' + verTag(state, vIdx, 'key') + '</div>', keep: true, page: ws || (si === 0 && cfg.layout.guide === false) ? null : (test && si > 0 ? null : 'new') });
       ver.sections[si].items.forEach(function (it, i) {
