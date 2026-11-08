@@ -923,7 +923,7 @@ body { background:var(--paper); }
   .course-sidebar .sidebar-heading { align-self:start; margin:0; }
 }
 
-/* Eight teaching tasks, beginning with the teacher guide; responsive columns are defined above. */
+/* Teaching tasks, beginning with the teacher guide; responsive columns are defined above. */
 .task-workspace .task-card { min-height:10rem; padding:1rem; gap:.55rem; }
 .task-workspace .task-icon { width:2.1rem; height:2.1rem; font-size:1.4rem; margin-bottom:.1rem; }
 .task-workspace .task-card h2 { font-size:1.15rem; margin-bottom:0; }
@@ -991,6 +991,7 @@ body { background:var(--paper); }
 .task-workspace .task-grid > li:nth-child(6) { --task-hue:220; }
 .task-workspace .task-grid > li:nth-child(7) { --task-hue:255; }
 .task-workspace .task-grid > li:nth-child(8) { --task-hue:285; }
+.task-workspace .task-grid > li:nth-child(9) { --task-hue:285; }
 .task-workspace .task-card {
   --c-bg:hsl(var(--task-hue) 60% 88%);
   --c-tint:hsl(var(--task-hue) 60% 95%);

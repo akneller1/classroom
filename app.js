@@ -531,6 +531,7 @@
       { title: 'Play a Math Game', description: 'Bring on team review, escape rooms, mysteries, and individual challenges.', url: '#activities?category=games', icon: '◈', color: 'coral', action: 'Find a game' },
       { title: 'Explore Interactive Math', description: 'Make concepts click with hands-on graphs, models, and investigations.', url: '#activities?category=interactive', icon: '⟡', color: 'green', action: 'Explore the tools' },
       { title: 'Review & Study', description: 'Find flashcards, cheat sheets, and reference guides for your next unit.', url: '#activities?category=study-guides', icon: '▥', color: 'purple', action: 'Find study resources' },
+      { title: 'Create a Seating Chart', description: 'Arrange desks, add your class list, and assign seats. Save, print, or export your chart.', url: 'worksheet-generator/seating-chart.html', icon: '▦', color: 'purple', action: 'Arrange your classroom' },
     ];
     return {
       title: L.title,
