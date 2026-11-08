@@ -212,3 +212,29 @@
 .pl-noted-wrap>summary{cursor:pointer;font-weight:700}
 .nt-err{color:#a00;font-size:9pt}
 @media (max-width:700px){.nt-body{grid-template-columns:1fr}.nt-wes{grid-template-columns:1fr}}
+
+
+/* Student handout: one real letter-sized sheet per preview page.
+   The content box is the 7.6 × 10.1 inch printable area of @page .45in. */
+.pl-measure-stage{position:absolute;left:-20000px;top:0;width:8.5in;visibility:hidden;pointer-events:none}
+.pl-paging-status{color:var(--ink2);font-size:.88rem;text-align:center;margin:3px 0 12px}
+.pl-paperwrap>.pl-page{margin:0 auto 20px}
+.pl-sheet.pl-page{position:relative;box-sizing:border-box;width:8.5in;max-width:none;height:11in;padding:.45in;overflow:hidden}
+.pl-page-content{box-sizing:border-box;width:100%;height:10.1in;overflow:visible}
+.pl-page-label{position:absolute;bottom:.12in;right:.45in;color:#555;font-size:9pt;line-height:1.2}
+.pl-page .pl-exit{break-inside:auto;page-break-inside:auto}
+.pl-page-oversize{overflow:visible;outline:2px dashed #b3261e}
+@media (max-width:900px){
+  .pl-sheet.pl-page{padding:.45in}
+}
+@media print{
+  @page{size:letter;margin:.45in}
+  body.printing #printRoot .pl-sheet.pl-page{
+    box-sizing:border-box;width:7.6in;max-width:none;height:10.1in;
+    padding:0;margin:0;box-shadow:none;overflow:visible;
+    break-after:page;page-break-after:always
+  }
+  body.printing #printRoot .pl-page-content{height:10.1in;width:100%}
+  body.printing #printRoot .pl-page-label{display:none!important}
+  body.printing #printRoot .pl-sheet.pl-page:last-child{break-after:auto;page-break-after:auto}
+}
