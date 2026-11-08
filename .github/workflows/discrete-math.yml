@@ -1,0 +1,48 @@
+name: Discrete Math integration
+on:
+  push:
+    paths:
+      - 'question-banks/discrete/**'
+      - 'question-banks/assets/discrete/**'
+      - 'question-banks/manifest.json'
+      - 'worksheet-generator/**'
+      - 'data.js'
+      - 'app.js'
+      - 'resource-details.js'
+      - 'artifacts/discrete-*/**'
+      - 'scripts/test-discrete-bank.cjs'
+      - 'scripts/test-hs-bank-integration.cjs'
+      - 'scripts/cheat-sheets/content/discrete-*.cjs'
+      - 'tools/discrete-math/**'
+      - 'tools/interactive-math-discrete/**'
+      - '.github/workflows/discrete-math.yml'
+  workflow_dispatch:
+jobs:
+  discrete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright Chromium
+        run: npm install --no-save playwright@1.58.2 && npx playwright install --with-deps chromium
+      - name: Validate banks, coverage, structure and independently recomputed answers
+        run: node scripts/test-discrete-bank.cjs
+      - name: Exercise Discrete Math generators, games, vocabulary and lesson plans
+        run: node scripts/test-hs-bank-integration.cjs
+        env:
+          MG_COURSE: discrete
+          MG_PREFIX: dm-
+      - name: Recompute Explore & Reflect worksheet answers
+        run: python tools/interactive-math-discrete/tests/worksheet-answers.py
+      - name: Walk through every Try this challenge
+        run: node tools/interactive-math-discrete/tests/walkthrough.cjs
+      - name: Tool correctness, phone layout and accessible names
+        run: node tools/interactive-math-discrete/tests/correctness.cjs
+      - name: Site integration (cards, worksheets, keys, student links, partner checks)
+        run: node tools/interactive-math-discrete/tests/site-integration.cjs

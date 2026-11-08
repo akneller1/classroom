@@ -23,10 +23,7 @@ for(const course of courses){
  for(const unit of fs.readdirSync(path.join(out,'u',course),{withFileTypes:true}).filter(x=>x.isDirectory()).map(x=>x.name)){
  const file=path.join(out,'u',course,unit,'index.html'),html=fs.readFileSync(file,'utf8');
  assert(html.includes('../../../#'+course+'.'+unit),'Incorrect app route: '+course+'/'+unit);
- if(course === 'discrete') {
-  assert(html.includes('Activities coming soon'),'Planned courses must identify the course outline');
-  assert(!html.includes('worksheet-generator/'),'Planned courses must not link to unavailable generators');
- } else for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
+ for(const page of ['lesson-planner.html','worksheet.html','printables.html','menu-assessment.html'])assert(html.includes('worksheet-generator/'+page),'Missing generator '+page+' in '+course+'/'+unit);
  assert(html.includes('<a href="../">'),'Missing course breadcrumb: '+course+'/'+unit);
  checkLinks(file,html);count++;
 }
@@ -166,3 +163,4 @@ console.log('PASS Grade 6/7 restored; ten visible courses in a two-column grid')
  }
  console.log('PASS catalog integrity: '+checked+' published activity/thumbnail references and '+keyCount+' active teacher answer keys');
 }
+

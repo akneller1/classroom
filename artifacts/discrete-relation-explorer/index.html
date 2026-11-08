@@ -1,0 +1,137 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Relation Property Explorer · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261107"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Discrete Math", "unit": "Properties of Relations", "title": "Relation Property Explorer", "intro": "Build a relation by clicking cells of its matrix or arrows of its directed graph. The tool tests reflexive, symmetric, antisymmetric and transitive live and shows a counterexample when one fails."});
+/* Relation Property Explorer. A relation R on A = {1, …, n} is a set of ordered pairs; (a, b) ∈ R is drawn as an arrow a → b
+   (a loop when a = b) and as a filled cell in row a, column b of the matrix.
+   Reflexive: (a, a) ∈ R for every a. Symmetric: (a, b) ∈ R ⇒ (b, a) ∈ R. Antisymmetric: (a, b), (b, a) ∈ R ⇒ a = b.
+   Transitive: (a, b), (b, c) ∈ R ⇒ (a, c) ∈ R. Closures add the fewest pairs needed (transitive closure by Warshall's algorithm). */
+var css = L.h('style', null, document.head);
+css.textContent = '.rl-mat{display:grid;gap:4px;margin:6px 0 10px;justify-content:start}.rl-mat button{width:44px;height:44px;border:2px solid var(--ink);border-radius:8px;background:var(--card);font-weight:800;font-size:1rem;color:var(--ink);cursor:pointer}' +
+  '.rl-mat button[aria-pressed="true"]{background:var(--blue);color:#fff}.rl-mat span{display:grid;place-items:center;font-weight:800;width:44px;height:44px}' +
+  '.rl-props{display:grid;gap:6px;margin:4px 0 10px}.rl-props div{padding:6px 10px;border-radius:8px;background:var(--wash)}.rl-props .y{background:var(--green-tint)}.rl-props .n{background:var(--red-tint)}' +
+  '.rl-set{font-size:1.02rem;margin:2px 0 8px;line-height:1.5;word-break:break-word}';
+var START = { n: 4, R: [[1, 2], [2, 3]] };
+var st = { n: 4, R: null, sel: null, focusProp: null }, seen = {}, lastAdded = -1;
+function blank(n) { var m = []; for (var i = 0; i < n; i++) { m.push([]); for (var j = 0; j < n; j++) m[i].push(false); } return m; }
+function load(n, pairs) { st.n = n; st.R = blank(n); pairs.forEach(function (p) { if (p[0] <= n && p[1] <= n) st.R[p[0] - 1][p[1] - 1] = true; }); st.sel = null; }
+load(START.n, START.R);
+var PRE = { eq: function (a, b) { return a === b; }, le: function (a, b) { return a <= b; }, lt: function (a, b) { return a < b; }, div: function (a, b) { return b % a === 0; }, par: function (a, b) { return (a - b) % 2 === 0; }, m3: function (a, b) { return (a - b) % 3 === 0; } };
+function props() {
+  var n = st.n, R = st.R, a, b, c, out = { refl: null, sym: null, anti: null, trans: null };
+  for (a = 0; a < n && !out.refl; a++) if (!R[a][a]) out.refl = { miss: [[a, a]], text: '(' + (a + 1) + ', ' + (a + 1) + ') is missing' };
+  for (a = 0; a < n && !out.sym; a++) for (b = 0; b < n && !out.sym; b++) if (R[a][b] && !R[b][a]) out.sym = { bad: [[a, b]], miss: [[b, a]], text: '(' + (a + 1) + ', ' + (b + 1) + ') ∈ R but (' + (b + 1) + ', ' + (a + 1) + ') ∉ R' };
+  for (a = 0; a < n && !out.anti; a++) for (b = 0; b < n && !out.anti; b++) if (a !== b && R[a][b] && R[b][a]) out.anti = { bad: [[a, b], [b, a]], text: '(' + (a + 1) + ', ' + (b + 1) + ') and (' + (b + 1) + ', ' + (a + 1) + ') are both in R but ' + (a + 1) + ' ≠ ' + (b + 1) };
+  for (a = 0; a < n && !out.trans; a++) for (b = 0; b < n && !out.trans; b++) if (R[a][b]) for (c = 0; c < n && !out.trans; c++) if (R[b][c] && !R[a][c]) out.trans = { bad: [[a, b], [b, c]], miss: [[a, c]], text: '(' + (a + 1) + ', ' + (b + 1) + ') and (' + (b + 1) + ', ' + (c + 1) + ') ∈ R but (' + (a + 1) + ', ' + (c + 1) + ') ∉ R' };
+  return out;
+}
+function count() { var k = 0; st.R.forEach(function (r) { r.forEach(function (x) { if (x) k++; }); }); return k; }
+function classes() { var n = st.n, seenE = [], out = []; for (var a = 0; a < n; a++) { if (seenE[a]) continue; var cl = []; for (var b = 0; b < n; b++) if (st.R[a][b]) { cl.push(b + 1); seenE[b] = true; } out.push(cl); } return out; }
+
+var nS = L.slider(P.panel, { id: 'size', label: 'Set A = {1, …, n}: n', min: 3, max: 6, value: st.n, color: 'purple', onInput: function (v) { var old = []; st.R.forEach(function (r, i) { r.forEach(function (x, j) { if (x) old.push([i + 1, j + 1]); }); }); load(v, old); buildMat(); draw(); } });
+L.chips(P.panel, { label: 'Load a relation on A', value: null, options: [{ value: 'eq', label: 'a = b' }, { value: 'le', label: 'a ≤ b' }, { value: 'lt', label: 'a < b' }, { value: 'div', label: 'a divides b' }, { value: 'par', label: 'same parity' }, { value: 'm3', label: 'a ≡ b (mod 3)' }],
+  onChange: function (v) { var pairs = []; for (var a = 1; a <= st.n; a++) for (var b = 1; b <= st.n; b++) if (PRE[v](a, b)) pairs.push([a, b]); load(st.n, pairs); lastAdded = -1; draw(); } });
+L.h('span', { style: 'font-weight:700' }, P.panel, 'Matrix: row a, column b is filled when (a, b) ∈ R');
+var mat = L.h('div', { class: 'rl-mat', role: 'grid', 'aria-label': 'Relation matrix' }, P.panel), cells = [];
+function buildMat() {
+  mat.innerHTML = ''; cells = []; mat.style.gridTemplateColumns = 'repeat(' + (st.n + 1) + ', 44px)';
+  L.h('span', null, mat, '');
+  for (var j = 0; j < st.n; j++) L.h('span', null, mat, String(j + 1));
+  for (var i = 0; i < st.n; i++) { cells.push([]); L.h('span', null, mat, String(i + 1)); for (var k = 0; k < st.n; k++) (function (i, k) {
+    var b = L.h('button', { type: 'button', 'aria-label': 'pair (' + (i + 1) + ', ' + (k + 1) + ')', 'aria-pressed': 'false' }, mat, '');
+    b.addEventListener('click', function () { st.R[i][k] = !st.R[i][k]; lastAdded = -1; draw(); });
+    cells[i].push(b);
+  })(i, k); }
+}
+var ops = L.h('div', { class: 'btn-row' }, P.panel);
+function op(label, fn) { L.button(ops, label, function () { var before = count(); fn(); lastAdded = count() - before; draw(); if (label.indexOf('Transitive') === 0 && lastAdded >= 3) seen.closure = true; ch.update(); }, true); }
+op('Reflexive closure', function () { for (var a = 0; a < st.n; a++) st.R[a][a] = true; });
+op('Symmetric closure', function () { for (var a = 0; a < st.n; a++) for (var b = 0; b < st.n; b++) if (st.R[a][b]) st.R[b][a] = true; });
+op('Transitive closure', function () { var n = st.n, R = st.R; for (var k = 0; k < n; k++) for (var a = 0; a < n; a++) for (var b = 0; b < n; b++) if (R[a][k] && R[k][b]) R[a][b] = true; });
+op('Inverse R⁻¹', function () { var n = st.n, M = blank(n); for (var a = 0; a < n; a++) for (var b = 0; b < n; b++) M[b][a] = st.R[a][b]; st.R = M; });
+op('Clear', function () { st.R = blank(st.n); });
+var btns = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btns, function () { load(START.n, START.R); nS.set(START.n, true); lastAdded = -1; buildMat(); draw(); });
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Build a relation that is <b>reflexive and symmetric</b> but <b>not transitive</b>.', check: function () { return seen.rsNotT; } },
+  { text: 'Build a nonempty relation that is <b>symmetric and transitive</b> but <b>not reflexive</b>. Which element causes the failure?', check: function () { return seen.stNotR; } },
+  { text: 'On {1, …, 5}, build an <b>equivalence relation</b> with exactly <b>two</b> equivalence classes.', check: function () { return seen.two; } },
+  { text: 'Find a nonempty relation that is <b>both symmetric and antisymmetric</b>.', check: function () { return seen.both; } },
+  { text: 'Start from a chain like 1 → 2 → 3 → 4 and press Transitive closure. Make it add at least 3 pairs.', check: function () { return seen.closure; } },
+  { text: 'Build a <b>partial order</b> (reflexive, antisymmetric, transitive) on 4 or more elements in which some two elements are <b>not comparable</b>.', check: function () { return seen.po; } }
+]);
+L.notice(P.below, '<p><b>Reading the digraph.</b> Reflexive: a loop at every vertex. Symmetric: every arrow has a return arrow. Antisymmetric: no pair of distinct vertices has arrows both ways. Transitive: whenever you can go a → b → c, there is also a direct arrow a → c (including a → b → a, which needs a loop at a).</p>' +
+  '<p><b>Disproving</b> takes one counterexample, which the tool highlights in red (a dashed arrow is the missing pair). <b>Proving</b> a property means checking every case, which is why “one example works” is not enough.</p>' +
+  '<p><b>Equivalence relations</b> (reflexive, symmetric, transitive) split A into disjoint, nonempty equivalence classes [a] = {x : a R x}, which form a partition. Symmetric and antisymmetric are not opposites: a relation of loops only is both.</p>' +
+  '<p>Elements a and b are <b>comparable</b> in a partial order if a R b or b R a. “Divides” on {1, 2, 3, 4} is a partial order where 3 and 4 are not comparable.</p>');
+
+var setLine = L.h('div', { class: 'rl-set', 'aria-live': 'polite' }, P.stage);
+var W = 640, H = 420, svg = L.s('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': 'Directed graph of the relation' }, P.stage);
+var hint = L.h('p', { class: 'sub', style: 'margin:4px 0 8px' }, P.stage, 'Click (or press Enter on) one vertex, then another, to add or remove that arrow. Choose the same vertex twice for a loop.');
+var propBox = L.h('div', { class: 'rl-props', 'aria-live': 'polite' }, P.stage);
+propBox.addEventListener('click', function (e) { var b = e.target.closest('[data-p]'); if (b) { st.focusProp = b.getAttribute('data-p'); draw(); } });
+function pos(i) { var t = -Math.PI / 2 + 2 * Math.PI * i / st.n; return [W / 2 + 160 * Math.cos(t), H / 2 + 160 * Math.sin(t)]; }
+function arrowDefs() {
+  var defs = L.s('defs', null, svg);
+  [['ah', 'var(--ink)'], ['ahr', 'var(--red)']].forEach(function (z) { var m = L.s('marker', { id: z[0], viewBox: '0 0 10 10', refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse' }, defs); L.s('path', { d: 'M0 0 L10 5 L0 10 z', fill: z[1] }, m); });
+}
+function edge(i, j, o) {
+  var p = pos(i), q = pos(j), col = o.red ? 'var(--red)' : 'var(--ink)', mk = o.red ? 'url(#ahr)' : 'url(#ah)';
+  if (i === j) { var ang = Math.atan2(p[1] - H / 2, p[0] - W / 2), cx = p[0] + 34 * Math.cos(ang), cy = p[1] + 34 * Math.sin(ang);
+    L.s('circle', { cx: cx, cy: cy, r: 16, fill: 'none', stroke: col, 'stroke-width': o.red ? 4 : 2.5, 'stroke-dasharray': o.dash ? '6 5' : null }, svg); return; }
+  var dx = q[0] - p[0], dy = q[1] - p[1], len = Math.hypot(dx, dy), ux = dx / len, uy = dy / len, off = st.R[j][i] || o.both ? 9 : 0;
+  var x1 = p[0] + ux * 24 - uy * off, y1 = p[1] + uy * 24 + ux * off, x2 = q[0] - ux * 26 - uy * off, y2 = q[1] - uy * 26 + ux * off;
+  L.s('line', { x1: x1, y1: y1, x2: x2, y2: y2, stroke: col, 'stroke-width': o.red ? 4 : 2.5, 'marker-end': mk, 'stroke-dasharray': o.dash ? '7 6' : null }, svg);
+}
+function clickVertex(i) {
+  if (st.sel == null) { st.sel = i; draw(); return; }
+  var a = st.sel; st.sel = null; st.R[a][i] = !st.R[a][i]; lastAdded = -1; draw();
+}
+var draw = L.scheduler(function () {
+  var n = st.n, R = st.R, pr = props(), pairs = [];
+  for (var a = 0; a < n; a++) for (var b = 0; b < n; b++) if (R[a][b]) pairs.push('(' + (a + 1) + ', ' + (b + 1) + ')');
+  setLine.innerHTML = 'A = {' + Array.apply(null, Array(n)).map(function (_, i) { return i + 1; }).join(', ') + '}, &nbsp; R = ' + (pairs.length ? '{' + pairs.join(', ') + '}' : '∅') + ' &nbsp; (' + pairs.length + ' of ' + n * n + ' pairs)';
+  for (a = 0; a < n; a++) for (b = 0; b < n; b++) if (cells[a] && cells[a][b]) { cells[a][b].setAttribute('aria-pressed', String(R[a][b])); cells[a][b].textContent = R[a][b] ? '1' : '0'; }
+  svg.innerHTML = ''; arrowDefs();
+  var foc = st.focusProp && pr[st.focusProp] ? pr[st.focusProp] : (pr.trans || pr.sym || pr.anti || pr.refl);
+  var redKey = {}; if (foc && foc.bad) foc.bad.forEach(function (z) { redKey[z[0] + ',' + z[1]] = 1; });
+  for (a = 0; a < n; a++) for (b = 0; b < n; b++) if (R[a][b]) edge(a, b, { red: !!redKey[a + ',' + b] });
+  if (foc && foc.miss) foc.miss.forEach(function (z) { edge(z[0], z[1], { red: true, dash: true, both: true }); });
+  for (var i = 0; i < n; i++) (function (i) {
+    var p = pos(i), g = L.s('g', { tabindex: 0, role: 'button', 'aria-label': 'vertex ' + (i + 1) + (st.sel === i ? ', selected' : ''), style: 'cursor:pointer' }, svg);
+    L.s('circle', { cx: p[0], cy: p[1], r: 22, fill: st.sel === i ? 'var(--orange)' : 'var(--purple-tint)', stroke: 'var(--ink)', 'stroke-width': 3 }, g);
+    var t = L.s('text', { x: p[0], y: p[1] + 7, 'text-anchor': 'middle', class: 'g-label', 'font-size': 20, 'font-weight': 800 }, g); t.textContent = i + 1;
+    g.addEventListener('click', function () { clickVertex(i); });
+    g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clickVertex(i); setTimeout(function () { var el = svg.querySelector('[aria-label^="vertex ' + (i + 1) + '"]'); el && el.focus(); }, 30); } });
+  })(i);
+  svg.setAttribute('aria-label', 'Directed graph of R with ' + pairs.length + ' arrows' + (st.sel != null ? '; vertex ' + (st.sel + 1) + ' selected' : ''));
+  var P4 = [['refl', 'Reflexive'], ['sym', 'Symmetric'], ['anti', 'Antisymmetric'], ['trans', 'Transitive']];
+  propBox.innerHTML = P4.map(function (z) { var f = pr[z[0]]; return f ? '<div class="n"><b>' + z[1] + ':</b> no, ' + f.text + (foc === f ? ' <i>(shown in red)</i>' : ' <button class="btn ghost" type="button" data-p="' + z[0] + '">Show</button>') + '</div>' : '<div class="y"><b>' + z[1] + ':</b> yes</div>'; }).join('');
+  var eq = !pr.refl && !pr.sym && !pr.trans, po = !pr.refl && !pr.anti && !pr.trans;
+  if (eq) { var cl = classes(); fb.set('<b>Equivalence relation.</b> Classes: ' + cl.map(function (c) { return '[' + c[0] + '] = {' + c.join(', ') + '}'; }).join(', ') + ' — a partition of A into ' + cl.length + ' block' + (cl.length === 1 ? '' : 's') + '.', 'good'); }
+  else if (po) fb.set('<b>Partial order</b> (reflexive, antisymmetric, transitive).' + (lastAdded >= 0 ? ' The last operation added ' + lastAdded + ' pair' + (lastAdded === 1 ? '' : 's') + '.' : ''), 'good');
+  else fb.set(lastAdded >= 0 ? 'The last operation added ' + lastAdded + ' pair' + (lastAdded === 1 ? '' : 's') + '.' : 'Red arrows show a counterexample; a dashed arrow is a missing pair.', '');
+  /* challenges */
+  var k = count();
+  if (!pr.refl && !pr.sym && pr.trans) seen.rsNotT = true;
+  if (k > 0 && !pr.sym && !pr.trans && pr.refl) seen.stNotR = true;
+  if (n === 5 && eq && classes().length === 2) seen.two = true;
+  if (k > 0 && !pr.sym && !pr.anti) seen.both = true;
+  if (n >= 4 && po) { var inc = false; for (a = 0; a < n; a++) for (b = 0; b < n; b++) if (!R[a][b] && !R[b][a]) inc = true; if (inc && k > n) seen.po = true; }
+  ch.update();
+});
+buildMat(); draw();
+
+})();
+</script>
+</body></html>

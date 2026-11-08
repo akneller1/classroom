@@ -5,7 +5,7 @@
   'use strict';
   var ns = G.MKMENU, library = G.LIBRARY, catalog = G.MK_COURSE_CATALOG;
   if (!ns || !Array.isArray(ns.CATALOG) || !library || !catalog) return;
-  var courseIds = ['math6', 'prealgebra7', 'prealgebra', 'algebra2', 'precalculus', 'calculus', 'statistics'];
+  var courseIds = ['math6', 'prealgebra7', 'prealgebra', 'algebra2', 'precalculus', 'calculus', 'statistics', 'discrete'];
   var seen = Object.create(null);
   ns.CATALOG.forEach(function (group) { group.units.forEach(function (u) { seen[u[0]] = true; }); });
   var insertAt = 0;
@@ -29,3 +29,4 @@
   });
   ns.courseBridge = { version: 1, registeredCourses: courseIds.slice() };
 })(typeof window !== 'undefined' ? window : globalThis);
+

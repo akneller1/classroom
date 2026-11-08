@@ -1,0 +1,177 @@
+#!/usr/bin/env python3
+"""Discrete Math vocabulary (term | definition | example) for the shared vocabulary activities and vocabulary flashcards.
+Writes the block appended to worksheet-generator/vocabulary-data-middle-grades.js (between the DISCRETE markers)."""
+import os, json, re
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+V = {
+ 'speaking-mathematically': [
+  ('statement', 'A sentence that is true or false, but not both.', '"17 is prime" is a true statement.'),
+  ('open sentence', 'A sentence with a variable whose truth depends on the value of the variable.', '"x + 2 = 5" is true only for x = 3.'),
+  ('universal statement', 'A statement that a property holds for every element of a domain.', 'For every integer n, n² ≥ 0.'),
+  ('existential statement', 'A statement that at least one element of a domain has a property.', 'There is an integer n with n² = 4.'),
+  ('counterexample', 'An example that makes the hypothesis true and the conclusion false, disproving a universal statement.', '2 is a counterexample to "every prime is odd".'),
+  ('conditional statement', 'A statement of the form "if p, then q".', 'If it rains, then the game is canceled.'),
+  ('set-roster notation', 'A set written by listing its elements inside braces.', '{1, 2, 3}'),
+  ('set-builder notation', 'A set described by a rule its elements satisfy.', '{n ∈ ℤ | 0 < n < 4} = {1, 2, 3}'),
+  ('subset', 'A is a subset of B when every element of A is an element of B.', '{1, 2} ⊆ {1, 2, 3}'),
+  ('empty set', 'The set with no elements, written ∅.', '{x ∈ ℝ | x² = −1} = ∅'),
+  ('ordered pair', 'A pair (a, b) where order matters: (a, b) = (c, d) only when a = c and b = d.', '(1, 2) ≠ (2, 1)'),
+  ('Cartesian product', 'A × B is the set of all ordered pairs (a, b) with a ∈ A and b ∈ B.', '{1, 2} × {x} = {(1, x), (2, x)}'),
+  ('string', 'A finite ordered sequence of characters from an alphabet.', '0110 is a bit string of length 4.')],
+ 'compound-statements-logic': [
+  ('negation', 'The statement ¬p, which is true exactly when p is false.', 'The negation of "it is cold" is "it is not cold".'),
+  ('conjunction', 'The statement p ∧ q, true only when both p and q are true.', 'It is cold and windy.'),
+  ('disjunction', 'The statement p ∨ q, true when at least one of p, q is true (inclusive or).', 'I will walk or I will bike.'),
+  ('truth table', 'A table listing the truth value of a statement form for every combination of truth values of its variables.', 'p ∧ q has column TFFF.'),
+  ('logically equivalent', 'Two statement forms with identical truth values in every row.', '¬(p ∧ q) ≡ ¬p ∨ ¬q'),
+  ('tautology', 'A statement form that is true in every row.', 'p ∨ ¬p'),
+  ('contradiction', 'A statement form that is false in every row.', 'p ∧ ¬p'),
+  ('biconditional', 'p ↔ q, true when p and q have the same truth value.', 'n is even if and only if n² is even.'),
+  ('converse', 'The converse of p → q is q → p.', 'If the ground is wet, then it rained.'),
+  ('contrapositive', 'The contrapositive of p → q is ¬q → ¬p; it is logically equivalent to p → q.', 'If the ground is not wet, then it did not rain.'),
+  ('inverse', 'The inverse of p → q is ¬p → ¬q.', 'If it did not rain, then the ground is not wet.'),
+  ('valid argument', 'An argument in which every row that makes all premises true also makes the conclusion true.', 'Modus ponens: p → q, p ∴ q.'),
+  ('modus tollens', 'The valid form p → q, ¬q ∴ ¬p.', 'If it is a fish it swims; it does not swim; so it is not a fish.'),
+  ('converse error', 'The invalid form p → q, q ∴ p.', 'If it rains the grass is wet; the grass is wet; so it rained (invalid).')],
+ 'number-theory-proof': [
+  ('even integer', 'An integer n with n = 2k for some integer k.', '−6 = 2(−3)'),
+  ('odd integer', 'An integer n with n = 2k + 1 for some integer k.', '7 = 2(3) + 1'),
+  ('rational number', 'A number a/b where a and b are integers and b ≠ 0.', '0.75 = 3/4'),
+  ('divides', 'd | n means n = dk for some integer k (d ≠ 0).', '3 | 12 because 12 = 3·4.'),
+  ('prime number', 'An integer greater than 1 whose only positive divisors are 1 and itself.', '13'),
+  ('composite number', 'An integer greater than 1 that is not prime.', '15 = 3·5'),
+  ('direct proof', 'A proof that assumes the hypothesis and reasons forward to the conclusion.', 'Assume n = 2k; then n² = 2(2k²).'),
+  ('proof by contradiction', 'A proof that assumes the statement is false and derives an impossibility.', 'Assume √2 = a/b in lowest terms.'),
+  ('proof by contraposition', 'A proof of p → q obtained by proving ¬q → ¬p.', 'Prove "if n² is even then n is even" via "if n is odd then n² is odd".'),
+  ('quotient-remainder theorem', 'For integers n and d > 0 there are unique q, r with n = dq + r and 0 ≤ r < d.', '17 = 5·3 + 2'),
+  ('greatest common divisor', 'The largest positive integer dividing both numbers.', 'gcd(12, 18) = 6'),
+  ('generic particular', 'An arbitrarily chosen element used to prove a universal statement.', 'Let n be any odd integer.'),
+  ('conjecture', 'A statement believed true but not yet proved.', 'Every even number greater than 2 is a sum of two primes.')],
+ 'sequences-induction-recursion': [
+  ('sequence', 'A function whose domain is a set of consecutive integers; its values are terms.', '1, 4, 9, 16, ...'),
+  ('explicit formula', 'A rule giving the nth term directly from n.', 'a_n = 3n − 1'),
+  ('recursive definition', 'Initial terms plus a rule giving each term from earlier terms.', 'a₁ = 2, a_n = a_(n−1) + 3'),
+  ('arithmetic sequence', 'A sequence with a constant difference between consecutive terms.', '5, 9, 13, 17, ...'),
+  ('geometric sequence', 'A sequence with a constant ratio between consecutive terms.', '3, 6, 12, 24, ...'),
+  ('summation notation', 'Σ notation for adding the terms of a sequence over an index range.', 'Σ_{k=1}^{4} k = 10'),
+  ('factorial', 'n! = n(n − 1)···2·1, with 0! = 1.', '5! = 120'),
+  ('binomial coefficient', 'C(n, r) = n!/(r!(n − r)!), the number of r-element subsets of an n-element set.', 'C(5, 2) = 10'),
+  ('Fibonacci sequence', 'F₁ = F₂ = 1 and F_n = F_(n−1) + F_(n−2).', '1, 1, 2, 3, 5, 8, 13'),
+  ('iteration', 'Repeatedly applying a recurrence to discover an explicit formula.', 'a_n = a_(n−1) + 4 gives a_n = a₀ + 4n.'),
+  ('base case', 'The first value checked in a proof by induction.', 'Check P(1).'),
+  ('inductive hypothesis', 'The assumption that P(k) is true for an arbitrary k.', 'Assume 1 + ... + k = k(k + 1)/2.'),
+  ('inductive step', 'The argument that P(k) implies P(k + 1).', 'Add k + 1 to both sides and simplify.'),
+  ('tessellation', 'A covering of the plane by shapes with no gaps or overlaps.', 'Regular hexagons tessellate.')],
+ 'set-theory': [
+  ('universal set', 'The set U of all elements under consideration; complements are taken inside U.', 'U = {1, 2, ..., 10}'),
+  ('union', 'A ∪ B: elements in A or B (or both).', '{1, 2} ∪ {2, 3} = {1, 2, 3}'),
+  ('intersection', 'A ∩ B: elements in both A and B.', '{1, 2} ∩ {2, 3} = {2}'),
+  ('set difference', 'A − B: elements in A that are not in B.', '{1, 2, 3} − {2} = {1, 3}'),
+  ('complement', "A' = U − A: elements of the universe not in A.", "U = {1, 2, 3}, A = {1}: A' = {2, 3}"),
+  ('disjoint sets', 'Sets with no common elements.', '{1, 2} and {3, 4}'),
+  ('Venn diagram', 'A picture of sets as overlapping regions inside a rectangle for U.', 'Two overlapping circles inside a rectangle.'),
+  ('power set', 'P(A), the set of all subsets of A; it has 2^|A| elements.', 'P({a, b}) = {∅, {a}, {b}, {a, b}}'),
+  ('element argument', 'A proof of X ⊆ Y that starts with an arbitrary x ∈ X and shows x ∈ Y.', 'Let x ∈ A ∩ B; then x ∈ A.'),
+  ('set identity', 'An equation between set expressions true for all sets.', "(A ∪ B)' = A' ∩ B'"),
+  ('De Morgan laws for sets', "(A ∪ B)' = A' ∩ B' and (A ∩ B)' = A' ∪ B'.", "Outside A ∪ B means outside both."),
+  ('inclusion-exclusion', '|A ∪ B| = |A| + |B| − |A ∩ B|.', '15 + 12 − 7 = 20'),
+  ('partition', 'A collection of nonempty, disjoint subsets whose union is the whole set.', '{{1, 2}, {3}} partitions {1, 2, 3}.')],
+ 'properties-relations': [
+  ('relation', 'A relation R from A to B is a subset of A × B; on A it is a subset of A × A.', 'R = {(1, 2), (2, 3)}'),
+  ('inverse relation', 'R⁻¹ = {(b, a) | (a, b) ∈ R}.', 'The inverse of "is taller than" is "is shorter than".'),
+  ('directed graph', 'A drawing of a relation with an arrow from a to b for each pair (a, b) and a loop for (a, a).', '(2, 2) is drawn as a loop at 2.'),
+  ('reflexive', 'R on A is reflexive when (a, a) ∈ R for every a ∈ A.', '"=" is reflexive.'),
+  ('symmetric', 'R is symmetric when (a, b) ∈ R implies (b, a) ∈ R.', '"is a sibling of" is symmetric.'),
+  ('transitive', 'R is transitive when (a, b) and (b, c) in R imply (a, c) ∈ R.', '"<" is transitive.'),
+  ('equivalence relation', 'A relation that is reflexive, symmetric and transitive.', 'Congruence mod 3.'),
+  ('equivalence class', '[a] = {x | a R x}, all elements related to a.', 'Mod 3: [1] = {..., −2, 1, 4, 7, ...}'),
+  ('partition', 'A collection of nonempty, disjoint subsets that covers the set.', '{evens, odds} partitions ℤ.'),
+  ('induced relation', 'x R y exactly when x and y lie in the same block of a partition.', '{{1, 2}, {3}} gives (1, 2), (2, 1), (1, 1), (2, 2), (3, 3).'),
+  ('congruence modulo n', 'a ≡ b (mod n) when n divides a − b.', '17 ≡ 2 (mod 5)'),
+  ('antisymmetric', 'If (a, b) and (b, a) are both in R then a = b.', '"≤" is antisymmetric.')],
+ 'counting-probability': [
+  ('sample space', 'The set of all possible outcomes of an experiment.', 'Two coin tosses: {HH, HT, TH, TT}'),
+  ('event', 'A subset of the sample space.', 'At least one head: {HH, HT, TH}'),
+  ('equally likely outcomes', 'Outcomes with the same probability; then P(E) = |E| / |S|.', 'A fair die: each face has probability 1/6.'),
+  ('possibility tree', 'A branching diagram listing every outcome of a multistep process.', 'Coin then die: 12 leaves.'),
+  ('multiplication rule', 'If a process has steps with m and n choices (independent of earlier choices), there are mn outcomes.', '3 shirts × 4 pants = 12 outfits'),
+  ('addition rule', 'If A and B are disjoint, |A ∪ B| = |A| + |B|.', '7 mysteries or 5 biographies: 12 choices'),
+  ('complement rule', 'Count what you do not want and subtract: |A| = |S| − |A′|.', 'Strings with at least one 1 = 2ⁿ − 1'),
+  ('permutation', 'An ordered arrangement; P(n, r) = n!/(n − r)!.', 'Gold, silver, bronze among 10 runners: P(10, 3)'),
+  ('combination', 'An unordered selection; C(n, r) = n!/(r!(n − r)!).', 'Committees of 3 from 10: C(10, 3)'),
+  ('with replacement', 'An item is returned before the next draw, so choices can repeat.', '10 · 10 · 10 lock codes'),
+  ('without replacement', 'An item is not returned, so each draw has one fewer choice.', '52 · 51 ordered two-card draws'),
+  ('mutually exclusive', 'Events that cannot happen at the same time.', 'Rolling a 1 and rolling a 6 on one roll.'),
+  ('fencepost count', 'The list m, m + 1, ..., n has n − m + 1 integers.', '10 to 25: 16 integers')],
+ 'graphs-trees': [
+  ('graph', 'A set of vertices and a set of edges, each joining two vertices (or one vertex, for a loop).', 'A triangle has 3 vertices and 3 edges.'),
+  ('degree', 'The number of edge-ends at a vertex; a loop adds 2.', 'A vertex with a loop and one edge has degree 3.'),
+  ('handshake theorem', 'The sum of the degrees equals twice the number of edges.', 'Degrees 2, 2, 2 → 3 edges.'),
+  ('loop', 'An edge joining a vertex to itself.', 'An edge from C to C.'),
+  ('parallel edges', 'Two or more edges joining the same pair of vertices.', 'Two edges between A and B.'),
+  ('simple graph', 'A graph with no loops and no parallel edges.', 'K₄'),
+  ('directed graph', 'A graph whose edges have directions (arrows).', 'One-way streets.'),
+  ('walk', 'An alternating sequence of adjacent vertices and edges.', 'A–B–A–C'),
+  ('trail', 'A walk that repeats no edge.', 'A–B–C–A–D'),
+  ('path', 'A walk that repeats no vertex.', 'A–B–C–D'),
+  ('circuit', 'A closed walk with at least one edge that repeats no edge.', 'A–B–C–A'),
+  ('Euler circuit', 'A circuit that uses every edge exactly once; exists in a connected graph exactly when every degree is even.', 'Any cycle graph C_n.'),
+  ('Hamiltonian cycle', 'A cycle that visits every vertex exactly once.', 'A–B–C–D–A in a square.'),
+  ('chromatic number', 'The fewest colors needed so adjacent vertices have different colors.', 'χ(K₄) = 4'),
+  ('tree', 'A connected graph with no cycles; with n vertices it has n − 1 edges.', 'A star with 5 vertices.')],
+ 'election-theory': [
+  ('preference ballot', "A ballot that ranks the candidates from most to least preferred.", 'A > C > B'),
+  ('preference schedule', 'A table showing how many voters cast each different ballot.', '14 voters: A > B > C'),
+  ('majority', 'More than half of the votes.', '13 of 24 votes'),
+  ('plurality method', 'The candidate with the most first-place votes wins.', 'A wins with 9 of 20 first-place votes.'),
+  ('Borda count', 'Points by rank (n for first place down to 1 for last); most points wins.', 'With 3 candidates: 3, 2, 1 points.'),
+  ('plurality with elimination', 'Repeatedly eliminate the candidate with the fewest first-place votes until someone has a majority.', 'Instant runoff voting.'),
+  ('pairwise comparisons', 'Each pair of candidates is compared head-to-head; 1 point per win, 1/2 per tie.', 'A beats B 12–8.'),
+  ('Condorcet winner', 'A candidate who beats every other candidate head-to-head.', 'B beats A and C.'),
+  ('weighted voting system', '[q: w₁, w₂, ...]: players with weights and a quota needed to pass a motion.', '[6: 4, 3, 2]'),
+  ('quota', 'The total weight needed to pass a motion; more than half of the total weight and at most the total.', 'q = 6 in [6: 4, 3, 2]'),
+  ('critical player', 'A player whose departure turns a winning coalition into a losing one.', 'P1 in {P1, P2} for [6: 4, 3, 2].'),
+  ('Banzhaf power index', "A player's number of critical appearances divided by the total number of critical appearances.", 'P1 has index 3/5 in [6: 4, 3, 2].'),
+  ('fair share', 'A share worth at least 1/N of the total in a player\'s own opinion.', 'Divider-chooser gives each person at least half.'),
+  ('apportionment', 'Dividing a fixed number of seats among states in proportion to population.', "Hamilton's method uses largest remainders."),
+  ('Alabama paradox', 'Increasing the total number of seats makes a state lose a seat.', 'Hamilton: 13 seats give A 2; 14 seats give A 1.')],
+ 'linear-programming': [
+  ('constraint', 'An inequality that limits the possible values of the decision variables.', '2x + y ≤ 40'),
+  ('decision variables', 'The quantities being chosen in an optimization problem.', 'x = tables, y = chairs'),
+  ('feasible region', 'The set of all points that satisfy every constraint.', 'The shaded polygon on a graph.'),
+  ('corner point', 'A vertex of the feasible region, where boundary lines meet.', '(4, 2) where 2x + y = 10 meets x + 2y = 8.'),
+  ('objective function', 'The linear expression to maximize or minimize.', 'P = 3x + 4y'),
+  ('corner-point principle', 'If a linear objective has an optimum on a feasible region, it occurs at a corner point.', 'Evaluate P at each vertex.'),
+  ('bounded region', 'A feasible region that can be enclosed in a circle.', 'x + y ≤ 8, x, y ≥ 0'),
+  ('unbounded region', 'A feasible region that extends without limit.', 'x + y ≥ 4, x, y ≥ 0'),
+  ('infeasible', 'A problem whose constraints have no common solution.', 'x + y ≤ 3 and x + y ≥ 5'),
+  ('multiple optimal solutions', 'An optimum attained along an entire edge of the region.', 'P = x + 2y with edge x + 2y = 12.'),
+  ('binding constraint', 'A constraint that holds with equality at the optimal point.', 'All 120 labor hours are used.'),
+  ('slack', 'The unused amount of a ≤ constraint at a point.', '120 − 110 = 10 hours of slack'),
+  ('nonnegativity constraints', 'The conditions x ≥ 0 and y ≥ 0.', 'You cannot make a negative number of items.')],
+}
+
+
+def block():
+    out = ['/* DISCRETE-MATH-VOCAB-START: Discrete Math vocabulary, generated by tools/discrete-math/vocab.py. */', 'Object.assign(window.MKVOCAB_BANKS,{']
+    rows = []
+    for u, terms in V.items():
+        assert len(terms) >= 12, u
+        terms = [tuple(x.replace('|', '∣').replace('; ', ', and ') for x in t) for t in terms]   # '|' and ';' are field separators; U+2223 shows the same bar
+        for t in terms:
+            assert all(';' not in x for x in t), t
+        rows.append('  %s: %s' % (json.dumps('discrete-' + u), json.dumps(';'.join('|'.join(t) for t in terms), ensure_ascii=False)))
+    out.append(',\n'.join(rows))
+    out.append('});')
+    out.append('/* DISCRETE-MATH-VOCAB-END */')
+    return '\n'.join(out) + '\n'
+
+
+if __name__ == '__main__':
+    p = os.path.join(ROOT, 'worksheet-generator/vocabulary-data-middle-grades.js')
+    s = open(p, encoding='utf-8').read()
+    s = re.sub(r'/\* DISCRETE-MATH-VOCAB-START.*?DISCRETE-MATH-VOCAB-END \*/\n', '', s, flags=re.S)
+    s = s.rstrip('\n') + '\n' + block()
+    open(p, 'w', encoding='utf-8').write(s)
+    open(os.path.join(ROOT, 'tools/discrete-math/patches/vocabulary-data-middle-grades.append.js'), 'w', encoding='utf-8').write(block()) if os.path.isdir(os.path.join(ROOT, 'tools/discrete-math/patches')) else None
+    print('wrote', sum(len(v) for v in V.values()), 'terms')

@@ -2,9 +2,9 @@
    Each catalog skill is a selectable lesson topic; all questions come from the approved bank. */
 (function(G){
 'use strict';
-['algebra2','prealgebra','prealgebra7','math6','precalculus','calculus','statistics'].forEach(function(courseId){
+['algebra2','prealgebra','prealgebra7','math6','precalculus','calculus','statistics','discrete'].forEach(function(courseId){
 var course=G.LIBRARY.courses.filter(function(c){return c.id===courseId;})[0];
-var key={algebra2:'ALGEBRA2',prealgebra:'PREALGEBRA',prealgebra7:'PREALGEBRA7',math6:'MATH6',precalculus:'PRECALCULUS',calculus:'CALCULUS',statistics:'STATISTICS'}[courseId],prefix={algebra2:'A2',prealgebra:'PA8',prealgebra7:'PA7',math6:'M6',precalculus:'PC',calculus:'CA',statistics:'ST'}[courseId];
+var key={algebra2:'ALGEBRA2',prealgebra:'PREALGEBRA',prealgebra7:'PREALGEBRA7',math6:'MATH6',precalculus:'PRECALCULUS',calculus:'CALCULUS',statistics:'STATISTICS',discrete:'DISCRETE'}[courseId],prefix={algebra2:'A2',prealgebra:'PA8',prealgebra7:'PA7',math6:'M6',precalculus:'PC',calculus:'CA',statistics:'ST',discrete:'DM'}[courseId];
 var catalog=G.MK_COURSE_CATALOG;
 if(!course||!catalog||!catalog.getSkillRecords)throw new Error('Algebra 2 planner catalog is unavailable.');
 var days=[],units=[],lessons={},SETS={},UNIT_SET={},dayTypes={
@@ -57,3 +57,4 @@ G['MKPLAN_SCOPE_'+key]={meta:{course:course.name,total_days:day,standards_framew
 G['MKPLAN_SKILLS_'+key]={SETS:SETS,UNIT_SET:UNIT_SET,lessons:lessons};
 });
 })(window);
+

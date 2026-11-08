@@ -5,7 +5,7 @@
   var h = {};
   try { (G.location && G.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); }); } catch (e) { /* no location */ }
   var mid = ['prealgebra', 'prealgebra7', 'math6'].filter(function (c) { return (h.course === c || new RegExp('^' + c + '-').test(h.unit || '')) && G['MKPLAN_SCOPE_' + c.toUpperCase()]; })[0];
-  var hs = mid ? null : ['precalculus', 'calculus', 'statistics'].filter(function (c) { return (h.course === c || new RegExp('^' + c + '-').test(h.unit || '')) && G['MKPLAN_SCOPE_' + c.toUpperCase()]; })[0];
+  var hs = mid ? null : ['precalculus', 'calculus', 'statistics', 'discrete'].filter(function (c) { return (h.course === c || new RegExp('^' + c + '-').test(h.unit || '')) && G['MKPLAN_SCOPE_' + c.toUpperCase()]; })[0];
   var pa8 = !!mid;
   var a2 = (h.course === 'algebra2' || /^algebra2-/.test(h.unit || '')) && G.MKPLAN_SCOPE_ALGEBRA2 && G.MKPLAN_SKILLS_ALGEBRA2;
   var geo = !a2 && (h.course === 'geometry' || /^geometry-/.test(h.unit || '')) && G.MKPLAN_SCOPE_GEOMETRY && G.MKPLAN_SKILLS_GEOMETRY;
@@ -15,3 +15,4 @@
   else if (a2) { G.MKPLAN_SCOPE = G.MKPLAN_SCOPE_ALGEBRA2; G.MKPLAN_SKILLS = G.MKPLAN_SKILLS_ALGEBRA2; }
   else if (geo) { G.MKPLAN_SCOPE = G.MKPLAN_SCOPE_GEOMETRY; G.MKPLAN_SKILLS = G.MKPLAN_SKILLS_GEOMETRY; }
 })(typeof window !== 'undefined' ? window : globalThis);
+

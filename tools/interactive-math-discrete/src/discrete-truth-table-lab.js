@@ -1,0 +1,223 @@
+/* Truth Table Lab. Statements use the variables p, q, r, s, the constants T and F, and the connectives
+   ~ (not), ∧ (and), ∨ (or), ⊕ (exclusive or), → (if…then), ↔ (if and only if).
+   Precedence, highest first: ~, ∧, ∨, ⊕, →, ↔. → and ↔ group to the right, so p → q → r means p → (q → r).
+   Rows are listed in the textbook order: T before F, with the first variable changing slowest.
+   The tool checks equivalence and argument validity by listing every row; it does not check written proofs. */
+var css = L.h('style', null, document.head);
+css.textContent = '.tt-in{width:100%;min-height:44px;border:2px solid var(--ink);border-radius:8px;padding:6px 10px;font-size:1.15rem;font-weight:700;background:var(--card);color:var(--ink)}' +
+  '.tt-lab{font-weight:700;display:block;margin:6px 0 4px}.tt-err{color:var(--red);font-weight:700;min-height:1.2em;font-size:.95rem}' +
+  '.tt-keys{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.tt-keys button{min-width:44px;min-height:44px;font-size:1.15rem}' +
+  '.tt span.T{color:var(--green);font-weight:700}.tt span.F{color:var(--red);font-weight:700}' +
+  '.tt table tr.diff td{background:var(--orange-tint)}.tt table tr.crit td{background:var(--blue-tint)}.tt table tr.bad td{background:var(--red-tint)}' +
+  '.tt table th.main{background:var(--purple-tint)}.tt-sum{font-size:1.05rem;margin:4px 0 10px}';
+
+/* ---------- parser ---------- */
+var OPS = { '↔': [1, 'R'], '→': [2, 'R'], '⊕': [3, 'L'], '∨': [4, 'L'], '∧': [5, 'L'] };
+function lex(src) {
+  var s = src.replace(/<->|<=>|\biff\b/gi, '↔').replace(/->|=>/g, '→').replace(/\bxor\b/gi, '⊕').replace(/\band\b|&&?|\^/gi, '∧')
+    .replace(/\bor\b|\|\|?/gi, '∨').replace(/\bnot\b|[¬!∼]/gi, '~').replace(/\bv\b/g, '∨').replace(/\s+/g, '');
+  var out = [];
+  for (var i = 0; i < s.length; i++) {
+    var c = s[i];
+    if ('pqrsTF'.indexOf(c) >= 0) out.push({ t: 'atom', v: c });
+    else if (c === 'v') out.push({ t: 'op', v: '∨' });
+    else if (OPS[c]) out.push({ t: 'op', v: c });
+    else if (c === '~' || c === '(' || c === ')') out.push({ t: c });
+    else throw new Error('“' + c + '” is not allowed. Use p, q, r, s, T, F and the connective buttons.');
+  }
+  return out;
+}
+function parse(src) {
+  var tk = lex(src), i = 0;
+  if (!tk.length) throw new Error('Type a statement.');
+  function unary() {
+    var t = tk[i];
+    if (!t) throw new Error('The statement ends too early.');
+    if (t.t === '~') { i++; return { op: '~', a: unary() }; }
+    if (t.t === '(') { i++; var e = bin(0); if (!tk[i] || tk[i].t !== ')') throw new Error('Missing “)”.'); i++; return e; }
+    if (t.t === 'atom') { i++; return { atom: t.v }; }
+    throw new Error('Expected a letter, “~” or “(” but found “' + (t.v || t.t) + '”.');
+  }
+  function bin(minP) {
+    var left = unary();
+    while (tk[i] && tk[i].t === 'op' && OPS[tk[i].v][0] >= minP) {
+      var op = tk[i].v, p = OPS[op][0]; i++;
+      var right = bin(OPS[op][1] === 'R' ? p : p + 1);
+      left = { op: op, a: left, b: right };
+    }
+    return left;
+  }
+  var e = bin(0);
+  if (i < tk.length) throw new Error(tk[i].t === ')' ? 'There is an extra “)”.' : 'Two letters or statements need a connective between them.');
+  return e;
+}
+function ev(e, env) {
+  if (e.atom) return e.atom === 'T' ? true : e.atom === 'F' ? false : env[e.atom];
+  var a = ev(e.a, env); if (e.op === '~') return !a;
+  var b = ev(e.b, env);
+  return e.op === '∧' ? a && b : e.op === '∨' ? a || b : e.op === '⊕' ? a !== b : e.op === '→' ? !a || b : a === b;
+}
+function show(e, parentP, side) {
+  if (e.atom) return e.atom;
+  if (e.op === '~') { var inner = show(e.a, 9); return '~' + inner; }
+  var p = OPS[e.op][0], s = show(e.a, p, 'L') + ' ' + e.op + ' ' + show(e.b, p, 'R');
+  var need = parentP != null && (p < parentP || (p === parentP && ((OPS[e.op][1] === 'R') ? side === 'L' : side === 'R')) || parentP === 9);
+  return need ? '(' + s + ')' : s;
+}
+function vars(e, set) { set = set || {}; if (e.atom) { if ('pqrs'.indexOf(e.atom) >= 0) set[e.atom] = 1; } else { vars(e.a, set); if (e.b) vars(e.b, set); } return set; }
+function subs(e, list) { list = list || []; if (e.atom) return list; subs(e.a, list); if (e.b) subs(e.b, list); var s = show(e); if (list.indexOf(s) < 0) list.push(s); return list; }
+function onlyAON(e) { return e.atom ? true : (e.op === '~' || e.op === '∧' || e.op === '∨') && onlyAON(e.a) && (!e.b || onlyAON(e.b)); }
+function neg(e) { return { op: '~', a: e }; }
+
+/* ---------- state and controls ---------- */
+var START = { mode: 'cmp', s1: 'p → q', s2: '~q → ~p', prem: 'p → q; q', concl: 'p', steps: true };
+var st = JSON.parse(JSON.stringify(START)), seen = {}, lastField = null, fromForm = null;
+var modeC = L.chips(P.panel, { label: 'Mode', value: st.mode, options: [{ value: 'cmp', label: 'Compare two statements' }, { value: 'arg', label: 'Test an argument' }], onChange: function (v) { st.mode = v; layoutMode(); draw(); } });
+var cmpBox = L.h('div', null, P.panel), argBox = L.h('div', null, P.panel);
+function field(parent, id, label, val) {
+  L.h('label', { class: 'tt-lab', for: id }, parent, label);
+  var inp = L.h('input', { id: id, class: 'tt-in', type: 'text', value: val, autocomplete: 'off', spellcheck: 'false', 'aria-describedby': id + '-err' }, parent);
+  var err = L.h('div', { id: id + '-err', class: 'tt-err', 'aria-live': 'polite' }, parent);
+  inp.addEventListener('focus', function () { lastField = inp; });
+  inp.addEventListener('input', function () { fromForm = null; read(); draw(); });
+  return { inp: inp, err: err };
+}
+var F1 = field(cmpBox, 'tt-s1', 'Statement 1', st.s1), F2 = field(cmpBox, 'tt-s2', 'Statement 2 (optional, to compare)', st.s2);
+var formRow = L.h('div', { class: 'btn-row' }, cmpBox);
+L.h('span', { style: 'font-weight:700;width:100%' }, formRow, 'If Statement 1 is a conditional A → B, put a related form in Statement 2:');
+[['converse', 'Converse  B → A'], ['inverse', 'Inverse  ~A → ~B'], ['contrapositive', 'Contrapositive  ~B → ~A'], ['negation', 'Negation  ~(A → B)']].forEach(function (f) {
+  L.button(formRow, f[1], function () { makeForm(f[0]); }, true);
+});
+var FP = field(argBox, 'tt-prem', 'Premises (separate with ;)', st.prem), FC = field(argBox, 'tt-concl', 'Conclusion', st.concl);
+var keys = L.h('div', { class: 'tt-keys', role: 'group', 'aria-label': 'Insert a symbol' }, P.panel);
+['p', 'q', 'r', 's', '~', '∧', '∨', '→', '↔', '⊕', '(', ')'].forEach(function (k) {
+  var b = L.h('button', { class: 'btn ghost', type: 'button', 'aria-label': 'Insert ' + ({ '~': 'not', '∧': 'and', '∨': 'or', '→': 'implies', '↔': 'if and only if', '⊕': 'exclusive or', '(': 'left parenthesis', ')': 'right parenthesis' }[k] || k) }, keys, k);
+  b.addEventListener('mousedown', function (e) { e.preventDefault(); });
+  b.addEventListener('click', function () { insert(k); });
+});
+var stepsC = L.chips(P.panel, { label: 'Columns', value: 'steps', options: [{ value: 'steps', label: 'Show every step' }, { value: 'final', label: 'Final columns only' }], onChange: function (v) { st.steps = v === 'steps'; draw(); } });
+var btns = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btns, function () {
+  st = JSON.parse(JSON.stringify(START)); fromForm = null;
+  F1.inp.value = st.s1; F2.inp.value = st.s2; FP.inp.value = st.prem; FC.inp.value = st.concl;
+  modeC.set('cmp', true); stepsC.set('steps', true); layoutMode(); read(); draw();
+});
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'Start with p → q in Statement 1. Use the buttons to compare it with its <b>converse</b>, then its <b>contrapositive</b>. Which one is equivalent?', check: function () { return seen.conv && seen.contra; } },
+  { text: 'Type a statement in p and q that is a <b>tautology</b> (true in every row), other than T itself.', check: function () { return seen.taut; } },
+  { text: 'Check one of De Morgan’s laws: show ~(p ∧ q) or ~(p ∨ q) is equivalent to a statement with no parentheses.', check: function () { return seen.demorgan; } },
+  { text: 'Rewrite p ↔ q using only ~, ∧ and ∨, and confirm the two statements are equivalent.', check: function () { return seen.bicond; } },
+  { text: 'Find a statement equivalent to ~(p → q) that uses no arrow.', check: function () { return seen.negcond; } },
+  { text: 'Test an argument: show modus tollens (p → q; ~q, so ~p) is valid and the converse error (p → q; q, so p) is invalid.', check: function () { return seen.validMT && seen.invalidCE; } }
+]);
+L.notice(P.below, '<p><b>Reading the table.</b> Each row is one assignment of truth values. Two statements are <b>logically equivalent</b> when their columns match in every row; one row where they differ is enough to show they are not.</p>' +
+  '<p>For a conditional A → B: the <b>converse</b> is B → A, the <b>inverse</b> is ~A → ~B, and the <b>contrapositive</b> is ~B → ~A. A conditional is equivalent to its contrapositive; the converse and inverse are equivalent to each other. The <b>negation</b> of A → B is A ∧ ~B.</p>' +
+  '<p>An argument is <b>valid</b> when the conclusion is true in every <b>critical row</b> (a row where all premises are true). A truth table tests the <i>form</i> of an argument; it does not tell you whether the premises are actually true.</p>' +
+  '<p>Typing tips: ~ or ! for not, ^ or & for and, v or | for or, -> for if…then, <-> for if and only if. Order of operations: ~, then ∧, then ∨, ⊕, →, ↔.</p>');
+
+var sum = L.h('div', { class: 'tt-sum', 'aria-live': 'polite' }, P.stage);
+var tblWrap = L.h('div', { class: 'tt' }, P.stage), tbl = L.table(tblWrap);
+
+function layoutMode() { cmpBox.style.display = st.mode === 'cmp' ? '' : 'none'; argBox.style.display = st.mode === 'arg' ? '' : 'none'; }
+function insert(k) {
+  var f = lastField || (st.mode === 'cmp' ? F1.inp : FP.inp), a = f.selectionStart == null ? f.value.length : f.selectionStart, b = f.selectionEnd == null ? a : f.selectionEnd;
+  var pad = '∧∨→↔⊕'.indexOf(k) >= 0 ? ' ' + k + ' ' : k;
+  f.value = f.value.slice(0, a) + pad + f.value.slice(b); f.focus(); f.selectionStart = f.selectionEnd = a + pad.length;
+  fromForm = null; read(); draw();
+}
+var P1, P2, PP, PC;
+function tryParse(F, optional) {
+  var v = F.inp.value.trim();
+  if (!v && optional) { F.err.textContent = ''; F.inp.removeAttribute('aria-invalid'); return null; }
+  try { var e = parse(v); F.err.textContent = ''; F.inp.removeAttribute('aria-invalid'); return e; }
+  catch (x) { F.err.textContent = x.message; F.inp.setAttribute('aria-invalid', 'true'); return undefined; }
+}
+function read() {
+  st.s1 = F1.inp.value; st.s2 = F2.inp.value; st.prem = FP.inp.value; st.concl = FC.inp.value;
+  P1 = tryParse(F1); P2 = tryParse(F2, true); PC = tryParse(FC);
+  PP = []; var bad = false;
+  st.prem.split(';').forEach(function (x) { x = x.trim(); if (!x) return; try { PP.push(parse(x)); } catch (e) { bad = e.message; } });
+  if (bad || !PP.length) { FP.err.textContent = bad || 'Type at least one premise.'; FP.inp.setAttribute('aria-invalid', 'true'); PP = undefined; } else { FP.err.textContent = ''; FP.inp.removeAttribute('aria-invalid'); }
+}
+function makeForm(kind) {
+  if (!P1) { fb.set('Statement 1 needs to be a complete statement first.', 'warn'); return; }
+  if (P1.op !== '→') { fb.set('Statement 1 is not a conditional, so it has no ' + kind + '. Its main connective must be →. (Add parentheses if needed.)', 'warn'); return; }
+  var A = P1.a, B = P1.b, e = kind === 'converse' ? { op: '→', a: B, b: A } : kind === 'inverse' ? { op: '→', a: neg(A), b: neg(B) } : kind === 'contrapositive' ? { op: '→', a: neg(B), b: neg(A) } : neg(P1);
+  F2.inp.value = show(e); fromForm = kind; read(); draw();
+}
+function rowsFor(vs) { var out = []; for (var m = 0; m < 1 << vs.length; m++) { var env = {}; vs.forEach(function (v, i) { env[v] = !((m >> (vs.length - 1 - i)) & 1); }); out.push(env); } return out; }
+function TF(b) { return b ? 'T' : 'F'; }
+function cell(b) { return '<span class="' + TF(b) + '">' + TF(b) + '</span>'; }
+
+var draw = L.scheduler(function () {
+  var vs, rows, head, body = [], cls = [];
+  if (st.mode === 'cmp') {
+    if (!P1 || P2 === undefined) { sum.innerHTML = 'Fix the statement' + (P1 ? ' 2' : ' 1') + ' to see its truth table.'; tbl.set([], []); fb.set('', ''); return; }
+    var all = vars(P1); if (P2) vars(P2, all); vs = 'pqrs'.split('').filter(function (v) { return all[v]; });
+    rows = rowsFor(vs);
+    var cols = [];
+    if (st.steps) { subs(P1).forEach(function (s) { cols.push(s); }); if (P2) subs(P2).forEach(function (s) { if (cols.indexOf(s) < 0) cols.push(s); }); }
+    var m1 = show(P1), m2 = P2 ? show(P2) : null;
+    cols = cols.filter(function (c) { return c !== m1 && c !== m2; });
+    var parsed = cols.map(parse);
+    head = vs.concat(cols).concat(['<b>S1: ' + L.esc(m1) + '</b>']).concat(P2 ? ['<b>S2: ' + L.esc(m2) + '</b>', 'Same?'] : []);
+    var t1 = 0, diffRow = -1;
+    rows.forEach(function (env, ri) {
+      var a = ev(P1, env), b = P2 ? ev(P2, env) : null; if (a) t1++;
+      if (P2 && a !== b && diffRow < 0) diffRow = ri;
+      body.push(vs.map(function (v) { return cell(env[v]); }).concat(parsed.map(function (e) { return cell(ev(e, env)); })).concat([cell(a)]).concat(P2 ? [cell(b), a === b ? '✓' : '<b>✗</b>'] : []));
+      cls.push(P2 && a !== b ? 'diff' : '');
+    });
+    tbl.set(head.map(function (x) { return L.esc(x).replace(/&lt;(\/?)b&gt;/g, '<$1b>'); }), body);
+    markRows(cls, head.length - (P2 ? 3 : 1), P2 ? 2 : 1);
+    var kind = t1 === rows.length ? 'a <b>tautology</b> (true in every row)' : t1 === 0 ? 'a <b>contradiction</b> (false in every row)' : 'a <b>contingency</b> (true in ' + t1 + ' of ' + rows.length + ' rows)';
+    sum.innerHTML = vs.length + ' variable' + (vs.length === 1 ? '' : 's') + ', ' + rows.length + ' rows. Statement 1 is ' + kind + '.';
+    if (P2) {
+      var eq = diffRow < 0;
+      var w = vs.map(function (v) { return v + ' = ' + TF(rows[Math.max(diffRow, 0)][v]); }).join(', ');
+      fb.set(eq ? '<b>Equivalent:</b> the S1 and S2 columns match in all ' + rows.length + ' rows.' + (fromForm ? ' (S2 is the ' + fromForm + ' of S1.)' : '') :
+        '<b>Not equivalent.</b> They differ in the highlighted row' + (cls.filter(Boolean).length > 1 ? 's' : '') + '. For example, when ' + w + ', S1 is ' + TF(ev(P1, rows[diffRow])) + ' but S2 is ' + TF(ev(P2, rows[diffRow])) + '.' + (fromForm ? ' (S2 is the ' + fromForm + ' of S1.)' : ''), eq ? 'good' : 'warn');
+      if (fromForm === 'converse' && P1.op === '→' && !eq) seen.conv = true;
+      if (fromForm === 'contrapositive' && eq) seen.contra = true;
+      if (eq) {
+        var dm = function (x, y) { return x.op === '~' && x.a && (x.a.op === '∧' || x.a.op === '∨') && show(y).indexOf('(') < 0; };
+        if (dm(P1, P2) || dm(P2, P1)) seen.demorgan = true;
+        var bi = function (x, y) { return x.op === '↔' && vars(x).p && vars(x).q && onlyAON(y) && vars(y).p && vars(y).q; };
+        if (bi(P1, P2) || bi(P2, P1)) seen.bicond = true;
+        var nc = function (x, y) { return x.op === '~' && x.a.op === '→' && show(y).indexOf('→') < 0 && show(y).indexOf('↔') < 0; };
+        if (nc(P1, P2) || nc(P2, P1)) seen.negcond = true;
+      }
+    } else fb.set('Add Statement 2 to compare, or use a button to make the converse, inverse, contrapositive or negation.', '');
+    if (t1 === rows.length && vs.length >= 1 && P1.atom !== 'T') seen.taut = true;
+  } else {
+    if (!PP || !PC) { sum.innerHTML = 'Fix the premises and conclusion to test the argument.'; tbl.set([], []); fb.set('', ''); return; }
+    var al = vars(PC); PP.forEach(function (e) { vars(e, al); }); vs = 'pqrs'.split('').filter(function (v) { return al[v]; });
+    rows = rowsFor(vs);
+    head = vs.concat(PP.map(function (e, i) { return 'Premise ' + (i + 1) + ': ' + show(e); })).concat(['<b>Conclusion: ' + show(PC) + '</b>', 'Critical row?']);
+    var crit = 0, badRow = -1;
+    rows.forEach(function (env, ri) {
+      var pv = PP.map(function (e) { return ev(e, env); }), all = pv.every(Boolean), c = ev(PC, env);
+      if (all) { crit++; if (!c && badRow < 0) badRow = ri; }
+      body.push(vs.map(function (v) { return cell(env[v]); }).concat(pv.map(cell)).concat([cell(c), all ? (c ? 'yes: conclusion T' : '<b>yes: conclusion F</b>') : '']));
+      cls.push(all ? (c ? 'crit' : 'bad') : '');
+    });
+    tbl.set(head.map(function (x) { return L.esc(x).replace(/&lt;(\/?)b&gt;/g, '<$1b>'); }), body);
+    markRows(cls, vs.length + PP.length, 1);
+    sum.innerHTML = rows.length + ' rows; ' + crit + ' critical row' + (crit === 1 ? '' : 's') + ' (all premises true), shaded blue.';
+    var valid = badRow < 0;
+    fb.set(crit === 0 ? '<b>Valid</b>, but only vacuously: the premises are never all true at once, so there is no critical row to fail.' : valid ? '<b>Valid:</b> the conclusion is true in every critical row.' :
+      '<b>Invalid:</b> in the red row every premise is true but the conclusion is false (' + vs.map(function (v) { return v + ' = ' + TF(rows[badRow][v]); }).join(', ') + ').', valid ? 'good' : 'bad');
+    var sig = PP.map(show).sort().join(';') + '|' + show(PC);
+    if (valid && sig === ['p → q', '~q'].sort().join(';') + '|~p') seen.validMT = true;
+    if (!valid && sig === ['p → q', 'q'].sort().join(';') + '|p') seen.invalidCE = true;
+  }
+  ch.update();
+});
+function markRows(cls, mainFrom, nMain) {
+  var trs = tblWrap.querySelectorAll('tbody tr');
+  cls.forEach(function (c, i) { if (c && trs[i]) trs[i].className = c; });
+  var ths = tblWrap.querySelectorAll('thead th');
+  for (var k = mainFrom; k < mainFrom + nMain && k < ths.length; k++) ths[k].className = 'main';
+}
+layoutMode(); read(); draw();

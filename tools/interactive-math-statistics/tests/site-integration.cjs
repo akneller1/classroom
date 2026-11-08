@@ -35,16 +35,15 @@ let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; con
     const title = await v.evaluate(() => { const f = document.querySelector('iframe'); return f && f.contentDocument && f.contentDocument.querySelector('.lab-title') ? f.contentDocument.querySelector('.lab-title').textContent : null; });
     ok(title === e.a.title, `${e.a.title}: viewer shows tool (${title})`); ok(!ve.length && !errs.length, `${e.a.title}: errors ${ve} ${errs}`); await v.close(); await p.close();
   }
-  /* Statistics remains active; Discrete Math remains an outline. */
+  /* Statistics remains active; Discrete Math is now published. */
   { const q = await context.newPage(); await q.goto(`${base}/index.html#statistics.statistical-inference`); await q.waitForTimeout(800);
     ok(await q.evaluate(() => !!document.querySelector('#algebra-interactive') && !!document.querySelector('a[href*="lesson-planner.html"]')), 'Statistics unit page: generators plus Interactive Math');
     await q.goto(`${base}/index.html#statistics`); await q.waitForTimeout(800); ok(await q.evaluate(() => /4 units with skills, generators, games, and study guides/.test(document.body.textContent)), 'Statistics course page note');
-    await q.goto(`${base}/index.html#discrete`); await q.waitForTimeout(800); ok(await q.evaluate(() => /course outline · activities coming soon/.test(document.body.textContent) && !/Interactive Math in/.test(document.body.textContent)), 'Discrete Math planned page unchanged');
-    await q.goto(`${base}/index.html#discrete.${ctx.window.LIBRARY.courses.find(c => c.id === 'discrete').units[0].id}`); await q.waitForTimeout(800);
-    ok(await q.evaluate(() => /Activities coming soon/.test(document.querySelector('.band-meta').textContent) && !document.querySelector('#algebra-interactive')), 'Discrete Math unit page unchanged'); await q.close(); }
+    await q.goto(`${base}/index.html#discrete`); await q.waitForTimeout(800); ok(await q.evaluate(() => /10 units with skills, generators, games, and study guides/.test(document.body.textContent) && !document.querySelector('.course-wip-label')), 'Discrete Math is published'); await q.close(); }
   /* shortcut only where tools exist */
   const p = await context.newPage(); await p.goto(`${base}/index.html#math6.rational-numbers`); await p.waitForTimeout(800);
   ok(!(await p.evaluate(() => [...document.querySelectorAll('a.resource-shortcut')].some(a => /category=interactive/.test(a.href)))), 'no Interactive Math shortcut in a unit without tools');
   await p.goto(`${base}/index.html#algebra.quadratics`); await p.waitForTimeout(800); ok(await p.evaluate(() => !!document.querySelector('li.card[data-path="artifacts/quadratics-parabola-explorer/index.html"]')), 'existing Algebra 1 tool still listed');
   await b.close(); srv.close(); console.log(`${pass} checks passed, ${fail} failed (${entries.length} entries)`); process.exit(fail ? 1 : 0);
 })();
+
