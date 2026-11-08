@@ -1016,3 +1016,35 @@ body { background:var(--paper); }
     background:color-mix(in srgb,var(--c-tint) 15%,var(--card));
   }
 }
+
+/* One course palette across navigation, headers, units, and activity cards. */
+[data-course="math6"][data-color] { --course-hue:0; }
+[data-course="prealgebra7"][data-color] { --course-hue:25; }
+[data-course="prealgebra"][data-color] { --course-hue:50; }
+[data-course="algebra"][data-color] { --course-hue:80; }
+[data-course="geometry"][data-color] { --course-hue:120; }
+[data-course="algebra2"][data-color] { --course-hue:160; }
+[data-course="precalculus"][data-color] { --course-hue:190; }
+[data-course="calculus"][data-color] { --course-hue:220; }
+[data-course="statistics"][data-color] { --course-hue:255; }
+[data-course="discrete"][data-color] { --course-hue:285; }
+[data-course][data-color] {
+  --c-bg:hsl(var(--course-hue) 60% 88%);
+  --c-fg:#17213d;
+  --c-tint:hsl(var(--course-hue) 60% 95%);
+  --c-text:hsl(var(--course-hue) 48% 30%);
+}
+.unit[data-course] { background:var(--c-tint); }
+.unit[data-course] .unit-open-link,
+.unit[data-course] .unit-lesson-details summary,
+.unit[data-course] .unit-title-link:hover { color:var(--c-text); }
+:root[data-theme="dark"] [data-course][data-color] {
+  --c-tint:hsl(var(--course-hue) 28% 22%);
+  --c-text:hsl(var(--course-hue) 65% 78%);
+}
+@media(prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) [data-course][data-color] {
+    --c-tint:hsl(var(--course-hue) 28% 22%);
+    --c-text:hsl(var(--course-hue) 65% 78%);
+  }
+}
