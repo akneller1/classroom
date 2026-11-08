@@ -997,15 +997,14 @@ body { background:var(--paper); }
   --c-text:hsl(var(--task-hue) 48% 30%);
 }
 .task-workspace .task-card[href="guide.html"] {
-  background:color-mix(in srgb,var(--c-bg) 45%,var(--card));
-  border-color:color-mix(in srgb,var(--c-bg) 75%,var(--line));
+  background:color-mix(in srgb,var(--c-bg) 10%,var(--card));
 }
 :root[data-theme="dark"] .task-workspace .task-card {
   --c-tint:hsl(var(--task-hue) 28% 22%);
   --c-text:hsl(var(--task-hue) 65% 78%);
 }
 :root[data-theme="dark"] .task-workspace .task-card[href="guide.html"] {
-  background:color-mix(in srgb,var(--c-tint) 65%,var(--card));
+  background:color-mix(in srgb,var(--c-tint) 15%,var(--card));
 }
 @media(prefers-color-scheme:dark) {
   :root:not([data-theme="light"]) .task-workspace .task-card {
@@ -1013,6 +1012,6 @@ body { background:var(--paper); }
     --c-text:hsl(var(--task-hue) 65% 78%);
   }
   :root:not([data-theme="light"]) .task-workspace .task-card[href="guide.html"] {
-    background:color-mix(in srgb,var(--c-tint) 65%,var(--card));
+    background:color-mix(in srgb,var(--c-tint) 15%,var(--card));
   }
 }
