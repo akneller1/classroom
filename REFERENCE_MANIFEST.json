@@ -1,0 +1,2037 @@
+{
+  "repository": "akneller1/classroom",
+  "source_commit": "0953f0b9972ebb13ea6234f8f723ac2bd291af1e",
+  "created": "2026-11-08",
+  "target": "Discrete Math / sequences-induction-recursion / Honors Partner Checks",
+  "bank_counts": {
+    "total": 273,
+    "byLevel": {
+      "cp2": 92,
+      "cp1": 91,
+      "honors": 90
+    }
+  },
+  "reference_only": true,
+  "files": [
+    {
+      "path": "course-catalog.js",
+      "git_blob_sha": "45b3cf2605cc332d140d61c284e6e27b586d3605",
+      "size_bytes": 36356
+    },
+    {
+      "path": "data.js",
+      "git_blob_sha": "45b3b870474a86444747ade72e7de33861441b52",
+      "size_bytes": 512389
+    },
+    {
+      "path": "docs/discrete/COVERAGE.csv",
+      "git_blob_sha": "41c3f7604363b3ab754160d1d15cb97abd6a67f5",
+      "size_bytes": 8248
+    },
+    {
+      "path": "docs/discrete/COVERAGE.md",
+      "git_blob_sha": "19b6e60aa786c3b224ad7f849f5f77d53f22ec58",
+      "size_bytes": 13648
+    },
+    {
+      "path": "legacy-crosswalk-audit.js",
+      "git_blob_sha": "cd1cb04587895d167e0068ab2a462c2bb10065ee",
+      "size_bytes": 2675
+    },
+    {
+      "path": "question-bank-adapter.js",
+      "git_blob_sha": "e0db1f99f85d51bf1c2db6f47d6d0cd2600f0b81",
+      "size_bytes": 5373
+    },
+    {
+      "path": "question-bank-loader.js",
+      "git_blob_sha": "0b8091ddc112bbdbe44429286256cfce6f019a7a",
+      "size_bytes": 2770
+    },
+    {
+      "path": "question-banks/algebra2/conic-sections.json",
+      "git_blob_sha": "5af4a1ec640f80c39bbb15051d80d1d0c787a5e6",
+      "size_bytes": 318524
+    },
+    {
+      "path": "question-banks/algebra2/exponential-logarithmic-functions.json",
+      "git_blob_sha": "3409798403c48c112dcbfc8c2089300a093d691a",
+      "size_bytes": 331177
+    },
+    {
+      "path": "question-banks/algebra2/functions-transformations.json",
+      "git_blob_sha": "8e5fdde3088ece2c0cb9ca984ff7c336f0d306f5",
+      "size_bytes": 326590
+    },
+    {
+      "path": "question-banks/algebra2/linear-functions-systems.json",
+      "git_blob_sha": "fa2237ad337265daa70c45eeea9ed0392b0c88b0",
+      "size_bytes": 307927
+    },
+    {
+      "path": "question-banks/algebra2/polynomial-functions.json",
+      "git_blob_sha": "30bfb45d33489a522c83e9f753ceeef4e3cc742f",
+      "size_bytes": 356615
+    },
+    {
+      "path": "question-banks/algebra2/probability-statistics.json",
+      "git_blob_sha": "5ce634a14aeb90fddad98d9112b0e8985d1e6aca",
+      "size_bytes": 335559
+    },
+    {
+      "path": "question-banks/algebra2/quadratic-functions-complex-numbers.json",
+      "git_blob_sha": "e0278305bf9ff68cc85febdd848674c28fd46422",
+      "size_bytes": 323154
+    },
+    {
+      "path": "question-banks/algebra2/radicals-rational-exponents.json",
+      "git_blob_sha": "97217914e38cfbcc722b6a06895007f22c86bb48",
+      "size_bytes": 329996
+    },
+    {
+      "path": "question-banks/algebra2/rational-functions.json",
+      "git_blob_sha": "10cbb6ea417a2192436bd2fd76a49c425cd1d665",
+      "size_bytes": 335637
+    },
+    {
+      "path": "question-banks/algebra2/sequences-series.json",
+      "git_blob_sha": "2c1def33c53f60a087c11c6fbb0c16f977b711ba",
+      "size_bytes": 330201
+    },
+    {
+      "path": "question-banks/algebra2/trigonometric-functions.json",
+      "git_blob_sha": "8c2f666c71349dc9a31621e39981d4dad479808d",
+      "size_bytes": 367311
+    },
+    {
+      "path": "question-banks/assets/discrete/counting-probability/tree_coin3.png",
+      "git_blob_sha": "18f250ce11d03b3a783cbab21ef1d98a8140748e",
+      "size_bytes": 15592
+    },
+    {
+      "path": "question-banks/assets/discrete/counting-probability/tree_outfit.png",
+      "git_blob_sha": "2ed5b4a0cd4b43cf54b9e9921f49b2a47f38260d",
+      "size_bytes": 18533
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/digraph1.png",
+      "git_blob_sha": "5cdf7d808e7f7140db1ce947c3e0c5a11c95deab",
+      "size_bytes": 8450
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g1.png",
+      "git_blob_sha": "290910023a5cb4337ca4600865869244603e3b7d",
+      "size_bytes": 6767
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g2.png",
+      "git_blob_sha": "770938407ee8956dadc27d255e5ba148564c230f",
+      "size_bytes": 8215
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g3.png",
+      "git_blob_sha": "c182a7ea2964582e3265d0fe8f6aaf6891231218",
+      "size_bytes": 14509
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g4.png",
+      "git_blob_sha": "929d8d42233c3c708f686ed22df12263c4bf8d26",
+      "size_bytes": 16199
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g5.png",
+      "git_blob_sha": "8e6219075d05c24aab85f1825b818e32ea78c305",
+      "size_bytes": 8327
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g6.png",
+      "git_blob_sha": "a4474d76aa4ea6045abfac64e1a9d3dff0e99f50",
+      "size_bytes": 9647
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g7.png",
+      "git_blob_sha": "7d0c4688d8f6784ff28c5de2051dd562c78a8501",
+      "size_bytes": 9481
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/g8.png",
+      "git_blob_sha": "68e6670ed3daceecd10e392543fd5ca7cdaaaaf5",
+      "size_bytes": 11294
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/t1.png",
+      "git_blob_sha": "827bca4e84a30e7163770670b9d70f645d67b4ec",
+      "size_bytes": 9203
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/t1_b.png",
+      "git_blob_sha": "827bca4e84a30e7163770670b9d70f645d67b4ec",
+      "size_bytes": 9203
+    },
+    {
+      "path": "question-banks/assets/discrete/graphs-trees/weighted1.png",
+      "git_blob_sha": "6ed794527f187a7122f7b935b5e17aaf9841bf1f",
+      "size_bytes": 11663
+    },
+    {
+      "path": "question-banks/assets/discrete/linear-programming/L1.png",
+      "git_blob_sha": "0d6796fba5a380c760b9e40561a4f60e8f3ff5ed",
+      "size_bytes": 17659
+    },
+    {
+      "path": "question-banks/assets/discrete/linear-programming/L1_nolabel.png",
+      "git_blob_sha": "6d096daf25c94be0ab6c4993f671dcd8fd216f85",
+      "size_bytes": 14457
+    },
+    {
+      "path": "question-banks/assets/discrete/linear-programming/L2.png",
+      "git_blob_sha": "7d4a5d4c08e0b7b6d400e9560e5edfd3ed45aef4",
+      "size_bytes": 22783
+    },
+    {
+      "path": "question-banks/assets/discrete/linear-programming/L2_nolabel.png",
+      "git_blob_sha": "62f1b425d67d3c66baf6892ff18a7b3fa874f72a",
+      "size_bytes": 19767
+    },
+    {
+      "path": "question-banks/assets/discrete/linear-programming/L4.png",
+      "git_blob_sha": "0c9711ab52b8e1af32559d280d603f1434b17ea0",
+      "size_bytes": 21901
+    },
+    {
+      "path": "question-banks/assets/discrete/linear-programming/L9_nolabel.png",
+      "git_blob_sha": "631999af2639a88dc015bb67e615bc833c2909ae",
+      "size_bytes": 21302
+    },
+    {
+      "path": "question-banks/assets/discrete/properties-relations/digraph_r1.png",
+      "git_blob_sha": "afbea77aa3f77c0f969b3c385e2e43c429158590",
+      "size_bytes": 13466
+    },
+    {
+      "path": "question-banks/assets/discrete/properties-relations/digraph_r11.png",
+      "git_blob_sha": "e684ecfdc0886f06d57d9d186f9d0ddc2688193d",
+      "size_bytes": 12550
+    },
+    {
+      "path": "question-banks/assets/discrete/properties-relations/digraph_r12.png",
+      "git_blob_sha": "17e7a537d0b5ae6f6f584a01b25f92060f011cec",
+      "size_bytes": 10434
+    },
+    {
+      "path": "question-banks/assets/discrete/properties-relations/digraph_r2.png",
+      "git_blob_sha": "31fc25dd3cabd3fb1d9897b601e0f309aa722673",
+      "size_bytes": 8163
+    },
+    {
+      "path": "question-banks/assets/discrete/properties-relations/digraph_r4.png",
+      "git_blob_sha": "0caed47d6098f8b522767681cc21ec094b68d86a",
+      "size_bytes": 13095
+    },
+    {
+      "path": "question-banks/assets/discrete/properties-relations/digraph_r8.png",
+      "git_blob_sha": "fe7698b75fd65dd382aa65e5f67da9c8c0295cb6",
+      "size_bytes": 8297
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn2_letters.png",
+      "git_blob_sha": "e621367e762a756b6f09c872f269bc6a7570d52f",
+      "size_bytes": 16712
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn2_shade_0.png",
+      "git_blob_sha": "ffcd504e3c110d06d1d84dfe60156b9bb354e461",
+      "size_bytes": 15541
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn2_shade_1.png",
+      "git_blob_sha": "f69d1f1218677b9d5eea0ae6d7e13e1f38291aaf",
+      "size_bytes": 15838
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn2_shade_2.png",
+      "git_blob_sha": "f7e4f61300462f845a47015d6b1a334cd7a4914b",
+      "size_bytes": 15628
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn2_shade_3.png",
+      "git_blob_sha": "2610a642b1cc30a4b9cd54d137eb32851a1cfc0e",
+      "size_bytes": 15332
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn3_counts.png",
+      "git_blob_sha": "2c4c0daab5a9b2e121951425d88a64c9e649b37c",
+      "size_bytes": 23052
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn3_shade_0.png",
+      "git_blob_sha": "3b2a86b026d7f897b780308584a2d8ba15b1f977",
+      "size_bytes": 21475
+    },
+    {
+      "path": "question-banks/assets/discrete/set-theory/venn3_shade_1.png",
+      "git_blob_sha": "28f3682b7200f7434d1011a1363bf7e371b58404",
+      "size_bytes": 21119
+    },
+    {
+      "path": "question-banks/calculus/antiderivatives-definite-integrals.json",
+      "git_blob_sha": "25e1b1cdf98de63f476ca88e3a5f705c7ea1a182",
+      "size_bytes": 299431
+    },
+    {
+      "path": "question-banks/calculus/ap-review.json",
+      "git_blob_sha": "4d50bcb937eec506bb7f576974710bf9e2d2b542",
+      "size_bytes": 304754
+    },
+    {
+      "path": "question-banks/calculus/applications-derivatives.json",
+      "git_blob_sha": "304f543541177596e9e0ce443436012fa1f52c33",
+      "size_bytes": 467478
+    },
+    {
+      "path": "question-banks/calculus/applications-integrals.json",
+      "git_blob_sha": "b5b715233ea13f2e6f3b13b4f668efa75104cb60",
+      "size_bytes": 330869
+    },
+    {
+      "path": "question-banks/calculus/derivatives.json",
+      "git_blob_sha": "cfaa25141905bdd23b104fd6a69467326dc04ab4",
+      "size_bytes": 290182
+    },
+    {
+      "path": "question-banks/calculus/differential-equations.json",
+      "git_blob_sha": "bf50d77268f25263023c7df8a634517aaaabc1ca",
+      "size_bytes": 229324
+    },
+    {
+      "path": "question-banks/calculus/fundamental-theorem-calculus.json",
+      "git_blob_sha": "264da2dd28c6090e78bcf678ecb5edd96b6550aa",
+      "size_bytes": 216999
+    },
+    {
+      "path": "question-banks/calculus/limits-continuity.json",
+      "git_blob_sha": "c3e7a5d08437e7cded08f23af1345e287ef63a8e",
+      "size_bytes": 337402
+    },
+    {
+      "path": "question-banks/calculus/precalculus-review.json",
+      "git_blob_sha": "0490e89cb79ed869b5467cf87a7ad3d6f98d675d",
+      "size_bytes": 211577
+    },
+    {
+      "path": "question-banks/discrete/compound-statements-logic.json",
+      "git_blob_sha": "e67c98f5279009b958b390c6e224f61299db1d96",
+      "size_bytes": 251588
+    },
+    {
+      "path": "question-banks/discrete/counting-probability.json",
+      "git_blob_sha": "08470e0f082020d7a36ba96e18cb699bb9b6ccf3",
+      "size_bytes": 199965
+    },
+    {
+      "path": "question-banks/discrete/election-theory.json",
+      "git_blob_sha": "1affd923643882ec88a979205e3504264d795847",
+      "size_bytes": 258232
+    },
+    {
+      "path": "question-banks/discrete/graphs-trees.json",
+      "git_blob_sha": "e3b89785fc7f523d5cd5a5b8498ed8f09dcc8116",
+      "size_bytes": 240790
+    },
+    {
+      "path": "question-banks/discrete/linear-programming.json",
+      "git_blob_sha": "f69ce0d67d095d9aa5371fb46d09ba846274f66f",
+      "size_bytes": 224528
+    },
+    {
+      "path": "question-banks/discrete/number-theory-proof.json",
+      "git_blob_sha": "b8b410ff04ac2d8afb4af5a65e8633fbb277fb18",
+      "size_bytes": 251839
+    },
+    {
+      "path": "question-banks/discrete/properties-relations.json",
+      "git_blob_sha": "95aacb3dc4be8b3336f43d76fb413da791c5d5df",
+      "size_bytes": 223645
+    },
+    {
+      "path": "question-banks/discrete/sequences-induction-recursion.json",
+      "git_blob_sha": "c87207be316e0edd059de33661a44bbd7aa7abca",
+      "size_bytes": 225001
+    },
+    {
+      "path": "question-banks/discrete/set-theory.json",
+      "git_blob_sha": "97c51c6fa1221787cf64ad04c562577655218ec6",
+      "size_bytes": 234348
+    },
+    {
+      "path": "question-banks/discrete/speaking-mathematically.json",
+      "git_blob_sha": "7e761080fc25d46e12a6881c6b080b6c106333cc",
+      "size_bytes": 242382
+    },
+    {
+      "path": "question-banks/manifest.json",
+      "git_blob_sha": "a80132a83c233da018689050e5bda2b52c4c6a8a",
+      "size_bytes": 12944
+    },
+    {
+      "path": "question-banks/math6/data-displays.json",
+      "git_blob_sha": "7fcc7c514a4fd0a96175ae59dd9c8ad596a98951",
+      "size_bytes": 349066
+    },
+    {
+      "path": "question-banks/math6/expressions-equations.json",
+      "git_blob_sha": "7121a71e52d33ca7db47a75dca7829ae10bff1aa",
+      "size_bytes": 277420
+    },
+    {
+      "path": "question-banks/math6/fractions-decimals-operations.json",
+      "git_blob_sha": "8f1f6971166fe82fb7caa786b883e99b3f3cde9e",
+      "size_bytes": 327759
+    },
+    {
+      "path": "question-banks/math6/geometry.json",
+      "git_blob_sha": "7ae46d511a12e0e77095466c58cbe9e2efa335ac",
+      "size_bytes": 342407
+    },
+    {
+      "path": "question-banks/math6/inequalities.json",
+      "git_blob_sha": "92cfb5cda17cc53197451550708bf687923243e4",
+      "size_bytes": 220686
+    },
+    {
+      "path": "question-banks/math6/rational-numbers.json",
+      "git_blob_sha": "12e6390bafd628a08ea457c36e51bc914e4ae7b5",
+      "size_bytes": 370418
+    },
+    {
+      "path": "question-banks/math6/ratios-rates-percent-proportions.json",
+      "git_blob_sha": "d06617ecb7cee2ae555647353b51a32bd2fe165a",
+      "size_bytes": 329820
+    },
+    {
+      "path": "question-banks/prealgebra/congruence-similarity.json",
+      "git_blob_sha": "5508ce2f5f0366f34dc22d14ff223f283df3c837",
+      "size_bytes": 497638
+    },
+    {
+      "path": "question-banks/prealgebra/equations-expressions.json",
+      "git_blob_sha": "5822c93365fa99368b43a10b7cc3f2d78a540d0a",
+      "size_bytes": 374371
+    },
+    {
+      "path": "question-banks/prealgebra/geometry-applications.json",
+      "git_blob_sha": "4f4db6bded601c9032a6cd988574bab1b0c733d9",
+      "size_bytes": 368172
+    },
+    {
+      "path": "question-banks/prealgebra/linear-functional-relationships.json",
+      "git_blob_sha": "cb5bb2b9c76224aba4726e74c673e71652e42323",
+      "size_bytes": 586525
+    },
+    {
+      "path": "question-banks/prealgebra/patterns-bivariate-data.json",
+      "git_blob_sha": "904f5b5b4a2fcab749dede8e18ccfe12f6e1decb",
+      "size_bytes": 433202
+    },
+    {
+      "path": "question-banks/prealgebra/real-numbers-exponents.json",
+      "git_blob_sha": "c95a03932ed561d36d2a4ee25add61778d8705c1",
+      "size_bytes": 523276
+    },
+    {
+      "path": "question-banks/prealgebra/systems-linear-equations.json",
+      "git_blob_sha": "0f77105b88732c3eb46aec4041f13d2454073f6a",
+      "size_bytes": 309054
+    },
+    {
+      "path": "question-banks/prealgebra7/algebraic-expressions-integers.json",
+      "git_blob_sha": "9ef9528b0ffa1bf20a330011b42f680471278b08",
+      "size_bytes": 498066
+    },
+    {
+      "path": "question-banks/prealgebra7/area-volume.json",
+      "git_blob_sha": "ecefbb643584831227305c3144ca5ff5636e36d3",
+      "size_bytes": 327924
+    },
+    {
+      "path": "question-banks/prealgebra7/data-analysis-probability.json",
+      "git_blob_sha": "9f14b2bed16296bf75d2fe31f097be8b00196e10",
+      "size_bytes": 357134
+    },
+    {
+      "path": "question-banks/prealgebra7/decimals-equations.json",
+      "git_blob_sha": "9f049b7eb5f7ca8f2dd72c33d2e62f92fba5f6d5",
+      "size_bytes": 287969
+    },
+    {
+      "path": "question-banks/prealgebra7/factors-fractions-exponents.json",
+      "git_blob_sha": "ec100f9abe8d7c6d7bad2dc7b60381e5cd22a242",
+      "size_bytes": 383965
+    },
+    {
+      "path": "question-banks/prealgebra7/linear-functions-graphing.json",
+      "git_blob_sha": "dc2c6e6f10eebee9cbcc164af7b72ef30e8f3b9f",
+      "size_bytes": 341215
+    },
+    {
+      "path": "question-banks/prealgebra7/nonlinear-functions-polynomials.json",
+      "git_blob_sha": "2fddf6d43c7c24e7a7ca8c8f5680a5c8248767fb",
+      "size_bytes": 315657
+    },
+    {
+      "path": "question-banks/prealgebra7/one-step-equations-inequalities.json",
+      "git_blob_sha": "360bc6868ebbe4a1f9c13c94843d9937f99b2c40",
+      "size_bytes": 414919
+    },
+    {
+      "path": "question-banks/prealgebra7/operations-fractions.json",
+      "git_blob_sha": "0f94c7f14ab82c4c2d9bd04a1a05ff78c7454890",
+      "size_bytes": 316944
+    },
+    {
+      "path": "question-banks/prealgebra7/ratios-proportions-percentages.json",
+      "git_blob_sha": "96de0b883ced5414e660126f39b588b56b0ee6e0",
+      "size_bytes": 404824
+    },
+    {
+      "path": "question-banks/prealgebra7/right-triangles-algebra.json",
+      "git_blob_sha": "f22fcec003b520fa4637c8039569cacad83050bd",
+      "size_bytes": 292142
+    },
+    {
+      "path": "question-banks/prealgebra7/solving-equations-inequalities.json",
+      "git_blob_sha": "14332d4928912f34bbfddfc8f123e0a6454524aa",
+      "size_bytes": 321101
+    },
+    {
+      "path": "question-banks/prealgebra7/spatial-thinking.json",
+      "git_blob_sha": "8bbec32d3dbdc83f06253e0062681867a2885ea6",
+      "size_bytes": 405375
+    },
+    {
+      "path": "question-banks/precalculus/conics.json",
+      "git_blob_sha": "c320e694b62bfae7bbc818eba5ce29eb78c9c1cd",
+      "size_bytes": 247200
+    },
+    {
+      "path": "question-banks/precalculus/equations-inequalities.json",
+      "git_blob_sha": "779d15583bf0fa4f49d2c85c8f35e84d02c92366",
+      "size_bytes": 475342
+    },
+    {
+      "path": "question-banks/precalculus/functions.json",
+      "git_blob_sha": "1cec2fb845b8a95f4fde6f34dcd96b77cec22262",
+      "size_bytes": 672769
+    },
+    {
+      "path": "question-banks/precalculus/general-triangle-trigonometry.json",
+      "git_blob_sha": "10de939eaed4cd0e3d4abe760d1984b0d1cbf3be",
+      "size_bytes": 346881
+    },
+    {
+      "path": "question-banks/precalculus/matrices.json",
+      "git_blob_sha": "cecf66defd3d109620e05327a893be5cbf484ed1",
+      "size_bytes": 451810
+    },
+    {
+      "path": "question-banks/precalculus/probability.json",
+      "git_blob_sha": "e001fa5997ab40ade7de10799b3cbdad08b472f1",
+      "size_bytes": 369657
+    },
+    {
+      "path": "question-banks/precalculus/trigonometric-functions.json",
+      "git_blob_sha": "d4c323d23c104a1153dde7857775df71c9f9c5d2",
+      "size_bytes": 447844
+    },
+    {
+      "path": "question-banks/precalculus/vectors.json",
+      "git_blob_sha": "ac3e19ea4001a56c9db73627eb154d134ade0ff8",
+      "size_bytes": 355878
+    },
+    {
+      "path": "question-banks/statistics/anticipating-patterns.json",
+      "git_blob_sha": "a2477d16b2251b1eaccb9a33d1e2f9de3e94b1d6",
+      "size_bytes": 502585
+    },
+    {
+      "path": "question-banks/statistics/exploring-data.json",
+      "git_blob_sha": "3158e14cbc2296aedf26086f269769e35be7c1da",
+      "size_bytes": 512909
+    },
+    {
+      "path": "question-banks/statistics/sampling-experimentation.json",
+      "git_blob_sha": "758b9ef1e748c1412de21f8a3f6986efc6f992f4",
+      "size_bytes": 456131
+    },
+    {
+      "path": "question-banks/statistics/statistical-inference.json",
+      "git_blob_sha": "d270323f4ba35b62b751b76fe5fd2d05cd826b1e",
+      "size_bytes": 546484
+    },
+    {
+      "path": "resource-eligibility.js",
+      "git_blob_sha": "c9934625e3ffd6bc9464ecb623cf625df187f142",
+      "size_bytes": 1898
+    },
+    {
+      "path": "schemas/question-bank.schema.json",
+      "git_blob_sha": "8a788070ea238d9ba853e89ba7d5c6ffcd903a61",
+      "size_bytes": 4608
+    },
+    {
+      "path": "scripts/build_standards_map.cjs",
+      "git_blob_sha": "d43ffd252f1cd1c77ff1559f9d4c64cdbd02917d",
+      "size_bytes": 11840
+    },
+    {
+      "path": "scripts/test-discrete-bank.cjs",
+      "git_blob_sha": "9bf1de9fa71b1516f000a34a355e418e4abe2244",
+      "size_bytes": 17536
+    },
+    {
+      "path": "scripts/test-hs-bank-integration.cjs",
+      "git_blob_sha": "979d5e84ef93ba7f7535cd90f47675fa8b6ecc32",
+      "size_bytes": 7990
+    },
+    {
+      "path": "scripts/test-partner-check-pairs.cjs",
+      "git_blob_sha": "d2f04e23547edcc4049efbfdff6a7061397447bb",
+      "size_bytes": 7928
+    },
+    {
+      "path": "scripts/test-standards.cjs",
+      "git_blob_sha": "f3aa6fec2db37db216de48cb7a3ba8dac8782cb4",
+      "size_bytes": 3883
+    },
+    {
+      "path": "skill-crosswalk.js",
+      "git_blob_sha": "521591a5233340cf2b80e244bde9e63ac0e06dbd",
+      "size_bytes": 4633
+    },
+    {
+      "path": "tools/discrete-math/bank/build_all.py",
+      "git_blob_sha": "dd74434ba9b2e4f13ee89aff9ff7f88b7ae0f6ee",
+      "size_bytes": 7283
+    },
+    {
+      "path": "tools/discrete-math/bank/core.py",
+      "git_blob_sha": "0fff55361dc98f7b6be7f0df23cf7bdce7e95342",
+      "size_bytes": 8292
+    },
+    {
+      "path": "tools/discrete-math/bank/figs.py",
+      "git_blob_sha": "755558d9b12c6c9763b5d7d7bb28ce04bd1cecc5",
+      "size_bytes": 9057
+    },
+    {
+      "path": "tools/discrete-math/bank/logic.py",
+      "git_blob_sha": "24214093b92b3b132674b6bb20f59dc57833e84f",
+      "size_bytes": 3391
+    },
+    {
+      "path": "tools/discrete-math/bank/quick.py",
+      "git_blob_sha": "b24c1d41132c64bc0ff9e05d48d8ace6b2d52828",
+      "size_bytes": 9157
+    },
+    {
+      "path": "tools/discrete-math/bank/u01_speaking.py",
+      "git_blob_sha": "329ae822c8b000b01428e08f8a9b74567b662018",
+      "size_bytes": 69170
+    },
+    {
+      "path": "tools/discrete-math/bank/u02_logic.py",
+      "git_blob_sha": "e382dbca223b12b12933c0ebff8143770f437048",
+      "size_bytes": 66369
+    },
+    {
+      "path": "tools/discrete-math/bank/u03_proof.py",
+      "git_blob_sha": "a7ee8ce52e519f509db687559875ca0980cc29d9",
+      "size_bytes": 71114
+    },
+    {
+      "path": "tools/discrete-math/bank/u04_sequences.py",
+      "git_blob_sha": "b8bf46b1647e2e2915eda27c2dc67536e17ba2df",
+      "size_bytes": 63443
+    },
+    {
+      "path": "tools/discrete-math/bank/u05_sets.py",
+      "git_blob_sha": "747be898b76b8267c337b686193883aff9e50ab5",
+      "size_bytes": 59906
+    },
+    {
+      "path": "tools/discrete-math/bank/u06_relations.py",
+      "git_blob_sha": "863b23c48376791984cc3a7154f3d5a51625232f",
+      "size_bytes": 46997
+    },
+    {
+      "path": "tools/discrete-math/bank/u07_counting.py",
+      "git_blob_sha": "df5e362198e58c28d96f09cc0c46871aa1e170ec",
+      "size_bytes": 48327
+    },
+    {
+      "path": "tools/discrete-math/bank/u08_graphs.py",
+      "git_blob_sha": "d75bccbf483fb8e0e72890823c156f54b429c11c",
+      "size_bytes": 46159
+    },
+    {
+      "path": "tools/discrete-math/bank/u09_election.py",
+      "git_blob_sha": "448ff2885b8d03e9269f9fa04057c507744b8ddf",
+      "size_bytes": 66125
+    },
+    {
+      "path": "tools/discrete-math/bank/u10_lp.py",
+      "git_blob_sha": "c8f79455d79b7fc3c952fb7df7dbf5d3382a45e2",
+      "size_bytes": 51286
+    },
+    {
+      "path": "tools/discrete-math/partner/build.py",
+      "git_blob_sha": "81beac85386ca818664b6c6ca61244c97cd8b430",
+      "size_bytes": 8443
+    },
+    {
+      "path": "tools/discrete-math/partner/pairs.json",
+      "git_blob_sha": "df21f081eb2ca08eb996d3162a9721873ecab54e",
+      "size_bytes": 91272
+    },
+    {
+      "path": "tools/discrete-math/partner/pairs.py",
+      "git_blob_sha": "cce382e4f6164ba258518d751eda8bf95742dd1c",
+      "size_bytes": 33664
+    },
+    {
+      "path": "tools/discrete-math/report.py",
+      "git_blob_sha": "531d31700abda585edcea821fce75590f794aa66",
+      "size_bytes": 4643
+    },
+    {
+      "path": "tools/partner-check-companions-20261107/apply.py",
+      "git_blob_sha": "4d518c395473494c4806c4e44fdaaf8881d40401",
+      "size_bytes": 4175
+    },
+    {
+      "path": "tools/partner-check-companions-20261107/companions_a2.py",
+      "git_blob_sha": "4a345e28eebc6c1ac52786f6b3e9e2c9ce16b23d",
+      "size_bytes": 27279
+    },
+    {
+      "path": "tools/partner-check-companions-20261107/companions_other.py",
+      "git_blob_sha": "895485b6c4cfb96f8d4705e08a7ebc62dd2f7419",
+      "size_bytes": 17033
+    },
+    {
+      "path": "worksheet-generator/README.md",
+      "git_blob_sha": "c00261d2ecf656b861b356a44fc4534bd98a7247",
+      "size_bytes": 6115
+    },
+    {
+      "path": "worksheet-generator/algebra1-exponents-exponential-functions.html",
+      "git_blob_sha": "6a54b975074a303b5f6cb34b42d035145b82bde7",
+      "size_bytes": 975
+    },
+    {
+      "path": "worksheet-generator/algebra1-expressions-equations.html",
+      "git_blob_sha": "d882fbd5cb70ba0f42e70053b8b7b912f8e38567",
+      "size_bytes": 942
+    },
+    {
+      "path": "worksheet-generator/algebra1-graphing-inequalities.html",
+      "git_blob_sha": "c0ecc8d2f66e8cfc8248fe1e81ba357793c9940f",
+      "size_bytes": 952
+    },
+    {
+      "path": "worksheet-generator/algebra1-inequalities.html",
+      "git_blob_sha": "ee4e62f454fcbcfac47d61ccc869d4bdf8a594ea",
+      "size_bytes": 910
+    },
+    {
+      "path": "worksheet-generator/algebra1-linear-functions.html",
+      "git_blob_sha": "6740ff704bf9355f505564d0279f8dbb74500a9b",
+      "size_bytes": 950
+    },
+    {
+      "path": "worksheet-generator/algebra1-polynomials-factoring.html",
+      "git_blob_sha": "b170f94cba5dccbfc7ba36c1c49658d2a8fcad55",
+      "size_bytes": 899
+    },
+    {
+      "path": "worksheet-generator/algebra1-quadratics.html",
+      "git_blob_sha": "763a3dad3b3baf3b59f9b7fb9399d4bcf3698e0c",
+      "size_bytes": 918
+    },
+    {
+      "path": "worksheet-generator/algebra1-systems-of-equations.html",
+      "git_blob_sha": "c0ecc8d2f66e8cfc8248fe1e81ba357793c9940f",
+      "size_bytes": 952
+    },
+    {
+      "path": "worksheet-generator/algebra2-bank-native.js",
+      "git_blob_sha": "dfca3664d2563c23ac8090cba4f1daa4da8b70c5",
+      "size_bytes": 14832
+    },
+    {
+      "path": "worksheet-generator/algebra2-game.html",
+      "git_blob_sha": "2803276de584984dd5fca82cde56e750f4ed3f3d",
+      "size_bytes": 4372
+    },
+    {
+      "path": "worksheet-generator/algebra2-practice.html",
+      "git_blob_sha": "3a1235495a128a9dd86265c17fe73762107854d7",
+      "size_bytes": 646
+    },
+    {
+      "path": "worksheet-generator/algebra2-practice.js",
+      "git_blob_sha": "728eb8827f8ac1cc43db8c7bfe9ed74b0fdc6d0b",
+      "size_bytes": 4782
+    },
+    {
+      "path": "worksheet-generator/algebra2-quest.js",
+      "git_blob_sha": "d4187d75dab023450f694dca188a55ca84bc9205",
+      "size_bytes": 4055
+    },
+    {
+      "path": "worksheet-generator/approved-flashcards.html",
+      "git_blob_sha": "0090a362e655c2ca61c8ce760d464616f84b21dd",
+      "size_bytes": 4208
+    },
+    {
+      "path": "worksheet-generator/approved-flashcards.js",
+      "git_blob_sha": "a41058c84c6b932eee14364fb160002ea3d534cb",
+      "size_bytes": 7941
+    },
+    {
+      "path": "worksheet-generator/approved-games.html",
+      "git_blob_sha": "5dc08facfb7a972aa4b86f65cd802e49da3281c3",
+      "size_bytes": 5529
+    },
+    {
+      "path": "worksheet-generator/approved-games.js",
+      "git_blob_sha": "d4bbe66598a7e9cd57b984d2dc3c4472e1431539",
+      "size_bytes": 6523
+    },
+    {
+      "path": "worksheet-generator/bank-printable.html",
+      "git_blob_sha": "0c99e68d90889490c6cd600a16969f35799b5558",
+      "size_bytes": 9870
+    },
+    {
+      "path": "worksheet-generator/bank-printable.js",
+      "git_blob_sha": "9e11f439422f3bc96a461343b434a029ba46b14d",
+      "size_bytes": 25136
+    },
+    {
+      "path": "worksheet-generator/core/algebra1-expanded-skills.js",
+      "git_blob_sha": "bba44705d6df7024737c57efb3b9fc4f4e6cfc5b",
+      "size_bytes": 10325
+    },
+    {
+      "path": "worksheet-generator/core/algebra1-extended-practice.js",
+      "git_blob_sha": "8272aeec56e4449eb876207de5415d3631f7f134",
+      "size_bytes": 15592
+    },
+    {
+      "path": "worksheet-generator/core/app.css",
+      "git_blob_sha": "3923fee1472b7c62c9fcd9f62dee1584420ff3d7",
+      "size_bytes": 11515
+    },
+    {
+      "path": "worksheet-generator/core/app.js",
+      "git_blob_sha": "b59c96a6c15ce269d78fbb44087b9281beb0a975",
+      "size_bytes": 18064
+    },
+    {
+      "path": "worksheet-generator/core/frac.js",
+      "git_blob_sha": "2557a428449a1bd73cf72b02353d03cc66bff4b0",
+      "size_bytes": 2223
+    },
+    {
+      "path": "worksheet-generator/core/framework.js",
+      "git_blob_sha": "a5730e640ccebeebc0da262ea3ce4dfa5edfa640",
+      "size_bytes": 10480
+    },
+    {
+      "path": "worksheet-generator/core/graph.js",
+      "git_blob_sha": "f8db8a788c071a068d0778df16b13730d4c0f607",
+      "size_bytes": 9804
+    },
+    {
+      "path": "worksheet-generator/core/math-display.css",
+      "git_blob_sha": "bc93b01e95159350e5347e43249d58276db189cc",
+      "size_bytes": 3097
+    },
+    {
+      "path": "worksheet-generator/core/math-display.js",
+      "git_blob_sha": "dab03c1bac37956ba7381059158dc811e0d6267d",
+      "size_bytes": 12868
+    },
+    {
+      "path": "worksheet-generator/core/render.js",
+      "git_blob_sha": "69730a354c9d7170e9f5b88d2ef7bb8191991dd3",
+      "size_bytes": 10094
+    },
+    {
+      "path": "worksheet-generator/core/rng.js",
+      "git_blob_sha": "9be18a68cf23446862f266ce2e5bea453397a983",
+      "size_bytes": 1913
+    },
+    {
+      "path": "worksheet-generator/core/tex.js",
+      "git_blob_sha": "4f1a9cba31042549b4921dd59288483a24af2e40",
+      "size_bytes": 3278
+    },
+    {
+      "path": "worksheet-generator/course-activity.html",
+      "git_blob_sha": "696436a02296d4c5e6aca72ea6c256e75dc32626",
+      "size_bytes": 4312
+    },
+    {
+      "path": "worksheet-generator/course-game.html",
+      "git_blob_sha": "2ab484de65a1c2c16efc0c59fd817e4098e745bb",
+      "size_bytes": 6167
+    },
+    {
+      "path": "worksheet-generator/draft-grade-practice.js",
+      "git_blob_sha": "74f8847ae928efb589d4669957d9ee951c9f4c28",
+      "size_bytes": 4124
+    },
+    {
+      "path": "worksheet-generator/games/README.md",
+      "git_blob_sha": "d0acb93dbf8d4e7d2af0178e017eb5a72d346107",
+      "size_bytes": 8810
+    },
+    {
+      "path": "worksheet-generator/games/bank.js",
+      "git_blob_sha": "f2604c65ca7e6f6d953212a4e5c380e0f91dfe33",
+      "size_bytes": 45892
+    },
+    {
+      "path": "worksheet-generator/games/cipher-questions.js",
+      "git_blob_sha": "6c793de45551f0aee2374d4412e91bbdcc8717dd",
+      "size_bytes": 14017
+    },
+    {
+      "path": "worksheet-generator/games/course-activity.js",
+      "git_blob_sha": "74e1ec58b267e256abd24bc9a950add7fbc58eca",
+      "size_bytes": 11643
+    },
+    {
+      "path": "worksheet-generator/games/course-source.js",
+      "git_blob_sha": "f3bc2cd1519fcae94a56434e04804c0b41b6f79c",
+      "size_bytes": 2826
+    },
+    {
+      "path": "worksheet-generator/games/escape-room.json",
+      "git_blob_sha": "14c464ccfa7d48c5b19281b8adf196f2df6cdaca",
+      "size_bytes": 844
+    },
+    {
+      "path": "worksheet-generator/games/escape-runtime.js",
+      "git_blob_sha": "092b8d3afd79efc09cc1b65479065fae9e06e767",
+      "size_bytes": 14663
+    },
+    {
+      "path": "worksheet-generator/games/escape-themes.json",
+      "git_blob_sha": "231c64652a0c4f6d0750695de9a18ebccf7c0e49",
+      "size_bytes": 56758
+    },
+    {
+      "path": "worksheet-generator/games/escape.css",
+      "git_blob_sha": "c772f5af294f59a1101aaea4b34257625d1485a3",
+      "size_bytes": 7709
+    },
+    {
+      "path": "worksheet-generator/games/games.css",
+      "git_blob_sha": "544d3ffbd0f8a85fb2d40f5fdeece96b8b6990c2",
+      "size_bytes": 13757
+    },
+    {
+      "path": "worksheet-generator/games/games.js",
+      "git_blob_sha": "5313951d63cf663da006e81f60167e1cbdcc9eb8",
+      "size_bytes": 48068
+    },
+    {
+      "path": "worksheet-generator/games/grade-game-setup.js",
+      "git_blob_sha": "d57a5eec78bddddd87c3119a3ed723ba4cbdbe08",
+      "size_bytes": 2968
+    },
+    {
+      "path": "worksheet-generator/games/mkgames.py",
+      "git_blob_sha": "80fb4dc3ffc1e0ab563ba58cf2aed17283450729",
+      "size_bytes": 2185
+    },
+    {
+      "path": "worksheet-generator/games/mkgeometrygames.py",
+      "git_blob_sha": "989f91dd7be7f830c5544ec829fd52f4df023f61",
+      "size_bytes": 3031
+    },
+    {
+      "path": "worksheet-generator/games/mystery-case.json",
+      "git_blob_sha": "fb99d784f36f558a399b1376e94ab4ba12a438f3",
+      "size_bytes": 5689
+    },
+    {
+      "path": "worksheet-generator/games/mystery-runtime.js",
+      "git_blob_sha": "49cb88d1be65b63b06fe3169a8fbf4fa5dc062e0",
+      "size_bytes": 24731
+    },
+    {
+      "path": "worksheet-generator/games/mystery.css",
+      "git_blob_sha": "82182b2c2150734921fa1b5424bb3ab235feb834",
+      "size_bytes": 8097
+    },
+    {
+      "path": "worksheet-generator/games/skill-setup.js",
+      "git_blob_sha": "fb730ef85d343034c7e632294a822bd1ea279e7f",
+      "size_bytes": 7790
+    },
+    {
+      "path": "worksheet-generator/games/tests/games-browser.cjs",
+      "git_blob_sha": "74e530aadab46a8296e6012f1bff6a833d49c2b6",
+      "size_bytes": 10480
+    },
+    {
+      "path": "worksheet-generator/games/tests/games-tests.cjs",
+      "git_blob_sha": "8a2119166cce06e8326d5f7d64c1d48ab73513a4",
+      "size_bytes": 3802
+    },
+    {
+      "path": "worksheet-generator/games/tests/geometry-chain-givens-tests.cjs",
+      "git_blob_sha": "4d40fbd6d684d7ce73606d5cdff672769ec6adf6",
+      "size_bytes": 1441
+    },
+    {
+      "path": "worksheet-generator/games/tests/geometry-flashcard-parity.cjs",
+      "git_blob_sha": "318b56b33f94ef5d7d356a3b2cfead8c2a8e0600",
+      "size_bytes": 3427
+    },
+    {
+      "path": "worksheet-generator/games/tests/skill-selection-browser.cjs",
+      "git_blob_sha": "b4ce755952662f5a10542b46ce0191535e28da30",
+      "size_bytes": 10312
+    },
+    {
+      "path": "worksheet-generator/games/tests/student-share-browser.cjs",
+      "git_blob_sha": "d48527bcea80bab1a819f186466a96312dc96761",
+      "size_bytes": 5551
+    },
+    {
+      "path": "worksheet-generator/games/tests/student-share-tests.cjs",
+      "git_blob_sha": "5f5854b0fa816f071073a9c060a9009cd5c08566",
+      "size_bytes": 10959
+    },
+    {
+      "path": "worksheet-generator/games/vocabulary-flashcards.js",
+      "git_blob_sha": "459ca2892a4ce415c420034f4b45ecc35552484f",
+      "size_bytes": 1240
+    },
+    {
+      "path": "worksheet-generator/grade-practice.html",
+      "git_blob_sha": "fa1abbbf07911d2207fd4b4ccd2604d53ba6542a",
+      "size_bytes": 5813
+    },
+    {
+      "path": "worksheet-generator/legacy-grade-bridge.js",
+      "git_blob_sha": "934e62593ebc1eff97236057eca330eb591ad7d8",
+      "size_bytes": 2292
+    },
+    {
+      "path": "worksheet-generator/legacy-review.html",
+      "git_blob_sha": "3efd066cfa3ec7f0505804fd4f58e6364a0dbf08",
+      "size_bytes": 6520
+    },
+    {
+      "path": "worksheet-generator/legacy-review.js",
+      "git_blob_sha": "b38c602a27dc8926b2cb2c79f577574619eb1eda",
+      "size_bytes": 5706
+    },
+    {
+      "path": "worksheet-generator/lesson-planner.html",
+      "git_blob_sha": "1852e5591f445d6ab2628055895433cc2106ebbd",
+      "size_bytes": 6853
+    },
+    {
+      "path": "worksheet-generator/match-game.html",
+      "git_blob_sha": "e9591166129accf7ebdde6fe2abf848e54fbcd1b",
+      "size_bytes": 1841
+    },
+    {
+      "path": "worksheet-generator/menu-assessment.html",
+      "git_blob_sha": "a0acd72a555c54329eaf7f79990b2c557f19ee36",
+      "size_bytes": 5917
+    },
+    {
+      "path": "worksheet-generator/menu/README.md",
+      "git_blob_sha": "cc4b6a48e9dc78c20679720f247ec1e846f5c854",
+      "size_bytes": 39649
+    },
+    {
+      "path": "worksheet-generator/menu/app.js",
+      "git_blob_sha": "0fe06a272291aa0d489ec20153144f521b3ea64f",
+      "size_bytes": 78890
+    },
+    {
+      "path": "worksheet-generator/menu/approved-bank-bridge.js",
+      "git_blob_sha": "577844b76ad18feafabf8e06c5fc7ebd70e15eb1",
+      "size_bytes": 2167
+    },
+    {
+      "path": "worksheet-generator/menu/approved-resource-preview.js",
+      "git_blob_sha": "953ecd4e02f778eae7e19d52a07add9bd924d69c",
+      "size_bytes": 7743
+    },
+    {
+      "path": "worksheet-generator/menu/course-catalog-bridge.js",
+      "git_blob_sha": "ca45fe70ed1cd845529688f963bc4bb84df1a2f5",
+      "size_bytes": 1876
+    },
+    {
+      "path": "worksheet-generator/menu/course-catalog-bridge.test.cjs",
+      "git_blob_sha": "58bdd2a20a0dcaf11a5e2a34e7fc0bb1b2179b98",
+      "size_bytes": 1613
+    },
+    {
+      "path": "worksheet-generator/menu/engine.js",
+      "git_blob_sha": "07852ea2651b744cf42519ab0dbd4eb4bba277e2",
+      "size_bytes": 72800
+    },
+    {
+      "path": "worksheet-generator/menu/figures.js",
+      "git_blob_sha": "37b1ea44c6e9c0e1345e40114a32b178b12636e4",
+      "size_bytes": 30873
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-congruence-figures.js",
+      "git_blob_sha": "39edea6545560a5b9d2252c1284a442e0144a2ea",
+      "size_bytes": 20448
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-diagrams.js",
+      "git_blob_sha": "5cedfc80acebf859f3c8c27a0fd943284d5fdd73",
+      "size_bytes": 18989
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-figures.js",
+      "git_blob_sha": "a8411bc6ee3e4001b0e1256d9dfcd97c52c6fb2c",
+      "size_bytes": 49536
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-grid-figures.js",
+      "git_blob_sha": "019481189a5efeb2da99ebc4a419fbf94fd47f10",
+      "size_bytes": 9245
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-landmark-figures.js",
+      "git_blob_sha": "127cbb029e209d278b1c394079af1ab1b3e5c88e",
+      "size_bytes": 15590
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-measure-figures.js",
+      "git_blob_sha": "6a47133407487e1ac763bf50cf46d1313aaeeefe",
+      "size_bytes": 17726
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-similar-figures.js",
+      "git_blob_sha": "795b3cd55c2ff1c0102ac4d0dff245f5e04bf9ab",
+      "size_bytes": 20306
+    },
+    {
+      "path": "worksheet-generator/menu/geometry-triangle-figures.js",
+      "git_blob_sha": "2d57e5afb11fa55db0043a09f5ce2610344d09a7",
+      "size_bytes": 6544
+    },
+    {
+      "path": "worksheet-generator/menu/match-game.css",
+      "git_blob_sha": "79fec9689b8fbf58cdfed594e8ad9c75e2533fa4",
+      "size_bytes": 13979
+    },
+    {
+      "path": "worksheet-generator/menu/match-game.js",
+      "git_blob_sha": "befed92eec2e779d72f33e0f269f203f488c1345",
+      "size_bytes": 50698
+    },
+    {
+      "path": "worksheet-generator/menu/mathcheck.js",
+      "git_blob_sha": "c3a41403ed14d6ab5678b8dd56ac778a1ca68ae0",
+      "size_bytes": 33203
+    },
+    {
+      "path": "worksheet-generator/menu/mcas-context-bank.js",
+      "git_blob_sha": "344434992b140390d568d3cac1d490568b1e0752",
+      "size_bytes": 23091
+    },
+    {
+      "path": "worksheet-generator/menu/menu.css",
+      "git_blob_sha": "ffe48f31e7d30b7fef4d12b7f9d0c327f9a4d570",
+      "size_bytes": 19174
+    },
+    {
+      "path": "worksheet-generator/menu/printables-cases.js",
+      "git_blob_sha": "17c5f72761a6c551327052062d48a5a764ac3ab1",
+      "size_bytes": 12239
+    },
+    {
+      "path": "worksheet-generator/menu/printables-match.js",
+      "git_blob_sha": "e1accf406d3ae9700c9c368a9661b93848478a5f",
+      "size_bytes": 43833
+    },
+    {
+      "path": "worksheet-generator/menu/printables-projects.js",
+      "git_blob_sha": "f2adc43420ac0c38c5a703397c3ecaaed5ded2ee",
+      "size_bytes": 58363
+    },
+    {
+      "path": "worksheet-generator/menu/printables-scenes.js",
+      "git_blob_sha": "e935f1a0f9072ff05fea471a14e121e0256d7518",
+      "size_bytes": 11619
+    },
+    {
+      "path": "worksheet-generator/menu/printables-ui.js",
+      "git_blob_sha": "bcd344ec63cff7e60b19e0e47c6b14f00d1156fc",
+      "size_bytes": 76139
+    },
+    {
+      "path": "worksheet-generator/menu/printables.css",
+      "git_blob_sha": "fa5967fbb7b9424b8c28543322eb99cf567c0ba2",
+      "size_bytes": 27242
+    },
+    {
+      "path": "worksheet-generator/menu/printables.js",
+      "git_blob_sha": "fed9cc82ddec4034a72ce5297349c64654acc5b6",
+      "size_bytes": 45798
+    },
+    {
+      "path": "worksheet-generator/menu/render.js",
+      "git_blob_sha": "4da7dffaa4f4672a4864496aeafc368eb09d2530",
+      "size_bytes": 38926
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-exponential-functions.js",
+      "git_blob_sha": "6a94ed6f66d3cea4c7edc2d15190f47c482c8d45",
+      "size_bytes": 41825
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-exponents-scientific-notation.js",
+      "git_blob_sha": "297118cf9918dd9ba40eaacc1d98a087b6db5c21",
+      "size_bytes": 30110
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-expressions-equations.js",
+      "git_blob_sha": "061120cac62c8d7945ebdb422c7358e5a8c0db3a",
+      "size_bytes": 90963
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-factoring-zero-product.js",
+      "git_blob_sha": "a83492286693cea4cef68ebbf8321f892e94ab17",
+      "size_bytes": 30778
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-inequalities.js",
+      "git_blob_sha": "5f63e7cc236215a17f383240f291146058969634",
+      "size_bytes": 46444
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-linear-equations-slope.js",
+      "git_blob_sha": "59f5639fd8c83d752d1a70db078c08a85ddeb5cc",
+      "size_bytes": 33838
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-polynomials.js",
+      "git_blob_sha": "d15be8695e572f84f090eedfc02fa63fd27101f7",
+      "size_bytes": 29397
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-quadratics.js",
+      "git_blob_sha": "71ffd3e3844bdf32ba736d8593d050ef9bfca919",
+      "size_bytes": 32814
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-relations-functions.js",
+      "git_blob_sha": "151958c338e3dc810a0bb4afd192be7390b0d3b9",
+      "size_bytes": 49964
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-statistics-data-modeling.js",
+      "git_blob_sha": "94eacc273e24dde78c14e61efed19ffa367c53d5",
+      "size_bytes": 55992
+    },
+    {
+      "path": "worksheet-generator/menu/skills/algebra1-systems-of-equations.js",
+      "git_blob_sha": "48397fccca899332c689c2d97ccafa591b3a36ae",
+      "size_bytes": 33706
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-angles-parallel-lines.js",
+      "git_blob_sha": "ebef3cbcdf724e9043844bbcdd58673adbc9fd80",
+      "size_bytes": 16678
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-area-surface-area-volume.js",
+      "git_blob_sha": "384399123b367cdfab009b50749831833f0ff431",
+      "size_bytes": 23202
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-basics-reasoning.js",
+      "git_blob_sha": "8fcd735d26acffb8fbb1bc4516c1bfc3fa3ffb63",
+      "size_bytes": 17136
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-circles.js",
+      "git_blob_sha": "4fbc4fe326172791de993b3fdd3b26a930ba745e",
+      "size_bytes": 26087
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-quadrilaterals-polygons.js",
+      "git_blob_sha": "689c1afe02c091d1b4c2e38f78c39fe345d5edfa",
+      "size_bytes": 14182
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-right-triangles-trigonometry.js",
+      "git_blob_sha": "2cb6e7149f41a0a2f9e2e32dbe23323696e65e7a",
+      "size_bytes": 23021
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-similarity.js",
+      "git_blob_sha": "4240f26e9d67c64c1ef606e4f16d383c724a8145",
+      "size_bytes": 20263
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-transformations.js",
+      "git_blob_sha": "499f76e155fef21aba9a1e70db85c4cb92461c5c",
+      "size_bytes": 21321
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-triangle-relationships.js",
+      "git_blob_sha": "8282bc810d8933dc128731e26796aa8b2fa299d7",
+      "size_bytes": 23038
+    },
+    {
+      "path": "worksheet-generator/menu/skills/geometry-triangles-congruence.js",
+      "git_blob_sha": "7e7b9b3526c8d55f686b75ead1a49183b2917ea5",
+      "size_bytes": 44580
+    },
+    {
+      "path": "worksheet-generator/menu/skills/kit.js",
+      "git_blob_sha": "7ad8517aca048b5a608a8e8bc47668364ea0280e",
+      "size_bytes": 8443
+    },
+    {
+      "path": "worksheet-generator/menu/standards-map.js",
+      "git_blob_sha": "c3ee579f34bc663763e526f26ed8ee421dc626e0",
+      "size_bytes": 44874
+    },
+    {
+      "path": "worksheet-generator/menu/standards.js",
+      "git_blob_sha": "d76f0a1bce6b8bf2cb44913b8a3157f10ae659f2",
+      "size_bytes": 39398
+    },
+    {
+      "path": "worksheet-generator/menu/tests/browser-test.cjs",
+      "git_blob_sha": "9e6e86c23124d15dc3819b83efa67a2bb15a7575",
+      "size_bytes": 45976
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-angles-rigor-tests.cjs",
+      "git_blob_sha": "470af2696d76f040126bffdb423e4127ed521412",
+      "size_bytes": 3960
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-basics-rigor-tests.cjs",
+      "git_blob_sha": "188a5e63584bd4549571803bb8f41994b58359f8",
+      "size_bytes": 3589
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-capacity-audit.cjs",
+      "git_blob_sha": "1fbfdaeb872f04de3108f426efdf7e49fe009ce4",
+      "size_bytes": 2446
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-circles-rigor-tests.cjs",
+      "git_blob_sha": "e50ce3192cd6e96acddafdd1b568ccf0c8e4c54a",
+      "size_bytes": 2856
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-config-parity-tests.cjs",
+      "git_blob_sha": "963158381771b39fe7f96fbbd89d0b315c212c3a",
+      "size_bytes": 1546
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-congruence-rigor-tests.cjs",
+      "git_blob_sha": "79dd407f517bc741b93dd59e36c3a14665cd422c",
+      "size_bytes": 7009
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-curriculum-tests.cjs",
+      "git_blob_sha": "565ce6fa8cc60828f80ec903508ea6ac969b3bcc",
+      "size_bytes": 1590
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-diagrams-tests.cjs",
+      "git_blob_sha": "3105a325648cb4adb79ab9fdd3b883f389d08626",
+      "size_bytes": 4487
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-figures-tests.cjs",
+      "git_blob_sha": "fe43ee44e4cdf4e923c1a2c1575239db28c3c90e",
+      "size_bytes": 13503
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-generator-regression.cjs",
+      "git_blob_sha": "eba97c5d51505a2522c8b42078e053a27e885e43",
+      "size_bytes": 21466
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-measure-rigor-tests.cjs",
+      "git_blob_sha": "a7cb29dfac1f132ce7604cdbdb2e42a370804886",
+      "size_bytes": 2807
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-plausibility-tests.cjs",
+      "git_blob_sha": "1d801de9cd85f38fd446f0fdeebeaafd3b2649df",
+      "size_bytes": 2432
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-proof-table-tests.cjs",
+      "git_blob_sha": "84fe55c51f46d2c8b8a03e0cd071c3578c8b3d2d",
+      "size_bytes": 15071
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-reasoning-prompts-tests.cjs",
+      "git_blob_sha": "f076fdb5bc4894eb5a630fdd1ea45c64cae909d1",
+      "size_bytes": 1829
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-righttriangle-rigor-tests.cjs",
+      "git_blob_sha": "4d698540e919c2d7712c642ebb60159ab52b8a72",
+      "size_bytes": 3869
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-similarity-rigor-tests.cjs",
+      "git_blob_sha": "99d540c9d49763d9cee6fe6a432dede716457282",
+      "size_bytes": 4089
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-transformations-rigor-tests.cjs",
+      "git_blob_sha": "c054ba82b97dfbb344f76a940182b41ebd36a4a0",
+      "size_bytes": 2859
+    },
+    {
+      "path": "worksheet-generator/menu/tests/geometry-triangle-rigor-tests.cjs",
+      "git_blob_sha": "9b2f2ba5350b1fe3706c7ffb9f75b324c405828f",
+      "size_bytes": 4308
+    },
+    {
+      "path": "worksheet-generator/menu/tests/inequality-choice-parity.cjs",
+      "git_blob_sha": "1f7e4bf6782eaa45ec995aae998fd4956433fcd4",
+      "size_bytes": 4438
+    },
+    {
+      "path": "worksheet-generator/menu/tests/load.cjs",
+      "git_blob_sha": "4e1856dca67dda05964ca10cedd6b6aa5d0b3744",
+      "size_bytes": 2032
+    },
+    {
+      "path": "worksheet-generator/menu/tests/match-game-browser.cjs",
+      "git_blob_sha": "6c85afd13d7a65f2f9c19ab4c644d1a352ef8d78",
+      "size_bytes": 10852
+    },
+    {
+      "path": "worksheet-generator/menu/tests/math-tests.cjs",
+      "git_blob_sha": "dd8290d04f486cf6e8b6e481976e666e4939e88c",
+      "size_bytes": 40733
+    },
+    {
+      "path": "worksheet-generator/menu/tests/mcas-context-tests.cjs",
+      "git_blob_sha": "4fd2925ce22d2f8b9eeeae5f27bb52552fc1361f",
+      "size_bytes": 5474
+    },
+    {
+      "path": "worksheet-generator/menu/tests/model-tests.cjs",
+      "git_blob_sha": "f62cc26964a65dff19cf2e30dee4709cd6d6e387",
+      "size_bytes": 15731
+    },
+    {
+      "path": "worksheet-generator/menu/tests/printables-browser.cjs",
+      "git_blob_sha": "0a166251cddbeb99759929d926634f432a1d12ba",
+      "size_bytes": 7324
+    },
+    {
+      "path": "worksheet-generator/menu/tests/printables-match-tests.cjs",
+      "git_blob_sha": "19648111c09dbf7f9f526f8906e6dc4efdcce65c",
+      "size_bytes": 3752
+    },
+    {
+      "path": "worksheet-generator/menu/tests/printables-tests.cjs",
+      "git_blob_sha": "e35b1c387cd412c32ea987bd0b3f2f3bd0f08b5d",
+      "size_bytes": 9075
+    },
+    {
+      "path": "worksheet-generator/menu/tests/proof-print-layout.cjs",
+      "git_blob_sha": "d71b491be49b882e894eaf46683865d1e12a3d62",
+      "size_bytes": 3575
+    },
+    {
+      "path": "worksheet-generator/menu/tests/run-all.sh",
+      "git_blob_sha": "a618aee19941a4eddf5a373ea32c6773bb161a55",
+      "size_bytes": 2235
+    },
+    {
+      "path": "worksheet-generator/menu/tests/select-all-mcas-tests.cjs",
+      "git_blob_sha": "4d6b6e4ce9928d4adf5c0a71d59ed3597cc26832",
+      "size_bytes": 1865
+    },
+    {
+      "path": "worksheet-generator/menu/tests/test-mode-tests.cjs",
+      "git_blob_sha": "f3f23c3c5184fc61beffda01f64f08ba1ab80dd9",
+      "size_bytes": 6112
+    },
+    {
+      "path": "worksheet-generator/menu/tests/worksheet-tests.cjs",
+      "git_blob_sha": "13c34c7f865609ce705923dc34a4d5daccb41132",
+      "size_bytes": 6337
+    },
+    {
+      "path": "worksheet-generator/menu/verify.js",
+      "git_blob_sha": "808188bc55982d991bdf767680b0326cc3ab6fea",
+      "size_bytes": 273427
+    },
+    {
+      "path": "worksheet-generator/middle-school-game.html",
+      "git_blob_sha": "635e5e8a89f5651df05daa0f89e943c2866122e7",
+      "size_bytes": 4360
+    },
+    {
+      "path": "worksheet-generator/millionaire.html",
+      "git_blob_sha": "1930dc40bd4f3dd9e16c6c3eac03dacd3fd6bec1",
+      "size_bytes": 45196
+    },
+    {
+      "path": "worksheet-generator/planner/README.md",
+      "git_blob_sha": "17fe39ac1c821b45d4f8824ed99ad7883f59917c",
+      "size_bytes": 10000
+    },
+    {
+      "path": "worksheet-generator/planner/algebra1_scope_sequence.json",
+      "git_blob_sha": "a9325d6759a638a4b0d856f2674e6d8cb3286767",
+      "size_bytes": 314467
+    },
+    {
+      "path": "worksheet-generator/planner/course.js",
+      "git_blob_sha": "8a9768f8a2f180da78e74a560556351bfd366822",
+      "size_bytes": 1955
+    },
+    {
+      "path": "worksheet-generator/planner/geometry_scope_sequence.json",
+      "git_blob_sha": "763c73fa61e85cb29b97222c70c7e258fedf98ae",
+      "size_bytes": 196510
+    },
+    {
+      "path": "worksheet-generator/planner/lesson-skills-geometry.js",
+      "git_blob_sha": "74ce029f8302be3b43554db5d952898325351869",
+      "size_bytes": 16461
+    },
+    {
+      "path": "worksheet-generator/planner/lesson-skills.js",
+      "git_blob_sha": "e95f16aee1ab4315e5825dbcf365b1c9746003c3",
+      "size_bytes": 10731
+    },
+    {
+      "path": "worksheet-generator/planner/notes-content.js",
+      "git_blob_sha": "d90208f66b1b1b526956a72c620745255bdbfe8a",
+      "size_bytes": 48907
+    },
+    {
+      "path": "worksheet-generator/planner/notes-data-geometry.js",
+      "git_blob_sha": "e5367ef33a2b32067f34bbc2d4e016a938828326",
+      "size_bytes": 20432
+    },
+    {
+      "path": "worksheet-generator/planner/notes-diagrams.js",
+      "git_blob_sha": "2c6036aa7c684306877b22c7499e6e01a986d8a4",
+      "size_bytes": 31543
+    },
+    {
+      "path": "worksheet-generator/planner/notes-geometry.js",
+      "git_blob_sha": "7b48b79542d0895f5f27bb01720fbfc795cb1d1c",
+      "size_bytes": 1208
+    },
+    {
+      "path": "worksheet-generator/planner/notes-teach-algebra1.js",
+      "git_blob_sha": "67785c58f81bebcda1db6ce19704cedc958c1614",
+      "size_bytes": 72587
+    },
+    {
+      "path": "worksheet-generator/planner/notes-teach-algebra2.js",
+      "git_blob_sha": "9cbb86ab234d8e31d661b1828474aa6056127378",
+      "size_bytes": 92238
+    },
+    {
+      "path": "worksheet-generator/planner/notes-teach-geometry.js",
+      "git_blob_sha": "841d4dc90a2a73f4775be7b0ea714c7e52140acf",
+      "size_bytes": 63099
+    },
+    {
+      "path": "worksheet-generator/planner/notes-teach.js",
+      "git_blob_sha": "4a0282ae168a4dfca26759c62b3a9d0c3425e928",
+      "size_bytes": 5343
+    },
+    {
+      "path": "worksheet-generator/planner/planner-ui.js",
+      "git_blob_sha": "0c5e67de6b8524d17bef183a059906b20337698e",
+      "size_bytes": 65556
+    },
+    {
+      "path": "worksheet-generator/planner/planner.css",
+      "git_blob_sha": "0680ec169a9b77fb1a161c86a14b619eed85ec77",
+      "size_bytes": 15337
+    },
+    {
+      "path": "worksheet-generator/planner/planner.js",
+      "git_blob_sha": "b4fb5a41bbcca26e38162ad98c22482b0e8ed5f3",
+      "size_bytes": 55489
+    },
+    {
+      "path": "worksheet-generator/planner/pptx-export.js",
+      "git_blob_sha": "263418230bb2692b7ee8a1f69927190eab489372",
+      "size_bytes": 35655
+    },
+    {
+      "path": "worksheet-generator/planner/scope-algebra1.js",
+      "git_blob_sha": "34f29da210ef80811b5c1dd6cf6706c1359f29a1",
+      "size_bytes": 252415
+    },
+    {
+      "path": "worksheet-generator/planner/scope-algebra2.js",
+      "git_blob_sha": "b34c1084c35352074adb0764478526ebed10bbc7",
+      "size_bytes": 5306
+    },
+    {
+      "path": "worksheet-generator/planner/scope-geometry.js",
+      "git_blob_sha": "2061315e669a6a65ef737e4a46cdab62ba5c5c59",
+      "size_bytes": 169659
+    },
+    {
+      "path": "worksheet-generator/planner/tests/planner-browser.cjs",
+      "git_blob_sha": "ab37f50d62f248c76d0db5072d97a633083de48d",
+      "size_bytes": 7835
+    },
+    {
+      "path": "worksheet-generator/planner/tests/planner-courses-browser.cjs",
+      "git_blob_sha": "043ace6c892fa8c05707834ade625bd45c17cd54",
+      "size_bytes": 6316
+    },
+    {
+      "path": "worksheet-generator/planner/tests/planner-tests.cjs",
+      "git_blob_sha": "39b7815d0d78fcace69d50fe678d6367b1c487a4",
+      "size_bytes": 7042
+    },
+    {
+      "path": "worksheet-generator/planner/tests/pptx-tests.cjs",
+      "git_blob_sha": "abf3c89210cfd1d2ded6ea7190dfe3ec853c145d",
+      "size_bytes": 9732
+    },
+    {
+      "path": "worksheet-generator/planner/textmath.js",
+      "git_blob_sha": "5ef97b07628ddb56d637883b63d82bf31ae3ecb1",
+      "size_bytes": 7407
+    },
+    {
+      "path": "worksheet-generator/practice-test.html",
+      "git_blob_sha": "6f68a840fe2b3ed55f409353bc656bada765e89b",
+      "size_bytes": 5084
+    },
+    {
+      "path": "worksheet-generator/practice/exponential-input.js",
+      "git_blob_sha": "65b2369b7085c204d986e2c4ad161279f6a8e4c2",
+      "size_bytes": 3379
+    },
+    {
+      "path": "worksheet-generator/practice/grading.js",
+      "git_blob_sha": "3d004f47619385aa2995e63c59886a266f8dd27c",
+      "size_bytes": 4765
+    },
+    {
+      "path": "worksheet-generator/practice/graph-answer.js",
+      "git_blob_sha": "2a03b180b6f885fb58e2ce845ee2c7d5a09a8254",
+      "size_bytes": 6448
+    },
+    {
+      "path": "worksheet-generator/practice/graph-input.js",
+      "git_blob_sha": "9ee354ae031c1694342e7088c673ac54fb38005b",
+      "size_bytes": 14708
+    },
+    {
+      "path": "worksheet-generator/practice/line-input.js",
+      "git_blob_sha": "5c971066c60f7d573171b6c0f02cae0953219aa8",
+      "size_bytes": 7922
+    },
+    {
+      "path": "worksheet-generator/practice/math-input.js",
+      "git_blob_sha": "ad771927a29f9e38308e90f9adec9543cb499308",
+      "size_bytes": 1365
+    },
+    {
+      "path": "worksheet-generator/practice/math-preview.js",
+      "git_blob_sha": "ec680edca4565925b55b434233de769992141e1c",
+      "size_bytes": 1800
+    },
+    {
+      "path": "worksheet-generator/practice/parabola-input.js",
+      "git_blob_sha": "050156df391574e4b3dff3ed797cafb710906cf0",
+      "size_bytes": 6851
+    },
+    {
+      "path": "worksheet-generator/practice/practice.css",
+      "git_blob_sha": "df38a382780c23e8aad07dc6f2809cda98452fb1",
+      "size_bytes": 16478
+    },
+    {
+      "path": "worksheet-generator/practice/practice.js",
+      "git_blob_sha": "3bbbc6da9dbd14dd56094091197d7f243beec179",
+      "size_bytes": 41367
+    },
+    {
+      "path": "worksheet-generator/practice/radical-grading.js",
+      "git_blob_sha": "2ff04b5b4bda7a6228665cffaccff155f8634f7f",
+      "size_bytes": 3381
+    },
+    {
+      "path": "worksheet-generator/practice/system-input.js",
+      "git_blob_sha": "6e8779371dbb188d968eb292e103ee0179ab2dac",
+      "size_bytes": 3446
+    },
+    {
+      "path": "worksheet-generator/printables.html",
+      "git_blob_sha": "f72071756f10616c7a92a1a0d0693691e303b9ae",
+      "size_bytes": 5541
+    },
+    {
+      "path": "worksheet-generator/seating-chart.html",
+      "git_blob_sha": "d0f56e339d3c9c8bd7a1d6de0cb0704e3d6fd580",
+      "size_bytes": 68637
+    },
+    {
+      "path": "worksheet-generator/tests/browser-test.js",
+      "git_blob_sha": "96eb5016afc75ff665ee108f8d5c917d1bf71908",
+      "size_bytes": 5105
+    },
+    {
+      "path": "worksheet-generator/tests/framework-tests.js",
+      "git_blob_sha": "39561bbc51550ccd05313f9ccde04a8d8bc2f8ce",
+      "size_bytes": 5570
+    },
+    {
+      "path": "worksheet-generator/tests/load.js",
+      "git_blob_sha": "172b5f591357e181bb84775e255bea94493740a6",
+      "size_bytes": 690
+    },
+    {
+      "path": "worksheet-generator/tests/math-audit.cjs",
+      "git_blob_sha": "e25521e0fe591f2dfdb2cba2c40df9b8c0a45397",
+      "size_bytes": 6676
+    },
+    {
+      "path": "worksheet-generator/tests/mini.js",
+      "git_blob_sha": "0fd30bea1f71800c7b25c5884438ca1fe0c09947",
+      "size_bytes": 7990
+    },
+    {
+      "path": "worksheet-generator/tests/planner-multi-lesson.cjs",
+      "git_blob_sha": "db3f5edf4da758a8810a778676c4a4d18964a59b",
+      "size_bytes": 4098
+    },
+    {
+      "path": "worksheet-generator/tests/planner-real-problems.cjs",
+      "git_blob_sha": "c065e94e7a8b9b2b8d3b3b9fb5313bfb1f0763e0",
+      "size_bytes": 4034
+    },
+    {
+      "path": "worksheet-generator/tests/practice-grading-test.js",
+      "git_blob_sha": "ede5768dc4da07473066d0a0cba5500ae3b86890",
+      "size_bytes": 13032
+    },
+    {
+      "path": "worksheet-generator/tests/run-all.sh",
+      "git_blob_sha": "402dc247d9773c6f2df2952cd91401dee51df3ac",
+      "size_bytes": 367
+    },
+    {
+      "path": "worksheet-generator/tests/run-tests.js",
+      "git_blob_sha": "881d23ae3ea7937d0671aa84186b3f47182f5b0e",
+      "size_bytes": 32283
+    },
+    {
+      "path": "worksheet-generator/tests/seed-stress.js",
+      "git_blob_sha": "29a5ff6033b453303fbcfb346a859a96e45b627d",
+      "size_bytes": 1406
+    },
+    {
+      "path": "worksheet-generator/tests/ui-test.js",
+      "git_blob_sha": "9a60c8d1979bced92e642faa135b1961580e0b85",
+      "size_bytes": 7228
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/inequalities/solve-graph.js",
+      "git_blob_sha": "3bc879836467de418592c2b43374287327976e7c",
+      "size_bytes": 5074
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/exponents-exponential-functions.js",
+      "git_blob_sha": "0819603a0c216f0297a41ad0fa17e84a2da10ec4",
+      "size_bytes": 9979
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/expressions-equations.js",
+      "git_blob_sha": "3b285bbde9e136decdecb70e63fa3657c88411d0",
+      "size_bytes": 9979
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/graphing-inequalities.js",
+      "git_blob_sha": "7fb7e1cd664f4a193337e2ea486ed74608dbdc11",
+      "size_bytes": 10242
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/inequalities.js",
+      "git_blob_sha": "8ea2f4df07e1fa30bf168622c600a51482623e50",
+      "size_bytes": 9990
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/polynomials-factoring.js",
+      "git_blob_sha": "ca77eb1804afe5f37914200b433ed6ed1521318a",
+      "size_bytes": 9961
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/quadratics.js",
+      "git_blob_sha": "9939e3a335ab54e10c7249d2242e928bdadea89f",
+      "size_bytes": 9948
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/legacy-banks/systems-of-equations.js",
+      "git_blob_sha": "0fa50188c6465971f4832a5df019113f50360bbb",
+      "size_bytes": 12407
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/common.js",
+      "git_blob_sha": "1ef80abe55fc306ba0920ba8a044acef3febe179",
+      "size_bytes": 3236
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/index.js",
+      "git_blob_sha": "64c8be47d810d2db40fb8c86b8b0e4ba5a45aad0",
+      "size_bytes": 1519
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/lessons-applications.js",
+      "git_blob_sha": "3fec911e69671648531505c1936fef5a4b91ca46",
+      "size_bytes": 20648
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/lessons-forms.js",
+      "git_blob_sha": "62123610840527245eae508a3449b41a1826c3ca",
+      "size_bytes": 9864
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/lessons-graphing.js",
+      "git_blob_sha": "d990030a23374d6f4ff2383eb7fbc1831f77b894",
+      "size_bytes": 10770
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/lessons-slope.js",
+      "git_blob_sha": "b7dac188767d3797415ce1df21e1d6250c060221",
+      "size_bytes": 12219
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/linear-functions/lessons-writing.js",
+      "git_blob_sha": "699bc35af5472e2a157373950b2663ada1c8a40c",
+      "size_bytes": 12558
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/systems-of-equations/extra-skills.js",
+      "git_blob_sha": "6a70b8e69dfc8cabf6d68cd73945b694f29a8032",
+      "size_bytes": 7856
+    },
+    {
+      "path": "worksheet-generator/units/algebra1/systems-of-equations/index.js",
+      "git_blob_sha": "48e796579ceee35dc89da02da377ff206f605b9a",
+      "size_bytes": 12164
+    },
+    {
+      "path": "worksheet-generator/vendor/fonts/LICENSE-atkinson.txt",
+      "git_blob_sha": "54e3127833733abae13b8da2b41c068f5d6197a3",
+      "size_bytes": 4603
+    },
+    {
+      "path": "worksheet-generator/vendor/fonts/LICENSE-bricolage.txt",
+      "git_blob_sha": "49135ef7afae97fd0746177f0975d23c125f5637",
+      "size_bytes": 4401
+    },
+    {
+      "path": "worksheet-generator/vendor/fonts/atkinson-hyperlegible-latin-400-italic.woff2",
+      "git_blob_sha": "c9b0ada0cc1b50695675519f9d45e1665211d6ce",
+      "size_bytes": 18292
+    },
+    {
+      "path": "worksheet-generator/vendor/fonts/atkinson-hyperlegible-latin-400-normal.woff2",
+      "git_blob_sha": "2e43c90d5456bbf449b5c4f8e119ae83d129abae",
+      "size_bytes": 17208
+    },
+    {
+      "path": "worksheet-generator/vendor/fonts/atkinson-hyperlegible-latin-700-normal.woff2",
+      "git_blob_sha": "bc31903acd1b6772780b04b4f6f7e0e9f36021bb",
+      "size_bytes": 17524
+    },
+    {
+      "path": "worksheet-generator/vendor/fonts/bricolage-grotesque-latin-wght-normal.woff2",
+      "git_blob_sha": "82152a40802e0646b7a732744394a02c8c72772f",
+      "size_bytes": 41344
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/LICENSE",
+      "git_blob_sha": "37c6433e3bedca7a97e08fe35d98582a5f7bac0c",
+      "size_bytes": 1107
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_AMS-Regular.woff2",
+      "git_blob_sha": "0acaaff03d4bb7606de02a827aeee338e5a86910",
+      "size_bytes": 28076
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Caligraphic-Bold.woff2",
+      "git_blob_sha": "f390922eceffe1f6dfb81a3dc086a92d98171b02",
+      "size_bytes": 6912
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Caligraphic-Regular.woff2",
+      "git_blob_sha": "75344a1f98e37e2c631e178065854c3a81fb842f",
+      "size_bytes": 6908
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Fraktur-Bold.woff2",
+      "git_blob_sha": "395f28beac23c7b0f7f3a1e714bd8dac253dd3bc",
+      "size_bytes": 11348
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Fraktur-Regular.woff2",
+      "git_blob_sha": "735f6948d63c8cc7f8233735bb9c8d843c83d804",
+      "size_bytes": 11316
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Main-Bold.woff2",
+      "git_blob_sha": "ab2ad21da6fbe6c171bb869240954d0ead8f68fd",
+      "size_bytes": 25324
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Main-BoldItalic.woff2",
+      "git_blob_sha": "5931794de4a2a485fa70099bf2659b145976d043",
+      "size_bytes": 16780
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Main-Italic.woff2",
+      "git_blob_sha": "b50920e138807f385d0b0359f4f0f09891f18406",
+      "size_bytes": 16988
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Main-Regular.woff2",
+      "git_blob_sha": "eb24a7ba282b03d830fa6c63ee897d92a5188736",
+      "size_bytes": 26272
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Math-BoldItalic.woff2",
+      "git_blob_sha": "29657023adc09956249f6295746c8ce4469b50d3",
+      "size_bytes": 16400
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Math-Italic.woff2",
+      "git_blob_sha": "215c143fd7805a5c2b222bd7892a1a2b09610020",
+      "size_bytes": 16440
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_SansSerif-Bold.woff2",
+      "git_blob_sha": "cfaa3bda59246b49e94298478d6de3b3208066c8",
+      "size_bytes": 12216
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_SansSerif-Italic.woff2",
+      "git_blob_sha": "349c06dc609f896392fd5bc8b364d3bc3efc9330",
+      "size_bytes": 12028
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_SansSerif-Regular.woff2",
+      "git_blob_sha": "a90eea85f6f7bded69ff5d40114447a6d8b48cfe",
+      "size_bytes": 10344
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Script-Regular.woff2",
+      "git_blob_sha": "b3048fc115681ee6c1bc86b0aa158cfbbf59daa3",
+      "size_bytes": 9644
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Size1-Regular.woff2",
+      "git_blob_sha": "c5a8462fbfe2c39a7c1857b9e296e62500a8a8a5",
+      "size_bytes": 5468
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Size2-Regular.woff2",
+      "git_blob_sha": "e1bccfe2403a4ed770c1697ae7c15b9e1cd9bc4e",
+      "size_bytes": 5208
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Size3-Regular.woff2",
+      "git_blob_sha": "249a28662218a7a17ad8bd1fe072169ecb666a49",
+      "size_bytes": 3624
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Size4-Regular.woff2",
+      "git_blob_sha": "680c13085076a2f6c5a7e695935ec3f21cddb65f",
+      "size_bytes": 4928
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/fonts/KaTeX_Typewriter-Regular.woff2",
+      "git_blob_sha": "771f1af705f5cef5f578b3a1e7d8eff66f9b76b0",
+      "size_bytes": 13568
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/katex.min.css",
+      "git_blob_sha": "a02fae5dd1a1cd7130e9a37ec56d51b2d33e7528",
+      "size_bytes": 21201
+    },
+    {
+      "path": "worksheet-generator/vendor/katex/katex.min.js",
+      "git_blob_sha": "b69360c5e22aa9e9351b67fdfbe99ae7a27d09a5",
+      "size_bytes": 275414
+    },
+    {
+      "path": "worksheet-generator/vendor/pptxgenjs/LICENSE",
+      "git_blob_sha": "0b21750ad94fcfc08e723c81d337fd66e5b35964",
+      "size_bytes": 1081
+    },
+    {
+      "path": "worksheet-generator/vendor/pptxgenjs/pptxgen.bundle.js",
+      "git_blob_sha": "c20c9445033558f594d28a2178e8c60d22d14870",
+      "size_bytes": 460889
+    },
+    {
+      "path": "worksheet-generator/vocabulary-builder.js",
+      "git_blob_sha": "c09696822c3548e2142c1ce93f52dcc4d8d260e2",
+      "size_bytes": 14953
+    },
+    {
+      "path": "worksheet-generator/vocabulary-data-middle-grades.js",
+      "git_blob_sha": "1c254c1a1ccc35cfbdb2161f8f9d64df651428bd",
+      "size_bytes": 58743
+    },
+    {
+      "path": "worksheet-generator/vocabulary-data.js",
+      "git_blob_sha": "37b0475d508a9e69bebf6e33b1e5bae04a2908fc",
+      "size_bytes": 41145
+    },
+    {
+      "path": "worksheet-generator/vocabulary.html",
+      "git_blob_sha": "5ff5522b08bce40f27797e0e0ee9baf3004f16e0",
+      "size_bytes": 6390
+    },
+    {
+      "path": "worksheet-generator/worksheet.html",
+      "git_blob_sha": "8ad6df7fce266ae1266af910f8d62e2d7d92eb24",
+      "size_bytes": 6278
+    }
+  ]
+}
