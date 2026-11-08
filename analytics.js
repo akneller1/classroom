@@ -21,6 +21,7 @@
    Do this once on each computer and browser you use. */
 (function () {
   'use strict';
+  if (typeof window === 'undefined' || typeof document === 'undefined' || !window.location) return;
   var WEBSITE_ID = '';                                   // ← paste your Umami Website ID here
   var SCRIPT_URL = 'https://cloud.umami.is/script.js';   // the src in Umami's Tracking code
   var DOMAINS = ['akneller1.github.io'];                 // only count visits to the live site
