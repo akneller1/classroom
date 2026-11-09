@@ -185,7 +185,85 @@ console.log(`Catalog: ${catalog.length} courses, ${catalog.reduce((n, c) => n + 
 
 const courseNames = catalog.map((c) => c.title).filter((t) => t !== "Activities");
 const listNames = (a) => a.length <= 1 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1];
-const DESCRIPTION = `Free math activities for teachers${courseNames.length ? ` in ${listNames(courseNames.slice(0, 5))}` : ""}: games, escape rooms, flashcards and printable worksheet generators, organized by unit.`;
+const DESCRIPTION = "Free math games, printable worksheets, lesson plans, assessments, flashcards and interactive activities for Algebra 1, Geometry, Algebra 2 and more.";
+const HOME_TITLE = "Free Math Games, Worksheets & Lesson Plans | Mr. K's Classroom";
+
+// These summaries describe the resources teachers can actually find on each course page.
+// Keep them readable and useful rather than repeating keywords for search engines.
+const COURSE_SEO = {
+  algebra: {
+    title: "Free Algebra 1 Worksheets, Games & Lesson Plans",
+    description: "Free Algebra 1 worksheets, math games, escape rooms, lesson plans, assessments and flashcards. Find classroom activities organized by unit and skill."
+  },
+  geometry: {
+    title: "Free Geometry Worksheets, Games & Activities",
+    description: "Explore free Geometry worksheets, interactive math activities, lesson plans, assessments and games for teachers, organized by geometry topic."
+  },
+  algebra2: {
+    title: "Free Algebra 2 Worksheets, Games & Activities",
+    description: "Free Algebra 2 worksheets, classroom math games, lesson plans, flashcards and assessments for teaching functions, equations and more."
+  },
+  prealgebra: {
+    title: "Free 8th Grade Pre-Algebra Worksheets & Games",
+    description: "Teach 8th grade Pre-Algebra with free worksheets, interactive math games, practice activities, lesson plans and assessment generators."
+  },
+  prealgebra7: {
+    title: "Free 7th Grade Pre-Algebra Activities & Worksheets",
+    description: "Free 7th grade math worksheets, games, lesson plans and practice activities for integers, equations, ratios, geometry and more."
+  },
+  math6: {
+    title: "Free 6th Grade Math Worksheets & Games",
+    description: "Free 6th grade math worksheets, games, lesson plans and activities for ratios, fractions, equations, geometry and data."
+  },
+  precalculus: {
+    title: "Free Precalculus Worksheets, Games & Tools",
+    description: "Explore free Precalculus worksheets, lesson plans and interactive math tools for functions, trigonometry, vectors, conics and more."
+  },
+  calculus: {
+    title: "Free Calculus Worksheets & Interactive Math Tools",
+    description: "Free Calculus lesson plans, worksheets and interactive math activities for limits, derivatives, integrals and applications."
+  },
+  statistics: {
+    title: "Free Statistics Activities, Worksheets & Games",
+    description: "Free Statistics worksheets, interactive data labs, classroom activities and lesson plans on sampling, probability and inference."
+  },
+  discrete: {
+    title: "Free Discrete Math Worksheets & Classroom Activities",
+    description: "Explore free Discrete Math worksheets, games and activities on logic, proof, counting, graph theory and optimization."
+  }
+};
+
+function seoCourse(c) {
+  if (c.planned) return {
+    title: `${c.title} Curriculum Units & Topics | ${SITE_NAME}`,
+    heading: `${c.title} Curriculum Units`,
+    description: `Explore the ${c.title} course outline and topics across ${c.units.length} units. Additional teaching activities are in development.`
+  };
+  const seo = COURSE_SEO[c.id] || {};
+  return {
+    title: `${seo.title || `Free ${c.title} Math Activities & Worksheets`} | ${SITE_NAME}`,
+    heading: `${c.title} Worksheets, Games & Lessons`,
+    description: seo.description || `Free ${c.title} worksheets, lesson plans, math games and assessments organized by unit for teachers.`
+  };
+}
+
+function seoUnit(c, u) {
+  const base = `${u.title} – ${c.title}`;
+  if (c.planned) return {
+    title: `${base} Unit Outline | ${SITE_NAME}`,
+    heading: `${u.title}: ${c.title} Unit Outline`,
+    description: `Explore ${u.title} in the ${c.title} curriculum, including the skills and topics in this unit. Classroom activities are in development.`
+  };
+  const hasGames = u.items.some((a) => a.type === "Game" || /escape room|showdown|connect 4|tic tac toe|detective game/i.test(a.title || ""));
+  const hasStudy = u.items.some((a) => /flashcard|cheat sheet|study guide/i.test(a.title || ""));
+  const extras = [hasGames ? "math games" : "practice activities", ...(hasStudy ? ["study guides"] : [])];
+  const description = `Free ${c.title} resources for ${u.title}: lesson plans, worksheet and assessment generators, ${listNames(extras)}. Browse ${u.items.length} classroom activities and tools.`;
+  return {
+    title: `${base} ${base.length < 56 ? "Worksheets & Activities" : "Resources"} | ${SITE_NAME}`,
+    heading: `${u.title}: ${c.title} Worksheets & Activities`,
+    description: description.length <= 175 ? description : description.slice(0, 172).replace(/\s+\S*$/, "") + "…"
+  };
+}
 
 const isExternal = (p) => /^(https?:)?\/\//i.test(p);
 const href = (p, depth) => isExternal(p) ? p : "../".repeat(depth) + String(p).replace(/^\.?\//, "");
@@ -253,22 +331,23 @@ for (const c of catalog) {
   // subject-level directory without hiding Grade 6/7 on the public site.
   const courseDepth = 2;
   const courseAddress = SITE_URL + courseUrl(c);
-  const courseDescription = c.planned ? `${c.title} course outline: ${c.units.length} curriculum units. Activities coming soon.` : `Free ${c.title} resources for teachers: ${c.units.length} curriculum units with games, worksheets, printable activities, assessments and lesson plan generators.`;
+  const courseMeta = seoCourse(c);
+  const courseDescription = courseMeta.description;
   const coursePage = `<!doctype html>
 <html lang="en">
 <head>
-${headTags({ title: `Free ${c.title} Activities, Worksheets & Games | ${SITE_NAME}`, description: courseDescription, url: courseAddress, depth: courseDepth, fontsHref: GOOGLE_FONTS_HOME })}
+${headTags({ title: courseMeta.title, description: courseDescription, url: courseAddress, depth: courseDepth, fontsHref: GOOGLE_FONTS_HOME })}
 <style>${PAGE_CSS}</style>
 </head>
 <body>
 <div class="wrap">
 <p class="crumbs"><a href="../../">${htmlEsc(SITE_NAME)}</a> / ${htmlEsc(c.title)}</p>
 <main>
-<h1>${htmlEsc(c.title)} Activities &amp; Worksheets</h1>
+<h1>${htmlEsc(courseMeta.heading)}</h1>
 <p class="lede">${htmlEsc(courseDescription)}</p>
 <h2>Explore ${htmlEsc(c.title)} units</h2>
 <ul class="mk-items">
-${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">(${u.items.length} classroom resources)</span></li>`).join("\n")}
+${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> <span class="mk-meta">${c.planned ? "(curriculum outline)" : `(${u.items.length} classroom resources)`}</span></li>`).join("\n")}
 </ul>
 <a class="open-app" href="../../#${encodeURIComponent(c.id)}">Open ${htmlEsc(c.title)} in the full classroom site</a>
 </main>
@@ -285,20 +364,21 @@ ${c.units.map((u) => `<li><a href="${htmlEsc(u.slug)}/">${htmlEsc(u.title)}</a> 
     if (!u.items.length && !c.planned) continue;
     const depth = 3;
     const url = SITE_URL + unitUrl(c, u);
-    const desc = c.planned ? `${u.title} — ${c.title} course outline. Activities coming soon.` : (u.description || `${u.items.length} free ${c.title} activit${u.items.length === 1 ? "y" : "ies"} for ${u.title}: ${listNames([...new Set(u.items.map((a) => a.type).filter(Boolean))].slice(0, 4).map((t) => t.toLowerCase()))}.`).replace(/:\s*\.$/, ".");
+    const unitMeta = seoUnit(c, u);
+    const desc = unitMeta.description;
     const accent = COLOR[c.color] ? `<style>:root{--accent:${COLOR[c.color]}}@media (prefers-color-scheme:dark){:root{--accent:var(--link)}}</style>` : "";
     const appLink = u.id ? `../../../#${encodeURIComponent(c.id + "." + u.id)}` : "../../../";
     const page = `<!doctype html>
 <html lang="en">
 <head>
-${headTags({ title: `${u.title} – ${c.title} | ${SITE_NAME}`, description: desc, url, depth, fontsHref: GOOGLE_FONTS_HOME })}
+${headTags({ title: unitMeta.title, description: desc, url, depth, fontsHref: GOOGLE_FONTS_HOME })}
 <style>${PAGE_CSS}</style>${accent}
 </head>
 <body>
 <div class="wrap">
 <p class="crumbs"><a href="../../../">${htmlEsc(SITE_NAME)}</a> / <a href="../">${htmlEsc(c.title)}</a> / ${htmlEsc(u.title)}</p>
 <main>
-<h1>${htmlEsc(u.title)}</h1>
+<h1>${htmlEsc(unitMeta.heading)}</h1>
 <p class="lede">${htmlEsc(desc)}</p>
 <ul class="mk-items">
 ${c.planned ? u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n") : u.items.map((a) => itemHtml(a, depth)).join("\n")}
@@ -327,6 +407,9 @@ fs.writeFileSync(path.join(OUT, "sitemap.xml"),
 {
   const file = path.join(OUT, "index.html");
   let html = fs.readFileSync(file, "utf8");
+
+  // Clear homepage title identifies the free resources rather than only the site name.
+  html = html.replace(/<title>[^<]*<\/title>/i, `<title>${htmlEsc(HOME_TITLE)}</title>`);
 
   // Head tags (only ones that are not already there)
   const add = [];
