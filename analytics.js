@@ -17,14 +17,14 @@
      Time on page        sent once a page has been open and visible for 1, 5, 15 and 30 minutes
 
    Turn counting off for your own browser: open the site once with ?analytics=off at the end of
-   the address (e.g. https://akneller1.github.io/classroom/?analytics=off). ?analytics=on turns it back on.
+   the address (e.g. https://mrksclassroom.com/?analytics=off). ?analytics=on turns it back on.
    Do this once on each computer and browser you use. */
 (function () {
   'use strict';
   if (typeof window === 'undefined' || typeof document === 'undefined' || !window.location) return;
   var WEBSITE_ID = '309c294f-46be-4e91-bc1d-480170c70a3d';                                   // ← paste your Umami Website ID here
   var SCRIPT_URL = 'https://cloud.umami.is/script.js';   // the src in Umami's Tracking code
-  var DOMAINS = ['akneller1.github.io'];                 // only count visits to the live site
+  var DOMAINS = ['mrksclassroom.com', 'www.mrksclassroom.com'];                 // only count visits to the live site
 
   var W = window, D = document;
   var cfg = W.MK_ANALYTICS_CONFIG || {};                 // tests can override the three settings above
