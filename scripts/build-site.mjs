@@ -20,7 +20,7 @@ import crypto from "node:crypto";
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "_site");
-const SITE_URL = (process.env.SITE_URL || "https://akneller1.github.io/classroom/").replace(/\/?$/, "/");
+const SITE_URL = (process.env.SITE_URL || "https://mrksclassroom.com/").replace(/\/?$/, "/");
 const SITE_NAME = "Mr. K's Classroom";
 
 // ---------- 1. Copy the site, minus working files ----------
