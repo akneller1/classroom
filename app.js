@@ -464,6 +464,12 @@
       art+txt(240,250,topicLabel,16,'#465c82',600,'middle')+'</svg>';
     return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   }
+  function presentationUrl(a) {
+    var url = activityUrl(a);
+    var hashAt = url.indexOf('#'), fragment = hashAt >= 0 ? url.slice(hashAt) : '';
+    var page = hashAt >= 0 ? url.slice(0, hashAt) : url;
+    return page + (page.indexOf('?') >= 0 ? '&' : '?') + 'present=1' + fragment;
+  }
   function cardHtml(it, showWhere, compact) {
     var a = it.a;
     var tags = [];
@@ -480,6 +486,7 @@
         (gameMode(a) ? '<span class="game-mode-tag">' + esc(gameMode(a)) + '</span>' : '') +
         '<p class="desc">' + esc(shortDescription(a)) + '</p>' + resourceInfo(a) +
         '<div class="actions"><a class="btn btn-open" href="' + esc(activityUrl(a)) + '">' + esc(actionLabel(a)) + '</a>' +
+          (activityFormat(a) === 'interactive-math' ? '<a class="btn btn-ghost" href="' + esc(presentationUrl(a)) + '" aria-label="Present ' + esc(a.title) + ' to the class">▣ Present</a>' : '') +
           saveBtnHtml(a.path) + (/practice-test\.html#unit=([a-z0-9-]+)/i.test(a.path || '') ? '<button type="button" class="btn btn-ghost readiness-activity-share" data-readiness-unit="' + esc(/#unit=([a-z0-9-]+)/i.exec(a.path)[1]) + '">Copy student link</button>' : '') + '</div>' +
         '<a class="report-problem" href="' + esc(reportUrl(a)) + '">Report a problem<span class="sr"> with ' + esc(a.title) + ' — choose an email application</span></a>' +
       '</div></li>';
