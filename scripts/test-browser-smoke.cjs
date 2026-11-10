@@ -115,6 +115,21 @@ async function run(){
    const inMode=await button.getAttribute('aria-pressed');
    const presentStage=await page.locator('.lab-grid .stage').count();
    save(label+' controls',inMode==='true'&&presentStage>0?'PASS':'REVIEW','Presenter toggle and interactive stage');
+   const zoomOut=page.locator('.lab-zoom-control[aria-label="Zoom out"]');
+   const zoomIn=page.locator('.lab-zoom-control[aria-label="Zoom in"]');
+   const zoomValue=page.locator('.lab-zoom-value');
+   await zoomOut.click();
+   const shrunk=(await zoomValue.innerText()).trim()==='90%';
+   await zoomIn.click();
+   const restoredZoom=(await zoomValue.innerText()).trim()==='100%';
+   await page.locator('.lab-zoom-fit').click();
+   const fitValue=(await zoomValue.innerText()).trim();
+   const range=parseInt(fitValue,10);
+   const fitted=Number.isFinite(range)&&range>=50&&range<=100;
+   await page.locator('.lab-zoom-reset').click();
+   const reset=(await zoomValue.innerText()).trim()==='100%';
+   save(label+' zoom controls',shrunk&&restoredZoom&&fitted&&reset?'PASS':'REVIEW',
+    'Zoom out/in: '+shrunk+'/'+restoredZoom+'; fitted: '+fitValue+'; reset: '+reset);
    await page.screenshot({path:output+'/'+(label.startsWith('Equation')?'present-balance-scale':'present-regression')+'.png',fullPage:true});
    await button.click();
    const restored=await page.locator('.lab-page').evaluate(el=>!el.classList.contains('lab-presenting'));
