@@ -39,7 +39,7 @@ const vmForNewPages=require('node:vm');
 for (const fileName of ['about.html','backup.html','skills.html','courses/index.html']) {
  const file=path.join(out,fileName),html=fs.readFileSync(file,'utf8');
  assert(html.includes('<main'), 'Missing main content in '+fileName);
- assert(/<title>[^<]+<\\/title>/i.test(html),'Missing title in '+fileName);
+ assert(/<title>[^<]+<\/title>/i.test(html),'Missing title in '+fileName);
  assert(/<meta name="description"/i.test(html),'Missing description in '+fileName);
  assert(/rel="canonical"/i.test(html),'Missing canonical in '+fileName);
  // Check locally referenced links using the site root for paths starting with /.
@@ -51,7 +51,7 @@ for (const fileName of ['about.html','backup.html','skills.html','courses/index.
   assert(target===out||target.startsWith(out+path.sep),'Link escapes site: '+fileName+' '+value);
   assert(fs.existsSync(target),'Broken link in '+fileName+': '+value);
  }
- for(const script of html.matchAll(/<script(.*?)>([\\s\\S]*?)<\\/script>/gi)){
+ for(const script of html.matchAll(/<script(.*?)>([\s\S]*?)<\/script>/gi)){
   if(script[1].includes('application/ld+json')||!script[2].trim())continue;
   new vmForNewPages.Script(script[2],{filename:fileName+' inline JS'});
  }
@@ -66,7 +66,7 @@ for(const c of courses){
   if(!fs.existsSync(file))continue;
   const html=fs.readFileSync(file,'utf8');
   assert(html.includes('name="robots" content="noindex,follow"'),'Duplicate legacy page not marked noindex: '+file);
-  assert(/rel="canonical" href="https:\\/\\/mrksclassroom\\.com\\/u\\//.test(html),'Legacy canonical not redirected to generated unit: '+file);
+  assert(/rel="canonical" href="https:\/\/mrksclassroom\.com\/u\//.test(html),'Legacy canonical not redirected to generated unit: '+file);
  }
 }
 console.log('PASS new site tools, local links, inline JS and duplicate-page indexing rules');
