@@ -123,7 +123,7 @@ console.log('PASS new site tools, local links, inline JS and duplicate-page inde
   assert(Object.hasOwn(catalog.skills,record.courseId)&&Object.hasOwn(catalog.skills[record.courseId],record.unitId),'Unknown framework unit '+key);
   assert(validRelations.has(record.relationship),'Invalid framework relationship for '+key);
   assert((record.relationship==='no-direct')===(record.strand===null),'Missing no-direct classification consistency: '+key);
-  if(record.strand)assert(/^(?:[678]\\.[A-Z]+|(?:AI|GEO|AII|PC|AQR)\\.[A-Z]+-[A-Z]+)$/.test(record.strand),'Unexpected framework strand: '+record.strand);
+  if(record.strand)assert(/^(?:[678]\.[A-Z]+|(?:AI|GEO|AII|PC|AQR)\.[A-Z]+-[A-Z]+)$/.test(record.strand),'Unexpected framework strand: '+record.strand);
   assert.equal(framework.forUnit(record.courseId,record.unitId).relationship,record.relationship,'Broken framework lookup: '+key);
  }
  assert.equal(covered.size,10,'Framework strands must cover all ten courses');
