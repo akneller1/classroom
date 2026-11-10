@@ -35,6 +35,9 @@ jobs:
         run: node scripts/test-backup-tool.cjs
       - name: Check public site
         run: node scripts/test-public-site.cjs
+      - name: Audit all dynamic course and unit routes (non-blocking)
+        continue-on-error: true
+        run: node scripts/test-dynamic-routing.cjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
