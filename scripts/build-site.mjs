@@ -397,6 +397,13 @@ ${c.planned ? u.skills.map(skill => `<li>${htmlEsc(skill)}</li>`).join("\n") : u
   }
 }
 
+// The generated /u/ pages remain authoritative for courses and units.
+// Include other standalone public tools in the sitemap without duplicating course URLs.
+for (const relative of ["about.html", "guide.html", "skills.html", "backup.html", "courses/"]) {
+  const target = path.join(OUT, relative, relative.endsWith("/") ? "index.html" : "");
+  if (fs.existsSync(target)) sitemapUrls.push(SITE_URL + relative);
+}
+
 const today = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(path.join(OUT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
