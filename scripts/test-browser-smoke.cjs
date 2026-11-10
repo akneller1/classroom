@@ -86,8 +86,19 @@ async function run(){
   if(label==='Printable generator'){
    try{
     await page.locator('#prPreview').waitFor({state:'attached',timeout:16000});
-    const len=(await page.locator('#prPreview').innerText()).length;
-    save('Printable: preview',len>30?'PASS':'REVIEW','Preview length '+len);
+    // The generator renders a temporary 29-character loading message before
+    // building and independently checking its questions asynchronously.
+    await page.waitForFunction(()=>{
+     const preview=document.querySelector('#prPreview');
+     return preview && !preview.querySelector('.pr-busy') &&
+       !/Making and checking problems/i.test(preview.textContent||'');
+    },null,{timeout:45000});
+    const preview=await page.locator('#prPreview').innerText();
+    const len=preview.trim().length;
+    const hasContent=!!(await page.locator('#prPreview .page, #prPreview .mm-page, #prPreview .pr-page').count());
+    const seemsBroken=/unable to|failed to|cannot generate|error generating/i.test(preview);
+    save('Printable: preview',!seemsBroken&&(hasContent||len>150)?'PASS':'REVIEW',
+     'Final preview length '+len+'; rendered page elements '+hasContent+'; excerpt: '+preview.slice(0,150));
    }catch(e){save('Printable preview','REVIEW',e.message)}
   }
  }
