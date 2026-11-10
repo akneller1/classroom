@@ -101,6 +101,39 @@ console.log('PASS new site tools, local links, inline JS and duplicate-page inde
  console.log('PASS curated Massachusetts standards: '+ma.records.length+' valid lesson mappings and interactive filters');
 }
 
+
+// Whole-catalog coverage uses broad framework strands, kept separate from
+// individually curated standard-to-lesson matches.
+{
+ const vm=require('node:vm'),context={window:{}};
+ for(const filename of ['course-catalog.js','massachusetts-framework-strands.js']){
+  vm.runInNewContext(fs.readFileSync(path.join(out,filename),'utf8'),context,{filename,timeout:5000});
+ }
+ const catalog=context.window.MK_COURSE_CATALOG,framework=context.window.MK_MA_FRAMEWORK_STRANDS;
+ assert(catalog&&framework&&framework.version===1,'Framework strand catalog unavailable');
+ const expected=Object.keys(catalog.skills).reduce((n,id)=>n+Object.keys(catalog.skills[id]).length,0);
+ assert.equal(expected,91,'Unexpected course catalog unit count');
+ assert.equal(framework.records.length,expected,'Every unit must have a framework classification');
+ const validRelations=new Set(['grade-level','course-strand','related','prerequisite','no-direct']);
+ const seen=new Set(),covered=new Set();
+ for(const record of framework.records){
+  const key=record.courseId+'/'+record.unitId;
+  assert(!seen.has(key),'Duplicate framework classification: '+key);
+  seen.add(key);covered.add(record.courseId);
+  assert(Object.hasOwn(catalog.skills,record.courseId)&&Object.hasOwn(catalog.skills[record.courseId],record.unitId),'Unknown framework unit '+key);
+  assert(validRelations.has(record.relationship),'Invalid framework relationship for '+key);
+  assert((record.relationship==='no-direct')===(record.strand===null),'Missing no-direct classification consistency: '+key);
+  if(record.strand)assert(/^(?:[678]\\.[A-Z]+|(?:AI|GEO|AII|PC|AQR)\\.[A-Z]+-[A-Z]+)$/.test(record.strand),'Unexpected framework strand: '+record.strand);
+  assert.equal(framework.forUnit(record.courseId,record.unitId).relationship,record.relationship,'Broken framework lookup: '+key);
+ }
+ assert.equal(covered.size,10,'Framework strands must cover all ten courses');
+ const browser=fs.readFileSync(path.join(out,'skills.html'),'utf8');
+ for(const fragment of ['massachusetts-framework-strands.js','id="strand"','id="relation"','strand.addEventListener','relation.addEventListener']){
+  assert(browser.includes(fragment),'Missing whole-catalog framework browser control '+fragment);
+ }
+ console.log('PASS framework strand navigation: '+expected+' units across '+covered.size+' courses, with explicit scope labels');
+}
+
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
