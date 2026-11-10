@@ -80,6 +80,51 @@ function layout(o) {
   h('p', { class: 'lab-eyebrow' }, t, esc(o.course + ' · ' + o.unit));
   h('h1', { class: 'lab-title' }, t, esc(o.title));
   if (o.intro) h('p', { class: 'lab-intro' }, t, o.intro);
+  /* Whole-class presentation is shared by every Interactive Math lab.
+     Fullscreen requires a teacher click; ?present=1 enables the larger
+     projector layout even before Fullscreen permission is granted. */
+  var actions = h('div', { class: 'lab-present-actions' }, head);
+  var present = h('button', { class: 'btn lab-present-button', type: 'button',
+    'aria-pressed': 'false', 'aria-label': 'Present this interactive math tool to the class' }, actions, '▣ Present');
+  var hint = h('span', { class: 'lab-present-hint', 'aria-live': 'polite' }, actions);
+  var isPresent = false;
+  function updatePresent(on) {
+    isPresent = !!on;
+    root.classList.toggle('lab-presenting', isPresent);
+    document.documentElement.classList.toggle('lab-presenting-page', isPresent);
+    present.setAttribute('aria-pressed', String(isPresent));
+    present.textContent = isPresent ? '× Exit presentation' : '▣ Present';
+    present.setAttribute('aria-label', isPresent ? 'Exit classroom presentation mode' : 'Present this interactive math tool to the class');
+    hint.textContent = isPresent ? 'Press Esc to exit fullscreen' : '';
+  }
+  function endPresent() {
+    updatePresent(false);
+    if (document.fullscreenElement && document.exitFullscreen) {
+      var result = document.exitFullscreen(); if (result && result.catch) result.catch(function () {});
+    }
+  }
+  present.addEventListener('click', function () {
+    if (isPresent) { endPresent(); return; }
+    updatePresent(true);
+    if (root.requestFullscreen) {
+      try {
+        var result = root.requestFullscreen();
+        if (result && result.catch) result.catch(function () {
+          hint.textContent = 'Presentation layout on · fullscreen unavailable in this browser';
+        });
+      } catch (e) { hint.textContent = 'Presentation layout on · fullscreen unavailable in this browser'; }
+    } else hint.textContent = 'Presentation layout on · use F11 for browser fullscreen';
+  });
+  document.addEventListener('fullscreenchange', function () {
+    if (document.fullscreenElement === root) updatePresent(true);
+    else if (isPresent) updatePresent(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isPresent && !document.fullscreenElement) endPresent();
+  });
+  try {
+    if (new URLSearchParams(window.location.search).get('present') === '1') updatePresent(true);
+  } catch (e) { /* Optional presentation URL must not affect student mode. */ }
   var grid = h('div', { class: 'lab-grid' }, root);
   var stage = h('section', { class: 'box stage', 'aria-label': 'Interactive display' }, grid);
   var panel = h('section', { class: 'box panel', 'aria-label': 'Controls' }, grid);
