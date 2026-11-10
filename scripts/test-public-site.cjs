@@ -28,7 +28,10 @@ for(const course of courses){
  checkLinks(file,html);count++;
 }
 }
-assert.equal(count,91);assert.equal((sitemap.match(/<loc>/g)||[]).length,102);
+assert.equal(count,91);assert.equal((sitemap.match(/<loc>/g)||[]).length,107);
+for (const page of ["about.html", "guide.html", "skills.html", "backup.html", "courses/"]) {
+ assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'), 'Missing sitemap entry: '+page);
+}
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
