@@ -99,6 +99,7 @@ async function run(){
     const seemsBroken=/unable to|failed to|cannot generate|error generating/i.test(preview);
     save('Printable: preview',!seemsBroken&&(hasContent||len>150)?'PASS':'REVIEW',
      'Final preview length '+len+'; rendered page elements '+hasContent+'; excerpt: '+preview.slice(0,150));
+    await page.screenshot({path:output+'/printable-preview.png',fullPage:true});
    }catch(e){save('Printable preview','REVIEW',e.message)}
   }
  }
