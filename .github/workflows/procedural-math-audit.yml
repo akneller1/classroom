@@ -1,0 +1,50 @@
+name: Procedural Algebra Geometry math audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/procedural-math-audit.yml'
+      - 'scripts/audit-procedural-math.cjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: classroom-procedural-math-audit
+  cancel-in-progress: true
+
+jobs:
+  verify-generated-math:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the public site
+        run: node scripts/build-site.mjs
+      - name: Install Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve the built site
+        run: |
+          python3 -m http.server 8765 --directory _site > /tmp/procedural-math-server.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/procedural-math-server.log
+          exit 1
+      - name: Audit each Algebra 1 and Geometry skill at three difficulty levels
+        run: node scripts/audit-procedural-math.cjs
+      - name: Upload question-generation audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: procedural-math-audit
+          path: procedural-math-audit-results/
+          if-no-files-found: warn
