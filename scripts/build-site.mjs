@@ -416,7 +416,7 @@ for (const c of catalog) {
     const file = path.join(OUT, relative);
     if (!fs.existsSync(file)) continue;
     let html = fs.readFileSync(file, "utf8");
-    html = html.replace(/<link\\s+rel=["']canonical["']\\s+href=["'][^"']+["']\\s*\\/?\\s*>/i,
+    html = html.replace(/<link\s+rel=["']canonical["']\s+href=["'][^"']+["']\s*\/?\s*>/i,
       '<link rel="canonical" href="' + htmlEsc(canonical) + '">');
     if (!/name=["']robots["']/i.test(html)) {
       html = html.replace(/<head>/i, '<head><meta name="robots" content="noindex,follow">');
