@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Back Up Saved Work | Mr. K's Classroom</title>
+<meta name="description" content="Export or import locally saved Mr. K's Classroom work, including saved activities and any browser-stored drafts.">
+<link rel="canonical" href="https://mrksclassroom.com/backup.html">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{color-scheme:light dark;font-family:system-ui,-apple-system,sans-serif}*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:#19273b;font-size:17px;line-height:1.55}header,footer{background:#142943;color:white;padding:1rem max(1rem,calc((100vw - 900px)/2))}header a,footer a{color:white;margin-right:1.2rem}main{max-width:900px;margin:auto;padding:2rem 1rem 4rem}h1{line-height:1.2}section{background:white;border:1px solid #dae2ee;border-radius:14px;padding:1.3rem 1.5rem;margin:1.5rem 0}button,.button{border:0;border-radius:8px;background:#2158a4;color:white;padding:.7rem 1rem;cursor:pointer;font:inherit}button:disabled{opacity:.5;cursor:not-allowed}input[type=file]{max-width:100%}label{display:block;margin:.5rem 0}.note{color:#52627a}.warn{border-left:4px solid #ce8332;padding-left:1rem}.status{white-space:pre-wrap}a{color:#185ba8}code{overflow-wrap:anywhere}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e8a64c;outline-offset:3px}@media(prefers-color-scheme:dark){body{background:#111b2a;color:#f2f5fa}section{background:#1b2b40;border-color:#3e526d}.note{color:#c5cfdf}a{color:#a5cfff}}
+</style></head><body>
+<header><nav aria-label="Main"><a href="/">Mr. K's Classroom</a><a href="/courses/">Courses</a><a href="/guide.html">Teacher Guide</a></nav></header>
+<main><h1>Back up saved work</h1>
+<p>Save a portable JSON copy of work stored by Mr. K's Classroom in <strong>this browser</strong>. Import it on a second device to restore those saved entries. Files downloaded from individual generators or PDFs are not included.</p>
+<p class="warn"><strong>Important:</strong> This tool can only access storage belonging to <code>mrksclassroom.com</code>. Work saved at another domain, in private browsing, or in a different browser profile is not automatically available here. Back up from the original browser and domain.</p>
+<section><h2>1. Export a backup</h2>
+<p id="summary" class="note">Inspecting local browser storage…</p>
+<button id="export" type="button">Export my saved work (.json)</button>
+<p class="note">The backup includes browser storage entries on this site's origin, not account passwords or data from other websites. Review the JSON before sharing it with anyone.</p>
+</section>
+<section><h2>2. Import a backup</h2>
+<p>Choose a previously exported JSON file. Your existing stored entries will remain unless you explicitly choose to replace matching keys.</p>
+<label for="file">Backup JSON file</label><input id="file" type="file" accept=".json,application/json">
+<label><input id="replace" type="checkbox"> Replace existing entries with matching keys (create a new backup first)</label>
+<button type="button" id="import" disabled>Import selected backup</button>
+<p id="preview" class="note" aria-live="polite"></p>
+</section>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<p><a href="/#saved">Return to saved activities</a></p>
+</main><footer><a href="/">Home</a> · <a href="/about.html">About</a></footer>
+<script>
+(function(){
+'use strict';
+var VERSION=1,TYPE='mrks-classroom-browser-backup',MAX_BYTES=10*1024*1024,MAX_KEYS=2000;
+var selected=null, file=document.getElementById('file'), importBtn=document.getElementById('import'), status=document.getElementById('status'), summary=document.getElementById('summary'), preview=document.getElementById('preview');
+function entries(){var o=Object.create(null);for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(k!==null)o[k]=localStorage.getItem(k);}return o;}
+function count(o){return Object.keys(o).length;}
+function report(m){status.textContent=m;}
+function refresh(){try{summary.textContent=count(entries())+' browser storage entries found on this domain.';}catch(e){summary.textContent='Storage is blocked in this browser.';}}
+function filename(){var now=new Date(),date=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');return 'mrks-classroom-backup-'+date+'.json';}
+document.getElementById('export').addEventListener('click',function(){
+ try{
+  var obj={format:TYPE,version:VERSION,origin:location.origin,createdAt:new Date().toISOString(),storage:entries()};
+  var json=JSON.stringify(obj,null,2);
+  if(json.length>MAX_BYTES)throw Error('Backup exceeds the 10 MB limit. Download larger saved projects from their generator pages separately.');
+  var blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download=filename();document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},2000);
+  report('Backup prepared: '+count(obj.storage)+' entries. Keep this file somewhere safe.');
+ }catch(e){report('Export failed: '+e.message);}
+});
+file.addEventListener('change',function(){
+ selected=null;importBtn.disabled=true;preview.textContent='';
+ var f=file.files&&file.files[0];if(!f)return;
+ if(f.size>MAX_BYTES){preview.textContent='File is too large (10 MB maximum).';return;}
+ f.text().then(function(raw){
+  var data=JSON.parse(raw);
+  if(!data||data.format!==TYPE||data.version!==VERSION||!data.storage||typeof data.storage!=='object'||Array.isArray(data.storage))throw Error('Not a compatible Mr. K\'s Classroom backup.');
+  var keys=Object.keys(data.storage);
+  if(keys.length>MAX_KEYS)throw Error('Too many entries.');
+  keys.forEach(function(k){if(!k||k==='__proto__'||k==='constructor'||k==='prototype'||typeof data.storage[k]!=='string')throw Error('Invalid storage entry.');});
+  if(data.origin!==location.origin)throw Error('Backup originated from a different domain. Open the original domain or export again from this one.');
+  selected=data;preview.textContent=keys.length+' entries ready to import. Matching existing entries will be '+(document.getElementById('replace').checked?'replaced':'skipped')+'.';
+  importBtn.disabled=false;report('');
+ }).catch(function(err){selected=null;importBtn.disabled=true;preview.textContent=err.message;});
+});
+document.getElementById('replace').addEventListener('change',function(){if(selected)preview.textContent=count(selected.storage)+' entries ready. Matching existing entries will be '+(this.checked?'replaced':'skipped')+'.';});
+importBtn.addEventListener('click',function(){
+ if(!selected)return;
+ var overwrite=document.getElementById('replace').checked,done=0,skipped=0,failed=0;
+ try{
+  Object.keys(selected.storage).forEach(function(key){
+   if(!overwrite&&localStorage.getItem(key)!==null){skipped++;return;}
+   try{localStorage.setItem(key,selected.storage[key]);done++;}catch(e){failed++;}
+  });
+  refresh();
+  report('Import finished: '+done+' entries restored; '+skipped+' existing entries preserved; '+failed+' could not be written. Reload the main site to see restored saved activities.');
+ }catch(e){report('Import failed: '+e.message);}
+});
+refresh();
+})();
+</script></body></html>
