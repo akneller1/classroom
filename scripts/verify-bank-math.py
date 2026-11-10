@@ -182,6 +182,28 @@ def solve(prompt):
         if vals is not None:return "sequence-terms",vals
     return None
 
+def reflection_line(prompt):
+    """Reconstruct the common horizontal/vertical mirror from all three point pairs."""
+    pat=r"([ABC])\s*\(\s*("+num+r")\s*,\s*("+num+r")\s*\)"
+    pat_prime=r"([ABC])′\s*\(\s*("+num+r")\s*,\s*("+num+r")\s*\)"
+    given={a:(Fraction(x.replace("−","-")),Fraction(y.replace("−","-"))) for a,x,y in re.findall(pat,prompt)}
+    images={a:(Fraction(x.replace("−","-")),Fraction(y.replace("−","-"))) for a,x,y in re.findall(pat_prime,prompt)}
+    if set(given)!={"A","B","C"} or set(images)!={"A","B","C"}:return None
+    for axis in ("x","y"):
+        midpoints=[]
+        valid=True
+        for name in ("A","B","C"):
+            x,y=given[name];xx,yy=images[name]
+            if axis=="x":
+                if y!=yy:valid=False;break
+                midpoints.append((x+xx)/2)
+            else:
+                if x!=xx:valid=False;break
+                midpoints.append((y+yy)/2)
+        if valid and all(v==midpoints[0] for v in midpoints):
+            return axis,midpoints[0]
+    return None
+
 def self_test():
     fixtures=[
         ("Divide. Write the answer in simplest form: 1/4 ÷ 1/2","fraction-division",Fraction(1,2)),
@@ -217,28 +239,6 @@ def self_test():
 
 
 self_test()
-
-def reflection_line(prompt):
-    """Reconstruct the common horizontal/vertical mirror from all three point pairs."""
-    pat=r"([ABC])\s*\(\s*("+num+r")\s*,\s*("+num+r")\s*\)"
-    pat_prime=r"([ABC])′\s*\(\s*("+num+r")\s*,\s*("+num+r")\s*\)"
-    given={a:(Fraction(x.replace("−","-")),Fraction(y.replace("−","-"))) for a,x,y in re.findall(pat,prompt)}
-    images={a:(Fraction(x.replace("−","-")),Fraction(y.replace("−","-"))) for a,x,y in re.findall(pat_prime,prompt)}
-    if set(given)!={"A","B","C"} or set(images)!={"A","B","C"}:return None
-    for axis in ("x","y"):
-        midpoints=[]
-        valid=True
-        for name in ("A","B","C"):
-            x,y=given[name];xx,yy=images[name]
-            if axis=="x":
-                if y!=yy:valid=False;break
-                midpoints.append((x+xx)/2)
-            else:
-                if x!=xx:valid=False;break
-                midpoints.append((y+yy)/2)
-        if valid and all(v==midpoints[0] for v in midpoints):
-            return axis,midpoints[0]
-    return None
 
 def normalized(x):
     import unicodedata
