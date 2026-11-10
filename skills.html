@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Browse Math Skills by Course | Mr. K's Classroom</title>
+<meta name="description" content="Find math lessons by topic or skill across grades 6–12 and open their free teaching resources.">
+<link rel="canonical" href="https://mrksclassroom.com/skills.html"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+:root{color-scheme:light dark}*{box-sizing:border-box}body{font:17px/1.55 system-ui,-apple-system,sans-serif;margin:0;background:#f6f8fc;color:#19283d}header,footer{background:#142943;color:white;padding:16px max(16px,calc((100vw - 1000px)/2))}header a,footer a{color:white;margin-right:20px}main{max-width:1000px;margin:auto;padding:32px 16px 70px}h1{line-height:1.2}input,select{font:inherit;padding:.7rem;border:1px solid #71819a;border-radius:8px;max-width:100%;width:100%}.fields{display:grid;grid-template-columns:2fr 1fr;gap:16px}.item{border:1px solid #dce3ed;background:white;border-radius:12px;padding:18px 22px;margin:12px 0}a{color:#175aab}small{display:block;color:#526279;margin-top:6px}.note{background:#eaf0f9;padding:13px 16px;border-radius:8px}label{font-weight:600}input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #eeab42;outline-offset:3px}@media(max-width:650px){.fields{grid-template-columns:1fr}}@media(prefers-color-scheme:dark){body{background:#111b2a;color:#f3f5fa}.item{background:#1b2c42;border-color:#40536d}.note{background:#263c58}a{color:#9bcaff}small{color:#c4d1e1}}
+</style></head><body><header><nav aria-label="Site"><a href="/">Mr. K's Classroom</a><a href="/courses/">Courses</a><a href="/backup.html">Back Up Saved Work</a></nav></header>
+<main><h1>Browse by math skill</h1>
+<p>Find a skill and jump directly to its course unit. Search by topic, unit name, or course, or choose a subject.</p>
+<p class="note"><strong>Curriculum note:</strong> These are the actual lesson topics in the course catalog. They are not verified CCSS or Massachusetts Curriculum Framework mappings. Standards-code filtering will be added only after the codes are independently reviewed.</p>
+<div class="fields"><div><label for="find">Search lesson topics</label><input id="find" type="search" placeholder="e.g. slope, factoring, probability" autocomplete="off"></div><div><label for="subject">Course</label><select id="subject"><option value="">All courses</option></select></div></div>
+<p id="count" aria-live="polite"></p><div id="results"></div>
+</main><footer><a href="/">Home</a> · <a href="/guide.html">Teacher Guide</a></footer>
+<script src="/data.js?v=discrete-math-20261108"></script><script src="/course-catalog.js?v=discrete-20261107"></script>
+<script>
+(function(){
+'use strict';
+var catalog=window.MK_COURSE_CATALOG,lib=window.LIBRARY,select=document.getElementById('subject'),input=document.getElementById('find'),results=document.getElementById('results'),count=document.getElementById('count');
+if(!catalog||!lib){count.textContent='The skill catalog could not be loaded.';return;}
+var order=['math6','prealgebra7','prealgebra','algebra','geometry','algebra2','precalculus','calculus','statistics','discrete'];
+var courses=lib.courses.slice().sort(function(a,b){return order.indexOf(a.id)-order.indexOf(b.id);});
+var entries=[];courses.forEach(function(c){
+ var option=document.createElement('option');option.value=c.id;option.textContent=c.name;select.appendChild(option);
+ c.units.forEach(function(u){catalog.getSkills(c.id,u.id).forEach(function(skill){entries.push({course:c,unit:u,skill:skill});});});
+});
+function match(item,q){return [item.skill,item.course.name,item.unit.name].join(' ').toLowerCase().indexOf(q)>=0;}
+function render(){
+ var q=input.value.trim().toLowerCase(),subject=select.value;
+ var found=entries.filter(function(it){return (!subject||it.course.id===subject)&&(!q||match(it,q));});
+ count.textContent=found.length+' lesson topics found'+(found.length>100?' · Showing the first 100':'')+'.';
+ results.replaceChildren();
+ found.slice(0,100).forEach(function(it){
+  var article=document.createElement('article');article.className='item';
+  var a=document.createElement('a');a.href='/#'+encodeURIComponent(it.course.id+'.'+it.unit.id).replace(/%2E/g,'.');a.textContent=it.skill;
+  var meta=document.createElement('small');meta.textContent=it.course.name+' · '+it.unit.name;
+  article.appendChild(a);article.appendChild(meta);results.appendChild(article);
+ });
+ if(!found.length){var p=document.createElement('p');p.textContent='No matching topics. Try another search or choose a different course.';results.appendChild(p);}
+}
+input.addEventListener('input',render);select.addEventListener('change',render);
+render();
+})();
+</script></body></html>
