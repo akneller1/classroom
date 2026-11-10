@@ -204,6 +204,8 @@ def self_test():
     assert numeric_choice_form("x = -2") != numeric_choice_form("-2")
     assert numeric_choice_form("x = -2") == numeric_choice_form("x = -2")
     assert numeric_choice_form("3/6") == numeric_choice_form("1/2")
+    mirror="Triangle ABC A(3, 5), B(4, -2), C(-2, -1) is reflected to A′B′C′ A′(3, -7), B′(4, 0), C′(-2, -1). What is the equation of the line of reflection?"
+    assert reflection_line(mirror)==("y",Fraction(-1))
 
     assert solve("Find f′(-1) for f(x) = 3x⁴ - 4x.")==("polynomial-derivative",Fraction(-16))
     assert solve("Evaluate 7!/5!.")==("factorial-ratio",Fraction(42))
@@ -215,6 +217,28 @@ def self_test():
 
 
 self_test()
+
+def reflection_line(prompt):
+    """Reconstruct the common horizontal/vertical mirror from all three point pairs."""
+    pat=r"([ABC])\s*\(\s*("+num+r")\s*,\s*("+num+r")\s*\)"
+    pat_prime=r"([ABC])′\s*\(\s*("+num+r")\s*,\s*("+num+r")\s*\)"
+    given={a:(Fraction(x.replace("−","-")),Fraction(y.replace("−","-"))) for a,x,y in re.findall(pat,prompt)}
+    images={a:(Fraction(x.replace("−","-")),Fraction(y.replace("−","-"))) for a,x,y in re.findall(pat_prime,prompt)}
+    if set(given)!={"A","B","C"} or set(images)!={"A","B","C"}:return None
+    for axis in ("x","y"):
+        midpoints=[]
+        valid=True
+        for name in ("A","B","C"):
+            x,y=given[name];xx,yy=images[name]
+            if axis=="x":
+                if y!=yy:valid=False;break
+                midpoints.append((x+xx)/2)
+            else:
+                if x!=xx:valid=False;break
+                midpoints.append((y+yy)/2)
+        if valid and all(v==midpoints[0] for v in midpoints):
+            return axis,midpoints[0]
+    return None
 
 def normalized(x):
     import unicodedata
@@ -240,6 +264,20 @@ for entry in manifest["banks"]:
                 if verdict is not None:
                     checked[(course,family)]+=1
                     if verdict is False:flag("numeric-answer-mismatch",bank,q,prompt,answer,expect,part)
+        # Independently verify reflection geometry from *all* printed vertices,
+        # not merely the numerical part of the answer key.
+        if "line of reflection" in q.get("prompt",""):
+            mirror=reflection_line(q["prompt"])
+            if mirror is not None:
+                checked[(course,"reflection-geometry")]+=1
+                answer=numeric_choice_form(q.get("answer"))
+                if answer!=mirror:
+                    flag("reflection-answer-mismatch",bank,q,q["prompt"],q.get("answer"),str(mirror))
+                if q.get("format")=="multiple-choice":
+                    for index,opt in enumerate(q.get("options",[])):
+                        value=numeric_choice_form(opt.get("text"))
+                        if value is not None and bool(opt.get("correct"))!=(value==mirror):
+                            flag("reflection-choice-inconsistent",bank,q,q["prompt"],q.get("answer"),opt.get("text"),str(index+1))
         opts=q.get("options",[])
         if q.get("format")=="multiple-choice":
             correct=[o for o in opts if o.get("correct")]
