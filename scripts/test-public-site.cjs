@@ -71,6 +71,36 @@ for(const c of courses){
 }
 console.log('PASS new site tools, local links, inline JS and duplicate-page indexing rules');
 
+
+// Guard the curated Massachusetts standards mapping against stale skill names
+// and accidental claims of course-wide alignment.
+{
+ const context={window:{}};
+ const vm=require('node:vm');
+ for(const filename of ['course-catalog.js','massachusetts-standards.js']){
+  vm.runInNewContext(fs.readFileSync(path.join(out,filename),'utf8'),context,{filename,timeout:5000});
+ }
+ const catalog=context.window.MK_COURSE_CATALOG, ma=context.window.MK_MA_STANDARDS;
+ assert(catalog&&ma&&ma.version===1,'Massachusetts standards module not initialized');
+ assert(ma.records.length>=25,'Massachusetts standards mapping unexpectedly reduced');
+ const seen=new Set();
+ for(const r of ma.records){
+  assert(['algebra','geometry'].includes(r.courseId),'Mapping includes unreviewed course '+r.courseId);
+  assert(catalog.getSkills(r.courseId,r.unitId).includes(r.skill),'Stale standards mapping: '+r.courseId+'/'+r.unitId+'/'+r.skill);
+  assert(/^(?:AI|GEO)\.[A-Z]-[A-Z]+\.[A-Z]\.\d+(?:\.[a-z])?$/.test(r.code),'Invalid Massachusetts standard '+r.code);
+  assert(r.url.startsWith('https://www.doe.mass.edu/frameworks/search/Map.aspx?'),'Untrusted standards URL');
+  const key=[r.courseId,r.unitId,r.skill,r.code].join('|');
+  assert(!seen.has(key),'Duplicate standards mapping: '+key);
+  seen.add(key);
+  assert(ma.forSkill(r.courseId,r.unitId,r.skill).some(x=>x.code===r.code),'Standards lookup failed: '+key);
+ }
+ const browser=fs.readFileSync(path.join(out,'skills.html'),'utf8');
+ for(const fragment of ['id="standard"','id="mapping"','massachusetts-standards.js','standard.addEventListener','mapping.addEventListener']){
+  assert(browser.includes(fragment),'Skill browser standards control missing: '+fragment);
+ }
+ console.log('PASS curated Massachusetts standards: '+ma.records.length+' valid lesson mappings and interactive filters');
+}
+
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
