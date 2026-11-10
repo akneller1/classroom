@@ -133,3 +133,20 @@ table.lab-table{border-collapse:collapse;width:100%;font-variant-numeric:tabular
  .lab-present-actions{display:none!important}
  .lab-page.lab-presenting .lab-grid{grid-template-columns:1fr}
 }
+
+/* Projector zoom. Only the activity content scales: the teacher toolbar remains
+   a consistent usable size even at 50% zoom. CSS zoom retains interactive SVG
+   coordinates and pointer behavior, unlike a visual transform alone. */
+.lab-zoom-bar{display:none;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:5px}
+.lab-page.lab-presenting .lab-zoom-bar,.lab-page:fullscreen .lab-zoom-bar{display:flex}
+.lab-zoom-control,.lab-zoom-fit,.lab-zoom-reset{min-height:40px!important;min-width:40px;padding:5px 10px!important;font-size:.95rem!important}
+.lab-zoom-value{font-family:var(--display);font-weight:800;min-width:53px;text-align:center;font-variant-numeric:tabular-nums}
+.lab-zoom-control:disabled{opacity:.4;cursor:not-allowed}
+.lab-page.lab-presenting .lab-grid,.lab-page:fullscreen .lab-grid,
+.lab-page.lab-presenting > div:not(.lab-grid),.lab-page:fullscreen > div:not(.lab-grid){
+  zoom:var(--lab-present-scale,1);
+  width:calc(100% / var(--lab-present-scale,1));
+}
+@media(max-width:570px){
+ .lab-zoom-bar{justify-content:flex-start}
+}
