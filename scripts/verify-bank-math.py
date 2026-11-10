@@ -25,6 +25,20 @@ def rational(s):
     except (ValueError,ZeroDivisionError):pass
     return None
 
+def numeric_choice_form(value):
+    """Keep equation orientation/variable identity when comparing distractors.
+
+    For example x = -2 and y = -2 describe distinct lines and must not be
+    collapsed into an identical numeric answer. Standalone -2 is also distinct
+    from an equation unless an explicit checker supports that equivalence.
+    """
+    if not isinstance(value,(str,int,float)):return None
+    text=str(value).strip().replace("−","-")
+    m=re.fullmatch(r"([A-Za-z])\s*=\s*(.+)",text)
+    variable=m.group(1).lower() if m else None
+    number=rational(m.group(2) if m else text)
+    return (variable,number) if number is not None else None
+
 def equal(expected,text):
     actual=rational(text)
     if actual is None:return None
@@ -186,6 +200,10 @@ def self_test():
     assert equal(Fraction(1,3),"0.32") is False
     assert rational("4 4/5")==Fraction(24,5)
     assert rational("-1 1/2")==Fraction(-3,2)
+    assert numeric_choice_form("x = -2") != numeric_choice_form("y = -2")
+    assert numeric_choice_form("x = -2") != numeric_choice_form("-2")
+    assert numeric_choice_form("x = -2") == numeric_choice_form("x = -2")
+    assert numeric_choice_form("3/6") == numeric_choice_form("1/2")
 
     assert solve("Find f′(-1) for f(x) = 3x⁴ - 4x.")==("polynomial-derivative",Fraction(-16))
     assert solve("Evaluate 7!/5!.")==("factorial-ratio",Fraction(42))
@@ -228,10 +246,10 @@ for entry in manifest["banks"]:
             if len(correct)==1 and isinstance(q.get("answer"),str):
                 if normalized(correct[0].get("text"))!=normalized(q["answer"]):
                     flag("marked-answer-text-differs",bank,q,q.get("prompt",""),q["answer"],correct[0].get("text"))
-            key=rational(q.get("answer"))
+            key=numeric_choice_form(q.get("answer"))
             if key is not None:
                 for i,o in enumerate(opts):
-                    v=rational(o.get("text"))
+                    v=numeric_choice_form(o.get("text"))
                     if v is not None and bool(o.get("correct"))!=(v==key):
                         flag("numeric-distractor-inconsistent",bank,q,q.get("prompt",""),q["answer"],o["text"],str(i+1))
         elif q.get("format")=="select-all" and isinstance(q.get("answer"),list):
