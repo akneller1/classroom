@@ -15,7 +15,9 @@ permissions:
 
 concurrency:
   group: public-site-pages
-  cancel-in-progress: true
+  # Finish an active deployment before starting the next one. Cancelled runs can
+  # leave an unfinished Pages deployment behind and cause HTTP 400 conflicts.
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -47,7 +49,7 @@ jobs:
         with:
           script: |
             for (let attempt = 0; attempt < 60; attempt++) {
-              const {data} = await github.rest.actions.listWorkflowRunsForRepo({owner:context.repo.owner,repo:context.repo.repo,head_sha:context.sha,per_page:100});
+              const {data} = await github.rest.actions.listWorkflowRunsForRepo({owner:context.repo.owner,repo:context.repo.repo,branch:context.ref.replace('refs/heads/',''),per_page:100});
               const pending = data.workflow_runs.filter(run=>run.id!==context.runId&&run.name==='pages build and deployment'&&run.status!=='completed');
               if (!pending.length) return;
               if (!attempt) core.info('Waiting for automatic Pages deployment before publishing the public build.');
