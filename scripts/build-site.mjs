@@ -72,8 +72,8 @@ fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
     const html = fs.readFileSync(file, "utf8");
     if (!html.includes("../interactive-math/lab.js")) continue;
     const next = html
-      .replace(/(\.\.\/interactive-math\/lab\.js)\?v=[^"'<>\s]+/g, "$1?v=present-20261110")
-      .replace(/(\.\.\/interactive-math\/lab\.css)\?v=[^"'<>\s]+/g, "$1?v=present-20261110");
+      .replace(/(\.\.\/interactive-math\/lab\.js)\?v=[^"'<>\s]+/g, "$1?v=present-zoom-20261110")
+      .replace(/(\.\.\/interactive-math\/lab\.css)\?v=[^"'<>\s]+/g, "$1?v=present-zoom-20261110");
     if (next !== html) { fs.writeFileSync(file, next); refreshed++; }
   }
   console.log("Interactive Math presentation assets versioned in " + refreshed + " published labs.");
