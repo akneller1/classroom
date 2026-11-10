@@ -1,0 +1,53 @@
+# Browser-level audit for the generated, public-only static site.
+# Runs separately from deployment: does not publish or change the live site.
+name: Browser smoke audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/browser-smoke.yml'
+      - 'scripts/test-browser-smoke.cjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: classroom-browser-audit
+  cancel-in-progress: true
+
+jobs:
+  chromium-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the same public site artifact used for deployment
+        run: node scripts/build-site.mjs
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve generated site on localhost
+        run: |
+          python3 -m http.server 8765 --directory _site > /tmp/classroom-smoke-server.log 2>&1 &
+          echo $! > /tmp/classroom-smoke-server.pid
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/classroom-smoke-server.log
+          exit 1
+      - name: Exercise pages in Chromium
+        run: node scripts/test-browser-smoke.cjs
+      - name: Upload screenshots, browser exceptions and audit summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: classroom-browser-audit
+          path: browser-smoke-results/
+          if-no-files-found: warn
