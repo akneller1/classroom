@@ -91,3 +91,45 @@ table.lab-table{border-collapse:collapse;width:100%;font-variant-numeric:tabular
 .g-handle:active{cursor:grabbing}
 @media (max-width:860px){.lab-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Whole-class presentation mode: high-contrast, projector-sized, fully interactive.
+   Active in fullscreen or via ?present=1 (useful where fullscreen is blocked). */
+.lab-present-actions{display:flex;flex-direction:column;align-items:flex-end;gap:5px;margin-left:auto}
+.lab-present-button{min-height:44px;white-space:nowrap;background:var(--blue);color:#fff;border-color:var(--ink)}
+.lab-present-button[aria-pressed="true"]{background:var(--orange);color:#14173a}
+.lab-present-hint{font-size:.78rem;font-weight:700;color:var(--ink-soft);text-align:right}
+.lab-page.lab-presenting,.lab-page:fullscreen{
+  max-width:none;width:100%;min-height:100vh;min-height:100dvh;
+  padding:clamp(12px,1.5vw,24px);gap:clamp(10px,1.2vw,18px);
+  background:var(--paper);overflow:auto;
+}
+.lab-page.lab-presenting .lab-head,.lab-page:fullscreen .lab-head{align-items:center}
+.lab-page.lab-presenting .lab-title,.lab-page:fullscreen .lab-title{font-size:clamp(2rem,3vw,3.35rem)}
+.lab-page.lab-presenting .lab-intro,.lab-page:fullscreen .lab-intro{font-size:clamp(1rem,1.4vw,1.35rem);max-width:100ch}
+.lab-page.lab-presenting .lab-grid,.lab-page:fullscreen .lab-grid{
+  grid-template-columns:minmax(0,2fr) minmax(330px,1fr);gap:clamp(12px,1.4vw,24px);
+}
+.lab-page.lab-presenting .stage,.lab-page:fullscreen .stage{min-height:min(65vh,740px);display:flex;flex-direction:column;justify-content:flex-start}
+.lab-page.lab-presenting .stage svg,.lab-page:fullscreen .stage svg{max-height:69vh;max-height:69dvh}
+.lab-page.lab-presenting .readout,.lab-page:fullscreen .readout{font-size:clamp(1.55rem,2.2vw,2.8rem)}
+.lab-page.lab-presenting .panel,.lab-page:fullscreen .panel{font-size:clamp(1rem,1.2vw,1.25rem)}
+.lab-page.lab-presenting .slider-row input[type=range],.lab-page:fullscreen .slider-row input[type=range]{height:40px}
+.lab-page.lab-presenting .nudge,.lab-page:fullscreen .nudge{min-width:44px;min-height:44px}
+.lab-page.lab-presenting .chip,.lab-page:fullscreen .chip,
+.lab-page.lab-presenting .tab,.lab-page:fullscreen .tab{min-height:42px}
+.lab-page.lab-presenting .lab-present-button,.lab-page:fullscreen .lab-present-button{font-size:1rem}
+.lab-page.lab-presenting .note,.lab-page:fullscreen .note{display:none}
+@media(max-width:1000px){
+ .lab-page.lab-presenting .lab-grid,.lab-page:fullscreen .lab-grid{grid-template-columns:1fr}
+ .lab-page.lab-presenting .stage,.lab-page:fullscreen .stage{min-height:0}
+ .lab-page.lab-presenting .stage svg,.lab-page:fullscreen .stage svg{max-height:58vh}
+}
+@media(max-width:570px){
+ .lab-present-actions{align-items:flex-start;margin-left:0}
+ .lab-page.lab-presenting .lab-title{font-size:clamp(1.6rem,6vw,2rem)}
+ .lab-present-hint{max-width:230px;text-align:left}
+}
+@media print{
+ .lab-present-actions{display:none!important}
+ .lab-page.lab-presenting .lab-grid{grid-template-columns:1fr}
+}
