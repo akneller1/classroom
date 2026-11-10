@@ -187,8 +187,8 @@
     "courseId": "geometry",
     "unitId": "similarity",
     "skill": "Scale Factors and Dilations",
-    "code": "GEO.G-SRT.A.2",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.GEO.G-SRT.A.02"
+    "code": "GEO.G-SRT.A.1",
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=GEO.G-SRT.A.1"
   },
   {
     "courseId": "geometry",
@@ -200,16 +200,9 @@
   {
     "courseId": "geometry",
     "unitId": "right-triangles-trigonometry",
-    "skill": "Pythagorean Theorem",
-    "code": "GEO.G-SRT.C.8",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.GEO.G-SRT.C.08&a=1"
-  },
-  {
-    "courseId": "geometry",
-    "unitId": "right-triangles-trigonometry",
     "skill": "Sine, Cosine, and Tangent Ratios",
-    "code": "GEO.G-SRT.C.8",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.GEO.G-SRT.C.08&a=1"
+    "code": "GEO.G-SRT.C.6",
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=GEO.G-SRT.C.6"
   },
   {
     "courseId": "geometry",
