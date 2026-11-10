@@ -7,37 +7,48 @@
 </style></head><body><header><nav aria-label="Site"><a href="/">Mr. K's Classroom</a><a href="/courses/">Courses</a><a href="/backup.html">Back Up Saved Work</a></nav></header>
 <main><h1>Browse by math skill</h1>
 <p>Find a skill and jump directly to its course unit. Search by topic, unit name, or course, or choose a subject.</p>
-<p class="note"><strong>Curriculum note:</strong> These are the actual lesson topics in the course catalog. They are not verified CCSS or Massachusetts Curriculum Framework mappings. Standards-code filtering will be added only after the codes are independently reviewed.</p>
+<p class="note"><strong>Curriculum note:</strong> This browser includes a limited set of curated Massachusetts 2017 standard-to-skill matches for Algebra 1 and Geometry. Other skills remain searchable but are not yet mapped. A lesson-topic match does not certify that every linked activity covers the full standard.</p>
 <div class="fields"><div><label for="find">Search lesson topics</label><input id="find" type="search" placeholder="e.g. slope, factoring, probability" autocomplete="off"></div><div><label for="subject">Course</label><select id="subject"><option value="">All courses</option></select></div></div>
+<div class="fields" style="margin-top:1rem"><div><label for="standard">Massachusetts standard</label><select id="standard"><option value="">All standards (including unmapped skills)</option></select></div><div><label for="mapping">Mapping coverage</label><select id="mapping"><option value="">All skills</option><option value="mapped">Curated matches only</option><option value="unmapped">Not yet mapped</option></select></div></div>
 <p id="count" aria-live="polite"></p><div id="results"></div>
 </main><footer><a href="/">Home</a> · <a href="/guide.html">Teacher Guide</a></footer>
-<script src="/data.js?v=discrete-math-20261108"></script><script src="/course-catalog.js?v=discrete-20261107"></script>
+<script src="/data.js?v=discrete-math-20261108"></script><script src="/course-catalog.js?v=discrete-20261107"></script><script src="/massachusetts-standards.js?v=ma-standards-20261110"></script>
 <script>
 (function(){
 'use strict';
-var catalog=window.MK_COURSE_CATALOG,lib=window.LIBRARY,select=document.getElementById('subject'),input=document.getElementById('find'),results=document.getElementById('results'),count=document.getElementById('count');
+var catalog=window.MK_COURSE_CATALOG,lib=window.LIBRARY,select=document.getElementById('subject'),input=document.getElementById('find'),results=document.getElementById('results'),count=document.getElementById('count'),standard=document.getElementById('standard'),mapping=document.getElementById('mapping'),ma=window.MK_MA_STANDARDS;
 if(!catalog||!lib){count.textContent='The skill catalog could not be loaded.';return;}
 var order=['math6','prealgebra7','prealgebra','algebra','geometry','algebra2','precalculus','calculus','statistics','discrete'];
 var courses=lib.courses.slice().sort(function(a,b){return order.indexOf(a.id)-order.indexOf(b.id);});
 var entries=[];courses.forEach(function(c){
  var option=document.createElement('option');option.value=c.id;option.textContent=c.name;select.appendChild(option);
- c.units.forEach(function(u){catalog.getSkills(c.id,u.id).forEach(function(skill){entries.push({course:c,unit:u,skill:skill});});});
+ c.units.forEach(function(u){catalog.getSkills(c.id,u.id).forEach(function(skill){entries.push({course:c,unit:u,skill:skill,standards:ma?ma.forSkill(c.id,u.id,skill):[]});});});
 });
-function match(item,q){return [item.skill,item.course.name,item.unit.name].join(' ').toLowerCase().indexOf(q)>=0;}
+var codes=Object.create(null);
+entries.forEach(function(it){it.standards.forEach(function(r){codes[r.code]=true;});});
+Object.keys(codes).sort().forEach(function(code){var opt=document.createElement('option');opt.value=code;opt.textContent=code;standard.appendChild(opt);});
+function match(item,q){return [item.skill,item.course.name,item.unit.name].concat(item.standards.map(function(x){return x.code;})).join(' ').toLowerCase().indexOf(q)>=0;}
 function render(){
- var q=input.value.trim().toLowerCase(),subject=select.value;
- var found=entries.filter(function(it){return (!subject||it.course.id===subject)&&(!q||match(it,q));});
+ var q=input.value.trim().toLowerCase(),subject=select.value,code=standard.value,coverage=mapping.value;
+ var found=entries.filter(function(it){return (!subject||it.course.id===subject)&&(!q||match(it,q))&&(!code||it.standards.some(function(r){return r.code===code;}))&&(coverage!=='mapped'||it.standards.length>0)&&(coverage!=='unmapped'||it.standards.length===0);});
  count.textContent=found.length+' lesson topics found'+(found.length>100?' · Showing the first 100':'')+'.';
  results.replaceChildren();
  found.slice(0,100).forEach(function(it){
   var article=document.createElement('article');article.className='item';
   var a=document.createElement('a');a.href='/#'+encodeURIComponent(it.course.id+'.'+it.unit.id).replace(/%2E/g,'.');a.textContent=it.skill;
   var meta=document.createElement('small');meta.textContent=it.course.name+' · '+it.unit.name;
-  article.appendChild(a);article.appendChild(meta);results.appendChild(article);
+  article.appendChild(a);article.appendChild(meta);
+  it.standards.forEach(function(record){
+   var small=document.createElement('small'),label=document.createElement('span');label.textContent='MA 2017: ';
+   var ref=document.createElement('a');ref.href=record.url;ref.textContent=record.code;ref.target='_blank';ref.rel='noopener noreferrer';
+   ref.setAttribute('aria-label','Open Massachusetts standard '+record.code+' in the DESE Standards Navigator (new tab)');
+   small.appendChild(label);small.appendChild(ref);article.appendChild(small);
+  });
+  results.appendChild(article);
  });
  if(!found.length){var p=document.createElement('p');p.textContent='No matching topics. Try another search or choose a different course.';results.appendChild(p);}
 }
-input.addEventListener('input',render);select.addEventListener('change',render);
+input.addEventListener('input',render);select.addEventListener('change',render);standard.addEventListener('change',render);mapping.addEventListener('change',render);
 render();
 })();
 </script></body></html>
