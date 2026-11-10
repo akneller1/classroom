@@ -31,6 +31,8 @@ jobs:
         run: node scripts/build-site.mjs
       - name: Validate approved question-bank loading
         run: node scripts/test-question-bank-loader.cjs
+      - name: Verify saved-work backup and restore
+        run: node scripts/test-backup-tool.cjs
       - name: Check public site
         run: node scripts/test-public-site.cjs
       - uses: actions/upload-pages-artifact@v3
