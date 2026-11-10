@@ -86,6 +86,43 @@ function layout(o) {
   var actions = h('div', { class: 'lab-present-actions' }, head);
   var present = h('button', { class: 'btn lab-present-button', type: 'button',
     'aria-pressed': 'false', 'aria-label': 'Present this interactive math tool to the class' }, actions, '▣ Present');
+  var zoomBar = h('div', { class: 'lab-zoom-bar', role: 'group', 'aria-label': 'Presentation zoom controls' }, actions);
+  var zoomOut = h('button', { class: 'btn ghost lab-zoom-control', type: 'button', 'aria-label': 'Zoom out' }, zoomBar, '−');
+  var zoomValue = h('output', { class: 'lab-zoom-value', 'aria-live': 'polite', 'aria-label': 'Presentation zoom' }, zoomBar, '100%');
+  var zoomIn = h('button', { class: 'btn ghost lab-zoom-control', type: 'button', 'aria-label': 'Zoom in' }, zoomBar, '+');
+  var fit = h('button', { class: 'btn ghost lab-zoom-fit', type: 'button', 'aria-label': 'Fit activity to screen' }, zoomBar, 'Fit');
+  var resetZoom = h('button', { class: 'btn ghost lab-zoom-reset', type: 'button', 'aria-label': 'Reset presentation zoom to 100 percent' }, zoomBar, '100%');
+  var presentScale = 1, MIN_ZOOM = 0.5, MAX_ZOOM = 1.5, ZOOM_STEP = 0.1;
+  function setZoom(value) {
+    presentScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, Math.round(value * 100) / 100));
+    root.style.setProperty('--lab-present-scale', String(presentScale));
+    zoomValue.textContent = Math.round(presentScale * 100) + '%';
+    zoomOut.disabled = presentScale <= MIN_ZOOM;
+    zoomIn.disabled = presentScale >= MAX_ZOOM;
+  }
+  function fitToScreen() {
+    if (!isPresent) return;
+    setZoom(1);
+    /* Measure after layout at each scale: the lab content can reflow when
+       the usable width changes, so a single proportional estimate is not reliable. */
+    for (var attempt = 0; attempt < 5; attempt++) {
+      var gridBounds = grid.getBoundingClientRect();
+      var lastBounds = below.getBoundingClientRect();
+      var measured = Math.max(gridBounds.bottom, lastBounds.bottom) - gridBounds.top;
+      var usable = window.innerHeight - gridBounds.top - 16;
+      if (measured <= usable + 2 || usable <= 0) break;
+      var next = Math.max(MIN_ZOOM, Math.floor(presentScale * usable / measured * 100) / 100);
+      if (next >= presentScale) next = presentScale - 0.05;
+      setZoom(next);
+      if (presentScale === MIN_ZOOM) break;
+    }
+    hint.textContent = presentScale === MIN_ZOOM ? 'Minimum zoom: scroll for any remaining content' : 'Activity fitted to screen';
+  }
+  zoomOut.addEventListener('click', function () { setZoom(presentScale - ZOOM_STEP); });
+  zoomIn.addEventListener('click', function () { setZoom(presentScale + ZOOM_STEP); });
+  fit.addEventListener('click', fitToScreen);
+  resetZoom.addEventListener('click', function () { setZoom(1); });
+  setZoom(1);
   var hint = h('span', { class: 'lab-present-hint', 'aria-live': 'polite' }, actions);
   var isPresent = false;
   function updatePresent(on) {
@@ -93,9 +130,10 @@ function layout(o) {
     root.classList.toggle('lab-presenting', isPresent);
     document.documentElement.classList.toggle('lab-presenting-page', isPresent);
     present.setAttribute('aria-pressed', String(isPresent));
+    if (!isPresent) setZoom(1);
     present.textContent = isPresent ? '× Exit presentation' : '▣ Present';
     present.setAttribute('aria-label', isPresent ? 'Exit classroom presentation mode' : 'Present this interactive math tool to the class');
-    hint.textContent = isPresent ? 'Press Esc to exit fullscreen' : '';
+    hint.textContent = isPresent ? 'Use Fit to show more of the activity, or +/- to adjust' : '';
   }
   function endPresent() {
     updatePresent(false);
