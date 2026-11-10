@@ -84,11 +84,31 @@
 <script src="course-catalog.js?v=discrete-20261107"></script>
 <script src="question-bank-adapter.js?v=resource-ready-1"></script>
 <script src="resource-eligibility.js?v=algebra2-integrated-20261031"></script>
-<script src="question-bank-loader.js?v=cache-20261110"></script>
+<script src="question-bank-loader.js?v=lazy-20261110"></script>
 <script src="skill-crosswalk.js?v=grade-practice-20261031"></script>
 <script src="thumbs/resource-previews.js?v=previews-23abc01f22f87f58b818a559f0df7a0333ab1490"></script><script src="resource-standards.js?v=thumbnail-selection-20261031"></script>
 <script src="app.js?v=course-colors-20261108"></script>
-<script>window.MK_BANK_LOADER.loadFromSite().then(function(){window.dispatchEvent(new Event("mk-banks-ready"));}).catch(function(e){console.warn("Approved bank loading unavailable:",e.message);});</script>
+<script>
+/* Fetch only the bank required by the currently opened unit, not every bank on the homepage. */
+(function(){
+ var last='';
+ function loadCurrentUnit(){
+  var token=location.hash.slice(1);
+  try{token=decodeURIComponent(token);}catch(e){}
+  token=token.split('?')[0];
+  var parts=token.split('.');
+  if(parts.length!==2||!parts[0]||!parts[1])return;
+  var id=parts[0]+'/'+parts[1];
+  if(id===last)return;
+  last=id;
+  window.MK_BANK_LOADER.loadUnitFromSite(parts[0],parts[1]).then(function(ids){
+   if(ids.length&&location.hash.slice(1).split('?')[0]===token)window.dispatchEvent(new Event('mk-banks-ready'));
+  }).catch(function(e){console.warn('Unit bank loading unavailable:',e.message);last='';});
+ }
+ window.addEventListener('hashchange',loadCurrentUnit);
+ loadCurrentUnit();
+})();
+</script>
 <script src="student-game-share.js?v=interactive-math-20261107"></script>
 <script src="student-share-cards.js?v=interactive-math-20261105"></script>
 </body>
