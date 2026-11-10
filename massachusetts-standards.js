@@ -97,14 +97,14 @@
     "unitId": "systems-of-equations",
     "skill": "Graphing Linear Inequalities in Two Variables",
     "code": "AI.A-REI.D.12",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=AI.A-REI.D.10"
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=AI.A-REI.D.12"
   },
   {
     "courseId": "algebra",
     "unitId": "systems-of-equations",
     "skill": "Systems of Linear Inequalities",
     "code": "AI.A-REI.D.12",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=AI.A-REI.D.10"
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=AI.A-REI.D.12"
   },
   {
     "courseId": "algebra",
@@ -181,7 +181,7 @@
     "unitId": "similarity",
     "skill": "AA Triangle Similarity",
     "code": "GEO.G-SRT.A.3",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.GEO.G-SRT.A.02"
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CIS_CODE=GEO.G-SRT.A.3"
   },
   {
     "courseId": "geometry",
