@@ -101,7 +101,7 @@ async function run(){
   const path='/worksheet-generator/course-game.html?course='+course+'&unit='+unit+'&game='+game+'&student=1';
   if(await check(path,label,'#app',false)){
    try{
-    await page.waitForFunction(()=>!document.querySelector('#app')?.textContent.includes('Loading mathematics game'),{timeout:40000});
+    await page.waitForFunction(()=>!document.querySelector('#app')?.textContent.includes('Loading mathematics game'),null,{timeout:40000});
     const txt=await page.locator('#app').innerText();
     save(label+' initialized',/Unable to load|not available for this unit/i.test(txt)?'REVIEW':'PASS',txt.slice(0,170));
    }catch(e){save(label+' initialized','REVIEW',e.message)}
