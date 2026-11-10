@@ -32,6 +32,45 @@ assert.equal(count,91);assert.equal((sitemap.match(/<loc>/g)||[]).length,107);
 for (const page of ["about.html", "guide.html", "skills.html", "backup.html", "courses/"]) {
  assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'), 'Missing sitemap entry: '+page);
 }
+
+// Regression checks for the standalone pages and legacy SEO directories added in 2026.
+// We preserve these URLs for users, but /u/ is the canonical course/unit location.
+const vmForNewPages=require('node:vm');
+for (const fileName of ['about.html','backup.html','skills.html','courses/index.html']) {
+ const file=path.join(out,fileName),html=fs.readFileSync(file,'utf8');
+ assert(html.includes('<main'), 'Missing main content in '+fileName);
+ assert(/<title>[^<]+<\\/title>/i.test(html),'Missing title in '+fileName);
+ assert(/<meta name="description"/i.test(html),'Missing description in '+fileName);
+ assert(/rel="canonical"/i.test(html),'Missing canonical in '+fileName);
+ // Check locally referenced links using the site root for paths starting with /.
+ for(const match of html.matchAll(/(?:href|src)="([^"<>]+)"/g)){
+  const value=match[1].replace(/&amp;/g,'&');
+  if(/^(?:https?:|data:|mailto:|#)/i.test(value))continue;
+  const raw=value.split(/[?#]/)[0];if(!raw)continue;
+  const target=value.startsWith('/')?path.resolve(out,'.'+raw):path.resolve(path.dirname(file),raw);
+  assert(target===out||target.startsWith(out+path.sep),'Link escapes site: '+fileName+' '+value);
+  assert(fs.existsSync(target),'Broken link in '+fileName+': '+value);
+ }
+ for(const script of html.matchAll(/<script(.*?)>([\\s\\S]*?)<\\/script>/gi)){
+  if(script[1].includes('application/ld+json')||!script[2].trim())continue;
+  new vmForNewPages.Script(script[2],{filename:fileName+' inline JS'});
+ }
+}
+for(const c of courses){
+ const aliases=[path.join(out,'courses',c+'.html')];
+ // The build is the source of truth; any available older landing page must defer to /u/.
+ for(const folder of fs.existsSync(path.join(out,'courses',c))?fs.readdirSync(path.join(out,'courses',c)):[]){
+  if(folder.endsWith('.html'))aliases.push(path.join(out,'courses',c,folder));
+ }
+ for(const file of aliases){
+  if(!fs.existsSync(file))continue;
+  const html=fs.readFileSync(file,'utf8');
+  assert(html.includes('name="robots" content="noindex,follow"'),'Duplicate legacy page not marked noindex: '+file);
+  assert(/rel="canonical" href="https:\\/\\/mrksclassroom\\.com\\/u\\//.test(html),'Legacy canonical not redirected to generated unit: '+file);
+ }
+}
+console.log('PASS new site tools, local links, inline JS and duplicate-page indexing rules');
+
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
