@@ -15,7 +15,7 @@ frac=r"[-−+]?\d+(?: \d+/\d+|/\d+)?"
 def rational(s):
     if not isinstance(s,(str,int,float)):return None
     s=str(s).strip().replace("−","-")
-    s=re.sub(r"^[a-zA-Z]\\s*=\\s*", "", s)
+    s=re.sub(r"^[a-zA-Z]\s*=\s*", "", s)
     try:
         m=re.fullmatch(r"([-+]?\d+) (\d+)/(\d+)",s)
         if m:
