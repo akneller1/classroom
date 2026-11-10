@@ -103,6 +103,24 @@ async function run(){
    }catch(e){save('Printable preview','REVIEW',e.message)}
   }
  }
+ for (const [path,label] of [
+  ['/artifacts/expressions-equations-balance-scale/index.html','Equation Balance Scale presentation'],
+  ['/artifacts/statistics-regression-influence-lab/index.html','Statistics regression presentation']
+ ]) {
+  if (!await check(path,label,'.lab-present-button',false)) continue;
+  try {
+   const button=page.locator('.lab-present-button');
+   await button.click();
+   await page.waitForFunction(()=>document.querySelector('.lab-page')?.classList.contains('lab-presenting'));
+   const inMode=await button.getAttribute('aria-pressed');
+   const presentStage=await page.locator('.lab-grid .stage').count();
+   save(label+' controls',inMode==='true'&&presentStage>0?'PASS':'REVIEW','Presenter toggle and interactive stage');
+   await page.screenshot({path:output+'/'+(label.startsWith('Equation')?'present-balance-scale':'present-regression')+'.png',fullPage:true});
+   await button.click();
+   const restored=await page.locator('.lab-page').evaluate(el=>!el.classList.contains('lab-presenting'));
+   save(label+' exit',restored?'PASS':'REVIEW','Original student layout restored');
+  }catch(e){save(label+' toggle','REVIEW',e.message)}
+ }
  for(const [course,unit,game] of [
   ['algebra','systems-of-equations','flashcards'],
   ['geometry','circles','flashcards'],
