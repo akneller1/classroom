@@ -134,6 +134,26 @@ console.log('PASS new site tools, local links, inline JS and duplicate-page inde
  console.log('PASS framework strand navigation: '+expected+' units across '+covered.size+' courses, with explicit scope labels');
 }
 
+
+// Interactive Math class presentation is shared across all published labs.
+{
+ const lab=fs.readFileSync(path.join(out,'artifacts/interactive-math/lab.js'),'utf8');
+ const css=fs.readFileSync(path.join(out,'artifacts/interactive-math/lab.css'),'utf8');
+ const siteApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
+ assert(lab.includes("lab-present-button")&&lab.includes("requestFullscreen"),'Missing interactive teacher presentation controls');
+ assert(css.includes("lab-presenting")&&css.includes("lab-present-button"),'Missing presenter styling');
+ assert(siteApp.includes("presentationUrl(a)")&&siteApp.includes("▣ Present"),'Interactive Math cards lack Present shortcuts');
+ for(const file of [
+  'artifacts/expressions-equations-balance-scale/index.html',
+  'artifacts/statistics-regression-influence-lab/index.html'
+ ]){
+  const html=fs.readFileSync(path.join(out,file),'utf8');
+  assert(html.includes('lab.js?v=present-20261110'),'Interactive lab JavaScript cache version missing: '+file);
+  assert(html.includes('lab.css?v=present-20261110'),'Interactive lab CSS cache version missing: '+file);
+ }
+ console.log('PASS Interactive Math presenter: shared controls, card shortcut, styling and cache refresh');
+}
+
 assert(home.includes('footer-bottom')&&home.includes('Feedback or report an issue'),'Missing feedback footer');
 assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedback%20or%20issue%3A'),'Footer feedback must open a prepared email to the site owner');
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
