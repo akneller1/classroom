@@ -64,6 +64,22 @@ fs.rmSync(OUT, { recursive: true, force: true });
 copyTree(ROOT, OUT);
 fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
 
+/* Refresh the common classroom presentation CSS and JavaScript on all labs
+   in the built site, without editing each individual source activity. */
+{
+  let refreshed = 0;
+  for (const file of walkFiles(path.join(OUT, "artifacts"), /index\.html$/i)) {
+    const html = fs.readFileSync(file, "utf8");
+    if (!html.includes("../interactive-math/lab.js")) continue;
+    const next = html
+      .replace(/(\.\.\/interactive-math\/lab\.js)\?v=[^"'<>\s]+/g, "$1?v=present-20261110")
+      .replace(/(\.\.\/interactive-math\/lab\.css)\?v=[^"'<>\s]+/g, "$1?v=present-20261110");
+    if (next !== html) { fs.writeFileSync(file, next); refreshed++; }
+  }
+  console.log("Interactive Math presentation assets versioned in " + refreshed + " published labs.");
+}
+
+
 // Safety check: no published page may load something that was left out.
 {
   const problems = [];
