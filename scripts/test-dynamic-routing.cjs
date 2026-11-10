@@ -55,7 +55,7 @@ function check(route,label){
   checked++;views++;
  }catch(error){broken.push({route:route||'home',error:error.message})}
 }
-check('','Free math');
+check('','');
 for(const c of courses)check(c.id,c.name);
 for(const [courseId,unitId,name] of keys)check(courseId+'.'+unitId,name);
 for(const t of ['activities','saved','activity.flashcards'])check(t,'');
