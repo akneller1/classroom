@@ -141,15 +141,17 @@ console.log('PASS new site tools, local links, inline JS and duplicate-page inde
  const css=fs.readFileSync(path.join(out,'artifacts/interactive-math/lab.css'),'utf8');
  const siteApp=fs.readFileSync(path.join(out,'app.js'),'utf8');
  assert(lab.includes("lab-present-button")&&lab.includes("requestFullscreen"),'Missing interactive teacher presentation controls');
+ assert(lab.includes("lab-zoom-bar")&&lab.includes("fitToScreen")&&lab.includes("setZoom"),'Missing presentation zoom and fit controls');
  assert(css.includes("lab-presenting")&&css.includes("lab-present-button"),'Missing presenter styling');
+ assert(css.includes("lab-zoom-bar")&&css.includes("--lab-present-scale"),'Missing zoom and scale CSS');
  assert(siteApp.includes("presentationUrl(a)")&&siteApp.includes("▣ Present"),'Interactive Math cards lack Present shortcuts');
  for(const file of [
   'artifacts/expressions-equations-balance-scale/index.html',
   'artifacts/statistics-regression-influence-lab/index.html'
  ]){
   const html=fs.readFileSync(path.join(out,file),'utf8');
-  assert(html.includes('lab.js?v=present-20261110'),'Interactive lab JavaScript cache version missing: '+file);
-  assert(html.includes('lab.css?v=present-20261110'),'Interactive lab CSS cache version missing: '+file);
+  assert(html.includes('lab.js?v=present-zoom-20261110'),'Interactive lab JavaScript cache version missing: '+file);
+  assert(html.includes('lab.css?v=present-zoom-20261110'),'Interactive lab CSS cache version missing: '+file);
  }
  console.log('PASS Interactive Math presenter: shared controls, card shortcut, styling and cache refresh');
 }
