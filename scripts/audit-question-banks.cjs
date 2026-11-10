@@ -15,7 +15,9 @@ vm.runInNewContext(fs.readFileSync(path.join(ROOT,'course-catalog.js'),'utf8'),c
 vm.runInNewContext(fs.readFileSync(path.join(ROOT,'question-bank-adapter.js'),'utf8'),catalogContext,{filename:'question-bank-adapter.js'});
 const catalog=catalogContext.window.MK_COURSE_CATALOG,adapter=catalogContext.window.MK_QUESTION_BANKS;
 const manifest=load('question-banks/manifest.json');
-const normalize=x=>String(x===undefined||x===null?'':x).normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase();
+// Mathematical superscripts, subscripts and other notation are meaningful: NFKC
+// would collapse 2ⁿ and 2n into the same distractor, producing false positives.
+const normalize=x=>String(x===undefined||x===null?'':x).normalize('NFC').replace(/\s+/g,' ').trim().toLowerCase();
 const stable=x=>JSON.stringify(x,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)
   ?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v);
 const sha=x=>require('node:crypto').createHash('sha256').update(x).digest('hex').slice(0,16);
