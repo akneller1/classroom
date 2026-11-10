@@ -44,5 +44,48 @@ function loadFromSite(path,base){
  function read(url){return root.fetch(base+url,{cache:url===path?'no-store':'default'}).then(function(res){if(!res.ok)throw new Error('Unable to load '+url);return res.json()});}
  return read(path).then(function(manifest){return load(manifest,read)});
 }
-root.MK_BANK_LOADER={version:1,load:load,loadFromSite:loadFromSite};
+
+// Optional unit-scoped loader for the main library. The original loadFromSite()
+// remains unchanged for generators that expect all approved banks to be ready.
+var manifestRequests=Object.create(null);
+var scopedRequests=Object.create(null);
+function loadUnitFromSite(courseId,unitId,path,base){
+ base=base||'';
+ path=path||'question-banks/manifest.json';
+ if(base!==''&&base!=='../')return Promise.reject(new Error('Invalid bank base path'));
+ if(!/^[a-z0-9_-]+$/.test(courseId||'')||!(/^[a-z0-9_-]+$/.test(unitId||'')))return Promise.reject(new Error('Invalid course or unit'));
+ if(!/^question-banks\/[a-z0-9/_-]+\.json$/.test(path))return Promise.reject(new Error('Invalid manifest path'));
+ if(typeof root.fetch!=='function')return Promise.reject(new Error('Fetch unavailable'));
+ var id=courseId+'/'+unitId;
+ if(adapter&&adapter.available(courseId,unitId))return Promise.resolve([id]);
+ if(scopedRequests[id])return scopedRequests[id];
+ var manifestKey=base+path;
+ function read(url,cache){return root.fetch(base+url,{cache:cache||'default'}).then(function(res){if(!res.ok)throw new Error('Unable to load '+url);return res.json()});}
+ if(!manifestRequests[manifestKey])manifestRequests[manifestKey]=read(path,'no-store').catch(function(e){delete manifestRequests[manifestKey];throw e;});
+ scopedRequests[id]=manifestRequests[manifestKey].then(function(manifest){
+  if(!manifest||manifest.version!==1||!Array.isArray(manifest.banks))throw new Error('Invalid bank manifest');
+  var seen=Object.create(null),match=null;
+  manifest.banks.forEach(function(item){
+   if(!item||!item.courseId||!item.unitId||typeof item.path!=='string'||!/^question-banks\/[a-z0-9/_-]+\.json$/.test(item.path))throw new Error('Invalid manifest entry');
+   var k=item.courseId+'/'+item.unitId;
+   if(seen[k])throw new Error('Duplicate manifest entry '+k);
+   seen[k]=true;
+   if(k===id && (item.approved===true||(item.courseId==='algebra2'&&item.teacherUse===true)))match=item;
+  });
+  if(!match)return [];
+  if(adapter.available(courseId,unitId))return [id];
+  return read(match.path).then(function(bank){
+   if(!bank||bank.courseId!==courseId||bank.unitId!==unitId)throw new Error('Course/unit mismatch: '+match.path);
+   var result=adapter.validate(bank);
+   if(!result.ok)throw new Error(match.path+': '+result.errors.join('; '));
+   if(!adapter.available(courseId,unitId)){
+    var applied=adapter.register(bank,{verified:true});
+    if(!applied.ok)throw new Error(match.path+': '+applied.errors.join('; '));
+   }
+   return [id];
+  });
+ }).catch(function(e){delete scopedRequests[id];throw e;});
+ return scopedRequests[id];
+}
+root.MK_BANK_LOADER={version:1,load:load,loadFromSite:loadFromSite,loadUnitFromSite:loadUnitFromSite};
 })(typeof window!=='undefined'?window:globalThis);
