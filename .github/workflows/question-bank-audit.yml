@@ -1,0 +1,35 @@
+name: Question bank quality audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/question-bank-audit.yml'
+      - 'scripts/audit-question-banks.cjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: classroom-question-bank-audit
+  cancel-in-progress: true
+
+jobs:
+  analyze-banks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Analyze every manifest-listed question bank
+        run: node scripts/audit-question-banks.cjs
+      - name: Upload audit report and review queues
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: classroom-question-bank-audit
+          path: question-bank-audit-results/
+          if-no-files-found: warn
