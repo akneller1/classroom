@@ -404,6 +404,27 @@ for (const relative of ["about.html", "guide.html", "skills.html", "backup.html"
   if (fs.existsSync(target)) sitemapUrls.push(SITE_URL + relative);
 }
 
+// Keep /u/ as the authoritative, fully generated course and unit URLs.
+// The older /courses/*.html landing pages stay accessible for saved links,
+// but search engines should not index them as duplicates.
+for (const c of catalog) {
+  const paths = [
+    ["courses/" + c.id + ".html", SITE_URL + courseUrl(c)],
+    ...c.units.map((u) => ["courses/" + c.id + "/" + u.id + ".html", SITE_URL + unitUrl(c, u)])
+  ];
+  for (const [relative, canonical] of paths) {
+    const file = path.join(OUT, relative);
+    if (!fs.existsSync(file)) continue;
+    let html = fs.readFileSync(file, "utf8");
+    html = html.replace(/<link\\s+rel=["']canonical["']\\s+href=["'][^"']+["']\\s*\\/?\\s*>/i,
+      '<link rel="canonical" href="' + htmlEsc(canonical) + '">');
+    if (!/name=["']robots["']/i.test(html)) {
+      html = html.replace(/<head>/i, '<head><meta name="robots" content="noindex,follow">');
+    }
+    fs.writeFileSync(file, html);
+  }
+}
+
 const today = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(path.join(OUT, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
