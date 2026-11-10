@@ -142,11 +142,32 @@ table.lab-table{border-collapse:collapse;width:100%;font-variant-numeric:tabular
 .lab-zoom-control,.lab-zoom-fit,.lab-zoom-reset{min-height:40px!important;min-width:40px;padding:5px 10px!important;font-size:.95rem!important}
 .lab-zoom-value{font-family:var(--display);font-weight:800;min-width:53px;text-align:center;font-variant-numeric:tabular-nums}
 .lab-zoom-control:disabled{opacity:.4;cursor:not-allowed}
-.lab-page.lab-presenting .lab-grid,.lab-page:fullscreen .lab-grid,
-.lab-page.lab-presenting > div:not(.lab-grid),.lab-page:fullscreen > div:not(.lab-grid){
+/* The entire lesson (title, graph and controls) shares one zoom context.
+   Never divide width by the zoom factor: that enlarges a grid track and
+   pushes the control panel beyond the viewport. */
+.lab-content{display:grid;gap:16px;min-width:0;align-content:start;width:100%}
+.lab-page.lab-presenting .lab-content,.lab-page:fullscreen .lab-content{
   zoom:var(--lab-present-scale,1);
-  width:calc(100% / var(--lab-present-scale,1));
+  width:100%;
 }
+.lab-present-actions{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;margin-left:0}
+.lab-page.lab-presenting .lab-present-actions,.lab-page:fullscreen .lab-present-actions{
+  position:sticky;top:0;z-index:5;background:var(--paper);
+  padding:4px 0 8px;border-bottom:1px solid var(--line);
+}
+/* Keep the two presentation panels beside each other on school projectors.
+   The student view retains its usual narrower-screen stacking. */
+@media(min-width:700px){
+ .lab-page.lab-presenting .lab-grid,.lab-page:fullscreen .lab-grid{
+  grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);
+ }
+}
+@media(min-width:700px) and (max-width:1000px){
+ .lab-page.lab-presenting .lab-grid,.lab-page:fullscreen .lab-grid{
+  grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);
+ }
+}
+
 @media(max-width:570px){
- .lab-zoom-bar{justify-content:flex-start}
+ .lab-present-actions,.lab-zoom-bar{justify-content:flex-start}
 }
