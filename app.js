@@ -966,7 +966,8 @@
   function savedView() {
     var items = everything().filter(function (it) { return isSaved(it.a.path); });
     var inner = crumbs([['Home', '#'], ['Saved', null]]) + '<h1 tabindex="-1">Saved activities</h1>' +
-      '<p class="band-meta">' + acts(items.length) + '</p>';
+      '<p class="band-meta">' + acts(items.length) + '</p>' +
+      '<p class="band-blurb">Saved activities are stored in this browser. <a href="backup.html">Export or import your saved work</a> to move it between devices.</p>';
     return {
       title: 'Saved activities',
       html: bandHtml(null, inner) +
