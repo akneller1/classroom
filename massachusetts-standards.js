@@ -125,14 +125,14 @@
     "unitId": "quadratics",
     "skill": "The Quadratic Formula",
     "code": "AI.A-REI.B.4.b",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.AI.A-REI.B.04.a&a=1"
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.AI.A-REI.B.04.b"
   },
   {
     "courseId": "algebra",
     "unitId": "factoring-zero-product",
     "skill": "Solving Quadratic Equations by Factoring",
     "code": "AI.A-REI.B.4.b",
-    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.AI.A-REI.B.04.a&a=1"
+    "url": "https://www.doe.mass.edu/frameworks/search/Map.aspx?ST_CODE=Mathematics.AI.A-REI.B.04.b"
   },
   {
     "courseId": "geometry",
