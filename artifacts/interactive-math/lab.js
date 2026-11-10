@@ -75,7 +75,11 @@ function layout(o) {
   document.title = o.title + ' · Mr. K\'s Classroom';
   var root = document.getElementById('app') || h('main', { id: 'app' }, document.body);
   root.className = 'lab-page';
-  var head = h('header', { class: 'lab-head' }, root);
+  // Keep the teacher toolbar outside the scaled content. Scaling one wrapper
+  // preserves the graph/control proportions, rather than stretching grid tracks.
+  var actions = h('div', { class: 'lab-present-actions' }, root);
+  var content = h('div', { class: 'lab-content' }, root);
+  var head = h('header', { class: 'lab-head' }, content);
   var t = h('div', null, head);
   h('p', { class: 'lab-eyebrow' }, t, esc(o.course + ' · ' + o.unit));
   h('h1', { class: 'lab-title' }, t, esc(o.title));
@@ -83,7 +87,6 @@ function layout(o) {
   /* Whole-class presentation is shared by every Interactive Math lab.
      Fullscreen requires a teacher click; ?present=1 enables the larger
      projector layout even before Fullscreen permission is granted. */
-  var actions = h('div', { class: 'lab-present-actions' }, head);
   var present = h('button', { class: 'btn lab-present-button', type: 'button',
     'aria-pressed': 'false', 'aria-label': 'Present this interactive math tool to the class' }, actions, '▣ Present');
   var zoomBar = h('div', { class: 'lab-zoom-bar', role: 'group', 'aria-label': 'Presentation zoom controls' }, actions);
@@ -103,20 +106,19 @@ function layout(o) {
   function fitToScreen() {
     if (!isPresent) return;
     setZoom(1);
-    /* Measure after layout at each scale: the lab content can reflow when
-       the usable width changes, so a single proportional estimate is not reliable. */
-    for (var attempt = 0; attempt < 5; attempt++) {
-      var gridBounds = grid.getBoundingClientRect();
-      var lastBounds = below.getBoundingClientRect();
-      var measured = Math.max(gridBounds.bottom, lastBounds.bottom) - gridBounds.top;
-      var usable = window.innerHeight - gridBounds.top - 16;
-      if (measured <= usable + 2 || usable <= 0) break;
-      var next = Math.max(MIN_ZOOM, Math.floor(presentScale * usable / measured * 100) / 100);
-      if (next >= presentScale) next = presentScale - 0.05;
-      setZoom(next);
-      if (presentScale === MIN_ZOOM) break;
+    // Fit the entire interactive stage AND controls, not just the chart.
+    // Content below those panels may still scroll on unusually long labs.
+    var fits = false;
+    for (var step = 0; step <= 10; step++) {
+      var graph = stage.getBoundingClientRect();
+      var controls = panel.getBoundingClientRect();
+      fits = Math.max(graph.bottom, controls.bottom) <= window.innerHeight - 14 &&
+             Math.max(graph.right, controls.right) <= window.innerWidth - 12;
+      if (fits || presentScale <= MIN_ZOOM) break;
+      setZoom(presentScale - 0.05);
     }
-    hint.textContent = presentScale === MIN_ZOOM ? 'Minimum zoom: scroll for any remaining content' : 'Activity fitted to screen';
+    hint.textContent = fits ? 'Graph and controls fit on screen' :
+      'Minimum zoom reached; scroll to see remaining controls';
   }
   zoomOut.addEventListener('click', function () { setZoom(presentScale - ZOOM_STEP); });
   zoomIn.addEventListener('click', function () { setZoom(presentScale + ZOOM_STEP); });
@@ -163,10 +165,10 @@ function layout(o) {
   try {
     if (new URLSearchParams(window.location.search).get('present') === '1') updatePresent(true);
   } catch (e) { /* Optional presentation URL must not affect student mode. */ }
-  var grid = h('div', { class: 'lab-grid' }, root);
+  var grid = h('div', { class: 'lab-grid' }, content);
   var stage = h('section', { class: 'box stage', 'aria-label': 'Interactive display' }, grid);
   var panel = h('section', { class: 'box panel', 'aria-label': 'Controls' }, grid);
-  var below = h('div', { style: 'display:grid;gap:16px' }, root);
+  var below = h('div', { style: 'display:grid;gap:16px' }, content);
   h('p', { class: 'note' }, below, '<span aria-hidden="true">✎</span><span><b>Worksheet:</b> keep your printed Explore &amp; Reflect worksheet next to you. Record what you see, then write the rule in your own words.</span>');
   return { root: root, stage: stage, panel: panel, below: below };
 }
