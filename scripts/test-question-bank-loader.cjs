@@ -27,6 +27,37 @@ async function main(){
  assert.equal(banks.available(courseId,unitId),true);
  assert.equal(banks.select({courseId,unitId}).length,1);
  assert.throws(()=>loader.load({version:1,banks:[entry,entry]},async()=>bank),/Duplicate/);
+
+ const calls=[],scopedRegistered=new Set();
+ const manifest2={version:1,banks:[
+  {courseId:'algebra',unitId:'systems-of-equations',path:'question-banks/algebra/systems-of-equations.json',approved:true},
+  {courseId:'statistics',unitId:'exploring-data',path:'question-banks/statistics/exploring-data.json',approved:false}
+ ]};
+ const mockWindow={};
+ mockWindow.MK_QUESTION_BANKS={
+  available(c,u){return scopedRegistered.has(c+'/'+u)},
+  validate(b){return {ok:b.schemaVersion===1,errors:[]}},
+  register(b){scopedRegistered.add(b.courseId+'/'+b.unitId);return {ok:true,errors:[]}}
+ };
+ mockWindow.fetch=(url,opts)=>{
+  calls.push({url,cache:opts.cache});
+  const value=url==='question-banks/manifest.json'?manifest2:
+   url==='question-banks/algebra/systems-of-equations.json'?
+   {schemaVersion:1,courseId:'algebra',unitId:'systems-of-equations',questions:[]}:undefined;
+  return Promise.resolve({ok:value!==undefined,json:async()=>value});
+ };
+ vm.runInNewContext(fs.readFileSync(path.join(root,'question-bank-loader.js'),'utf8'),{window:mockWindow,Promise});
+ const lazy=mockWindow.MK_BANK_LOADER;
+ await Promise.all([lazy.loadUnitFromSite('algebra','systems-of-equations'),lazy.loadUnitFromSite('algebra','systems-of-equations')]);
+ assert.equal(calls.filter(c=>c.url==='question-banks/manifest.json').length,1);
+ assert.equal(calls.filter(c=>c.url.endsWith('systems-of-equations.json')).length,1);
+ assert.equal(scopedRegistered.size,1);
+ assert.equal((await lazy.loadUnitFromSite('statistics','exploring-data')).length,0);
+ assert.equal(calls.some(c=>c.url.endsWith('exploring-data.json')),false);
+ assert.equal(calls[0].cache,'no-store');
+ assert.equal(calls[1].cache,'default');
+ await assert.rejects(lazy.loadUnitFromSite('../algebra','systems-of-equations'),/Invalid course or unit/);
+ console.log('PASS lazy question-bank requests, approval gate, caching and deduplication');
  console.log('PASS approved manifest loading, unapproved gating, unit isolation and duplicate rejection');
 }
 main().catch(e=>{console.error(e);process.exitCode=1});
