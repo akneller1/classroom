@@ -120,12 +120,27 @@ async function run(){
    const zoomValue=page.locator('.lab-zoom-value');
    await zoomOut.click();
    const shrunk=(await zoomValue.innerText()).trim()==='90%';
+   const scaled=await page.evaluate(()=>{
+    const content=document.querySelector('.lab-content'),stage=document.querySelector('.lab-grid .stage'),panel=document.querySelector('.lab-grid .panel');
+    const g=stage.getBoundingClientRect(),c=panel.getBoundingClientRect();
+    return {wrapper:!!content,stageWidth:g.width,controlsWidth:c.width,stageRight:g.right,controlsRight:c.right,viewport:innerWidth,sideBySide:c.left>g.left};
+   });
+   const balanced=scaled.wrapper&&scaled.controlsWidth>100&&scaled.stageWidth>100&&
+    scaled.controlsRight<=scaled.viewport+6&&scaled.stageRight<=scaled.viewport+6&&scaled.sideBySide;
+   save(label+' full-page scaling',balanced?'PASS':'REVIEW',JSON.stringify(scaled));
    await zoomIn.click();
    const restoredZoom=(await zoomValue.innerText()).trim()==='100%';
    await page.locator('.lab-zoom-fit').click();
    const fitValue=(await zoomValue.innerText()).trim();
    const range=parseInt(fitValue,10);
    const fitted=Number.isFinite(range)&&range>=50&&range<=100;
+   const fitBounds=await page.evaluate(()=>{
+    const g=document.querySelector('.lab-grid .stage').getBoundingClientRect();
+    const p=document.querySelector('.lab-grid .panel').getBoundingClientRect();
+    return {bottom:Math.round(Math.max(g.bottom,p.bottom)),right:Math.round(Math.max(g.right,p.right)),height:innerHeight,width:innerWidth};
+   });
+   const bothVisible=fitBounds.bottom<=fitBounds.height+6&&fitBounds.right<=fitBounds.width+6;
+   save(label+' Fit both panels',bothVisible?'PASS':'REVIEW',JSON.stringify(fitBounds)+' zoom '+fitValue);
    await page.locator('.lab-zoom-reset').click();
    const reset=(await zoomValue.innerText()).trim()==='100%';
    save(label+' zoom controls',shrunk&&restoredZoom&&fitted&&reset?'PASS':'REVIEW',
