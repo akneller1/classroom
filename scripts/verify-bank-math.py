@@ -73,6 +73,27 @@ def solve(prompt):
         return "linear-third-iterate",x
     return None
 
+def self_test():
+    fixtures=[
+        ("Divide. Write the answer in simplest form: 1/4 ÷ 1/2","fraction-division",Fraction(1,2)),
+        ("What is the slope of the line through (1, 2) and (5, 10)?","two-point-slope",Fraction(2)),
+        ("Find the slope of the line 5x + 4y = -6.","standard-form-slope",Fraction(-5,4)),
+        ("Find the average rate of change of f(x) = x² from x = 1 to x = 4.","quadratic-rate",Fraction(5)),
+        ("Use properties to find the sum mentally: 39 + 42 + 61","sum",Fraction(142)),
+        ("Let f(x) = -3x + 2 and x₀ = 2. Find the third iterate x₃ (x₁ = f(x₀), x₂ = f(x₁), x₃ = f(x₂)).","linear-third-iterate",Fraction(-40)),
+        ("KenKen completion times (seconds) for 9 students: 48, 52, 55, 61, 63, 67, 70, 74, 95. Find the mean.","mean",Fraction(65))
+    ]
+    for prompt,family,expected in fixtures:
+        found=solve(prompt)
+        if found != (family,expected):
+            raise AssertionError("Independent verifier self-check failed for "+family+": "+str(found))
+    assert equal(Fraction(1,3),"0.33") is True
+    assert equal(Fraction(1,3),"0.32") is False
+    assert rational("4 4/5")==Fraction(24,5)
+    assert rational("-1 1/2")==Fraction(-3,2)
+
+self_test()
+
 def normalized(x):
     import unicodedata
     return re.sub(r"\s+"," ",unicodedata.normalize("NFC",str(x)).strip().lower())
