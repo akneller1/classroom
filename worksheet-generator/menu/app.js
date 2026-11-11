@@ -101,7 +101,8 @@
     }).join('');
   }
   function unitOptions(sel, group) {
-    return (group ? [group] : NS.CATALOG).map(function (g) {
+    group = group || classGroup(sel) || NS.CATALOG.find(function(g){return g.units.some(function(u){return !!NS.skillSets[u[0]];});});
+    return (group ? [group] : []).map(function (g) {
       return '<optgroup label="' + esc(g.course) + '">' + g.units.map(function (u) {
         var ok = !!NS.skillSets[u[0]];
         return '<option value="' + u[0] + '"' + (u[0] === sel ? ' selected' : '') + (ok ? '' : ' disabled') + '>' + esc(u[1]) + (ok ? '' : ' — not yet supported') + '</option>';
@@ -697,7 +698,16 @@
   }
 
   /* ---------------- main render ---------------- */
+  function prepareUnitBrowse(){
+    var c=cfg();if(!c||!/^topic-/.test(c.unitId))return;
+    var group=topicCourse&&topicCourse!=='all'?topicCourse:classGroup(c.unitId);
+    if(!group&&topicCart.length)group=classGroup(topicCart[0].unit||topicCart[0].skill.split(':')[0]);
+    if(!group)group=NS.CATALOG.find(function(g){return g.units.some(function(u){return !!NS.skillSets[u[0]];});});
+    var first=group&&group.units.find(function(u){return !!NS.skillSets[u[0]];});
+    if(first){autosave();loadUnit(first[0],c.level);try{G.history.replaceState(null,'','#unit='+first[0]);}catch(e){}}
+  }
   function render() {
+    if(ui.view==='setup'&&!topicMode)prepareUnitBrowse();
     renderSteps(); renderSummary();
     var v = $('#mmView');
     if (ui.view !== 'setup' && !S) ui.view = 'setup';
