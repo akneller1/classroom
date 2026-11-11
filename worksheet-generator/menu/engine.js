@@ -446,7 +446,7 @@
      comparisons; always select two or three true and two or three false options. */
   /* Select-all is exclusively a multiple-solution inequality membership task.
      Never turn a single equation answer into artificial statements about that answer. */
-  NS.multiUnitSupported = function(unit) { return unit === 'algebra1-inequalities' || /^geometry-/.test(unit) && !!sets[unit]; };
+  NS.multiUnitSupported = function(unit) { return unit === 'algebra1-inequalities' || unit === 'algebra1-foundations' || /^geometry-/.test(unit) && !!sets[unit]; };
   NS.makeMultiSelect = function(p) {
     if(!p || p.failed || !p.verify || p.verify.status !== 'verified')
       return {fail:'A verified problem is required.'};
@@ -477,6 +477,43 @@
       var rngGeo=WS.rng.make(WS.rng.hash('geometry-multi-v1|'+mcSource(p)));
       candidates=rngGeo.shuffle(candidates);
       return {opts:candidates.map(function(z){return z.t;}),keys:candidates.map(function(z,i){return z.ok?i:-1;}).filter(function(i){return i>=0;}),direction:'Select every statement that is true for the Geometry problem.',src:mcSource(p)};
+    }
+    // Properties of operations: "select every equation that shows the <property>". The options come from the
+    // problem's pool of equations; the verifier names the property of EVERY option (exactly one each) and the
+    // derived question is verified again as a whole. Two or three options are true, the rest false.
+    if (chk && chk.type === 'property-name' && NS.propertyCheck) {
+      var PC = NS.propertyCheck, target = PC.of(chk.eq);
+      if (!target || !Array.isArray(p.selectPool)) return {fail:'This property question has no equations to choose from.'};
+      var seenP = {}, pool = p.selectPool.filter(function (t) { var key = String(t).replace(/\s+/g, '').split('=').sort().join('='); if (seenP[key] || !PC.of(t)) return false; seenP[key] = 1; return true; });   // no option is another one turned around
+      var yesP = pool.filter(function (t) { return PC.of(t) === target; }), noP = pool.filter(function (t) { return PC.of(t) !== target; });
+      if (yesP.length < 2 || noP.length < 2) return {fail:'Not enough checked equations for choose-all.'};
+      var rngP = WS.rng.make(WS.rng.hash('multi-property-v1|' + mcSource(p))), nYes = Math.min(yesP.length, rngP.int(2, 3));
+      var picked = rngP.shuffle(rngP.shuffle(yesP).slice(0, nYes).concat(rngP.shuffle(noP).slice(0, 5 - nYes)));
+      var dq = JSON.parse(JSON.stringify(p)), nameP = PC.NAMES[target];
+      dq.prompt = 'Select every equation that shows the ' + nameP + '.';
+      dq.parts = [{ answer: picked.filter(function (t) { return PC.of(t) === target; }).map(function (t) { return '⟨' + t + '⟩'; }).join(', '), check: { type: 'property-select', opts: picked } }];
+      dq.steps = [{ t: 'Name the property each equation shows; keep only the ones that show the ' + nameP + '.', m: '', w: 2 }];
+      delete dq.selectPool;
+      var vd = NS.verifyProblem(dq, { intOnly: false });
+      if (!vd.ok) return {fail:'The choose-all question did not verify.'};
+      dq.verify = { status: vd.status, issues: vd.issues };
+      return {opts: picked.map(function (t) { return '⟨' + t + '⟩'; }), keys: picked.map(function (t, i) { return PC.of(t) === target ? i : -1; }).filter(function (i) { return i >= 0; }),
+        direction: 'Select all that apply.', derived: dq, note: 'Asked as choose-all from the same property.', src: mcSource(p)};
+    }
+    // Angle pairs from a numbered transversal figure: "select every pair of angles that are <relationship>".
+    if (chk && chk.type === 'derive' && chk.kind === 'angle-pair' && p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && NS.geoFigures && /Name the relationship between ∠(\d) and ∠(\d)/.test(p.prompt || '')) {
+      var GF = NS.geoFigures, mm = /∠(\d) and ∠(\d)/.exec(p.prompt), rel = GF.relationship(+mm[1], +mm[2]), all = [];
+      for (var a1 = 1; a1 <= 8; a1++) for (var b1 = a1 + 1; b1 <= 8; b1++) all.push([a1, b1]);
+      var rngA = WS.rng.make(WS.rng.hash('multi-angle-pair-v1|' + mcSource(p))), yesA = rngA.shuffle(all.filter(function (q) { return GF.relationship(q[0], q[1]) === rel; })), noA = rngA.shuffle(all.filter(function (q) { var t = GF.relationship(q[0], q[1]); return t !== rel && t !== 'none'; }));
+      var nY = Math.min(yesA.length, rngA.int(2, 3)); if (nY < 2) return {fail:'This relationship has only one pair in the figure.'};
+      var pickA = rngA.shuffle(yesA.slice(0, nY).concat(noA.slice(0, 5 - nY))), relWords = { 'corresponding': 'corresponding angles', 'alternate-interior': 'alternate interior angles', 'alternate-exterior': 'alternate exterior angles', 'same-side-interior': 'same-side interior angles', 'same-side-exterior': 'same-side exterior angles', 'vertical': 'vertical angles', 'linear-pair': 'a linear pair' }[rel];
+      var dqA = JSON.parse(JSON.stringify(p)), txt = function (q) { return '∠' + q[0] + ' and ∠' + q[1]; };
+      dqA.prompt = p.prompt.replace(/Name the relationship between ∠\d and ∠\d\./, 'Select every pair of angles that ' + (rel === 'linear-pair' ? 'form ' : 'are ') + relWords + '.');
+      dqA.parts = [{ answer: pickA.filter(function (q) { return GF.relationship(q[0], q[1]) === rel; }).map(txt).join('; '), check: { type: 'derive', kind: 'angle-pair-select', opts: pickA } }];
+      dqA.steps = [{ t: 'Check the position of each pair in the figure; keep the pairs that are ' + relWords + '.', m: '', w: 2 }];
+      var vA = NS.verifyProblem(dqA, { intOnly: false }); if (!vA.ok) return {fail:'The choose-all question did not verify.'};
+      dqA.verify = { status: vA.status, issues: vA.issues };
+      return {opts: pickA.map(txt), keys: pickA.map(function (q, i) { return GF.relationship(q[0], q[1]) === rel ? i : -1; }).filter(function (i) { return i >= 0; }), direction: 'Select all that apply.', derived: dqA, note: 'Asked as choose-all from the same figure.', src: mcSource(p)};
     }
     if(!chk || chk.type!=='ineq' || !chk.ineq || !C || !C.parseCondition || !C.truth)
       return {fail:'This problem is not a multiple-solution inequality.'};
@@ -510,7 +547,8 @@
   /* Use a derived one-part version in place of the original problem (same slot, uid and flags). */
   function adopt(p, m) {
     var q = m.derived; delete m.derived;
-    ['prompt', 'parts', 'fig', 'verify'].forEach(function (k) { if (q[k] === undefined) delete p[k]; else p[k] = q[k]; });
+    ['prompt', 'parts', 'fig', 'verify', 'steps'].forEach(function (k) { if (q[k] === undefined) delete p[k]; else p[k] = q[k]; });
+    if (!p.srcKey) p.srcKey = p.key;   // the generated problem it came from stays "used", so it is not generated again
     p.mcNote = m.note; p.key = NS.studentText(p).replace(/\s+/g, '') + (p.fig ? '|fig:' + JSON.stringify(p.fig) : '');
     m.src = mcSource(p); p.mc = m; delete p.mcFail; return p;
   }
@@ -552,7 +590,7 @@
     try {
       if (format === 'multi') return !!NS.multiUnitSupported(unitId) && NS.multiCapable(unitId, skillId, c);
       if (format === 'mc') return NS.mcCapable(unitId, skillId, c);
-      if (format === 'mcas') return set.byId['mcas-context'] ? true : NS.mcasCapable(unitId, skillId, c);
+      if (format === 'mcas') { var own = set.byId[skillId].openResponse; if (own) return c >= own.minC; return set.byId['mcas-context'] ? true : NS.mcasCapable(unitId, skillId, c); }
     } catch (err) { return true; }
     return true;
   };
@@ -631,7 +669,7 @@
   var LABELS = ['A', 'B', 'C'];
   function usedSets(state, skipUid) {
     var u = { keys: new Set(), sigs: new Set() };
-    state.versions.forEach(function (v) { v.sections.forEach(function (s) { s.items.forEach(function (it) { if (it.uid !== skipUid && it.key) { u.keys.add(it.key); u.sigs.add(it.sig); } }); }); });
+    state.versions.forEach(function (v) { v.sections.forEach(function (s) { s.items.forEach(function (it) { if (it.uid !== skipUid && it.key) { u.keys.add(it.key); u.sigs.add(it.sig); if (it.srcKey) u.keys.add(it.srcKey); } }); }); });
     return u;
   }
   function placeholder(slot, skill, c, tag, reason) {
@@ -680,7 +718,8 @@
         // The dedicated bank guarantees four linked parts for every Algebra unit.
         // Do not substitute ordinary short-answer skills, even when a saved
         // configuration predates registration of this bank.
-        out = out.map(function () { return 'mcas-context'; });
+        // A skill that declares its own four-part questions (openResponse.minC) keeps them from that difficulty up.
+        out = out.map(function (id, i) { var own = set.byId[id] && set.byId[id].openResponse; return own && NS.itemC(cfg, si, i, n) >= own.minC ? id : 'mcas-context'; });
       } else if (NS.sectionFormat(cfg, si) === 'mcas') {
         // Choose a skill that is verified to generate multipart work at the
         // ACTUAL difficulty of this slot (not just the middle section tier).

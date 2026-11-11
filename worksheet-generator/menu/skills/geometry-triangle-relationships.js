@@ -226,11 +226,45 @@ function invBisector(ctx){
   steps:[step('Any point on the perpendicular bisector is equidistant from the endpoints, so '+M(ePA+'='+ePB)+'.',M('x='+x)),step('Substitute x into PA.',M('v='+pa)),step('A midpoint splits AB into equal parts, so '+M(eAM+'='+eMB)+'.',M('y='+y)),step('PA = PB and AB = 2 AM, so '+M(eP)+'.',M('w='+per))],
   space:[3,3.6,4.2]};
 }
+
+/* Points of concurrency: naming and locating the centers, and algebra with the circumcenter and incenter.
+   The verifier reads the center, the triangle and the printed expressions (check "derive", reader "center"). */
+function linPair(r,c){var x=r.int(2,c>=5?14:9),a1=r.int(1,c>=5?7:5),a2=r.int(1,c>=5?7:5);K.need(a1!==a2);var v=r.int(Math.max(a1,a2)*x+1,Math.max(a1,a2)*x+(c>=5?30:18)),b1=v-a1*x,b2=v-a2*x;
+ var ex=function(a,b){return (a===1?'':a)+'x'+(b<0?'-'+(-b):'+'+b);};return {x:x,v:v,e1:ex(a1,b1),e2:ex(a2,b2)};}
+var CDESC=[['is equidistant from the three vertices','circumcenter','The circumcenter is the center of the circle through all three vertices, so it is equidistant from them.'],['is equidistant from the three sides','incenter','The incenter is the center of the circle that touches all three sides, so it is equidistant from them.'],
+ ['is the intersection of the three medians','centroid','The medians meet at the centroid.'],['is the intersection of the three altitudes','orthocenter','The altitudes meet at the orthocenter.'],
+ ['is the intersection of the three angle bisectors','incenter','The angle bisectors meet at the incenter.'],['is the intersection of the three perpendicular bisectors of the sides','circumcenter','The perpendicular bisectors meet at the circumcenter.'],
+ ['is the center of the circle that passes through the three vertices','circumcenter','The circle through the vertices is the circumscribed circle; its center is the circumcenter.'],['is the center of the circle that touches all three sides','incenter','The circle that touches the sides is the inscribed circle; its center is the incenter.'],
+ ['divides each median in a 2:1 ratio','centroid','The centroid is two-thirds of the way along each median from the vertex.'],['is the balance point (center of gravity)','centroid','The centroid is the balance point of the triangle.']];
+function cap(w){return w.charAt(0).toUpperCase()+w.slice(1);}
+function concurrencyName(ctx){var r=ctx.rng,c=ctx.c,others=function(w){return ['circumcenter','incenter','centroid','orthocenter'].filter(function(x){return x!==w;}).map(cap);};
+ if(c>=2&&r.chance(c>=4?0.5:0.3)){var ctr=r.pick(c>=6||c<=3?['circumcenter','orthocenter','centroid','incenter']:['circumcenter','orthocenter']),ty=r.pick(['acute','right','obtuse']),loc=ctr==='centroid'||ctr==='incenter'||ty==='acute'?'inside':ty==='obtuse'?'outside':'on';
+  var detail=loc==='on'?(ctr==='circumcenter'?'On the triangle, at the midpoint of the hypotenuse':'On the triangle, at the vertex of the right angle'):loc==='inside'?'Inside the triangle':'Outside the triangle';
+  var why=ctr==='centroid'||ctr==='incenter'?'The '+ctr+' is always inside the triangle.':ctr==='circumcenter'?'The circumcenter is inside an acute triangle, at the midpoint of the hypotenuse of a right triangle, and outside an obtuse triangle.':'The orthocenter is inside an acute triangle, at the right-angle vertex of a right triangle, and outside an obtuse triangle.';
+  return {variant:'geo-center-where-'+ctr+'-'+ty+'-'+c,prompt:'Where is the '+ctr+' of '+(ty==='right'?'a':'an')+' '+ty+' triangle: inside the triangle, on the triangle, or outside the triangle?',
+   parts:[{answer:detail,check:{type:'derive',kind:'center',alts:['Inside the triangle','Outside the triangle','On the triangle'].filter(function(z){return z.split(' ')[0].toLowerCase()!==loc;}).concat(['It depends on the side lengths'])}}],steps:[step(why,''),step('Answer: '+detail.toLowerCase()+'.','')],space:[0.5,0.6,0.7]};}
+ var d=r.pick(CDESC),tri0=r.pick(['ABC','DEF','JKL','PQR','RST','XYZ']),pt=r.pick(['P','G','H','O','N'].filter(function(q){return tri0.indexOf(q)<0;}));
+ return {variant:'geo-center-name-'+CDESC.indexOf(d)+'-'+c,prompt:'Point '+pt+' '+d[0]+' of △'+tri0+'. Which point of concurrency is '+pt+'?',parts:[{answer:cap(d[1]),check:{type:'derive',kind:'center',alts:others(d[1])}}],steps:[step(d[2],'')],space:[0.4,0.5,0.6]};}
+function concurrencyAlgebra(ctx){var r=ctx.rng,c=ctx.c,tri=r.pick(['ABC','DEF','JKL','PQR','XYZ']),P=r.pick(['P','O','G','M'].filter(function(q){return tri.indexOf(q)<0;})),V=tri.split(''),lp,kind;
+ kind=c<=2?'circ':c<=4?r.pick(['circ','inc','circ-val']):r.pick(['circ-val','inc','inc-pyth','circ-right']);
+ if(kind==='circ'||kind==='circ-val'){lp=linPair(r,c);var u=r.shuffle(V.slice()),ask=kind==='circ'?'x':u[2];
+  return {variant:'geo-center-circ-'+(ask==='x'?'x':'len')+'-'+c,prompt:'Point '+P+' is the circumcenter of △'+tri+'. '+P+u[0]+' = '+M(lp.e1)+' and '+P+u[1]+' = '+M(lp.e2)+'. '+(ask==='x'?'Find '+M('x')+'.':'Find '+P+ask+'.'),
+   parts:[{answer:ask==='x'?M('x='+lp.x):M(String(lp.v)),check:{type:'derive',kind:'center',alts:ask==='x'?['x='+(lp.x+1),'x='+(lp.x-1)]:[String(lp.x),String(lp.v+lp.x)]}}],
+   steps:[step('The circumcenter is equidistant from the vertices, so '+P+u[0]+' = '+P+u[1]+'.',M(lp.e1+'='+lp.e2)),step('Solve.',M('x='+lp.x))].concat(ask==='x'?[]:[step(P+ask+' = '+P+u[0]+' = '+lp.v+'.','')]),space:[1.0,1.2,1.4]};}
+ if(kind==='inc'){lp=linPair(r,c);var I=P==='O'?'I':P;var s1=V[0]+V[1],s2=r.pick([V[1]+V[2],V[0]+V[2]]);
+  return {variant:'geo-center-inc-'+c,prompt:'Point '+I+' is the incenter of △'+tri+'. The distance from '+I+' to side '+s1+' is '+M(lp.e1)+' and the distance from '+I+' to side '+s2+' is '+M(lp.e2)+'. Find '+M('x')+'.',
+   parts:[{answer:M('x='+lp.x),check:{type:'derive',kind:'center'}}],steps:[step('The incenter is equidistant from the three sides.',M(lp.e1+'='+lp.e2)),step('Solve.',M('x='+lp.x))],space:[1.0,1.2,1.4]};}
+ var t=r.pick([[3,4,5],[5,12,13],[8,15,17],[6,8,10],[9,12,15],[7,24,25]]);
+ if(kind==='circ-right'){var mm=2*r.int(1,3),L1=t[0]*mm,L2=t[1]*mm,Hh=t[2]*mm;return {variant:'geo-center-right-'+c,prompt:'△'+tri+' is a right triangle with legs '+L1+' and '+L2+'. Find the distance from its circumcenter to each vertex.',
+   parts:[{answer:M(String(Hh/2)),check:{type:'derive',kind:'center',alts:[String(Hh),String((L1+L2)/2)]}}],steps:[step('The circumcenter of a right triangle is the midpoint of the hypotenuse.',''),step('Hypotenuse = √('+L1+'² + '+L2+'²) = '+Hh+', so each distance is half of it: '+Hh/2+'.','')],space:[0.8,1.0,1.2]};}
+ var I2=P==='O'?'I':P,A=V[0],Df=r.pick(['D','S','T','U'].filter(function(q){return tri.indexOf(q)<0&&q!==I2;})),Ef=r.pick(['E','W','N','H'].filter(function(q){return tri.indexOf(q)<0&&q!==I2;}));
+ return {variant:'geo-center-incpyth-'+c,prompt:'Point '+I2+' is the incenter of △'+tri+'. The perpendicular from '+I2+' to side '+V[0]+V[1]+' meets it at '+Df+', and the perpendicular from '+I2+' to side '+V[0]+V[2]+' meets it at '+Ef+'. '+A+Df+' = '+t[1]+' and '+A+I2+' = '+t[2]+'. Find '+I2+Ef+'.',
+  parts:[{answer:M(String(t[0])),check:{type:'derive',kind:'center',alts:[String(t[1]),String(t[2]-t[1])]}}],steps:[step('△'+A+Df+I2+' has a right angle at '+Df+', so '+I2+Df+' = √('+t[2]+'² − '+t[1]+'²) = '+t[0]+'.',''),step('The incenter is equidistant from the sides, so '+I2+Ef+' = '+I2+Df+' = '+t[0]+'.','')],space:[1.1,1.3,1.5]};}
 NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',courseName:'Geometry',
  unit:'triangle-relationships',unitName:'Triangle Relationships',title:'Triangle Angle Relationships',
- tags:{SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation',HONORS:'Connected Honors triangle investigation'},
+ tags:{CONCURRENCY:'Points of concurrency',SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation',HONORS:'Connected Honors triangle investigation'},
  reference:'<div class="mm-refgrid"><section><h4>Interior angle sum</h4><p>Every triangle has an angle sum of 180°.</p></section><section><h4>Exterior angle theorem</h4><p>An exterior angle equals the sum of the two remote interior angles.</p></section></div>',
- gaps:['Incenter, circumcenter and orthocenter problems, and proofs about triangle relationships, are not generated.'],
+ gaps:['Proofs about triangle relationships are not generated, and orthocenter questions are conceptual (naming and locating it); no orthocenter coordinates are computed.'],
  skills:[
   {id:'triangle-interior-sum',tag:'SUM',name:'Find a missing interior angle',best:[0,1],generate:ctx=>make(ctx,'sum')},
   {id:'triangle-exterior-angle',tag:'EXTERIOR',name:'Exterior angle theorem',best:[0,1],generate:ctx=>make(ctx,'exterior')},
@@ -241,6 +275,8 @@ NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',cour
   {id:'triangle-side-angle-order',tag:'ORDER',name:'Longest side opposite largest angle',best:[0,1],generate:sideAngleOrder},
   {id:'triangle-perpendicular-bisector',tag:'BISECTOR',name:'Perpendicular bisector equidistance',best:[0,1],generate:perpendicularBisector},
   {id:'triangle-altitude-area',tag:'ALTITUDE',name:'Triangle altitude from area',best:[0,1],generate:altitudeArea},
+  {id:'triangle-concurrency-name',tag:'CONCURRENCY',name:'Name and locate the points of concurrency (circumcenter, incenter, centroid, orthocenter)',best:[0,1,2],generate:ctx=>K.retry(()=>concurrencyName(ctx))},
+  {id:'triangle-circumcenter-incenter',tag:'CONCURRENCY',name:'Circumcenter and incenter equidistance',best:[0,1,2],generate:ctx=>K.retry(()=>concurrencyAlgebra(ctx))},
   {id:'triangle-open-response-investigation',tag:'INVESTIGATION',name:'Four-part triangle relationships investigation',best:[2],generate:triangleInvestigation},
   {id:'triangle-investigation-midsegment',tag:'HONORS',name:'Honors: midsegment algebra and perimeter',best:[2],generate:invMidsegment},
   {id:'triangle-investigation-exterior',tag:'HONORS',name:'Honors: exterior angle in an isosceles triangle',best:[2],generate:invExterior},

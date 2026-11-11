@@ -192,10 +192,39 @@ function rtCoordinate(ctx){
   steps:[step('The x-coordinates give the horizontal length: '+M('s='+sg(B[0])+'-'+sg(A[0]))+'.',M('s='+a)),step('The y-coordinates give the vertical length: '+M('t='+sg(Cp[1])+'-'+sg(B[1]))+'.',M('t='+b)),step('Pythagorean theorem: '+a+'² + '+b+'² = '+(a*a+b*b)+', so AC = '+h+'.',M('w='+h)),step('BM is half of AC: '+M('2*v='+h)+'.',M('v='+h/2))],
   space:[3,3.6,4.2]};
 }
+
+/* Law of Sines and Law of Cosines (oblique triangles), answers to the nearest tenth. The verifier reads the givens
+   from the printed sentence and recomputes; the diagram is drawn from the true angles and must agree with its labels. */
+function r1t(x){return Math.round(x*10)/10;}
+function nearHalf(x){var t=x*10;return Math.abs(t-Math.floor(t)-0.5)<1e-4;}
+function oblique(ctx,law){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,kind,A,B,Cg,a,b,cc,val,ask,prompt,fig,steps,ctxs='';
+ if(c>=7&&r.chance(0.5))ctxs=r.pick(['A surveyor maps a triangular lot ABC. ','Three hiking trails form triangle ABC. ','A roof truss forms triangle ABC. ']);
+ if(law==='sines'){kind=c>=6&&r.chance(0.45)?'angle':'side';
+  if(kind==='side'){A=r.int(25,80);B=r.int(25,100);K.need(A+B<=150&&A!==B);a=r.int(6,c>=6?40:20);var toC=c>=5&&r.chance(c===5?0.6:0.35);Cg=180-A-B;
+   val=toC?a*Math.sin(Cg*rad)/Math.sin(A*rad):a*Math.sin(B*rad)/Math.sin(A*rad);K.need(!nearHalf(val));ask=toC?'c':'b';
+   prompt=ctxs+'In △ABC, m∠A = '+A+'°, m∠B = '+B+'°, and a = '+a+'. Find side '+ask+' to the nearest tenth.';
+   fig={kind:'geo-oblique',A:A,B:B,lab:{a:String(a)},ang:{A:A+'°',B:B+'°'}};fig.lab[ask]='?';
+   steps=toC?[step('First find m∠C = 180° − '+A+'° − '+B+'° = '+Cg+'°.',''),step('Law of Sines.',M('\\frac{c}{\\sin '+Cg+'^\\circ}=\\frac{'+a+'}{\\sin '+A+'^\\circ}')),step('Solve.',M('c=\\frac{'+a+'\\sin '+Cg+'^\\circ}{\\sin '+A+'^\\circ}\\approx '+r1t(val)))]
+    :[step('Law of Sines.',M('\\frac{b}{\\sin '+B+'^\\circ}=\\frac{'+a+'}{\\sin '+A+'^\\circ}')),step('Solve.',M('b=\\frac{'+a+'\\sin '+B+'^\\circ}{\\sin '+A+'^\\circ}\\approx '+r1t(val)))];}
+  else{A=r.int(35,110);a=r.int(10,30);b=r.int(5,a-1);var sB=b*Math.sin(A*rad)/a;val=Math.asin(sB)/rad;K.need(!nearHalf(val)&&A+val<175);
+   B=val;prompt=ctxs+'In △ABC, m∠A = '+A+'°, a = '+a+', and b = '+b+'. Find m∠B to the nearest tenth of a degree.';ask='B';
+   fig={kind:'geo-oblique',A:A,B:B,lab:{a:String(a),b:String(b)},ang:{A:A+'°',B:'?'}};
+   steps=[step('Law of Sines.',M('\\frac{\\sin B}{'+b+'}=\\frac{\\sin '+A+'^\\circ}{'+a+'}')),step('Since a > b, angle B is smaller than angle A, so there is one acute answer.',''),step('Use inverse sine.',M('B=\\sin^{-1}\\left(\\frac{'+b+'\\sin '+A+'^\\circ}{'+a+'}\\right)\\approx '+r1t(val)+'^\\circ'))];}}
+ else{kind=c>=6&&r.chance(0.45)?'angle':'side';
+  if(kind==='side'){Cg=r.int(c>=6?25:35,c>=6?140:120);K.need(Cg!==90);a=r.int(5,c>=6?30:18);b=r.int(5,c>=6?30:18);val=Math.sqrt(a*a+b*b-2*a*b*Math.cos(Cg*rad));K.need(!nearHalf(val));ask='c';
+   var Aa=Math.acos((b*b+val*val-a*a)/(2*b*val))/rad;A=Aa;B=180-Aa-Cg;K.need(B>2);
+   prompt=ctxs+'In △ABC, a = '+a+', b = '+b+', and m∠C = '+Cg+'°. Find side c to the nearest tenth.';fig={kind:'geo-oblique',A:A,B:B,lab:{a:String(a),b:String(b),c:'?'},ang:{C:Cg+'°'}};
+   steps=[step('Two sides and the included angle: use the Law of Cosines.',M('c^2=a^2+b^2-2ab\\cos C')),step('Substitute.',M('c^2='+a+'^2+'+b+'^2-2('+a+')('+b+')\\cos '+Cg+'^\\circ')),step('Take the square root.',M('c\\approx '+r1t(val)))];}
+  else{a=r.int(4,c>=7?25:15);b=r.int(4,c>=7?25:15);cc=r.int(Math.abs(a-b)+2,a+b-2);var cosC=(a*a+b*b-cc*cc)/(2*a*b);val=Math.acos(cosC)/rad;K.need(!nearHalf(val));ask='C';
+   A=Math.acos((b*b+cc*cc-a*a)/(2*b*cc))/rad;B=180-A-val;K.need(A>2&&B>2);
+   prompt=ctxs+'In △ABC, a = '+a+', b = '+b+', and c = '+cc+'. Find m∠C to the nearest tenth of a degree.';fig={kind:'geo-oblique',A:A,B:B,lab:{a:String(a),b:String(b),c:String(cc)},ang:{C:'?'}};
+   steps=[step('Three sides: use the Law of Cosines solved for the angle.',M('\\cos C=\\frac{a^2+b^2-c^2}{2ab}')),step('Substitute.',M('\\cos C=\\frac{'+a+'^2+'+b+'^2-'+cc+'^2}{2('+a+')('+b+')}')),step('Use inverse cosine.',M('C\\approx '+r1t(val)+'^\\circ'))];}}
+ var isAng=ask==='B'||ask==='C'&&kind==='angle',out=r1t(val).toFixed(1),alts=[r1t(val+10).toFixed(1),r1t(Math.max(0.1,val-7.3)).toFixed(1),r1t(val*1.25).toFixed(1)];
+ return {variant:'geo-law-'+law+'-'+kind+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(out)+(isAng?'°':''),check:{type:'derive',kind:'oblique',alts:alts.map(function(z){return M(z)+(isAng?'°':'');})}}],steps:steps,space:[1.3,1.6,1.9]};}
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
-tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding'},
-reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section></div>',
-gaps:['The Law of Sines and Law of Cosines are not generated. Trigonometry answers are whole numbers, exact radicals, or rounded to tenths where the skill says so.'],
+tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding',OBLIQUE:'Law of Sines and Law of Cosines'},
+reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section><section><h4>Oblique triangles</h4><p>Law of Sines: a/sin A = b/sin B = c/sin C. Law of Cosines: c² = a² + b² − 2ab cos C.</p></section></div>',
+gaps:['The ambiguous case of the Law of Sines (SSA with two triangles) is not generated. Trigonometry answers are whole numbers, exact radicals, or rounded to tenths where the skill says so.'],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1],generate:leg},
@@ -215,6 +244,8 @@ skills:[
 {id:'right-inverse-trig',tag:'INVERSE',name:'Find an acute angle using inverse trig',best:[1,2],generate:inverseTrig},
 {id:'right-inverse-trig-decimal',tag:'INVERSE',name:'Calculator inverse trig rounded to tenths',best:[1,2],generate:inverseTrigDecimal},
 {id:'right-special-radical',tag:'SPECIAL',name:'Exact radical sides in special right triangles',best:[1,2],generate:specialRadical},
-{id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression and vertical drop',best:[1,2],generate:depression}
+{id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression and vertical drop',best:[1,2],generate:depression},
+{id:'law-of-sines',tag:'OBLIQUE',name:'Law of Sines (sides and angles to the nearest tenth)',best:[1,2],generate:ctx=>oblique(ctx,'sines')},
+{id:'law-of-cosines',tag:'OBLIQUE',name:'Law of Cosines (sides and angles to the nearest tenth)',best:[2],generate:ctx=>oblique(ctx,'cosines')}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

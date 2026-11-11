@@ -90,4 +90,48 @@
   }
 
   F.extend('geo-rt', { render: render, check: check });
+
+  /* Oblique triangles for the Law of Sines and Law of Cosines (geo-oblique).
+     spec: { kind:'geo-oblique', A:deg, B:deg, lab:{ a:'12', b:'?' }, ang:{ A:'40°', C:'?' } }
+     The shape is drawn from the true angles A and B (C = 180 − A − B); side a is opposite A, and so on.
+     A numeric side label must agree with the Law of Sines ratios of the drawn triangle, and a numeric angle label with its angle. */
+  function oblShape(spec) {
+    var A = spec.A * Math.PI / 180, B = spec.B * Math.PI / 180, Cr = Math.PI - A - B, c = 1, b = c * Math.sin(B) / Math.sin(Cr), a = c * Math.sin(A) / Math.sin(Cr);
+    return { a: a, b: b, c: c, P: { A: [0, 0], B: [c, 0], C: [b * Math.cos(A), b * Math.sin(A)] } };
+  }
+  function oblCheck(spec) {
+    if (!(spec.A > 0 && spec.B > 0 && spec.A + spec.B < 180)) return { ok: false, msg: 'angles must form a triangle' };
+    var sh = oblShape(spec), lab = spec.lab || {}, ang = spec.ang || {}, k = null, key, n;
+    for (key in lab) {
+      if (['a', 'b', 'c'].indexOf(key) < 0) return { ok: false, msg: 'unknown side ' + key };
+      n = num(lab[key]); if (n === null) continue;
+      if (k === null) k = n / sh[key]; else if (Math.abs(n / sh[key] - k) > 0.006 * k) return { ok: false, msg: 'side labels disagree with the angles' };
+    }
+    var trueAng = { A: spec.A, B: spec.B, C: 180 - spec.A - spec.B };
+    for (key in ang) { if (!trueAng[key]) return { ok: false, msg: 'unknown angle ' + key }; n = num(String(ang[key]).replace('°', '')); if (n !== null && Math.abs(n - trueAng[key]) > 0.05) return { ok: false, msg: 'angle label disagrees with the drawing' }; }
+    return { ok: true };
+  }
+  function oblRender(spec) {
+    var sh = oblShape(spec), P = sh.P, xs = [P.A[0], P.B[0], P.C[0]], ys = [P.A[1], P.B[1], P.C[1]];
+    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs), maxY = Math.max.apply(null, ys);
+    var sc = Math.min(300 / (maxX - minX), 150 / maxY), ox = (W - (maxX - minX) * sc) / 2 - minX * sc, top = 30, y0 = top + maxY * sc;
+    var X = function (q) { return [ox + q[0] * sc, y0 - q[1] * sc]; }, A = X(P.A), B = X(P.B), Cp = X(P.C), G = [(A[0] + B[0] + Cp[0]) / 3, (A[1] + B[1] + Cp[1]) / 3];
+    var out = L(A, B) + L(B, Cp) + L(Cp, A);
+    var away = function (q, d) { var v = [q[0] - G[0], q[1] - G[1]], l = Math.hypot(v[0], v[1]) || 1; return [q[0] + v[0] / l * d, q[1] + v[1] / l * d + 5]; };
+    [['A', A], ['B', B], ['C', Cp]].forEach(function (pv) { var t = away(pv[1], 16); out += H.T(t[0], t[1], pv[0], 'middle', true); });
+    var lab = spec.lab || {}, ang = spec.ang || {}, side = { a: [B, Cp], b: [Cp, A], c: [A, B] };
+    Object.keys(lab).forEach(function (k) { if (!lab[k]) return; var s2 = side[k], m = [(s2[0][0] + s2[1][0]) / 2, (s2[0][1] + s2[1][1]) / 2], t = away(m, 18 + (String(lab[k]).length + 4) * 3); out += T(t[0], t[1], k + ' = ' + lab[k], 'middle'); });
+    var V = { A: A, B: B, C: Cp };
+    var NB = { A: [B, Cp], B: [Cp, A], C: [A, B] };
+    Object.keys(ang).forEach(function (k) {   // on the angle bisector, far enough from both sides to stay clear of them
+      var q = V[k], u1 = [NB[k][0][0] - q[0], NB[k][0][1] - q[1]], u2 = [NB[k][1][0] - q[0], NB[k][1][1] - q[1]], l1 = Math.hypot(u1[0], u1[1]), l2 = Math.hypot(u2[0], u2[1]);
+      u1 = [u1[0] / l1, u1[1] / l1]; u2 = [u2[0] / l2, u2[1] / l2];
+      var bis = [u1[0] + u2[0], u1[1] + u2[1]], lb = Math.hypot(bis[0], bis[1]) || 1, half = Math.acos(Math.max(-1, Math.min(1, u1[0] * u2[0] + u1[1] * u2[1]))) / 2;
+      var d = Math.max(22, Math.min(Math.min(l1, l2) * 0.6, 15 / Math.max(Math.sin(half), 0.2)));
+      out += T(q[0] + bis[0] / lb * d, q[1] + bis[1] / lb * d + 4, String(ang[k]), 'middle');
+    });
+    return H.wrap(out, Math.ceil(y0 + 34), 'A triangle ABC with its given sides and angles labelled', '');
+  }
+  F.extend('geo-oblique', { render: oblRender, check: oblCheck });
+
 })(typeof window !== 'undefined' ? window : globalThis);

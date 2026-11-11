@@ -162,7 +162,7 @@
           return '<label class="chk"><input type="checkbox" class="mmSkill" value="' + s.id + '"' + (c.skills[s.id] ? ' checked' : '') + '><span>' + esc(s.name) + '<small>' + esc(s.blurb) + '</small></span><button type="button" class="link mmSample" data-skill="' + s.id + '">Sample</button></label>';
         }).join('') + '</fieldset>';
       }).join('') +
-      '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';
+      '<div class="mm-gaps">' + (set.authoredBank ? '<b>Question coverage:</b> all listed topics are available from approved question banks.' : !(set.gaps || []).length ? '<b>Question coverage:</b> every topic listed above is generated and checked by the verifier.' : '<b>Not generated yet in this unit:</b><ul>' + set.gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>') + '</div></section>';
     // 5
     h += '<section class="card mm-card" id="mmBuild"><h2><span class="step">5</span>Build the ' + noun() + '</h2>' +
       '<label class="field"><span class="lbl">Versions</span><select id="mmVersions">' + [1, 2, 3].map(function (n) { return '<option value="' + n + '"' + ((c.versions | 0) === n ? ' selected' : '') + '>' + ['Version A only', 'Versions A and B', 'Versions A, B and C'][n - 1] + '</option>'; }).join('') + '</select></label>' +
@@ -910,7 +910,7 @@
     return promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs&&NS.figHtml?NS.figHtml(choices.graphs[k]):'')+'</li>';}).join('')+'</ol>':'');
   }
   function topicQuestionKey(item) {
-    return (item.unit || item.skill.split(':')[0])+'|'+NS.studentText(item.p).replace(/\s+/g,' ').trim()+'|'+JSON.stringify(item.p.fig||null);
+    return (item.unit || item.skill.split(':')[0])+'|'+NS.studentText(item.p).replace(/\s+/g,' ').trim()+'|'+JSON.stringify(item.p.fig||null)+(item.p.multi?'|'+JSON.stringify(item.p.multi.opts):'');   // same stem, different choose-all options = a different question
   }
   // Keep the displayed example, then request fresh source questions with identical settings.
   function topicQuestionBatch(item,count,existing) {

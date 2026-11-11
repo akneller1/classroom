@@ -17,7 +17,42 @@
   K.xb = function (b, v) { return lin([[1, v || 'x'], [b, '']]); };
   K.axb = function (a, b, v) { return lin([[a, v || 'x'], [b, '']]); };
   K.dec = function (n10) { var s = (Math.abs(n10) / 10).toFixed(1); return (n10 < 0 ? '-' : '') + s.replace(/\.0$/, ''); };
+  /* Try a generator again (same rng stream) when one of its constraints rejects; for pages that call generate() directly. */
+  K.retry = function (f) { for (var i = 0; ; i++) { try { return f(); } catch (e) { if (!e || !e.isReject || i >= 200) throw e; } } };
   K.step = function (t, m, w) { return { t: t || '', m: m || '', w: w === undefined ? 1 : w }; };
+
+
+  /* Geometry Units 3 and 8: congruent or similar after a described sequence of transformations, and glide reflections
+     of a point. Checked by the verifier's "sequence" and "glide" readers, which re-read the printed sentence. */
+  K.rigidSequence = function (ctx) {
+    var r = ctx.rng, c = ctx.c, step = K.step, M = K.M;
+    var rigid = [function () { return 'translated ' + r.int(2, 9) + ' units ' + r.pick(['left', 'right', 'up', 'down']); }, function () { return 'reflected across the ' + r.pick(['x-axis', 'y-axis', 'line y = x']); },
+      function () { return 'rotated ' + r.pick([90, 180, 270]) + '° ' + r.pick(['clockwise', 'counterclockwise']) + ' about the origin'; }];
+    if (c >= 5 && r.chance(0.3)) {   // glide reflection of a point
+      var x = K.nz(r, -9, 9), y = K.nz(r, -9, 9), d = r.int(2, 8), ax = r.pick(['x', 'y']), dir = ax === 'x' ? r.pick(['right', 'left']) : r.pick(['up', 'down']);
+      var X = x + (dir === 'right' ? d : dir === 'left' ? -d : 0), Y = y + (dir === 'up' ? d : dir === 'down' ? -d : 0); if (ax === 'x') Y = -Y; else X = -X;
+      return { variant: 'geo-glide-' + ax + '-' + c, prompt: 'The point (' + x + ', ' + y + ') is translated ' + d + ' units ' + dir + ' and then reflected across the ' + ax + '-axis. Because the translation is parallel to the mirror line, this is a glide reflection. What are the coordinates of the image?',
+        parts: [{ answer: '(' + X + ', ' + Y + ')', check: { type: 'derive', kind: 'glide', alts: ['(' + (ax === 'x' ? X : -X) + ', ' + (ax === 'x' ? -Y : Y) + ')', '(' + (ax === 'x' ? x : -x) + ', ' + (ax === 'x' ? -y : y) + ')', '(' + Y + ', ' + X + ')', '(' + (-X) + ', ' + (-Y) + ')'].filter(function (a, i, arr) { return a !== '(' + X + ', ' + Y + ')' && arr.indexOf(a) === i; }) } }],
+        steps: [step('Translate first: (' + x + ', ' + y + ') → (' + (x + (dir === 'right' ? d : dir === 'left' ? -d : 0)) + ', ' + (y + (dir === 'up' ? d : dir === 'down' ? -d : 0)) + ').', ''), step('Then reflect across the ' + ax + '-axis (' + (ax === 'x' ? 'change the sign of y' : 'change the sign of x') + '): (' + X + ', ' + Y + ').', '')], space: [0.8, 1.0, 1.2] };
+    }
+    var n = c <= 2 ? r.int(1, 2) : r.int(2, 3), parts = [], scale = 1, dil = c <= 1 ? r.chance(0.5) : r.chance(0.6), dWords = null;
+    for (var i = 0; i < n; i++) parts.push(r.pick(rigid)());
+    if (dil) {
+      if (c >= 6 && r.chance(0.35)) { var k = r.pick([2, 3]); parts.splice(r.int(0, parts.length), 0, 'dilated by a scale factor of ' + k + ' centered at the origin'); parts.push('dilated by a scale factor of ' + (k === 2 ? 'one-half' : 'one-third') + ' centered at the origin'); scale = 1; dWords = 'The two dilations undo each other (' + k + ' × 1/' + k + ' = 1).'; }
+      else if (c >= 5 && r.chance(0.5)) { var w = r.pick(['one-half', 'one-third']); scale = w === 'one-half' ? 0.5 : 1 / 3; parts.splice(r.int(0, parts.length), 0, 'dilated by a scale factor of ' + w + ' centered at the origin'); }
+      else { var k2 = r.int(2, 4); scale = k2; parts.splice(r.int(0, parts.length), 0, 'dilated by a scale factor of ' + k2 + ' centered at the origin'); }
+    }
+    var seq = parts.join(', then '), cong = Math.abs(scale - 1) < 1e-9, askLen = c >= 3 && r.chance(0.4);
+    var why = cong ? (dWords || 'Translations, reflections and rotations are rigid motions: they keep every length and angle.') : 'A dilation with scale factor ' + (scale === 0.5 ? '½' : scale < 0.5 ? '⅓' : scale) + ' changes the lengths but keeps the angles, so the figures are similar.';
+    if (askLen) {
+      var L0 = scale === 0.5 ? 2 * r.int(2, 9) : scale < 0.5 ? 3 * r.int(2, 6) : r.int(3, 12), L1 = Math.round(L0 * scale * 1000) / 1000;
+      return { variant: 'geo-sequence-len-' + c, prompt: 'Figure P is ' + seq + '. The result is figure Q. A side of figure P is ' + L0 + ' units long. How long is the matching side of figure Q?',
+        parts: [{ answer: M(String(L1)) + ' units', check: { type: 'derive', kind: 'sequence', alts: [String(L0 === L1 ? L0 * 2 : L0), String(L0 + 2), String(L1 * 2 === L0 ? L0 * 4 : L1 * 2)].filter(function (z) { return +z !== L1; }) } }],
+        steps: [step(why, ''), step('Matching side: ' + L0 + ' × ' + (cong ? 1 : scale === 0.5 ? '½' : scale < 0.5 ? '⅓' : scale) + ' = ' + L1 + ' units.', '')], space: [0.9, 1.1, 1.3] };
+    }
+    return { variant: 'geo-sequence-class-' + (cong ? 'c' : 's') + '-' + c, prompt: 'Figure P is ' + seq + '. The result is figure Q. Is figure Q congruent to figure P, similar but not congruent, or neither?',
+      parts: [{ answer: cong ? 'Congruent' : 'Similar but not congruent', check: { type: 'derive', kind: 'sequence' } }], steps: [step(why, ''), step('Answer: ' + (cong ? 'congruent' : 'similar but not congruent') + '.', '')], space: [0.7, 0.8, 0.9] };
+  };
 
   /* absolute value equations: shared by Units 2 and 3 (checked as solution sets by the inequality checker) */
   function ansX(v, x) { return v + '=' + K.num(x); }

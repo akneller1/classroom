@@ -142,6 +142,16 @@
         if (label !== key) cands.push({a:label,w:3});
       });
     }
+    // properties of operations: the other property names (closest mix-ups weigh most) and, for a rewrite, the
+    // rewrites a student might give with a different property; every one is rejected by the verifier below
+    var chP = p.parts[k].check || {};
+    if (chP.type === 'property-name') {
+      var PN = ['Commutative Property of Addition', 'Commutative Property of Multiplication', 'Associative Property of Addition', 'Associative Property of Multiplication',
+        'Identity Property of Addition', 'Identity Property of Multiplication', 'Inverse Property of Addition', 'Inverse Property of Multiplication', 'Multiplicative Property of Zero', 'Distributive Property'];
+      var kw = function (n) { return (/Commutative|Associative|Identity|Inverse|Zero|Distributive/.exec(n) || [''])[0]; }, op = function (n) { return /Addition/.test(n) ? 'a' : /Multipl|Zero|Distributive/.test(n) ? 'm' : ''; };
+      PN.forEach(function (n) { if (n !== key) cands.push({ a: n, w: kw(n) === kw(key) ? 5 : op(n) === op(key) ? 4 : 2 }); });
+    }
+    if ((chP.type === 'property-apply' || chP.type === 'derive') && Array.isArray(chP.alts)) chP.alts.forEach(function (a) { cands.push({ a: a, w: 6 }); });
     // two-column proofs: the other standard reasons, and wrong vertex orders / other parts for a statement (each verified wrong below)
     if ((p.parts[k].check || {}).type === 'geo-proof-blank') {
       if (p.parts[k].check.field === 'r') ['Given', 'Reflexive Property of Congruence', 'Vertical angles are congruent', 'Alternate interior angles are congruent', 'Corresponding angles are congruent',

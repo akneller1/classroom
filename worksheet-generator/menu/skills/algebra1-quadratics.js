@@ -263,6 +263,32 @@
       difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});
   })();
   (function(){var parent=skills.find(function(s){return s.id==="q-roots";});if(parent)skill({id:"quadratic-solve-factoring",best:parent.best,tag:parent.tag,name:"Solve quadratics by factoring",blurb:"Factor a quadratic equation and use the zero product property.",difficultyProfile:'focused',fixedDifficulty:5,generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:5}));}});})();
+
+  /* ================= MODEL TYPE FROM A TABLE (first differences, second differences, ratios) ================= */
+  skill({
+    id: 'table-model-type', best: [0, 1, 2], tag: 'MODEL', name: 'Linear, quadratic or exponential? (differences and ratios)',
+    blurb: 'Decide from first differences, second differences or ratios (CP2) → negative leading coefficients and decreasing tables (CP1) → x-steps other than 1, fractional ratios, and predicting the next value (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, type = r.pick(['linear', 'quadratic', 'exponential', 'quadratic']), step0 = c >= 6 && r.chance(0.4) ? 2 : 1, x0 = r.int(c >= 4 ? -2 : 0, 2), xs = [0, 1, 2, 3, 4].map(function (i) { return x0 + i * step0; }), ys, why;
+      if (type === 'linear') { var m = c >= 4 ? nz(r, -9, 9) : r.int(2, 9), b = r.int(-10, 10); ys = xs.map(function (x) { return m * x + b; }); why = 'The first differences are all ' + m * step0 + ', so the table is linear.'; }
+      else if (type === 'quadratic') { var a = c >= 4 ? nz(r, -3, 3) : r.int(1, 3), bq = r.int(-5, 5), cq = r.int(-8, 8); ys = xs.map(function (x) { return a * x * x + bq * x + cq; }); why = 'The first differences change, but the second differences are all ' + 2 * a * step0 * step0 + ', so the table is quadratic.'; }
+      else { var base = c >= 6 && !ctx.intOnly && r.chance(0.4) ? F(1, 2) : F(r.pick([2, 3])), st = c >= 6 && base.d === 2 ? 16 * r.int(1, 3) : r.int(1, 5); need(x0 >= 0 || base.d === 1 || true); ys = xs.map(function (x, i) { return base.d === 1 ? st * Math.pow(base.n, i) : st / Math.pow(2, i); }); why = 'Each y-value is ' + (base.d === 1 ? base.n + ' times' : 'one-half of') + ' the one before (a constant ratio), so the table is exponential.'; }
+      ys.forEach(function (y) { need(Math.abs(y) <= 400 && y % 1 === 0); });
+      var rows = xs.map(function (x, i) { return [String(x), String(ys[i])]; }), askNext = c >= 4 && r.chance(0.4), fig = { kind: 'table', vertical: false, head: ['x', 'y'], rows: rows };
+      if (askNext) { var n = ys.length, d1 = ys[n - 1] - ys[n - 2], d2 = (ys[n - 1] - ys[n - 2]) - (ys[n - 2] - ys[n - 3]), next = type === 'linear' ? ys[n - 1] + d1 : type === 'quadratic' ? ys[n - 1] + d1 + d2 : ys[n - 1] * ys[n - 1] / ys[n - 2];
+        need(next % 1 === 0);
+        return { variant: 'model-next-' + type + '-' + c, prompt: 'The table shows a linear, quadratic or exponential function with equally spaced x-values. Decide which, then find the next y-value (for ' + M('x=' + (x0 + 5 * step0)) + ').',
+          fig: fig, parts: [{ answer: M(String(next)), check: { type: 'derive', kind: 'model-type', alts: [M(String(ys[n - 1] + d1)), M(String(2 * ys[n - 1] - ys[n - 3])), M(String(ys[n - 1] + d1 + 2 * d2))].filter(function (z) { return z !== M(String(next)); }) } }],
+          steps: [step(why, ''), step('Extend the pattern one more step.', 'y=' + next, 2)], space: [0.8, 1.0, 1.2] };
+      }
+      var REASON = { linear: 'Linear (constant first differences)', quadratic: 'Quadratic (constant second differences)', exponential: 'Exponential (constant ratios)' };
+      var opts = [REASON.linear, REASON.quadratic, REASON.exponential, 'None of these (no constant differences or ratios)'];
+      return { variant: 'model-type-' + type + '-' + c, prompt: 'Does the table show a linear, quadratic or exponential function? Use differences or ratios to explain.', fig: fig,
+        parts: [{ answer: REASON[type], check: { type: 'derive', kind: 'model-type', alts: opts.filter(function (o) { return o !== REASON[type]; }) } }],
+        steps: [step('Linear: constant first differences. Quadratic: constant second differences. Exponential: constant ratios.', ''), step(why, '')], space: [0.8, 1.0, 1.2] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-quadratics', course: 'algebra1', courseName: 'Algebra 1', unit: 'quadratics', unitName: 'Quadratic Functions and Equations',
     title: 'The Parabola Bakery',

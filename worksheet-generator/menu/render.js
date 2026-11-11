@@ -200,7 +200,7 @@
     var ws = NS.isWorksheet(cfg);
     var li = [ws ? 'Answer <b>all ' + nQ + ' questions</b>.' : 'Answer <b>all ' + nQ + ' questions</b>. The test is worth <b>' + rules.maxScore + ' points</b>.'];
     cfg.sections.forEach(function (s, si) {
-      var fmt = NS.sectionFormat(cfg, si), fm = fmt === 'mc' ? 'circle the letter of the best answer' : fmt === 'multi' ? 'select every value that satisfies the inequality' : fmt === 'mcas' ? 'answer every part and explain your reasoning' : ws ? 'show your work' : 'show your work; points are given for correct steps as well as the answer';
+      var fmt = NS.sectionFormat(cfg, si), fm = fmt === 'mc' ? 'circle the letter of the best answer' : fmt === 'multi' ? (cfg.unitId === 'algebra1-inequalities' ? 'select every value that satisfies the inequality' : 'select every correct choice') : fmt === 'mcas' ? 'answer every part and explain your reasoning' : ws ? 'show your work' : 'show your work; points are given for correct steps as well as the answer';
       li.push('<b>Part ' + (si + 1) + ' · ' + esc(s.name) + '</b>' + (ws ? '' : ' (' + ptsText(+s.points) + ' each)') + ': ' + fm + '.');
     });
     return '<div class="mm-box mm-dirs"><h3>Directions</h3><ol>' + li.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ol></div>';

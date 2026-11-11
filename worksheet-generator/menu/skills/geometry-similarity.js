@@ -162,10 +162,39 @@ function invAltitude(ctx){
   steps:[step('CD² = AD · DB, so '+M(db+'*('+eAD+')='+cd+'*'+cd)+'.',M('x='+x)),step('AB = AD + DB.',M('w='+ab)),step('AC² = AD · AB, so '+M('k='+ADs+'*'+ab)+'.',M('k='+ad*ab)),step('The altitude CD is the height to base AB: '+M('2*t='+ab+'*'+cd)+'.',M('t='+ab*cd/2))],
   space:[3,3.6,4.2]};
 }
+
+/* Areas and volumes of similar figures: lengths scale by k, areas by k², volumes by k³ (recomputed by the verifier from the printed numbers). */
+var POLYS=['triangles','rectangles','pentagons','hexagons','trapezoids','parallelograms'];
+function areaFour(ctx){return areaRatio(Object.assign({},ctx,{forceFour:true}));}
+function sing(w){return w.replace(/s$/,'');}
+function areaRatio(ctx){var r=ctx.rng,c=ctx.c,pg=r.pick(POLYS),a=r.int(2,6),b=r.int(a+1,a+5),g=K.gcd(a,b),A=a/g,B=b/g,la=A*r.int(A>=3?1:2,A>=3?3:4),lb=la*B/A,mode;K.need(la>=3);
+ mode=ctx.forceFour?'four':c<=2?'area':c<=4?r.pick(['area','area','back','ratio']):r.pick(['back','root','ratio','vol','area']);
+ if(mode==='four'){var P1=la*r.int(3,6),A1=la*la*r.int(1,2),A2=A1*B*B/(A*A),Ar=A1*r.pick([4,9,16,25]),kq=Math.round(Math.sqrt(Ar/A1)),s3=la*kq;
+  return {variant:'geo-sim-area-four-'+c,prompt:'Open Response. Answer each part. Two similar '+pg+' have corresponding sides of '+la+' cm and '+lb+' cm.',
+   parts:[{label:'a',prompt:'The smaller '+sing(pg)+' has a perimeter of '+P1+' cm. Find the perimeter of the larger.',answer:M(String(P1*B/A))+' cm',check:{type:'derive',kind:'similar'}},
+    {label:'b',prompt:'The smaller '+sing(pg)+' has an area of '+A1+' square centimeters. Find the area of the larger.',answer:M(String(A2))+' square centimeters',check:{type:'derive',kind:'similar'}},
+    {label:'c',prompt:'Use your answers to explain the pattern. Find the ratio of their areas, smaller to larger.',answer:(A*A)+':'+(B*B),check:{type:'derive',kind:'similar'}},
+    {label:'d',prompt:'A third '+sing(pg)+' is similar to the smaller one. The two '+pg+' have areas of '+A1+' and '+Ar+' square centimeters. The smaller '+sing(pg)+' has a side of '+la+' cm. Find the side of the larger.',answer:M(String(s3))+' cm',check:{type:'derive',kind:'similar'}}],
+   steps:[step('Scale factor k = '+lb+'/'+la+' = '+B+'/'+A+'.',''),step('Perimeters scale by k; areas by k².',''),step('Area ratio = '+A+'² : '+B+'² = '+(A*A)+':'+(B*B)+'.',''),step('Side scale factor = √('+Ar+'/'+A1+') = '+kq+', so the side is '+la+' · '+kq+' = '+s3+' cm.','')],space:[2.4,2.8,3.2]};}
+ if(mode==='ratio'){var what=r.pick(c>=5?['perimeters','areas','volumes']:['perimeters','areas']),e=what==='volumes'?3:what==='areas'?2:1,ans=Math.pow(A,e)+':'+Math.pow(B,e),nm=what==='volumes'?r.pick(['cubes','spheres','cylinders','square pyramids']):pg;
+  return {variant:'geo-sim-ratio-'+what+'-'+c,prompt:'Two similar '+nm+' have a scale factor of '+A+':'+B+' (smaller to larger). Find the ratio of their '+what+', smaller to larger.',
+   parts:[{answer:ans,check:{type:'derive',kind:'similar',alts:[A+':'+B,Math.pow(A,e===2?3:2)+':'+Math.pow(B,e===2?3:2),Math.pow(B,e)+':'+Math.pow(A,e)].filter(function(x){return x!==ans;})}}],steps:[step('Lengths scale by k, areas by k², volumes by k³.',''),step('Ratio: '+ans+'.','')],space:[0.6,0.7,0.8]};}
+ if(mode==='root'){var a1=la*la*r.int(1,2),a2=a1*B*B/(A*A);
+  return {variant:'geo-sim-root-'+c,prompt:'Two similar '+pg+' have areas of '+a1+' and '+a2+' square centimeters. The smaller '+sing(pg)+' has a side of '+la+' cm. Find the side of the larger '+sing(pg)+'.',
+   parts:[{answer:M(String(lb))+' cm',check:{type:'derive',kind:'similar',alts:[M(String(la*a2/a1))+' cm',M(String(la+B-A))+' cm'].filter(function(x){return x!==M(String(lb))+' cm';})}}],
+   steps:[step('The area ratio is k²: '+a2+'/'+a1+' = '+(B*B)+'/'+(A*A)+', so k = '+B+'/'+A+'.',''),step('Side = '+la+' · '+B+'/'+A+' = '+lb+' cm.','')],space:[0.9,1.1,1.3]};}
+ if(mode==='vol'){var sd=r.pick([['cubes','cube','edges'],['cylinders','cylinder','radii'],['square pyramids','pyramid','edges']]),v1=Math.pow(A,3)*r.int(1,3),v2=v1*Math.pow(B,3)/Math.pow(A,3);
+  return {variant:'geo-sim-vol-'+c,prompt:'Two similar '+sd[0]+' have corresponding '+sd[2]+' of '+la+' cm and '+lb+' cm. The smaller '+sd[1]+' has a volume of '+v1+' cubic centimeters. Find the volume of the larger '+sd[1]+'.',
+   parts:[{answer:M(String(v2))+' cubic centimeters',check:{type:'derive',kind:'similar',alts:[v1*B/A,v1*B*B/(A*A)].filter(function(x){return x%1===0&&x!==v2;}).map(function(x){return M(String(x))+' cubic centimeters';})}}],
+   steps:[step('Volumes scale by k³ with k = '+B+'/'+A+'.',''),step('Volume = '+v1+' · ('+B+'/'+A+')³ = '+v2+' cm³.','')],space:[0.9,1.1,1.3]};}
+ var big=mode==='back',s1=la*la*r.int(1,2),s2=s1*B*B/(A*A),given=big?s2:s1,want=big?s1:s2;
+ return {variant:'geo-sim-area-'+(big?'back':'fwd')+'-'+c,prompt:'Two similar '+pg+' have corresponding sides of '+la+' cm and '+lb+' cm. The '+(big?'larger':'smaller')+' '+sing(pg)+' has an area of '+given+' square centimeters. Find the area of the '+(big?'smaller':'larger')+' '+sing(pg)+'.',
+  parts:[{answer:M(String(want))+' square centimeters',check:{type:'derive',kind:'similar',alts:[given*lb/la,given*la/lb].filter(function(x){return x%1===0&&x!==want&&x>0;}).map(function(x){return M(String(x))+' square centimeters';})}}],
+  steps:[step('Areas scale by the square of the scale factor k = '+B+'/'+A+'.',''),step('Area = '+given+' · ('+(big?A+'/'+B:B+'/'+A)+')² = '+want+' cm².','')],space:[0.9,1.1,1.3]};}
 NS.registerSkillSet({id:'geometry-similarity',course:'geometry',courseName:'Geometry',unit:'similarity',unitName:'Similarity',title:'Similarity Foundations',
-tags:{RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity',PARALLEL:'Triangle proportionality and parallel segments',HONORS:'Multi-step Honors similarity investigations'},
-reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section></div>',
-gaps:['Coordinate dilations, similarity proofs, and area and volume ratios of similar figures are not generated.'],
+tags:{AREARATIO:'Area and volume ratios',RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity',PARALLEL:'Triangle proportionality and parallel segments',HONORS:'Multi-step Honors similarity investigations'},
+reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section><section><h4>Area and volume</h4><p>Scale factor k: perimeters × k, areas × k², volumes × k³.</p></section></div>',
+gaps:['Similarity proofs are not generated. Coordinate dilations appear in the Honors dilation investigation here and in Unit 8 (Transformations).'],
 skills:[
 {id:'similarity-missing-side',tag:'RATIOS',name:'Find a corresponding side',best:[0,1],generate:missingSide},
 {id:'similarity-scale-factor',tag:'DILATION',name:'Find a dilation scale factor',best:[0,1],generate:scale},
@@ -180,6 +209,8 @@ skills:[
 {id:'similarity-investigation-parallel',tag:'HONORS',name:'Honors: triangle proportionality with algebra',best:[2],generate:invParallel},
 {id:'similarity-investigation-dilation',tag:'HONORS',name:'Honors: dilation on the coordinate plane, lengths and area',best:[2],generate:invDilation},
 {id:'similarity-investigation-altitude',tag:'HONORS',name:'Honors: altitude to the hypotenuse and geometric means',best:[2],generate:invAltitude},
+{id:'similarity-area-volume-ratio',tag:'AREARATIO',name:'Areas and volumes of similar figures',best:[0,1,2],generate:areaRatio},
+{id:'similarity-area-investigation',tag:'AREARATIO',name:'Four-part investigation: perimeter and area of similar figures',best:[1,2],generate:areaFour},
 {id:'similarity-parallel-honors',tag:'PARALLEL',name:'Four-part Honors proportionality investigation',best:[2],generate:parallelHonors}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

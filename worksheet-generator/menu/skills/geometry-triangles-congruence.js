@@ -424,10 +424,11 @@ function proofSkill(mode,cp){
 }
 
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
- tags:{CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning',CHAIN:'Multi-step congruence investigations'},
+ tags:{RIGID:'Congruence and rigid motions',CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning',CHAIN:'Multi-step congruence investigations'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',
- gaps:['Flow-chart and paragraph proofs are generated only in the shared-side and vertical-angle formats; congruence by rigid motions is not generated.'],
+ gaps:['Flow-chart and paragraph proofs are generated only in the shared-side and vertical-angle formats. Congruence by rigid motions is asked from a described sequence of transformations, not from a drawn figure.'],
  skills:[
+  {id:'congruence-rigid-motions',tag:'RIGID',name:'Congruence by rigid motions (described transformation sequences)',best:[0,1,2],generate:K.rigidSequence},
  {id:'congruent-corresponding-sides',tag:'CPCTC',name:'Corresponding side lengths',best:[0,1],generate:C(ctx=>corresponding(ctx,'side'))},
  {id:'congruent-corresponding-angles',tag:'CPCTC',name:'Corresponding angle measures',best:[0,1],generate:C(ctx=>corresponding(ctx,'angle'))},
  {id:'congruent-third-angle',tag:'THIRD',name:'Third angle theorem',best:[0,1],generate:C(thirdAngle)},

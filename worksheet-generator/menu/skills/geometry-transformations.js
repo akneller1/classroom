@@ -102,10 +102,11 @@ function invPolygonSym(ctx){var r=ctx.rng,c=ctx.c,ns=c>=5?[5,6,8,9,10,12,15]:[5,
  ['Each side of the polygon is '+sd+' units long. Using the number of sides from part a, find the perimeter p.','p',per,'p='+n+'*'+sd,'Perimeter is the number of sides times the side length.']]);}
 
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
-tags:{INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations'},
+tags:{SEQUENCE:'Sequences of transformations',INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations',COMPOSITION:'Compositions of transformations',SYMMETRY:'Symmetry of regular polygons'},
 reference:'<div class="mm-refgrid"><section><h4>Reflections</h4><p>x-axis: (x,y) → (x,−y); y-axis: (x,y) → (−x,y).</p></section><section><h4>90° rotations</h4><p>Clockwise: (x,y) → (y,−x); counterclockwise: (x,y) → (−y,x).</p></section></div>',
-gaps:['Rigid-motion proofs and glide reflections are not generated.'],
+gaps:['Rigid-motion proofs are not generated.'],
 skills:[
+{id:'transformation-sequence-congruence',tag:'SEQUENCE',name:'Congruent or similar after a sequence of transformations; glide reflections',best:[0,1,2],generate:K.rigidSequence},
 {id:'reflect-x-axis',tag:'REFLECTION',name:'Reflect over x-axis',best:[0,1],generate:ctx=>reflect(ctx,'x')},
 {id:'reflect-y-axis',tag:'REFLECTION',name:'Reflect over y-axis',best:[0,1],generate:ctx=>reflect(ctx,'y')},
 {id:'translate-horizontal',tag:'TRANSLATION',name:'Horizontal translation',best:[0,1],generate:ctx=>translate(ctx,'x')},

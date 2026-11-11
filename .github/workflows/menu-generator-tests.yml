@@ -41,6 +41,8 @@ jobs:
       - name: Geometry question-bank capacity audit (diagnostic)
         continue-on-error: true
         run: node worksheet-generator/menu/tests/geometry-capacity-audit.cjs
+      - name: Verify newly covered skills, formats, search, and regeneration
+        run: node worksheet-generator/menu/tests/coverage-gap-tests.cjs
       - name: Verify select-all answer truth and MCAS bank coverage
         run: node worksheet-generator/menu/tests/select-all-mcas-tests.cjs
       - name: Verify all 12 original MCAS scenario families and wrong-answer rejection

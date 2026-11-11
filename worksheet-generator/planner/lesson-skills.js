@@ -27,10 +27,10 @@
     'U1-L1': full([['F', 'verbal', 1, 7], ['F', 'evaluate', 1, 2]]),
     'U1-L2': full([['F', 'evaluate', 1, 7]]),
     'U1-L3': full([['F', 'real-numbers', 1, 7]]),
-    'U1-L4': part([['F', 'evaluate', 2, 4]], 'Integer and fraction operations appear inside evaluating expressions; there is no generator for bare real-number arithmetic yet.'),
-    'U1-L5': part([['F', 'distribute', 1, 3], ['F', 'like-terms', 1, 2]], 'Naming the property (commutative, associative, identity) has no generator yet; the problems use the properties.'),
+    'U1-L4': full([['F', 'real-number-operations', 1, 7], ['F', 'evaluate', 2, 4]]),
+    'U1-L5': full([['F', 'properties', 1, 7], ['F', 'distribute', 1, 3], ['F', 'like-terms', 1, 2]]),
     'U1-L6': full([['F', 'distribute', 1, 7], ['F', 'like-terms', 1, 7]]),
-    'U1-L7': none('Interpreting the parts of an expression in context has no generator yet. The practice below reviews simplifying; add 2–3 context expressions to interpret.', [['F', 'like-terms', 2, 4], ['F', 'distribute', 2, 4]]),
+    'U1-L7': full([['F', 'interpret-expression', 1, 7], ['F', 'verbal', 2, 5]]),
     /* Unit 2 · Solving Linear Equations */
     'U2-L1': full([['E', 'two-step', 1, 1], ['E', 'fraction-eq', 1, 1]]),
     'U2-L2': full([['E', 'two-step', 2, 7], ['E', 'fraction-eq', 2, 3]]),
@@ -55,7 +55,7 @@
     'U4-L4': full([['R', 'func-eval', 1, 7], ['R', 'read-func', 1, 4]]),
     'U4-L5': full([['R', 'graph-behavior', 1, 7], ['R', 'read-func', 3, 7], ['R', 'curve-behavior', 1, 7]]),
     'U4-L6': part([['R', 'graph-behavior', 1, 7]], 'Students sketch graphs from stories; the generator only interprets graphs. Add 2 short stories to sketch.'),
-    'U4-L7': part([['R', 'domain-range', 4, 7]], 'Discrete vs. continuous has no generator yet; ask whether each graphed domain makes sense as whole numbers or all reals.'),
+    'U4-L7': full([['R', 'discrete-continuous', 1, 7], ['R', 'domain-range', 4, 7]]),
     'U4-L8': full([['R', 'sequence', 1, 7]]),
     /* Unit 5 · Linear Functions and Graphing */
     'U5-L1': full([['R', 'rate-of-change', 1, 4], ['L', 'slope', 1, 3]]),
@@ -126,7 +126,7 @@
     'U11-L9': full([['Q', 'q-formula', 1, 2]]),
     'U11-L10': full([['Q', 'q-roots', 1, 7], ['Q', 'q-formula', 3, 7], ['Q', 'q-complete', 2, 5]]),
     'U11-L11': full([['Q', 'q-apply', 1, 7], ['Z', 'factor-apply', 3, 5]]),
-    'U11-L12': part([['P', 'lin-vs-exp', 1, 7]], 'Quadratic patterns (constant second differences) are not generated; add one table that is quadratic.'),
+    'U11-L12': full([['Q', 'table-model-type', 1, 7], ['P', 'lin-vs-exp', 1, 7]]),
     /* Unit 12 · Statistics and Data Modeling */
     'U12-L1': full([['D', 'center', 1, 3]]),
     'U12-L2': full([['D', 'boxplot', 1, 7], ['D', 'histogram', 1, 7]]),

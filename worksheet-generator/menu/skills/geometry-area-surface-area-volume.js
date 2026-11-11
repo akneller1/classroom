@@ -83,10 +83,63 @@ function invTrapezoid(ctx){var r=ctx.rng,c=ctx.c,x=r.int(3,c>=5?14:10),k=r.int(1
  ['Find z, how many square centimeters the trapezoid’s area '+A+' is more than the triangle area y from part b (it may be negative).','z',A-T,'z='+A+'-'+pn(T),'Subtract the triangle area from the trapezoid area.'],
  ['A larger triangle is similar to the one in part b, with every length multiplied by '+sc+'. Use y from part b. Find the area w of the larger triangle.','w',sc*sc*T,'w='+sc+'*'+sc+'*'+pn(T),'Area is multiplied by the square of the scale factor.']]);}
 
+
+/* Coverage additions: surface area of pyramids and cones, composite solids, unit conversions, similar solids.
+   Each answer is recomputed by the verifier from the printed numbers (check type "derive"). */
+var TRIPLES=[[3,4,5],[5,12,13],[8,15,17],[7,24,25],[6,8,10],[9,12,15],[12,16,20]];
+function D(kind,alts,key){var o={type:'derive',kind:kind};if(alts)o.alts=alts.map(String).filter(function(a,i,arr){return a!==String(key)&&a!=='x='+key&&arr.indexOf(a)===i;}).map(function(a){return M(a);});return o;}
+function pyramidSurface(ctx){var r=ctx.rng,c=ctx.c,lat=r.chance(c<=2?0.5:0.35),s,l,h,prompt,why;
+ if(c>=6&&r.chance(0.6)){var t=r.pick(TRIPLES.filter(function(q){return q[0]%1===0;})),sw=r.chance(0.5),half=sw?t[1]:t[0];h=sw?t[0]:t[1];l=t[2];s=2*half;
+  prompt='A square pyramid has base edge '+s+' cm and height '+h+' cm.';why='The slant height is the hypotenuse of a right triangle with legs '+h+' (the height) and '+half+' (half the base edge): l = √('+h+'² + '+half+'²) = '+l+'.';}
+ else{s=r.int(3,c>=4?16:10);l=r.int(Math.floor(s/2)+2,c>=4?20:14);prompt='A square pyramid has base edge '+s+' cm and slant height '+l+' cm.';why='Each triangular face has area ½ · base edge · slant height.';}
+ var L=2*s*l,T=s*s+L,ans=lat?L:T;
+ return {variant:'geo-pyramid-sa-'+(lat?'lat':'tot')+'-'+c,prompt:prompt+' Find its '+(lat?'lateral':'total')+' surface area in square centimeters.',
+  parts:[{answer:M(String(ans))+' square centimeters',check:D('pyr-sa',[lat?T:L,s*l,s*s+s*l,4*s*l],ans)}],
+  steps:[step(why,''),step('Lateral area: four triangles, 4 · ½ · '+s+' · '+l+' = '+L+'.',''),step(lat?'Lateral surface area = '+L+' cm².':'Add the square base: '+s+'² + '+L+' = '+T+' cm².','')],space:[1.0,1.2,1.4]};}
+function coneSurface(ctx){var r=ctx.rng,c=ctx.c,lat=r.chance(c<=2?0.5:0.35),rad,l,prompt,why;
+ if(c>=6&&r.chance(0.6)){var t=r.pick(TRIPLES),sw=r.chance(0.5);rad=sw?t[1]:t[0];var h=sw?t[0]:t[1];l=t[2];prompt='A right circular cone has radius '+rad+' cm and height '+h+' cm.';why='The slant height is the hypotenuse of a right triangle with legs '+rad+' and '+h+': l = '+l+'.';}
+ else{rad=r.int(2,c>=4?12:8);l=r.int(rad+1,c>=4?20:14);prompt='A right circular cone has radius '+rad+' cm and slant height '+l+' cm.';why='The lateral surface area of a cone is πrl.';}
+ var L=rad*l,T=rad*rad+L,ans=lat?L:T;
+ return {variant:'geo-cone-sa-'+(lat?'lat':'tot')+'-'+c,prompt:prompt+' Its '+(lat?'lateral':'total')+' surface area is xπ square centimeters. Find the coefficient x (do not include π).',
+  parts:[{answer:M('x='+ans),check:D('cone-sa',['x='+(lat?T:L),'x='+(2*rad*l),'x='+(rad*rad+2*rad*l)],ans)}],
+  steps:[step(why,''),step('Lateral area πrl = π · '+rad+' · '+l+' = '+L+'π.',''),step(lat?'x = '+L+'.':'Add the base πr² = '+rad*rad+'π: x = '+T+'.','')],space:[1.0,1.2,1.4]};}
+function compositeRound(ctx){var r=ctx.rng,c=ctx.c,ks=c<=4?['silo','drill']:['silo','drill','icecream','capsule'],k=r.pick(ks),R=3*r.int(1,c>=5?4:2),H=r.int(2,c>=5?15:10)*(k==='icecream'||k==='drill'?3:1),v,prompt,why;
+ if(k==='silo'){v=(3*R*R*H+2*R*R*R)/3;prompt='A grain silo is a cylinder with radius '+R+' ft and height '+H+' ft, topped by a hemisphere with the same radius. Its volume is xπ cubic feet. Find the coefficient x (do not include π).';why='Cylinder πr²h plus hemisphere ⅔πr³.';}
+ else if(k==='drill'){v=2*R*R*H/3;prompt='A solid cylinder with radius '+R+' cm and height '+H+' cm has a cone removed. The cone has the same base and the same height as the cylinder. The remaining volume is xπ cubic centimeters. Find the coefficient x (do not include π).';why='Cylinder πr²h minus cone ⅓πr²h leaves ⅔πr²h.';}
+ else if(k==='icecream'){v=(R*R*H+2*R*R*R)/3;prompt='A solid is a cone with radius '+R+' cm and height '+H+' cm, topped by a hemisphere with the same radius. Its volume is xπ cubic centimeters. Find the coefficient x (do not include π).';why='Cone ⅓πr²h plus hemisphere ⅔πr³.';}
+ else{v=(3*R*R*H+4*R*R*R)/3;prompt='A capsule is a cylinder with radius '+R+' in. and height '+H+' in. with a hemisphere attached to each end. Its volume is xπ cubic inches. Find the coefficient x (do not include π).';why='Two hemispheres make one sphere: πr²h + (4/3)πr³.';}
+ return {variant:'geo-composite-'+k+'-'+c,prompt:prompt,parts:[{answer:M('x='+v),check:D('composite',['x='+(R*R*H),'x='+(k==='drill'?R*R*H/3:R*R*H+R*R*R),'x='+(v+R*R)],v)}],steps:[step(why,''),step('x = '+v+'.','')],space:[1.1,1.3,1.5]};}
+function unitConvert(ctx){var r=ctx.rng,c=ctx.c,ks=c<=3?['ft-yd','yd-ft','cuyd-cuft']:c<=5?['ft-yd','yd-ft','cuyd-cuft','cuft-cuyd','sqft-sqin']:['cuft-cuyd','sqft-sqin','sqm-sqcm','in-cuft'],k=r.pick(ks),prompt,v,why,a,b,cc,alt;
+ if(k==='ft-yd'){a=3*r.int(2,8);b=3*r.int(2,9);v=a*b/9;alt=a*b/3;prompt='A rectangular floor measures '+a+' feet by '+b+' feet. Carpet is sold by the square yard. How many square yards of carpet cover the floor exactly?';why='1 square yard = 3 ft × 3 ft = 9 square feet, so divide the area '+a*b+' by 9.';}
+ else if(k==='yd-ft'){a=r.int(2,12);b=r.int(2,12);v=9*a*b;alt=3*a*b;prompt='A garden measures '+a+' yards by '+b+' yards. What is its area? How many square feet is that?';why='Each square yard is 9 square feet: '+a*b+' × 9.';}
+ else if(k==='cuyd-cuft'){a=r.int(2,20);v=27*a;alt=3*a;prompt='A dump truck holds '+a+' cubic yards of gravel. How many cubic feet of gravel is that?';why='1 cubic yard = 3 × 3 × 3 = 27 cubic feet.';}
+ else if(k==='cuft-cuyd'){a=27*r.int(2,12);v=a/27;alt=a/9;prompt='A trench holds '+a+' cubic feet of soil. How many cubic yards of soil is that?';why='Divide by 27 because 1 cubic yard = 27 cubic feet.';}
+ else if(k==='sqft-sqin'){a=r.int(2,15);v=144*a;alt=12*a;prompt='A tabletop has an area of '+a+' square feet. How many square inches is that?';why='1 square foot = 12 in. × 12 in. = 144 square inches.';}
+ else if(k==='sqm-sqcm'){a=r.int(2,9);v=10000*a;alt=100*a;prompt='A poster has an area of '+a+' square meters. How many square centimeters is that?';why='1 square meter = 100 cm × 100 cm = 10,000 square centimeters.';}
+ else{a=12*r.int(1,4);b=12*r.int(1,4);cc=12*r.int(1,6);v=a*b*cc/1728;alt=a*b*cc/144;prompt='A shipping box measures '+a+' inches by '+b+' inches by '+cc+' inches. How many cubic feet of space does it hold?';why='1 cubic foot = 12 × 12 × 12 = 1728 cubic inches; or convert each edge to feet first: '+a/12+' × '+b/12+' × '+cc/12+'.';}
+ var unit=/square yards/.test(prompt)?'square yards':/square feet\?/.test(prompt)?'square feet':/cubic feet of gravel/.test(prompt)?'cubic feet':/cubic yards/.test(prompt)?'cubic yards':/square inches/.test(prompt)?'square inches':/square centimeters/.test(prompt)?'square centimeters':'cubic feet';
+ return {variant:'geo-units-'+k+'-'+c,prompt:prompt,parts:[{answer:M(String(v))+' '+unit,check:D('unit-conv',[alt,v*3,v+9,v*2],v)}],steps:[step(why,''),step('Answer: '+v+' '+unit+'.','')],space:[0.8,1.0,1.2]};}
+var SOLIDS=[['rectangular prisms','prism','edges'],['square pyramids','pyramid','edges'],['cylinders','cylinder','radii'],['cones','cone','heights'],['triangular prisms','prism','edges']];
+function similarSolids(ctx){var r=ctx.rng,c=ctx.c,sd=r.pick(SOLIDS),a=r.int(2,5),b=r.int(a+1,a+4),g=K.gcd(a,b),A=a/g,B=b/g,mode=c<=2?r.pick(['sa','sa','vol']):c<=3?r.pick(['sa','vol']):c<=5?r.pick(['sa','vol','vol','back']):r.pick(['vol','back','root','ratio']),prompt,ans,why,alts,pi=/cylinder|cone/.test(sd[1]);
+ var unitL='cm',big=r.chance(0.5)&&mode!=='root';
+ if(mode==='ratio'){var what=r.pick(['perimeters','surface areas','volumes']),e=what==='volumes'?3:what==='perimeters'?1:2;
+  prompt='Two similar '+sd[0]+' have a scale factor of '+A+':'+B+' (smaller to larger). Find the ratio of their '+what+', smaller to larger.';ans=Math.pow(A,e)+':'+Math.pow(B,e);alts=[A+':'+B,Math.pow(A,e===3?2:3)+':'+Math.pow(B,e===3?2:3),A*e+':'+B*e];why='Lengths scale by k, areas by k², volumes by k³.';
+  return {variant:'geo-similar-solid-ratio-'+c,prompt:prompt,parts:[{answer:ans,check:{type:'derive',kind:'similar',alts:alts.filter(function(x){return x!==ans;})}}],steps:[step(why,''),step('Ratio: '+ans+'.','')],space:[0.7,0.8,0.9]};}
+ if(mode==='root'){var k3=r.chance(0.5)?3:2,v1=Math.pow(A,k3)*r.int(1,3),f=Math.pow(B,k3)/Math.pow(A,k3),v2=v1*f,h1=A*r.int(1,4),h2=h1*B/A;
+  prompt='Two similar '+sd[0]+' have '+(k3===3?'volumes':'surface areas')+' of '+v1+' and '+v2+' '+(k3===3?'cubic':'square')+' centimeters. The smaller '+sd[1]+' has a height of '+h1+' '+unitL+'. Find the height of the larger '+sd[1]+'.';
+  ans=h2;alts=[h1*v2/v1,h1*Math.sqrt(f),h1+B-A].filter(function(x){return x!==ans&&x%1===0;});why=(k3===3?'The cube root':'The square root')+' of the '+(k3===3?'volume':'area')+' ratio '+v2+'/'+v1+' is the scale factor '+B+'/'+A+'.';
+  return {variant:'geo-similar-solid-root-'+k3+'-'+c,prompt:prompt,parts:[{answer:M(String(ans))+' '+unitL,check:D('similar',alts,ans)}],steps:[step(why,''),step('Height = '+h1+' · '+B+'/'+A+' = '+ans+' cm.','')],space:[1.0,1.2,1.4]};}
+ var e2=mode==='sa'?2:3,meas=mode==='sa'?'surface area':'volume',base=Math.pow(A,e2)*r.int(1,c>=5?6:4)*(pi?1:1),other=base*Math.pow(B,e2)/Math.pow(A,e2);
+ if(mode==='back'){meas=r.pick(['surface area','volume']);e2=meas==='volume'?3:2;base=Math.pow(A,e2)*r.int(1,5);other=base*Math.pow(B,e2)/Math.pow(A,e2);big=true;}
+ var given=big?other:base,want=big?base:other,la=A*r.int(1,3),lb=la*B/A;
+ prompt='Two similar '+sd[0]+' have corresponding '+sd[2]+' of '+la+' '+unitL+' and '+lb+' '+unitL+'. The '+(big?'larger':'smaller')+' '+sd[1]+' has a '+meas+' of '+given+(meas==='volume'?' cubic ':' square ')+'centimeters. Find the '+meas+' of the '+(big?'smaller':'larger')+' '+sd[1]+'.';
+ alts=[given*lb/la,given*la/lb,want*B/A,want*A/B].filter(function(x){return x!==want&&x%1===0&&x>0;});
+ why=(meas==='volume'?'Volumes scale by the cube':'Surface areas scale by the square')+' of the scale factor '+B+'/'+A+'.';
+ return {variant:'geo-similar-solid-'+mode+'-'+c,prompt:prompt,parts:[{answer:M(String(want))+(meas==='volume'?' cubic ':' square ')+'centimeters',check:D('similar',alts,want)}],steps:[step(why,''),step(meas.charAt(0).toUpperCase()+meas.slice(1)+' = '+given+' · ('+(big?A+'/'+B:B+'/'+A)+')'+(e2===3?'³':'²')+' = '+want+'.','')],space:[1.0,1.2,1.4]};}
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
-tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids'},
-reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section></div>',
-gaps:['Surface area of pyramids and cones, composite figures beyond two stacked prisms, unit conversions, and scale-factor problems for area and volume are not generated.'],
+tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids',SCALE:'Similar solids and scale factors',UNITS:'Unit conversions for area and volume'},
+reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section><section><h4>Surface area</h4><p>Square pyramid: s² + 2sl; cone: πr² + πrl (l = slant height).</p></section><section><h4>Similar solids</h4><p>Scale factor k: areas × k², volumes × k³.</p></section></div>',
+gaps:['Composite figures are generated from text descriptions (cylinders, cones and hemispheres) and two stacked prisms; composite plane figures with drawn diagrams are not generated.'],
 skills:[
 {id:'measure-rectangle-area',tag:'AREA',name:'Area of a rectangle',best:[0,1],generate:rect},
 {id:'measure-triangle-area',tag:'AREA',name:'Area of a triangle',best:[0,1],generate:triangle},
@@ -110,6 +163,11 @@ skills:[
 {id:'measure-investigation-cylinder',tag:'INVEST',name:'Honors: cylinder from its volume, surface area and a cone',best:[2],generate:invCylinder},
 {id:'measure-investigation-sphere',tag:'INVEST',name:'Honors: sphere from its surface area, hemisphere and cylinder',best:[2],generate:invSphere},
 {id:'measure-investigation-trapezoid',tag:'INVEST',name:'Honors: trapezoid with an algebraic base, triangle and scaling',best:[2],generate:invTrapezoid},
+{id:'measure-pyramid-surface',tag:'SURFACE',name:'Surface area of a square pyramid (slant height)',best:[0,1,2],generate:pyramidSurface},
+{id:'measure-cone-surface',tag:'CIRCULAR',name:'Surface area of a cone (coefficient of π)',best:[0,1,2],generate:coneSurface},
+{id:'measure-composite-round',tag:'VOLUME',name:'Volume of composite solids with cylinders, cones and hemispheres',best:[1,2],generate:compositeRound},
+{id:'measure-unit-conversion',tag:'UNITS',name:'Convert square and cubic units',best:[0,1,2],generate:unitConvert},
+{id:'measure-similar-solids',tag:'SCALE',name:'Similar solids: scale factor, surface area and volume',best:[0,1,2],generate:similarSolids},
 {id:'solids-open-response-investigation',tag:'INVEST',name:'Four-part prism investigation',best:[2],generate:solidsInvestigation}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

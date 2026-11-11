@@ -817,6 +817,500 @@
     if (chk.type === 'geo-proof-blank' && res.bad.indexOf(chk.row) < 0) return { status: 'mismatch', msg: 'Another row of the proof is not valid: ' + res.msg[0] };
     return { status: 'mismatch', msg: res.msg.join(' ') };
   }
+  /* ---------- properties of operations (Algebra 1 Unit 1) ----------
+     The property is read from the STRUCTURE of the printed equation, never from the generator: an equation is
+     accepted only when exactly one single-step property explains it (so no question has two defensible names). */
+  var PROP = (function () {
+    var NAMES = { 'comm-add': 'Commutative Property of Addition', 'comm-mul': 'Commutative Property of Multiplication',
+      'assoc-add': 'Associative Property of Addition', 'assoc-mul': 'Associative Property of Multiplication',
+      'id-add': 'Identity Property of Addition', 'id-mul': 'Identity Property of Multiplication',
+      'inv-add': 'Inverse Property of Addition', 'inv-mul': 'Inverse Property of Multiplication',
+      'zero': 'Multiplicative Property of Zero', 'dist': 'Distributive Property' };
+    function strip(n) { while (n && n.k === 'grp') n = n.a; return n; }
+    function same(a, b) {   // structural equality; grouping parentheses are ignored, the shape is not
+      a = strip(a); b = strip(b);
+      if (!a || !b || a.k !== b.k) return false;
+      if (a.k === 'num') return a.v.eq(b.v);
+      if (a.k === 'var') return a.v === b.v;
+      if (a.k === 'neg' || a.k === 'abs') return same(a.a, b.a);
+      if (a.k === 'pow') return a.e === b.e && same(a.a, b.a);
+      if (a.k === 'xpow') return same(a.a, b.a) && same(a.b, b.b);
+      return same(a.a, b.a) && same(a.b, b.b);
+    }
+    function isNum(n, v) { n = strip(n); return !!n && n.k === 'num' && n.v.eq(new Q(BigInt(v))); }
+    function lead(n) { n = strip(n); return n.k === 'neg' || ((n.k === 'mul' || n.k === 'div') && lead(n.a)); }
+    var ZERO_N = { k: 'num', v: Q.ZERO };
+    function negOf(a, b) { return lead(a) !== lead(b) && equalValue({ k: 'add', a: a, b: b }, ZERO_N) && !equalValue(a, ZERO_N); }
+    function recip(a, b) {
+      a = strip(a); b = strip(b);
+      if (a.k === 'neg' && b.k === 'neg') return recip(a.a, b.a);
+      var one = function (x, y) { return x.k === 'div' && isNum(x.a, 1) && same(x.b, y); };
+      if (one(a, b) || one(b, a)) return true;
+      return a.k === 'div' && b.k === 'div' && same(a.a, b.b) && same(a.b, b.a) && !same(a.a, a.b);
+    }
+    function varsAll(n, out) { n = n || {}; out = out || {}; if (!n || typeof n !== 'object') return out; if (n.k === 'var') out[n.v] = 1; ['a', 'b'].forEach(function (k) { if (n[k] && typeof n[k] === 'object') varsAll(n[k], out); }); return out; }
+    function equalValue(a, b) {   // exact evaluation at several rational points
+      var vs = Object.keys(Object.assign(varsAll(a), varsAll(b))), pts = [[7n, 3n], [-5n, 2n], [11n, 1n]];
+      return pts.every(function (pt, i) { var env = {}; vs.forEach(function (v, j) { env[v] = new Q(pt[0] + BigInt(3 * j + i), pt[1]); }); try { return C.evalNode(a, env).eq(C.evalNode(b, env)); } catch (e) { return false; } });
+    }
+    function mulN(a, b) { return { k: 'mul', a: a, b: b }; }
+    function distrib(S, T) {   // S = A(B ± C) or (B ± C)A ; T = P ± R with P = AB and ±R = ±AC
+      S = strip(S); T = strip(T);
+      if (S.k !== 'mul') return false;
+      var A, G;
+      if (S.b.k === 'grp' && (strip(S.b).k === 'add' || strip(S.b).k === 'sub')) { A = S.a; G = strip(S.b); }
+      else if (S.a.k === 'grp' && (strip(S.a).k === 'add' || strip(S.a).k === 'sub')) { A = S.b; G = strip(S.a); }
+      else return false;
+      if (T.k !== 'add' && T.k !== 'sub') return false;
+      var sg = function (k, n) { return k === 'sub' ? { k: 'neg', a: n } : n; };
+      return equalValue(T.a, mulN(A, G.a)) && equalValue(sg(T.k, T.b), sg(G.k, mulN(A, G.b))) && !equalValue(G.b, { k: 'num', v: Q.ZERO });
+    }
+    function top(L, R, out) {
+      L = strip(L); R = strip(R);
+      if (!L || !R) return;
+      if (L.k === R.k && (L.k === 'add' || L.k === 'mul') && same(L.a, R.b) && same(L.b, R.a) && !same(L.a, L.b)) out.push(L.k === 'add' ? 'comm-add' : 'comm-mul');
+      [[L, R], [R, L]].forEach(function (pr) {   // (a∘b)∘c = a∘(b∘c), either direction
+        var X = pr[0], Y = pr[1];
+        if (X.k === Y.k && (X.k === 'add' || X.k === 'mul') && strip(X.a).k === X.k && Y.b.k === 'grp' && strip(Y.b).k === X.k) {
+          var xa = strip(X.a), yb = strip(Y.b);
+          if (same(xa.a, Y.a) && same(xa.b, yb.a) && same(X.b, yb.b) && (X.a.k === 'grp' || X.k === 'add' || X.k === 'mul')) out.push(X.k === 'add' ? 'assoc-add' : 'assoc-mul');
+        }
+      });
+      [[L, R], [R, L]].forEach(function (pr) {
+        var X = pr[0], Y = pr[1];
+        if (X.k === 'add' && ((isNum(X.b, 0) && same(X.a, Y)) || (isNum(X.a, 0) && same(X.b, Y)))) out.push('id-add');
+        if (X.k === 'mul' && ((isNum(X.b, 1) && same(X.a, Y)) || (isNum(X.a, 1) && same(X.b, Y)))) out.push('id-mul');
+        if (X.k === 'mul' && isNum(Y, 0) && (isNum(X.a, 0) || isNum(X.b, 0)) && !(isNum(X.a, 0) && isNum(X.b, 0))) out.push('zero');
+        if (X.k === 'add' && isNum(Y, 0) && negOf(X.a, X.b)) out.push('inv-add');
+        if (X.k === 'mul' && isNum(Y, 1) && recip(X.a, X.b)) out.push('inv-mul');
+        if (distrib(X, Y)) out.push('dist');
+      });
+    }
+    function classify(L, R) {
+      var out = []; top(L, R, out);
+      out = out.filter(function (x, i) { return out.indexOf(x) === i; });
+      if (out.length) return out;
+      L = strip(L); R = strip(R);
+      if (!L || !R || L.k !== R.k) return [];
+      if (L.k === 'neg') return classify(L.a, R.a);
+      if (['add', 'sub', 'mul', 'div'].indexOf(L.k) < 0) return [];
+      if (same(L.a, R.a)) return classify(L.b, R.b);
+      if (same(L.b, R.b)) return classify(L.a, R.a);
+      return [];
+    }
+    /* the property shown by the TeX equation, or null when none or more than one applies */
+    function of(tex) {
+      var rel; try { rel = C.parseRelation(tex); } catch (e) { return null; }
+      if (rel.rel !== '=' || same(rel.lhs, rel.rhs) || !equalValue(rel.lhs, rel.rhs)) return null;
+      var got = classify(rel.lhs, rel.rhs);
+      return got.length === 1 ? got[0] : null;
+    }
+    /* a property name written in words → its code (null if missing or ambiguous) */
+    function code(text) {
+      var t = C.plainText(String(text || '')).toLowerCase();
+      if (/zero product/.test(t)) return null;
+      if (/distribut/.test(t)) return /commutat|associat|identity|inverse/.test(t) ? null : 'dist';
+      var kinds = ['commutat', 'associat', 'identity', 'inverse'].filter(function (k) { return t.indexOf(k) >= 0; });
+      var add = /addit|\baddition\b|\bsum\b/.test(t), mul = /multipl|\bproduct\b/.test(t);
+      if (/\bzero\b/.test(t) && mul && !kinds.length && !add) return 'zero';
+      if (kinds.length !== 1 || add === mul) return null;
+      return { commutat: 'comm', associat: 'assoc', identity: 'id', inverse: 'inv' }[kinds[0]] + '-' + (add ? 'add' : 'mul');
+    }
+    return { of: of, code: code, NAMES: NAMES, classify: classify };
+  })();
+  NS.propertyCheck = PROP;
+  function checkProperty(p, part) {
+    var chk = part.check, ans = part.answer || '';
+    if (chk.type === 'property-name') {
+      if (!shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation is not printed for students.' };
+      var chain = /simplified ⟨([^⟩]+)⟩ in four steps/.exec(p.prompt || '');
+      if (chain && (p.parts || []).length > 1) {   // the steps must start from the printed expression and each step must start where the last one ended
+        var eqs = (p.parts || []).map(function (q) { return q.check && q.check.eq ? String(q.check.eq).split('=') : null; });
+        if (eqs.length !== 4 || eqs.some(function (e) { return !e || e.length !== 2; }) || norm(eqs[0][0]) !== norm(chain[1]) || eqs.some(function (e, i) { return i && norm(e[0]) !== norm(eqs[i - 1][1]); }))
+          return { status: 'invalid', msg: 'The steps do not start from the printed expression.' };
+      }
+      var want = PROP.of(chk.eq); if (!want) return { status: 'invalid', msg: 'The equation does not show exactly one property.' };
+      return PROP.code(ans) === want ? { status: 'verified', computed: PROP.NAMES[want] } : { status: 'mismatch', msg: 'Correct: ' + PROP.NAMES[want] + '.', computed: PROP.NAMES[want] };
+    }
+    if (chk.type === 'property-apply') {
+      if (!shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression is not printed for students.' };
+      var named = PROP.code(p.prompt); if (!named) return { status: 'invalid', msg: 'The question does not name one property.' };
+      var e = firstMath(ans); if (e === null) return { status: 'mismatch', msg: 'No expression.' };
+      var got = PROP.of(chk.expr + '=' + e);
+      return got === named ? { status: 'verified' } : { status: 'mismatch', msg: 'The rewrite must use the ' + PROP.NAMES[named] + ' (and only that property).' };
+    }
+    if (chk.type === 'property-select') {
+      var wantS = PROP.code((/shows the ([^.]*)\./.exec(C.plainText(p.prompt || '')) || [])[1]);
+      if (!wantS || !Array.isArray(chk.opts) || chk.opts.length < 4) return { status: 'invalid', msg: 'The question does not name one property.' };
+      var yes = chk.opts.filter(function (t) { return PROP.of(t) === wantS; }), said = C.snippets(ans).map(norm);
+      if (chk.opts.some(function (t) { return PROP.of(t) === null; })) return { status: 'invalid', msg: 'An option shows no single property.' };
+      if (yes.length < 1 || yes.length >= chk.opts.length) return { status: 'invalid', msg: 'Select-all needs true and false options.' };
+      return said.length === yes.length && yes.every(function (y) { return said.indexOf(norm(y)) >= 0; }) ? { status: 'verified', computed: yes.join(', ') } : { status: 'mismatch', msg: 'Correct: ' + yes.join(', ') + '.' };
+    }
+    if (chk.type === 'property-holds') {   // "Is this equation true?" / "Is subtraction (or division) commutative/associative?"
+      var truth;
+      if (chk.eq) { if (!shown(p, chk.eq)) return { status: 'invalid', msg: 'The equation is not printed.' }; var R2 = C.parseRelation(chk.eq); truth = C.evalNode(R2.lhs, {}).eq(C.evalNode(R2.rhs, {})); }
+      else {
+        var cm = /^Is (subtraction|division) (commutative|associative)\?/.exec(C.plainText(part.prompt || ''));
+        if (!cm) return { status: 'invalid', msg: 'Unrecognized claim.' };
+        var shownFalse = (p.parts || []).some(function (q) { if (!q.check || q.check.type !== 'property-holds' || !q.check.eq) return false; var R3 = C.parseRelation(q.check.eq); return /[-\/]/.test(C.tokenize(q.check.eq).map(function (t) { return t.t; }).join('')) && !C.evalNode(R3.lhs, {}).eq(C.evalNode(R3.rhs, {})); });
+        if (!shownFalse) return { status: 'invalid', msg: 'No counterexample is printed.' };
+        truth = false;   // neither operation is commutative or associative; the printed counterexample shows it
+      }
+      var yn = /^\s*(yes|no)\b/i.exec(C.plainText(ans));
+      if (!yn) return { status: 'mismatch', msg: 'Answer yes or no.' };
+      return (yn[1].toLowerCase() === 'yes') === truth ? { status: 'verified', computed: truth ? 'Yes' : 'No' } : { status: 'mismatch', msg: 'Correct: ' + (truth ? 'Yes' : 'No') + '.' };
+    }
+    return { status: 'invalid', msg: 'Unknown property check.' };
+  }
+  /* ---------- "derive" checks: the answer is recomputed from the numbers and words printed for students ----------
+     Used by the skills that close earlier coverage gaps (direct variation, real-number operations, surface area of
+     pyramids and cones, similar solids, composite solids, unit conversions, Law of Sines/Cosines, points of
+     concurrency, kites and isosceles trapezoids, angle pairs and the converse of the parallel-line theorems,
+     transformation sequences). Nothing is taken from the generator except which reader to use. */
+  var DERIVE = (function () {
+    function need(m, what) { if (!m) throw new C.CheckError('cannot read ' + what); return m; }
+    function nq(s) { return C.readNumber(String(s).trim()); }
+    function qn(q) { return Number(q.n) / Number(q.d); }
+    function solveX(e1, e2, v) { var s = C.solveLinear(e1 + '=' + e2, v || 'x'); if (!s || s.kind !== 'one') throw new C.CheckError('no single solution'); return s.value; }
+    function exact(ans, want, v) { var got = valueFromAnswer(ans, v); return got.eq(want) ? { status: 'verified', computed: qText(want) } : { status: 'mismatch', msg: 'Correct value is ' + qText(want) + '.', computed: qText(want) }; }
+    function rounded(ans, val, txt, v, unitWord) {
+      if (!/nearest tenth/.test(txt)) return { status: 'invalid', msg: 'The rounding instruction is not printed.' };
+      if (!isFinite(val) || val <= 0) return { status: 'invalid', msg: 'Impossible measurement.' };
+      var t = val * 10; if (Math.abs(t - Math.floor(t) - 0.5) < 1e-6) return { status: 'invalid', msg: 'The value is too close to a rounding boundary.' };
+      var want = (Math.round(t) / 10).toFixed(1), got = valueFromAnswer(ans, v);
+      return got.eq(C.readNumber(want)) ? { status: 'verified', computed: want } : { status: 'mismatch', msg: 'Correct (to the nearest tenth): ' + want + '.', computed: want };
+    }
+    function sqrtInt(n) { var r = Math.round(Math.sqrt(n)); if (r * r !== n) throw new C.CheckError('not a whole-number length'); return r; }
+    function words(ans) { return C.plainText(String(ans || '')).toLowerCase(); }
+    function deg(x) { return x * Math.PI / 180; }
+    var R = {};
+    /* Algebra 1 Unit 5 · direct variation */
+    R['dv'] = function (p, part, raw) {
+      var ans = part.answer || '';
+      if (/Does the table show/.test(raw) || /Is the equation/.test(raw)) {
+        var pts = [], k = null, isDV = true, em = null;
+        if (/Does the table show/.test(raw)) { need(p.fig && p.fig.kind === 'table' && p.fig.rows && p.fig.rows.length >= 3, 'table'); pts = p.fig.rows.map(function (r) { return [nq(r[0]), nq(r[1])]; }); }
+        else { em = need(/Is the equation ⟨y=([^⟩]+)⟩ a direct variation/.exec(raw), 'equation'); var ex = C.parseExpr(em[1]);
+          [0, 1, 2, 5].forEach(function (x) { pts.push([new Q(BigInt(x)), C.evalNode(ex, { x: new Q(BigInt(x)) })]); }); }
+        pts.forEach(function (pt) {
+          if (pt[0].n === 0n) { if (pt[1].n !== 0n) isDV = false; return; }
+          var r = pt[1].div(pt[0]); if (k === null) k = r; else if (!r.eq(k)) isDV = false;
+        });
+        if (k === null || k.n === 0n) isDV = false;
+        var said = /^\s*yes/i.test(C.plainText(ans)), saidNo = /^\s*no\b/i.test(C.plainText(ans));
+        if (!said && !saidNo) return { status: 'mismatch', msg: 'Answer yes or no.' };
+        if (!isDV) {
+          if (!saidNo) return { status: 'mismatch', msg: 'Correct: No.' };
+          var stated = C.snippets(ans);   // an equation answer that names its slope and intercept must name them correctly
+          if (stated.length && em) { var ex2 = C.parseExpr(em[1]), b0 = C.evalNode(ex2, { x: Q.ZERO }), m0 = C.evalNode(ex2, { x: Q.ONE }).sub(b0), vals = stated.map(function (t) { try { return nq(t); } catch (e) { return null; } });
+            if (vals.length !== 2 || !vals[0] || !vals[1] || !vals[0].eq(m0) || !vals[1].eq(b0)) return { status: 'mismatch', msg: 'The slope is ' + qText(m0) + ' and the y-intercept is ' + qText(b0) + '.' }; }
+          return { status: 'verified', computed: 'No' };
+        }
+        if (!said) return { status: 'mismatch', msg: 'Correct: Yes, k = ' + qText(k) + '.' };
+        var km = /k\s*=\s*([^⟩]+)⟩/.exec(ans); if (!km) return { status: 'mismatch', msg: 'Give the constant k.' };
+        return nq(km[1]).eq(k) ? { status: 'verified', computed: 'Yes, k = ' + qText(k) } : { status: 'mismatch', msg: 'Correct: Yes, k = ' + qText(k) + '.' };
+      }
+      var wm = /When the ([a-z ]+?) is (\d+(?:\.\d+)?) ([a-z]+), the ([a-z ]+?) is (\d+(?:\.\d+)?) ([a-z]+)\. Find the ([a-z ]+?) when the ([a-z ]+?) is (\d+(?:\.\d+)?) ([a-z]+)\./.exec(raw);
+      if (wm) {
+        if (!new RegExp('The ' + wm[4] + ' varies directly with the ' + wm[1] + '\\.').test(raw) || wm[7] !== wm[4] || wm[8] !== wm[1] || wm[10] !== wm[3]) throw new C.CheckError('cannot read the situation');
+        return exact(ans, nq(wm[5]).div(nq(wm[2])).mul(nq(wm[9])));
+      }
+      var m = need(/⟨([a-z])⟩ varies directly with ⟨([a-z])⟩, and ⟨\1=([^⟩]+)⟩ when ⟨\2=([^⟩]+)⟩/.exec(raw), 'variation'), Y = m[1], X = m[2], kk = nq(m[3]).div(nq(m[4]));
+      if (kk.n === 0n) throw new C.CheckError('k is 0');
+      if (/Find the constant of variation/.test(raw)) return exact(ans, kk, 'k');
+      if (/Write the direct variation equation/.test(raw)) {
+        var s = firstMath(ans); if (!s) return { status: 'mismatch', msg: 'No equation.' };
+        var rel = C.parseRelation(s); if (!(rel.lhs.k === 'var' && rel.lhs.v === Y)) return { status: 'mismatch', msg: 'Write ' + Y + ' = kx.' };
+        var ok = [0, 1, 3, -2].every(function (x) { var env = {}; env[X] = new Q(BigInt(x)); try { return C.evalNode(rel.rhs, env).eq(kk.mul(new Q(BigInt(x)))); } catch (e) { return false; } });
+        return ok ? { status: 'verified', computed: Y + '=' + qText(kk) + X } : { status: 'mismatch', msg: 'Correct: ' + Y + ' = ' + qText(kk) + X + '.' };
+      }
+      var fy = new RegExp('Find ⟨' + Y + '⟩ when ⟨' + X + '=([^⟩]+)⟩').exec(raw); if (fy) return exact(ans, kk.mul(nq(fy[1])), Y);
+      var fx = new RegExp('Find ⟨' + X + '⟩ when ⟨' + Y + '=([^⟩]+)⟩').exec(raw); if (fx) return exact(ans, nq(fx[1]).div(kk), X);
+      throw new C.CheckError('unknown direct-variation question');
+    };
+    /* Algebra 1 Unit 1 · operations with real numbers */
+    R['real-op'] = function (p, part, raw, policy) {
+      var m = need(/^(?:Find the value of|Simplify|Evaluate) ⟨([^⟩]+)⟩\./.exec(raw), 'expression'), val = C.evalNode(C.parseExpr(m[1]), {});
+      if (policy && policy.intOnly && !val.isInt()) return { status: 'invalid', msg: 'The value is not a whole number.', computed: qText(val) };
+      var res = exact(part.answer || '', val);
+      if (res.status === 'verified') { var a = firstMath(part.answer || ''); if (a && !C.simplifiedForm(a).ok) return { status: 'mismatch', msg: 'Write the answer in simplest form.' }; }
+      return res;
+    };
+    /* Geometry Unit 10 · surface area of pyramids and cones, composite solids, unit conversions */
+    R['pyr-sa'] = function (p, part, raw) {
+      var s, l, m = /square pyramid has base edges? (\d+) cm and slant height (\d+) cm/.exec(raw), h;
+      if (m) { s = +m[1]; l = +m[2]; } else { m = need(/square pyramid has base edges? (\d+) cm and height (\d+) cm/.exec(raw), 'pyramid'); s = +m[1]; h = +m[2]; need(s % 2 === 0, 'even base'); l = sqrtInt(s * s / 4 + h * h); }
+      if (!(l > s / 2)) throw new C.CheckError('impossible slant height');
+      var lat = /Find its lateral surface area/.test(raw), tot = /Find its total surface area/.test(raw); need(lat !== tot, 'which area');
+      return exact(part.answer || '', new Q(BigInt(lat ? 2 * s * l : s * s + 2 * s * l)));
+    };
+    R['cone-sa'] = function (p, part, raw) {
+      var r, l, m = /cone has radius (\d+) cm and slant height (\d+) cm/.exec(raw);
+      if (m) { r = +m[1]; l = +m[2]; } else { m = need(/cone has radius (\d+) cm and height (\d+) cm/.exec(raw), 'cone'); r = +m[1]; l = sqrtInt(r * r + (+m[2]) * (+m[2])); }
+      if (!(l > r)) throw new C.CheckError('impossible slant height');
+      need(/xπ square centimeters/.test(raw), 'coefficient of π');
+      var lat = /Its lateral surface area/.test(raw), tot = /Its total surface area/.test(raw); need(lat !== tot, 'which area');
+      return exact(part.answer || '', new Q(BigInt(lat ? r * l : r * r + r * l)), 'x');
+    };
+    R['composite'] = function (p, part, raw) {
+      var m, v;
+      if ((m = /cylinder with radius (\d+) ft and height (\d+) ft, topped by a hemisphere with the same radius/.exec(raw))) v = new Q(BigInt(3 * m[1] * m[1] * m[2] + 2 * m[1] * m[1] * m[1]), 3n);
+      else if ((m = /cone with radius (\d+) cm and height (\d+) cm, topped by a hemisphere with the same radius/.exec(raw))) v = new Q(BigInt(m[1] * m[1] * m[2] + 2 * m[1] * m[1] * m[1]), 3n);
+      else if ((m = /cylinder with radius (\d+) cm and height (\d+) cm has a cone removed\. The cone has the same base and the same height/.exec(raw))) v = new Q(BigInt(2 * m[1] * m[1] * m[2]), 3n);
+      else if ((m = /cylinder with radius (\d+) in\. and height (\d+) in\. with a hemisphere attached to each end/.exec(raw))) v = new Q(BigInt(3 * m[1] * m[1] * m[2] + 4 * m[1] * m[1] * m[1]), 3n);
+      else throw new C.CheckError('cannot read the solid');
+      need(/volume is xπ cubic/.test(raw), 'coefficient of π');
+      return exact(part.answer || '', v, 'x');
+    };
+    R['unit-conv'] = function (p, part, raw) {
+      var m, v;
+      if ((m = /measures (\d+) feet by (\d+) feet\. .*How many square yards/.exec(raw))) v = new Q(BigInt(m[1] * m[2]), 9n);
+      else if ((m = /measures (\d+) yards by (\d+) yards\. .*How many square feet/.exec(raw))) v = new Q(BigInt(9 * m[1] * m[2]));
+      else if ((m = /holds (\d+) cubic yards.*How many cubic feet/.exec(raw))) v = new Q(BigInt(27 * m[1]));
+      else if ((m = /holds (\d+) cubic feet.*How many cubic yards/.exec(raw))) v = new Q(BigInt(m[1]), 27n);
+      else if ((m = /area of (\d+) square feet\. .*How many square inches/.exec(raw))) v = new Q(BigInt(144 * m[1]));
+      else if ((m = /area of (\d+) square meters\. .*How many square centimeters/.exec(raw))) v = new Q(BigInt(10000 * m[1]));
+      else if ((m = /measures (\d+) inches by (\d+) inches by (\d+) inches\. .*How many cubic feet/.exec(raw))) v = new Q(BigInt(m[1] * m[2] * m[3]), 1728n);
+      else throw new C.CheckError('cannot read the conversion');
+      return exact(part.answer || '', v);
+    };
+    /* Similar figures and solids: lengths scale by k, areas by k², volumes by k³ (Geometry Units 5 and 10) */
+    R['similar'] = function (p, part, raw) {
+      var m, a, b, give, want, e = { length: 1, perimeter: 1, height: 1, side: 1, area: 2, 'surface area': 2, volume: 3 };
+      if ((m = /corresponding (sides|edges|heights|radii) of (\d+) (?:cm|in\.|ft|units) and (\d+) (?:cm|in\.|ft|units)\. The (smaller|larger) (?:[a-z ]+?) has an? (area|perimeter|surface area|volume) of (\d+)[^.]*\. Find the (area|perimeter|surface area|volume) of the (smaller|larger)/.exec(raw))) {
+        a = +m[2]; b = +m[3]; need(a < b && m[4] !== m[8] && m[5] === m[7], 'similar figures');
+        var kq = new Q(BigInt(b), BigInt(a)), pw = e[m[5]], f = kq.pow(pw), val = nq(m[6]);
+        return exact(part.answer || '', m[4] === 'smaller' ? val.mul(f) : val.div(f));
+      }
+      if ((m = /have (areas|surface areas|volumes) of (\d+) and (\d+) (?:square|cubic) (?:centimeters|inches|feet|units)\. The smaller (?:[a-z ]+?) has an? (side|edge|height|radius|perimeter) of (\d+) (?:cm|in\.|ft|units)\. Find the (?:side|edge|height|radius|perimeter) of the larger/.exec(raw))) {
+        var p1 = +m[2], p2 = +m[3], k = m[1] === 'volumes' ? 3 : 2; need(p1 < p2, 'order');
+        // exact k-th root of the ratio p2/p1 (reduced)
+        var Rq = new Q(BigInt(p2), BigInt(p1)), rn = Math.round(Math.pow(Number(Rq.n), 1 / k)), rd = Math.round(Math.pow(Number(Rq.d), 1 / k));
+        if (Math.pow(rn, k) !== Number(Rq.n) || Math.pow(rd, k) !== Number(Rq.d)) throw new C.CheckError('the ratio is not a perfect power');
+        return exact(part.answer || '', nq(m[5]).mul(new Q(BigInt(rn), BigInt(rd))));
+      }
+      if ((m = /scale factor of (\d+):(\d+)(?: \(smaller to larger\))?\. Find the ratio of their (perimeters|areas|surface areas|volumes)/.exec(raw)) || (m = /corresponding sides of (\d+) cm and (\d+) cm\..* Find the ratio of their (perimeters|areas), smaller to larger/.exec(raw))) {
+        var sa = +m[1], sb = +m[2], pe = { perimeters: 1, areas: 2, 'surface areas': 2, volumes: 3 }[m[3]], want2 = Math.pow(sa, pe) + ':' + Math.pow(sb, pe);
+        var got = /(\d+)\s*(?::|to)\s*(\d+)/.exec(C.plainText(part.answer || '') + ' ' + (C.snippets(part.answer || '')[0] || ''));
+        if (!got) return { status: 'mismatch', msg: 'Write the ratio as a:b.' };
+        return new Q(BigInt(got[1]), BigInt(got[2])).eq(new Q(BigInt(Math.pow(sa, pe)), BigInt(Math.pow(sb, pe)))) ? { status: 'verified', computed: want2 } : { status: 'mismatch', msg: 'Correct: ' + want2 + '.' };
+      }
+      throw new C.CheckError('cannot read the similar figures');
+    };
+    /* Geometry Unit 6 · Law of Sines and Law of Cosines (to the nearest tenth) */
+    R['oblique'] = function (p, part, raw) {
+      var txt = C.plainText(raw), g = function (re) { var m = re.exec(txt); return m ? +m[1] : null; };
+      var A = g(/m∠A = (\d+(?:\.\d+)?)°/), B = g(/m∠B = (\d+(?:\.\d+)?)°/), Cc = g(/m∠C = (\d+(?:\.\d+)?)°/), a = g(/\ba = (\d+(?:\.\d+)?)\b/), b = g(/\bb = (\d+(?:\.\d+)?)\b/), c = g(/\bc = (\d+(?:\.\d+)?)\b/);
+      var ask = need(/Find (side [abc]|m∠[ABC]) to the nearest tenth/.exec(txt), 'what to find')[1], val;
+      if (A !== null && B !== null) { Cc = 180 - A - B; need(Cc > 0, 'angles'); }
+      if (A !== null && Cc !== null && B === null) B = 180 - A - Cc;
+      if (ask === 'side b' && A !== null && B !== null && a !== null) val = a * Math.sin(deg(B)) / Math.sin(deg(A));
+      else if (ask === 'side c' && A !== null && Cc !== null && a !== null && b === null) val = a * Math.sin(deg(Cc)) / Math.sin(deg(A));
+      else if (ask === 'm∠B' && A !== null && a !== null && b !== null && c === null) { need(a >= b, 'one triangle (a ≥ b)'); val = Math.asin(b * Math.sin(deg(A)) / a) * 180 / Math.PI; }
+      else if (ask === 'side c' && Cc !== null && a !== null && b !== null) val = Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(deg(Cc)));
+      else if (ask === 'm∠C' && a !== null && b !== null && c !== null) { need(a + b > c && a + c > b && b + c > a, 'triangle inequality'); val = Math.acos((a * a + b * b - c * c) / (2 * a * b)) * 180 / Math.PI; }
+      else throw new C.CheckError('cannot match the givens to the Law of Sines or Cosines');
+      return rounded(part.answer || '', val, txt, /^side/.test(ask) ? ask.slice(-1) : 'x');
+    };
+    /* Geometry Unit 4 · points of concurrency */
+    var CENTERS = { circumcenter: 1, incenter: 1, centroid: 1, orthocenter: 1 };
+    R['center'] = function (p, part, raw) {
+      var txt = C.plainText(raw), ans = part.answer || '', m;
+      var CD = { 'is equidistant from the three vertices': 'circumcenter', 'is equidistant from the three sides': 'incenter', 'is the intersection of the three medians': 'centroid', 'is the intersection of the three altitudes': 'orthocenter',
+        'is the intersection of the three angle bisectors': 'incenter', 'is the intersection of the three perpendicular bisectors of the sides': 'circumcenter', 'is the center of the circle that passes through the three vertices': 'circumcenter',
+        'is the center of the circle that touches all three sides': 'incenter', 'divides each median in a 2:1 ratio': 'centroid', 'is the balance point (center of gravity)': 'centroid' };
+      if ((m = /Point ([A-Z]) (.+?) of △[A-Z]{3}\. Which point of concurrency is ([A-Z])\?/.exec(txt))) {
+        var want = CD[m[2]]; need(want && m[1] === m[3], 'description');
+        var said = Object.keys(CENTERS).filter(function (k) { return words(ans).indexOf(k) >= 0; });
+        return said.length === 1 && said[0] === want ? { status: 'verified', computed: want } : { status: 'mismatch', msg: 'Correct: the ' + want + '.' };
+      }
+      if ((m = /Where is the (circumcenter|orthocenter|centroid|incenter) of an? (acute|right|obtuse) triangle/.exec(txt))) {
+        var loc = m[1] === 'centroid' || m[1] === 'incenter' ? 'inside' : m[2] === 'acute' ? 'inside' : m[2] === 'obtuse' ? 'outside' : 'on';
+        var w = words(ans), saidL = ['inside', 'outside', 'on'].filter(function (k) { return new RegExp('^\\s*' + k + '\\b').test(w); });
+        return saidL.length === 1 && saidL[0] === loc ? { status: 'verified', computed: loc } : { status: 'mismatch', msg: 'Correct: ' + loc + ' the triangle.' };
+      }
+      if ((m = /is a right triangle with legs (\d+) and (\d+)\. Find the distance from its circumcenter to each vertex/.exec(txt))) {   // the circumcenter is the midpoint of the hypotenuse
+        return exact(ans, new Q(BigInt(sqrtInt((+m[1]) * (+m[1]) + (+m[2]) * (+m[2]))), 2n));
+      }
+      var cm = need(/Point ([A-Z]) is the (circumcenter|incenter) of △([A-Z])([A-Z])([A-Z])\./.exec(raw), 'center'), P = cm[1], tri = cm[3] + cm[4] + cm[5];
+      if (cm[2] === 'circumcenter') {
+        var dm = need(new RegExp(P + '([A-Z]) = ⟨([^⟩]+)⟩ and ' + P + '([A-Z]) = ⟨([^⟩]+)⟩').exec(raw), 'distances');
+        need(dm[1] !== dm[3] && tri.indexOf(dm[1]) >= 0 && tri.indexOf(dm[3]) >= 0, 'distances to two vertices');
+        var x = solveX(dm[2], dm[4]);
+        if (/Find ⟨x⟩/.test(raw)) return exact(ans, x, 'x');
+        var tm = need(new RegExp('Find ' + P + '([A-Z])\\.').exec(raw), 'what to find'); need(tri.indexOf(tm[1]) >= 0, 'vertex');
+        return exact(ans, C.evalNode(C.parseExpr(dm[2]), { x: x }));
+      }
+      var im = /The distance from [A-Z] to side ([A-Z]{2}) is ⟨([^⟩]+)⟩ and the distance from [A-Z] to side ([A-Z]{2}) is ⟨([^⟩]+)⟩/.exec(raw);
+      if (im) { var sideOk = function (s) { return tri.indexOf(s[0]) >= 0 && tri.indexOf(s[1]) >= 0 && s[0] !== s[1]; }; need(sideOk(im[1]) && sideOk(im[3]) && im[1] !== im[3], 'sides');
+        return exact(ans, solveX(im[2], im[4]), 'x'); }
+      var pm = need(/The perpendicular from ([A-Z]) to side ([A-Z]{2}) meets it at ([A-Z]), and the perpendicular from \1 to side ([A-Z]{2}) meets it at ([A-Z])\. ([A-Z]{2}) = (\d+) and ([A-Z]{2}) = (\d+)\. Find ([A-Z]{2})\./.exec(raw), 'incenter distances');
+      var I = pm[1], s1 = pm[2], f1 = pm[3], s2 = pm[4], f2 = pm[5], vtx = s1.split('').filter(function (ch) { return s2.indexOf(ch) >= 0; })[0];
+      need(I === P && vtx && pm[6] === vtx + f1 && pm[8] === vtx + I && (pm[10] === I + f2 || pm[10] === f2 + I) && +pm[9] > +pm[7], 'right triangle at the foot of the perpendicular');
+      return exact(ans, new Q(BigInt(sqrtInt((+pm[9]) * (+pm[9]) - (+pm[7]) * (+pm[7])))));   // equal distances to the sides: IE = ID
+    };
+    /* Geometry Unit 7 · kites and isosceles trapezoids */
+    R['quad'] = function (p, part, raw) {
+      var ans = part.answer || '', shape, kite = /kite ([A-Z]{4}) with ([A-Z]{2}) = ([A-Z]{2}) and ([A-Z]{2}) = ([A-Z]{2})/.exec(raw), tr = /isosceles trapezoid ([A-Z]{4}) with bases ([A-Z]{2}) and ([A-Z]{2})/.exec(raw);
+      need(!!kite !== !!tr, 'shape');
+      var V = (kite || tr)[1];
+      var same = function (s, t) { return s === t || s === t.split('').reverse().join(''); };
+      if (tr) { need(same(tr[2], V[0] + V[1]) && same(tr[3], V[2] + V[3]), 'bases AB and CD'); shape = 'trap'; }
+      else { need(same(kite[2], V[0] + V[1]) && same(kite[3], V[0] + V[3]) && same(kite[4], V[2] + V[1]) && same(kite[5], V[2] + V[3]), 'kite sides'); shape = 'kite'; }
+      // relation between two named parts: 'eq' (congruent), 'supp' (sum 180), 'right' (90) or null
+      function rel(x, y) {
+        var key = [x, y].sort().join('|'), A = V[0], B = V[1], Cv = V[2], D = V[3];
+        var T = shape === 'trap' ? {} : {};
+        if (shape === 'trap') {
+          T[['∠' + A, '∠' + B].sort().join('|')] = 'eq'; T[['∠' + Cv, '∠' + D].sort().join('|')] = 'eq';
+          T[['∠' + A, '∠' + D].sort().join('|')] = 'supp'; T[['∠' + B, '∠' + Cv].sort().join('|')] = 'supp';
+          T[[A + Cv, B + D].sort().join('|')] = 'eq'; T[[A + D, B + Cv].sort().join('|')] = 'eq';
+          T[['∠' + A, '∠' + Cv].sort().join('|')] = 'supp'; T[['∠' + B, '∠' + D].sort().join('|')] = 'supp';
+        } else {
+          T[['∠' + B, '∠' + D].sort().join('|')] = 'eq'; T[[A + B, A + D].sort().join('|')] = 'eq'; T[[Cv + B, Cv + D].sort().join('|')] = 'eq';
+          T[['∠' + B + A + Cv, '∠' + D + A + Cv].sort().join('|')] = 'eq'; T[['∠' + B + Cv + A, '∠' + D + Cv + A].sort().join('|')] = 'eq';
+        }
+        return T[key] || null;
+      }
+      var items = [], re = /(m∠[A-Z]{1,3}|[A-Z]{2}) = ⟨([^⟩]+)⟩/g, mm;
+      while ((mm = re.exec(raw))) items.push([mm[1].replace(/^m/, ''), mm[2]]);
+      var nm = /m∠([A-Z]) = (\d+)° and m∠([A-Z]) = (\d+)°\. Find m∠([A-Z])\./.exec(raw);
+      if (nm && shape === 'kite') {   // two angles given, the congruent pair found from the 360° sum
+        var gA = nm[1], gC = nm[3], f = nm[5]; need([gA, gC].sort().join('') === [V[0], V[2]].sort().join('') && (f === V[1] || f === V[3]), 'kite angles');
+        var sum = +nm[2] + +nm[4]; need(sum < 360, 'angle sum');
+        return exact(ans, new Q(BigInt(360 - sum), 2n));
+      }
+      var em = /The diagonals intersect at ([A-Z])\. m∠([A-Z]{3}) = ⟨([^⟩]+)⟩ and m∠([A-Z]{3}) = ⟨([^⟩]+)⟩\. Find ⟨x⟩\./.exec(raw);
+      if (em && shape === 'kite') {   // the diagonals are perpendicular, so two acute angles of a right triangle at the intersection sum to 90
+        var E = em[1], t1 = em[2], t2 = em[4], X = t2[1], Yv = t1[1];   // ∠X Y E and ∠Y X E: the acute angles of right triangle XYE
+        need(t1[2] === E && t2[2] === E && t1[0] === X && t2[0] === Yv && X !== Yv && V.indexOf(X) >= 0 && V.indexOf(Yv) >= 0 && V.indexOf(E) < 0, 'right triangle angles');
+        var adj = function (u, w) { var i = V.indexOf(u), j = V.indexOf(w); return Math.abs(i - j) === 1 || Math.abs(i - j) === 3; };
+        need(adj(X, Yv), 'a side of the kite');
+        return exact(ans, solveX('(' + em[3] + ')+(' + em[5] + ')', '90'), 'x');
+      }
+      if (p.fig && p.fig.kind === 'geo-quad') Object.keys(p.fig.angle || {}).forEach(function (k) { var t = String(p.fig.angle[k]).replace(/^\(|\)?°$/g, ''); need(raw.indexOf('⟨' + t + '⟩') >= 0, 'figure label ' + t + ' printed in the question'); });
+      if (items.length === 1) {   // one measure given: the asked part is congruent or supplementary to it
+        var fq = need(/Find (m∠[A-Z]{1,3}|[A-Z]{2})\./.exec(raw), 'what to find'), tg = fq[1].replace(/^m/, ''), r1 = rel(items[0][0], tg);
+        if (!r1) throw new C.CheckError('the asked part is not related to the given one');
+        var g0 = C.evalNode(C.parseExpr(items[0][1]), {});
+        return exact(ans, r1 === 'eq' ? g0 : new Q(180n).sub(g0));
+      }
+      need(items.length === 2, 'two measures');
+      var r = rel(items[0][0], items[1][0]); if (!r) throw new C.CheckError('the two parts are not related by a property of this figure');
+      var e1 = items[0][1], e2 = items[1][1];
+      var x = r === 'eq' ? solveX(e1, e2) : solveX('(' + e1 + ')+(' + e2 + ')', '180');
+      if (/Find ⟨x⟩\./.test(raw)) return exact(ans, x, 'x');
+      var fm = need(/Find (m∠[A-Z]{1,3}|[A-Z]{2})\./.exec(raw), 'what to find'), target = fm[1].replace(/^m/, ''), hit = items.filter(function (it) { return it[0] === target; })[0];
+      need(hit, 'asked part'); return exact(ans, C.evalNode(C.parseExpr(hit[1]), { x: x }));
+    };
+    /* Geometry Unit 2 · angle pairs from the figure, and the converse theorems (are the lines parallel?) */
+    var PAIR_NAMES = { 'corresponding': /corresponding/, 'alternate-interior': /alternate interior/, 'alternate-exterior': /alternate exterior/, 'same-side-interior': /(same-side|consecutive) interior/, 'same-side-exterior': /(same-side|consecutive) exterior/, 'vertical': /vertical/, 'linear-pair': /linear pair/ };
+    R['angle-pair'] = function (p, part, raw) {
+      var txt = C.plainText(raw), ans = words(part.answer);
+      if (/Name the relationship between ∠(\d) and ∠(\d)/.test(txt)) {
+        need(p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && NS.geoFigures, 'numbered figure');
+        var m = /Name the relationship between ∠(\d) and ∠(\d)/.exec(txt), rel = NS.geoFigures.relationship(+m[1], +m[2]); need(rel !== 'none', 'related angles');
+        var said = Object.keys(PAIR_NAMES).filter(function (k) { return PAIR_NAMES[k].test(ans); });
+        return said.length === 1 && said[0] === rel ? { status: 'verified', computed: rel } : { status: 'mismatch', msg: 'Correct: ' + rel.replace(/-/g, ' ') + '.' };
+      }
+      if (/Name an angle that forms (?:an? )?([a-z -]+?) with ∠(\d)/.test(txt)) {
+        need(p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && NS.geoFigures, 'numbered figure');
+        var n = /Name an angle that forms (?:an? )?([a-z -]+?) with ∠(\d)/.exec(txt), wantRel = Object.keys(PAIR_NAMES).filter(function (k) { return PAIR_NAMES[k].test(n[1]); });
+        need(wantRel.length === 1, 'pair name');
+        var g = /∠\s*(\d)/.exec(C.plainText(part.answer || '')) || /^\s*(\d)\s*$/.exec(C.plainText(part.answer || ''));
+        if (!g) return { status: 'mismatch', msg: 'Name one angle, such as ∠5.' };
+        return NS.geoFigures.relationship(+g[1], +n[2]) === wantRel[0] ? { status: 'verified' } : { status: 'mismatch', msg: 'That angle does not form ' + n[1] + ' with ∠' + n[2] + '.' };
+      }
+      var cv = need(/Lines m and n are cut by transversal t\. ∠1 and ∠2 are ([a-z -]+?) angles(?: formed)?\. m∠1 = (?:⟨([^⟩]+)⟩|(\d+))° and m∠2 = (?:⟨([^⟩]+)⟩|(\d+))°\./.exec(raw), 'givens');
+      cv = [cv[0], cv[1], cv[2] || cv[3], cv[4] || cv[5]];
+      var kind = Object.keys(PAIR_NAMES).filter(function (k) { return PAIR_NAMES[k].test(cv[1]) && !/vertical|linear/.test(k); });
+      need(kind.length === 1, 'pair name');
+      var supp = /same-side/.test(kind[0]);
+      if (/Find the value of ⟨x⟩ that makes m ∥ n/.test(raw)) return exact(part.answer || '', supp ? solveX('(' + cv[2] + ')+(' + cv[3] + ')', '180') : solveX(cv[2], cv[3]), 'x');
+      need(/Are lines m and n parallel\?/.test(raw), 'question');
+      var v1 = C.evalNode(C.parseExpr(cv[2]), {}), v2 = C.evalNode(C.parseExpr(cv[3]), {}), par = supp ? v1.add(v2).eq(new Q(180n)) : v1.eq(v2);
+      var yn = /^\s*(yes|no)\b/i.exec(C.plainText(part.answer || ''));
+      if (!yn) return { status: 'mismatch', msg: 'Answer yes or no.' };
+      return (yn[1].toLowerCase() === 'yes') === par ? { status: 'verified', computed: par ? 'Yes' : 'No' } : { status: 'mismatch', msg: 'Correct: ' + (par ? 'Yes' : 'No') + '.' };
+    };
+    /* Geometry Unit 3/8 · congruent or similar after a sequence of transformations */
+    R['sequence'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m = need(/Figure P is (.+?)\. The result is figure Q\./.exec(txt), 'sequence')[1];
+      var steps = m.split(/, then |, and then | and then /), scale = 1;
+      steps.forEach(function (s) {
+        var d = /dilated by a scale factor of (\d+(?:\.\d+)?)(?:\/(\d+))?/.exec(s) || /dilated by a scale factor of one-(half|third)/.exec(s);
+        if (/dilated/.test(s)) { need(d, 'scale factor'); scale *= d[1] === 'half' ? 0.5 : d[1] === 'third' ? 1 / 3 : (+d[1]) / (d[2] ? +d[2] : 1); }
+        else need(/translated|reflected|rotated/.test(s), 'transformation');
+      });
+      var cong = Math.abs(scale - 1) < 1e-9, w = words(part.answer);
+      if (/Is figure Q congruent to figure P, similar but not congruent, or neither/.test(txt)) {
+        var sc = /\bsimilar\b/.test(w) && !/\bcongruent\b/.test(w.replace(/not congruent/, '')), cc = /\bcongruent\b/.test(w) && !/not congruent/.test(w);
+        if (cong) return cc ? { status: 'verified', computed: 'congruent' } : { status: 'mismatch', msg: 'Correct: congruent (every step is a rigid motion).' };
+        return sc ? { status: 'verified', computed: 'similar' } : { status: 'mismatch', msg: 'Correct: similar but not congruent (a dilation with scale factor ' + scale + ').' };
+      }
+      var lm = need(/A side of figure P is (\d+) units long\. How long is the matching side of figure Q\?/.exec(txt), 'question');
+      var want = (+lm[1]) * scale; need(Math.abs(want * 1000 - Math.round(want * 1000)) < 1e-6, 'length');
+      return exact(part.answer || '', C.readNumber(String(Math.round(want * 1000) / 1000)));
+    };
+    /* Geometry Unit 8 · glide reflections of a point (the translation must be parallel to the mirror line) */
+    R['glide'] = function (p, part, raw) {
+      var txt = C.plainText(raw).replace(/\s+/g, ' '), m = need(/The point \((-?\d+), (-?\d+)\) is translated (\d+) units? (right|left|up|down) and then reflected across the (x|y)-axis/.exec(txt) || /The point ⟨\((-?\d+),\\? ?(-?\d+)\)⟩ is translated (\d+) units? (right|left|up|down) and then reflected across the (x|y)-axis/.exec(raw), 'glide reflection');
+      var x = +m[1], y = +m[2], d = +m[3], dir = m[4], ax = m[5];
+      need(ax === 'x' ? /right|left/.test(dir) : /up|down/.test(dir), 'translation parallel to the mirror line');
+      if (dir === 'right') x += d; else if (dir === 'left') x -= d; else if (dir === 'up') y += d; else y -= d;
+      if (ax === 'x') y = -y; else x = -x;
+      var g = /\(\s*(-?\d+)\s*,\\?\s*(-?\d+)\s*\)/.exec(String(part.answer || '').replace(/\\ /g, ' '));
+      if (!g) return { status: 'mismatch', msg: 'Write the image as (x, y).' };
+      return +g[1] === x && +g[2] === y ? { status: 'verified', computed: '(' + x + ', ' + y + ')' } : { status: 'mismatch', msg: 'Correct: (' + x + ', ' + y + ').' };
+    };
+    /* Algebra 1 Unit 11 · linear, quadratic or exponential from a table (first differences, second differences, ratios) */
+    R['model-type'] = function (p, part, raw) {
+      need(p.fig && p.fig.kind === 'table' && p.fig.rows && p.fig.rows.length >= 4, 'table');
+      var xs = p.fig.rows.map(function (r) { return nq(r[0]); }), ys = p.fig.rows.map(function (r) { return nq(r[1]); });
+      for (var i = 1; i < xs.length; i++) need(xs[i].sub(xs[i - 1]).eq(xs[1].sub(xs[0])) && xs[1].sub(xs[0]).n > 0n, 'equally spaced x-values');
+      var d1 = ys.slice(1).map(function (y, i) { return y.sub(ys[i]); }), d2 = d1.slice(1).map(function (d, i) { return d.sub(d1[i]); });
+      var allEq = function (a) { return a.every(function (v) { return v.eq(a[0]); }); };
+      var ratios = ys.every(function (y) { return y.n !== 0n; }) ? ys.slice(1).map(function (y, i) { return y.div(ys[i]); }) : null;
+      var type = allEq(d1) ? 'linear' : allEq(d2) && d2[0].n !== 0n ? 'quadratic' : ratios && allEq(ratios) && !ratios[0].eq(Q.ONE) ? 'exponential' : 'none';
+      if (type === 'none') throw new C.CheckError('the table fits none of the three models');
+      if (/Find the next y-value/.test(raw)) {
+        var n = ys.length, next = type === 'linear' ? ys[n - 1].add(d1[0]) : type === 'quadratic' ? ys[n - 1].add(d1[d1.length - 1]).add(d2[0]) : ys[n - 1].mul(ratios[0]);
+        return exact(part.answer || '', next);
+      }
+      var w = words(part.answer), said = ['linear', 'quadratic', 'exponential'].filter(function (k) { return w.indexOf(k) >= 0; });
+      return said.length === 1 && said[0] === type ? { status: 'verified', computed: type } : { status: 'mismatch', msg: 'Correct: ' + type + '.' };
+    };
+    /* Algebra 1 Unit 1 · interpreting the parts of an expression in context: a + b·v (fixed amount + rate × quantity) */
+    R['interpret'] = function (p, part, raw) {
+      var m = /charges ⟨(\d+(?:\.\d+)?)\+(\d+(?:\.\d+)?)([a-z])⟩ dollars for ⟨\3⟩ ([a-z]+)\b/.exec(raw), fixed, rate, unit;
+      if (m) { fixed = m[1]; rate = m[2]; unit = m[4]; }
+      else { m = need(/charges ⟨(\d+(?:\.\d+)?)([a-z])\+(\d+(?:\.\d+)?)⟩ dollars for ⟨\2⟩ ([a-z]+)\b/.exec(raw), 'expression and context'); rate = m[1]; fixed = m[3]; unit = m[4]; }
+      unit = unit.replace(/s$/, '');
+      var q = need(/What does (?:the )?(\d+(?:\.\d+)?) represent\?/.exec(raw), 'question')[1];
+      need(q === fixed || q === rate, 'a number in the expression'); need(fixed !== rate, 'distinct numbers');
+      var nums = (C.plainText(String(part.answer || '')).match(/\d+(?:\.\d+)?/g) || []);
+      if (nums.some(function (n) { return +n !== +q; })) return { status: 'mismatch', msg: 'The number in the answer should be ' + q + '.' };
+      var w = words(part.answer), isRate = /\b(per|each|every|for one|for each|rate)\b/.test(w) && w.indexOf(unit) >= 0, isFixed = /\b(fixed|one-time|one time|flat|fee|initial|start|starting|up-front|upfront|before)\b/.test(w) && !/\b(per|each|every)\b/.test(w);
+      if (q === rate) return isRate && !isFixed ? { status: 'verified', computed: 'cost per ' + unit } : { status: 'mismatch', msg: 'Correct: the cost per ' + unit + ' (it is multiplied by the number of ' + unit + 's).' };
+      return isFixed && !isRate ? { status: 'verified', computed: 'fixed fee' } : { status: 'mismatch', msg: 'Correct: the one-time fixed fee (it is added once, no matter how many ' + unit + 's).' };
+    };
+    /* choose-all: "Select every pair of angles that are <relationship>" from a numbered figure */
+    R['angle-pair-select'] = function (p, part, raw) {
+      need(p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && NS.geoFigures, 'numbered figure');
+      var m = need(/Select every pair of angles that (?:are|form) (?:an? )?([a-z -]+?)\./.exec(C.plainText(raw)), 'relationship'), want = Object.keys(PAIR_NAMES).filter(function (k) { return PAIR_NAMES[k].test(m[1]); });
+      need(want.length === 1 && Array.isArray(part.check.opts) && part.check.opts.length >= 4, 'options');
+      var yes = part.check.opts.filter(function (o) { return NS.geoFigures.relationship(o[0], o[1]) === want[0]; }).map(function (o) { return o[0] + '-' + o[1]; });
+      if (!yes.length || yes.length === part.check.opts.length) throw new C.CheckError('needs true and false options');
+      var said = (C.plainText(String(part.answer || '')).match(/∠(\d) and ∠(\d)/g) || []).map(function (t) { var g = /∠(\d) and ∠(\d)/.exec(t); return g[1] + '-' + g[2]; });
+      return said.length === yes.length && yes.every(function (y) { return said.indexOf(y) >= 0; }) ? { status: 'verified', computed: yes.join(', ') } : { status: 'mismatch', msg: 'Correct: ' + yes.join(', ') + '.' };
+    };
+    return function (p, part, policy) {
+      var kind = part.check.kind, f = R[kind];
+      if (!f) return { status: 'invalid', msg: 'Unknown reader.' };
+      return f(p, part, String(p.prompt || '') + (part.prompt ? ' ' + part.prompt : ''), policy);
+    };
+  })();
   function checkPart(p, part, policy) {
     var chk = part.check, ans = part.answer || '';
     if (!chk || chk.type === 'none') return { status: 'manual', msg: 'No automatic check for this answer.' };
@@ -1123,6 +1617,8 @@
     if ((t === 'simplify' || t === 'evaluate') && !shown(p, chk.expr)) return { status: 'invalid', msg: 'The expression being checked is not the one printed for students.' };
 
     if (t === 'num-class') return checkNumClass(p, part);
+    if (/^property-/.test(t)) return checkProperty(p, part);
+    if (t === 'derive') return DERIVE(p, part, policy);
     if (t === 'lin-transform') return checkLinTransform(p, part);
     if (t === 'units') return checkUnits(p, part);
     if (t === 'verbal-expr') {

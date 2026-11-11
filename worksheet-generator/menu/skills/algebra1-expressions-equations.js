@@ -1062,6 +1062,289 @@
   });
 
 
+
+  /* ============================================================
+     NUMBER · Operations with real numbers (Unit 1 Lesson 4): integers, fractions and decimals on their own.
+     Division is written with a fraction bar. The verifier evaluates the printed expression itself.
+     ============================================================ */
+  function rp(n) { return n < 0 ? '(' + n + ')' : String(n); }
+  function rfr(f) { f = Fr.of(f); return f.isInt() ? num(f) : (f.sign() < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function rfp(f) { f = Fr.of(f); return f.sign() < 0 ? '\\left(' + rfr(f) + '\\right)' : rfr(f); }
+  var REAL_OPS_SKILL = {
+    id: 'real-number-operations', best: [0, 1, 2], tag: 'NUMBER', name: 'Operations with integers, fractions and decimals',
+    blurb: 'Add, subtract, multiply and divide integers (CP2) → order of operations with integers, fractions and decimals that come out whole (CP1) → fraction answers, complex fractions, powers of negative fractions (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, e, v, why, a, b, d, q, op, a1, b1, base, f2, k2;
+      if (c === 1) { a = nz(r, -20, 20); b = nz(r, -20, 20); var sub = r.chance(0.5); e = a + (sub ? '-' : '+') + rp(b); v = F(sub ? a - b : a + b);
+        why = sub ? 'Subtracting a number is adding its opposite.' : 'Same signs: add and keep the sign. Different signs: subtract and keep the sign of the larger absolute value.'; need(a < 0 || b < 0); }
+      else if (c === 2) { a = nz(r, -12, 12); b = nz(r, -12, 12); need((a < 0 || b < 0) && Math.abs(b) > 1);
+        if (r.chance(0.5)) { e = rp(a) + '\\cdot ' + rp(b); v = F(a * b); } else { e = '\\frac{' + (a * b) + '}{' + b + '}'; v = F(a); }
+        why = 'Same signs give a positive result; different signs give a negative result.'; }
+      else if (c === 3) { a = nz(r, -9, 9); b = nz(r, -9, 9); d = nz(r, -6, 6); q = nz(r, -15, 15); need(Math.abs(a) > 1 && Math.abs(b) > 1 && Math.abs(d) > 1 && Math.abs(q) > 1);
+        var t = r.int(0, 2);
+        if (t === 0) { e = '\\frac{' + (a * d) + '}{' + d + '}+' + rp(b) + '\\cdot ' + rp(q); v = F(a + b * q); }
+        else if (t === 1) { e = rp(a) + '-' + rp(b) + '\\cdot ' + rp(d); v = F(a - b * d); }
+        else { e = rp(a) + '^2-' + rp(q); v = F(a * a - q); need(a < 0); e = '(' + a + ')^2-' + rp(q); }
+        why = 'Use the order of operations: powers, then multiply and divide, then add and subtract.'; }
+      else if (c === 4) { d = r.pick([2, 3, 4, 5, 6, 8]); var n0 = r.int(1, d - 1); need(gcd(n0, d) === 1); var m0 = nz(r, -6, 6) * d; b = nz(r, -9, 9); need(Math.abs(m0) > d);
+        if (r.chance(0.5)) { e = rfr(F(n0 * (r.chance(0.5) ? -1 : 1), d)) + '\\cdot ' + rp(m0); v = F(n0, d).mul(m0); if (/^-/.test(e)) v = v.neg(); }
+        else { var n1 = r.int(1, 3 * d); e = '\\frac{' + n0 + '}{' + d + '}-\\frac{' + (n0 + n1 * d) + '}{' + d + '}'; v = F(-n1); }
+        why = 'Multiply numerators and denominators (or use a common denominator), then simplify.'; }
+      else if (c === 5) { a = r.int(-40, 40) / 4; b = r.int(-40, 40) / 4; need(a % 1 !== 0 && b !== 0);
+        if (r.chance(0.5)) { var s2 = Math.round(a + (Math.round(a) - a) * 2 * 100) / 100; void s2; var w = r.int(-15, 15); b = w - a; need(b % 1 !== 0 && b !== 0); e = String(a) + '+' + rp(b); v = F(w); }
+        else { var mult = r.pick([2, 4, 8, -4, -2]); e = String(a) + '\\cdot ' + rp(mult); v = F(Math.round(a * mult * 4), 4); need(v.isInt()); }
+        why = 'Line up the decimal places (or think of quarters), and keep track of the sign.'; }
+      else if (c >= 6 && ctx.intOnly) { d = r.pick([2, 3, 4, 6]); var nI = r.int(1, d - 1); need(gcd(nI, d) === 1); var mI = nz(r, -5, 5) * d; b = nz(r, -6, 6); need(Math.abs(mI) > d && Math.abs(b) > 1);
+        e = '\\left(-\\frac{' + nI + '}{' + d + '}\\right)\\cdot ' + rp(mI) + '-' + rp(b) + '^2'; v = F(-nI * mI / d - b * b); why = 'Multiply first (a fraction times a multiple of its denominator gives an integer), square, then subtract.'; }
+      else if (c === 6) { var d1 = r.pick([2, 3, 4, 5, 6]), d2 = r.pick([3, 4, 6, 8, 9]); need(d1 !== d2); a1 = F(nz(r, -5, 5), d1); b1 = F(nz(r, -7, 7), d2); need(!a1.isInt() && !b1.isInt());
+        op = r.int(0, 2);
+        if (op === 0) { e = rfr(a1) + (b1.sign() < 0 ? '-' + rfr(b1.neg()) : '+' + rfr(b1)); v = a1.add(b1); }
+        else if (op === 1) { e = rfp(a1) + '\\cdot ' + rfp(b1); v = a1.mul(b1); }
+        else { e = '\\frac{' + rfr(a1) + '}{' + rfr(b1) + '}'; v = a1.div(b1); }
+        why = op === 0 ? 'Rewrite with a common denominator, then add.' : op === 1 ? 'Multiply numerators and denominators; simplify.' : 'A fraction bar means divide: multiply the top by the reciprocal of the bottom.'; }
+      else { var dd = r.pick([2, 3, 4]); base = F(nz(r, -3, 3), dd); need(!base.isInt()); f2 = F(nz(r, -5, 5), r.pick([2, 4, 6])); k2 = nz(r, -4, 4); need(Math.abs(k2) > 1 && !f2.isInt());
+        e = '\\left(' + rfr(base) + '\\right)^2+' + rfp(f2) + '\\cdot ' + rp(k2); v = base.mul(base).add(f2.mul(k2));
+        why = 'Square first (a negative base squared is positive), then multiply, then add with a common denominator.'; }
+      var alts = [v.neg()];   // common slips: the sign, and for fractions the classic mistakes
+      if (c === 6 && op === 0) alts.push(F(a1.n * (a1.d === b1.d ? 1 : 1) + b1.n, a1.d + b1.d), a1.sub(b1));
+      if (c === 6 && op === 1) alts.push(F(a1.n * b1.d, a1.d * b1.n), a1.add(b1));
+      if (c === 6 && op === 2) alts.push(a1.mul(b1), b1.div(a1));
+      if (c === 7 && base) alts.push(base.mul(base).neg().add(f2.mul(k2)), base.mul(2).add(f2.mul(k2)));
+      if (c <= 5 || !op && !base) alts.push(v.add(1), v.sub(1), v.add(2));
+      return { variant: 'real-op-' + c, prompt: 'Find the value of ' + M(e) + '.', parts: [{ answer: M(num(v)), check: { type: 'derive', kind: 'real-op', alts: alts.filter(function (z) { return !Fr.of(z).eq(v); }).map(function (z) { return M(num(z)); }) } }],
+        steps: [step(why, '', 2), step('Value:', e + '=' + num(v), 1)], space: [0.6, 0.7, 0.8] };
+    }
+  };
+
+
+  /* ============================================================
+     WORDS · Interpret the parts of an expression in context (Unit 1 Lesson 7): fixed amount + rate × quantity.
+     The verifier reads the expression and the context and decides which part the number is.
+     ============================================================ */
+  var ICTX = [['gym', 'months of membership', 'm', 'month', [15, 60], [10, 45]], ['plumber', 'hours of work', 'h', 'hour', [40, 120], [35, 95]], ['bowling alley', 'games', 'g', 'game', [3, 8], [4, 9]],
+    ['bike rental shop', 'hours', 'h', 'hour', [5, 20], [6, 15]], ['taxi company', 'miles', 'm', 'mile', [2, 6], [2, 4]], ['print shop', 'shirts', 's', 'shirt', [20, 60], [7, 15]], ['car rental company', 'days', 'd', 'day', [20, 60], [25, 70]]];
+  var INTERPRET_SKILL = {
+    id: 'interpret-expression', best: [0, 1, 2], tag: 'WORDS', name: 'Interpret the parts of an expression in context',
+    blurb: 'Whole-number fee + rate expressions: which number is the fixed fee and which is the rate (CP2) → decimal rates and fees (CP1) → interpreting and then evaluating the expression for a given quantity (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, k = r.pick(ICTX), dec = c >= 3 && r.chance(0.5), fee = r.int(k[4][0], k[4][1]), rate = r.int(k[5][0], k[5][1]), v = k[2];
+      var feeS = String(fee), rateS = String(rate);
+      if (dec) { rateS = (rate + r.pick([0.25, 0.5, 0.75])).toFixed(2); feeS = r.chance(0.5) ? (fee + 0.5).toFixed(2) : feeS; }
+      need(feeS !== rateS);
+      var askRate = r.chance(0.5), q = askRate ? rateS : feeS, expr = askRate ? rateS + v + '+' + feeS : feeS + '+' + rateS + v;   // the asked number is printed first
+      var lead = 'A ' + k[0] + ' charges ' + M(expr) + ' dollars for ' + M(v) + ' ' + k[1] + '. ';
+      var rateAns = 'The cost per ' + k[3] + ': ' + rateS + ' dollars for each ' + k[3] + '.', feeAns = 'The one-time fixed fee of ' + feeS + ' dollars, paid once no matter how many ' + k[3] + 's.';
+      var one = { answer: askRate ? rateAns : feeAns, check: { type: 'derive', kind: 'interpret', alts: [askRate ? feeAns : rateAns, 'The total amount paid.', 'The number of ' + k[3] + 's.'] } };
+      var steps = [step('The number multiplied by ' + M(v) + ' changes with every ' + k[3] + ': it is the rate. The number added on its own is charged once: it is the fixed fee.', ''), step(askRate ? rateAns : feeAns, '')];
+      if (c >= 5) {
+        var n = dec ? 4 * r.int(1, 3) : r.int(2, 12), tv = Math.round((+feeS + (+rateS) * n) * 100) / 100, total = tv % 1 ? tv.toFixed(2) : String(tv); need(!ctx.intOnly && c >= 6 || tv % 1 === 0);
+        one.label = 'a'; one.prompt = 'What does ' + q + ' represent?';
+        return { variant: 'interpret-two-' + c, prompt: lead + 'Answer each part.', parts: [one, { label: 'b', prompt: 'Find the total cost when ' + M(v + '=' + n) + '.', answer: M(String(total)), check: { type: 'evaluate', expr: expr, values: (function () { var o = {}; o[v] = String(n); return o; })() } }],
+          steps: steps.concat([step('Substitute ' + M(v + '=' + n) + '.', expr.replace(v, '\\cdot ' + n).replace(/^(\d+(?:\.\d+)?)\\cdot/, '$1\\cdot') + '=' + total, 2)]), space: [1.1, 1.3, 1.5] };
+      }
+      return { variant: 'interpret-' + (askRate ? 'rate' : 'fee') + '-' + c, prompt: lead + 'What does ' + q + ' represent?', parts: [one], steps: steps, space: [0.6, 0.7, 0.8] };
+    }
+  };
+
+  /* ============================================================
+     PROPS · Properties of operations (Unit 1): identify, tell apart, apply, find the error, justify each step,
+     and test whether subtraction or division has a property. The verifier reads the property from the
+     structure of the printed equation and accepts only equations that show exactly one property.
+     ============================================================ */
+  var PNAME = { 'comm-add': 'Commutative Property of Addition', 'comm-mul': 'Commutative Property of Multiplication',
+    'assoc-add': 'Associative Property of Addition', 'assoc-mul': 'Associative Property of Multiplication',
+    'id-add': 'Identity Property of Addition', 'id-mul': 'Identity Property of Multiplication',
+    'inv-add': 'Inverse Property of Addition', 'inv-mul': 'Inverse Property of Multiplication',
+    'zero': 'Multiplicative Property of Zero', 'dist': 'Distributive Property' };
+  var PWHY = { 'comm-add': 'The two addends trade places. Nothing is regrouped.', 'comm-mul': 'The two factors trade places. Nothing is regrouped.',
+    'assoc-add': 'The addends stay in the same order; only the parentheses (the grouping) move.', 'assoc-mul': 'The factors stay in the same order; only the parentheses (the grouping) move.',
+    'id-add': 'Adding 0 leaves an expression unchanged (0 is the additive identity).', 'id-mul': 'Multiplying by 1 leaves an expression unchanged (1 is the multiplicative identity).',
+    'inv-add': 'An expression plus its opposite equals 0.', 'inv-mul': 'A nonzero number times its reciprocal equals 1.',
+    'zero': 'Any expression times 0 equals 0.', 'dist': 'The factor outside the parentheses multiplies each term inside.' };
+  var PV = ['x', 'n', 'y', 'a', 'm', 'p'];
+  function pPar(s) { return /^-/.test(s) ? '(' + s + ')' : s; }               // a negative operand in parentheses
+  function pTerm(r, c, v) {   // one addend or factor that reads as a single term
+    if (c <= 2) return String(r.int(2, c === 1 ? 20 : 40));
+    var k = r.int(2, 9), pool = [v, k + v, String(r.int(2, 25))];
+    if (c >= 5) pool.push('-' + r.int(2, 15), '-' + k + v);
+    if (c >= 6) { var q = r.int(2, 9), pp = r.int(1, q - 1); if (gcd(pp, q) === 1) pool.push('\\frac{' + pp + '}{' + q + '}'); }
+    return r.pick(pool);
+  }
+  function pDiff(r, c, v, n, mul) {   // n different terms; in a product at most one holds the variable
+    var out = [], tries = 0;
+    while (out.length < n && tries++ < 60) {
+      var t = pTerm(r, c, v);
+      if (out.indexOf(t) >= 0) continue;
+      if (/[a-z]/.test(t) && out.some(function (o) { return /[a-z]/.test(o); })) continue;   // the variable appears in one term only
+      out.push(t);
+    }
+    need(out.length === n); return out;
+  }
+  function pDot(a, b) { return pPar(a) + '\\cdot ' + pPar(b); }
+  function pExpr(r, c, v) {   // a short expression used whole (identity, zero)
+    if (c <= 2) return String(r.int(2, 90));
+    var k = r.int(2, 9), b = r.int(1, 12);
+    return r.pick([v, k + v, '(' + k + v + (c >= 5 && r.chance(0.5) ? '-' : '+') + b + ')']);
+  }
+  /* An equation (TeX) that shows `code`, at difficulty c. */
+  function pEq(code, r, c) {
+    var v = r.pick(PV), t, L, R, k, b;
+    var flip = function (a, z) { return r.chance(0.5) ? a + '=' + z : z + '=' + a; };
+    switch (code) {
+      case 'comm-add': t = pDiff(r, c, v, 2); return pPar(t[0]) === t[0] ? t[0] + '+' + pPar(t[1]) + '=' + t[1] + '+' + pPar(t[0]) : t[1] + '+' + pPar(t[0]) + '=' + pPar(t[0]) + '+' + pPar(t[1]);
+      case 'comm-mul': t = pDiff(r, c, v, 2, true); return pDot(t[0], t[1]) + '=' + pDot(t[1], t[0]);
+      case 'assoc-add': t = pDiff(r, c, v, 3); return flip('(' + t[0] + '+' + pPar(t[1]) + ')+' + pPar(t[2]), t[0] + '+(' + pPar(t[1]) + '+' + pPar(t[2]) + ')');
+      case 'assoc-mul': t = pDiff(r, c, v, 3, true); return flip('(' + pDot(t[0], t[1]) + ')\\cdot ' + pPar(t[2]), pPar(t[0]) + '\\cdot(' + pDot(t[1], t[2]) + ')');
+      case 'id-add': L = pExpr(r, c, v); R = L.replace(/^\((.*)\)$/, '$1'); return flip(r.chance(0.5) ? L + '+0' : '0+' + L, R);
+      case 'id-mul': L = c <= 2 ? pExpr(r, c, v) : r.pick([v, r.int(2, 9) + v, String(r.int(2, 60))]); R = L;   // 1·(a + b) = a + b would also be distributing 1 return flip(r.chance(0.5) ? pDot(L, '1') : '1\\cdot ' + L, R);
+      case 'zero': L = pExpr(r, c, v); return flip(r.chance(0.5) ? L + '\\cdot 0' : '0\\cdot ' + L, '0');
+      case 'inv-add': t = c <= 2 ? String(r.int(2, 60)) : r.pick([v, r.int(2, 9) + v, String(r.int(2, 40))].concat(c >= 6 ? ['\\frac{' + r.pick([1, 2, 3]) + '}{' + r.pick([5, 7, 11]) + '}'] : []));
+        return flip(r.chance(0.5) ? t + '+(-' + t + ')' : '-' + t + '+' + t, '0');
+      case 'inv-mul': k = r.int(2, 12);
+        if (c >= 5 && r.chance(0.6)) { b = r.int(1, 9); var d = r.int(2, 11); need(b !== d && gcd(b, d) === 1); var s = c >= 6 && r.chance(0.4) ? '-' : '';
+          return flip(s ? '\\left(-\\frac{' + b + '}{' + d + '}\\right)\\cdot\\left(-\\frac{' + d + '}{' + b + '}\\right)' : '\\frac{' + b + '}{' + d + '}\\cdot\\frac{' + d + '}{' + b + '}', '1'); }
+        return flip(r.chance(0.5) ? k + '\\cdot\\frac{1}{' + k + '}' : '\\frac{1}{' + k + '}\\cdot ' + k, '1');
+      case 'dist':
+        k = c >= 5 && r.chance(0.4) ? -r.int(2, 9) : r.int(2, 9); b = r.int(1, 12);
+        var minus = c >= 4 && r.chance(0.4), a = c >= 5 ? r.int(1, 4) : 1;
+        if (c <= 2) { var x1 = r.int(10, 40), x2 = r.int(2, 9); return flip(k + '(' + x1 + '+' + x2 + ')', pDot(String(k), String(x1)) + '+' + pDot(String(k), String(x2))); }
+        var inner = (a === 1 ? '' : a) + v + (minus ? '-' : '+') + b, kb = k * b * (minus ? -1 : 1);
+        var out = (k * a === 1 ? '' : k * a === -1 ? '-' : k * a) + v + (kb < 0 ? '-' : '+') + Math.abs(kb);
+        L = (k === -1 ? '-' : k) + '(' + inner + ')';
+        return c >= 4 && r.chance(0.5) ? out + '=' + L : L + '=' + out;
+    }
+    throw new Error('unknown property ' + code);
+  }
+  /* The property used inside a larger expression (CP1 and Honors). */
+  function pInside(code, r, c) {
+    var v = r.pick(PV), k = r.int(2, 9), b = r.int(2, 15), t;
+    if (code === 'comm-add') { t = pDiff(r, Math.max(c, 3), v, 2); return k + '(' + t[0] + '+' + pPar(t[1]) + ')=' + k + '(' + t[1] + '+' + pPar(t[0]) + ')'; }
+    if (code === 'comm-mul') { t = String(r.int(2, 9)); return v + '\\cdot ' + t + '+' + b + '=' + t + v + '+' + b; }
+    if (code === 'inv-add') { t = r.pick([v, k + v]); return b + '+(' + t + '+(-' + t + '))=' + b + '+0'; }
+    if (code === 'id-mul') return v + '\\cdot 1+' + b + '=' + v + '+' + b;
+    if (code === 'id-add') return k + '(' + v + '+0)=' + k + v;
+    return pEq(code, r, c);
+  }
+  var PCODES = [null, ['comm-add', 'comm-mul', 'id-add', 'id-mul'], ['comm-add', 'comm-mul', 'assoc-add', 'assoc-mul', 'id-add', 'id-mul', 'zero', 'dist']];
+  function pCodes(c) { return c <= 2 ? PCODES[c] : Object.keys(PNAME); }
+  function pName(code) { return PNAME[code]; }
+  function pSteps(code, eq) { return [step('Compare the two sides of ' + M(eq) + '.', '', 1), step(PWHY[code], '', 2), step('So the equation shows the ' + PNAME[code] + '.', '', 1)]; }
+  /* Equations for the select-all format: three of `code` and five others, same difficulty (checked again by the verifier). */
+  function pPool(code, r, c) {
+    var pool = [], others = r.shuffle(pCodes(Math.max(c, 2)).filter(function (x) { return x !== code; })), tries = 0;
+    while (pool.length < 3 && tries++ < 40) { var e = pEq(code, r, c); if (pool.indexOf(e) < 0) pool.push(e); }
+    others.slice(0, 5).forEach(function (o) { pool.push(pEq(o, r, c)); });
+    return pool;
+  }
+  var PROPERTIES_SKILL = {
+    id: 'properties', best: [0, 1, 2], tag: 'PROPS', openResponse: { minC: 4 }, name: 'Name and use properties (commutative, associative, identity, inverse, distributive)',
+    blurb: 'Name the property shown with whole numbers (CP2) → variables, all properties, telling two properties apart, rewriting with a named property, finding the error (CP1) → properties inside larger expressions, negatives and reciprocals, justifying every step, and testing whether subtraction or division has a property (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, roll = r.next(), code, eq, steps;
+      var pCount = c >= 6 ? 0.12 : 0, pChain = c >= 4 ? 0.15 + 0.05 * (c - 4) : 0;
+      if (roll < pCount) return pCounter(r, c, ctx);
+      if (roll < pCount + pChain) return pChainProblem(r, c);
+      roll = r.next();
+      if (c >= 3 && roll < 0.22) return pApply(r, c);
+      if (c >= 3 && roll < 0.42) return pTellApart(r, c);
+      if (c >= 4 && roll < 0.6) return pError(r, c);
+      code = r.pick(pCodes(c));
+      eq = c >= 4 && r.chance(0.35) && ['comm-add', 'comm-mul', 'inv-add', 'id-mul', 'id-add'].indexOf(code) >= 0 ? pInside(code, r, c) : pEq(code, r, c);
+      steps = pSteps(code, eq);
+      var lead = r.pick(['Name the property shown by the equation ' + M(eq) + '.', 'Which property does ' + M(eq) + ' show?', 'Identify the property that makes ' + M(eq) + ' true.']);
+      return { variant: 'prop-name-' + code + '-' + c, prompt: lead, parts: [{ answer: pName(code), check: { type: 'property-name', eq: eq } }], steps: steps, space: [0.5, 0.6, 0.7], selectPool: pPool(code, r, c) };
+    }
+  };
+  function pApply(r, c) {
+    var v = r.pick(PV), code = r.pick(c >= 5 ? ['comm-add', 'comm-mul', 'assoc-add', 'assoc-mul', 'dist', 'dist', 'id-mul', 'zero', 'inv-mul'] : ['comm-add', 'comm-mul', 'assoc-add', 'assoc-mul', 'dist', 'id-add', 'zero']);
+    var expr, key, alts, verb = 'rewrite', t, k, b;
+    if (code === 'comm-add') { t = pDiff(r, c, v, 2); expr = t[0] + '+' + pPar(t[1]); key = t[1] + '+' + pPar(t[0]); alts = [expr, t[1] + '-' + pPar(t[0]), pDot(t[1], t[0])]; }
+    else if (code === 'comm-mul') { t = pDiff(r, c, v, 2, true); expr = pDot(t[0], t[1]); key = pDot(t[1], t[0]); alts = [expr, t[1] + '+' + pPar(t[0]), pDot(t[0], t[0])]; }
+    else if (code === 'assoc-add') { t = pDiff(r, c, v, 3); expr = '(' + t[0] + '+' + pPar(t[1]) + ')+' + pPar(t[2]); key = t[0] + '+(' + pPar(t[1]) + '+' + pPar(t[2]) + ')';
+      alts = ['(' + t[1] + '+' + pPar(t[0]) + ')+' + pPar(t[2]), pPar(t[2]) + '+(' + t[0] + '+' + pPar(t[1]) + ')', '(' + t[0] + '+' + pPar(t[2]) + ')+' + pPar(t[1])]; }
+    else if (code === 'assoc-mul') { t = pDiff(r, c, v, 3, true); expr = '(' + pDot(t[0], t[1]) + ')\\cdot ' + pPar(t[2]); key = pPar(t[0]) + '\\cdot(' + pDot(t[1], t[2]) + ')';
+      alts = ['(' + pDot(t[1], t[0]) + ')\\cdot ' + pPar(t[2]), pPar(t[2]) + '\\cdot(' + pDot(t[0], t[1]) + ')', '(' + pDot(t[0], t[2]) + ')\\cdot ' + pPar(t[1])]; }
+    else if (code === 'dist') {
+      k = c >= 5 && r.chance(0.4) ? -r.int(2, 9) : r.int(2, 9); b = r.int(1, 12); var mn = r.chance(0.4), kb = k * b * (mn ? -1 : 1);
+      var inner = v + (mn ? '-' : '+') + b, prod = k + v + (kb < 0 ? '-' : '+') + Math.abs(kb);
+      if (c >= 5 && k > 0 && r.chance(0.5)) { verb = 'factor'; expr = prod; key = k + '(' + inner + ')'; alts = [k + '(' + v + (kb < 0 ? '-' : '+') + Math.abs(kb) + ')', v + '(' + k + (kb < 0 ? '-' : '+') + Math.abs(kb) + ')', k + v + '(' + (mn ? '-' : '') + b + ')']; }
+      else { expr = k + '(' + inner + ')'; key = prod; alts = [k + v + (mn ? '-' : '+') + b, v + (kb < 0 ? '-' : '+') + Math.abs(kb), k + v + (kb < 0 ? '+' : '-') + Math.abs(kb)]; }
+    }
+    else if (code === 'id-add') { t = pExpr(r, Math.max(c, 3), v); expr = t + '+0'; key = t.replace(/^\((.*)\)$/, '$1'); alts = ['0+' + t, '0', t + '+1']; verb = 'simplify'; }
+    else if (code === 'id-mul') { t = r.pick([v, r.int(2, 9) + v]); expr = '1\\cdot ' + t; key = t.replace(/^\((.*)\)$/, '$1'); alts = [pDot(t, '1'), '1', '0']; verb = 'simplify'; }
+    else if (code === 'zero') { t = pExpr(r, Math.max(c, 3), v); expr = t + '\\cdot 0'; key = '0'; alts = [key === t ? '1' : t.replace(/^\((.*)\)$/, '$1'), '1', '0\\cdot ' + t]; verb = 'simplify'; }
+    else { b = r.int(1, 9); var d = r.int(2, 11); need(b !== d && gcd(b, d) === 1); expr = '\\frac{' + b + '}{' + d + '}\\cdot\\frac{' + d + '}{' + b + '}'; key = '1'; alts = ['0', '\\frac{' + d + '}{' + b + '}\\cdot\\frac{' + b + '}{' + d + '}', '\\frac{' + (b * d) + '}{' + (b * d) + '}']; verb = 'simplify'; }
+    var prompt = verb === 'factor' ? 'Use the ' + PNAME[code] + ' to write ' + M(expr) + ' as a product.' : 'Use the ' + PNAME[code] + ' to ' + verb + ' ' + M(expr) + '.';
+    return { variant: 'prop-apply-' + code + (verb === 'factor' ? '-f' : '') + '-' + c, prompt: prompt,
+      parts: [{ answer: M(key), check: { type: 'property-apply', expr: expr, alts: alts.filter(function (a) { return a !== key; }).map(M) } }],
+      steps: [step(PWHY[code], '', 2), step('Rewrite.', expr + '=' + key, 2)], space: [0.6, 0.7, 0.8] };
+  }
+  function pTellApart(r, c) {
+    var v = r.pick(PV), pairs = [], t = pDiff(r, Math.max(c, 3), v, 3), m = pDiff(r, Math.max(c, 3), v, 3, true), k = r.int(2, 9), b = r.int(2, 12);
+    var A = '(' + t[0] + '+' + pPar(t[1]) + ')+' + pPar(t[2]), P = '(' + pDot(m[0], m[1]) + ')\\cdot ' + pPar(m[2]);
+    pairs.push([[A + '=' + t[0] + '+(' + pPar(t[1]) + '+' + pPar(t[2]) + ')', 'assoc-add'], [A + '=' + pPar(t[2]) + '+(' + t[0] + '+' + pPar(t[1]) + ')', 'comm-add']]);
+    pairs.push([[P + '=' + pPar(m[0]) + '\\cdot(' + pDot(m[1], m[2]) + ')', 'assoc-mul'], [P + '=' + pPar(m[2]) + '\\cdot(' + pDot(m[0], m[1]) + ')', 'comm-mul']]);
+    pairs.push([[k + '(' + v + '+' + b + ')=' + k + '(' + b + '+' + v + ')', 'comm-add'], [k + '(' + v + '+' + b + ')=' + k + v + '+' + k * b, 'dist']]);
+    pairs.push([[k + '(' + b + v + ')=(' + k + '\\cdot ' + b + ')' + v, 'assoc-mul'], [k + '(' + b + '+' + v + ')=' + k * b + '+' + k + v, 'dist']]);
+    var pr = r.shuffle(r.pick(pairs).slice());
+    return { variant: 'prop-apart-' + pr[0][1] + '-' + pr[1][1] + '-' + c, prompt: 'The two equations below look alike. Name the property shown by each equation.',
+      parts: pr.map(function (q, i) { return { label: 'ab'[i], prompt: M(q[0]), answer: pName(q[1]), check: { type: 'property-name', eq: q[0] } }; }),
+      steps: pr.map(function (q) { return step('(' + 'ab'[pr.indexOf(q)] + ') ' + PWHY[q[1]], q[0], 2); }).concat([step('Commutative changes the order; associative changes only the grouping; distributive multiplies every term inside the parentheses.', '', 1)]),
+      space: [0.9, 1.0, 1.2] };
+  }
+  function pError(r, c) {
+    var v = r.pick(PV), who = r.pick(['Jordan', 'Priya', 'Marcus', 'Elena', 'Devon', 'Aisha']), k = r.int(2, 9), b = r.int(2, 12), t = pDiff(r, Math.max(c, 3), v, 2);
+    var cases = [
+      [t[0] + '+' + pPar(t[1]) + '=' + t[1] + '+' + pPar(t[0]), 'comm-add', 'assoc-add', 'the parentheses do not move; only the order of the addends changes'],
+      ['(' + t[0] + '+' + b + ')+' + k + '=' + t[0] + '+(' + b + '+' + k + ')', 'assoc-add', 'comm-add', 'the order stays the same; only the grouping changes'],
+      [k + '(' + b + v + ')=(' + k + '\\cdot ' + b + ')' + v, 'assoc-mul', 'dist', 'there is no sum inside the parentheses, so nothing is distributed; only the grouping of the factors changes'],
+      [v + '+0=' + v, 'id-add', 'inv-add', 'nothing is added to its opposite; adding 0 leaves the expression unchanged'],
+      [t[0] + '+(-' + t[0].replace(/^-/, '') + ')=0', 'inv-add', 'id-add', 'the result is 0 because an expression is added to its opposite'],
+      ['0\\cdot ' + k + v + '=0', 'zero', 'id-mul', 'multiplying by 0 (not by 1) gives 0'],
+      ['\\frac{1}{' + k + '}\\cdot ' + k + '=1', 'inv-mul', 'id-mul', 'a number times its reciprocal gives 1; nothing is multiplied by 1'],
+      [pDot(t[0].replace(/^-/, ''), '1') + '=' + t[0].replace(/^-/, ''), 'id-mul', 'inv-mul', 'multiplying by 1 leaves the expression unchanged; there is no reciprocal']];
+    var cs = r.pick(cases);
+    need(!/^-/.test(t[0]) || cs[1] !== 'inv-add');
+    return { variant: 'prop-error-' + cs[1] + '-' + c, prompt: who + ' says that ' + M(cs[0]) + ' is an example of the ' + PNAME[cs[2]] + '. Explain the error: which property does the equation actually show?',
+      parts: [{ answer: pName(cs[1]), check: { type: 'property-name', eq: cs[0] } }],
+      steps: [step('It is not the ' + PNAME[cs[2]] + ': ' + cs[3] + '.', '', 2), step(PWHY[cs[1]], '', 1), step('The equation shows the ' + PNAME[cs[1]] + '.', '', 1)], space: [0.8, 1.0, 1.2], selectPool: pPool(cs[1], r, c) };
+  }
+  function pChainProblem(r, c) {
+    var v = r.pick(PV), fam = c <= 4 ? 'add' : c === 5 ? r.pick(['add', 'dist']) : r.pick(['add', 'mul', 'dist']), E, codes;
+    if (fam === 'add') { var k = c >= 5 && r.chance(0.4) ? -r.int(2, 15) : r.int(2, 15), K = k < 0 ? '(' + k + ')' : String(k), N = k < 0 ? String(-k) : '(-' + k + ')';
+      var X = c >= 5 && r.chance(0.5) ? r.int(2, 9) + v : v;
+      E = ['(' + k + '+' + X + ')+' + N, '(' + X + '+' + K + ')+' + N, X + '+(' + K + '+' + N + ')', X + '+0', X]; codes = ['comm-add', 'assoc-add', 'inv-add', 'id-add']; }
+    else if (fam === 'mul') { var a, bb;
+      if (c >= 7 && r.chance(0.6)) { a = r.int(2, 9); bb = r.int(2, 9); need(a !== bb && gcd(a, bb) === 1); var f = '\\frac{' + a + '}{' + bb + '}', g = '\\frac{' + bb + '}{' + a + '}';
+        E = ['\\left(' + f + v + '\\right)\\cdot ' + g, g + '\\left(' + f + v + '\\right)', '\\left(' + g + '\\cdot ' + f + '\\right)' + v, '1\\cdot ' + v, v]; }
+      else { a = r.int(2, 12); E = ['(' + a + v + ')\\cdot\\frac{1}{' + a + '}', '\\frac{1}{' + a + '}(' + a + v + ')', '\\left(\\frac{1}{' + a + '}\\cdot ' + a + '\\right)' + v, '1\\cdot ' + v, v]; }
+      codes = ['comm-mul', 'assoc-mul', 'inv-mul', 'id-mul']; }
+    else { var kk = c >= 6 && r.chance(0.5) ? -r.int(2, 9) : r.int(2, 9), b = r.int(1, 9), mn = c >= 6 && r.chance(0.5), kb = kk * b * (mn ? -1 : 1), KB = kb < 0 ? '(' + kb + ')' : String(kb), NKB = kb < 0 ? String(-kb) : '(-' + kb + ')';
+      var KX = (kk === -1 ? '-' : kk) + v;
+      E = [kk + '(' + v + (mn ? '-' : '+') + b + ')+' + NKB, KX + (kb < 0 ? '-' + (-kb) : '+' + kb) + '+' + NKB, KX + '+(' + KB + '+' + NKB + ')', KX + '+0', KX]; codes = ['dist', 'assoc-add', 'inv-add', 'id-add']; }
+    var parts = codes.map(function (cd, i) { var eqi = E[i] + '=' + E[i + 1]; return { label: 'abcd'[i], prompt: 'Step ' + (i + 1) + ': ' + M(eqi), answer: pName(cd), check: { type: 'property-name', eq: eqi } }; });
+    return { variant: 'prop-chain-' + fam + '-' + c, prompt: 'A student simplified ' + M(E[0]) + ' in four steps. Name the property that justifies each step.',
+      parts: parts, steps: codes.map(function (cd, i) { return step('Step ' + (i + 1) + ': ' + PWHY[cd], E[i] + '=' + E[i + 1], 1); }), space: [1.6, 1.9, 2.2] };
+  }
+  function pCounter(r, c, ctx) {
+    var kind = r.pick(['sub-comm', 'sub-assoc', 'div-assoc'].concat(c >= 7 && !ctx.intOnly ? ['div-comm'] : [])), a, b, d, e1, e2, op, prop;
+    if (kind === 'sub-comm') { a = r.int(5, 30); b = r.int(1, a - 1); e1 = a + '-' + b; e2 = b + '-' + a; op = 'subtraction'; prop = 'commutative'; }
+    else if (kind === 'sub-assoc') { a = r.int(12, 40); b = r.int(3, 10); d = r.int(2, 8); e1 = '(' + a + '-' + b + ')-' + d; e2 = a + '-(' + b + '-' + d + ')'; op = 'subtraction'; prop = 'associative'; }
+    else if (kind === 'div-assoc') { d = r.int(2, 5); b = d * r.int(2, 4); a = b * d * r.int(1, 4); e1 = '(' + a + '\\div ' + b + ')\\div ' + d; e2 = a + '\\div(' + b + '\\div ' + d + ')'; op = 'division'; prop = 'associative'; }
+    else { b = r.int(2, 6); a = b * r.int(2, 6); e1 = a + '\\div ' + b; e2 = b + '\\div ' + a; op = 'division'; prop = 'commutative'; }
+    var both = e1 + '=' + e2, v1, v2;
+    if (kind === 'sub-comm') { v1 = String(a - b); v2 = String(b - a); }
+    else if (kind === 'sub-assoc') { v1 = String(a - b - d); v2 = String(a - (b - d)); }
+    else if (kind === 'div-assoc') { v1 = String(a / b / d); v2 = String(a / (b / d)); }
+    else { v1 = String(a / b); v2 = '\\frac{1}{' + (a / b) + '}'; }
+    return { variant: 'prop-counter-' + kind + '-' + c, prompt: 'Test whether ' + op + ' has the ' + prop + ' property. Answer each part.',
+      parts: [{ label: 'a', prompt: 'Find the value of ' + M(e1) + '.', answer: M(v1), check: { type: 'evaluate', expr: e1 } },
+        { label: 'b', prompt: 'Find the value of ' + M(e2) + '.', answer: M(v2), check: { type: 'evaluate', expr: e2 } },
+        { label: 'c', prompt: 'Is ' + M(both) + ' true? Answer yes or no.', answer: 'No', check: { type: 'property-holds', eq: both } },
+        { label: 'd', prompt: 'Is ' + op + ' ' + prop + '? Use parts (a)–(c) to explain.', answer: 'No. The example in parts (a)–(c) gives two different values, so ' + op + ' is not ' + prop + '. One counterexample is enough.', check: { type: 'property-holds' } }],
+      steps: [step('Work inside the parentheses first.', '', 1), step('The two values are different, so the equation is false.', '', 1), step('A single counterexample shows the property does not hold for ' + op + '.', '', 2)], space: [1.6, 1.9, 2.2] };
+  }
+
   // Lesson-specific aliases of independently verified generators; these remain selectable skills.
   (function(){var base=skills.find(function(s){return s.id==="both-sides";});if(!base)return;
     skill({id:"solve-equations-variables-both-sides",best:base.best,tag:base.tag,name:"Equations with variables on both sides",blurb:"Solve multi-step equations with variable terms on both sides.",
@@ -1088,15 +1371,14 @@
   NS.registerSkillSet({
     id: 'algebra1-foundations', course: 'algebra1', courseName: 'Algebra 1', unit: 'foundations-algebra', unitName: 'Foundations of Algebra',
     title: 'The Expression Café',
-    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', MODEL: 'Percent', NUMBER: 'Real numbers', WORDS: 'Expressions from words' },
+    tags: { SIMPLIFY: 'Simplify & evaluate', DISTRIB: 'Distribute', MODEL: 'Percent', NUMBER: 'Real numbers', WORDS: 'Expressions from words', PROPS: 'Properties of operations' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Order of operations</h4><p>Grouping symbols → exponents → multiply and divide (left to right) → add and subtract (left to right).</p></section>' +
       '<section><h4>Properties</h4><p>Distributive: ⟨a(b+c)=ab+ac⟩</p><p>Combine like terms: ⟨3x+5x=8x⟩, but ⟨3x+5y⟩ stays as it is.</p><p>Subtracting a group changes every sign: ⟨-(x-4)=-x+4⟩</p></section>' +
-      '<section><h4>Evaluating</h4><p>Replace each variable with its value in parentheses: if ⟨x=-3⟩, then ⟨x^2=(-3)^2=9⟩.</p></section></div>',
-    gaps: [
-      'Naming properties (commutative, associative, identity) is not generated yet. Use Add → Write your own problem.'
-    ],
-    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate', 'expr-error', 'percent', 'real-numbers', 'verbal'].indexOf(s.id) >= 0; })
+      '<section><h4>Evaluating</h4><p>Replace each variable with its value in parentheses: if ⟨x=-3⟩, then ⟨x^2=(-3)^2=9⟩.</p></section>' +
+      '<section><h4>Properties of operations</h4><p>Commutative (order): ⟨a+b=b+a⟩, ⟨ab=ba⟩</p><p>Associative (grouping): ⟨(a+b)+c=a+(b+c)⟩, ⟨(ab)c=a(bc)⟩</p><p>Identity: ⟨a+0=a⟩, ⟨a\\cdot 1=a⟩ · Inverse: ⟨a+(-a)=0⟩, ⟨a\\cdot\\frac{1}{a}=1⟩</p><p>Zero: ⟨a\\cdot 0=0⟩ · Distributive: ⟨a(b+c)=ab+ac⟩</p></section></div>',
+    gaps: [],
+    skills: skills.filter(function (s) { return ['like-terms', 'distribute', 'evaluate', 'expr-error', 'percent', 'real-numbers', 'verbal'].indexOf(s.id) >= 0; }).concat([REAL_OPS_SKILL, PROPERTIES_SKILL, INTERPRET_SKILL])
   });
 })(typeof window !== 'undefined' ? window : globalThis);

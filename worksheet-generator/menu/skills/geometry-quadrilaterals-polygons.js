@@ -42,10 +42,46 @@ function polygonInvestigation(ctx){var r=ctx.rng,c=ctx.c,ns=c>=5?[5,6,8,9,10,12,
  ['Find the measure z of one exterior angle of the regular polygon, using x from (b).','z',ext,'z+'+ang+'=180','An exterior angle and its interior angle form a linear pair.'],
  ['Find the perimeter P of the regular polygon, in centimeters.','P',P,'P='+n+'*'+sd,'Perimeter is the number of sides times the side length.']]);}
 
+
+/* Kites and isosceles trapezoids. The verifier reads the figure type, the named parts and the printed expressions and
+   applies the property itself (check "derive", reader "quad"); every expression drawn on the figure is printed in the question. */
+function kxe(r,c,x,v){var a=r.int(1,c>=5?6:4),b=v-a*x;return (a===1?'':a)+'x'+(b<0?'-'+(-b):'+'+b);}
+function kiteTrap(ctx){var r=ctx.rng,c=ctx.c,tr=r.chance(0.5),kinds,k,x=r.int(3,c>=5?16:11),fig,prompt,ans,steps,alts=[];
+ var head=tr?'In isosceles trapezoid ABCD with bases AB and CD, ':'In kite ABCD with AB = AD and CB = CD, ';
+ fig=tr?{kind:'geo-quad',shape:'trapezoid',parallel:[['AB','DC',1]],ticks:[{segs:['AD','BC'],n:1}],angle:{},seg:{}}:{kind:'geo-quad',shape:'kite',ticks:[{segs:['AB','AD'],n:1},{segs:['CB','CD'],n:2}],angle:{},seg:{}};
+ kinds=c<=2?(tr?['base-num','leg-num']:['kite-num','kite-sum']):c<=4?(tr?['base','leg','diag','base-num']:['kite-ang','kite-side','kite-sum']):(tr?['leg','diag','opp','base']:['kite-ang','kite-diag','kite-sum','kite-side']);
+ k=r.pick(kinds);
+ function two(p1,p2,relEq,askMeasure){var ac=tr?'AB':'BD',isA=function(q){return /^∠/.test(q)&&ac.indexOf(q.slice(1))>=0;},v=/^∠/.test(p1)?(isA(p1)?r.int(45,85):r.int(95,135)):r.int(40,140),v2=relEq?v:180-v,e1=kxe(r,c,x,v),e2=kxe(r,c,x,v2);K.need(e1!==e2);var isAng=/^∠/.test(p1);
+  var lab=function(pn,e){return (isAng?'m'+pn:pn)+' = '+M(e)+(isAng?'°':'');};
+  if(isAng){fig.angle[p1.slice(1)]='('+e1+')°';fig.angle[p2.slice(1)]='('+e2+')°';}else{fig.seg[p1]=e1;fig.seg[p2]=e2;if(/AC|BD/.test(p1))fig.diagonals=true;}
+  var eq=relEq?e1+'='+e2:'('+e1+')+('+e2+')=180',ask=askMeasure?(isAng?'m'+p1:p1):null;
+  prompt=head+lab(p1,e1)+' and '+lab(p2,e2)+'. Find '+(ask?ask+'.':M('x')+'.');ans=ask?M(String(v))+(isAng?'°':''):M('x='+x);alts=ask?[String(v2===v?180-v:v2),String(x)]:['x='+(x+1),'x='+(x+2)];
+  var opp=!relEq&&(p1+p2==='∠A∠C'||p1+p2==='∠B∠D'),why=relEq?(tr?(/AC|BD/.test(p1)?'The diagonals of an isosceles trapezoid are congruent.':/^∠/.test(p1)?'The base angles of an isosceles trapezoid are congruent.':'The legs of an isosceles trapezoid are congruent.'):(/^∠/.test(p1)?'In a kite, the angles between the unequal sides (∠B and ∠D) are congruent.':'A kite has two pairs of congruent adjacent sides.')):opp?'The base angles at C and D are congruent, and consecutive angles along a leg are supplementary, so '+p1+' and '+p2+' are supplementary.':'Consecutive angles along a leg lie between the parallel bases, so they are supplementary.';
+  steps=[step(why,M(eq)),step('Solve.',M('x='+x))].concat(ask?[step('Substitute: '+ask+' = '+v+(isAng?'°':'')+'.','')]:[]);}
+ if(k==='base-num'||k==='leg-num'||k==='kite-num'){var g=0,pair=k==='base-num'?r.pick([['A','B'],['C','D']]):k==='leg-num'?r.pick([['A','D'],['B','C'],['A','C']]):['B','D'],eqR=k!=='leg-num',acuteV=tr?'AB':'BD';g=acuteV.indexOf(pair[0])>=0?r.int(48,86):r.int(94,132);var w=eqR?g:180-g;
+  if(k==='leg-num'&&pair[1]==='C')w=180-g;fig.angle[pair[0]]=g+'°';
+  prompt=head+'m∠'+pair[0]+' = '+M(String(g))+'°. Find m∠'+pair[1]+'.';ans=M(String(w))+'°';alts=[String(eqR?180-g:g),String(360-g),String(90-g>0?90-g:g/2)];
+  steps=[step(k==='kite-num'?'In a kite, the angles between the pairs of unequal sides (∠B and ∠D) are congruent.':eqR?'The base angles of an isosceles trapezoid are congruent.':pair[1]==='C'?'∠C ≅ ∠D (base angles), and ∠A and ∠D are supplementary, so ∠A and ∠C are supplementary.':'Consecutive angles along a leg are supplementary (the bases are parallel).',''),step('m∠'+pair[1]+' = '+w+'°.','')];}
+ else if(k==='kite-sum'){var aA=r.int(100,150),aC=r.int(c>=4?90:100,150);K.need((360-aA-aC)%2===0&&aA!==aC&&360-aA-aC>=60);var b=(360-aA-aC)/2,f=r.pick(['B','D']);
+  prompt='In kite ABCD with AB = AD and CB = CD, m∠A = '+aA+'° and m∠C = '+aC+'°. Find m∠'+f+'.';fig.angle.A=aA+'°';fig.angle.C=aC+'°';ans=M(String(b))+'°';alts=[String(360-aA-aC),String(180-aA),String(180-aC)];
+  steps=[step('The angles of a quadrilateral sum to 360°, and ∠B ≅ ∠D in this kite.',M('2b+'+aA+'+'+aC+'=360')),step('m∠'+f+' = '+b+'°.','')];}
+ else if(k==='kite-diag'){var a1=r.int(1,4),a2=r.int(1,4),v1=r.int(25,65),v2=90-v1,b1=v1-a1*x,b2=v2-a2*x,ex=function(a,b){return (a===1?'':a)+'x'+(b<0?'-'+(-b):'+'+b);},side=r.pick([['A','B'],['B','C'],['C','D'],['D','A']]);
+  K.need(b1>-40&&b2>-40);var X=side[0],Y=side[1];
+  prompt=head+'The diagonals intersect at E. m∠'+X+Y+'E = '+M(ex(a1,b1))+'° and m∠'+Y+X+'E = '+M(ex(a2,b2))+'°. Find '+M('x')+'.';fig.diagonals=true;fig.right=[['E',X,Y]];
+  ans=M('x='+x);alts=['x='+(x+3),'x='+(x-2)];steps=[step('The diagonals of a kite are perpendicular, so ∠'+X+'E'+Y+' = 90° and the other two angles of △'+X+Y+'E sum to 90°.',M('('+ex(a1,b1)+')+('+ex(a2,b2)+')=90')),step('Solve.',M('x='+x))];}
+ else{var askM=c>=5&&r.chance(0.5);
+  if(k==='base'){var pb=r.pick([['∠A','∠B'],['∠C','∠D']]);two(pb[0],pb[1],true,askM);}
+  else if(k==='leg'){var pl=r.pick([['∠A','∠D'],['∠B','∠C']].concat(c>=5?[['∠A','∠C'],['∠B','∠D']]:[]));two(pl[0],pl[1],false,askM);}
+  else if(k==='opp'){var po=r.pick([['∠A','∠C'],['∠B','∠D']]);two(po[0],po[1],false,askM);}
+  else if(k==='diag')two('AC','BD',true,askM);
+  else if(k==='kite-ang')two('∠B','∠D',true,askM);
+  else{var ps=r.pick([['AB','AD'],['CB','CD']]);two(ps[0],ps[1],true,askM);}}
+ return {variant:'geo-quad-'+(tr?'trap':'kite')+'-'+k+'-'+c,prompt:prompt,fig:fig,parts:[{answer:ans,check:{type:'derive',kind:'quad',alts:alts.map(function(z){return /x=/.test(z)?M(z):M(z)+(/°/.test(ans)?'°':'');})}}],steps:steps,space:[1.0,1.2,1.4]};}
 NS.registerSkillSet({id:'geometry-quadrilaterals-polygons',course:'geometry',courseName:'Geometry',unit:'quadrilaterals-polygons',unitName:'Quadrilaterals and Polygons',title:'Quadrilaterals and Polygons',
-tags:{INVEST:'Four-part polygon investigation',QUAD:'Quadrilateral interior angles',POLYGON:'Polygon angle sums',PARALLEL:'Parallelogram properties',REGULAR:'Regular polygons',DIAGONAL:'Special quadrilateral diagonals',TRAPEZOID:'Trapezoid midsegments',DIAGCOUNT:'Polygon diagonal counting',CLASSIFY:'Special quadrilateral classification'},
-reference:'<div class="mm-refgrid"><section><h4>Quadrilateral angle sum</h4><p>Interior angles sum to 360°.</p></section><section><h4>Polygon angle sum</h4><p>An n-sided polygon has interior angle sum (n−2)·180°.</p></section></div>',
-gaps:['Kite and isosceles-trapezoid properties, classifying a quadrilateral from a figure, and two-column proofs are not generated. Polygons with many sides are not drawn.'],
+tags:{KITE:'Kites and isosceles trapezoids',INVEST:'Four-part polygon investigation',QUAD:'Quadrilateral interior angles',POLYGON:'Polygon angle sums',PARALLEL:'Parallelogram properties',REGULAR:'Regular polygons',DIAGONAL:'Special quadrilateral diagonals',TRAPEZOID:'Trapezoid midsegments',DIAGCOUNT:'Polygon diagonal counting',CLASSIFY:'Special quadrilateral classification'},
+reference:'<div class="mm-refgrid"><section><h4>Quadrilateral angle sum</h4><p>Interior angles sum to 360°.</p></section><section><h4>Polygon angle sum</h4><p>An n-sided polygon has interior angle sum (n−2)·180°.</p></section><section><h4>Kites and isosceles trapezoids</h4><p>Isosceles trapezoid: base angles congruent, legs and diagonals congruent. Kite: one pair of opposite angles congruent; diagonals perpendicular.</p></section></div>',
+gaps:['Classifying a quadrilateral from a drawn figure and two-column proofs are not generated. Polygons with many sides are not drawn.'],
 skills:[{id:'quadrilateral-angle-sum',tag:'QUAD',name:'Missing quadrilateral angle',best:[0,1,2],generate:angles},{id:'polygon-interior-sum',tag:'POLYGON',name:'Number of polygon sides from angle sum',best:[0,1,2],generate:polygon},{id:'parallelogram-opposite-sides',tag:'PARALLEL',name:'Opposite parallelogram sides',best:[0,1,2],generate:ctx=>parallelogram(ctx,'sides')},{id:'parallelogram-opposite-angles',tag:'PARALLEL',name:'Opposite parallelogram angles',best:[0,1,2],generate:ctx=>parallelogram(ctx,'angles')},{id:'regular-polygon-exterior',tag:'REGULAR',name:'Exterior angles of regular polygons',best:[0,1,2],generate:regular},{id:'rectangle-diagonal-bisectors',tag:'DIAGONAL',name:'Rectangle congruent and bisected diagonals',best:[0,1,2],generate:rectangleDiagonal},{id:'rhombus-diagonal-bisectors',tag:'DIAGONAL',name:'Rhombus diagonal bisectors',best:[0,1,2],generate:rhombusDiagonal},{id:'trapezoid-midsegment',tag:'TRAPEZOID',name:'Trapezoid midsegment theorem',best:[0,1,2],generate:trapezoidMidsegment},{id:'parallelogram-consecutive-angles',tag:'PARALLEL',name:'Consecutive parallelogram angles',best:[0,1,2],generate:consecutiveAngles},{id:'polygon-diagonal-count',tag:'DIAGCOUNT',name:'Count diagonals of a convex polygon',best:[0,1,2],generate:polygonDiagonals},{id:'classify-square-rhombus',tag:'CLASSIFY',name:'Classify squares and rhombi using side conditions',best:[0,1,2],generate:classifyBySides},{id:'parallelogram-algebraic-consecutive-angles',tag:'PARALLEL',name:'Algebraic consecutive angles and property justification',best:[0,1,2],generate:algebraicConsecutiveAngles},{id:'parallelogram-diagonal-bisection-converse',tag:'DIAGONAL',name:'Converse: both diagonals bisect each other',best:[0,1,2],generate:diagonalBisectionConverse},
+{id:'kite-isosceles-trapezoid',tag:'KITE',name:'Kite and isosceles trapezoid properties',best:[0,1,2],generate:kiteTrap},
 {id:'polygon-open-response-investigation',tag:'INVEST',name:'Four-part regular polygon investigation',best:[2],generate:polygonInvestigation}]});
 })(typeof window!=='undefined'?window:globalThis);

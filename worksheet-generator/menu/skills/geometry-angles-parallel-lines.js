@@ -134,10 +134,34 @@ function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.
   {label:'c',prompt:'The angle marked '+zx+' and the angle marked y° are alternate interior angles. Find z.',answer:M('z='+z),check:{type:'solve',eq:cc+'*z+'+e+'='+y,v:'z'}},
   {label:'d',prompt:'The angle marked w° and the angle marked '+zx+' are same-side interior angles. Find w.',answer:M('w='+w),check:{type:'solve',eq:'w+'+y+'=180',v:'w'}}],
   steps:[st('Corresponding angles are equal.',M(k+'*x+'+b+'='+M1)),st('A linear pair adds to 180 degrees.',M('y+'+M1+'=180')),st('Alternate interior angles are equal.',M(cc+'*z+'+e+'='+y)),st('Same-side interior angles are supplementary.',M('w+'+y+'=180'))],space:[2.6,3.2,3.9]};}
+
+/* Angle pairs named from a numbered figure, and the converse theorems (are the lines parallel?).
+   The verifier reads the pair from the figure positions (NS.geoFigures.relationship) or the printed measures (reader "angle-pair"). */
+var PAIRNAME={'corresponding':'Corresponding angles','alternate-interior':'Alternate interior angles','alternate-exterior':'Alternate exterior angles','same-side-interior':'Same-side interior angles','same-side-exterior':'Same-side exterior angles','vertical':'Vertical angles','linear-pair':'A linear pair'};
+function anglePairs(ctx){var r=ctx.rng,c=ctx.c,F=NS.geoFigures,rels=c<=2?['corresponding','vertical','linear-pair','alternate-interior']:['corresponding','alternate-interior','alternate-exterior','same-side-interior','same-side-exterior','vertical','linear-pair'],rel=r.pick(rels),pr=F.positionsFor(rel,r.int(0,3)),a=pr[0],b=pr[1];
+ if(r.chance(0.5)){var t=a;a=b;b=t;}
+ var nmz=r.pick([['ℓ','m'],['p','q'],['j','k']]),f=fig({kind:'geo-transversal',numbered:true,marks:[],names:nmz}),ask=c>=3&&rel!=='linear-pair'&&r.chance(0.45),others=Object.keys(PAIRNAME).filter(function(k){return k!==rel;});
+ if(ask){var phrase=rel==='linear-pair'?'a linear pair':PAIRNAME[rel].toLowerCase();
+  return {variant:'geo-pairs-find-'+rel+'-'+c,prompt:'In the figure, lines '+nmz[0]+' and '+nmz[1]+' are parallel and t is a transversal. Name an angle that forms '+phrase+' with ∠'+a+'.',fig:f,
+   parts:[{answer:'∠'+b,check:{type:'derive',kind:'angle-pair',alts:[1,2,3,4,5,6,7,8].filter(function(q){return q!==a&&F.relationship(q,a)!==rel;}).slice(0,4).map(function(q){return '∠'+q;})}}],
+   steps:[st(PAIRNAME[rel]+(rel==='linear-pair'?' is two adjacent angles that form a straight line.':rel==='vertical'?' are across from each other at the same intersection.':' sit in matching positions as described by the name.'),''),st('One answer: ∠'+b+'.','')],space:[0.5,0.6,0.7]};}
+ return {variant:'geo-pairs-name-'+rel+'-'+c,prompt:'In the figure, lines '+nmz[0]+' and '+nmz[1]+' are parallel and t is a transversal. Name the relationship between ∠'+a+' and ∠'+b+'.',fig:f,
+  parts:[{answer:PAIRNAME[rel],check:{type:'derive',kind:'angle-pair',alts:r.shuffle(others.slice()).slice(0,4).map(function(k){return PAIRNAME[k];})}}],
+  steps:[st(rel==='vertical'||rel==='linear-pair'?'Both angles are at the same intersection.':'One angle is at each intersection.',''),st(/interior/.test(rel)?'Both are between the two lines.':/exterior/.test(rel)?'Both are outside the two lines.':rel==='corresponding'?'They are in the same position at each intersection.':'',''),st('They are '+PAIRNAME[rel].replace(/^A /,'a ').toLowerCase()+'.','')],space:[0.5,0.6,0.7]};}
+function parallelConverse(ctx){var r=ctx.rng,c=ctx.c,kinds=c<=2?['corresponding','alternate-interior']:['corresponding','alternate-interior','alternate-exterior','same-side-interior'],k=r.pick(kinds),supp=/same-side/.test(k),name=PAIRNAME[k].toLowerCase().replace(/ angles$/,''),algebra=c>=4&&r.chance(0.55);
+ var lead='Lines m and n are cut by transversal t. ∠1 and ∠2 are '+name+' angles. ',conv={'corresponding':'Corresponding Angles Converse','alternate-interior':'Alternate Interior Angles Converse','alternate-exterior':'Alternate Exterior Angles Converse','same-side-interior':'Same-Side Interior Angles Converse'}[k];
+ if(algebra){var x=r.int(3,c>=6?20:14),v=r.int(40,140),e1=expr(r,x,v,1,6,60),e2=expr(r,x,supp?180-v:v,1,6,60);K.need(e1.ok&&e2.ok&&e1.e!==e2.e);
+  var eq=supp?'('+e1.e+')+('+e2.e+')=180':e1.e+'='+e2.e;
+  return {variant:'geo-converse-x-'+k+'-'+c,prompt:lead+'m∠1 = '+M(e1.e)+'° and m∠2 = '+M(e2.e)+'°. Find the value of '+M('x')+' that makes m ∥ n.',
+   parts:[{answer:M('x='+x),check:{type:'derive',kind:'angle-pair',alts:['x='+(x+2),'x='+(x-1),'x='+(2*x)]}}],steps:[st('By the '+conv+', m ∥ n when the angles are '+(supp?'supplementary':'congruent')+'.',M(eq)),st('Solve.',M('x='+x))],space:[1.0,1.2,1.4]};}
+ var par=r.chance(0.5),a=r.int(35,145),b=supp?(par?180-a:180-a+r.pick([-6,-4,4,6,10])):(par?a:a+r.pick([-5,-3,3,5,8]));K.need(b>0&&b<180);
+ return {variant:'geo-converse-yn-'+(par?'y':'n')+'-'+k+'-'+c,prompt:lead+'m∠1 = '+a+'° and m∠2 = '+b+'°. Are lines m and n parallel? Explain.',
+  parts:[{answer:par?'Yes. The '+name+' angles are '+(supp?'supplementary':'congruent')+', so m ∥ n by the '+conv+'.':'No. '+(supp?'The angles are not supplementary':'The angles are not congruent')+', so the lines are not parallel.',check:{type:'derive',kind:'angle-pair'}}],
+  steps:[st('If the lines were parallel, '+name+' angles would be '+(supp?'supplementary (sum 180°)':'congruent')+'.',''),st(supp?'Here the sum is '+(a+b)+'°.':'Here the measures are '+a+'° and '+b+'°.',''),st(par?'So m ∥ n by the '+conv+'.':'So the lines are not parallel.','')],space:[0.8,1.0,1.2]};}
  NS.registerSkillSet({id:'geometry-angles-parallel-lines',course:'geometry',courseName:'Geometry',unit:'angles-parallel-lines',unitName:'Angles and Parallel Lines',title:'Angle Relationships',
- tags:{INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
+ tags:{PAIRS:'Angle pairs and the converse theorems',INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
  reference:'<div class="mm-refgrid"><section><h4>Complementary angles</h4><p>The measures sum to 90°.</p></section><section><h4>Supplementary angles</h4><p>The measures sum to 180°.</p></section></div>',
- gaps:['Parallel-line proofs, naming angle pairs from a diagram, and figures with more than one transversal are not generated.'],skills:[
+ gaps:['Parallel-line proofs and figures with more than one transversal are not generated.'],skills:[
  {id:'complementary-angles',tag:'COMPLEMENT',name:'Complementary angles',best:[0,1],generate:ctx=>angle(ctx,'complement')},
  {id:'supplementary-angles',tag:'SUPPLEMENT',name:'Supplementary angles',best:[0,1],generate:ctx=>angle(ctx,'supplement')},
  {id:'vertical-angles',tag:'VERTICAL',name:'Vertical angles',best:[0,1],generate:vertical},
@@ -146,6 +170,8 @@ function four(id,c,intro,rows){return {variant:id+'-'+c,prompt:intro,parts:rows.
  {id:'alternate-interior',tag:'TRANSVERSAL',name:'Alternate interior angles',best:[0,1],generate:ctx=>transversal(ctx,'alternate-interior')},
  {id:'alternate-exterior',tag:'TRANSVERSAL',name:'Alternate exterior angles',best:[0,1],generate:ctx=>transversal(ctx,'alternate-exterior')},
  {id:'same-side-interior',tag:'TRANSVERSAL',name:'Same-side interior angles',best:[0,1],generate:ctx=>transversal(ctx,'same-side')},
+ {id:'angle-pairs-figure',tag:'PAIRS',name:'Name angle pairs from a diagram',best:[0,1],generate:ctx=>K.retry(()=>anglePairs(ctx))},
+ {id:'parallel-lines-converse',tag:'PAIRS',name:'Converse theorems: decide whether lines are parallel',best:[0,1,2],generate:ctx=>K.retry(()=>parallelConverse(ctx))},
 {id:'angles-investigation-corresponding',tag:'INVEST',name:'Honors: corresponding, linear pair, alternate exterior and same-side angles',best:[2],generate:invCorresponding},
  {id:'angles-investigation-alternate',tag:'INVEST',name:'Honors: alternate interior, same-side, vertical angles and a linear pair',best:[2],generate:invAlternate},
  {id:'angles-investigation-relations',tag:'INVEST',name:'Honors: complementary, supplementary and vertical angles with algebra',best:[2],generate:invRelations},

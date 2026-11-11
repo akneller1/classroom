@@ -203,22 +203,21 @@ window.MKPLAN_SKILLS_GEOMETRY = {
    ]
   },
   "U2-L6": {
-   "cover": "none",
+   "cover": "full",
    "skills": [
     [
      "A",
-     "corresponding-angles",
-     4,
+     "parallel-lines-converse",
+     1,
      7
     ],
     [
      "A",
-     "alternate-interior",
-     4,
-     7
+     "angle-pairs-figure",
+     1,
+     4
     ]
-   ],
-   "note": "Deciding whether lines are parallel has no generator yet; the practice below uses the angle theorems. Add 4–5 questions: given the angle measures, are the lines parallel?"
+   ]
   },
   "U2-L7": {
    "cover": "full",
@@ -1023,8 +1022,14 @@ window.MKPLAN_SKILLS_GEOMETRY = {
    ]
   },
   "U8-L7": {
-   "cover": "partial",
+   "cover": "full",
    "skills": [
+    [
+     "X",
+     "transformation-sequence-congruence",
+     1,
+     7
+    ],
     [
      "X",
      "compose-triangle-figure",
@@ -1037,8 +1042,7 @@ window.MKPLAN_SKILLS_GEOMETRY = {
      3,
      7
     ]
-   ],
-   "note": "Deciding congruent or similar from a described transformation sequence has no generator yet. Add 3–4 sequences and ask for the relationship."
+   ]
   },
   "U9-L1": {
    "cover": "full",

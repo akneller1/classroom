@@ -278,10 +278,73 @@
     }
   });
 
+
+  /* ================= DIRECT VARIATION ================= */
+  var DV_WORDS = [['pay', 'dollars', 'time worked', 'hours'], ['distance', 'miles', 'driving time', 'hours'], ['cost', 'dollars', 'number of tickets', 'tickets'],
+    ['weight', 'pounds', 'number of bags', 'bags'], ['height', 'centimeters', 'number of stacked boxes', 'boxes'], ['amount of flour', 'cups', 'number of batches', 'batches']];
+  skill({
+    id: 'direct-variation', best: [0, 1, 2], tag: 'DIRECT', openResponse: { minC: 4 }, name: 'Direct variation (y = kx)',
+    blurb: 'Find k and write y = kx from one pair (CP2) → find a missing value, decide whether a table or an equation shows direct variation, negative k (CP1) → fraction and decimal constants, word problems, working backward for x (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, steps = [], Y = 'y', X = 'x', ask;
+      var frac = !ctx.intOnly && c >= 6 && r.chance(0.5);
+      var k = frac ? F(nz(r, -9, 9), r.pick([2, 3, 4, 5])) : F(c >= 4 ? r.int(2, 9) * (r.chance(0.4) ? -1 : 1) : r.int(2, 9));
+      if (frac) need(!k.isInt());
+      ask = r.pick(c === 1 ? ['k', 'k', 'eq'] : c === 2 ? ['k', 'eq', 'y'] : c === 3 ? ['y', 'x', 'eq', 'k'] : c === 4 ? ['table', 'equation', 'y', 'x', 'word'] : c === 5 ? ['word', 'table', 'x', 'equation', 'y'] : ['word', 'table', 'x', 'y', 'eq', 'equation']);
+      var x0 = (c >= 4 ? nz(r, -6, 6) : r.int(1, 8)) * k.d; if (x0 === k.d && c > 1) x0 = 2 * k.d * (r.chance(0.5) ? 1 : (c >= 4 ? -1 : 1));
+      var y0 = k.mul(x0), lead = 'The variable ' + M(Y) + ' varies directly with ' + M(X) + ', and ' + M(Y + '=' + num(y0)) + ' when ' + M(X + '=' + num(x0)) + '. ';
+      var steps0 = [step('Find the constant of variation.', 'k=\\frac{y}{x}=\\frac{' + num(y0) + '}{' + num(x0) + '}=' + num(k), 2)];
+      if (c >= 4 && ask !== 'word' && r.chance(0.18)) {   // four connected parts (Open Response)
+        var xb2 = (c >= 5 ? nz(r, -12, 12) : r.int(2, 12)) * k.d, xc2 = (c >= 5 ? nz(r, -12, 12) : r.int(2, 12)) * k.d; need(xb2 !== x0 && xc2 !== x0 && xb2 !== xc2);
+        var yb2 = k.mul(xb2), yc2 = k.mul(xc2);
+        return { variant: 'dv-four-' + c, prompt: lead + 'Answer each part. Each part uses the one before it.',
+          parts: [{ label: 'a', prompt: 'Find the constant of variation ' + M('k') + '.', answer: M('k=' + num(k)), check: { type: 'derive', kind: 'dv' } },
+            { label: 'b', prompt: 'Write the direct variation equation.', answer: M('y=' + lin([[k, 'x']])), check: { type: 'derive', kind: 'dv' } },
+            { label: 'c', prompt: 'Find ' + M(Y) + ' when ' + M(X + '=' + xb2) + '.', answer: M('y=' + num(yb2)), check: { type: 'derive', kind: 'dv' } },
+            { label: 'd', prompt: 'Find ' + M(X) + ' when ' + M(Y + '=' + num(yc2)) + '.', answer: M('x=' + xc2), check: { type: 'derive', kind: 'dv' } }],
+          steps: steps0.concat([step('Write ⟨y=kx⟩.', 'y=' + lin([[k, 'x']]), 1), step('Substitute the new x and multiply.', 'y=' + num(yb2), 1), step('Divide the given y by k.', 'x=\\frac{' + num(yc2) + '}{' + num(k) + '}=' + xc2, 1)]), space: [1.6, 1.9, 2.2] };
+      }
+      if (ask === 'word') {
+        var w = r.pick(DV_WORDS), rate = c >= 5 && !ctx.intOnly && r.chance(0.5) ? r.pick([1.5, 2.5, 7.5, 12.5]) : r.int(2, 15), B = 2 * r.int(1, 8), Cn = 2 * r.int(1, 12);
+        need(Cn !== B); var A = rate * B, ans = rate * Cn;
+        steps.push(step('Find the constant of variation: divide.', 'k=\\frac{' + A + '}{' + B + '}=' + rate, 2), step('Multiply k by the new value.', rate + '\\cdot ' + Cn + '=' + ans, 1));
+        return { variant: 'dv-word-' + c, prompt: 'The ' + w[0] + ' varies directly with the ' + w[2] + '. When the ' + w[2] + ' is ' + B + ' ' + w[3] + ', the ' + w[0] + ' is ' + A + ' ' + w[1] + '. Find the ' + w[0] + ' when the ' + w[2] + ' is ' + Cn + ' ' + w[3] + '.',
+          parts: [{ answer: M(String(ans)) + ' ' + w[1], check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.8, 1.0, 1.2] };
+      }
+      if (ask === 'table') {
+        var yes = r.chance(0.5), xs = r.shuffle([1, 2, 3, 4, 5, 6, 8, 10].map(function (x) { return x * k.d; })).slice(0, 4).sort(function (a, b) { return a - b; }), off = nz(r, -6, 6);
+        var rows = xs.map(function (x) { var yv = k.mul(x).add(yes ? 0 : off); return [num(x), num(yv)]; });
+        steps.push(step('Direct variation means ⟨\\frac{y}{x}⟩ is the same for every pair (and the graph passes through the origin).', '', 2));
+        steps.push(step(yes ? 'Every ratio equals ' + M(num(k)) + '.' : 'The ratios are not all equal (for example ⟨\\frac{' + rows[0][1] + '}{' + rows[0][0] + '}⟩ and ⟨\\frac{' + rows[1][1] + '}{' + rows[1][0] + '}⟩).', '', 1));
+        return { variant: 'dv-table-' + (yes ? 'y' : 'n') + c, prompt: 'Does the table show that ' + M('y') + ' varies directly with ' + M('x') + '? If it does, give the constant of variation ' + M('k') + '.',
+          fig: { kind: 'table', vertical: true, head: ['x', 'y'], rows: rows },
+          parts: [{ answer: yes ? 'Yes, ' + M('k=' + num(k)) : 'No. The ratios ' + M('\\frac{y}{x}') + ' are not all equal.', check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.6, 0.7, 0.8] };
+      }
+      if (ask === 'equation') {
+        var yes2 = r.chance(0.5), bb = nz(r, -9, 9), rhs = yes2 ? lin([[k, 'x']]) : lin([[k, 'x'], [bb, '']]);
+        if (yes2 && c >= 5 && k.isInt() && Math.abs(k.n) > 1 && r.chance(0.3)) rhs = (k.sign() < 0 ? '-' : '') + '\\frac{' + Math.abs(k.n) + 'x}{1}';
+        if (/frac\{[^}]*\}\{1\}/.test(rhs)) rhs = lin([[k, 'x']]);
+        steps.push(step('A direct variation has the form ⟨y=kx⟩: no constant term, so the graph passes through the origin.', '', 2));
+        steps.push(step(yes2 ? 'It has that form with ⟨k=' + num(k) + '⟩.' : 'It has a constant term of ' + M(num(bb)) + ', so it is not a direct variation.', '', 1));
+        return { variant: 'dv-eq-' + (yes2 ? 'y' : 'n') + c, prompt: 'Is the equation ' + M('y=' + rhs) + ' a direct variation? If it is, give the constant of variation ' + M('k') + '.',
+          parts: [{ answer: yes2 ? 'Yes, ' + M('k=' + num(k)) : 'No. Its slope is ' + M(num(k)) + ', but its graph does not pass through the origin because its y-intercept is ' + M(num(bb)) + '.', check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.5, 0.6, 0.7] };
+      }
+      steps.push(step('Find the constant of variation.', 'k=\\frac{y}{x}=\\frac{' + num(y0) + '}{' + num(x0) + '}=' + num(k), 2));
+      if (ask === 'k') return { variant: 'dv-k-' + c, prompt: lead + 'Find the constant of variation ' + M('k') + '.', parts: [{ answer: M('k=' + num(k)), check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.5, 0.6, 0.7] };
+      if (ask === 'eq') { steps.push(step('Write ⟨y=kx⟩.', 'y=' + lin([[k, 'x']]), 1));
+        return { variant: 'dv-eq-write-' + c, prompt: lead + 'Write the direct variation equation.', parts: [{ answer: M('y=' + lin([[k, 'x']])), check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.6, 0.7, 0.8] }; }
+      if (ask === 'y') { var x1 = (c >= 4 ? nz(r, -12, 12) : r.int(2, 15)) * k.d; need(x1 !== x0); var y1 = k.mul(x1); steps.push(step('Multiply.', 'y=' + num(k) + '\\cdot ' + (x1 < 0 ? '(' + x1 + ')' : x1) + '=' + num(y1), 1));
+        return { variant: 'dv-y-' + c, prompt: lead + 'Find ' + M(Y) + ' when ' + M(X + '=' + x1) + '.', parts: [{ answer: M('y=' + num(y1)), check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.7, 0.8, 0.9] }; }
+      var xa = c >= 4 ? nz(r, -12, 12) : r.int(2, 15); need(xa * k.d !== x0); var ya = k.mul(xa * k.d);
+      steps.push(step('Solve ⟨' + num(ya) + '=' + num(k) + 'x⟩: divide by k.', 'x=\\frac{' + num(ya) + '}{' + num(k) + '}=' + num(xa * k.d), 1));
+      return { variant: 'dv-x-' + c, prompt: lead + 'Find ' + M(X) + ' when ' + M(Y + '=' + num(ya)) + '.', parts: [{ answer: M('x=' + num(xa * k.d)), check: { type: 'derive', kind: 'dv' } }], steps: steps, space: [0.7, 0.8, 0.9] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-linear-equations-slope', course: 'algebra1', courseName: 'Algebra 1', unit: 'linear-equations-slope', unitName: 'Linear Functions and Graphing',
     title: 'The Slope Shack',
-    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations', GRAPHLINE: 'Graphing linear functions' },
+    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations', GRAPHLINE: 'Graphing linear functions', DIRECT: 'Direct variation' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Slope</h4><p>⟨m=\\frac{y_2-y_1}{x_2-x_1}⟩ (rise over run). Horizontal: ⟨m=0⟩. Vertical: undefined.</p></section>' +
@@ -289,8 +352,9 @@
       '<section><h4>Intercepts</h4><p>x-intercept: set ⟨y=0⟩. y-intercept: set ⟨x=0⟩.</p></section>' +
       '<section><h4>Parallel and perpendicular</h4><p>Parallel: equal slopes. Perpendicular: slopes multiply to ⟨-1⟩ (opposite reciprocals).</p></section>' +
       '<section><h4>Special lines</h4><p>Horizontal: ⟨y=k⟩. Vertical: ⟨x=h⟩.</p></section>' +
-      '<section><h4>Models</h4><p>⟨y=mx+b⟩: m is the rate of change, b is the starting value.</p></section></div>',
-    gaps: ['Direct variation and absolute-value graphs are not generated.'],
+      '<section><h4>Models</h4><p>⟨y=mx+b⟩: m is the rate of change, b is the starting value.</p></section>' +
+      '<section><h4>Direct variation</h4><p>⟨y=kx⟩ with ⟨k=\\frac{y}{x}⟩ for every pair; the graph is a line through the origin.</p></section></div>',
+    gaps: ['Absolute-value graphs are not generated.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);
