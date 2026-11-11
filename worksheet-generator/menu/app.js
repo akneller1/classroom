@@ -753,7 +753,7 @@
     var host = $('#mmView'); host.className = 'mm-view-setup';
     host.innerHTML = '<section class="card mm-card"><h2>Find questions</h2><button class="btn ghost" id="topicBack">Browse by unit</button> <button class="btn" disabled>Search by topic</button>' +
       '<label class="field"><span class="lbl">Class</span><select id="topicClass"><option value="all"'+(topicCourse==='all'?' selected':'')+'>All classes</option>'+classOptions(topicCourse)+'</select></label>' +
-      '<label class="field"><span class="lbl">Topic</span><input id="topicQuery" type="search" placeholder="e.g. slope, rate of change, factoring" value="'+esc(topicQuery)+'"></label>' +
+      '<label class="field"><span class="lbl">Topic</span><input id="topicQuery" type="search" placeholder="e.g. slope, rate of change, factoring" value="'+esc(topicQuery)+'" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="topicSuggestions"></label><div id="topicSuggestions" role="listbox" aria-label="Suggested topics" hidden style="max-height:18rem;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:6px"></div><p id="topicSuggestStatus" class="hint" role="status" aria-live="polite"></p>' +
       '<p class="hint">Search skills and question wording across all available units in the selected classes. Add individual questions, then search another topic to mix skills.</p>' +
       '<label class="field"><span class="lbl">Question format</span><select id="topicFormat"><option value="all"'+(topicFormat==='all'?' selected':'')+'>All formats</option>'+Object.keys(NS.FORMATS).map(function(f){return '<option value="'+f+'"'+(f===topicFormat?' selected':'')+'>'+esc(NS.FORMATS[f])+'</option>';}).join('')+'</select></label>' +
       '<label class="field"><span class="lbl">Difficulty</span><select id="topicLevel"><option value="all"'+(topicLevel==='all'?' selected':'')+'>All difficulties</option>'+Object.keys(NS.LEVELS).map(function(l){return '<option value="'+l+'"'+(l===topicLevel?' selected':'')+'>'+esc(topicCourse==='all'?NS.LEVELS[l].name:NS.courseLevelName(topicCourse.units[0][0],l))+'</option>';}).join('')+'</select></label>' +
@@ -761,14 +761,64 @@
       '<section class="card mm-card"><h2>Selected questions (<span id="topicCount">'+topicCart.length+'</span>)</h2><div id="topicCart"></div><button class="btn" id="topicBuild">Review worksheet</button></section>';
     $('#topicBack').onclick=function(){topicToken++;topicMode=false;render();};
     $('#topicClass').onchange=function(){topicToken++;topicCourse=this.value==='all'?'all':NS.CATALOG[this.value];topicResults=[];topicPage=0;topicView();topicSearch();};
-    $('#topicQuery').oninput=function(){topicQuery=this.value;clearTimeout(topicView.timer);topicView.timer=setTimeout(function(){topicPage=0;topicSearch();},450);};
-    $('#topicQuery').onkeydown=function(e){if(e.key==='Enter'){clearTimeout(topicView.timer);topicPage=0;topicSearch();}};
+    $('#topicQuery').oninput=function(){topicQuery=this.value;topicToken++;topicSuggest();clearTimeout(topicView.timer);topicView.timer=setTimeout(function(){topicPage=0;topicSearch();},450);};
+    $('#topicQuery').onfocus=topicSuggest;
+    $('#topicQuery').onblur=function(){setTimeout(function(){var list=$('#topicSuggestions');if(list&&!list.contains(doc.activeElement))topicHideSuggestions();},0);};
+    $('#topicQuery').onkeydown=function(e){
+      if(e.key==='Escape'){topicHideSuggestions();return;}
+      if((e.key==='ArrowDown'||e.key==='ArrowUp')&&topicSuggested.length){
+        e.preventDefault();topicSuggestIndex=topicSuggestIndex<0?(e.key==='ArrowDown'?0:topicSuggested.length-1):(topicSuggestIndex+(e.key==='ArrowDown'?1:-1)+topicSuggested.length)%topicSuggested.length;
+        var options=$$('[role=option]',$('#topicSuggestions'));
+        options.forEach(function(b,i){b.setAttribute('aria-selected',i===topicSuggestIndex?'true':'false');b.style.background=i===topicSuggestIndex?'var(--line)':'';});
+        this.setAttribute('aria-activedescendant',options[topicSuggestIndex].id);options[topicSuggestIndex].scrollIntoView({block:'nearest'});return;
+      }
+      if(e.key==='Enter'){e.preventDefault();if(topicSuggestIndex>=0&&!$('#topicSuggestions').hidden){topicChooseSuggestion(topicSuggested[topicSuggestIndex]);return;}topicHideSuggestions();clearTimeout(topicView.timer);topicPage=0;topicSearch();}
+    };
     $('#topicFormat').onchange=function(){topicFormat=this.value;topicPage=0;topicSearch();};
     $('#topicLevel').onchange=function(){topicLevel=this.value;topicPage=0;topicSearch();};
-    $('#topicSearch').onclick=function(){topicPage=0;topicSearch();};
+    $('#topicSearch').onclick=function(){topicHideSuggestions();topicPage=0;topicSearch();};
     $('#topicMore').onclick=function(){topicPage++;topicSearch();};
     $('#topicBuild').onclick=topicBuild;
     topicDrawCart();
+    topicSuggested=[];topicSuggestIndex=-1;
+  }
+  var topicSuggested=[], topicSuggestIndex=-1;
+  function topicSuggestionsFor(course,query) {
+    var terms=String(query||'').toLowerCase().match(/[a-z0-9]+/g)||[];
+    if(!terms.length)return [];
+    var set=NS.skillSets[topicId(course)], names=new Map(), priorities=new Map();
+    if(!set)return [];
+    set.skills.forEach(function(sk){
+      var src=sk.topicSource, original=NS.skillSets[src.unit], originalSkill=original.byId[src.skill];
+      [original.tags[originalSkill.tag],sk.name,src.unitName.replace(/^Unit \d+\s*·\s*/,'')].forEach(function(name,priority){
+        if(!name)return;name=String(name).trim();
+        var words=name.toLowerCase().match(/[a-z0-9]+/g)||[];
+        if(terms.every(function(t){return words.some(function(w){return w.indexOf(t)===0;});})){names.set(name.toLowerCase(),name);priorities.set(name.toLowerCase(),Math.min(priority,priorities.has(name.toLowerCase())?priorities.get(name.toLowerCase()):priority));}
+      });
+    });
+    return Array.from(names.values()).sort(function(a,b){
+      var queryText=String(query).toLowerCase().trim(), ap=a.toLowerCase().indexOf(queryText)===0, bp=b.toLowerCase().indexOf(queryText)===0;
+      return Number(bp)-Number(ap)||priorities.get(a.toLowerCase())-priorities.get(b.toLowerCase())||a.localeCompare(b);
+    });
+  }
+  function topicHideSuggestions(){
+    var input=$('#topicQuery'),list=$('#topicSuggestions');if(!input||!list)return;
+    list.hidden=true;input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');topicSuggestIndex=-1;
+    $('#topicSuggestStatus').textContent='';
+  }
+  function topicChooseSuggestion(name){
+    topicQuery=name;$('#topicQuery').value=name;topicHideSuggestions();clearTimeout(topicView.timer);topicPage=0;topicSearch();
+  }
+  function topicSuggest(){
+    var input=$('#topicQuery'),list=$('#topicSuggestions'),all=topicSuggestionsFor(topicCourse,input.value);
+    topicSuggested=all;topicSuggestIndex=-1;input.removeAttribute('aria-activedescendant');list.innerHTML='';
+    topicSuggested.forEach(function(name,i){
+      var b=doc.createElement('button');b.type='button';b.id='topicSuggestion'+i;b.setAttribute('role','option');b.setAttribute('aria-selected','false');b.tabIndex=-1;
+      b.className='btn ghost sm';b.style.cssText='display:block;width:100%;text-align:left;margin:2px 0';b.textContent=name;
+      b.onclick=function(){topicChooseSuggestion(name);};list.appendChild(b);
+    });
+    list.hidden=!topicSuggested.length;input.setAttribute('aria-expanded',topicSuggested.length?'true':'false');
+    $('#topicSuggestStatus').textContent=input.value.trim()?(all.length?all.length+' matching topics. Keep typing to narrow the list.':'No suggested topics. You can still search question wording.') : '';
   }
   function topicSearch() {
     if (!topicMode || !$('#topicStatus')) return;
@@ -783,7 +833,7 @@
       if(token!==topicToken || !topicMode)return;
       var stop=Math.min(jobs.length,index+2);
       for(;index<stop;index++){
-        var job=jobs[index], sk=job.sk, src=sk.topicSource, meta=(sk.name+' '+(NS.skillSets[src.unit].tags[NS.skillSets[src.unit].byId[src.skill].tag]||'')).toLowerCase();
+        var job=jobs[index], sk=job.sk, src=sk.topicSource, meta=(src.unitName.replace(/^Unit \d+\s*·\s*/,'')+' '+sk.name+' '+(NS.skillSets[src.unit].tags[NS.skillSets[src.unit].byId[src.skill].tag]||'')).toLowerCase();
         var c=NS.defaultConfig(src.unit,'worksheet'); c.level=job.level;c.versions=1;c.coverage.on=false;
         c.skills={};c.skills[src.skill]=true;
         c.sections=[{id:NS.uid('topicsec'),name:sk.name,note:'Show your work.',points:1,offered:1,required:1,tier:1,adjust:0,skills:[src.skill],qformat:job.format}];

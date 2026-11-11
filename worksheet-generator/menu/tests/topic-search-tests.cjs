@@ -60,3 +60,15 @@ vm.runInContext('var mcBatch=topicQuestionBatch(mcItem,4,[]);',env);
 assert.equal(env.mcBatch.length,4);
 for(const x of env.mcBatch){assert(x.p.mc);assert.equal(x.p.c,4);assert.equal(x.p.skill,slopeSrc.skill);}
 console.log('Multiple-choice quantity retains checked choices and requested difficulty.');
+const sTopics=env.topicSuggestionsFor(group,'s'),slTopics=env.topicSuggestionsFor(group,'sl');
+assert(sTopics.some(x=>x==='Slope'));
+assert(sTopics.some(x=>/systems/i.test(x)));
+assert(slTopics.some(x=>x==='Slope'));
+assert(!slTopics.some(x=>/systems/i.test(x)));
+assert(slTopics.every(x=>sTopics.includes(x)));
+assert.equal(env.topicSuggestionsFor(group,'').length,0);
+assert.equal(new Set(sTopics.map(x=>x.toLowerCase())).size,sTopics.length);
+assert.equal(env.topicSuggestionsFor(NS.CATALOG.find(g=>g.course==='Geometry'),'sl').includes('Slope'),false);
+assert(env.topicSuggestionsFor('all','sl').includes('Slope'));
+assert(!sTopics.some(x=>/^Unit \d/.test(x)));
+console.log('Suggestions passed: s includes slope and systems, sl narrows to slope, class scoping, all classes, deduplication.');
