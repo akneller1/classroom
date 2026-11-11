@@ -370,7 +370,7 @@
       '</div>' : '';
     var secOpts = c.sections.map(function (s, k) { return '<option value="' + k + '"' + (k === si ? ' disabled' : '') + '>' + esc(s.name) + '</option>'; }).join('');
     var curFmt = NS.sectionFormat(c, si), curC = NS.sectionC(c, si);
-    var skillOpts = set.skills.map(function (s) { var bad = s.id !== p.skill && !NS.skillFormatOk(c.unitId, s.id, curFmt, curC); return '<option value="' + s.id + '"' + (s.id === p.skill ? ' selected' : '') + (bad ? ' disabled' : '') + '>' + esc(s.name) + (bad ? ' (not available as ' + esc(NS.FORMATS[curFmt]) + ')' : '') + '</option>'; }).join('');
+    var skillOpts = '<option value="'+esc(p.skill)+'" selected>'+esc(skillName)+'</option>';
     var lockedNote = p.edited || p.manual ? ' (edited problems are pinned)' : '';
     var tools = '<div class="mm-tools" role="toolbar" aria-label="Tools for ' + lab + '">' +
       '<button type="button" class="btn sm" data-act="regen"' + (p.pinned ? ' disabled title="Unpin to regenerate"' : '') + '>↻ New problem</button>' +
@@ -380,7 +380,7 @@
       '<button type="button" class="btn sm ghost" data-act="harder"' + (p.c >= 7 || p.manual ? ' disabled' : '') + '>Harder</button>' +
       '<button type="button" class="btn sm ghost" data-act="answer" aria-expanded="' + !!show + '">' + (show ? 'Hide answer' : 'Show answer') + '</button>' +
       '<span class="mm-more">' +
-      '<label><span class="sr">Change skill</span><select data-act="skill" aria-label="Change skill for ' + lab + '"' + (p.manual ? ' disabled' : '') + '>' + skillOpts + '</select></label>' +
+      '<label><span class="sr">Change skill</span><select data-review-skills data-act="skill" aria-label="Change skill for ' + lab + '"' + (p.manual ? ' disabled' : '') + '>' + skillOpts + '</select></label>' +
       '<label><span class="sr">Move to section</span><select data-act="move" aria-label="Move ' + lab + ' to another section"><option value="">Move to…</option>' + secOpts + '</select></label>' +
       '<button type="button" class="btn sm ghost" data-act="up" aria-label="Move ' + lab + ' up"' + (i === 0 ? ' disabled' : '') + '>↑</button>' +
       '<button type="button" class="btn sm ghost" data-act="down" aria-label="Move ' + lab + ' down"' + (i === S.versions[ui.version].sections[si].items.length - 1 ? ' disabled' : '') + '>↓</button>' +
@@ -405,7 +405,7 @@
       var items = v.sections[si].items, req = items.filter(function (x) { return x.required; }).length;
       h += '<section class="mm-secblock" aria-labelledby="mmsec' + si + '"><div class="mm-sechd"><h2 id="mmsec' + si + '">' + esc(sec.name) + '</h2><span class="mm-secinfo">' + (NS.isTest(c) ? items.length + ' questions · ' + esc(NS.FORMATS[NS.sectionFormat(c, si)]) + (NS.isWorksheet(c) ? '' : ' · ' + sec.points + ' pts each') : items.length + ' offered · students complete ' + sec.required + ' · ' + sec.points + ' pts each' + (req ? ' · ' + req + ' required' : '')) + '</span></div>' +
         '<div class="mm-cards">' + items.map(function (p, i) { return dishCard(p, si, i); }).join('') + '</div>' +
-        '<div class="mm-addrow"><label>Add a problem: <select class="mmAddSkill" data-si="' + si + '">' + (function () { var f = NS.sectionFormat(c, si), cs = NS.sectionC(c, si), picked = false; return set.skills.map(function (s) { var ok = NS.skillFormatOk(c.unitId, s.id, f, cs), sel = ok && !picked; if (sel) picked = true; return '<option value="' + s.id + '"' + (ok ? '' : ' disabled') + (sel ? ' selected' : '') + '>' + esc(s.name) + (ok ? '' : ' (not available as ' + esc(NS.FORMATS[f]) + ')') + '</option>'; }).join(''); })() + '</select></label>' +
+        '<div class="mm-addrow"><label>Add a problem: <select class="mmAddSkill" data-review-skills data-si="' + si + '">' + (function () { var id=items[0]?items[0].skill:NS.sectionSkills(c,si)[0]||set.skills[0].id;var sk=set.byId[id];return '<option value="'+esc(id)+'" selected>'+esc(sk?sk.name:id)+'</option>'; })() + '</select></label>' +
         '<label>Difficulty <select class="mmAddC" data-si="' + si + '">' + [1, 2, 3, 4, 5, 6, 7].map(function (k) { return '<option value="' + k + '"' + (k === NS.sectionC(c, si) ? ' selected' : '') + '>' + k + ' · ' + NS.DIFF_NAMES[k] + '</option>'; }).join('') + '</select></label>' +
         '<button type="button" class="btn sm" data-add="' + si + '">+ Add</button><button type="button" class="btn sm ghost" data-manual="' + si + '">+ Write your own</button></div></section>';
     });
@@ -427,6 +427,30 @@
           '<div class="mm-tools"><label>Add to <select class="mmBankTo">' + c.sections.map(function (s, si) { return '<option value="' + si + '">' + esc(s.name) + '</option>'; }).join('') + '</select></label><button type="button" class="btn sm" data-use="' + p.uid + '">Add</button></div></article>';
       }).join('') + '</div></aside>';
   }
+  function reviewSkillOptions(c,selected){
+    return NS.skillSets[c.unitId].skills.map(function(sk){
+      var src=sk.topicSource,label=src?(src.course+' · '+src.unitName+' · '+sk.name):sk.name;
+      return '<option value="'+esc(sk.id)+'"'+(sk.id===selected?' selected':'')+'>'+esc(label)+'</option>';
+    }).join('');
+  }
+  function bindReviewSkills(root){
+    $$('select[data-review-skills]',root).forEach(function(select){
+      function populate(){if(select.dataset.ready)return;var selected=select.value;select.innerHTML=reviewSkillOptions(S.config,selected);select.dataset.ready='1';}
+      select.onfocus=populate;select.onpointerdown=populate;
+    });
+  }
+  function bindReviewCard(card){
+    var id=card.getAttribute('data-uid'),ap=$('.mmApprove',card);
+    if(ap)ap.onchange=function(){var on=ap.checked;change(function(){NS.approve(S,ui.version,id,on);},on?'Answer approved.':'Approval removed.');};
+    $$('[data-act]',card).forEach(function(b){var act=b.getAttribute('data-act'),h=function(){dishAction(act,id,b);};if(b.tagName==='SELECT')b.onchange=h;else b.onclick=h;});
+    bindReviewSkills(card);
+  }
+  function refreshReviewCard(id){
+    var loc=NS.find(S,ui.version,id),card=$$('.mm-dcard').find(function(e){return e.getAttribute('data-uid')===id;});
+    if(!loc||!card)return;
+    var holder=doc.createElement('div');holder.innerHTML=dishCard(loc.item,loc.si,loc.i);var replacement=holder.firstElementChild;
+    card.replaceWith(replacement);bindReviewCard(replacement);
+  }
   function bindReview() {
     $$('[data-ver]').forEach(function (b) { b.onclick = function () { ui.version = +b.getAttribute('data-ver'); render(); }; });
     $('#mmRegenVer').onclick = function () { regenAll(ui.version); };
@@ -434,19 +458,11 @@
     $('#mmShowAll').onclick = function () { ui.allAns = !ui.allAns; S.versions[ui.version].sections.forEach(function (s) { s.items.forEach(function (p) { ui.showAns[p.uid] = ui.allAns; }); }); render(); };
     $('#mmBankToggle').onclick = function () { ui.bankOpen = !ui.bankOpen; render(); };
     $('#mmToPreview').onclick = function () { ui.view = 'preview'; render(); G.scrollTo(0, 0); };
-    $$('.mm-dcard').forEach(function (card) {
-      var id = card.getAttribute('data-uid');
-      var ap = $('.mmApprove', card);
-      if (ap) ap.onchange = function () { var on = ap.checked; change(function () { NS.approve(S, ui.version, id, on); }, on ? 'Answer approved.' : 'Approval removed.'); };
-      $$('[data-act]', card).forEach(function (b) {
-        var act = b.getAttribute('data-act');
-        var h = function () { dishAction(act, id, b); };
-        if (b.tagName === 'SELECT') b.onchange = h; else b.onclick = h;
-      });
-    });
+    $$('.mm-dcard').forEach(bindReviewCard);
+    bindReviewSkills($('#mmView'));
     $$('[data-add]').forEach(function (b) { b.onclick = function () {
       var si = +b.getAttribute('data-add'), sk = $('.mmAddSkill[data-si="' + si + '"]').value, cc = +$('.mmAddC[data-si="' + si + '"]').value;
-      if (!NS.skillFormatOk(S.config.unitId, sk, NS.sectionFormat(S.config, si), cc)) return;
+      if (!NS.skillFormatOk(S.config.unitId, sk, NS.sectionFormat(S.config, si), cc)) { toast('That skill is not available in this question format at this difficulty.'); return; }
       change(function () { return NS.addItem(S, si, sk, cc); }, 'Problem added to every version.');
     }; });
     $$('[data-manual]').forEach(function (b) { b.onclick = function () { editDialog(null, +b.getAttribute('data-manual')); }; });
@@ -470,12 +486,12 @@
   }
   function dishAction(act, id, el) {
     var loc = NS.find(S, ui.version, id); if (!loc) return; var p = loc.item;
-    if (act === 'answer') { ui.showAns[id] = !ui.showAns[id]; render(); return; }
+    if (act === 'answer') { ui.showAns[id] = !ui.showAns[id]; refreshReviewCard(id); return; }
     if (act === 'edit') { editDialog(p, loc.si); return; }
     if (act === 'regen') return change(function () { var r = NS.regenerate(S, ui.version, id); if (r && r.failed) throw new Error(r.reason); }, 'New problem (same skill and difficulty).');
-    if (act === 'pin') return change(function () { NS.togglePin(S, ui.version, id); });
+    if (act === 'pin') { snapshot();NS.togglePin(S,ui.version,id);refreshReviewCard(id);autosave();return; }
     if (act === 'easier' || act === 'harder') return change(function () { NS.setDifficulty(S, ui.version, id, p.c + (act === 'easier' ? -1 : 1)); }, 'Difficulty changed in every version.');
-    if (act === 'skill') return change(function () { NS.changeSkill(S, ui.version, id, el.value); }, 'Skill changed in every version.');
+    if (act === 'skill') { if(!NS.skillFormatOk(S.config.unitId,el.value,NS.sectionFormat(S.config,loc.si),p.c)){el.value=p.skill;toast('That skill is not available in this question format at this difficulty.');return;} return change(function () { NS.changeSkill(S, ui.version, id, el.value); }, 'Skill changed in every version.'); }
     if (act === 'move') { if (el.value === '') return; var to = +el.value; return change(function () { NS.moveItem(S, ui.version, id, to); }, 'Moved to ' + S.config.sections[to].name + ' in every version. Check the “students complete” numbers.'); }
     if (act === 'up' || act === 'down') return change(function () { NS.reorder(S, ui.version, id, act === 'up' ? -1 : 1); });
     if (act === 'required') return change(function () { NS.setRequired(S, ui.version, id, !p.required); });

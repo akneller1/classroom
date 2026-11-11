@@ -409,7 +409,9 @@
         if (b.page === 'new' && cur.body.childNodes.length) start();
         // keep a heading together with the next block
         var group = [b]; if (b.keep && blocks[i + 1]) group.push(blocks[i + 1]);
-        var els = group.map(function (g) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); if (kind === 'student' && g.cls === 'tight' && cur.body.querySelector('.mm-blk.tight')) e.style.paddingTop = (Math.max(0, Math.min(10, +state.config.layout.spaceAdjust || 0)) * 6) + 'px'; cur.body.appendChild(e); return e; });
+        // Spacing belongs before the whole heading/question group, never inside it.
+        var groupGap=kind==='student'&&group.some(function(g){return g.cls==='tight';})&&cur.body.querySelector('.mm-blk.tight')?(Math.max(0,Math.min(10,+state.config.layout.spaceAdjust||0))*6):0;
+        var els = group.map(function (g,k) { var e = el('div', 'mm-blk' + (g.cls ? ' ' + g.cls : ''), g.html); if(k===0&&groupGap)e.style.paddingTop=groupGap+'px';cur.body.appendChild(e);return e; });
         if (cur.body.scrollHeight > cur.body.clientHeight + 1) {
           els.forEach(function (e) { cur.body.removeChild(e); });
           if (cur.body.childNodes.length) {
@@ -421,7 +423,7 @@
             }
           }
           // A row moved to a new page must not inherit inter-row spacing.
-          if (!cur.body.querySelector('.mm-blk.tight')) els.forEach(function (e) { if (e.classList.contains('tight')) e.style.paddingTop = ''; });
+          if (!cur.body.querySelector('.mm-blk.tight')) els.forEach(function (e) { e.style.paddingTop = ''; });
           els.forEach(function (e) { cur.body.appendChild(e); });
           if (cur.body.scrollHeight > cur.body.clientHeight + 1) overflow.push(i);
         }
