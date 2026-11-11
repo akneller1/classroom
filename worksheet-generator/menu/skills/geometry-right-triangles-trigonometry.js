@@ -221,10 +221,22 @@ function oblique(ctx,law){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,kind,A,B,Cg,a,b,
    steps=[step('Three sides: use the Law of Cosines solved for the angle.',M('\\cos C=\\frac{a^2+b^2-c^2}{2ab}')),step('Substitute.',M('\\cos C=\\frac{'+a+'^2+'+b+'^2-'+cc+'^2}{2('+a+')('+b+')}')),step('Use inverse cosine.',M('C\\approx '+r1t(val)+'^\\circ'))];}}
  var isAng=ask==='B'||ask==='C'&&kind==='angle',out=r1t(val).toFixed(1),alts=[r1t(val+10).toFixed(1),r1t(Math.max(0.1,val-7.3)).toFixed(1),r1t(val*1.25).toFixed(1)];
  return {variant:'geo-law-'+law+'-'+kind+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(out)+(isAng?'°':''),check:{type:'derive',kind:'oblique',alts:alts.map(function(z){return M(z)+(isAng?'°':'');})}}],steps:steps,space:[1.3,1.6,1.9]};}
+/* The ambiguous case (SSA): how many triangles fit the givens, and both angle measures when there are two. */
+function ambiguous(ctx){var r=ctx.rng,c=ctx.c,rad=Math.PI/180,A=r.int(25,c>=6?120:65),b=r.int(8,25),h=b*Math.sin(A*rad),want=r.pick(c>=6?[0,1,2,2]:[0,1,2]),a;
+ if(A>=90){K.need(b>4);a=want===0?r.int(Math.max(3,b-8),b-1):r.int(b+1,b+10);want=a>b?1:0;}
+ else if(want===0){a=Math.floor(h)-r.int(0,2);K.need(a>=2&&a<h-0.05);}else if(want===2){K.need(Math.ceil(h+0.05)<=b-1);a=r.int(Math.ceil(h+0.05),b-1);K.need(a>h+0.05&&a<b);}else{a=r.int(b+1,b+12);}
+ var ask=c>=6&&want===2&&r.chance(0.55)?'both':'count',pr='In △ABC, m∠A = '+A+'°, a = '+a+', and b = '+b+'. ';
+ var why=A>=90?'Angle A is obtuse, so there is a triangle only when a > b.':'The height from C is h = b·sin A ≈ '+(Math.round(h*100)/100)+'. Compare a with h and b: '+(a<h?'a < h, no triangle.':a>=b?'a ≥ b, one triangle.':'h < a < b, two triangles.');
+ if(ask==='count'){var words=['No triangle','One triangle','Two triangles'];
+  return {variant:'geo-ssa-count-'+want+'-'+c,prompt:pr+'How many triangles are possible?',parts:[{answer:words[want],check:{type:'derive',kind:'ssa',alts:words.filter(function(w,i){return i!==want;}).concat(['Infinitely many triangles'])}}],steps:[step(why,'')],space:[0.8,1.0,1.2]};}
+ var B1=Math.asin(b*Math.sin(A*rad)/a)/rad,B2=180-B1;[B1,B2].forEach(function(v){var t=v*10;K.need(Math.abs(t-Math.floor(t)-0.5)>1e-4);});var s1=(Math.round(B1*10)/10).toFixed(1),s2=(Math.round(B2*10)/10).toFixed(1);
+ return {variant:'geo-ssa-both-'+c,prompt:pr+'There are two possible triangles. Find both possible measures of ∠B to the nearest tenth of a degree.',parts:[{answer:M(s1)+'° or '+M(s2)+'°',check:{type:'derive',kind:'ssa',alts:[M(s1)+'° only',M(s2)+'° only',M(s1)+'° or '+M((Math.round((180-A-B1)*10)/10).toFixed(1))+'°']}}],
+  steps:[step(why,''),step('Law of Sines: sin B = b·sin A ÷ a, so B ≈ '+s1+'°.',''),step('The supplement also has that sine: 180° − '+s1+'° = '+s2+'°, and it still fits with angle A.','')],space:[1.3,1.6,1.9]};}
+
 NS.registerSkillSet({id:'geometry-right-triangles-trigonometry',course:'geometry',courseName:'Geometry',unit:'right-triangles-trigonometry',unitName:'Right Triangles and Trigonometry',title:'Right Triangles and Trigonometry',
 tags:{PYTH:'Pythagorean theorem',DISTANCE:'Distance formula',TRIG:'Trigonometric side ratios',SPECIAL:'45-45-90 and 30-60-90 triangles',APPLICATION:'Angles of elevation and depression',HONORS:'Multistep surveying investigation',INVERSE:'Inverse trigonometric angles and calculator rounding',OBLIQUE:'Law of Sines and Law of Cosines'},
 reference:'<div class="mm-refgrid"><section><h4>Pythagorean theorem</h4><p>a² + b² = c² (c is the hypotenuse).</p></section><section><h4>SOH CAH TOA</h4><p>sin = opposite/hypotenuse; cos = adjacent/hypotenuse; tan = opposite/adjacent.</p></section><section><h4>Oblique triangles</h4><p>Law of Sines: a/sin A = b/sin B = c/sin C. Law of Cosines: c² = a² + b² − 2ab cos C.</p></section></div>',
-gaps:['The ambiguous case of the Law of Sines (SSA with two triangles) is not generated. Trigonometry answers are whole numbers, exact radicals, or rounded to tenths where the skill says so.'],
+gaps:[],
 skills:[
 {id:'right-pythagorean-hypotenuse',tag:'PYTH',name:'Find hypotenuse',best:[0,1],generate:hyp},
 {id:'right-pythagorean-leg',tag:'PYTH',name:'Find missing leg',best:[0,1],generate:leg},
@@ -246,6 +258,7 @@ skills:[
 {id:'right-special-radical',tag:'SPECIAL',name:'Exact radical sides in special right triangles',best:[1,2],generate:specialRadical},
 {id:'right-angle-depression',tag:'APPLICATION',name:'Angle of depression and vertical drop',best:[1,2],generate:depression},
 {id:'law-of-sines',tag:'OBLIQUE',name:'Law of Sines (sides and angles to the nearest tenth)',best:[1,2],generate:ctx=>oblique(ctx,'sines')},
+{id:'law-of-sines-ambiguous',tag:'OBLIQUE',name:'Honors: the ambiguous case (SSA)',best:[2],generate:ctx=>K.retry(()=>ambiguous(ctx))},
 {id:'law-of-cosines',tag:'OBLIQUE',name:'Law of Cosines (sides and angles to the nearest tenth)',best:[2],generate:ctx=>oblique(ctx,'cosines')}
 ]});
 })(typeof window!=='undefined'?window:globalThis);

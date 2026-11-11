@@ -191,10 +191,20 @@ function areaRatio(ctx){var r=ctx.rng,c=ctx.c,pg=r.pick(POLYS),a=r.int(2,6),b=r.
  return {variant:'geo-sim-area-'+(big?'back':'fwd')+'-'+c,prompt:'Two similar '+pg+' have corresponding sides of '+la+' cm and '+lb+' cm. The '+(big?'larger':'smaller')+' '+sing(pg)+' has an area of '+given+' square centimeters. Find the area of the '+(big?'smaller':'larger')+' '+sing(pg)+'.',
   parts:[{answer:M(String(want))+' square centimeters',check:{type:'derive',kind:'similar',alts:[given*lb/la,given*la/lb].filter(function(x){return x%1===0&&x!==want&&x>0;}).map(function(x){return M(String(x))+' square centimeters';})}}],
   steps:[step('Areas scale by the square of the scale factor k = '+B+'/'+A+'.',''),step('Area = '+given+' · ('+(big?A+'/'+B:B+'/'+A)+')² = '+want+' cm².','')],space:[0.9,1.1,1.3]};}
+
+/* AA similarity proofs for a triangle cut by a segment parallel to one side (missing reasons, then statements at Honors). */
+function simProof(ctx){var r=ctx.rng,c=ctx.c,useRefl=r.next()<0.6,v=r.pick([{AD:2,DB:3,AE:4,EC:6},{AD:3,DB:2,AE:6,EC:4},{AD:4,DB:4,AE:3,EC:3},{AD:2,DB:2,AE:5,EC:5},{AD:3,DB:5,AE:3,EC:5}]);
+ var a1=r.next()<0.5?['∠ADE ≅ ∠ABC','Corresponding Angles Postulate']:['∠AED ≅ ∠ACB','Corresponding Angles Postulate'],a2=useRefl?['∠A ≅ ∠A','Reflexive Property of Congruence']:(a1[0]==='∠ADE ≅ ∠ABC'?['∠AED ≅ ∠ACB','Corresponding Angles Postulate']:['∠ADE ≅ ∠ABC','Corresponding Angles Postulate']);
+ var rows=[['DE ∥ BC','Given'],a1,a2,['△ADE ~ △ABC','AA Similarity Postulate']],LAB='abcd',table=rows.map(function(x){return {s:x[0],r:x[1]};}),parts=[],cells;
+ if(c<=3)cells=r.shuffle([[1,'r'],[2,'r'],[3,'r']]).slice(0,c<=2?2:3);else cells=[[1,'r'],[2,r.next()<0.5?'s':'r'],[3,'r']].concat(c>=6?[[1,'s']]:[]).filter(function(x,i,arr){return !(x[0]===1&&x[1]==='s'&&arr.some(function(y){return y[0]===1&&y[1]==='r';})&&c<6);});
+ var seen={};cells=cells.filter(function(x){var k=x.join();if(seen[k])return false;seen[k]=1;return !(x[0]===1&&x[1]==='s'&&cells.some(function(y){return y[0]===1&&y[1]==='r';}));}).sort(function(p,q){return p[0]-q[0]||(p[1]==='s'?-1:1);});
+ cells.forEach(function(cl,i){var row=table[cl[0]];row[cl[1]]='';row[cl[1]+'b']=LAB[i];parts.push({label:LAB[i],prompt:(cl[1]==='s'?'Statement for step ':'Reason for step ')+(cl[0]+1),answer:rows[cl[0]][cl[1]==='s'?0:1],check:{type:'derive',kind:'sim-proof'}});});
+ return {variant:'geo-sim-proof-'+(useRefl?'refl':'two')+'-'+c,prompt:'Given: DE ∥ BC. Prove: △ADE ~ △ABC. Complete the two-column proof.',fig:{kind:'geo-tri-par',v:v,angA:r.int(50,75),proof:{rows:table}},parts:parts,
+  steps:rows.map(function(x){return step(x[0]+' — '+x[1]);}).concat([step('Two pairs of congruent angles are enough for similar triangles (AA).')]),space:[0.2,0.3,0.4]};}
 NS.registerSkillSet({id:'geometry-similarity',course:'geometry',courseName:'Geometry',unit:'similarity',unitName:'Similarity',title:'Similarity Foundations',
 tags:{AREARATIO:'Area and volume ratios',RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity',PARALLEL:'Triangle proportionality and parallel segments',HONORS:'Multi-step Honors similarity investigations'},
 reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section><section><h4>Area and volume</h4><p>Scale factor k: perimeters × k, areas × k², volumes × k³.</p></section></div>',
-gaps:['Similarity proofs are not generated. Coordinate dilations appear in the Honors dilation investigation here and in Unit 8 (Transformations).'],
+gaps:['Similarity proofs are AA proofs completed in a two-column table; SSS and SAS similarity proofs are not generated. Coordinate dilations appear in the Honors dilation investigation here and in Unit 8 (Transformations).'],
 skills:[
 {id:'similarity-missing-side',tag:'RATIOS',name:'Find a corresponding side',best:[0,1],generate:missingSide},
 {id:'similarity-scale-factor',tag:'DILATION',name:'Find a dilation scale factor',best:[0,1],generate:scale},
@@ -209,6 +219,7 @@ skills:[
 {id:'similarity-investigation-parallel',tag:'HONORS',name:'Honors: triangle proportionality with algebra',best:[2],generate:invParallel},
 {id:'similarity-investigation-dilation',tag:'HONORS',name:'Honors: dilation on the coordinate plane, lengths and area',best:[2],generate:invDilation},
 {id:'similarity-investigation-altitude',tag:'HONORS',name:'Honors: altitude to the hypotenuse and geometric means',best:[2],generate:invAltitude},
+{id:'similarity-proof',tag:'AREARATIO',name:'AA similarity proofs (parallel segment in a triangle)',best:[1,2],generate:simProof},
 {id:'similarity-area-volume-ratio',tag:'AREARATIO',name:'Areas and volumes of similar figures',best:[0,1,2],generate:areaRatio},
 {id:'similarity-area-investigation',tag:'AREARATIO',name:'Four-part investigation: perimeter and area of similar figures',best:[1,2],generate:areaFour},
 {id:'similarity-parallel-honors',tag:'PARALLEL',name:'Four-part Honors proportionality investigation',best:[2],generate:parallelHonors}

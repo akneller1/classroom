@@ -424,6 +424,27 @@
     }
   });
 
+  /* ================= SKETCH A GRAPH FROM A STORY ================= */
+  var STORY_EVENTS = [
+    { who: 'Maya', q: 'her distance from home', ev: [['walks away from home at a steady pace', 'increasing'], ['stops to talk with a friend', 'constant'], ['walks back toward home', 'decreasing'], ['waits at a crosswalk', 'constant'], ['jogs farther from home', 'increasing'], ['rests on a bench', 'constant'], ['heads back toward home', 'decreasing']] },
+    { who: 'Leo', q: 'his distance from home', ev: [['rides away from home at a steady speed', 'increasing'], ['waits at a crosswalk', 'constant'], ['rides back home', 'decreasing'], ['rests on a bench', 'constant'], ['jogs farther from home', 'increasing']] },
+    { who: 'A bathtub', q: 'the amount of water in it', ev: [['fills at a steady rate', 'increasing'], ['is turned off for a while', 'constant'], ['drains at a steady rate', 'decreasing'], ['is filled again', 'increasing'], ['leaks out slowly', 'decreasing']] }];
+  skill({
+    id: 'graph-from-story', best: [0, 1, 2], tag: 'RATE', name: 'Sketch a graph from a story (increasing, constant, decreasing)',
+    blurb: 'Two or three events (CP2) → four events (CP1) → five events and stories about amounts instead of distance (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, st = r.pick(c <= 4 ? STORY_EVENTS.slice(0, 2) : STORY_EVENTS), n = c <= 2 ? r.int(2, 3) : c <= 4 ? 4 : 5, seq = [], prev = null, pool = st.ev.slice(), tries = 0;
+      while (seq.length < n && tries++ < 200) { var e = r.pick(pool); if (prev && e[1] === prev[1]) continue; if (seq.some(function (s) { return s[0] === e[0]; })) continue; if (!seq.length && (e[1] !== 'increasing' || /farther|again/.test(e[0]))) continue; seq.push(e); prev = e; }
+      K.need(seq.length === n);
+      var dist = /distance/.test(st.q), lvl = 0; seq.forEach(function (s) { lvl += s[1] === 'increasing' ? 1 : s[1] === 'decreasing' ? -1 : 0; K.need(lvl >= 0); });
+      var story = st.who + ' ' + seq.map(function (s) { return s[0]; }).join(', then '), words = seq.map(function (s) { return s[1]; });
+      void dist;
+      return { variant: 'story-' + n + '-' + c, prompt: 'Story: ' + story + '. Describe the graph of ' + st.q + ' over time: list each piece as increasing, constant or decreasing, in order.',
+        parts: [{ answer: words.map(function (w, i) { return i ? w : w.charAt(0).toUpperCase() + w.slice(1); }).join(', '), check: { type: 'derive', kind: 'story', alts: [words.slice().reverse().join(', '), words.map(function (w) { return w === 'constant' ? 'increasing' : w; }).join(', '), words.map(function (w) { return w === 'increasing' ? 'decreasing' : w === 'decreasing' ? 'increasing' : w; }).join(', ')].filter(function (a) { return a !== words.join(', '); }) } }],
+        steps: [step('Moving away (or filling) makes the quantity increase; stopping makes it constant (a flat piece); coming back (or draining) makes it decrease.', '', 2), step('In order: ' + words.join(', ') + '.', '', 1)], space: [0.9, 1.1, 1.3] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-relations-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'relations-functions', unitName: 'Relations and Functions',
     title: 'The Function Diner',

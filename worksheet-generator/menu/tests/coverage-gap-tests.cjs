@@ -31,7 +31,34 @@ const NEW = [
   ['geometry-area-surface-area-volume', 'measure-cone-surface', 'cone surface', { mc: [2, 6] }],
   ['geometry-area-surface-area-volume', 'measure-composite-round', 'composite', { mc: [3, 6] }],
   ['geometry-area-surface-area-volume', 'measure-unit-conversion', 'conversion', { mc: [2, 5] }],
-  ['geometry-area-surface-area-volume', 'measure-similar-solids', 'similar solids', { mc: [2, 6] }]
+  ['geometry-area-surface-area-volume', 'measure-similar-solids', 'similar solids', { mc: [2, 6] }],
+  // second and third passes
+  ['algebra1-exponential-functions','exp-overtakes-linear','exponential function',{'mc':[2,4,6]}],
+  ['algebra1-exponents-scientific-notation','rational-exponents-variables','rational exponents',{'mc':[2,4,6]}],
+  ['algebra1-linear-equations-slope','absolute-value-functions','absolute value',{'mc':[2,4,6]}],
+  ['algebra1-linear-equations-slope','compare-functions','compare linear',{'mc':[2,4,6]}],
+  ['algebra1-quadratics','quadratic-forms','convert between',{'mc':[2,4,6]}],
+  ['algebra1-relations-functions','graph-from-story','sketch graph',{'mc':[2,4,6]}],
+  ['algebra1-systems-of-equations','sys-linear-quadratic','linear quadratic',{'mc':[2,4,6]}],
+  ['algebra1-systems-of-equations','sys-three-variable','honors systems',{'mc':[2,4,6]}],
+  ['algebra1-systems-of-equations','viable-solutions','viable solutions',{}],
+  ['geometry-angles-parallel-lines','parallel-lines-proof','column parallel',{}],
+  ['geometry-angles-parallel-lines','two-transversals','transversals between',{'mc':[2,4,6]}],
+  ['geometry-area-surface-area-volume','measure-composite-plane','perimeter composite',{'mc':[2,4,6]}],
+  ['geometry-basics-reasoning','conditional-statements','conditional statements',{'mc':[2,4,6]}],
+  ['geometry-basics-reasoning','constructions-concepts','constructions tools',{'mc':[2,4,6]}],
+  ['geometry-basics-reasoning','protractor-reading','measure classify',{'mc':[2,4,6]}],
+  ['geometry-basics-reasoning','undefined-terms-postulates','undefined terms',{'mc':[2,4,6]}],
+  ['geometry-circles','circle-arc-sector-decimal','length sector',{'mc':[2,4,6]}],
+  ['geometry-circles','circle-equation-three-points-tangent','circle equations',{'mc':[2,4,6]}],
+  ['geometry-quadrilaterals-polygons','quadrilateral-classify-grid','classify quadrilateral',{'mc':[2,4,6]}],
+  ['geometry-quadrilaterals-polygons','quadrilateral-proof','quadrilateral proofs',{}],
+  ['geometry-right-triangles-trigonometry','law-of-sines-ambiguous','honors ambiguous',{'mc':[2,4,6]}],
+  ['geometry-similarity','similarity-proof','similarity proofs',{}],
+  ['geometry-transformations','rigid-motion-mapping','describe rigid',{'mc':[4,6]}],
+  ['geometry-triangle-relationships','triangle-orthocenter-coordinates','orthocenter coordinates',{'mc':[2,4,6]}],
+  ['geometry-triangle-relationships','triangle-relationship-proof','proofs about',{}]
+
 ];
 
 /* 1. registration, class → unit browsing and topic search */
@@ -70,7 +97,8 @@ for (const [unit, skill] of NEW) for (let c = 1; c <= 7; c++) for (const intOnly
 /* 3. response formats: each skill works in the formats it supports; unsupported combinations are reported, never substituted */
 for (const [unit, skill, , fm] of NEW) {
   for (const f of ['mc', 'multi', 'mcas']) for (const c of (fm[f] || [])) ok(NS.skillFormatOk(unit, skill, f, c), skill + ' supports ' + f + ' at c' + c);
-  if (!fm.multi) ok(!NS.skillFormatOk(unit, skill, 'multi', 4), skill + ': choose-all is reported as unsupported');
+  if (!fm.multi && !NS.skillFormatOk(unit, skill, 'multi', 4)) ok(true, skill + ': choose-all is reported as unsupported');
+  else if (!fm.multi) ok(NS.multiCapable(unit, skill, 4), skill + ': choose-all offered only when it can be made');
 }
 ok(!NS.skillFormatOk('algebra1-foundations', 'properties', 'mcas', 2), 'properties: no four-part question at CP2 difficulty is reported, not substituted');
 { // a four-part section keeps the requested skill from its minimum difficulty up

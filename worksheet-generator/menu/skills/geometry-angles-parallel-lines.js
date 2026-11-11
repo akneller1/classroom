@@ -158,10 +158,43 @@ function parallelConverse(ctx){var r=ctx.rng,c=ctx.c,kinds=c<=2?['corresponding'
  return {variant:'geo-converse-yn-'+(par?'y':'n')+'-'+k+'-'+c,prompt:lead+'m∠1 = '+a+'° and m∠2 = '+b+'°. Are lines m and n parallel? Explain.',
   parts:[{answer:par?'Yes. The '+name+' angles are '+(supp?'supplementary':'congruent')+', so m ∥ n by the '+conv+'.':'No. '+(supp?'The angles are not supplementary':'The angles are not congruent')+', so the lines are not parallel.',check:{type:'derive',kind:'angle-pair'}}],
   steps:[st('If the lines were parallel, '+name+' angles would be '+(supp?'supplementary (sum 180°)':'congruent')+'.',''),st(supp?'Here the sum is '+(a+b)+'°.':'Here the measures are '+a+'° and '+b+'°.',''),st(par?'So m ∥ n by the '+conv+'.':'So the lines are not parallel.','')],space:[0.8,1.0,1.2]};}
+
+/* Two transversals that meet on one parallel line, and two-column parallel-line proofs on the numbered figure. */
+function twoTrans(ctx){var r=ctx.rng,c=ctx.c,a=r.int(30,95),b=r.int(30,95);K.need(a+b<=150&&a!==b);
+ var sets=c<=2?[['Q','R','PM']]:c<=4?[['Q','R','PM'],['PL','PM','R'],['Q','PR','PM']]:[['PL','PM','R'],['Q','PM','PR'],['PL','PR','PM'],['PM','R','Q']],pick=r.pick(sets),V={Q:a,R:b,PL:a,PR:b,PM:180-a-b},lab={};
+ lab[pick[0]]=V[pick[0]]+'°';lab[pick[1]]=V[pick[1]]+'°';lab[pick[2]]='x°';
+ var where={Q:'at Q',R:'at R',PL:'at P (left of the transversals)',PR:'at P (right of the transversals)',PM:'at P (between the transversals)'};
+ var why=[];if(pick.indexOf('PL')>=0||pick.indexOf('Q')>=0)why.push(st('The angle at Q and the left angle at P are alternate interior angles, so they are congruent ('+a+'°).'));
+ if(pick.indexOf('PR')>=0||pick.indexOf('R')>=0)why.push(st('The angle at R and the right angle at P are alternate interior angles ('+b+'°).'));
+ why.push(st('The three angles at P form a straight angle on line m: '+a+'° + (middle) + '+b+'° = 180°.'));
+ return {variant:'geo-two-trans-'+pick.join('-')+'-'+c,prompt:'Lines m and n are parallel, and two transversals meet at point P on line m. Find the value of '+M('x')+'.',fig:{kind:'geo-two-trans',a:a,b:b,lab:lab},
+  parts:[{answer:M('x='+V[pick[2]]),check:{type:'derive',kind:'two-trans',alts:[M('x='+(180-V[pick[2]])),M('x='+(V[pick[0]]+V[pick[1]])),M('x='+Math.abs(V[pick[0]]-V[pick[1]]))].filter(function(z,i,arr){return z!==M('x='+V[pick[2]])&&arr.indexOf(z)===i;})}}],
+  steps:why.concat([st('So x = '+V[pick[2]]+'.')]),space:[0.9,1.1,1.3]};}
+var PR_NAME={'corresponding':'Corresponding Angles Postulate','alternate-interior':'Alternate Interior Angles Theorem','alternate-exterior':'Alternate Exterior Angles Theorem','same-side-interior':'Same-Side Interior Angles Theorem'};
+var PR_CONV={'corresponding':'Corresponding Angles Converse','alternate-interior':'Alternate Interior Angles Converse','alternate-exterior':'Alternate Exterior Angles Converse','same-side-interior':'Same-Side Interior Angles Converse'};
+function parProof(ctx){var r=ctx.rng,c=ctx.c,F=NS.geoFigures,REL=function(a,b){return F.relationship(a,b);},nm=r.pick([['ℓ','m'],['p','q'],['j','k']]),P=nm[0]+' ∥ '+nm[1],A=[1,2,3,4,5,6,7,8],t,rows,given,prove;
+ var find=function(test){var all=[];A.forEach(function(a){A.forEach(function(b){A.forEach(function(z){if(a!==b&&b!==z&&a!==z&&test(a,b,z))all.push([a,b,z]);});});});K.need(all.length);return r.pick(all);};
+ var kinds=c<=2?['vt']:c<=4?['vt','pv']:['vt','pv','ssi','supp'];t=r.pick(kinds);
+ var cg=function(a,b){return '∠'+a+' ≅ ∠'+b;},sp=function(a,b){return '∠'+a+' and ∠'+b+' are supplementary';},lp=function(a,b){return '∠'+a+' and ∠'+b+' form a linear pair';};
+ if(t==='vt'){var q=find(function(a,b,z){return REL(b,z)==='vertical'&&['corresponding','alternate-interior','alternate-exterior'].indexOf(REL(a,z))>=0&&REL(a,b)!=='none';}),rel=REL(q[0],q[2]);
+  given=cg(q[0],q[1]);prove=P;rows=[[given,'Given'],[cg(q[1],q[2]),'Vertical Angles Theorem'],[cg(q[0],q[2]),'Transitive Property of Congruence'],[P,PR_CONV[rel]]];}
+ else if(t==='pv'){var q2=find(function(a,b,z){return ['corresponding','alternate-interior','alternate-exterior'].indexOf(REL(a,b))>=0&&REL(b,z)==='vertical'&&REL(a,z)!=='vertical';});
+  given=P;prove=cg(q2[0],q2[2]);rows=[[P,'Given'],[cg(q2[0],q2[1]),PR_NAME[REL(q2[0],q2[1])]],[cg(q2[1],q2[2]),'Vertical Angles Theorem'],[cg(q2[0],q2[2]),'Transitive Property of Congruence']];}
+ else if(t==='ssi'){var q3=find(function(a,b,z){return ['corresponding','alternate-interior'].indexOf(REL(a,b))>=0&&REL(b,z)==='linear-pair'&&REL(a,z)!=='none'&&REL(a,z)!=='linear-pair';});
+  given=P;prove=sp(q3[0],q3[2]);rows=[[P,'Given'],[cg(q3[0],q3[1]),PR_NAME[REL(q3[0],q3[1])]],[lp(q3[1],q3[2]),'Definition of a linear pair'],[sp(q3[1],q3[2]),'Linear Pair Theorem'],[sp(q3[0],q3[2]),'Substitution Property']];}
+ else {var q4=find(function(a,b,z){return REL(a,b)==='same-side-interior'&&REL(b,z)==='linear-pair'&&['corresponding','alternate-interior','alternate-exterior'].indexOf(REL(a,z))>=0;});
+  given=sp(q4[0],q4[1]);prove=P;rows=[[given,'Given'],[lp(q4[1],q4[2]),'Definition of a linear pair'],[sp(q4[1],q4[2]),'Linear Pair Theorem'],[cg(q4[0],q4[2]),'Congruent Supplements Theorem'],[P,PR_CONV[REL(q4[0],q4[2])]]];}
+ var n=c<=2?2:c<=4?3:rows.length-1,cells=r.shuffle(rows.map(function(x,i){return i;}).slice(1)).slice(0,n).sort(),LAB='abcdef',table=rows.map(function(x){return {s:x[0],r:x[1]};}),parts=[];
+ cells.forEach(function(ri,i){table[ri].r='';table[ri].rb=LAB[i];parts.push({label:LAB[i],prompt:'Reason for step '+(ri+1),answer:rows[ri][1],check:{type:'derive',kind:'par-proof'}});});
+ var f=fig({kind:'geo-transversal',numbered:true,marks:[],names:nm});f.proof={rows:table};
+ return {variant:'geo-par-proof-'+t+'-'+c,prompt:'Given: '+given+'. Prove: '+prove+'. Complete the two-column proof by writing each missing reason.',fig:f,parts:parts,
+  steps:rows.map(function(x){return st(x[0]+' — '+x[1]);}),space:[0.2,0.3,0.4]};}
  NS.registerSkillSet({id:'geometry-angles-parallel-lines',course:'geometry',courseName:'Geometry',unit:'angles-parallel-lines',unitName:'Angles and Parallel Lines',title:'Angle Relationships',
  tags:{PAIRS:'Angle pairs and the converse theorems',INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
  reference:'<div class="mm-refgrid"><section><h4>Complementary angles</h4><p>The measures sum to 90°.</p></section><section><h4>Supplementary angles</h4><p>The measures sum to 180°.</p></section></div>',
- gaps:['Parallel-line proofs and figures with more than one transversal are not generated.'],skills:[
+ gaps:['Written (blank-table) parallel-line proofs are not generated; parallel-line proofs are completed by supplying the reasons.'],skills:[
+ {id:'two-transversals',tag:'PAIRS',name:'Two transversals between parallel lines',best:[0,1,2],generate:ctx=>K.retry(()=>twoTrans(ctx))},
+ {id:'parallel-lines-proof',tag:'PAIRS',name:'Two-column parallel-line proofs (missing reasons)',best:[1,2],generate:ctx=>K.retry(()=>parProof(ctx))},
  {id:'complementary-angles',tag:'COMPLEMENT',name:'Complementary angles',best:[0,1],generate:ctx=>angle(ctx,'complement')},
  {id:'supplementary-angles',tag:'SUPPLEMENT',name:'Supplementary angles',best:[0,1],generate:ctx=>angle(ctx,'supplement')},
  {id:'vertical-angles',tag:'VERTICAL',name:'Vertical angles',best:[0,1],generate:vertical},

@@ -423,6 +423,13 @@ function proofSkill(mode,cp){
  };
 }
 
+/* Shared with Units 4 and 7: a two-column proof from chosen templates, framed for that unit (missing statements and reasons). */
+NS.congruenceProofFor=function(ctx,pool,lead,cp){
+ var r=ctx.rng,c=ctx.c,B=prBuild(r,c,{pool:pool,cpctc:cp!==false}),nr=B.rows.length,n=c<=2?2:c<=4?3:c<=5?4:nr,mode=c<=3?'reasons':'mixed';
+ var bl=prPickBlanks(r,B,mode,n);if(!bl.some(function(x){return x[0]===nr-1;}))bl[bl.length-1]=[nr-1,'r'];
+ var seen={};bl=bl.filter(function(x){var k=x.join();if(seen[k])return false;seen[k]=1;return true;});
+ var P=prProblem(ctx,B,mode,bl,mode);P.prompt=lead+' '+P.prompt;return P;};
+
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{RIGID:'Congruence and rigid motions',CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning',CHAIN:'Multi-step congruence investigations'},
  reference:'<div class="mm-refgrid"><section><h4>Correspondence</h4><p>In ABC ≅ DEF, A ↔ D, B ↔ E, and C ↔ F.</p></section><section><h4>CPCTC</h4><p>Corresponding parts of congruent triangles are congruent.</p></section></div>',

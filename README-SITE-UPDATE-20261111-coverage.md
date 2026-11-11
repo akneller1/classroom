@@ -41,3 +41,39 @@ Assessment Generator, printables, games and the lesson planner through the share
 
 ## Tests
 New: `tests/coverage-gap-tests.cjs` and `tests/coverage-gap-browser.cjs`, both added to `run-all.sh`. Updated: `select-all-mcas-tests.cjs` and `geometry-diagrams-tests.cjs`.
+
+---
+
+# Second and third passes (same day): remaining gaps
+
+**Algebra 1**
+- Unit 4: `graph-from-story`.
+- Unit 5: `absolute-value-functions` (features, an equation from a description, an equation from a drawn graph) and `compare-functions`.
+- Unit 6: `sys-linear-quadratic`, `sys-three-variable` (Honors) and `viable-solutions`.
+- Unit 7: `rational-exponents-variables`.
+- Unit 8: `exp-overtakes-linear`.
+- Unit 11: `quadratic-forms`.
+
+**Geometry**
+- Unit 1: `protractor-reading` (new `geo-protractor` figure), `conditional-statements`, `undefined-terms-postulates` and `constructions-concepts` (authored question templates with random point names; the verifier holds its own answer key).
+- Unit 2: `two-transversals` (new `geo-two-trans` figure) and `parallel-lines-proof` (two-column proof with missing reasons on the numbered transversal figure, checked row by row).
+- Unit 4: `triangle-orthocenter-coordinates` and `triangle-relationship-proof` (reuses the congruence proof engine through `NS.congruenceProofFor`).
+- Unit 5: `similarity-proof` (AA proofs on the `geo-tri-par` figure).
+- Unit 6: `law-of-sines-ambiguous`.
+- Unit 7: `quadrilateral-classify-grid` and `quadrilateral-proof`.
+- Unit 8: `rigid-motion-mapping`. The verifier applies the student's described sequence to the vertices.
+- Unit 9: `circle-equation-three-points-tangent` and `circle-arc-sector-decimal`.
+- Unit 10: `measure-composite-plane` (new `geo-comp` figure; the dimensions are also stated in the sentence).
+
+**Shared**
+- `engine.js` drops any suggested distractor that the verifier would accept.
+- Proof tables now render under any proof figure (`F.proofTable`).
+- `standards.js` adds A-REI.C.7 and G-CO.D.13.
+- Planner notes are updated for U4-L6, U6-L10, U8-L8 and U11-L4.
+- A variable-name collision introduced in pass 2 (`STORIES`) broke the existing graph-behavior stories. It is fixed.
+
+**Still limited by design**
+- Hand-drawn graphs and sketches are checked by the teacher.
+- Compass work is described in words.
+- Paragraph and written-from-scratch proofs (other than congruence) are not generated.
+- SSS and SAS similarity proofs are not generated.

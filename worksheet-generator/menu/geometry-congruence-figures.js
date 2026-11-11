@@ -240,4 +240,5 @@
   }
   F.cong = { derive: derive, pair: pair, shared: shared, cross: cross, proofKind: proofKind };
   F.extend('geo-cong', { render: render, check: check });
+  F.proofTable = proofTable;   // shared with other proof diagrams (numbered transversals, a triangle with a parallel segment)
 })(typeof window !== 'undefined' ? window : globalThis);

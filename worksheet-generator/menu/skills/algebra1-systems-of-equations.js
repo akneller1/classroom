@@ -251,10 +251,66 @@
       difficultyProfile:'focused',fixedDifficulty:2,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
   })();
   (function(){var base=skills.find(function(x){return x.id==='graph-hand';});if(base)skill({id:'graph-two-lines',best:[0,1],tag:'GRAPH',name:'Solve systems by graphing two lines',blurb:'Plot two points for each line and identify the intersection.',difficultyProfile:'focused',fixedDifficulty:3,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:3}));}});})();
+  /* ================= LINEAR–QUADRATIC SYSTEMS, THREE-VARIABLE SYSTEMS, VIABLE SOLUTIONS IN CONTEXT ================= */
+  function quadTeX(a, b, c) { return lin([[a, 'x^2'], [b, 'x'], [c, '']]); }
+  skill({
+    id: 'sys-linear-quadratic', best: [1, 2], tag: 'NONLIN', name: 'Linear–quadratic systems',
+    blurb: 'y = x² + c with a horizontal line (CP2) → a parabola and a slanted line with two, one or no intersection points (CP1) → leading coefficients other than 1 and fraction coordinates (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, a = c >= 6 ? r.pick([1, 2, -1, -2]) : 1, x1 = r.int(-5, 5), x2 = r.int(-5, 5), m, d, kind = r.pick(c <= 2 ? ['two'] : c <= 4 ? ['two', 'two', 'one', 'none'] : ['two', 'one', 'none']);
+      if (kind === 'one') { K.need(x1 !== 0); x2 = x1; }   // a tangent point at x = 0 would not depend on the leading coefficient
+      // a(x - x1)(x - x2) = quadratic − line; choose the line, then the quadratic
+      m = c <= 2 ? 0 : K.nz(r, -4, 4); d = r.int(-8, 8);
+      var B = -a * (x1 + x2), Cc = a * x1 * x2;
+      if (kind === 'none') { B = -a * 2 * x1; Cc = a * (x1 * x1 + r.int(1, 6)); }
+      var qa = a, qb = B + m, qc = Cc + d; K.need(Math.abs(qb) <= 20 && Math.abs(qc) <= 40);
+      var line = 'y=' + (m ? lin([[m, 'x'], [d, '']]) : String(d)), quad = 'y=' + quadTeX(qa, qb, qc);
+      var sols = kind === 'none' ? [] : (kind === 'one' ? [x1] : [Math.min(x1, x2), Math.max(x1, x2)]);
+      if (kind === 'two') K.need(x1 !== x2);
+      var pts = sols.map(function (x) { return [x, m * x + d]; }), ans = pts.length ? pts.map(function (q) { return M('(' + q[0] + ',\\ ' + q[1] + ')'); }).join(' and ') : 'No solution: setting the expressions equal gives ' + M(quadTeX(a, B, Cc) + '=0') + ', whose discriminant is ' + M(String(B * B - 4 * a * Cc)) + ', which is negative.';
+      return { variant: 'sysnl-' + kind + '-' + c, prompt: 'Solve the system ' + M(quad) + ' and ' + M(line) + '. If there is no solution, say so.',
+        parts: [{ answer: ans, check: { type: 'derive', kind: 'sysnl' } }],
+        steps: [step('Set the two expressions for ⟨y⟩ equal and move everything to one side.', quadTeX(qa, qb - m, qc - d) + '=0', 2),
+          step(kind === 'none' ? 'The discriminant is negative, so there is no real solution.' : 'Factor or use the quadratic formula to find ⟨x⟩.', kind === 'none' ? '' : sols.map(function (x) { return 'x=' + x; }).join('\\text{ or }'), 2),
+          step(kind === 'none' ? 'The line misses the parabola.' : 'Substitute each ⟨x⟩ into the line to find ⟨y⟩.', '', 1)], space: [1.2, 1.4, 1.6] };
+    }
+  });
+  skill({
+    id: 'sys-three-variable', best: [2], tag: 'THREE', name: 'Honors: systems of three linear equations',
+    blurb: 'Two equations already missing a variable (CP1) → full three-equation elimination with whole-number solutions (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, s = [K.nz(r, -6, 6), K.nz(r, -6, 6), K.nz(r, -6, 6)], rows = [], V = ['x', 'y', 'z'];
+      for (var i = 0; i < 3; i++) { var co = [r.int(-3, 3), r.int(-3, 3), r.int(-3, 3)]; if (c <= 5 && i > 0) co[i - 1] = 0; K.need(co.some(function (q) { return q; })); rows.push(co); }
+      var det = rows[0][0] * (rows[1][1] * rows[2][2] - rows[1][2] * rows[2][1]) - rows[0][1] * (rows[1][0] * rows[2][2] - rows[1][2] * rows[2][0]) + rows[0][2] * (rows[1][0] * rows[2][1] - rows[1][1] * rows[2][0]);
+      K.need(det !== 0);
+      var eqs = rows.map(function (co) { var rhs = co[0] * s[0] + co[1] * s[1] + co[2] * s[2]; return lin(co.map(function (q, k) { return [q, V[k]]; })) + '=' + rhs; });
+      return { variant: 'sys3-' + c, prompt: 'Solve the system: ' + eqs.map(M).join(', ') + '. Write the solution as an ordered triple ' + M('(x,\\ y,\\ z)') + '.',
+        parts: [{ answer: M('(' + s.join(',\\ ') + ')'), check: { type: 'derive', kind: 'sys3', alts: [M('(' + s[1] + ',\\ ' + s[0] + ',\\ ' + s[2] + ')'), M('(' + s[0] + ',\\ ' + s[1] + ',\\ ' + (s[2] + 1) + ')'), M('(' + (-s[0]) + ',\\ ' + s[1] + ',\\ ' + s[2] + ')')] } }],
+        steps: [step('Use two pairs of equations to eliminate the same variable, leaving two equations in two variables.', '', 2), step('Solve that system, then substitute back for the third variable.', '', 2), step('Solution:', '(x,y,z)=(' + s.join(',') + ')', 1)], space: [1.8, 2.1, 2.4] };
+    }
+  });
+  skill({
+    id: 'viable-solutions', best: [0, 1, 2], tag: 'INEQ', name: 'Viable solutions of constraints in context',
+    blurb: 'Check a point against both constraints (CP2) → points that miss by a little, or are not whole numbers (CP1) → points on a boundary and points that break only the second constraint (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, a = r.int(5, 15), b = r.int(3, 10), cap = r.int(20, 60), x, y, need2;
+      K.need(a !== b && Math.ceil(b * cap / 10) <= Math.floor(a * cap / 6)); need2 = 5 * r.int(Math.ceil(b * cap / 10), Math.floor(a * cap / 6)); K.need(need2 > b * cap / 2);
+      var kind = r.pick(c <= 2 ? ['yes', 'low', 'over'] : c <= 4 ? ['yes', 'low', 'over', 'frac'] : ['yes', 'edge', 'over', 'frac', 'low']);
+      for (var t = 0; t < 200; t++) { x = r.int(0, cap); y = r.int(0, cap - x); if (kind === 'yes' && a * x + b * y > need2) break; if (kind === 'edge' && a * x + b * y >= need2 && x + y === cap) break; if (kind === 'low' && a * x + b * y < need2 && a * x + b * y > need2 - 3 * a) break;
+        if (kind === 'over' && a * x + b * y >= need2) { y = cap - x + r.int(1, 4); break; } if (kind === 'frac' && a * x + b * y > need2 + a) { x = x + 0.5; break; } }
+      var ok2 = x % 1 === 0 && y % 1 === 0 && a * x + b * y >= need2 && x + y <= cap;
+      K.need((kind === 'yes' || kind === 'edge') === ok2);
+      var why = !(x % 1 === 0) ? 'You cannot sell half a shirt, so the point is not viable.' : a * x + b * y < need2 ? 'Money raised: ' + a + '(' + x + ') + ' + b + '(' + y + ') = ' + (a * x + b * y) + ', which is less than $' + need2 + '.' : x + y > cap ? 'Items: ' + x + ' + ' + y + ' = ' + (x + y) + ', which is more than ' + cap + '.' : 'Money: ' + (a * x + b * y) + ' ≥ ' + need2 + ' and items: ' + (x + y) + ' ≤ ' + cap + ', so both constraints hold.';
+      return { variant: 'viable-' + kind + '-' + c, prompt: 'A club sells shirts for $' + a + ' each and hats for $' + b + ' each. It must raise at least $' + need2 + ' and can sell at most ' + cap + ' items in all. Is selling ' + x + (x === 1 ? ' shirt' : ' shirts') + ' and ' + y + (y === 1 ? ' hat' : ' hats') + ' a viable solution? Explain.',
+        parts: [{ answer: ok2 ? 'Yes. It meets both constraints and uses whole numbers.' : 'No. ' + (!(x % 1 === 0) ? 'The number of shirts must be a whole number.' : a * x + b * y < need2 ? 'It does not raise enough money.' : 'It sells more items than allowed.'), check: { type: 'derive', kind: 'viable' } }],
+        steps: [step('Constraints: ⟨' + a + 'x+' + b + 'y\\ge ' + need2 + '⟩ and ⟨x+y\\le ' + cap + '⟩, with whole numbers ⟨x,y\\ge 0⟩.', '', 2), step(why, '', 2)], space: [0.8, 1.0, 1.2] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-systems-of-equations', course: 'algebra1', courseName: 'Algebra 1', unit: 'systems-of-equations', unitName: 'Systems of Equations and Inequalities',
     title: 'The Intersection Inn',
-    tags: { GRAPH: 'Solutions and graphs', SUBST: 'Substitution', ELIM: 'Elimination', APPLY: 'Systems in context', INEQ: 'Inequalities in two variables' },
+    tags: { GRAPH: 'Solutions and graphs', SUBST: 'Substitution', ELIM: 'Elimination', APPLY: 'Systems in context', INEQ: 'Inequalities in two variables', NONLIN: 'Linear–quadratic systems', THREE: 'Three-variable systems' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Solutions</h4><p>A solution makes <b>every</b> equation true: the point where the lines cross.</p></section>' +
@@ -263,7 +319,7 @@
       '<section><h4>Elimination</h4><p>Multiply so one variable has opposite coefficients, add, solve, substitute back.</p></section>' +
       '<section><h4>Inequalities</h4><p>⟨<⟩, ⟨>⟩: dashed line. ⟨\\le⟩, ⟨\\ge⟩: solid line. ⟨y>⟩: shade above.</p></section>' +
       '</div>',
-    gaps: ['Three-variable systems and nonlinear systems are not generated. Graphs drawn by students are checked against the key graph by the teacher.'],
+    gaps: ['Graphs drawn by students are checked against the key graph by the teacher.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

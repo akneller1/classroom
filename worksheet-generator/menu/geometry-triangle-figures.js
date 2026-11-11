@@ -133,5 +133,62 @@
     return H.wrap(out, Math.ceil(y0 + 34), 'A triangle ABC with its given sides and angles labelled', '');
   }
   F.extend('geo-oblique', { render: oblRender, check: oblCheck });
+  /* ---------- coverage additions: composite plane figures, two transversals between parallel lines, a protractor ---------- */
+  function pts2(P) { return P.map(function (q) { return r1(q[0]) + ',' + r1(q[1]); }).join(' '); }
+  function poly(P, dash) { return '<polygon points="' + pts2(P) + '" fill="none" stroke="' + INK + '" stroke-width="2"' + (dash ? ' stroke-dasharray="5 4"' : '') + '/>'; }
+  function lab(x, y, s) { return T(x, y, s, 'middle'); }
+  /* geo-comp: { shape:'L'|'rect-semi'|'house'|'hole', d:{…}, unit } — drawn to scale from d */
+  function compCheck(spec) {
+    var d = spec.d || {}, pos = function (k) { return typeof d[k] === 'number' && d[k] > 0; };
+    if (spec.shape === 'L') return pos('w') && pos('h') && pos('a') && pos('b') && d.a < d.w && d.b < d.h ? { ok: true } : { ok: false, msg: 'bad L-shape' };
+    if (spec.shape === 'rect-semi' || spec.shape === 'house') return pos('w') && pos('h') && (spec.shape === 'rect-semi' || pos('t')) ? { ok: true } : { ok: false, msg: 'bad composite figure' };
+    if (spec.shape === 'hole') return pos('W') && pos('H') && pos('s') && d.s < Math.min(d.W, d.H) ? { ok: true } : { ok: false, msg: 'bad figure with a hole' };
+    return { ok: false, msg: 'unknown composite shape' };
+  }
+  function compRender(spec) {
+    var d = spec.d, u = spec.unit ? ' ' + spec.unit : '', out = '', w = d.w || d.W, h = d.h || d.H, extra = spec.shape === 'rect-semi' ? w / 2 : spec.shape === 'house' ? d.t : 0;
+    var sc = Math.min(260 / w, 140 / (h + extra)), x0 = (W - w * sc) / 2, y0 = 20 + (h + extra) * sc, X = function (x) { return x0 + x * sc; }, Y = function (y) { return y0 - y * sc; };
+    if (spec.shape === 'L') { out += poly([[X(0), Y(0)], [X(w), Y(0)], [X(w), Y(h - d.b)], [X(w - d.a), Y(h - d.b)], [X(w - d.a), Y(h)], [X(0), Y(h)]]);
+      out += lab(X(w / 2), Y(0) + 18, w + u) + T(X(0) - 8, Y(h / 2) + 4, h + u, 'end') + lab(X(w - d.a / 2), Y(h - d.b) - 8, d.a + u) + T(X(w - d.a) - 6, Y(h - d.b / 2) + 4, d.b + u, 'end'); }
+    else if (spec.shape === 'hole') { var s = d.s; out += poly([[X(0), Y(0)], [X(w), Y(0)], [X(w), Y(h)], [X(0), Y(h)]]) + poly([[X((w - s) / 2), Y((h - s) / 2)], [X((w + s) / 2), Y((h - s) / 2)], [X((w + s) / 2), Y((h + s) / 2)], [X((w - s) / 2), Y((h + s) / 2)]]);
+      out += lab(X(w / 2), Y(0) + 18, w + u) + T(X(0) - 8, Y(h / 2) + 4, h + u, 'end') + lab(X(w / 2), Y((h + s) / 2) - 6, s + u); }
+    else { out += L([X(0), Y(h)], [X(0), Y(0)]) + L([X(0), Y(0)], [X(w), Y(0)]) + L([X(w), Y(0)], [X(w), Y(h)]) + L([X(0), Y(h)], [X(w), Y(h)], 1.4, true);
+      if (spec.shape === 'rect-semi') { var R = w / 2 * sc; out += '<path d="M' + r1(X(0)) + ' ' + r1(Y(h)) + ' A' + r1(R) + ' ' + r1(R) + ' 0 0 1 ' + r1(X(w)) + ' ' + r1(Y(h)) + '" fill="none" stroke="' + INK + '" stroke-width="2"/>'; }
+      else { out += L([X(0), Y(h)], [X(w / 2), Y(h + d.t)]) + L([X(w / 2), Y(h + d.t)], [X(w), Y(h)]) + L([X(w / 2), Y(h)], [X(w / 2), Y(h + d.t)], 1.2, true) + T(X(w / 2) + 6, Y(h + d.t / 2) + 4, d.t + u, 'start'); }
+      out += lab(X(w / 2), Y(0) + 18, w + u) + T(X(w) + 8, Y(h / 2) + 4, h + u, 'start'); }
+    return H.wrap(out, Math.ceil(y0 + 28), 'A composite figure with its dimensions labelled', spec.shape === 'rect-semi' ? 'The curved part is a semicircle.' : spec.shape === 'house' ? 'The top is a triangle; the dashed segment is its height.' : spec.shape === 'hole' ? 'The square in the middle is cut out.' : '');
+  }
+  F.extend('geo-comp', { render: compRender, check: compCheck });
+  /* geo-two-trans: two parallel lines; transversals from P on the top line to Q and R on the bottom line.
+     a = interior angle at Q, b = interior angle at R; labels at Q, R, PL (= a), PR (= b), PM (= 180 − a − b). */
+  function ttVals(spec) { return { Q: spec.a, R: spec.b, PL: spec.a, PR: spec.b, PM: 180 - spec.a - spec.b }; }
+  function ttCheck(spec) {
+    if (!(spec.a > 10 && spec.b > 10 && spec.a + spec.b < 170)) return { ok: false, msg: 'angles must form a triangle' };
+    var v = ttVals(spec), lab2 = spec.lab || {};
+    for (var k in lab2) { if (v[k] === undefined) return { ok: false, msg: 'bad label position' }; var n = num(String(lab2[k]).replace('°', '')); if (n !== null && Math.abs(n - v[k]) > 0.01) return { ok: false, msg: 'angle label disagrees with the figure' }; }
+    return { ok: true };
+  }
+  function ttRender(spec) {
+    var yT = 34, yB = 150, hgt = yB - yT, a = spec.a * Math.PI / 180, b = spec.b * Math.PI / 180, Px = 215, Q = [Px - hgt / Math.tan(a), yB], R = [Px + hgt / Math.tan(b), yB], P = [Px, yT], out = '';
+    var lo = Math.min(Q[0], 40) - 10, hi = Math.max(R[0], 390) + 10;
+    out += L([lo, yT], [hi, yT]) + L([lo, yB], [hi, yB]) + L(P, [Q[0] - (P[0] - Q[0]) * 0.18, yB + hgt * 0.18]) + L(P, [R[0] + (R[0] - P[0]) * 0.18, yB + hgt * 0.18]);
+    out += T(lo + 6, yT - 6, 'm', 'start', true) + T(lo + 6, yB - 6, 'n', 'start', true) + T(P[0], yT - 8, 'P', 'middle', true) + T(Q[0] - 10, yB + 16, 'Q', 'middle', true) + T(R[0] + 10, yB + 16, 'R', 'middle', true);
+    out += '<path d="M' + r1(lo + 20) + ' ' + (yT - 3) + ' l8 3 l-8 3" fill="none" stroke="' + INK + '"/><path d="M' + r1(lo + 20) + ' ' + (yB - 3) + ' l8 3 l-8 3" fill="none" stroke="' + INK + '"/>';
+    var lab2 = spec.lab || {}, at = { Q: [Q[0] + 30, yB - 10], R: [R[0] - 30, yB - 10], PL: [P[0] - 34, yT + 14], PR: [P[0] + 34, yT + 14], PM: [P[0], yT + 34] };
+    Object.keys(lab2).forEach(function (k) { out += T(at[k][0], at[k][1], String(lab2[k]), 'middle'); });
+    return H.wrap(out, yB + 40, 'Two parallel lines m and n with two transversals meeting at P', 'Lines m and n are parallel (marked >). Not drawn to scale.');
+  }
+  F.extend('geo-two-trans', { render: ttRender, check: ttCheck });
+  /* geo-protractor: rays OA and OB through the a° and b° marks of a protractor (0° on the right) */
+  function prCheck(spec) { return spec.a >= 0 && spec.a <= 180 && spec.b >= 0 && spec.b <= 180 && spec.a !== spec.b && spec.a % 5 === 0 && spec.b % 5 === 0 ? { ok: true } : { ok: false, msg: 'bad protractor readings' }; }
+  function prRender(spec) {
+    var cx = 215, cy = 150, R = 120, out = '<path d="M' + (cx - R) + ' ' + cy + ' A' + R + ' ' + R + ' 0 0 1 ' + (cx + R) + ' ' + cy + ' Z" fill="none" stroke="' + INK + '" stroke-width="1.6"/>';
+    for (var t = 0; t <= 180; t += 5) { var c = Math.cos(t * Math.PI / 180), s = Math.sin(t * Math.PI / 180), len = t % 10 ? 6 : 11; out += L([cx + R * c, cy - R * s], [cx + (R - len) * c, cy - (R - len) * s], 1); if (t % 30 === 0) out += '<text x="' + r1(cx + (R - 22) * c) + '" y="' + r1(cy - (R - 22) * s + 4) + '" font-size="10" text-anchor="middle">' + t + '</text>'; }
+    [['A', spec.a], ['B', spec.b]].forEach(function (q) { var c = Math.cos(q[1] * Math.PI / 180), s = Math.sin(q[1] * Math.PI / 180); out += L([cx, cy], [cx + (R + 18) * c, cy - (R + 18) * s], 2.2) + T(cx + (R + 30) * c, cy - (R + 30) * s + 4, q[0], 'middle', true); });
+    out += dot([cx, cy], 3) + T(cx, cy + 16, 'O', 'middle', true);
+    return H.wrap(out, cy + 28, 'A protractor with rays OA and OB', 'Read each ray where it crosses the scale.');
+  }
+  F.extend('geo-protractor', { render: prRender, check: prCheck });
+
 
 })(typeof window !== 'undefined' ? window : globalThis);

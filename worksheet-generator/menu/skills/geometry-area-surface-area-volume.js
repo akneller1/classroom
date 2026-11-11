@@ -136,10 +136,23 @@ function similarSolids(ctx){var r=ctx.rng,c=ctx.c,sd=r.pick(SOLIDS),a=r.int(2,5)
  alts=[given*lb/la,given*la/lb,want*B/A,want*A/B].filter(function(x){return x!==want&&x%1===0&&x>0;});
  why=(meas==='volume'?'Volumes scale by the cube':'Surface areas scale by the square')+' of the scale factor '+B+'/'+A+'.';
  return {variant:'geo-similar-solid-'+mode+'-'+c,prompt:prompt,parts:[{answer:M(String(want))+(meas==='volume'?' cubic ':' square ')+'centimeters',check:D('similar',alts,want)}],steps:[step(why,''),step(meas.charAt(0).toUpperCase()+meas.slice(1)+' = '+given+' · ('+(big?A+'/'+B:B+'/'+A)+')'+(e2===3?'³':'²')+' = '+want+'.','')],space:[1.0,1.2,1.4]};}
+
+function compositePlane(ctx){var r=ctx.rng,c=ctx.c,shapes=c<=2?['L','hole']:c<=4?['L','hole','house','Lper']:['house','rect-semi','rect-semi-per','L','hole'],k=r.pick(shapes),d,ans,prompt,why,fig,alts,unit=r.pick(['ft','m','cm','in.']);
+ if(k==='L'||k==='Lper'){d={w:r.int(8,16),h:r.int(6,14)};d.a=r.int(2,d.w-3);d.b=r.int(2,d.h-3);fig={kind:'geo-comp',shape:'L',d:d,unit:unit};var lead='The figure is a '+d.w+' '+unit+' by '+d.h+' '+unit+' rectangle with a '+d.a+' '+unit+' by '+d.b+' '+unit+' rectangle removed from one corner. ';
+  if(k==='L'){ans=d.w*d.h-d.a*d.b;why='Area of the whole rectangle minus the missing corner: '+d.w+' × '+d.h+' − '+d.a+' × '+d.b+' = '+ans+'.';alts=[d.w*d.h,d.w*d.h+d.a*d.b,2*(d.w+d.h)];prompt=lead+'Find the area of the figure.';}
+  else{ans=2*(d.w+d.h);why='The missing corner moves two sides inward but keeps the total horizontal and vertical lengths, so the perimeter is 2('+d.w+' + '+d.h+') = '+ans+'.';alts=[2*(d.w+d.h)-2*d.a,d.w*d.h-d.a*d.b,d.w+d.h+d.a+d.b];prompt=lead+'Find the perimeter of the figure.';}}
+ else if(k==='hole'){d={W:r.int(8,16),H:r.int(6,12)};d.s=r.int(2,Math.min(d.W,d.H)-2);fig={kind:'geo-comp',shape:'hole',d:d,unit:unit};ans=d.W*d.H-d.s*d.s;prompt='A square hole with side '+d.s+' '+unit+' is cut out of a '+d.W+' '+unit+' by '+d.H+' '+unit+' rectangle. Find the area of the remaining region.';why='Rectangle minus square: '+d.W+' × '+d.H+' − '+d.s+'² = '+ans+'.';alts=[d.W*d.H,d.W*d.H-4*d.s,d.W*d.H+d.s*d.s];}
+ else if(k==='house'){d={w:2*r.int(3,8),h:r.int(4,10),t:r.int(2,7)};fig={kind:'geo-comp',shape:'house',d:d,unit:unit};ans=d.w*d.h+d.w*d.t/2;prompt='The figure is a '+d.w+' '+unit+' by '+d.h+' '+unit+' rectangle with a triangle of height '+d.t+' '+unit+' on top. Find its area.';why='Rectangle '+d.w+' × '+d.h+' plus triangle ½ · '+d.w+' · '+d.t+' = '+ans+'.';alts=[d.w*d.h+d.w*d.t,d.w*(d.h+d.t),d.w*d.h];}
+ else {d={w:2*r.int(3,8),h:r.int(4,12)};fig={kind:'geo-comp',shape:'rect-semi',d:d,unit:unit};var per=k==='rect-semi-per',v=per?2*d.h+d.w+Math.PI*d.w/2:d.w*d.h+Math.PI*d.w*d.w/8;K.need(Math.abs(v*10-Math.floor(v*10)-0.5)>1e-4);
+  ans=(Math.round(v*10)/10).toFixed(1);prompt='The figure is a '+d.w+' '+unit+' by '+d.h+' '+unit+' rectangle with a semicircle on the '+d.w+' '+unit+' side. Find its '+(per?'perimeter':'area')+' to the nearest tenth.';
+  why=per?'Three sides of the rectangle ('+d.h+' + '+d.w+' + '+d.h+') plus half the circumference of a circle with diameter '+d.w+': π · '+d.w+' ÷ 2.':'Rectangle '+d.w+' × '+d.h+' plus half a circle of radius '+d.w/2+': ½π('+d.w/2+')².';
+  alts=per?[(Math.round((2*d.h+2*d.w+Math.PI*d.w/2)*10)/10).toFixed(1),(Math.round((2*d.h+d.w+Math.PI*d.w)*10)/10).toFixed(1)]:[(Math.round((d.w*d.h+Math.PI*d.w*d.w/4)*10)/10).toFixed(1),(Math.round((d.w*d.h+Math.PI*d.w*d.w/2)*10)/10).toFixed(1)];}
+ var sq=/perimeter/.test(prompt)?unit:'square '+unit;
+ return {variant:'geo-comp-plane-'+k+'-'+c,prompt:prompt,fig:fig,parts:[{answer:M(String(ans))+' '+sq,check:D('comp-plane',alts,ans)}],steps:[step('Split the figure into shapes you know.',''),step(why,'')],space:[1.0,1.2,1.4]};}
 NS.registerSkillSet({id:'geometry-area-surface-area-volume',course:'geometry',courseName:'Geometry',unit:'area-surface-area-volume',unitName:'Area, Surface Area and Volume',title:'Area, Surface Area and Volume',
 tags:{INVEST:'Four-part prism investigation',AREA:'Area of plane figures',VOLUME:'Volume of solids',SURFACE:'Surface area of solids',CIRCULAR:'Circular solids',SCALE:'Similar solids and scale factors',UNITS:'Unit conversions for area and volume'},
 reference:'<div class="mm-refgrid"><section><h4>Plane area</h4><p>Rectangle: lw; triangle: bh/2; trapezoid: (b₁+b₂)h/2.</p></section><section><h4>Solids</h4><p>Prism: Bh; pyramid: Bh/3; cylinder: πr²h.</p></section><section><h4>Surface area</h4><p>Square pyramid: s² + 2sl; cone: πr² + πrl (l = slant height).</p></section><section><h4>Similar solids</h4><p>Scale factor k: areas × k², volumes × k³.</p></section></div>',
-gaps:['Composite figures are generated from text descriptions (cylinders, cones and hemispheres) and two stacked prisms; composite plane figures with drawn diagrams are not generated.'],
+gaps:[],
 skills:[
 {id:'measure-rectangle-area',tag:'AREA',name:'Area of a rectangle',best:[0,1],generate:rect},
 {id:'measure-triangle-area',tag:'AREA',name:'Area of a triangle',best:[0,1],generate:triangle},
@@ -165,6 +178,7 @@ skills:[
 {id:'measure-investigation-trapezoid',tag:'INVEST',name:'Honors: trapezoid with an algebraic base, triangle and scaling',best:[2],generate:invTrapezoid},
 {id:'measure-pyramid-surface',tag:'SURFACE',name:'Surface area of a square pyramid (slant height)',best:[0,1,2],generate:pyramidSurface},
 {id:'measure-cone-surface',tag:'CIRCULAR',name:'Surface area of a cone (coefficient of π)',best:[0,1,2],generate:coneSurface},
+{id:'measure-composite-plane',tag:'AREA',name:'Area and perimeter of composite plane figures',best:[0,1,2],generate:compositePlane},
 {id:'measure-composite-round',tag:'VOLUME',name:'Volume of composite solids with cylinders, cones and hemispheres',best:[1,2],generate:compositeRound},
 {id:'measure-unit-conversion',tag:'UNITS',name:'Convert square and cubic units',best:[0,1,2],generate:unitConvert},
 {id:'measure-similar-solids',tag:'SCALE',name:'Similar solids: scale factor, surface area and volume',best:[0,1,2],generate:similarSolids},

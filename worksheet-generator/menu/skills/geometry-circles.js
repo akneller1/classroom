@@ -86,11 +86,37 @@ function invSector(ctx){var r=ctx.rng,c=ctx.c,ks=[3,4,5,6,8,9,10,12],k,th,aa,x,b
  ['The exact area of the sector is w times π square centimeters. Use the angle from part b. Find w.','w',A,'360*w='+rad+'*'+rad+'*'+th,'Sector area is the angle fraction of the circle area πr²; divide out π.']]);
  o.fig=fig(CF().sector(th,'('+aa+'x+'+b+')°',rad+' cm','zπ','arc'));return o;}
 
+/* Coverage additions: circle equations from three points or a tangent line, tangent lines at a point, and arc length or sector area to the nearest tenth. */
+var LATT={25:[[3,4],[4,3],[5,0],[0,5]],100:[[6,8],[8,6],[10,0],[0,10]],169:[[5,12],[12,5],[13,0],[0,13]],50:[[1,7],[7,1],[5,5]],65:[[1,8],[8,1],[4,7],[7,4]]};
+function allOff(r2){var o=[];LATT[r2].forEach(function(q){[[1,1],[1,-1],[-1,1],[-1,-1]].forEach(function(s){var t=[q[0]*s[0],q[1]*s[1]];if(!o.some(function(u){return u[0]===t[0]&&u[1]===t[1];}))o.push(t);});});return o;}
+function sgn(n){return n<0?'+'+(-n):n>0?'-'+n:'';}
+function circEq(h,k,r2){return (h?'(x'+sgn(h)+')':'x')+'^2+'+(k?'(y'+sgn(k)+')':'y')+'^2='+r2;}
+function circleEquations(ctx){var r=ctx.rng,c=ctx.c,h=r.int(-6,6),k=r.int(-6,6),kind=c<=3?'tangent-line':c<=5?r.pick(['tangent-line','three','tangent-at']):r.pick(['three','tangent-at','three']),r2,pr,ans,steps,alts;
+ if(kind==='tangent-line'){var ax=r.pick(['x','y']),d=K.nz(r,-8,8),cv=(ax==='x'?h:k)+d;r2=d*d;
+  pr='A circle has center ('+h+', '+k+') and is tangent to the line '+ax+' = '+cv+'. Write an equation of the circle.';ans=circEq(h,k,r2);alts=[circEq(h,k,Math.abs(d)),circEq(-h,-k,r2),circEq(h,k,cv*cv===r2?r2+1:cv*cv)];
+  steps=[step('The radius is the distance from the center to the tangent line: |'+(ax==='x'?h:k)+' − '+cv+'| = '+Math.abs(d)+'.',''),step('Equation:',M(ans))];}
+ else if(kind==='three'){r2=r.pick(c>=6?[25,50,65,100,169]:[25,100,169]);var offs=r.shuffle(allOff(r2)).slice(0,3),pts=offs.map(function(o){return [h+o[0],k+o[1]];});
+  pr='A circle passes through the points ('+pts[0].join(', ')+'), ('+pts[1].join(', ')+') and ('+pts[2].join(', ')+'). Write an equation of the circle.';ans=circEq(h,k,r2);alts=[circEq(-h,-k,r2),circEq(h,k,Math.round(Math.sqrt(r2))),circEq(k,h,r2===25?169:25)];
+  steps=[step('The center is equidistant from the three points: it lies on the perpendicular bisector of each chord.',''),step('Solving the two perpendicular bisector equations gives the center ('+h+', '+k+').',''),step('The radius squared is the squared distance to any point: '+r2+'.',M(ans))];}
+ else{r2=r.pick([25,100,169]);var o=r.pick(allOff(r2)),px=h+o[0],py=k+o[1],line;
+  if(o[1]===0)line='x='+px;else if(o[0]===0)line='y='+py;else{var g=K.gcd(Math.abs(o[0]),Math.abs(o[1])),n=-o[0]/g,dn=o[1]/g;if(dn<0){n=-n;dn=-dn;}var mT=dn===1?String(n):(n<0?'-':'')+'\\frac{'+Math.abs(n)+'}{'+dn+'}';line='y'+sgn(py)+'='+(mT==='1'?'':mT==='-1'?'-':mT)+'(x'+sgn(px)+')';}
+  pr='The circle with center ('+h+', '+k+') passes through ('+px+', '+py+'). Write an equation of the line tangent to the circle at ('+px+', '+py+').';ans=line;
+  alts=[o[0]&&o[1]?'y'+sgn(py)+'='+(o[1]/o[0]===1?'':o[1]/o[0]===-1?'-':(o[1]*o[0]<0?'-':'')+'\\frac{'+Math.abs(o[1])+'}{'+Math.abs(o[0])+'}')+'(x'+sgn(px)+')':(o[1]===0?'y='+py:'x='+px),o[1]===0?'x='+h:o[0]===0?'y='+k:'y'+sgn(k)+'='+line.split('=')[1].replace('(x'+sgn(px)+')','(x'+sgn(h)+')')];
+  steps=[step('A tangent line is perpendicular to the radius at the point of tangency.',''),step('The radius has slope '+(o[0]?o[1]+'/'+o[0]:'undefined')+', so the tangent has the opposite reciprocal slope.',''),step('Line through ('+px+', '+py+'):',M(line))];}
+ return {variant:'geo-circeq-'+kind+'-'+c,prompt:pr,parts:[{answer:M(ans),check:{type:'derive',kind:'circle-eq',alts:alts.filter(function(a){return a!==ans;}).map(M)}}],steps:steps,space:[1.2,1.5,1.8]};}
+function arcDecimal(ctx){var r=ctx.rng,c=ctx.c,sector=r.chance(0.5),useD=c>=4&&r.chance(0.4),rad=r.int(3,c>=5?20:12),th=r.pick([30,40,45,50,60,72,75,80,100,110,120,135,140,150,210,225,240,270,300]);
+ var val=sector?Math.PI*rad*rad*th/360:2*Math.PI*rad*th/360,t=val*10;K.need(Math.abs(t-Math.floor(t)-0.5)>1e-4);var out=(Math.round(t)/10).toFixed(1),unit=r.pick(['centimeters','inches','feet','meters']);
+ var pr='A circle has '+(useD?'diameter '+2*rad:'radius '+rad)+' '+unit+'. Find the '+(sector?'area of a sector':'length of an arc')+' with a central angle of '+th+'°. Round to the nearest tenth.';
+ return {variant:'geo-arcdec-'+(sector?'sector':'arc')+'-'+c,prompt:pr,parts:[{answer:M(out)+' '+(sector?'square '+unit:unit),check:{type:'derive',kind:'arc-dec',alts:[(Math.round((sector?2*Math.PI*rad*th/360:Math.PI*rad*rad*th/360)*10)/10).toFixed(1),(Math.round(val*20)/10).toFixed(1),(Math.round(val*5)/10).toFixed(1)].filter(function(z){return z!==out;}).map(M)}}],
+  steps:[step((useD?'The radius is half the diameter: '+rad+'. ':'')+(sector?'Sector area = (θ/360)·πr².':'Arc length = (θ/360)·2πr.'),''),step('Compute and round: '+out+'.','')],space:[0.9,1.1,1.3]};}
+
 NS.registerSkillSet({id:'geometry-circles',course:'geometry',courseName:'Geometry',unit:'circles',unitName:'Circles',title:'Circle Relationships',
 tags:{INVEST:'Four-part circle investigation',CENTRAL:'Central angles and arcs',INSCRIBED:'Inscribed angles',TANGENT:'Tangents and radii',MEASURE:'Radius and diameter',SEMICIRCLE:'Angles in a semicircle',CHORDS:'Intersecting chord products',SECANTS:'Two-secant power theorem',TANSEC:'Tangent-secant power theorem',ARC:'Exact arc length',SECTOR:'Exact sector area',COORD:'Circle equations from coordinates',CHORDDIST:'Chord length from center distance',EXPANDED:'Circle center and radius from expanded equation'},
 reference:'<div class="mm-refgrid"><section><h4>Arcs and angles</h4><p>A central angle equals its intercepted minor arc; an inscribed angle is half its intercepted arc.</p></section><section><h4>Tangents</h4><p>A tangent is perpendicular to the radius at the point of tangency.</p></section></div>',
-gaps:['Circle equations from three points or a tangent line, proofs about chords and tangents, and decimal-form arc and sector answers are not generated.'],
+gaps:[],
 skills:[
+{id:'circle-equation-three-points-tangent',tag:'COORD',name:'Circle equations from three points or a tangent line; tangent lines',best:[1,2],generate:ctx=>K.retry(()=>circleEquations(ctx))},
+{id:'circle-arc-sector-decimal',tag:'ARC',name:'Arc length and sector area to the nearest tenth',best:[0,1,2],generate:ctx=>K.retry(()=>arcDecimal(ctx))},
 {id:'circle-central-arc',tag:'CENTRAL',name:'Central angle and minor arc',best:[0,1],generate:central},
 {id:'circle-inscribed-angle',tag:'INSCRIBED',name:'Inscribed angle from arc',best:[0,1],generate:inscribed},
 {id:'circle-intercepted-arc',tag:'INSCRIBED',name:'Intercepted arc from inscribed angle',best:[0,1],generate:intercepted},

@@ -345,6 +345,23 @@
     }
   });
 
+  /* ================= WHEN DOES EXPONENTIAL OVERTAKE LINEAR? ================= */
+  skill({
+    id: 'exp-overtakes-linear', best: [0, 1, 2], tag: 'MODEL', name: 'When an exponential function overtakes a linear one',
+    blurb: 'Compare tables of 2ˣ and a line (CP2) → larger linear starting values and rates (CP1) → bases 1.5 and 3, scaled exponentials and context (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, base = c <= 3 ? 2 : r.pick([2, 3, c >= 6 && !ctx.intOnly ? 1.5 : 2]), a = c >= 5 ? r.pick([1, 2, 3]) : 1, m = r.int(c <= 2 ? 2 : 5, c <= 2 ? 6 : 30), b = r.int(c <= 2 ? 2 : 10, c <= 2 ? 10 : 60);
+      var f = function (x) { return m * x + b; }, g = function (x) { return a * Math.pow(base, x); }; K.need(g(0) < f(0));
+      var x = 1; while (!(g(x) > f(x))) x++; K.need(x <= 14);
+      var x2 = 1; while (!(g(x2) > (m + 2) * x2 + b)) x2++; K.need(x2 !== x);   // the answer depends on the printed rate: a slightly steeper line is overtaken later
+      var gT = (a === 1 ? '' : a + '\\cdot ') + (base === 1.5 ? '(1.5)' : String(base)) + '^x', fT = lin([[m, 'x'], [b, '']]);
+      var ctxS = c >= 6 && r.chance(0.5) ? 'A town’s population of a rare plant is modeled two ways. ' : '';
+      return { variant: 'overtake-' + c, prompt: ctxS + 'Let ' + M('f(x)=' + fT) + ' and ' + M('g(x)=' + gT) + '. What is the smallest whole number x for which g(x) is greater than f(x)?',
+        parts: [{ answer: M('x=' + x), check: { type: 'derive', kind: 'overtake', alts: [M('x=' + (x - 1)), M('x=' + (x + 1)), M('x=' + (x + 2))] } }],
+        steps: [step('Make a table of values for both functions.', '', 1), step('At ⟨x=' + (x - 1) + '⟩: ⟨f=' + f(x - 1) + '⟩ and ⟨g=' + g(x - 1) + '⟩. At ⟨x=' + x + '⟩: ⟨f=' + f(x) + '⟩ and ⟨g=' + g(x) + '⟩.', '', 2), step('An exponential function eventually exceeds any linear function; here it first does at ⟨x=' + x + '⟩.', '', 1)], space: [1.0, 1.2, 1.4] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-exponential-functions', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponential-functions', unitName: 'Exponential Functions',
     title: 'The Exponential Eatery',

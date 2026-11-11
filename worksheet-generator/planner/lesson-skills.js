@@ -54,7 +54,7 @@
     'U4-L3': full([['R', 'is-function', 1, 7]]),
     'U4-L4': full([['R', 'func-eval', 1, 7], ['R', 'read-func', 1, 4]]),
     'U4-L5': full([['R', 'graph-behavior', 1, 7], ['R', 'read-func', 3, 7], ['R', 'curve-behavior', 1, 7]]),
-    'U4-L6': part([['R', 'graph-behavior', 1, 7]], 'Students sketch graphs from stories; the generator only interprets graphs. Add 2 short stories to sketch.'),
+    'U4-L6': part([['R', 'graph-from-story', 1, 7], ['R', 'graph-behavior', 1, 7]], 'The generator checks the order of increasing, constant and decreasing pieces for each story; the sketch itself is checked by the teacher.'),
     'U4-L7': full([['R', 'discrete-continuous', 1, 7], ['R', 'domain-range', 4, 7]]),
     'U4-L8': full([['R', 'sequence', 1, 7]]),
     /* Unit 5 · Linear Functions and Graphing */
@@ -79,7 +79,7 @@
     'U6-L7': full([['S', 'sys-apply', 1, 7]]),
     'U6-L8': full([['S', 'sys-ineq', 1, 2], ['S', 'graph-hand', 1, 2]]),
     'U6-L9': full([['S', 'sys-ineq', 3, 6], ['S', 'graph-hand', 5, 7]]),
-    'U6-L10': part([['S', 'sys-ineq', 7, 7], ['S', 'sys-apply', 2, 4], ['S', 'graph-hand', 5, 6]], 'Writing a constraint system from a situation is generated; graphing it in context (labelled axes, only whole-number points) is not. Have students graph one scenario.'),
+    'U6-L10': part([['S', 'viable-solutions', 1, 7], ['S', 'sys-ineq', 7, 7], ['S', 'sys-apply', 2, 4], ['S', 'graph-hand', 5, 6]], 'Writing a constraint system and deciding which points are viable are generated; the hand-drawn graph in context is checked by the teacher.'),
     /* Unit 7 · Exponents and Scientific Notation */
     'U7-L1': full([['X', 'pow-product', 1, 7]]),
     'U7-L2': full([['X', 'pow-quotient', 1, 7], ['X', 'pow-eval', 2, 5]]),
@@ -95,7 +95,7 @@
     'U8-L5': full([['P', 'exp-write', 1, 7]]),
     'U8-L6': full([['P', 'exp-identify', 3, 5], ['P', 'exp-apply', 3, 5], ['P', 'compound', 1, 7]]),
     'U8-L7': full([['P', 'geo-seq', 1, 7]]),
-    'U8-L8': part([['P', 'lin-vs-exp', 1, 7], ['P', 'exp-apply', 4, 6]], 'Comparing when an exponential model overtakes a linear one is not generated; add one table comparison.'),
+    'U8-L8': full([['P', 'exp-overtakes-linear', 1, 7], ['P', 'lin-vs-exp', 1, 7], ['P', 'exp-apply', 4, 6]]),
     'U8-L9': full([['P', 'exp-solve', 1, 7]]),
     /* Unit 9 · Polynomials */
     'U9-L1': full([['Y', 'poly-classify', 1, 7]]),
@@ -118,7 +118,7 @@
     'U11-L1': full([['Q', 'q-features', 1, 2], ['Q', 'q-features', 4, 4]]),
     'U11-L2': full([['Q', 'q-features', 3, 3], ['Q', 'q-features', 6, 7], ['Q', 'q-graph', 5, 7]]),
     'U11-L3': full([['Q', 'q-features', 5, 5], ['Q', 'q-complete', 6, 7], ['Q', 'q-transform', 1, 7], ['Q', 'q-graph', 1, 4]]),
-    'U11-L4': part([['Q', 'q-features', 2, 2], ['Z', 'zero-product', 3, 4]], 'Converting between forms is only partly generated (zeros from factored form).'),
+    'U11-L4': full([['Q', 'quadratic-forms', 1, 7], ['Q', 'q-features', 2, 2], ['Z', 'zero-product', 3, 4]]),
     'U11-L5': part([['Q', 'q-features', 2, 2]], 'Solving by graphing uses graphed parabolas only; have students check each zero by substitution.'),
     'U11-L6': full([['Q', 'q-roots', 1, 4], ['Q', 'q-roots', 6, 6]]),
     'U11-L7': full([['Q', 'q-complete', 1, 5]]),

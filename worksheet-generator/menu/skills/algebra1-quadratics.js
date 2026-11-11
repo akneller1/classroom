@@ -289,6 +289,30 @@
     }
   });
 
+  /* ================= CONVERTING BETWEEN STANDARD, VERTEX AND FACTORED FORM ================= */
+  function sq(h) { return h === 0 ? 'x' : '(x' + (h > 0 ? '-' + h : '+' + (-h)) + ')'; }
+  function fac(r1) { return '(x' + (r1 > 0 ? '-' + r1 : '+' + (-r1)) + ')'; }
+  skill({
+    id: 'quadratic-forms', best: [0, 1, 2], tag: 'COMPLETE', name: 'Convert between standard, vertex and factored form',
+    blurb: 'Factored or vertex form to standard form (CP2) → standard to factored form, standard to vertex form by completing the square (CP1) → leading coefficients other than 1, vertex form to factored form (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, a = c >= 5 ? r.pick([1, 2, -1, -2, 3]) : 1, r1 = K.nz(r, -7, 7), r2 = K.nz(r, -7, 7), from, to, given, out, why;
+      var pairs = c <= 2 ? [['factored', 'standard'], ['vertex', 'standard']] : c <= 4 ? [['standard', 'factored'], ['standard', 'vertex'], ['vertex', 'standard']] : [['standard', 'vertex'], ['standard', 'factored'], ['vertex', 'factored'], ['factored', 'vertex']];
+      var pr = r.pick(pairs); from = pr[0]; to = pr[1];
+      if (to === 'factored' || from === 'factored') K.need(r1 !== r2);
+      if (to === 'vertex' || (from === 'vertex' && to === 'factored')) K.need((r1 + r2) % 2 === 0);
+      var co = a === 1 ? '' : a === -1 ? '-' : String(a), B = -a * (r1 + r2), Cc = a * r1 * r2, h = (r1 + r2) / 2, k = -a * Math.pow((r1 - r2) / 2, 2);
+      if (from === 'vertex' && to === 'standard') { h = K.nz(r, -6, 6); k = r.int(-9, 9); B = -2 * a * h; Cc = a * h * h + k; }
+      if (from === 'vertex' || to === 'vertex') K.need(h !== 0);   // with h = 0 the two forms are written the same way
+      var std = lin([[a, 'x^2'], [B, 'x'], [Cc, '']]), vtx = co + sq(h) + '^2' + (k ? (k > 0 ? '+' + k : '-' + (-k)) : ''), fct = co + fac(Math.min(r1, r2)) + fac(Math.max(r1, r2));
+      given = from === 'standard' ? std : from === 'vertex' ? vtx : fct; out = to === 'standard' ? std : to === 'vertex' ? vtx : fct;
+      why = to === 'standard' ? 'Expand and combine like terms.' : to === 'factored' ? (from === 'vertex' ? 'Set the expression equal to 0 to find the zeros ' + Math.min(r1, r2) + ' and ' + Math.max(r1, r2) + ', then write ⟨a(x-r_1)(x-r_2)⟩.' : 'Factor: find two numbers with the right product and sum' + (a !== 1 ? ' after factoring out ' + a : '') + '.') : 'Complete the square: the vertex is at ⟨x=-\\frac{b}{2a}=' + h + '⟩, and ⟨k⟩ is the value there.';
+      return { variant: 'qform-' + from + '-' + to + '-' + c, prompt: 'Write ' + M('y=' + given) + ' in ' + to + ' form.',
+        parts: [{ answer: M('y=' + out), check: { type: 'derive', kind: 'qform', alts: [M('y=' + (to === 'vertex' ? co + sq(-h) + '^2' + (k ? (k > 0 ? '+' + k : '-' + (-k)) : '') : to === 'factored' ? co + fac(-Math.min(r1, r2)) + fac(-Math.max(r1, r2)) : lin([[a, 'x^2'], [-B, 'x'], [Cc, '']]))), M('y=' + (to === 'vertex' ? co + sq(h) + '^2' + (k ? (k > 0 ? '-' + k : '+' + (-k)) : '+1') : to === 'factored' ? co + fac(Math.min(r1, r2) + 1) + fac(Math.max(r1, r2)) : lin([[a, 'x^2'], [B, 'x'], [-Cc, '']]))), M('y=' + (to === 'standard' ? lin([[a, 'x^2'], [B + 1, 'x'], [Cc, '']]) : given))].filter(function (z) { return z !== M('y=' + out); }) } }],
+        steps: [step(why, '', 2), step(to.charAt(0).toUpperCase() + to.slice(1) + ' form:', 'y=' + out, 1)], space: [0.9, 1.1, 1.3] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-quadratics', course: 'algebra1', courseName: 'Algebra 1', unit: 'quadratics', unitName: 'Quadratic Functions and Equations',
     title: 'The Parabola Bakery',

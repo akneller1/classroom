@@ -1305,6 +1305,449 @@
       var said = (C.plainText(String(part.answer || '')).match(/∠(\d) and ∠(\d)/g) || []).map(function (t) { var g = /∠(\d) and ∠(\d)/.exec(t); return g[1] + '-' + g[2]; });
       return said.length === yes.length && yes.every(function (y) { return said.indexOf(y) >= 0; }) ? { status: 'verified', computed: yes.join(', ') } : { status: 'mismatch', msg: 'Correct: ' + yes.join(', ') + '.' };
     };
+    /* ===== second batch of coverage readers ===== */
+    function pairsIn(text) { var out = [], re = /\(\s*(-?\d+(?:\.\d+)?)\s*,\\?\s*(-?\d+(?:\.\d+)?)\s*\)/g, m; text = String(text || '').replace(/\\ /g, ' '); while ((m = re.exec(text))) out.push([+m[1], +m[2]]); return out; }
+    function yesNo(ans) { var m = /^\s*(yes|no)\b/i.exec(C.plainText(String(ans || ''))); return m ? m[1].toLowerCase() === 'yes' : null; }
+    function evalAt(node, v, x) { var env = {}; env[v] = x; return C.evalNode(node, env); }
+    function sameFn(nodeA, nodeB, v, xs) { return xs.every(function (x) { try { return evalAt(nodeA, v, new Q(BigInt(x))).eq(evalAt(nodeB, v, new Q(BigInt(x)))); } catch (e) { return false; } }); }
+    var XS = [-7, -4, -2, -1, 0, 1, 2, 3, 5, 8];
+    /* Algebra 1 Unit 5 · absolute value functions f(x) = a|x − h| + k (features read by evaluating the printed rule or the drawn graph) */
+    R['abs'] = function (p, part, raw) {
+      var ans = part.answer || '', node, h, k, a;
+      var fm = null, reF = /⟨([fgy])(?:\(x\))?=([^⟩]*\|[^⟩]*)⟩/g, mf; while ((mf = reF.exec(raw))) if (!/[a-wyz]/.test(mf[2].replace(/\\[a-z]+/g, ''))) { fm = mf; break; }
+      if (fm) {
+        node = C.parseExpr(fm[2]);
+        var best = null; for (var x = -40; x <= 40; x++) { var X = new Q(BigInt(x)), yv = evalAt(node, 'x', X), d = evalAt(node, 'x', new Q(BigInt(x + 1))).sub(yv), dl = yv.sub(evalAt(node, 'x', new Q(BigInt(x - 1)))); if (!d.eq(dl.neg()) || d.n === 0n) continue; best = { h: x, k: yv, a: d }; }
+        need(best, 'a vertex at a whole number'); h = best.h; k = best.k; a = best.a;
+        for (var t = -6; t <= 6; t++) need(evalAt(node, 'x', new Q(BigInt(h + t))).eq(a.mul(new Q(BigInt(Math.abs(t)))).add(k)), 'an absolute value function');
+      } else {
+        need(p.fig && p.fig.kind === 'plane' && p.fig.segs && p.fig.segs.length === 2, 'graph'); var s1 = p.fig.segs[0], s2 = p.fig.segs[1];
+        need(s1.b[0] === s2.a[0] && s1.b[1] === s2.a[1], 'a V-shaped graph'); h = s1.b[0]; k = new Q(BigInt(s1.b[1]));
+        var m1 = new Q(BigInt(s1.b[1] - s1.a[1]), BigInt(s1.b[0] - s1.a[0])), m2 = new Q(BigInt(s2.b[1] - s2.a[1]), BigInt(s2.b[0] - s2.a[0])); need(m1.eq(m2.neg()) && m2.n !== 0n, 'symmetric sides'); a = m2;
+      }
+      var txt = C.plainText(raw);
+      if (/find the vertex/i.test(txt) && !/open up or down/.test(txt)) { var pr = pairsIn(ans)[0]; return pr && pr[0] === h && new Q(BigInt(Math.round(pr[1] * 1000)), 1000n).eq(k) ? { status: 'verified', computed: '(' + h + ', ' + qText(k) + ')' } : { status: 'mismatch', msg: 'Vertex (' + h + ', ' + qText(k) + ').' }; }
+      if (/axis of symmetry/.test(txt)) return exact(ans, new Q(BigInt(h)), 'x');
+      if (/open up or down/.test(txt)) { var vp = pairsIn(ans)[0]; if (!vp || vp[0] !== h || !new Q(BigInt(Math.round(vp[1] * 1000)), 1000n).eq(k)) return { status: 'mismatch', msg: 'Vertex: (' + h + ', ' + qText(k) + ').' }; var up = /\bopens up\b|^\s*up\b/i.test(C.plainText(ans)), dn = /\bopens down\b|^\s*down\b/i.test(C.plainText(ans)); return (a.n > 0n ? up : dn) ? { status: 'verified' } : { status: 'mismatch', msg: 'It opens ' + (a.n > 0n ? 'up' : 'down') + '.' }; }
+      if (/find the range/i.test(txt)) { var rm = /y\s*(\\ge|\\le|≥|≤)\s*(-?[\d\\{}frac]+)/.exec(firstMath(ans) || ''); if (!rm) return { status: 'mismatch', msg: 'Write the range as y ≥ k or y ≤ k.' };
+        var ge = /ge|≥/.test(rm[1]); return ge === (a.n > 0n) && nq(rm[2]).eq(k) ? { status: 'verified' } : { status: 'mismatch', msg: 'Range: y ' + (a.n > 0n ? '≥ ' : '≤ ') + qText(k) + '.' }; }
+      if (/Write the equation|Write an equation/.test(txt)) {
+        var s = firstMath(ans); if (!s) return { status: 'mismatch', msg: 'No equation.' };
+        var rel = C.parseRelation(s), want = { k: 'add', a: { k: 'mul', a: { k: 'num', v: a }, b: { k: 'abs', a: { k: 'sub', a: { k: 'var', v: 'x' }, b: { k: 'num', v: new Q(BigInt(h)) } } } }, b: { k: 'num', v: k } };
+        return sameFn(rel.rhs, want, 'x', XS) ? { status: 'verified' } : { status: 'mismatch', msg: 'The equation does not match the graph.' };
+      }
+      throw new C.CheckError('unknown absolute value question');
+    };
+    R['abs-desc'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m = need(/The graph of is (?:(vertically (?:stretched|compressed) by a factor of (\d+|one-half)(?: and )?)?(reflected across the x-axis)?, then )?translated (\d+) units (left|right)(?: and (\d+) units (up|down))?\./.exec(txt.replace(/\s+/g, ' ')), 'description');
+      var a = m[2] === 'one-half' ? new Q(1n, 2n) : new Q(BigInt(m[2] || 1)); if (m[3]) a = a.neg(); var h = (+m[4]) * (m[5] === 'right' ? 1 : -1), k = m[6] ? (+m[6]) * (m[7] === 'up' ? 1 : -1) : 0;
+      var s = firstMath(part.answer || ''); if (!s) return { status: 'mismatch', msg: 'No equation.' };
+      var rel = C.parseRelation(s), want = { k: 'add', a: { k: 'mul', a: { k: 'num', v: a }, b: { k: 'abs', a: { k: 'sub', a: { k: 'var', v: 'x' }, b: { k: 'num', v: new Q(BigInt(h)) } } } }, b: { k: 'num', v: new Q(BigInt(k)) } };
+      return sameFn(rel.rhs, want, 'x', XS) ? { status: 'verified' } : { status: 'mismatch', msg: 'The equation does not match the description.' };
+    };
+    /* Algebra 1 Unit 7 · rational exponents with variables (own monomial parser: coefficient × x^(p/q)…, x > 0) */
+    function monoParse(src) {
+      var s = String(src).replace(/\\left|\\right/g, '').replace(/\\cdot|\\times/g, '*').replace(/\s+/g, ''), i = 0;
+      function peek(t) { return s.slice(i, i + t.length) === t; }
+      function eat(t) { if (!peek(t)) throw new C.CheckError('expected ' + t); i += t.length; }
+      function braced() { eat('{'); var st = i, d = 1; while (i < s.length && d) { if (s[i] === '{') d++; else if (s[i] === '}') d--; i++; } if (d) throw new C.CheckError('unbalanced'); return s.slice(st, i - 1); }
+      function M1(c, v) { return { c: c, v: v || {} }; }
+      function mul(A, B) { var v = Object.assign({}, A.v); Object.keys(B.v).forEach(function (k) { v[k] = (v[k] || Q.ZERO).add(B.v[k]); if (v[k].n === 0n) delete v[k]; }); return M1(A.c.mul(B.c), v); }
+      function inv(A) { var v = {}; Object.keys(A.v).forEach(function (k) { v[k] = A.v[k].neg(); }); return M1(Q.ONE.div(A.c), v); }
+      function pw(A, e) { var v = {}; Object.keys(A.v).forEach(function (k) { v[k] = A.v[k].mul(e); }); var c = A.c; if (e.isInt()) c = c.pow(Number(e.n)); else { c = C.evalNode(C.parseExpr('(' + (c.n < 0n ? '0-' : '') + (c.n < 0n ? -c.n : c.n) + '/' + c.d + ')^{' + e.n + '/' + e.d + '}'), {}); } return M1(c, v); }
+      function expo() { if (peek('{')) { var b = braced(); return C.evalNode(C.parseExpr(b), {}); } var m = /^-?\d+/.exec(s.slice(i)); if (!m) throw new C.CheckError('exponent'); i += m[0].length; return new Q(BigInt(m[0])); }
+      function base() {
+        if (peek('\\frac')) { eat('\\frac'); var n = monoParse(braced()), d = monoParse(braced()); return mul(n, inv(d)); }
+        if (peek('\\sqrt')) { eat('\\sqrt'); var idx = 2; if (peek('[')) { var j = s.indexOf(']', i); idx = +s.slice(i + 1, j); i = j + 1; } return pw(monoParse(braced()), new Q(1n, BigInt(idx))); }
+        if (peek('(')) { eat('('); var st = i, d2 = 1; while (i < s.length && d2) { if (s[i] === '(') d2++; else if (s[i] === ')') d2--; i++; } return monoParse(s.slice(st, i - 1)); }
+        var m = /^\d+(?:\.\d+)?/.exec(s.slice(i)); if (m) { i += m[0].length; return M1(C.readNumber(m[0])); }
+        if (/^[a-z]/.test(s.slice(i))) { var o = {}; o[s[i]] = Q.ONE; i++; return M1(Q.ONE, o); }
+        throw new C.CheckError('cannot read ' + s.slice(i, i + 5));
+      }
+      var neg = false; if (peek('-')) { neg = true; i++; }
+      var out = M1(Q.ONE), divNext = false;
+      while (i < s.length) {
+        if (peek('*')) { i++; continue; } if (peek('/')) { i++; divNext = true; continue; }
+        var f = base(); if (peek('^')) { i++; f = pw(f, expo()); }
+        out = divNext ? mul(out, inv(f)) : mul(out, f); divNext = false;
+      }
+      if (neg) out.c = out.c.neg();
+      return out;
+    }
+    function monoEq(A, B) { if (!A.c.eq(B.c)) return false; var ka = Object.keys(A.v).sort(), kb = Object.keys(B.v).sort(); return ka.join() === kb.join() && ka.every(function (k) { return A.v[k].eq(B.v[k]); }); }
+    function monoText(A) { return qText(A.c) + Object.keys(A.v).sort().map(function (k) { return k + '^{' + qText(A.v[k]) + '}'; }).join(''); }
+    R['ratexp'] = function (p, part, raw) {
+      var m = need(/^(Simplify|Write|Evaluate) ⟨([^⟩]+)⟩(?: (?:using a rational exponent|in radical form))?\./.exec(raw), 'expression');
+      var want = monoParse(m[2]), a = firstMath(part.answer || ''); if (!a) return { status: 'mismatch', msg: 'No expression.' };
+      a = a.replace(/\^\(\s*([^()]+?)\s*\)/g, '^{$1}').replace(/\^\{\s*(-?)\\frac\{(\d+)\}\{(\d+)\}\s*\}/g, '^{$1\\frac{$2}{$3}}').replace(/\^\{(-?)(\d+)\/(\d+)\}/g, '^{$1\\frac{$2}{$3}}');   // typed forms such as a^(1/4)
+      var got; try { got = monoParse(a); } catch (e) { return { status: 'mismatch', msg: 'Could not read the answer.' }; }
+      if (!monoEq(got, want)) return { status: 'mismatch', msg: 'Correct: ' + monoText(want) + '.' };
+      if (/in radical form/.test(raw)) { if (!/\\sqrt/.test(a) || /\^\{?-?\\frac|\^\{?-?\d+\/\d+/.test(a)) return { status: 'mismatch', msg: 'Write it with a radical, not a fractional exponent.' }; }
+      else { if (/\\sqrt/.test(a)) return { status: 'mismatch', msg: 'Use a rational exponent, not a radical.' };
+        if (/\^\{\s*-/.test(a)) return { status: 'mismatch', msg: 'Use positive exponents.' };
+        var vars = (a.match(/[a-z](?![a-z])/g) || []).filter(function (ch) { return 'cdotfrac'.indexOf(ch) < 0 || true; }); var plain = a.replace(/\\[a-z]+/g, ''); var vs = plain.match(/[a-z]/g) || [];
+        if (vs.length !== new Set(vs).size) return { status: 'mismatch', msg: 'Combine the powers of each variable.' }; void vars; }
+      return { status: 'verified', computed: monoText(want) };
+    };
+    /* Algebra 1 Unit 6 · linear–quadratic systems and three-variable linear systems */
+    R['sysnl'] = function (p, part, raw) {
+      var eqs = []; raw.replace(/⟨(y=[^⟩]+)⟩/g, function (w, e) { eqs.push(C.parseRelation(e).rhs); });
+      need(eqs.length === 2, 'two equations');
+      var g = function (x) { return evalAt(eqs[0], 'x', new Q(BigInt(x))).sub(evalAt(eqs[1], 'x', new Q(BigInt(x)))); };
+      var c0 = g(0), A = g(1).add(g(-1)).sub(c0.mul(new Q(2n))).div(new Q(2n)), B = g(1).sub(c0).sub(A);
+      need(sameFnGen(g, A, B, c0) && A.n !== 0n, 'one quadratic and one line');
+      var D = B.mul(B).sub(new Q(4n).mul(A).mul(c0)), sols = [];
+      if (D.n >= 0n) { var rn = bigSqrt(D.n), rd = bigSqrt(D.d); need(rn !== null && rd !== null, 'rational solutions'); var r = new Q(rn, rd);
+        [B.neg().sub(r).div(A.mul(new Q(2n))), B.neg().add(r).div(A.mul(new Q(2n)))].forEach(function (x) { if (!sols.some(function (s) { return s[0].eq(x); })) sols.push([x, evalAt(eqs[1], 'x', x)]); }); }
+      var said = pairsIn(part.answer), none = /no (real )?solution/i.test(C.plainText(part.answer || ''));
+      if (!sols.length) {   // a stated equation and discriminant must be the right ones
+        if (!none || said.length) return { status: 'mismatch', msg: 'There is no real solution.' };
+        var sn = C.snippets(part.answer || ''), dv = sn.length >= 2 ? (function () { try { return nq(sn[sn.length - 1]); } catch (e) { return null; } })() : null;
+        if (sn.length && (!dv || !dv.eq(D))) return { status: 'mismatch', msg: 'The discriminant is ' + qText(D) + '.' };
+        if (sn.length) { var qr = C.parseRelation(sn[0]); if (!sameFnGen(function (x) { return evalAt(qr.lhs, 'x', new Q(BigInt(x))); }, A, B, c0) && !sameFnGen(function (x) { return evalAt(qr.lhs, 'x', new Q(BigInt(x))).neg(); }, A, B, c0)) return { status: 'mismatch', msg: 'That is not the equation the system gives.' }; }
+        return { status: 'verified', computed: 'No solution' };
+      }
+      var ok2 = said.length === sols.length && sols.every(function (s) { return said.some(function (q) { return C.readNumber(String(q[0])).eq(s[0]) && C.readNumber(String(q[1])).eq(s[1]); }); });
+      return ok2 ? { status: 'verified', computed: sols.map(function (s) { return '(' + qText(s[0]) + ', ' + qText(s[1]) + ')'; }).join(' and ') } : { status: 'mismatch', msg: 'Solutions: ' + sols.map(function (s) { return '(' + qText(s[0]) + ', ' + qText(s[1]) + ')'; }).join(' and ') + '.' };
+    };
+    function sameFnGen(g, A, B, c0) { return [2, 3, -3, 5].every(function (x) { var X = new Q(BigInt(x)); return g(x).eq(A.mul(X).mul(X).add(B.mul(X)).add(c0)); }); }
+    function bigSqrt(n) { if (n < 0n) return null; var r = BigInt(Math.round(Math.sqrt(Number(n)))); for (var d = -2n; d <= 2n; d++) { var t = r + d; if (t >= 0n && t * t === n) return t; } return null; }
+    R['sys3'] = function (p, part, raw) {
+      var rels = []; raw.replace(/⟨([^⟩]*=[^⟩]*)⟩/g, function (w, e) { if (/[xyz]/.test(e) && !/^[xyz]=/.test(e.replace(/\s/g, ''))) rels.push(C.parseRelation(e)); });
+      need(rels.length === 3, 'three equations');
+      var rows = rels.map(function (r) { var f = function (x, y, z) { var env = { x: new Q(BigInt(x)), y: new Q(BigInt(y)), z: new Q(BigInt(z)) }; return C.evalNode(r.lhs, env).sub(C.evalNode(r.rhs, env)); }, c = f(0, 0, 0);
+        var row = [f(1, 0, 0).sub(c), f(0, 1, 0).sub(c), f(0, 0, 1).sub(c), c.neg()]; need(f(2, -1, 3).eq(row[0].mul(new Q(2n)).sub(row[1]).add(row[2].mul(new Q(3n))).sub(row[3])), 'linear equations'); return row; });
+      for (var col = 0; col < 3; col++) { var piv = -1; for (var rI = col; rI < 3; rI++) if (rows[rI][col].n !== 0n) { piv = rI; break; } need(piv >= 0, 'one solution');
+        var tmp = rows[col]; rows[col] = rows[piv]; rows[piv] = tmp;
+        for (var rJ = 0; rJ < 3; rJ++) if (rJ !== col) { var f2 = rows[rJ][col].div(rows[col][col]); rows[rJ] = rows[rJ].map(function (v, k) { return v.sub(rows[col][k].mul(f2)); }); } }
+      var sol = [0, 1, 2].map(function (i) { return rows[i][3].div(rows[i][i]); }), ans = String(part.answer || ''), got = null;
+      var tm = /\(\s*(-?[\d.]+)\s*,\\?\s*(-?[\d.]+)\s*,\\?\s*(-?[\d.]+)\s*\)/.exec(ans.replace(/\\ /g, ' '));
+      if (tm) got = [tm[1], tm[2], tm[3]];
+      else { var vm2 = ['x', 'y', 'z'].map(function (v) { var mm = new RegExp(v + '\\s*=\\s*(-?[\\d.]+)').exec(ans); return mm && mm[1]; }); if (vm2.every(Boolean)) got = vm2; }
+      if (!got) return { status: 'mismatch', msg: 'Write the solution as (x, y, z).' };
+      var okS = got.every(function (g2, i) { return C.readNumber(g2).eq(sol[i]); });
+      var w = '(' + sol.map(qText).join(', ') + ')';
+      return okS ? { status: 'verified', computed: w } : { status: 'mismatch', msg: 'Solution ' + w + '.' };
+    };
+    /* Algebra 1 Unit 11 · converting between standard, vertex and factored form */
+    R['qform'] = function (p, part, raw) {
+      var m = need(/Write ⟨y=([^⟩]+)⟩ in (standard|vertex|factored) form/.exec(raw), 'expression and form'), given = C.parseExpr(m[1]), form = m[2];
+      var s = firstMath(part.answer || ''); if (!s) return { status: 'mismatch', msg: 'No equation.' };
+      var rel; try { rel = C.parseRelation(s); } catch (e) { return { status: 'mismatch', msg: 'Could not read the equation.' }; }
+      if (!(rel.lhs.k === 'var' && rel.lhs.v === 'y')) return { status: 'mismatch', msg: 'Write y = … .' };
+      if (!sameFn(rel.rhs, given, 'x', XS)) return { status: 'mismatch', msg: 'The new form is not equivalent to the given equation.' };
+      var t = s.split('=')[1].replace(/\s+/g, '').replace(/\\left|\\right/g, '');
+      var lin = '\\(x[+-]\\d+(?:\\.\\d+)?\\)', coef = '-?(?:\\d+|\\\\frac\\{\\d+\\}\\{\\d+\\})?';
+      var okF = form === 'standard' ? !/[()]/.test(t) && /x\^2/.test(t) && (t.match(/x\^2/g) || []).length === 1 && (t.match(/x(?!\^)/g) || []).length <= 1
+        : form === 'vertex' ? new RegExp('^' + coef + '(?:' + lin + '|x)\\^2(?:[+-]\\d+(?:\\.\\d+)?)?$').test(t)
+        : new RegExp('^' + coef + '(?:' + lin + '|x)(?:' + lin + '|x)$').test(t) || new RegExp('^' + coef + lin + '\\^2$').test(t);
+      return okF ? { status: 'verified' } : { status: 'mismatch', msg: 'Equivalent, but not written in ' + form + ' form.' };
+    };
+    /* Algebra 1 Unit 5 · comparing two linear functions given in different forms */
+    R['compare-fn'] = function (p, part, raw) {
+      need(p.fig && p.fig.kind === 'table' && p.fig.rows && p.fig.rows.length >= 3, 'table for function A');
+      var pts = p.fig.rows.map(function (r) { return [nq(r[0]), nq(r[1])]; }), mA = pts[1][1].sub(pts[0][1]).div(pts[1][0].sub(pts[0][0]));
+      pts.forEach(function (q) { need(q[1].sub(pts[0][1]).eq(mA.mul(q[0].sub(pts[0][0]))), 'a linear table'); });
+      var bA = pts[0][1].sub(mA.mul(pts[0][0])), em = /Function B is ⟨y=([^⟩]+)⟩/.exec(raw), bB = null, mB = null;
+      if (em) { var eB = C.parseExpr(em[1]); bB = evalAt(eB, 'x', Q.ZERO); mB = evalAt(eB, 'x', Q.ONE).sub(bB); need(evalAt(eB, 'x', new Q(5n)).eq(bB.add(mB.mul(new Q(5n)))), 'a linear function B'); }
+      var txt = C.plainText(raw), ans = C.plainText(part.answer || ''), pick = function (a, b) { var c = C.cmpQ(a, b); return c > 0 ? 'A' : c < 0 ? 'B' : 'same'; };
+      var which = /greater rate of change/.test(txt) ? (need(em, 'function B'), pick(mA, mB)) : /greater initial value/.test(txt) ? (need(em, 'function B'), pick(bA, bB)) : null;
+      if (which) { var said = /^\s*(?:function\s+)?A\b/i.test(ans) ? 'A' : /^\s*(?:function\s+)?B\b/i.test(ans) ? 'B' : /^\s*(they are )?(the )?same|equal/i.test(ans) ? 'same' : null;
+        if (said === which) { var snA = C.snippets(part.answer || ''), nums = snA.length ? snA.map(function (t) { try { return qn(nq(t)); } catch (e) { return NaN; } }) : (ans.match(/-?\d+(?:\.\d+)?/g) || []).map(Number), isRate = /greater rate of change/.test(txt), vA = qn(isRate ? mA : bA), vB = qn(isRate ? mB : bB), first = which === 'B' ? vB : vA, second = which === 'B' ? vA : vB;
+          if (nums.length && (Math.abs(nums[0] - first) > 1e-9 || (nums.length > 1 && Math.abs(nums[1] - second) > 1e-9) || nums.length > 2)) return { status: 'mismatch', msg: 'The values are ' + qText(isRate ? mA : bA) + ' (A) and ' + qText(isRate ? mB : bB) + ' (B).' };
+          return { status: 'verified', computed: 'function ' + which }; }
+        return { status: 'mismatch', msg: 'Correct: ' + (which === 'same' ? 'they are the same' : 'function ' + which) + '.' }; }
+      if (/rate of change of function A/.test(txt)) return exact(part.answer || '', mA);
+      if (/initial value of function A/.test(txt)) return exact(part.answer || '', bA);
+      throw new C.CheckError('unknown comparison');
+    };
+    /* Algebra 1 Unit 8 · when an exponential function overtakes a linear one */
+    R['overtake'] = function (p, part, raw) {
+      var fm = need(/⟨f\(x\)=([^⟩]+)⟩ and ⟨g\(x\)=([^⟩]+)⟩/.exec(raw), 'functions'), f = C.parseExpr(fm[1]), g = C.parseExpr(fm[2]);
+      need(/smallest whole number x for which g\(x\) is greater than f\(x\)/.test(C.plainText(raw).replace(/⟨|⟩/g, '')) || /smallest whole number/.test(raw), 'question');
+      need(C.cmpQ(evalAt(g, 'x', Q.ZERO), evalAt(f, 'x', Q.ZERO)) < 0, 'g starts below f');
+      for (var x = 1; x <= 60; x++) { var X = new Q(BigInt(x)); if (C.cmpQ(evalAt(g, 'x', X), evalAt(f, 'x', X)) > 0) return exact(part.answer || '', X, 'x'); }
+      throw new C.CheckError('g never overtakes f');
+    };
+    /* Algebra 1 Unit 4 · sketching a graph from a story: the order of increasing / constant / decreasing pieces */
+    var STORY = { 'walks away from home at a steady pace': 'increasing', 'rides away from home at a steady speed': 'increasing', 'stops to talk with a friend': 'constant', 'waits at a crosswalk': 'constant', 'rests on a bench': 'constant',
+      'walks back toward home': 'decreasing', 'rides back home': 'decreasing', 'jogs farther from home': 'increasing', 'heads back toward home': 'decreasing',
+      'fills at a steady rate': 'increasing', 'is turned off for a while': 'constant', 'drains at a steady rate': 'decreasing', 'is filled again': 'increasing', 'leaks out slowly': 'decreasing' };
+    R['story'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m = need(/Story: (.+?)\. Describe/.exec(txt), 'story')[1], seq = [];
+      m.split(/, then |, and then | then /).forEach(function (ph) { var key = Object.keys(STORY).filter(function (k) { return ph.indexOf(k) >= 0; }); need(key.length === 1, 'a known event: ' + ph); seq.push(STORY[key[0]]); });
+      var said = (C.plainText(part.answer || '').toLowerCase().match(/increasing|decreasing|constant/g) || []);
+      return said.join(',') === seq.join(',') ? { status: 'verified', computed: seq.join(', ') } : { status: 'mismatch', msg: 'In order: ' + seq.join(', ') + '.' };
+    };
+    /* Algebra 1 Unit 6 · viable solutions of a constraint system in context */
+    R['viable'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m = need(/sells shirts for \$(\d+) each and hats for \$(\d+) each\. It must raise at least \$(\d+) and can sell at most (\d+) items in all\. Is selling (\d+(?:\.\d+)?) shirts? and (\d+(?:\.\d+)?) hats? a viable solution\?/.exec(txt), 'constraints');
+      var a = +m[1], b = +m[2], need2 = +m[3], cap = +m[4], x = +m[5], y = +m[6];
+      var ok2 = x % 1 === 0 && y % 1 === 0 && x >= 0 && y >= 0 && a * x + b * y >= need2 && x + y <= cap, said = yesNo(part.answer);
+      if (said === null) return { status: 'mismatch', msg: 'Answer yes or no.' };
+      return said === ok2 ? { status: 'verified', computed: ok2 ? 'Yes' : 'No' } : { status: 'mismatch', msg: 'Correct: ' + (ok2 ? 'Yes' : 'No') + '.' };
+    };
+    /* Geometry Unit 6 · the ambiguous case (SSA): how many triangles, and both possible angles */
+    R['ssa'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m = need(/In △ABC, m∠A = (\d+)°, a = (\d+), and b = (\d+)\./.exec(txt), 'SSA givens'), A = +m[1], a = +m[2], b = +m[3], h = b * Math.sin(deg(A));
+      need(Math.abs(a - h) > 1e-6 && a !== b, 'not a boundary case');
+      var count = A >= 90 ? (a > b ? 1 : 0) : a < h ? 0 : a >= b ? 1 : 2;
+      if (/How many triangles/.test(txt)) { var said = /\b(no|none|zero|0)\b/i.test(C.plainText(part.answer || '')) ? 0 : /\b(two|2)\b/i.test(C.plainText(part.answer || '')) ? 2 : /\b(one|1)\b/i.test(C.plainText(part.answer || '')) ? 1 : -1;
+        return said === count ? { status: 'verified', computed: String(count) } : { status: 'mismatch', msg: 'Correct: ' + count + '.' }; }
+      need(/Find both possible measures of ∠B to the nearest tenth/.test(txt) && count === 2, 'two triangles');
+      var B1 = Math.asin(b * Math.sin(deg(A)) / a) * 180 / Math.PI, B2 = 180 - B1, r1 = Math.round(B1 * 10) / 10, r2 = Math.round(B2 * 10) / 10;
+      need([B1, B2].every(function (v) { var t = v * 10; return Math.abs(t - Math.floor(t) - 0.5) > 1e-4; }), 'rounding boundary');
+      var nums = (C.plainText(part.answer || '') + ' ' + C.snippets(part.answer || '').join(' ')).match(/-?\d+(?:\.\d+)?/g) || [], vals = nums.map(Number);
+      var okB = vals.length >= 2 && [r1, r2].every(function (v) { return vals.some(function (x) { return Math.abs(x - v) < 1e-9; }); }) && vals.every(function (x) { return Math.abs(x - r1) < 1e-9 || Math.abs(x - r2) < 1e-9; });
+      return okB ? { status: 'verified', computed: r1.toFixed(1) + '° or ' + r2.toFixed(1) + '°' } : { status: 'mismatch', msg: 'Correct: ' + r1.toFixed(1) + '° or ' + r2.toFixed(1) + '°.' };
+    };
+    /* Geometry Unit 9 · circle equations from three points or a tangent line; tangent lines; decimal arc length and sector area */
+    function circleFromAnswer(ans) {   // (x − h)² + (y − k)² = r²  →  {h, k, r2}, checked as polynomials
+      var s = firstMath(ans || ''); if (!s) return null; var rel = C.parseRelation(s), f = function (x, y) { var env = { x: new Q(BigInt(x)), y: new Q(BigInt(y)) }; return C.evalNode(rel.lhs, env).sub(C.evalNode(rel.rhs, env)); };
+      var c0 = f(0, 0), ax = f(1, 0).add(f(-1, 0)).sub(c0.mul(new Q(2n))).div(new Q(2n)), ay = f(0, 1).add(f(0, -1)).sub(c0.mul(new Q(2n))).div(new Q(2n));
+      if (!ax.eq(ay) || ax.n === 0n) return null;
+      var bx = f(1, 0).sub(c0).sub(ax), by = f(0, 1).sub(c0).sub(ay), h = bx.neg().div(ax.mul(new Q(2n))), k = by.neg().div(ay.mul(new Q(2n)));
+      if (!f(3, -2).eq(ax.mul(new Q(13n)).add(bx.mul(new Q(3n))).sub(by.mul(new Q(2n))).add(c0)) || !f(2, 5).eq(ax.mul(new Q(29n)).add(bx.mul(new Q(2n))).add(by.mul(new Q(5n))).add(c0))) return null;
+      return { h: h, k: k, r2: h.mul(h).add(k.mul(k)).sub(c0.div(ax)) };
+    }
+    function lineFromAnswer(ans) { var s = firstMath(ans || ''); if (!s) return null; var rel = C.parseRelation(s), f = function (x, y) { var env = { x: new Q(BigInt(x)), y: new Q(BigInt(y)) }; return C.evalNode(rel.lhs, env).sub(C.evalNode(rel.rhs, env)); };
+      var c0 = f(0, 0), A = f(1, 0).sub(c0), B = f(0, 1).sub(c0); if (!f(2, 3).eq(A.mul(new Q(2n)).add(B.mul(new Q(3n))).add(c0)) || (A.n === 0n && B.n === 0n)) return null; return { A: A, B: B, C: c0 }; }
+    R['circle-eq'] = function (p, part, raw) {
+      var txt = C.plainText(raw).replace(/\s+/g, ' '), h, k, r2, m;
+      if ((m = /passes through the points \((-?\d+), (-?\d+)\), \((-?\d+), (-?\d+)\) and \((-?\d+), (-?\d+)\)/.exec(txt))) {
+        var P = [[+m[1], +m[2]], [+m[3], +m[4]], [+m[5], +m[6]]].map(function (q) { return [new Q(BigInt(q[0])), new Q(BigInt(q[1]))]; });
+        // perpendicular bisector equations: 2(x2−x1)h + 2(y2−y1)k = x2²+y2²−x1²−y1²
+        var row = function (a, b) { return [b[0].sub(a[0]).mul(new Q(2n)), b[1].sub(a[1]).mul(new Q(2n)), b[0].mul(b[0]).add(b[1].mul(b[1])).sub(a[0].mul(a[0])).sub(a[1].mul(a[1]))]; };
+        var r1 = row(P[0], P[1]), r2r = row(P[0], P[2]), det = r1[0].mul(r2r[1]).sub(r1[1].mul(r2r[0])); need(det.n !== 0n, 'three noncollinear points');
+        h = r1[2].mul(r2r[1]).sub(r1[1].mul(r2r[2])).div(det); k = r1[0].mul(r2r[2]).sub(r1[2].mul(r2r[0])).div(det); r2 = P[0][0].sub(h).mul(P[0][0].sub(h)).add(P[0][1].sub(k).mul(P[0][1].sub(k)));
+      } else if ((m = /center \((-?\d+), (-?\d+)\) and is tangent to the line (x|y) = (-?\d+)/.exec(txt))) {
+        h = new Q(BigInt(m[1])); k = new Q(BigInt(m[2])); var dd = m[3] === 'x' ? h.sub(new Q(BigInt(m[4]))) : k.sub(new Q(BigInt(m[4]))); need(dd.n !== 0n, 'a positive radius'); r2 = dd.mul(dd);
+      } else if ((m = /The circle with center \((-?\d+), (-?\d+)\) passes through \((-?\d+), (-?\d+)\)\. Write an equation of the line tangent to the circle at \(\3, \4\)/.exec(txt))) {
+        var cx = +m[1], cy = +m[2], px = +m[3], py = +m[4], L = lineFromAnswer(part.answer); if (!L) return { status: 'mismatch', msg: 'Write the equation of a line.' };
+        var onP = L.A.mul(new Q(BigInt(px))).add(L.B.mul(new Q(BigInt(py)))).add(L.C).n === 0n, perp = L.A.mul(new Q(BigInt(py - cy))).sub(L.B.mul(new Q(BigInt(px - cx)))).n === 0n;
+        return onP && perp ? { status: 'verified' } : { status: 'mismatch', msg: 'The tangent line passes through (' + px + ', ' + py + ') and is perpendicular to the radius.' };
+      } else throw new C.CheckError('cannot read the circle');
+      var got = circleFromAnswer(part.answer); if (!got) return { status: 'mismatch', msg: 'Write the equation as (x − h)² + (y − k)² = r².' };
+      return got.h.eq(h) && got.k.eq(k) && got.r2.eq(r2) ? { status: 'verified', computed: 'center (' + qText(h) + ', ' + qText(k) + '), r² = ' + qText(r2) } : { status: 'mismatch', msg: 'Center (' + qText(h) + ', ' + qText(k) + '), r² = ' + qText(r2) + '.' };
+    };
+    R['arc-dec'] = function (p, part, raw) {
+      var txt = C.plainText(raw), m = need(/A circle has (radius|diameter) (\d+(?:\.\d+)?) (?:centimeters|inches|feet|meters)\. Find the (length of an arc|area of a sector) with a central angle of (\d+)°/.exec(txt), 'circle');
+      var rr = m[1] === 'radius' ? +m[2] : +m[2] / 2, th = +m[4]; need(th > 0 && th < 360, 'angle');
+      return rounded(part.answer || '', m[3] === 'length of an arc' ? 2 * Math.PI * rr * th / 360 : Math.PI * rr * rr * th / 360, txt);
+    };
+    /* Geometry Unit 4 · the orthocenter from coordinates (intersection of two altitudes, exact) */
+    R['ortho'] = function (p, part, raw) {
+      var txt = C.plainText(raw).replace(/\s+/g, ' '), m = need(/vertices A\((-?\d+), (-?\d+)\), B\((-?\d+), (-?\d+)\) and C\((-?\d+), (-?\d+)\)/.exec(txt), 'vertices');
+      var A = [+m[1], +m[2]], B = [+m[3], +m[4]], Cc = [+m[5], +m[6]];
+      // altitude from A: (B−C)·(X−A) = 0 ; from B: (A−C)·(X−B) = 0
+      var a1 = B[0] - Cc[0], b1 = B[1] - Cc[1], c1 = a1 * A[0] + b1 * A[1], a2 = A[0] - Cc[0], b2 = A[1] - Cc[1], c2 = a2 * B[0] + b2 * B[1], det = a1 * b2 - a2 * b1; need(det !== 0, 'a triangle');
+      var X = new Q(BigInt(c1 * b2 - c2 * b1), BigInt(det)), Y = new Q(BigInt(a1 * c2 - a2 * c1), BigInt(det)), pr = pairsIn(part.answer)[0];
+      if (/Find the orthocenter/.test(txt)) return pr && C.readNumber(String(pr[0])).eq(X) && C.readNumber(String(pr[1])).eq(Y) ? { status: 'verified', computed: '(' + qText(X) + ', ' + qText(Y) + ')' } : { status: 'mismatch', msg: 'Orthocenter (' + qText(X) + ', ' + qText(Y) + ').' };
+      throw new C.CheckError('unknown question');
+    };
+    /* ---------- third pass: composite plane figures, two transversals, protractor, conditionals, terms and constructions,
+       classifying quadrilaterals on a grid, rigid-motion mappings, and two-column parallel-line and similarity proofs ---------- */
+    R['comp-plane'] = function (p, part, raw) {   // dimensions are read from the sentence; the drawing must show the same ones
+      var f = need(p.fig && p.fig.kind === 'geo-comp' && p.fig.d && NS.geoFigures && NS.geoFigures.check(p.fig).ok && p.fig, 'composite figure'), d = f.d, txt = C.plainText(raw), U = '(?:ft|m|cm|in\\.)', n = '(\\d+) ' + U, m, val;
+      var area = /Find the area|Find its area/.test(txt), per = /Find the perimeter|Find its perimeter/.test(txt); need(area !== per, 'area or perimeter');
+      var agree = function (keys, vals) { keys.forEach(function (k, i) { need(d[k] === vals[i], 'the drawing shows the stated ' + k); }); };
+      if ((m = new RegExp('a ' + n + ' by ' + n + ' rectangle with a ' + n + ' by ' + n + ' rectangle removed from one corner').exec(txt))) { var w = +m[1], h = +m[2], a = +m[3], b = +m[4]; need(f.shape === 'L' && a < w && b < h, 'L-shape'); agree(['w', 'h', 'a', 'b'], [w, h, a, b]); val = area ? w * h - a * b : 2 * (w + h); }
+      else if ((m = new RegExp('A square hole with side ' + n + ' is cut out of a ' + n + ' by ' + n + ' rectangle').exec(txt))) { need(f.shape === 'hole' && area, 'hole'); agree(['s', 'W', 'H'], [+m[1], +m[2], +m[3]]); val = m[2] * m[3] - m[1] * m[1]; }
+      else if ((m = new RegExp('a ' + n + ' by ' + n + ' rectangle with a triangle of height ' + n + ' on top').exec(txt))) { need(f.shape === 'house' && area, 'house'); agree(['w', 'h', 't'], [+m[1], +m[2], +m[3]]); val = m[1] * m[2] + m[1] * m[3] / 2; }
+      else if ((m = new RegExp('a ' + n + ' by ' + n + ' rectangle with a semicircle on the ' + n + ' side').exec(txt))) { need(f.shape === 'rect-semi' && m[1] === m[3], 'semicircle'); agree(['w', 'h'], [+m[1], +m[2]]); var W2 = +m[1], H2 = +m[2];
+        return rounded(part.answer || '', area ? W2 * H2 + Math.PI * W2 * W2 / 8 : 2 * H2 + W2 + Math.PI * W2 / 2, txt); }
+      else throw new C.CheckError('cannot read the figure description');
+      return exact(part.answer || '', C.readNumber(String(val)));
+    };
+    R['two-trans'] = function (p, part, raw) {
+      var f = need(p.fig && p.fig.kind === 'geo-two-trans' && NS.geoFigures.check(p.fig).ok && p.fig, 'figure'), lab = f.lab || {}, ask = Object.keys(lab).filter(function (k) { return /^x°?$/.test(String(lab[k])); });
+      need(ask.length === 1 && /Find the value of ⟨x⟩/.test(raw), 'one unknown');
+      var given = Object.keys(lab).filter(function (k) { return k !== ask[0]; }); need(given.length >= 2, 'two given angles');
+      var V = { Q: f.a, R: f.b, PL: f.a, PR: f.b, PM: 180 - f.a - f.b };
+      return exact(part.answer || '', new Q(BigInt(V[ask[0]])), 'x');
+    };
+    R['protractor'] = function (p, part, raw) {
+      var f = need(p.fig && p.fig.kind === 'geo-protractor' && NS.geoFigures.check(p.fig).ok && p.fig, 'protractor'), m = Math.abs(f.a - f.b), txt = C.plainText(raw);
+      if (/find m∠AOB.$/i.test(txt.trim())) return exact(part.answer || '', new Q(BigInt(m)));
+      need(/Classify ∠AOB/.test(txt), 'question');
+      var want = m < 90 ? 'acute' : m === 90 ? 'right' : m < 180 ? 'obtuse' : 'straight', w = words(part.answer), said = ['acute', 'right', 'obtuse', 'straight'].filter(function (k) { return new RegExp('\\b' + k + '\\b').test(w); });
+      var nums = (C.plainText(String(part.answer || '')).match(/\d+/g) || []).map(Number);
+      if (nums.length && nums[0] !== m) return { status: 'mismatch', msg: 'm∠AOB = ' + m + '°.' };
+      return said.length === 1 && said[0] === want ? { status: 'verified', computed: want } : { status: 'mismatch', msg: 'Correct: ' + want + ' (' + m + '°).' };
+    };
+    /* conditional statements: forms are recognized from the printed hypothesis and conclusion; truth only from stated truths */
+    function clause(t) { t = String(t || '').toLowerCase().replace(/[.,;:]/g, ' ').replace(/isn['’]t/g, 'is not').replace(/aren['’]t/g, 'are not').replace(/doesn['’]t/g, 'does not').replace(/don['’]t/g, 'do not').replace(/\s+/g, ' ').trim()
+        .replace(/\bdoes not have\b/g, 'not has').replace(/\bdoes not (\w+)\b/g, 'not $1s').replace(/\bdo not (\w+)\b/g, 'not $1'); var neg = / not\b/.test(' ' + t); return { core: t.replace(/\bnot\b/g, '').replace(/\s+/g, ' ').trim(), neg: neg }; }
+    function ifThen(t) { var m = /if\s+(.+?),\s*then\s+(.+?)\s*\.?\s*$/i.exec(C.plainText(String(t || '')).trim()); return m ? { p: clause(m[1]), q: clause(m[2]) } : null; }
+    function sameCl(a, b) { return a.core === b.core && a.neg === b.neg; }
+    function formOf(base, s) {
+      var neg = function (c) { return { core: c.core, neg: !c.neg }; };
+      if (sameCl(s.p, base.q) && sameCl(s.q, base.p)) return 'converse';
+      if (sameCl(s.p, neg(base.p)) && sameCl(s.q, neg(base.q))) return 'inverse';
+      if (sameCl(s.p, neg(base.q)) && sameCl(s.q, neg(base.p))) return 'contrapositive';
+      if (sameCl(s.p, base.p) && sameCl(s.q, base.q)) return 'same';
+      return null;
+    }
+    R['conditional'] = function (p, part, raw) {
+      var sm = need(/Statement: (If .+?, then .+?\.)/.exec(C.plainText(raw)), 'statement'), base = need(ifThen(sm[1]), 'if–then form'), txt = C.plainText(raw), ans = part.answer || '';
+      need(base.p.core !== base.q.core && !base.p.neg && !base.q.neg, 'a positive hypothesis and conclusion');
+      var wm = /Write the (converse|inverse|contrapositive)\b/.exec(txt);
+      if (wm) { var s = ifThen(ans); if (!s) return { status: 'mismatch', msg: 'Write it in if–then form.' }; return formOf(base, s) === wm[1] ? { status: 'verified' } : { status: 'mismatch', msg: 'That is not the ' + wm[1] + '.' }; }
+      var im = /Which form of the statement is "(If .+?, then .+?\.)"/.exec(txt);
+      if (im) { var f2 = formOf(base, need(ifThen(im[1]), 'second statement')); need(f2 && f2 !== 'same', 'a related form'); var said = ['converse', 'inverse', 'contrapositive'].filter(function (k) { return words(ans).indexOf(k) >= 0; });
+        return said.length === 1 && said[0] === f2 ? { status: 'verified', computed: f2 } : { status: 'mismatch', msg: 'Correct: the ' + f2 + '.' }; }
+      var tm = /The statement is (true|false) and its converse is (true|false)\. Is its (inverse|contrapositive) true or false\?/.exec(txt);
+      if (tm) { var truth = tm[3] === 'contrapositive' ? tm[1] : tm[2], said2 = /\btrue\b/i.test(C.plainText(ans)) && !/\bfalse\b/i.test(C.plainText(ans)) ? 'true' : /\bfalse\b/i.test(C.plainText(ans)) && !/\btrue\b/i.test(C.plainText(ans)) ? 'false' : null;
+        return said2 === truth ? { status: 'verified', computed: truth } : { status: 'mismatch', msg: 'Correct: ' + truth + ' (the ' + tm[3] + ' has the same truth value as the ' + (tm[3] === 'contrapositive' ? 'statement' : 'converse') + ').' }; }
+      if (/Both the statement and its converse are true\. Write them together as a biconditional/.test(txt)) {
+        var bm = /^(.+?)\s+if and only if\s+(.+?)\.?$/i.exec(C.plainText(ans).trim()); if (!bm) return { status: 'mismatch', msg: 'Use “if and only if”.' };
+        var a1 = clause(bm[1]), a2 = clause(bm[2]); return (sameCl(a1, base.p) && sameCl(a2, base.q)) || (sameCl(a1, base.q) && sameCl(a2, base.p)) ? { status: 'verified' } : { status: 'mismatch', msg: 'Join the hypothesis and conclusion with “if and only if”.' };
+      }
+      throw new C.CheckError('unknown conditional question');
+    };
+    /* authored conceptual items (undefined terms, postulates, notation, constructions): the accepted answer is keyed by the printed question */
+    var TERMS = [["Points {P} and {Q} are distinct. How many lines pass through both of them?",[/\b(one|1)\b/]],
+      ["Planes {P} and {Q} are distinct and intersect. What is their intersection?",[/\bline\b/]],
+      ["Lines {P}{Q} and {R}{S} are distinct and intersect. What is their intersection?",[/\bpoint\b/]],
+      ["Which three terms are left undefined in geometry?",[/\bpoint/,/\bline/,/\bplane/]],
+      ["Points {P}, {Q}, and {R} do not lie on one line. How many planes pass through all three?",[/\b(one|1)\b/]],
+      ["How many endpoints does ray {P}{Q} have?",[/\b(one|1)\b/]],
+      ["How many endpoints does segment {P}{Q} have?",[/\b(two|2)\b/]],
+      ["How many endpoints does line {P}{Q} have?",[/\b(no|none|zero|0)\b/]],
+      ["Points {P}, {Q}, and {R} lie on the same line. What are they called?",[/collinear/]],
+      ["Points {P}, {Q}, {R}, and {S} lie in the same plane. What are they called?",[/coplanar/]],
+      ["{Q} is between {P} and {R}, so {P}{Q} + {Q}{R} = {P}{R}. Which postulate is this?",[/segment addition/]],
+      ["{S} is in the interior of ∠{P}{Q}{R}, so m∠{P}{Q}{S} + m∠{S}{Q}{R} = m∠{P}{Q}{R}. Which postulate is this?",[/angle addition/]],
+      ["{M} divides segment {P}{Q} into two congruent segments. What is {M} called?",[/midpoint/]],
+      ["Ray {Q}{S} divides ∠{P}{Q}{R} into two congruent angles. What is ray {Q}{S} called?",[/bisector/]],
+      ["The measures of ∠{P} and ∠{Q} add to 90°. What are the two angles called?",[/complementary/]],
+      ["The measures of ∠{P} and ∠{Q} add to 180°. What are the two angles called?",[/supplementary/]],
+      ["∠{P}{Q}{S} and ∠{S}{Q}{R} are adjacent, and rays {Q}{P} and {Q}{R} are opposite rays. What do the two angles form?",[/linear pair/]],
+      ["Which figure extends without end in exactly one direction?",[/\bray\b/]],
+      ["Lines {P}{Q} and {R}{S} meet to form right angles. What are they called?",[/perpendicular/]],
+      ["Lines {P}{Q} and {R}{S} lie in the same plane and never intersect. What are they called?",[/parallel/]],
+      ["Lines {P}{Q} and {R}{S} do not lie in the same plane and never intersect. What are they called?",[/skew/]],
+      ["Segment {P}{Q} is drawn. Arcs of the same radius are drawn from {P} and from {Q}, and a line is drawn through the two points where the arcs cross. Which construction is this?",[/perpendicular bisector/]],
+      ["An arc centered at the vertex {Q} of ∠{P}{Q}{R} crosses both sides. Equal arcs are drawn from those two crossing points, and a ray is drawn from {Q} through where they meet. Which construction is this?",[/(angle )?bisector/]],
+      ["The compass is opened to the length of segment {P}{Q}. Keeping that opening, an arc is drawn from {R} on a ray to mark point {S}. Which construction is this?",[/cop(y|ying) (a |the )?segment|congruent segment/]],
+      ["Point {P} is on line ℓ. Arcs from {P} mark two points on ℓ; equal arcs from those points cross above {P} at {Q}, and line {P}{Q} is drawn. Which construction is this?",[/perpendicular/]],
+      ["Point {P} is not on line ℓ. A line through {P} crosses ℓ, and the angle it makes with ℓ is copied at {P} as a corresponding angle. Which construction is this?",[/parallel/]],
+      ["The compass is set to the length of segment {P}{Q}. Arcs are drawn from {P} and from {Q}; they cross at {R}, and {R} is joined to {P} and {Q}. Which construction is this?",[/equilateral triangle/]],
+      ["A circle with center {O} is drawn. Keeping the same compass opening, the radius is marked off six times around the circle and consecutive marks are joined. Which construction is this?",[/hexagon/]],
+      ["In a construction of segment {P}{Q}, which tool draws arcs and transfers lengths?",[/compass/]],
+      ["In a construction of segment {P}{Q}, which tool draws lines and segments without measuring?",[/straightedge/]],
+      ["The perpendicular bisectors of the sides of △{P}{Q}{R} are constructed. Their intersection is the center of which circle?",[/circumscribed|circumcircle/]],
+      ["The angle bisectors of △{P}{Q}{R} are constructed. Their intersection is the center of which circle?",[/inscribed|incircle/]]].map(function (e) { return [new RegExp('^' + e[0].replace(/[.*+?^$()|[\]\\]/g, '\\$&').replace(/\\?\{[A-Z]\\?\}/g, '[A-Z]') + '$'), e[1]]; });
+    R['term'] = function (p, part, raw) {
+      var q = C.plainText(p.prompt || '').trim(), hit = TERMS.filter(function (e) { return e[0].test(q); }), w = words(part.answer); need(hit.length === 1, 'an authored question'); var keys = hit[0][1];
+      return keys.every(function (re) { return re.test(w); }) ? { status: 'verified' } : { status: 'mismatch', msg: 'Not the accepted answer for this question.' };
+    };
+    /* quadrilateral on a grid: classified from its coordinates */
+    R['quad-class'] = function (p, part, raw) {
+      var sh = need(p.fig && p.fig.kind === 'geo-grid' && p.fig.shapes && p.fig.shapes.length === 1 && p.fig.shapes[0].pts.length === 4 && p.fig.shapes[0], 'one quadrilateral'), P = sh.pts;
+      var v = function (i) { var a = P[i], b = P[(i + 1) % 4]; return [b[0] - a[0], b[1] - a[1]]; }, L2 = function (i) { var t = v(i); return t[0] * t[0] + t[1] * t[1]; }, par = function (i, j) { var a = v(i), b = v(j); return a[0] * b[1] - a[1] * b[0] === 0; }, dot = function (i, j) { var a = v(i), b = v(j); return a[0] * b[0] + a[1] * b[1]; };
+      var cr = function (i) { var a = v(i), b = v((i + 1) % 4); return a[0] * b[1] - a[1] * b[0]; }; need([0, 1, 2, 3].every(function (i) { return cr(i) > 0; }) || [0, 1, 2, 3].every(function (i) { return cr(i) < 0; }), 'a convex quadrilateral');
+      var p02 = par(0, 2), p13 = par(1, 3), eqAll = L2(0) === L2(1) && L2(1) === L2(2) && L2(2) === L2(3), right = dot(0, 1) === 0, type;
+      if (p02 && p13) type = eqAll ? (right ? 'square' : 'rhombus') : right ? 'rectangle' : 'parallelogram';
+      else if (p02 || p13) { var legs = p02 ? [1, 3] : [0, 2]; type = L2(legs[0]) === L2(legs[1]) ? 'isosceles trapezoid' : 'trapezoid'; }
+      else type = (L2(0) === L2(1) && L2(2) === L2(3)) || (L2(1) === L2(2) && L2(3) === L2(0)) ? 'kite' : 'quadrilateral';
+      var w = words(part.answer), first = (/^\s*(?:it is |abcd is )?(?:an? )?(isosceles trapezoid|square|rectangle|rhombus|parallelogram|trapezoid|kite|quadrilateral|none)/.exec(w) || [])[1];
+      if (first === 'none') first = 'quadrilateral';
+      return first === type ? { status: 'verified', computed: type } : { status: 'mismatch', msg: 'Most specific name: ' + type + '.' };
+    };
+    /* rigid motions: the described sequence is applied to the printed vertices */
+    function moves(text) {
+      var t = C.plainText(String(text || '')).toLowerCase().replace(/−/g, '-'), out = [], re = /(reflect\w*\s+(?:it\s+|the triangle\s+)?(?:across|over|in)\s+(?:the\s+)?(?:x-axis|y-axis|line\s+y\s*=\s*-?x|line\s+[xy]\s*=\s*-?\d+))|(rotat\w*\s+(?:it\s+)?(90|180|270)\s*°?\s*(?:degrees\s*)?(clockwise|counterclockwise|counter-clockwise)?\s*(?:about|around)\s+the\s+origin)|(translat\w*\s+(?:it\s+)?(?:(\d+)\s+units?\s+(left|right))?(?:\s*(?:and|,)\s*)?(?:(\d+)\s+units?\s+(up|down))?)/g, m;
+      while ((m = re.exec(t))) {
+        if (m[1]) { var r = m[1]; out.push(/x-axis/.test(r) ? { k: 'rx' } : /y-axis/.test(r) ? { k: 'ry' } : /y\s*=\s*-x/.test(r) ? { k: 'rnyx' } : /y\s*=\s*x/.test(r) ? { k: 'ryx' } : { k: /line\s+x/.test(r) ? 'rlx' : 'rly', c: +/(-?\d+)\s*$/.exec(r)[1] }); }
+        else if (m[2]) { var deg = +m[3], dir = m[4] || 'counterclockwise'; if (/^clockwise/.test(dir)) deg = 360 - deg; out.push({ k: 'rot', d: deg % 360 }); }
+        else if (m[5]) { var dx = m[6] ? (+m[6]) * (m[7] === 'left' ? -1 : 1) : 0, dy = m[8] ? (+m[8]) * (m[9] === 'down' ? -1 : 1) : 0; if (!dx && !dy) return null; out.push({ k: 'tr', dx: dx, dy: dy }); }
+      }
+      return out.length ? out : null;
+    }
+    function moveAll(seq, pt) { return seq.reduce(function (q, s) { var x = q[0], y = q[1];
+      switch (s.k) { case 'rx': return [x, -y]; case 'ry': return [-x, y]; case 'ryx': return [y, x]; case 'rnyx': return [-y, -x]; case 'rlx': return [2 * s.c - x, y]; case 'rly': return [x, 2 * s.c - y];
+        case 'rot': return s.d === 90 ? [-y, x] : s.d === 180 ? [-x, -y] : s.d === 270 ? [y, -x] : [x, y]; default: return [x + s.dx, y + s.dy]; } }, pt); }
+    R['rigid-map'] = function (p, part, raw) {
+      var f = need(p.fig && p.fig.kind === 'geo-grid' && p.fig.shapes && p.fig.shapes.length === 2 && p.fig, 'two triangles'), A = f.shapes[0], B = f.shapes[1];
+      var mm = need(/maps △([A-Z])([A-Z])([A-Z]) onto △([A-Z])([A-Z])([A-Z]) \(\1 → \4, \2 → \5, \3 → \6\)/.exec(C.plainText(raw)), 'correspondence');
+      need(A.labels.join('') === mm[1] + mm[2] + mm[3] && B.labels.join('') === mm[4] + mm[5] + mm[6], 'labels');
+      var seq = moves(part.answer); if (!seq) return { status: 'mismatch', msg: 'Describe translations, reflections or rotations.' };
+      var ok = A.pts.every(function (q, i) { var w = moveAll(seq, q); return w[0] === B.pts[i][0] && w[1] === B.pts[i][1]; });
+      return ok ? { status: 'verified' } : { status: 'mismatch', msg: 'That sequence does not map each vertex onto its partner.' };
+    };
+    /* two-column proofs with a numbered transversal figure (parallel lines) */
+    function angSt(s) {
+      s = C.plainText(String(s || '')).replace(/\s+/g, ' ').trim(); var m;
+      if ((m = /^∠(\d) ≅ ∠(\d)$/.exec(s))) return { t: 'cong', a: +m[1], b: +m[2] };
+      if ((m = /^∠(\d) and ∠(\d) form a linear pair$/.exec(s))) return { t: 'lp', a: +m[1], b: +m[2] };
+      if ((m = /^∠(\d) and ∠(\d) are supplementary$/.exec(s)) || (m = /^m∠(\d) \+ m∠(\d) = 180°?$/.exec(s))) return { t: 'supp', a: +m[1], b: +m[2] };
+      if ((m = /^([^\s∠]+) ∥ ([^\s∠]+)$/.exec(s))) return { t: 'par', a: m[1], b: m[2] };
+      return null;
+    }
+    function parReason(t) {
+      t = String(t || '').toLowerCase().replace(/[.’'()]/g, ' ').replace(/\s+/g, ' ').trim(); var conv = /converse/.test(t);
+      if (/^given$/.test(t)) return 'given'; if (/vertical/.test(t)) return 'vertical'; if (/transitive|substitution/.test(t)) return 'trans';
+      if (/congruent supplements|supplements of (the same|congruent)/.test(t)) return 'congsupp';
+      if (/linear pair/.test(t)) return 'lp';
+      if (/corresponding/.test(t)) return conv ? 'conv-corresponding' : 'corresponding'; if (/alternate interior/.test(t)) return conv ? 'conv-alternate-interior' : 'alternate-interior';
+      if (/alternate exterior/.test(t)) return conv ? 'conv-alternate-exterior' : 'alternate-exterior'; if (/(same-side|consecutive) interior/.test(t)) return conv ? 'conv-same-side-interior' : 'same-side-interior';
+      return null;
+    }
+    function sameSt(a, b) { if (!a || !b || a.t !== b.t) return false; if (a.t === 'par') return (a.a === b.a && a.b === b.b) || (a.a === b.b && a.b === b.a); return (a.a === b.a && a.b === b.b) || (a.a === b.b && a.b === b.a); }
+    function parRowOk(st, k, prior, F, lines) {
+      var R2 = function (a, b) { return F.relationship(a, b); }, has = function (q) { return prior.some(function (x) { return sameSt(x, q); }); }, parKnown = has({ t: 'par', a: lines[0], b: lines[1] });
+      if (!st || !k) return false;
+      if (k === 'vertical') return st.t === 'cong' && R2(st.a, st.b) === 'vertical';
+      if (k === 'lp') return (st.t === 'lp' || st.t === 'supp') && R2(st.a, st.b) === 'linear-pair' && (st.t === 'lp' || true);
+      if (['corresponding', 'alternate-interior', 'alternate-exterior'].indexOf(k) >= 0) return st.t === 'cong' && parKnown && R2(st.a, st.b) === k;
+      if (k === 'same-side-interior') return st.t === 'supp' && parKnown && R2(st.a, st.b) === 'same-side-interior';
+      if (/^conv-/.test(k)) { var rel = k.slice(5); return st.t === 'par' && sameSt(st, { t: 'par', a: lines[0], b: lines[1] }) && prior.some(function (x) { return (rel === 'same-side-interior' ? x.t === 'supp' : x.t === 'cong') && R2(x.a, x.b) === rel; }); }
+      if (k === 'trans') { if (st.t === 'cong') return prior.some(function (x) { return x.t === 'cong' && prior.some(function (y) { if (y === x || y.t !== 'cong') return false; var s1 = [x.a, x.b], s2 = [y.a, y.b], mid = s1.filter(function (z) { return s2.indexOf(z) >= 0; }); if (mid.length !== 1) return false; var ends = s1.concat(s2).filter(function (z) { return z !== mid[0]; }); return sameSt(st, { t: 'cong', a: ends[0], b: ends[1] }); }); });
+        if (st.t === 'supp') return prior.some(function (x) { return x.t === 'supp' && prior.some(function (y) { if (y.t !== 'cong') return false; return [[x.a, x.b], [x.b, x.a]].some(function (sp) { return [[y.a, y.b], [y.b, y.a]].some(function (cg) { return cg[1] === sp[0] && sameSt(st, { t: 'supp', a: cg[0], b: sp[1] }); }); }); }); });
+        return false; }
+      if (k === 'congsupp') return st.t === 'cong' && prior.some(function (x) { return x.t === 'supp' && prior.some(function (y) { return y !== x && y.t === 'supp' && [x.a, x.b].filter(function (z) { return [y.a, y.b].indexOf(z) >= 0; }).length === 1 && sameSt(st, { t: 'cong', a: [x.a, x.b].filter(function (z) { return [y.a, y.b].indexOf(z) < 0; })[0], b: [y.a, y.b].filter(function (z) { return [x.a, x.b].indexOf(z) < 0; })[0] }); }); });
+      return false;
+    }
+    function filledRows(p) { var rows = JSON.parse(JSON.stringify(p.fig.proof.rows)), fill = {}; (p.parts || []).forEach(function (q) { if (q.label) fill[q.label] = q.answer; }); rows.forEach(function (r) { ['s', 'r'].forEach(function (f) { if (r[f + 'b']) r[f] = fill[r[f + 'b']] || ''; }); }); return rows; }
+    R['par-proof'] = function (p, part, raw) {
+      need(p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && p.fig.proof && NS.geoFigures, 'numbered figure with a proof');
+      var F = NS.geoFigures, lines = p.fig.names || ['ℓ', 'm'], gm = need(/Given: (.+?)\. Prove: (.+?)\./.exec(C.plainText(p.prompt || '')), 'given and prove'), givens = gm[1].split(/; /).map(angSt), prove = angSt(gm[2]);
+      need(givens.every(Boolean) && prove, 'readable given and prove');
+      var rows = filledRows(p), prior = [], bad = -1;
+      rows.forEach(function (r, i) { if (bad >= 0) return; var st = angSt(r.s), k = parReason(r.r), ok = k === 'given' ? !!st && givens.some(function (g) { return sameSt(g, st); }) : parRowOk(st, k, prior.concat(givens.filter(function (g) { return g.t === 'par'; })), F, lines); if (!ok) bad = i; else prior.push(st); });
+      var myRow = rows.findIndex(function (r) { return r.sb === part.label || r.rb === part.label; });
+      if (bad === myRow) return { status: 'mismatch', msg: 'Step ' + (myRow + 1) + ' is not justified.' };
+      if (bad >= 0) throw new C.CheckError('step ' + (bad + 1) + ' of the printed proof is not valid');
+      need(sameSt(angSt(rows[rows.length - 1].s), prove), 'the last row proves the statement');
+      return { status: 'verified' };
+    };
+    /* AA similarity proofs for the triangle with a segment parallel to its base (geo-tri-par: D on AB, E on AC) */
+    function simSt(s) { s = C.plainText(String(s || '')).replace(/\s+/g, ' ').trim(); var m;
+      if ((m = /^∠([A-E]{1,3}) ≅ ∠([A-E]{1,3})$/.exec(s))) return { t: 'ang', a: m[1], b: m[2] };
+      if ((m = /^([A-E]{2}) ∥ ([A-E]{2})$/.exec(s))) return { t: 'par', a: m[1], b: m[2] };
+      if ((m = /^△([A-E]{3}) ~ △([A-E]{3})$/.exec(s))) return { t: 'sim', a: m[1], b: m[2] }; return null; }
+    function simReason(t) { t = String(t || '').toLowerCase(); if (/^\s*given\s*$/.test(t)) return 'given'; if (/reflexive/.test(t)) return 'reflexive'; if (/\baa\b|angle-angle|angle angle/.test(t)) return 'AA'; if (/corresponding/.test(t)) return 'corresponding'; return null; }
+    var SIM_ANG = { A: 'A', DAE: 'A', BAC: 'A', EAD: 'A', CAB: 'A', ADE: 'D', EDA: 'D', ABC: 'B', CBA: 'B', AED: 'E', DEA: 'E', ACB: 'C', BCA: 'C' };
+    R['sim-proof'] = function (p, part, raw) {
+      need(p.fig && p.fig.kind === 'geo-tri-par' && p.fig.proof && NS.geoFigures.check(p.fig).ok, 'triangle with a parallel segment');
+      var rows = filledRows(p), prior = [], bad = -1, gm = need(/Given: (.+?)\. Prove: (.+?)\./.exec(C.plainText(p.prompt || '')), 'given and prove'), giv = simSt(gm[1]), prove = simSt(gm[2]);
+      need(giv && giv.t === 'par' && [giv.a, giv.b].sort().join() === 'BC,DE' && prove && prove.t === 'sim', 'DE ∥ BC is given');
+      var pairOK = function (x, y) { var a = SIM_ANG[x], b = SIM_ANG[y]; return a && b && ((a === 'D' && b === 'B') || (a === 'B' && b === 'D') || (a === 'E' && b === 'C') || (a === 'C' && b === 'E')); };
+      var corr = function (s) { return s.a.split('').map(function (ch, i) { return ch + s.b[i]; }).sort().join(); };   // △ADE ~ △ABC pairs A–A, D–B, E–C
+      rows.forEach(function (r, i) { if (bad >= 0) return; var st = simSt(r.s), k = simReason(r.r), ok = false;
+        if (st && k === 'given') ok = st.t === 'par' && [st.a, st.b].sort().join() === 'BC,DE';
+        else if (st && k === 'reflexive') ok = st.t === 'ang' && SIM_ANG[st.a] === 'A' && SIM_ANG[st.b] === 'A';
+        else if (st && k === 'corresponding') ok = st.t === 'ang' && pairOK(st.a, st.b) && prior.some(function (x) { return x.t === 'par'; });
+        else if (st && k === 'AA') ok = st.t === 'sim' && corr(st) === corr({ a: 'ADE', b: 'ABC' }) || (st && st.t === 'sim' && corr({ a: st.b, b: st.a }) === corr({ a: 'ADE', b: 'ABC' }));
+        if (ok && k === 'AA') ok = prior.filter(function (x) { return x.t === 'ang'; }).length >= 2;
+        if (!ok) bad = i; else prior.push(st); });
+      var myRow = rows.findIndex(function (r) { return r.sb === part.label || r.rb === part.label; });
+      if (bad === myRow) return { status: 'mismatch', msg: 'Step ' + (myRow + 1) + ' is not justified.' };
+      if (bad >= 0) throw new C.CheckError('step ' + (bad + 1) + ' of the printed proof is not valid');
+      var last = simSt(rows[rows.length - 1].s); need(last && last.t === 'sim' && (last.a + last.b === prove.a + prove.b), 'the last row proves the statement');
+      return { status: 'verified' };
+    };
     return function (p, part, policy) {
       var kind = part.check.kind, f = R[kind];
       if (!f) return { status: 'invalid', msg: 'Unknown reader.' };

@@ -25,7 +25,19 @@ const CASES = [
   ['geometry-right-triangles-trigonometry', 'law-of-cosines', 'honors', ['mixed']], ['geometry-quadrilaterals-polygons', 'kite-isosceles-trapezoid', 'cp1', ['mixed', 'mc']],
   ['geometry-transformations', 'transformation-sequence-congruence', 'honors', ['mixed']], ['geometry-area-surface-area-volume', 'measure-pyramid-surface', 'cp2', ['mixed', 'mc']],
   ['geometry-area-surface-area-volume', 'measure-cone-surface', 'honors', ['mixed']], ['geometry-area-surface-area-volume', 'measure-composite-round', 'cp1', ['mixed']],
-  ['geometry-area-surface-area-volume', 'measure-unit-conversion', 'cp1', ['mixed', 'mc']], ['geometry-area-surface-area-volume', 'measure-similar-solids', 'honors', ['mixed', 'mc']]
+  ['geometry-area-surface-area-volume', 'measure-unit-conversion', 'cp1', ['mixed', 'mc']], ['geometry-area-surface-area-volume', 'measure-similar-solids', 'honors', ['mixed', 'mc']],
+  // second and third passes
+  ['algebra1-linear-equations-slope', 'absolute-value-functions', 'honors', ['mixed', 'mc']], ['algebra1-linear-equations-slope', 'compare-functions', 'cp1', ['mixed']],
+  ['algebra1-exponential-functions', 'exp-overtakes-linear', 'cp1', ['mixed', 'mc']], ['algebra1-exponents-scientific-notation', 'rational-exponents-variables', 'honors', ['mixed', 'mc']],
+  ['algebra1-quadratics', 'quadratic-forms', 'cp1', ['mixed']], ['algebra1-systems-of-equations', 'sys-linear-quadratic', 'honors', ['mixed']], ['algebra1-relations-functions', 'graph-from-story', 'cp2', ['mixed']],
+  ['geometry-basics-reasoning', 'protractor-reading', 'cp2', ['mixed', 'mc']], ['geometry-basics-reasoning', 'conditional-statements', 'honors', ['mixed', 'mc']],
+  ['geometry-basics-reasoning', 'undefined-terms-postulates', 'cp1', ['mc']], ['geometry-basics-reasoning', 'constructions-concepts', 'honors', ['mixed']],
+  ['geometry-angles-parallel-lines', 'two-transversals', 'cp1', ['mixed', 'mc']], ['geometry-angles-parallel-lines', 'parallel-lines-proof', 'honors', ['mixed']],
+  ['geometry-triangle-relationships', 'triangle-relationship-proof', 'cp1', ['mixed']], ['geometry-triangle-relationships', 'triangle-orthocenter-coordinates', 'honors', ['mixed']],
+  ['geometry-quadrilaterals-polygons', 'quadrilateral-classify-grid', 'cp1', ['mixed', 'mc']], ['geometry-quadrilaterals-polygons', 'quadrilateral-proof', 'honors', ['mixed']],
+  ['geometry-similarity', 'similarity-proof', 'honors', ['mixed']], ['geometry-right-triangles-trigonometry', 'law-of-sines-ambiguous', 'honors', ['mixed']],
+  ['geometry-transformations', 'rigid-motion-mapping', 'cp1', ['mixed']], ['geometry-circles', 'circle-equation-three-points-tangent', 'honors', ['mixed']],
+  ['geometry-area-surface-area-volume', 'measure-composite-plane', 'honors', ['mixed', 'mc']]
 ];
 (async () => {
   await new Promise(r => server.listen(0, r));

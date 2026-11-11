@@ -341,10 +341,70 @@
     }
   });
 
+  /* ================= ABSOLUTE VALUE FUNCTIONS f(x) = a|x − h| + k ================= */
+  function absRule(a, h, k) { var A = Fr.of(a), in_ = h === 0 ? 'x' : 'x' + (h > 0 ? '-' + h : '+' + (-h)), co = A.eq(1) ? '' : A.eq(-1) ? '-' : num(A); return co + '|' + in_ + '|' + (k === 0 ? '' : k > 0 ? '+' + k : '-' + (-k)); }
+  skill({
+    id: 'absolute-value-functions', best: [0, 1, 2], tag: 'ABS', name: 'Absolute value functions and their graphs',
+    blurb: 'Vertex, opening and axis of symmetry of y = |x − h| + k (CP2) → reflections, stretches and the range, writing the equation from a shift (CP1) → fraction stretches and writing the equation of a drawn V-shaped graph (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, h = K.nz(r, -6, 6), k = r.int(-6, 6), a = c <= 2 ? 1 : c <= 4 ? r.pick([1, -1, 2, -2, 3]) : (!ctx.intOnly && c >= 6 && r.chance(0.4) ? Fr.of(r.pick([1, -1])).mul(new Fr(1, 2)) : r.pick([-3, -2, -1, 2, 3]));
+      var A = Fr.of(a), rule = absRule(A, h, k), step = K.step, opens = A.sign() > 0 ? 'up' : 'down';
+      var asks = c <= 2 ? ['vertex', 'axis', 'opens'] : c <= 4 ? ['vertex', 'range', 'opens', 'write'] : ['range', 'write', 'graph', 'vertex'];
+      var ask = r.pick(asks);
+      if (ask === 'range' && k === 0) k = r.pick([-5, -3, 2, 4, 7]);
+      if (ask === 'range' || (ask !== 'write' && ask !== 'graph' && !A.abs().eq(1))) {   // print k first, so every printed number changes the answer
+        if (k === 0) { A = Fr.of(A.sign()); opens = A.sign() > 0 ? 'up' : 'down'; rule = absRule(A, h, k); }
+        else rule = k + (A.sign() < 0 ? '-' : '+') + (A.abs().eq(1) ? '' : num(A.abs())) + '|x' + (h > 0 ? '-' : '+') + Math.abs(h) + '|';
+      }
+      var lead = 'For ' + M('f(x)=' + rule) + ', ';
+      var why = step('Compare with ⟨f(x)=a|x-h|+k⟩: the vertex is ⟨(h,k)=(' + h + ',' + k + ')⟩ and ⟨a=' + num(A) + '⟩.', '', 2);
+      if (ask === 'vertex') return { variant: 'abs-vertex-' + c, prompt: lead + 'find the vertex.', parts: [{ answer: M('(' + h + ',\\ ' + k + ')'), check: { type: 'derive', kind: 'abs', alts: [M('(' + (-h) + ',\\ ' + k + ')'), M('(' + k + ',\\ ' + h + ')'), M('(' + h + ',\\ ' + (-k) + ')'), M('(' + (-h) + ',\\ ' + (-k) + ')')].filter(function (z, i, arr) { return z !== M('(' + h + ',\\ ' + k + ')') && arr.indexOf(z) === i; }) } }], steps: [why], space: [0.6, 0.7, 0.8] };
+      if (ask === 'axis') return { variant: 'abs-axis-' + c, prompt: lead + 'find the axis of symmetry.', parts: [{ answer: M('x=' + h), check: { type: 'derive', kind: 'abs', alts: [M('x=' + (-h)), M('x=' + k), M('x=' + (h + 1))].filter(function (z) { return z !== M('x=' + h); }) } }], steps: [why, step('The axis of symmetry is the vertical line through the vertex.', 'x=' + h, 1)], space: [0.6, 0.7, 0.8] };
+      if (ask === 'opens') return { variant: 'abs-opens-' + c, prompt: lead + 'find the vertex and tell whether the graph opens up or down.', parts: [{ answer: M('(' + h + ',\\ ' + k + ')') + ', opens ' + opens + ' because ' + M('a') + ' is ' + (opens === 'up' ? 'positive' : 'negative') + '.', check: { type: 'derive', kind: 'abs' } }], steps: [why, step(opens === 'up' ? 'a > 0, so the V opens up.' : 'a < 0, so the V opens down (reflected across the x-axis).', '', 1)], space: [0.5, 0.6, 0.7] };
+      if (ask === 'range') { var rg = 'y' + (opens === 'up' ? '\\ge ' : '\\le ') + k;
+        return { variant: 'abs-range-' + c, prompt: lead + 'find the range.', parts: [{ answer: M(rg), check: { type: 'derive', kind: 'abs', alts: [M('y' + (opens === 'up' ? '\\le ' : '\\ge ') + k), M('y\\ge ' + h), M('y' + (opens === 'up' ? '\\ge ' : '\\le ') + (-k))].filter(function (z) { return z !== M(rg); }) } }], steps: [why, step('The vertex is the ' + (opens === 'up' ? 'lowest' : 'highest') + ' point, so every output is ' + (opens === 'up' ? 'at least' : 'at most') + ' ' + k + '.', rg, 1)], space: [0.6, 0.7, 0.8] }; }
+      if (ask === 'write') {
+        var parts = []; if (A.abs().eq(1) === false) parts.push(A.abs().isInt() ? 'vertically stretched by a factor of ' + num(A.abs()) : 'vertically compressed by a factor of one-half'); if (A.sign() < 0) parts.push('reflected across the x-axis');
+        var desc = 'The graph of ' + M('y=|x|') + ' is ' + (parts.length ? parts.join(' and ') + ', then ' : '') + 'translated ' + Math.abs(h) + ' units ' + (h > 0 ? 'right' : 'left') + (k ? ' and ' + Math.abs(k) + ' units ' + (k > 0 ? 'up' : 'down') : '') + '. ';
+        return { variant: 'abs-write-' + c, prompt: desc + 'Write an equation for the new graph.', parts: [{ answer: M('y=' + rule), check: { type: 'derive', kind: 'abs-desc', alts: [M('y=' + absRule(A, -h, k)), M('y=' + absRule(A, h, -k)), M('y=' + absRule(A.neg(), h, k))] } }],
+          steps: [step('A horizontal shift of ' + Math.abs(h) + ' ' + (h > 0 ? 'right' : 'left') + ' puts ⟨x' + (h > 0 ? '-' : '+') + Math.abs(h) + '⟩ inside the absolute value; a vertical shift adds ' + M(String(k)) + ' outside.', '', 2), step('Equation:', 'y=' + rule, 1)], space: [0.7, 0.8, 0.9] }; }
+      // read the equation from a drawn V
+      var win = [-10, 10, -10, 10], run = 3, yL = k + A.mul(run).n / A.mul(run).d; K.need(Math.abs(yL) <= 9 && Math.abs(h) + run <= 9 && A.mul(run).isInt());
+      var fig = plane(win, { segs: [{ a: [h - run, yL], b: [h, k], aEnd: 'arrow' }, { a: [h, k], b: [h + run, yL], bEnd: 'arrow' }] });
+      return { variant: 'abs-graph-' + c, prompt: 'The graph shows an absolute value function. Write an equation for it in the form ' + M('y=a|x-h|+k') + '.', fig: fig,
+        parts: [{ answer: M('y=' + rule), check: { type: 'derive', kind: 'abs', alts: [M('y=' + absRule(A, -h, k)), M('y=' + absRule(A.neg(), h, k)), M('y=' + absRule(A, h, -k))] } }],
+        steps: [step('The vertex is ⟨(' + h + ',' + k + ')⟩.', '', 1), step('From the vertex, move 1 unit right: the graph changes by ' + M(num(A)) + ', so ⟨a=' + num(A) + '⟩.', '', 2), step('Equation:', 'y=' + rule, 1)], space: [0.8, 0.9, 1.0] };
+    }
+  });
+
+  /* ================= COMPARING FUNCTIONS GIVEN IN DIFFERENT FORMS ================= */
+  skill({
+    id: 'compare-functions', best: [0, 1, 2], tag: 'COMPARE', name: 'Compare linear functions in different forms (table and equation)',
+    blurb: 'Read the rate of change or the initial value from a table (CP2) → decide which function has the greater rate or initial value (CP1) → negative and fraction rates, tables that do not start at x = 0 (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, frac = !ctx.intOnly && c >= 6 && r.chance(0.4);
+      var mA = frac ? F(K.nz(r, -5, 5), 2) : F(c >= 4 ? K.nz(r, -8, 8) : r.int(1, 8)), bA = r.int(-10, 15), mB = F(c >= 4 ? K.nz(r, -8, 8) : r.int(1, 8)), bB = r.int(-10, 15);
+      var x0 = c >= 5 ? r.int(-2, 3) : 0, xs = [0, 1, 2, 3].map(function (i) { return x0 + i * (frac ? 2 : 1); });
+      var rows = xs.map(function (x) { return [String(x), num(mA.mul(x).add(bA))]; });
+      var ask = c <= 2 ? r.pick(['rateA', 'initA']) : r.pick(['rate', 'init', 'rate', c >= 5 ? 'init' : 'rateA']), eqB = 'y=' + lin([[mB, 'x'], [bB, '']]);
+      if (ask === 'rate') K.need(!mB.abs().eq(1));   // a printed slope, not an implied 1
+      if (ask === 'init') eqB = 'y=' + bB + (mB.sign() < 0 ? '-' : '+') + (mB.abs().eq(1) ? '' : num(mB.abs())) + 'x';   // the asked value is printed first
+      var lead = ask === 'rateA' || ask === 'initA' ? 'Function A is shown in the table. ' : 'Function A is shown in the table. Function B is ' + M(eqB) + '. ', cmp = function (a, b) { a = Fr.of(a); b = Fr.of(b); var d = a.sub(b); return d.isZero() ? 'same' : d.sign() > 0 ? 'A' : 'B'; };
+      var fig = { kind: 'table', vertical: false, head: ['x', 'y'], rows: rows }, steps = [step('Function A: rate of change ⟨\\frac{\\Delta y}{\\Delta x}=' + num(mA) + '⟩; its value at ⟨x=0⟩ is ' + M(num(mA.mul(0).add(bA))) + '.', '', 2), step('Function B: slope ' + M(num(mB)) + ', y-intercept ' + M(String(bB)) + '.', '', 1)];
+      if (ask === 'rateA') return { variant: 'cmp-rateA-' + c, prompt: lead + 'What is the rate of change of function A?', fig: fig, parts: [{ answer: M(num(mA)), check: { type: 'derive', kind: 'compare-fn', alts: [M(num(mB)), M(String(bA)), M(num(mA.neg()))].filter(function (z) { return z !== M(num(mA)); }) } }], steps: steps, space: [0.6, 0.7, 0.8] };
+      if (ask === 'initA') return { variant: 'cmp-initA-' + c, prompt: lead + 'What is the initial value of function A (its value when x = 0)?', fig: fig, parts: [{ answer: M(String(bA)), check: { type: 'derive', kind: 'compare-fn', alts: [M(String(bB)), M(num(mA)), M(String(bA + 1))].filter(function (z) { return z !== M(String(bA)); }) } }], steps: steps, space: [0.6, 0.7, 0.8] };
+      var w = ask === 'rate' ? cmp(mA, mB) : cmp(bA, bB), what = ask === 'rate' ? 'rate of change' : 'initial value', va = M(ask === 'rate' ? num(mA) : String(bA)), vb = M(ask === 'rate' ? num(mB) : String(bB));
+      K.need(w !== 'same');
+      return { variant: 'cmp-' + ask + '-' + c, prompt: lead + 'Which function has the greater ' + what + '? Explain.', fig: fig,
+        parts: [{ answer: 'Function ' + w + ': its ' + what + ' is ' + (w === 'A' ? va : vb) + ', and the other function’s is ' + (w === 'A' ? vb : va) + '.', check: { type: 'derive', kind: 'compare-fn', alts: ['Function ' + (w === 'A' ? 'B' : 'A') + ': its ' + what + ' is ' + (w === 'A' ? vb : va) + '.', 'They are the same.', 'It cannot be decided from a table and an equation.'] } }],
+        steps: steps.concat([step('Compare ' + va + ' and ' + vb + '.', '', 1)]), space: [0.8, 0.9, 1.0] };
+    }
+  });
+
   NS.registerSkillSet({
     id: 'algebra1-linear-equations-slope', course: 'algebra1', courseName: 'Algebra 1', unit: 'linear-equations-slope', unitName: 'Linear Functions and Graphing',
     title: 'The Slope Shack',
-    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations', GRAPHLINE: 'Graphing linear functions', DIRECT: 'Direct variation' },
+    tags: { SLOPE: 'Slope', FORMS: 'Forms of linear equations', WRITE: 'Writing equations of lines', PARPERP: 'Parallel and perpendicular lines', APPLY: 'Linear models', TRANSFORM: 'Transformations', GRAPHLINE: 'Graphing linear functions', DIRECT: 'Direct variation', ABS: 'Absolute value functions', COMPARE: 'Comparing functions' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Slope</h4><p>⟨m=\\frac{y_2-y_1}{x_2-x_1}⟩ (rise over run). Horizontal: ⟨m=0⟩. Vertical: undefined.</p></section>' +
@@ -354,7 +414,7 @@
       '<section><h4>Special lines</h4><p>Horizontal: ⟨y=k⟩. Vertical: ⟨x=h⟩.</p></section>' +
       '<section><h4>Models</h4><p>⟨y=mx+b⟩: m is the rate of change, b is the starting value.</p></section>' +
       '<section><h4>Direct variation</h4><p>⟨y=kx⟩ with ⟨k=\\frac{y}{x}⟩ for every pair; the graph is a line through the origin.</p></section></div>',
-    gaps: ['Absolute-value graphs are not generated.'],
+    gaps: ['Graphing an absolute value function by hand is not generated; its features, its equation from a description, and its equation from a drawn graph are.'],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);

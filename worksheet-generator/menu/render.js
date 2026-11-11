@@ -141,7 +141,8 @@
     questionText = NS.displayPrompt(p, questionText);
     var h = '<div class="mm-q">' + (inlineLabel ? '<b class="mm-qnum">' + esc(inlineLabel) + '</b> ' : '') + mathSafe(questionText) + (pointsLabel ? '<span class="mm-qpts">' + esc(pointsLabel) + '</span>' : '') + '</div>';
     if (p.work && p.work.length) h += '<ol class="mm-work-lines">' + p.work.map(function (w, i) { return '<li><span>Line ' + (i + 1) + ':</span> ' + mathSafe('⟨' + w + '⟩') + '</li>'; }).join('') + '</ol>';
-    if (p.fig && p.fig.proof && NS.figHtml) return h + NS.figHtml(forKey ? proofKeyFig(p) : p.fig);   // the proof table under the diagram holds every blank
+    if (p.fig && p.fig.proof && NS.figHtml) { var pf = forKey ? proofKeyFig(p) : p.fig;   // the proof table under the diagram holds every blank
+      return h + NS.figHtml(pf) + (pf.kind !== 'geo-cong' && NS.geoFigures && NS.geoFigures.proofTable ? NS.geoFigures.proofTable(pf.proof) : ''); }
     if (p.fig && NS.figHtml && !(p.mc && p.mc.graphs && !forKey) && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p, forKey);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
@@ -437,3 +438,4 @@
     });
   };
 })(typeof window !== 'undefined' ? window : globalThis);
+

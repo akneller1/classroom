@@ -260,11 +260,22 @@ function concurrencyAlgebra(ctx){var r=ctx.rng,c=ctx.c,tri=r.pick(['ABC','DEF','
  var I2=P==='O'?'I':P,A=V[0],Df=r.pick(['D','S','T','U'].filter(function(q){return tri.indexOf(q)<0&&q!==I2;})),Ef=r.pick(['E','W','N','H'].filter(function(q){return tri.indexOf(q)<0&&q!==I2;}));
  return {variant:'geo-center-incpyth-'+c,prompt:'Point '+I2+' is the incenter of △'+tri+'. The perpendicular from '+I2+' to side '+V[0]+V[1]+' meets it at '+Df+', and the perpendicular from '+I2+' to side '+V[0]+V[2]+' meets it at '+Ef+'. '+A+Df+' = '+t[1]+' and '+A+I2+' = '+t[2]+'. Find '+I2+Ef+'.',
   parts:[{answer:M(String(t[0])),check:{type:'derive',kind:'center',alts:[String(t[1]),String(t[2]-t[1])]}}],steps:[step('△'+A+Df+I2+' has a right angle at '+Df+', so '+I2+Df+' = √('+t[2]+'² − '+t[1]+'²) = '+t[0]+'.',''),step('The incenter is equidistant from the sides, so '+I2+Ef+' = '+I2+Df+' = '+t[0]+'.','')],space:[1.1,1.3,1.5]};}
+/* The orthocenter from coordinates: the intersection of two altitudes (exact, whole-number answers). */
+function orthocenter(ctx){var r=ctx.rng,c=ctx.c,H=[r.int(-5,5),r.int(-5,5)],kind=c<=4?'right':r.pick(['axis','general','general']),A,B,Cc;
+ if(kind==='right'){Cc=[r.int(-5,5),r.int(-5,5)];A=[Cc[0]+K.nz(r,-6,6),Cc[1]];B=[Cc[0],Cc[1]+K.nz(r,-6,6)];H=Cc.slice();}
+ else if(kind==='axis'){var y0=r.int(-4,4),x1=r.int(-8,-1),x2=r.int(1,8),px=r.int(x1+1,x2-1),py=y0+K.nz(r,-7,7);A=[x1,y0];B=[x2,y0];Cc=[px,py];var hy=y0-(px-x1)*(px-x2)/(py-y0);K.need(hy%1===0);H=[px,hy];}
+ else{for(var t=0;t<60;t++){A=[r.int(-7,7),r.int(-7,7)];B=[r.int(-7,7),r.int(-7,7)];Cc=[r.int(-7,7),r.int(-7,7)];var a1=B[0]-Cc[0],b1=B[1]-Cc[1],c1=a1*A[0]+b1*A[1],a2=A[0]-Cc[0],b2=A[1]-Cc[1],c2=a2*B[0]+b2*B[1],det=a1*b2-a2*b1;
+  if(det&&(c1*b2-c2*b1)%det===0&&(a1*c2-a2*c1)%det===0&&Math.abs((B[0]-A[0])*(Cc[1]-A[1])-(B[1]-A[1])*(Cc[0]-A[0]))>6){H=[(c1*b2-c2*b1)/det,(a1*c2-a2*c1)/det];break;}A=null;}K.need(A&&Math.abs(H[0])<=12&&Math.abs(H[1])<=12);}
+ var pr='Find the orthocenter of the triangle with vertices A('+A.join(', ')+'), B('+B.join(', ')+') and C('+Cc.join(', ')+').',G=[(A[0]+B[0]+Cc[0])/3,(A[1]+B[1]+Cc[1])/3];
+ var alts=[[H[1],H[0]],[-H[0],H[1]],G.every(function(v){return v%1===0;})?G:[H[0]+1,H[1]]].filter(function(q){return q[0]!==H[0]||q[1]!==H[1];}).map(function(q){return M('('+q[0]+',\\ '+q[1]+')');});
+ return {variant:'geo-ortho-'+kind+'-'+c,prompt:pr,parts:[{answer:M('('+H[0]+',\\ '+H[1]+')'),check:{type:'derive',kind:'ortho',alts:alts}}],
+  steps:[step(kind==='right'?'In a right triangle the altitudes along the legs meet at the right-angle vertex C.':'Write the equations of two altitudes: each passes through a vertex and is perpendicular to the opposite side.',''),step(kind==='right'?'So the orthocenter is C.':'Solve the two altitude equations together.',''),step('Orthocenter: ('+H[0]+', '+H[1]+').','')],space:[1.4,1.7,2.0]};}
+
 NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',courseName:'Geometry',
  unit:'triangle-relationships',unitName:'Triangle Relationships',title:'Triangle Angle Relationships',
  tags:{CONCURRENCY:'Points of concurrency',SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation',HONORS:'Connected Honors triangle investigation'},
  reference:'<div class="mm-refgrid"><section><h4>Interior angle sum</h4><p>Every triangle has an angle sum of 180°.</p></section><section><h4>Exterior angle theorem</h4><p>An exterior angle equals the sum of the two remote interior angles.</p></section></div>',
- gaps:['Proofs about triangle relationships are not generated, and orthocenter questions are conceptual (naming and locating it); no orthocenter coordinates are computed.'],
+ gaps:['Triangle-relationship proofs are completed in a two-column table (missing statements and reasons) through triangle congruence; paragraph proofs are not generated.'],
  skills:[
   {id:'triangle-interior-sum',tag:'SUM',name:'Find a missing interior angle',best:[0,1],generate:ctx=>make(ctx,'sum')},
   {id:'triangle-exterior-angle',tag:'EXTERIOR',name:'Exterior angle theorem',best:[0,1],generate:ctx=>make(ctx,'exterior')},
@@ -276,7 +287,9 @@ NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',cour
   {id:'triangle-perpendicular-bisector',tag:'BISECTOR',name:'Perpendicular bisector equidistance',best:[0,1],generate:perpendicularBisector},
   {id:'triangle-altitude-area',tag:'ALTITUDE',name:'Triangle altitude from area',best:[0,1],generate:altitudeArea},
   {id:'triangle-concurrency-name',tag:'CONCURRENCY',name:'Name and locate the points of concurrency (circumcenter, incenter, centroid, orthocenter)',best:[0,1,2],generate:ctx=>K.retry(()=>concurrencyName(ctx))},
+  {id:'triangle-orthocenter-coordinates',tag:'CONCURRENCY',name:'Orthocenter from coordinates',best:[1,2],generate:ctx=>K.retry(()=>orthocenter(ctx))},
   {id:'triangle-circumcenter-incenter',tag:'CONCURRENCY',name:'Circumcenter and incenter equidistance',best:[0,1,2],generate:ctx=>K.retry(()=>concurrencyAlgebra(ctx))},
+  {id:'triangle-relationship-proof',tag:'CONCURRENCY',name:'Proofs about isosceles triangles and perpendicular bisectors',best:[1,2],generate:ctx=>{K.need(NS.congruenceProofFor);return NS.congruenceProofFor(ctx,[['iso','HL'],['iso','SAS'],['iso','SAS2'],['iso','SSS'],['kite','SSS'],['kite','SAS']],'Prove a relationship in an isosceles triangle or for a perpendicular bisector by first proving two triangles congruent.');}},
   {id:'triangle-open-response-investigation',tag:'INVESTIGATION',name:'Four-part triangle relationships investigation',best:[2],generate:triangleInvestigation},
   {id:'triangle-investigation-midsegment',tag:'HONORS',name:'Honors: midsegment algebra and perimeter',best:[2],generate:invMidsegment},
   {id:'triangle-investigation-exterior',tag:'HONORS',name:'Honors: exterior angle in an isosceles triangle',best:[2],generate:invExterior},

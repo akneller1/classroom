@@ -306,6 +306,10 @@
       used.keys.add(key); used.sigs.add(sig);
       p.uid = uid('p'); p.skill = skillId; p.c = c; p.tag = sk.tag; p.key = key; p.sig = sig;
       p.verify = { status: v.status, issues: v.issues }; p.source = 'generated'; p.nearRepeat = !!near;
+      (p.parts || []).forEach(function (pt, k) {   // suggested wrong answers stay only if the verifier rejects them
+        if (!pt.check || !Array.isArray(pt.check.alts)) return;
+        pt.check.alts = pt.check.alts.filter(function (a, i, arr) { if (arr.indexOf(a) !== i || a === pt.answer) return false; var q = JSON.parse(JSON.stringify(p)); q.parts[k].answer = a; try { return !NS.verifyProblem(q, policy).ok; } catch (e) { return false; } });
+      });
       return p;
     }
   };

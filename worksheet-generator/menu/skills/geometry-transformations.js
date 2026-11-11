@@ -101,11 +101,30 @@ function invPolygonSym(ctx){var r=ctx.rng,c=ctx.c,ns=c>=5?[5,6,8,9,10,12,15]:[5,
  ['Each interior angle of the regular polygon is equal. Using the sum '+S+' from part b and the number of sides '+n+', find the measure v of one interior angle.','v',v,n+'*v='+S,'Divide the angle sum equally among the n angles.'],
  ['Each side of the polygon is '+sd+' units long. Using the number of sides from part a, find the perimeter p.','p',per,'p='+n+'*'+sd,'Perimeter is the number of sides times the side length.']]);}
 
+
+/* Rigid-motion congruence: describe a sequence that maps one triangle onto the other; the verifier applies the description. */
+function rigidMap(ctx){var r=ctx.rng,c=ctx.c,tri=null,steps=[],tries=0;
+ var MOVES=[function(){var dx=K.nz(r,-6,6),dy=r.int(-5,5);return {k:'tr',dx:dx,dy:dy,t:'translate '+(dx?Math.abs(dx)+' units '+(dx<0?'left':'right'):'')+(dx&&dy?' and ':'')+(dy?Math.abs(dy)+' units '+(dy<0?'down':'up'):'')};},
+  function(){return r.pick([{k:'rx',t:'reflect across the x-axis'},{k:'ry',t:'reflect across the y-axis'}]);},function(){return c>=5?r.pick([{k:'ryx',t:'reflect across the line y = x'},{k:'rot',d:90,t:'rotate 90° counterclockwise about the origin'},{k:'rot',d:270,t:'rotate 90° clockwise about the origin'}]):{k:'rot',d:180,t:'rotate 180° about the origin'};}];
+ var ap=function(s,q){var x=q[0],y=q[1];switch(s.k){case 'rx':return [x,-y];case 'ry':return [-x,y];case 'ryx':return [y,x];case 'rot':return s.d===90?[-y,x]:s.d===180?[-x,-y]:[y,-x];default:return [x+s.dx,y+s.dy];}};
+ var n=c<=2?1:c<=4?r.int(1,2):2;
+ while(tries++<40){var P=[[r.int(-6,-1),r.int(1,6)],[r.int(-6,-1),r.int(-5,0)],[r.int(-1,2),r.int(-4,4)]];var cr=(P[1][0]-P[0][0])*(P[2][1]-P[0][1])-(P[1][1]-P[0][1])*(P[2][0]-P[0][0]);if(Math.abs(cr)<6)continue;
+  steps=[];for(var i=0;i<n;i++)steps.push(MOVES[c<=2?r.int(0,1):r.int(0,2)]());if(n===2&&steps[0].k===steps[1].k)continue;
+  var Q=P.map(function(q){return steps.reduce(function(a,s){return ap(s,a);},q);});if(Q.concat(P).some(function(q){return Math.abs(q[0])>8||Math.abs(q[1])>8;}))continue;
+  if(Q.every(function(q,i){return q[0]===P[i][0]&&q[1]===P[i][1];}))continue;tri={P:P,Q:Q};break;}
+ K.need(tri);
+ var L=r.pick([['A','B','C','D','E','F'],['J','K','L','P','Q','R'],['R','S','T','X','Y','Z']]),seq=steps.map(function(s){return s.t;}).join(', then ');seq=seq.charAt(0).toUpperCase()+seq.slice(1)+'.';
+ var wrong=steps.map(function(s){return s.k==='rx'?'reflect across the y-axis':s.k==='ry'?'reflect across the x-axis':s.k==='tr'?'translate '+Math.abs(s.dx)+' units '+(s.dx<0?'right':'left')+(s.dy?' and '+Math.abs(s.dy)+' units '+(s.dy<0?'up':'down'):''):s.k==='ryx'?'reflect across the x-axis':'rotate 90° clockwise about the origin';}).join(', then ');
+ return {variant:'geo-rigid-map-'+n+'-'+c,prompt:'Describe a sequence of rigid motions that maps △'+L[0]+L[1]+L[2]+' onto △'+L[3]+L[4]+L[5]+' ('+L[0]+' → '+L[3]+', '+L[1]+' → '+L[4]+', '+L[2]+' → '+L[5]+'). Because rigid motions preserve lengths and angles, this proves the triangles are congruent.',
+  fig:{kind:'geo-grid',shapes:[{id:'pre',pts:tri.P,labels:L.slice(0,3)},{id:'img',pts:tri.Q,labels:L.slice(3),dash:true}]},
+  parts:[{answer:seq,check:{type:'derive',kind:'rigid-map',alts:[wrong,steps.slice().reverse().map(function(z){return z.t;}).join(', then '),steps[0].t,steps.map(function(z){return z.k==='tr'?'translate '+Math.abs(z.dy||1)+' units '+((z.dy||1)<0?'down':'up')+' and '+Math.abs(z.dx)+' units '+(z.dx<0?'left':'right'):z.t==='rotate 180° about the origin'?'reflect across the x-axis':z.k==='rot'?'rotate 180° about the origin':'rotate 180° about the origin';}).join(', then ')].map(function(x){return x.charAt(0).toUpperCase()+x.slice(1)+'.';}).filter(function(x,i,arr){return x!==seq&&arr.indexOf(x)===i;})}}],
+  steps:[step('Compare the orientation of the two triangles: a reflection reverses the order of the vertices; a rotation or translation keeps it.',''),step('One sequence that works: '+seq,''),step('Check each vertex: '+L[0]+'('+tri.P[0]+') → '+L[3]+'('+tri.Q[0]+').','')],space:[1.0,1.2,1.4]};}
 NS.registerSkillSet({id:'geometry-transformations',course:'geometry',courseName:'Geometry',unit:'transformations',unitName:'Transformations',title:'Coordinate Transformations',
 tags:{SEQUENCE:'Sequences of transformations',INVEST:'Four-part transformation investigation',REFLECTION:'Reflections',TRANSLATION:'Translations',ROTATION:'Rotations',DILATION:'Dilations',COMPOSITION:'Compositions of transformations',SYMMETRY:'Symmetry of regular polygons'},
 reference:'<div class="mm-refgrid"><section><h4>Reflections</h4><p>x-axis: (x,y) → (x,−y); y-axis: (x,y) → (−x,y).</p></section><section><h4>90° rotations</h4><p>Clockwise: (x,y) → (y,−x); counterclockwise: (x,y) → (−y,x).</p></section></div>',
-gaps:['Rigid-motion proofs are not generated.'],
+gaps:['Rigid-motion congruence is shown by describing a sequence of motions on the grid (checked by applying it); written paragraph proofs are not generated.'],
 skills:[
+{id:'rigid-motion-mapping',tag:'SEQUENCE',name:'Describe rigid motions that map one triangle onto another (congruence)',best:[0,1,2],generate:rigidMap},
 {id:'transformation-sequence-congruence',tag:'SEQUENCE',name:'Congruent or similar after a sequence of transformations; glide reflections',best:[0,1,2],generate:K.rigidSequence},
 {id:'reflect-x-axis',tag:'REFLECTION',name:'Reflect over x-axis',best:[0,1],generate:ctx=>reflect(ctx,'x')},
 {id:'reflect-y-axis',tag:'REFLECTION',name:'Reflect over y-axis',best:[0,1],generate:ctx=>reflect(ctx,'y')},

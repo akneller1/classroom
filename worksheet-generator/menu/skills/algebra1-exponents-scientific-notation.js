@@ -246,11 +246,47 @@
     skill({id:"simplify-radicals",best:base.best,tag:base.tag,name:"Simplify radicals using perfect-square factors",blurb:"Rewrite square roots in simplest radical form.",
       difficultyProfile:'focused',fixedDifficulty:2,generate:function(ctx){return base.generate(Object.assign({},ctx,{c:2}));}});
   })();
+  /* ================= RATIONAL EXPONENTS WITH VARIABLES (x > 0) ================= */
+  function ex(f) { f = Fr.of(f); return f.eq(1) ? '' : f.isInt() ? '^{' + num(f) + '}' : '^{' + (f.sign() < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}}'; }
+  function monoTeX(c, vs) { var out = Fr.of(c).eq(1) ? '' : num(c); Object.keys(vs).sort().forEach(function (v) { if (!Fr.of(vs[v]).isZero()) out += v + ex(vs[v]); }); return out || '1'; }
+  function rootTeX(n, inner) { return n === 2 ? '\\sqrt{' + inner + '}' : '\\sqrt[' + n + ']{' + inner + '}'; }
+  skill({
+    id: 'rational-exponents-variables', best: [0, 1, 2], tag: 'RATEXP', name: 'Rational exponents with variables',
+    blurb: 'Rewrite roots of x as rational exponents and back (CP2) → products and quotients with like or unlike denominators, powers of powers (CP1) → coefficients under roots, several variables, negative rational exponents (Honors).',
+    generate: function (ctx) {
+      var r = ctx.rng, c = ctx.c, step = K.step, v = r.pick(['x', 'a', 'm', 'y', 'n', 't', 'b']), n, m, e1, e2, out, prompt, why, kind;
+      if (c <= 2) {
+        n = r.pick([2, 3, 4, 5, 6]); m = c === 1 ? 1 : r.int(2, 7); K.need(K.gcd(m, n) === 1 || m === 1);
+        if (r.chance(0.5)) { kind = 'to-radical'; prompt = 'Write ' + M(v + ex(new Fr(m, n))) + ' in radical form.'; out = rootTeX(n, v + (m === 1 ? '' : '^{' + m + '}')); why = 'The denominator is the index of the root; the numerator is the power inside: ⟨x^{\\frac{m}{n}}=\\sqrt[n]{x^m}⟩.'; }
+        else { kind = 'to-exp'; prompt = 'Write ' + M(rootTeX(n, v + (m === 1 ? '' : '^{' + m + '}'))) + ' using a rational exponent.'; out = v + ex(new Fr(m, n)); why = 'The index of the root becomes the denominator of the exponent: ⟨\\sqrt[n]{x^m}=x^{\\frac{m}{n}}⟩.'; }
+        return { variant: 'ratexp-' + kind + '-' + c, prompt: prompt.replace(/\^\{1\}/g, ''), parts: [{ answer: M(out), check: { type: 'derive', kind: 'ratexp', alts: [M(kind === 'to-exp' ? v + ex(new Fr(n, m)) : rootTeX(m === 1 ? 2 : m, v + '^{' + n + '}')), M(kind === 'to-exp' ? v + '^{' + (m * n) + '}' : rootTeX(n, v + '^{' + (m + 1) + '}')), M(kind === 'to-exp' ? v + ex(new Fr(m + 1, n)) : rootTeX(n + 1, v + (m === 1 ? '' : '^{' + m + '}')))].filter(function (z) { return z !== M(out); }) } }], steps: [step(why, '', 2), step('Answer:', out, 1)], space: [0.5, 0.6, 0.7] };
+      }
+      var d1 = r.pick([2, 3, 4, 6]), d2 = c === 3 ? d1 : r.pick([2, 3, 4, 5, 6]);
+      e1 = new Fr(r.int(1, 2 * d1 - 1), d1); e2 = new Fr(r.int(1, 2 * d2 - 1), d2);
+      kind = c === 3 ? 'product' : c === 4 ? r.pick(['product', 'quotient']) : c === 5 ? r.pick(['power', 'coef', 'quotient']) : r.pick(['two-var', 'negative', 'coef-root', 'mixed-root']);
+      var vs = {}, coef = 1, expr;
+      if (kind === 'product') { expr = v + ex(e1) + '\\cdot ' + v + ex(e2); vs[v] = e1.add(e2); why = 'Multiplying powers with the same base: add the exponents (use a common denominator).'; }
+      else if (kind === 'quotient') { K.need(e1.sub(e2).sign() > 0); expr = '\\frac{' + v + ex(e1) + '}{' + v + ex(e2) + '}'; vs[v] = e1.sub(e2); why = 'Dividing powers with the same base: subtract the exponents.'; }
+      else if (kind === 'power') { var p2 = new Fr(r.int(1, 5), r.pick([2, 3, 4])); expr = '\\left(' + v + ex(e1) + '\\right)' + ex(p2); K.need(!p2.eq(1)); vs[v] = e1.mul(p2); why = 'A power of a power: multiply the exponents.'; }
+      else if (kind === 'coef') { var rt = r.pick([2, 3]), b = r.int(2, rt === 2 ? 9 : 4), k = r.int(1, 4) * rt; expr = '\\left(' + Math.pow(b, rt) + v + '^{' + k + '}\\right)^{\\frac{1}{' + rt + '}}'; coef = b; vs[v] = new Fr(k, rt); why = 'Raise each factor to the power: ⟨' + Math.pow(b, rt) + '^{\\frac{1}{' + rt + '}}=' + b + '⟩ and multiply the exponents of ' + v + '.'; }
+      else if (kind === 'two-var') { var w = v === 'y' ? 'x' : 'y', f1 = new Fr(r.int(1, 2 * d2 - 1), d2), f2 = new Fr(1, r.pick([2, 3, 4])); K.need(e1.sub(e2).sign() > 0 && !f1.sub(f2).isZero() && f1.sub(f2).sign() > 0);
+        expr = '\\frac{' + v + ex(e1) + w + ex(f1) + '}{' + v + ex(e2) + w + ex(f2) + '}'; vs[v] = e1.sub(e2); vs[w] = f1.sub(f2); why = 'Subtract exponents for each variable separately.'; }
+      else if (kind === 'negative') { var en = new Fr(-r.int(1, 5), r.pick([2, 3, 4])); K.need(en.add(e2).sign() > 0); expr = v + ex(en) + '\\cdot ' + v + ex(e2); vs[v] = en.add(e2); why = 'Add the exponents; the result is positive, so no reciprocal is needed.'; }
+      else if (kind === 'coef-root') { var rt2 = r.pick([2, 3]), b2 = r.int(2, rt2 === 2 ? 7 : 4), k2 = rt2 * r.int(1, 3), w2 = v === 'y' ? 'x' : 'y', k3 = r.int(1, 2 * rt2); expr = rootTeX(rt2, Math.pow(b2, rt2) + v + '^{' + k2 + '}' + w2 + '^{' + k3 + '}'); coef = b2; vs[v] = new Fr(k2, rt2); vs[w2] = new Fr(k3, rt2); why = 'A root is the power ⟨\\frac{1}{' + rt2 + '}⟩: take the root of the number and divide each exponent by ' + rt2 + '.'; }
+      else { var n1 = r.pick([2, 3]), n2 = r.pick([3, 4, 5]); K.need(n1 !== n2); expr = rootTeX(n1, v) + '\\cdot ' + rootTeX(n2, v); vs[v] = new Fr(1, n1).add(new Fr(1, n2)); why = 'Rewrite each root as a rational exponent, then add the exponents.'; }
+      out = monoTeX(coef, vs);
+      var wrongVs = {}; Object.keys(vs).forEach(function (k) { wrongVs[k] = kind === 'product' || kind === 'negative' ? e1.mul(e2) : kind === 'quotient' ? e1.div(e2) : kind === 'power' ? Fr.of(vs[k]).add(1) : Fr.of(vs[k]).mul(2); });
+      prompt = 'Simplify ' + M(expr) + '.' + (c >= 4 ? ' Write the answer with positive rational exponents.' : '');
+      return { variant: 'ratexp-' + kind + '-' + c, prompt: prompt.replace(/\^\{1\}/g, ''), parts: [{ answer: M(out), check: { type: 'derive', kind: 'ratexp', alts: [monoTeX(coef, wrongVs), monoTeX(coef + (coef > 1 ? 1 : 0), Object.assign({}, vs, (function () { var o = {}; o[v] = Fr.of(vs[v]).add(new Fr(1, 2)); return o; })())), monoTeX(coef * (coef > 1 ? coef : 2), vs)].filter(function (z) { return z !== out; }).map(M) } }],
+        steps: [step(why, '', 2), step('Simplify.', expr + '=' + out, 2)], space: [0.7, 0.8, 0.9] };
+    }
+  });
+
   (function(){var parent=skills.find(function(s){return s.id==="pow-eval";});if(parent)skill({id:"rational-exponents",best:parent.best,tag:parent.tag,name:"Evaluate rational exponents",blurb:"Evaluate powers with fractional exponents using nth roots.",difficultyProfile:'focused',fixedDifficulty:6,generate:function(ctx){return parent.generate(Object.assign({},ctx,{c:6}));}});})();
   NS.registerSkillSet({
     id: 'algebra1-exponents-scientific-notation', course: 'algebra1', courseName: 'Algebra 1', unit: 'exponents-exponential-functions', unitName: 'Exponents and Scientific Notation',
     title: 'The Power Pantry',
-    tags: { PRODUCT: 'Product and power rules', QUOTIENT: 'Quotient, zero and negative exponents', EVAL: 'Evaluate powers', SCI: 'Scientific notation', SCIOPS: 'Operations in scientific notation', RADICAL: 'Square roots' },
+    tags: { PRODUCT: 'Product and power rules', QUOTIENT: 'Quotient, zero and negative exponents', EVAL: 'Evaluate powers', SCI: 'Scientific notation', SCIOPS: 'Operations in scientific notation', RADICAL: 'Square roots', RATEXP: 'Rational exponents with variables' },
     reference:
       '<div class="mm-refgrid">' +
       '<section><h4>Product and power</h4><p>⟨a^{m}\\cdot a^{n}=a^{m+n}⟩, ⟨(a^{m})^{n}=a^{mn}⟩, ⟨(ab)^{n}=a^{n}b^{n}⟩.</p></section>' +
@@ -259,7 +295,7 @@
       '<section><h4>Square roots</h4><p>⟨\\sqrt{ab}=\\sqrt{a}\\cdot\\sqrt{b}⟩: ⟨\\sqrt{72}=\\sqrt{36}\\cdot\\sqrt{2}=6\\sqrt{2}⟩. Rationalize: ⟨\\frac{6}{\\sqrt{3}}=\\frac{6\\sqrt{3}}{3}=2\\sqrt{3}⟩.</p></section>' +
       '<section><h4>Scientific notation</h4><p>⟨a\\times10^{n}⟩ with ⟨1\\le a<10⟩. Large numbers: ⟨n>0⟩; small numbers: ⟨n<0⟩.</p></section>' +
       '</div>',
-    gaps: ['Variables with rational exponents are not generated.'],
+    gaps: [],
     skills: skills
   });
 })(typeof window !== 'undefined' ? window : globalThis);
