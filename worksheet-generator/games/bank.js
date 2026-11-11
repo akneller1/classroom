@@ -152,6 +152,13 @@
       PN.forEach(function (n) { if (n !== key) cands.push({ a: n, w: kw(n) === kw(key) ? 5 : op(n) === op(key) ? 4 : 2 }); });
     }
     if ((chP.type === 'property-apply' || chP.type === 'derive') && Array.isArray(chP.alts)) chP.alts.forEach(function (a) { cands.push({ a: a, w: 6 }); });
+    // Transformation classification has three meaningful choices. Numeric mutations
+    // cannot produce alternatives for these word answers; each label is checked below.
+    if (chP.type === 'derive' && chP.kind === 'sequence' && /^geo-sequence-class-/.test(p.variant || '')) {
+      ['Congruent', 'Similar but not congruent', 'Neither'].forEach(function (a) {
+        if (a !== key) cands.push({ a: a, w: 6 });
+      });
+    }
     // two-column proofs: the other standard reasons, and wrong vertex orders / other parts for a statement (each verified wrong below)
     if ((p.parts[k].check || {}).type === 'geo-proof-blank') {
       if (p.parts[k].check.field === 'r') ['Given', 'Reflexive Property of Congruence', 'Vertical angles are congruent', 'Alternate interior angles are congruent', 'Corresponding angles are congruent',

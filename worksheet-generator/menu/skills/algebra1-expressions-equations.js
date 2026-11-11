@@ -1201,7 +1201,7 @@
       case 'inv-add': t = c <= 2 ? String(r.int(2, 60)) : r.pick([v, r.int(2, 9) + v, String(r.int(2, 40))].concat(c >= 6 ? ['\\frac{' + r.pick([1, 2, 3]) + '}{' + r.pick([5, 7, 11]) + '}'] : []));
         return flip(r.chance(0.5) ? t + '+(-' + t + ')' : '-' + t + '+' + t, '0');
       case 'inv-mul': k = r.int(2, 12);
-        if (c >= 5 && r.chance(0.6)) { b = r.int(1, 9); var d = r.int(2, 11); need(b !== d && gcd(b, d) === 1); var s = c >= 6 && r.chance(0.4) ? '-' : '';
+        if (c >= 5 && r.chance(0.6)) { b = r.int(2, 9); var d = r.int(2, 11); need(b !== d && gcd(b, d) === 1); var s = c >= 6 && r.chance(0.4) ? '-' : '';
           return flip(s ? '\\left(-\\frac{' + b + '}{' + d + '}\\right)\\cdot\\left(-\\frac{' + d + '}{' + b + '}\\right)' : '\\frac{' + b + '}{' + d + '}\\cdot\\frac{' + d + '}{' + b + '}', '1'); }
         return flip(r.chance(0.5) ? k + '\\cdot\\frac{1}{' + k + '}' : '\\frac{1}{' + k + '}\\cdot ' + k, '1');
       case 'dist':
