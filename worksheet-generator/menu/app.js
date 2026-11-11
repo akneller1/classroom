@@ -714,7 +714,7 @@
   // Topic worksheets retain original skill generators and their format capabilities.
   var topicMode = false, topicQuery = '', topicFormat = 'open', topicLevel = 'cp1';
   var topicCourse = null, topicCart = [], topicResults = [], topicPage = 0, topicToken = 0;
-  function topicId(g) { return 'topic-' + g.course.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,''); }
+  function topicId(g) { if(g==='all')return 'topic-all'; return 'topic-' + g.course.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,''); }
   function registerTopicSets() {
     NS.CATALOG.forEach(function (g) {
       var skills = [], tags = {};
@@ -724,12 +724,15 @@
           var id = u[0] + ':' + sk.id, tag = u[0] + ':' + sk.tag;
           tags[tag] = u[1] + ' · ' + (set.tags[sk.tag] || sk.tag);
           skills.push(Object.assign({}, sk, {id:id, tag:tag, name:sk.name,
-            topicSource:{unit:u[0],skill:sk.id,unitName:u[1]},
+            topicSource:{unit:u[0],skill:sk.id,unitName:u[1],course:g.course},
             generate:function(ctx){return sk.generate(ctx);}}));
         });
       });
       if (skills.length) NS.registerSkillSet({id:topicId(g), title:g.course+' Topic Worksheet', unitName:g.course+' Topics', skills:skills, tags:tags, gaps:[]});
     });
+    var allSkills=[], allTags={};
+    NS.CATALOG.forEach(function(g){var set=NS.skillSets[topicId(g)];if(set){allSkills=allSkills.concat(set.skills);Object.assign(allTags,set.tags);}});
+    NS.registerSkillSet({id:'topic-all',title:'Mixed Classes Worksheet',unitName:'All Classes',skills:allSkills,tags:allTags,gaps:[]});
   }
   var sourceGenerate = NS.generateProblem, sourceFormatOk = NS.skillFormatOk, sourceMulti = NS.multiUnitSupported;
   NS.generateProblem = function(unit, skill, c, policy, seed, used) {
@@ -749,15 +752,15 @@
     topicCourse = topicCourse || classGroup(cfg().unitId) || NS.CATALOG[0];
     var host = $('#mmView'); host.className = 'mm-view-setup';
     host.innerHTML = '<section class="card mm-card"><h2>Find questions</h2><button class="btn ghost" id="topicBack">Browse by unit</button> <button class="btn" disabled>Search by topic</button>' +
-      '<label class="field"><span class="lbl">Class</span><select id="topicClass">'+classOptions(topicCourse)+'</select></label>' +
+      '<label class="field"><span class="lbl">Class</span><select id="topicClass"><option value="all"'+(topicCourse==='all'?' selected':'')+'>All classes</option>'+classOptions(topicCourse)+'</select></label>' +
       '<label class="field"><span class="lbl">Topic</span><input id="topicQuery" type="search" placeholder="e.g. slope, rate of change, factoring" value="'+esc(topicQuery)+'"></label>' +
-      '<p class="hint">Search skills and question wording across all available units in this class. Add individual questions, then search another topic to mix skills.</p>' +
-      '<label class="field"><span class="lbl">Question format</span><select id="topicFormat">'+Object.keys(NS.FORMATS).map(function(f){return '<option value="'+f+'"'+(f===topicFormat?' selected':'')+'>'+esc(NS.FORMATS[f])+'</option>';}).join('')+'</select></label>' +
-      '<label class="field"><span class="lbl">Difficulty</span><select id="topicLevel">'+Object.keys(NS.LEVELS).map(function(l){return '<option value="'+l+'"'+(l===topicLevel?' selected':'')+'>'+esc(NS.courseLevelName(topicCourse.units[0][0],l))+'</option>';}).join('')+'</select></label>' +
+      '<p class="hint">Search skills and question wording across all available units in the selected classes. Add individual questions, then search another topic to mix skills.</p>' +
+      '<label class="field"><span class="lbl">Question format</span><select id="topicFormat"><option value="all"'+(topicFormat==='all'?' selected':'')+'>All formats</option>'+Object.keys(NS.FORMATS).map(function(f){return '<option value="'+f+'"'+(f===topicFormat?' selected':'')+'>'+esc(NS.FORMATS[f])+'</option>';}).join('')+'</select></label>' +
+      '<label class="field"><span class="lbl">Difficulty</span><select id="topicLevel"><option value="all"'+(topicLevel==='all'?' selected':'')+'>All difficulties</option>'+Object.keys(NS.LEVELS).map(function(l){return '<option value="'+l+'"'+(l===topicLevel?' selected':'')+'>'+esc(topicCourse==='all'?NS.LEVELS[l].name:NS.courseLevelName(topicCourse.units[0][0],l))+'</option>';}).join('')+'</select></label>' +
       '<button class="btn" id="topicSearch">Search questions</button><p id="topicStatus" role="status" aria-live="polite"></p><div id="topicResults"></div><button class="btn ghost" id="topicMore" hidden>More questions</button></section>' +
       '<section class="card mm-card"><h2>Selected questions (<span id="topicCount">'+topicCart.length+'</span>)</h2><div id="topicCart"></div><button class="btn" id="topicBuild">Review worksheet</button></section>';
     $('#topicBack').onclick=function(){topicToken++;topicMode=false;render();};
-    $('#topicClass').onchange=function(){topicToken++;topicCourse=NS.CATALOG[this.value];topicCart=[];topicResults=[];topicView();};
+    $('#topicClass').onchange=function(){topicToken++;topicCourse=this.value==='all'?'all':NS.CATALOG[this.value];topicResults=[];topicPage=0;topicView();topicSearch();};
     $('#topicQuery').oninput=function(){topicQuery=this.value;clearTimeout(topicView.timer);topicView.timer=setTimeout(function(){topicPage=0;topicSearch();},450);};
     $('#topicQuery').onkeydown=function(e){if(e.key==='Enter'){clearTimeout(topicView.timer);topicPage=0;topicSearch();}};
     $('#topicFormat').onchange=function(){topicFormat=this.value;topicPage=0;topicSearch();};
@@ -772,32 +775,34 @@
     var token=++topicToken, query=topicQuery.toLowerCase().trim(), terms=query.split(/\s+/).filter(Boolean);
     $('#topicStatus').textContent='Searching…'; $('#topicResults').innerHTML=''; $('#topicMore').hidden=true;
     if(!terms.length){$('#topicStatus').textContent='Type a topic to find questions.';return;}
-    var set=NS.skillSets[topicId(topicCourse)], skills=set ? set.skills : [], index=0, matches=[], scanned=0;
+    var set=NS.skillSets[topicId(topicCourse)], skills=set ? set.skills : [], index=0, matches=[];
+    var levels=topicLevel==='all'?Object.keys(NS.LEVELS):[topicLevel], formats=topicFormat==='all'?Object.keys(NS.FORMATS):[topicFormat], jobs=[];
+    skills.forEach(function(sk){levels.forEach(function(level){formats.forEach(function(format){jobs.push({sk:sk,level:level,format:format});});});});
     // Work in small batches so a large course never blocks typing or navigation.
     function batch(){
       if(token!==topicToken || !topicMode)return;
-      var stop=Math.min(skills.length,index+3);
+      var stop=Math.min(jobs.length,index+2);
       for(;index<stop;index++){
-        var sk=skills[index], src=sk.topicSource, meta=(sk.name+' '+(NS.skillSets[src.unit].tags[NS.skillSets[src.unit].byId[src.skill].tag]||'')).toLowerCase();
-        var c=NS.defaultConfig(src.unit,'worksheet'); c.level=topicLevel;c.versions=1;c.coverage.on=false;
+        var job=jobs[index], sk=job.sk, src=sk.topicSource, meta=(sk.name+' '+(NS.skillSets[src.unit].tags[NS.skillSets[src.unit].byId[src.skill].tag]||'')).toLowerCase();
+        var c=NS.defaultConfig(src.unit,'worksheet'); c.level=job.level;c.versions=1;c.coverage.on=false;
         c.skills={};c.skills[src.skill]=true;
-        c.sections=[{id:NS.uid('topicsec'),name:sk.name,note:'Show your work.',points:1,offered:1,required:1,tier:1,adjust:0,skills:[src.skill],qformat:topicFormat}];
+        c.sections=[{id:NS.uid('topicsec'),name:sk.name,note:'Show your work.',points:1,offered:1,required:1,tier:1,adjust:0,skills:[src.skill],qformat:job.format}];
         c.seed=Math.floor(Math.random()*1e9);
-        if(!NS.skillFormatOk(src.unit,src.skill,topicFormat,NS.sectionC(c,0)))continue;
+        if(!NS.skillFormatOk(src.unit,src.skill,job.format,NS.sectionC(c,0)))continue;
         var a;try{a=NS.newAssessment(c);}catch(e){continue;}
-        var p=a.versions[0].sections[0].items[0];scanned++;
+        var p=a.versions[0].sections[0].items[0];
         if(!p||p.failed||p.mcFail||p.multiFail||p.mcasFail||p.skill!==src.skill)continue;
         var text=(meta+' '+p.prompt+' '+(p.parts||[]).map(function(pt){return pt.prompt;}).join(' ')).toLowerCase();
         if(!terms.every(function(t){return text.indexOf(t)>=0;}))continue;
-        matches.push({p:p,section:c.sections[0],skill:sk.id,tag:sk.tag,unit:src.unit,label:src.unitName+' · '+sk.name,format:topicFormat});
+        matches.push({p:p,section:c.sections[0],skill:sk.id,tag:sk.tag,unit:src.unit,label:src.course+' · '+src.unitName+' · '+sk.name,format:job.format,level:job.level});
       }
-      if(index<skills.length){setTimeout(batch,0);return;}
+      if(index<jobs.length){setTimeout(batch,0);return;}
       topicResults=matches;var out=$('#topicResults');
       $('#topicStatus').textContent=matches.length+' matching question previews. '+(matches.length?'Add questions or use More questions for fresh examples.':'Try a broader topic or another format. Some skills do not support every format.');
-      matches.slice(0,60).forEach(function(item,i){
+      matches.slice((topicPage*60)%Math.max(1,matches.length),((topicPage*60)%Math.max(1,matches.length))+60).forEach(function(item,i){
         var card=doc.createElement('section');card.className='mm-dish card';
         var p=item.p, choices=p.mc||p.multi;
-        card.innerHTML='<h3>'+esc(item.label)+'</h3>'+promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs && NS.figHtml ? NS.figHtml(choices.graphs[k]) : '')+'</li>';}).join('')+'</ol>':'')+'<button class="btn sm" type="button">Add to worksheet</button>';
+        card.innerHTML='<h3>'+esc(item.label)+'</h3><p class="hint">'+esc(NS.FORMATS[item.format])+' · '+esc(NS.courseLevelName(item.unit,item.level))+'</p>'+promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs && NS.figHtml ? NS.figHtml(choices.graphs[k]) : '')+'</li>';}).join('')+'</ol>':'')+'<button class="btn sm" type="button">Add to worksheet</button>';
         $('button',card).onclick=function(){topicCart.push(JSON.parse(JSON.stringify(item)));topicDrawCart();};out.appendChild(card);
       });
       $('#topicMore').hidden=!matches.length;
@@ -806,16 +811,16 @@
   }
   function topicDrawCart(){
     $('#topicCount').textContent=topicCart.length;$('#topicBuild').disabled=!topicCart.length;
-    $('#topicCart').innerHTML=topicCart.map(function(x,i){return '<div class="card"><b>'+(i+1)+'. '+esc(x.label)+'</b>'+promptBlock(x.p)+'<button class="btn ghost sm" data-topic-remove="'+i+'">Remove</button></div>';}).join('');
+    $('#topicCart').innerHTML=topicCart.map(function(x,i){return '<div class="card"><b>'+(i+1)+'. '+esc(x.label)+'</b><p class="hint">'+esc(NS.FORMATS[x.format])+' · '+esc(NS.courseLevelName(x.unit,x.level||'cp1'))+'</p>'+promptBlock(x.p)+'<button class="btn ghost sm" data-topic-remove="'+i+'">Remove</button></div>';}).join('');
     $$('[data-topic-remove]').forEach(function(b){b.onclick=function(){topicCart.splice(+b.getAttribute('data-topic-remove'),1);topicDrawCart();};});
   }
   function topicBuild(){
     if(!topicCart.length)return;snapshot();
-    var c=NS.defaultConfig(topicId(topicCourse),'worksheet');c.title=topicCourse.course+' Worksheet';c.versions=1;c.coverage.on=false;c.skills={};c.sections=[];
+    var c=NS.defaultConfig('topic-all','worksheet');c.title=(topicCourse==='all'?'Mixed Classes':topicCourse.course)+' Worksheet';c.versions=1;c.coverage.on=false;c.skills={};c.sections=[];
     var sections=[];
-    c.level=topicLevel;
+    c.level=topicLevel==='all'?'cp1':topicLevel;
     topicCart.forEach(function(x,i){
-      c.skills[x.skill]=true;var sec=Object.assign({},x.section,{id:NS.uid('sec'),name:'Question '+(i+1)+' · '+NS.FORMATS[x.format],skills:[x.skill]});c.sections.push(sec);
+      c.skills[x.skill]=true;var sec=Object.assign({},x.section,{id:NS.uid('sec'),name:'Question '+(i+1)+' · '+NS.FORMATS[x.format],skills:[x.skill],tier:1,adjust:x.p.c-NS.LEVELS[c.level].tiers[1]});c.sections.push(sec);
       var p=JSON.parse(JSON.stringify(x.p));p.skill=x.skill;p.tag=x.tag;p.pinned=true;
       sections.push({id:sec.id,items:[p]});
     });

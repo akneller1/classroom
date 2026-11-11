@@ -26,3 +26,14 @@ for(const sec of restored.versions[0].sections)assert(!sec.items[0].failed);
 for(const sk of chosen){const p=NS.generateProblem(mixed.id,sk.id,4,{intOnly:true,level:'cp1'},'topic-test');assert(!p.failed);assert.equal(p.skill,sk.id);}
 assert.equal(NS.skillFormatOk(mixed.id,chosen[0].id,'multi',4),NS.skillFormatOk(chosen[0].topicSource.unit,chosen[0].topicSource.skill,'multi',4));
 console.log('Topic tests passed: cross-unit selection, original generators, format capability, worksheet build, save/restore.');
+const geometry=NS.skillSets['topic-geometry'].skills.find(sk=>NS.skillFormatOk(sk.topicSource.unit,sk.topicSource.skill,'open',6));
+const gp=NS.generateProblem(geometry.topicSource.unit,geometry.topicSource.skill,6,{intOnly:false,level:'honors'},'cross-class');
+assert(!gp.failed);
+env.extra={p:gp,section:{qformat:'open',note:'Show your work.',points:1,offered:1,required:1},skill:geometry.id,tag:geometry.tag,format:'open',level:'honors'};
+vm.runInContext("topicCourse='all';topicLevel='all';topicCart=cart.concat([extra]);topicBuild();",env);
+assert.equal(env.S.config.unitId,'topic-all');
+assert.equal(env.S.versions[0].sections.length,3);
+assert.equal(NS.sectionC(env.S.config,2),6);
+assert.equal(NS.deserialize(NS.serialize(env.S)).versions[0].sections[2].items[0].c,6);
+assert.equal(NS.checkRules(env.S.config,env.S).errors.length,0);
+console.log('All-classes worksheet preserves source classes and mixed difficulty through save/restore.');
