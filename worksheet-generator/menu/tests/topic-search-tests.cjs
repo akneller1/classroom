@@ -72,3 +72,15 @@ assert.equal(env.topicSuggestionsFor(NS.CATALOG.find(g=>g.course==='Geometry'),'
 assert(env.topicSuggestionsFor('all','sl').includes('Slope'));
 assert(!sTopics.some(x=>/^Unit \d/.test(x)));
 console.log('Suggestions passed: s includes slope and systems, sl narrows to slope, class scoping, all classes, deduplication.');
+const beforeRegenerate=JSON.stringify(env.mcItem);
+vm.runInContext('var regenerated=topicQuestionBatch(mcItem,1,[mcItem].concat(mcBatch))[0];',env);
+assert(env.regenerated);
+assert.notEqual(env.topicQuestionKey(env.regenerated),env.topicQuestionKey(env.mcItem));
+assert.equal(env.regenerated.skill,env.mcItem.skill);
+assert.equal(env.regenerated.format,env.mcItem.format);
+assert.equal(env.regenerated.level,env.mcItem.level);
+assert.equal(env.regenerated.p.c,env.mcItem.p.c);
+assert(env.regenerated.p.mc);
+assert.equal(JSON.stringify(env.mcItem),beforeRegenerate);
+assert(!app.includes('id="topicMore"'));
+console.log('Regeneration replaces only the example, preserves skill/format/difficulty, and avoids previous previews and selected questions.');

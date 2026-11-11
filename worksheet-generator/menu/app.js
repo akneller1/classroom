@@ -713,7 +713,7 @@
 
   // Topic worksheets retain original skill generators and their format capabilities.
   var topicMode = false, topicQuery = '', topicFormat = 'open', topicLevel = 'cp1';
-  var topicCourse = null, topicCart = [], topicResults = [], topicPage = 0, topicToken = 0;
+  var topicCourse = null, topicCart = [], topicResults = [], topicToken = 0;
   function topicId(g) { if(g==='all')return 'topic-all'; return 'topic-' + g.course.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-$/,''); }
   function registerTopicSets() {
     NS.CATALOG.forEach(function (g) {
@@ -757,11 +757,11 @@
       '<p class="hint">Search skills and question wording across all available units in the selected classes. Add individual questions, then search another topic to mix skills.</p>' +
       '<label class="field"><span class="lbl">Question format</span><select id="topicFormat"><option value="all"'+(topicFormat==='all'?' selected':'')+'>All formats</option>'+Object.keys(NS.FORMATS).map(function(f){return '<option value="'+f+'"'+(f===topicFormat?' selected':'')+'>'+esc(NS.FORMATS[f])+'</option>';}).join('')+'</select></label>' +
       '<label class="field"><span class="lbl">Difficulty</span><select id="topicLevel"><option value="all"'+(topicLevel==='all'?' selected':'')+'>All difficulties</option>'+Object.keys(NS.LEVELS).map(function(l){return '<option value="'+l+'"'+(l===topicLevel?' selected':'')+'>'+esc(topicCourse==='all'?NS.LEVELS[l].name:NS.courseLevelName(topicCourse.units[0][0],l))+'</option>';}).join('')+'</select></label>' +
-      '<button class="btn" id="topicSearch">Search questions</button><p id="topicStatus" role="status" aria-live="polite"></p><div id="topicResults"></div><button class="btn ghost" id="topicMore" hidden>More questions</button></section>' +
+      '<button class="btn" id="topicSearch">Search questions</button><p id="topicStatus" role="status" aria-live="polite"></p><div id="topicResults"></div></section>' +
       '<section class="card mm-card"><h2>Selected questions (<span id="topicCount">'+topicCart.length+'</span>)</h2><div id="topicCart"></div><button class="btn" id="topicBuild">Review worksheet</button></section>';
     $('#topicBack').onclick=function(){topicToken++;topicMode=false;render();};
-    $('#topicClass').onchange=function(){topicToken++;topicCourse=this.value==='all'?'all':NS.CATALOG[this.value];topicResults=[];topicPage=0;topicView();topicSearch();};
-    $('#topicQuery').oninput=function(){topicQuery=this.value;topicToken++;topicSuggest();clearTimeout(topicView.timer);topicView.timer=setTimeout(function(){topicPage=0;topicSearch();},450);};
+    $('#topicClass').onchange=function(){topicToken++;topicCourse=this.value==='all'?'all':NS.CATALOG[this.value];topicResults=[];topicView();topicSearch();};
+    $('#topicQuery').oninput=function(){topicQuery=this.value;topicToken++;topicSuggest();clearTimeout(topicView.timer);topicView.timer=setTimeout(function(){topicSearch();},450);};
     $('#topicQuery').onfocus=topicSuggest;
     $('#topicQuery').onblur=function(){setTimeout(function(){var list=$('#topicSuggestions');if(list&&!list.contains(doc.activeElement))topicHideSuggestions();},0);};
     $('#topicQuery').onkeydown=function(e){
@@ -772,12 +772,11 @@
         options.forEach(function(b,i){b.setAttribute('aria-selected',i===topicSuggestIndex?'true':'false');b.style.background=i===topicSuggestIndex?'var(--line)':'';});
         this.setAttribute('aria-activedescendant',options[topicSuggestIndex].id);options[topicSuggestIndex].scrollIntoView({block:'nearest'});return;
       }
-      if(e.key==='Enter'){e.preventDefault();if(topicSuggestIndex>=0&&!$('#topicSuggestions').hidden){topicChooseSuggestion(topicSuggested[topicSuggestIndex]);return;}topicHideSuggestions();clearTimeout(topicView.timer);topicPage=0;topicSearch();}
+      if(e.key==='Enter'){e.preventDefault();if(topicSuggestIndex>=0&&!$('#topicSuggestions').hidden){topicChooseSuggestion(topicSuggested[topicSuggestIndex]);return;}topicHideSuggestions();clearTimeout(topicView.timer);topicSearch();}
     };
-    $('#topicFormat').onchange=function(){topicFormat=this.value;topicPage=0;topicSearch();};
-    $('#topicLevel').onchange=function(){topicLevel=this.value;topicPage=0;topicSearch();};
-    $('#topicSearch').onclick=function(){topicHideSuggestions();topicPage=0;topicSearch();};
-    $('#topicMore').onclick=function(){topicPage++;topicSearch();};
+    $('#topicFormat').onchange=function(){topicFormat=this.value;topicSearch();};
+    $('#topicLevel').onchange=function(){topicLevel=this.value;topicSearch();};
+    $('#topicSearch').onclick=function(){topicHideSuggestions();topicSearch();};
     $('#topicBuild').onclick=topicBuild;
     topicDrawCart();
     topicSuggested=[];topicSuggestIndex=-1;
@@ -807,7 +806,7 @@
     $('#topicSuggestStatus').textContent='';
   }
   function topicChooseSuggestion(name){
-    topicQuery=name;$('#topicQuery').value=name;topicHideSuggestions();clearTimeout(topicView.timer);topicPage=0;topicSearch();
+    topicQuery=name;$('#topicQuery').value=name;topicHideSuggestions();clearTimeout(topicView.timer);topicSearch();
   }
   function topicSuggest(){
     var input=$('#topicQuery'),list=$('#topicSuggestions'),all=topicSuggestionsFor(topicCourse,input.value);
@@ -823,7 +822,7 @@
   function topicSearch() {
     if (!topicMode || !$('#topicStatus')) return;
     var token=++topicToken, query=topicQuery.toLowerCase().trim(), terms=query.split(/\s+/).filter(Boolean);
-    $('#topicStatus').textContent='Searching…'; $('#topicResults').innerHTML=''; $('#topicMore').hidden=true;
+    $('#topicStatus').textContent='Searching…'; $('#topicResults').innerHTML='';
     if(!terms.length){$('#topicStatus').textContent='Type a topic to find questions.';return;}
     var set=NS.skillSets[topicId(topicCourse)], skills=set ? set.skills : [], index=0, matches=[];
     var levels=topicLevel==='all'?Object.keys(NS.LEVELS):[topicLevel], formats=topicFormat==='all'?Object.keys(NS.FORMATS):[topicFormat], jobs=[];
@@ -848,12 +847,24 @@
       }
       if(index<jobs.length){setTimeout(batch,0);return;}
       topicResults=matches;var out=$('#topicResults');
-      $('#topicStatus').textContent=matches.length+' matching question previews. '+(matches.length?'Add questions or use More questions for fresh examples.':'Try a broader topic or another format. Some skills do not support every format.');
-      matches.slice((topicPage*60)%Math.max(1,matches.length),((topicPage*60)%Math.max(1,matches.length))+60).forEach(function(item,i){
+      $('#topicStatus').textContent=matches.length+' matching question previews. '+(matches.length?'Add questions or regenerate an individual preview for a fresh example.':'Try a broader topic or another format. Some skills do not support every format.');
+      matches.forEach(function(item,i){
         var card=doc.createElement('section');card.className='mm-dish card';
-        var p=item.p, choices=p.mc||p.multi;
-        card.innerHTML='<h3>'+esc(item.label)+'</h3><p class="hint">'+esc(NS.FORMATS[item.format])+' · '+esc(NS.courseLevelName(item.unit,item.level))+'</p>'+promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs && NS.figHtml ? NS.figHtml(choices.graphs[k]) : '')+'</li>';}).join('')+'</ol>':'')+'<label class="field"><span class="lbl">Questions of this skill</span><input class="topicQuantity" type="number" min="1" max="20" step="1" value="1" style="width:6rem" aria-label="Number of questions for '+esc(item.label)+'"></label><button class="btn sm" type="button">Add to worksheet</button><p class="hint topicAddStatus" role="status" aria-live="polite"></p>';
-        $('button',card).onclick=function(){
+        var seenPreviews=[JSON.parse(JSON.stringify(item))];
+        card.innerHTML='<h3>'+esc(item.label)+'</h3><p class="hint">'+esc(NS.FORMATS[item.format])+' · '+esc(NS.courseLevelName(item.unit,item.level))+'</p><div class="topicQuestionPreview">'+topicQuestionPreview(item)+'</div><label class="field"><span class="lbl">Questions of this skill</span><input class="topicQuantity" type="number" min="1" max="20" step="1" value="1" style="width:6rem" aria-label="Number of questions for '+esc(item.label)+'"></label><button class="btn ghost sm topicRegenerate" type="button">↻ Regenerate</button> <button class="btn sm topicAdd" type="button">Add to worksheet</button><p class="hint topicAddStatus" role="status" aria-live="polite"></p>';
+        $('.topicRegenerate',card).onclick=function(){
+          var button=this, add=$('.topicAdd',card);button.disabled=true;add.disabled=true;
+          $('.topicAddStatus',card).textContent='Regenerating…';
+          setTimeout(function(){
+            try{
+              var fresh=topicQuestionBatch(item,1,topicCart.concat(seenPreviews))[0];
+              if(fresh){item.p=fresh.p;seenPreviews.push(fresh);$('.topicQuestionPreview',card).innerHTML=topicQuestionPreview(item);$('.topicAddStatus',card).textContent='New example ready.';}
+              else $('.topicAddStatus',card).textContent='No different question was found for this skill, format, and difficulty.';
+            }catch(e){$('.topicAddStatus',card).textContent='Could not regenerate. Please try again.';}
+            button.disabled=false;add.disabled=false;
+          },0);
+        };
+        $('.topicAdd',card).onclick=function(){
           var button=this, input=$('.topicQuantity',card), count=Math.max(1,Math.min(20,Math.floor(Number(input.value)||1)));
           input.value=count;button.disabled=true;$('.topicAddStatus',card).textContent='Adding questions…';
           setTimeout(function(){
@@ -865,9 +876,12 @@
           },0);
         };out.appendChild(card);
       });
-      $('#topicMore').hidden=!matches.length;
     }
     setTimeout(batch,0);
+  }
+  function topicQuestionPreview(item){
+    var p=item.p,choices=p.mc||p.multi;
+    return promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs&&NS.figHtml?NS.figHtml(choices.graphs[k]):'')+'</li>';}).join('')+'</ol>':'');
   }
   function topicQuestionKey(item) {
     return (item.unit || item.skill.split(':')[0])+'|'+NS.studentText(item.p).replace(/\s+/g,' ').trim()+'|'+JSON.stringify(item.p.fig||null);
