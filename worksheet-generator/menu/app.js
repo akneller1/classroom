@@ -802,12 +802,49 @@
       matches.slice((topicPage*60)%Math.max(1,matches.length),((topicPage*60)%Math.max(1,matches.length))+60).forEach(function(item,i){
         var card=doc.createElement('section');card.className='mm-dish card';
         var p=item.p, choices=p.mc||p.multi;
-        card.innerHTML='<h3>'+esc(item.label)+'</h3><p class="hint">'+esc(NS.FORMATS[item.format])+' · '+esc(NS.courseLevelName(item.unit,item.level))+'</p>'+promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs && NS.figHtml ? NS.figHtml(choices.graphs[k]) : '')+'</li>';}).join('')+'</ol>':'')+'<button class="btn sm" type="button">Add to worksheet</button>';
-        $('button',card).onclick=function(){topicCart.push(JSON.parse(JSON.stringify(item)));topicDrawCart();};out.appendChild(card);
+        card.innerHTML='<h3>'+esc(item.label)+'</h3><p class="hint">'+esc(NS.FORMATS[item.format])+' · '+esc(NS.courseLevelName(item.unit,item.level))+'</p>'+promptBlock(p)+(choices?'<ol>'+choices.opts.map(function(o,k){return '<li>'+mathSafe(o)+(choices.graphs && NS.figHtml ? NS.figHtml(choices.graphs[k]) : '')+'</li>';}).join('')+'</ol>':'')+'<label class="field"><span class="lbl">Questions of this skill</span><input class="topicQuantity" type="number" min="1" max="20" step="1" value="1" style="width:6rem" aria-label="Number of questions for '+esc(item.label)+'"></label><button class="btn sm" type="button">Add to worksheet</button><p class="hint topicAddStatus" role="status" aria-live="polite"></p>';
+        $('button',card).onclick=function(){
+          var button=this, input=$('.topicQuantity',card), count=Math.max(1,Math.min(20,Math.floor(Number(input.value)||1)));
+          input.value=count;button.disabled=true;$('.topicAddStatus',card).textContent='Adding questions…';
+          setTimeout(function(){
+            try{
+              var added=topicQuestionBatch(item,count,topicCart);topicCart=topicCart.concat(added);topicDrawCart();
+              $('.topicAddStatus',card).textContent='Added '+added.length+' of '+count+' requested question'+(count===1?'':'s')+'.'+(added.length<count?' No more distinct questions were found for this skill, format, and difficulty.':'');
+            }catch(e){$('.topicAddStatus',card).textContent='Could not add questions. Please try again.';}
+            button.disabled=false;
+          },0);
+        };out.appendChild(card);
       });
       $('#topicMore').hidden=!matches.length;
     }
     setTimeout(batch,0);
+  }
+  function topicQuestionKey(item) {
+    return (item.unit || item.skill.split(':')[0])+'|'+NS.studentText(item.p).replace(/\s+/g,' ').trim()+'|'+JSON.stringify(item.p.fig||null);
+  }
+  // Keep the displayed example, then request fresh source questions with identical settings.
+  function topicQuestionBatch(item,count,existing) {
+    count=Math.max(1,Math.min(20,Math.floor(Number(count)||1)));
+    var seen=new Set((existing||[]).map(topicQuestionKey)), added=[];
+    var sk=NS.skillSets['topic-all'].byId[item.skill], src=sk && sk.topicSource;
+    if(!src)return added;
+    function accept(candidate){
+      var p=candidate.p;
+      if(!p || p.failed || p.mcFail || p.multiFail || p.mcasFail || p.skill!==src.skill)return;
+      if(item.format==='mc'&&!p.mc || item.format==='multi'&&!p.multi)return;
+      var key=topicQuestionKey(candidate);if(seen.has(key))return;
+      seen.add(key);added.push(JSON.parse(JSON.stringify(candidate)));
+    }
+    accept(item);
+    for(var attempt=0;added.length<count && attempt<count*8;attempt++){
+      var c=NS.defaultConfig(src.unit,'worksheet');c.level=item.level||'cp1';c.versions=1;c.coverage.on=false;
+      c.skills={};c.skills[src.skill]=true;
+      c.sections=[Object.assign({},item.section,{id:NS.uid('topicsec'),skills:[src.skill],offered:1,required:1})];
+      c.seed=Math.floor(Math.random()*1e9);
+      var a;try{a=NS.newAssessment(c);}catch(e){continue;}
+      accept(Object.assign({},item,{p:a.versions[0].sections[0].items[0],unit:src.unit}));
+    }
+    return added;
   }
   function topicDrawCart(){
     $('#topicCount').textContent=topicCart.length;$('#topicBuild').disabled=!topicCart.length;

@@ -37,3 +37,26 @@ assert.equal(NS.sectionC(env.S.config,2),6);
 assert.equal(NS.deserialize(NS.serialize(env.S)).versions[0].sections[2].items[0].c,6);
 assert.equal(NS.checkRules(env.S.config,env.S).errors.length,0);
 console.log('All-classes worksheet preserves source classes and mixed difficulty through save/restore.');
+const slopeSrc=chosen[0].topicSource;
+env.batchItem=Object.assign({},cart[0],{unit:slopeSrc.unit,level:'cp1'});
+vm.runInContext('var repeated=topicQuestionBatch(batchItem,5,[]);',env);
+assert.equal(env.repeated.length,5);
+assert.equal(new Set(env.repeated.map(env.topicQuestionKey)).size,5);
+assert.equal(env.topicQuestionKey(env.repeated[0]),env.topicQuestionKey(env.batchItem));
+for(const x of env.repeated){assert.equal(x.p.skill,slopeSrc.skill);assert.equal(x.p.c,cart[0].p.c);assert(!x.p.failed);}
+env.existing=env.repeated;
+vm.runInContext('var anotherBatch=topicQuestionBatch(batchItem,3,existing);',env);
+assert.equal(env.anotherBatch.length,3);
+assert.equal(new Set(env.repeated.concat(env.anotherBatch).map(env.topicQuestionKey)).size,8);
+vm.runInContext("topicCart=repeated;topicBuild();",env);
+assert.equal(env.S.versions[0].sections.length,5);
+assert.equal(NS.deserialize(NS.serialize(env.S)).versions[0].sections.length,5);
+console.log('Skill quantity tests passed: requested counts, distinct questions, existing-selection deduplication, difficulty, save/restore.');
+const mcConfig=NS.defaultConfig(slopeSrc.unit,'worksheet');mcConfig.level='cp1';mcConfig.coverage.on=false;mcConfig.skills={};mcConfig.skills[slopeSrc.skill]=true;
+mcConfig.sections=[Object.assign({},cart[0].section,{tier:1,qformat:'mc'})];
+const mcState=NS.newAssessment(mcConfig);
+env.mcItem=Object.assign({},env.batchItem,{p:mcState.versions[0].sections[0].items[0],section:mcConfig.sections[0],format:'mc'});
+vm.runInContext('var mcBatch=topicQuestionBatch(mcItem,4,[]);',env);
+assert.equal(env.mcBatch.length,4);
+for(const x of env.mcBatch){assert(x.p.mc);assert.equal(x.p.c,4);assert.equal(x.p.skill,slopeSrc.skill);}
+console.log('Multiple-choice quantity retains checked choices and requested difficulty.');
