@@ -45,6 +45,12 @@ for(const unit of units){
     if(!found){
      const whole=GB.makeWholeItems(unit,skill.id,c,{intOnly:c<=5,level:'game'},'whole-fallback|'+unit+'|'+skill.id+'|'+c,null)[0];
      if(whole&&whole.p.parts.length>1){assert.equal(whole.p.verify.status,'verified');assert.equal(whole.options.length,0);wholeOnly++;}
+     else if(whole&&whole.p.fig&&whole.p.fig.proof&&whole.p.fig.proof.write&&whole.options.length){
+      assert.equal(whole.p.verify.status,'verified');
+      assert.equal(whole.options.filter(o=>o.ok).length,1);
+      whole.options.forEach(o=>assert.equal(GB.answerOk(whole.p,0,o.a).ok,o.ok,'Written-proof fallback choice must verify independently'));
+      checked++;
+     }
      else failed.push(unit+'/'+skill.id+' '+level+' c'+c+': NO verified flashcard after '+repeats+' attempts');
     }
    }
@@ -52,9 +58,24 @@ for(const unit of units){
   rows.push({unit,level,skills:set.skills.length,successfulTiers:successes,expectedTiers:set.skills.length*tiers.length,attempted});
  }
 }
+// Every new written-proof family also supplies complete, verified choice cards.
+for(const [unit,skill] of [['geometry-angles-parallel-lines','parallel-lines-proof'],['geometry-similarity','similarity-proof'],['geometry-similarity','similarity-proof-sss-sas']]){
+ let written=0;
+ for(let i=0;i<30;i++)for(const item of GB.makeItems(unit,skill,7,{intOnly:false,level:'game'},'written-card'+i,null)){
+  if(!item.p.fig.proof.write)continue;
+  written++;checked++;
+  assert.equal(item.options.length,4);
+  assert.equal(item.options.filter(o=>o.ok).length,1);
+  item.options.forEach(o=>assert.equal(GB.answerOk(item.p,0,o.a).ok,o.ok));
+  assert.equal(item.q.ask,'Which two-column proof is correct?');
+  assert.equal(item.q.fig.proof.hide,true,'No blank answer table on a choice card');
+ }
+ assert.ok(written>0,skill+': written proof cards generated');
+}
 rows.forEach(r=>console.log(r.unit+' '+r.level+': '+r.successfulTiers+'/'+r.expectedTiers+' skill tiers generated'));
 if(failed.length){
  console.error('FAIL: '+failed.length+' findings across '+checked+' cards');
  [...new Set(failed)].slice(0,100).forEach(s=>console.error(' - '+s));
  process.exitCode=1;
 }else console.log('PASS: '+units.length+' Geometry units x '+levels.length+' difficulty levels; '+checked+' independently checked cards; '+wholeOnly+' multi-part tiers preserved as whole Showdown problems');
+

@@ -171,6 +171,19 @@
         (p.fig && p.fig.proof ? p.fig.proof.rows : []).forEach(function (r) { if (r.s && r.s !== key && !/△/.test(r.s) === !/△/.test(key)) cands.push({ a: r.s, w: 2 }); });
       }
     }
+    // Written parallel-line and similarity proofs use the same whole-proof choice format.
+    // Offer flawed rows only when the independent proof verifier rejects them below.
+    if (p.fig && p.fig.proof && p.fig.proof.write && chP.type === 'derive' && /^(par-proof|sim-proof|sim2-proof)$/.test(chP.kind)) {
+      var derivedRows = key.split('; '), derivedLast = derivedRows.length - 1;
+      ['AA Similarity Postulate', 'SSS Similarity Theorem', 'SAS Similarity Theorem', 'CPCTC', 'Given'].forEach(function (reason) {
+        var rows = derivedRows.slice(); rows[derivedLast] = rows[derivedLast].replace(/— .*$/, '— ' + reason);
+        cands.push({ a: rows.join('; '), w: 4 });
+      });
+      derivedRows.forEach(function (row, i) {
+        var rows = derivedRows.slice(); rows[i] = row.replace(/^\d+\./, String(i + 2) + '.');
+        cands.push({ a: rows.join('; '), w: 2 });
+      });
+    }
     // a whole written proof: the same proof with one classic flaw (wrong criterion, wrong vertex order, an unsupported "Given", CPCTC misused)
     if ((p.parts[k].check || {}).type === 'geo-proof-write') {
       var pw = key.split('; '), last = pw.length - 1, triAt = pw.map(function (x) { return /△/.test(x); }).lastIndexOf(true);
@@ -412,7 +425,7 @@
   GB.partQuestion = function (p, k) {
     var pt = p.parts[k], multi = p.parts.length > 1, ask = pt.prompt || '';
     if (!ask && multi) { var lab = /^\s*([A-Z][a-z]+):/.exec(pt.answer); if (lab) ask = 'Find the ' + lab[1].toLowerCase() + '.'; }
-    if (pt.check && pt.check.type === 'geo-proof-write' && p.fig && p.fig.proof) {   // a whole proof is chosen, not written: no empty table
+    if (pt.check && p.fig && p.fig.proof && (pt.check.type === 'geo-proof-write' || (p.fig.proof.write && pt.check.type === 'derive' && /^(par-proof|sim-proof|sim2-proof)$/.test(pt.check.kind)))) {   // a whole proof is chosen, not written: no empty table
       var pf = JSON.parse(JSON.stringify(p.fig)); pf.proof.hide = true;
       return { prompt: String(p.prompt || '').replace(/\s*Write a two-column proof\..*$/, ''), flashcardPrompt: null, fig: pf, work: null, ask: 'Which two-column proof is correct?', label: '' };
     }
@@ -545,3 +558,4 @@
   };
   GB.skillsOf = function (setId) { return NS.skillSets[setId].skills.map(function (s) { return s.id; }); };
 })(typeof window !== 'undefined' ? window : globalThis);
+
