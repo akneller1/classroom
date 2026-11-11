@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
-const env=require('./load.cjs')(),NS=env.MKMENU;
+const env=require('./load.cjs')(['games/bank.js','menu/render.js']),NS=env.MKMENU;
 const app=fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8');
 const code=app.slice(app.indexOf('  // Topic worksheets'),app.indexOf('  /* ---------------- start ---------------- */'));
 Object.assign(env,{NS,doc:{},S:null,draft:null,ui:{},snapshot(){},render(){},autosave(){},classGroup(){},console});
