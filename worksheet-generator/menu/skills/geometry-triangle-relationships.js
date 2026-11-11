@@ -275,7 +275,7 @@ NS.registerSkillSet({id:'geometry-triangle-relationships',course:'geometry',cour
  unit:'triangle-relationships',unitName:'Triangle Relationships',title:'Triangle Angle Relationships',
  tags:{CONCURRENCY:'Points of concurrency',SUM:'Triangle angle sum',EXTERIOR:'Exterior angle theorem',ISOSCELES:'Isosceles triangle angle relationships',INEQUALITY:'Triangle inequality',MIDSEGMENT:'Triangle midsegment theorem',CENTROID:'Centroids and medians',ORDER:'Side and angle order',BISECTOR:'Perpendicular bisector theorem',ALTITUDE:'Altitudes and area',INVESTIGATION:'Four-part triangle investigation',HONORS:'Connected Honors triangle investigation'},
  reference:'<div class="mm-refgrid"><section><h4>Interior angle sum</h4><p>Every triangle has an angle sum of 180°.</p></section><section><h4>Exterior angle theorem</h4><p>An exterior angle equals the sum of the two remote interior angles.</p></section></div>',
- gaps:['Triangle-relationship proofs are completed in a two-column table (missing statements and reasons) through triangle congruence; paragraph proofs are not generated.'],
+ gaps:['Triangle-relationship proofs are completed through triangle congruence as a two-column table or a paragraph proof (missing statements and reasons); proofs written from scratch are not generated here.'],
  skills:[
   {id:'triangle-interior-sum',tag:'SUM',name:'Find a missing interior angle',best:[0,1],generate:ctx=>make(ctx,'sum')},
   {id:'triangle-exterior-angle',tag:'EXTERIOR',name:'Exterior angle theorem',best:[0,1],generate:ctx=>make(ctx,'exterior')},

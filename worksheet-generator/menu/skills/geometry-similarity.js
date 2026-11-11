@@ -199,7 +199,8 @@ function simProof(ctx){if(ctx.c>=7&&ctx.rng.next()<0.45)return simProofWrite(ctx
  if(c<=3)cells=r.shuffle([[1,'r'],[2,'r'],[3,'r']]).slice(0,c<=2?2:3);else cells=[[1,'r'],[2,r.next()<0.5?'s':'r'],[3,'r']].concat(c>=6?[[1,'s']]:[]).filter(function(x,i,arr){return !(x[0]===1&&x[1]==='s'&&arr.some(function(y){return y[0]===1&&y[1]==='r';})&&c<6);});
  var seen={};cells=cells.filter(function(x){var k=x.join();if(seen[k])return false;seen[k]=1;return !(x[0]===1&&x[1]==='s'&&cells.some(function(y){return y[0]===1&&y[1]==='r';}));}).sort(function(p,q){return p[0]-q[0]||(p[1]==='s'?-1:1);});
  cells.forEach(function(cl,i){var row=table[cl[0]];row[cl[1]]='';row[cl[1]+'b']=LAB[i];parts.push({label:LAB[i],prompt:(cl[1]==='s'?'Statement for step ':'Reason for step ')+(cl[0]+1),answer:rows[cl[0]][cl[1]==='s'?0:1],check:{type:'derive',kind:'sim-proof'}});});
- return {variant:'geo-sim-proof-'+(useRefl?'refl':'two')+'-'+c,prompt:'Given: DE ∥ BC. Prove: △ADE ~ △ABC. Complete the two-column proof.',fig:{kind:'geo-tri-par',v:v,angA:r.int(50,75),proof:{rows:table}},parts:parts,
+ var para=c>=4&&r.next()<0.35;
+ return {variant:'geo-sim-proof-'+(para?'para-':'')+(useRefl?'refl':'two')+'-'+c,prompt:'Given: DE ∥ BC. Prove: △ADE ~ △ABC. '+(para?'Complete the paragraph proof.':'Complete the two-column proof.'),fig:{kind:'geo-tri-par',v:v,angA:r.int(50,75),proof:para?{rows:table,paragraph:true}:{rows:table}},parts:parts,
   steps:rows.map(function(x){return step(x[0]+' — '+x[1]);}).concat([step('Two pairs of congruent angles are enough for similar triangles (AA).')]),space:[0.2,0.3,0.4]};}
 
 /* SSS and SAS similarity proofs for two drawn triangles; written proofs at Honors. */
@@ -218,14 +219,14 @@ function simSSSSAS(ctx){var r=ctx.rng,c=ctx.c,sas=c>=3&&r.next()<0.5,t=r.pick(SI
   rows=[['AB = '+t[0]+', CA = '+t[2]+', DE = '+big[0]+', FD = '+big[2],'Given'],['∠A ≅ ∠D','Given'],['DE : AB = FD : CA = '+rr,'Ratios of corresponding sides'],['△ABC ~ △DEF','SAS Similarity Theorem']];}
  var prompt='Given: '+given+'. Prove: △ABC ~ △DEF. ',out,LAB='abcd',n=rows.length;
  if(c>=6&&r.next()<0.5){var w=writeProof(rows,'sim2-proof');fig.proof=w.proof;out={prompt:prompt+'Write a two-column proof. Give a statement and a reason in each row.',parts:w.parts,kind:'write'};}
- else{var cells=c<=3?[[n-2,'r'],[n-1,'r']]:[[n-2,'s'],[n-1,'r']].concat(c>=5?[[0,'r']]:[]);cells.sort(function(a,b){return a[0]-b[0];});
-  var tb=proofTableFor(r,c,rows,cells,LAB);tb.parts.forEach(function(q){q.check={type:'derive',kind:'sim2-proof'};});fig.proof={rows:tb.table};out={prompt:prompt+'Complete the two-column proof.',parts:tb.parts,kind:'blanks'};}
+ else{var para=c>=4&&r.next()<0.35,cells=c<=3?[[n-2,'r'],[n-1,'r']]:[[n-2,'s'],[n-1,'r']].concat(c>=5&&!para?[[0,'r']]:[]);cells.sort(function(a,b){return a[0]-b[0];});
+  var tb=proofTableFor(r,c,rows,cells,LAB);tb.parts.forEach(function(q){q.check={type:'derive',kind:'sim2-proof'};});fig.proof=para?{rows:tb.table,paragraph:true}:{rows:tb.table};out={prompt:prompt+(para?'Complete the paragraph proof.':'Complete the two-column proof.'),parts:tb.parts,kind:para?'para':'blanks'};}
  return {variant:'geo-sim2-proof-'+(sas?'sas':'sss')+'-'+out.kind+'-'+c,prompt:out.prompt,fig:fig,parts:out.parts,
   steps:rows.map(function(x){return step(x[0]+' — '+x[1]);}).concat([step(sas?'Two pairs of sides in the same ratio with the included angles congruent: SAS similarity.':'All three pairs of corresponding sides are in the same ratio: SSS similarity.')]),space:[0.2,0.3,0.4]};}
 NS.registerSkillSet({id:'geometry-similarity',course:'geometry',courseName:'Geometry',unit:'similarity',unitName:'Similarity',title:'Similarity Foundations',
 tags:{AREARATIO:'Area and volume ratios',RATIOS:'Corresponding side ratios',DILATION:'Scale factors',PERIMETER:'Similar perimeters',APPLICATION:'Indirect measurement',ANGLES:'Corresponding angles',CRITERIA:'AA, SAS, and SSS similarity',PARALLEL:'Triangle proportionality and parallel segments',HONORS:'Multi-step Honors similarity investigations'},
 reference:'<div class="mm-refgrid"><section><h4>Similar figures</h4><p>Corresponding angles are equal; corresponding side lengths have a constant ratio.</p></section><section><h4>Dilations</h4><p>Image length = scale factor × original length.</p></section><section><h4>Area and volume</h4><p>Scale factor k: perimeters × k, areas × k², volumes × k³.</p></section></div>',
-gaps:['Paragraph similarity proofs are not generated (AA, SSS and SAS proofs are two-column). Coordinate dilations appear in the Honors dilation investigation here and in Unit 8 (Transformations).'],
+gaps:['AA, SSS and SAS similarity proofs are completed as two-column or paragraph proofs, or written in full as a two-column proof at Honors; paragraph proofs written from scratch are not generated. Coordinate dilations appear in the Honors dilation investigation here and in Unit 8 (Transformations).'],
 skills:[
 {id:'similarity-missing-side',tag:'RATIOS',name:'Find a corresponding side',best:[0,1],generate:missingSide},
 {id:'similarity-scale-factor',tag:'DILATION',name:'Find a dilation scale factor',best:[0,1],generate:scale},

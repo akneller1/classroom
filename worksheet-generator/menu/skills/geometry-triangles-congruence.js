@@ -428,7 +428,11 @@ NS.congruenceProofFor=function(ctx,pool,lead,cp){
  var r=ctx.rng,c=ctx.c,B=prBuild(r,c,{pool:pool,cpctc:cp!==false}),nr=B.rows.length,n=c<=2?2:c<=4?3:c<=5?4:nr,mode=c<=3?'reasons':'mixed';
  var bl=prPickBlanks(r,B,mode,n);if(!bl.some(function(x){return x[0]===nr-1;}))bl[bl.length-1]=[nr-1,'r'];
  var seen={};bl=bl.filter(function(x){var k=x.join();if(seen[k])return false;seen[k]=1;return true;});
- var P=prProblem(ctx,B,mode,bl,mode);P.prompt=lead+' '+P.prompt;return P;};
+ var para=c>=4&&r.next()<0.35&&bl.filter(function(x){return !(x[1]==='r'&&PR_REASON[B.rows[x[0]].rk]==='Given');}).length>=2;   // paragraph proofs never blank a "Given" reason
+ if(para)bl=bl.filter(function(x){return !(x[1]==='r'&&PR_REASON[B.rows[x[0]].rk]==='Given');});
+ var P=prProblem(ctx,B,mode,bl,mode);P.prompt=lead+' '+P.prompt;
+ if(para){P.fig.proof.paragraph=true;P.fig.proof.lead='We are given that '+B.givens.map(prShow).join(' and ')+'.';P.prompt=P.prompt.replace(PR_MODE[mode],'Complete the paragraph proof by filling in each blank.');P.variant=P.variant.replace('geo-proof-table-','geo-proof-table-para-');}
+ return P;};
 
 NS.registerSkillSet({id:'geometry-triangles-congruence',course:'geometry',courseName:'Geometry',unit:'triangles-congruence',unitName:'Triangle Congruence',title:'Triangle Congruence Foundations',
  tags:{RIGID:'Congruence and rigid motions',CPCTC:'Corresponding parts of congruent triangles',THIRD:'Third angle theorem',PERIMETER:'Congruent triangle perimeters',CRITERIA:'SSS, SAS, ASA, AAS, and HL',PROOFS:'Two-column and flow proof reasoning',CHAIN:'Multi-step congruence investigations'},

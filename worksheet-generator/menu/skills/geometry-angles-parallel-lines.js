@@ -189,13 +189,13 @@ function parProof(ctx){var r=ctx.rng,c=ctx.c,F=NS.geoFigures,REL=function(a,b){r
    parts:[{prompt:'Write the complete proof.',answer:rows.map(function(x,i){return (i+1)+'. '+x[0]+' — '+x[1];}).join('; '),check:{type:'derive',kind:'par-proof'}}],steps:rows.map(function(x){return st(x[0]+' — '+x[1]);}),space:[0.2,0.3,0.4]};}
  var n=c<=2?2:c<=4?3:rows.length-1,cells=r.shuffle(rows.map(function(x,i){return i;}).slice(1)).slice(0,n).sort(),LAB='abcdef',table=rows.map(function(x){return {s:x[0],r:x[1]};}),parts=[];
  cells.forEach(function(ri,i){table[ri].r='';table[ri].rb=LAB[i];parts.push({label:LAB[i],prompt:'Reason for step '+(ri+1),answer:rows[ri][1],check:{type:'derive',kind:'par-proof'}});});
- var f=fig({kind:'geo-transversal',numbered:true,marks:[],names:nm});f.proof={rows:table};
- return {variant:'geo-par-proof-'+t+'-'+c,prompt:'Given: '+given+'. Prove: '+prove+'. Complete the two-column proof by writing each missing reason.',fig:f,parts:parts,
+ var para=c>=4&&r.next()<0.35,f=fig({kind:'geo-transversal',numbered:true,marks:[],names:nm});f.proof=para?{rows:table,paragraph:true}:{rows:table};
+ return {variant:'geo-par-proof-'+(para?'para-':'')+t+'-'+c,prompt:'Given: '+given+'. Prove: '+prove+'. '+(para?'Complete the paragraph proof by writing each missing reason.':'Complete the two-column proof by writing each missing reason.'),fig:f,parts:parts,
   steps:rows.map(function(x){return st(x[0]+' — '+x[1]);}),space:[0.2,0.3,0.4]};}
  NS.registerSkillSet({id:'geometry-angles-parallel-lines',course:'geometry',courseName:'Geometry',unit:'angles-parallel-lines',unitName:'Angles and Parallel Lines',title:'Angle Relationships',
  tags:{PAIRS:'Angle pairs and the converse theorems',INVEST:'Four-part parallel-lines investigation',COMPLEMENT:'Complementary angles',SUPPLEMENT:'Supplementary angles',VERTICAL:'Vertical angles',LINEAR:'Linear pairs',TRANSVERSAL:'Parallel lines and transversal angle pairs'},
  reference:'<div class="mm-refgrid"><section><h4>Complementary angles</h4><p>The measures sum to 90°.</p></section><section><h4>Supplementary angles</h4><p>The measures sum to 180°.</p></section></div>',
- gaps:['Paragraph proofs are not generated; parallel-line proofs are two-column (missing reasons, or written in full at the top Honors level).'],skills:[
+ gaps:['Parallel-line proofs are completed as two-column or paragraph proofs (missing reasons), or written in full as a two-column proof at the top Honors level. Paragraph proofs written from scratch are not generated.'],skills:[
  {id:'two-transversals',tag:'PAIRS',name:'Two transversals between parallel lines',best:[0,1,2],generate:ctx=>K.retry(()=>twoTrans(ctx))},
  {id:'parallel-lines-proof',tag:'PAIRS',name:'Two-column parallel-line proofs (missing reasons)',best:[1,2],generate:ctx=>K.retry(()=>parProof(ctx))},
  {id:'complementary-angles',tag:'COMPLEMENT',name:'Complementary angles',best:[0,1],generate:ctx=>angle(ctx,'complement')},

@@ -183,6 +183,18 @@
       var fill = pr.fill && pr.fill[b];
       return fill ? '<b>(' + b + ')</b> <span style="color:#0b5394;font-weight:600">' + esc(fill) + '</span>' : '<b>(' + b + ')</b> <span style="display:inline-block;min-width:1.9in;border-bottom:1px solid #111">&nbsp;</span>';
     }
+    if (pr.paragraph) {   // paragraph proof: the same rows written as sentences; blanks keep their letters
+      var art = function (rs) { return /Theorem|Postulate|Property/.test(rs) ? 'the ' + rs : /^(Definition|Ratios)/.test(rs) ? 'the ' + rs.charAt(0).toLowerCase() + rs.slice(1) : rs; }, joins = ['Then', 'Also', 'Next', 'So'], k = 0, out = [], giv = [];
+      var isGiven = function (row) { return row.rb === undefined && row.r === 'Given'; };
+      if (pr.lead && !(pr.rows[0] && isGiven(pr.rows[0]))) out.push(esc(pr.lead));
+      pr.rows.forEach(function (row, i) {
+        var S = txt(row, 's', i);
+        if (isGiven(row)) { giv.push(S); if (!(pr.rows[i + 1] && isGiven(pr.rows[i + 1]))) { out.push('We are given that ' + giv.join(' and ') + '.'); giv = []; } return; }
+        var Rr = row.rb === undefined ? esc(art(row.r)) : txt(row, 'r', i);
+        out.push(i === pr.rows.length - 1 ? 'Therefore, ' + S + ' by ' + Rr + '.' : joins[k++ % joins.length] + ' ' + S + ' by ' + Rr + '.');
+      });
+      return '<p class="mm-proof-para" style="max-width:6.8in;margin:8px 0 4px;font-size:13.5px;line-height:2.1;break-inside:avoid">' + out.join(' ') + '</p>';
+    }
     return '<table class="mm-proof-table mm-proof-grid" style="width:100%;max-width:6.8in;border-collapse:collapse;margin:8px 0 4px;font-size:13.5px;break-inside:avoid">' +
       '<thead><tr><th style="border:1px solid #111;border-bottom:2px solid #111;text-align:left;padding:6px 8px;width:52%">Statements</th><th style="border:1px solid #111;border-bottom:2px solid #111;text-align:left;padding:6px 8px">Reasons</th></tr></thead><tbody>' +
       pr.rows.map(function (row, i) { return '<tr><td style="' + cell + '">' + (i + 1) + '. ' + txt(row, 's', i) + '</td><td style="' + cell + '">' + txt(row, 'r', i) + '</td></tr>'; }).join('') + '</tbody></table>';

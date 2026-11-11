@@ -85,3 +85,14 @@ New: `tests/coverage-gap-tests.cjs` and `tests/coverage-gap-browser.cjs`, both a
 - Written two-column proofs: at Honors, `parallel-lines-proof`, `similarity-proof` and `similarity-proof-sss-sas` sometimes give a blank table that students fill in. Typed answers use the form "1. statement — reason; 2. …". The verifier checks every row. It also requires the rows to be numbered 1, 2, 3 … in order and requires at least 3 rows.
 - Choose all that apply, for `quadrilateral-classify-grid`: "Select every name that applies to quadrilateral X." The verifier classifies the shape from its grid coordinates, using an exclusive definition of trapezoid that is stated in the prompt. It never offers Kite as a wrong answer for a rhombus or a square.
 - Cache versions are bumped to `coverage-20261111c`.
+
+---
+
+# Fifth pass (same day): paragraph proofs
+
+- From difficulty 4 up, about a third of these proofs are printed as paragraph proofs instead of tables: `parallel-lines-proof`, `similarity-proof`, `similarity-proof-sss-sas`, `triangle-relationship-proof` and `quadrilateral-proof`.
+- Each paragraph is built from the same rows as the two-column proof. The rows become sentences, for example "We are given that … Then ∠2 ≅ ∠7 by (a) ____. Therefore, …". Every blank is checked by the same row-by-row verifier, and the answer key fills in the blanks.
+- A paragraph proof never asks for "Given" as a reason. The rendering lives in the shared `F.proofTable` (`proof.paragraph`, optional `proof.lead`).
+- `coverage-gap-tests.cjs` checks that each skill produces paragraph proofs, that the student copy shows no answers, that the key fills every blank, and that a wrong blank is rejected.
+- Still limited: students do not write paragraph proofs from scratch. Written-from-scratch proofs stay two-column at Honors.
+- Cache versions are bumped to `coverage-20261111d`.

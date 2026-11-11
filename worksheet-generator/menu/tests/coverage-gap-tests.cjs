@@ -158,4 +158,19 @@ ok(P.of('(2+3)+4=2+(4+3)') === null, 'two properties at once (regroup and reorde
 ok(P.of('2+3=5') === null && P.of('3(x+4)=3x+4') === null && P.of('x+x=x+x') === null && P.of('1\\cdot(4x-3)=4x-3') === null, 'not a property / false / trivial equations are rejected');
 ok(P.code('Additive identity') === 'id-add' && P.code('Zero Product Property') === null && P.code('associative') === null, 'names: ambiguous or wrong names are not read as a property');
 
+// Paragraph proofs (CP1 and Honors levels): the student copy shows sentences with lettered blanks and no answers; the key fills them; a wrong blank is rejected.
+for (const [unit, skill] of [['geometry-angles-parallel-lines', 'parallel-lines-proof'], ['geometry-similarity', 'similarity-proof'], ['geometry-similarity', 'similarity-proof-sss-sas'], ['geometry-quadrilaterals-polygons', 'quadrilateral-proof'], ['geometry-triangle-relationships', 'triangle-relationship-proof']]) {
+  let seen = 0;
+  for (let i = 0; i < 80 && seen < 4; i++) { const c = 4 + (i % 4), p = NS.generateProblem(unit, skill, c, { intOnly: false, level: 'x' }, 'para' + i, null);
+    if (!(p.fig && p.fig.proof && p.fig.proof.paragraph)) continue; seen++;
+    const stu = NS.promptHtml(p, false, '1.'), key = NS.promptHtml(p, true, '1.');
+    ok(/mm-proof-para/.test(stu) && !/mm-proof-table/.test(stu) && /paragraph proof/.test(p.prompt), skill + ': printed as a paragraph proof');
+    ok(!stu.includes('color:#0b5394') && p.parts.filter(q => q.prompt && /^Reason/.test(q.prompt)).every(q => !stu.includes(' by ' + q.answer + '.')), skill + ': the student copy shows no answers');
+    ok(p.parts.every(q => key.includes(q.answer.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'))), skill + ': the key fills every blank');
+    ok(!p.fig.proof.rows.some(r => r.rb !== undefined && r.r === '' && /^Given$/.test((p.parts.find(q => q.label === r.rb) || {}).answer || '')), skill + ': no blank asks for "Given"');
+    const wrong = JSON.parse(JSON.stringify(p)); wrong.parts[wrong.parts.length - 1].answer = 'Vertical Angles Theorem' === wrong.parts[wrong.parts.length - 1].answer ? 'Reflexive Property of Congruence' : 'Vertical Angles Theorem';
+    ok(!NS.verifyProblem(wrong, { intOnly: false }).ok, skill + ': a wrong blank is rejected'); }
+  ok(seen >= 4, skill + ': paragraph proofs are generated');
+}
+
 console.log('Coverage-gap tests passed: ' + NEW.length + ' skills, ' + checks + ' checks (registration, browsing, search, variety, wrong answers, formats, regeneration, classifier).');
