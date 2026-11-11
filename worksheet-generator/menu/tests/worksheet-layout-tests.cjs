@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const env=require('./load.cjs')(['core/render.js','menu/render.js','core/math-display.js']);
+env.katex=require('../../vendor/katex/katex.min.js');
+const M=env.MKMENU,c=M.defaultConfig('geometry-basics-reasoning','worksheet');
+const prose=M.mathSafe('Find x and y, or explain why. Use ⟨x=\\frac{1}{2}⟩.');
+assert(prose.includes('mk-prose'));assert(prose.includes('>and<'));assert(prose.includes('>or<'));assert(prose.includes('katex'));
+assert(!M.mathSafe('<script>alert(1)</script>').includes('<script>'));
+const plain={prompt:'Find x.',space:[3,4,5],parts:[{answer:'2'}]};
+const multipart={prompt:'Explain your reasoning.',space:[3,4,5],parts:['a','b','c','d'].map(label=>({label,prompt:'Find the value.',answer:'2'}))};
+assert.equal(M.workspaceHeight(plain,c),1.5);
+assert.equal(M.workspaceHeight(multipart,c),2.4);
+assert.equal((M.promptHtml(multipart,false,'1.','',.6).match(/mm-part-work/g)||[]).length,4);
+assert.equal((M.promptHtml(multipart,true).match(/mm-part-work/g)||[]).length,0);
+assert.equal(M.workspaceHtml({variant:'geo-structured-proof-example'},c),'');
+const heights=['compact','standard','spacious'].map(d=>{c.layout.density=d;return M.workspaceHeight(multipart,c)});
+assert(heights[0]<heights[1]&&heights[1]<heights[2]);
+console.log('Worksheet layout passed: safe prose/math, proportional workspace, per-part writing room, proof exclusions, spacing controls.');

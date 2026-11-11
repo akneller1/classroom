@@ -16,7 +16,7 @@
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function math(m) { return WS.render.math(m); }                       // trusted markup (reference page)
   /* Untrusted text (teacher edits, loaded files): escape everything outside ⟨…⟩; KaTeX renders the math safely. */
-  function mathSafe(m) { return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : (G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html(part) : esc(part)); }).join(''); }
+  function mathSafe(m) { return String(m === undefined || m === null ? '' : m).split(/(⟨[^⟩]*⟩)/).map(function (part) { return /^⟨/.test(part) ? WS.render.math(part) : (G.MK_MATH_DISPLAY ? G.MK_MATH_DISPLAY.html(part,{prose:true}) : esc(part)); }).join(''); }
   NS.mathSafe = mathSafe;
   function el(tag, cls, html) { var e = doc.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
 
@@ -132,7 +132,7 @@
     return f;
   }
   NS.proofKeyFig = proofKeyFig;
-  function promptHtml(p, forKey, inlineLabel, pointsLabel) {
+  function promptHtml(p, forKey, inlineLabel, pointsLabel, partSpace) {
     // Proof statements and the equation appear in the scaffold; do not print them twice.
     var questionText = (!forKey && p.mc && p.mc.prompt) ? p.mc.prompt : (p.prompt || '');
     if (/^geo-structured-proof-/.test(p.variant || '') && Array.isArray(p.proofStatements) && p.proofStatements.length === 4) {
@@ -145,7 +145,7 @@
     if (p.fig && NS.figHtml && !(p.mc && p.mc.graphs && !forKey) && !(forKey && Array.isArray(p.fig.pieces) && !p.fig.pieces.length)) h += NS.figHtml(p.fig);   // the key skips blank student number lines; tables and graphs stay
     if (/^geo-structured-proof-/.test(p.variant || '')) return h + proofLayout(p, forKey);
     var parts = (p.parts || []).filter(function (pt) { return pt.prompt; });
-    if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + '</div>'; }).join('') + '</div>';
+    if (parts.length) h += '<div class="mm-parts">' + parts.map(function (pt) { return '<div><b>' + (pt.label ? '(' + esc(pt.label) + ')' : '') + '</b> ' + mathSafe(pt.prompt) + (partSpace ? '<div class="mm-work mm-part-work" style="height:' + partSpace.toFixed(2) + 'in"></div>' : '') + '</div>'; }).join('') + '</div>';
     return h;
   }
   NS.promptHtml = promptHtml;
@@ -158,13 +158,21 @@
     return parts > 0 || txt.length > limit;
   }
   NS.isWideProblem = isWide;
+  function workspaceHeight(p,cfg){
+    var d=DENS[cfg.layout.density];if(d===undefined)d=1;
+    var requested=Number((p.space||[1,1.3,1.6])[d]);if(!Number.isFinite(requested))requested=[1,1.3,1.6][d];
+    var parts=(p.parts||[]).filter(function(pt){return pt.prompt;}).length;
+    var caps=parts>1?[Math.max(1.2,parts*.4),Math.max(1.8,parts*.6),Math.max(2.4,parts*.8)] : /explain|justify|prove|describe|reason/i.test(p.prompt||'')?[1.5,2,2.5]:[1.1,1.5,2];
+    return Math.max(0,Math.min(requested,caps[d]));
+  }
+  NS.workspaceHeight=workspaceHeight;
   function workspace(p, cfg) {
     // The proof table or flowchart already provides every writing space.
     // An additional 1-3 inch blank workspace can push the figure off the page.
     if (/^geo-structured-proof-/.test(p.variant || '') || (p.fig && p.fig.proof)) return '';
     var d = DENS[cfg.layout.density]; if (d === undefined) d = 1;
     if (cfg.layout.format === 'menu-only') return '';
-    var h = (p.space || [1, 1.3, 1.6])[d];
+    var h = workspaceHeight(p,cfg);
     var grid = cfg.layout.grid;
     var inner = grid === 'coordinate' ? '<div class="mm-plane">' + WS.graph({ xmin: -8, xmax: 8, ymin: -8, ymax: 8, lines: [], points: [] }, { widthIn: 1.9 }) + '</div>' : '';
     if (grid === 'coordinate') h = Math.max(h, 2.15);
@@ -210,9 +218,13 @@
     if ((fmt === 'multi' && (!multi || !Array.isArray(p.multi.keys) || p.multi.keys.length < 2)) || (mcas && p.mcasFail)) {
       return '<div class="mm-dish mm-missing"><div class="mm-q">[No valid question for this format. Regenerate or select another skill before printing.]</div></div>';
     }
-    var space = mc || multi ? '<div class="mm-work mm-scratch" style="height:' + (((p.space || [1])[0]) * 0.45).toFixed(2) + 'in"></div>' : workspace(p, { layout: { format: 'together', density: mcas ? 'spacious' : cfg.layout.density, grid: cfg.layout.grid } });
+    var partCount=(p.parts||[]).filter(function(pt){return pt.prompt;}).length;
+    var separateParts=!mc&&!multi&&partCount>1&&!(p.fig&&p.fig.proof)&&!/^geo-structured-proof-/.test(p.variant||'')&&cfg.layout.grid==='none';
+    var partSpace=separateParts?workspaceHeight(p,cfg)/partCount:0;
+    var density=DENS[cfg.layout.density];if(density===undefined)density=1;
+    var space = mc || multi ? '<div class="mm-work mm-scratch" style="height:' + [0.2,0.35,0.5][density].toFixed(2) + 'in"></div>' : separateParts?'':workspace(p, { layout: { format: 'together', density: cfg.layout.density, grid: cfg.layout.grid } });
     return '<div class="mm-dish mm-tq' + (mcas || multi || isWide(p) || (mc && /one/.test(choicesHtml(p).slice(0, 30))) ? ' wide' : '') + '" data-uid="' + esc(p.uid) + '">' +
-      promptHtml(p, false, lab + '.', NS.isWorksheet(cfg) ? '' : ptsText(+sec.points)) + (mc ? choicesHtml(p) : multi ? multiHtml(p) : '') + (fmt === 'multi' && !multi ? '<p class="mm-flag bad">Cannot make verified choices: ' + esc(p.multiFail || 'Try another skill') + '</p>' : '') + (mcas && p.mcasFail ? '<p class="mm-flag bad">Cannot make a verified multi-part problem: ' + esc(p.mcasFail) + '</p>' : '') + space + '</div>';
+      promptHtml(p, false, lab + '.', NS.isWorksheet(cfg) ? '' : ptsText(+sec.points), partSpace) + (mc ? choicesHtml(p) : multi ? multiHtml(p) : '') + (fmt === 'multi' && !multi ? '<p class="mm-flag bad">Cannot make verified choices: ' + esc(p.multiFail || 'Try another skill') + '</p>' : '') + (mcas && p.mcasFail ? '<p class="mm-flag bad">Cannot make a verified multi-part problem: ' + esc(p.mcasFail) + '</p>' : '') + space + '</div>';
   }
   function testStudentBlocks(state, vIdx) {
     var cfg = state.config, ver = state.versions[vIdx], rules = NS.checkRules(cfg, state), B = [];
@@ -227,6 +239,19 @@
       var row = [];
       function flush() { if (row.length) { B.push({ cls: 'tight', html: '<div class="mm-row">' + row.join('') + (row.length === 1 ? '<div></div>' : '') + '</div>', sec: si }); row = []; } }
       items.forEach(function (it, i) {
+        var parts=(it.parts||[]).filter(function(pt){return pt.prompt;}),fmt=NS.sectionFormat(cfg,si);
+        if(!it.failed&&parts.length>1&&(fmt==='open'||fmt==='mcas')&&!it.mcasFail&&cfg.layout.grid==='none'&&!(it.fig&&it.fig.proof)&&!/^geo-structured-proof-/.test(it.variant||'')){
+          flush();
+          var lab=dishLabel(cfg,si,i),stem=Object.assign({},it,{parts:[]});
+          var intro=promptHtml(stem,false,lab+'.',ws?'':ptsText(+sec.points));
+          var perPart=workspaceHeight(it,cfg)/parts.length;
+          parts.forEach(function(pt,k){
+            var label=pt.label||String.fromCharCode(97+k);
+            var body='<div class="mm-parts"><div><b>'+(k?lab:'')+'('+esc(label)+')</b> '+mathSafe(pt.prompt)+'<div class="mm-work mm-part-work" style="height:'+perPart.toFixed(2)+'in"></div></div></div>';
+            B.push({cls:'tight',sec:si,html:'<div class="mm-dish mm-tq'+(k?' mm-part-cont':'')+'" data-uid="'+esc(it.uid)+'">'+(k?'':intro)+body+'</div>'});
+          });
+          return;
+        }
         var h = testQHtml(it, cfg, si, i, sec);
         if (/mm-tq wide/.test(h)) { flush(); B.push({ cls: 'tight', html: h, sec: si }); }
         else { row.push(h); if (row.length === 2) flush(); }

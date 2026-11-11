@@ -148,7 +148,7 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-page .mm-foot{position:absolute;left:.5in;right:.5in;bottom:.28in;display:flex;justify-content:space-between;font-size:8pt;color:#444;border-top:1px solid #999;padding-top:2px}
 .mm-blk{margin-bottom:.1in}
 .mm-head{display:flex;justify-content:space-between;align-items:flex-start;gap:.2in;border-bottom:2.5px solid #000;padding-bottom:4px;margin-bottom:.08in}
-.mm-title{font-family:"Courier New",ui-monospace,monospace;font-weight:700;font-size:21pt;line-height:1.05;letter-spacing:-.01em}
+.mm-title{font-family:inherit;font-weight:700;font-size:21pt;line-height:1.05;letter-spacing:-.01em}
 .mm-title.mm-t2{font-size:15pt}
 .mm-sub{font-size:9pt;color:#444;margin-top:2px}
 .mm-vtag{border:2px solid #000;border-radius:6px;padding:1px 8px;font-weight:700;font-size:10pt;white-space:nowrap}
@@ -163,7 +163,7 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-req{font-size:7pt;font-weight:700;border:1.2px solid #000;background:#000;color:#fff;border-radius:3px;padding:0 4px;margin-left:3px;white-space:nowrap}
 .mm-of{display:grid;gap:.1in}
 .mm-of-col{border:2px solid #000;border-radius:7px;padding:.05in .1in}
-.mm-of-h{font-family:"Courier New",ui-monospace,monospace;font-weight:700;font-size:11pt;border-bottom:1.5px solid #000}
+.mm-of-h{font-family:inherit;font-weight:700;font-size:11pt;border-bottom:1.5px solid #000}
 .mm-of-sub{font-size:8pt;color:#333;margin-bottom:3px}
 .mm-of-row{display:flex;align-items:center;gap:4px;font-size:9.5pt;margin:2px 0}
 .mm-box-chk{display:inline-block;width:.15in;height:.15in;border:1.5px solid #000;border-radius:2px;flex:none}
@@ -176,7 +176,7 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-tot td{font-weight:700}
 .mm-gradebook td{height:.32in}
 .mm-sechead{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2.5px solid #000;padding-bottom:3px}
-.mm-sectitle{font-family:"Courier New",ui-monospace,monospace;font-weight:700;font-size:17pt;line-height:1.05}
+.mm-sectitle{font-family:inherit;font-weight:700;font-size:17pt;line-height:1.05}
 .mm-secsub{font-size:9pt;color:#333}
 .mm-contd{font-size:10pt;font-weight:400}
 .mm-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
@@ -270,3 +270,11 @@ code{background:var(--blue-soft);padding:0 4px;border-radius:4px}
 .mm-graph-choices .mm-fig svg{display:block;width:100%;height:auto;max-height:2.7in}
 @media print{.mm-graph-choices .mm-fig{max-width:2.2in}.mm-graph-choices .mm-fig svg{max-height:2.3in}}
 @media(max-width:550px){.mm-cchoices.mm-graph-choices{grid-template-columns:1fr}}
+
+/* Sentence connectors use the same typography as the surrounding question. */
+.mm-app .mk-prose .w,.mm-page .mk-prose .w{font:inherit;letter-spacing:normal;text-transform:none;margin:0;opacity:1}
+.mm-page .mm-parts>div{margin:.07in 0;line-height:1.45}
+.mm-page .mm-parts .mm-part-work{margin:.04in 0 0;line-height:normal}
+.mm-page .mm-q{line-height:1.45}
+
+.mm-page .mm-tq.mm-part-cont{border-top:0;padding-top:0}
