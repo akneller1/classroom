@@ -1,0 +1,28 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm');
+const env=require('./load.cjs')(),NS=env.MKMENU;
+const app=fs.readFileSync(require('path').join(__dirname,'../app.js'),'utf8');
+const code=app.slice(app.indexOf('  // Topic worksheets'),app.indexOf('  /* ---------------- start ---------------- */'));
+Object.assign(env,{NS,doc:{},S:null,draft:null,ui:{},snapshot(){},render(){},autosave(){},classGroup(){},console});
+vm.runInContext(code+'\nregisterTopicSets();',env);
+const group=NS.CATALOG.find(g=>g.course==='Algebra 1');
+const mixed=NS.skillSets['topic-algebra-1'];assert(mixed);
+const slope=mixed.skills.filter(s=>/slope/i.test(s.name));assert(slope.length);
+const pick=(word)=>mixed.skills.find(s=>s.name.toLowerCase().includes(word));
+const chosen=[pick('slope'),mixed.skills.find(s=>s.topicSource.unit!==pick('slope').topicSource.unit)];
+const cart=chosen.map(sk=>{
+ const src=sk.topicSource,c=NS.defaultConfig(src.unit,'worksheet');c.coverage.on=false;c.skills={};c.skills[src.skill]=true;c.versions=1;
+ c.sections=[{id:NS.uid('sec'),name:sk.name,note:'Show your work.',points:1,offered:1,required:1,tier:4,adjust:0,skills:[src.skill],qformat:'open'}];
+ const state=NS.newAssessment(c),p=state.versions[0].sections[0].items[0];assert(!p.failed);
+ return {p,section:c.sections[0],skill:sk.id,tag:sk.tag,format:'open'};
+});
+env.cart=cart;env.group=group;
+vm.runInContext('topicCourse=group;topicCart=cart;topicBuild();',env);
+assert.equal(env.S.versions[0].sections.length,2);
+assert.equal(NS.checkRules(env.S.config,env.S).errors.length,0);
+const restored=NS.deserialize(NS.serialize(env.S));
+assert.equal(restored.versions[0].sections.length,2);
+for(const sec of restored.versions[0].sections)assert(!sec.items[0].failed);
+for(const sk of chosen){const p=NS.generateProblem(mixed.id,sk.id,4,{intOnly:true,level:'cp1'},'topic-test');assert(!p.failed);assert.equal(p.skill,sk.id);}
+assert.equal(NS.skillFormatOk(mixed.id,chosen[0].id,'multi',4),NS.skillFormatOk(chosen[0].topicSource.unit,chosen[0].topicSource.skill,'multi',4));
+console.log('Topic tests passed: cross-unit selection, original generators, format capability, worksheet build, save/restore.');
