@@ -51,10 +51,11 @@ const NEW = [
   ['geometry-basics-reasoning','undefined-terms-postulates','undefined terms',{'mc':[2,4,6]}],
   ['geometry-circles','circle-arc-sector-decimal','length sector',{'mc':[2,4,6]}],
   ['geometry-circles','circle-equation-three-points-tangent','circle equations',{'mc':[2,4,6]}],
-  ['geometry-quadrilaterals-polygons','quadrilateral-classify-grid','classify quadrilateral',{'mc':[2,4,6]}],
+  ['geometry-quadrilaterals-polygons','quadrilateral-classify-grid','classify quadrilateral',{'mc':[2,4,6],'multi':[4]}],
   ['geometry-quadrilaterals-polygons','quadrilateral-proof','quadrilateral proofs',{}],
   ['geometry-right-triangles-trigonometry','law-of-sines-ambiguous','honors ambiguous',{'mc':[2,4,6]}],
   ['geometry-similarity','similarity-proof','similarity proofs',{}],
+  ['geometry-similarity','similarity-proof-sss-sas','similarity proofs',{}],
   ['geometry-transformations','rigid-motion-mapping','describe rigid',{'mc':[4,6]}],
   ['geometry-triangle-relationships','triangle-orthocenter-coordinates','orthocenter coordinates',{'mc':[2,4,6]}],
   ['geometry-triangle-relationships','triangle-relationship-proof','proofs about',{}]

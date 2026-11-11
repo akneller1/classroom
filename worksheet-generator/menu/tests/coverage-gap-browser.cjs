@@ -35,7 +35,7 @@ const CASES = [
   ['geometry-angles-parallel-lines', 'two-transversals', 'cp1', ['mixed', 'mc']], ['geometry-angles-parallel-lines', 'parallel-lines-proof', 'honors', ['mixed']],
   ['geometry-triangle-relationships', 'triangle-relationship-proof', 'cp1', ['mixed']], ['geometry-triangle-relationships', 'triangle-orthocenter-coordinates', 'honors', ['mixed']],
   ['geometry-quadrilaterals-polygons', 'quadrilateral-classify-grid', 'cp1', ['mixed', 'mc']], ['geometry-quadrilaterals-polygons', 'quadrilateral-proof', 'honors', ['mixed']],
-  ['geometry-similarity', 'similarity-proof', 'honors', ['mixed']], ['geometry-right-triangles-trigonometry', 'law-of-sines-ambiguous', 'honors', ['mixed']],
+  ['geometry-similarity', 'similarity-proof', 'honors', ['mixed']], ['geometry-similarity', 'similarity-proof-sss-sas', 'honors', ['mixed']], ['geometry-quadrilaterals-polygons', 'quadrilateral-classify-grid', 'cp1', ['multi']], ['geometry-right-triangles-trigonometry', 'law-of-sines-ambiguous', 'honors', ['mixed']],
   ['geometry-transformations', 'rigid-motion-mapping', 'cp1', ['mixed']], ['geometry-circles', 'circle-equation-three-points-tangent', 'honors', ['mixed']],
   ['geometry-area-surface-area-volume', 'measure-composite-plane', 'honors', ['mixed', 'mc']]
 ];

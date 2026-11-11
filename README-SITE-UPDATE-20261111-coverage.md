@@ -75,5 +75,13 @@ New: `tests/coverage-gap-tests.cjs` and `tests/coverage-gap-browser.cjs`, both a
 **Still limited by design**
 - Hand-drawn graphs and sketches are checked by the teacher.
 - Compass work is described in words.
-- Paragraph and written-from-scratch proofs (other than congruence) are not generated.
-- SSS and SAS similarity proofs are not generated.
+- Paragraph proofs are not generated.
+
+---
+
+# Fourth pass (same day): proofs and choose-all quadrilaterals
+
+- Geometry Unit 5: `similarity-proof-sss-sas`. Students complete SSS~ and SAS~ proofs on a drawn pair of triangles. Ratios appear as "p : q", and every ratio is re-derived from the given lengths.
+- Written two-column proofs: at Honors, `parallel-lines-proof`, `similarity-proof` and `similarity-proof-sss-sas` sometimes give a blank table that students fill in. Typed answers use the form "1. statement — reason; 2. …". The verifier checks every row. It also requires the rows to be numbered 1, 2, 3 … in order and requires at least 3 rows.
+- Choose all that apply, for `quadrilateral-classify-grid`: "Select every name that applies to quadrilateral X." The verifier classifies the shape from its grid coordinates, using an exclusive definition of trapezoid that is stated in the prompt. It never offers Kite as a wrong answer for a rhombus or a square.
+- Cache versions are bumped to `coverage-20261111c`.

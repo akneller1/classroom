@@ -1677,8 +1677,12 @@
       return ok ? { status: 'verified' } : { status: 'mismatch', msg: 'That sequence does not map each vertex onto its partner.' };
     };
     /* two-column proofs with a numbered transversal figure (parallel lines) */
+    function proofText(s) {   // typed forms: "is congruent to", "angle 3", "triangle ADE", "is similar to", "||", "is parallel to"
+      return C.plainText(String(s || '')).replace(/\s+is congruent to\s+/gi, ' ≅ ').replace(/\s*~=\s*/g, ' ≅ ').replace(/\s+is similar to\s+/gi, ' ~ ').replace(/\s+is parallel to\s+|\s*\|\|\s*/gi, ' ∥ ')
+        .replace(/\bm?angle\s*/gi, function (w) { return /^m/i.test(w) ? 'm∠' : '∠'; }).replace(/\btriangle\s*/gi, '△').replace(/\s+/g, ' ').trim();
+    }
     function angSt(s) {
-      s = C.plainText(String(s || '')).replace(/\s+/g, ' ').trim(); var m;
+      s = proofText(s); var m;
       if ((m = /^∠(\d) ≅ ∠(\d)$/.exec(s))) return { t: 'cong', a: +m[1], b: +m[2] };
       if ((m = /^∠(\d) and ∠(\d) form a linear pair$/.exec(s))) return { t: 'lp', a: +m[1], b: +m[2] };
       if ((m = /^∠(\d) and ∠(\d) are supplementary$/.exec(s)) || (m = /^m∠(\d) \+ m∠(\d) = 180°?$/.exec(s))) return { t: 'supp', a: +m[1], b: +m[2] };
@@ -1709,7 +1713,12 @@
       if (k === 'congsupp') return st.t === 'cong' && prior.some(function (x) { return x.t === 'supp' && prior.some(function (y) { return y !== x && y.t === 'supp' && [x.a, x.b].filter(function (z) { return [y.a, y.b].indexOf(z) >= 0; }).length === 1 && sameSt(st, { t: 'cong', a: [x.a, x.b].filter(function (z) { return [y.a, y.b].indexOf(z) < 0; })[0], b: [y.a, y.b].filter(function (z) { return [x.a, x.b].indexOf(z) < 0; })[0] }); }); });
       return false;
     }
-    function filledRows(p) { var rows = JSON.parse(JSON.stringify(p.fig.proof.rows)), fill = {}; (p.parts || []).forEach(function (q) { if (q.label) fill[q.label] = q.answer; }); rows.forEach(function (r) { ['s', 'r'].forEach(function (f) { if (r[f + 'b']) r[f] = fill[r[f + 'b']] || ''; }); }); return rows; }
+    function writtenRows(ans) {   // "1. statement — reason; 2. …": rows must be numbered 1, 2, 3, … in order
+      var rows = String(ans || '').split(/;\s*(?=\d+\.)/).map(function (x) { var m = /^\s*(\d+)\.\s*(.*?)\s+[—–-]\s+(.*?)\s*$/.exec(C.plainText(x)); return m ? { n: +m[1], s: m[2], r: m[3] } : { n: 0, s: x, r: '' }; }).filter(function (r) { return String(r.s).trim(); });
+      if (rows.some(function (r, i) { return r.n !== i + 1; })) rows.forEach(function (r) { r.r = ''; });   // misnumbered rows are not accepted
+      return rows;
+    }
+    function filledRows(p) { if (p.fig.proof.write) return writtenRows((p.parts[0] || {}).answer); var rows = JSON.parse(JSON.stringify(p.fig.proof.rows)), fill = {}; (p.parts || []).forEach(function (q) { if (q.label) fill[q.label] = q.answer; }); rows.forEach(function (r) { ['s', 'r'].forEach(function (f) { if (r[f + 'b']) r[f] = fill[r[f + 'b']] || ''; }); }); return rows; }
     R['par-proof'] = function (p, part, raw) {
       need(p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && p.fig.proof && NS.geoFigures, 'numbered figure with a proof');
       var F = NS.geoFigures, lines = p.fig.names || ['ℓ', 'm'], gm = need(/Given: (.+?)\. Prove: (.+?)\./.exec(C.plainText(p.prompt || '')), 'given and prove'), givens = gm[1].split(/; /).map(angSt), prove = angSt(gm[2]);
@@ -1718,12 +1727,14 @@
       rows.forEach(function (r, i) { if (bad >= 0) return; var st = angSt(r.s), k = parReason(r.r), ok = k === 'given' ? !!st && givens.some(function (g) { return sameSt(g, st); }) : parRowOk(st, k, prior.concat(givens.filter(function (g) { return g.t === 'par'; })), F, lines); if (!ok) bad = i; else prior.push(st); });
       var myRow = rows.findIndex(function (r) { return r.sb === part.label || r.rb === part.label; });
       if (bad === myRow) return { status: 'mismatch', msg: 'Step ' + (myRow + 1) + ' is not justified.' };
+      if (bad >= 0 && p.fig.proof.write) return { status: 'mismatch', msg: 'Row ' + (bad + 1) + ' of the written proof is not justified.' };
+      if (p.fig.proof.write && rows.length < 3) return { status: 'mismatch', msg: 'The proof needs more rows.' };
       if (bad >= 0) throw new C.CheckError('step ' + (bad + 1) + ' of the printed proof is not valid');
       need(sameSt(angSt(rows[rows.length - 1].s), prove), 'the last row proves the statement');
       return { status: 'verified' };
     };
     /* AA similarity proofs for the triangle with a segment parallel to its base (geo-tri-par: D on AB, E on AC) */
-    function simSt(s) { s = C.plainText(String(s || '')).replace(/\s+/g, ' ').trim(); var m;
+    function simSt(s) { s = proofText(s); var m;
       if ((m = /^∠([A-E]{1,3}) ≅ ∠([A-E]{1,3})$/.exec(s))) return { t: 'ang', a: m[1], b: m[2] };
       if ((m = /^([A-E]{2}) ∥ ([A-E]{2})$/.exec(s))) return { t: 'par', a: m[1], b: m[2] };
       if ((m = /^△([A-E]{3}) ~ △([A-E]{3})$/.exec(s))) return { t: 'sim', a: m[1], b: m[2] }; return null; }
@@ -1744,9 +1755,55 @@
         if (!ok) bad = i; else prior.push(st); });
       var myRow = rows.findIndex(function (r) { return r.sb === part.label || r.rb === part.label; });
       if (bad === myRow) return { status: 'mismatch', msg: 'Step ' + (myRow + 1) + ' is not justified.' };
+      if (bad >= 0 && p.fig.proof.write) return { status: 'mismatch', msg: 'Row ' + (bad + 1) + ' of the written proof is not justified.' };
+      if (p.fig.proof.write && rows.length < 3) return { status: 'mismatch', msg: 'The proof needs more rows.' };
       if (bad >= 0) throw new C.CheckError('step ' + (bad + 1) + ' of the printed proof is not valid');
       var last = simSt(rows[rows.length - 1].s); need(last && last.t === 'sim' && (last.a + last.b === prove.a + prove.b), 'the last row proves the statement');
       return { status: 'verified' };
+    };
+    /* SSS and SAS similarity proofs for two drawn triangles ABC and DEF (geo-sim: DEF is ABC scaled, A↔D, B↔E, C↔F) */
+    R['sim2-proof'] = function (p, part, raw) {
+      var f = need(p.fig && p.fig.kind === 'geo-sim' && p.fig.proof && NS.geoFigures.check(p.fig).ok && NS.geoFigures.simLen && p.fig, 'two triangles'), len = function (n) { return NS.geoFigures.simLen(f, n); };
+      var CO = { AB: 'DE', BC: 'EF', CA: 'FD', AC: 'DF' }, canon = function (n) { return n === 'AC' ? 'CA' : n === 'DF' ? 'FD' : n; };
+      var gm = need(/Given: (.+?)\. Prove: (.+?)\./.exec(C.plainText(p.prompt || '')), 'given and prove');
+      var shownNum = function (n) { var t = len(canon(n)); return t !== null && ((f.show || []).indexOf(canon(n)) >= 0 || (f.show || []).indexOf(n) >= 0) ? t : null; };
+      function st(s) { s = proofText(s); var m;
+        if (/^([A-F]{2} = \d+(?:\.\d+)?)(, [A-F]{2} = \d+(?:\.\d+)?)*$/.test(s)) return { t: 'len', v: s.split(', ').map(function (x) { var q = x.split(' = '); return [q[0], +q[1]]; }) };
+        if ((m = /^(([A-F]{2}) : ([A-F]{2})(?: = [A-F]{2} : [A-F]{2})*) = (\d+) : (\d+)$/.exec(s))) return { t: 'ratio', pairs: m[1].split(' = ').map(function (x) { return x.split(' : '); }), p: +m[4], q: +m[5] };
+        if ((m = /^∠([A-F]) ≅ ∠([A-F])$/.exec(s))) return { t: 'ang', a: m[1], b: m[2] };
+        if ((m = /^△([A-F]{3}) ~ △([A-F]{3})$/.exec(s))) return { t: 'sim', a: m[1], b: m[2] }; return null; }
+      function rk(t) { t = String(t || '').toLowerCase(); if (/^\s*given/.test(t)) return 'given'; if (/\bsss\b|side-side-side/.test(t)) return 'SSS'; if (/\bsas\b|side-angle-side/.test(t)) return 'SAS'; if (/ratio|divid|division|simplif|substitut/.test(t)) return 'ratio'; return null; }
+      var pairOk = function (pr) { var a = canon(pr[0]), b = canon(pr[1]); return CO[a] === b || CO[b] === a; };
+      var rows = filledRows(p), prior = [], bad = -1;
+      rows.forEach(function (r, i) { if (bad >= 0) return; var x = st(r.s), k = rk(r.r), ok = false;
+        if (x && k === 'given' && x.t === 'len') ok = x.v.every(function (q) { var t = shownNum(q[0]); return t !== null && Math.abs(t - q[1]) < 1e-9; });
+        else if (x && k === 'given' && x.t === 'ang') { var ga = (f.ang || {})[x.a], gb = (f.ang || {})[x.b]; ok = ga !== undefined && String(ga) === String(gb) && /\d/.test(String(ga)) && 'AD|DA|BE|EB|CF|FC'.split('|').indexOf(x.a + x.b) >= 0; }
+        else if (x && k === 'ratio' && x.t === 'ratio') { var known = function (n) { return prior.some(function (y) { return y.t === 'len' && y.v.some(function (q) { return canon(q[0]) === canon(n); }); }); };
+          ok = x.pairs.every(function (pr) { return pairOk(pr) && known(pr[0]) && known(pr[1]) && Math.abs(len(canon(pr[0])) / len(canon(pr[1])) - x.p / x.q) < 1e-9; }); }
+        else if (x && x.t === 'sim' && (k === 'SSS' || k === 'SAS')) {
+          var cor = (x.a === 'ABC' && x.b === 'DEF') || (x.a === 'DEF' && x.b === 'ABC') || (x.a.split('').map(function (ch) { return ch; }).join('') === 'BCA' && x.b === 'EFD');
+          var covered = {}; prior.forEach(function (y) { if (y.t === 'ratio') y.pairs.forEach(function (pr) { covered[[canon(pr[0]), canon(pr[1])].sort().join('|')] = 1; }); });
+          var has = function (a) { return covered[[a, CO[a]].sort().join('|')]; };
+          ok = cor && (k === 'SSS' ? has('AB') && has('BC') && has('CA') : has('AB') && has('CA') && prior.some(function (y) { return y.t === 'ang' && /[AD]/.test(y.a) && /[AD]/.test(y.b); })); }
+        if (!ok) bad = i; else prior.push(x); });
+      var write = !!p.fig.proof.write, myRow = rows.findIndex(function (r) { return r.sb === part.label || r.rb === part.label; });
+      if (bad >= 0 && (write || bad === myRow)) return { status: 'mismatch', msg: 'Step ' + (bad + 1) + ' is not justified.' };
+      if (bad >= 0) throw new C.CheckError('step ' + (bad + 1) + ' of the printed proof is not valid');
+      var last = st(rows[rows.length - 1] && rows[rows.length - 1].s), prove = st(gm[2]); need(prove && prove.t === 'sim', 'prove');
+      if (!last || last.t !== 'sim' || last.a + last.b !== prove.a + prove.b) return write ? { status: 'mismatch', msg: 'The last row must be the Prove statement.' } : (function () { throw new C.CheckError('the last row does not prove the statement'); })();
+      return { status: 'verified' };
+    };
+    /* choose-all names for a quadrilateral on a grid (a trapezoid has exactly one pair of parallel sides) */
+    R['quad-select'] = function (p, part, raw) {
+      var sh = need(p.fig && p.fig.kind === 'geo-grid' && p.fig.shapes && p.fig.shapes.length === 1 && p.fig.shapes[0], 'one quadrilateral'), P = sh.pts;
+      var v = function (i) { var a = P[i], b = P[(i + 1) % 4]; return [b[0] - a[0], b[1] - a[1]]; }, L2 = function (i) { var t = v(i); return t[0] * t[0] + t[1] * t[1]; }, par = function (i, j) { var a = v(i), b = v(j); return a[0] * b[1] - a[1] * b[0] === 0; }, dot = function (i, j) { var a = v(i), b = v(j); return a[0] * b[0] + a[1] * b[1]; };
+      var pg = par(0, 2) && par(1, 3), eq = L2(0) === L2(1) && L2(1) === L2(2), rt = dot(0, 1) === 0, tz = par(0, 2) !== par(1, 3), kite = !par(0, 2) && !par(1, 3) && ((L2(0) === L2(1) && L2(2) === L2(3)) || (L2(1) === L2(2) && L2(3) === L2(0)));
+      var applies = { square: pg && eq && rt, rectangle: pg && rt, rhombus: pg && eq, parallelogram: pg, trapezoid: tz, kite: kite };
+      need(/exactly one pair of parallel sides/.test(C.plainText(raw)), 'the trapezoid definition is stated');
+      var opts = need(Array.isArray(part.check.opts) && part.check.opts, 'options'), yes = opts.filter(function (o) { return applies[o.toLowerCase()]; });
+      need(opts.every(function (o) { return applies[o.toLowerCase()] !== undefined; }) && yes.length >= 1 && yes.length < opts.length, 'options');
+      var said = opts.filter(function (o) { return new RegExp('\\b' + o + '\\b', 'i').test(C.plainText(part.answer || '')); });
+      return said.length === yes.length && yes.every(function (y) { return said.indexOf(y) >= 0; }) ? { status: 'verified', computed: yes.join(', ') } : { status: 'mismatch', msg: 'Correct: ' + yes.join(', ') + '.' };
     };
     return function (p, part, policy) {
       var kind = part.check.kind, f = R[kind];

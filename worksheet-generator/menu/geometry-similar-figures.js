@@ -251,5 +251,6 @@
   var prevPrinted = F.printed; F.printed = function (spec) { return spec && spec.kind === 'geo-shadow' ? printedShadow(spec) : prevPrinted(spec); };
   F.extend('geo-shadow', { render: renderShadow, check: checkShadow });
   F.extend('geo-sim', { render: renderSim, check: checkSim });
+  F.simLen = trueLen;   // the verifier reads side lengths of a geo-sim pair from here
   F.extend('geo-tri-par', { render: renderPar, check: checkPar });
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -504,6 +504,24 @@
       return {opts: picked.map(function (t) { return '⟨' + t + '⟩'; }), keys: picked.map(function (t, i) { return PC.of(t) === target ? i : -1; }).filter(function (i) { return i >= 0; }),
         direction: 'Select all that apply.', derived: dq, note: 'Asked as choose-all from the same property.', src: mcSource(p)};
     }
+    // Quadrilateral on a grid: "select every name that applies" (trapezoid = exactly one pair of parallel sides).
+    if (chk && chk.type === 'derive' && chk.kind === 'quad-class' && p.fig && p.fig.kind === 'geo-grid' && p.fig.shapes && p.fig.shapes.length === 1) {
+      var Pq = p.fig.shapes[0].pts, vq = function (i) { var a = Pq[i], b = Pq[(i + 1) % 4]; return [b[0] - a[0], b[1] - a[1]]; }, l2 = function (i) { var t = vq(i); return t[0] * t[0] + t[1] * t[1]; }, pr = function (i, j) { var a = vq(i), b = vq(j); return a[0] * b[1] - a[1] * b[0] === 0; };
+      var pgq = pr(0, 2) && pr(1, 3), eqq = l2(0) === l2(1) && l2(1) === l2(2), rtq = vq(0)[0] * vq(1)[0] + vq(0)[1] * vq(1)[1] === 0, tzq = pr(0, 2) !== pr(1, 3);
+      var kiteq = !pr(0, 2) && !pr(1, 3) && ((l2(0) === l2(1) && l2(2) === l2(3)) || (l2(1) === l2(2) && l2(3) === l2(0)));
+      var app = { Square: pgq && eqq && rtq, Rectangle: pgq && rtq, Rhombus: pgq && eqq, Parallelogram: pgq, Trapezoid: tzq, Kite: kiteq };
+      var namesQ = Object.keys(app).filter(function (k) { return !(k === 'Kite' && pgq && eqq); });   // a rhombus counts as a kite in some books: leave Kite out then
+      var rngQ = WS.rng.make(WS.rng.hash('multi-quad-v1|' + mcSource(p))), yesQ = namesQ.filter(function (k) { return app[k]; }), noQ = rngQ.shuffle(namesQ.filter(function (k) { return !app[k]; }));
+      if (!yesQ.length || !noQ.length) return {fail:'No choose-all names for this figure.'};
+      var optsQ = rngQ.shuffle(yesQ.concat(noQ).slice(0, Math.max(5, yesQ.length + 1))).slice(0, 5); if (!yesQ.every(function (k) { return optsQ.indexOf(k) >= 0; })) optsQ = rngQ.shuffle(yesQ.concat(noQ.slice(0, 5 - yesQ.length)));
+      var nm = (/quadrilateral ([A-Z]{4})/.exec(p.prompt) || [])[1] || 'ABCD', dq2 = JSON.parse(JSON.stringify(p));
+      dq2.prompt = 'Select every name that applies to quadrilateral ' + nm + '. (A trapezoid has exactly one pair of parallel sides.)';
+      dq2.parts = [{ answer: optsQ.filter(function (k) { return app[k]; }).join(', '), check: { type: 'derive', kind: 'quad-select', opts: optsQ } }];
+      dq2.steps = [{ t: 'Use slopes to find parallel and perpendicular sides and the distance formula for side lengths; then check each definition.', m: '', w: 2 }];
+      var vq2 = NS.verifyProblem(dq2, { intOnly: false }); if (!vq2.ok) return {fail:'The choose-all question did not verify.'};
+      dq2.verify = { status: vq2.status, issues: vq2.issues };
+      return {opts: optsQ, keys: optsQ.map(function (k, i) { return app[k] ? i : -1; }).filter(function (i) { return i >= 0; }), direction: 'Select all that apply.', derived: dq2, note: 'Asked as choose-all from the same figure.', src: mcSource(p)};
+    }
     // Angle pairs from a numbered transversal figure: "select every pair of angles that are <relationship>".
     if (chk && chk.type === 'derive' && chk.kind === 'angle-pair' && p.fig && p.fig.kind === 'geo-transversal' && p.fig.numbered && NS.geoFigures && /Name the relationship between ∠(\d) and ∠(\d)/.test(p.prompt || '')) {
       var GF = NS.geoFigures, mm = /∠(\d) and ∠(\d)/.exec(p.prompt), rel = GF.relationship(+mm[1], +mm[2]), all = [];
