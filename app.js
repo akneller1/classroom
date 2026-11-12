@@ -648,7 +648,8 @@
     if (!skills.length) return '';
     function lines(list) {
       return '<ul class="unit-skills">' + list.map(function (skill) {
-        return '<li class="unit-skill">' + esc(skill) + '</li>';
+        var gradeCodes = courseId === 'grade5' && window.MK_GRADE5_STANDARDS && window.MK_GRADE5_STANDARDS[u.id] && window.MK_GRADE5_STANDARDS[u.id][skill] || [];
+        return '<li class="unit-skill">' + esc(skill) + (gradeCodes.length ? '<small class="unit-skill-standards">CCSS: ' + esc(gradeCodes.join(', ')) + '</small>' : '') + '</li>';
       }).join('') + '</ul>';
     }
     if (skills.length <= 4) return lines(skills);

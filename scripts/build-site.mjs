@@ -123,7 +123,7 @@ function loadData() {
   vm.createContext(sandbox);
   vm.runInContext(`${src}\n;globalThis.__mkTopLevel = {${grab}};`, sandbox, { filename: "data.js", timeout: 5000 });
   // Include resources attached by the same runtime supplements as the homepage.
-  for (const filename of ["unit-specific-arcade.js", "resource-details.js", "course-catalog.js"]) {
+  for (const filename of ["unit-specific-arcade.js", "resource-details.js", "course-catalog.js", "course-integrations.js"]) {
     const file = path.join(ROOT, filename);
     if (fs.existsSync(file)) vm.runInContext(fs.readFileSync(file,"utf8"),sandbox,{filename,timeout:5000});
   }
@@ -207,6 +207,10 @@ const HOME_TITLE = "Free Math Games, Worksheets & Lesson Plans | Mr. K's Classro
 // These summaries describe the resources teachers can actually find on each course page.
 // Keep them readable and useful rather than repeating keywords for search engines.
 const COURSE_SEO = {
+  grade5: {
+    title: "Free 5th Grade Math Worksheets, Games & Lessons",
+    description: "Free Grade 5 math worksheets, lesson plans, student games, flashcards, understanding checks, and activities covering fractions, decimals, place value, measurement, geometry and data."
+  },
   algebra: {
     title: "Free Algebra 1 Worksheets, Games & Lesson Plans",
     description: "Free Algebra 1 worksheets, math games, escape rooms, lesson plans, assessments and flashcards. Find classroom activities organized by unit and skill."

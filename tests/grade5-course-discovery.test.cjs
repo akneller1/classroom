@@ -31,7 +31,7 @@ test('every Grade 5 unit indexes four core generators and Error Analysis', () =>
       const url = new URL(found.path);
       assert.equal(url.searchParams.get('unit'),unit.id);
       assert.equal(url.searchParams.get('mode'),mode);
-      assert.equal(url.pathname,'/FinancialAlgebra/worksheet-generator/grade5-generators.html');
+      assert.equal(url.pathname,'/grade5/worksheet-generator/grade5-generators.html');
       assert.match(found.thumb,/math5-generator-.*\.svg$/);
     }
   }
