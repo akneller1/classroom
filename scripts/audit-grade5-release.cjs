@@ -96,7 +96,7 @@ if(!course||!Array.isArray(course.units)||course.units.length!==11){
   }
   const games=list.filter(a=>a.type==='Game');
   if(games.length<9)fail(unit.id+': expected nine core games; found '+games.length);
-  if((types.Generator||0)<4)fail(unit.id+': fewer than four generators');
+  if((types.Generator||0)+(types.Printable||0)<4)fail(unit.id+': fewer than four generators or printable tools');
   for(const title of ['Flashcards','Understanding Check','Cheat Sheet']){
    if(!list.some(a=>a.title===title))fail(unit.id+': missing '+title);
   }
