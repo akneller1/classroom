@@ -2,13 +2,13 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const root=path.join(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const context={window:{location:{href:'https://mrksclassroom.com/'}}};
+const context={URL,URLSearchParams,window:{location:{href:'https://mrksclassroom.com/'}}};
 vm.runInNewContext(read('integrated-student-skills.js'),context);
 vm.runInNewContext(read('integrated-student-share.js'),context);
 const catalog=context.window.MK_INTEGRATED_STUDENT_SKILLS;
 const share=context.window.MK_INTEGRATED_STUDENT_SHARE;
 const gradeUnits=['place-value-number-sense','multi-digit-multiplication-division','decimal-operations','numerical-expressions-patterns','fraction-addition-subtraction','fraction-multiplication-division','measurement-conversions','volume-three-dimensional-figures','coordinate-plane-graphing','classifying-two-dimensional-figures','data-line-plots-problem-solving'];
-const financeUnits=['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement'];
+const financeUnits=['income','budgeting','credit','banking','investing','borrowing','housing','insurance','college','retirement'];
 test('Grade 5 and Financial Algebra student share catalog includes exact unit skill IDs',()=>{
  assert.deepEqual(Object.keys(catalog.grade5),gradeUnits);
  assert.deepEqual(Object.keys(catalog['financial-algebra']),financeUnits);
