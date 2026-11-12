@@ -1244,3 +1244,182 @@ body { background:var(--paper); }
     min-height:7.1rem;
   }
 }
+
+
+/* Homepage experiment: teaching tools left (1/4), courses right (3/4). */
+/* At desktop widths the same three parent tracks keep the heading sections
+   aligned and ensure both outer panels end at the same baseline. */
+@media (min-width:1050px) {
+  .task-home > .home-dashboard {
+    grid-template-columns:minmax(0,1fr) minmax(0,3fr);
+    grid-template-rows:auto minmax(0,1fr) auto;
+    column-gap:1.5rem;
+    row-gap:1rem;
+    align-items:stretch;
+  }
+  .task-home .task-workspace {
+    grid-column:1;
+    grid-row:1 / 4;
+    display:grid;
+    grid-template-rows:subgrid;
+    min-width:0;
+  }
+  .task-home .course-sidebar {
+    grid-column:2;
+    grid-row:1 / 4;
+    display:grid;
+    grid-template-rows:subgrid;
+    min-width:0;
+  }
+  .task-home .course-sidebar .main-nav {
+    display:grid;
+    grid-row:1 / 3;
+    grid-template-rows:auto minmax(0,1fr);
+    row-gap:.75rem;
+    align-items:stretch;
+  }
+  .task-home .course-sidebar .sidebar-heading {
+    grid-row:1;
+    align-self:start;
+    margin:0;
+  }
+  .task-home .course-sidebar .course-nav-grid {
+    display:grid;
+    grid-row:2;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-template-rows:repeat(4,minmax(0,1fr));
+    grid-auto-rows:minmax(8rem,1fr);
+    align-self:stretch;
+    align-content:stretch;
+    height:100%;
+    gap:.75rem;
+  }
+  .task-home .course-sidebar .course-nav-grid > * {
+    min-width:0;
+    min-height:0;
+  }
+  .task-home .course-sidebar .main-nav .course-nav-card {
+    box-sizing:border-box;
+    width:100%;
+    height:100%;
+    min-height:8.5rem;
+    padding:.7rem .45rem .55rem;
+  }
+  .task-home .course-sidebar .course-nav-copy strong {
+    font-size:clamp(.88rem,1.07vw,1.07rem);
+    line-height:1.18;
+  }
+  .task-home .course-sidebar .course-nav-card > .art {
+    width:4.5rem;
+    height:3.8rem;
+    max-width:80%;
+    margin:.5rem auto .25rem;
+  }
+  .task-home .task-workspace .task-intro {
+    grid-row:1;
+    margin:0;
+  }
+  .task-home .task-workspace .task-intro h1 {
+    font-size:clamp(1.45rem,1.85vw,1.95rem);
+    line-height:1.15;
+    overflow-wrap:normal;
+  }
+  .task-home .task-workspace .task-intro .lede {
+    font-size:.9rem;
+    line-height:1.4;
+  }
+  .task-home .task-workspace .task-grid {
+    grid-row:2;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:repeat(9,minmax(0,1fr));
+    grid-auto-rows:minmax(0,1fr);
+    gap:.55rem;
+    align-content:stretch;
+  }
+  .task-home .task-workspace .task-grid > li {
+    min-height:0;
+    min-width:0;
+  }
+  .task-home .task-workspace .task-card {
+    min-height:0;
+    padding:.65rem .7rem;
+    gap:.3rem .45rem;
+    grid-template-columns:1.8rem minmax(0,1fr);
+  }
+  .task-home .task-workspace .task-icon {
+    width:1.8rem;
+    height:1.8rem;
+    font-size:1.15rem;
+  }
+  .task-home .task-workspace .task-card h2 {
+    font-size:clamp(.9rem,1vw,1.05rem);
+    line-height:1.22;
+  }
+  .task-home .task-workspace .task-card p {
+    font-size:.79rem;
+    line-height:1.35;
+  }
+  .task-home .task-workspace .task-action {
+    font-size:.75rem;
+  }
+  .task-home .task-workspace .task-browse {
+    grid-row:3;
+    margin:0;
+  }
+}
+/* On tablets, stack tools before courses while keeping the courses compact
+   and in reading order. Small phones retain the established two-column grid. */
+@media (min-width:761px) and (max-width:1049px) {
+  .task-home > .home-dashboard {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto;
+    row-gap:1.4rem;
+  }
+  .task-home .task-workspace {
+    grid-column:1;
+    grid-row:1;
+    display:block;
+    min-width:0;
+  }
+  .task-home .course-sidebar {
+    grid-column:1;
+    grid-row:2;
+    display:block;
+    min-width:0;
+  }
+  .task-home .course-sidebar .main-nav {
+    display:block;
+  }
+  .task-home .course-sidebar .sidebar-heading {
+    margin-bottom:1rem;
+  }
+  .task-home .course-sidebar .course-nav-grid {
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    grid-template-rows:auto;
+    grid-auto-rows:auto;
+    height:auto;
+    gap:.7rem;
+  }
+  .task-home .course-sidebar .main-nav .course-nav-card {
+    min-height:9rem;
+    height:100%;
+    padding:.65rem .5rem;
+  }
+  .task-home .task-workspace .task-intro {
+    margin-bottom:1.15rem;
+  }
+  .task-home .task-workspace .task-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-rows:auto;
+    gap:.65rem;
+  }
+  .task-home .task-workspace .task-card {
+    min-height:10.5rem;
+  }
+  .task-home .task-workspace .task-browse {
+    margin-top:1rem;
+  }
+}
