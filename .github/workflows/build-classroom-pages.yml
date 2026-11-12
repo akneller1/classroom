@@ -121,7 +121,7 @@ jobs:
           <meta http-equiv="refresh" content="0; url=./index.html">
           <script>location.replace('./index.html'+location.search+location.hash);</script>
           </head><body><p>Continue to <a href="./index.html">5th Grade Math</a>.</p></body></html>
-                    HTML
+          HTML
           # Exercise the real Grade 5 browser loader against every published unit.
           node classroom/scripts/test-grade5-deployment.cjs site
           # Catch missing generator assets before deploying.
