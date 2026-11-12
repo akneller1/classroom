@@ -1,0 +1,29 @@
+name: Course game routing
+on:
+  push:
+    paths:
+      - 'worksheet-generator/course-game.html'
+      - 'worksheet-generator/games/course-source.js'
+      - 'financial/resources.json'
+      - 'course-integrations.js'
+      - 'tests/course-game-routing.test.cjs'
+      - '.github/workflows/course-game-routing.yml'
+  pull_request:
+    paths:
+      - 'worksheet-generator/course-game.html'
+      - 'worksheet-generator/games/course-source.js'
+      - 'financial/resources.json'
+      - 'course-integrations.js'
+      - 'tests/course-game-routing.test.cjs'
+      - '.github/workflows/course-game-routing.yml'
+  workflow_dispatch:
+jobs:
+  route-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify game routes and unit IDs
+        run: node --test tests/course-game-routing.test.cjs
