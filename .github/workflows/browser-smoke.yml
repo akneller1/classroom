@@ -10,6 +10,8 @@ on:
       - '.github/workflows/browser-smoke.yml'
       - 'scripts/test-browser-smoke.cjs'
       - 'scripts/test-grade5-browser-smoke.cjs'
+      - 'scripts/integrate-approved-courses.mjs'
+      - 'scripts/integrate-financial-algebra.mjs'
 
 permissions:
   contents: read
