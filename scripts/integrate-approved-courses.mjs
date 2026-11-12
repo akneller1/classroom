@@ -11,7 +11,7 @@ if(!fs.existsSync(path.join(out,'index.html')))throw Error('Build the Classroom 
 const dst=path.join(out,'grade5');
 fs.rmSync(dst,{recursive:true,force:true});
 fs.mkdirSync(dst,{recursive:true});
-const skipTop=new Set(['.git','.github','node_modules','_site','tests','docs','scripts','tools','financial','artifacts','grade1.html','grade2.html','grade3.html','grade4.html','index.html','activity.html','coverage.html','skills.html','INTEGRATION.md','README.md','package.json','package-lock.json','COURSE_TEMPLATE.md']);
+const skipTop=new Set(['.git','.github','node_modules','_site','tests','docs','scripts','tools','financial','question-banks','artifacts','grade1.html','grade2.html','grade3.html','grade4.html','index.html','activity.html','coverage.html','skills.html','INTEGRATION.md','README.md','package.json','package-lock.json','COURSE_TEMPLATE.md']);
 const skipNames=/^(?:GRADE[1-4]_BANK_HANDOFF|FINANCIAL_ALGEBRA|FA_INTEGRATION)/i;
 function copy(src, target, depth=0){
  fs.mkdirSync(target,{recursive:true});
@@ -56,6 +56,6 @@ let xml=fs.readFileSync(sitemap,'utf8');
 if(!xml.includes('https://mrksclassroom.com/grade5/'))xml=xml.replace('</urlset>','  <url><loc>https://mrksclassroom.com/grade5/</loc></url>\n</urlset>');
 fs.writeFileSync(sitemap,xml);
 // Explicit contract prevents a missing or empty course from being deployed.
-const required=['index.html','src/grade5-site.js','grade5-resource-catalog.js','worksheet-generator/grade5-games.html','worksheet-generator/grade5-understanding-check.html','question-banks/math5'];
+const required=['index.html','src/grade5-site.js','grade5-resource-catalog.js','worksheet-generator/grade5-games.html','worksheet-generator/grade5-understanding-check.html','math5'];
 for(const rel of required)if(!fs.existsSync(path.join(dst,rel)))throw Error('Grade 5 output missing '+rel);
 console.log('Approved Grade 5 assembled at _site/grade5/; staging repository unchanged.');
