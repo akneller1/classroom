@@ -62,6 +62,20 @@ jobs:
           cp grade5-source/assets/favicon.svg site/grade5/assets/
           rsync -a grade5-source/worksheet-generator/grade5/ site/grade5/worksheet-generator/grade5/
           rsync -a grade5-source/math5/ site/grade5/math5/
+          # Grade 5's source data.js contains staging-only course outlines.
+          # Publish only its math5 catalog record in the compiled site.
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const vm = require('node:vm');
+          const context = { window: {} };
+          vm.createContext(context);
+          vm.runInContext(fs.readFileSync('grade5-source/data.js', 'utf8'), context);
+          const library = context.window.LIBRARY;
+          const grade = library && library.courses.find(c => c.id === 'math5');
+          if (!grade) throw new Error('Grade 5 catalog missing from source');
+          library.courses = [grade];
+          fs.writeFileSync('site/grade5/data.js', 'window.LIBRARY = ' + JSON.stringify(library) + ';\\n');
+          NODE
           # Approved Grade 5 projects, reference sheets and interactive models.
           for dir in grade5-source/math5-*; do
             if [[ -d "$dir" ]]; then
