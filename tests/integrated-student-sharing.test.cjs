@@ -29,7 +29,7 @@ test('Grade 5 and Financial Algebra student share catalog includes exact unit sk
 test('all ten financial game banks match the student share skill IDs',()=>{
  for(const unit of financeUnits){
   const bank=JSON.parse(read('financial/banks/'+unit+'.json'));
-  assert.deepEqual(bank.skills.map(x=>x.id),catalog['financial-algebra'][unit].map(x=>x.id));
+  assert.deepEqual(bank.skills.map(x=>x.id),Array.from(catalog['financial-algebra'][unit],x=>x.id));
  }
 });
 test('skill chooser is used only on resources that honor skill IDs',()=>{
