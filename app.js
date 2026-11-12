@@ -17,7 +17,7 @@
     { id: 'grade3', name: '3rd Grade Math', color: 'orange', art: 'third', units: [], comingSoon: true, homePlaceholder: true },
     { id: 'grade4', name: '4th Grade Math', color: 'green', art: 'fourth', units: [], comingSoon: true, homePlaceholder: true },
     { id: 'grade5', name: '5th Grade Math', color: 'green', art: 'fifth', units: [], comingSoon: false, homePlaceholder: false },
-    { id: 'financial-algebra', name: 'Financial Algebra', color: 'purple', art: 'finance', units: [], comingSoon: true, homePlaceholder: true }
+    { id: 'financial-algebra', name: 'Financial Algebra', color: 'purple', art: 'finance', units: [], comingSoon: false, homePlaceholder: false }
   ]);
   L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
@@ -1135,7 +1135,7 @@
     var cards = courses.map(function (c) {
       var current = r && r.c && r.c.id === c.id;
       var soon = c.comingSoon || c.planned;
-      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + (c.id === 'grade5' ? 'grade5/' : href(courseToken(c))) + '"' +
+      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + (c.id === 'grade5' ? 'grade5/' : c.id === 'financial-algebra' ? 'financial-algebra/' : href(courseToken(c))) + '"' +
         ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
         artFor(c) + '<span class="course-nav-description">' + esc(COURSE_CARD_DESCRIPTIONS[c.id] || c.blurb || '') + '</span>' +
