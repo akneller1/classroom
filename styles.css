@@ -958,17 +958,21 @@ body { background:var(--paper); }
 
 /* Soft rainbow in curriculum order, from red through violet. */
 .course-nav-card[data-course] { --c-fg:#17213d; }
-.course-nav-card[data-course="grade5"] { --c-bg:hsl(0 60% 88%); }
-.course-nav-card[data-course="math6"] { --c-bg:hsl(15 60% 88%); }
-.course-nav-card[data-course="prealgebra7"] { --c-bg:hsl(25 60% 88%); }
-.course-nav-card[data-course="prealgebra"] { --c-bg:hsl(50 60% 88%); }
-.course-nav-card[data-course="algebra"] { --c-bg:hsl(80 60% 88%); }
-.course-nav-card[data-course="geometry"] { --c-bg:hsl(120 60% 88%); }
-.course-nav-card[data-course="algebra2"] { --c-bg:hsl(160 60% 88%); }
-.course-nav-card[data-course="precalculus"] { --c-bg:hsl(190 60% 88%); }
-.course-nav-card[data-course="calculus"] { --c-bg:hsl(220 60% 88%); }
-.course-nav-card[data-course="statistics"] { --c-bg:hsl(255 60% 88%); }
-.course-nav-card[data-course="discrete"] { --c-bg:hsl(285 60% 88%); }
+.course-nav-card[data-course="grade1"] { --c-bg:hsl(0 60% 88%); }
+.course-nav-card[data-course="grade2"] { --c-bg:hsl(19 60% 88%); }
+.course-nav-card[data-course="grade3"] { --c-bg:hsl(38 60% 88%); }
+.course-nav-card[data-course="grade4"] { --c-bg:hsl(57 60% 88%); }
+.course-nav-card[data-course="grade5"] { --c-bg:hsl(76 60% 88%); }
+.course-nav-card[data-course="math6"] { --c-bg:hsl(95 60% 88%); }
+.course-nav-card[data-course="prealgebra7"] { --c-bg:hsl(114 60% 88%); }
+.course-nav-card[data-course="prealgebra"] { --c-bg:hsl(133 60% 88%); }
+.course-nav-card[data-course="algebra"] { --c-bg:hsl(152 60% 88%); }
+.course-nav-card[data-course="geometry"] { --c-bg:hsl(171 60% 88%); }
+.course-nav-card[data-course="algebra2"] { --c-bg:hsl(190 60% 88%); }
+.course-nav-card[data-course="precalculus"] { --c-bg:hsl(209 60% 88%); }
+.course-nav-card[data-course="calculus"] { --c-bg:hsl(228 60% 88%); }
+.course-nav-card[data-course="statistics"] { --c-bg:hsl(247 60% 88%); }
+.course-nav-card[data-course="discrete"] { --c-bg:hsl(279 60% 88%); }
 .course-nav-card[data-course="financial-algebra"] { --c-bg:hsl(310 60% 88%); }
 
 /* Let the course list begin directly below its heading while sharing the task-grid bottom edge. */
@@ -1020,17 +1024,21 @@ body { background:var(--paper); }
 }
 
 /* One course palette across navigation, headers, units, and activity cards. */
-[data-course="grade5"][data-color] { --course-hue:0; }
-[data-course="math6"][data-color] { --course-hue:15; }
-[data-course="prealgebra7"][data-color] { --course-hue:25; }
-[data-course="prealgebra"][data-color] { --course-hue:50; }
-[data-course="algebra"][data-color] { --course-hue:80; }
-[data-course="geometry"][data-color] { --course-hue:120; }
-[data-course="algebra2"][data-color] { --course-hue:160; }
-[data-course="precalculus"][data-color] { --course-hue:190; }
-[data-course="calculus"][data-color] { --course-hue:220; }
-[data-course="statistics"][data-color] { --course-hue:255; }
-[data-course="discrete"][data-color] { --course-hue:285; }
+[data-course="grade1"][data-color] { --course-hue:0; }
+[data-course="grade2"][data-color] { --course-hue:19; }
+[data-course="grade3"][data-color] { --course-hue:38; }
+[data-course="grade4"][data-color] { --course-hue:57; }
+[data-course="grade5"][data-color] { --course-hue:76; }
+[data-course="math6"][data-color] { --course-hue:95; }
+[data-course="prealgebra7"][data-color] { --course-hue:114; }
+[data-course="prealgebra"][data-color] { --course-hue:133; }
+[data-course="algebra"][data-color] { --course-hue:152; }
+[data-course="geometry"][data-color] { --course-hue:171; }
+[data-course="algebra2"][data-color] { --course-hue:190; }
+[data-course="precalculus"][data-color] { --course-hue:209; }
+[data-course="calculus"][data-color] { --course-hue:228; }
+[data-course="statistics"][data-color] { --course-hue:247; }
+[data-course="discrete"][data-color] { --course-hue:279; }
 [data-course="financial-algebra"][data-color] { --course-hue:310; }
 [data-course][data-color] {
   --c-bg:hsl(var(--course-hue) 60% 88%);
@@ -1193,7 +1201,7 @@ body { background:var(--paper); }
   }
 }
 
-/* Course card titles aligned to the top; icons directly below. Only the two
+/* Course card titles aligned to the top; icons directly below. Only the new
    unpublished course placeholders display a small visible status label. */
 .main-nav .course-nav-card,
 .course-sidebar .main-nav .course-nav-card,
@@ -1227,7 +1235,7 @@ body { background:var(--paper); }
 }
 @media(min-width:1150px) {
   .course-sidebar .course-nav-grid {
-    grid-auto-rows:minmax(7rem,1fr);
+    grid-auto-rows:minmax(7.5rem,1fr);
   }
 }
 @media(max-width:1149px) {
