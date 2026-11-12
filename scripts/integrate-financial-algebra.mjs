@@ -37,8 +37,15 @@ for(const file of ['styles.css','site-overrides.css'])if(fs.existsSync(path.join
 // Financial Algebra course shell is already designed for Classroom navigation.
 let html=fs.readFileSync(path.join(output,'financial-algebra.html'),'utf8');
 html=html.replace(/href="index\.html"/g,'href="../index.html"')
- .replace(/href="financial-algebra\.html"/g,'href="./"');
+ .replace(/href="financial-algebra\.html"/g,'href="./"')
+ // The built root shell has local fonts/student-link scripts. Nested course pages
+ // must reference those shared files one directory up, not request missing copies.
+ .replace(/href="assets\/fonts\//g,'href="../assets/fonts/')
+ .replace(/src="\.\/integrated-student-/g,'src="../integrated-student-');
 fs.writeFileSync(path.join(dest,'index.html'),html);
+for(const needed of ['integrated-student-skills.js','integrated-student-share.js']){
+ assert(fs.existsSync(path.join(output,needed)),'Main site missing shared Financial Algebra student link script: '+needed);
+}
 // Compile course routing module from CURRENT development source, not a stale Classroom copy.
 fs.copyFileSync(path.join(source,'src','site.js'),path.join(dest,'financial','classroom-site.mjs'));
 fs.copyFileSync(path.join(source,'src','course.js'),path.join(dest,'financial','course.js'));
