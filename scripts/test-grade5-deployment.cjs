@@ -50,6 +50,8 @@ assert.match(read('worksheet-generator/grade5/g5-core.js'),
   /loadUnitFromSite\(COURSE, unitId, null, '\.\.\/'\)/,
   'test expects the current browser-relative manifest loader');
 assert.ok(read('worksheet-generator/grade5/g5-core.js').includes("home.href = 'https://mrksclassroom.com/'"), 'Game homepage must point to Classroom');
+assert.match(read('worksheet-generator/grade5/g5-core.js'), /p\.meta\.questionType === 'multi-step'/,
+  'Multi-step instruction must be presented from verified question metadata, not appended to bank prompts');
 const manifest = JSON.parse(read('manifest.json'));
 assert.equal(manifest.version, 1);
 const selected = manifest.banks.filter(entry => entry.courseId === 'math5');
