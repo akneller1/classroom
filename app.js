@@ -659,7 +659,7 @@
       '<div class="band-grid"><div>' +
         crumbs([['Home', '#'], [c.name, null]]) +
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
-        (['algebra', 'geometry', 'algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete'].indexOf(c.id) >= 0 ? '' : '<span class="course-wip-label">Coming Soon</span>') +
+        (['algebra', 'geometry', 'algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete', 'grade5', 'financial-algebra'].indexOf(c.id) >= 0 ? '' : '<span class="course-wip-label">Coming Soon</span>') +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
         '<p class="band-meta">' + (c.planned ? units(c.units.length) + ' · course outline · activities coming soon' : (c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons with generators, games, and study guides' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus' || c.id === 'statistics' || c.id === 'discrete') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
