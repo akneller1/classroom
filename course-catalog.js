@@ -970,6 +970,150 @@
     ]
   }
 };
+  // Shared unit-card lesson previews. Grade 5 topics are synchronized with the
+  // published staging catalog; Financial Algebra topics come from financial/course.js.
+  // Add new courses here (or supply unit.skills) to get the same card layout automatically.
+  skills.grade5 = {
+    "place-value-number-sense": [
+      "Place Value Patterns",
+      "Powers of Ten and Exponents",
+      "Reading and Writing Decimals",
+      "Comparing and Ordering Decimals",
+      "Rounding Decimals"
+    ],
+    "multi-digit-multiplication-division": [
+      "Multiplying Multi-Digit Whole Numbers",
+      "Estimating Products and Quotients",
+      "Dividing by One-Digit Divisors",
+      "Dividing by Two-Digit Divisors",
+      "Interpreting Remainders in Word Problems"
+    ],
+    "decimal-operations": [
+      "Adding and Subtracting Decimals",
+      "Multiplying Decimals by Whole Numbers",
+      "Multiplying Decimals by Decimals",
+      "Dividing Decimals by Whole Numbers",
+      "Dividing by Decimals",
+      "Decimal Word Problems and Money"
+    ],
+    "numerical-expressions-patterns": [
+      "Order of Operations with Grouping Symbols",
+      "Writing Numerical Expressions",
+      "Interpreting Expressions Without Evaluating",
+      "Generating Numerical Patterns",
+      "Relationships Between Two Patterns"
+    ],
+    "fraction-addition-subtraction": [
+      "Equivalent Fractions and Common Denominators",
+      "Adding Fractions with Unlike Denominators",
+      "Subtracting Fractions with Unlike Denominators",
+      "Adding and Subtracting Mixed Numbers",
+      "Estimating with Benchmark Fractions",
+      "Fraction Word Problems"
+    ],
+    "fraction-multiplication-division": [
+      "Fractions as Division",
+      "Multiplying a Fraction by a Whole Number",
+      "Multiplying Fractions by Fractions",
+      "Area with Fractional Side Lengths",
+      "Multiplication as Scaling",
+      "Dividing Unit Fractions and Whole Numbers",
+      "Fraction Multiplication and Division Word Problems"
+    ],
+    "measurement-conversions": [
+      "Customary Length Conversions",
+      "Customary Weight and Capacity Conversions",
+      "Metric Conversions",
+      "Multi-Step Measurement Problems"
+    ],
+    "volume-three-dimensional-figures": [
+      "Understanding Volume and Unit Cubes",
+      "Counting Cubes to Find Volume",
+      "Volume Formulas",
+      "Volume of Composite Figures",
+      "Volume Word Problems"
+    ],
+    "coordinate-plane-graphing": [
+      "The Coordinate System",
+      "Plotting and Reading Points",
+      "Real-World Problems on the Coordinate Plane",
+      "Graphing Patterns and Relationships"
+    ],
+    "classifying-two-dimensional-figures": [
+      "Polygons and Their Attributes",
+      "Classifying Triangles",
+      "Classifying Quadrilaterals",
+      "Shape Hierarchies"
+    ],
+    "data-line-plots-problem-solving": [
+      "Reading Line Plots with Fractions",
+      "Making Line Plots",
+      "Solving Problems with Line Plot Data",
+      "Multi-Step Problem Solving"
+    ]
+  };
+  skills['financial-algebra'] = {
+    "income": [
+      "Compare salary and hourly pay",
+      "Calculate gross and net income",
+      "Interpret pay stubs",
+      "Model income taxes"
+    ],
+    "budgeting": [
+      "Calculate monthly cash flow",
+      "Analyze fixed and variable expenses",
+      "Model financial constraints",
+      "Compare spending decisions"
+    ],
+    "banking": [
+      "Understand account fees",
+      "Calculate simple interest",
+      "Compare savings products",
+      "Interpret bank statements"
+    ],
+    "credit": [
+      "Calculate monthly interest",
+      "Evaluate credit card repayment",
+      "Compare repayment strategies",
+      "Interpret credit costs"
+    ],
+    "borrowing": [
+      "Model installment loans",
+      "Compare APR and loan term",
+      "Build amortization schedules",
+      "Analyze total borrowing cost"
+    ],
+    "investing": [
+      "Calculate compound growth",
+      "Model recurring contributions",
+      "Compare investment scenarios",
+      "Interpret investment risk"
+    ],
+    "housing": [
+      "Compare rental and ownership costs",
+      "Model a mortgage",
+      "Estimate ownership expenses",
+      "Analyze opportunity cost"
+    ],
+    "insurance": [
+      "Compare premiums and deductibles",
+      "Model out-of-pocket costs",
+      "Calculate expected value",
+      "Evaluate financial risk"
+    ],
+    "college": [
+      "Estimate education costs",
+      "Model student loan payments",
+      "Compare career earnings",
+      "Analyze payback periods"
+    ],
+    "retirement": [
+      "Model inflation",
+      "Estimate retirement savings",
+      "Compare account contributions",
+      "Analyze purchasing power"
+    ]
+  };
   function get(courseId,unitId){
     return (skills[courseId] && skills[courseId][unitId] || []).slice();
   }
