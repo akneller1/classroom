@@ -42,6 +42,13 @@ add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place va
    if(tool[1]==='activity') entry.visibleInBrowse=true;
    a.push(entry);
  });
+ // Direct Error Analysis access always uses the Grade 5 bank-aware generator.
+ // The older generic printable engine has no math5 skill sets.
+ var errorAnalysis=item('Error Analysis',staging+'worksheet-generator/grade5-generators.html'+query+'&mode=activity&kind=error',
+   'Generator','printable-generator',staging+'thumbs/math5-generator-activity.svg',
+   'Use verified Grade 5 misconceptions to find, explain, and correct incorrect solutions.');
+ errorAnalysis.visibleInBrowse=true;
+ a.push(errorAnalysis);
  a.push(item('Flashcards',staging+'worksheet-generator/grade5-flashcards.html'+query,'Study Guide','flashcards',staging+'thumbs/math5-flashcards.svg'));
  a.push(item('Understanding Check',staging+'worksheet-generator/grade5-understanding-check.html'+query,'Study Guide','interactive-practice-test',staging+'thumbs/math5-understanding-check.svg'));
  a.push(item('Cheat Sheet',staging+'math5-'+id+'-cheat-sheet/worksheet.pdf','Study Guide','cheat-sheets',staging+'thumbs/math5-'+id+'-cheat-sheet.jpg'));
