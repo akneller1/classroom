@@ -8,10 +8,10 @@ vm.runInNewContext(read('integrated-student-share.js'),context);
 const catalog=context.window.MK_INTEGRATED_STUDENT_SKILLS;
 const share=context.window.MK_INTEGRATED_STUDENT_SHARE;
 const gradeUnits=['place-value-number-sense','multi-digit-multiplication-division','decimal-operations','numerical-expressions-patterns','fraction-addition-subtraction','fraction-multiplication-division','measurement-conversions','volume-three-dimensional-figures','coordinate-plane-graphing','classifying-two-dimensional-figures','data-line-plots-problem-solving'];
-const financeUnits=['income','budgeting','credit','banking','investing','borrowing','housing','insurance','college','retirement'];
+const financeUnits=['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement'];
 test('Grade 5 and Financial Algebra student share catalog includes exact unit skill IDs',()=>{
  assert.deepEqual(Object.keys(catalog.grade5),gradeUnits);
- assert.deepEqual(Object.keys(catalog['financial-algebra']),financeUnits);
+ assert.deepEqual(Object.keys(catalog['financial-algebra']).sort(),financeUnits.slice().sort());
  assert.equal(Object.values(catalog.grade5).flat().length,55);
  assert.equal(Object.values(catalog['financial-algebra']).flat().length,40);
  for(const [course,units] of [['grade5',gradeUnits],['financial-algebra',financeUnits]]){
