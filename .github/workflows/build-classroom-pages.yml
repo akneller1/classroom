@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    # Pull approved Grade 5 source updates from its separate repository nightly.
-    - cron: '17 7 * * *'
 
 permissions:
   contents: read
@@ -30,7 +27,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: main
+          # Approved snapshot: do not publish unfinished staging changes automatically.
+          ref: bc1b79d6cc5523f300eebc1e924e3fe519cfa886
           path: grade5-source
           fetch-depth: 1
       - name: Verify Grade 5 source and production catalog
