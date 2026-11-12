@@ -1070,12 +1070,12 @@ body { background:var(--paper); }
 
 
 /* Homepage two-column course catalog: keep the course rainbow, order and bottom alignment. */
-/* Wide screens: one-third courses and two-thirds teaching tasks.
+/* Wide screens: one-quarter courses and three-quarters teaching tasks.
    The existing subgrid continues to share the heading, grid and footer tracks,
    so both collections finish at the same vertical edge. */
 @media (min-width:1150px) {
   .task-home > .home-dashboard {
-    grid-template-columns:minmax(0,1fr) minmax(0,2fr);
+    grid-template-columns:minmax(0,1fr) minmax(0,3fr);
     column-gap:1.5rem;
   }
   .course-sidebar .course-nav-grid {
