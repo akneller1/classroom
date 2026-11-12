@@ -1067,7 +1067,7 @@
       return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
         ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
-        artFor(c) + '</a>';
+        artFor(c) + ((c.id === 'grade5' || c.id === 'financial-algebra') ? '<span class="course-nav-soon">Coming soon</span>' : '') + '</a>';
     }).join('');
     var sidebar = expanded && app.querySelector('.course-sidebar');
     if (sidebar) {
