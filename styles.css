@@ -1192,3 +1192,47 @@ body { background:var(--paper); }
     height:2.6rem;
   }
 }
+
+/* Course card titles aligned to the top; icons directly below. Only the two
+   unpublished course placeholders display a small visible status label. */
+.main-nav .course-nav-card,
+.course-sidebar .main-nav .course-nav-card,
+.site-header .main-nav .course-nav-card {
+  justify-content:flex-start;
+  gap:.2rem;
+  padding:.6rem .4rem .45rem;
+}
+.main-nav .course-nav-copy {
+  flex:none;
+  min-height:2.45em;
+  align-content:start;
+}
+.main-nav .course-nav-card > .art,
+.course-sidebar .course-nav-card > .art,
+.site-header .main-nav .course-nav-card > .art {
+  width:3rem;
+  height:2.45rem;
+  margin:.1rem auto 0;
+}
+.main-nav .course-nav-soon {
+  display:block;
+  position:relative;
+  z-index:1;
+  margin-top:auto;
+  font-size:.66rem;
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:.01em;
+  text-align:center;
+}
+@media(min-width:1150px) {
+  .course-sidebar .course-nav-grid {
+    grid-auto-rows:minmax(7rem,1fr);
+  }
+}
+@media(max-width:1149px) {
+  .course-sidebar .main-nav .course-nav-card,
+  .site-header .main-nav .course-nav-card {
+    min-height:7.1rem;
+  }
+}
