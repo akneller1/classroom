@@ -9,6 +9,7 @@ on:
     paths:
       - '.github/workflows/browser-smoke.yml'
       - 'scripts/test-browser-smoke.cjs'
+      - 'scripts/test-grade5-browser-smoke.cjs'
 
 permissions:
   contents: read
@@ -29,6 +30,17 @@ jobs:
           node-version: 22
       - name: Build the same public site artifact used for deployment
         run: node scripts/build-site.mjs
+      - name: Check out Grade 5 and Financial Algebra source
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: main
+          path: _course_sources/grade5
+      - name: Assemble the actual released courses
+        run: |
+          GRADE5_SOURCE_DIR=_course_sources/grade5 node scripts/integrate-approved-courses.mjs
+          FINANCIAL_ALGEBRA_SOURCE_DIR=_course_sources/grade5 node scripts/integrate-financial-algebra.mjs
+          node scripts/audit-grade5-release.cjs _site
       - name: Install Playwright and Chromium
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
@@ -45,10 +57,14 @@ jobs:
           exit 1
       - name: Exercise pages in Chromium
         run: node scripts/test-browser-smoke.cjs
+      - name: Exercise every Grade 5 game and integrated navigation in Chromium
+        run: node scripts/test-grade5-browser-smoke.cjs
       - name: Upload screenshots, browser exceptions and audit summary
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: classroom-browser-audit
-          path: browser-smoke-results/
+          path: |
+            browser-smoke-results/
+            grade5-browser-results/
           if-no-files-found: warn
