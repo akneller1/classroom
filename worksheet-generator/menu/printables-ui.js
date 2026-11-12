@@ -538,11 +538,22 @@
   function availableUnits(group) {
     return group.units.filter(function (u) { return !!NS.skillSets[u[0]]; });
   }
+  function grade5Destination() {
+    var course = (G.LIBRARY && G.LIBRARY.courses || []).find(function (c) { return c.id === 'grade5'; });
+    var first = course && course.units && course.units[0];
+    var link = first && first.artifacts && first.artifacts.find(function (a) {
+      return a.title === 'Activity Generator' && a.bankFormat === 'printable-generator';
+    });
+    return link ? link.path : 'https://akneller1.github.io/FinancialAlgebra/worksheet-generator/grade5-generators.html?mode=activity';
+  }
   function classOptions(group) {
-    return NS.CATALOG.map(function (g, i) {
+    var html = NS.CATALOG.map(function (g, i) {
       if (!availableUnits(g).length) return '';
       return '<option value="' + i + '"' + (g === group ? ' selected' : '') + '>' + esc(g.course) + '</option>';
     }).join('');
+    // Grade 5 uses a separate, bank-aware activity engine. Expose the class
+    // without pretending that the older generator has math5 skill sets.
+    return html + '<option value="grade5">5th Grade Math (Grade 5 Activity Generator)</option>';
   }
   function unitOptions(group) {
     return (group ? availableUnits(group) : NS.CATALOG.flatMap(availableUnits)).map(function (u) {
@@ -585,6 +596,10 @@
     $('#prControls').innerHTML = controls();
     function switchUnit(id) { unit = id; kind = firstSupported(unit, kind); load(); setHash(); rebuild(); }
     $('#prClass').onchange = function (e) {
+      if (e.target.value === 'grade5') {
+        G.location.href = grade5Destination();
+        return;
+      }
       var firstUnit = availableUnits(NS.CATALOG[e.target.value])[0];
       if (firstUnit) switchUnit(firstUnit[0]);
     };
