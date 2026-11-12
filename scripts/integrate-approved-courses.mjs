@@ -43,7 +43,9 @@ html=html.replace(/<title>[^<]*<\/title>/,'<title>5th Grade Math | Mr. K\'s Clas
  .replace(/href="index\.html"/g, (x,offset)=>x);
 // Local Grade 5 page uses the original source's relative URLs; renaming it to index.html preserves them.
 fs.writeFileSync(path.join(dst,'index.html'),html);
-fs.rmSync(path.join(dst,'grade5.html'),{force:true});
+// Previously the publisher deleted grade5.html while games, projects and teacher tools linked to it.
+// Preserve old lesson/game links with a same-folder redirect that retains the unit hash and query.
+fs.writeFileSync(path.join(dst,'grade5.html'),"<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\">\n<meta name=\"robots\" content=\"noindex,follow\">\n<title>Grade 5 | Mr. K's Classroom</title>\n<meta http-equiv=\"refresh\" content=\"0; url=./index.html\">\n<script>location.replace('./index.html'+location.search+location.hash);</script>\n</head><body><p>Continue to <a href=\"./index.html\">5th Grade Math</a>.</p></body></html>\n");
 // Grade 5 breadcrumb links point back to its own landing page.
 const siteJs=path.join(dst,'src','grade5-site.js');
 if(fs.existsSync(siteJs)){

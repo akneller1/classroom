@@ -28,7 +28,7 @@ jobs:
         with:
           repository: akneller1/FinancialAlgebra
           # Approved snapshot: do not publish unfinished staging changes automatically.
-          ref: 18bfaa0df835e431d7db38f594e62ab5aeddba14
+          ref: 221282e748d02c40145ea50b589fa017df7678a5
           path: grade5-source
           fetch-depth: 1
       - name: Verify Grade 5 source and production catalog
@@ -112,6 +112,16 @@ jobs:
               html = html.replace("Development repository ↗", "Source repository ↗")
               doc.write_text(html)
           PY
+          # Keep legacy game, generator and project return links functional.
+          cat > site/grade5/grade5.html <<'HTML'
+          <!doctype html>
+          <html lang="en"><head><meta charset="utf-8">
+          <meta name="robots" content="noindex,follow">
+          <title>Grade 5 | Mr. K's Classroom</title>
+          <meta http-equiv="refresh" content="0; url=./index.html">
+          <script>location.replace('./index.html'+location.search+location.hash);</script>
+          </head><body><p>Continue to <a href="./index.html">5th Grade Math</a>.</p></body></html>
+                    HTML
           # Exercise the real Grade 5 browser loader against every published unit.
           node classroom/scripts/test-grade5-deployment.cjs site
           # Catch missing generator assets before deploying.

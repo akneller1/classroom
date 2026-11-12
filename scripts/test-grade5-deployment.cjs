@@ -23,16 +23,24 @@ for (const file of ['manifest.json','course-catalog.js','question-bank-adapter.j
   'worksheet-generator/grade5/g5-games.js']) {
   assert.ok(exists(file), 'Grade 5 public artifact missing ' + file);
 }
+const legacy=read('grade5.html');
+assert.match(legacy,/location\.replace\('\.\/index\.html'/,'Legacy Grade 5 page must redirect');
+assert.ok(exists('index.html'),'Grade 5 unified course homepage missing');
+const oldHome=new URL('../grade5.html#math5.multi-digit-multiplication-division',gameUrl);
+assert.equal(oldHome.pathname,'/grade5/grade5.html','Legacy game home should resolve inside Grade 5');
+assert.ok(exists(oldHome.pathname.slice('/grade5/'.length)),'Game home 404');
 const html = read(gameFile);
 assert.match(html, /grade5\/g5-core\.js/);
 assert.match(html, /grade5\/g5-games\.js/);
 assert.match(html,/g5-games\.js\?v=math-race-right-facing-20261112/,'Grade 5 game must use the right-facing car script');
+assert.match(html,/g5-core\.js\?v=grade5-home-link-20261112/,'Game must load updated working-home chrome');
 const raceSource=read('worksheet-generator/grade5/g5-games.js');
 assert.match(raceSource,/var carX = 80 \+ pos\[t\]/,'Math Race car must follow its position');
 assert.match(raceSource,/transform="translate\(' \+ \(2 \* carX\) \+ ' 0\) scale\(-1 1\)"/,'Math Race cars must face right');
 assert.match(read('worksheet-generator/grade5/g5-core.js'),
   /loadUnitFromSite\(COURSE, unitId, null, '\.\.\/'\)/,
   'test expects the current browser-relative manifest loader');
+assert.ok(read('worksheet-generator/grade5/g5-core.js').includes("home.href = 'https://mrksclassroom.com/'"), 'Game homepage must point to Classroom');
 const manifest = JSON.parse(read('manifest.json'));
 assert.equal(manifest.version, 1);
 const selected = manifest.banks.filter(entry => entry.courseId === 'math5');
