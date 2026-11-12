@@ -20,7 +20,7 @@ var games=[['math-quest','Math Quest'],['treasure-trail','Treasure Trail'],['spa
 var models={'place-value-number-sense':['place-value-builder'],'multi-digit-multiplication-division':['area-model-explorer'],'numerical-expressions-patterns':['expression-builder'],'fraction-addition-subtraction':['fraction-explorer'],'fraction-multiplication-division':['fraction-explorer','area-model-explorer'],'measurement-conversions':['measurement-converter'],'volume-three-dimensional-figures':['volume-builder'],'coordinate-plane-graphing':['coordinate-explorer']};
 var projects={'place-value-number-sense':'sports-stats-showdown','multi-digit-multiplication-division':'school-carnival-planner','decimal-operations':'class-party-budget','numerical-expressions-patterns':'theme-park-points','fraction-addition-subtraction':'school-garden-plan','fraction-multiplication-division':'recipe-remix','measurement-conversions':'field-trip-packing','volume-three-dimensional-figures':'miniature-city-builder','coordinate-plane-graphing':'playground-designer','classifying-two-dimensional-figures':'shape-mosaic-designer','data-line-plots-problem-solving':'plant-growth-investigation'};
 function name(slug){return slug.split('-').map(function(s){return s.charAt(0).toUpperCase()+s.slice(1);}).join(' ');}
-add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place value, fractions, decimals, measurement, geometry and data.',sourceUrl:staging+'grade5.html',
+add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place value, fractions, decimals, measurement, geometry and data.',
  units:gradeUnits.map(function(unit){
  var id=unit.id,query='?unit='+encodeURIComponent(id),a=[];
  // Link to the active course-specific players. These are hosted by the separate source repository.
@@ -30,6 +30,16 @@ add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place va
  });
  if(id==='fraction-addition-subtraction'||id==='fraction-multiplication-division')
  a.push(item('Fraction Frenzy',staging+'worksheet-generator/grade5-games.html'+query+'&game=fraction-frenzy','Game','topic-games',staging+'thumbs/math5-game-frenzy.svg'));
+ // Grade 5 teacher tools use the source-repository players. The catalog
+ // contains links only; no question bank or generator implementation is copied.
+ [['Lesson Plan Generator','lesson','lesson-planner','lesson'],
+  ['Worksheet Generator','worksheet','worksheet-generator','worksheet'],
+  ['Assessment Generator','assessment','assessment-generator','assessment'],
+  ['Activity Generator','activity','printable-generator','activity']].forEach(function(tool){
+   a.push(item(tool[0],staging+'worksheet-generator/grade5-generators.html'+query+'&mode='+tool[1],
+      'Generator',tool[2],staging+'thumbs/math5-generator-'+tool[3]+'.svg',
+      'Create a Grade 5 '+tool[0].toLowerCase()+' with skills, levels and a printable teacher key.'));
+ });
  a.push(item('Flashcards',staging+'worksheet-generator/grade5-flashcards.html'+query,'Study Guide','flashcards',staging+'thumbs/math5-flashcards.svg'));
  a.push(item('Understanding Check',staging+'worksheet-generator/grade5-understanding-check.html'+query,'Study Guide','interactive-practice-test',staging+'thumbs/math5-understanding-check.svg'));
  a.push(item('Cheat Sheet',staging+'math5-'+id+'-cheat-sheet/worksheet.pdf','Study Guide','cheat-sheets',staging+'thumbs/math5-'+id+'-cheat-sheet.jpg'));
