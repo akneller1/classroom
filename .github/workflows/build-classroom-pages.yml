@@ -1,4 +1,4 @@
-name: Build unified Mr. K's Classroom site
+name: Verify unified Mr. K's Classroom site
 
 on:
   push:
@@ -7,15 +7,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: classroom-pages
-  cancel-in-progress: false
 
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Check out public Classroom website
@@ -23,131 +17,32 @@ jobs:
         with:
           path: classroom
           fetch-depth: 1
-      - name: Check out separate Grade 5 source repository
+      - name: Check out Grade 5 source repository
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          # Approved snapshot: do not publish unfinished staging changes automatically.
-          ref: 221282e748d02c40145ea50b589fa017df7678a5
+          ref: main
           path: grade5-source
           fetch-depth: 1
-      - name: Verify Grade 5 source and production catalog
-        shell: bash
+      - name: Verify Grade 5 banks and source tests
         run: |
           set -euo pipefail
           node --test classroom/tests/grade5-course-discovery.test.cjs
           (cd grade5-source && node --test tests/grade5-generators.test.mjs tests/grade5-unified.test.mjs tests/grade5-error-analysis.test.mjs)
           (cd grade5-source && node scripts/test-grade5.cjs)
-      - name: Assemble production site
-        shell: bash
+      - name: Assemble and audit the release artifact (validation only)
         run: |
           set -euo pipefail
-          mkdir -p site/grade5
+          mkdir -p site
           rsync -a --exclude='.git/' --exclude='.github/' --exclude='node_modules/' \
             --exclude='tests/' --exclude='tools/' --exclude='*.zip' \
             classroom/ site/
-          # Allowlist only the approved Grade 5 runtime and its dependencies.
-          # Never publish Grade 4 or other unfinished staging files.
-          mkdir -p site/grade5/{src,math5,thumbs,assets,course-outlines,worksheet-generator/grade5,worksheet-generator/core,worksheet-generator/games}
-          for file in grade5.html data.js course-catalog.js grade5-resource-catalog.js \
-            question-bank-adapter.js question-bank-loader.js manifest.json styles.css site-overrides.css; do
-            cp "grade5-source/$file" "site/grade5/$file"
-          done
-          cp grade5-source/src/grade5-*.js site/grade5/src/
-          cp grade5-source/worksheet-generator/grade5-*.html site/grade5/worksheet-generator/
-          cp grade5-source/worksheet-generator/core/math-display.* site/grade5/worksheet-generator/core/
-          cp grade5-source/worksheet-generator/games/skill-setup.js site/grade5/worksheet-generator/games/
-          cp grade5-source/thumbs/math5-* site/grade5/thumbs/
-          cp grade5-source/course-outlines/grade5.json site/grade5/course-outlines/
-          cp grade5-source/assets/favicon.svg site/grade5/assets/
-          rsync -a grade5-source/worksheet-generator/grade5/ site/grade5/worksheet-generator/grade5/
-          rsync -a grade5-source/math5/ site/grade5/math5/
-          # Grade 5's source data.js contains staging-only course outlines.
-          # Publish only its math5 catalog record in the compiled site.
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const vm = require('node:vm');
-          const context = { window: {} };
-          vm.createContext(context);
-          vm.runInContext(fs.readFileSync('grade5-source/data.js', 'utf8'), context);
-          const library = context.window.LIBRARY;
-          const grade = library && library.courses.find(c => c.id === 'math5');
-          if (!grade) throw new Error('Grade 5 catalog missing from source');
-          library.courses = [grade];
-          fs.writeFileSync('site/grade5/data.js', 'window.LIBRARY = ' + JSON.stringify(library) + ';\n');
-          NODE
-          # Approved Grade 5 projects, reference sheets and interactive models.
-          for dir in grade5-source/math5-*; do
-            if [[ -d "$dir" ]]; then
-              mkdir -p "site/grade5/${dir##*/}"
-              rsync -a "$dir/" "site/grade5/${dir##*/}/"
-            fi
-          done
-          # The 918 question diagrams live in root folders named after their unit.
-          for bank in grade5-source/math5/*.json; do
-            unit="$(basename "$bank" .json)"
-            if [[ -d "grade5-source/$unit" ]]; then
-              mkdir -p "site/grade5/$unit"
-              rsync -a "grade5-source/$unit/" "site/grade5/$unit/"
-            fi
-          done
-          # Keep the source repositories separate, but host approved Grade 5
-          # games, generators, banks, study guides and diagrams on one domain.
-          cp grade5-source/grade5.html site/grade5/index.html
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('site/course-integrations.js')
-          source = p.read_text()
-          old = "var staging='https://akneller1.github.io/FinancialAlgebra/';"
-          if old not in source:
-              raise SystemExit('Grade 5 integration staging link marker changed')
-          p.write_text(source.replace(old, "var staging='/grade5/';", 1))
-          # Production pages must not show the staging-only development labels.
-          for filename in ['index.html', 'grade5.html', 'src/grade5-site.js']:
-              doc = Path('site/grade5') / filename
-              html = doc.read_text()
-              html = html.replace(" — Development", "")
-              html = html.replace("Grade 5 resources are being developed and tested here before transfer to the main Classroom site. The original curriculum outline is preserved within the course page.",
-                  "Explore Grade 5 teacher tools, student games, study guides, interactive models, and projects.")
-              html = html.replace("Development repository ↗", "Source repository ↗")
-              doc.write_text(html)
-          PY
-          # Keep legacy game, generator and project return links functional.
-          cat > site/grade5/grade5.html <<'HTML'
-          <!doctype html>
-          <html lang="en"><head><meta charset="utf-8">
-          <meta name="robots" content="noindex,follow">
-          <title>Grade 5 | Mr. K's Classroom</title>
-          <meta http-equiv="refresh" content="0; url=./index.html">
-          <script>location.replace('./index.html'+location.search+location.hash);</script>
-          </head><body><p>Continue to <a href="./index.html">5th Grade Math</a>.</p></body></html>
-          HTML
-          # Exercise the real Grade 5 browser loader against every published unit.
+          GRADE5_SOURCE_DIR=grade5-source GRADE5_OUTPUT_DIR=site node classroom/scripts/integrate-approved-courses.mjs
           node classroom/scripts/test-grade5-deployment.cjs site
           node classroom/scripts/audit-grade5-release.cjs site
-          # Catch missing generator assets before deploying.
-          for f in grade5/index.html grade5/worksheet-generator/grade5-generators.html \
-            grade5/worksheet-generator/grade5/generators.js \
-            grade5/worksheet-generator/grade5/generators-render.js \
-            grade5/math5/place-value-number-sense.json \
-            grade5/math5/data-line-plots-problem-solving.json; do
-            test -f "site/$f" || { echo "Missing required $f" >&2; exit 1; }
-          done
-          touch site/.nojekyll
-          du -sh site
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-      - name: Upload production website
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          test -f site/grade5/grade5.html
+          test ! -f site/grade5/grade4.html
+          du -sh site/grade5
+# The Deploy site workflow is the sole GitHub Pages publisher.
+# Do not deploy from this verification job, or it can overwrite Financial Algebra
+# with an older/incomplete artifact while racing the actual production deploy.

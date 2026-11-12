@@ -1,63 +1,114 @@
-// Assemble approved course sources into the GitHub Pages artifact.
-// The development repository remains separate; only the artifact is modified.
+// Assemble the approved Grade 5 source into the public Classroom artifact.
+// Source files stay in FinancialAlgebra; only the assembled _site/site directory changes.
+// This is the ONLY Grade 5 assembler used by either public workflow.
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 
-const root=process.cwd();
-const stage=path.resolve(process.env.GRADE5_SOURCE_DIR || '../FinancialAlgebra');
-const out=path.join(root,'_site');
-if(!fs.existsSync(path.join(stage,'grade5.html')))throw Error('Approved Grade 5 source checkout is missing');
-if(!fs.existsSync(path.join(out,'index.html')))throw Error('Build the Classroom site before integrating approved courses');
+const stage=path.resolve(process.env.GRADE5_SOURCE_DIR||'../FinancialAlgebra');
+const out=path.resolve(process.env.GRADE5_OUTPUT_DIR||'_site');
 const dst=path.join(out,'grade5');
+function required(file){if(!fs.existsSync(file))throw Error('Missing approved Grade 5 source '+file);return file;}
+if(!fs.existsSync(path.join(out,'index.html')))throw Error('Build main Classroom site before integrating Grade 5');
+required(path.join(stage,'grade5.html'));
 fs.rmSync(dst,{recursive:true,force:true});
 fs.mkdirSync(dst,{recursive:true});
-const skipTop=new Set(['.git','.github','node_modules','_site','tests','docs','scripts','tools','financial','question-banks','artifacts','grade1.html','grade2.html','grade3.html','grade4.html','index.html','activity.html','coverage.html','skills.html','INTEGRATION.md','README.md','package.json','package-lock.json','COURSE_TEMPLATE.md']);
-const skipNames=/^(?:GRADE[1-4]_BANK_HANDOFF|FINANCIAL_ALGEBRA|FA_INTEGRATION)/i;
-function copy(src, target, depth=0){
+const copied=new Set();
+function copyFile(rel){
+ if(copied.has(rel))return;
+ const from=required(path.join(stage,rel)),to=path.join(dst,rel);
+ if(!from.startsWith(stage+path.sep)||!to.startsWith(dst+path.sep))throw Error('Grade 5 copy escapes approved folders: '+rel);
+ fs.mkdirSync(path.dirname(to),{recursive:true});
+ fs.copyFileSync(from,to);
+ copied.add(rel);
+}
+function copyDir(rel){
+ const source=required(path.join(stage,rel)),target=path.join(dst,rel);
  fs.mkdirSync(target,{recursive:true});
- for(const item of fs.readdirSync(src,{withFileTypes:true})){
-  if(depth===0&&(skipTop.has(item.name)||skipNames.test(item.name)||/^grade[1-4][-.]/i.test(item.name)))continue;
-  if(item.name==='.git'||item.name==='node_modules'||item.name==='.DS_Store'||item.name==='__pycache__')continue;
-  const from=path.join(src,item.name),to=path.join(target,item.name);
-  if(item.isDirectory())copy(from,to,depth+1);
-  else if(item.isFile()&&!/\.(?:md|py|pyc)$/i.test(item.name))fs.copyFileSync(from,to);
+ for(const item of fs.readdirSync(source,{withFileTypes:true})){
+  if(item.name==='.git'||item.name==='node_modules'||item.name==='__pycache__'||item.name==='.DS_Store')continue;
+  const sub=path.posix.join(rel,item.name);
+  if(item.isDirectory())copyDir(sub);
+  else if(item.isFile()&&!/\.(?:md|py|pyc|zip)$/i.test(item.name))copyFile(sub);
  }
 }
-copy(stage,dst);
-// Only copy approved Grade 5 artifact directories. No Financial Algebra or other unpublished courses.
-const artifacts=path.join(stage,'artifacts'),published=path.join(dst,'artifacts');
-if(fs.existsSync(artifacts)){
- fs.mkdirSync(published,{recursive:true});
- for(const item of fs.readdirSync(artifacts,{withFileTypes:true})){
-  if(item.isDirectory()&&/^math5(?:-|$)/i.test(item.name))copy(path.join(artifacts,item.name),path.join(published,item.name),1);
+// Only the released Grade 5 page, data, tools and runtime are permitted here.
+for(const f of ['grade5.html','grade5-resources.html','data.js','course-catalog.js',
+ 'grade5-resource-catalog.js','question-bank-adapter.js','question-bank-loader.js',
+ 'manifest.json','styles.css','site-overrides.css','assets/favicon.svg',
+ 'assets/course-icons/grade5.svg','course-outlines/grade5.json',
+ 'worksheet-generator/core/math-display.js','worksheet-generator/core/math-display.css',
+ 'worksheet-generator/games/skill-setup.js'])copyFile(f);
+for(const f of fs.readdirSync(path.join(stage,'src')).filter(x=>/^grade5-.*\.js$/.test(x)))copyFile('src/'+f);
+for(const f of fs.readdirSync(path.join(stage,'worksheet-generator')).filter(x=>/^grade5-.*\.html$/.test(x)))copyFile('worksheet-generator/'+f);
+copyDir('worksheet-generator/grade5');
+copyDir('math5');
+if(fs.existsSync(path.join(stage,'assets/fonts')))copyDir('assets/fonts');
+// Read the source data/catalog and keep the released math5 course only.
+const context={window:{}};
+vm.createContext(context);
+vm.runInContext(fs.readFileSync(path.join(stage,'data.js'),'utf8'),context);
+vm.runInContext(fs.readFileSync(path.join(stage,'course-catalog.js'),'utf8'),context);
+vm.runInContext(fs.readFileSync(path.join(stage,'grade5-resource-catalog.js'),'utf8'),context);
+const library=context.window.LIBRARY,course=library?.courses.find(c=>c.id==='math5');
+const resources=context.window.MK_GRADE5_RESOURCES?.course;
+if(!course||!resources||course.units.length!==11||resources.units.length!==11)throw Error('Expected eleven approved Grade 5 units');
+library.courses=[course];
+fs.writeFileSync(path.join(dst,'data.js'),'window.LIBRARY = '+JSON.stringify(library)+';\n');
+// Only package activities actually linked by the approved Grade 5 resource catalog.
+for(const unit of resources.units){
+ for(const item of unit.artifacts){
+  if(item.thumb&&item.thumb.startsWith('thumbs/math5-'))copyFile(item.thumb);
+  if(/^math5-[a-z0-9-]+\//.test(item.path||'')){
+   const dir=item.path.split('/')[0];
+   if(!fs.existsSync(path.join(dst,dir)))copyDir(dir);
+  }
  }
 }
+// Publish only approved Grade 5 manifest entries (no unpublished staging courses).
+const manifest=JSON.parse(fs.readFileSync(path.join(stage,'manifest.json'),'utf8'));
+const banks=manifest.banks.filter(b=>b.courseId==='math5'&&b.approved===true);
+if(banks.length!==11)throw Error('Expected eleven approved Grade 5 bank entries');
+fs.writeFileSync(path.join(dst,'manifest.json'),JSON.stringify({version:1,banks},null,2)+'\n');
+// All diagrams are loaded from their exact path relative to Grade 5's root.
+// In particular, 500+ volume/fraction diagrams have flat .png filenames.
+let diagrams=0;
+for(const entry of banks){
+ const bank=JSON.parse(fs.readFileSync(required(path.join(stage,entry.path)),'utf8'));
+ for(const question of bank.questions){
+  const src=question.diagram?.spec?.src;
+  if(!src)continue;
+  if(!/^[a-z0-9/_-]+\.png$/i.test(src)||src.startsWith('/')||src.includes('..'))throw Error('Unsafe Grade 5 diagram path '+src);
+  copyFile(src);
+  diagrams++;
+ }
+}
+// The source class is renamed to index.html so relative resource URLs remain valid.
 let html=fs.readFileSync(path.join(dst,'grade5.html'),'utf8');
-html=html.replace(/<title>[^<]*<\/title>/,'<title>5th Grade Math | Mr. K\'s Classroom</title>')
+html=html.replace(/<title>[^<]*<\/title>/,"<title>5th Grade Math | Mr. K's Classroom</title>")
  .replace(/href="index\.html">Financial Algebra<\/a>/g,'href="../index.html">All courses</a>')
  .replace(/href="https:\/\/mrksclassroom\.com\/" target="_blank" rel="noopener">Main Classroom ↗<\/a>/g,'')
  .replace(/<a href="grade[1-4]\.html"[\s\S]*?<\/a>/g,'')
  .replace(/<span class="course-wip-label">[\s\S]*?<\/span>/g,'')
- .replace(/Grade 5 resources are being developed and tested here before transfer to the main Classroom site\. The original curriculum outline is preserved within the course page\./g,'Grade 5 mathematics: games, generators, printable resources, and understanding checks.')
- .replace(/href="grade5\.html"/g,'href="index.html"')
- .replace(/href="index\.html"/g, (x,offset)=>x);
-// Local Grade 5 page uses the original source's relative URLs; renaming it to index.html preserves them.
+ .replace(/Grade 5 resources are being developed and tested here before transfer to the main Classroom site\. The original curriculum outline is preserved within the course page\./g,
+ 'Grade 5 mathematics: games, generators, printable resources, and understanding checks.')
+ .replace(/href="grade5\.html"/g,'href="index.html"');
 fs.writeFileSync(path.join(dst,'index.html'),html);
-// Previously the publisher deleted grade5.html while games, projects and teacher tools linked to it.
-// Preserve old lesson/game links with a same-folder redirect that retains the unit hash and query.
-fs.writeFileSync(path.join(dst,'grade5.html'),"<!doctype html>\n<html lang=\"en\"><head><meta charset=\"utf-8\">\n<meta name=\"robots\" content=\"noindex,follow\">\n<title>Grade 5 | Mr. K's Classroom</title>\n<meta http-equiv=\"refresh\" content=\"0; url=./index.html\">\n<script>location.replace('./index.html'+location.search+location.hash);</script>\n</head><body><p>Continue to <a href=\"./index.html\">5th Grade Math</a>.</p></body></html>\n");
-// Grade 5 breadcrumb links point back to its own landing page.
+const alias='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow">'+
+ "<title>Grade 5 | Mr. K's Classroom</title>"+
+ '<meta http-equiv="refresh" content="0;url=./index.html">'+
+ "<script>location.replace('./index.html'+location.search+location.hash);</script>"+
+ '</head><body><a href="./index.html">5th Grade Math</a></body></html>\n';
+fs.writeFileSync(path.join(dst,'grade5.html'),alias);
 const siteJs=path.join(dst,'src','grade5-site.js');
 if(fs.existsSync(siteJs)){
  const js=fs.readFileSync(siteJs,'utf8').replace(/\['Home','index\.html'\]/g,"['Home','../index.html']");
  fs.writeFileSync(siteJs,js);
 }
-// The development data contains unapproved courses; Grade 5 pages use only math5.
 const sitemap=path.join(out,'sitemap.xml');
-let xml=fs.readFileSync(sitemap,'utf8');
-if(!xml.includes('https://mrksclassroom.com/grade5/'))xml=xml.replace('</urlset>','  <url><loc>https://mrksclassroom.com/grade5/</loc></url>\n</urlset>');
-fs.writeFileSync(sitemap,xml);
-// Explicit contract prevents a missing or empty course from being deployed.
-const required=['index.html','manifest.json','question-bank-loader.js','question-bank-adapter.js','src/grade5-site.js','grade5-resource-catalog.js','worksheet-generator/grade5-games.html','worksheet-generator/grade5-understanding-check.html','math5'];
-for(const rel of required)if(!fs.existsSync(path.join(dst,rel)))throw Error('Grade 5 output missing '+rel);
-console.log('Approved Grade 5 assembled at _site/grade5/; staging repository unchanged.');
+if(fs.existsSync(sitemap)){
+ let xml=fs.readFileSync(sitemap,'utf8');
+ if(!xml.includes('https://mrksclassroom.com/grade5/'))xml=xml.replace('</urlset>','  <url><loc>https://mrksclassroom.com/grade5/</loc></url>\n</urlset>');
+ fs.writeFileSync(sitemap,xml);
+}
+console.log('Grade 5 assembled: 11 approved units, '+diagrams+' question diagrams, '+copied.size+' released source files; no other staging pages.');
