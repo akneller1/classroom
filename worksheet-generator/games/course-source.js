@@ -1,7 +1,7 @@
 /* Course-neutral access to existing content. Empty banks remain empty. */
 (function(G){'use strict';
 const p=new URLSearchParams(location.search),courseId=p.get('course')||'algebra2';
-const course=G.LIBRARY.courses.find(c=>c.id===courseId),unit=course?.units.find(u=>u.id===p.get('unit'))||course?.units[0];
+const course=G.LIBRARY.courses.find(c=>c.id===courseId),requestedUnit=p.get('unit'),unit=course?.units.find(u=>u.id===requestedUnit)||(!requestedUnit?course?.units[0]:null);
 const aliases={algebra:{'foundations-algebra':'foundations','exponents-exponential-functions':'exponents-scientific-notation','polynomials-factoring':'polynomials'},geometry:{'foundations-geometry':'basics-reasoning','triangle-congruence':'triangles-congruence'}};
 const setId=(courseId==='algebra'?'algebra1-':courseId+'-')+(aliases[courseId]?.[unit?.id]||unit?.id),set=G.MKMENU.skillSets[setId];
 function records(){return G.MK_QUESTION_BANKS.available(courseId,unit?.id)?G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit.id):(set?set.skills.map(s=>({id:s.id,name:s.name})):G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit?.id))}
