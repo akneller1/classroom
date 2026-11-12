@@ -701,7 +701,8 @@
     { format: 'assessment-generator', title: 'Assessment', icon: '📋', description: 'Tests and choice-based assessments.', page: 'menu-assessment.html' }
   ];
   function generatorLinks(c, u, compact) {
-    var items = u ? u.artifacts : [];
+    // A course-level Grade 5 generator opens Unit 1; unit-level links use that unit.
+    var items = u ? u.artifacts : (c && c.id === 'grade5' && c.units[0] ? c.units[0].artifacts : []);
     var unitId = '';
     if (u) {
       if (c.id === 'geometry') {
