@@ -28,7 +28,7 @@ jobs:
         with:
           repository: akneller1/FinancialAlgebra
           # Approved snapshot: do not publish unfinished staging changes automatically.
-          ref: 54e70c1cbe917f1dc8c498b76939e7fb1b443c40
+          ref: f15e7100c08d7a0a9f1430bd7babaee0c1ca25e4
           path: grade5-source
           fetch-depth: 1
       - name: Verify Grade 5 source and production catalog
@@ -36,7 +36,7 @@ jobs:
         run: |
           set -euo pipefail
           node --test classroom/tests/grade5-course-discovery.test.cjs
-          (cd grade5-source && node --test tests/grade5-generators.test.mjs tests/grade5-unified.test.mjs)
+          (cd grade5-source && node --test tests/grade5-generators.test.mjs tests/grade5-unified.test.mjs tests/grade5-error-analysis.test.mjs)
           (cd grade5-source && node scripts/test-grade5.cjs)
       - name: Assemble production site
         shell: bash
