@@ -5,8 +5,31 @@
   var library = window.LIBRARY;
   if (!library || !Array.isArray(library.courses)) return;
 
+  function integratedStudentDestination(activity, level) {
+    var path = activity.path;
+    var type = String(activity.type || '');
+    if (activity.courseId === 'grade5' && type === 'Project') {
+      var match = /^(https:\/\/akneller1\.github\.io\/FinancialAlgebra\/)math5-project-([a-z0-9-]+)\/index\.html$/.exec(path);
+      if (!match) return null;
+      path = match[1] + 'math5-project-' + match[2] + '/' + match[2] + '-' + level + '.pdf';
+    }
+    var url = new URL(path, window.location.href);
+    if (/\.html$/i.test(url.pathname)) {
+      url.searchParams.delete('teacher');
+      url.searchParams.delete('teacherShare');
+      url.searchParams.delete('mode');
+      url.searchParams.delete('present');
+      url.searchParams.set('student', '1');
+      if (activity.courseId === 'grade5' && (type === 'Game' || type === 'Study Guide' && activity.title === 'Understanding Check')) {
+        url.searchParams.set('level', level);
+      }
+    }
+    return url.href;
+  }
   function canShare(activity) {
     if (!activity || !activity.path) return false;
+    if (activity.courseId === 'grade5') return ['Game','Study Guide','Interactive','Project'].indexOf(String(activity.type)) >= 0;
+    if (activity.courseId === 'financial-algebra') return ['Game','Study Guide','Interactive','Project'].indexOf(String(activity.type)) >= 0;
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(activity.path)) return true;
     if (/^worksheet-generator\/(?:course-(game|activity)|algebra2-game)\.html\?/i.test(activity.path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(activity.path);
     if (/^worksheet-generator\//i.test(activity.path)) return false;
@@ -19,7 +42,7 @@
   library.courses.forEach(function (course) {
     (course.units || []).forEach(function (unit) {
       (unit.artifacts || []).forEach(function (activity) {
-        if (canShare(activity)) eligible[activity.path] = true;
+        if (canShare(Object.assign({courseId:course.id},activity))) eligible[activity.path] = Object.assign({courseId:course.id},activity);
       });
     });
   });
@@ -36,7 +59,30 @@
       button.textContent = 'Copy student link';
       button.setAttribute('aria-label', 'Copy student link for ' +
         (card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'activity'));
+      var resource = eligible[path];
+      if (resource.courseId === 'grade5' && (resource.type === 'Game' || resource.type === 'Project' || resource.title === 'Understanding Check')) {
+        var select = document.createElement('select');
+        select.className = 'student-share-level';
+        select.setAttribute('aria-label', 'Student difficulty for ' + resource.title);
+        [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function (entry) {
+          var option = document.createElement('option');
+          option.value = entry[0]; option.textContent = entry[1];
+          if (entry[0] === 'cp1') option.selected = true;
+          select.appendChild(option);
+        });
+        actions.appendChild(select);
+      }
       button.addEventListener('click', function () {
+        if (resource.courseId === 'grade5' || resource.courseId === 'financial-algebra') {
+          var levelControl = actions.querySelector('.student-share-level');
+          var destination = integratedStudentDestination(resource, levelControl ? levelControl.value : 'cp1');
+          if (!destination) { window.alert('This student resource is not available.'); return; }
+          var copied = function () { button.textContent = 'Copied!'; window.setTimeout(function () { button.textContent = 'Copy student link'; }, 2000); };
+          var manual = function () { window.prompt('Copy student link:', destination); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(destination).then(copied, manual);
+          else manual();
+          return;
+        }
         if (window.TeacherGameShare && window.TeacherGameShare.supports(path)) { window.TeacherGameShare.open(path); return; }
         var url = new URL(path, window.location.href); url.hash = ''; if (/\.html(?:[?#]|$)/i.test(path)) url.searchParams.set('student', '1');
         function success() {
