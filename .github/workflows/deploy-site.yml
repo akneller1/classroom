@@ -52,6 +52,10 @@ jobs:
         env:
           GRADE5_SOURCE_DIR: _course_sources/grade5
         run: node scripts/integrate-approved-courses.mjs
+      - name: Assemble approved Financial Algebra into production artifact
+        env:
+          FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/grade5
+        run: node scripts/integrate-financial-algebra.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
