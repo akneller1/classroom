@@ -67,7 +67,7 @@
   function href(t) { return '#' + encodeURIComponent(t).replace(/%2E/g, '.'); }
   /* Per-unit printable generator links (Maze, Tarsia, …) are reached through the Activity Generator,
      so they are not listed or counted as activities (unit pages still use them for the generator shortcut). */
-  function listed(a) { return activityFormat(a) !== 'printable-generator'; }
+  function listed(a) { return activityFormat(a) !== 'printable-generator' || a.visibleInBrowse === true; }
   function courseCount(c) {
     return c.units.reduce(function (n, u) { return n + u.artifacts.filter(listed).length; }, 0);
   }
