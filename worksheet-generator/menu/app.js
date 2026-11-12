@@ -127,10 +127,10 @@
     // 2
     h += '<section class="card mm-card" id="mmLevel"><h2><span class="step">2</span>Class level</h2><div class="mm-levels" role="radiogroup" aria-label="Class level">' +
       Object.keys(NS.LEVELS).map(function (k) { var L = NS.LEVELS[k];
-        return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(NS.courseLevelName(c.unitId,k)) + '</b><small>' + esc(/^statistics-/.test(c.unitId) ? {cp2:'Scaffolded statistical concepts, clear wording, and guided calculations.',cp1:'Standard statistical calculations, study design, and interpretation.',honors:'Deeper reasoning, multi-part investigations, and interpretation of assumptions.'}[k] : L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
+        return '<label class="mm-level' + (c.level === k ? ' on' : '') + '"><input type="radio" name="mmLevel" value="' + k + '"' + (c.level === k ? ' checked' : '') + '><b>' + esc(NS.courseLevelName(c.unitId,k)) + '</b><small>' + esc(/^grade[1-5]-/.test(c.unitId) ? {cp2:'More support, clear wording and foundational practice.',cp1:'Grade-level skills and applications.',honors:'Deeper reasoning, extensions and multi-part challenges.'}[k] : /^statistics-/.test(c.unitId) ? {cp2:'Scaffolded statistical concepts, clear wording, and guided calculations.',cp1:'Standard statistical calculations, study design, and interpretation.',honors:'Deeper reasoning, multi-part investigations, and interpretation of assumptions.'}[k] : L.about) + '</small><small class="mm-tiers">Difficulty by section: ' + L.tiers.map(function (t) { return t + ' ' + NS.DIFF_NAMES[t]; }).join(' → ') + '</small></label>';
       }).join('') + '</div>' +
       '<label class="field"><span class="lbl">Answers</span><select id="mmAnswers">' +
-      (/^statistics-/.test(c.unitId) ? [['auto', 'Use the answer forms and rounding stated in each question']] : [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']]).map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
+      (set.authoredBank ? [['auto', 'Use the answer forms and rounding stated in each question']] : [['auto', 'Match the level (whole numbers for CP2/CP1, fractions allowed for Honors)'], ['integers', 'Whole-number answers only'], ['fractions', 'Allow fraction answers']]).map(function (o) { return '<option value="' + o[0] + '"' + (c.answers === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></section>';
     // 3
     if (NS.isTest(c)) h += testPartsHtml(c, rules); else
     h += '<section class="card mm-card" id="mmMenu"><h2><span class="step">3</span>Menu sections and rules</h2>' +
@@ -345,6 +345,7 @@
     if (p.failed) return '<span class="mm-badge bad" title="' + esc(p.reason) + '">✕ No verified problem</span>';
     var st = p.verify && p.verify.status;
     if (st === 'verified') return (NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) ? '<span class="mm-badge ok" title="Unedited source item from Algebra 2 question bank; human sign-off pending">✓ From authored bank</span>' : '<span class="mm-badge ok" title="Answer recomputed independently from the printed problem">✓ Verified' + (p.edited ? ' (edited)' : '') + '</span>';
+    if (NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) return '<span class="mm-badge ok">✓ Approved question bank</span>';
     if (p.approved) return '<span class="mm-badge warn" title="' + esc((p.verify.issues || []).join(' ')) + '">✓ Approved by you</span>';
     return '<span class="mm-badge bad" title="' + esc((p.verify.issues || []).join(' ')) + '">! Not automatically verified</span>';
   }
@@ -387,7 +388,7 @@
       (NS.isTest(c) ? '' : '<button type="button" class="btn sm ghost" data-act="required" aria-pressed="' + !!p.required + '">' + (p.required ? '★ Required' : '☆ Make required') + '</button>') +
       '<button type="button" class="btn sm ghost danger" data-act="delete" aria-label="Delete ' + lab + '">🗑 Delete</button></span>' +
       // Answers the site cannot check (teacher-written, or failed re-verification) print only after the teacher approves them
-      (!p.failed && p.verify && p.verify.status !== 'verified' ? '<label class="mm-approve" style="display:inline-flex;gap:6px;align-items:center;margin-left:8px;font-weight:600"><input type="checkbox" class="mmApprove"' + (p.approved ? ' checked' : '') + '> I checked this answer</label>' : '') + '</div>';
+      (!p.failed && p.verify && p.verify.status !== 'verified' && !(NS.isUneditedAlgebra2BankQuestion && NS.isUneditedAlgebra2BankQuestion(p)) ? '<label class="mm-approve" style="display:inline-flex;gap:6px;align-items:center;margin-left:8px;font-weight:600"><input type="checkbox" class="mmApprove"' + (p.approved ? ' checked' : '') + '> I checked this answer</label>' : '') + '</div>';
     return '<article class="mm-dcard' + (p.failed ? ' failed' : '') + (p.pinned ? ' pinned' : '') + '" data-uid="' + p.uid + '" aria-label="' + lab + ' ' + esc(skillName) + '">' + head +
       '<div class="mm-cskill">' + esc(skillName) + lockedNote + '</div>' + body + issues + (show && !p.failed ? answerBlock(p) : '') + tools + '</article>';
   }
@@ -983,7 +984,8 @@
   function startApp() {
     registerTopicSets();
     var unit = hashUnit() || (NS.skillSets[lsGet(KEY_LAST)] ? lsGet(KEY_LAST) : null) || (NS.skillSets[defaultUnit] ? defaultUnit : Object.keys(NS.skillSets)[0]);
-    var restored = loadUnit(unit);
+    var sharedLevel = /(?:^#|&)level=(cp2|cp1|honors)(?:&|$)/.exec(G.location.hash || '');
+    var restored = loadUnit(unit, sharedLevel ? sharedLevel[1] : null);
     render();
     if (restored) toast('Welcome back. Your last ' + NS.skillSets[unit].unitName + ' ' + noun() + ' was restored from this browser.');
     G.addEventListener('hashchange', function () { var u = hashUnit(); if (u && u !== cfg().unitId) { autosave(); loadUnit(u); render(); } });

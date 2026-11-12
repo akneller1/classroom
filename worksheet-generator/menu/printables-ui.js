@@ -553,7 +553,7 @@
     }).join('');
     // Grade 5 uses a separate, bank-aware activity engine. Expose the class
     // without pretending that the older generator has math5 skill sets.
-    return html + '<option value="grade5">5th Grade Math (Grade 5 Activity Generator)</option>';
+    return html;
   }
   function unitOptions(group) {
     return (group ? availableUnits(group) : NS.CATALOG.flatMap(availableUnits)).map(function (u) {
@@ -645,7 +645,7 @@
     return name || (NS.skillSets[u] && (NS.skillSets[u].title || NS.skillSets[u].name)) || u;
   }
   function drawProjects() {
-    var list = (PR.PROJECTS && PR.PROJECTS[unit]) || [], lv = [['cp2', 'CP2', 'Guided'], ['cp1', 'CP1', 'Standard'], ['honors', 'Honors', 'Extension']];
+    var list = (PR.PROJECTS && PR.PROJECTS[unit]) || [], lv = /^grade[1-5]-/.test(unit) ? [['cp2','Remedial','Guided'],['cp1','Standard','Grade level'],['honors','Advanced','Extension']] : [['cp2', 'CP2', 'Guided'], ['cp1', 'CP1', 'Standard'], ['honors', 'Honors', 'Extension']];
     var html = '<div class="pj-head"><h2>Projects \u00b7 ' + esc(unitLabel(unit)) + '</h2><p class="hint">' + list.length + (list.length === 1 ? ' project' : ' projects') + ' for this unit. Word and PowerPoint files are fully editable.</p></div>' +
       list.map(function (p) {
         var f = PR.projectFiles(p);
@@ -731,7 +731,8 @@
   G.addEventListener('resize', fit);
   $('#themeBtn') && ($('#themeBtn').onclick = function () { var cur = doc.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; doc.documentElement.setAttribute('data-theme', cur); lsSet('mkws-theme', cur); });
   (function () { var t = lsGet('mkws-theme'); if (t) doc.documentElement.setAttribute('data-theme', t); })();
-  load(); setHash(); rebuild();
+  function start(){load(); setHash(); rebuild();}
+  if(G.MK_COURSE_BANKS_READY)G.MK_COURSE_BANKS_READY.then(start,start);else start();
   PR.app = { cfg: function () { return cfg; }, built: function () { return built; }, ui: ui };   // for tests
 })(window);
 

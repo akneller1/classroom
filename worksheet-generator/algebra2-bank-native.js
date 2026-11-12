@@ -6,11 +6,11 @@ const NS=G.MKMENU, GB=G.MKGAMES;
 if(!NS||!GB||!G.MK_BANK_LOADER)return;
 const prefix='algebra2-', registry=new Map(),isBank=id=>registry.has(id);
 const raw=new Map();
-NS.courseLevelName=function(id,level){return /^(prealgebra(?:7)?|math6)-/.test(id)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[level]:(NS.LEVELS[level]||NS.LEVELS.cp1).long;};
+NS.courseLevelName=function(id,level){return /^(prealgebra(?:7)?|math6|grade[1-5])-/.test(id)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[level]:(NS.LEVELS[level]||NS.LEVELS.cp1).long;};
 function level(c,policy){return policy&&['cp2','cp1','honors'].includes(policy.level)?policy.level:c<=2?'cp2':c<=5?'cp1':'honors'}
 function tarsiaEligible(q){return ['short-answer','multiple-choice'].includes(q.format)&&typeof q.answer==='string'&&q.answer.trim().length>0&&q.answer.length<=20&&typeof q.prompt==='string'&&q.prompt.length<=110&&!/[\r\n]|<table|\\begin\{(?:array|matrix)/i.test(q.prompt)&&!q.diagram&&!(q.parts||[]).length}
 NS.tarsiaEligible=tarsiaEligible;
-function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['short-answer','multiple-choice','select-all','open-response']}).filter(q=>(!policy?.authoredErrorAnalysis || /family: [^)]*_error\)/.test(q.sourceNotes||''))&&(!policy?.authoredTarsia||tarsiaEligible(q)))}
+function pool(id,skill,c,policy,formats){return G.MK_QUESTION_BANKS.select({courseId:registry.get(id).courseId,unitId:registry.get(id).unitId,skillIds:[skill],level:policy?.level==='mixed'?undefined:level(c,policy),formats:formats||['short-answer','multiple-choice','select-all','open-response']}).filter(q=>(!policy?.authoredErrorAnalysis || /family: [^)]*_error\)/.test(q.sourceNotes||''))&&(!policy?.authoredTarsia||tarsiaEligible(q))&&(!policy?.authoredDiagrams||!!q.diagram))}
 
 function text(a){return typeof a==='object'?JSON.stringify(a):String(a)}
 function figure(q){return q.diagram?.type==='image'?{kind:'authored-image',src:q.diagram.spec.src,alt:q.diagram.spec.alt}:null}
@@ -53,6 +53,7 @@ const generate=NS.generateProblem;
 NS.generateProblem=function(id,skill,c,policy,seed,used){
  if(!isBank(id))return generate.apply(this,arguments);
  const lv=level(c,policy);
+ if(/^grade[1-5]-/.test(id))policy=Object.assign({},policy,{adjacentLevels:false});
  // formal tests and choice menus keep the original random draw from the level (their slots already ramp by tier)
  let q=policy?.questionPool==='formal'?choose(pool(id,skill,c,policy,policy?.authoredFormats),seed,used):chooseGraded(pool(id,skill,c,policy,policy?.authoredFormats),seed,used,c,lv);
  // The banks hold few CP2 and Honors questions per skill and form. Rather than leave a slot empty, the generators
@@ -96,7 +97,7 @@ GB.buildDeck=function(id,slots,opts,done){
 
 // Preserve the native menu/worksheet/lesson-planner workflows for Algebra 2 while
 // drawing only from the approved bank and its authored answer keys.
-const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'};
+const nativeFormats={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response',diagram:'short-answer'};
 function sourceQuestion(p){return p&&p.source==='authored-bank'?raw.get(p.sourceId):null}
 // Teacher keys list each approved question's own standards tags (menu/standards.js).
 NS.sourceStandards=function(p){const q=p&&p.sourceId?raw.get(p.sourceId):null;return q&&Array.isArray(q.standards)?q.standards.slice():[]};
@@ -137,8 +138,9 @@ NS.multiCapable=function(id,skill,c){return isBank(id)?['cp2','cp1','honors'].so
 NS.mcCapable=function(id,skill,c){return isBank(id)?['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,'multiple-choice')):mcCap.apply(this,arguments)};
 NS.mcasCapable=function(id,skill,c){return isBank(id)?['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,'open-response')):mcasCap.apply(this,arguments)};
 NS.skillFormatOk=function(id,skill,format,c){
- if(!isBank(id))return skillFmt.apply(this,arguments);
- const bankFormat={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response'}[format]||'short-answer';
+ if(!isBank(id))return format==='diagram'?false:skillFmt.apply(this,arguments);
+ if(format==='diagram')return ['cp2','cp1','honors'].some(level=>pool(id,skill,c,{level:level,authoredDiagrams:true},['short-answer']).length>0);
+ const bankFormat={open:'short-answer',mc:'multiple-choice',multi:'select-all',mcas:'open-response',diagram:'short-answer'}[format]||'short-answer';
  return ['cp2','cp1','honors'].some(level=>authoredAvailable(id,skill,level,bankFormat));
 };
 NS.authoredFormatForMenu=function(id,sectionFormat){

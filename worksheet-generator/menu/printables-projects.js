@@ -935,10 +935,10 @@
     ]
 };
   PR.projectFiles = function (p) {
-    var slug = p.slug, dir = '../artifacts/' + p.folder + '/', f = {};
+    var slug = p.slug, dir = p.base || '../artifacts/' + p.folder + '/', f = {};
     ['cp2', 'cp1', 'honors'].forEach(function (l) { f[l] = { pdf: dir + slug + '-' + l + '.pdf', docx: dir + slug + '-' + l + '.docx', pptx: dir + slug + '-' + l + '.pptx' }; });
     f.teacher = { pdf: dir + slug + '-teacher-guide.pdf', docx: dir + slug + '-teacher-guide.docx' };
-    f.page = dir + 'index.html'; f.thumb = '../thumbs/' + p.folder + '.jpg';
+    f.page = dir + 'index.html'; f.thumb = p.thumb || '../thumbs/' + p.folder + '.jpg';
     return f;
   };
 })(window);

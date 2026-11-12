@@ -70,6 +70,28 @@ const manifest=JSON.parse(fs.readFileSync(path.join(stage,'manifest.json'),'utf8
 const banks=manifest.banks.filter(b=>b.courseId==='math5'&&b.approved===true);
 if(banks.length!==11)throw Error('Expected eleven approved Grade 5 bank entries');
 fs.writeFileSync(path.join(dst,'manifest.json'),JSON.stringify({version:1,banks},null,2)+'\n');
+// Feed approved elementary content to the SAME teacher engines as Algebra 1.
+// The source stays in the course repository; only the release artifact is adapted.
+const nativeManifestPath=path.join(out,'question-banks/manifest.json');
+if(fs.existsSync(nativeManifestPath)){
+ const nativeManifest=JSON.parse(fs.readFileSync(nativeManifestPath,'utf8'));
+ nativeManifest.banks=nativeManifest.banks.filter(b=>b.courseId!=='grade5');
+ for(const entry of banks){
+  const bank=JSON.parse(fs.readFileSync(path.join(stage,entry.path),'utf8'));
+  bank.courseId='grade5';
+  for(const q of bank.questions)if(q.diagram?.spec?.src){
+   const source=q.diagram.spec.src,target='question-banks/assets/grade5/'+source;
+   fs.mkdirSync(path.dirname(path.join(out,target)),{recursive:true});
+   fs.copyFileSync(path.join(stage,source),path.join(out,target));
+   q.diagram.spec.src=target;
+  }
+  const relative='question-banks/grade5/'+entry.unitId+'.json';
+  fs.mkdirSync(path.dirname(path.join(out,relative)),{recursive:true});
+  fs.writeFileSync(path.join(out,relative),JSON.stringify(bank));
+  nativeManifest.banks.push({courseId:'grade5',unitId:entry.unitId,path:relative,approved:true,teacherUse:true});
+ }
+ fs.writeFileSync(nativeManifestPath,JSON.stringify(nativeManifest,null,2)+'\n');
+}
 // All diagrams are loaded from their exact path relative to Grade 5's root.
 // In particular, 500+ volume/fraction diagrams have flat .png filenames.
 let diagrams=0;
@@ -180,3 +202,37 @@ if(fs.existsSync(sitemap)){
  fs.writeFileSync(sitemap,xml);
 }
 console.log('Grade 5 assembled: 11 approved units, '+diagrams+' question diagrams, '+copied.size+' released source files; no other staging pages.');
+
+const generatorPath=path.join(dst,'worksheet-generator/grade5-generators.html');
+let generatorPage=fs.readFileSync(generatorPath,'utf8');
+const nativeRoute=`<script>(function(){var p=new URLSearchParams(location.search),m=p.get('mode')||'lesson',u=p.get('unit')||'${course.units[0].id}';var pages={worksheet:'worksheet.html',assessment:'menu-assessment.html',lesson:'lesson-planner.html',activity:'printables.html'};if(pages[m])location.replace('../../worksheet-generator/'+pages[m]+'#unit=grade5-'+encodeURIComponent(u)+'&level='+encodeURIComponent(p.get('level')||'cp1')+(m==='activity'?'&kind='+encodeURIComponent(p.get('kind')||'maze'):''));})();</script>`;
+generatorPage=generatorPage.replace('</head>',nativeRoute+'</head>');
+fs.writeFileSync(generatorPath,generatorPage);
+// Reuse elementary teaching notes in the native lesson planner.
+const teachingContext={window:{}};vm.createContext(teachingContext);
+vm.runInContext(fs.readFileSync(path.join(stage,'worksheet-generator/grade5/generators-content.js'),'utf8'),teachingContext);
+const nativeNotes={};
+for(const unit of course.units){
+ const content=teachingContext.window.G5_GENERATOR_CONTENT.units[unit.id];
+ const records=context.window.MK_COURSE_CATALOG.getSkillRecords('math5',unit.id);
+ records.forEach((skill,i)=>{
+  const watch=content.misconceptions[i%content.misconceptions.length]||[];
+  nativeNotes[skill.id]={obj:(content.objectives[i]||skill.name).replace(/^I can /,'').replace(/\.$/,''),idea:content.bigIdea,
+   voc:content.vocabulary.map(w=>[w.term,w.def]),watch:watch.join(' '),
+   cards:[{h:skill.name,big:content.bigIdea,steps:[content.objectives[i]||'',...content.support],figs:[]},
+     {h:'Discuss and explain',big:'Explain {{your reasoning}} and check {{your answer}}.',steps:watch,figs:[]}]};
+ });
+}
+fs.writeFileSync(path.join(dst,'grade5-native-notes.js'),'window.MKPLAN_TEACH=window.MKPLAN_TEACH||{};window.MKPLAN_TEACH.grade5='+JSON.stringify(nativeNotes)+';\n');
+
+const nativeVocabulary={},nativeProjects={};
+for(const unit of resources.units){
+ const content=teachingContext.window.G5_GENERATOR_CONTENT.units[unit.id];
+ const clean=s=>String(s).replace(/[;|]/g,',');
+ nativeVocabulary['grade5-'+unit.id]=content.vocabulary.map(w=>[w.term,w.def,'','Illustrate '+w.term+' and label your example.'].map(clean).join('|')).join(';');
+ nativeProjects['grade5-'+unit.id]=unit.artifacts.filter(a=>a.type==='Project').map(a=>{
+  const folder=a.path.split('/')[0],slug=folder.replace(/^math5-project-/,'');
+  return {folder,slug,base:'../grade5/'+folder+'/',thumb:'../grade5/'+a.thumb,title:a.title,tagline:a.description||'',description:a.description||'',theme:'Grade 5 Math',product:'Project packet'};
+ });
+}
+fs.writeFileSync(path.join(dst,'grade5-native-resources.js'),'window.MKVOCAB_BANKS=Object.assign(window.MKVOCAB_BANKS||{},'+JSON.stringify(nativeVocabulary)+');if(window.MKMENU&&MKMENU.printables)MKMENU.printables.PROJECTS=Object.assign(MKMENU.printables.PROJECTS||{},'+JSON.stringify(nativeProjects)+');\n');

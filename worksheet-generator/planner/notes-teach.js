@@ -47,7 +47,7 @@
 
   /* Algebra 2: the catalog has no glossary or key ideas, so the teaching-notes record supplies them
      (a teacher's saved edit still wins). */
-  if (course() === 'algebra2' && P.define && P.keyIdea) {
+  if ((course() === 'algebra2' || /^grade[1-5]$/.test(course())) && P.define && P.keyIdea) {
     var baseDefine = P.define, baseIdea = P.keyIdea;
     P.define = function (term, day) {
       var e = day && day.lesson_id && P.noteEdits && P.noteEdits[day.lesson_id];

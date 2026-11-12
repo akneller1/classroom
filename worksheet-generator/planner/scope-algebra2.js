@@ -2,11 +2,11 @@
    Each catalog skill is a selectable lesson topic; all questions come from the approved bank. */
 (function(G){
 'use strict';
-['algebra2','prealgebra','prealgebra7','math6','precalculus','calculus','statistics','discrete'].forEach(function(courseId){
+['algebra2','prealgebra','prealgebra7','math6','precalculus','calculus','statistics','discrete','grade1','grade2','grade3','grade4','grade5'].forEach(function(courseId){
 var course=G.LIBRARY.courses.filter(function(c){return c.id===courseId;})[0];
-var key={algebra2:'ALGEBRA2',prealgebra:'PREALGEBRA',prealgebra7:'PREALGEBRA7',math6:'MATH6',precalculus:'PRECALCULUS',calculus:'CALCULUS',statistics:'STATISTICS',discrete:'DISCRETE'}[courseId],prefix={algebra2:'A2',prealgebra:'PA8',prealgebra7:'PA7',math6:'M6',precalculus:'PC',calculus:'CA',statistics:'ST',discrete:'DM'}[courseId];
+var key={algebra2:'ALGEBRA2',prealgebra:'PREALGEBRA',prealgebra7:'PREALGEBRA7',math6:'MATH6',precalculus:'PRECALCULUS',calculus:'CALCULUS',statistics:'STATISTICS',discrete:'DISCRETE',grade1:'GRADE1',grade2:'GRADE2',grade3:'GRADE3',grade4:'GRADE4',grade5:'GRADE5'}[courseId],prefix={algebra2:'A2',prealgebra:'PA8',prealgebra7:'PA7',math6:'M6',precalculus:'PC',calculus:'CA',statistics:'ST',discrete:'DM',grade1:'G1',grade2:'G2',grade3:'G3',grade4:'G4',grade5:'G5'}[courseId];
 var catalog=G.MK_COURSE_CATALOG;
-if(!course||!catalog||!catalog.getSkillRecords)throw new Error('Algebra 2 planner catalog is unavailable.');
+if(!course||!catalog||!catalog.getSkillRecords)return;
 var days=[],units=[],lessons={},SETS={},UNIT_SET={},dayTypes={
  Lesson:{do_now:'Retrieval from a previous topic',notes:'Teacher notes and guided examples',practice:'Approved question bank practice, scaffolded by difficulty',exit_ticket:'Short check for understanding'},
  Practice:{do_now:'Retrieval warm-up',notes:'Student reference and worked examples',practice:'Tiered practice from this unit',exit_ticket:'Self-assessment and one final check'},
@@ -22,7 +22,7 @@ course.units.forEach(function(unit,ui){
  var start=day+1,ids=[],unitStd=[];
  var std=function(skillId){var list=G.MKSTD?G.MKSTD.content(G.MKSTD.forSkill(setId,skillId)):[];list.forEach(function(c){if(unitStd.indexOf(c)<0)unitStd.push(c);});return list.join(', ');};
  records.forEach(function(skill,si){
-  var id=prefix+'-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=courseId==='algebra2'&&G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):null;
+  var id=prefix+'-U'+unitNo+'-S'+(si+1),number=++day,title=skill.name,meta=courseId==='algebra2'&&G.MKPLAN_TEACH_ALGEBRA2_META?G.MKPLAN_TEACH_ALGEBRA2_META(skill.id):((G.MKPLAN_TEACH||{})[courseId]||{})[skill.id];
   var verb=meta&&meta.obj?meta.obj:'work with '+title.charAt(0).toLowerCase()+title.slice(1);
   ids.push(id);lessons[id]={cover:'full',skills:[[setKey,skill.id,1,7]]};
   days.push({day:number,quarter:0,week:0,unit:unitNo,unit_title:unit.name,unit_day:(si+1)+' of '+records.length,

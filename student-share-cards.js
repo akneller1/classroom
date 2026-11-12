@@ -28,6 +28,8 @@
   }
   function canShare(activity) {
     if (!activity || !activity.path) return false;
+    var shareTypes = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
+    if (!shareTypes.some(function (type) { return /^(game|study guide)$/i.test(type); })) return false;
     if (activity.courseId === 'grade5') return ['Game','Study Guide','Interactive','Project'].indexOf(String(activity.type)) >= 0;
     if (activity.courseId === 'financial-algebra') return ['Game','Study Guide','Interactive','Project'].indexOf(String(activity.type)) >= 0;
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(activity.path)) return true;

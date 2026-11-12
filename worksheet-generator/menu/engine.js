@@ -69,6 +69,7 @@
     var policy = policyOf(cfg), set = sets[cfg.unitId];
     if (set && set.authoredBank && NS.authoredFormatForMenu)
       policy.authoredFormats = NS.authoredFormatForMenu(cfg.unitId, NS.sectionFormat(cfg, si));
+    if(NS.sectionFormat(cfg,si)==='diagram')policy.authoredDiagrams=true;
     return policy;
   }
   NS.sectionC = function (cfg, si) {
@@ -88,7 +89,7 @@
   NS.isTest = function (cfg) { return !!cfg && (cfg.mode === 'test' || cfg.mode === 'worksheet'); };
   NS.isWorksheet = function (cfg) { return !!cfg && cfg.mode === 'worksheet'; };
   NS.sectionFormat = function (cfg, si) { var f=(cfg.sections[si] && cfg.sections[si].qformat) || 'open'; return f === 'multi' && !NS.multiUnitSupported(cfg.unitId) ? 'open' : f; };
-  NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice', multi: 'Choose all that apply', mcas: 'Open Response (4+ parts)' };
+  NS.FORMATS = { open: 'Short answer (show your work)', mc: 'Multiple choice', multi: 'Choose all that apply', mcas: 'Open Response (4+ parts)', diagram: 'Questions with diagrams' };
 
   /* ---------------- configuration ---------------- */
   var uidN = 0;
@@ -607,6 +608,7 @@
   };
   /* Can this skill be asked in this question format at this difficulty? Used to grey out choices that would only produce "No verified problem". */
   NS.skillFormatOk = function (unitId, skillId, format, c) {
+    if(format==='diagram')return false;
     if (!format || format === 'open') return true;
     var set = sets[unitId]; if (!set || !set.byId[skillId]) return true;
     try {
@@ -689,9 +691,9 @@
 
   /* ---------------- assessment state ---------------- */
   var LABELS = ['A', 'B', 'C'];
-  function usedSets(state, skipUid) {
+  function usedSets(state, skipUid, versionIdx) {
     var u = { keys: new Set(), sigs: new Set() };
-    state.versions.forEach(function (v) { v.sections.forEach(function (s) { s.items.forEach(function (it) { if (it.uid !== skipUid && it.key) { u.keys.add(it.key); u.sigs.add(it.sig); if (it.srcKey) u.keys.add(it.srcKey); } }); }); });
+    state.versions.forEach(function (v, vi) { if (/^grade[1-5]-/.test(state.config.unitId) && versionIdx !== undefined && vi !== versionIdx) return; v.sections.forEach(function (s) { s.items.forEach(function (it) { if (it.uid !== skipUid && it.key) { u.keys.add(it.key); u.sigs.add(it.sig); if (it.srcKey) u.keys.add(it.srcKey); } }); }); });
     return u;
   }
   function placeholder(slot, skill, c, tag, reason) {
@@ -699,7 +701,7 @@
   }
   function makeItem(state, slot, skill, c, salt, vIdx, si) {
     var cfg = state.config, set = sets[cfg.unitId];
-    var gen = function (sk) { return formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, sk, c, policyFor(cfg, si), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state)); }); };
+    var gen = function (sk) { return formatted(state, si, function (t) { return NS.generateProblem(cfg.unitId, sk, c, policyFor(cfg, si), [cfg.seed, vIdx, slot, salt].join('|') + (t ? '|mc' + t : ''), usedSets(state, null, vIdx)); }); };
     var p = gen(skill);
     // An approved bank has a fixed number of questions per skill, level and form. When one skill runs out, use
     // another selected skill of this section for the slot rather than leaving it empty.
@@ -761,6 +763,10 @@
           for (var k = 0; k < order.length; k++) { var alt = order[(rot + k) % order.length]; if (NS.mcCapable(cfg.unitId, alt, ci)) { rot = (rot + k + 1) % order.length; return alt; } }
           return id;
         });
+      }
+      if(NS.sectionFormat(cfg,si)==='diagram'){
+        var diagramSkills=order.filter(function(id){return NS.skillFormatOk(cfg.unitId,id,'diagram',NS.sectionC(cfg,si));});
+        if(diagramSkills.length)out=out.map(function(id,i){return diagramSkills[i%diagramSkills.length];});
       }
       plans.push(out);
     });

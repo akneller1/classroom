@@ -9,7 +9,7 @@
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, WS = G.MKWS, P = G.MKPLAN, SC = G.MKPLAN_SCOPE;
-  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', PA8 = ['prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete'].indexOf(COURSE) >= 0, CS = COURSE === 'algebra1' ? '' : '-'+COURSE;   // per-lesson saved data is kept separately for each course
+  var COURSE = G.MKPLAN_COURSE || 'algebra1', GEO = COURSE === 'geometry', A2 = COURSE === 'algebra2', PA8 = ['prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete', 'grade5'].indexOf(COURSE) >= 0, CS = COURSE === 'algebra1' ? '' : '-'+COURSE;   // per-lesson saved data is kept separately for each course
   var KEY_LEVEL = 'mk-planner-level', KEY_THEME = 'mkws-theme', KEY_N = 'mk-planner-practice', KEY_NOTES = 'mk-planner-notes', KEY_MIN = 'mk-planner-minutes', KEY_NOTE_EDITS = 'mk-planner-note-edits', KEY_SECTIONS = 'mk-planner-sections-v1', KEY_SECTION_ORDER = 'mk-planner-section-order-v1', KEY_PROBLEM_LABELS = 'mk-planner-problem-labels-v1', KEY_COUNTS = 'mk-planner-section-counts-v1';
   KEY_NOTE_EDITS += CS; KEY_PROBLEM_LABELS += CS;
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
@@ -196,8 +196,8 @@
   function readHash() {
     var h = {}; (location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var p = kv.split('='); if (p[0]) h[decodeURIComponent(p[0])] = decodeURIComponent(p[1] || ''); });
     // A link to another course (by #course= or by a #unit= from another course) needs a reload: the course's scope loads at start-up
-    var target = h.course || (/^(algebra1|geometry|algebra2|prealgebra7|prealgebra|math6|precalculus|calculus|statistics|discrete)-/.exec(h.unit || '') || [])[1];
-    if (target && /^(algebra1|geometry|algebra2|prealgebra|prealgebra7|math6|precalculus|calculus|statistics|discrete)$/.test(target) && target !== COURSE) { G.location.reload(); return; }
+    var target = h.course || (/^(algebra1|geometry|algebra2|prealgebra7|prealgebra|math6|precalculus|calculus|statistics|discrete|grade5)-/.exec(h.unit || '') || [])[1];
+    if (target && /^(algebra1|geometry|algebra2|prealgebra|prealgebra7|math6|precalculus|calculus|statistics|discrete|grade5)$/.test(target) && target !== COURSE) { G.location.reload(); return; }
     if (h.unit) {
       var num = null; Object.keys(G.MKPLAN_SKILLS.UNIT_SET).forEach(function (n) { if (P.unitSetId(+n) === h.unit || String(n) === h.unit) num = +n; });
       var u = num && P.unitOf(num); if (u) ui.day = u.start_day;
@@ -482,7 +482,7 @@
   /* ---------- page ---------- */
   function picker() {
     var cur = P.day(ui.day), gk = groupKey(cur), groups = dayGroups();
-    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse">' + [['math6', '6th Grade Math'], ['prealgebra7', 'Pre-Algebra (7th)'], ['prealgebra', 'Pre-Algebra (8th)'], ['algebra1', 'Algebra 1'], ['geometry', 'Geometry'], ['algebra2', 'Algebra 2'], ['precalculus', 'Precalculus'], ['calculus', 'Calculus'], ['statistics', 'Statistics'], ['discrete', 'Discrete Math']].filter(function (o) { return o[0] !== 'geometry' || G.MKPLAN_SCOPE_GEOMETRY || GEO; }).map(function (o) { return '<option value="' + o[0] + '"' + (COURSE === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select>';
+    var crs = '<label class="pl-lab" for="plCourse">Course</label><select id="plCourse">' + [['math6', '6th Grade Math'], ['prealgebra7', 'Pre-Algebra (7th)'], ['prealgebra', 'Pre-Algebra (8th)'], ['algebra1', 'Algebra 1'], ['geometry', 'Geometry'], ['algebra2', 'Algebra 2'], ['precalculus', 'Precalculus'], ['calculus', 'Calculus'], ['statistics', 'Statistics'], ['discrete', 'Discrete Math']].concat((G.LIBRARY.courses||[]).filter(function(c){return /^grade[1-5]$/.test(c.id)&&!c.comingSoon&&G['MKPLAN_SCOPE_'+c.id.toUpperCase()];}).map(function(c){return [c.id,c.name];})).sort(function(a,b){return /^grade[1-5]$/.test(a[0])&&!/^grade[1-5]$/.test(b[0])?-1:!/^grade[1-5]$/.test(a[0])&&/^grade[1-5]$/.test(b[0])?1:0;}).filter(function (o) { return o[0] !== 'geometry' || G.MKPLAN_SCOPE_GEOMETRY || GEO; }).map(function (o) { return '<option value="' + o[0] + '"' + (COURSE === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select>';
     var sel = crs + '<label class="pl-lab" for="plUnit">Unit</label><select id="plUnit">' + groups.map(function (g) { return '<option value="' + g.key + '"' + (g.key === gk ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('') + '</select>';
     var g = groups.filter(function (x) { return x.key === gk; })[0];
     var list = '<p class="pl-hint">Choose a primary day, then check additional lessons in this unit to combine their problem banks.</p>' + '<ol class="pl-days" aria-label="Days">' + g.days.map(function (d) {
@@ -502,7 +502,7 @@
       '<div class="pl-btns"><button type="button" class="btn sec2" id="plNew">New problems</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn" id="plPrintS">Print student handout</button><button type="button" class="btn ghost" id="plPrintK">Print teacher key</button></div>' +
       '<div class="pl-btns"><button type="button" class="btn ghost" id="plPptxStudent">Student PowerPoint</button><button type="button" class="btn ghost" id="plPptxTeacher">Teacher PowerPoint</button></div><p id="plPptxMsg" class="pl-hint" role="status" aria-live="polite"></p>' +
-      '<p class="hint">' + ((A2 || PA8) ? 'Questions use approved course bank content; review the supplied answers and worked steps before printing.' : 'Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.') + '</p>';
+      '<p class="hint">' + ((A2 || PA8) ? 'Questions use approved course banks with answers and worked steps.' : 'Every answer is re-derived from the printed problem by the same checker as the Worksheet and Assessment Generators.') + '</p>';
   }
   function render() {
     var d = P.day(ui.day);
@@ -718,7 +718,7 @@
     }
     if (t.id === 'plN') { ui.practice = Math.max(4, Math.min(20, +t.value || 10)); lsSet(KEY_N, ui.practice); render(); return; }
   });
-  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2|prealgebra|prealgebra7|math6|precalculus|calculus|statistics|discrete)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
+  G.addEventListener('hashchange', function () { var m = /course=(\w+)/.exec(location.hash || ''); if (m && m[1] !== COURSE && /^(algebra1|geometry|algebra2|prealgebra|prealgebra7|math6|precalculus|calculus|statistics|discrete|grade5)$/.test(m[1])) { G.location.reload(); return; } readHash(); resetSelection(); render(); });
 
   function applyTheme(t) { if (t) doc.documentElement.setAttribute('data-theme', t); else doc.documentElement.removeAttribute('data-theme'); }
   applyTheme(lsGet(KEY_THEME));
