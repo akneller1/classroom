@@ -1065,8 +1065,9 @@
       var current = r && r.c && r.c.id === c.id;
       var soon = c.comingSoon || c.planned;
       return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
-        (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
-        '<small>' + (soon ? (c.units.length ? 'Coming soon · course outline' : 'Coming soon') : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
+        ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
+        (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
+        artFor(c) + '</a>';
     }).join('');
     var sidebar = expanded && app.querySelector('.course-sidebar');
     if (sidebar) {
