@@ -15,9 +15,7 @@
     { id: 'grade1', name: '1st Grade Math', color: 'red', art: 'first', units: [], comingSoon: true, homePlaceholder: true },
     { id: 'grade2', name: '2nd Grade Math', color: 'orange', art: 'second', units: [], comingSoon: true, homePlaceholder: true },
     { id: 'grade3', name: '3rd Grade Math', color: 'orange', art: 'third', units: [], comingSoon: true, homePlaceholder: true },
-    { id: 'grade4', name: '4th Grade Math', color: 'green', art: 'fourth', units: [], comingSoon: true, homePlaceholder: true },
-    { id: 'grade5', name: '5th Grade Math', color: 'green', art: 'fifth', units: [], comingSoon: false, homePlaceholder: false },
-    { id: 'financial-algebra', name: 'Financial Algebra', color: 'purple', art: 'finance', units: [], comingSoon: false, homePlaceholder: false }
+    { id: 'grade4', name: '4th Grade Math', color: 'green', art: 'fourth', units: [], comingSoon: true, homePlaceholder: true }
   ]);
   L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
@@ -391,7 +389,7 @@
       (on ? STAR_ON : STAR) + '<span>' + (on ? 'Saved' : 'Save') + '</span></button>';
   }
 
-  function activityUrl(a) { var path=a.path||''; if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return path; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
+  function activityUrl(a) { var path=a.path||''; if (/^https:\/\//i.test(path) || /^financial\//.test(path) || /^artifacts\/financial-algebra-/.test(path)) return path; if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return path; if (/^artifacts\/math-arcade\/index\.html\?game=(rocket|inequality|laser|mirror|cannon|portal|catapult)$/.test(path)) return path; return /^worksheet-generator\/[a-z0-9_\-/]+\.html(#unit=[a-z0-9\-]+(&kind=[a-z]+)?)?$/i.test(path) || /^worksheet-generator\/(approved-flashcards|approved-games|grade-practice|middle-school-game|algebra2-game|algebra2-practice|bank-printable|course-game|course-activity)\.html\?[a-z0-9_=&%\-]+$/i.test(path) ? path : 'activity.html?path=' + encodeURIComponent(path); }
 
   function actionLabel(a) {
     var format = activityFormat(a);
@@ -714,6 +712,8 @@
       '<ul class="generator-shortcuts">' + GENERATOR_ACTIONS.map(function (tool) {
         var match = items.filter(function (a) { return activityFormat(a) === tool.format; })[0];
         var url = match ? activityUrl(match) : 'worksheet-generator/' + tool.page;
+        if (c && c.id === 'grade5' && !match) return '';
+        if (c && c.id === 'financial-algebra' && !match) return '';
         if (c && c.id === 'geometry') {
           var supported = !u || !!unitId;
           if (!supported) return '<li><span class="generator-shortcut" aria-disabled="true" title="Geometry question banks still in development"><span class="generator-shortcut-icon" aria-hidden="true">◌</span><span class="generator-shortcut-copy"><strong>' + esc(tool.title) + '</strong><small>Coming soon</small></span></span></li>';
@@ -1135,7 +1135,7 @@
     var cards = courses.map(function (c) {
       var current = r && r.c && r.c.id === c.id;
       var soon = c.comingSoon || c.planned;
-      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + (c.id === 'grade5' ? 'grade5/' : c.id === 'financial-algebra' ? 'financial-algebra/' : href(courseToken(c))) + '"' +
+      return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + (c.sourceUrl || href(courseToken(c))) + '"' +
         ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
         artFor(c) + '<span class="course-nav-description">' + esc(COURSE_CARD_DESCRIPTIONS[c.id] || c.blurb || '') + '</span>' +
