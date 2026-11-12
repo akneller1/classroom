@@ -40,9 +40,14 @@ add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place va
 add({id:'financial-algebra',name:'Financial Algebra',color:'purple',art:'finance',blurb:'Budgeting, credit, saving, investing, borrowing and real financial decisions.',sourceUrl:'financial-algebra.html',
  units:financeUnits.map(function(unit){
  var r=unit.resources,a=[];
- [['Lesson Plan',r.lessonPlan,'Generator','lesson-planner'],['Worksheet',r.worksheet,'Generator','worksheet-generator'],['Assessment',r.assessment,'Generator','assessment-generator'],['Practice Test',r.practiceTest,'Study Guide','interactive-practice-test'],['Flashcards',r.flashcards,'Study Guide','flashcards'],['Cheat Sheet',r.cheatSheet,'Study Guide','cheat-sheets'],[r.decisionLab.title,r.decisionLab.path,'Interactive','interactive-math']].forEach(function(x){if(x[1])a.push(item(x[0],x[1],x[2],x[3]));});
- (r.games||[]).forEach(function(g){a.push(item(g.title,g.path,'Game',({'showdown':'showdown','connect-four':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','detective':'detective-games'})[g.id]||'topic-games',null,g.description));});
- (r.projects||[]).forEach(function(p){a.push(item(p.title,p.path,'Project','other'));});
+ [['Lesson Plan',r.lessonPlan,'Generator','lesson-planner'],['Worksheet',r.worksheet,'Generator','worksheet-generator'],['Assessment',r.assessment,'Generator','assessment-generator'],['Practice Test',r.practiceTest,'Study Guide','interactive-practice-test'],['Flashcards',r.flashcards,'Study Guide','flashcards'],['Cheat Sheet',r.cheatSheet,'Study Guide','cheat-sheets'],[r.decisionLab.title,r.decisionLab.path,'Interactive','interactive-math']].forEach(function(x){
+  if(!x[1])return;
+  var kind=({'lesson-planner':'lesson','worksheet-generator':'worksheet','assessment-generator':'assessment','interactive-practice-test':'practice','flashcards':'flashcards','cheat-sheets':'cheat-sheet','interactive-math':'lab'})[x[3]]||'worksheet';
+  var thumb='thumbs/financial-algebra/'+unit.id+'-'+kind+(kind==='cheat-sheet'?'.jpg':'.svg');
+  a.push(item(x[0],x[1],x[2],x[3],thumb));
+ });
+ (r.games||[]).forEach(function(g){a.push(item(g.title,g.path,'Game',({'showdown':'showdown','connect-four':'connect-four','tic-tac-toe':'tic-tac-toe','picture-reveal':'picture-reveal','detective':'detective-games'})[g.id]||'topic-games','thumbs/financial-algebra/'+unit.id+'-'+g.id+'.svg',g.description));});
+ (r.projects||[]).forEach(function(p){a.push(item(p.title,p.path,'Project','other','thumbs/financial-algebra/'+unit.id+'-project-'+p.slug+'.svg'));});
  return {id:unit.id,name:unit.name,artifacts:a};
  })});
 root.MK_INTEGRATED_COURSE_IDS=['grade5','financial-algebra'];
