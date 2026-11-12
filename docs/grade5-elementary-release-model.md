@@ -29,9 +29,13 @@ Status: published Grade 5 is the model for future Grade 1–4 releases. Keep unf
 | Projects | 11 |
 | Packaged question diagrams | 918 |
 | Blocking defects in assembled audit | 0 |
-| Editorial warnings | 1: 4,950 question provenance notes awaiting human review |
+| Human-review release gate | None; automated checks and issue-driven corrections |
 
-These are build-audit counts, not evidence of independent human editorial approval. They may change after subsequent source edits.
+These are build-audit counts from automated validation, not a claim of individual manual review. They may change after subsequent source edits. Reported errors are corrected as issues arise.
+
+## Verification and correction policy
+
+Grade 5 questions are released when the existing automated math checks, schema tests, answer/distractor validation, accessibility checks, and production smoke tests pass. No 4,950-question human signoff is required. Preserve authorship and automated-verification provenance without labelling questions as manually reviewed. Resolve genuine defects through the website's **Feedback or report an issue** link and record corrections in GitHub.
 
 ## Release gate
 
@@ -51,8 +55,8 @@ Track substantive work in the source-repository issue: https://github.com/aknell
 - Improve explicit fraction-as-decimal equivalence practice.
 - Add optional cumulative mixed-unit review and Grade 6 readiness without inflating unit count.
 - Expand genuine explain/justify open-response work with rubrics, without burdening auto-graded number-only games.
-- Expand and human-review authentic multi-step scenarios; the UI can label verified multi-step items using their existing metadata.
-- Retain “Awaiting human review” provenance until a teacher/editor actually reviews the corresponding question.
+- Expand and independently verify authentic multi-step scenarios; the UI can label verified multi-step items using their existing metadata.
+- Do not hold verified items in a manual-review queue. Publish after automated checks pass, and investigate reports of incorrect answers, missing diagrams, unclear wording, or broken activities through the existing Feedback link.
 
 ## Template for another grade
 
