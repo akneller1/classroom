@@ -1063,6 +1063,11 @@
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
         '<small>' + (soon ? 'Coming soon · course outline' : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
     }).join('');
+    cards += '<a class="course-nav-card" data-course="financial-algebra" data-color="purple" href="financial-algebra.html">' +
+      '<span class="course-nav-copy"><strong>Financial Algebra</strong><small>10 units · Activities, study guides &amp; projects</small></span>' +
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true"><rect class="f-soft" x="20" y="25" width="150" height="110" rx="12"/>' +
+      '<path class="s" d="M40 110 L75 85 L105 95 L150 50"/><circle class="f" cx="158" cy="33" r="25"/>' +
+      '<text x="158" y="44" text-anchor="middle" font-size="32" fill="white" font-family="Arial">$</text></svg></a>';
     var sidebar = expanded && app.querySelector('.course-sidebar');
     if (sidebar) {
       sidebar.appendChild(nav);
@@ -1256,4 +1261,5 @@
     render(true);
   })();
 })();
+
 
