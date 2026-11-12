@@ -155,12 +155,12 @@ fs.writeFileSync(path.join(dst,'grade5-main-catalog.js'),bridge);
 const html='<!doctype html><html lang="en"><head><meta charset="utf-8">'+
  '<meta name="viewport" content="width=device-width,initial-scale=1">'+
  '<meta name="robots" content="noindex,follow">'+
- '<title>5th Grade Math | Mr. K\\'s Classroom</title>'+
+ '<title>5th Grade Math | Mr. K&#39;s Classroom</title>'+
  '<link rel="canonical" href="https://mrksclassroom.com/courses/grade5.html">'+
  '<meta http-equiv="refresh" content="0;url=../#grade5">'+
  '<script>(function(){var hit=/^(?:math5|grade5)\\.([a-z0-9-]+)$/.exec(location.hash.slice(1));'+
- 'location.replace("../#grade5"+(hit?"."+hit[1]:""));})();<\\/script>'+
- '</head><body><p>Open <a href="../#grade5">5th Grade Math on Mr. K\\'s Classroom</a>.</p></body></html>\\n';
+ 'location.replace("../#grade5"+(hit?"."+hit[1]:""));})();</script>'+
+ '</head><body><p>Open <a href="../#grade5">5th Grade Math on Mr. K&#39;s Classroom</a>.</p></body></html>\n';
 fs.writeFileSync(path.join(dst,'index.html'),html);
 const alias='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow">'+
  "<title>Grade 5 | Mr. K's Classroom</title>"+
