@@ -35,9 +35,12 @@ async function run(){
   if(await check('/','Homepage','#main h1')){
    await page.screenshot({path:output+'/homepage-desktop.png',fullPage:true});
    const catalog=await page.evaluate(()=>window.LIBRARY&&window.LIBRARY.courses.map(c=>({id:c.id,name:c.name,units:c.units.map(u=>({id:u.id,name:u.name}))})));
-   if(!catalog||catalog.length!==10)throw Error('Expected 10 courses, received '+(catalog?catalog.length:0));
+   // Grade 5 and Financial Algebra are separately integrated courses with their own players.
+   // Audit the original ten SPA courses here; the other two have dedicated browser coverage.
+   const coreCatalog=(catalog||[]).filter(c=>!['grade5','financial-algebra'].includes(c.id));
+   if(coreCatalog.length!==10)throw Error('Expected 10 core SPA courses, received '+coreCatalog.length);
    let checked=0;
-   for(const c of catalog){
+   for(const c of coreCatalog){
     await page.evaluate(t=>{location.hash=t},'#'+c.id);
     await page.waitForFunction(label=>document.querySelector('#main h1')?.textContent.includes(label),c.name,{timeout:6000});
     checked++;
