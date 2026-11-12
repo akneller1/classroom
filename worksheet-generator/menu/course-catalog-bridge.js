@@ -19,7 +19,10 @@
       return [prefix + '-' + unit.id, 'Unit ' + (i + 1) + ' · ' + unit.name];
     });
 
-    if (group) {
+    if (group && (course.id === 'algebra' || course.id === 'geometry')) {
+      /* Legacy Algebra 1 and Geometry skill-set IDs differ from site unit IDs.
+         Preserve their independently verified mappings rather than guessing. */
+    } else if (group) {
       /* Preserve IDs of hand-written skill sets; refresh all matching published units. */
       var existing = Object.create(null);
       group.units.forEach(function (unit) { existing[unit[0]] = unit; });
