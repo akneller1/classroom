@@ -1066,12 +1066,12 @@ body { background:var(--paper); }
 
 
 /* Homepage two-column course catalog: keep the course rainbow, order and bottom alignment. */
-/* Wide screens: give the course panel enough width for two genuinely readable cards.
+/* Wide screens: one-third courses and two-thirds teaching tasks.
    The existing subgrid continues to share the heading, grid and footer tracks,
    so both collections finish at the same vertical edge. */
 @media (min-width:1150px) {
   .task-home > .home-dashboard {
-    grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);
+    grid-template-columns:minmax(0,1fr) minmax(0,2fr);
     column-gap:1.5rem;
   }
   .course-sidebar .course-nav-grid {
