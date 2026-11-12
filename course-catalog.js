@@ -973,7 +973,8 @@
   // Shared unit-card lesson previews. Grade 5 topics are synchronized with the
   // published staging catalog; Financial Algebra topics come from financial/course.js.
   // Add new courses here (or supply unit.skills) to get the same card layout automatically.
-  skills.grade5 = {
+  var integrationPreviewSkills = {};
+  integrationPreviewSkills.grade5 = {
     "place-value-number-sense": [
       "Place Value Patterns",
       "Powers of Ten and Exponents",
@@ -1052,7 +1053,7 @@
       "Multi-Step Problem Solving"
     ]
   };
-  skills['financial-algebra'] = {
+  integrationPreviewSkills['financial-algebra'] = {
     "income": [
       "Compare salary and hourly pay",
       "Calculate gross and net income",
@@ -1115,7 +1116,8 @@
     ]
   };
   function get(courseId,unitId){
-    return (skills[courseId] && skills[courseId][unitId] || []).slice();
+    return ((skills[courseId] && skills[courseId][unitId]) ||
+      (integrationPreviewSkills[courseId] && integrationPreviewSkills[courseId][unitId]) || []).slice();
   }
   function getSkillRecords(courseId,unitId){
     return get(courseId,unitId).map(function(name,i){
