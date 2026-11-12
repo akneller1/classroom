@@ -192,7 +192,7 @@
   function belongsToGroup(a, group) {
     var isGame = toArr(a.type).indexOf('Game') >= 0;
     var formatMatches = group.formats.indexOf(activityFormat(a)) >= 0;
-    return group.id === 'games' ? (isGame || formatMatches) : (!isGame && formatMatches);
+    return group.id === 'games' ? isGame : (!isGame && formatMatches);
   }
   var FORMAT_SUMMARIES = {
     'lesson-planner': 'Plan a day: Do Now, notes, practice and exit ticket from the 180-day scope and sequence.',
