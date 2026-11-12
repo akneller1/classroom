@@ -60,7 +60,7 @@
       button.setAttribute('aria-label', 'Copy student link for ' +
         (card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'activity'));
       var resource = eligible[path];
-      if (resource.courseId === 'grade5' && (resource.type === 'Game' || resource.type === 'Project' || resource.title === 'Understanding Check')) {
+      if (resource.courseId === 'grade5' && (resource.type === 'Project' || /[?&]game=fraction-frenzy(?:&|$)/.test(resource.path))) {
         var select = document.createElement('select');
         select.className = 'student-share-level';
         select.setAttribute('aria-label', 'Student difficulty for ' + resource.title);
@@ -73,6 +73,10 @@
         actions.appendChild(select);
       }
       button.addEventListener('click', function () {
+        if (window.MK_INTEGRATED_STUDENT_SHARE && window.MK_INTEGRATED_STUDENT_SHARE.supports(resource)) {
+          window.MK_INTEGRATED_STUDENT_SHARE.open(resource);
+          return;
+        }
         if (resource.courseId === 'grade5' || resource.courseId === 'financial-algebra') {
           var levelControl = actions.querySelector('.student-share-level');
           var destination = integratedStudentDestination(resource, levelControl ? levelControl.value : 'cp1');
