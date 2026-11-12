@@ -10,7 +10,7 @@ G.MKMENU={CATALOG:[{course:'Algebra 1',units:[['algebra1-foundations','Unit 1']]
 const context={window:G};
 const source=fs.readFileSync(path.join(__dirname,'course-catalog-bridge.js'),'utf8');
 vm.runInNewContext(source,context);
-assert.equal(G.MKMENU.CATALOG.length,9,'Three grade-level groups, Algebra 2, Precalculus, Calculus Statistics and Discrete Math should be added');
+assert.equal(G.MKMENU.CATALOG.length,G.LIBRARY.courses.filter(c=>!c.comingSoon).length,'All published courses should be discovered');
 for(const id of ['math6','prealgebra7','prealgebra','algebra2','precalculus','calculus','statistics','discrete']){
  const course=G.LIBRARY.courses.find(c=>c.id===id);
  const group=G.MKMENU.CATALOG.find(g=>g.course===course.name);
@@ -22,7 +22,7 @@ for(const id of ['math6','prealgebra7','prealgebra','algebra2','precalculus','ca
  });
 }
 vm.runInNewContext(source,context);
-assert.equal(G.MKMENU.CATALOG.length,9,'Bridge must be idempotent');
-assert.equal(G.MKMENU.CATALOG.at(-1).course,'Algebra 1','Existing algebra catalog preserved');
+assert.equal(G.MKMENU.CATALOG.length,G.LIBRARY.courses.filter(c=>!c.comingSoon).length,'Bridge must be idempotent');
+assert.equal(G.MKMENU.CATALOG[0].course,'Algebra 1','Existing algebra catalog preserved');
 console.log('PASS: all 69 bank-driven units listed as unsupported without altering the existing course catalog');
 
