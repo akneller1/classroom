@@ -124,6 +124,7 @@ jobs:
           HTML
           # Exercise the real Grade 5 browser loader against every published unit.
           node classroom/scripts/test-grade5-deployment.cjs site
+          node classroom/scripts/audit-grade5-release.cjs site
           # Catch missing generator assets before deploying.
           for f in grade5/index.html grade5/worksheet-generator/grade5-generators.html \
             grade5/worksheet-generator/grade5/generators.js \

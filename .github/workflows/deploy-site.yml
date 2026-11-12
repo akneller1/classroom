@@ -58,6 +58,8 @@ jobs:
         run: node scripts/integrate-financial-algebra.mjs
       - name: Verify published Grade 5 game question loading
         run: node scripts/test-grade5-deployment.cjs _site
+      - name: Audit published Grade 5 resources, banks and navigation
+        run: node scripts/audit-grade5-release.cjs _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
