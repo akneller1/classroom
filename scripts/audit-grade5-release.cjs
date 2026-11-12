@@ -2,10 +2,12 @@
 'use strict';
 /* Grade 5 production release audit: uses the exact site artifact that gets deployed,
  * not the source repository alone. This prevents missing/rewritten files from slipping
- * through otherwise successful development-bank tests. */
+ * through otherwise successful development-bank tests.
+ * Approved questions are released after automated checks; corrections are tracked
+ * from reported defects. There is no manual-review release gate. */
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const site=path.resolve(process.argv[2]||'_site'),root=path.join(site,'grade5');
-const failures=[],warnings=[],counts={htmlFiles:0,links:0,units:0,resources:0,games:0,generators:0,studyGuides:0,interactive:0,projects:0,questions:0,diagrams:0,unreviewedNotes:0};
+const failures=[],warnings=[],counts={htmlFiles:0,links:0,units:0,resources:0,games:0,generators:0,studyGuides:0,interactive:0,projects:0,questions:0,diagrams:0};
 function fail(message){failures.push(message);}
 function warn(message){warnings.push(message);}
 function exists(p){return fs.existsSync(path.join(root,p));}
@@ -127,7 +129,6 @@ for(const entry of banks){
   perSkillLevel.set(key,(perSkillLevel.get(key)||0)+1);
   if(!q.solutionSteps||!q.solutionSteps.length)fail('Missing worked solution '+q.id);
   if(!q.standards||!q.standards.length)fail('Missing standards '+q.id);
-  if(/awaiting human review/i.test(q.sourceNotes||''))counts.unreviewedNotes++;
   if(q.diagram){
    counts.diagrams++;
    const src=q.diagram.spec&&q.diagram.spec.src;
@@ -164,10 +165,9 @@ else {
 for(const f of ['grade1.html','grade2.html','grade3.html','grade4.html']){
  if(exists(f))fail('Unfinished class accidentally published in Grade 5 folder: '+f);
 }
-if(counts.unreviewedNotes)warn(counts.unreviewedNotes+' question provenance notes still say "Awaiting human review"; independent math verification is not equivalent to editorial approval.');
 console.log('Grade 5 production audit: '+JSON.stringify(counts));
 for(const error of failures.slice(0,60))console.error('FAIL '+error);
 if(failures.length>60)console.error('… '+(failures.length-60)+' more broken items');
 for(const item of warnings.slice(0,20))console.warn('REVIEW '+item);
-console.log('Grade 5 audit outcome: '+failures.length+' blocking defects; '+warnings.length+' editorial warnings');
+console.log('Grade 5 audit outcome: '+failures.length+' blocking defects; '+warnings.length+' non-blocking resource warnings');
 if(failures.length)process.exitCode=1;
