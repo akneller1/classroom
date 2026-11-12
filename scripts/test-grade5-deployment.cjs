@@ -18,7 +18,7 @@ const exists = rel => fs.existsSync(path.join(courseRoot, rel));
 const read = rel => fs.readFileSync(path.join(courseRoot, rel), 'utf8');
 const manifestPath = new URL('../manifest.json', gameUrl);
 assert.equal(manifestPath.pathname, '/grade5/manifest.json', 'game manifest resolution');
-for (const file of ['manifest.json','question-bank-adapter.js',
+for (const file of ['manifest.json','course-catalog.js','question-bank-adapter.js',
   'question-bank-loader.js',gameFile,'worksheet-generator/grade5/g5-core.js',
   'worksheet-generator/grade5/g5-games.js']) {
   assert.ok(exists(file), 'Grade 5 public artifact missing ' + file);
@@ -58,6 +58,7 @@ runtime.fetch = async function(ref){
 };
 runtime.window = runtime;
 const sandbox = {window:runtime,Promise,URL};
+vm.runInNewContext(read('course-catalog.js'),sandbox,{filename:'course-catalog.js'});
 vm.runInNewContext(read('question-bank-adapter.js'),sandbox,{filename:'question-bank-adapter.js'});
 vm.runInNewContext(read('question-bank-loader.js'),sandbox,{filename:'question-bank-loader.js'});
 Promise.all(selected.map(({unitId}) =>
