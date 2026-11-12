@@ -24,14 +24,14 @@ test('every Grade 5 unit indexes four core generators and Error Analysis', () =>
     assert.equal(generators.length,5,unit.id);
     const error = generators.find(a=>a.title==='Error Analysis');
     assert.ok(error && error.visibleInBrowse, unit.id + ' Error Analysis');
-    assert.equal(new URL(error.path).searchParams.get('kind'),'error');
+    assert.equal(new URL(error.path,'https://mrksclassroom.com').searchParams.get('kind'),'error');
     for (const [mode, format] of Object.entries(expected)) {
       const found=generators.find(a=>a.bankFormat===format);
       assert.ok(found,unit.id+' '+mode);
-      const url = new URL(found.path);
+      const url = new URL(found.path,'https://mrksclassroom.com');
       assert.equal(url.searchParams.get('unit'),unit.id);
       assert.equal(url.searchParams.get('mode'),mode);
-      assert.equal(url.pathname,'/FinancialAlgebra/worksheet-generator/grade5-generators.html');
+      assert.equal(url.pathname,'/grade5/worksheet-generator/grade5-generators.html');
       assert.match(found.thumb,/math5-generator-.*\.svg$/);
     }
   }

@@ -36,8 +36,6 @@ jobs:
         run: node scripts/test-question-bank-loader.cjs
       - name: Verify saved-work backup and restore
         run: node scripts/test-backup-tool.cjs
-      - name: Check public site
-        run: node scripts/test-public-site.cjs
       - name: Audit all dynamic course and unit routes (non-blocking)
         continue-on-error: true
         run: node scripts/test-dynamic-routing.cjs
@@ -56,6 +54,8 @@ jobs:
         env:
           FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/grade5
         run: node scripts/integrate-financial-algebra.mjs
+      - name: Check assembled public site and course navigation
+        run: node scripts/test-public-site.cjs
       - name: Verify published Grade 5 game question loading
         run: node scripts/test-grade5-deployment.cjs _site
       - name: Audit published Grade 5 resources, banks and navigation

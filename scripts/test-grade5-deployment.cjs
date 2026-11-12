@@ -25,7 +25,16 @@ for (const file of ['manifest.json','course-catalog.js','question-bank-adapter.j
 }
 const legacy=read('grade5.html');
 assert.match(legacy,/location\.replace\('\.\/index\.html'/,'Legacy Grade 5 page must redirect');
-assert.ok(exists('index.html'),'Grade 5 unified course homepage missing');
+assert.ok(exists('index.html'),'Grade 5 public redirect missing');
+assert.match(read('index.html'), /#grade5/, 'Grade 5 entry must use the main Classroom site shell');
+assert.match(read('index.html'), /noindex,follow/, 'Duplicate Grade 5 entry must not be indexed');
+assert.ok(exists('grade5-main-catalog.js'), 'Approved shared catalog missing');
+const shell={LIBRARY:{courses:[{id:'grade5',units:[]}]},MK_COURSE_CATALOG:{getSkills:()=>[],getSkillRecords:()=>[]}};shell.window=shell;
+vm.runInNewContext(read('grade5-main-catalog.js'),shell,{filename:'grade5-main-catalog.js'});
+const grade=shell.LIBRARY.courses.find(c=>c.id==='grade5');
+assert.equal(grade.units.length,11,'Canonical Grade 5 catalog has all units');
+for(const unit of grade.units)assert.ok(unit.artifacts.some(a=>a.title==='Error Analysis'),unit.id+' missing Error Analysis');
+assert.ok(shell.MK_GRADE5_STANDARDS,'CCSS tags missing from shared catalog');
 const oldHome=new URL('../grade5.html#math5.multi-digit-multiplication-division',gameUrl);
 assert.equal(oldHome.pathname,'/grade5/grade5.html','Legacy game home should resolve inside Grade 5');
 assert.ok(exists(oldHome.pathname.slice('/grade5/'.length)),'Game home 404');

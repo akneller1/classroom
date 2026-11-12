@@ -140,6 +140,27 @@ for(const entry of banks){
   if(n<30)fail('Insufficient questions for '+entry.unitId+'/'+skill.id+'/'+level+': '+n);
  }
 }
+// Verify the site uses the approved source as its sole production catalog.
+if(!exists('grade5-main-catalog.js'))fail('Grade 5 shared catalog missing');
+else {
+ const shared={LIBRARY:{courses:[{id:'grade5',units:[]}]},MK_COURSE_CATALOG:{getSkills:()=>[],getSkillRecords:()=>[]}};
+ shared.window=shared;
+ try{vm.runInNewContext(read('grade5-main-catalog.js'),shared,{filename:'grade5-main-catalog.js',timeout:6000});
+  const synced=shared.LIBRARY.courses[0];
+  if(synced.units.length!==11)fail('Shared catalog has wrong unit count');
+  for(const unit of synced.units){
+   if(!unit.artifacts.some(a=>a.title==='Error Analysis'))fail(unit.id+': shared catalog lacks Error Analysis');
+   for(const a of unit.artifacts){
+    const raw=a.path.split(/[?#]/)[0];
+    const target=path.resolve(site,'.'+raw);
+    if(!raw.startsWith('/grade5/')||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
+   }
+   const records=shared.MK_COURSE_CATALOG.getSkillRecords('grade5',unit.id);
+   const standardMap=shared.MK_GRADE5_STANDARDS[unit.id]||{};
+   for(const record of records)if(!Array.isArray(standardMap[record.name])||!standardMap[record.name].length)fail(unit.id+': missing CCSS skill label '+record.name);
+  }
+ }catch(e){fail('Shared Grade 5 catalog could not initialize: '+e.message);}
+}
 for(const f of ['grade1.html','grade2.html','grade3.html','grade4.html']){
  if(exists(f))fail('Unfinished class accidentally published in Grade 5 folder: '+f);
 }
