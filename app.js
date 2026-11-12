@@ -1107,6 +1107,26 @@
   }
 
   /* ---------- render ---------- */
+  /* Short labels for homepage course tiles; keep full course blurbs on their own pages. */
+  var COURSE_CARD_DESCRIPTIONS = {
+    grade1: 'Counting, shapes, addition & subtraction.',
+    grade2: 'Place value, addition & measurement.',
+    grade3: 'Multiplication, division & fractions.',
+    grade4: 'Factors, fractions & geometry.',
+    grade5: 'Decimals, fractions & volume.',
+    math6: 'Ratios, rational numbers & expressions.',
+    prealgebra7: 'Integers, proportions & geometry.',
+    prealgebra: 'Equations, graphs & functions.',
+    algebra: 'Equations, functions & linear graphs.',
+    geometry: 'Shapes, reasoning & transformations.',
+    algebra2: 'Polynomials, functions & logarithms.',
+    precalculus: 'Trigonometry, functions & vectors.',
+    calculus: 'Limits, derivatives & integrals.',
+    statistics: 'Data, probability & inference.',
+    discrete: 'Logic, counting & graph theory.',
+    'financial-algebra': 'Budgeting, credit & financial choices.'
+  };
+
   function updateNav(r) {
     var expanded = r && r.name === 'home';
     var courses = L.courses.concat(SOON).slice().sort(function (a, b) {
@@ -1118,7 +1138,8 @@
       return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
         ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
-        artFor(c) + (c.homePlaceholder ? '<span class="course-nav-soon">Coming soon</span>' : '') + '</a>';
+        artFor(c) + '<span class="course-nav-description">' + esc(COURSE_CARD_DESCRIPTIONS[c.id] || c.blurb || '') + '</span>' +
+        (c.homePlaceholder ? '<span class="course-nav-soon">Coming soon</span>' : '') + '</a>';
     }).join('');
     var sidebar = expanded && app.querySelector('.course-sidebar');
     if (sidebar) {
