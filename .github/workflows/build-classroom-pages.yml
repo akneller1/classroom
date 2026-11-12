@@ -74,7 +74,7 @@ jobs:
           const grade = library && library.courses.find(c => c.id === 'math5');
           if (!grade) throw new Error('Grade 5 catalog missing from source');
           library.courses = [grade];
-          fs.writeFileSync('site/grade5/data.js', 'window.LIBRARY = ' + JSON.stringify(library) + ';\\n');
+          fs.writeFileSync('site/grade5/data.js', 'window.LIBRARY = ' + JSON.stringify(library) + ';\n');
           NODE
           # Approved Grade 5 projects, reference sheets and interactive models.
           for dir in grade5-source/math5-*; do
