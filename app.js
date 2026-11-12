@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { math6: 0, prealgebra7: 1, prealgebra: 2, algebra: 3, geometry: 4, algebra2: 5, precalculus: 6, calculus: 7, statistics: 8, discrete: 9 };
+  var courseOrder = { grade5: 0, math6: 1, prealgebra7: 2, prealgebra: 3, algebra: 4, geometry: 5, algebra2: 6, precalculus: 7, calculus: 8, statistics: 9, discrete: 10, 'financial-algebra': 11 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -10,6 +10,11 @@
   /* Course visibility switches; all current courses are public. */
   var HIDDEN_COURSES = {};
   var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
+  /* Homepage placeholders only: do not expose unfinished course content. */
+  SOON = SOON.concat([
+    { id: 'grade5', name: '5th Grade Math', color: 'red', art: 'sixth', units: [], comingSoon: true },
+    { id: 'financial-algebra', name: 'Financial Algebra', color: 'purple', art: 'linear', units: [], comingSoon: true }
+  ]);
   L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
@@ -1020,7 +1025,7 @@
     return {
       title: c.name + ': coming soon',
       html: bandHtml(c, '<h1 tabindex="-1">' + esc(c.name) + '</h1>') +
-        '<section class="section"><div class="wrap"><div class="empty"><h2>Coming soon</h2><p>' + esc(c.name) + ' activities are being rebuilt in the same style as Algebra 1. <a href="#algebra">Browse Algebra 1</a> in the meantime.</p></div></div></section>'
+        '<section class="section"><div class="wrap"><div class="empty"><h2>Coming soon</h2><p>' + (c.units.length ? esc(c.name) + ' activities are being rebuilt in the same style as Algebra 1. <a href="#algebra">Browse Algebra 1</a> in the meantime.' : 'New ' + esc(c.name) + ' lessons, games, and classroom resources are in development. Check back for updates.') + '</p></div></div></section>'
     };
   }
   function notFoundView() {
@@ -1061,7 +1066,7 @@
       var soon = c.comingSoon || c.planned;
       return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong>' +
-        '<small>' + (soon ? 'Coming soon · course outline' : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
+        '<small>' + (soon ? (c.units.length ? 'Coming soon · course outline' : 'Coming soon') : units(c.units.length) + ' · Explore resources') + '</small></span>' + artFor(c) + '</a>';
     }).join('');
     var sidebar = expanded && app.querySelector('.course-sidebar');
     if (sidebar) {
