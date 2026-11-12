@@ -598,7 +598,7 @@
     ];
     return {
       title: L.title,
-      html: '<section class="task-home"><div class="wrap home-dashboard"><aside class="course-sidebar" aria-label="Choose a course"></aside><div class="task-workspace">' +
+      html: '<section class="task-home"><div class="wrap home-dashboard"><div class="task-workspace">' +
         '<div class="task-intro"><p class="section-kicker">MORE LEARNING. LESS PLANNING.</p>' +
         '<h1 tabindex="-1">What would you like to do today?</h1>' +
         '<p class="lede">Choose a task below or explore a course from the menu.</p>' +
@@ -607,7 +607,7 @@
           return '<li><a class="task-card" data-color="' + task.color + '" href="' + esc(task.url) + '">' +
             '<span class="task-icon" aria-hidden="true">' + task.icon + '</span><h2>' + task.title + '</h2>' +
             '<p>' + task.description + '</p><span class="task-action">' + task.action + ' <span aria-hidden="true">→</span></span></a></li>';
-        }).join('') + '</ul><p class="task-browse">Looking for something specific? <a href="#activities">Browse all resources →</a></p></div></div></section>'
+        }).join('') + '</ul><p class="task-browse">Looking for something specific? <a href="#activities">Browse all resources →</a></p></div><aside class="course-sidebar" aria-label="Choose a course"></aside></div></section>'
     };
   }
 
