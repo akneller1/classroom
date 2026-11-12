@@ -425,6 +425,8 @@
   // Use game-board previews rather than captured setup/question dialogs.
   // These are illustrations of the existing game modes, not generated questions.
   function gameBoardThumbnail(a, it) {
+    // Integrated courses provide authored artwork through their resource catalogs.
+    if (a.thumb && it.c && ['grade5','financial-algebra'].includes(it.c.id)) return a.thumb;
     // Each game with an authored thumbnail must use it rather than a generated generic preview.
     if (a.thumb && (activityFormat(a) === 'topic-games' || /slope-links-mini-golf|zombie-fence/i.test(a.path || ''))) return a.thumb;
     if (/^artifacts\/math-arcade\/index\.html\?game=/.test(a.path || '')) return a.thumb || '';
