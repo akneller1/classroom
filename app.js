@@ -2,7 +2,7 @@
   'use strict';
 
   var L = window.LIBRARY;
-  var courseOrder = { grade5: 0, math6: 1, prealgebra7: 2, prealgebra: 3, algebra: 4, geometry: 5, algebra2: 6, precalculus: 7, calculus: 8, statistics: 9, discrete: 10, 'financial-algebra': 11 };
+  var courseOrder = { grade1: 0, grade2: 1, grade3: 2, grade4: 3, grade5: 4, math6: 5, prealgebra7: 6, prealgebra: 7, algebra: 8, geometry: 9, algebra2: 10, precalculus: 11, calculus: 12, statistics: 13, discrete: 14, 'financial-algebra': 15 };
   L.courses.sort(function (a, b) {
     return (courseOrder[a.id] == null ? 99 : courseOrder[a.id]) -
       (courseOrder[b.id] == null ? 99 : courseOrder[b.id]);
@@ -12,8 +12,12 @@
   var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
   /* Homepage placeholders only: do not expose unfinished course content. */
   SOON = SOON.concat([
-    { id: 'grade5', name: '5th Grade Math', color: 'red', art: 'sixth', units: [], comingSoon: true },
-    { id: 'financial-algebra', name: 'Financial Algebra', color: 'purple', art: 'linear', units: [], comingSoon: true }
+    { id: 'grade1', name: '1st Grade Math', color: 'red', art: 'first', units: [], comingSoon: true, homePlaceholder: true },
+    { id: 'grade2', name: '2nd Grade Math', color: 'orange', art: 'second', units: [], comingSoon: true, homePlaceholder: true },
+    { id: 'grade3', name: '3rd Grade Math', color: 'orange', art: 'third', units: [], comingSoon: true, homePlaceholder: true },
+    { id: 'grade4', name: '4th Grade Math', color: 'green', art: 'fourth', units: [], comingSoon: true, homePlaceholder: true },
+    { id: 'grade5', name: '5th Grade Math', color: 'green', art: 'fifth', units: [], comingSoon: true, homePlaceholder: true },
+    { id: 'financial-algebra', name: 'Financial Algebra', color: 'purple', art: 'finance', units: [], comingSoon: true, homePlaceholder: true }
   ]);
   L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
@@ -241,6 +245,53 @@
 
   /* ---------- decorative art ---------- */
   var ART = {
+    first:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="23" y="22" width="154" height="116" rx="12"/>' +
+      '<rect class="s" x="30" y="34" width="140" height="92" rx="7"/>' +
+      '<path class="s-thin" d="M 30 80 H 170 M 58 34 V 126 M 86 34 V 126 M 114 34 V 126 M 142 34 V 126"/>' +
+      '<circle class="f" cx="44" cy="57" r="9"/><circle class="f" cx="72" cy="57" r="9"/><circle class="f" cx="100" cy="57" r="9"/><circle class="f" cx="128" cy="57" r="9"/><circle class="f" cx="156" cy="57" r="9"/><circle class="f" cx="44" cy="103" r="9"/>' +
+      '</svg>',
+    second:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="20" y="22" width="160" height="116" rx="10"/>' +
+      '<rect class="s" x="36" y="35" width="25" height="92" rx="3"/><rect class="s" x="72" y="35" width="25" height="92" rx="3"/>' +
+      '<path class="s-thin" d="M 36 44 H 61 M 36 53 H 61 M 36 62 H 61 M 36 71 H 61 M 36 80 H 61 M 36 89 H 61 M 36 98 H 61 M 36 107 H 61 M 36 116 H 61 M 72 44 H 97 M 72 53 H 97 M 72 62 H 97 M 72 71 H 97 M 72 80 H 97 M 72 89 H 97 M 72 98 H 97 M 72 107 H 97 M 72 116 H 97"/>' +
+      '<rect class="f" x="114" y="43" width="18" height="18" rx="3"/><rect class="f" x="142" y="43" width="18" height="18" rx="3"/><rect class="f" x="114" y="76" width="18" height="18" rx="3"/><rect class="f" x="142" y="76" width="18" height="18" rx="3"/>' +
+      '</svg>',
+    third:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="19" y="24" width="162" height="112" rx="11"/>' +
+      '<path class="s-thin" d="M 38 30 H 165 M 38 121 H 165"/>' +
+      '<circle class="f" cx="51" cy="49" r="10"/><circle class="f" cx="83" cy="49" r="10"/><circle class="f" cx="115" cy="49" r="10"/><circle class="f" cx="147" cy="49" r="10"/>' +
+      '<circle class="f" cx="51" cy="80" r="10"/><circle class="f" cx="83" cy="80" r="10"/><circle class="f" cx="115" cy="80" r="10"/><circle class="f" cx="147" cy="80" r="10"/>' +
+      '<circle class="f" cx="51" cy="111" r="10"/><circle class="f" cx="83" cy="111" r="10"/><circle class="f" cx="115" cy="111" r="10"/><circle class="f" cx="147" cy="111" r="10"/>' +
+      '</svg>',
+    fourth:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="20" y="20" width="160" height="120" rx="10"/>' +
+      '<path class="s" d="M 30 125 A 70 70 0 0 1 170 125 M 30 125 H 170 M 100 125 L 148 74"/>' +
+      '<path class="s-thin" d="M 100 55 V 70 M 65 64 L 72 77 M 135 64 L 128 77 M 40 90 L 53 98 M 160 90 L 147 98 M 30 125 H 170"/>' +
+      '<circle class="f" cx="100" cy="125" r="6"/>' +
+      '</svg>',
+    fifth:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="17" y="18" width="166" height="124" rx="10"/>' +
+      '<circle class="s" cx="65" cy="80" r="43"/>' +
+      '<path class="f" d="M 65 80 L 65 37 A 43 43 0 0 1 108 80 Z"/>' +
+      '<path class="s-thin" d="M 65 37 V 123 M 22 80 H 108"/>' +
+      '<rect class="s" x="126" y="38" width="48" height="84" rx="5"/>' +
+      '<path class="s-thin" d="M 126 59 H 174 M 126 80 H 174 M 126 101 H 174"/>' +
+      '<rect class="f" x="131" y="43" width="38" height="12" rx="2"/><rect class="f" x="131" y="64" width="38" height="12" rx="2"/>' +
+      '</svg>',
+    finance:
+      '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
+      '<rect class="f-soft" x="15" y="20" width="170" height="120" rx="10"/>' +
+      '<path class="s-thin" d="M 30 130 H 172"/>' +
+      '<rect class="f" x="48" y="101" width="21" height="29" rx="3"/><rect class="f" x="81" y="79" width="21" height="51" rx="3"/><rect class="f" x="114" y="52" width="21" height="78" rx="3"/>' +
+      '<path class="s" d="M 52 91 L 92 65 L 138 34 M 126 34 H 138 V 46"/>' +
+      '<circle class="s" cx="158" cy="99" r="23"/><text x="158" y="108" text-anchor="middle" font-size="29" font-weight="800" fill="currentColor">$</text>' +
+      '</svg>',
     linear:
       '<svg class="art" viewBox="0 0 200 160" aria-hidden="true" focusable="false">' +
       '<rect class="f-soft" x="35" y="20" width="140" height="115" rx="6"/>' +
@@ -318,7 +369,7 @@
       '<circle class="f" cx="100" cy="20" r="7"/><circle class="f" cx="30" cy="130" r="7"/><circle class="f" cx="170" cy="130" r="7"/>' +
       '</svg>'
   };
-  function artFor(c) { var byCourse = { math6: 'sixth', prealgebra7: 'seventh', prealgebra: 'eighth', algebra: 'linear', geometry: 'triangle', algebra2: 'curve' }; return ART[byCourse[c.id] || c.art] || ''; }
+  function artFor(c) { var byCourse = { grade1: 'first', grade2: 'second', grade3: 'third', grade4: 'fourth', grade5: 'fifth', math6: 'sixth', prealgebra7: 'seventh', prealgebra: 'eighth', algebra: 'linear', geometry: 'triangle', algebra2: 'curve', 'financial-algebra': 'finance' }; return ART[byCourse[c.id] || c.art] || ''; }
 
   var STAR =
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2 6.3 20.3l1.2-6.4L2.8 9.5l6.4-.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
@@ -1067,7 +1118,7 @@
       return '<a class="course-nav-card" data-course="' + esc(c.id) + '" data-color="' + esc(c.color || '') + '" href="' + href(courseToken(c)) + '"' +
         ' aria-label="' + esc(c.name + (soon ? ' — coming soon' : '')) + '"' +
         (current ? ' aria-current="page"' : '') + '><span class="course-nav-copy"><strong>' + esc(c.name) + '</strong></span>' +
-        artFor(c) + ((c.id === 'grade5' || c.id === 'financial-algebra') ? '<span class="course-nav-soon">Coming soon</span>' : '') + '</a>';
+        artFor(c) + (c.homePlaceholder ? '<span class="course-nav-soon">Coming soon</span>' : '') + '</a>';
     }).join('');
     var sidebar = expanded && app.querySelector('.course-sidebar');
     if (sidebar) {
