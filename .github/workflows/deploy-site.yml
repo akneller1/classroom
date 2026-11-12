@@ -24,13 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check out approved Grade 5 course sources
-        uses: actions/checkout@v4
-        with:
-          repository: akneller1/FinancialAlgebra
-          ref: main
-          path: _course_sources/grade5
-          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -45,6 +38,13 @@ jobs:
       - name: Audit all dynamic course and unit routes (non-blocking)
         continue-on-error: true
         run: node scripts/test-dynamic-routing.cjs
+      - name: Check out approved Grade 5 course sources
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: main
+          path: _course_sources/grade5
+          persist-credentials: false
       - name: Assemble approved Grade 5 into production artifact
         env:
           GRADE5_SOURCE_DIR: _course_sources/grade5
