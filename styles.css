@@ -1135,3 +1135,60 @@ body { background:var(--paper); }
   .task-workspace .task-card { min-height:10.5rem; }
   .task-workspace .task-browse { margin-top:1rem; }
 }
+
+
+/* Course cards: title above illustration, with no secondary copy. */
+/* Keep this style in the homepage sidebar and the expandable course menu.
+   Let titles wrap naturally (especially Financial Algebra), not collide
+   with a floating illustration in the narrow two-column sidebar. */
+.main-nav .course-nav-card,
+.course-sidebar .main-nav .course-nav-card,
+.site-header .main-nav .course-nav-card {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.25rem;
+  padding:.55rem .45rem;
+  text-align:center;
+}
+.main-nav .course-nav-copy {
+  width:100%;
+  min-width:0;
+  justify-items:center;
+  gap:0;
+}
+.main-nav .course-nav-copy strong {
+  display:block;
+  font-size:clamp(.83rem,1vw,1rem);
+  line-height:1.18;
+  overflow-wrap:break-word;
+  text-wrap:balance;
+}
+.main-nav .course-nav-card > .art,
+.course-sidebar .course-nav-card > .art,
+.site-header .main-nav .course-nav-card > .art {
+  position:static;
+  display:block;
+  flex:none;
+  width:3.25rem;
+  height:2.9rem;
+  max-width:80%;
+  margin:0 auto;
+  opacity:.7;
+  pointer-events:none;
+}
+@media(max-width:760px) {
+  .main-nav .course-nav-card,
+  .course-sidebar .main-nav .course-nav-card,
+  .site-header .main-nav .course-nav-card {
+    min-height:6.4rem;
+    padding:.65rem .4rem;
+  }
+  .main-nav .course-nav-card > .art,
+  .course-sidebar .course-nav-card > .art,
+  .site-header .main-nav .course-nav-card > .art {
+    width:3rem;
+    height:2.6rem;
+  }
+}
