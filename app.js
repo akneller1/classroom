@@ -808,6 +808,7 @@
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
         category('interactive', 'Interactive Math', interactiveFormats) +
+        (c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '') +
         category('practice', 'Practice Activities', practiceFormats) +
         unitPager(c, u) + '</div></section>'
     };
@@ -927,7 +928,7 @@
           unitPager(c, u) + gradePracticeLinks(c, u) +
           unitPager(c, u) + '</div></section>' };
     }
-    if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus' || c.id === 'statistics' || c.id === 'discrete') return algebraUnitView(c, u);
+    if (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus' || c.id === 'statistics' || c.id === 'discrete' || c.id === 'grade5') return algebraUnitView(c, u);
     var items = u.artifacts.map(function (a) { return { a: a, c: c, u: u }; });
     var planner = u.artifacts.filter(function (a) { return activityFormat(a) === 'lesson-planner'; })[0];
     var generator = u.artifacts.filter(function (a) { return activityFormat(a) === 'worksheet-generator'; })[0];
