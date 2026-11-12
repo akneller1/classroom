@@ -35,5 +35,5 @@ test('every Grade 5 unit indexes four teacher generators', () => {
 });
 test('Grade 5 homepage remains in the main course catalog', () => {
   assert.equal(grade.sourceUrl,undefined);
-  assert.deepEqual(root.MK_INTEGRATED_COURSE_IDS,['grade5','financial-algebra']);
+  assert.deepEqual(Array.from(root.MK_INTEGRATED_COURSE_IDS),['grade5','financial-algebra']);
 });
