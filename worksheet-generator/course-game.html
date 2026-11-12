@@ -1,20 +1,37 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Classroom Activities · Mr. K's Classroom</title><script>
-/* Compatibility route: Financial Algebra uses its own validated game adapter.
-   Keep old links from home-page filters, saved URLs, and student shares working. */
+/* Shared compatibility router. Published course games have their own engines.
+   Legacy URLs remain valid across site search, saved links and old handouts. */
 (function () {
- var p = new URLSearchParams(location.search);
- if (p.get('course') !== 'financial-algebra') return;
- var units = ['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement'];
- var games = ['showdown','connect-four','tic-tac-toe','picture-reveal','detective'];
- var unit = p.get('unit'), game = p.get('game') || 'showdown';
- if (units.indexOf(unit) < 0 || games.indexOf(game) < 0) return;
- var destination = new URL('../financial/games/index.html', location.href);
- destination.searchParams.set('unit', unit);
- destination.searchParams.set('game', game);
+ var params = new URLSearchParams(location.search);
+ var course = params.get('course'), unit = params.get('unit'), game = params.get('game');
+ var routes = {
+  'financial-algebra': {
+   units: ['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement'],
+   games: ['showdown','connect-four','tic-tac-toe','picture-reveal','detective'],
+   url: '../financial/games/index.html'
+  },
+  'grade5': {
+   units: ['place-value-number-sense','multi-digit-multiplication-division','decimal-operations','numerical-expressions-patterns','fraction-addition-subtraction','fraction-multiplication-division','measurement-conversions','volume-three-dimensional-figures','coordinate-plane-graphing','classifying-two-dimensional-figures','data-line-plots-problem-solving'],
+   games: ['math-quest','treasure-trail','space-explorer','math-builders','picture-reveal','math-race','math-soccer','connect-four','puzzle-masters','fraction-frenzy'],
+   url: 'https://akneller1.github.io/FinancialAlgebra/worksheet-generator/grade5-games.html'
+  }
+ };
+ var route = routes[course];
+ if (!route) return; // Original course-game engine handles established courses.
+ if (!unit || route.units.indexOf(unit) === -1 || !game || route.games.indexOf(game) === -1 ||
+     (game === 'fraction-frenzy' && !['fraction-addition-subtraction','fraction-multiplication-division'].includes(unit))) {
+  // Invalid integrated-course URLs are left for the friendly validation message below.
+  window.MK_INVALID_INTEGRATED_GAME = true;
+  return;
+ }
+ var target = new URL(route.url, location.href);
+ target.searchParams.set('unit', unit);
+ target.searchParams.set('game', game);
  ['student','skills'].forEach(function (key) {
-  if (p.has(key)) destination.searchParams.set(key, p.get(key));
+  if (params.has(key)) target.searchParams.set(key, params.get(key));
  });
- location.replace(destination.href);
+ location.replace(target.href);
+ window.MK_GAME_REDIRECTING = true;
 })();
 </script><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=inequality-parity-20261104b"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
 </head><body><header id="activityHeader"></header><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
@@ -64,6 +81,8 @@
 <script src="games/bank.js?v=coverage-proof-cards-20261111d"></script>
 <script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script src="core/math-display.js?v=worksheet-layout-20261111"></script><script src="vocabulary-data.js?v=statistics-bank-20261107"></script><script src="vocabulary-data-middle-grades.js?v=statistics-bank-20261107"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/course-source.js?v=inequality-parity-20261104b"></script><script>
 (async function(){
+ if(window.MK_GAME_REDIRECTING)return;
+ if(window.MK_INVALID_INTEGRATED_GAME){document.getElementById('app').textContent='This game is not available for the selected course and unit. Return to the course page and choose an available game.';return;}
  await MK_ALGEBRA2_NATIVE_READY;
  var source=MK_COURSE_ACTIVITY_SOURCE,p=new URLSearchParams(location.search),game=p.get('game')||'flashcards',id=source.setId,NS=MKMENU;
  if(!source.unit){document.getElementById('app').textContent='Select a valid course and unit.';return;}
