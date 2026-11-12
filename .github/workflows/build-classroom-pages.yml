@@ -46,9 +46,37 @@ jobs:
           rsync -a --exclude='.git/' --exclude='.github/' --exclude='node_modules/' \
             --exclude='tests/' --exclude='tools/' --exclude='*.zip' \
             classroom/ site/
-          rsync -a --exclude='.git/' --exclude='.github/' --exclude='node_modules/' \
-            --exclude='tests/' --exclude='tools/' --exclude='*.zip' \
-            grade5-source/ site/grade5/
+          # Allowlist only the approved Grade 5 runtime and its dependencies.
+          # Never publish Grade 4 or other unfinished staging files.
+          mkdir -p site/grade5/{src,math5,thumbs,assets,course-outlines,worksheet-generator/grade5,worksheet-generator/core,worksheet-generator/games}
+          for file in grade5.html data.js course-catalog.js grade5-resource-catalog.js \
+            question-bank-adapter.js question-bank-loader.js styles.css site-overrides.css; do
+            cp "grade5-source/$file" "site/grade5/$file"
+          done
+          cp grade5-source/src/grade5-*.js site/grade5/src/
+          cp grade5-source/worksheet-generator/grade5-*.html site/grade5/worksheet-generator/
+          cp grade5-source/worksheet-generator/core/math-display.* site/grade5/worksheet-generator/core/
+          cp grade5-source/worksheet-generator/games/skill-setup.js site/grade5/worksheet-generator/games/
+          cp grade5-source/thumbs/math5-* site/grade5/thumbs/
+          cp grade5-source/course-outlines/grade5.json site/grade5/course-outlines/
+          cp grade5-source/assets/favicon.svg site/grade5/assets/
+          rsync -a grade5-source/worksheet-generator/grade5/ site/grade5/worksheet-generator/grade5/
+          rsync -a grade5-source/math5/ site/grade5/math5/
+          # Approved Grade 5 projects, reference sheets and interactive models.
+          for dir in grade5-source/math5-*; do
+            if [[ -d "$dir" ]]; then
+              mkdir -p "site/grade5/${dir##*/}"
+              rsync -a "$dir/" "site/grade5/${dir##*/}/"
+            fi
+          done
+          # The 918 question diagrams live in root folders named after their unit.
+          for bank in grade5-source/math5/*.json; do
+            unit="$(basename "$bank" .json)"
+            if [[ -d "grade5-source/$unit" ]]; then
+              mkdir -p "site/grade5/$unit"
+              rsync -a "grade5-source/$unit/" "site/grade5/$unit/"
+            fi
+          done
           # Keep the source repositories separate, but host approved Grade 5
           # games, generators, banks, study guides and diagrams on one domain.
           cp grade5-source/grade5.html site/grade5/index.html
