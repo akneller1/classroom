@@ -1435,7 +1435,7 @@ body { background:var(--paper); }
   color:inherit;
   opacity:.84;
   font-size:.77rem;
-  font-weight:500;
+  font-weight:400;
   line-height:1.3;
   text-align:center;
   text-wrap:balance;
@@ -1476,5 +1476,20 @@ body { background:var(--paper); }
   .task-home .course-sidebar .course-nav-description {
     font-size:.74rem;
     line-height:1.3;
+  }
+}
+
+/* Emphasize course titles over the supporting descriptions. */
+.task-home .course-sidebar .main-nav .course-nav-copy strong {
+  font-size:clamp(1.06rem,1.2vw,1.22rem);
+  font-weight:800;
+  line-height:1.15;
+}
+.task-home .course-sidebar .course-nav-description {
+  font-weight:400;
+}
+@media (max-width:760px) {
+  .task-home .course-sidebar .main-nav .course-nav-copy strong {
+    font-size:1.08rem;
   }
 }
