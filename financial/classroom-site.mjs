@@ -63,15 +63,27 @@ function shortcutBanner(unit){
 function resourceCard(title,path,description,unit){
  const href=esc(resourceHref(path));
  const thumbnail=esc(resourceThumbnail(path,unit.id));
- const studentLink=/financial\/(games|decision-lab|flashcards|practice)\//.test(path)&&!/[?&]teacher=1/.test(path);
- return '<li class="finance-resource-item"><article class="finance-resource-card" data-course="'+esc(courseId)+'" data-color="purple">'+
-  '<a class="finance-resource-image-link" href="'+href+'" aria-label="Open '+esc(title)+'"><img class="finance-resource-thumb" src="'+thumbnail+'" width="720" height="450" alt="" loading="lazy" decoding="async"></a>'+
-  '<div class="finance-resource-body"><h3><a class="finance-resource-title" href="'+href+'">'+esc(title)+'</a></h3>'+
-  '<p class="finance-resource-description">'+esc(description)+'</p>'+
-  '<div class="finance-resource-actions"><a class="finance-resource-open" href="'+href+'">Open resource →</a>'+
-  (studentLink?'<button type="button" class="finance-student-link" data-student-link="'+esc(path)+'">Generate student link</button>':'')+
-  '</div></div></article></li>';
+ const interactive=/financial\/(games|decision-lab|flashcards|practice)\//.test(path)&&!/[?&]teacher=1/.test(path);
+ const savedKey=resourceHref(path);
+ const saved=readSaved().includes(savedKey);
+ const btnLabel=interactive?'Play':'Open resource';
+ const reportSubject=encodeURIComponent("Mr. K's Classroom — Resource problem: "+title);
+ const reportBody=encodeURIComponent("Activity: "+title+"\nLink: "+new URL(resourceHref(path),location.href).href+"\n\nProblem:\n\nSteps to reproduce:\n");
+ const report='mailto:akneller@gmail.com?subject='+reportSubject+'&body='+reportBody;
+ return '<li class="card finance-resource-item" data-course="'+esc(courseId)+'" data-color="purple" data-path="'+esc(savedKey)+'">'+
+  '<a class="thumb finance-resource-image-link" href="'+href+'" aria-label="Open '+esc(title)+'"><img class="finance-resource-thumb" src="'+thumbnail+'" width="720" height="450" alt="" loading="lazy" decoding="async"></a>'+
+  '<div class="card-body finance-resource-body"><h3><a class="finance-resource-title" href="'+href+'">'+esc(title)+'</a></h3>'+
+  (interactive?'<span class="game-mode-tag">Individual / Class Review</span>':'')+
+  '<p class="desc finance-resource-description">'+esc(description)+'</p>'+
+  '<div class="actions finance-resource-actions"><a class="btn btn-open" href="'+href+'">'+btnLabel+'</a>'+
+  '<button type="button" class="btn btn-ghost finance-save" data-save-path="'+esc(savedKey)+'" aria-pressed="'+saved+'"><span aria-hidden="true">☆</span> '+(saved?'Saved':'Save')+'</button>'+
+  (interactive?'<button type="button" class="btn btn-ghost finance-student-link" data-student-link="'+esc(path)+'">Copy student link</button>':'')+
+  '</div><a class="report-problem" href="'+esc(report)+'">Report a problem</a></div></li>';
 }
+function readSaved(){
+ try{const v=JSON.parse(localStorage.getItem('mrk-saved')||'[]');return Array.isArray(v)?v:[];}catch{return [];}
+}
+
 function resourceSections(unit){
  const r=resourcesFor(unit);
  return '<section class="algebra-unit-section"><h2>Generators</h2><ul class="finance-resource-grid">'+
@@ -144,7 +156,9 @@ render();
 
 
 main.addEventListener('click',async event=>{
+ const save=event.target.closest('[data-save-path]');
+ if(save){const path=save.dataset.savePath;const items=readSaved();const index=items.indexOf(path);if(index>=0)items.splice(index,1);else items.push(path);try{localStorage.setItem('mrk-saved',JSON.stringify(items));}catch{}const on=index<0;save.setAttribute('aria-pressed',String(on));save.innerHTML='<span aria-hidden="true">'+(on?'★':'☆')+'</span> '+(on?'Saved':'Save');return;}
  const button=event.target.closest('[data-student-link]');if(!button)return;
  const url=new URL(button.dataset.studentLink,location.href);url.searchParams.delete('teacher');url.searchParams.delete('teacherShare');url.searchParams.set('student','1');
- try{await navigator.clipboard.writeText(url.href);button.textContent='Student link copied!';}catch{window.prompt('Copy student link:',url.href);}
+ try{await navigator.clipboard.writeText(url.href);button.textContent='Copied!';setTimeout(()=>{if(button.isConnected)button.textContent='Copy student link';},2000);}catch{window.prompt('Copy student link:',url.href);}
 });
