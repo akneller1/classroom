@@ -18,10 +18,13 @@ test('11 published units and no duplicated resources', () => {
     assert.equal(new Set(unit.artifacts.map(a=>a.path)).size,unit.artifacts.length,unit.id);
   }
 });
-test('every Grade 5 unit indexes four teacher generators', () => {
+test('every Grade 5 unit indexes four core generators and Error Analysis', () => {
   for (const unit of grade.units) {
     const generators=unit.artifacts.filter(a=>a.type==='Generator');
-    assert.equal(generators.length,4,unit.id);
+    assert.equal(generators.length,5,unit.id);
+    const error = generators.find(a=>a.title==='Error Analysis');
+    assert.ok(error && error.visibleInBrowse, unit.id + ' Error Analysis');
+    assert.equal(new URL(error.path).searchParams.get('kind'),'error');
     for (const [mode, format] of Object.entries(expected)) {
       const found=generators.find(a=>a.bankFormat===format);
       assert.ok(found,unit.id+' '+mode);
