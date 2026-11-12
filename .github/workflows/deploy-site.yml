@@ -56,6 +56,8 @@ jobs:
         env:
           FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/grade5
         run: node scripts/integrate-financial-algebra.mjs
+      - name: Verify published Grade 5 game question loading
+        run: node scripts/test-grade5-deployment.cjs _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

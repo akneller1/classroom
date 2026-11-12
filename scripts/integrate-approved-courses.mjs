@@ -56,6 +56,6 @@ let xml=fs.readFileSync(sitemap,'utf8');
 if(!xml.includes('https://mrksclassroom.com/grade5/'))xml=xml.replace('</urlset>','  <url><loc>https://mrksclassroom.com/grade5/</loc></url>\n</urlset>');
 fs.writeFileSync(sitemap,xml);
 // Explicit contract prevents a missing or empty course from being deployed.
-const required=['index.html','src/grade5-site.js','grade5-resource-catalog.js','worksheet-generator/grade5-games.html','worksheet-generator/grade5-understanding-check.html','math5'];
+const required=['index.html','manifest.json','question-bank-loader.js','question-bank-adapter.js','src/grade5-site.js','grade5-resource-catalog.js','worksheet-generator/grade5-games.html','worksheet-generator/grade5-understanding-check.html','math5'];
 for(const rel of required)if(!fs.existsSync(path.join(dst,rel)))throw Error('Grade 5 output missing '+rel);
 console.log('Approved Grade 5 assembled at _site/grade5/; staging repository unchanged.');

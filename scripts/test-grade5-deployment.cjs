@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+/* Regression guard for the exact public Grade 5 URL structure.
+ * Both Pages workflows invoke this after assembly, before deploying.
+ * The browser game page must resolve ../manifest.json to the packaged course
+ * manifest and load the approved questions for all eleven units.
+ */
+'use strict';
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+
+const output = path.resolve(process.argv[2] || '_site');
+const courseRoot = path.join(output, 'grade5');
+const gameFile = 'worksheet-generator/grade5-games.html';
+const gameUrl = new URL('https://example.test/grade5/' + gameFile);
+const exists = rel => fs.existsSync(path.join(courseRoot, rel));
+const read = rel => fs.readFileSync(path.join(courseRoot, rel), 'utf8');
+const manifestPath = new URL('../manifest.json', gameUrl);
+assert.equal(manifestPath.pathname, '/grade5/manifest.json', 'game manifest resolution');
+for (const file of ['manifest.json','question-bank-adapter.js',
+  'question-bank-loader.js',gameFile,'worksheet-generator/grade5/g5-core.js',
+  'worksheet-generator/grade5/g5-games.js']) {
+  assert.ok(exists(file), 'Grade 5 public artifact missing ' + file);
+}
+const html = read(gameFile);
+assert.match(html, /grade5\/g5-core\.js/);
+assert.match(html, /grade5\/g5-games\.js/);
+assert.match(read('worksheet-generator/grade5/g5-core.js'),
+  /loadUnitFromSite\(COURSE, unitId, null, '\.\.\/'\)/,
+  'test expects the current browser-relative manifest loader');
+const manifest = JSON.parse(read('manifest.json'));
+assert.equal(manifest.version, 1);
+const selected = manifest.banks.filter(entry => entry.courseId === 'math5');
+assert.equal(selected.length,11,'Grade 5 units must all be published');
+assert.equal(new Set(selected.map(e=>e.unitId)).size,11,'duplicate Grade 5 units');
+selected.forEach(entry => {
+  assert.equal(entry.approved,true,entry.unitId+' was not approved');
+  assert.match(entry.path,/^math5\/[a-z0-9-]+\.json$/);
+  assert.ok(exists(entry.path),entry.path+' is not published');
+  const bank = JSON.parse(read(entry.path));
+  assert.equal(bank.courseId,'math5');
+  assert.equal(bank.unitId,entry.unitId);
+  assert.ok(Array.isArray(bank.questions)&&bank.questions.length>0,
+    entry.unitId+' has no questions');
+});
+const siteBase = new URL('https://example.test/');
+const runtime = {};
+runtime.fetch = async function(ref){
+  const resolved = new URL(ref,gameUrl);
+  assert.equal(resolved.origin,siteBase.origin,'Unexpected cross-origin fetch');
+  assert.ok(resolved.pathname.startsWith('/grade5/'),'Path escapes published Grade 5');
+  const local = decodeURIComponent(resolved.pathname.slice('/grade5/'.length));
+  const target = path.resolve(courseRoot,local);
+  assert.ok(target.startsWith(courseRoot+path.sep),'Fetch escapes Grade 5 root');
+  if (!fs.existsSync(target)) return {ok:false,status:404,json:async()=>{throw Error('404 '+resolved.pathname);}};
+  return {ok:true,status:200,json:async()=>JSON.parse(fs.readFileSync(target,'utf8'))};
+};
+runtime.window = runtime;
+const sandbox = {window:runtime,Promise,URL};
+vm.runInNewContext(read('question-bank-adapter.js'),sandbox,{filename:'question-bank-adapter.js'});
+vm.runInNewContext(read('question-bank-loader.js'),sandbox,{filename:'question-bank-loader.js'});
+Promise.all(selected.map(({unitId}) =>
+  runtime.MK_BANK_LOADER.loadUnitFromSite('math5',unitId,null,'../')
+)).then(results => {
+  assert.equal(results.length,11);
+  for (const {unitId} of selected) assert.ok(
+    runtime.MK_QUESTION_BANKS.available('math5',unitId),
+    unitId+' not loaded by browser question loader');
+  console.log('PASS Grade 5 public games: manifest resolves; all 11 approved unit banks load.');
+}).catch(error=>{console.error(error);process.exitCode=1;});

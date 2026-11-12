@@ -50,7 +50,7 @@ jobs:
           # Never publish Grade 4 or other unfinished staging files.
           mkdir -p site/grade5/{src,math5,thumbs,assets,course-outlines,worksheet-generator/grade5,worksheet-generator/core,worksheet-generator/games}
           for file in grade5.html data.js course-catalog.js grade5-resource-catalog.js \
-            question-bank-adapter.js question-bank-loader.js styles.css site-overrides.css; do
+            question-bank-adapter.js question-bank-loader.js manifest.json styles.css site-overrides.css; do
             cp "grade5-source/$file" "site/grade5/$file"
           done
           cp grade5-source/src/grade5-*.js site/grade5/src/
@@ -112,6 +112,8 @@ jobs:
               html = html.replace("Development repository ↗", "Source repository ↗")
               doc.write_text(html)
           PY
+          # Exercise the real Grade 5 browser loader against every published unit.
+          node classroom/scripts/test-grade5-deployment.cjs site
           # Catch missing generator assets before deploying.
           for f in grade5/index.html grade5/worksheet-generator/grade5-generators.html \
             grade5/worksheet-generator/grade5/generators.js \
