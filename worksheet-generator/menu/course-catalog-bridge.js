@@ -1,32 +1,40 @@
-/* Shared curriculum discovery for generator unit selectors.
-   Exposes NEW grade-level courses without manufacturing question banks.
-   A unit becomes selectable only after its MKMENU skill set is actually registered. */
+/* Shared curriculum discovery for all generator unit selectors.
+   Read the same published course list as the main Classroom.
+   Discovery does not manufacture question banks or make unsupported units selectable. */
 (function (G) {
   'use strict';
-  var ns = G.MKMENU, library = G.LIBRARY, catalog = G.MK_COURSE_CATALOG;
-  if (!ns || !Array.isArray(ns.CATALOG) || !library || !catalog) return;
-  var courseIds = ['math6', 'prealgebra7', 'prealgebra', 'algebra2', 'precalculus', 'calculus', 'statistics', 'discrete'];
-  var seen = Object.create(null);
-  ns.CATALOG.forEach(function (group) { group.units.forEach(function (u) { seen[u[0]] = true; }); });
-  var insertAt = 0;
-  courseIds.forEach(function (id) {
-    var course = library.courses.filter(function (c) { return c.id === id; })[0];
-    if (!course) return;
-    var existingGroup = ns.CATALOG.filter(function (g) { return g.course === course.name; })[0];
-    if (id === 'algebra2' && existingGroup) {   // every Algebra 2 unit, in course order, labelled like the other courses
-      existingGroup.units = course.units.map(function (unit, i) { seen['algebra2-' + unit.id] = true; return ['algebra2-' + unit.id, 'Unit ' + (i + 1) + ' · ' + unit.name]; });
-      return;
-    }
-    var units = course.units.map(function (unit, i) {
-      var bankId = (id === 'algebra2' ? 'algebra2-' : id + '-') + unit.id;
-      return [bankId, 'Unit ' + (i + 1) + ' · ' + unit.name];
-    }).filter(function (u) { return !seen[u[0]]; });
-    if (units.length) {
-      if (existingGroup) existingGroup.units = existingGroup.units.concat(units);
-      else ns.CATALOG.splice(insertAt++, 0, { course: course.name, units: units });
-      units.forEach(function (u) { seen[u[0]] = true; });
-    }
-  });
-  ns.courseBridge = { version: 1, registeredCourses: courseIds.slice() };
-})(typeof window !== 'undefined' ? window : globalThis);
+  var ns = G.MKMENU, library = G.LIBRARY;
+  if (!ns || !Array.isArray(ns.CATALOG) || !library || !Array.isArray(library.courses)) return;
 
+  var aliases = { algebra: 'Algebra 1', geometry: 'Geometry', algebra2: 'Algebra 2' };
+  var reserved = { algebra: 'algebra1' };
+  var registered = [];
+  var published = library.courses.filter(function (c) { return c && !c.comingSoon && Array.isArray(c.units); });
+
+  published.forEach(function (course) {
+    var title = aliases[course.id] || course.name;
+    var prefix = reserved[course.id] || course.id;
+    var group = ns.CATALOG.find(function (entry) { return entry.course === title; });
+    var units = course.units.map(function (unit, i) {
+      return [prefix + '-' + unit.id, 'Unit ' + (i + 1) + ' · ' + unit.name];
+    });
+
+    if (group) {
+      /* Preserve IDs of hand-written skill sets; refresh all matching published units. */
+      var existing = Object.create(null);
+      group.units.forEach(function (unit) { existing[unit[0]] = unit; });
+      group.units = units.map(function (unit) { return existing[unit[0]] ? [unit[0], unit[1]] : unit; });
+    } else if (units.length) {
+      ns.CATALOG.push({ course: title, units: units });
+    }
+    registered.push(course.id);
+  });
+
+  /* A future/retired course must never remain in the generator list from a
+     static fallback catalog. */
+  var publishedNames = published.map(function (c) { return aliases[c.id] || c.name; });
+  ns.CATALOG = ns.CATALOG.filter(function (group) {
+    return publishedNames.indexOf(group.course) >= 0;
+  });
+  ns.courseBridge = { version: 2, registeredCourses: registered };
+})(typeof window !== 'undefined' ? window : globalThis);
