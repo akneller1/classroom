@@ -16,7 +16,8 @@ const games=['showdown','connect-four','tic-tac-toe','picture-reveal','detective
 const gradeUnits=['place-value-number-sense','multi-digit-multiplication-division','decimal-operations','numerical-expressions-patterns','fraction-addition-subtraction','fraction-multiplication-division','measurement-conversions','volume-three-dimensional-figures','coordinate-plane-graphing','classifying-two-dimensional-figures','data-line-plots-problem-solving'];
 const gradeGames=['math-quest','treasure-trail','space-explorer','math-builders','picture-reveal','math-race','math-soccer','connect-four','puzzle-masters'];
 function route(course,unit,game,extras=''){
- const location={href:'https://mrksclassroom.com/worksheet-generator/course-game.html?course='+course+'&unit='+unit+'&game='+game+extras,replace(next){this.target=next;}};
+ const href='https://mrksclassroom.com/worksheet-generator/course-game.html?course='+course+'&unit='+unit+'&game='+game+extras;
+ const location={href,search:new URL(href).search,replace(next){this.target=next;}};
  const window={};
  const context={URL,URLSearchParams,location,window};
  vm.runInNewContext(routeScript,context,{timeout:1000});
