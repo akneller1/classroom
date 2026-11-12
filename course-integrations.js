@@ -36,9 +36,11 @@ add({id:'grade5',name:'5th Grade Math',color:'green',art:'fifth',blurb:'Place va
   ['Worksheet Generator','worksheet','worksheet-generator','worksheet'],
   ['Assessment Generator','assessment','assessment-generator','assessment'],
   ['Activity Generator','activity','printable-generator','activity']].forEach(function(tool){
-   a.push(item(tool[0],staging+'worksheet-generator/grade5-generators.html'+query+'&mode='+tool[1],
+   var entry=item(tool[0],staging+'worksheet-generator/grade5-generators.html'+query+'&mode='+tool[1],
       'Generator',tool[2],staging+'thumbs/math5-generator-'+tool[3]+'.svg',
-      'Create a Grade 5 '+tool[0].toLowerCase()+' with skills, levels and a printable teacher key.'));
+      'Create a Grade 5 '+tool[0].toLowerCase()+' with skills, levels and a printable teacher key.');
+   if(tool[1]==='activity') entry.visibleInBrowse=true;
+   a.push(entry);
  });
  a.push(item('Flashcards',staging+'worksheet-generator/grade5-flashcards.html'+query,'Study Guide','flashcards',staging+'thumbs/math5-flashcards.svg'));
  a.push(item('Understanding Check',staging+'worksheet-generator/grade5-understanding-check.html'+query,'Study Guide','interactive-practice-test',staging+'thumbs/math5-understanding-check.svg'));
