@@ -159,6 +159,12 @@ main.addEventListener('click',async event=>{
  const save=event.target.closest('[data-save-path]');
  if(save){const path=save.dataset.savePath;const items=readSaved();const index=items.indexOf(path);if(index>=0)items.splice(index,1);else items.push(path);try{localStorage.setItem('mrk-saved',JSON.stringify(items));}catch{}const on=index<0;save.setAttribute('aria-pressed',String(on));save.innerHTML='<span aria-hidden="true">'+(on?'★':'☆')+'</span> '+(on?'Saved':'Save');return;}
  const button=event.target.closest('[data-student-link]');if(!button)return;
+ const path=button.dataset.studentLink;
+ const resource={path:path,courseId:'financial-algebra',type:/\/games\//.test(path)?'Game':'Study Guide',
+   title:/\/practice\//.test(path)?'Practice Test':/\/flashcards\//.test(path)?'Flashcards':'Financial Algebra Game'};
+ if(window.MK_INTEGRATED_STUDENT_SHARE && window.MK_INTEGRATED_STUDENT_SHARE.supports(resource)){
+   window.MK_INTEGRATED_STUDENT_SHARE.open(resource);return;
+ }
  const url=new URL(button.dataset.studentLink,location.href);url.searchParams.delete('teacher');url.searchParams.delete('teacherShare');url.searchParams.set('student','1');
  try{await navigator.clipboard.writeText(url.href);button.textContent='Copied!';setTimeout(()=>{if(button.isConnected)button.textContent='Copy student link';},2000);}catch{window.prompt('Copy student link:',url.href);}
 });
