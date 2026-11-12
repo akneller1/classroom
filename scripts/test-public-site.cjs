@@ -36,7 +36,7 @@ for (const page of ["about.html", "guide.html", "skills.html", "backup.html", "c
 // Regression checks for the standalone pages and legacy SEO directories added in 2026.
 // We preserve these URLs for users, but /u/ is the canonical course/unit location.
 const vmForNewPages=require('node:vm');
-for (const fileName of ['about.html','backup.html','skills.html','courses/index.html']) {
+for (const fileName of ['about.html','backup.html','skills.html','courses/index.html','courses/grade5.html']) {
  const file=path.join(out,fileName),html=fs.readFileSync(file,'utf8');
  assert(html.includes('<main'), 'Missing main content in '+fileName);
  assert(/<title>[^<]+<\/title>/i.test(html),'Missing title in '+fileName);

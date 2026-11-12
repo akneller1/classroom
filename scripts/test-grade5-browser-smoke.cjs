@@ -29,6 +29,7 @@ async function run(){
  };
  try{
   await go('/grade5/');
+   await page.waitForURL(/\/#grade5(?:$|\.)/,{timeout:12000});
   await page.locator('#main .unit.algebra-unit-card').first().waitFor({timeout:15000});
   const count=await page.locator('#main .unit.algebra-unit-card').count();
   record('Course overview',count===11,'Rendered '+count+' unit cards');
@@ -64,9 +65,9 @@ async function run(){
   try{
    await go('/grade5/math5-project-sports-stats-showdown/index.html');
    await page.locator('a.back').first().click();
-   await page.waitForURL(/\/grade5\/index\.html#math5\./,{timeout:12000});
+   await page.waitForURL(/\/#grade5\./,{timeout:12000});
    await page.locator('#main .algebra-unit-layout').waitFor();
-   record('Project → Grade 5 unit',true,'Legacy redirect retained unit anchor');
+   record('Project → Grade 5 unit',true,'Legacy redirect retained unit anchor in Classroom shell');
   }catch(e){record('Project → Grade 5 unit',false,e.message);}
   // Grade 5 generator and study-guide pages must open with working controls.
   const extras=[
