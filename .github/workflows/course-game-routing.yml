@@ -7,6 +7,13 @@ on:
       - 'financial/resources.json'
       - 'course-integrations.js'
       - 'tests/course-game-routing.test.cjs'
+      - 'tests/integrated-student-sharing.test.cjs'
+      - 'integrated-student-share.js'
+      - 'integrated-student-skills.js'
+      - 'student-share-cards.js'
+      - 'financial/classroom-site.mjs'
+      - 'index.html'
+      - 'financial-algebra.html'
       - '.github/workflows/course-game-routing.yml'
   pull_request:
     paths:
@@ -15,6 +22,13 @@ on:
       - 'financial/resources.json'
       - 'course-integrations.js'
       - 'tests/course-game-routing.test.cjs'
+      - 'tests/integrated-student-sharing.test.cjs'
+      - 'integrated-student-share.js'
+      - 'integrated-student-skills.js'
+      - 'student-share-cards.js'
+      - 'financial/classroom-site.mjs'
+      - 'index.html'
+      - 'financial-algebra.html'
       - '.github/workflows/course-game-routing.yml'
   workflow_dispatch:
 jobs:
@@ -26,4 +40,4 @@ jobs:
         with:
           node-version: '22'
       - name: Verify game routes and unit IDs
-        run: node --test tests/course-game-routing.test.cjs
+        run: node --test tests/course-game-routing.test.cjs tests/integrated-student-sharing.test.cjs
