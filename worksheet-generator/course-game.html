@@ -1,4 +1,22 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Classroom Activities · Mr. K's Classroom</title><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=inequality-parity-20261104b"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Classroom Activities · Mr. K's Classroom</title><script>
+/* Compatibility route: Financial Algebra uses its own validated game adapter.
+   Keep old links from home-page filters, saved URLs, and student shares working. */
+(function () {
+ var p = new URLSearchParams(location.search);
+ if (p.get('course') !== 'financial-algebra') return;
+ var units = ['income','budgeting','banking','credit','borrowing','investing','housing','insurance','college','retirement'];
+ var games = ['showdown','connect-four','tic-tac-toe','picture-reveal','detective'];
+ var unit = p.get('unit'), game = p.get('game') || 'showdown';
+ if (units.indexOf(unit) < 0 || games.indexOf(game) < 0) return;
+ var destination = new URL('../financial/games/index.html', location.href);
+ destination.searchParams.set('unit', unit);
+ destination.searchParams.set('game', game);
+ ['student','skills'].forEach(function (key) {
+  if (p.has(key)) destination.searchParams.set(key, p.get(key));
+ });
+ location.replace(destination.href);
+})();
+</script><link rel="stylesheet" href="vendor/katex/katex.min.css"><link rel="stylesheet" href="games/games.css?v=inequality-parity-20261104b"><script src="games/skill-setup.js?v=student-skills-2"></script><script src="../analytics.js?v=analytics-20261108" defer></script>
 </head><body><header id="activityHeader"></header><main id="app" class="gm-app"><div class="gm-panel gm-loading">Loading mathematics game…</div></main><script src="vendor/katex/katex.min.js"></script>
 <script src="core/rng.js"></script>
 <script src="core/frac.js"></script>
