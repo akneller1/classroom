@@ -102,7 +102,7 @@
     { id: 'millionaire', name: 'Math Millionaire', description: 'A whole-class game show. Fifteen multiple-choice questions climb from warm-up to challenge on a prize ladder. Groups take turns in the hot seat, with 50:50, Ask the Class and Hint lifelines. Every game draws fresh questions.' },
     { id: 'interactive-math', name: 'Interactive Math', description: 'Hands-on tools students explore on their own device: sliders, draggable graphs and models with built-in Try this challenges. Each comes with a printable Explore & Reflect worksheet and a teacher key.' },
     { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
-    { id: 'interactive-practice-test', name: 'Assessment Readiness Check', description: 'Complete a generated online assessment, receive worked solutions and skill-by-skill feedback, and practice missed concepts with fresh questions.' },
+    { id: 'interactive-practice-test', name: 'Practice Test', description: 'Complete a generated online assessment, receive worked solutions and skill-by-skill feedback, and practice missed concepts with fresh questions.' },
     { id: 'flashcards', name: 'Flashcards', description: 'Practice at your own pace, reveal worked solutions, and mark cards to revisit. Useful for independent study and quick review.' },
     { id: 'color-by-number', name: 'Color by Number', description: 'Solve math problems, match each answer to a color, and complete a themed picture. Printable activities for practice and review.' },
     { id: 'picture-reveal', name: 'Picture Reveal', description: 'Answer math questions to uncover a hidden picture, with feedback and worked solutions along the way.' },
@@ -816,7 +816,7 @@
       ['tic-tac-toe', 'Tic-Tac-Toe'], ['picture-reveal', 'Picture Reveal'],
       ['showdown', 'Showdown'], ['detective', 'Detective'],
       ['escape-room', 'Escape Rooms'], ['worksheets', 'Worksheets'],
-      ['assessments', 'Assessments'], ['readiness-check', 'Assessment Readiness Check']
+      ['assessments', 'Assessments'], ['readiness-check', 'Practice Test']
     ];
     var adapter = window.MK_RESOURCE_ELIGIBILITY;
     return '<section class="algebra-unit-section"><h2>Content readiness</h2>' +

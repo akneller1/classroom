@@ -248,7 +248,7 @@ window.LIBRARY = {
           "name": "Foundations of Algebra",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-foundations",
               "thumb": "thumbs/practice-test.svg",
               "description": "Measure Foundations of Algebra readiness with a mixed-topic test, diagnostic skill report, and fresh targeted reassessment.",
@@ -519,7 +519,7 @@ window.LIBRARY = {
           "name": "Solving Linear Equations",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-expressions-equations",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -794,7 +794,7 @@ window.LIBRARY = {
           "name": "Linear Inequalities",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-inequalities",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -1055,7 +1055,7 @@ window.LIBRARY = {
           "name": "Relations and Functions",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-relations-functions",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -1351,7 +1351,7 @@ window.LIBRARY = {
               "added": "2026-10-31"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-linear-equations-slope",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -1627,7 +1627,7 @@ window.LIBRARY = {
           "name": "Systems of Equations and Inequalities",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-systems-of-equations",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -1943,7 +1943,7 @@ window.LIBRARY = {
           "name": "Exponents and Scientific Notation",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-exponents-scientific-notation",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -2241,7 +2241,7 @@ window.LIBRARY = {
               "added": "2026-10-31"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-exponential-functions",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -2520,7 +2520,7 @@ window.LIBRARY = {
               "added": "2026-10-31"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-polynomials",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -2782,7 +2782,7 @@ window.LIBRARY = {
           "name": "Factoring and Zero Product Property",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-factoring-zero-product",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -3058,7 +3058,7 @@ window.LIBRARY = {
               "added": "2026-10-31"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-quadratics",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -3319,7 +3319,7 @@ window.LIBRARY = {
           "name": "Statistics and Data Modeling",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=algebra1-statistics-data-modeling",
               "thumb": "thumbs/practice-test.svg",
               "description": "Complete a realistic unit assessment, review strengths and gaps by skill, and take a targeted reassessment. Supports CP2, CP1 and Honors.",
@@ -4969,7 +4969,7 @@ window.LIBRARY = {
               "added": "2026-10-31"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-basics-reasoning",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Basics & Reasoning readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -5180,7 +5180,7 @@ window.LIBRARY = {
           "name": "Angles and Parallel Lines",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-angles-parallel-lines",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Angles & Parallel Lines readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -5391,7 +5391,7 @@ window.LIBRARY = {
           "name": "Triangle Congruence",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangles-congruence",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Triangles & Congruence readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -5627,7 +5627,7 @@ window.LIBRARY = {
               "added": "2026-10-28"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-triangle-relationships",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Triangle Relationships readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -5794,7 +5794,7 @@ window.LIBRARY = {
           "name": "Similarity",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-similarity",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Similarity readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -6005,7 +6005,7 @@ window.LIBRARY = {
           "name": "Right Triangles and Trigonometry",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-right-triangles-trigonometry",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Right Triangles & Trigonometry readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -6242,7 +6242,7 @@ window.LIBRARY = {
               "added": "2026-10-28"
             },
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-quadrilaterals-polygons",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Quadrilaterals & Polygons readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -6409,7 +6409,7 @@ window.LIBRARY = {
           "name": "Transformations",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-transformations",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Transformations readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -6620,7 +6620,7 @@ window.LIBRARY = {
           "name": "Circles",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-circles",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Circles readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -6831,7 +6831,7 @@ window.LIBRARY = {
           "name": "Area, Surface Area and Volume",
           "artifacts": [
             {
-              "title": "Assessment Readiness Check",
+              "title": "Practice Test",
               "path": "worksheet-generator/practice-test.html#unit=geometry-area-surface-area-volume",
               "thumb": "thumbs/practice-test.svg",
               "description": "A Area, Surface Area & Volume readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
@@ -7320,7 +7320,7 @@ window.LIBRARY = {
   [['flashcards','Flashcards','flashcards'],['connect-four','Connect 4','connect-four'],['tic-tac-toe','Tic-Tac-Toe','tic-tac-toe'],['picture-reveal','Picture Reveal','picture-reveal'],['showdown','Showdown','showdown'],['detective','Detective','detective-games'],['escape-room','Escape Room','escape-rooms']].forEach(function(g){
    u.artifacts.push({title:u.name+' '+g[1]+' — Skill Practice',path:'worksheet-generator/algebra2-game.html?unit='+u.id+'&game='+g[0],bankFormat:g[2],type:g[0]==='flashcards'?'Study Guide':'Game',thumb:'thumbs/foundations-algebra-'+(g[0]==='flashcards'?'flashcards':['detective','escape-room'].includes(g[0])?'showdown':g[0])+'.jpg',description:'Practice selected skills with the shared Algebra 2 question bank and difficulty settings.'});
   });
-  u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/algebra2-practice.html?unit='+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Interactive practice with feedback, worked solutions, and skill review.'});
+  u.artifacts.push({title:'Practice Test',path:'worksheet-generator/algebra2-practice.html?unit='+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Interactive practice with feedback, worked solutions, and skill review.'});
  });
 })(window);
 
@@ -7336,7 +7336,7 @@ window.LIBRARY = {
   [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
    u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit=prealgebra-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored Pre-Algebra questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',topics:['Printable generator',u.name]});
   });
-  u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit=prealgebra-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice Grade 8 skills, review worked solutions, and target skills for reassessment.'});
+  u.artifacts.push({title:'Practice Test',path:'worksheet-generator/practice-test.html#unit=prealgebra-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice Grade 8 skills, review worked solutions, and target skills for reassessment.'});
  });
 })(window);
 
@@ -7352,7 +7352,7 @@ window.LIBRARY = {
    [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
     u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored '+label+' questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    });
-   u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   u.artifacts.push({title:'Practice Test',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
   });
  });
 })(window);
@@ -7393,7 +7393,7 @@ window.LIBRARY = {
    [['error','Error Analysis','error-generator-foundations.svg'],['tarsia','Tarsia Puzzle','tarsia-generator-foundations.svg']].forEach(([kind,title,thumb])=>{
     u.artifacts.push({title:title+' Generator',path:'worksheet-generator/printables.html#unit='+courseId+'-'+u.id+'&kind='+kind,type:'Printable',thumb:'thumbs/'+thumb,description:kind==='error'?'Find, explain, and correct mistakes using authored '+label+' questions. Includes teacher solutions.':'Match problems and answers to assemble a triangle puzzle. Includes work pages and a solved teacher key.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
    });
-   u.artifacts.push({title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
+   u.artifacts.push({title:'Practice Test',path:'worksheet-generator/practice-test.html#unit='+courseId+'-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice '+label+' skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-04'});
   });
  });
 })(window);
@@ -7443,7 +7443,7 @@ window.LIBRARY = {
    ['who','Whodunnit','foundations-algebra-whodunnit.jpg','Solve clues and narrow down the mystery. Uses Discrete Math questions and a teacher key.']].forEach(function(k){
    add(u,{title:k[1]+' Generator',path:'worksheet-generator/printables.html#unit=discrete-'+u.id+'&kind='+k[0],bankFormat:'printable-generator',type:'Printable',thumb:'thumbs/'+k[2],description:k[3],level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-09'});
   });
-  add(u,{title:'Assessment Readiness Check',path:'worksheet-generator/practice-test.html#unit=discrete-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice Discrete Math skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-09'});
+  add(u,{title:'Practice Test',path:'worksheet-generator/practice-test.html#unit=discrete-'+u.id,bankFormat:'interactive-practice-test',type:'Study Guide',thumb:'thumbs/practice-test.svg',description:'Practice Discrete Math skills, review worked solutions, and target skills for reassessment.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-09'});
   if(S[u.id])add(u,S[u.id]);
  });
  P.forEach(function(it){add(unit(it.unit),it.a);});
