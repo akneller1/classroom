@@ -60,6 +60,15 @@ jobs:
           if old not in source:
               raise SystemExit('Grade 5 integration staging link marker changed')
           p.write_text(source.replace(old, "var staging='/grade5/';", 1))
+          # Production pages must not show the staging-only development labels.
+          for filename in ['index.html', 'grade5.html', 'src/grade5-site.js']:
+              doc = Path('site/grade5') / filename
+              html = doc.read_text()
+              html = html.replace(" — Development", "")
+              html = html.replace("Grade 5 resources are being developed and tested here before transfer to the main Classroom site. The original curriculum outline is preserved within the course page.",
+                  "Explore Grade 5 teacher tools, student games, study guides, interactive models, and projects.")
+              html = html.replace("Development repository ↗", "Source repository ↗")
+              doc.write_text(html)
           PY
           # Catch missing generator assets before deploying.
           for f in grade5/index.html grade5/worksheet-generator/grade5-generators.html \
