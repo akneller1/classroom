@@ -28,7 +28,10 @@ for(const course of courses){
  checkLinks(file,html);count++;
 }
 }
-assert.equal(count,91);assert.equal((sitemap.match(/<loc>/g)||[]).length,107);
+assert.equal(count,91);
+const expectedStandalone=['courses/grade5.html','financial-algebra/'];
+for(const page of expectedStandalone)assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'),'Missing integrated course sitemap entry '+page);
+assert.equal((sitemap.match(/<loc>/g)||[]).length,107+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
 for (const page of ["about.html", "guide.html", "skills.html", "backup.html", "courses/"]) {
  assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'), 'Missing sitemap entry: '+page);
 }
