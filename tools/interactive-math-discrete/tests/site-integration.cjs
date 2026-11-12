@@ -1,6 +1,6 @@
 // Site integration for the Discrete Math Interactive Math entries: every new or reused card appears in its unit's
-// Interactive Math section with Explore, worksheet, teacher key and Copy student link; the activity viewer loads the tool;
-// the copied student link opens the tool; the Interactive Math shortcut appears only where a unit has tools.
+// Interactive Math section with Explore, worksheet and teacher key; student-link controls are limited to
+// individual games and study guides; the activity viewer loads the tool; the Interactive Math shortcut appears only where a unit has tools.
 // Usage (repository root): node tools/interactive-math-discrete/tests/site-integration.cjs
 const { chromium } = require('playwright'); const http = require('http'), fs = require('fs'), path = require('path'), vm = require('vm');
 const ROOT = path.resolve(__dirname, '../../..');
@@ -21,15 +21,10 @@ let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; con
       return { explore: (li.querySelector('.btn-open') || {}).textContent, ws: !!li.querySelector('a[href$="worksheet.pdf"]'), key: !!li.querySelector('a[href$="teacher-key.pdf"]'), share: !!li.querySelector('.share-student'), heads };
     }, e.a.path);
     ok(card, `${e.c}.${e.u}: card for ${e.a.title}`);
-    if (card) { ok(card.explore === 'Explore' && card.ws && card.key && card.share, `${e.a.title}: card controls ${JSON.stringify(card)}`); ok(card.heads.some(h => /Interactive Math/.test(h)), `${e.a.title}: in Interactive Math section ${card.heads}`); }
+    if (card) { ok(card.explore === 'Explore' && card.ws && card.key && !card.share, `${e.a.title}: card controls ${JSON.stringify(card)}`); ok(card.heads.some(h => /Interactive Math/.test(h)), `${e.a.title}: in Interactive Math section ${card.heads}`); }
     /* published course: the unit page has the generator shortcuts and an Interactive Math section */
     ok(await p.evaluate(() => !!document.querySelector('#algebra-interactive') && !!document.querySelector('a[href*="worksheet-generator/printables.html#unit=discrete-"]')), `${e.c}.${e.u}: Interactive Math section and generators`);
-    /* copy student link from the card, then open it */
-    await p.evaluate(path => { window.__copied = ''; navigator.clipboard.writeText = t => { window.__copied = t; return Promise.resolve(); }; window.prompt = (m, t) => { window.__copied = t; }; document.querySelector('li.card[data-path="' + path + '"] .share-student').click(); }, e.a.path); await p.waitForTimeout(150);
-    const link = await p.evaluate(() => window.__copied);
-    ok(link && link.includes(e.a.path.replace(/\/index\.html$/, '')), `${e.a.title}: student link copied (${link})`);
-    if (link) { const s = await context.newPage(); const se = []; s.on('pageerror', x => se.push(x.message)); await s.goto(link.replace(/^https?:\/\/[^/]+(\/classroom)?/, base)); await s.waitForTimeout(500);
-      const ok2 = await s.evaluate(() => { const f = document.querySelector('iframe'); const d = f ? f.contentDocument : document; return !!(d && d.querySelector('.lab-title')); }); ok(ok2 && !se.length, `${e.a.title}: student link opens the tool ${se}`); await s.close(); }
+    ok(!card.share, `${e.a.title}: interactive tools do not offer student links`);
     /* activity viewer */
     const v = await context.newPage(); const ve = []; v.on('pageerror', x => ve.push(x.message)); await v.goto(`${base}/activity.html?path=${encodeURIComponent(e.a.path)}`); await v.waitForTimeout(700);
     const title = await v.evaluate(() => { const f = document.querySelector('iframe'); return f && f.contentDocument && f.contentDocument.querySelector('.lab-title') ? f.contentDocument.querySelector('.lab-title').textContent : null; });

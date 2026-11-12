@@ -63,7 +63,9 @@
   original.textContent = /\.pdf$/i.test(match.path) ? 'Open / print PDF ↗' : 'Open full page ↗';
   original.setAttribute('aria-label', original.textContent + ' (opens in a new tab)');
   original.hidden = studentFocus;
-  if (!studentFocus && shareableActivity(match)) {
+  var linkTypes = Array.isArray(match.type) ? match.type : [match.type || ''];
+  var allowStudentLink = linkTypes.some(function (type) { return /^(game|study guide)$/i.test(type); }) || /flashcards|cheat.sheet|study.guide/i.test(match.path+' '+(match.title||''));
+  if (!studentFocus && allowStudentLink && shareableActivity(match)) {
     var share = document.getElementById('share-student');
     share.hidden = false;
     share.addEventListener('click', function () {
