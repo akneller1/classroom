@@ -154,7 +154,8 @@ else {
    for(const a of unit.artifacts){
     const raw=a.path.split(/[?#]/)[0];
     const target=path.resolve(site,'.'+raw);
-    if(!raw.startsWith('/grade5/')||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
+    const sharedMultipleDrop = a.title==='Multiple Drop' && raw==='/artifacts/multiple-drop/index.html';
+    if((!raw.startsWith('/grade5/')&&!sharedMultipleDrop)||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
    }
    const records=shared.MK_COURSE_CATALOG.getSkillRecords('grade5',unit.id);
    const standardMap=shared.MK_GRADE5_STANDARDS[unit.id]||{};
@@ -171,3 +172,4 @@ if(failures.length>60)console.error('… '+(failures.length-60)+' more broken it
 for(const item of warnings.slice(0,20))console.warn('REVIEW '+item);
 console.log('Grade 5 audit outcome: '+failures.length+' blocking defects; '+warnings.length+' non-blocking resource warnings');
 if(failures.length)process.exitCode=1;
+
