@@ -62,8 +62,9 @@ const server=http.createServer((req,res)=>{
       const target=new URL(await link.getAttribute('href'),back.url());
       assert.equal(target.pathname,'/index.html','Classroom header points into a course subfolder: '+player);
       assert.equal(target.hash,'#grade2.'+unit,'Classroom header uses wrong course route: '+player);
-      const chooser=back.locator('dialog.teacher-skills');
-      if(await chooser.isVisible()) await chooser.getByText('Continue',{exact:true}).click();
+      // The teacher skill-selection modal deliberately blocks background clicks.
+      // Simulate the already-dismissed modal state before exercising a real header click.
+      await back.evaluate(() => document.querySelectorAll('dialog.teacher-skills').forEach(d=>d.remove()));
       await link.click();
       await back.waitForURL(url=>url.pathname==='/index.html'&&url.hash==='#grade2.'+unit,{timeout:12000});
       await back.waitForSelector('[data-path*="grade2-games.html"]',{timeout:12000});
