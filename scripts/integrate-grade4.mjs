@@ -31,6 +31,11 @@ app=app.replace("/^\\/grade5\\//.test(path)","/^\\/grade[45]\\//.test(path) || /
 app=app.replace("['grade5','financial-algebra'].includes(it.c.id)","['grade4','grade5','financial-algebra'].includes(it.c.id)");
 app=app.replace("c.id === 'grade5') return algebraUnitView(c, u)","['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)");
 app=app.replace("'grade5', 'financial-algebra'].indexOf(c.id)","'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)");
+// The homepage's legacy Coming Soon placeholders must not duplicate published courses.
+const placeholder="SOON = SOON.concat([";
+if(!app.includes(placeholder))throw Error('Grade 4 homepage placeholder anchor missing');
+app=app.replace("var courses = L.courses.concat(SOON).slice().sort(function (a, b) {","var courses = L.courses.concat(SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})).slice().sort(function (a, b) {");
+if(!app.includes('SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})'))throw Error('Published course deduplication missing');
 const projectAnchor="(c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '')";
 if(!app.includes(projectAnchor))throw Error('Grade 4 release: project category anchor missing');
 app=app.replace(projectAnchor,"(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')");
