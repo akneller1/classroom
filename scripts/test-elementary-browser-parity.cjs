@@ -62,7 +62,7 @@ const server=http.createServer((req,res)=>{
   await page.waitForSelector('[data-path*="grade4-games.html"]',{timeout:20000});
   const grade4Card=page.locator('[data-path*="grade4-games.html"]').first();
   const grade4Href=await grade4Card.locator('a[href*="grade4-games.html"]').first().getAttribute('href');
-  assert.match(grade4Href,/^grade4\\/worksheet-generator\\/grade4-games\\.html\\?/,'Grade 4 game links must stay direct');
+  assert.ok(grade4Href&&grade4Href.startsWith('grade4/worksheet-generator/grade4-games.html?'),'Grade 4 game links must stay direct');
   await grade4Card.locator('button.share-student').click();
   const grade4Dialog=page.locator('#integrated-skill-share-dialog');
   await grade4Dialog.waitFor({state:'visible',timeout:10000});
