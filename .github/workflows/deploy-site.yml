@@ -88,6 +88,19 @@ jobs:
       - name: Verify Grade 3 release structure
         run: |
           node -e "const fs=require('fs');const root='_site/',m=JSON.parse(fs.readFileSync(root+'question-banks/manifest.json'));const b=m.banks.filter(x=>x.courseId==='grade3');if(b.length!==11||!b.every(x=>x.approved&&fs.existsSync(root+x.path)))process.exit(1);for(const p of ['grade3-main-catalog.js','grade3/worksheet-generator/grade3-games.html','grade3/worksheet-generator/grade3-understanding-check.html','grade3/worksheet-generator/grade3-flashcards.html','grade3/grade3-native-notes.js'])if(!fs.existsSync(root+p))throw Error('Missing Grade 3 resource: '+p)"
+      - name: Check out verified Grade 2 source from FinancialAlgebra
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: 847518db071ae244225029b3bae4971ef7bcfac3
+          path: _course_sources/grade2
+          persist-credentials: false
+      - name: Assemble Grade 2 from separate repository into the public artifact
+        env:
+          GRADE2_SOURCE_DIR: _course_sources/grade2
+        run: node scripts/integrate-grade2.mjs
+      - name: Validate Grade 2 release manifest and published resources
+        run: node scripts/test-grade2-release.cjs _site
       - name: Verify course catalogs in every shared game and study tool
         run: node scripts/test-shared-course-catalogs.cjs _site
       - name: Check assembled public site and course navigation
@@ -104,8 +117,12 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Browser-check elementary game routing, student links and course switching
         run: node scripts/test-elementary-browser-parity.cjs _site
+      - name: Browser-test Grade 2 unit, student skill selection, game and dedicated Understanding Check
+        run: node scripts/test-grade2-browser.cjs _site
       # Runs after the checks above because they expect the original page and sitemap counts.
-      - name: Build course and unit pages for Grades 3-5 and Financial Algebra
+      - name: Build course and unit pages for Grades 2-5 and Financial Algebra
+        env:
+          INTEGRATED_COURSES: grade2,grade3,grade4,grade5,financial-algebra
         run: node scripts/build-integrated-unit-pages.mjs
       - name: Add the shared Mr. K's Classroom header to activity pages
         run: node scripts/add-site-header.mjs
