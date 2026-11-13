@@ -331,18 +331,52 @@ aside{display:grid;gap:16px}
   nameIn.addEventListener("input", syncStart); syncStart();
 
   // ---------- Sound ----------
-  let ac = null, soundOn = true;
-  function beep(freq, dur=0.08, type="triangle", vol=0.08){
-    if(!soundOn) return;
+  let ac = null, master = null, musicBus = null, soundOn = true, nextBeat = 0, beat = 0;
+  function audioReady(){
+    try {
+      if(!ac){
+        ac = new (window.AudioContext||window.webkitAudioContext)();
+        master = ac.createGain(); master.connect(ac.destination);
+        musicBus = ac.createGain(); musicBus.connect(master);
+      }
+      master.gain.value = soundOn ? 1 : 0;
+      if(ac.state === "suspended") ac.resume().catch(()=>{});
+      return true;
+    } catch(e){ return false; }
+  }
+  function beep(freq, dur=0.08, type="triangle", vol=0.08, music=false){
+    if(!soundOn || !audioReady()) return;
     try{
-      ac = ac || new (window.AudioContext||window.webkitAudioContext)();
       const o = ac.createOscillator(), g = ac.createGain();
-      o.type = type; o.frequency.value = freq; g.gain.value = vol;
+      o.type = type; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, ac.currentTime);
+      g.gain.exponentialRampToValueAtTime(vol, ac.currentTime + 0.012);
       g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + dur);
-      o.connect(g).connect(ac.destination); o.start(); o.stop(ac.currentTime + dur);
+      o.connect(g); g.connect(music ? musicBus : master);
+      o.onended = () => { o.disconnect(); g.disconnect(); };
+      o.start(); o.stop(ac.currentTime + dur);
     }catch(e){}
   }
-  $("soundBtn").onclick = e => { soundOn = !soundOn; e.target.textContent = soundOn ? "Sound on" : "Sound off"; e.target.setAttribute("aria-pressed", soundOn); };
+  const melody = [523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,
+                  659.25,783.99,1046.5,783.99,587.33,698.46,783.99,587.33];
+  function musicTick(){
+    if(!ac || !musicBus) return;
+    const playing = soundOn && S && S.phase === "play";
+    musicBus.gain.value = playing ? 1 : 0;
+    if(!playing){ nextBeat = 0; return; }
+    if(ac.currentTime >= nextBeat){
+      beep(melody[beat % melody.length],0.18,"sine",0.025,true);
+      if(beat % 2 === 0) beep([130.81,146.83,164.81,146.83][Math.floor(beat/4)%4],0.22,"triangle",0.025,true);
+      beat++; nextBeat = ac.currentTime + 0.27;
+    }
+  }
+  $("soundBtn").onclick = e => {
+    soundOn = !soundOn;
+    audioReady();
+    musicTick();
+    e.target.textContent = soundOn ? "Sound on" : "Sound off";
+    e.target.setAttribute("aria-pressed", soundOn);
+  };
 
   // ---------- Game ----------
   let S = null, W = 0, H = 0, cols = 5, colW = 0, size = 0, raf = 0, last = 0, uid = 0;
@@ -434,6 +468,7 @@ aside{display:grid;gap:16px}
   function tick(ts){
     raf = requestAnimationFrame(tick);
     const dt = Math.min(0.05, (ts - (last||ts)) / 1000); last = ts;
+    musicTick();
     if(!S || S.phase !== "play") return;
     S.elapsed += dt; S.sinceSpawn += dt; S.sinceNeed += dt;
     const p = S.found / S.total;
@@ -475,6 +510,7 @@ aside{display:grid;gap:16px}
     try{ localStorage.setItem("multiple-drop-name", name); }catch(e){}
     field.querySelectorAll(".tile").forEach(t=>t.remove());
     measure();
+    beat = 0; nextBeat = 0;
     S = { name, difficulty: difficulty(), n: selN, total: Math.floor(LIMIT/selN), found:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
     hud(); $("pauseBtn").disabled = false; $("difficulty").disabled = true;
     show("countdown");

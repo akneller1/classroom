@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  if (/^\/?artifacts\/multiple-drop\/index\.html$/.test(params.get('path') || '')) {
+    var target = new URL('artifacts/multiple-drop/index.html', location.href);
+    if (params.get('student') === '1') target.searchParams.set('student', '1');
+    location.replace(target.href);
+  }
+})();
+</script>
 <title>Activity | Mr. K’s Classroom</title>
 <link rel="stylesheet" href="activity.css?v=nav-20261025">
 <script src="data.js?v=discrete-math-20261108" defer></script>
