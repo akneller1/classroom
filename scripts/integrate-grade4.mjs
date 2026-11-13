@@ -26,6 +26,11 @@ if(!html.includes(anchor))throw Error('Grade 4 release: app.js script anchor mis
 html=html.replace(anchor,'<script src="grade4-main-catalog.js?v=grade4-release-20261113"></script>\n'+anchor);
 fs.writeFileSync(index,html);
 const appFile=path.join(out,'app.js');let app=fs.readFileSync(appFile,'utf8');
+// Use the same compact unit view, thumbnails and direct resource routes as Grade 5.
+app=app.replace("/^\\/grade5\\//.test(path)","/^\\/grade[45]\\//.test(path) || /^grade4\\//.test(path)");
+app=app.replace("['grade5','financial-algebra'].includes(it.c.id)","['grade4','grade5','financial-algebra'].includes(it.c.id)");
+app=app.replace("c.id === 'grade5') return algebraUnitView(c, u)","['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)");
+app=app.replace("'grade5', 'financial-algebra'].indexOf(c.id)","'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)");
 const projectAnchor="(c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '')";
 if(!app.includes(projectAnchor))throw Error('Grade 4 release: project category anchor missing');
 app=app.replace(projectAnchor,"(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')");
