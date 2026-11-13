@@ -6,6 +6,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  pull_request:
+    branches: [main]
   schedule:
     # Refresh approved course content daily even if the Classroom repo has not changed.
     - cron: '17 9 * * *'
@@ -54,6 +56,20 @@ jobs:
         env:
           FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/grade5
         run: node scripts/integrate-financial-algebra.mjs
+      - name: Check out approved Grade 4 source
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: 9f29d62f3c0574025064f22e4ef92fb2bf3c4646
+          path: _course_sources/grade4
+          persist-credentials: false
+      - name: Assemble Grade 4 into production artifact
+        env:
+          GRADE4_SOURCE_DIR: _course_sources/grade4
+        run: node scripts/integrate-grade4.mjs
+      - name: Verify Grade 4 release structure
+        run: |
+          node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('_site/question-banks/manifest.json'));if(m.banks.filter(x=>x.courseId==='grade4').length!==10)process.exit(1);for(const p of ['grade4-main-catalog.js','grade4/worksheet-generator/grade4-games.html','grade4/worksheet-generator/grade4-understanding-check.html'])if(!fs.existsSync('_site/'+p))process.exit(1)"
       - name: Check assembled public site and course navigation
         run: node scripts/test-public-site.cjs
       - name: Verify published Grade 5 game question loading
@@ -67,6 +83,7 @@ jobs:
           path: _site
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:
