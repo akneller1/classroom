@@ -10,6 +10,15 @@ const run=f=>vm.runInContext(fs.readFileSync(path.join(site,f),'utf8'),G,{filena
 for(const f of ['data.js','course-integrations.js','course-catalog.js','grade5/grade5-main-catalog.js','grade4-main-catalog.js','question-bank-adapter.js','question-bank-loader.js','worksheet-generator/algebra2-bank-native.js'])run(f);
 (async()=>{
  await G.MK_COURSE_BANKS_READY;
+ const grade4=G.MKMENU.CATALOG.find(c=>c.course==='4th Grade Math');
+ assert.ok(grade4,'Grade 4 missing from generator course selector');
+ assert.equal(grade4.units.length,10,'Grade 4 generator units missing');
+ for(const [id] of grade4.units){
+  assert.ok(G.MKMENU.skillSets[id],id+' missing skill set');
+  const c=G.MKMENU.defaultConfig(id,'worksheet');
+  assert.equal(c.unitId,id,'Grade 4 generator reverted to another course');
+  assert.ok(G.MK_QUESTION_BANKS.select({courseId:'grade4',unitId:id.slice(7)}).length>0,id+' bank unavailable');
+ }
  const M=G.MKMENU,ids=Object.keys(M.skillSets).filter(id=>id.startsWith('grade5-'));
  assert.equal(ids.length,11);let papers=0,activities=0,lessons=0;
  for(const id of ids)for(const level of ['cp2','cp1','honors'])for(const mode of ['worksheet','test']){
