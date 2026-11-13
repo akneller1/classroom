@@ -167,7 +167,7 @@ aside{display:grid;gap:16px}
             <ul class="rules">
               <li>Tap <b>only</b> the next multiple. Tiles out of order cost a life.</li>
               <li>Let the number you need fall past the line and you lose a life.</li>
-              <li>3 lives. Tiles speed up as you climb.</li>
+              <li>3 lives. Tiles speed up as you climb. In Hard, later multiples may arrive early and fall slower; catch them in order.</li>
             </ul>
             <button class="go" id="startBtn" type="submit" disabled>Start</button>
           </form>
@@ -198,6 +198,10 @@ aside{display:grid;gap:16px}
     <aside>
       <section class="panel" aria-labelledby="settingsH">
         <h3 id="settingsH">Settings</h3>
+        <label class="f" for="difficulty">Difficulty
+          <select id="difficulty" style="font:inherit;padding:8px;border-radius:8px;background:var(--paper);color:var(--ink);border:1px solid var(--line)"><option value="normal" selected>Normal</option><option value="hard">Hard</option></select>
+        </label>
+        <p class="store-note" id="difficultyNote">Normal: correct multiples fall in order.</p>
         <label style="display:flex;gap:10px;align-items:center;cursor:pointer"><input type="checkbox" id="showHint"> Show next-multiple hint</label>
       </section>
       <section class="panel" aria-labelledby="leadH">
@@ -220,6 +224,11 @@ aside{display:grid;gap:16px}
   const $ = id => document.getElementById(id);
   const field = $("field");
   let selN = 7;
+  const difficulty = () => $("difficulty").value === "hard" ? "hard" : "normal";
+  $("difficulty").addEventListener("change", () => {
+    $("difficultyNote").textContent = difficulty() === "hard" ? "Hard: later multiples can arrive early and fall slower. Still tap in order!" : "Normal: correct multiples fall in order.";
+    renderRecords();
+  });
   const hintEnabled = () => $("showHint").checked;
   $("showHint").addEventListener("change", () => hud());
 
@@ -239,11 +248,11 @@ aside{display:grid;gap:16px}
     return false;
   }
   function sorted(n){
-    return [...records.entries()].map(([id,r])=>({id,...r})).filter(r=>r.number===n)
+    return [...records.entries()].map(([id,r])=>({id,...r})).filter(r=>r.number===n && (r.difficulty || "normal") === difficulty())
       .sort((a,b)=> b.reached-a.reached || (a.won&&b.won ? a.timeMs-b.timeMs : 0) || String(a.at).localeCompare(String(b.at)));
   }
   async function saveRecord(rec){
-    const id = slug(rec.name) + "-" + rec.number;
+    const id = slug(rec.name) + "-" + rec.number + (rec.difficulty === "hard" ? "-hard" : "");
     const prev = records.get(id);
     if(!better(rec, prev)) return false;
     records.set(id, rec);
@@ -366,7 +375,7 @@ aside{display:grid;gap:16px}
     const n = S.n, c = [need+1, need-1, need+2, need-2, need+n, need+2*n, need-n, need+10, need-10];
     const sw = String(need); if(sw.length===2 && sw[0]!==sw[1]) c.push(+(sw[1]+sw[0]));
     for(let i=0;i<3;i++){ const m = 2 + Math.floor(Math.random()*11); if(m!==n){ const k = Math.max(1, Math.round(need/m) + Math.floor(Math.random()*3)-1); c.push(m*k); } }
-    const ok = c.filter(v => v > 0 && v !== need && v <= LIMIT + 12 && !onScreen(v));
+    const ok = c.filter(v => v > 0 && v % n !== 0 && v <= LIMIT + 12 && !onScreen(v));
     return ok.length ? ok[Math.floor(Math.random()*ok.length)] : null;
   }
   function spawn(val){
@@ -378,7 +387,7 @@ aside{display:grid;gap:16px}
     el.textContent = val; el.setAttribute("aria-label", String(val));
     el.style.width = el.style.height = size+"px"; el.style.fontSize = fontFor(val);
     el.style.background = COLORS[Math.floor(Math.random()*COLORS.length)];
-    const t = { id: ++uid, val, col, y: -size, el, dead:false };
+    const t = { id: ++uid, val, col, y: -size, el, dead:false, required: val % S.n === 0, speedFactor: val > needed() && val % S.n === 0 ? 0.35 : 1 };
     el.addEventListener("pointerdown", e => { e.preventDefault(); hit(t); });
     el.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); hit(t); } });
     field.appendChild(el); S.tiles.push(t); place(t);
@@ -433,15 +442,23 @@ aside{display:grid;gap:16px}
     const need = needed();
     if(S.sinceSpawn >= every){
       const haveNeed = onScreen(need);
-      const forceNeed = !haveNeed && (S.sinceNeed > 2.4 - 1.2*p || Math.random() < 0.38);
-      const v = forceNeed ? need : decoyFor(need);
+      const ahead = need + S.n;
+      const haveAhead = onScreen(ahead);
+      const canAhead = S.difficulty === "hard" && ahead <= S.n*S.total && !haveAhead;
+      // One future multiple may arrive early; then prioritize its predecessor.
+      const forceNeed = !haveNeed && (haveAhead || S.sinceNeed > 2.4 - 1.2*p);
+      let v;
+      if(forceNeed) v = need;
+      else if(canAhead && Math.random() < 0.45) v = ahead;
+      else if(!haveNeed && Math.random() < 0.55) v = need;
+      else v = decoyFor(need);
       if(v != null && spawn(v)){ S.sinceSpawn = 0; if(v === need) S.sinceNeed = -99; }
     }
     for(const t of S.tiles){
       if(t.dead) continue;
-      t.y += speed * dt; place(t);
+      t.y += speed * t.speedFactor * dt; place(t);
       if(t.y > H){
-        const was = t.val === needed();
+        const was = t.required && t.val >= needed();
         kill(t);
         if(was){ S.sinceNeed = 0; loseLife("Missed " + t.val + "!"); if(S.phase !== "play") break; }
       }
@@ -458,8 +475,8 @@ aside{display:grid;gap:16px}
     try{ localStorage.setItem("multiple-drop-name", name); }catch(e){}
     field.querySelectorAll(".tile").forEach(t=>t.remove());
     measure();
-    S = { name, n: selN, total: Math.floor(LIMIT/selN), found:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
-    hud(); $("pauseBtn").disabled = false;
+    S = { name, difficulty: difficulty(), n: selN, total: Math.floor(LIMIT/selN), found:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
+    hud(); $("pauseBtn").disabled = false; $("difficulty").disabled = true;
     show("countdown");
     let c = 3; $("countEl").textContent = c; beep(440,.1);
     const iv = setInterval(() => {
@@ -473,7 +490,7 @@ aside{display:grid;gap:16px}
     S.phase = "over"; $("pauseBtn").disabled = true;
     const reached = S.n * S.found;
     const prevTop = sorted(S.n)[0];
-    const rec = { name: S.name, number: S.n, reached, won, timeMs: Math.round(S.elapsed*1000), at: new Date().toISOString() };
+    const rec = { name: S.name, difficulty: S.difficulty, number: S.n, reached, won, timeMs: Math.round(S.elapsed*1000), at: new Date().toISOString() };
     S.tiles.forEach(t => { if(!t.dead) kill(t); });
     $("overTitle").textContent = won ? `You cleared the ${S.n}s!` : "Out of lives";
     $("overNum").textContent = reached;
@@ -493,7 +510,7 @@ aside{display:grid;gap:16px}
 
   function pause(){ if(S && S.phase==="play"){ S.phase="paused"; show("paused"); $("pauseBtn").textContent="Resume"; } else if(S && S.phase==="paused") resume(); }
   function resume(){ S.phase="play"; last=0; show(null); $("pauseBtn").textContent="Pause"; }
-  function toSetup(){ if(S) S.tiles.forEach(t=>t.el.remove()); S = null; $("pauseBtn").disabled = true; $("pauseBtn").textContent="Pause"; hud(); show("setup"); drawDeco(); }
+  function toSetup(){ if(S) S.tiles.forEach(t=>t.el.remove()); S = null; $("difficulty").disabled = false; $("pauseBtn").disabled = true; $("pauseBtn").textContent="Pause"; hud(); show("setup"); drawDeco(); }
 
   $("setupForm").addEventListener("submit", e => { e.preventDefault(); start(); });
   $("pauseBtn").onclick = pause;
