@@ -54,6 +54,27 @@ const server=http.createServer((req,res)=>{
    await planner.waitForFunction(next=>window.MKPLAN_COURSE===next,grade,{timeout:25000});
   }
   await planner.close();
+  // Cover an already-published elementary course as well. Changes to shared
+  // Classroom navigation must not silently regress Grade 4 again.
+  const grade4Unit=await page.evaluate(()=>window.LIBRARY.courses.find(c=>c.id==='grade4')?.units?.[0]?.id);
+  assert.ok(grade4Unit,'Grade 4 course missing or duplicated by a placeholder');
+  await page.goto(base+'#grade4.'+grade4Unit,{waitUntil:'load'});
+  await page.waitForSelector('[data-path*="grade4-games.html"]',{timeout:20000});
+  const grade4Card=page.locator('[data-path*="grade4-games.html"]').first();
+  const grade4Href=await grade4Card.locator('a[href*="grade4-games.html"]').first().getAttribute('href');
+  assert.match(grade4Href,/^grade4\\/worksheet-generator\\/grade4-games\\.html\\?/,'Grade 4 game links must stay direct');
+  await grade4Card.locator('button.share-student').click();
+  const grade4Dialog=page.locator('#integrated-skill-share-dialog');
+  await grade4Dialog.waitFor({state:'visible',timeout:10000});
+  assert.ok(await grade4Dialog.locator('fieldset input[type=checkbox]').count()>0,'Grade 4 share skills missing');
+  await grade4Dialog.getByText('Cancel',{exact:true}).click();
+  // Exercise the actual filtered Grade 3 student URL, not just its syntax.
+  const student=await browser.newPage(),studentErrors=[];
+  student.on('pageerror',e=>studentErrors.push(e.message));
+  await student.goto(new URL(url,base).href,{waitUntil:'load'});
+  await student.waitForSelector('.el-stage',{timeout:25000});
+  assert.deepEqual(studentErrors,[],'Grade 3 filtered student game errors');
+  await student.close();
   assert.deepEqual(errors,[],'Homepage JS errors');
   console.log('PASS Grade 3: direct game routing, skill picker and filtered student link, game boot, planner Grade 3→5→3 switching');
  }finally{await page.close();await browser.close();server.close();}
