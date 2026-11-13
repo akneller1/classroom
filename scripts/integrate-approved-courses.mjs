@@ -1,3 +1,4 @@
+import { addMultipleDrop } from './multiple-drop-resources.mjs';
 // Assemble the approved Grade 5 source into the public Classroom artifact.
 // Source files stay in FinancialAlgebra; only the assembled _site/site directory changes.
 // This is the ONLY Grade 5 assembler used by either public workflow.
@@ -145,6 +146,7 @@ const classroomResources=resources.units.map(function(unit){
   }
   return {id:unit.id,name:unit.name,artifacts:mapped};
 });
+addMultipleDrop({id:"grade5",units:classroomResources});
 const classroomSkills=Object.create(null),classroomStandards=Object.create(null);
 for(const unit of resources.units){
   const records=context.window.MK_COURSE_CATALOG.getSkillRecords('math5',unit.id);
@@ -249,3 +251,4 @@ for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html'
  if(page==='vocabulary.html'&&!html.includes('grade5-native-resources.js'))html=html.replace('<script src="vocabulary-builder.js',tag('native-resources')+'<script src="vocabulary-builder.js');
  fs.writeFileSync(file,html);
 }
+

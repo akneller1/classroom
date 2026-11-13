@@ -1,3 +1,4 @@
+import { addMultipleDrop } from './multiple-drop-resources.mjs';
 // Assemble the validated Grade 4 course from the separate FinancialAlgebra repository.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,6 +11,7 @@ const {grade4Ready,assembleGrade4}=await import(pathToFileURL(modulePath).href);
 if(!grade4Ready(source))throw Error('Grade 4 banks are not approved');
 const course=assembleGrade4({source,out});
 if(course.units.length!==10)throw Error('Grade 4 release requires ten units');
+addMultipleDrop(course);
 const skills=course.skills;
 const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
 'var L=G.LIBRARY;if(!L||!L.courses)throw Error("Grade 4 library missing");'+
@@ -69,3 +71,4 @@ for(const unit of course.units){
 }
 fs.writeFileSync(manifestFile,JSON.stringify(manifest,null,2)+'\n');
 console.log('Grade 4 release assembled: '+course.units.length+' units from separate source repository.');
+

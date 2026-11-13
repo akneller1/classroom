@@ -1,3 +1,4 @@
+import { addMultipleDrop } from './multiple-drop-resources.mjs';
 // Assemble Grade 3 from FinancialAlgebra into the public Classroom artifact.
 // This runs only in the Classroom production workflow after Grade 4.
 import fs from 'node:fs';
@@ -16,6 +17,7 @@ const {grade3Ready,assembleGrade3}=await import(pathToFileURL(assembler).href);
 if(!grade3Ready(source))fail('source not ready');
 const course=assembleGrade3({source,out});
 if(course.units.length!==11)fail('expected eleven units');
+addMultipleDrop(course);
 const skills=course.skills;
 delete course.skills;
 const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
@@ -81,3 +83,4 @@ for(const unit of course.units){
 }
 fs.writeFileSync(manifestFile,JSON.stringify(native,null,2)+'\n');
 console.log('Grade 3 assembled: 11 units from FinancialAlgebra, using existing Classroom generators and Grade 3 players.');
+
