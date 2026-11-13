@@ -51,6 +51,26 @@ const server=http.createServer((req,res)=>{
   try { await student.waitForSelector('.el-setup, .el-stage',{timeout:15000}); } catch(e) { console.error('Student URL',student.url(),'JS errors',studentErrors,'body',(await student.locator('body').innerText().catch(()=>'')).slice(0,500)); throw e; }
   assert.deepEqual(studentErrors,[],'Student game must boot without JS errors');
   await student.close();
+  // Regression: the Classroom header on nested elementary players must lead
+  // back to the real site root and select the public grade2 route, not /grade2/index.html or #math2.
+  for (const player of ['grade2-games.html?game=treasure-quest', 'grade2-flashcards.html', 'grade2-understanding-check.html']) {
+    const back=await browser.newPage();
+    try {
+      await back.goto(base+'grade2/worksheet-generator/'+player+(player.includes('?')?'&':'?')+'unit='+encodeURIComponent(unit),{waitUntil:'load'});
+      const link=back.locator('a.el-home');
+      await link.waitFor({state:'visible',timeout:12000});
+      const target=new URL(await link.getAttribute('href'),back.url());
+      assert.equal(target.pathname,'/index.html','Classroom header points into a course subfolder: '+player);
+      assert.equal(target.hash,'#grade2.'+unit,'Classroom header uses wrong course route: '+player);
+      // The teacher skill-selection modal deliberately blocks background clicks.
+      // Simulate the already-dismissed modal state before exercising a real header click.
+      await back.evaluate(() => document.querySelectorAll('dialog.teacher-skills').forEach(d=>d.remove()));
+      await link.click();
+      await back.waitForURL(url=>url.pathname==='/index.html'&&url.hash==='#grade2.'+unit,{timeout:12000});
+      await back.waitForSelector('[data-path*="grade2-games.html"]',{timeout:12000});
+      // The visible course cards and grade2 URL already establish the successful return.
+    } finally { await back.close(); }
+  }
   const check=await browser.newPage(),checkErrors=[],checkRequests=[];
   check.on('pageerror',e=>checkErrors.push(e.message));
   check.on('request',req=>{if(req.url().includes('/question-banks/math2/checks/'))checkRequests.push(req.url());});
