@@ -1960,3 +1960,18 @@ body { background:var(--paper); }
 }
 
 /* Standards remain in the curriculum data but are omitted from course overview unit cards. */
+
+/* Keep compact unit-card illustrations fully visible instead of cropping them. */
+.unit-band ~ .section .cards.grouped-cards .thumb,
+.activity-group > .cards.grouped-cards .thumb {
+  flex: 0 0 72px;
+  align-self: flex-start;
+  overflow: hidden;
+}
+.unit-band ~ .section .cards.grouped-cards .thumb img,
+.activity-group > .cards.grouped-cards .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
