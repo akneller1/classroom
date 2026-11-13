@@ -53,7 +53,7 @@ for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html'
  const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))fail('missing '+page);
  let h=fs.readFileSync(f,'utf8'),anchor='<script src="../grade4-main-catalog.js';
  if(!h.includes(anchor))fail('Grade 4 course catalog anchor missing in '+page);
- h=h.replace(anchor,'<script src="../grade3-main-catalog.js?v=grade3-release"></script>\\n'+anchor);
+ h=h.replace(anchor,'<script src="../grade3-main-catalog.js?v=grade3-release"></script>\n'+anchor);
  if(page==='lesson-planner.html')h=h.replace('planner/planner-ui.js?v=','planner/planner-ui.js?v='+version+'-');
  fs.writeFileSync(f,h);
 }

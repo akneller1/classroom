@@ -1,0 +1,17 @@
+/* Shared look for the standalone site pages (About, Courses, Browse by Skill, Back Up, Page Not Found)
+   so they match the home page: Atkinson Hyperlegible text, Bricolage Grotesque headings, a light header with the logo. */
+:root{--mk-bg:#f7f8fc;--mk-ink:#17213d;--mk-muted:#566173;--mk-line:#d9dee7;--mk-link:#1f5fbf}
+@media (prefers-color-scheme:dark){:root{--mk-bg:#12161d;--mk-ink:#e8ecf2;--mk-muted:#a3adbb;--mk-line:#2b3340;--mk-link:#8fb6ff}}
+body{font-family:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif!important;background:var(--mk-bg)!important;color:var(--mk-ink)!important}
+h1,h2,h3{font-family:"Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif!important;letter-spacing:-.01em;color:var(--mk-ink)}
+a{color:var(--mk-link)}
+body>header{background:var(--mk-bg)!important;color:var(--mk-ink)!important;border-bottom:1px solid var(--mk-line);padding-top:.8rem!important;padding-bottom:.8rem!important}
+body>header nav{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.1rem}
+body>header a{color:var(--mk-ink)!important;text-decoration:none;font-weight:700;margin-right:0!important}
+body>header a:hover{color:var(--mk-link)!important}
+body>header nav a:first-child{display:inline-flex;align-items:center;gap:.5rem;margin-right:auto!important;font:800 1.2rem/1 "Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif}
+body>header nav a:first-child::before{content:"K";display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:.45rem;background:var(--mk-ink);color:var(--mk-bg);font:800 .9rem/1 system-ui,sans-serif}
+body>footer{background:transparent!important;color:var(--mk-muted)!important;border-top:1px solid var(--mk-line)}
+body>footer a{color:var(--mk-link)!important}
+.panel{background:#fff;border-color:var(--mk-line)!important}
+@media (prefers-color-scheme:dark){.panel{background:#1a2130!important}}

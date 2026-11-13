@@ -39,11 +39,12 @@ test('every Financial Algebra game uses its dedicated bank-backed player',()=>{
   }
  }
 });
-test('Grade 5 legacy links use separate staging player',()=>{
+test('Grade 5 legacy links open the Grade 5 player on this site',()=>{
  for(const unit of gradeUnits)for(const game of gradeGames){
   const result=route('grade5',unit,game);
   const target=new URL(result.target);
-  assert.equal(target.pathname,'/FinancialAlgebra/worksheet-generator/grade5-games.html');
+  assert.equal(target.pathname,'/grade5/worksheet-generator/grade5-games.html');
+  assert.equal(target.origin,'https://mrksclassroom.com');
   assert.equal(target.searchParams.get('unit'),unit);
   assert.equal(target.searchParams.get('game'),game);
  }

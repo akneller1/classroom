@@ -32,6 +32,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Verify game routing, math display and money formatting
+        run: |
+          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs
+          node scripts/normalize-money.mjs --check
       - name: Build public site
         run: node scripts/build-site.mjs
       - name: Validate approved question-bank loading
@@ -98,6 +102,13 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Browser-check elementary game routing, student links and course switching
         run: node scripts/test-elementary-browser-parity.cjs _site
+      # Runs after the checks above because they expect the original page and sitemap counts.
+      - name: Build course and unit pages for Grades 3-5 and Financial Algebra
+        run: node scripts/build-integrated-unit-pages.mjs
+      - name: Add the shared Mr. K's Classroom header to activity pages
+        run: node scripts/add-site-header.mjs
+      - name: Final site check (catalog files, no off-site links, no stray text)
+        run: node scripts/test-site-hygiene.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

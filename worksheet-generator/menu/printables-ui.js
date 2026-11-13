@@ -544,7 +544,7 @@
     var link = first && first.artifacts && first.artifacts.find(function (a) {
       return a.title === 'Activity Generator' && a.bankFormat === 'printable-generator';
     });
-    return link ? link.path : 'https://akneller1.github.io/FinancialAlgebra/worksheet-generator/grade5-generators.html?mode=activity';
+    return link ? link.path : '../grade5/worksheet-generator/grade5-generators.html?mode=activity';
   }
   function classOptions(group) {
     var html = NS.CATALOG.map(function (g, i) {

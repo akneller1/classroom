@@ -417,7 +417,7 @@
     return '<p class="resource-info">' + labels.map(esc).join(' · ') + '</p>';
   }
   function reportUrl(a) {
-    var url = 'https://akneller1.github.io/classroom/' + activityUrl(a);
+    var url = 'https://mrksclassroom.com/' + activityUrl(a);
     var body = 'Activity: ' + a.title + '\nLink: ' + url + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n';
     return 'mailto:akneller@gmail.com?subject=' + encodeURIComponent('Mr. K\'s Classroom — Resource problem: ' + a.title) + '&body=' + encodeURIComponent(body);
   }
@@ -671,7 +671,7 @@
         '<h1 tabindex="-1">' + esc(c.name) + '</h1>' +
         (['algebra', 'geometry', 'algebra2', 'prealgebra', 'prealgebra7', 'math6', 'precalculus', 'calculus', 'statistics', 'discrete', 'grade5', 'financial-algebra'].indexOf(c.id) >= 0 ? '' : '<span class="course-wip-label">Coming Soon</span>') +
         (c.blurb ? '<p class="band-blurb">' + esc(c.blurb) + '</p>' : '') +
-        '<p class="band-meta">' + (c.planned ? units(c.units.length) + ' · course outline · activities coming soon' : (c.id === 'math6' || c.id === 'prealgebra7' || c.id === 'prealgebra') ? units(c.units.length) + ' with ' + lessonCount(c) + ' lessons with generators, games, and study guides' : (c.id === 'algebra' || c.id === 'geometry' || c.id === 'algebra2' || c.id === 'precalculus' || c.id === 'calculus' || c.id === 'statistics' || c.id === 'discrete') ? units(c.units.length) + ' with skills, generators, games, and study guides' : (n ? acts(n) + ' in ' + unitsWithActivities(c) + ' of ' + units(c.units.length) : units(c.units.length) + ', activities coming soon')) + '</p>' +
+        '<p class="band-meta">' + (c.planned ? units(c.units.length) + ' · course outline · activities coming soon' : n ? units(c.units.length) + ' with lesson plans, generators, games, and study guides' : units(c.units.length) + ', activities coming soon') + '</p>' +
       '</div>' + (c.art ? '<div class="band-art" aria-hidden="true">' + artFor(c) + '</div>' : '') + '</div>';
     return {
       title: c.name,
@@ -702,6 +702,8 @@
   function generatorLinks(c, u, compact) {
     // A course-level Grade 5 generator opens Unit 1; unit-level links use that unit.
     var items = u ? u.artifacts : (c && c.id === 'grade5' && c.units[0] ? c.units[0].artifacts : []);
+    // Financial Algebra's own generators: the course page opens them for Unit 1, like the elementary courses.
+    if (!u && c && c.id === 'financial-algebra' && c.units[0]) items = c.units[0].artifacts;
     var unitId = '';
     if (u) {
       if (c.id === 'geometry') {
