@@ -7,7 +7,7 @@ const G=require('../worksheet-generator/menu/tests/load.cjs')(['games/bank.js','
 G.location={hash:'#course=grade5'};
 G.fetch=async url=>({ok:true,json:async()=>JSON.parse(fs.readFileSync(path.resolve(site,'worksheet-generator',url),'utf8'))});
 const run=f=>vm.runInContext(fs.readFileSync(path.join(site,f),'utf8'),G,{filename:f});
-for(const f of ['data.js','course-integrations.js','course-catalog.js','grade5/grade5-main-catalog.js','question-bank-adapter.js','question-bank-loader.js','worksheet-generator/algebra2-bank-native.js'])run(f);
+for(const f of ['data.js','course-integrations.js','course-catalog.js','grade5/grade5-main-catalog.js','grade4-main-catalog.js','question-bank-adapter.js','question-bank-loader.js','worksheet-generator/algebra2-bank-native.js'])run(f);
 (async()=>{
  await G.MK_COURSE_BANKS_READY;
  const M=G.MKMENU,ids=Object.keys(M.skillSets).filter(id=>id.startsWith('grade5-'));
