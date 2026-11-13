@@ -1,0 +1,60 @@
+// Assemble the validated Grade 4 course from the separate FinancialAlgebra repository.
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const source=path.resolve(process.env.GRADE4_SOURCE_DIR||'_course_sources/grade4');
+const out=path.resolve('_site');
+const modulePath=path.join(source,'tools/grade4-authoring/staging/assemble-grade4.mjs');
+if(!fs.existsSync(modulePath))throw Error('Missing approved Grade 4 assembler');
+const {grade4Ready,assembleGrade4}=await import(pathToFileURL(modulePath).href);
+if(!grade4Ready(source))throw Error('Grade 4 banks are not approved');
+const course=assembleGrade4({source,out});
+if(course.units.length!==10)throw Error('Grade 4 release requires ten units');
+const skills=course.skills;
+const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
+'var L=G.LIBRARY;if(!L||!L.courses)throw Error("Grade 4 library missing");'+
+'L.courses=L.courses.filter(function(c){return c.id!=="grade4"});L.courses.push(course);'+
+'var C=G.MK_COURSE_CATALOG,old=C.getSkills,records=C.getSkillRecords;'+
+'C.getSkills=function(c,u){return c==="grade4"&&skills[u]?skills[u].slice():old(c,u)};'+
+'C.getSkillRecords=function(c,u){return c==="grade4"&&skills[u]?skills[u].map(function(n,i){return {id:u+"-skill-"+String(i+1).padStart(2,"0"),name:n,index:i+1}}):records(c,u)};'+
+'})(window);\n';
+fs.writeFileSync(path.join(out,'grade4-main-catalog.js'),bridge);
+const index=path.join(out,'index.html');
+let html=fs.readFileSync(index,'utf8');
+const anchor='<script src="app.js';
+if(!html.includes(anchor))throw Error('Grade 4 release: app.js script anchor missing');
+html=html.replace(anchor,'<script src="grade4-main-catalog.js?v=grade4-release-20261113"></script>\n'+anchor);
+fs.writeFileSync(index,html);
+const appFile=path.join(out,'app.js');let app=fs.readFileSync(appFile,'utf8');
+const projectAnchor="(c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '')";
+if(!app.includes(projectAnchor))throw Error('Grade 4 release: project category anchor missing');
+app=app.replace(projectAnchor,"(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')");
+fs.writeFileSync(appFile,app);
+for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html','printables.html','vocabulary.html']){
+ const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))continue;
+ let h=fs.readFileSync(f,'utf8');
+ const match=h.match(/<script src="\.\.\/course-catalog\.js[^"]*"><\/script>/);
+ if(!match)throw Error('Grade 4 release: catalog anchor missing '+page);
+ h=h.replace(match[0],match[0]+'\n<script src="../grade4-main-catalog.js?v=grade4-release-20261113"></script>');
+ fs.writeFileSync(f,h);
+}
+const manifestFile=path.join(out,'question-banks/manifest.json');
+const manifest=JSON.parse(fs.readFileSync(manifestFile,'utf8'));
+manifest.banks=manifest.banks.filter(x=>x.courseId!=='grade4');
+for(const unit of course.units){
+ const src=JSON.parse(fs.readFileSync(path.join(source,'question-banks/math4',unit.id+'.json'),'utf8'));
+ src.courseId='grade4';
+ for(const q of src.questions)if(q.diagram?.spec?.src){
+  const rel=q.diagram.spec.src;
+  if(rel.startsWith('/')||rel.includes('..'))throw Error('Unsafe Grade 4 diagram '+rel);
+  const target='question-banks/assets/grade4/'+rel;
+  fs.mkdirSync(path.dirname(path.join(out,target)),{recursive:true});
+  fs.copyFileSync(path.join(source,rel),path.join(out,target));q.diagram.spec.src=target;
+ }
+ const target='question-banks/grade4/'+unit.id+'.json';
+ fs.mkdirSync(path.dirname(path.join(out,target)),{recursive:true});
+ fs.writeFileSync(path.join(out,target),JSON.stringify(src));
+ manifest.banks.push({courseId:'grade4',unitId:unit.id,path:target,approved:true,teacherUse:true});
+}
+fs.writeFileSync(manifestFile,JSON.stringify(manifest,null,2)+'\n');
+console.log('Grade 4 release assembled: '+course.units.length+' units from separate source repository.');
