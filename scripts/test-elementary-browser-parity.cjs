@@ -92,7 +92,8 @@ const server=http.createServer((req,res)=>{
    await page.setViewportSize({width,height:900});
    for(const course of courses){
     await page.goto(base+'#'+course.id+'.'+course.unit,{waitUntil:'load'});
-    await page.waitForSelector('.card[data-course="'+course.id+'"] .share-student,.card[data-course="'+course.id+'"] .finance-student-link',{timeout:20000});
+    await page.waitForSelector('.card[data-course="'+course.id+'"] .actions .btn',{timeout:20000});
+    if(course.id!=='financial-algebra')await page.waitForSelector('.card[data-course="'+course.id+'"] .share-student',{timeout:20000});
     const clipped=await page.locator('.card .actions .btn').evaluateAll(buttons=>buttons.flatMap(button=>{
      const card=button.closest('.card'),b=button.getBoundingClientRect(),c=card.getBoundingClientRect();
      return b.bottom>c.bottom-1||b.top<c.top||b.left<c.left||b.right>c.right?[{label:button.textContent.trim(),card:card.querySelector('h3')?.textContent}]:[];
