@@ -249,7 +249,7 @@ aside{display:grid;gap:16px}
     $("gameTag").textContent = remix ? "Changing tables. Rising speed. How long can you survive?" : "Tap the multiples in order, up to " + selectedLimit() + ".";
     $("setupTitle").textContent = remix ? "Remix Survival" : "Choose your times table";
     $("startBtn").textContent = remix ? "Start Remix" : "Start";
-    $("modeNote").textContent = remix ? "Random tables switch after 4–12 catches or 20 seconds. Continue from your last number, with occasional drops after 150. Three lives. Survive as speed increases!" : "Classic: choose a table and climb to " + selectedLimit() + ".";
+    $("modeNote").textContent = remix ? "Tables switch after 4–12 catches or 20 seconds, using a divisor of your current number. At 100 or above, reset to the current table’s first multiple. Three lives. Survive as speed increases!" : "Classic: choose a table and climb to " + selectedLimit() + ".";
     renderRecords(); hud();
   });
   const difficulty = () => $("difficulty").value === "hard" ? "hard" : "normal";
@@ -342,7 +342,7 @@ aside{display:grid;gap:16px}
     }
     const top = sorted(selN)[0];
     if(mode() === "remix"){
-      $("toBeat").textContent = top ? "Remix record: " + top.name + " survived " + fmt(top.timeMs) + " with " + (top.caught || 0) + " catches." : "Survive as long as you can. Tables change after 4–12 catches or 20 seconds. Continue above your last number, with occasional drops after 150.";
+      $("toBeat").textContent = top ? "Remix record: " + top.name + " survived " + fmt(top.timeMs) + " with " + (top.caught || 0) + " catches." : "Survive as long as you can. Switch to tables that divide your current number. At 100 or above, restart from the current table’s first multiple; speed keeps increasing.";
       return;
     }
     $("toBeat").innerHTML = top
@@ -476,6 +476,7 @@ aside{display:grid;gap:16px}
     if(t.val === needed()){
       S.lastValue = t.val; S.peak = Math.max(S.peak, t.val); S.found++; S.caught++; kill(t, "pop"); beep(520 + Math.min(S.found,40)*12, .09);
       S.sinceNeed = 0;
+      if(S.mode === "remix" && S.lastValue >= 100) return switchTable(true);
       if(S.found >= S.total){ if(S.mode === "remix") return switchTable(); return finish(true); }
       hud();
     } else {
@@ -549,24 +550,29 @@ aside{display:grid;gap:16px}
 
   function show(id){ ["setup","countdown","paused","over","remixIntro"].forEach(o => $(o).hidden = o !== id); }
 
-  function randomTable(previous){
-    const choices = Array.from({length:12},(_,i)=>i+1).filter(n=>n!==previous);
-    return choices[Math.floor(Math.random()*choices.length)];
+  function randomTable(previous, value=0){
+    const choices = Array.from({length:12},(_,i)=>i+1)
+      .filter(n=>n!==previous && (!value || value % n === 0));
+    return choices.length ? choices[Math.floor(Math.random()*choices.length)] : previous;
   }
-  function switchTable(){
-    S.tiles.forEach(t=>kill(t)); S.tiles = [];
-    S.n = randomTable(S.n);
-    S.dropFrom = 0;
-    if(S.lastValue >= 150 && Math.random() < 0.3){
-      S.dropFrom = S.lastValue;
-      S.lastValue = Math.max(S.n, Math.floor(S.lastValue * (0.2 + Math.random()*0.5) / S.n) * S.n);
+  function switchTable(reset=false){
+    const next = reset ? S.n : randomTable(S.n, S.lastValue);
+    // A number such as 13 on the 1s has no other eligible table yet.
+    if(!reset && next === S.n){
+      S.total = S.found + 1; S.sinceSwitch = 18; return;
     }
-    S.offset = Math.floor(S.lastValue / S.n);
+    S.tiles.forEach(t=>kill(t)); S.tiles = [];
+    S.dropFrom = reset ? S.lastValue : 0;
+    S.n = next;
+    if(reset) S.lastValue = S.n;
+    S.offset = S.lastValue / S.n;
     S.found = 0; S.total = roundLength(); S.sinceSwitch = 0;
     S.sinceSpawn = 9; S.sinceNeed = 0; S.round++;
     S.phase = "switch"; S.switchWait = 2;
     $("remixNumber").textContent = S.n + "s";
-    $("remixInstruction").textContent = S.dropFrom ? "Number drop! " + S.dropFrom + " → " + S.lastValue + ". Continue with multiples of " + S.n + " above " + S.lastValue + "." : S.lastValue ? "Continue with multiples of " + S.n + " above " + S.lastValue + ". Keep climbing!" : "Tap the multiples of " + S.n + " in order!";
+    $("remixInstruction").textContent = reset
+      ? "You reached " + S.dropFrom + "! Count resets to " + S.n + ". Keep going in " + S.n + "s!"
+      : "At " + S.lastValue + ", switch to multiples of " + S.n + ". Keep climbing!";
     $("pauseBtn").disabled = true;
     show("remixIntro"); hud(); beep(880,0.2);
   }
