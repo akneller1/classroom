@@ -32,7 +32,7 @@ let pass = 0, fail = 0; const ok = (c, m) => { if (c) pass++; else { fail++; con
   }
   /* course page and partner checks / cheat sheets */
   { const q = await context.newPage(); await q.goto(`${base}/index.html#discrete`); await q.waitForTimeout(800);
-    ok(await q.evaluate(() => /10 units with skills, generators, games, and study guides/.test(document.body.textContent) && !document.querySelector('.course-wip-label')), 'Discrete Math course page is published');
+    ok(await q.evaluate(() => /10 units with (?:skills|lesson plans), generators, games, and study guides/.test(document.body.textContent) && !document.querySelector('.course-wip-label')), 'Discrete Math course page is published');
     await q.goto(`${base}/index.html#discrete.graphs-trees`); await q.waitForTimeout(900);
     for (const pth of ['artifacts/discrete-graphs-trees-cheat-sheet/worksheet.pdf', 'worksheet-generator/millionaire.html?course=discrete&unit=graphs-trees'])
       ok(await q.evaluate(p => !!document.querySelector('li.card[data-path="' + p + '"]'), pth), 'graphs-trees lists ' + pth);
