@@ -131,7 +131,7 @@ aside{display:grid;gap:16px}
 <div class="wrap">
   <header>
     <h1>Multiple <span>Drop</span></h1>
-    <p class="tag">Tap the multiples in order, up to 150.</p>
+    <p class="tag" id="gameTag">Tap the multiples in order, up to 150.</p>
   </header>
 
   <div class="main">
@@ -155,11 +155,11 @@ aside{display:grid;gap:16px}
 
         <div class="overlay" id="setup">
           <form class="card" id="setupForm" autocomplete="off">
-            <h2>Choose your times table</h2>
+            <h2 id="setupTitle">Choose your times table</h2>
             <label class="f" for="nameIn">Nickname
               <input type="text" id="nameIn" maxlength="20" placeholder="Choose a nickname" required>
             </label>
-            <div class="f" style="display:grid;gap:6px">
+            <div class="f" id="tableChoice" style="display:grid;gap:6px">
               <span style="font-weight:500;font-size:13px">Your number</span>
               <div class="picker" id="picker" role="group" aria-label="Pick a number from 1 to 12"></div>
             </div>
@@ -173,6 +173,7 @@ aside{display:grid;gap:16px}
           </form>
         </div>
 
+        <div class="overlay" id="remixIntro" hidden><div class="card" style="text-align:center"><h2>New times table!</h2><div class="big-num" id="remixNumber"></div><p>Start from the first multiple. Tap in order!</p></div></div>
         <div class="overlay" id="countdown" hidden><div class="count" id="countEl">3</div></div>
 
         <div class="overlay" id="paused" hidden>
@@ -198,6 +199,10 @@ aside{display:grid;gap:16px}
     <aside>
       <section class="panel" aria-labelledby="settingsH">
         <h3 id="settingsH">Settings</h3>
+        <label class="f" for="gameMode">Game mode
+          <select id="gameMode" style="font:inherit;padding:8px;border-radius:8px;background:var(--paper);color:var(--ink);border:1px solid var(--line)"><option value="classic" selected>Classic</option><option value="remix">Remix Survival</option></select>
+        </label>
+        <p class="store-note" id="modeNote">Classic: choose a table and climb to 150.</p>
         <label class="f" for="difficulty">Difficulty
           <select id="difficulty" style="font:inherit;padding:8px;border-radius:8px;background:var(--paper);color:var(--ink);border:1px solid var(--line)"><option value="normal" selected>Normal</option><option value="hard">Hard</option></select>
         </label>
@@ -209,7 +214,7 @@ aside{display:grid;gap:16px}
         <ol class="lead" id="leadEl"></ol>
         <p class="store-note" id="storeNote">Scores are saved on this device only.</p>
       </section>
-      <section class="panel" aria-labelledby="champH">
+      <section class="panel" id="champPanel" aria-labelledby="champH">
         <h3 id="champH"><span>Record holders</span><em>farthest reached</em></h3>
         <div class="champs" id="champsEl"></div>
       </section>
@@ -224,6 +229,16 @@ aside{display:grid;gap:16px}
   const $ = id => document.getElementById(id);
   const field = $("field");
   let selN = 7;
+  const mode = () => $("gameMode").value === "remix" ? "remix" : "classic";
+  $("gameMode").addEventListener("change", () => {
+    const remix = mode() === "remix";
+    $("tableChoice").hidden = remix;
+    $("gameTag").textContent = remix ? "Changing tables. Rising speed. How long can you survive?" : "Tap the multiples in order, up to 150.";
+    $("setupTitle").textContent = remix ? "Remix Survival" : "Choose your times table";
+    $("startBtn").textContent = remix ? "Start Remix" : "Start";
+    $("modeNote").textContent = remix ? "Random tables switch after 8 catches or 20 seconds. Three lives. Survive as speed increases!" : "Classic: choose a table and climb to 150.";
+    renderRecords(); hud();
+  });
   const difficulty = () => $("difficulty").value === "hard" ? "hard" : "normal";
   $("difficulty").addEventListener("change", () => {
     $("difficultyNote").textContent = difficulty() === "hard" ? "Hard: later multiples can arrive early and fall slower. Still tap in order!" : "Normal: correct multiples fall in order.";
@@ -243,16 +258,17 @@ aside{display:grid;gap:16px}
   const slug = s => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40) || "player";
   function better(a,b){ // is a better than b
     if(!b) return true;
+    if(a.mode === "remix") return a.timeMs > b.timeMs || (a.timeMs === b.timeMs && a.caught > (b.caught || 0));
     if(a.reached !== b.reached) return a.reached > b.reached;
     if(a.won && b.won) return a.timeMs < b.timeMs;
     return false;
   }
   function sorted(n){
-    return [...records.entries()].map(([id,r])=>({id,...r})).filter(r=>r.number===n && (r.difficulty || "normal") === difficulty())
-      .sort((a,b)=> b.reached-a.reached || (a.won&&b.won ? a.timeMs-b.timeMs : 0) || String(a.at).localeCompare(String(b.at)));
+    return [...records.entries()].map(([id,r])=>({id,...r})).filter(r=>(r.mode || "classic") === mode() && (mode() === "remix" || r.number===n) && (r.difficulty || "normal") === difficulty())
+      .sort((a,b)=> (mode() === "remix" ? b.timeMs-a.timeMs || (b.caught||0)-(a.caught||0) : b.reached-a.reached) || (a.won&&b.won ? a.timeMs-b.timeMs : 0) || String(a.at).localeCompare(String(b.at)));
   }
   async function saveRecord(rec){
-    const id = slug(rec.name) + "-" + rec.number + (rec.difficulty === "hard" ? "-hard" : "");
+    const id = slug(rec.name) + "-" + (rec.mode === "remix" ? "remix" : rec.number) + (rec.difficulty === "hard" ? "-hard" : "");
     const prev = records.get(id);
     if(!better(rec, prev)) return false;
     records.set(id, rec);
@@ -273,19 +289,20 @@ aside{display:grid;gap:16px}
   // ---------- Records UI ----------
   const fmt = ms => { const s = ms/1000, m = Math.floor(s/60); return m + ":" + (s%60).toFixed(1).padStart(4,"0"); };
   function renderRecords(){
-    $("leadFor").textContent = selN + "s";
+    $("leadFor").textContent = mode() === "remix" ? "Remix · longest survival" : selN + "s";
+    $("champPanel").hidden = mode() === "remix";
     const list = sorted(selN).slice(0,10);
     const ol = $("leadEl"); ol.textContent = "";
     if(!list.length){
       const li = document.createElement("p"); li.className="empty";
-      li.textContent = "No one has played the " + selN + "s yet. Set the first record.";
+      li.textContent = (mode() === "remix" ? "No Remix records yet. See how long you can survive!" : "No one has played the " + selN + "s yet. Set the first record.");
       ol.appendChild(li);
     }
     list.forEach((r,i) => {
       const li = document.createElement("li");
       const rk = document.createElement("span"); rk.className="rk"; rk.textContent = i+1;
       const nm = document.createElement("span"); nm.className="nm"; nm.textContent = r.name;
-      const sc = document.createElement("span"); sc.className="sc"; sc.textContent = r.reached;
+      const sc = document.createElement("span"); sc.className="sc"; sc.textContent = mode() === "remix" ? fmt(r.timeMs) : r.reached;
       if(r.won){ const sm=document.createElement("small"); sm.textContent = "won · " + fmt(r.timeMs); sc.appendChild(sm); }
       li.append(rk,nm,sc);
       if(canDelete){
@@ -311,6 +328,10 @@ aside{display:grid;gap:16px}
       ch.appendChild(b);
     }
     const top = sorted(selN)[0];
+    if(mode() === "remix"){
+      $("toBeat").textContent = top ? "Remix record: " + top.name + " survived " + fmt(top.timeMs) + " with " + (top.caught || 0) + " catches." : "Survive as long as you can. A new table starts after 8 catches or 20 seconds.";
+      return;
+    }
     $("toBeat").innerHTML = top
       ? "Record to beat on the " + selN + "s: <b></b> reached <b></b>" + (top.won ? " and finished in " + fmt(top.timeMs) + "." : ".")
       : "No record yet for the " + selN + "s. Yours will be the first.";
@@ -439,9 +460,9 @@ aside{display:grid;gap:16px}
   function hit(t){
     if(!S || S.phase !== "play" || t.dead) return;
     if(t.val === needed()){
-      S.found++; kill(t, "pop"); beep(520 + Math.min(S.found,40)*12, .09);
+      S.found++; S.caught++; kill(t, "pop"); beep(520 + Math.min(S.found,40)*12, .09);
       S.sinceNeed = 0;
-      if(S.found >= S.total) return finish(true);
+      if(S.found >= S.total){ if(S.mode === "remix") return switchTable(); return finish(true); }
       hud();
     } else {
       t.el.classList.add("wrong"); t.dead = true; setTimeout(()=>t.el.remove(), 320);
@@ -458,7 +479,7 @@ aside{display:grid;gap:16px}
     $("needLabel").textContent = hintEnabled() ? "Find" : "Table";
     $("needEl").textContent = hintEnabled() ? (S ? need : "–") : (S ? S.n : selN) + "s";
     $("progTxt").textContent = S ? `${S.n} × ${S.found} = ${S.n*S.found}` : "Pick a number to start";
-    $("goalTxt").textContent = S ? `goal ${S.n*S.total}` : "";
+    $("goalTxt").textContent = S ? (S.mode === "remix" ? "Remix · round " + S.round : `goal ${S.n*S.total}`) : "";
     $("barEl").style.width = S ? (S.found / S.total * 100) + "%" : "0";
     const L = $("livesEl"); L.textContent = "";
     for(let i=0;i<LIVES;i++){ const s=document.createElement("span"); if(!S || i >= S.lives) s.className = S ? "off" : ""; L.appendChild(s); }
@@ -469,11 +490,20 @@ aside{display:grid;gap:16px}
     raf = requestAnimationFrame(tick);
     const dt = Math.min(0.05, (ts - (last||ts)) / 1000); last = ts;
     musicTick();
+    if(S && S.phase === "switch"){
+      S.switchWait -= dt;
+      if(S.switchWait <= 0){ S.phase = "play"; show(null); $("pauseBtn").disabled = false; }
+      return;
+    }
     if(!S || S.phase !== "play") return;
     S.elapsed += dt; S.sinceSpawn += dt; S.sinceNeed += dt;
+    if(S.mode === "remix"){
+      S.sinceSwitch += dt;
+      if(S.sinceSwitch >= 20){ switchTable(); return; }
+    }
     const p = S.found / S.total;
-    const speed = H * (0.105 + 0.27 * p);            // full drop ~9.5s at start, ~2.7s near the end
-    const every = 1.15 - 0.6 * p;                     // seconds between tiles
+    const speed = H * (S.mode === "remix" ? 0.105 + 0.6 * (1 - Math.exp(-S.elapsed / 180)) : 0.105 + 0.27 * p);            // full drop ~9.5s at start, ~2.7s near the end
+    const every = S.mode === "remix" ? Math.max(0.3, 1.15 - S.elapsed * 0.003) : 1.15 - 0.6 * p;                     // seconds between tiles
     const need = needed();
     if(S.sinceSpawn >= every){
       const haveNeed = onScreen(need);
@@ -503,22 +533,36 @@ aside{display:grid;gap:16px}
     $("timerEl").textContent = fmt(S.elapsed*1000);
   }
 
-  function show(id){ ["setup","countdown","paused","over"].forEach(o => $(o).hidden = o !== id); }
+  function show(id){ ["setup","countdown","paused","over","remixIntro"].forEach(o => $(o).hidden = o !== id); }
 
+  function randomTable(previous){
+    const choices = Array.from({length:12},(_,i)=>i+1).filter(n=>n!==previous);
+    return choices[Math.floor(Math.random()*choices.length)];
+  }
+  function switchTable(){
+    S.tiles.forEach(t=>kill(t)); S.tiles = [];
+    S.n = randomTable(S.n); S.found = 0; S.sinceSwitch = 0;
+    S.sinceSpawn = 9; S.sinceNeed = 0; S.round++;
+    S.phase = "switch"; S.switchWait = 2;
+    $("remixNumber").textContent = S.n + "s";
+    $("pauseBtn").disabled = true;
+    show("remixIntro"); hud(); beep(880,0.2);
+  }
   function start(){
     const name = nameIn.value.trim().slice(0,20); if(!name) return;
     try{ localStorage.setItem("multiple-drop-name", name); }catch(e){}
     field.querySelectorAll(".tile").forEach(t=>t.remove());
     measure();
     beat = 0; nextBeat = 0;
-    S = { name, difficulty: difficulty(), n: selN, total: Math.floor(LIMIT/selN), found:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
-    hud(); $("pauseBtn").disabled = false; $("difficulty").disabled = true;
+    const n = mode() === "remix" ? randomTable() : selN;
+    S = { name, mode: mode(), difficulty: difficulty(), n, total: mode() === "remix" ? 8 : Math.floor(LIMIT/n), found:0, caught:0, round:1, sinceSwitch:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
+    hud(); $("pauseBtn").disabled = false; $("difficulty").disabled = true; $("gameMode").disabled = true;
     show("countdown");
     let c = 3; $("countEl").textContent = c; beep(440,.1);
     const iv = setInterval(() => {
       c--;
       if(c > 0){ $("countEl").textContent = c; beep(440,.1); }
-      else { clearInterval(iv); show(null); S.phase = "play"; last = 0; beep(880,.15); }
+      else { clearInterval(iv); if(S.mode === "remix"){ $("remixNumber").textContent = S.n + "s"; S.phase = "switch"; S.switchWait = 2; show("remixIntro"); $("pauseBtn").disabled = true; } else { show(null); S.phase = "play"; } last = 0; beep(880,.15); }
     }, 700);
   }
 
@@ -526,19 +570,24 @@ aside{display:grid;gap:16px}
     S.phase = "over"; $("pauseBtn").disabled = true;
     const reached = S.n * S.found;
     const prevTop = sorted(S.n)[0];
-    const rec = { name: S.name, difficulty: S.difficulty, number: S.n, reached, won, timeMs: Math.round(S.elapsed*1000), at: new Date().toISOString() };
+    const rec = { name: S.name, mode: S.mode, caught: S.caught, difficulty: S.difficulty, number: S.n, reached, won, timeMs: Math.round(S.elapsed*1000), at: new Date().toISOString() };
     S.tiles.forEach(t => { if(!t.dead) kill(t); });
     $("overTitle").textContent = won ? `You cleared the ${S.n}s!` : "Out of lives";
     $("overNum").textContent = reached;
     $("overSub").textContent = won
       ? `${S.name} reached ${reached} in ${fmt(rec.timeMs)}.`
       : `${S.name} made it to ${reached} on the ${S.n}s.` + (reached < S.n*S.total ? ` The next one was ${reached + S.n}.` : "");
+    if(S.mode === "remix"){
+      $("overTitle").textContent = "Remix Survival";
+      $("overNum").textContent = fmt(rec.timeMs);
+      $("overSub").textContent = S.name + " survived " + fmt(rec.timeMs) + " with " + S.caught + " catches across " + S.round + " tables.";
+    }
     $("overBadge").textContent = "";
     show("over"); hud();
     won ? [523,659,784,1047].forEach((f,i)=>setTimeout(()=>beep(f,.14),i*110)) : beep(120,.35,"sawtooth",.05);
     const saved = await saveRecord(rec);
     if(reached > 0 && better(rec, prevTop)){
-      $("overBadge").innerHTML = '<span class="badge">New record for the ' + S.n + 's</span>';
+      $("overBadge").innerHTML = '<span class="badge">' + (S.mode === 'remix' ? 'New Remix record' : 'New record for the ' + S.n + 's') + '</span>';
     } else if(saved){
       $("overBadge").innerHTML = '<span class="badge" style="background:var(--good);color:#fff">Personal best</span>';
     }
@@ -546,7 +595,7 @@ aside{display:grid;gap:16px}
 
   function pause(){ if(S && S.phase==="play"){ S.phase="paused"; show("paused"); $("pauseBtn").textContent="Resume"; } else if(S && S.phase==="paused") resume(); }
   function resume(){ S.phase="play"; last=0; show(null); $("pauseBtn").textContent="Pause"; }
-  function toSetup(){ if(S) S.tiles.forEach(t=>t.el.remove()); S = null; $("difficulty").disabled = false; $("pauseBtn").disabled = true; $("pauseBtn").textContent="Pause"; hud(); show("setup"); drawDeco(); }
+  function toSetup(){ if(S) S.tiles.forEach(t=>t.el.remove()); S = null; $("gameMode").disabled = false; $("difficulty").disabled = false; $("pauseBtn").disabled = true; $("pauseBtn").textContent="Pause"; hud(); show("setup"); drawDeco(); }
 
   $("setupForm").addEventListener("submit", e => { e.preventDefault(); start(); });
   $("pauseBtn").onclick = pause;
