@@ -124,7 +124,19 @@ aside{display:grid;gap:16px}
 .champ.none .who,.champ.none .v{color:var(--muted)}
 .store-note{font-size:12px;color:var(--muted);margin:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-@media (prefers-reduced-motion:reduce){.tile.pop{animation:none;opacity:0}.tile.wrong{animation:none}.bar i{transition:none}}
+/* Century celebration stays inside the playfield and never blocks controls. */
+#remixIntro.celebrating{background:rgba(18,12,54,.92);isolation:isolate}
+#remixIntro .card{position:relative;z-index:2}
+#remixIntro.celebrating .card{background:#25194b;color:#fff;border:3px solid #ffd65a;box-shadow:0 0 40px #ffcc5555}
+#remixIntro.celebrating .card p{color:#fff3ca}
+.milestone{font-family:var(--f-display);font-size:clamp(60px,12vw,108px);line-height:1;color:#ffe55e;text-shadow:0 4px #e54d74,0 0 24px #ffbd44;animation:milestone-pop .6s ease-out both}
+.milestone-sub{font-weight:700;letter-spacing:.12em;color:#ffd65a;font-size:13px;text-transform:uppercase}
+.fireworks{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
+.firework{position:absolute;width:0;height:0}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--color);box-shadow:0 0 8px var(--color);opacity:0;animation:firework-burst 1.6s ease-out var(--delay) both}
+@keyframes firework-burst{0%{opacity:0;transform:translate(0,0) scale(.3)}8%{opacity:1}75%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.15)}}
+@keyframes milestone-pop{0%{transform:scale(.35) rotate(-10deg);opacity:0}65%{transform:scale(1.12) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0);opacity:1}}
+@media (prefers-reduced-motion:reduce){.milestone{animation:none}.spark{animation:none;opacity:.6;transform:translate(var(--dx),var(--dy))}.tile.pop{animation:none;opacity:0}.tile.wrong{animation:none}.bar i{transition:none}}
 </style>
 
 </head><body style="margin:0">
@@ -173,7 +185,7 @@ aside{display:grid;gap:16px}
           </form>
         </div>
 
-        <div class="overlay" id="remixIntro" hidden><div class="card" style="text-align:center"><h2>New times table!</h2><div class="big-num" id="remixNumber"></div><p id="remixInstruction">Tap the multiples in order!</p></div></div>
+        <div class="overlay" id="remixIntro" hidden><div class="fireworks" id="fireworks" aria-hidden="true"></div><div class="card" style="text-align:center"><div id="milestoneBlock" hidden><div class="milestone" role="status">100!!!</div><div class="milestone-sub">Century unlocked!</div></div><h2 id="remixHeading">New times table!</h2><div class="big-num" id="remixNumber"></div><p id="remixInstruction">Tap the multiples in order!</p><p id="remixResume" class="store-note">Get ready…</p></div></div>
         <div class="overlay" id="countdown" hidden><div class="count" id="countEl">3</div></div>
 
         <div class="overlay" id="paused" hidden>
@@ -507,6 +519,7 @@ aside{display:grid;gap:16px}
     musicTick();
     if(S && S.phase === "switch"){
       S.switchWait -= dt;
+      $("remixResume").textContent = "Back to the action in " + Math.max(1, Math.ceil(S.switchWait)) + "…";
       if(S.switchWait <= 0){ S.phase = "play"; show(null); $("pauseBtn").disabled = false; }
       return;
     }
@@ -548,12 +561,43 @@ aside{display:grid;gap:16px}
     $("timerEl").textContent = fmt(S.elapsed*1000);
   }
 
-  function show(id){ ["setup","countdown","paused","over","remixIntro"].forEach(o => $(o).hidden = o !== id); }
+  function show(id){ if(id !== "remixIntro") clearCelebration(); ["setup","countdown","paused","over","remixIntro"].forEach(o => $(o).hidden = o !== id); }
 
   function randomTable(previous, value=0){
     const choices = Array.from({length:12},(_,i)=>i+1)
       .filter(n=>n!==previous && (!value || value % n === 0));
     return choices.length ? choices[Math.floor(Math.random()*choices.length)] : previous;
+  }
+  function clearCelebration(){
+    $("remixIntro").classList.remove("celebrating");
+    $("milestoneBlock").hidden = true;
+    $("fireworks").textContent = "";
+    $("remixHeading").textContent = "New times table!";
+  }
+  function celebrateCentury(){
+    $("remixIntro").classList.add("celebrating");
+    $("milestoneBlock").hidden = false;
+    $("remixHeading").textContent = "What a run! Keep it going!";
+    const colors = ["#ffdf55","#ff5f99","#56e8ff","#b088ff","#8cffad","#ffffff"];
+    for(let burst=0;burst<6;burst++){
+      const origin = document.createElement("div"); origin.className = "firework";
+      origin.style.left = [15,80,48,22,86,55][burst] + "%";
+      origin.style.top = [20,18,65,76,72,12][burst] + "%";
+      for(let i=0;i<20;i++){
+        const spark = document.createElement("i"); spark.className = "spark";
+        const angle = i*Math.PI/10, distance = 65+(i%4)*17;
+        spark.style.setProperty("--dx",Math.cos(angle)*distance+"px");
+        spark.style.setProperty("--dy",Math.sin(angle)*distance+28+"px");
+        spark.style.setProperty("--color",colors[(i+burst)%colors.length]);
+        spark.style.setProperty("--delay",burst*0.36+"s");
+        origin.appendChild(spark);
+      }
+      $("fireworks").appendChild(origin);
+    }
+    const run = S;
+    [523.25,659.25,783.99,1046.5,783.99,1046.5,1318.5].forEach((note,i)=>{
+      setTimeout(()=>{if(S===run && S.phase==="switch")beep(note,0.22,"triangle",0.07);},i*110);
+    });
   }
   function switchTable(reset=false){
     const next = reset ? S.n : randomTable(S.n, S.lastValue);
@@ -568,7 +612,9 @@ aside{display:grid;gap:16px}
     S.offset = S.lastValue / S.n;
     S.found = 0; S.total = roundLength(); S.sinceSwitch = 0;
     S.sinceSpawn = 9; S.sinceNeed = 0; S.round++;
-    S.phase = "switch"; S.switchWait = 2;
+    S.phase = "switch"; S.switchWait = reset ? 4 : 2;
+    clearCelebration(); if(reset) celebrateCentury();
+    $("remixResume").textContent = "Back to the action in " + S.switchWait + "…";
     $("remixNumber").textContent = S.n + "s";
     $("remixInstruction").textContent = reset
       ? "You reached " + S.dropFrom + "! Count resets to " + S.n + ". Keep going in " + S.n + "s!"
@@ -577,6 +623,7 @@ aside{display:grid;gap:16px}
     show("remixIntro"); hud(); beep(880,0.2);
   }
   function start(){
+    clearCelebration(); $("remixResume").textContent = "Get ready…";
     const name = nameIn.value.trim().slice(0,20); if(!name) return;
     const limit = selectedLimit(); $("finishLine").value = limit;
     try{ localStorage.setItem("multiple-drop-name", name); }catch(e){}
