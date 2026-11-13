@@ -3,9 +3,9 @@
 'use strict';
 const catalog=G.MK_INTEGRATED_STUDENT_SKILLS||{};
 function supports(resource) {
- if(!resource || !['grade5','financial-algebra'].includes(resource.courseId))return false;
+ if(!resource || !['grade4','grade5','financial-algebra'].includes(resource.courseId))return false;
  const type=String(resource.type||''),path=String(resource.path||'');
- if(resource.courseId==='grade5'){
+ if(resource.courseId==='grade4'||resource.courseId==='grade5'){
   if(type==='Game')return !/[?&]game=fraction-frenzy(?:&|$)/.test(path);
   return type==='Study Guide'&&resource.title==='Understanding Check';
  }
@@ -14,7 +14,9 @@ function supports(resource) {
 function open(resource){
  if(!supports(resource))return false;
  const target=new URL(resource.path,G.location.href);
- const unit=target.searchParams.get('unit'),skills=(catalog[resource.courseId]||{})[unit];
+ const unit=target.searchParams.get('unit');
+ const records=resource.courseId==='grade4'&&G.MK_COURSE_CATALOG&&G.MK_COURSE_CATALOG.getSkillRecords?G.MK_COURSE_CATALOG.getSkillRecords('grade4',unit):null;
+ const skills=resource.courseId==='grade4'?records:(catalog[resource.courseId]||{})[unit];
  if(!unit||!Array.isArray(skills)||!skills.length){G.alert('The unit skill list could not be loaded.');return false;}
  const previous=G.document.activeElement,doc=G.document;
  const existing=doc.getElementById('integrated-skill-share-dialog');if(existing)existing.close();
@@ -22,7 +24,7 @@ function open(resource){
  dialog.setAttribute('aria-label','Choose skills and generate student link');
  dialog.style.cssText='box-sizing:border-box;width:min(650px,94vw);max-height:90vh;overflow:auto;border:2px solid #3456d1;border-radius:16px;padding:22px;background:#fff;color:#17233b;font:16px/1.5 system-ui;';
  const h=doc.createElement('h2');h.textContent='Choose skills for this activity';h.style.margin='0 0 8px';dialog.appendChild(h);
- const context=doc.createElement('p');context.textContent=resource.title+' · '+(resource.courseId==='grade5'?'Grade 5':'Financial Algebra');context.style.fontWeight='700';dialog.appendChild(context);
+ const context=doc.createElement('p');context.textContent=resource.title+' · '+(resource.courseId==='grade4'?'Grade 4':resource.courseId==='grade5'?'Grade 5':'Financial Algebra');context.style.fontWeight='700';dialog.appendChild(context);
  const intro=doc.createElement('p');intro.textContent='Select the skills students should practice. The generated link will use only those skills.';dialog.appendChild(intro);
  const bar=doc.createElement('div');bar.style.cssText='display:flex;flex-wrap:wrap;gap:8px;margin:12px 0';dialog.appendChild(bar);
  function button(text,parent,fn){const b=doc.createElement('button');b.type='button';b.textContent=text;b.className='btn btn-ghost';b.style.cssText='padding:8px 13px;cursor:pointer';b.addEventListener('click',fn);parent.appendChild(b);return b;}
@@ -30,7 +32,7 @@ function open(resource){
  const inputs=skills.map(function(skill){const label=doc.createElement('label');label.style.cssText='display:flex;align-items:baseline;gap:10px;padding:7px 3px;cursor:pointer';const input=doc.createElement('input');input.type='checkbox';input.checked=true;input.value=skill.id;input.style.cssText='width:18px;height:18px;flex:none';label.append(input,doc.createTextNode(skill.name));fieldset.appendChild(label);return input;});
  dialog.appendChild(fieldset);
  let level=null;
- if(resource.courseId==='grade5'){
+ if(resource.courseId==='grade4'||resource.courseId==='grade5'){
   const label=doc.createElement('label');label.textContent='Student level ';label.style.cssText='display:block;font-weight:700;margin:14px 0';
   level=doc.createElement('select');level.style.cssText='display:block;padding:9px;margin:5px 0;width:100%;max-width:260px';
   [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function(pair){const o=doc.createElement('option');o.value=pair[0];o.textContent=pair[1];o.selected=pair[0]==='cp1';level.appendChild(o);});
