@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 
-const source=path.resolve(process.env.GRADE3_SOURCE_DIR||'_course_sources/grade2');
+const source=path.resolve(process.env.GRADE2_SOURCE_DIR||'_course_sources/grade2');
 const out=path.resolve('_site');
 const fail=message=>{throw Error('Grade 2 release: '+message);};
 const m=JSON.parse(fs.readFileSync(path.join(source,'manifest.json'),'utf8'));
@@ -13,9 +13,9 @@ const banks=m.banks.filter(b=>b.courseId==='math2');
 if(banks.length!==12||new Set(banks.map(b=>b.unitId)).size!==12||banks.some(b=>b.preview!==true||b.approved!==false))fail('expected twelve verified Grade 2 source banks');
 const assembler=path.join(source,'tools/grade2-authoring/staging/assemble-grade2.mjs');
 if(!fs.existsSync(assembler))fail('staging assembler missing');
-const {grade2Ready,assembleGrade3}=await import(pathToFileURL(assembler).href);
+const {grade2Ready,assembleGrade2}=await import(pathToFileURL(assembler).href);
 if(!grade2Ready(source))fail('source not ready');
-const course=assembleGrade3({source,out});
+const course=assembleGrade2({source,out});
 if(course.units.length!==12)fail('expected twelve units');
 addMultipleDrop(course);
 const skills=course.skills;
@@ -54,7 +54,7 @@ fs.writeFileSync(appFile,app);
 for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(name=>name.endsWith('.html')&&fs.readFileSync(path.join(out,'worksheet-generator',name),'utf8').includes('../course-catalog.js'))){
  const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))fail('missing '+page);
  let h=fs.readFileSync(f,'utf8'),anchor='<script src="../grade3-main-catalog.js';
- if(!h.includes(anchor))fail('Grade 4 course catalog anchor missing in '+page);
+ if(!h.includes(anchor))fail('Grade 3 course catalog anchor missing in '+page);
  h=h.replace(anchor,'<script src="../grade2-main-catalog.js?v=grade2-release"></script>\n'+anchor);
  if(page==='lesson-planner.html')h=h.replace('planner/planner-ui.js?v=','planner/planner-ui.js?v='+version+'-');
  fs.writeFileSync(f,h);
@@ -82,5 +82,5 @@ for(const unit of course.units){
  native.banks.push({courseId:'grade2',unitId:unit.id,path:target,approved:true,teacherUse:true});
 }
 fs.writeFileSync(manifestFile,JSON.stringify(native,null,2)+'\n');
-console.log('Grade 2 assembled: 11 units from FinancialAlgebra, using existing Classroom generators and Grade 2 players.');
+console.log('Grade 2 assembled: 12 units from FinancialAlgebra, using existing Classroom generators and Grade 2 players.');
 
