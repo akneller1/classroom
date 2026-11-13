@@ -1,0 +1,383 @@
+<!doctype html><html lang="en"><head><title>Times Table Sorter | Mr. K’s Classroom</title><meta name="description" content="Build multiplication fluency by sorting product tiles into a times table. Choose easy, medium or hard and tables up to 12×12."><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body style="margin:0">
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;700&display=swap">
+<style>
+/* Layout: control strip on top; multiplication grid on graph paper at left, tile tray at right; stacks on phones. */
+:root{
+  --paper:#eaf1f8; --grid:rgba(47,91,211,.10); --grid-strong:rgba(47,91,211,.20);
+  --ink:#15233a; --muted:#5a6b84; --surface:#ffffff; --line:#cfdbea;
+  --accent:#2f5bd3; --accent-ink:#ffffff; --head:#dfe8ff; --head-ink:#1d3a8f; --hl:#fff1c2;
+  --good:#1f9d64; --good-bg:#d9f3e6; --bad:#d6453a; --gold:#e0a21b;
+  --tile-ink:#13202f; --shadow:0 1px 2px rgba(21,35,58,.08),0 6px 20px rgba(21,35,58,.06);
+  --f-display:"Bungee","Arial Black",Impact,system-ui,sans-serif;
+  --f-body:"Rubik",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0e1a2c; --grid:rgba(120,160,255,.08); --grid-strong:rgba(120,160,255,.16);
+  --ink:#e4ecf8; --muted:#93a4bf; --surface:#15243a; --line:#26395a;
+  --accent:#7b9cff; --accent-ink:#0c1526; --head:#1f3260; --head-ink:#c9d7ff; --hl:#3a3418;
+  --good:#46c98b; --good-bg:#173a2c; --bad:#ff7466; --gold:#f2bf4a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#0e1a2c; --grid:rgba(120,160,255,.08); --grid-strong:rgba(120,160,255,.16);
+  --ink:#e4ecf8; --muted:#93a4bf; --surface:#15243a; --line:#26395a;
+  --accent:#7b9cff; --accent-ink:#0c1526; --head:#1f3260; --head-ink:#c9d7ff; --hl:#3a3418;
+  --good:#46c98b; --good-bg:#173a2c; --bad:#ff7466; --gold:#f2bf4a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25); color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 28px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:14px}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,4vw,38px);margin:0;line-height:1}
+h1 span{color:var(--accent)}
+.tag{color:var(--muted);margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.bar{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
+.grp{display:flex;align-items:center;gap:8px}
+.grp>span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:7px 12px;font-weight:500;font-size:14px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.new{background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:8px 14px;font-weight:700;box-shadow:inset 0 -3px 0 rgba(0,0,0,.2)}
+.stats{margin-left:auto;display:flex;gap:16px;align-items:baseline;font-variant-numeric:tabular-nums}
+.stat{display:grid;line-height:1.1}
+.stat small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.stat b{font-family:var(--f-display);font-weight:400;font-size:20px}
+.stat.miss b{color:var(--bad)}
+@media (max-width:640px){.stats{margin-left:0;width:100%;justify-content:space-between}}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,380px);gap:16px;align-items:start}
+@media (max-width:900px){.main{grid-template-columns:minmax(0,1fr)}}
+.board{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow);display:grid;gap:10px;min-width:0}
+.level-note{margin:0;font-size:13px;color:var(--muted)}
+.gwrap{container-type:inline-size;width:100%;max-width:min(720px,76vh);margin:0 auto}
+.table{display:grid;gap:3px;--n:8}
+.table>*{height:calc((100cqi - 3px * var(--n)) / (var(--n) + 1));box-sizing:border-box;display:grid;place-items:center;border-radius:6px;font-family:var(--f-display);font-size:calc(100cqi / (var(--n) + 1) * .36);font-variant-numeric:tabular-nums;min-width:0;width:100%;overflow:hidden;line-height:1;padding:0;user-select:none;-webkit-user-select:none}
+.corner{background:var(--accent);color:var(--accent-ink);font-size:calc(100cqi / (var(--n) + 1) * .42)!important}
+.hd{background:var(--head);color:var(--head-ink);transition:background .12s}
+.hd.on{background:var(--gold);color:#2a1d00}
+.cell{border:1.5px dashed var(--line);background:var(--paper);padding:0;transition:background .12s,border-color .12s}
+.cell.hl{background:var(--hl)}
+.cell.target{border-color:var(--accent);border-style:solid;background:var(--hl)}
+.table>.w3{font-size:calc(100cqi / (var(--n) + 1) * .27)}
+.cell.done{border:1.5px solid transparent;background:var(--good-bg);color:var(--good);cursor:default}
+.cell.done.just{animation:land .35s ease-out}
+.cell.err{animation:buzz .35s;border-color:var(--bad);border-style:solid}
+@keyframes land{0%{transform:scale(1.25)}100%{transform:scale(1)}}
+@keyframes buzz{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+.tray{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow);display:grid;gap:10px;min-width:0;position:sticky;top:max(12px,env(safe-area-inset-top,0px))}
+.tray h2{margin:0;font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tray h2 button{font-size:12px;text-transform:none;letter-spacing:0;background:transparent;border:1px solid var(--line);border-radius:8px;padding:3px 8px;color:var(--muted)}
+.tiles{display:flex;flex-wrap:wrap;gap:8px;max-height:min(66vh,640px);overflow:auto;padding:6px 4px 10px;align-content:flex-start}
+@media (max-width:900px){.tray{position:static}.tiles{max-height:none}}
+.tile{width:48px;height:48px;border:0;border-radius:9px;font-family:var(--f-display);font-size:17px;color:var(--tile-ink);display:grid;place-items:center;padding:0;
+  box-shadow:inset 0 -4px 0 rgba(0,0,0,.18),inset 0 2px 0 rgba(255,255,255,.35),0 2px 5px rgba(0,0,0,.12);transform:rotate(var(--r,0deg));touch-action:none;font-variant-numeric:tabular-nums;transition:transform .12s}
+.tile:hover{transform:rotate(0) translateY(-2px)}
+.tile.sel{outline:3px solid var(--accent);outline-offset:2px;transform:rotate(0) scale(1.08)}
+.tile.lift{opacity:.25}
+.tile.shake{animation:buzz .35s}
+.ghost{position:fixed;left:0;top:0;pointer-events:none;z-index:50;transform:translate(-50%,-50%) scale(1.15) rotate(-4deg);box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.hint{font-size:13px;color:var(--muted);margin:0}
+.empty{color:var(--muted);font-size:14px;margin:6px 0}
+
+.overlay{position:fixed;inset:0;display:grid;place-items:center;padding:16px;background:color-mix(in srgb,var(--paper) 70%,transparent);backdrop-filter:blur(3px);z-index:60}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow);width:min(420px,100%);display:grid;gap:14px;text-align:center}
+.card h2{font-family:var(--f-display);font-weight:400;font-size:26px;margin:0;line-height:1.1;text-wrap:balance}
+.card p{margin:0;color:var(--muted)}
+.stars{font-size:40px;letter-spacing:6px;color:var(--gold);line-height:1}
+.stars .dim{color:var(--line)}
+.res{display:flex;justify-content:center;gap:28px;font-variant-numeric:tabular-nums}
+.res b{display:block;font-family:var(--f-display);font-weight:400;font-size:28px;color:var(--ink)}
+.res span{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1 1 140px}
+.ghost-btn{background:transparent;border:1px solid var(--line);border-radius:10px;padding:10px;font-weight:500}
+.card .new{padding:12px;font-size:16px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+<nav class="bar" aria-label="Classroom navigation"><a href="/" style="color:var(--accent);font-weight:700">Mr. K’s Classroom</a><button class="ghost-btn" type="button" id="shareBtn">Copy student link</button><span id="shareStatus" role="status"></span></nav>
+  <header>
+    <h1>Times Table <span>Sorter</span></h1>
+    <p class="tag">Drag each tile to the box where its row and column multiply to it.</p>
+  </header>
+
+  <div class="bar" role="toolbar" aria-label="Game settings">
+    <div class="grp"><span>Level</span>
+      <div class="seg" id="levelSeg">
+        <button type="button" data-v="easy" aria-pressed="true">Easy</button>
+        <button type="button" data-v="medium" aria-pressed="false">Medium</button>
+        <button type="button" data-v="hard" aria-pressed="false">Hard</button>
+      </div>
+    </div>
+    <div class="grp"><span>Size</span>
+      <div class="seg" id="sizeSeg">
+        <button type="button" data-v="5" aria-pressed="false">5×5</button>
+        <button type="button" data-v="8" aria-pressed="true">8×8</button>
+        <button type="button" data-v="10" aria-pressed="false">10×10</button>
+        <button type="button" data-v="12" aria-pressed="false">12×12</button>
+      </div>
+    </div>
+    <button class="new" id="newBtn" type="button">New board</button>
+    <div class="stats">
+      <div class="stat"><small>Placed</small><b id="placedEl">0/64</b></div>
+      <div class="stat miss"><small>Mistakes</small><b id="missEl">0</b></div>
+      <div class="stat"><small>Time</small><b id="timeEl">0:00</b></div>
+    </div>
+  </div>
+
+  <div class="main">
+    <section class="board" aria-label="Multiplication table">
+      <p class="level-note" id="levelNote"></p>
+      <div class="gwrap"><div class="table" id="table"></div></div>
+    </section>
+    <aside class="tray" aria-label="Number tiles">
+      <h2><span id="trayCount">Tiles</span><button type="button" id="shuffleBtn">Shuffle tiles</button></h2>
+      <div class="tiles" id="tiles"></div>
+      <p class="hint">Drag a tile onto a box, or tap a tile and then tap a box. Wrong boxes bounce the tile back.</p>
+    </aside>
+  </div>
+</div>
+
+<div class="overlay" id="win" hidden>
+  <div class="card" role="dialog" aria-labelledby="winTitle">
+    <div class="stars" id="starsEl"></div>
+    <h2 id="winTitle">Table complete!</h2>
+    <div class="res">
+      <div><b id="winTime">0:00</b><span>Time</span></div>
+      <div><b id="winMiss">0</b><span>Mistakes</span></div>
+    </div>
+    <p id="winNote"></p>
+    <div class="row">
+      <button class="new" id="againBtn" type="button">New board</button>
+      <button class="ghost-btn" id="harderBtn" type="button">Try harder level</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const COLORS = ["#f4bd3a","#55c4b5","#f08a4b","#a39af7","#ef7fa1","#7fb3f0","#9ed36a"];
+  const $ = id => document.getElementById(id);
+  const table = $("table"), tilesEl = $("tiles");
+  const params = new URLSearchParams(location.search);
+  let level = ["easy", "medium", "hard"].includes(params.get("level")) ? params.get("level") : "easy";
+  let size = [5,8,10,12].includes(Number(params.get("size"))) ? Number(params.get("size")) : 8;
+  let G = null, sel = null, timerIv = null;
+
+  const shuffle = a => { for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; };
+  const range = n => Array.from({length:n}, (_,i) => i+1);
+  const pick = n => shuffle(range(12)).slice(0,n);
+  const fmt = s => Math.floor(s/60) + ":" + String(Math.floor(s%60)).padStart(2,"0");
+
+  const NOTES = {
+    easy: "Easy: both sides count up in order, like a normal times table.",
+    medium: "Medium: the top row is jumbled. The side still counts up in order.",
+    hard: "Hard: the top row and the side are both jumbled."
+  };
+
+  function newBoard(){
+    let rows, cols;
+    if(level === "easy"){ rows = range(size); cols = range(size); }
+    else if(level === "medium"){ rows = range(size); cols = size === 12 ? shuffle(range(12)) : pick(size); }
+    else { rows = size === 12 ? shuffle(range(12)) : pick(size); cols = size === 12 ? shuffle(range(12)) : pick(size); }
+    if(level === "medium" && size < 12 && cols.every((v,i)=>v===i+1)) shuffle(cols);
+    const tiles = [];
+    rows.forEach(r => cols.forEach(c => tiles.push({ id: tiles.length, val: r*c, color: COLORS[Math.floor(Math.random()*COLORS.length)], rot: (Math.random()*14-7).toFixed(1) })));
+    G = { rows, cols, tiles: shuffle(tiles), filled: new Set(), miss: 0, start: null, secs: 0, done: false };
+    sel = null;
+    clearInterval(timerIv); timerIv = null;
+    $("win").hidden = true;
+    $("levelNote").textContent = NOTES[level];
+    renderTable(); renderTiles(); stats();
+  }
+
+  function renderTable(){
+    const n = size;
+    table.style.setProperty("--n", n);
+    table.style.gridTemplateColumns = `repeat(${n+1}, minmax(0,1fr))`;
+    table.textContent = "";
+    const corner = document.createElement("div"); corner.className = "corner"; corner.textContent = "×"; table.appendChild(corner);
+    G.cols.forEach((c,ci) => { const h = document.createElement("div"); h.className = "hd"; h.dataset.col = ci; h.textContent = c; if(c>9) h.classList.add("w2"); table.appendChild(h); });
+    G.rows.forEach((r,ri) => {
+      const h = document.createElement("div"); h.className = "hd"; h.dataset.row = ri; h.textContent = r; table.appendChild(h);
+      G.cols.forEach((c,ci) => {
+        const cell = document.createElement("button"); cell.type = "button"; cell.className = "cell";
+        cell.dataset.r = ri; cell.dataset.c = ci;
+        cell.setAttribute("aria-label", `${r} times ${c}, empty`);
+        cell.addEventListener("click", () => { if(sel != null) tryPlace(sel, cell); });
+        cell.addEventListener("pointerenter", () => { if(sel != null && !drag) hover(cell); });
+        cell.addEventListener("pointerleave", () => { if(!drag) hover(null); });
+        cell.addEventListener("focus", () => { if(sel != null) hover(cell); });
+        table.appendChild(cell);
+      });
+    });
+  }
+
+  function renderTiles(){
+    tilesEl.textContent = "";
+    const left = G.tiles.filter(t => !t.placed);
+    $("trayCount").textContent = left.length + (left.length === 1 ? " tile left" : " tiles left");
+    if(!left.length){ const p = document.createElement("p"); p.className = "empty"; p.textContent = "All tiles placed."; tilesEl.appendChild(p); }
+    left.forEach(t => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "tile" + (sel === t.id ? " sel" : "");
+      b.textContent = t.val; b.dataset.id = t.id; b.style.background = t.color; b.style.setProperty("--r", t.rot + "deg");
+      b.setAttribute("aria-label", "Tile " + t.val); b.setAttribute("aria-pressed", sel === t.id ? "true" : "false");
+      b.addEventListener("pointerdown", e => startDrag(e, t, b));
+      b.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); select(t.id); } });
+      tilesEl.appendChild(b);
+    });
+  }
+
+  function select(id){
+    sel = sel === id ? null : id;
+    tilesEl.querySelectorAll(".tile").forEach(b => { const on = +b.dataset.id === sel; b.classList.toggle("sel", on); b.setAttribute("aria-pressed", on); });
+    if(sel == null) hover(null);
+  }
+
+  function hover(cell){
+    table.querySelectorAll(".hl,.target,.hd.on").forEach(e => e.classList.remove("hl","target","on"));
+    if(!cell || cell.classList.contains("done")) return;
+    const r = cell.dataset.r, c = cell.dataset.c;
+    cell.classList.add("target");
+    table.querySelectorAll(`.cell[data-r="${r}"]:not(.done), .cell[data-c="${c}"]:not(.done)`).forEach(e => { if(e !== cell) e.classList.add("hl"); });
+    table.querySelector(`.hd[data-row="${r}"]`)?.classList.add("on");
+    table.querySelector(`.hd[data-col="${c}"]`)?.classList.add("on");
+  }
+
+  function startClock(){
+    if(G.start) return;
+    G.start = performance.now();
+    timerIv = setInterval(() => { G.secs = (performance.now() - G.start)/1000; $("timeEl").textContent = fmt(G.secs); }, 250);
+  }
+
+  function tryPlace(id, cell){
+    if(!G || G.done || !cell || cell.classList.contains("done")) return;
+    const t = G.tiles.find(x => x.id === id); if(!t || t.placed) return;
+    startClock();
+    const r = G.rows[cell.dataset.r], c = G.cols[cell.dataset.c];
+    if(t.val === r*c){
+      t.placed = true; G.filled.add(cell.dataset.r + "-" + cell.dataset.c);
+      cell.classList.remove("err"); cell.classList.add("done","just"); cell.textContent = t.val; if(t.val>99) cell.classList.add("w3"); cell.disabled = true;
+      cell.setAttribute("aria-label", `${r} times ${c} equals ${t.val}`);
+      setTimeout(() => cell.classList.remove("just"), 400);
+      sel = null; hover(null); renderTiles(); stats();
+      if(G.filled.size === G.rows.length * G.cols.length) win();
+    } else {
+      G.miss++; stats();
+      cell.classList.remove("err"); void cell.offsetWidth; cell.classList.add("err");
+      setTimeout(() => cell.classList.remove("err"), 400);
+      const b = tilesEl.querySelector(`.tile[data-id="${id}"]`);
+      if(b){ b.classList.remove("shake"); void b.offsetWidth; b.classList.add("shake"); }
+    }
+  }
+
+  // Drag with pointer events (mouse, touch, pen). A short press without movement counts as a tap-to-select.
+  let drag = null;
+  function startDrag(e, t, btn){
+    if(e.button !== undefined && e.button !== 0) return;
+    e.preventDefault();
+    drag = { t, btn, x0: e.clientX, y0: e.clientY, ghost: null, cell: null, pid: e.pointerId };
+    try{ btn.setPointerCapture(e.pointerId); }catch(_){}
+    btn.addEventListener("pointermove", moveDrag);
+    btn.addEventListener("pointerup", endDrag);
+    btn.addEventListener("pointercancel", cancelDrag);
+  }
+  function moveDrag(e){
+    if(!drag) return;
+    if(!drag.ghost){
+      if(Math.hypot(e.clientX - drag.x0, e.clientY - drag.y0) < 6) return;
+      const g = drag.btn.cloneNode(true); g.classList.remove("sel","shake"); g.classList.add("ghost"); g.removeAttribute("id");
+      document.body.appendChild(g); drag.ghost = g; drag.btn.classList.add("lift");
+      sel = drag.t.id;
+    }
+    drag.ghost.style.left = e.clientX + "px"; drag.ghost.style.top = e.clientY + "px";
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const cell = el && el.closest ? el.closest(".cell") : null;
+    if(cell !== drag.cell){ drag.cell = cell; hover(cell); }
+  }
+  function cleanup(){
+    if(!drag) return;
+    drag.btn.removeEventListener("pointermove", moveDrag);
+    drag.btn.removeEventListener("pointerup", endDrag);
+    drag.btn.removeEventListener("pointercancel", cancelDrag);
+    drag.ghost?.remove(); drag.btn.classList.remove("lift");
+  }
+  function endDrag(){
+    if(!drag) return;
+    const d = drag; cleanup(); drag = null;
+    if(!d.ghost){ select(d.t.id); return; }
+    hover(null);
+    if(d.cell) tryPlace(d.t.id, d.cell);
+    if(!d.t.placed){ sel = null; select(null); }
+  }
+  function cancelDrag(){ cleanup(); drag = null; hover(null); }
+
+  function stats(){
+    const total = G.rows.length * G.cols.length;
+    $("placedEl").textContent = G.filled.size + "/" + total;
+    $("missEl").textContent = G.miss;
+    $("timeEl").textContent = fmt(G.secs);
+  }
+
+  function win(){
+    G.done = true; clearInterval(timerIv);
+    G.secs = (performance.now() - G.start)/1000;
+    const total = G.rows.length * G.cols.length;
+    const stars = G.miss === 0 ? 3 : G.miss <= Math.ceil(total/20) ? 2 : 1;
+    $("starsEl").innerHTML = "★".repeat(stars) + '<span class="dim">' + "★".repeat(3-stars) + "</span>";
+    $("winTime").textContent = fmt(G.secs); $("winMiss").textContent = G.miss;
+    const key = `tts-best-${level}-${size}`;
+    let best = null; try{ best = JSON.parse(localStorage.getItem(key) || "null"); }catch(_){}
+    let note = `${size}×${size}, ${level} level.`;
+    if(!best || G.secs < best){ if(best) note += ` New best time on this device (old best ${fmt(best)}).`; try{ localStorage.setItem(key, JSON.stringify(G.secs)); }catch(_){} }
+    else note += ` Best time on this device: ${fmt(best)}.`;
+    $("winNote").textContent = note;
+    $("harderBtn").hidden = level === "hard" && size === 12;
+    $("harderBtn").textContent = level === "hard" ? "Try a bigger table" : "Try " + (level === "easy" ? "Medium" : "Hard");
+    $("win").hidden = false; $("againBtn").focus();
+  }
+
+  function segInit(id, set){
+    const seg = $(id);
+    seg.addEventListener("click", e => {
+      const b = e.target.closest("button"); if(!b) return;
+      seg.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+      set(b.dataset.v); newBoard();
+    });
+  }
+  function setSeg(id, v){ $(id).querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.v === String(v))); }
+  segInit("levelSeg", v => level = v);
+  segInit("sizeSeg", v => size = +v);
+  $("newBtn").onclick = newBoard;
+  $("againBtn").onclick = newBoard;
+  $("shuffleBtn").onclick = () => { if(G){ shuffle(G.tiles); renderTiles(); } };
+  $("harderBtn").onclick = () => {
+    if(level === "easy") level = "medium"; else if(level === "medium") level = "hard";
+    else size = size === 5 ? 8 : size === 8 ? 10 : 12;
+    setSeg("levelSeg", level); setSeg("sizeSeg", size); newBoard();
+  };
+  document.addEventListener("keydown", e => { if(e.key === "Escape"){ if(!$("win").hidden) $("win").hidden = true; else select(null); } });
+
+  $("shareBtn").onclick = async () => {
+    const url = new URL(location.href); url.search = ""; url.hash = "";
+    url.searchParams.set("level", level); url.searchParams.set("size", size);
+    try { await navigator.clipboard.writeText(url.href); $("shareStatus").textContent = "Student link copied!"; }
+    catch (_) { $("shareStatus").textContent = "Copy this link: " + url.href; }
+  };
+  setSeg("levelSeg", level); setSeg("sizeSeg", size);
+  newBoard();
+})();
+</script>
+</body></html>
