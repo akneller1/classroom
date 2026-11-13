@@ -92,6 +92,12 @@ jobs:
         run: node scripts/audit-grade5-release.cjs _site
       - name: Verify elementary generator feature parity
         run: node scripts/test-elementary-generators.cjs _site
+      - name: Install Chromium for elementary course parity
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Browser-check elementary game routing, student links and course switching
+        run: node scripts/test-elementary-browser-parity.cjs _site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
