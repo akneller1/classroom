@@ -154,8 +154,9 @@ else {
    for(const a of unit.artifacts){
     const raw=a.path.split(/[?#]/)[0];
     const target=path.resolve(site,'.'+raw);
-    const sharedMultipleDrop = a.title==='Multiple Drop' && raw==='/artifacts/multiple-drop/index.html';
-    if((!raw.startsWith('/grade5/')&&!sharedMultipleDrop)||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
+    const sharedGames = new Set(['/artifacts/multiple-drop/index.html', '/artifacts/times-table-sorter/index.html']);
+    const approvedSharedGame = a.type==='Game' && sharedGames.has(raw);
+    if((!raw.startsWith('/grade5/')&&!approvedSharedGame)||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
    }
    const records=shared.MK_COURSE_CATALOG.getSkillRecords('grade5',unit.id);
    const standardMap=shared.MK_GRADE5_STANDARDS[unit.id]||{};
