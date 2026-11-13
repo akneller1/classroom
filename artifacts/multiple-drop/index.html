@@ -173,7 +173,7 @@ aside{display:grid;gap:16px}
           </form>
         </div>
 
-        <div class="overlay" id="remixIntro" hidden><div class="card" style="text-align:center"><h2>New times table!</h2><div class="big-num" id="remixNumber"></div><p>Start from the first multiple. Tap in order!</p></div></div>
+        <div class="overlay" id="remixIntro" hidden><div class="card" style="text-align:center"><h2>New times table!</h2><div class="big-num" id="remixNumber"></div><p id="remixInstruction">Tap the multiples in order!</p></div></div>
         <div class="overlay" id="countdown" hidden><div class="count" id="countEl">3</div></div>
 
         <div class="overlay" id="paused" hidden>
@@ -249,7 +249,7 @@ aside{display:grid;gap:16px}
     $("gameTag").textContent = remix ? "Changing tables. Rising speed. How long can you survive?" : "Tap the multiples in order, up to " + selectedLimit() + ".";
     $("setupTitle").textContent = remix ? "Remix Survival" : "Choose your times table";
     $("startBtn").textContent = remix ? "Start Remix" : "Start";
-    $("modeNote").textContent = remix ? "Random tables switch after 8 catches or 20 seconds. Three lives. Survive as speed increases!" : "Classic: choose a table and climb to " + selectedLimit() + ".";
+    $("modeNote").textContent = remix ? "Random tables switch after 4–12 catches or 20 seconds. Continue from your last number, with occasional drops after 150. Three lives. Survive as speed increases!" : "Classic: choose a table and climb to " + selectedLimit() + ".";
     renderRecords(); hud();
   });
   const difficulty = () => $("difficulty").value === "hard" ? "hard" : "normal";
@@ -342,7 +342,7 @@ aside{display:grid;gap:16px}
     }
     const top = sorted(selN)[0];
     if(mode() === "remix"){
-      $("toBeat").textContent = top ? "Remix record: " + top.name + " survived " + fmt(top.timeMs) + " with " + (top.caught || 0) + " catches." : "Survive as long as you can. A new table starts after 8 catches or 20 seconds.";
+      $("toBeat").textContent = top ? "Remix record: " + top.name + " survived " + fmt(top.timeMs) + " with " + (top.caught || 0) + " catches." : "Survive as long as you can. Tables change after 4–12 catches or 20 seconds. Continue above your last number, with occasional drops after 150.";
       return;
     }
     $("toBeat").innerHTML = top
@@ -437,13 +437,14 @@ aside{display:grid;gap:16px}
     }
   }
 
-  function needed(){ return S.n * (S.found + 1); }
+  function needed(){ return S.n * (S.offset + S.found + 1); }
+  function roundLength(){ return 4 + Math.floor(Math.random()*9); }
   function onScreen(v){ return S.tiles.some(t => t.val === v && !t.dead); }
   function decoyFor(need){
     const n = S.n, c = [need+1, need-1, need+2, need-2, need+n, need+2*n, need-n, need+10, need-10];
     const sw = String(need); if(sw.length===2 && sw[0]!==sw[1]) c.push(+(sw[1]+sw[0]));
     for(let i=0;i<3;i++){ const m = 2 + Math.floor(Math.random()*11); if(m!==n){ const k = Math.max(1, Math.round(need/m) + Math.floor(Math.random()*3)-1); c.push(m*k); } }
-    const ok = c.filter(v => v > 0 && v % n !== 0 && v <= S.limit + 12 && !onScreen(v));
+    const ok = c.filter(v => v > 0 && v % n !== 0 && v <= (S.mode === "remix" ? need + Math.max(12, n*3) : S.limit + 12) && !onScreen(v));
     return ok.length ? ok[Math.floor(Math.random()*ok.length)] : null;
   }
   function spawn(val){
@@ -473,7 +474,7 @@ aside{display:grid;gap:16px}
   function hit(t){
     if(!S || S.phase !== "play" || t.dead) return;
     if(t.val === needed()){
-      S.found++; S.caught++; kill(t, "pop"); beep(520 + Math.min(S.found,40)*12, .09);
+      S.lastValue = t.val; S.peak = Math.max(S.peak, t.val); S.found++; S.caught++; kill(t, "pop"); beep(520 + Math.min(S.found,40)*12, .09);
       S.sinceNeed = 0;
       if(S.found >= S.total){ if(S.mode === "remix") return switchTable(); return finish(true); }
       hud();
@@ -491,7 +492,7 @@ aside{display:grid;gap:16px}
     const need = S ? needed() : null;
     $("needLabel").textContent = hintEnabled() ? "Find" : "Table";
     $("needEl").textContent = hintEnabled() ? (S ? need : "–") : (S ? S.n : selN) + "s";
-    $("progTxt").textContent = S ? `${S.n} × ${S.found} = ${S.n*S.found}` : "Pick a number to start";
+    $("progTxt").textContent = S ? (S.mode === "remix" ? "Current number: " + S.lastValue + " · " + S.caught + " catches" : `${S.n} × ${S.found} = ${S.n*S.found}`) : "Pick a number to start";
     $("goalTxt").textContent = S ? (S.mode === "remix" ? "Remix · round " + S.round : `goal ${S.n*S.total}`) : "";
     $("barEl").style.width = S ? (S.found / S.total * 100) + "%" : "0";
     const L = $("livesEl"); L.textContent = "";
@@ -522,7 +523,7 @@ aside{display:grid;gap:16px}
       const haveNeed = onScreen(need);
       const ahead = need + S.n;
       const haveAhead = onScreen(ahead);
-      const canAhead = S.difficulty === "hard" && ahead <= S.n*S.total && !haveAhead;
+      const canAhead = S.difficulty === "hard" && ahead <= S.n*(S.offset+S.total) && !haveAhead;
       // One future multiple may arrive early; then prioritize its predecessor.
       const forceNeed = !haveNeed && (haveAhead || S.sinceNeed > 2.4 - 1.2*p);
       let v;
@@ -554,10 +555,18 @@ aside{display:grid;gap:16px}
   }
   function switchTable(){
     S.tiles.forEach(t=>kill(t)); S.tiles = [];
-    S.n = randomTable(S.n); S.found = 0; S.sinceSwitch = 0;
+    S.n = randomTable(S.n);
+    S.dropFrom = 0;
+    if(S.lastValue >= 150 && Math.random() < 0.3){
+      S.dropFrom = S.lastValue;
+      S.lastValue = Math.max(S.n, Math.floor(S.lastValue * (0.2 + Math.random()*0.5) / S.n) * S.n);
+    }
+    S.offset = Math.floor(S.lastValue / S.n);
+    S.found = 0; S.total = roundLength(); S.sinceSwitch = 0;
     S.sinceSpawn = 9; S.sinceNeed = 0; S.round++;
     S.phase = "switch"; S.switchWait = 2;
     $("remixNumber").textContent = S.n + "s";
+    $("remixInstruction").textContent = S.dropFrom ? "Number drop! " + S.dropFrom + " → " + S.lastValue + ". Continue with multiples of " + S.n + " above " + S.lastValue + "." : S.lastValue ? "Continue with multiples of " + S.n + " above " + S.lastValue + ". Keep climbing!" : "Tap the multiples of " + S.n + " in order!";
     $("pauseBtn").disabled = true;
     show("remixIntro"); hud(); beep(880,0.2);
   }
@@ -569,7 +578,7 @@ aside{display:grid;gap:16px}
     measure();
     beat = 0; nextBeat = 0;
     const n = mode() === "remix" ? randomTable() : selN;
-    S = { name, mode: mode(), limit, difficulty: difficulty(), n, total: mode() === "remix" ? 8 : Math.floor(limit/n), found:0, caught:0, round:1, sinceSwitch:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
+    S = { name, mode: mode(), limit, difficulty: difficulty(), n, total: mode() === "remix" ? roundLength() : Math.floor(limit/n), offset:0, lastValue:0, peak:0, dropFrom:0, found:0, caught:0, round:1, sinceSwitch:0, lives:LIVES, tiles:[], elapsed:0, sinceSpawn:9, sinceNeed:0, phase:"countdown" };
     hud(); $("pauseBtn").disabled = false; $("difficulty").disabled = true; $("gameMode").disabled = true; $("finishLine").disabled = true;
     show("countdown");
     let c = 3; $("countEl").textContent = c; beep(440,.1);
@@ -583,7 +592,7 @@ aside{display:grid;gap:16px}
   async function finish(won){
     const finishedRun = S;
     S.phase = "over"; $("pauseBtn").disabled = true;
-    const reached = S.n * S.found;
+    const reached = S.mode === "remix" ? S.peak : S.n * S.found;
     const prevTop = sorted(S.n)[0];
     const rec = { name: S.name, mode: S.mode, limit: S.limit, caught: S.caught, difficulty: S.difficulty, number: S.n, reached, won, timeMs: Math.round(S.elapsed*1000), at: new Date().toISOString() };
     S.tiles.forEach(t => { if(!t.dead) kill(t); });
@@ -595,7 +604,7 @@ aside{display:grid;gap:16px}
     if(S.mode === "remix"){
       $("overTitle").textContent = "Remix Survival";
       $("overNum").textContent = fmt(rec.timeMs);
-      $("overSub").textContent = S.name + " survived " + fmt(rec.timeMs) + " with " + S.caught + " catches across " + S.round + " tables.";
+      $("overSub").textContent = S.name + " survived " + fmt(rec.timeMs) + " with " + S.caught + " catches across " + S.round + " tables. Highest number: " + S.peak + ".";
     }
     $("overBadge").textContent = "";
     show("over"); hud();
