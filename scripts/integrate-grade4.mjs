@@ -34,6 +34,7 @@ app=app.replace("'grade5', 'financial-algebra'].indexOf(c.id)","'grade4', 'grade
 const projectAnchor="(c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '')";
 if(!app.includes(projectAnchor))throw Error('Grade 4 release: project category anchor missing');
 app=app.replace(projectAnchor,"(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')");
+for(const required of ["/^grade4\\//.test(path)","['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)"])if(!app.includes(required))throw Error('Grade 4 parity patch missing: '+required);
 fs.writeFileSync(appFile,app);
 for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html','printables.html','vocabulary.html']){
  const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))continue;
