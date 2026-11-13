@@ -27,6 +27,13 @@ const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.s
 '})(window);\n';
 fs.writeFileSync(path.join(out,'grade3-main-catalog.js'),bridge);
 const index=path.join(out,'index.html');let html=fs.readFileSync(index,'utf8');
+// Version public assets whenever a course is released. The long-lived old
+// scripts otherwise remain cached even after GitHub Pages deploys new source.
+const version='elementary-parity-20261113';
+for(const name of ['app.js','integrated-student-share.js','student-share-cards.js']){
+ html=html.replaceAll(name+'?v=',name+'?v='+version+'-');
+}
+
 const anchor='<script src="app.js';
 if(!html.includes(anchor))fail('homepage script anchor missing');
 html=html.replace(anchor,'<script src="grade3-main-catalog.js?v=grade3-release"></script>\n'+anchor);
@@ -46,7 +53,8 @@ for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html'
  const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))fail('missing '+page);
  let h=fs.readFileSync(f,'utf8'),anchor='<script src="../grade4-main-catalog.js';
  if(!h.includes(anchor))fail('Grade 4 course catalog anchor missing in '+page);
- h=h.replace(anchor,'<script src="../grade3-main-catalog.js?v=grade3-release"></script>\n'+anchor);
+ h=h.replace(anchor,'<script src="../grade3-main-catalog.js?v=grade3-release"></script>\\n'+anchor);
+ if(page==='lesson-planner.html')h=h.replace('planner/planner-ui.js?v=','planner/planner-ui.js?v='+version+'-');
  fs.writeFileSync(f,h);
 }
 const manifestFile=path.join(out,'question-banks/manifest.json');
