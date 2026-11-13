@@ -88,6 +88,8 @@ jobs:
       - name: Verify Grade 3 release structure
         run: |
           node -e "const fs=require('fs');const root='_site/',m=JSON.parse(fs.readFileSync(root+'question-banks/manifest.json'));const b=m.banks.filter(x=>x.courseId==='grade3');if(b.length!==11||!b.every(x=>x.approved&&fs.existsSync(root+x.path)))process.exit(1);for(const p of ['grade3-main-catalog.js','grade3/worksheet-generator/grade3-games.html','grade3/worksheet-generator/grade3-understanding-check.html','grade3/worksheet-generator/grade3-flashcards.html','grade3/grade3-native-notes.js'])if(!fs.existsSync(root+p))throw Error('Missing Grade 3 resource: '+p)"
+      - name: Verify course catalogs in every shared game and study tool
+        run: node scripts/test-shared-course-catalogs.cjs _site
       - name: Check assembled public site and course navigation
         run: node scripts/test-public-site.cjs
       - name: Verify published Grade 5 game question loading

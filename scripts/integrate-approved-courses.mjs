@@ -241,11 +241,13 @@ fs.writeFileSync(path.join(dst,'grade5-native-resources.js'),'window.MKVOCAB_BAN
 
 // Generated course scripts belong to the release, not raw source-page dependencies.
 // Existing single-repository tests and previews must still run without a course checkout.
-for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html','printables.html','vocabulary.html']){
+for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(name=>name.endsWith('.html')&&fs.readFileSync(path.join(out,'worksheet-generator',name),'utf8').includes('../course-catalog.js'))){
  const file=path.join(out,'worksheet-generator',page);if(!fs.existsSync(file))continue;
  let html=fs.readFileSync(file,'utf8');
  const tag=name=>'<script src="../grade5/grade5-'+name+'.js?v=native-elementary-v2-20261112"></script>\n';
- if(!html.includes('grade5-main-catalog.js'))html=html.replace('<script src="'+(page==='vocabulary.html'?'menu/course-catalog-bridge.js':'algebra2-bank-native.js'),tag('main-catalog')+'<script src="'+(page==='vocabulary.html'?'menu/course-catalog-bridge.js':'algebra2-bank-native.js'));
+ const catalogTag=html.match(/<script src="\.\.\/course-catalog\.js[^"]*"><\/script>/);
+ if(!catalogTag)throw Error('Missing shared course catalog in '+page);
+ if(!html.includes('grade5-main-catalog.js'))html=html.replace(catalogTag[0],catalogTag[0]+'\n'+tag('main-catalog'));
  if(page==='lesson-planner.html'&&!html.includes('grade5-native-notes.js'))html=html.replace('<script src="planner/scope-algebra2.js',tag('native-notes')+'<script src="planner/scope-algebra2.js');
  if(page==='printables.html'&&!html.includes('grade5-native-resources.js'))html=html.replace('<script src="menu/printables-match.js',tag('native-resources')+'<script src="menu/printables-match.js');
  if(page==='vocabulary.html'&&!html.includes('grade5-native-resources.js'))html=html.replace('<script src="vocabulary-builder.js',tag('native-resources')+'<script src="vocabulary-builder.js');

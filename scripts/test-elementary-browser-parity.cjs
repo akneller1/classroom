@@ -75,6 +75,33 @@ const server=http.createServer((req,res)=>{
   await student.waitForSelector('.el-stage',{timeout:25000});
   assert.deepEqual(studentErrors,[],'Grade 3 filtered student game errors');
   await student.close();
+  // Shared games must survive all integrated banks being present, even when
+  // the selected course is Algebra 1 or Geometry rather than elementary math.
+  const courses=await page.evaluate(()=>window.LIBRARY.courses.filter(c=>['algebra','geometry','algebra2','grade3','grade4','grade5','financial-algebra'].includes(c.id)).map(c=>({id:c.id,unit:c.units[0].id})));
+  for(const course of courses.filter(c=>['algebra','geometry','algebra2'].includes(c.id))){
+   const shared=await browser.newPage();
+   await shared.goto(base+'worksheet-generator/course-game.html?course='+course.id+'&unit='+course.unit+'&game=tic-tac-toe',{waitUntil:'load'});
+   await shared.waitForFunction(()=>document.body.dataset.game==='tic-tac-toe',{timeout:30000});
+   assert.ok(!(await shared.locator('body').innerText()).includes('Unable to load course game'),course.id+' shared game rejected integrated banks');
+   await shared.close();
+  }
+  // Inspect real button rectangles: text wrapping must not push controls outside
+  // the card's clipping border at desktop, narrow desktop or phone widths.
+  let checkedButtons=0;
+  for(const width of [1440,820,360]){
+   await page.setViewportSize({width,height:900});
+   for(const course of courses){
+    await page.goto(base+'#'+course.id+'.'+course.unit,{waitUntil:'load'});
+    await page.waitForSelector('.card[data-course="'+course.id+'"] .share-student,.card[data-course="'+course.id+'"] .finance-student-link',{timeout:20000});
+    const clipped=await page.locator('.card .actions .btn').evaluateAll(buttons=>buttons.flatMap(button=>{
+     const card=button.closest('.card'),b=button.getBoundingClientRect(),c=card.getBoundingClientRect();
+     return b.bottom>c.bottom-1||b.top<c.top||b.left<c.left||b.right>c.right?[{label:button.textContent.trim(),card:card.querySelector('h3')?.textContent}]:[];
+    }));
+    assert.deepEqual(clipped,[],course.id+' clipped card buttons at '+width+'px');
+    checkedButtons+=await page.locator('.card .actions .btn').count();
+   }
+  }
+  console.log('PASS shared game startup and '+checkedButtons+' card-button bounds across seven courses and three widths');
   assert.deepEqual(errors,[],'Homepage JS errors');
   console.log('PASS Grade 3: direct game routing, skill picker and filtered student link, game boot, planner Grade 3→5→3 switching');
  }finally{await page.close();await browser.close();server.close();}

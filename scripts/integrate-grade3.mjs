@@ -51,7 +51,7 @@ if(!app.includes('SOON.filter(function(c){return !L.courses.some(function(p){ret
 const genCourse="(c && c.id === 'grade5' && c.units[0] ? c.units[0].artifacts : [])";
 if(app.includes(genCourse))app=app.replace(genCourse,"(c && ['grade3','grade4','grade5'].includes(c.id) && c.units[0] ? c.units[0].artifacts : [])");
 fs.writeFileSync(appFile,app);
-for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html','printables.html','vocabulary.html']){
+for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(name=>name.endsWith('.html')&&fs.readFileSync(path.join(out,'worksheet-generator',name),'utf8').includes('../course-catalog.js'))){
  const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))fail('missing '+page);
  let h=fs.readFileSync(f,'utf8'),anchor='<script src="../grade4-main-catalog.js';
  if(!h.includes(anchor))fail('Grade 4 course catalog anchor missing in '+page);

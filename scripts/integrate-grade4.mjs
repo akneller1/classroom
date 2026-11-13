@@ -43,7 +43,7 @@ if(!app.includes(projectAnchor))throw Error('Grade 4 release: project category a
 app=app.replace(projectAnchor,"(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')");
 for(const required of ["/^grade4\\//.test(path)","['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)"])if(!app.includes(required))throw Error('Grade 4 parity patch missing: '+required);
 fs.writeFileSync(appFile,app);
-for(const page of ['worksheet.html','menu-assessment.html','lesson-planner.html','printables.html','vocabulary.html']){
+for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(name=>name.endsWith('.html')&&fs.readFileSync(path.join(out,'worksheet-generator',name),'utf8').includes('../course-catalog.js'))){
  const f=path.join(out,'worksheet-generator',page);if(!fs.existsSync(f))continue;
  let h=fs.readFileSync(f,'utf8');
  const match=h.match(/<script src="\.\.\/course-catalog\.js[^"]*"><\/script>/);
