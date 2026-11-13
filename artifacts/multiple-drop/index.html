@@ -137,7 +137,7 @@ aside{display:grid;gap:16px}
   <div class="main">
     <section class="stage" aria-label="Game">
       <div class="hud" id="hud">
-        <div class="next"><small>Find</small><b id="needEl">–</b></div>
+        <div class="next"><small id="needLabel">Table</small><b id="needEl">–</b></div>
         <div class="prog">
           <div class="lbl"><span id="progTxt">Pick a number to start</span><span id="goalTxt"></span></div>
           <div class="bar"><i id="barEl"></i></div>
@@ -196,6 +196,10 @@ aside{display:grid;gap:16px}
     </section>
 
     <aside>
+      <section class="panel" aria-labelledby="settingsH">
+        <h3 id="settingsH">Settings</h3>
+        <label style="display:flex;gap:10px;align-items:center;cursor:pointer"><input type="checkbox" id="showHint"> Show next-multiple hint</label>
+      </section>
       <section class="panel" aria-labelledby="leadH">
         <h3 id="leadH"><span>Leaderboard</span><em id="leadFor">7s</em></h3>
         <ol class="lead" id="leadEl"></ol>
@@ -216,6 +220,8 @@ aside{display:grid;gap:16px}
   const $ = id => document.getElementById(id);
   const field = $("field");
   let selN = 7;
+  const hintEnabled = () => $("showHint").checked;
+  $("showHint").addEventListener("change", () => hud());
 
   // ---------- Records store (shared db, falls back to this device) ----------
   const records = new Map();
@@ -307,7 +313,7 @@ aside{display:grid;gap:16px}
   for(let n=1;n<=12;n++){
     const b = document.createElement("button"); b.type="button"; b.textContent=n; b.dataset.n=n;
     b.setAttribute("aria-pressed", n===selN ? "true":"false");
-    b.onclick = () => { selN = n; [...picker.children].forEach(c=>c.setAttribute("aria-pressed", +c.dataset.n===n?"true":"false")); renderRecords(); drawDeco(); };
+    b.onclick = () => { selN = n; [...picker.children].forEach(c=>c.setAttribute("aria-pressed", +c.dataset.n===n?"true":"false")); renderRecords(); drawDeco(); hud(); };
     picker.appendChild(b);
   }
   const nameIn = $("nameIn");
@@ -396,7 +402,7 @@ aside{display:grid;gap:16px}
       hud();
     } else {
       t.el.classList.add("wrong"); t.dead = true; setTimeout(()=>t.el.remove(), 320);
-      loseLife(t.val < needed() && t.val % S.n === 0 ? t.val + " is already done" : t.val % S.n === 0 ? "Not yet! Find " + needed() + " first" : t.val + " isn't a multiple of " + S.n);
+      loseLife(t.val < needed() && t.val % S.n === 0 ? t.val + " is already done" : t.val % S.n === 0 ? (hintEnabled() ? "Not yet! Find " + needed() + " first" : "Not yet! Tap the multiples in order") : t.val + " isn't a multiple of " + S.n);
     }
   }
   function loseLife(msg){
@@ -406,7 +412,8 @@ aside{display:grid;gap:16px}
 
   function hud(){
     const need = S ? needed() : null;
-    $("needEl").textContent = S ? need : "–";
+    $("needLabel").textContent = hintEnabled() ? "Find" : "Table";
+    $("needEl").textContent = hintEnabled() ? (S ? need : "–") : (S ? S.n : selN) + "s";
     $("progTxt").textContent = S ? `${S.n} × ${S.found} = ${S.n*S.found}` : "Pick a number to start";
     $("goalTxt").textContent = S ? `goal ${S.n*S.total}` : "";
     $("barEl").style.width = S ? (S.found / S.total * 100) + "%" : "0";
