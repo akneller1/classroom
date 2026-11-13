@@ -62,6 +62,8 @@ const server=http.createServer((req,res)=>{
       const target=new URL(await link.getAttribute('href'),back.url());
       assert.equal(target.pathname,'/index.html','Classroom header points into a course subfolder: '+player);
       assert.equal(target.hash,'#grade2.'+unit,'Classroom header uses wrong course route: '+player);
+      const chooser=back.locator('dialog.teacher-skills');
+      if(await chooser.isVisible()) await chooser.getByText('Continue',{exact:true}).click();
       await link.click();
       await back.waitForURL(url=>url.pathname==='/index.html'&&url.hash==='#grade2.'+unit,{timeout:12000});
       await back.waitForSelector('[data-path*="grade2-games.html"]',{timeout:12000});
