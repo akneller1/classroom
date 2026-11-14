@@ -330,15 +330,26 @@ const sfx={
 /* Conservative arcade suitability: avoid multi-step, reading-heavy and visual problems.
    Explicit bank quickAnswer flags override heuristics. */
 function quickAnswer(q){
+ if(!q||typeof q!=='object')return false;
  if(q.quickAnswer===false||q.arcadeEligible===false)return false;
  if(q._figure||q.diagram||q.figure||q._graphOptions||q.image)return false;
+ const raw=String(q.prompt||'');
+ const p=plain(raw).trim();
+ if(!p)return false;
  if(q.quickAnswer===true||q.arcadeEligible===true)return true;
- const p=plain(q.prompt||'').replace(/\\\([^)]*\\\)/g,' ').trim();
- if(p.length>115||p.split(/\s+/).length>19)return false;
- if(/explain|justify|graph|plot|draw|sketch|table|diagram|figure|paragraph|estimate using|show your work|which statement|following|scenario|system of|two equations|quadratic formula|factor completely|simplify fully|prove|describe|interpret|compare and contrast|select all|multi.step|calculate the (area|volume|surface area)/i.test(p))return false;
- if((p.match(/[=]/g)||[]).length>1)return false;
+ // Keep mathematical expressions intact: do not strip inline LaTeX.
+ if(p.length>100||p.split(/\s+/).length>17)return false;
+ if(/explain|justify|graph|plot|draw|sketch|table|diagram|figure|paragraph|estimate using|show your work|which statement|following|scenario|system of|two equations|quadratic formula|factor completely|simplify fully|prove|describe|interpret|compare and contrast|select all|multi.step|calculate the (area|volume|surface area)|according to|based on|what is the probability|which of these statements|word problem/i.test(p))return false;
+ if((p.match(/=/g)||[]).length>1)return false;
  if((p.match(/[+*×÷\/−-]/g)||[]).length>3)return false;
- if((p.match(/\d+/g)||[]).some(x=>Number(x)>10000))return false;
+ const numbers=(p.match(/\d+(?:\.\d+)?/g)||[]).map(Number);
+ if(numbers.some(n=>n>10000))return false;
+ // Require an objectively short response, not just a short prompt.
+ const choices=(q.options||[]).map(o=>plain(o.text||'').trim());
+ if(choices.some(t=>t.length>24||t.split(/\s+/).length>4))return false;
+ // Long numeric computations and multi-variable expressions are unsuitable.
+ if(numbers.length>3||numbers.filter(n=>n>=100).length>1)return false;
+ if((p.match(/[a-z]/gi)||[]).length>75)return false;
  return true;
 }
 function usable(q){
@@ -700,7 +711,7 @@ $('againBtn').onclick=launch;
 $('setupBtn').onclick=()=>{show('start');updateBest()};
 
 /* test hook (read-only) */
-window.MK_ASTEROID={state:()=>G,usable};
+window.MK_ASTEROID={state:()=>G,usable,quickAnswer};
 
 /* ---------- boot ---------- */
 (async function boot(){
