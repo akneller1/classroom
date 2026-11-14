@@ -7473,6 +7473,20 @@ window.LIBRARY = {
  });
 })(window);
 
+/* Asteroid Blaster: shared question-bank arcade game across active course units. */
+(function(G){
+ G.LIBRARY.courses.forEach(function(c){
+  if(c.planned)return;
+  c.units.forEach(function(u){
+   var path='worksheet-generator/asteroid-blaster.html?course='+encodeURIComponent(c.id)+'&unit='+encodeURIComponent(u.id);
+   if(u.artifacts.some(function(a){return a.path===path;}))return;
+   u.artifacts.push({title:u.name+' Asteroid Blaster',path:path,bankFormat:'asteroid-blaster',type:'Game',thumb:'thumbs/asteroid-blaster.jpg',
+    description:'Blast the asteroid with the correct answer. Three shields, streak multipliers, Cadet / Pilot / Ace speeds, and worked solutions after misses.',
+    topics:[u.name,'Arcade game'],added:'2026-11-13'});
+  });
+ });
+})(window);
+
 /* Interactive Math: hands-on tools with printable Explore & Reflect worksheets and teacher keys.
    Built from tools/interactive-math-20261105 (build.py, build_worksheets.py, print_pdfs.cjs). */
 (function(G){
