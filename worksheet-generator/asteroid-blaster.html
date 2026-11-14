@@ -395,11 +395,18 @@ function seg(id,key){
     b.onclick=()=>{cfg[key]=b.dataset.v;el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));store('mk-asteroid-'+key,cfg[key]);updateBest()}});
 }
 function buildPickers(){
-  const courses=(window.LIBRARY&&LIBRARY.courses||[]).filter(c=>!c.planned);
+  const courses=(window.LIBRARY&&LIBRARY.courses||[]).filter(c=>!c.planned&&c.units.some(u=>(u.artifacts||[]).some(a=>a.bankFormat==='asteroid-blaster')));
   const cur=new URLSearchParams(location.search);
   const cid=S&&S.courseId||cur.get('course')||'';
   $('courseSel').innerHTML=courses.map(c=>`<option value="${esc(c.id)}"${c.id===cid?' selected':''}>${esc(c.name)}</option>`).join('');
-  const fill=c=>{$('unitSel').innerHTML=(c?c.units:[]).map((u,i)=>`<option value="${esc(u.id)}"${S&&S.unit&&u.id===S.unit.id&&c.id===S.courseId?' selected':''}>Unit ${i+1}: ${esc(u.name)}</option>`).join('')};
+  const fill=c=>{
+    const units=c?c.units:[];
+    $('unitSel').innerHTML=units.filter(u=>(u.artifacts||[]).some(a=>a.bankFormat==='asteroid-blaster')).map(u=>{
+      const i=units.indexOf(u);
+      return `<option value="${esc(u.id)}"${S&&S.unit&&u.id===S.unit.id&&c.id===S.courseId?' selected':''}>Unit ${i+1}: ${esc(u.name)}</option>`;
+    }).join('');
+    $('unitSel').disabled=!$('unitSel').options.length;
+  };
   fill(courses.find(c=>c.id===cid)||courses[0]);
   const go=()=>{const p=new URLSearchParams();p.set('course',$('courseSel').value);p.set('unit',$('unitSel').value);location.search=p.toString()};
   $('courseSel').onchange=()=>{fill(courses.find(c=>c.id===$('courseSel').value));go()};
@@ -742,6 +749,7 @@ window.MK_ASTEROID={state:()=>G,usable,quickAnswer};
     S=window.MK_COURSE_ACTIVITY_SOURCE;
     buildPickers();
     if(!S||!S.unit)throw Error('Choose a course and unit above.');
+    if(!(S.unit.artifacts||[]).some(a=>a.bankFormat==='asteroid-blaster'))throw Error('Asteroid Blaster is not available for this unit: insufficient verified quick-answer multiple-choice questions. Choose another unit.');
     $('unitLine').textContent=S.course.name+' · '+S.unit.name;
     document.title=S.unit.name+" Asteroid Blaster · Mr. K's Classroom";
     RECORDS=S.records()||[];
