@@ -144,7 +144,7 @@
         for (; n >= 1; n--) {
           pg = p.raw ? { html: p.html(i, i + n), nofoot: true } : page(p.cfg, p.nV, p.v, p.key, p.html(i, i + n));
           var e = doc.createElement('div'); e.className = 'page mm-page pr-page'; e.innerHTML = pg.html; mathDisplay(e); stage.appendChild(e);
-          var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight + 1; stage.removeChild(e);
+          var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight - (b.classList.contains('pw-clues') ? 12 : -1); stage.removeChild(e);
           if (fits || n === 1) break;
         }
         out.push(pg); i += n;
@@ -263,7 +263,7 @@
     var sIn = large ? 3.0 : Math.min((layout === 'compact' ? 6.5 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.8 : 6.5) / (maxY - minY));
     var s = sIn * 96, W = large ? 7.0 * 96 : (maxX - minX) * s, H = large ? 8.0 * 96 : (maxY - minY) * s;
     var px = function (q) { return [(X(q) - minX) * s, (Y(q) - minY) * s]; };
-    var fs = large ? 13 : (sIn > 1.6 ? 8 : 7.4);
+    var fs = large ? 12 : 8;
     var out = '<svg class="pr-tsvg" width="' + (W / 96) + 'in" height="' + (H / 96) + 'in" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
     var slots = key ? B.pieces.map(function (_, i) { return { piece: i, slot: i, turn: 0 }; }) : B.scrambled;
     if (large) slots = slots.slice((section || 0) * 6, ((section || 0) + 1) * 6);
@@ -281,10 +281,10 @@
         var e = E[so[(k + sl.turn) % 3]], A = P[e[0]], Bp = P[e[1]], mx = (A[0] + Bp[0]) / 2, my = (A[1] + Bp[1]) / 2;
         var nx = cx - mx, ny = cy - my, nl = Math.sqrt(nx * nx + ny * ny); nx /= nl; ny /= nl;
         var edge = Math.hypot(Bp[0] - A[0], Bp[1] - A[1]);
-        var len = edge * 0.58, d = edge * 0.12, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
+        var len = edge * 0.58, d = edge * 0.13, ang = Math.atan2(nx, -ny) * 180 / Math.PI;
         // Stacked fractions need substantially more vertical room than plain text.
-        var ox = mx + nx * d, oy = my + ny * d, hh = edge * 0.13;
-        out += '<foreignObject x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + fs.toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
+        var ox = mx + nx * d, oy = my + ny * d, hh = edge * 0.17;
+        out += '<foreignObject data-problem="' + (pc.kind[po[k]] === 'q' ? (String(txt).match(/^(?:Problem )?(\d+)/) || ['', ''])[1] : '') + '" x="' + (ox - len / 2) + '" y="' + (oy - hh / 2) + '" width="' + len + '" height="' + hh + '" transform="rotate(' + ang.toFixed(2) + ' ' + ox + ' ' + oy + ')"><div xmlns="http://www.w3.org/1999/xhtml" class="pr-tt' + (key && pc.kind[po[k]] === 'q' ? ' q' : '') + '" style="font-size:' + fs.toFixed(2) + 'pt"><span>' + mathSafe(txt) + '</span></div></foreignObject>';
       }
     });
     return out + '</svg>';
@@ -297,7 +297,7 @@
     var P = [], n = B.items.length, ttl = unitName(cfg) + ' Tarsia', shape = B.shape === 'hexagon' ? 'Hexagon' : 'Triangle';
     if (!key) {
       P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl, 'Mr. K’s Classroom · ' + shape + ' of ' + B.pieces.length + ' triangles, ' + n + ' matches', true) +
-        '<div class="pt-dirs"><b>Directions:</b> Solve each problem. Cut out the ' + B.pieces.length + ' triangles. Match each problem to its answer so that touching edges fit, and build a <b>' + B.shape + '</b>. Glue it on a sheet of paper. Show your work for every problem on the work pages (the number before each problem tells you where).</div>' +
+        '<div class="pt-dirs"><b>Directions:</b> Solve each problem. Cut out the ' + B.pieces.length + ' triangles. Match each problem to its answer so that touching edges fit, and build a <b>' + B.shape + '</b>. Glue it on a sheet of paper. Show your work for every problem on the work pages (the number before each problem tells you where). Longer questions appear as <b>Problem 1</b>, <b>Problem 2</b>, etc.; read them on the work pages.</div>' +
         '<div class="pr-tbox">' + tarsiaSvg(B, false, layout, 0) + '</div></div>' });
       if (large) for (var ls = 1; ls < Math.ceil(B.pieces.length / 6); ls++) P.push({ nofoot: true, html: '<div class="mm-body pc pt">' + tarsiaHead(cfg, nV, v, ttl, 'Large print · Cut-out sheet ' + (ls + 1), false) + '<div class="pr-tbox">' + tarsiaSvg(B, false, layout, ls) + '</div></div>' });
       var sorted = B.items.slice().sort(function (a, b) { return a.num - b.num; });
@@ -341,7 +341,7 @@
       P.push({ nofoot: true, html: '<div class="mm-body pc pw">' + whoHead('Show Your Work', esc(S.name) + ' · Show every step in the matching box.', true, false, nV, v) +
         '<div class="pw-wgrid">' + B.cards.map(function (_, i) { return '<div>' + (i + 1) + '.<small>Choice ______</small></div>'; }).join('') + '</div></div>' });
       var fl = flow(cfg, nV, v, false, B.cards, 2, function (from, to) {
-        return '<div class="mm-body pc pw">' + B.cards.slice(from, to).map(function (c, k) {
+        return '<div class="mm-body pc pw pw-clues">' + B.cards.slice(from, to).map(function (c, k) {
           return '<div class="pw-card">' + (k ? '<span class="pw-cut">✂ cut here</span>' : '') + '<div class="pw-ch"><span class="pw-mono">Clue #' + (from + k + 1) + '</span><span>' + esc(S.name) + '</span></div>' + cardProblem(c.item.p) +
             '<table class="pw-opts">' + c.opts.map(function (o, j) { return '<tr><td><b>' + LET[j] + '.</b> ' + mathSafe(o.a) + '</td><td>' + esc(o.clue) + '</td></tr>'; }).join('') + '</table><div class="pw-cf">Solve the problem, find your answer, and read its clue. Cross it off on your case board.</div></div>';
         }).join('') + '</div>';
@@ -351,7 +351,7 @@
       var C = B.culprit;
       P.push({ nofoot: true, html: '<div class="mm-body pc pw">' + whoHead(S.name, sub + ' · Teacher Guide', false, true, nV, v) +
         '<div class="pw-sol">' + esc(S.suspects[C.p].n) + ' · ' + esc(S.places[C.l].n) + ' · ' + esc(S.methods[C.m].n) + '</div>' +
-        '<p><b>Setup:</b> print the clue cards (two per page), cut them apart and post them around the room. Give each student the case page and the Show Your Work page. Students can start at any card. Teams of 2–3 work well; plan on 25–40 minutes.</p>' +
+        '<p><b>Setup:</b> print the clue cards (up to two per page; longer cards get their own page), cut them apart and post them around the room. Give each student the case page and the Show Your Work page. Students can start at any card. Teams of 2–3 work well; plan on 25–40 minutes.</p>' +
         '<p><b>How it works:</b> each correct answer leads to a true clue. Five true clues clear an innocent suspect AND the place where they were; the other five clear an innocent method. Each wrong answer (every one is checked to be wrong) leads to a false clue: some clear the culprit, the crime scene or the real method, and the rest clear only innocent things. Either way the card’s true clue is missed, so a mistake leaves the board with none, or more than one, of something.</p>' +
         '<table class="pw-k"><thead><tr><th>Card</th><th>Correct choice</th><th>Clears</th></tr></thead><tbody>' + B.cards.map(function (c, i) {
           return '<tr><td><b>' + (i + 1) + '</b></td><td><b>' + LET[c.pos] + '.</b> ' + mathSafe(c.item.key) + '</td><td>' + clears(c.truth) + '</td></tr>'; }).join('') + '</tbody></table>' +
@@ -669,7 +669,9 @@
     var U = PR.MATCH.UNITS[unit], fams = U.fams.filter(function (f) { return cfg.families ? cfg.families[f] : U.def.indexOf(f) >= 0; });
     return 'match-game.html#unit=' + unit + '&level=' + (cfg.level || 'cp1') + '&sets=' + (cfg.sets | 0 || 6) + '&fams=' + fams.join(',') + '&seed=' + cfg.seed + (ui.v ? '&v=' + ui.v : '') + '&eq=1&hints=1';
   }
-  function drawPreview() {
+  var previewRevision = 0;
+  function drawPreview(resourcesReady) {
+    var revision = ++previewRevision;
     var pv = $('#prPreview'), err = built.filter(function (b) { return b.error; })[0];
     var tools = '<div class="ptool"><div class="grp" role="group" aria-label="Document"><button type="button" class="tab" data-doc="student" aria-pressed="' + (ui.doc === 'student') + '">Student copy</button><button type="button" class="tab" data-doc="key" aria-pressed="' + (ui.doc === 'key') + '">Answer key</button></div>' +
       (built.length > 1 ? '<div class="grp" role="group" aria-label="Version">' + built.map(function (_, i) { return '<button type="button" class="tab" data-ver="' + i + '" aria-pressed="' + (ui.v === i) + '">Version ' + 'ABC'[i] + '</button>'; }).join('') + '</div>' : '') +
@@ -679,6 +681,10 @@
     var box = $('.pr-pages', pv);
     PR.pageEls(cfg, built[ui.v], ui.v, built.length, ui.doc === 'key').forEach(function (p) { var w = doc.createElement('div'); w.className = 'pr-pwrap'; w.appendChild(p); box.appendChild(w); });
     fit(); fitTarsiaLabels(pv); fitBoxes(pv); bindTools();
+    // Pagination must use the final font metrics and loaded diagrams, not their placeholders.
+    if (!resourcesReady) layoutReady(pv).then(function () {
+      if (revision === previewRevision) drawPreview(true);
+    });
   }
   /* Fit the rendered KaTeX, not a character-count estimate. Keep each label inside
      its own edge strip, including rotated labels and stacked fractions. */
@@ -688,20 +694,29 @@
       var el = fo.querySelector('.pr-tt'), span = el && el.querySelector('span');
       if (!span) return;
       span.style.transform = 'none';
-      var w = +fo.getAttribute('width') - 8, h = +fo.getAttribute('height') - 5;
+      var w = +fo.getAttribute('width') - 6, h = +fo.getAttribute('height') - 3;
       var naturalW = Math.max(span.scrollWidth, span.offsetWidth, 1);
       var naturalH = Math.max(span.scrollHeight, span.offsetHeight, 1);
       var scale = Math.min(1, w / naturalW, h / naturalH);
+      // Keep long questions on the accompanying work pages instead of printing tiny equations.
+      var number = fo.getAttribute('data-problem');
+      if (number && scale < 0.85) {
+        span.textContent = 'Problem ' + number;
+        naturalW = Math.max(span.scrollWidth, span.offsetWidth, 1);
+        naturalH = Math.max(span.scrollHeight, span.offsetHeight, 1);
+        scale = Math.min(1, w / naturalW, h / naturalH);
+      }
       span.style.transform = 'scale(' + Math.max(0.01, scale).toFixed(4) + ')';
       // Expose problematic labels so development tests can detect them.
       fo.setAttribute('data-fit-scale', scale.toFixed(3));
       fo.setAttribute('data-readable', scale >= 0.72 ? 'true' : 'false');
     });
   }
+  PR.fitTarsiaLabels = fitTarsiaLabels;
   /* Fixed-size boxes (Color by Number, Partner Check, Error Analysis, Whodunnit cards, stations, maze rooms):
      a long problem or a tall picture shrinks to fit instead of being cut off at the bottom of its box. */
   function fitBoxes(root) {
-    $$('.pc-box,.pp-box,.pe-box,.pw-card,.ps-q,.pm-room,.pm-q,.pm-big,.pt-grid>div', root).forEach(function (b) {
+    $$('.pc-box,.pp-box,.pe-box,.ps-q,.pm-room,.pm-q,.pm-big,.pt-grid>div', root).forEach(function (b) {
       var fs = parseFloat(G.getComputedStyle(b).fontSize) || 12, n = 0;
       while ((b.scrollHeight > b.clientHeight + 2 || b.scrollWidth > b.clientWidth + 2) && n < 14) {
         fs *= 0.93; b.style.fontSize = fs.toFixed(2) + 'px'; n++;
@@ -718,10 +733,20 @@
     if ($('#prPrintS')) $('#prPrintS').onclick = function () { printAll(false); };
     if ($('#prPrintK')) $('#prPrintK').onclick = function () { printAll(true); };
   }
-  function printAll(key) {
+  function layoutReady(root) {
+    return Promise.all([doc.fonts ? doc.fonts.ready : Promise.resolve()].concat(
+      $$('img', root).map(function (im) { return im.decode ? im.decode().catch(function () {}) : Promise.resolve(); })
+    ));
+  }
+  async function printAll(key) {
     var root = $('#printRoot'); root.innerHTML = '';
     built.forEach(function (B, v) { PR.pageEls(cfg, B, v, built.length, key).forEach(function (p) { root.appendChild(p); }); });
     doc.body.classList.add('printing');
+    await layoutReady(root);
+    // Re-measure the cards after their math fonts and diagram dimensions are available.
+    root.innerHTML = '';
+    built.forEach(function (B, v) { PR.pageEls(cfg, B, v, built.length, key).forEach(function (p) { root.appendChild(p); }); });
+    await layoutReady(root);
     fitTarsiaLabels(root);
     fitBoxes(root);
     var done = function () { doc.body.classList.remove('printing'); root.innerHTML = ''; G.removeEventListener('afterprint', done); };

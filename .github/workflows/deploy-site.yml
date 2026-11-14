@@ -138,6 +138,8 @@ jobs:
         run: node scripts/test-grade2-browser.cjs _site
       - name: Browser-test Grade 1 release, student links and return navigation
         run: node scripts/test-grade1-browser.cjs _site
+      - name: Verify printable layouts against all published courses
+        run: SITE_ROOT=_site node scripts/test-printable-layouts.cjs
       - name: Integrate reviewed Post-it games after course catalogs
         run: |
           node scripts/integrate-postit-games.mjs

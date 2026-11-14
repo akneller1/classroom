@@ -1,0 +1,26 @@
+name: Printable layout regressions
+on:
+  pull_request:
+    paths:
+      - 'worksheet-generator/**'
+      - 'scripts/test-printable-layouts.cjs'
+      - '.github/workflows/printable-layouts.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'worksheet-generator/**'
+      - 'scripts/test-printable-layouts.cjs'
+      - '.github/workflows/printable-layouts.yml'
+  workflow_dispatch:
+jobs:
+  layouts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save --no-package-lock playwright
+      - run: npx playwright install --with-deps chromium
+      - run: node scripts/test-printable-layouts.cjs
