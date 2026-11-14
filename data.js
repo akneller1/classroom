@@ -7325,7 +7325,7 @@ window.LIBRARY = {
  ];
  courses.forEach(function(c){
   if(G.LIBRARY.courses.some(function(existing){return existing.id===c.id;}))return;
-  c.units=[];c.comingSoon=true;c.planned=true;c.homePlaceholder=true;
+  c.units=[];c.comingSoon=c.id==='grade1';c.planned=c.id==='grade1';c.homePlaceholder=c.id==='grade1';
   G.LIBRARY.courses.push(c);
  });
 })(window);
