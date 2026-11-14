@@ -86,5 +86,18 @@ library.courses.forEach(function(course){
   });
  });
 });
+/* Audited Asteroid eligibility: only units with >=8 short, single-correct,
+   four-option MC questions in their approved banks. Unverified units stay hidden.
+   Audit source: question-banks/manifest.json and the approved JSON question sets.
+   Algebra 1/Geometry have a separate verified generator fallback. */
+(function(){
+ var eligible=new Set(["math6/data-displays","math6/expressions-equations","math6/fractions-decimals-operations","math6/geometry","math6/inequalities","math6/rational-numbers","math6/ratios-rates-percent-proportions","prealgebra/congruence-similarity","prealgebra/equations-expressions","prealgebra/geometry-applications","prealgebra/linear-functional-relationships","prealgebra/real-numbers-exponents","prealgebra/systems-linear-equations","prealgebra7/algebraic-expressions-integers","prealgebra7/area-volume","prealgebra7/data-analysis-probability","prealgebra7/decimals-equations","prealgebra7/factors-fractions-exponents","prealgebra7/linear-functions-graphing","prealgebra7/nonlinear-functions-polynomials","prealgebra7/one-step-equations-inequalities","prealgebra7/operations-fractions","prealgebra7/ratios-proportions-percentages","prealgebra7/right-triangles-algebra","prealgebra7/solving-equations-inequalities","prealgebra7/spatial-thinking","precalculus/equations-inequalities","precalculus/functions","precalculus/conics","precalculus/trigonometric-functions","precalculus/general-triangle-trigonometry","precalculus/matrices","precalculus/vectors","precalculus/probability","calculus/precalculus-review","calculus/limits-continuity","calculus/derivatives","calculus/applications-derivatives","calculus/antiderivatives-definite-integrals","calculus/fundamental-theorem-calculus","calculus/applications-integrals","calculus/differential-equations","calculus/ap-review","statistics/sampling-experimentation","statistics/exploring-data","statistics/anticipating-patterns","statistics/statistical-inference","discrete/speaking-mathematically","discrete/compound-statements-logic","discrete/number-theory-proof","discrete/sequences-induction-recursion","discrete/set-theory","discrete/properties-relations","discrete/counting-probability","discrete/graphs-trees","discrete/election-theory","discrete/linear-programming"]);
+ library.courses.forEach(function(course){
+  (course.units||[]).forEach(function(unit){
+   if(eligible.has(course.id+'/'+unit.id)||course.id==='algebra'||course.id==='geometry')return;
+   unit.artifacts=(unit.artifacts||[]).filter(function(a){return a.bankFormat!=='asteroid-blaster'&&!/worksheet-generator\/asteroid-blaster\.html\?/.test(a.path||'');});
+  });
+ });
+})();
 root.MK_INTEGRATED_COURSE_IDS=['grade5','financial-algebra'];
 })(typeof window!=='undefined'?window:globalThis);
