@@ -115,7 +115,9 @@ jobs:
           GRADE1_SOURCE_DIR: _course_sources/grade1
         run: node scripts/integrate-grade1.mjs
       - name: Validate Grade 1 release structure and resources
-        run: node scripts/test-grade1-release.cjs _site
+        run: |
+          node scripts/test-grade1-release.cjs _site
+          node scripts/test-grade1-projects.cjs _site
       - name: Audit curated elementary Asteroid Blaster units and playable question pools
         run: node scripts/test-elementary-asteroid.cjs _site
       - name: Verify course catalogs in every shared game and study tool

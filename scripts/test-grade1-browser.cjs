@@ -101,6 +101,20 @@ const server=http.createServer((req,res)=>{
   await planner.locator('#plCourse').selectOption('grade1');
   await planner.waitForFunction(()=>window.MKPLAN_COURSE==='grade1'&&document.querySelector('#plView')?.innerText.length>150,{timeout:25000});
   await planner.close();
+  const projects = await browser.newPage();
+  const projectMap = JSON.parse(fs.readFileSync(path.join(__dirname,'grade1-projects-manifest.json'),'utf8'));
+  for (const [unitId, items] of Object.entries(projectMap)) {
+    await projects.goto(base+'worksheet-generator/printables.html#unit='+unitId+'&kind=project',{waitUntil:'load'});
+    await projects.waitForSelector('.pj-card',{timeout:30000});
+    assert.equal(await projects.locator('.pj-card').count(),1,unitId);
+    assert.equal(await projects.locator('.pj-card h3').innerText(),items[0].title);
+    assert.equal(await projects.locator('.pj-levels tr').count(),3);
+    assert.equal(await projects.locator('.pj-card a').count(),12,'All editable files, keys and supports must be linked');
+    assert.match(await projects.locator('.pj-teacher').innerText(),/Printable supports/);
+    assert.match(await projects.locator('.pj-levels').innerText(),/Remedial[\s\S]*Standard[\s\S]*Advanced/);
+  }
+  await projects.close();
+  console.log('PASS Grade 1 projects: all 12 units display their project and all 12 download links.');
   assert.deepEqual(errors,[],'Grade 1 unit view must have no JS errors');
   console.log('PASS Grade 1: 12 native banks, direct game route, skill selection and student URL, student game startup, dedicated check-bank request');
  }finally{await page.close();await browser.close();server.close();}
