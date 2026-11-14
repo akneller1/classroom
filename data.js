@@ -7313,6 +7313,23 @@ window.LIBRARY = {
   ]
 };
 
+/* Elementary course records live in the canonical catalog, not only in
+   homepage rendering. Keep unreleased courses non-playable until their
+   complete question banks and activity integrations are published. */
+(function(G){
+ var courses=[
+  {id:'grade1',name:'1st Grade Math',color:'red',art:'first',blurb:'Counting, addition, subtraction, shapes and measurement.'},
+  {id:'grade2',name:'2nd Grade Math',color:'orange',art:'second',blurb:'Place value, addition, subtraction, money, time and shapes.'},
+  {id:'grade3',name:'3rd Grade Math',color:'orange',art:'third',blurb:'Multiplication, division, fractions, measurement and geometry.'},
+  {id:'grade4',name:'4th Grade Math',color:'green',art:'fourth',blurb:'Multi-digit operations, fractions, factors, measurement and geometry.'}
+ ];
+ courses.forEach(function(c){
+  if(G.LIBRARY.courses.some(function(existing){return existing.id===c.id;}))return;
+  c.units=[];c.comingSoon=true;c.planned=true;c.homePlaceholder=true;
+  G.LIBRARY.courses.push(c);
+ });
+})(window);
+
 /* Bank-backed resources supplement retained original activities and PDFs. */
 (function(G){
  var course=G.LIBRARY.courses.find(function(c){return c.id==='algebra2'});if(!course)return;
