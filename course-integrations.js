@@ -70,5 +70,21 @@ add({id:'financial-algebra',name:'Financial Algebra',color:'purple',art:'finance
  (r.projects||[]).forEach(function(p){a.push(item(p.title,p.path,'Project','other','thumbs/financial-algebra/'+unit.id+'-project-'+p.slug+'.svg'));});
  return {id:unit.id,name:unit.name,artifacts:a};
  })});
+/* Shared Asteroid Blaster registration after integrated courses are added.
+   Other active courses are already registered by data.js. */
+library.courses.forEach(function(course){
+ if(course.planned||!Array.isArray(course.units))return;
+ course.units.forEach(function(unit){
+  if(!Array.isArray(unit.artifacts))unit.artifacts=[];
+  var path='worksheet-generator/asteroid-blaster.html?course='+encodeURIComponent(course.id)+'&unit='+encodeURIComponent(unit.id);
+  if(unit.artifacts.some(function(a){return a.path===path||a.bankFormat==='asteroid-blaster'}))return;
+  unit.artifacts.push({
+   title:'Asteroid Blaster',path:path,type:'Game',bankFormat:'asteroid-blaster',
+   thumb:'thumbs/asteroid-blaster.jpg',
+   description:'Quick-answer mental math arcade game with teacher-selected skills.',
+   topics:[unit.name,'Mental Math','Arcade'],added:'2026-11-13'
+  });
+ });
+});
 root.MK_INTEGRATED_COURSE_IDS=['grade5','financial-algebra'];
 })(typeof window!=='undefined'?window:globalThis);
