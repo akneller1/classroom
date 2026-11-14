@@ -187,7 +187,7 @@ ol.steps{margin:0;padding-left:22px;display:grid;gap:6px;color:#dbe4ff;line-heig
         </div>
         <details class="skills"><summary>Skills: <span id="skillCount"></span></summary><ul id="skillList"></ul>
           <div class="tools"><button type="button" class="linkbtn" id="allSkills">Select all</button><button type="button" class="linkbtn" id="noSkills">Clear</button></div></details>
-        <div class="best" id="bestLine"></div>
+        <div class="best" id="bestLine"></div><button type="button" class="go" id="copyStudentLink" style="margin:8px 0;background:#164e63">Copy Student Link (choose skills above)</button><p id="linkStatus" role="status" class="best"></p>
         <button class="go" id="startBtn" type="button">Launch</button>
         <p class="how">Each wave, four asteroids fall with answer choices on them. Solve the problem and blast the asteroid with the right answer before it reaches your shield. Click or tap an asteroid, or press <kbd>A</kbd>–<kbd>D</kbd>. Wrong shots and misses cost a shield; three correct answers in a row raise your score multiplier. Press <kbd>P</kbd> to pause.</p>
       </div>
@@ -327,7 +327,22 @@ const sfx={
 };
 
 /* ---------- questions from the site's verified sources (same rules as Math Millionaire) ---------- */
+/* Conservative arcade suitability: avoid multi-step, reading-heavy and visual problems.
+   Explicit bank quickAnswer flags override heuristics. */
+function quickAnswer(q){
+ if(q.quickAnswer===false||q.arcadeEligible===false)return false;
+ if(q._figure||q.diagram||q.figure||q._graphOptions||q.image)return false;
+ if(q.quickAnswer===true||q.arcadeEligible===true)return true;
+ const p=plain(q.prompt||'').replace(/\\\([^)]*\\\)/g,' ').trim();
+ if(p.length>115||p.split(/\s+/).length>19)return false;
+ if(/explain|justify|graph|plot|draw|sketch|table|diagram|figure|paragraph|estimate using|show your work|which statement|following|scenario|system of|two equations|quadratic formula|factor completely|simplify fully|prove|describe|interpret|compare and contrast|select all|multi.step|calculate the (area|volume|surface area)/i.test(p))return false;
+ if((p.match(/[=]/g)||[]).length>1)return false;
+ if((p.match(/[+*×÷\/−-]/g)||[]).length>3)return false;
+ if((p.match(/\d+/g)||[]).some(x=>Number(x)>10000))return false;
+ return true;
+}
 function usable(q){
+ if(!quickAnswer(q))return null;
   if(!q||!Array.isArray(q.options)||q._graphOptions)return null;
   const right=q.options.filter(o=>o.correct),wrong=q.options.filter(o=>!o.correct&&String(o.text).trim());
   if(right.length!==1||wrong.length<3)return null;
@@ -382,6 +397,16 @@ function buildPickers(){
 function bestKey(){return 'mk-asteroid-best:'+S.courseId+'/'+S.unit.id+'/'+cfg.level+'/'+cfg.speed+'/'+cfg.mode}
 function updateBest(){if(!S||!S.unit)return;const b=+store(bestKey())||0;$('bestLine').textContent=b?'Best score at these settings: '+b.toLocaleString('en-US'):''}
 function updateSkillCount(){const n=selectedSkills().length;$('skillCount').textContent=n===RECORDS.length?'all '+n:n+' of '+RECORDS.length;$('startBtn').disabled=!n}
+function applyStudentSkills(){
+ const p=new URLSearchParams(location.search);
+ if(!p.has('skills'))return;
+ const chosen=new Set(p.get('skills').split(',').filter(Boolean));
+ document.querySelectorAll('#skillList input').forEach(i=>{i.checked=chosen.has(i.value);i.disabled=true});
+ $('allSkills').disabled=true;$('noSkills').disabled=true;
+ $('copyStudentLink').hidden=true;
+ const note=document.createElement('p');note.className='best';note.textContent='Teacher-selected skills are locked for this session.';
+ $('skillList').closest('details').after(note);
+}
 function setupScreen(){
   ['level','speed','mode'].forEach(k=>{const v=store('mk-asteroid-'+k);if(v)cfg[k]=v});
   $('levelSeg').innerHTML=`<button type="button" data-v="mixed">Mixed<small>climbs as you go</small></button>`+LEVELS.map(l=>`<button type="button" data-v="${l}">${levelName(l)}</button>`).join('');
@@ -391,6 +416,14 @@ function setupScreen(){
   $('skillList').onchange=updateSkillCount;
   $('allSkills').onclick=()=>{document.querySelectorAll('#skillList input').forEach(i=>i.checked=true);updateSkillCount()};
   $('noSkills').onclick=()=>{document.querySelectorAll('#skillList input').forEach(i=>i.checked=false);updateSkillCount()};
+  applyStudentSkills();
+  $('copyStudentLink').onclick=async()=>{
+   const ids=selectedSkills();
+   if(!ids.length){$('linkStatus').textContent='Select at least one skill.';return}
+   const url=new URL(location.href);url.searchParams.set('skills',ids.join(','));
+   try{await navigator.clipboard.writeText(url.href);$('linkStatus').textContent='Student link copied for '+ids.length+' selected skills.'}
+   catch(e){$('linkStatus').textContent='Copy this link: '+url.href}
+  };
   updateSkillCount();updateBest();
 }
 
