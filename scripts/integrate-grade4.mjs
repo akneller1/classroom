@@ -38,9 +38,6 @@ const placeholder="SOON = SOON.concat([";
 if(!app.includes(placeholder))throw Error('Grade 4 homepage placeholder anchor missing');
 app=app.replace("var courses = L.courses.concat(SOON).slice().sort(function (a, b) {","var courses = L.courses.concat(SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})).slice().sort(function (a, b) {");
 if(!app.includes('SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})'))throw Error('Published course deduplication missing');
-const projectAnchor="(c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '')";
-if(!app.includes(projectAnchor))throw Error('Grade 4 release: project category anchor missing');
-app=app.replace(projectAnchor,"(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')");
 for(const required of ["/^grade4\\//.test(path)","['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)"])if(!app.includes(required))throw Error('Grade 4 parity patch missing: '+required);
 fs.writeFileSync(appFile,app);
 for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(name=>name.endsWith('.html')&&fs.readFileSync(path.join(out,'worksheet-generator',name),'utf8').includes('../course-catalog.js'))){
