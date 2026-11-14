@@ -283,8 +283,8 @@ ol.steps{margin:0;padding-left:22px;display:grid;gap:6px;color:#dbe4ff;line-heig
 <script src="menu/skills/geometry-area-surface-area-volume.js?v=coverage-20261111d"></script>
 <script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
 <script src="games/bank.js?v=coverage-proof-cards-20261111d"></script>
-<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script src="core/math-display.js?v=worksheet-layout-20261111"></script><script src="vocabulary-data.js?v=elementary-catalog-20261114"></script><script src="vocabulary-data-middle-grades.js?v=statistics-bank-20261107"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/asteroid-grade5-bank.js?v=curated-grade5-placefix-20261114"></script>
-<script src="games/course-source.js?v=curated-grade5-20261114"></script>
+<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script src="core/math-display.js?v=worksheet-layout-20261111"></script><script src="vocabulary-data.js?v=elementary-catalog-20261114"></script><script src="vocabulary-data-middle-grades.js?v=statistics-bank-20261107"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/asteroid-grade5-bank.js?v=elementary-pools-20261114"></script>
+<script src="games/course-source.js?v=elementary-pools-20261114"></script>
 <script>
 (function(){
 'use strict';
@@ -300,7 +300,7 @@ const norm=s=>String(s||'').replace(/[⟨⟩\s{}\\]|dfrac|frac/g,'').toLowerCase
 const plain=s=>String(s||'').replace(/<[^>]*>/g,'').replace(/[⟨⟩\\{}]/g,'');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const H=t=>S.html(t);
-const middle=()=>/^(math6|prealgebra7?)$/.test(S.courseId);
+const middle=()=>/^(grade[2-5]|math6|prealgebra7?)$/.test(S.courseId);
 const levelName=l=>middle()?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[l]:{cp2:'CP2',cp1:'CP1',honors:'Honors'}[l];
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
@@ -366,7 +366,7 @@ function usable(q){
 function selectedSkills(){return [...document.querySelectorAll('#skillList input:checked')].map(i=>i.value)}
 function refill(level){
   const bank=MK_QUESTION_BANKS.available(S.courseId,S.unit.id);
-  let items=[];try{items=S.select(level,G.skills,bank?80:14)||[]}catch(e){items=[]}
+  let items=[];try{items=S.select(level,G.skills,bank?10000:14)||[]}catch(e){items=[]}
   let added=0;
   for(const it of shuffle(items.map(usable).filter(Boolean))){
     const k=norm(it.q.prompt)+'|'+norm(it.opts[it.correct].text);
@@ -689,7 +689,7 @@ function countPlayableQuestions(ids){
     // from all three levels. Never count inaccessible levels as eligible.
     const levels=cfg.level==='mixed'?LEVELS:[cfg.level];
     for(const level of levels){
-      const sample=S.select(level,ids,300)||[];
+      const sample=S.select(level,ids,10000)||[];
       for(const q of sample){
         const item=usable(q);
         if(item)seen.add(norm(item.q.prompt)+'|'+norm(item.opts[item.correct].text));

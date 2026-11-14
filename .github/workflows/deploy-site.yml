@@ -101,6 +101,8 @@ jobs:
         run: node scripts/integrate-grade2.mjs
       - name: Validate Grade 2 release manifest and published resources
         run: node scripts/test-grade2-release.cjs _site
+      - name: Audit curated elementary Asteroid Blaster units and playable question pools
+        run: node scripts/test-elementary-asteroid.cjs _site
       - name: Verify course catalogs in every shared game and study tool
         run: node scripts/test-shared-course-catalogs.cjs _site
       - name: Check assembled public site and course navigation

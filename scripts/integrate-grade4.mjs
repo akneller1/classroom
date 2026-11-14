@@ -1,3 +1,4 @@
+import { addAsteroidBlaster } from './asteroid-resources.mjs';
 import { addMultipleDrop } from './multiple-drop-resources.mjs';
 // Assemble the validated Grade 4 course from the separate FinancialAlgebra repository.
 import fs from 'node:fs';
@@ -12,6 +13,7 @@ if(!grade4Ready(source))throw Error('Grade 4 banks are not approved');
 const course=assembleGrade4({source,out});
 if(course.units.length!==10)throw Error('Grade 4 release requires ten units');
 addMultipleDrop(course);
+addAsteroidBlaster(course);
 const skills=course.skills;
 const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
 'var L=G.LIBRARY;if(!L||!L.courses)throw Error("Grade 4 library missing");'+
@@ -34,7 +36,7 @@ app=app.replace("['grade5','financial-algebra'].includes(it.c.id)","['grade4','g
 app=app.replace("c.id === 'grade5') return algebraUnitView(c, u)","['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)");
 app=app.replace("'grade5', 'financial-algebra'].indexOf(c.id)","'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)");
 // The homepage's legacy Coming Soon placeholders must not duplicate published courses.
-const placeholder="SOON = SOON.concat([";
+const placeholder="var SOON =";
 if(!app.includes(placeholder))throw Error('Grade 4 homepage placeholder anchor missing');
 app=app.replace("var courses = L.courses.concat(SOON).slice().sort(function (a, b) {","var courses = L.courses.concat(SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})).slice().sort(function (a, b) {");
 if(!app.includes('SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})'))throw Error('Published course deduplication missing');

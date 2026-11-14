@@ -1,3 +1,4 @@
+import { addAsteroidBlaster } from './asteroid-resources.mjs';
 import { addMultipleDrop } from './multiple-drop-resources.mjs';
 // Assemble Grade 3 from FinancialAlgebra into the public Classroom artifact.
 // This runs only in the Classroom production workflow after Grade 4.
@@ -18,6 +19,7 @@ if(!grade3Ready(source))fail('source not ready');
 const course=assembleGrade3({source,out});
 if(course.units.length!==11)fail('expected eleven units');
 addMultipleDrop(course);
+addAsteroidBlaster(course);
 const skills=course.skills;
 delete course.skills;
 const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
