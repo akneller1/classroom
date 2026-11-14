@@ -35,6 +35,7 @@
     if (activity.courseId === 'financial-algebra') return ['Game','Study Guide','Interactive','Project'].indexOf(String(activity.type)) >= 0;
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(activity.path)) return true;
     if (/^worksheet-generator\/(?:course-(game|activity)|algebra2-game)\.html\?/i.test(activity.path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(activity.path);
+    if (/^worksheet-generator\/asteroid-blaster\.html\?/i.test(activity.path)) return true;
     if (/^worksheet-generator\//i.test(activity.path)) return false;
     if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path)) return false;
     var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
@@ -76,6 +77,12 @@
         actions.appendChild(select);
       }
       button.addEventListener('click', function () {
+        if (/^worksheet-generator\/asteroid-blaster\.html\?/i.test(path)) {
+          var asteroidUrl = new URL(path, window.location.href);
+          asteroidUrl.searchParams.set('share', '1');
+          window.location.href = asteroidUrl.href;
+          return;
+        }
         if (window.MK_INTEGRATED_STUDENT_SHARE && window.MK_INTEGRATED_STUDENT_SHARE.supports(resource)) {
           window.MK_INTEGRATED_STUDENT_SHARE.open(resource);
           return;
