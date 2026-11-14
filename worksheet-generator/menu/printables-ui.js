@@ -144,7 +144,7 @@
         for (; n >= 1; n--) {
           pg = p.raw ? { html: p.html(i, i + n), nofoot: true } : page(p.cfg, p.nV, p.v, p.key, p.html(i, i + n));
           var e = doc.createElement('div'); e.className = 'page mm-page pr-page'; e.innerHTML = pg.html; mathDisplay(e); stage.appendChild(e);
-          var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight - (b.classList.contains('pw-clues') ? 12 : -1); stage.removeChild(e);
+          var b = e.querySelector('.mm-body'), fits = b.scrollHeight <= b.clientHeight + 1 && (!b.classList.contains('pw-clues') || b.lastElementChild.getBoundingClientRect().bottom <= b.getBoundingClientRect().bottom - 12); stage.removeChild(e);
           if (fits || n === 1) break;
         }
         out.push(pg); i += n;
@@ -725,7 +725,7 @@
       span.style.transform = 'scale(' + Math.max(0.01, scale).toFixed(4) + ')';
       // Expose problematic labels so development tests can detect them.
       fo.setAttribute('data-fit-scale', scale.toFixed(3));
-      fo.setAttribute('data-readable', scale >= 0.72 ? 'true' : 'false');
+      fo.setAttribute('data-readable', scale * parseFloat(G.getComputedStyle(el).fontSize) * 0.75 >= 7 ? 'true' : 'false');
     });
   }
   PR.fitTarsiaLabels = fitTarsiaLabels;

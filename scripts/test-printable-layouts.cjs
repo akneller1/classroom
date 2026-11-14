@@ -73,6 +73,7 @@ let browser;
           }
           cards++;
         }
+        if (unit.startsWith('algebra1-') && !pages.some(p => p.querySelectorAll('.pw-card').length === 2)) failures.push(`${unit}: ordinary cards should still share a page`);
         if (pages.filter(p => p.querySelector('.pw-card')).length < 5) failures.push(`${unit}: cards not paginated`);
         if (host.querySelector('.pw-card').parentElement.querySelectorAll('.pw-card').length !== 1) failures.push(`${unit}: long card should get its own page`);
       }
