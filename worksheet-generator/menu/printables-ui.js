@@ -644,6 +644,7 @@
     $('#prCrumb').textContent = 'Printable Generator · ' + PR.kind(kind).name;
   }
   function rebuild() {
+    previewRevision++; // Cancel a pending font/diagram refresh when the activity or course changes.
     render();
     if (kind === 'project') { built = []; drawProjects(); return; }
     if (kind === 'vocabulary') { built = []; $('#prPreview').innerHTML = '<iframe title="Vocabulary Builder: worksheet settings and printable preview" src="vocabulary.html?embedded=1&unit=' + encodeURIComponent(unit) + '" style="width:100%;min-height:1420px;border:1px solid #d4dfea;border-radius:12px;background:white" loading="eager"></iframe>'; return; }
