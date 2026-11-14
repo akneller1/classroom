@@ -90,3 +90,11 @@ test('resource standards preserve native flashcards, finance games and projects'
  assert.equal(window.LIBRARY.courses[0].units[0].artifacts[0].title,project.title);
  for(const c of window.LIBRARY.courses)for(const a of c.units[0].artifacts)assert(!a.path.includes('course-game.html'));
 });
+test('browsing never labels project paths as team games',()=>{
+ const source=fs.readFileSync(path.join(root,'app.js'),'utf8');
+ const fn=source.slice(source.indexOf('  function activityFormat(a) {'),source.indexOf('  /* Teaching mode metadata'));
+ const classify=vm.runInNewContext(fn+';activityFormat',{toArr:x=>Array.isArray(x)?x:[x]});
+ assert.equal(classify({type:'Project',path:'/grade5/math5-project-sports-stats-showdown/index.html'}),'other');
+ assert.equal(classify({path:'artifacts/some-project-escape-room/index.html'}),'other');
+ assert.equal(classify({type:'Game',path:'artifacts/algebra-showdown/index.html'}),'showdown');
+});
