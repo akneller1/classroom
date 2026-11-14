@@ -71,3 +71,22 @@ test('invalid explicit unit cannot silently fall back to first unit',()=>{
  const source=fs.readFileSync(path.join(root,'worksheet-generator/games/course-source.js'),'utf8');
  assert.match(source,/!requestedUnit\?course\?\.units\[0\]:null/);
 });
+test('old integrated flashcard bookmarks stay usable',()=>{
+ for(const [course,units] of [['grade5',gradeUnits],['financial-algebra',financeUnits]])for(const unit of units){
+  const target=new URL(route(course,unit,'flashcards','&student=1&skills=a').target);
+  assert.equal(target.pathname,course==='grade5'?'/grade5/worksheet-generator/grade5-flashcards.html':'/financial/flashcards/index.html');
+  assert.equal(target.searchParams.get('unit'),unit);assert.equal(target.searchParams.get('student'),'1');assert.equal(target.searchParams.get('skills'),'a');
+ }
+});
+test('resource standards preserve native flashcards, finance games and projects',()=>{
+ const project={type:'Project',title:'Sports Stats Showdown',path:'/grade5/math5-project-sports-stats-showdown/index.html'};
+ const cards={title:'Flashcards',path:'/grade5/worksheet-generator/grade5-flashcards.html?unit=place-value-number-sense'};
+ const finance={title:'Flashcards',path:'financial/flashcards/index.html?unit=income'};
+ const game={title:'Showdown',path:'financial/games/index.html?unit=income&game=showdown'};
+ const window={LIBRARY:{courses:[{id:'grade5',units:[{id:gradeUnits[0],name:'Place Value',artifacts:[project,cards]}]},{id:'financial-algebra',units:[{id:'income',name:'Income',artifacts:[finance,game]}]}]}};
+ vm.runInNewContext(fs.readFileSync(path.join(root,'resource-standards.js'),'utf8'),{window});
+ assert.equal(window.MK_RESOURCE_STANDARDS.kind(project),null);
+ assert.equal(window.MK_RESOURCE_STANDARDS.kind({path:'artifacts/math5-project-mystery/index.html'}),null);
+ assert.equal(window.LIBRARY.courses[0].units[0].artifacts[0].title,project.title);
+ for(const c of window.LIBRARY.courses)for(const a of c.units[0].artifacts)assert(!a.path.includes('course-game.html'));
+});
