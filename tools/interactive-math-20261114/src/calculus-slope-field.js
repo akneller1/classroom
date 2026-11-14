@@ -1,0 +1,63 @@
+/* Slope field for dy/dx = F(x, y), a draggable initial point, Euler steps of size h and (when known) the exact solution. */
+var EQ = {
+  y: { t: 'dy/dx = y', F: function (x, y) { return y; }, exact: function (x0, y0) { return function (x) { return y0 * Math.exp(x - x0); }; }, eqm: 'y = 0' },
+  x: { t: 'dy/dx = x', F: function (x) { return x; }, exact: function (x0, y0) { return function (x) { return y0 + (x * x - x0 * x0) / 2; }; }, eqm: 'none' },
+  xy: { t: 'dy/dx = x + y', F: function (x, y) { return x + y; }, exact: function (x0, y0) { var C = (y0 + x0 + 1) * Math.exp(-x0); return function (x) { return C * Math.exp(x) - x - 1; }; }, eqm: 'none (but y = −x − 1 is a straight-line solution)' },
+  circ: { t: 'dy/dx = −x/y', F: function (x, y) { return -x / y; }, exact: function (x0, y0) { var r2 = x0 * x0 + y0 * y0, s = y0 >= 0 ? 1 : -1; return function (x) { return x * x <= r2 ? s * Math.sqrt(r2 - x * x) : NaN; }; }, eqm: 'none' },
+  logi: { t: 'dy/dx = 0.5y(4 − y)', F: function (x, y) { return 0.5 * y * (4 - y); }, exact: function (x0, y0) { if (y0 === 0) return function () { return 0; }; var A = (4 - y0) / y0; return function (x) { return 4 / (1 + A * Math.exp(-2 * (x - x0))); }; }, eqm: 'y = 0 and y = 4' }
+};
+var st = { eq: 'y', x0: 0, y0: 1, h: 0.5, euler: true, seen: {} };
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+L.chips(P.panel, { label: 'Differential equation', value: st.eq, options: Object.keys(EQ).map(function (k) { return { value: k, label: EQ[k].t }; }), onChange: function (v) { st.eq = v; draw(); } });
+var sh = L.slider(P.panel, { id: 'step-h', label: 'Euler step size h', min: 0.05, max: 1, step: 0.05, value: st.h, color: 'orange', format: function (v) { return L.num(v); }, onInput: function (v) { st.h = v; draw(); } });
+var btn = L.h('div', { class: 'btn-row' }, P.panel);
+L.button(btn, 'Euler steps on/off', function () { st.euler = !st.euler; draw(); }, true);
+L.reset(btn, function () { st.x0 = 0; st.y0 = 1; st.h = 0.5; sh.set(0.5, true); draw(); });
+var tbl = L.table(P.panel);
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'For dy/dx = y, start at (0, 1). Use Euler with h = 0.5 to estimate y(2). Is it too low or too high?', check: function () { return st.seen.e05; } },
+  { text: 'Make the Euler estimate of y(2) within 0.5 of the exact value e² ≈ 7.39.', check: function () { return st.seen.close; } },
+  { text: 'For the logistic equation, find both equilibrium solutions by starting on them.', check: function () { return st.seen.eq0 && st.seen.eq4; } },
+  { text: 'For dy/dx = −x/y, start at (3, 4). What curve does the solution follow?', check: function () { return st.seen.circle; } },
+  { text: 'For dy/dx = x + y, find a starting point whose solution is a straight line.', check: function () { return st.seen.line; } }
+]);
+L.notice(P.below, '<p>Every short segment has the slope dy/dx at its point. A <b>solution curve is tangent to the field everywhere</b> it goes.</p>' +
+  '<p><b>Euler’s method</b> walks along tangent lines: y<sub>new</sub> = y + h · F(x, y). For dy/dx = y the curve bends up, so each tangent step falls below it and Euler underestimates; smaller h gets closer.</p>' +
+  '<p>Where the field is flat across a whole row (F = 0 for every x), that row is an <b>equilibrium solution</b>.</p>');
+var opts = { xmin: -4, xmax: 4, ymin: -1, ymax: 8, width: 640, height: 520, xstep: 1, ystep: 1, label: 'Slope field with a solution curve' };
+var gr = L.graph(P.stage, opts);
+function eulerTo(X) {
+  var e = EQ[st.eq], x = st.x0, y = st.y0, pts = [[x, y]], h = st.h, n = Math.round((X - x) / h);
+  for (var i = 0; i < n; i++) { y += h * e.F(x, y); x += h; pts.push([x, y]); }
+  return pts;
+}
+var draw = L.scheduler(function () {
+  var e = EQ[st.eq];
+  L.setNiceView(gr, opts, st.eq === 'circ' ? { xmin: -6, xmax: 6, ymin: -6, ymax: 6 } : st.eq === 'x' || st.eq === 'xy' ? { xmin: -4, xmax: 4, ymin: -6, ymax: 6 } : { xmin: -4, xmax: 4, ymin: -1, ymax: 8 }, 8, 8);
+  gr.clear();
+  var v = gr.view, dx = (v.xmax - v.xmin) / 16, dy = (v.ymax - v.ymin) / 14;
+  for (var x = v.xmin + dx / 2; x < v.xmax; x += dx) for (var y = v.ymin + dy / 2; y < v.ymax; y += dy) {
+    var m = e.F(x, y); if (!isFinite(m)) continue;
+    var sx = (v.xmax - v.xmin) / gr.W, sy = (v.ymax - v.ymin) / gr.H, len = 13, ang = Math.atan2(m / sy, 1 / sx);
+    var ux = Math.cos(ang) * len * sx, uy = Math.sin(ang) * len * sy;
+    gr.line(x - ux, y - uy, x + ux, y + uy, { color: 'ink', width: 1.6, opacity: 0.55 });
+  }
+  var sol = e.exact(st.x0, st.y0);
+  gr.fn(sol, { color: 'blue', width: 4 });
+  var target = st.x0 + 2, pts = eulerTo(target), eY = pts[pts.length - 1][1], ex = sol(target);
+  if (st.euler) { for (var i = 1; i < pts.length; i++) gr.line(pts[i - 1][0], pts[i - 1][1], pts[i][0], pts[i][1], { color: 'orange', width: 3 }); pts.forEach(function (q) { gr.dot(q[0], q[1], { color: 'orange', r: 4 }); }); }
+  gr.handle(st.x0, st.y0, { color: 'green', snap: 0.5, label: 'Initial point', onDrag: function (a, b) { st.x0 = a; st.y0 = b; draw(); } });
+  read.innerHTML = e.t + ', y(' + L.num(st.x0) + ') = ' + L.num(st.y0) + '<div class="sub">Euler (h = ' + L.num(st.h) + ') estimate of y(' + L.num(target) + ') = ' + L.num(eY, 4) + ' · exact = ' + (isFinite(ex) ? L.num(ex, 4) : 'undefined') + ' · equilibrium: ' + e.eqm + '</div>';
+  tbl.set(['Step', 'x', 'y', 'slope F(x, y)'], pts.slice(0, 5).map(function (q, i) { return [i, L.num(q[0], 2), L.num(q[1], 4), L.num(e.F(q[0], q[1]), 4)]; }));
+  fb.set(isFinite(ex) ? (Math.abs(eY - ex) < 1e-6 ? 'Euler matches the exact solution here.' : eY < ex ? 'Euler is below the exact solution (it underestimates).' : 'Euler is above the exact solution (it overestimates).') : 'The solution is not defined at x = ' + L.num(target) + ' (it reaches y = 0).', '');
+  if (!st.live) { st.live = true; ch.update(); return; } /* opening state: nothing found until the student changes something */
+  if (st.eq === 'y' && st.x0 === 0 && st.y0 === 1 && Math.abs(st.h - 0.5) < 1e-9) st.seen.e05 = true;
+  if (st.eq === 'y' && st.x0 === 0 && st.y0 === 1 && Math.abs(eY - Math.exp(2)) < 0.5) st.seen.close = true;
+  if (st.eq === 'logi' && st.y0 === 0) st.seen.eq0 = true;
+  if (st.eq === 'logi' && st.y0 === 4) st.seen.eq4 = true;
+  if (st.eq === 'circ' && st.x0 === 3 && st.y0 === 4) st.seen.circle = true;
+  if (st.eq === 'xy' && st.y0 === -st.x0 - 1) st.seen.line = true;
+  ch.update();
+});
+draw();

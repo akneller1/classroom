@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rational Exponent Explorer · Mr. K's Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="../interactive-math/lab.css?v=20261105">
+</head><body><main id="app"></main><noscript><p style="padding:20px">This tool needs JavaScript.</p></noscript>
+<script src="../interactive-math/lab.js?v=20261105"></script>
+<script src="../interactive-math/lab-plus.js?v=20261114"></script>
+<script>
+(function () {
+'use strict';
+var L = Lab;
+var P = L.layout({"course": "Algebra 2", "unit": "Radicals & Rational Exponents", "title": "Rational Exponent Explorer", "intro": "Choose a base and a fractional exponent m/n. Compare taking the root first with raising to the power first, then look at the graph of y = x^(m/n)."});
+/* b^(m/n) two ways, plus the graph of y = x^(m/n). Real values only: a negative base needs an odd root. */
+var st = { b: 4, m: 3, n: 2, seen: {} };
+function realRoot(x, n) { if (x < 0) return n % 2 ? -Math.pow(-x, 1 / n) : NaN; return Math.pow(x, 1 / n); }
+function pow(x, m, n) { var r = realRoot(x, n); return isFinite(r) ? Math.pow(r, m) : NaN; }
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var sb = L.slider(P.panel, { id: 'base-b', label: 'Base b', min: -32, max: 64, step: 1, value: st.b, color: 'blue', format: function (v) { return L.num(v); }, onInput: function (v) { st.b = v; draw(); } });
+var sm = L.slider(P.panel, { id: 'numerator-m', label: 'Numerator m (the power)', min: -4, max: 6, step: 1, value: st.m, color: 'orange', format: function (v) { return L.num(v); }, onInput: function (v) { st.m = v; draw(); } });
+var sn = L.slider(P.panel, { id: 'denominator-n', label: 'Denominator n (the root)', min: 1, max: 6, step: 1, value: st.n, color: 'purple', format: function (v) { return L.num(v); }, onInput: function (v) { st.n = v; draw(); } });
+var fb = L.feedback(P.panel);
+var btn = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btn, function () { st.b = 4; st.m = 3; st.n = 2; sb.set(4, true); sm.set(3, true); sn.set(2, true); draw(); });
+var ch = L.challenges(P.panel, [
+  { text: 'Show that 8 to the 2/3 is 4. Which do you do first, the root or the power? Does it matter?', check: function () { return st.seen.e823; } },
+  { text: 'Make the graph match y = √x.', check: function () { return st.seen.sqrt; } },
+  { text: 'Find a base and exponent with value 1/9.', check: function () { return st.seen.ninth; } },
+  { text: 'Find a negative base that gives a real value, and one that does not.', check: function () { return st.seen.negOk && st.seen.negNo; } },
+  { text: 'Show that the exponents 2/4 and 1/2 give the same value for b = 16.', check: function () { return st.seen.e24 && st.seen.e12; } }
+]);
+L.notice(P.below, '<p><b>b<sup>m/n</sup> = (ⁿ√b)<sup>m</sup> = ⁿ√(b<sup>m</sup>).</b> The denominator n is the root and the numerator m is the power, in either order.</p>' +
+  '<p>A negative exponent means a reciprocal: b<sup>−m/n</sup> = 1 ÷ b<sup>m/n</sup>. Equivalent fractions give the same power: 16<sup>2/4</sup> = 16<sup>1/2</sup> = 4.</p>' +
+  '<p>An even root of a negative number is not a real number, so a negative base works only when n is odd (in lowest terms).</p>');
+var opts = { xmin: -8, xmax: 16, ymin: -6, ymax: 10, width: 640, height: 440, label: 'Graph of y = x to the m over n' };
+var gr = L.graph(P.stage, opts);
+function expTxt() { return st.n === 1 ? L.num(st.m) : L.frac(st.m, st.n); }
+var draw = L.scheduler(function () {
+  var b = st.b, m = st.m, n = st.n, g = L.gcd(m, n), mm = m / g, nn = n / g;
+  gr.clear();
+  gr.fn(function (x) { return pow(x, mm, nn); }, { color: 'blue', samples: 900 });
+  if (nn === 2 && mm === 1) gr.fn(function (x) { return Math.sqrt(x); }, { color: 'green', width: 2, dash: '6 6' });
+  var v = pow(b, mm, nn);
+  if (isFinite(v) && b >= opts.xmin && b <= opts.xmax && v >= opts.ymin && v <= opts.ymax) { gr.dot(b, v, { color: 'orange', r: 8 }); gr.text(b, v, '(' + L.num(b) + ', ' + L.num(v, 3) + ')', { dx: 10, dy: -10 }); }
+  var root = realRoot(b, nn);
+  var line1 = 'Root first: ' + (nn === 1 ? '' : '<sup>' + nn + '</sup>√(' + L.num(b) + ') = ' + (isFinite(root) ? L.num(root, 4) : 'not real') + ', then ') + 'to the ' + L.num(mm) + ' → ' + (isFinite(v) ? L.nice(v, 64, 4) : 'not real');
+  var bm = Math.pow(b, Math.abs(mm)), r2 = realRoot(bm, nn), v2 = isFinite(r2) ? (mm < 0 ? 1 / r2 : r2) : NaN;
+  var line2 = 'Power first: ' + L.num(b) + (mm < 0 ? ' to the ' + L.num(Math.abs(mm)) + ' = ' + L.num(bm) + ', <sup>' + nn + '</sup>√ → ' + L.num(r2, 4) + ', reciprocal → ' : ' to the ' + L.num(mm) + ' = ' + L.num(bm) + ', then <sup>' + nn + '</sup>√ → ') + (isFinite(v2) ? L.nice(v2, 64, 4) : 'not real');
+  read.innerHTML = L.num(b) + '<sup>' + expTxt() + '</sup> = ' + (isFinite(v) ? L.nice(v, 64, 4) : 'not a real number') + '<div class="sub">' + line1 + '<br>' + line2 + '</div>';
+  if (b < 0 && !isFinite(v)) fb.set('An even root of a negative number is not real: no real number times itself an even number of times is negative.', 'warn');
+  else if (m < 0) fb.set('A negative exponent gives the reciprocal of ' + L.num(b) + '<sup>' + L.frac(-m, n) + '</sup>.', '');
+  else if (g > 1) fb.set(L.frac(m, n) + ' simplifies to ' + (nn === 1 ? L.num(mm) : L.frac(mm, nn)) + ', so the value is the same as with the simpler exponent.', '');
+  else fb.set('The denominator is the root; the numerator is the power.', '');
+  if (!st.live) { st.live = true; ch.update(); return; } /* opening state: nothing found until the student changes something */
+  if (b === 8 && mm === 2 && nn === 3) st.seen.e823 = true;
+  if (mm === 1 && nn === 2) st.seen.sqrt = true;
+  if (isFinite(v) && Math.abs(v - 1 / 9) < 1e-9) st.seen.ninth = true;
+  if (b < 0 && isFinite(v)) st.seen.negOk = true;
+  if (b < 0 && !isFinite(v)) st.seen.negNo = true;
+  if (b === 16 && m === 2 && n === 4) st.seen.e24 = true;
+  if (b === 16 && m === 1 && n === 2) st.seen.e12 = true;
+  ch.update();
+});
+draw();
+
+})();
+</script>
+</body></html>

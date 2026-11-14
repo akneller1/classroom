@@ -31,8 +31,8 @@ for(const course of courses){
 assert(count>=91,'Previously published unit pages must remain available');
 const expectedStandalone=['courses/grade5.html','financial-algebra/'];
 for(const page of expectedStandalone)assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'),'Missing integrated course sitemap entry '+page);
-assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+6+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
-for (const page of ["about.html", "guide.html", "skills.html", "backup.html", "courses/"]) {
+assert.equal((sitemap.match(/<loc>/g)||[]).length,count+courses.length+7+expectedStandalone.length,'Unexpected sitemap entry count after course integration');
+for (const page of ["about.html", "guide.html", "privacy.html", "skills.html", "backup.html", "courses/"]) {
  assert(sitemap.includes('<loc>https://mrksclassroom.com/'+page+'</loc>'), 'Missing sitemap entry: '+page);
 }
 
@@ -115,7 +115,7 @@ console.log('PASS new site tools, local links, inline JS and duplicate-page inde
  const catalog=context.window.MK_COURSE_CATALOG,framework=context.window.MK_MA_FRAMEWORK_STRANDS;
  assert(catalog&&framework&&framework.version===1,'Framework strand catalog unavailable');
  const expected=Object.keys(catalog.skills).reduce((n,id)=>n+Object.keys(catalog.skills[id]).length,0);
- assert.equal(expected,91,'Unexpected course catalog unit count');
+ assert.equal(expected,92,'Unexpected course catalog unit count');
  assert.equal(framework.records.length,expected,'Every unit must have a framework classification');
  const validRelations=new Set(['grade-level','course-strand','related','prerequisite','no-direct']);
  const seen=new Set(),covered=new Set();
@@ -166,7 +166,7 @@ assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedb
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
 assert(home.includes('data-feedback-chooser'),'Footer feedback must open the email client chooser');
 assert(home.includes('id="feedbackChooser"') && home.includes('id="feedbackGmail"') && home.includes('id="feedbackOutlook"') && home.includes('id="feedbackDefault"'),'Feedback dialog must offer Gmail, Outlook and default mail');
-assert(home.includes('src="feedback.js?v=audit-followup-20261114"'),'Feedback chooser script missing from homepage');
+assert(home.includes('src="feedback.js?v=privacy-20261114"'),'Feedback chooser script missing from homepage');
 const feedbackScript=fs.readFileSync(path.join(out,'feedback.js'),'utf8');
 new (require('node:vm').Script)(feedbackScript,{filename:'feedback.js'});
 for(const required of ['mail.google.com/mail/u/0/','outlook.live.com/mail/0/deeplink/compose','a.report-problem','dialog.showModal()','gmailUrl.searchParams.set(\'body\', body)','outlookUrl.searchParams.set(\'body\', body)','nativeMail.href = links.native']){
@@ -185,7 +185,7 @@ assert(!publicApp.includes('github.com/akneller1/classroom/issues/new'),'Per-res
 assert(!home.includes('.main-nav { display: none; }'),'Header navigation hidden');
 for(const file of ['favicon.svg','social-preview.png','apple-touch-icon.png'])assert(fs.existsSync(path.join(out,'assets',file)),'Missing branding asset '+file);
 assert(fs.existsSync(path.join(out,'schemas')),'Runtime schemas missing');assert(fs.existsSync(path.join(out,'legacy-crosswalk-audit.js')),'Runtime grade bridge dependency missing');
-console.log('PASS public build: ten visible courses, 91 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
+console.log('PASS public build: ten visible courses, 92 unit pages, generator links, sitemap, local fonts, metadata, assets and excluded working files');
 
 /* All ten courses are public, including restored Grade 6 and Grade 7. */
 const publishedData=fs.readFileSync(path.join(out,'data.js'),'utf8');

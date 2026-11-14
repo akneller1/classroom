@@ -6554,6 +6554,1192 @@
     "AP FUN-6.D"
    ],
    "sourceNotes": "Partner-check companion to cal-ftc-s05-cp1-001 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-001",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find ∫ 2x(x² + 5)² dx.",
+   "answer": "(1/3)(x² + 5)³ + C",
+   "solutionSteps": [
+    "Let u = x² + 5, so du = 2x dx.",
+    "∫ u² du = (1/3)u³ + C.",
+    "= (1/3)(x² + 5)³ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-002",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 2x(x² + 8)³ dx.",
+   "answer": "(1/4)(x² + 8)⁴ + C",
+   "options": [
+    {
+     "text": "(1/4)x²(x² + 8)⁴ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/4)(x² + 8)⁴ + C",
+     "correct": true
+    },
+    {
+     "text": "3(x² + 8)² + C",
+     "correct": false
+    },
+    {
+     "text": "(x² + 8)⁴ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 8, so du = 2x dx.",
+    "∫ u³ du = (1/4)u⁴ + C.",
+    "= (1/4)(x² + 8)⁴ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-003",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find ∫ sin(3x) dx.",
+   "answer": "-(1/3)cos(3x) + C",
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= -(1/3)cos(3x) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-004",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 2x(x² + 6)⁵ dx.",
+   "answer": "(1/6)(x² + 6)⁶ + C",
+   "options": [
+    {
+     "text": "(x² + 6)⁶ + C",
+     "correct": false
+    },
+    {
+     "text": "5(x² + 6)⁴ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/6)(x² + 6)⁶ + C",
+     "correct": true
+    },
+    {
+     "text": "(1/6)x²(x² + 6)⁶ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 6, so du = 2x dx.",
+    "∫ u⁵ du = (1/6)u⁶ + C.",
+    "= (1/6)(x² + 6)⁶ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-005",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 1 2x(x²)³ dx.",
+   "answer": "1/4",
+   "solutionSteps": [
+    "Let u = x². When x = 0, u = 0; when x = 1, u = 1.",
+    "∫ from 0 to 1 u³ du = [u⁴/4] = 1/4."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-006",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 2x(x² + 3)³ dx.",
+   "answer": "(1/4)(x² + 3)⁴ + C",
+   "options": [
+    {
+     "text": "(1/4)(x² + 3)⁴ + C",
+     "correct": true
+    },
+    {
+     "text": "(1/4)x²(x² + 3)⁴ + C",
+     "correct": false
+    },
+    {
+     "text": "3(x² + 3)² + C",
+     "correct": false
+    },
+    {
+     "text": "(x² + 3)⁴ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 3, so du = 2x dx.",
+    "∫ u³ du = (1/4)u⁴ + C.",
+    "= (1/4)(x² + 3)⁴ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-007",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 2 2x(x² + 1) dx.",
+   "answer": "12",
+   "solutionSteps": [
+    "Let u = x² + 1. When x = 0, u = 1; when x = 2, u = 5.",
+    "∫ from 1 to 5 u¹ du = [u²/2] = 12."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-008",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ e^(7x) dx.",
+   "answer": "(1/7)e^(7x) + C",
+   "options": [
+    {
+     "text": "(1/7)e^(7x) + C",
+     "correct": true
+    },
+    {
+     "text": "7e^(7x) + C",
+     "correct": false
+    },
+    {
+     "text": "e^(7x) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/(7x + 1))e^(7x + 1) + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/7)e^(7x) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-009",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 2 2x(x² + 1)³ dx.",
+   "answer": "156",
+   "solutionSteps": [
+    "Let u = x² + 1. When x = 0, u = 1; when x = 2, u = 5.",
+    "∫ from 1 to 5 u³ du = [u⁴/4] = 156."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-010",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 2x(x² + 6)⁴ dx.",
+   "answer": "(1/5)(x² + 6)⁵ + C",
+   "options": [
+    {
+     "text": "(1/5)x²(x² + 6)⁵ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/5)(x² + 6)⁵ + C",
+     "correct": true
+    },
+    {
+     "text": "4(x² + 6)³ + C",
+     "correct": false
+    },
+    {
+     "text": "(x² + 6)⁵ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 6, so du = 2x dx.",
+    "∫ u⁴ du = (1/5)u⁵ + C.",
+    "= (1/5)(x² + 6)⁵ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-011",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 2 2x(x² + 2)² dx.",
+   "answer": "208/3",
+   "solutionSteps": [
+    "Let u = x² + 2. When x = 0, u = 2; when x = 2, u = 6.",
+    "∫ from 2 to 6 u² du = [u³/3] = 208/3."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-012",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ cos(2x) dx.",
+   "answer": "(1/2)sin(2x) + C",
+   "options": [
+    {
+     "text": "2sin(2x) + C",
+     "correct": false
+    },
+    {
+     "text": "sin(2x) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/2)sin(2x) + C",
+     "correct": true
+    },
+    {
+     "text": "-(1/2)sin(2x) + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/2)sin(2x) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-013",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 1 2x(x² + 2)² dx.",
+   "answer": "19/3",
+   "solutionSteps": [
+    "Let u = x² + 2. When x = 0, u = 2; when x = 1, u = 3.",
+    "∫ from 2 to 3 u² du = [u³/3] = 19/3."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-014",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Priya answered this problem incorrectly.\nFind ∫ cos(5x) dx.\nPriya's answer: sin(5x) + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/5)sin(5x) + C",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by the inside's derivative.",
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/5)sin(5x) + C.",
+    "The correct answer is (1/5)sin(5x) + C, not sin(5x) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-015",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find ∫ 2x(x² + 2)² dx.",
+     "answer": "(1/3)(x² + 2)³ + C"
+    },
+    {
+     "prompt": "Find ∫ 2x(x² + 9)² dx.",
+     "answer": "(1/3)(x² + 9)³ + C"
+    },
+    {
+     "prompt": "Find ∫ e^(3x) dx.",
+     "answer": "(1/3)e^(3x) + C"
+    },
+    {
+     "prompt": "Find ∫ 2x(x² + 1)⁶ dx.",
+     "answer": "(1/7)(x² + 1)⁷ + C"
+    }
+   ],
+   "answer": "(a) (1/3)(x² + 2)³ + C; (b) (1/3)(x² + 9)³ + C; (c) (1/3)e^(3x) + C; (d) (1/7)(x² + 1)⁷ + C",
+   "solutionSteps": [
+    "(a) Let u = x² + 2, so du = 2x dx. ∫ u² du = (1/3)u³ + C. = (1/3)(x² + 2)³ + C.",
+    "(b) Let u = x² + 9, so du = 2x dx. ∫ u² du = (1/3)u³ + C. = (1/3)(x² + 9)³ + C.",
+    "(c) Choose u = the inside expression, so du appears in the integrand. = (1/3)e^(3x) + C.",
+    "(d) Let u = x² + 1, so du = 2x dx. ∫ u⁶ du = (1/7)u⁷ + C. = (1/7)(x² + 1)⁷ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp2-016",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nFind ∫ 2x(x² + 8)⁶ dx.\nChloe's answer: (x² + 8)⁷ + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/7)(x² + 8)⁷ + C",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by the new exponent.",
+    "Let u = x² + 8, so du = 2x dx.",
+    "∫ u⁶ du = (1/7)u⁷ + C.",
+    "= (1/7)(x² + 8)⁷ + C.",
+    "The correct answer is (1/7)(x² + 8)⁷ + C, not (x² + 8)⁷ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-001",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ x(x² + 1)⁴ dx.",
+   "answer": "(1/10)(x² + 1)⁵ + C",
+   "solutionSteps": [
+    "Let u = x² + 1, so x dx = (1/2) du.",
+    "(1/2)∫ u⁴ du = (1/10)u⁵ + C.",
+    "= (1/10)(x² + 1)⁵ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-002",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x(x² + 8)² dx.",
+   "answer": "(1/6)(x² + 8)³ + C",
+   "options": [
+    {
+     "text": "(1/4)(x² + 8)² + C",
+     "correct": false
+    },
+    {
+     "text": "(x²/2)(1/3)(x² + 8)³ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/6)(x² + 8)³ + C",
+     "correct": true
+    },
+    {
+     "text": "(1/3)(x² + 8)³ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 8, so x dx = (1/2) du.",
+    "(1/2)∫ u² du = (1/6)u³ + C.",
+    "= (1/6)(x² + 8)³ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-003",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ x(x² + 5)⁵ dx.",
+   "answer": "(1/12)(x² + 5)⁶ + C",
+   "solutionSteps": [
+    "Let u = x² + 5, so x dx = (1/2) du.",
+    "(1/2)∫ u⁵ du = (1/12)u⁶ + C.",
+    "= (1/12)(x² + 5)⁶ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-004",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x cos(x² + 6) dx.",
+   "answer": "(1/2)sin(x² + 6) + C",
+   "options": [
+    {
+     "text": "(x²/2)sin(x² + 6) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/2)sin(x² + 6) + C",
+     "correct": true
+    },
+    {
+     "text": "sin(x² + 6) + C",
+     "correct": false
+    },
+    {
+     "text": "-(1/2)sin(x² + 6) + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/2)sin(x² + 6) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-005",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 1 2x(x²)² dx.",
+   "answer": "1/3",
+   "solutionSteps": [
+    "Let u = x². When x = 0, u = 0; when x = 1, u = 1.",
+    "∫ from 0 to 1 u² du = [u³/3] = 1/3."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-006",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x(x² + 5)³ dx.",
+   "answer": "(1/8)(x² + 5)⁴ + C",
+   "options": [
+    {
+     "text": "(x²/2)(1/4)(x² + 5)⁴ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/4)(x² + 5)⁴ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/6)(x² + 5)³ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/8)(x² + 5)⁴ + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 5, so x dx = (1/2) du.",
+    "(1/2)∫ u³ du = (1/8)u⁴ + C.",
+    "= (1/8)(x² + 5)⁴ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-007",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ x(x² + 7)⁴ dx.",
+   "answer": "(1/10)(x² + 7)⁵ + C",
+   "solutionSteps": [
+    "Let u = x² + 7, so x dx = (1/2) du.",
+    "(1/2)∫ u⁴ du = (1/10)u⁵ + C.",
+    "= (1/10)(x² + 7)⁵ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-008",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ 2x/(x² + 1) dx.",
+   "answer": "ln(x² + 1) + C",
+   "options": [
+    {
+     "text": "ln(x² + 1) + C",
+     "correct": true
+    },
+    {
+     "text": "x²ln(x² + 1) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/2)ln(x² + 1) + C",
+     "correct": false
+    },
+    {
+     "text": "2ln(x² + 1) + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= ln(x² + 1) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-009",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ xe^(x²) dx.",
+   "answer": "(1/2)e^(x²) + C",
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/2)e^(x²) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-010",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from 0 to 2 2x(x² + 2) dx.",
+   "answer": "16",
+   "options": [
+    {
+     "text": "32",
+     "correct": false
+    },
+    {
+     "text": "20",
+     "correct": false
+    },
+    {
+     "text": "16",
+     "correct": true
+    },
+    {
+     "text": "18",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 2. When x = 0, u = 2; when x = 2, u = 6.",
+    "∫ from 2 to 6 u¹ du = [u²/2] = 16."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-011",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ x(x² + 9)⁶ dx.",
+   "answer": "(1/14)(x² + 9)⁷ + C",
+   "solutionSteps": [
+    "Let u = x² + 9, so x dx = (1/2) du.",
+    "(1/2)∫ u⁶ du = (1/14)u⁷ + C.",
+    "= (1/14)(x² + 9)⁷ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-012",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x(x² + 3)⁵ dx.",
+   "answer": "(1/12)(x² + 3)⁶ + C",
+   "options": [
+    {
+     "text": "(1/10)(x² + 3)⁵ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/6)(x² + 3)⁶ + C",
+     "correct": false
+    },
+    {
+     "text": "(x²/2)(1/6)(x² + 3)⁶ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/12)(x² + 3)⁶ + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x² + 3, so x dx = (1/2) du.",
+    "(1/2)∫ u⁵ du = (1/12)u⁶ + C.",
+    "= (1/12)(x² + 3)⁶ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-013",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find ∫ x(x² + 9)⁵ dx.",
+   "answer": "(1/12)(x² + 9)⁶ + C",
+   "solutionSteps": [
+    "Let u = x² + 9, so x dx = (1/2) du.",
+    "(1/2)∫ u⁵ du = (1/12)u⁶ + C.",
+    "= (1/12)(x² + 9)⁶ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-014",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nEvaluate ∫ from 0 to 2 2x(x²)² dx.\nSam's answer: 64\nIdentify the mistake and give the correct answer.",
+   "answer": "64/3",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by the new exponent.",
+    "Let u = x². When x = 0, u = 0; when x = 2, u = 4.",
+    "∫ from 0 to 4 u² du = [u³/3] = 64/3.",
+    "The correct answer is 64/3, not 64."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-015",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find ∫ x cos(x² + 8) dx.",
+     "answer": "(1/2)sin(x² + 8) + C"
+    },
+    {
+     "prompt": "Find ∫ x(x² + 3)² dx.",
+     "answer": "(1/6)(x² + 3)³ + C"
+    },
+    {
+     "prompt": "Evaluate ∫ from 0 to 1 2x(x² + 2)³ dx.",
+     "answer": "65/4"
+    },
+    {
+     "prompt": "Find ∫ 2x/(x² + 7) dx.",
+     "answer": "ln(x² + 7) + C"
+    }
+   ],
+   "answer": "(a) (1/2)sin(x² + 8) + C; (b) (1/6)(x² + 3)³ + C; (c) 65/4; (d) ln(x² + 7) + C",
+   "solutionSteps": [
+    "(a) Choose u = the inside expression, so du appears in the integrand. = (1/2)sin(x² + 8) + C.",
+    "(b) Let u = x² + 3, so x dx = (1/2) du. (1/2)∫ u² du = (1/6)u³ + C. = (1/6)(x² + 3)³ + C.",
+    "(c) Let u = x² + 2. When x = 0, u = 2; when x = 1, u = 3. ∫ from 2 to 3 u³ du = [u⁴/4] = 65/4.",
+    "(d) Choose u = the inside expression, so du appears in the integrand. = ln(x² + 7) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-cp1-016",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Nia answered this problem incorrectly.\nFind ∫ x cos(x² + 2) dx.\nNia's answer: sin(x² + 2) + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/2)sin(x² + 2) + C",
+   "solutionSteps": [
+    "Mistake: Forgot the 1/2.",
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/2)sin(x² + 2) + C.",
+    "The correct answer is (1/2)sin(x² + 2) + C, not sin(x² + 2) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-001",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Evaluate ∫ from 0 to 1 xe^(x²) dx.",
+   "answer": "(e - 1)/2",
+   "solutionSteps": [
+    "Let u = x², so x dx = (1/2) du; u runs from 0 to 1.",
+    "(1/2)∫ from 0 to 1 e^u du = (e - 1)/2."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-002",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ sin(3x)/cos(3x) dx.",
+   "answer": "-(1/3)ln|cos(3x)| + C",
+   "options": [
+    {
+     "text": "-(1/3)ln|cos(3x)| + C",
+     "correct": true
+    },
+    {
+     "text": "(1/3)ln|cos(3x)| + C",
+     "correct": false
+    },
+    {
+     "text": "(1/3)sec²(3x) + C",
+     "correct": false
+    },
+    {
+     "text": "-ln|cos(3x)| + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= -(1/3)ln|cos(3x)| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-003",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ x²/√(x³ + 8) dx.",
+   "answer": "(2/3)√(x³ + 8) + C",
+   "solutionSteps": [
+    "Let u = x³ + 8, so x² dx = (1/3) du.",
+    "(1/3)∫ u^(-1/2) du = (2/3)u^(1/2) + C.",
+    "= (2/3)√(x³ + 8) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-004",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x²(x³ + 7)⁵ dx.",
+   "answer": "(1/18)(x³ + 7)⁶ + C",
+   "options": [
+    {
+     "text": "(x³/3)(1/6)(x³ + 7)⁶ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/18)(x³ + 7)⁶ + C",
+     "correct": true
+    },
+    {
+     "text": "(1/15)(x³ + 7)⁵ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/6)(x³ + 7)⁶ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x³ + 7, so x² dx = (1/3) du.",
+    "(1/3)∫ u⁵ du = (1/18)u⁶ + C.",
+    "= (1/18)(x³ + 7)⁶ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-005",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ x²/√(x³ + 4) dx.",
+   "answer": "(2/3)√(x³ + 4) + C",
+   "solutionSteps": [
+    "Let u = x³ + 4, so x² dx = (1/3) du.",
+    "(1/3)∫ u^(-1/2) du = (2/3)u^(1/2) + C.",
+    "= (2/3)√(x³ + 4) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-006",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x²(x³ + 3)⁴ dx.",
+   "answer": "(1/15)(x³ + 3)⁵ + C",
+   "options": [
+    {
+     "text": "(x³/3)(1/5)(x³ + 3)⁵ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/5)(x³ + 3)⁵ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/12)(x³ + 3)⁴ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/15)(x³ + 3)⁵ + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x³ + 3, so x² dx = (1/3) du.",
+    "(1/3)∫ u⁴ du = (1/15)u⁵ + C.",
+    "= (1/15)(x³ + 3)⁵ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-007",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ x²(x³ + 3)⁵ dx.",
+   "answer": "(1/18)(x³ + 3)⁶ + C",
+   "solutionSteps": [
+    "Let u = x³ + 3, so x² dx = (1/3) du.",
+    "(1/3)∫ u⁵ du = (1/18)u⁶ + C.",
+    "= (1/18)(x³ + 3)⁶ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-008",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ x²(x³ + 2)⁶ dx.",
+   "answer": "(1/21)(x³ + 2)⁷ + C",
+   "options": [
+    {
+     "text": "(1/21)(x³ + 2)⁷ + C",
+     "correct": true
+    },
+    {
+     "text": "(1/7)(x³ + 2)⁷ + C",
+     "correct": false
+    },
+    {
+     "text": "(x³/3)(1/7)(x³ + 2)⁷ + C",
+     "correct": false
+    },
+    {
+     "text": "(1/18)(x³ + 2)⁶ + C",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = x³ + 2, so x² dx = (1/3) du.",
+    "(1/3)∫ u⁶ du = (1/21)u⁷ + C.",
+    "= (1/21)(x³ + 2)⁷ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-009",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ sin(2x)/cos(2x) dx.",
+   "answer": "-(1/2)ln|cos(2x)| + C",
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= -(1/2)ln|cos(2x)| + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-010",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Find ∫ sin²(x)cos(x) dx.",
+   "answer": "(1/3)sin³(x) + C",
+   "options": [
+    {
+     "text": "-(1/3)cos³(x) + C",
+     "correct": false
+    },
+    {
+     "text": "sin³(x) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/3)sin³(x)cos(x) + C",
+     "correct": false
+    },
+    {
+     "text": "(1/3)sin³(x) + C",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/3)sin³(x) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-011",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ x²/√(x³ + 3) dx.",
+   "answer": "(2/3)√(x³ + 3) + C",
+   "solutionSteps": [
+    "Let u = x³ + 3, so x² dx = (1/3) du.",
+    "(1/3)∫ u^(-1/2) du = (2/3)u^(1/2) + C.",
+    "= (2/3)√(x³ + 3) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-012",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Evaluate ∫ from 0 to π/4 cos(2x) dx.",
+   "answer": "1/2",
+   "options": [
+    {
+     "text": "1/2",
+     "correct": true
+    },
+    {
+     "text": "2",
+     "correct": false
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "-1/2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Let u = 2x; u runs from 0 to π/2.",
+    "(1/2)∫ from 0 to π/2 cos(u) du = (1/2)(1 - 0) = 1/2."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_def). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-013",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find ∫ sin³(x)cos(x) dx.",
+   "answer": "(1/4)sin⁴(x) + C",
+   "solutionSteps": [
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/4)sin⁴(x) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-014",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Gabe answered this problem incorrectly.\nFind ∫ x²/√(x³ + 6) dx.\nGabe's answer: 2√(x³ + 6) + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(2/3)√(x³ + 6) + C",
+   "solutionSteps": [
+    "Mistake: Forgot the 1/3 from du = 3x² dx.",
+    "Let u = x³ + 6, so x² dx = (1/3) du.",
+    "(1/3)∫ u^(-1/2) du = (2/3)u^(1/2) + C.",
+    "= (2/3)√(x³ + 6) + C.",
+    "The correct answer is (2/3)√(x³ + 6) + C, not 2√(x³ + 6) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-015",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Find ∫ x²(x³ + 6)² dx.",
+     "answer": "(1/9)(x³ + 6)³ + C"
+    },
+    {
+     "prompt": "Evaluate ∫ from 0 to π/6 cos(3x) dx.",
+     "answer": "1/3"
+    },
+    {
+     "prompt": "Find ∫ x²(x³ + 6)⁶ dx.",
+     "answer": "(1/21)(x³ + 6)⁷ + C"
+    },
+    {
+     "prompt": "Find ∫ x²/√(x³ + 2) dx.",
+     "answer": "(2/3)√(x³ + 2) + C"
+    }
+   ],
+   "answer": "(a) (1/9)(x³ + 6)³ + C; (b) 1/3; (c) (1/21)(x³ + 6)⁷ + C; (d) (2/3)√(x³ + 2) + C",
+   "solutionSteps": [
+    "(a) Let u = x³ + 6, so x² dx = (1/3) du. (1/3)∫ u² du = (1/9)u³ + C. = (1/9)(x³ + 6)³ + C.",
+    "(b) Let u = 3x; u runs from 0 to π/2. (1/3)∫ from 0 to π/2 cos(u) du = (1/3)(1 - 0) = 1/3.",
+    "(c) Let u = x³ + 6, so x² dx = (1/3) du. (1/3)∫ u⁶ du = (1/21)u⁷ + C. = (1/21)(x³ + 6)⁷ + C.",
+    "(d) Let u = x³ + 2, so x² dx = (1/3) du. (1/3)∫ u^(-1/2) du = (2/3)u^(1/2) + C. = (2/3)√(x³ + 2) + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_poly_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "cal-ftc-s06-honors-016",
+   "skillId": "fundamental-theorem-calculus-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Leah answered this problem incorrectly.\nFind ∫ (ln(x))⁴/x dx.\nLeah's answer: (ln(x))⁵ + C\nIdentify the mistake and give the correct answer.",
+   "answer": "(1/5)(ln(x))⁵ + C",
+   "solutionSteps": [
+    "Mistake: Forgot to divide by the new exponent.",
+    "Choose u = the inside expression, so du appears in the integrand.",
+    "= (1/5)(ln(x))⁵ + C.",
+    "The correct answer is (1/5)(ln(x))⁵ + C, not (ln(x))⁵ + C."
+   ],
+   "standards": [
+    "AP FUN-6.D"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: us_fn_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
   }
  ]
 }

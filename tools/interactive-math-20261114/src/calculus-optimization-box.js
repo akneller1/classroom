@@ -1,0 +1,53 @@
+/* Open-top box from a W × Lg sheet with corner squares of side x: V(x) = x(W − 2x)(Lg − 2x), 0 < x < W/2 (W ≤ Lg). */
+var st = { W: 12, Lg: 12, x: 1, seen: {} };
+function V(x) { return x * (st.W - 2 * x) * (st.Lg - 2 * x); }
+function dV(x) { return 12 * x * x - 4 * (st.W + st.Lg) * x + st.W * st.Lg; }
+function xstar() { var s = st.W + st.Lg; return (s - Math.sqrt(s * s - 3 * st.W * st.Lg)) / 6; }
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var sW = L.slider(P.panel, { id: 'sheet-width', label: 'Sheet width (in.)', min: 6, max: 20, step: 1, value: st.W, color: 'green', format: function (v) { return v + ' in.'; }, onInput: function (v) { st.W = v; if (st.Lg < v) { st.Lg = v; sL.set(v, true); } sx.input.max = v / 2; if (st.x >= v / 2) { st.x = v / 2 - 0.25; sx.set(st.x, true); } draw(); } });
+var sL = L.slider(P.panel, { id: 'sheet-length', label: 'Sheet length (in.)', min: 6, max: 24, step: 1, value: st.Lg, color: 'green', format: function (v) { return v + ' in.'; }, onInput: function (v) { st.Lg = Math.max(v, st.W); draw(); } });
+var sx = L.slider(P.panel, { id: 'cut-x', label: 'Corner cut x (in.)', min: 0.25, max: 5.75, step: 0.25, value: st.x, color: 'orange', format: function (v) { return L.num(v) + ' in.'; }, onInput: function (v) { st.x = Math.min(v, st.W / 2 - 0.01); draw(); } });
+var btn = L.h('div', { class: 'btn-row' }, P.panel);
+L.button(btn, 'Show V′(x)', function () { st.showD = !st.showD; draw(); }, true);
+L.button(btn, 'Jump to V′(x) = 0', function () { st.x = Math.round(xstar() * 1000) / 1000; sx.input.value = st.x; draw(); st.seen.jump = true; }, true);
+L.reset(btn, function () { st.W = 12; st.Lg = 12; st.x = 1; st.showD = false; sW.set(12, true); sL.set(12, true); sx.set(1, true); draw(); });
+var fb = L.feedback(P.panel);
+var ch = L.challenges(P.panel, [
+  { text: 'For a 12 × 12 sheet, find the cut that gives the largest volume by sliding x.', check: function () { return st.seen.best12; } },
+  { text: 'Show V′(x). What is V′ at the best cut? What is its sign just before and just after?', check: function () { return st.seen.showD && st.seen.best12; } },
+  { text: 'Find a cut where the box holds almost nothing even though x is large.', check: function () { return st.seen.flat; } },
+  { text: 'Change the sheet to 8 × 15. Find the best cut and the largest volume.', check: function () { return st.seen.best815; } },
+  { text: 'Does doubling both sheet dimensions double the best cut? Test 6 × 6 and 12 × 12.', check: function () { return st.seen.best66 && st.seen.best12; } }
+]);
+L.notice(P.below, '<p>V(x) = x(W − 2x)(L − 2x) is 0 at both ends of the domain 0 &lt; x &lt; W/2, so the maximum is in between, where <b>V′(x) = 0</b>.</p>' +
+  '<p>At the best cut V′ changes from <b>positive to negative</b> (the first derivative test). For a 12 × 12 sheet, V′(x) = 12x² − 96x + 144 = 12(x − 2)(x − 6), so x = 2 and V(2) = 128 in.³ (x = 6 is outside the domain).</p>' +
+  '<p>Scaling the sheet by k scales the best cut by k and the volume by k³.</p>');
+var stage = L.h('div', { style: 'display:grid;gap:10px' }, P.stage);
+var net = L.graph(stage, { xmin: -1, xmax: 25, ymin: -1, ymax: 21, width: 640, height: 300, noLabels: true, noXAxis: true, noYAxis: true, xstep: 1, ystep: 1, label: 'Sheet with corner squares cut out' });
+var gopts = { xmin: 0, xmax: 10, ymin: -40, ymax: 420, width: 640, height: 300, label: 'Volume V(x) and V′(x)' };
+var gr = L.graph(stage, gopts);
+var draw = L.scheduler(function () {
+  var W = st.W, Lg = st.Lg, x = st.x, xs = xstar(), vmax = V(xs);
+  net.clear();
+  net.rect(0, 0, Lg, W, { fill: 'green', opacity: 0.18, stroke: 'green' });
+  [[0, 0], [Lg - x, 0], [0, W - x], [Lg - x, W - x]].forEach(function (c) { net.rect(c[0], c[1], x, x, { fill: 'orange', opacity: 0.6, stroke: 'orange' }); });
+  net.rect(x, x, Lg - 2 * x, W - 2 * x, { fill: 'blue', opacity: 0.25, stroke: 'blue' });
+  net.text(Lg / 2, W / 2, 'base ' + L.num(Lg - 2 * x) + ' × ' + L.num(W - 2 * x), { anchor: 'middle' });
+  L.setNiceView(gr, gopts, { xmin: -0.07 * W / 2, xmax: W / 2, ymin: -0.1 * vmax, ymax: 1.25 * vmax }, 6, 6);
+  gr.clear();
+  gr.fn(V, { from: 0, to: W / 2, color: 'blue' });
+  if (st.showD) { var sc = vmax / Math.max(1, Math.abs(dV(0))); gr.fn(function (t) { return dV(t) * sc; }, { from: 0, to: W / 2, color: 'purple', dash: '8 6', width: 3 }); gr.text(W / 2, dV(W / 2) * sc, 'V′(x), scaled', { anchor: 'end', dy: -8, color: 'purple' }); st.seen.showD = true; }
+  gr.dot(x, V(x), { color: 'orange', r: 8 });
+  gr.text(x, V(x), '(' + L.num(x) + ', ' + L.num(V(x), 1) + ')', { dx: 10, dy: -10 });
+  var d = dV(x);
+  read.innerHTML = 'V(' + L.num(x) + ') = ' + L.num(x) + ' · ' + L.num(W - 2 * x) + ' · ' + L.num(Lg - 2 * x) + ' = ' + L.num(V(x), 2) + ' in.³' +
+    '<div class="sub">V′(' + L.num(x) + ') = ' + L.num(d, 2) + (Math.abs(d) < 0.05 ? ' (critical point)' : d > 0 ? ' (volume still increasing)' : ' (volume decreasing)') + '</div>';
+  fb.set(Math.abs(d) < 0.05 ? 'V′ is 0 here and changes from positive to negative: this is the maximum, V = ' + L.num(V(x), 2) + ' in.³' : d > 0 ? 'V′ &gt; 0: a slightly bigger cut gives more volume.' : 'V′ &lt; 0: a slightly smaller cut gives more volume.', Math.abs(d) < 0.05 ? 'good' : '');
+  var atBest = Math.abs(x - xs) < 0.13;
+  if (W === 12 && Lg === 12 && atBest) st.seen.best12 = true;
+  if (W === 6 && Lg === 6 && atBest) st.seen.best66 = true;
+  if (W === 8 && Lg === 15 && atBest) st.seen.best815 = true;
+  if (x > W / 2 - 0.6 && V(x) < 0.08 * vmax) st.seen.flat = true;
+  ch.update();
+});
+draw();

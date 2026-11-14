@@ -88,7 +88,20 @@ PC = {
   ("expected value", "The long-run average value of a random variable.", "E(X) = Σ x·P(x)"),
   ("normal distribution", "A symmetric, bell-shaped distribution.", "68% within 1 standard deviation"),
   ("z-score", "The number of standard deviations a value is from the mean.", "z = (x - μ) ÷ σ"),
-  ("binomial probability", "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.", "Exactly 3 heads in 5 flips")],
+  ("binomial probability", "P(X = k) = C(n, k)pᵏ(1 - p)ⁿ⁻ᵏ.", "Exactly 3 heads in 5 flips")],,
+ "sequences-series-limits": [
+  ("sequence", "An ordered list of numbers.", "3, 7, 11, 15, …"),
+  ("arithmetic sequence", "A sequence with a constant difference d between terms.", "aₙ = 3 + 4(n - 1)"),
+  ("geometric sequence", "A sequence with a constant ratio r between terms.", "aₙ = 2·3ⁿ⁻¹"),
+  ("common difference", "The amount added to get the next term of an arithmetic sequence.", "d = 4 in 3, 7, 11, …"),
+  ("common ratio", "The factor that gives the next term of a geometric sequence.", "r = 3 in 2, 6, 18, …"),
+  ("series", "The sum of the terms of a sequence.", "2 + 6 + 18 + 54"),
+  ("sigma notation", "A compact way to write a sum using Σ.", "Σ from k = 1 to 5 of k = 15"),
+  ("partial sum", "The sum of the first n terms of a series.", "S₃ = 2 + 6 + 18 = 26"),
+  ("converge", "An infinite series converges when its partial sums approach a finite number.", "12 + 6 + 3 + … = 24"),
+  ("diverge", "A series diverges when its partial sums do not approach a finite number.", "1 + 2 + 4 + 8 + …"),
+  ("limit", "The value a function approaches as x approaches a number.", "lim (x → 2) x² = 4"),
+  ("one-sided limit", "The value approached from only the left or only the right.", "lim (x → 0⁺) 1/x = ∞")],
 }
 
 CA = {

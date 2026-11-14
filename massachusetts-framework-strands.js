@@ -412,6 +412,12 @@
   },
   {
     "courseId": "precalculus",
+    "unitId": "sequences-series-limits",
+    "strand": "PC.F-BF",
+    "relationship": "course-strand"
+  },
+  {
+    "courseId": "precalculus",
     "unitId": "probability",
     "strand": "AII.S-CP",
     "relationship": "related"

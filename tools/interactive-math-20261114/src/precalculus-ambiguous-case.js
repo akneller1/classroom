@@ -1,0 +1,62 @@
+/* SSA: angle A at the origin, side b from A to C, side a swings around C and must land on the ray from A (the x-axis, x > 0). */
+var st = { A: 35, a: 7, b: 10, seen: {} };
+var DEG = Math.PI / 180;
+var read = L.h('div', { class: 'readout', 'aria-live': 'polite' }, P.panel);
+var sA = L.slider(P.panel, { id: 'angle-A', label: 'Angle A', min: 10, max: 150, step: 1, value: st.A, color: 'blue', format: function (v) { return v + '°'; }, onInput: function (v) { st.A = v; draw(); } });
+var sb = L.slider(P.panel, { id: 'side-b', label: 'Side b (next to A)', min: 4, max: 14, step: 0.5, value: st.b, color: 'green', format: function (v) { return L.num(v); }, onInput: function (v) { st.b = v; draw(); } });
+var sa = L.slider(P.panel, { id: 'side-a', label: 'Side a (across from A)', min: 1, max: 16, step: 0.1, value: st.a, color: 'orange', format: function (v) { return L.num(v, 1); }, onInput: function (v) { st.a = v; draw(); } });
+var tbl = L.table(P.panel);
+var fb = L.feedback(P.panel);
+var btn = L.h('div', { class: 'btn-row' }, P.panel);
+L.reset(btn, function () { st.A = 35; st.a = 7; st.b = 10; sA.set(35, true); sb.set(10, true); sa.set(7, true); draw(); });
+var ch = L.challenges(P.panel, [
+  { text: 'With A acute, make side a too short to reach: no triangle.', check: function () { return st.seen.zero; } },
+  { text: 'Make exactly one triangle that is a right triangle.', check: function () { return st.seen.right; } },
+  { text: 'Make two different triangles. Compare their angles B.', check: function () { return st.seen.two; } },
+  { text: 'With A acute, make exactly one triangle that is not a right triangle.', check: function () { return st.seen.oneBig; } },
+  { text: 'Make A obtuse. Find the condition on a and b for a triangle to exist.', check: function () { return st.seen.obtuseYes && st.seen.obtuseNo; } }
+]);
+L.notice(P.below, '<p>The height from C to the base is <b>h = b sin A</b>. For an acute angle A: a &lt; h gives no triangle, a = h gives one right triangle, h &lt; a &lt; b gives <b>two</b> triangles, and a ≥ b gives one.</p>' +
+  '<p>The two triangles have angles B and 180° − B: sin B is the same for both, which is why the Law of Sines alone cannot tell them apart.</p>' +
+  '<p>For an obtuse angle A there is one triangle when a &gt; b and none when a ≤ b.</p>');
+var gr = L.graph(P.stage, { xmin: -2, xmax: 26, ymin: -2, ymax: 15, width: 640, height: 400, xstep: 1, ystep: 1, xlabelStep: 5, ylabelStep: 5, label: 'Side a swinging from C' });
+function solutions() {
+  var A = st.A * DEG, b = st.b, a = st.a, cx = b * Math.cos(A), cy = b * Math.sin(A), disc = a * a - cy * cy, out = [];
+  if (st.A < 90 && Math.abs(a - cy) < 0.051) return { cx: cx, cy: cy, list: [cx] }; /* slider step 0.1: treat a ≈ h as the right-triangle case */
+  if (disc < -1e-9) return { cx: cx, cy: cy, list: out };
+  var r = Math.sqrt(Math.max(0, disc)), xs = Math.abs(r) < 1e-9 ? [cx] : [cx - r, cx + r];
+  xs.forEach(function (x) { if (x > 1e-9) out.push(x); });
+  return { cx: cx, cy: cy, list: out };
+}
+var draw = L.scheduler(function () {
+  var s = solutions(), A = st.A, a = st.a, b = st.b, h = b * Math.sin(A * DEG);
+  gr.clear();
+  gr.line(0, 0, 26, 0, { color: 'ink', width: 2 });
+  gr.line(0, 0, s.cx, s.cy, { color: 'green', width: 5 });
+  gr.param(function (t) { return s.cx + a * Math.cos(t); }, function (t) { return s.cy + a * Math.sin(t); }, 0, 2 * Math.PI, { color: 'orange', width: 2, dash: '6 6' });
+  gr.line(s.cx, s.cy, s.cx, 0, { color: 'purple', width: 2, dash: '4 4' });
+  gr.text(s.cx, s.cy / 2, 'h = ' + L.num(h, 2), { dx: 8, color: 'purple', size: 14 });
+  gr.text(0, 0, 'A', { dx: -14, dy: 18, weight: 800 }); gr.text(s.cx, s.cy, 'C', { dx: 8, dy: -8, weight: 800 });
+  var rows = [], cols = ['blue', 'pink'];
+  s.list.forEach(function (x, i) {
+    gr.line(s.cx, s.cy, x, 0, { color: cols[i], width: 5 });
+    gr.dot(x, 0, { color: cols[i], r: 7 }); gr.text(x, 0, 'B' + (s.list.length > 1 ? i + 1 : ''), { dx: -4, dy: 22, color: cols[i], weight: 800 });
+    var B = Math.atan2(s.cy, s.cx - x); B = Math.PI - B; var Bd = B / DEG; var C = 180 - A - Bd;
+    rows.push(['Triangle ' + (i + 1), L.num(Bd, 1) + '°', L.num(C, 1) + '°', L.num(x, 2)]);
+  });
+  tbl.set(['', 'Angle B', 'Angle C', 'Side c'], rows.length ? rows : [['—', '—', '—', '—']]);
+  var n = s.list.length;
+  read.innerHTML = n + (n === 1 ? ' triangle' : ' triangles') + '<div class="sub">a = ' + L.num(a, 1) + ', b = ' + L.num(b) + ', h = b sin A = ' + L.num(h, 2) + '</div>';
+  var right = n === 1 && Math.abs(a - h) < 0.051 && A < 90;
+  fb.set(n === 0 ? (A >= 90 ? 'With an obtuse angle A, side a must be longer than b.' : 'a is shorter than the height h = b sin A, so it cannot reach the base.') :
+    n === 2 ? 'Two triangles: the angles B are supplementary (they add to 180°).' : right ? 'a equals the height, so side a meets the base at a right angle.' : 'One triangle.', n === 2 ? 'good' : '');
+  if (!st.live) { st.live = true; ch.update(); return; } /* opening state: nothing found until the student changes something */
+  if (A < 90 && n === 0) st.seen.zero = true;
+  if (right) st.seen.right = true;
+  if (n === 2) st.seen.two = true;
+  if (A < 90 && n === 1 && !right) st.seen.oneBig = true;
+  if (A > 90 && n === 1) st.seen.obtuseYes = true;
+  if (A > 90 && n === 0) st.seen.obtuseNo = true;
+  ch.update();
+});
+draw();

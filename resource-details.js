@@ -1157,6 +1157,10 @@ window.RESOURCE_DETAILS = {
     "pages": 2,
     "referenceSheet": true
   },
+  "artifacts/precalculus-sequences-series-limits-cheat-sheet/worksheet.pdf": {
+    "pages": 2,
+    "referenceSheet": true
+  },
   "artifacts/precalculus-trigonometric-functions-cheat-sheet/worksheet.pdf": {
     "pages": 2,
     "referenceSheet": true

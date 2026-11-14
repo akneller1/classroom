@@ -175,7 +175,10 @@
     "Higher-Order Derivatives",
     "Differentiability and Continuity",
     "Tangent Lines and Their Slopes",
-    "Connecting a Function and Its Derivative"
+    "Connecting a Function and Its Derivative",
+    "The Chain Rule",
+    "Implicit Differentiation",
+    "Derivatives of Inverse Functions"
   ],
   "applications-derivatives": [
     "Interpreting Derivatives in Context",
@@ -188,7 +191,8 @@
     "Rectilinear Motion: Position, Velocity, and Acceleration",
     "Rates of Change in Applied Contexts",
     "The Mean Value Theorem",
-    "Midterm Review"
+    "Mixed Review: Limits and Derivatives",
+    "L'Hôpital's Rule"
   ],
   "antiderivatives-definite-integrals": [
     "Antidifferentiation as the Inverse of Differentiation",
@@ -204,7 +208,8 @@
     "Accumulation Functions",
     "Analyzing Functions Defined by Integrals",
     "Differentiating Functions Defined by Integrals",
-    "Evaluating Definite Integrals with Antiderivatives"
+    "Evaluating Definite Integrals with Antiderivatives",
+    "Integration by Substitution"
   ],
   "applications-integrals": [
     "Interpreting Definite Integrals in Context",
@@ -286,7 +291,10 @@
     "Cosine Functions and Graphs",
     "Solving Trigonometric Equations",
     "Inverse Trigonometric Functions and Graphs",
-    "Principal Values and Technology"
+    "Principal Values and Technology",
+    "Fundamental Trigonometric Identities",
+    "Double-Angle and Half-Angle Identities",
+    "Solving Trigonometric Equations with Identities"
   ],
   "general-triangle-trigonometry": [
     "Triangle Area and the Law of Sines",
@@ -320,7 +328,9 @@
     "Vector Applications in Geometry and Modeling",
     "Vector Transformations Using Matrices",
     "Dot Products and Projections",
-    "Polar and Rectangular Coordinates"
+    "Polar and Rectangular Coordinates",
+    "Polar Equations and Graphs",
+    "Parametric Equations"
   ],
   "probability": [
     "Probability, Odds, and Distributions",
@@ -332,6 +342,13 @@
     "Shapes of Distributions",
     "Normal Distributions",
     "Binomial Probabilities"
+  ],
+  "sequences-series-limits": [
+    "Arithmetic and Geometric Sequences",
+    "Finite Arithmetic and Geometric Series",
+    "Infinite Geometric Series",
+    "Sigma Notation",
+    "Introduction to Limits"
   ]
 },
   "algebra": {

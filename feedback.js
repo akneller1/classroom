@@ -88,6 +88,13 @@
     var fb = bottom.querySelector('[data-feedback-chooser]');
     if (fb) bottom.insertBefore(f, fb); else bottom.appendChild(f);
   }
+  // Privacy page (privacy.html): anonymous, cookie-free visit counts; no student data.
+  if (bottom && !bottom.querySelector('a[href="privacy.html"]')) {
+    var pv = doc.createElement('a');
+    pv.href = 'privacy.html'; pv.textContent = 'Privacy';
+    var fb2 = bottom.querySelector('[data-feedback-chooser]');
+    if (fb2) bottom.insertBefore(pv, fb2); else bottom.appendChild(pv);
+  }
   var main = doc.getElementById('main');
   if (!main || typeof MutationObserver !== 'function') return;
   function hint() {

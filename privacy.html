@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy · Mr. K's Classroom</title>
+<meta name="description" content="What Mr. K's Classroom collects (anonymous, cookie-free visit counts) and what it never collects (student names, answers or accounts).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+:root{
+  --paper:#f4f5fb;--wash:#e6e9f8;--card:#fff;--ink:#14173a;--ink-soft:#4a4f78;--line:#cfd3ea;--edge:#14173a;--shadow:#14173a;
+  --blue-bg:#3547f5;--blue-fg:#fff;--blue-tint:#e2e6ff;--blue-text:#2330c8;
+  --orange-tint:#ffe8d0;--orange-text:#a84700;--green-tint:#d6f5e8;--green-text:#0c7a55;--purple-tint:#ebe3ff;--purple-text:#5a2fd6;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0e1024;--wash:#181b3d;--card:#1a1e44;--ink:#eef0ff;--ink-soft:#aeb4dc;--line:#333a72;--edge:#8a91d6;--shadow:#05060f;
+  --blue-bg:#4152f0;--blue-tint:#1e2467;--blue-text:#a9b2ff;--orange-tint:#3d2916;--orange-text:#ffb470;--green-tint:#123b32;--green-text:#6fe3bb;--purple-tint:#2a1f5e;--purple-text:#bba6ff;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0e1024;--wash:#181b3d;--card:#1a1e44;--ink:#eef0ff;--ink-soft:#aeb4dc;--line:#333a72;--edge:#8a91d6;--shadow:#05060f;
+  --blue-bg:#4152f0;--blue-tint:#1e2467;--blue-text:#a9b2ff;--orange-tint:#3d2916;--orange-text:#ffb470;--green-tint:#123b32;--green-text:#6fe3bb;--purple-tint:#2a1f5e;--purple-text:#bba6ff;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--blue-text);font-weight:700;text-underline-offset:3px}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--blue-bg);outline-offset:3px;border-radius:6px}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+.top{border-bottom:2px solid var(--edge);background:var(--card)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;flex-wrap:wrap}
+.home{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font:800 19px var(--display)}
+.home span{color:var(--blue-text)}
+.print{border:2px solid var(--edge);background:var(--card);color:var(--ink);border-radius:10px;padding:7px 14px;font:700 15px var(--body);cursor:pointer}
+header.hero{padding:40px 0 18px}
+h1{font:800 clamp(34px,6vw,54px)/1.05 var(--display);margin:0 0 12px;letter-spacing:-.02em}
+.lede{font-size:19px;color:var(--ink-soft);margin:0 0 20px;max-width:46em}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.toc a{display:inline-block;padding:6px 12px;border:2px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}
+.toc a:hover{border-color:var(--edge)}
+section{padding:22px 0}
+h2{font:800 28px/1.15 var(--display);margin:0 0 6px}
+.sub{color:var(--ink-soft);margin:0 0 16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{background:var(--card);border:2px solid var(--edge);border-radius:14px;padding:16px;box-shadow:4px 4px 0 var(--shadow);counter-increment:s}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue-bg);color:var(--blue-fg);font:800 16px var(--display);margin-bottom:6px}
+.steps b{display:block;font-family:var(--display);font-size:19px}
+details{background:var(--card);border:2px solid var(--line);border-radius:14px;margin:0 0 10px}
+details[open]{border-color:var(--edge)}
+summary{cursor:pointer;list-style:none;padding:14px 48px 14px 16px;font:700 18px/1.35 var(--display);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font:800 24px var(--display);color:var(--blue-text)}
+details[open] summary::after{content:"–"}
+.body{padding:0 16px 14px}
+.body p,.body ul,.body ol{margin:0 0 10px}
+.body li{margin:3px 0}
+.note{border-left:5px solid var(--orange-text);background:var(--orange-tint);border-radius:8px;padding:10px 12px;margin:10px 0}
+.tip{border-left:5px solid var(--green-text);background:var(--green-tint);border-radius:8px;padding:10px 12px;margin:10px 0}
+.table{overflow-x:auto;border:2px solid var(--edge);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:16px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font:700 15px var(--display);background:var(--wash)}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;padding:1px 9px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.class{background:var(--purple-tint);color:var(--purple-text)}
+.solo{background:var(--green-tint);color:var(--green-text)}
+.both{background:var(--blue-tint);color:var(--blue-text)}
+.band{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 14px}
+.band div{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.band h3{font:800 17px var(--display);margin:0 0 4px}
+.band p{margin:0;font-size:15px;color:var(--ink-soft)}
+section>h3{font:800 20px var(--display);margin:18px 0 8px}
+@media (max-width:720px){.band{grid-template-columns:1fr}}
+.print-only{display:none}
+footer{border-top:2px solid var(--line);margin-top:24px;padding:20px 0 40px;color:var(--ink-soft);font-size:15px}
+@media (max-width:720px){.steps{grid-template-columns:1fr}h2{font-size:24px}}
+@media print{
+  .top,.toc,.print,footer{display:none}
+  details{border:0;break-inside:avoid}details .body{display:block}
+  summary::after{content:""}
+  body{background:#fff;color:#000;font-size:12pt}
+}
+</style>
+<script src="analytics.js?v=analytics-20261108" defer></script>
+</head>
+<body>
+<div class="top"><div class="wrap">
+  <a class="home" href="index.html">← <span>Mr. K's Classroom</span></a>
+</div></div>
+
+<main class="wrap" id="main">
+<header class="hero">
+  <h1>Privacy</h1>
+  <p class="lede">The short version: no accounts, no cookies, and nothing about students is collected. The site counts visits anonymously so it can tell which resources teachers use.</p>
+</header>
+
+<section aria-labelledby="h-never">
+  <h2 id="h-never">What the site never collects</h2>
+  <ul>
+    <li>Names, email addresses or logins. There are no accounts for teachers or students.</li>
+    <li>Student answers, scores or work. Games, readiness checks and Interactive Math run entirely in the browser, and nothing is submitted.</li>
+    <li>Anything that identifies a person, and there is no advertising or ad tracking.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="h-counts">
+  <h2 id="h-counts">Anonymous visit counts</h2>
+  <p>The site uses <a href="https://umami.is/">Umami</a>, a privacy-focused analytics service that uses no cookies. It records:</p>
+  <ul>
+    <li>which pages are viewed, and roughly how long they stay open;</li>
+    <li>the referring site, country, device type and browser;</li>
+    <li>which resource cards and generator buttons (Build, Print, Download) are used.</li>
+  </ul>
+  <p>Only the site owner sees these totals, and they are used only to decide what to improve or build next. They are not sold or shared.</p>
+  <div class="tip">To turn counting off in your browser, open the site once with <code>?analytics=off</code> at the end of the address, for example <code>https://mrksclassroom.com/?analytics=off</code>. Use <code>?analytics=on</code> to turn it back on.</div>
+</section>
+
+<section aria-labelledby="h-local">
+  <h2 id="h-local">What stays on your computer</h2>
+  <p>Saved activities, lesson-plan edits and saved assessments are stored in your own browser. They are never sent to the site. Clearing your browsing data removes them; <a href="backup.html">Back Up Saved Work</a> downloads a copy you can keep.</p>
+</section>
+
+<section aria-labelledby="h-other">
+  <h2 id="h-other">Other services</h2>
+  <p>Pages load fonts from Google Fonts, and the site is hosted on GitHub Pages. Like any website, these services receive standard technical information (such as your IP address) when a page loads. Links that leave the site, such as Buy Me a Coffee, follow that site's own privacy policy.</p>
+</section>
+
+<section aria-labelledby="h-contact">
+  <h2 id="h-contact">Questions</h2>
+  <p>Use <b>Feedback or report an issue</b> at the bottom of the <a href="index.html">home page</a>.</p>
+  <p class="sub">Last updated November 14, 2026.</p>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <a href="index.html">← Back to Mr. K's Classroom</a> · <a href="guide.html">Teacher Guide</a>
+</div></footer>
+</body>
+</html>
