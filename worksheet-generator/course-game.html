@@ -17,6 +17,12 @@
   }
  };
  var route = routes[course];
+ if(route && game==='flashcards' && route.units.includes(unit)){
+  var cards=new URL(course==='grade5'?'../grade5/worksheet-generator/grade5-flashcards.html':'../financial/flashcards/index.html',location.href);
+  params.forEach(function(value,key){if(!['course','game','v'].includes(key))cards.searchParams.set(key,value);});
+  location.replace(cards.href);window.MK_GAME_REDIRECTING=true;return;
+ }
+
  if (!route) return; // Original course-game engine handles established courses.
  if (!unit || route.units.indexOf(unit) === -1 || !game || route.games.indexOf(game) === -1 ||
      (game === 'fraction-frenzy' && !['fraction-addition-subtraction','fraction-multiplication-division'].includes(unit))) {
