@@ -277,19 +277,21 @@
 .pp-box .mm-fig svg{max-height:1.38in;width:auto;max-width:100%;height:auto}
 .pp-box .mm-fig-plane svg{max-height:1.48in}
 
-/* Tarsia labels: preserve full stacked fractions in both preview and print. */
-.pr-tt{white-space:normal;line-height:1.2;overflow:visible;text-align:center;padding:2px 3px;box-sizing:border-box}
-.pr-tt>span{display:block;max-width:100%;overflow:visible}
-.pr-tt .katex{line-height:1.2;white-space:nowrap}
-.pr-tsvg foreignObject{overflow:visible}
-
-/* Tarsia edge labels: centered, measured math; never spill into neighboring strips. */
-.pr-tt{width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden!important;padding:0 2px;line-height:1;box-sizing:border-box}
+.pt-layout-note{margin:2px 0 0;font-size:8pt;line-height:1.2}
+/* Tarsia labels are measured in their unrotated edge strip. */
+.pr-tt{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:0 2px;line-height:1.2;box-sizing:border-box}
 .pr-tt>span{display:inline-block;flex:none;width:max-content;max-width:none;white-space:nowrap;transform-origin:center center}
-.pr-tsvg foreignObject{overflow:visible}
-
-/* Edge strips must clip even when KaTeX produces a wide expression. */
-.pr-tsvg foreignObject{overflow:hidden!important}
+.pr-tt .katex{line-height:1.2;white-space:nowrap}
+.pr-tsvg foreignObject{overflow:hidden}
+/* A card grows with its full question and four rows; pagination moves the next card. */
+.pw-card>*{flex-shrink:0;min-width:0}
+.pw-clues{display:block!important}
+.pw-card{break-inside:avoid;page-break-inside:avoid}
+.pw-ch{gap:.15in;flex-wrap:wrap}
+.pw-opts{table-layout:fixed}
+.pw-opts td{overflow-wrap:anywhere}
+.pw-opts td:first-child{width:36%}
+.pw-cq{overflow-wrap:anywhere}
 /* Geometry diagrams in the small boxes: under the text, short enough for the box */
 .pp-box .mm-geometry-figure,.pc-box .mm-geometry-figure,.pe-box .mm-geometry-figure,.pw-card .mm-geometry-figure{float:none;margin:2px 0 0;max-width:100%;text-align:center}
 .pp-box .mm-geometry-figure svg,.pc-box .mm-geometry-figure svg,.pe-box .mm-geometry-figure svg,.pw-card .mm-geometry-figure svg{height:.75in!important;width:auto!important;max-width:100%!important;display:inline-block}
@@ -366,3 +368,6 @@
 /* Keep each Tarsia work prompt inside its own cell in preview and print. */
 .pt-grid>div{min-width:0;min-height:0;overflow:hidden;overflow-wrap:anywhere}
 .pt-grid>div>div{min-width:0;max-width:100%}
+
+/* Measure print labels at their real page size before the browser opens print preview. */
+@media screen{#printRoot.pr-print-measure{display:block;position:absolute;left:-10000px;top:0}}
