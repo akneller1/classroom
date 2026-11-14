@@ -47,7 +47,6 @@ const patch=(oldPart,newPart,label)=>{if(!app.includes(oldPart))fail('missing '+
 patch("['grade3','grade4','grade5','financial-algebra'].includes(it.c.id)","['grade2','grade3','grade4','grade5','financial-algebra'].includes(it.c.id)",'thumbnail');
 patch("['grade3','grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)","['grade2','grade3','grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)",'unit renderer');
 patch("'grade3', 'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)","'grade2', 'grade3', 'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)",'course label');
-if(app.includes("category('projects'"))patch("(['grade3','grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')","(['grade2','grade3','grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')",'project category');
 // Grade 4's release build already deduplicates coming-soon placeholders.
 if(!app.includes('SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})'))fail('missing course deduplication');
 const genCourse="(c && ['grade3','grade4','grade5'].includes(c.id) && c.units[0] ? c.units[0].artifacts : [])";
