@@ -35,7 +35,7 @@
     if (activity.courseId === 'financial-algebra') return ['Game','Study Guide','Interactive','Project'].indexOf(String(activity.type)) >= 0;
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(activity.path)) return true;
     if (/^worksheet-generator\/(?:course-(game|activity)|algebra2-game)\.html\?/i.test(activity.path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(activity.path);
-    if (/^worksheet-generator\/asteroid-blaster\.html\?/i.test(activity.path)) return true;
+    if (/^worksheet-generator\/asteroid-blaster\.html\?/i.test(activity.path)) return false; // dedicated card link opens the game's skill selector
     if (/^worksheet-generator\//i.test(activity.path)) return false;
     if (/jeopardy|showdown|connect-four|inequality-four|tic-tac-toe/i.test(activity.path)) return false;
     var types = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
