@@ -729,7 +729,7 @@
     });
   }
   PR.fitTarsiaLabels = fitTarsiaLabels;
-  /* Fixed-size boxes (Color by Number, Partner Check, Error Analysis, Whodunnit cards, stations, maze rooms):
+  /* Fixed-size boxes (Color by Number, Partner Check, Error Analysis, stations, maze rooms):
      a long problem or a tall picture shrinks to fit instead of being cut off at the bottom of its box. */
   function fitBoxes(root) {
     $$('.pc-box,.pp-box,.pe-box,.ps-q,.pm-room,.pm-q,.pm-big,.pt-grid>div', root).forEach(function (b) {
@@ -755,7 +755,7 @@
     ));
   }
   async function printAll(key) {
-    var root = $('#printRoot'); root.innerHTML = '';
+    var root = $('#printRoot'); root.classList.add('pr-print-measure'); root.innerHTML = '';
     built.forEach(function (B, v) { PR.pageEls(cfg, B, v, built.length, key).forEach(function (p) { root.appendChild(p); }); });
     doc.body.classList.add('printing');
     await layoutReady(root);
@@ -765,7 +765,7 @@
     await layoutReady(root);
     fitTarsiaLabels(root);
     fitBoxes(root);
-    var done = function () { doc.body.classList.remove('printing'); root.innerHTML = ''; G.removeEventListener('afterprint', done); };
+    var done = function () { doc.body.classList.remove('printing'); root.classList.remove('pr-print-measure'); root.innerHTML = ''; G.removeEventListener('afterprint', done); };
     G.addEventListener('afterprint', done);
     setTimeout(function () { G.print(); setTimeout(function () { if (doc.body.classList.contains('printing') && !G.matchMedia('print').matches) done(); }, 1500); }, 60);
   }

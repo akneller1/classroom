@@ -84,6 +84,37 @@ let browser;
     assert.deepEqual(result.failures, []);
     assert.ok(result.puzzles >= 36 && result.cards >= 30 && result.references > 0);
   }
+  // Exercise the actual print buttons too: #printRoot is normally display:none on screen.
+  // Measuring that hidden tree used to miss oversized labels even when preview fitted them.
+  for (const kind of ['tarsia', 'who']) for (const media of ['screen', 'print']) {
+    await page.emulateMedia({ media: 'screen' });
+    await page.check(`input[name=prKind][value=${kind}]`);
+    await page.waitForSelector(kind === 'tarsia' ? '.pr-pages .pr-tsvg' : '.pr-pages .pw-card');
+    await page.evaluate(() => {
+      window.__printed = null;
+      window.print = () => {
+        const root = document.querySelector('#printRoot'), failures = [];
+        const labels = [...root.querySelectorAll('.pr-tsvg foreignObject')];
+        for (const fo of labels) {
+          const pt = parseFloat(getComputedStyle(fo.querySelector('.pr-tt')).fontSize) * .75 * +fo.getAttribute('data-fit-scale');
+          if (pt < 6.5 || fo.querySelector('.pr-tt>span').offsetWidth === 0) failures.push('unmeasured or tiny print label');
+        }
+        const cards = [...root.querySelectorAll('.pw-card')];
+        for (const c of cards) {
+          if (c.querySelectorAll('.pw-opts tr').length !== 4 || c.querySelector('.pw-opts tr:last-child').getBoundingClientRect().bottom > c.closest('.mm-body').getBoundingClientRect().bottom + 1) failures.push('choice D clipped in print');
+        }
+        window.__printed = { failures, labels: labels.length, cards: cards.length };
+      };
+    });
+    await page.emulateMedia({ media });
+    await page.click('#prPrintS');
+    await page.waitForFunction(() => window.__printed !== null);
+    const printed = await page.evaluate(() => window.__printed);
+    assert.deepEqual(printed.failures, []);
+    assert.ok(kind === 'who' ? printed.cards === 10 : printed.labels >= 48);
+    console.log('Print button', kind, media, JSON.stringify(printed));
+    await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
+  }
   console.log('Printable layout regressions passed in screen and print media.');
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(async () => {
   if (browser) await browser.close();
