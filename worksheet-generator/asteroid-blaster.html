@@ -354,7 +354,7 @@ function quickAnswer(q){
  return true;
 }
 function usable(q){
- if(!quickAnswer(q))return null;
+ if(!q||q.format!=='multiple-choice'||!quickAnswer(q))return null;
   if(!q||!Array.isArray(q.options)||q._graphOptions)return null;
   const right=q.options.filter(o=>o.correct),wrong=q.options.filter(o=>!o.correct&&String(o.text).trim());
   if(right.length!==1||wrong.length<3)return null;
