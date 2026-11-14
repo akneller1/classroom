@@ -958,22 +958,22 @@ body { background:var(--paper); }
 
 /* Soft rainbow in curriculum order, from red through violet. */
 .course-nav-card[data-course] { --c-fg:#17213d; }
-.course-nav-card[data-course="grade1"] { --c-bg:hsl(0 60% 88%); }
-.course-nav-card[data-course="grade2"] { --c-bg:hsl(19 60% 88%); }
-.course-nav-card[data-course="grade3"] { --c-bg:hsl(38 60% 88%); }
-.course-nav-card[data-course="grade4"] { --c-bg:hsl(57 60% 88%); }
-.course-nav-card[data-course="grade5"] { --c-bg:hsl(76 60% 88%); }
-.course-nav-card[data-course="math6"] { --c-bg:hsl(95 60% 88%); }
-.course-nav-card[data-course="prealgebra7"] { --c-bg:hsl(114 60% 88%); }
-.course-nav-card[data-course="prealgebra"] { --c-bg:hsl(133 60% 88%); }
-.course-nav-card[data-course="algebra"] { --c-bg:hsl(152 60% 88%); }
-.course-nav-card[data-course="geometry"] { --c-bg:hsl(171 60% 88%); }
-.course-nav-card[data-course="algebra2"] { --c-bg:hsl(190 60% 88%); }
-.course-nav-card[data-course="precalculus"] { --c-bg:hsl(209 60% 88%); }
-.course-nav-card[data-course="calculus"] { --c-bg:hsl(228 60% 88%); }
-.course-nav-card[data-course="statistics"] { --c-bg:hsl(247 60% 88%); }
-.course-nav-card[data-course="discrete"] { --c-bg:hsl(279 60% 88%); }
-.course-nav-card[data-course="financial-algebra"] { --c-bg:hsl(310 60% 88%); }
+.course-nav-card[data-course="grade1"] { --c-bg:hsl(0 45% 88%); }
+.course-nav-card[data-course="grade2"] { --c-bg:hsl(19 45% 88%); }
+.course-nav-card[data-course="grade3"] { --c-bg:hsl(38 45% 88%); }
+.course-nav-card[data-course="grade4"] { --c-bg:hsl(57 45% 88%); }
+.course-nav-card[data-course="grade5"] { --c-bg:hsl(76 45% 88%); }
+.course-nav-card[data-course="math6"] { --c-bg:hsl(95 45% 88%); }
+.course-nav-card[data-course="prealgebra7"] { --c-bg:hsl(114 45% 88%); }
+.course-nav-card[data-course="prealgebra"] { --c-bg:hsl(133 45% 88%); }
+.course-nav-card[data-course="algebra"] { --c-bg:hsl(152 45% 88%); }
+.course-nav-card[data-course="geometry"] { --c-bg:hsl(171 45% 88%); }
+.course-nav-card[data-course="algebra2"] { --c-bg:hsl(190 45% 88%); }
+.course-nav-card[data-course="precalculus"] { --c-bg:hsl(209 45% 88%); }
+.course-nav-card[data-course="calculus"] { --c-bg:hsl(228 45% 88%); }
+.course-nav-card[data-course="statistics"] { --c-bg:hsl(247 45% 88%); }
+.course-nav-card[data-course="discrete"] { --c-bg:hsl(279 45% 88%); }
+.course-nav-card[data-course="financial-algebra"] { --c-bg:hsl(310 45% 88%); }
 
 /* Let the course list begin directly below its heading while sharing the task-grid bottom edge. */
 @media(min-width:761px) {
@@ -1045,6 +1045,10 @@ body { background:var(--paper); }
   --c-fg:#17213d;
   --c-tint:hsl(var(--course-hue) 60% 95%);
   --c-text:hsl(var(--course-hue) 48% 30%);
+}
+/* Class cards use calmer pastels; leave course banners, task cards, and other accents unchanged. */
+.course-nav-card[data-course][data-color] {
+  --c-bg:hsl(var(--course-hue) 45% 88%);
 }
 .unit[data-course] { background:var(--c-tint); }
 .unit[data-course] .unit-open-link,
