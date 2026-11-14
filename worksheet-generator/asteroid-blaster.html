@@ -417,6 +417,12 @@ function setupScreen(){
   $('allSkills').onclick=()=>{document.querySelectorAll('#skillList input').forEach(i=>i.checked=true);updateSkillCount()};
   $('noSkills').onclick=()=>{document.querySelectorAll('#skillList input').forEach(i=>i.checked=false);updateSkillCount()};
   applyStudentSkills();
+  if(new URLSearchParams(location.search).has('share')){
+    const picker=$('skillList').closest('details');
+    picker.open=true;
+    picker.scrollIntoView({block:'center'});
+    $('linkStatus').textContent='Choose the skills above, then click Copy Student Link.';
+  }
   $('copyStudentLink').onclick=async()=>{
    const ids=selectedSkills();
    if(!ids.length){$('linkStatus').textContent='Select at least one skill.';return}
