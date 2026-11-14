@@ -6,6 +6,17 @@
 <script>
 (function(){
   var params = new URLSearchParams(location.search);
+  // Older cached cards used the generic viewer for this direct game route.
+  var gamePath = params.get('path') || '';
+  if (/^\/?worksheet-generator\/asteroid-blaster\.html\?/.test(gamePath)) {
+    var game = new URL('/' + gamePath.replace(/^\//, ''), location.href);
+    ['student', 'skills', 'level', 'speed', 'mode', 'share'].forEach(function (key) {
+      if (params.has(key)) game.searchParams.set(key, params.get(key));
+    });
+    location.replace(game.href);
+    return;
+  }
+
   if (/^\/?artifacts\/multiple-drop\/index\.html$/.test(params.get('path') || '')) {
     var target = new URL('artifacts/multiple-drop/index.html', location.href);
     if (params.get('student') === '1') target.searchParams.set('student', '1');

@@ -34,7 +34,7 @@ jobs:
           node-version: 22
       - name: Verify game routing, math display and money formatting
         run: |
-          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs
+          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs
           node scripts/normalize-money.mjs --check
       - name: Build public site
         run: node scripts/build-site.mjs
