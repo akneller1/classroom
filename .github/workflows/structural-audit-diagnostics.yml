@@ -1,96 +1,18 @@
-name: Diagnose structural card audit after skill setup
-'on':
+name: Stop superseded card audit
+on:
   push:
-    branches:
-    - ci/structural-audit-diagnostics-20261114
-    paths:
-    - .github/workflows/structural-audit-diagnostics.yml
+    branches: [ci/structural-audit-diagnostics-20261114]
+    paths: ['.github/workflows/structural-audit-diagnostics.yml']
 permissions:
   contents: read
+  actions: write
 jobs:
-  diagnose:
+  stop-superseded-run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 22
-    - name: Build public site
-      run: node scripts/build-site.mjs
-    - name: Check out approved Grade 5 course sources
-      uses: actions/checkout@v4
-      with:
-        repository: akneller1/FinancialAlgebra
-        ref: 0e3c25f414a651c66b90d5324171c731939433c4
-        path: _course_sources/grade5
-        persist-credentials: false
-    - name: Assemble approved Grade 5 into production artifact
-      env:
-        GRADE5_SOURCE_DIR: _course_sources/grade5
-      run: node scripts/integrate-approved-courses.mjs
-    - name: Assemble approved Financial Algebra into production artifact
-      env:
-        FINANCIAL_ALGEBRA_SOURCE_DIR: _course_sources/grade5
-      run: node scripts/integrate-financial-algebra.mjs
-    - name: Check out approved Grade 4 source
-      uses: actions/checkout@v4
-      with:
-        repository: akneller1/FinancialAlgebra
-        ref: 9f29d62f3c0574025064f22e4ef92fb2bf3c4646
-        path: _course_sources/grade4
-        persist-credentials: false
-    - name: Assemble Grade 4 into production artifact
-      env:
-        GRADE4_SOURCE_DIR: _course_sources/grade4
-      run: node scripts/integrate-grade4.mjs
-    - name: Check out Grade 3 source from the development repository
-      uses: actions/checkout@v4
-      with:
-        repository: akneller1/FinancialAlgebra
-        ref: 0e3c25f414a651c66b90d5324171c731939433c4
-        path: _course_sources/grade3
-        persist-credentials: false
-    - name: Assemble Grade 3 into production artifact
-      env:
-        GRADE3_SOURCE_DIR: _course_sources/grade3
-      run: node scripts/integrate-grade3.mjs
-    - name: Check out verified Grade 2 source from FinancialAlgebra
-      uses: actions/checkout@v4
-      with:
-        repository: akneller1/FinancialAlgebra
-        ref: 0e3c25f414a651c66b90d5324171c731939433c4
-        path: _course_sources/grade2
-        persist-credentials: false
-    - name: Assemble Grade 2 from separate repository into the public artifact
-      env:
-        GRADE2_SOURCE_DIR: _course_sources/grade2
-      run: node scripts/integrate-grade2.mjs
-    - name: Check out validated Grade 1 source from FinancialAlgebra
-      uses: actions/checkout@v4
-      with:
-        repository: akneller1/FinancialAlgebra
-        ref: 0e3c25f414a651c66b90d5324171c731939433c4
-        path: _course_sources/grade1
-        persist-credentials: false
-    - name: Assemble Grade 1 with study guides and teaching notes
-      env:
-        GRADE1_SOURCE_DIR: _course_sources/grade1
-      run: node scripts/integrate-grade1.mjs
-    - name: Install Chromium for elementary course parity
-      run: 'npm install --no-save playwright
-
-        npx playwright install --with-deps chromium
-
-        '
-    - name: Integrate reviewed Post-it catalog
-      run: node scripts/integrate-postit-games.mjs
-    - name: Build course and unit pages for Grades 1-5 and Financial Algebra
-      env:
-        INTEGRATED_COURSES: grade1,grade2,grade3,grade4,grade5,financial-algebra
-      run: node scripts/build-integrated-unit-pages.mjs
-    - name: Add the shared Mr. K's Classroom header to activity pages
-      run: node scripts/add-site-header.mjs
-    - name: Add shared problem-report dialog
-      run: node scripts/add-feedback.mjs
-    - name: Browser-check every published resource card
-      run: node scripts/test-no-dead-end-cards.cjs _site
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const run_id = 43646376631;
+            const {data: run} = await github.rest.actions.getWorkflowRun({owner: context.repo.owner, repo: context.repo.repo, run_id});
+            if (run.status !== 'completed') await github.rest.actions.cancelWorkflowRun({owner: context.repo.owner, repo: context.repo.repo, run_id});
