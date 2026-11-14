@@ -65,6 +65,12 @@ function walkFiles(dir, exts) {
 fs.rmSync(OUT, { recursive: true, force: true });
 copyTree(ROOT, OUT);
 fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
+// Keep old published PDF URLs resolving after archiving their source files.
+const geometryArchive=path.join(OUT,'artifacts','geometry-reference-archive');
+if(fs.existsSync(geometryArchive))for(const name of fs.readdirSync(geometryArchive)){
+ if(/^Geometry_0.*\.pdf$/.test(name))fs.copyFileSync(path.join(geometryArchive,name),path.join(OUT,name));
+}
+
 
 /* Refresh the common classroom presentation CSS and JavaScript on all labs
    in the built site, without editing each individual source activity. */
