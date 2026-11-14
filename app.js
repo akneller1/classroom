@@ -412,7 +412,7 @@
     return '<p class="resource-info">' + labels.map(esc).join(' · ') + '</p>';
   }
   function reportUrl(a) {
-    var url = 'https://mrksclassroom.com/' + activityUrl(a);
+    var url = new URL(activityUrl(a), 'https://mrksclassroom.com/').href;
     var body = 'Activity: ' + a.title + '\nLink: ' + url + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n';
     return 'mailto:akneller@gmail.com?subject=' + encodeURIComponent('Mr. K\'s Classroom — Resource problem: ' + a.title) + '&body=' + encodeURIComponent(body);
   }
@@ -1115,7 +1115,7 @@
     grade4: 'Factors, fractions & geometry.',
     grade5: 'Decimals, fractions & volume.',
     math6: 'Ratios, rational numbers & expressions.',
-    prealgebra7: 'Integers, proportions & geometry.',
+    prealgebra7: 'Accelerated Grade 7: integers to functions.',
     prealgebra: 'Equations, graphs & functions.',
     algebra: 'Equations, functions & linear graphs.',
     geometry: 'Shapes, reasoning & transformations.',

@@ -4,13 +4,30 @@
   'use strict';
 
   var dialog = document.getElementById('feedbackChooser');
-  if (!dialog || typeof dialog.showModal !== 'function') return;
-
+  if (!dialog) {
+    dialog = document.createElement('dialog'); dialog.id = 'feedbackChooser';
+    dialog.className = 'feedback-chooser';
+    dialog.setAttribute('aria-label', 'Report a problem');
+    dialog.innerHTML = '<button id="feedbackChooserClose" type="button">Close</button><h2>Report a problem</h2><p>Your message opens as a draft for you to send.</p><p><a id="feedbackGmail" target="_blank" rel="noopener">Gmail</a> · <a id="feedbackOutlook" target="_blank" rel="noopener">Outlook</a> · <a id="feedbackDefault">Email application</a></p>';
+    document.body.appendChild(dialog);
+  }
+  if (typeof dialog.showModal !== 'function') return;
   var gmail = document.getElementById('feedbackGmail');
   var outlook = document.getElementById('feedbackOutlook');
   var nativeMail = document.getElementById('feedbackDefault');
   var close = document.getElementById('feedbackChooserClose');
-  if (!gmail || !outlook || !nativeMail || !close) return;
+  var fields = document.createElement('div');
+  fields.innerHTML = '<p><label>Page or activity<input id="feedbackPage" readonly style="display:block;width:100%;box-sizing:border-box"></label></p><p><label>What went wrong?<select id="feedbackKind" style="display:block"><option>Broken link</option><option>Wrong answer</option><option>Unclear directions</option><option>Printing problem</option><option>Other</option></select></label></p><p><label>Details<textarea id="feedbackDetails" rows="5" style="display:block;width:100%;box-sizing:border-box"></textarea></label></p>';
+  dialog.insertBefore(fields, dialog.querySelector('.feedback-chooser-options') || gmail.parentNode);
+  var page = document.getElementById('feedbackPage'), kind = document.getElementById('feedbackKind'), details = document.getElementById('feedbackDetails');
+  var activeMail = '', activeBody = '';
+  function refresh() {
+    var parsed = new URL(activeMail, document.baseURI);
+    parsed.searchParams.set('body', activeBody + '\n\nWhat went wrong: ' + kind.value + '\nDetails: ' + details.value);
+    var links = composeLinks(parsed.href);
+    gmail.href = links.gmail; outlook.href = links.outlook; nativeMail.href = links.native;
+  }
+  kind.addEventListener('change', refresh); details.addEventListener('input', refresh);
 
   function composeLinks(mailto) {
     var parsed = new URL(mailto, document.baseURI);
@@ -44,9 +61,8 @@
     var links;
     try { links = composeLinks(mailto); } catch (_) { return; }
     if (!links) return;
-    gmail.href = links.gmail;
-    outlook.href = links.outlook;
-    nativeMail.href = links.native;
+    activeMail = mailto; activeBody = new URL(mailto, document.baseURI).searchParams.get('body') || ('Page: ' + document.title + '\nLink: ' + location.href);
+    page.value = activeBody; details.value = ''; kind.value = 'Other'; refresh();
     event.preventDefault();
     dialog.showModal();
   });

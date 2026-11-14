@@ -96,9 +96,9 @@
     }
   }
   var report = document.getElementById('report-problem');
-  report.href = 'https://github.com/akneller1/classroom/issues/new?title=' + encodeURIComponent('Resource problem: ' + match.title) +
-    '&body=' + encodeURIComponent('Activity: ' + match.title + '\nLink: https://mrksclassroom.com/activity.html?path=' + encodeURIComponent(match.path) + '\n\nProblem (broken link, incorrect answer, unclear directions, or other):\n\nProblem number / steps to reproduce:\n\nExpected result:\n');
-  report.hidden = studentFocus;
+  report.className = 'report-problem';
+  report.href = 'mailto:akneller@gmail.com?subject=' + encodeURIComponent('Resource problem: ' + match.title) + '&body=' + encodeURIComponent('Activity: ' + match.title + '\nLink: ' + location.href);
+  report.hidden = false;
   var frame = document.createElement('iframe');
   frame.className = 'activity-frame';
   frame.title = match.title;
