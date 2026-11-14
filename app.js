@@ -10,13 +10,7 @@
   /* Course visibility switches; all current courses are public. */
   var HIDDEN_COURSES = {};
   var SOON = L.courses.filter(function (c) { return c.comingSoon && !HIDDEN_COURSES[c.id]; });
-  /* Homepage placeholders only: do not expose unfinished course content. */
-  SOON = SOON.concat([
-    { id: 'grade1', name: '1st Grade Math', color: 'red', art: 'first', units: [], comingSoon: true, homePlaceholder: true },
-    { id: 'grade2', name: '2nd Grade Math', color: 'orange', art: 'second', units: [], comingSoon: true, homePlaceholder: true },
-    { id: 'grade3', name: '3rd Grade Math', color: 'orange', art: 'third', units: [], comingSoon: true, homePlaceholder: true },
-    { id: 'grade4', name: '4th Grade Math', color: 'green', art: 'fourth', units: [], comingSoon: true, homePlaceholder: true }
-  ]);
+  /* Coming-soon cards are now sourced from the canonical LIBRARY catalog. */
   L.courses = L.courses.filter(function (c) { return !c.comingSoon && !HIDDEN_COURSES[c.id]; });
   var app = document.getElementById('main');
   var nav = document.getElementById('nav');
