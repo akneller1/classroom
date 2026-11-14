@@ -103,9 +103,11 @@ const server=http.createServer((req,res)=>{
   await planner.close();
   const projects = await browser.newPage();
   const projectMap = JSON.parse(fs.readFileSync(path.join(__dirname,'grade1-projects-manifest.json'),'utf8'));
+  await projects.goto(base+'worksheet-generator/printables.html#unit='+Object.keys(projectMap)[0]+'&kind=project',{waitUntil:'load'});
+  await projects.waitForSelector('.pj-card',{timeout:30000});
   for (const [unitId, items] of Object.entries(projectMap)) {
-    await projects.goto(base+'worksheet-generator/printables.html#unit='+unitId+'&kind=project',{waitUntil:'load'});
-    await projects.waitForSelector('.pj-card',{timeout:30000});
+    await projects.locator('#prUnit').selectOption(unitId);
+    await projects.waitForFunction(title=>document.querySelector('.pj-card h3')?.textContent===title,items[0].title);
     assert.equal(await projects.locator('.pj-card').count(),1,unitId);
     assert.equal(await projects.locator('.pj-card h3').innerText(),items[0].title);
     assert.equal(await projects.locator('.pj-levels tr').count(),3);
