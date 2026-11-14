@@ -3,7 +3,7 @@
 **Baseline:** commit `9a1312775149e62edfa67646aaadb0b4d9702269` (from the comment of the uploaded `classroom-main.zip`). The ZIP contains only new and changed files, at their repository paths. Nothing has been committed, pushed or deployed.
 
 ## Contents
-- 14 new Interactive Math tools: 4 for 6th Grade, 3 for Pre-Algebra (7th), 2 for Pre-Algebra (8th), 1 for Precalculus and 4 for Calculus. Each comes with a 2-page Explore & Reflect worksheet, a 2-page teacher key and a thumbnail.
+- 14 new Interactive Math tools: 4 for 6th Grade, 3 for Pre-Algebra, 2 for 8th Grade Math, 1 for Precalculus and 4 for Calculus. Each comes with a 2-page Explore & Reflect worksheet, a 2-page teacher key and a thumbnail.
 - A review of the 32 existing tools. 9 were improved (4 had math or logic errors), 23 kept unchanged, none removed.
 - Existing tools listed in more courses where the objective and scaffolding fit (9 cards).
 - A fix for **Copy student link** on every Interactive Math card. It opened the games' skill picker, which never produced a link for a tool.
@@ -36,11 +36,11 @@ Each change is self-contained, so apply it to the current version of the file. D
 | 6th Grade Math | fractions-decimals-operations | Fraction Division: How Many Groups? | a ÷ d counts groups of size d. A leftover is a fraction of a group, not of the whole. Cutting both into equal pieces gives a ÷ (n/m) = a × (m/n). |
 | 6th Grade Math | geometry | Parallelogram & Triangle Area Lab | Shearing keeps the base and height, so the area stays the same. Cut-and-slide turns a parallelogram into a rectangle, and a triangle is half a parallelogram. The slanted side is irrelevant. |
 | 6th Grade Math | data-displays | Dot Plot Balance: Mean, Median & Spread | The mean is the balance point (distances below = distances above). The median depends only on order, and outliers pull the mean. MAD is the typical distance from the mean. |
-| Pre-Algebra (7th) | linear-functions-graphing | Proportional Relationship Explorer | Proportional means y/x is constant, the graph passes through (0, 0) and the equation is y = kx. A straight line with a starting fee is not proportional. |
-| Pre-Algebra (7th) | ratios-proportions-percentages | Percent Change Bar Model | A percent change multiplies by (100% ± p%) of the starting amount. In a chain the base changes, so changes multiply rather than add (+20% then −20% ≠ 0%). |
-| Pre-Algebra (7th) | data-analysis-probability | Spinner Probability Lab | Theoretical probability is parts ÷ total parts. Small samples vary widely and large samples settle near the theoretical probability. Expected count = P × n, and spins have no memory. |
-| Pre-Algebra (8th), also 7th right-triangles-algebra | geometry-applications | Pythagorean Squares Explorer | Squares on the sides of lattice triangles: a² + b² = c² exactly for right triangles. The converse classifies triangles as acute or obtuse, and a tilted square's area can be found without measuring its side. |
-| Pre-Algebra (8th) | real-numbers-exponents | Square Roots on the Number Line | √A is a side length. Squaring neighbors traps it one place value at a time. Non-perfect squares are irrational, so decimals are approximations, and zooming is not a proof. |
+| Pre-Algebra | linear-functions-graphing | Proportional Relationship Explorer | Proportional means y/x is constant, the graph passes through (0, 0) and the equation is y = kx. A straight line with a starting fee is not proportional. |
+| Pre-Algebra | ratios-proportions-percentages | Percent Change Bar Model | A percent change multiplies by (100% ± p%) of the starting amount. In a chain the base changes, so changes multiply rather than add (+20% then −20% ≠ 0%). |
+| Pre-Algebra | data-analysis-probability | Spinner Probability Lab | Theoretical probability is parts ÷ total parts. Small samples vary widely and large samples settle near the theoretical probability. Expected count = P × n, and spins have no memory. |
+| 8th Grade Math, also 7th right-triangles-algebra | geometry-applications | Pythagorean Squares Explorer | Squares on the sides of lattice triangles: a² + b² = c² exactly for right triangles. The converse classifies triangles as acute or obtuse, and a tilted square's area can be found without measuring its side. |
+| 8th Grade Math | real-numbers-exponents | Square Roots on the Number Line | √A is a side length. Squaring neighbors traps it one place value at a time. Non-perfect squares are irrational, so decimals are approximations, and zooming is not a proof. |
 | Precalculus | vectors | Vector Explorer | Vectors add component-wise (tip to tail). \|u + v\| ≤ \|u\| + \|v\|, with equality only when u and v point the same way. k·u scales length by \|k\| and reverses direction when k < 0. u − v runs from the tip of v to the tip of u. |
 | Calculus | limits-continuity | Limit Explorer | The limit describes values near a, not at a. Both one-sided limits must agree, and f(a) can differ or be undefined. Tables and zooming are evidence, not proof (oscillation case). |
 | Calculus | derivatives | Secant to Tangent | Secant slopes approach the tangent slope as h → 0 from both sides. A corner (\|x\|) has no derivative, and the traced tangent slopes form the graph of f′. |
@@ -177,7 +177,7 @@ node tools/interactive-math-20261107/make_thumbs.cjs
   - A few characters those fonts lack (for example ≈, ×, √, π) fall back to Inter.
   - The PDFs look the same as the existing ones apart from that; for exact matching, reprint on a machine with the real font files.
 - **Tool fonts.** The tool pages load Google Fonts like the existing tools; they were tested with the fallback fonts only.
-- **Shared tools.** A tool listed in another course keeps the eyebrow and worksheet of the course it was built for. For example, the Pythagorean tool says "Pre-Algebra (8th)" in 7th grade, and the Algebra 2 tools say "Algebra 2" in Precalculus.
+- **Shared tools.** A tool listed in another course keeps the eyebrow and worksheet of the course it was built for. For example, the Pythagorean tool says "8th Grade Math" in 7th grade, and the Algebra 2 tools say "Algebra 2" in Precalculus.
 - **Simulations.** The Spinner and Probability labs use `Math.random()`, so their simulation results vary from run to run (the keys say so).
 - **Untested.** Not tested on physical touch hardware. Touch uses the same pointer events that the tests exercise with a mouse, and phone layout was tested with touch emulation.
 

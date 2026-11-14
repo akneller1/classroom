@@ -1,7 +1,7 @@
-/* Pre-Algebra (7th) Unit 7 cheat sheet (Solving Equations and Inequalities). Every worked example is checked by build.cjs. */
+/* Pre-Algebra Unit 7 cheat sheet (Solving Equations and Inequalities). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-solving-equations-inequalities",
- "course": "Pre-Algebra (7th)",
+ "course": "Pre-Algebra",
  "unitNo": 7,
  "unitName": "Solving Equations and Inequalities",
  "focus": "two-step and multi-step equations, fractions and decimals",

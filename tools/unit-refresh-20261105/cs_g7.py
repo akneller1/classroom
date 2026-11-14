@@ -1,5 +1,5 @@
 from cs_lib import *
-C = 'Pre-Algebra (7th)'
+C = 'Pre-Algebra'
 CHK = lambda: L('Check Yourself', ['Did I follow the order of operations?', 'Did I do the same thing to both sides?', 'Did I check my answer in the original problem?', 'Does my answer have the right sign and units?'])
 
 sheet('prealgebra7-algebraic-expressions-integers', C, 1, 'Algebraic Expressions and Integers',

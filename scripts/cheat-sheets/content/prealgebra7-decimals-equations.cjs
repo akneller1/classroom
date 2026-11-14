@@ -1,7 +1,7 @@
-/* Pre-Algebra (7th) Unit 3 cheat sheet (Decimals and Equations). Every worked example is checked by build.cjs. */
+/* Pre-Algebra Unit 3 cheat sheet (Decimals and Equations). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-decimals-equations",
- "course": "Pre-Algebra (7th)",
+ "course": "Pre-Algebra",
  "unitNo": 3,
  "unitName": "Decimals and Equations",
  "focus": "rounding, estimating and measures of center",

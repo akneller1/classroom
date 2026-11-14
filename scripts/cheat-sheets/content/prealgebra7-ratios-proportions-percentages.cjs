@@ -1,7 +1,7 @@
-/* Pre-Algebra (7th) Unit 6 cheat sheet (Ratios, Proportions, and Percentages). Every worked example is checked by build.cjs. */
+/* Pre-Algebra Unit 6 cheat sheet (Ratios, Proportions, and Percentages). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-ratios-proportions-percentages",
- "course": "Pre-Algebra (7th)",
+ "course": "Pre-Algebra",
  "unitNo": 6,
  "unitName": "Ratios, Proportions, and Percentages",
  "focus": "ratios, unit rates, proportions, scale drawings and probability",

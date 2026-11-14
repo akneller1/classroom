@@ -60,7 +60,7 @@ tool('prealgebra-square-roots-number-line', 'prealgebra', 'real-numbers-exponent
      'Link a square’s area to its side length, trap √A between neighbors by squaring, zoom to tenths, hundredths and thousandths, and test your own estimates. Compare perfect squares with irrational square roots.',
      ['Square roots', 'Estimating irrational numbers', 'Rational vs. irrational'],
      'To place √A, find numbers whose squares trap A and refine one place value at a time; perfect squares stop with an exact whole number, while other square roots are irrational, so every decimal shown is an approximation.')
-tool('precalculus-vector-explorer', 'precalculus', 'vectors', 'Vectors',
+tool('precalculus-vector-explorer', 'precalculus', 'vectors', 'Vectors, Complex Numbers & Polar Coordinates',
      'Vector Explorer',
      'Drag the tips of u and v. Add them tip to tail, subtract them, or stretch u by a scalar, and compare the components, magnitudes and directions.',
      'Drag two vectors to see component-wise addition, tip-to-tail and parallelogram sums, u − v as u + (−v), and scalar multiples, with live components, magnitudes and direction angles.',

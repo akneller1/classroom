@@ -1,7 +1,7 @@
-/* Pre-Algebra (7th) Unit 2 cheat sheet (Solving One-Step Equations and Inequalities). Every worked example is checked by build.cjs. */
+/* Pre-Algebra Unit 2 cheat sheet (Solving One-Step Equations and Inequalities). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-one-step-equations-inequalities",
- "course": "Pre-Algebra (7th)",
+ "course": "Pre-Algebra",
  "unitNo": 2,
  "unitName": "Solving One-Step Equations and Inequalities",
  "focus": "number properties, the distributive property and simplifying",

@@ -465,7 +465,7 @@ project(course=C, unit='matrices', unit_no=6, unit_name='Matrices',
   rubric_app='Matrix operations, inverses, and determinants are correct and used for inventory, codes, and systems.', rubric_comm='Mission file includes matrices, coded messages, solved systems, and explanations.')
 
 # ---------------------------------------------------------------- Unit 7
-project(course=C, unit='vectors', unit_no=7, unit_name='Vectors',
+project(course=C, unit='vectors', unit_no=7, unit_name='Vectors, Complex Numbers & Polar Coordinates',
   slug='flight-path-navigator', title='Flight Path Navigator', tagline='Use vectors to fly a small plane through wind, find ground speed, and plan a delivery route.',
   description='Students plan flights for a regional air delivery service. They write velocity and wind vectors in component form, add vectors to find ground speed and true course, find the heading needed to correct for wind, use dot products for angles and work, and plan a multi-leg route.',
   theme='Aviation & Physics', product='Flight Plan', accent='2B6CB0',

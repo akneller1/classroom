@@ -1,7 +1,7 @@
 /* Projects for the Printable Generator (kind=project). Nothing is generated: each project is a ready-made
    2–3 day project saved as PDF, Word (.docx) and PowerPoint (.pptx) at CP2, CP1 and Honors, plus a teacher guide
    with answer keys. Files live in ../artifacts/<folder>/ and ../thumbs/<folder>.jpg.
-   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra (7th), Pre-Algebra (8th), Precalculus, Calculus and Statistics. */
+   Courses: Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-Algebra, 8th Grade Math, Precalculus, Calculus and Statistics. */
 (function (G) {
   'use strict';
   var NS = G.MKMENU = G.MKMENU || {}, PR = NS.printables = NS.printables || {};

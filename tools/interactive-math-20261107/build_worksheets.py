@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from worksheets_content import W
 M = json.load(open(os.path.join(HERE, 'manifest.json'), encoding='utf-8'))
-COURSE = {'math6': '6th Grade Math', 'prealgebra7': 'Pre-Algebra (7th)', 'prealgebra': 'Pre-Algebra (8th)', 'precalculus': 'Precalculus', 'calculus': 'Calculus'}
+COURSE = {'math6': '6th Grade Math', 'prealgebra7': 'Pre-Algebra', 'prealgebra': '8th Grade Math', 'precalculus': 'Precalculus', 'calculus': 'Calculus'}
 OUT = os.path.join(HERE, 'worksheet-html')
 os.makedirs(OUT, exist_ok=True)
 

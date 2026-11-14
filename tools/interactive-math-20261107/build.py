@@ -7,7 +7,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 M = json.load(open(os.path.join(HERE, 'manifest.json'), encoding='utf-8'))
 COURSE = {'algebra': 'Algebra 1', 'algebra2': 'Algebra 2', 'geometry': 'Geometry', 'math6': '6th Grade Math',
-          'prealgebra7': 'Pre-Algebra (7th)', 'prealgebra': 'Pre-Algebra (8th)', 'precalculus': 'Precalculus', 'calculus': 'Calculus'}
+          'prealgebra7': 'Pre-Algebra', 'prealgebra': '8th Grade Math', 'precalculus': 'Precalculus', 'calculus': 'Calculus'}
 TPL = '''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{title} · Mr. K's Classroom</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

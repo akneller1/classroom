@@ -1,7 +1,7 @@
-/* Pre-Algebra (7th) Unit 10 cheat sheet (Area and Volume). Every worked example is checked by build.cjs. */
+/* Pre-Algebra Unit 10 cheat sheet (Area and Volume). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-area-volume",
- "course": "Pre-Algebra (7th)",
+ "course": "Pre-Algebra",
  "unitNo": 10,
  "unitName": "Area and Volume",
  "focus": "area of parallelograms, triangles, trapezoids and circles",

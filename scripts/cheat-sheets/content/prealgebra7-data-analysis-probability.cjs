@@ -1,7 +1,7 @@
-/* Pre-Algebra (7th) Unit 12 cheat sheet (Data Analysis and Probability). Every worked example is checked by build.cjs. */
+/* Pre-Algebra Unit 12 cheat sheet (Data Analysis and Probability). Every worked example is checked by build.cjs. */
 module.exports = {
  "name": "prealgebra7-data-analysis-probability",
- "course": "Pre-Algebra (7th)",
+ "course": "Pre-Algebra",
  "unitNo": 12,
  "unitName": "Data Analysis and Probability",
  "focus": "frequency tables, histograms, box plots and stem-and-leaf plots",

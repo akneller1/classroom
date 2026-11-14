@@ -97,7 +97,7 @@ sheet('precalculus-matrices', C, 6, 'Matrices',
    EX('Cramer’s Rule', r'⟨x = \tfrac{\det A_x}{\det A}⟩: replace the x-column with the constants.', '4x + 3y = 10, 2x + 5y = 12', [['det A_x:', '10·5 − 3·12 = 14']], r'⟨x = \tfrac{14}{14} = 1⟩', N('(10*5-3*12)/14', 1)),
    L('Check Yourself', ['Is det ≠ 0 before I invert?', 'Did I multiply A⁻¹ on the LEFT of B?', 'Did I check my solution in the original system?', 'Do the dimensions allow this product?'])])
 
-sheet('precalculus-vectors', C, 7, 'Vectors',
+sheet('precalculus-vectors', C, 7, 'Vectors, Complex Numbers & Polar Coordinates',
   'vector components, magnitude, direction and operations', 'dot product, angles between vectors, projections and applications',
   [V('Key Vocabulary', [['vector', 'Has magnitude and direction.', '⟨3, 4⟩'], ['magnitude', 'Length of the vector.', r'⟨\|\langle 3, 4\rangle\| = 5⟩'], ['unit vector', 'Magnitude 1.', r'⟨\langle \tfrac{3}{5}, \tfrac{4}{5}\rangle⟩'], ['resultant', 'The sum of vectors.', 'u + v']]),
    EX('Component Form', 'Terminal point minus initial point.', 'From P(1, −2) to Q(6, 10)', [['Subtract:', '⟨6 − 1, 10 − (−2)⟩']], '⟨5, 12⟩, magnitude 13', N('Math.hypot(5,12)', 13)),

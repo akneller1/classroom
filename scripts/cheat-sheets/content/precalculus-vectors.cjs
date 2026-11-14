@@ -3,7 +3,7 @@ module.exports = {
  "name": "precalculus-vectors",
  "course": "Precalculus",
  "unitNo": 7,
- "unitName": "Vectors",
+ "unitName": "Vectors, Complex Numbers & Polar Coordinates",
  "focus": "vector components, magnitude, direction and operations",
  "morefocus": "dot product, angles between vectors, projections and applications",
  "front": [
