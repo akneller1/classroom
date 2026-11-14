@@ -36,6 +36,8 @@ jobs:
         run: |
           node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs
           node scripts/normalize-money.mjs --check
+      - name: Audit Post-it game rounds and answers
+        run: node scripts/test-postit-games.cjs
       - name: Build public site
         run: node scripts/build-site.mjs
       - name: Validate approved question-bank loading
@@ -121,6 +123,12 @@ jobs:
         run: node scripts/test-elementary-browser-parity.cjs _site
       - name: Browser-test Grade 2 unit, student skill selection, game and dedicated Understanding Check
         run: node scripts/test-grade2-browser.cjs _site
+      - name: Integrate reviewed Post-it games after course catalogs
+        run: |
+          node scripts/integrate-postit-games.mjs
+          node scripts/test-postit-catalog.mjs _site
+          node scripts/test-postit-browser.cjs --codes=1
+          node scripts/test-postit-ui.cjs
       # Runs after the checks above because they expect the original page and sitemap counts.
       - name: Build course and unit pages for Grades 2-5 and Financial Algebra
         env:

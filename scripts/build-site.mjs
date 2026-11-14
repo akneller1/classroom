@@ -125,7 +125,7 @@ function loadData() {
   vm.createContext(sandbox);
   vm.runInContext(`${src}\n;globalThis.__mkTopLevel = {${grab}};`, sandbox, { filename: "data.js", timeout: 5000 });
   // Include resources attached by the same runtime supplements as the homepage.
-  for (const filename of ["unit-specific-arcade.js", "resource-details.js", "course-catalog.js", "unit-generator-cards.js"]) {
+  for (const filename of ["unit-specific-arcade.js", "resource-details.js", "course-catalog.js", "unit-generator-cards.js", "postit-games.js"]) {
     const file = path.join(ROOT, filename);
     if (fs.existsSync(file)) vm.runInContext(fs.readFileSync(file,"utf8"),sandbox,{filename,timeout:5000});
   }

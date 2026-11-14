@@ -77,6 +77,12 @@
         actions.appendChild(select);
       }
       button.addEventListener('click', function () {
+        if (/^artifacts\/postit-games\//.test(path)) {
+          var postitUrl = new URL(path, window.location.href);
+          postitUrl.searchParams.set('share', '1');
+          window.location.href = postitUrl.href;
+          return;
+        }
         if (/^worksheet-generator\/asteroid-blaster\.html\?/i.test(path)) {
           var asteroidUrl = new URL(path, window.location.href);
           asteroidUrl.searchParams.set('share', '1');
