@@ -13,7 +13,11 @@ function select(level,ids,n){
   while(out.length<n&&groups.some(g=>g.length))for(const g of groups)if(g.length&&out.length<n)out.push(g.pop());return out;
  }
  if(!['algebra','geometry'].includes(courseId)||!set)return [];
- const used={keys:new Set(),sigs:new Set()},out=[];for(let i=0;i<n*6&&out.length<n;i++){
+ // Procedural generators must never treat a full-bank scan as a request to
+ // synthesize thousands of questions synchronously. Native banks above still
+ // return their full stored pool. Bound both successful output and retries.
+ const limit=Math.min(n,48),deadline=Date.now()+150;
+ const used={keys:new Set(),sigs:new Set()},out=[];for(let i=0;i<Math.min(limit*6,144)&&out.length<limit&&Date.now()<deadline;i++){
   const c=G.MKGAMES.LEVELS[level].tiers[i%3],id=ids[i%ids.length];
   const it=G.MKGAMES.makeItems(setId,id,c,{level,intOnly:level!=='honors'},'course-game-'+Date.now()+'-'+i,used)[0];if(!it)continue;
   const visual=it.options.some(o=>!!o.graph);

@@ -284,7 +284,7 @@ ol.steps{margin:0;padding-left:22px;display:grid;gap:6px;color:#dbe4ff;line-heig
 <script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
 <script src="games/bank.js?v=coverage-proof-cards-20261111d"></script>
 <script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script src="core/math-display.js?v=worksheet-layout-20261111"></script><script src="vocabulary-data.js?v=elementary-catalog-20261114"></script><script src="vocabulary-data-middle-grades.js?v=statistics-bank-20261107"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/asteroid-grade5-bank.js?v=elementary-pools-20261114"></script>
-<script src="games/course-source.js?v=elementary-pools-20261114"></script>
+<script src="games/course-source.js?v=bounded-launch-20261114"></script>
 <script>
 (function(){
 'use strict';
@@ -364,9 +364,13 @@ function usable(q){
   return {q,opts,correct:opts.findIndex(o=>o.correct)};
 }
 function selectedSkills(){return [...document.querySelectorAll('#skillList input:checked')].map(i=>i.value)}
+let preflightPools={};
 function refill(level){
   const bank=MK_QUESTION_BANKS.available(S.courseId,S.unit.id);
-  let items=[];try{items=S.select(level,G.skills,bank?10000:14)||[]}catch(e){items=[]}
+  let items=[];try{
+    if(preflightPools[level]){items=preflightPools[level];delete preflightPools[level]}
+    else items=S.select(level,G.skills,bank?10000:48)||[];
+  }catch(e){items=[]}
   let added=0;
   for(const it of shuffle(items.map(usable).filter(Boolean))){
     const k=norm(it.q.prompt)+'|'+norm(it.opts[it.correct].text);
@@ -682,6 +686,7 @@ function endGame(why){
     ${(it.q.solutionSteps||[]).length?`<ol class="steps" style="margin-top:8px">${it.q.solutionSteps.filter(Boolean).map(s=>`<li>${H(s)}</li>`).join('')}</ol>`:''}</details>`).join('');
 }
 function countPlayableQuestions(ids){
+  preflightPools={};
   if(!S||!S.unit||!ids.length)return 0;
   const seen=new Set();
   try{
@@ -689,7 +694,8 @@ function countPlayableQuestions(ids){
     // from all three levels. Never count inaccessible levels as eligible.
     const levels=cfg.level==='mixed'?LEVELS:[cfg.level];
     for(const level of levels){
-      const sample=S.select(level,ids,10000)||[];
+      const sample=S.select(level,ids,MK_QUESTION_BANKS.available(S.courseId,S.unit.id)?10000:48)||[];
+      preflightPools[level]=sample;
       for(const q of sample){
         const item=usable(q);
         if(item)seen.add(norm(item.q.prompt)+'|'+norm(item.opts[item.correct].text));
