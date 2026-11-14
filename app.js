@@ -805,7 +805,6 @@
         category('games', 'Games', gameFormats) +
         category('study-guides', 'Study Guides', guideFormats) +
         category('interactive', 'Interactive Math', interactiveFormats) +
-        (c.id === 'grade5' ? category('projects', 'Projects', ['other']) : '') +
         category('practice', 'Practice Activities', practiceFormats) +
         unitPager(c, u) + '</div></section>'
     };
