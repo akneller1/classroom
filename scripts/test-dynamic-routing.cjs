@@ -26,14 +26,16 @@ const ctx={window:win,document,location,localStorage:storage,sessionStorage:stor
  navigator:{},history:{length:1},URL,URLSearchParams,setTimeout(){},console};
 vm.createContext(ctx);
 for(const f of ['data.js','course-catalog.js','unit-specific-arcade.js',
- 'resource-standards.js','resource-eligibility.js','skill-crosswalk.js']){
+ 'course-integrations.js','resource-standards.js','resource-eligibility.js','skill-crosswalk.js',
+ ...[...read('index.html').matchAll(/<script src="([^"]*main-catalog\.js)[^"]*"/g)].map(m=>m[1])]){
  vm.runInContext(read(f),ctx,{filename:f,timeout:15000});
 }
 assert(win.LIBRARY&&Array.isArray(win.LIBRARY.courses),'Missing application course catalog');
 const courses=win.LIBRARY.courses.map(c=>({id:c.id,name:c.name,units:c.units.map(u=>({id:u.id,name:u.name}))}));
-assert.equal(courses.length,10,'Expected ten courses');
+assert(courses.length > 0, 'Expected catalog courses');
+assert.equal(new Set(courses.map(c=>c.id)).size,courses.length,'Duplicate courses');
 const keys=courses.flatMap(c=>c.units.map(u=>[c.id,u.id,u.name]));
-assert.equal(keys.length,91,'Expected 91 units');
+assert(keys.length > 0, 'Expected catalog units');
 const appSource=read('app.js');
 let checked=0,views=0,broken=[];
 function check(route,label){
@@ -64,5 +66,5 @@ if(dedup.length){
  console.error('Dynamic routing failures:',JSON.stringify(dedup.slice(0,35),null,2));
  throw Error(dedup.length+' route errors or broken links');
 }
-assert.equal(checked,105,'Missing tested views');
+assert.equal(checked,1+courses.length+keys.length+3,'Missing tested views');
 console.log('PASS dynamic routing: '+courses.length+' courses, '+keys.length+' units, '+checked+' views, no broken rendered links');

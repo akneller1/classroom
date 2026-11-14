@@ -54,7 +54,7 @@ const manifestFile=path.join(out,'question-banks/manifest.json');
 const manifest=JSON.parse(fs.readFileSync(manifestFile,'utf8'));
 manifest.banks=manifest.banks.filter(x=>x.courseId!=='grade4');
 for(const unit of course.units){
- const src=JSON.parse(fs.readFileSync(path.join(source,'question-banks/math4',unit.id+'.json'),'utf8'));
+ const src=JSON.parse(fs.readFileSync(path.join(source,fs.existsSync(path.join(source,'math4',unit.id+'.json'))?'math4':'question-banks/math4',unit.id+'.json'),'utf8'));
  src.courseId='grade4';
  for(const q of src.questions)if(q.diagram?.spec?.src){
   const rel=q.diagram.spec.src;

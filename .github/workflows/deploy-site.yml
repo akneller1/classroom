@@ -1,3 +1,5 @@
+# To promote staging content, validate a FinancialAlgebra commit and update ALL course refs below together.
+# Sources are pinned; scheduled rebuilds are unnecessary.
 # Publishes only the public site (built by scripts/build-site.mjs) to GitHub Pages.
 # Supports branch-based Pages; selecting GitHub Actions as the Pages source avoids a duplicate automatic build.
 name: Deploy site
@@ -8,9 +10,6 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
-  schedule:
-    # Refresh approved course content daily even if the Classroom repo has not changed.
-    - cron: '17 9 * * *'
 
 permissions:
   contents: read
@@ -44,14 +43,11 @@ jobs:
         run: node scripts/test-question-bank-loader.cjs
       - name: Verify saved-work backup and restore
         run: node scripts/test-backup-tool.cjs
-      - name: Audit all dynamic course and unit routes (non-blocking)
-        continue-on-error: true
-        run: node scripts/test-dynamic-routing.cjs
       - name: Check out approved Grade 5 course sources
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: main
+          ref: 567e6d9b85fb36325c3760a6a3c705f72ee06ebc
           path: _course_sources/grade5
           persist-credentials: false
       - name: Assemble approved Grade 5 into production artifact
@@ -66,7 +62,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 9f29d62f3c0574025064f22e4ef92fb2bf3c4646
+          ref: 567e6d9b85fb36325c3760a6a3c705f72ee06ebc
           path: _course_sources/grade4
           persist-credentials: false
       - name: Assemble Grade 4 into production artifact
@@ -80,7 +76,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 0e3c25f414a651c66b90d5324171c731939433c4
+          ref: 567e6d9b85fb36325c3760a6a3c705f72ee06ebc
           path: _course_sources/grade3
           persist-credentials: false
       - name: Assemble Grade 3 into production artifact
@@ -94,7 +90,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 0e3c25f414a651c66b90d5324171c731939433c4
+          ref: 567e6d9b85fb36325c3760a6a3c705f72ee06ebc
           path: _course_sources/grade2
           persist-credentials: false
       - name: Assemble Grade 2 from separate repository into the public artifact
@@ -107,7 +103,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 0e3c25f414a651c66b90d5324171c731939433c4
+          ref: 567e6d9b85fb36325c3760a6a3c705f72ee06ebc
           path: _course_sources/grade1
           persist-credentials: false
       - name: Assemble Grade 1 with study guides and teaching notes
@@ -122,6 +118,8 @@ jobs:
         run: node scripts/test-elementary-asteroid.cjs _site
       - name: Verify course catalogs in every shared game and study tool
         run: node scripts/test-shared-course-catalogs.cjs _site
+      - name: Audit all dynamic course and unit routes
+        run: node scripts/test-dynamic-routing.cjs
       - name: Check assembled public site and course navigation
         run: node scripts/test-public-site.cjs
       - name: Verify published Grade 5 game question loading
@@ -155,6 +153,8 @@ jobs:
         run: node scripts/build-integrated-unit-pages.mjs
       - name: Add the shared Mr. K's Classroom header to activity pages
         run: node scripts/add-site-header.mjs
+      - name: Browser-check every course and unit resource card
+        run: node scripts/test-no-dead-end-cards.cjs _site
       - name: Final site check (catalog files, no off-site links, no stray text)
         run: node scripts/test-site-hygiene.mjs
       - uses: actions/upload-pages-artifact@v3
