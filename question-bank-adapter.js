@@ -10,6 +10,39 @@
   var LEVELS = ['cp2', 'cp1', 'honors'];
   function copy(value) { return JSON.parse(JSON.stringify(value)); }
   function key(courseId, unitId) { return courseId + '/' + unitId; }
+  // Correct singular agreement in authored word problems without changing answers,
+  // checks or problem counts. This covers every consumer of the shared banks:
+  // worksheets, assessments, stations, games and study guides.
+  var singularNouns = {
+    apples:'apple', balls:'ball', beads:'bead', blocks:'block', books:'book', boxes:'box',
+    cars:'car', crayons:'crayon', pens:'pen', rocks:'rock', shells:'shell', stickers:'sticker',
+    marbles:'marble', buttons:'button', hats:'hat', eggs:'egg', leaves:'leaf', cups:'cup',
+    kites:'kite', cookies:'cookie', cats:'cat', dogs:'dog', birds:'bird', ducks:'duck',
+    frogs:'frog', bugs:'bug', bees:'bee', counters:'counter', dots:'dot', circles:'circle',
+    squares:'square', cubes:'cube', pencils:'pencil', markers:'marker', chairs:'chair',
+    students:'student', coins:'coin', toys:'toy'
+  };
+  function correctProse(s) {
+    if (typeof s !== 'string' || !/\bThere are 1\b/i.test(s)) return s;
+    return s
+      .replace(/\bThere are 1 (red|yellow|blue|green) and (\d+) (red|yellow|blue|green) counters\b/gi,
+        function (_, a, n, b) { return 'There is 1 ' + a + ' counter and ' + n + ' ' + b + ' ' + (n === '1' ? 'counter' : 'counters'); })
+      .replace(/\bThere are 1 dot and (\d+) dots\b/gi,
+        function (_, n) { return 'There is 1 dot and ' + n + ' ' + (n === '1' ? 'dot' : 'dots'); })
+      .replace(/\bThere are 1\b/gi, 'There is 1')
+      .replace(/\b1\s+((?:(?:more|empty|red|yellow|blue|green|big|small)\s+)?)([a-z]+)\b/gi,
+        function (match, qualifier, noun) {
+          var singular = singularNouns[noun.toLowerCase()];
+          return singular ? '1 ' + qualifier + singular : match;
+        });
+  }
+  function polishProse(value) {
+    if (typeof value === 'string') return correctProse(value);
+    if (Array.isArray(value)) return value.map(polishProse);
+    if (!value || typeof value !== 'object') return value;
+    Object.keys(value).forEach(function (field) { value[field] = polishProse(value[field]); });
+    return value;
+  }
   function validate(bank) {
     var errors = [], seen = Object.create(null);
     if (!bank || typeof bank !== 'object' || bank.schemaVersion !== 1) errors.push('Expected schema version 1.');
@@ -52,7 +85,7 @@
     if (!result.ok) return result;
     var k = key(bank.courseId, bank.unitId);
     if (banks[k]) return { ok: false, errors: ['Bank already registered: ' + k] };
-    banks[k] = { data: copy(bank), verified: !!(opts && opts.verified === true) };
+    banks[k] = { data: polishProse(copy(bank)), verified: !!(opts && opts.verified === true) };
     return { ok: true, errors: [], verified: banks[k].verified };
   }
   function available(courseId, unitId, opts) {
