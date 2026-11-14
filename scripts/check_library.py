@@ -174,6 +174,9 @@ def main():
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
+                # Generated per-unit tools intentionally share their UI title.
+                if re.match(r'^worksheet-generator/practice-test\.html#unit=[a-z0-9-]+(?:&|$)', a['path']):
+                    continue
                 titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
             if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator', 'daily lesson planner', 'assessment readiness check'):   # per-unit generator pages share one title

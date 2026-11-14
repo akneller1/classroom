@@ -8,9 +8,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
-  schedule:
-    # Refresh approved course content daily even if the Classroom repo has not changed.
-    - cron: '17 9 * * *'
+  # All imports are pinned. Publish on reviewed pushes or workflow_dispatch.
 
 permissions:
   contents: read
@@ -34,7 +32,7 @@ jobs:
           node-version: 22
       - name: Verify game routing, math display and money formatting
         run: |
-          node --test tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs
+          node --test tests/feedback-dialog.test.cjs tests/course-game-routing.test.cjs tests/math-display-fixes.test.cjs tests/asteroid-links.test.cjs tests/asteroid-launch.test.cjs tests/question-bank-grammar.test.cjs
           node scripts/normalize-money.mjs --check
       - name: Audit Post-it game rounds and answers
         run: node scripts/test-postit-games.cjs
@@ -44,14 +42,13 @@ jobs:
         run: node scripts/test-question-bank-loader.cjs
       - name: Verify saved-work backup and restore
         run: node scripts/test-backup-tool.cjs
-      - name: Audit all dynamic course and unit routes (non-blocking)
-        continue-on-error: true
-        run: node scripts/test-dynamic-routing.cjs
       - name: Check out approved Grade 5 course sources
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: main
+          # Bump only after reviewing and locally testing the assembled release.
+          # Grade 5 and Financial Algebra intentionally share this approved snapshot.
+          ref: 0e3c25f414a651c66b90d5324171c731939433c4
           path: _course_sources/grade5
           persist-credentials: false
       - name: Assemble approved Grade 5 into production artifact
@@ -155,6 +152,12 @@ jobs:
         run: node scripts/build-integrated-unit-pages.mjs
       - name: Add the shared Mr. K's Classroom header to activity pages
         run: node scripts/add-site-header.mjs
+      - name: Add shared problem-report dialog
+        run: node scripts/add-feedback.mjs
+      - name: Audit all dynamic course and unit routes
+        run: node scripts/test-dynamic-routing.cjs
+      - name: Browser-check every published resource card
+        run: node scripts/test-no-dead-end-cards.cjs _site
       - name: Final site check (catalog files, no off-site links, no stray text)
         run: node scripts/test-site-hygiene.mjs
       - uses: actions/upload-pages-artifact@v3

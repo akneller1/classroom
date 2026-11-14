@@ -256,3 +256,10 @@ for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(na
  fs.writeFileSync(file,html);
 }
 
+
+// Entry pages must remain usable before generated course files exist.
+for(const page of ['index.html','activity.html']){
+ const file=path.join(out,page);let html=fs.readFileSync(file,'utf8');
+ if(!html.includes('grade5/grade5-main-catalog.js'))html=html.replace(/(<script src="course-catalog\.js[^"\n]*"><\/script>)/,'$1\n<script src="grade5/grade5-main-catalog.js?v=structural-20261114"></script>');
+ fs.writeFileSync(file,html);
+}

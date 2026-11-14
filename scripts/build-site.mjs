@@ -26,12 +26,12 @@ const SITE_NAME = "Mr. K's Classroom";
 // ---------- 1. Copy the site, minus working files ----------
 const EXCLUDE_DIRS = new Set([
   ".git", ".github", "_site", "node_modules",
-  "audits", "incoming", "scripts", "shots", "docs", "tools", "patches",
+  "audits", "incoming", "scripts", "shots", "docs", "tools", "patches", "cleanup", "cleanup-20261105d",
 ]);
 const EXCLUDE_FILES = new Set([
   "README.md", "README-UPLOAD.txt", "teacher-key-audit.txt",
   "ALGEBRA2_PUBLISH_README.md", "INTEGRATION_AUDIT.json", "INTEGRATION_README.txt",
-  ".git", ".gitignore", ".DS_Store",
+  ".git", ".gitignore", ".DS_Store", "INSTALL.txt",
 ]);
 const isExcludedFile = (name) =>
   EXCLUDE_FILES.has(name) || /\.(py|pyc)$/.test(name) || /\(\d+\)\.[a-z0-9]+$/i.test(name) // "file (1).pdf" duplicates
@@ -65,6 +65,12 @@ function walkFiles(dir, exts) {
 fs.rmSync(OUT, { recursive: true, force: true });
 copyTree(ROOT, OUT);
 fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
+// Archived PDF source locations are canonical; preserve bookmarked root URLs.
+const oldGeometry=path.join(OUT,'artifacts','legacy-geometry');
+if(fs.existsSync(oldGeometry))for(const name of fs.readdirSync(oldGeometry)){
+ if(/^Geometry_0.*\.pdf$/.test(name))fs.copyFileSync(path.join(oldGeometry,name),path.join(OUT,name));
+}
+
 
 /* Refresh the common classroom presentation CSS and JavaScript on all labs
    in the built site, without editing each individual source activity. */
