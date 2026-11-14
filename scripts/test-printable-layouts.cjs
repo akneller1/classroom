@@ -77,8 +77,35 @@ let browser;
         if (pages.filter(p => p.querySelector('.pw-card')).length < 5) failures.push(`${unit}: cards not paginated`);
         if (host.querySelector('.pw-card').parentElement.querySelectorAll('.pw-card').length !== 1) failures.push(`${unit}: long card should get its own page`);
       }
+      // Stress 12 Grade 1-style multiple-choice word problems in a station.
+      // The final question must move in its entirety when it touches the footer.
+      const stationUnit = units.find(id => id.startsWith('grade1-')) || 'algebra1-expressions-equations';
+      const scfg = PR.defaultConfig(stationUnit, 'stations');
+      const sample = { prompt: 'There are several groups of counters in a classroom. Count each group carefully and decide how many counters there are in all. Explain which answer matches the groups.',
+        parts: [{ prompt: '', answer: '31' }], steps: [], authoredOptions: [
+          { text: '21 counters' }, { text: '31 counters' }, { text: '41 counters' }, { text: '51 counters' }
+        ] };
+      const station = { kind: 'stations', stations: [{ title: 'Counting and number sense',
+        items: Array.from({ length: 12 }, () => ({ p: sample, key: '31' })) }] };
+      const stationPages = render(scfg, station, false);
+      const numbered = [];
+      for (const p of stationPages) {
+        const footer = p.querySelector('.ps-ft');
+        if (!footer) { failures.push('station page without a footer'); continue; }
+        const limit = footer.getBoundingClientRect().top - 3;
+        for (const q of p.querySelectorAll('.ps-q')) {
+          numbered.push(+q.querySelector('b').textContent.replace('.', ''));
+          const text = q.querySelector('div');
+          if (q.getBoundingClientRect().bottom > limit ||
+              (text && text.getBoundingClientRect().bottom > limit))
+            failures.push('station question overlaps footer');
+        }
+      }
+      if (stationPages.length < 2) failures.push('long station should continue on another page');
+      if (numbered.join(',') !== Array.from({ length: 12 }, (_, i) => i + 1).join(','))
+        failures.push('station pages skipped or repeated a question');
       host.remove();
-      return { failures, puzzles, cards, references };
+      return { failures, puzzles, cards, references, stationPages: stationPages.length };
     });
     console.log(media, JSON.stringify(result));
     assert.deepEqual(result.failures, []);
