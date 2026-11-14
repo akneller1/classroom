@@ -18,7 +18,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: public-site-pages
+  # PR validation must not hold the production deployment queue.
+  group: public-site-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
   # Finish an active deployment before starting the next one. Cancelled runs can
   # leave an unfinished Pages deployment behind and cause HTTP 400 conflicts.
   cancel-in-progress: false
