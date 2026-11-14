@@ -160,7 +160,7 @@
     if (a.unitSpecific === true) return 'Unit-specific';
     if (['showdown', 'connect-four', 'tic-tac-toe', 'millionaire'].indexOf(f) >= 0) return 'Team Games';
     if (f === 'escape-rooms') return 'Collaborative Challenges';
-    if (['picture-reveal', 'detective-games', 'topic-games'].indexOf(f) >= 0) return 'Individual Review';
+    if (['picture-reveal', 'detective-games', 'topic-games', 'asteroid-blaster'].indexOf(f) >= 0) return 'Individual Review';
     return '';
   }
   var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges', 'Unit-specific'];
