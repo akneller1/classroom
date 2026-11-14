@@ -158,7 +158,7 @@ var games=[
   "id": "g1-number-bonds",
   "course": "grade1",
   "units": [
-   "adding-subtracting-within-20"
+   "add-subtract-20"
   ],
   "title": "Number Bond Builder",
   "description": "Pick the cards that add up to the target number.",
@@ -173,7 +173,8 @@ var games=[
   "id": "g1-number-lineup",
   "course": "grade1",
   "units": [
-   "numbers-to-99"
+   "count-120",
+   "compare-numbers"
   ],
   "title": "Number Line-Up",
   "description": "Put the number cards in order.",
@@ -187,7 +188,7 @@ var games=[
   "id": "g1-shape-sorter",
   "course": "grade1",
   "units": [
-   "geometry-time"
+   "shapes-equal-shares"
   ],
   "title": "Shape Sorter",
   "description": "Sort shapes by sides, corners and other attributes.",
@@ -202,7 +203,7 @@ var games=[
   "id": "g1-tens-ones",
   "course": "grade1",
   "units": [
-   "numbers-to-99"
+   "tens-ones"
   ],
   "title": "Tens & Ones Match",
   "description": "Match each number to its tens and ones.",

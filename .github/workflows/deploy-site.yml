@@ -103,6 +103,19 @@ jobs:
         run: node scripts/integrate-grade2.mjs
       - name: Validate Grade 2 release manifest and published resources
         run: node scripts/test-grade2-release.cjs _site
+      - name: Check out validated Grade 1 source from FinancialAlgebra
+        uses: actions/checkout@v4
+        with:
+          repository: akneller1/FinancialAlgebra
+          ref: 7a2da51179dbe70d15fb7f54f4389de9657320a3
+          path: _course_sources/grade1
+          persist-credentials: false
+      - name: Assemble Grade 1 with study guides and teaching notes
+        env:
+          GRADE1_SOURCE_DIR: _course_sources/grade1
+        run: node scripts/integrate-grade1.mjs
+      - name: Validate Grade 1 release structure and resources
+        run: node scripts/test-grade1-release.cjs _site
       - name: Audit curated elementary Asteroid Blaster units and playable question pools
         run: node scripts/test-elementary-asteroid.cjs _site
       - name: Verify course catalogs in every shared game and study tool
@@ -123,6 +136,8 @@ jobs:
         run: node scripts/test-elementary-browser-parity.cjs _site
       - name: Browser-test Grade 2 unit, student skill selection, game and dedicated Understanding Check
         run: node scripts/test-grade2-browser.cjs _site
+      - name: Browser-test Grade 1 release, student links and return navigation
+        run: node scripts/test-grade1-browser.cjs _site
       - name: Integrate reviewed Post-it games after course catalogs
         run: |
           node scripts/integrate-postit-games.mjs
@@ -130,9 +145,9 @@ jobs:
           node scripts/test-postit-browser.cjs --codes=1
           node scripts/test-postit-ui.cjs
       # Runs after the checks above because they expect the original page and sitemap counts.
-      - name: Build course and unit pages for Grades 2-5 and Financial Algebra
+      - name: Build course and unit pages for Grades 1-5 and Financial Algebra
         env:
-          INTEGRATED_COURSES: grade2,grade3,grade4,grade5,financial-algebra
+          INTEGRATED_COURSES: grade1,grade2,grade3,grade4,grade5,financial-algebra
         run: node scripts/build-integrated-unit-pages.mjs
       - name: Add the shared Mr. K's Classroom header to activity pages
         run: node scripts/add-site-header.mjs
