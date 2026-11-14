@@ -174,7 +174,8 @@ def main():
         titles = collections.defaultdict(set)
         for u in c['units']:
             for a in u['artifacts']:
-                titles[a['title'].strip().lower()].add(a['path'])
+                if not re.match(r'worksheet-generator/practice-test\.html#unit=', a['path']):
+                    titles[a['title'].strip().lower()].add(a['path'])
         for t, paths in titles.items():
             if len(paths) > 1 and t not in ('menu assessment generator', 'assessment generator', 'worksheet generator', 'maze generator', 'color by number generator', 'tarsia generator', 'error analysis generator', 'partner check generator', 'whodunnit generator', 'stations generator', 'daily lesson planner', 'assessment readiness check'):   # per-unit generator pages share one title
                 problems.append('%s: %d different activities share the title "%s": %s' % (c['id'], len(paths), t, ', '.join(sorted(paths))))

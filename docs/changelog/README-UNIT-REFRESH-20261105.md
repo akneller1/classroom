@@ -23,14 +23,14 @@ Drop-in update for every course (Algebra 1, Geometry, Algebra 2, 6th Grade, Pre-
   - The stamps spelled the password every time.
   - No page errors occurred.
 
-## 2. Cheat sheets for 6th Grade, Pre-Algebra (7th), Precalculus and Calculus
+## 2. Cheat sheets for 6th Grade, Pre-Algebra, Precalculus and Calculus
 
 37 new two-page printable cheat sheets, one per unit:
 
 | Course | Units |
 | --- | --- |
 | 6th Grade | 7 |
-| Pre-Algebra (7th) | 13 |
+| Pre-Algebra | 13 |
 | Precalculus | 8 |
 | Calculus | 9 |
 
@@ -62,14 +62,14 @@ Unit pages, the Activities browser and grouped views now use the same order:
 
 This was checked on all 77 unit pages. Geometry Unit 3 still has its existing "Practice Activities: Triangle Congruence Proofs" section after Study Guides.
 
-## 5. Projects for 6th Grade, Pre-Algebra (7th), Precalculus and Calculus
+## 5. Projects for 6th Grade, Pre-Algebra, Precalculus and Calculus
 
 There is now one project for every unit of the four new courses, 37 projects in all:
 
 | Course | Projects |
 | --- | --- |
 | 6th Grade | 7 |
-| Pre-Algebra (7th) | 13 |
+| Pre-Algebra | 13 |
 | Precalculus | 8 |
 | Calculus | 9 |
 

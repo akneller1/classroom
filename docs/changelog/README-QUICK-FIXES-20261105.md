@@ -2,7 +2,7 @@
 
 Built on the live site (commit 59e3bf9). Unzip at the repository root; the folder paths match the site. No questions or existing resources were removed by the zip itself.
 
-## 1. Projects for 6th Grade, Pre-Algebra (7th), Precalculus and Calculus
+## 1. Projects for 6th Grade, Pre-Algebra, Precalculus and Calculus
 
 37 new projects, one for every unit (6th Grade 7, Pre-Algebra 7th 13, Precalculus 8, Calculus 9), in the Algebra 1 project format:
 
@@ -32,8 +32,8 @@ For example, 6th Grade now shows 63 activities instead of 119. Unit pages still 
 `worksheet-generator/planner/planner-ui.js`: the Course menu now lists all eight courses:
 
 1. 6th Grade Math
-2. Pre-Algebra (7th)
-3. Pre-Algebra (8th)
+2. Pre-Algebra
+3. 8th Grade Math
 4. Algebra 1
 5. Geometry
 6. Algebra 2

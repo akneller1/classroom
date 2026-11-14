@@ -40,3 +40,5 @@ once a unit has activities with different values.
 ## Good to know
 - Each activity is a copy. Changing the original in Claude does not change the copy in this folder.
 - Saved activities (the Save button) are stored in each visitor's own browser.
+
+The published site is assembled by `.github/workflows/deploy-site.yml`; the raw repository is not the complete public preview.

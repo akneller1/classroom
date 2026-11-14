@@ -26,10 +26,10 @@ const SITE_NAME = "Mr. K's Classroom";
 // ---------- 1. Copy the site, minus working files ----------
 const EXCLUDE_DIRS = new Set([
   ".git", ".github", "_site", "node_modules",
-  "audits", "incoming", "scripts", "shots", "docs", "tools", "patches",
+  "cleanup", "cleanup-20261105d", "audits", "incoming", "scripts", "shots", "docs", "tools", "patches",
 ]);
 const EXCLUDE_FILES = new Set([
-  "README.md", "README-UPLOAD.txt", "teacher-key-audit.txt",
+  "INSTALL.txt", "README.md", "README-UPLOAD.txt", "teacher-key-audit.txt",
   "ALGEBRA2_PUBLISH_README.md", "INTEGRATION_AUDIT.json", "INTEGRATION_README.txt",
   ".git", ".gitignore", ".DS_Store",
 ]);

@@ -43,8 +43,8 @@ There are five new Math Arcade games, one per course. Each uses the unit's own q
 | Course | Unit | Game | Engine |
 | --- | --- | --- | --- |
 | 6th Grade | Expressions and Equations | Equation Launch Pad | rocket |
-| Pre-Algebra (7th) | Solving Equations and Inequalities | Lava Bridge Builder | lava island |
-| Pre-Algebra (8th) | Systems of Linear Equations | Laser Lock: Systems | laser intersection |
+| Pre-Algebra | Solving Equations and Inequalities | Lava Bridge Builder | lava island |
+| 8th Grade Math | Systems of Linear Equations | Laser Lock: Systems | laser intersection |
 | Precalculus | Functions | Function Gates | portal |
 | Calculus | Derivatives | Tangent Line Cannon | trig cannon |
 
@@ -56,7 +56,7 @@ There are five new Math Arcade games, one per course. Each uses the unit's own q
 
 | Course | Projects | Where they come from |
 | --- | --- | --- |
-| Pre-Algebra (8th) | 7 new, one per unit | this update |
+| 8th Grade Math | 7 new, one per unit | this update |
 | 6th Grade, Pre-Algebra 7, Precalculus, Calculus | 37 | earlier zip |
 
 - **Pre-Algebra 8 titles:** Space Mission Planner, Road Trip Rate Lab, Phone Plan Showdown, Food Truck Face-Off, Screen Time & Sleep Study, Tile Pattern Studio and Skate Park Design.
