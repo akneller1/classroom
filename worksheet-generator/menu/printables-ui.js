@@ -503,7 +503,23 @@
     return html ? page(cfg, nV, v, true, head(cfg, nV, v, true, 'Standards addressed by the problems on this printable') + html) : null;
   };
   PR.pageEls = function (cfg, B, v, nV, key) {
-    var P = expandFlow(PR.pages(cfg, B, v, nV, key));
+    var raw = PR.pages(cfg, B, v, nV, key);
+    if (cfg.kind === 'tarsia' && cfg.tarsiaLayout !== 'large') {
+      var probe = doc.createElement('div');
+      probe.className = 'page mm-page pr-page';
+      probe.style.cssText = 'position:absolute;left:-10000px;top:0';
+      probe.innerHTML = raw[0].html; mathDisplay(probe); doc.body.appendChild(probe);
+      fitTarsiaLabels(probe);
+      var needsLarge = $$('.pr-tsvg foreignObject', probe).some(function (fo) {
+        return !fo.getAttribute('data-problem') && +fo.getAttribute('data-fit-scale') * parseFloat(G.getComputedStyle(fo.querySelector('.pr-tt')).fontSize) * 0.75 < 7;
+      });
+      probe.remove();
+      if (needsLarge) {
+        raw = PR.pages(Object.assign({}, cfg, { tarsiaLayout: 'large' }), B, v, nV, key);
+        raw[0].html = raw[0].html.replace('<div class="pr-tbox">', '<p class="pt-layout-note">Larger cut-outs keep this puzzle’s answers readable. All cut-out sheets are included.</p><div class="pr-tbox">');
+      }
+    }
+    var P = expandFlow(raw);
     if (key) { var sp = PR.standardsPage(cfg, B, v, nV); if (sp) P.push(sp); }
     return P.map(function (p, i) {
       var e = doc.createElement('div'); e.className = 'page mm-page pr-page' + (p.land ? ' pr-land' : '') + (p.cls ? ' ' + p.cls : '');
