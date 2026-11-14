@@ -591,13 +591,13 @@
     }).join('');
   }
   function controls() {
-    var set = NS.skillSets[unit], k = PR.kind(kind);
+    var set = NS.skillSets[unit], k = PR.kind(kind), elementaryProjects = /^grade[1-5]-/.test(unit);
     var group = NS.CATALOG.find(function (g) { return g.units.some(function (u) { return u[0] === unit; }); });
     var h = '<section class="card"><h2>Activity</h2>' +
       '<label class="field"><span class="lbl">Class</span><select id="prClass">' + classOptions(group) + '</select></label>' +
       '<label class="field"><span class="lbl">Unit</span><select id="prUnit">' + unitOptions(group) + '</select></label>' +
-      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing families of functions (linear, quadratic, exponential and other function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
-    if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>CP2</b> (guided), <b>CP1</b> (standard) and <b>Honors</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
+      '<fieldset class="field pr-kinds"><legend class="lbl">Printable</legend>' + PR.KINDS.map(function (x) { var ok = supported(unit, x.id); return '<label class="chk' + (ok ? '' : ' off') + '"><input type="radio" name="prKind" value="' + x.id + '"' + (x.id === kind ? ' checked' : '') + (ok ? '' : ' disabled') + '><span>' + esc(x.name) + '<small>' + (ok ? esc(x.id === 'project' && elementaryProjects ? x.blurb.replace('CP2, CP1 and Honors', 'Remedial, Standard and Advanced') : x.blurb) : x.id === 'project' ? 'No projects for this unit yet.' : x.id === 'match' ? 'Not available for this unit. Matching is for units about graphing families of functions (linear, quadratic, exponential and other function units).' : (!!NS.skillSets[unit]?.authoredBank?'The authored bank does not contain compatible items for this format.':'Not available for this unit: its problems need a diagram, and this printable has no room for one.')) + '</small></span></label>'; }).join('') + '</fieldset></section>';
+    if (kind === 'project') return h + '<section class="card"><h2>About projects</h2><p class="hint">Each project takes 2\u20133 class periods and comes in three levels: <b>' + (elementaryProjects ? 'Remedial' : 'CP2') + '</b> (guided), <b>' + (elementaryProjects ? 'Standard' : 'CP1') + '</b> (standard) and <b>' + (elementaryProjects ? 'Advanced' : 'Honors') + '</b> (extension). Open the PDF to print, or download the Word or PowerPoint file to edit it for your class.</p></section>' +
       '<section class="card"><h2>Teacher guide &amp; answer keys</h2><p class="hint">Pacing, standards, misconceptions, rubric and answer keys for all three levels are available from each project card below.</p></section>';
     if (kind === 'vocabulary') return h + '<section class="card"><h2>Vocabulary settings</h2><p class="hint">Choose terms, class level, mastery progression, activity types, and question counts in the builder on the right. Preview, print, and teacher answer keys are available there.</p></section>';
     if (kind === 'match') {
@@ -682,7 +682,7 @@
         var f = PR.projectFiles(p);
         return '<article class="pj-card"><img class="pj-thumb" src="' + esc(f.thumb) + '" alt="" width="360" height="225" loading="lazy">' +
           '<div class="pj-main"><h3>' + esc(p.title) + '</h3><p class="pj-tag">' + esc(p.tagline) + '</p><p class="pj-desc">' + esc(p.description) + '</p>' +
-          '<p class="pj-meta"><span>2\u20133 class periods</span><span>' + esc(p.theme) + '</span><span>Final product: ' + esc(p.product) + '</span></p>' +
+          '<p class="pj-meta"><span>' + esc(p.duration || '2\u20133 class periods') + '</span><span>' + esc(p.theme) + '</span><span>Final product: ' + esc(p.product) + '</span></p>' +
           '<table class="pj-levels"><tbody>' + lv.map(function (l) {
             var x = f[l[0]];
             return '<tr class="pj-' + l[0] + '"><th scope="row">' + l[1] + '<small>' + l[2] + '</small></th>' +
@@ -690,7 +690,7 @@
               '<td><a class="btn ghost sm" href="' + esc(x.docx) + '" download>Word</a></td>' +
               '<td><a class="btn ghost sm" href="' + esc(x.pptx) + '" download>PowerPoint</a></td></tr>';
           }).join('') + '</tbody></table>' +
-          '<p class="pj-teacher">Teacher guide &amp; answer keys: <a href="' + esc(f.teacher.pdf) + '">PDF</a> · <a href="' + esc(f.teacher.docx) + '" download>Word</a></p>' +
+          '<p class="pj-teacher">Teacher guide &amp; answer keys: <a href="' + esc(f.teacher.pdf) + '">PDF</a> · <a href="' + esc(f.teacher.docx) + '" download>Word</a>' + (f.supports ? ' · Printable supports: <a href="' + esc(f.supports) + '">PDF</a>' : '') + '</p>' +
           '</div></article>';
       }).join('');
     $('#prPreview').innerHTML = list.length ? html : '<div class="pr-busy">No projects for this unit yet.</div>';
