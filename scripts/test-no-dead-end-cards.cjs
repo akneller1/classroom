@@ -51,10 +51,11 @@ function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.
     current=queue.shift();failures=[];
     try{
      const pathname=new URL(current).pathname;
-     if(/\.(?:pdf|png|jpe?g|svg|zip)$/i.test(pathname)){
+     if(/\.(?:pdf|png|jpe?g|svg|zip|docx?|pptx?|xlsx?|txt)$/i.test(pathname)){
       const response=await p.request.get(current);if(!response.ok())throw Error('HTTP '+response.status());
      }else{
       const response=await p.goto(current,{waitUntil:'load',timeout:30000});if(response&&response.status()>=400)throw Error('HTTP '+response.status());
+      await p.waitForTimeout(150);
       const loading=/\bLoading[^\n]{0,80}(?:…|\.\.\.)/i;
       const deadline=Date.now()+10000;
       let text=await p.locator('body').innerText();
