@@ -166,7 +166,7 @@ assert(home.includes('mailto:akneller@gmail.com?subject=')&&home.includes('Feedb
 assert(!home.includes('github.com/akneller1/classroom/issues/new'),'Footer feedback must not send visitors to GitHub');
 assert(home.includes('data-feedback-chooser'),'Footer feedback must open the email client chooser');
 assert(home.includes('id="feedbackChooser"') && home.includes('id="feedbackGmail"') && home.includes('id="feedbackOutlook"') && home.includes('id="feedbackDefault"'),'Feedback dialog must offer Gmail, Outlook and default mail');
-assert(home.includes('src="feedback.js?v=audit-content-20261114"'),'Feedback chooser script missing from homepage');
+assert(home.includes('src="feedback.js?v=audit-followup-20261114"'),'Feedback chooser script missing from homepage');
 const feedbackScript=fs.readFileSync(path.join(out,'feedback.js'),'utf8');
 new (require('node:vm').Script)(feedbackScript,{filename:'feedback.js'});
 for(const required of ['mail.google.com/mail/u/0/','outlook.live.com/mail/0/deeplink/compose','a.report-problem','dialog.showModal()','gmailUrl.searchParams.set(\'body\', body)','outlookUrl.searchParams.set(\'body\', body)','nativeMail.href = links.native']){

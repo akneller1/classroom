@@ -154,6 +154,8 @@ jobs:
         run: node scripts/build-integrated-unit-pages.mjs
       - name: Add the shared Mr. K's Classroom header to activity pages
         run: node scripts/add-site-header.mjs
+      - name: Add shared problem reporting to resource and student pages
+        run: node scripts/add-feedback.mjs
       - name: Browser-check every course and unit resource card
         run: node scripts/test-no-dead-end-cards.cjs _site
       - name: Final site check (catalog files, no off-site links, no stray text)
