@@ -428,7 +428,7 @@ function setupScreen(){
   $('allSkills').onclick=()=>{document.querySelectorAll('#skillList input').forEach(i=>i.checked=true);updateSkillCount()};
   $('noSkills').onclick=()=>{document.querySelectorAll('#skillList input').forEach(i=>i.checked=false);updateSkillCount()};
   applyStudentSkills();
-  if(new URLSearchParams(location.search).has('share')){
+  if(new URLSearchParams(location.search).has('share') && !new URLSearchParams(location.search).has('skills')){
     const picker=$('skillList').closest('details');
     picker.open=true;
     picker.scrollIntoView({block:'center'});
@@ -437,7 +437,7 @@ function setupScreen(){
   $('copyStudentLink').onclick=async()=>{
    const ids=selectedSkills();
    if(!ids.length){$('linkStatus').textContent='Select at least one skill.';return}
-   const url=new URL(location.href);url.searchParams.set('skills',ids.join(','));
+   const url=new URL(location.href);url.searchParams.delete('share');url.searchParams.set('student','1');url.searchParams.set('skills',ids.join(','));
    try{await navigator.clipboard.writeText(url.href);$('linkStatus').textContent='Student link copied for '+ids.length+' selected skills.'}
    catch(e){$('linkStatus').textContent='Copy this link: '+url.href}
   };
