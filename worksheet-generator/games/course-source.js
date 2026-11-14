@@ -4,8 +4,9 @@ const p=new URLSearchParams(location.search),courseId=p.get('course')||'algebra2
 const course=G.LIBRARY.courses.find(c=>c.id===courseId),requestedUnit=p.get('unit'),unit=course?.units.find(u=>u.id===requestedUnit)||(!requestedUnit?course?.units[0]:null);
 const aliases={algebra:{'foundations-algebra':'foundations','exponents-exponential-functions':'exponents-scientific-notation','polynomials-factoring':'polynomials'},geometry:{'foundations-geometry':'basics-reasoning','triangle-congruence':'triangles-congruence'}};
 const setId=(courseId==='algebra'?'algebra1-':courseId+'-')+(aliases[courseId]?.[unit?.id]||unit?.id),set=G.MKMENU.skillSets[setId];
-function records(){return G.MK_QUESTION_BANKS.available(courseId,unit?.id)?G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit.id):(set?set.skills.map(s=>({id:s.id,name:s.name})):G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit?.id))}
+function records(){if(courseId==='grade5'&&G.MK_ASTEROID_GRADE5&&unit)return G.MK_ASTEROID_GRADE5.records(unit.id);return G.MK_QUESTION_BANKS.available(courseId,unit?.id)?G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit.id):(set?set.skills.map(s=>({id:s.id,name:s.name})):G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit?.id))}
 function select(level,ids,n){
+ if(courseId==='grade5'&&G.MK_ASTEROID_GRADE5&&unit)return G.MK_ASTEROID_GRADE5.select(unit.id,level,ids,n);
  if(G.MK_QUESTION_BANKS.available(courseId,unit?.id)){
   const groups=ids.map(id=>G.MK_QUESTION_BANKS.select({courseId,unitId:unit.id,skillIds:[id],level,formats:['multiple-choice','short-answer']}));
   const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(Date.now())));groups.forEach((g,i)=>groups[i]=rng.shuffle(g));const out=[];
