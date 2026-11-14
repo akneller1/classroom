@@ -152,10 +152,12 @@ else {
   for(const unit of synced.units){
    if(!unit.artifacts.some(a=>a.title==='Error Analysis'))fail(unit.id+': shared catalog lacks Error Analysis');
    for(const a of unit.artifacts){
-    const raw=a.path.split(/[?#]/)[0];
+    const raw='/'+a.path.split(/[?#]/)[0].replace(/^\/+/, '');
     const target=path.resolve(site,'.'+raw);
     const sharedGames = new Set(['/artifacts/multiple-drop/index.html', '/artifacts/times-table-sorter/index.html']);
-    const approvedSharedGame = a.type==='Game' && sharedGames.has(raw);
+    const asteroidUrl = new URL(a.path, 'https://mrksclassroom.com/');
+    const approvedAsteroid = a.bankFormat==='asteroid-blaster' && raw==='/worksheet-generator/asteroid-blaster.html' && asteroidUrl.searchParams.get('course')==='grade5' && asteroidUrl.searchParams.get('unit')===unit.id;
+    const approvedSharedGame = a.type==='Game' && (sharedGames.has(raw) || approvedAsteroid);
     if((!raw.startsWith('/grade5/')&&!approvedSharedGame)||!fs.existsSync(target))fail(unit.id+': missing shared resource '+a.path);
    }
    const records=shared.MK_COURSE_CATALOG.getSkillRecords('grade5',unit.id);

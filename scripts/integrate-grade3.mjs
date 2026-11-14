@@ -1,3 +1,4 @@
+import { addAsteroidBlaster } from './asteroid-resources.mjs';
 import { addMultipleDrop } from './multiple-drop-resources.mjs';
 // Assemble Grade 3 from FinancialAlgebra into the public Classroom artifact.
 // This runs only in the Classroom production workflow after Grade 4.
@@ -18,6 +19,7 @@ if(!grade3Ready(source))fail('source not ready');
 const course=assembleGrade3({source,out});
 if(course.units.length!==11)fail('expected eleven units');
 addMultipleDrop(course);
+addAsteroidBlaster(course);
 const skills=course.skills;
 delete course.skills;
 const bridge='(function(G){var course='+JSON.stringify(course)+',skills='+JSON.stringify(skills)+';'+
@@ -45,7 +47,7 @@ const patch=(oldPart,newPart,label)=>{if(!app.includes(oldPart))fail('missing '+
 patch("['grade4','grade5','financial-algebra'].includes(it.c.id)","['grade3','grade4','grade5','financial-algebra'].includes(it.c.id)",'thumbnail');
 patch("['grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)","['grade3','grade4','grade5'].includes(c.id)) return algebraUnitView(c, u)",'unit renderer');
 patch("'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)","'grade3', 'grade4', 'grade5', 'financial-algebra'].indexOf(c.id)",'course label');
-patch("(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')","(['grade3','grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')",'project category');
+if(app.includes("category('projects'"))patch("(['grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')","(['grade3','grade4','grade5'].includes(c.id) ? category('projects', 'Projects', ['other']) : '')",'project category');
 // Grade 4's release build already deduplicates coming-soon placeholders.
 if(!app.includes('SOON.filter(function(c){return !L.courses.some(function(p){return p.id===c.id;});})'))fail('missing course deduplication');
 const genCourse="(c && c.id === 'grade5' && c.units[0] ? c.units[0].artifacts : [])";

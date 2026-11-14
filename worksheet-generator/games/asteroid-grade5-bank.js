@@ -29,7 +29,7 @@ function make(unit,skill,level,i){
  }else if(skill==='divide'){
    const y=int(2,7+tier*2),x=int(2,7+tier*2);q=(x*y)+' ÷ '+y+' = ?';a=x;
  }else if(skill==='tens'){
-   const x=int(2,12+tier*4),y=[10,20,50][tier];q=x+' × '+y+' = ?';a=x*y;
+   const x=int(2,12+tier*4),y=int(1,5+tier*2)*10;q=x+' × '+y+' = ?';a=x*y;
  }else if(skill==='decimal-add'){
    const scale=[10,10,100][tier],x=int(1,9*scale)/scale,y=int(1,9*scale)/scale;
    q=fmt(x)+' + '+fmt(y)+' = ?';a=Math.round((x+y)*100)/100;
