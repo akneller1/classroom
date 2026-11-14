@@ -97,6 +97,7 @@
     { id: 'showdown', name: 'Showdown / Jeopardy', description: 'Choose a category and point value, solve the problem, then reveal the worked solution. A game-show format for class or team review.' },
     { id: 'connect-four', name: 'Connect 4', description: 'Solve math problems to earn a disc. Teams take turns building a row of four while blocking their opponents.' },
     { id: 'tic-tac-toe', name: 'Tic-Tac-Toe', description: 'Two teams solve multiple-choice math problems to claim squares and make three in a row. A wrong answer gives the other team a chance to steal. Includes an optional timer.' },
+    { id: 'asteroid-blaster', name: 'Asteroid Blaster', description: 'Fast mental-math arcade game. Blast the correct answer before the asteroids reach your shields. Choose skills and share student links.' },
     { id: 'millionaire', name: 'Math Millionaire', description: 'A whole-class game show. Fifteen multiple-choice questions climb from warm-up to challenge on a prize ladder. Groups take turns in the hot seat, with 50:50, Ask the Class and Hint lifelines. Every game draws fresh questions.' },
     { id: 'interactive-math', name: 'Interactive Math', description: 'Hands-on tools students explore on their own device: sliders, draggable graphs and models with built-in Try this challenges. Each comes with a printable Explore & Reflect worksheet and a teacher key.' },
     { id: 'mazes', name: 'Mazes', description: 'Solve each problem and follow the matching answer through a printable maze. Show your work as you find the path to the finish.' },
@@ -168,7 +169,7 @@
   }
   /* One order everywhere. Games: Showdown (Jeopardy-style), Connect 4, Tic-Tac-Toe, Detective, Escape Room,
      Picture Reveal, then unit-specific activities and games. Study Guides: Assessment Readiness, Flashcards, Cheat Sheets. */
-  var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
+  var ACTIVITY_ORDER = ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'asteroid-blaster', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games',
     'interactive-practice-test', 'flashcards', 'cheat-sheets'];
   function orderRank(a) { var i = ACTIVITY_ORDER.indexOf(activityFormat(a)); return i < 0 ? ACTIVITY_ORDER.length : i; }
   function sortByActivityOrder(list, get) {
@@ -182,7 +183,7 @@
   }
   var RESOURCE_GROUPS = [
     { id: 'generators', name: 'Generators', formats: ['lesson-planner', 'worksheet-generator', 'assessment-generator', 'printable-generator'] },
-    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
+    { id: 'games', name: 'Games', formats: ['showdown', 'connect-four', 'tic-tac-toe', 'millionaire', 'asteroid-blaster', 'detective-games', 'escape-rooms', 'picture-reveal', 'topic-games'] },
     { id: 'study-guides', name: 'Study Guides', formats: ['interactive-practice-test', 'flashcards', 'cheat-sheets'] },
     { id: 'interactive', name: 'Interactive Math', formats: ['interactive-math'] },
     { id: 'practice', name: 'Practice Activities', formats: ['proofs'] },
