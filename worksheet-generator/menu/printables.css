@@ -232,7 +232,7 @@
 .pw-k th,.pw-k td{border:1px solid #999;padding:4px 6px;text-align:left;vertical-align:top}
 .pw-k th{background:#eee}
 /* Stations: like the hand-made station pages (Times, boxed station title, footer line) */
-.ps{font-family:"Times New Roman",Times,serif;font-size:11pt;line-height:1.35;padding-bottom:.35in;box-sizing:border-box}
+.ps{font-family:"Times New Roman",Times,serif;font-size:11pt;line-height:1.35;padding-bottom:.48in;box-sizing:border-box}
 .ps-hd{text-align:center;font-size:15pt}
 .ps-ak{font-size:11pt}
 .ps-st{border:1.5px solid #000;padding:2px 6px;font-size:11pt}
@@ -371,3 +371,7 @@
 
 /* Measure print labels at their real page size before the browser opens print preview. */
 @media screen{#printRoot.pr-print-measure{display:block;position:absolute;left:-10000px;top:0}}
+
+/* Station problems stay intact when the measured page flow moves one to the next sheet. */
+.ps-q{break-inside:avoid;page-break-inside:avoid;min-width:0}
+.ps-q>div{min-width:0;overflow-wrap:anywhere}
