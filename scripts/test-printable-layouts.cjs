@@ -41,7 +41,11 @@ let browser;
         const B = PR.build(cfg, 0);
         if (!B.error) for (const layout of ['standard', 'large', 'compact']) for (const key of [false, true]) {
           cfg.tarsiaLayout = layout;
-          render(cfg, B, key);
+          const pages = render(cfg, B, key);
+          for (const p of pages.filter(p => p.querySelector('.pr-tsvg'))) {
+            const b = p.querySelector('.mm-body'), svg = p.querySelector('.pr-tsvg');
+            if (svg.getBoundingClientRect().bottom > b.getBoundingClientRect().bottom + 1) failures.push(`${unit}/${layout}: cut-out sheet clipped`);
+          }
           const labels = [...host.querySelectorAll('.pr-tsvg foreignObject')];
           for (const fo of labels) {
             const scale = +fo.getAttribute('data-fit-scale');

@@ -260,8 +260,8 @@
     var X = function (q) { return q[0] + q[1] / 2; }, Y = function (q) { return -q[1] * S3 / 2; };
     var minX = Math.min.apply(null, pts.map(X)), maxX = Math.max.apply(null, pts.map(X)), minY = Math.min.apply(null, pts.map(Y)), maxY = Math.max.apply(null, pts.map(Y));
     var large = layout === 'large';
-    var sIn = large ? 3.0 : Math.min((layout === 'compact' ? 6.5 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.8 : 6.5) / (maxY - minY));
-    var s = sIn * 96, W = large ? 7.0 * 96 : (maxX - minX) * s, H = large ? 8.0 * 96 : (maxY - minY) * s;
+    var sIn = large ? 2.8 : Math.min((layout === 'compact' ? 6.5 : 7.3) / (maxX - minX), (layout === 'compact' ? 5.8 : 6.5) / (maxY - minY));
+    var s = sIn * 96, W = large ? 7.0 * 96 : (maxX - minX) * s, H = large ? 7.5 * 96 : (maxY - minY) * s;
     var px = function (q) { return [(X(q) - minX) * s, (Y(q) - minY) * s]; };
     var fs = large ? 12 : 8;
     var out = '<svg class="pr-tsvg" width="' + (W / 96) + 'in" height="' + (H / 96) + 'in" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg">';
@@ -271,7 +271,7 @@
       var slot = B.pieces[sl.slot].pts, pc = B.pieces[sl.piece], P = slot.map(px);
       if (large) {
         var bx = Math.min.apply(null, P.map(function (q) { return q[0]; })), by = Math.min.apply(null, P.map(function (q) { return q[1]; }));
-        P = P.map(function (q) { return [q[0] - bx + (si % 2) * 3.55 * 96 + 8, q[1] - by + Math.floor(si / 2) * 2.65 * 96 + 4]; });
+        P = P.map(function (q) { return [q[0] - bx + (si % 2) * 3.55 * 96 + 8, q[1] - by + Math.floor(si / 2) * 2.48 * 96 + 4]; });
       }
       var cx = (P[0][0] + P[1][0] + P[2][0]) / 3, cy = (P[0][1] + P[1][1] + P[2][1]) / 3;
       out += '<polygon points="' + P.map(function (q) { return q.join(','); }).join(' ') + '" fill="#fff" stroke="#000" stroke-width="1.2"/>';
