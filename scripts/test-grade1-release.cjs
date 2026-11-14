@@ -15,6 +15,7 @@ for(const entry of banks){
  const bank=JSON.parse(read(entry.path));
  assert.equal(bank.courseId,'grade1');assert.equal(bank.unitId,entry.unitId);
  assert(Array.isArray(bank.questions)&&bank.questions.length>0);
+ assert(!/\\bThere are 1\\b/i.test(JSON.stringify(bank.questions)), 'Uncorrected singular grammar in Grade 1 '+entry.unitId);
  questions+=bank.questions.length;
  for(const q of bank.questions){
   const src=q.diagram?.spec?.src;
