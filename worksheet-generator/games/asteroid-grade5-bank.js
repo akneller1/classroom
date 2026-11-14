@@ -17,7 +17,7 @@ function make(unit,skill,level,i){
  if(skill==='place'){
    const power=int(1,3),digit=int(1,9),tail=int(0,Math.pow(10,power)-1);
    const n=digit*Math.pow(10,power)+tail;
-   q='What is the value of the '+digit+' in '+n.toLocaleString('en-US')+'?';a=digit*Math.pow(10,power);
+   q='What is the value of the digit in the '+({1:'tens',2:'hundreds',3:'thousands'}[power])+' place of '+n.toLocaleString('en-US')+'?';a=digit*Math.pow(10,power);
  }else if(skill==='round'){
    const p=[10,100,1000][tier],n=int(100,9999);
    q='Round '+n.toLocaleString('en-US')+' to the nearest '+p+'.';a=Math.round(n/p)*p;
