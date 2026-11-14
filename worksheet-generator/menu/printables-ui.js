@@ -133,9 +133,10 @@
     var headFor = function (i) { return '<div class="mm-head"><div><div class="mm-title mm-t2">' + esc(label) + (i ? ' (continued)' : '') + '</div><div class="mm-sub">' + esc(title(cfg)) + '</div></div>' + verTag(nV, v, key) + '</div>'; };
     return [{ flow: true, cfg: cfg, nV: nV, v: v, key: key, list: list, per: per, html: function (from, to) { return headFor(from) + fn(list.slice(from, to), from); } }];
   }
+  function measurementHost() { return doc.body.classList.contains('printing') ? ($('#printRoot') || doc.body) : doc.body; }
   function flow(cfg, nV, v, key, list, per, html) { return [{ flow: true, cfg: cfg, nV: nV, v: v, key: key, list: list, per: per, html: html }]; }
   function expandFlow(P) {
-    var out = [], stage = doc.createElement('div'); stage.className = 'measure-stage'; stage.style.cssText = 'position:absolute;left:-10000px;top:0'; doc.body.appendChild(stage);
+    var out = [], stage = doc.createElement('div'); stage.className = 'measure-stage'; stage.style.cssText = 'position:absolute;left:-10000px;top:0'; measurementHost().appendChild(stage);
     P.forEach(function (p) {
       if (!p.flow) { out.push(p); return; }
       var i = 0;
@@ -150,7 +151,7 @@
         out.push(pg); i += n;
       }
     });
-    doc.body.removeChild(stage);
+    stage.remove();
     return out;
   }
 
@@ -508,7 +509,7 @@
       var probe = doc.createElement('div');
       probe.className = 'page mm-page pr-page';
       probe.style.cssText = 'position:absolute;left:-10000px;top:0';
-      probe.innerHTML = raw[0].html; mathDisplay(probe); doc.body.appendChild(probe);
+      probe.innerHTML = raw[0].html; mathDisplay(probe); measurementHost().appendChild(probe);
       fitTarsiaLabels(probe);
       var needsLarge = $$('.pr-tsvg foreignObject', probe).some(function (fo) {
         return !fo.getAttribute('data-problem') && +fo.getAttribute('data-fit-scale') * parseFloat(G.getComputedStyle(fo.querySelector('.pr-tt')).fontSize) * 0.75 < 7;
