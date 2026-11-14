@@ -671,7 +671,29 @@ function endGame(why){
     ${(it.q.solutionSteps||[]).length?`<ol class="steps" style="margin-top:8px">${it.q.solutionSteps.filter(Boolean).map(s=>`<li>${H(s)}</li>`).join('')}</ol>`:''}</details>`).join('');
 }
 function launch(){
-  initAudio();$('startErr').hidden=true;
+  $('startErr').hidden=true;
+  const ids=selectedSkills();
+  if(!ids.length){$('startErr').textContent='Choose at least one skill.';$('startErr').hidden=false;return}
+  // Validate the selected skills, not merely the existence of a unit bank.
+  // Require a playable pool of distinct, quick-answer multiple-choice questions.
+  const seen=new Set();
+  try{
+    for(const level of LEVELS){
+      const sample=S.select(level,ids,100)||[];
+      for(const q of sample){
+        const item=usable(q);
+        if(item)seen.add(norm(item.q.prompt)+'|'+norm(item.opts[item.correct].text));
+      }
+    }
+  }catch(e){
+    $('startErr').textContent='Could not load compatible questions for these skills.';
+    $('startErr').hidden=false;return;
+  }
+  if(seen.size<8){
+    $('startErr').textContent='Asteroid Blaster is unavailable for these skills: only '+seen.size+' suitable quick-answer multiple-choice questions found (8 required). Try different skills or another unit.';
+    $('startErr').hidden=false;return;
+  }
+  initAudio();
   newGame();
   show('game');resize();ship.x=ship.tx=W/2;parts=[];
   startWave();
