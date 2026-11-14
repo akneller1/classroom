@@ -105,3 +105,13 @@
   hint();
   new MutationObserver(hint).observe(main, { childList: true, subtree: true });
 })();
+
+/* Direct resource and student pages use the same report route as unit cards. */
+(function(){
+ if(document.querySelector('a[data-feedback-chooser],a.report-problem,#report-problem'))return;
+ var footer=document.createElement('p'),link=document.createElement('a');
+ footer.className='mk-feedback-footer';footer.style.cssText='text-align:center;margin:16px;font:14px system-ui';
+ link.href='mailto:akneller@gmail.com?subject=Mr.%20K%27s%20Classroom%20%E2%80%94%20Resource%20problem';
+ link.className='report-problem';link.textContent='Report a problem';link.style.color='inherit';footer.appendChild(link);document.body.appendChild(footer);
+ var style=document.createElement('style');style.textContent='#feedbackChooser{box-sizing:border-box;width:min(560px,94vw);max-height:90vh;overflow:auto}@media print{.mk-feedback-footer,#feedbackChooser{display:none!important}}';document.head.appendChild(style);
+})();
