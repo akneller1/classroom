@@ -80,7 +80,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 9ca9cbd3262cd383cde9a758ee0bdb5fcb982fce
+          ref: 0e3c25f414a651c66b90d5324171c731939433c4
           path: _course_sources/grade3
           persist-credentials: false
       - name: Assemble Grade 3 into production artifact
@@ -94,7 +94,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: 648641a3bf3d214e4608186a511ea7e4b44397dd
+          ref: 0e3c25f414a651c66b90d5324171c731939433c4
           path: _course_sources/grade2
           persist-credentials: false
       - name: Assemble Grade 2 from separate repository into the public artifact
@@ -107,7 +107,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
-          ref: c9e51d2136a10dc25ceaeb5e4f8339a8e8bce75d
+          ref: 0e3c25f414a651c66b90d5324171c731939433c4
           path: _course_sources/grade1
           persist-credentials: false
       - name: Assemble Grade 1 with study guides and teaching notes
