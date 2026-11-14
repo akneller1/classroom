@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 128521)
-Total output lines: 7550
-
 /*
   MR. K'S CLASSROOM: LIBRARY CONTENT
 
@@ -4430,7 +4427,631 @@ window.LIBRARY = {
               "added": "2026-10-24"
             },
             {
-             …8521 tokens truncated…trapositive",
+              "title": "Radicals & Rational Exponents Cheat Sheet",
+              "path": "artifacts/radicals-rational-exponents-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/radicals-rational-exponents-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: simplifying radicals, radical operations, rational exponents and exponent rules. Back: radical and rational-exponent equations, extraneous solutions, and square-root and cube-root graphs and transformations. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Radicals & Rational Exponents",
+                "Unit 5"
+              ],
+              "added": "2026-10-31"
+            }
+          ]
+        },
+        {
+          "id": "exponential-logarithmic-functions",
+          "name": "Exponential & Logarithmic Functions",
+          "artifacts": [
+            {
+              "title": "Exponential & Logarithmic Functions Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-exponential-logarithmic-functions",
+              "thumb": "thumbs/matching-game-algebra2-exponential-logarithmic-functions.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Exponential & Logarithmic Functions",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
+              "title": "The Time Capsule Switcheroo",
+              "path": "artifacts/exponential-logarithmic-functions-time-capsule-switcheroo/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-time-capsule-switcheroo.jpg",
+              "description": "Detective game: solve each problem to unlock a clue, clear suspects, places and methods off the case board, then name the culprit. Students type their answers, with symbol buttons for exponents, logs and ln.",
+              "type": "Game",
+              "topics": [
+                "Exponential & log equations",
+                "Detective game",
+                "Typed answers"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Tic-Tac-Toe",
+              "path": "artifacts/exponential-logarithmic-functions-tic-tac-toe/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-tic-tac-toe.jpg",
+              "description": "Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square. A wrong answer lets the other team steal. Optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponential & log equations",
+                "Team game",
+                "Multiple choice"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Time Capsule Switcheroo (Printable)",
+              "path": "artifacts/exponential-logarithmic-functions-whodunnit/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-whodunnit.jpg",
+              "description": "Printable whodunnit: 10 clue cards to post around the room, each a multiple-choice problem where every answer leads to a clue. Includes a story and case board, a show-your-work page, and a teacher key.",
+              "type": "Printable",
+              "topics": [
+                "Exponential & log equations",
+                "Whodunnit",
+                "Multiple choice",
+                "Self-checking"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exp & Log Functions Tarsia Puzzle",
+              "path": "artifacts/exponential-logarithmic-functions-tarsia/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-tarsia.jpg",
+              "description": "Printable tarsia puzzle: cut out 24 triangles and match 30 problems to their answers to rebuild a hexagon. Covers exponential and log form, evaluating logs, log properties, exponential and log equations, and modeling. Includes a show-your-work page and a teacher key with the solved hexagon.",
+              "type": "Printable",
+              "topics": [
+                "Log and exponential form",
+                "Log properties",
+                "Solving exp and log equations",
+                "Tarsia puzzle"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "The Logarithm Bistro: Assessment Menu",
+              "path": "artifacts/exponential-logarithmic-functions-assessment-menu/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-assessment-menu.jpg",
+              "description": "Choice-based test: students order 4 Appetizers, 4 Entrées and 2 Chef’s Specials worth 5, 10 and 20 points, covering all four skill groups. 100 points total. Includes a teacher guide, rubrics and answer key.",
+              "type": "Printable",
+              "topics": [
+                "Exponential functions",
+                "Logarithms",
+                "Assessment",
+                "Choice menu"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Pressure Drop: Escape the Deep",
+              "path": "artifacts/exponential-logarithmic-functions-escape-room/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-escape-room.jpg",
+              "description": "Story-driven escape room for teams: five rooms with ciphers, hidden clues, figures and logic locks, a 10-minute timer, hints that cost time, and a final puzzle. Add #key to the address for the teacher answer key.",
+              "type": "Game",
+              "topics": [
+                "Exponential decay and half-life",
+                "Evaluating and solving logarithms",
+                "Extraneous solutions",
+                "Escape room"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Color By Number",
+              "path": "artifacts/exponential-logarithmic-functions-color-by-number/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-color-by-number.jpg",
+              "description": "Printable 2-page color-by-number: solve 10 problems, match each answer to the color code, then color the nautilus shell on the sea floor. Page 1 is the picture, page 2 is the work space.",
+              "type": "Printable",
+              "topics": [
+                "Exponential equations",
+                "Logarithms",
+                "Color by number",
+                "Self-checking"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Error Analysis",
+              "path": "artifacts/exponential-logarithmic-functions-error-analysis/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-error-analysis.jpg",
+              "description": "Find the mistake in 10 worked solutions on logarithm properties, change of base, exponential and log equations, extraneous solutions and compound interest. Explain the error and show the correct work.",
+              "type": "Printable",
+              "topics": [
+                "Log properties",
+                "Change of base",
+                "Extraneous solutions",
+                "Compound interest"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Picture Reveal",
+              "path": "artifacts/exponential-logarithmic-functions-picture-reveal/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-picture-reveal.jpg",
+              "description": "Convert and evaluate logs, expand and condense, solve exponential and log equations, and model growth and half-life to uncover a hidden picture. Instant feedback, worked solutions, and saved progress.",
+              "type": "Game",
+              "topics": [
+                "Log properties",
+                "Change of base",
+                "Log equations",
+                "Growth and half-life"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Logs Four",
+              "path": "artifacts/exponential-logarithmic-functions-connect-four/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-connect-four.jpg",
+              "description": "Connect Four for two teams. Convert between exponential and log form, evaluate and expand logs, solve exponential and log equations, and model growth, decay, and compound interest. A wrong answer lets the other team steal. Three difficulty levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Exponential and log form",
+                "Properties of logs and change of base",
+                "Solving exponential and log equations",
+                "Compound interest and half-life"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exp & Log Functions Flashcards",
+              "path": "artifacts/exponential-logarithmic-functions-flashcards/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for exponential growth and decay, graphs and asymptotes, compound and continuous interest, logarithm form and domain, log properties and change of base, solving exponential and log equations (with extraneous solutions), and half-life, growth, and pH models. Mark cards you need to practice and review them again. Filter by skill and by level (Easy, Medium or Hard).",
+              "type": "Practice",
+              "topics": [
+                "Exponential functions and graphs",
+                "Compound interest and e",
+                "Logarithm properties",
+                "Solving exponential and log equations"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exp & Log Functions Showdown",
+              "path": "artifacts/exponential-logarithmic-functions-jeopardy/index.html",
+              "thumb": "thumbs/exponential-logarithmic-functions-jeopardy.jpg",
+              "description": "A game board for Exponential & Logarithmic Functions. Work with exponential models and compound interest, then log form, domain, expanding and condensing, and finish with exponential and log equations and half-life problems.",
+              "type": "Game",
+              "topics": [
+                "Exponential functions and interest",
+                "Logarithm definition and properties",
+                "Solving exponential and log equations",
+                "Half-life and growth models"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Maze",
+              "path": "artifacts/exponential-logarithmic-functions-maze/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-maze.jpg",
+              "description": "Printable 4-page worksheet: evaluate logarithms, solve exponential and logarithmic equations and model growth and decay to find the right door through a maze, and record each answer with work. Includes teacher answer keys.",
+              "type": "Printable",
+              "topics": [
+                "Evaluating and expanding logarithms",
+                "Solving exponential and log equations",
+                "Extraneous solutions",
+                "Compound interest and decay models"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Logarithmic Functions Stations",
+              "path": "artifacts/algebra2-exponential-logarithmic-functions-stations/worksheet.pdf",
+              "thumb": "thumbs/algebra2-exponential-logarithmic-functions-stations.svg",
+              "description": "Printable Algebra 2 station work for Exponential & Logarithmic Functions. Students rotate through four problem sets to practice and review unit skills, with a teacher answer key.",
+              "type": "Printable",
+              "topics": [
+                "Stations",
+                "Station work",
+                "Exponential & Logarithmic Functions"
+              ],
+              "added": "2026-10-22"
+            },
+            {
+              "title": "Exponential & Log Functions Cheat Sheet",
+              "path": "artifacts/exponential-logarithmic-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/exponential-logarithmic-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: exponential functions, the number e and the logarithm. Back: log properties, solving equations and modeling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Exponential & Log Functions",
+                "Unit 6"
+              ],
+              "added": "2026-10-25"
+            },
+            {
+              "title": "Partner Check 1: Exponential & Log Basics",
+              "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exponential & Log Basics"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Exp & Log Equations and Graphs",
+              "path": "artifacts/algebra2-exponential-logarithmic-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-exponential-logarithmic-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Exp & Log Equations and Graphs"
+              ],
+              "added": "2026-10-24"
+            }
+          ]
+        },
+        {
+          "id": "rational-functions",
+          "name": "Rational Functions",
+          "artifacts": [
+            {
+              "title": "Rational Functions Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-rational-functions",
+              "thumb": "thumbs/matching-game-algebra2-rational-functions.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Rational Functions",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
+              "title": "Partner Check 1: Rational Expressions & Equations",
+              "path": "artifacts/algebra2-rational-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-rational-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Rational Expressions & Equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Graphs of Rational Functions",
+              "path": "artifacts/algebra2-rational-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-rational-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Graphs of Rational Functions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Rational Functions Cheat Sheet",
+              "path": "artifacts/rational-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/rational-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: simplifying, multiplying, dividing, adding and subtracting rational expressions, and solving rational equations. Back: asymptotes and holes, graphing, transformations of 1/x, variation and work problems. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Rational Functions",
+                "Unit 7"
+              ],
+              "added": "2026-10-31"
+            }
+          ]
+        },
+        {
+          "id": "sequences-series",
+          "name": "Sequences & Series",
+          "artifacts": [
+            {
+              "title": "Sequences & Series Matching Game",
+              "path": "worksheet-generator/match-game.html#unit=algebra2-sequences-series",
+              "thumb": "thumbs/matching-game-algebra2-sequences-series.svg",
+              "description": "Interactive card sort: drag each graph, equation, table and description into the set it belongs to. Zoom in on any card (read coordinates on the big graph), check your sets, and get hints. CP2/CP1/Honors; uses the same verified cards as the printable Matching Card Sort.",
+              "type": "Game",
+              "topics": [
+                "Matching game",
+                "Sequences & Series",
+                "Algebra 2"
+              ],
+              "added": "2026-10-31"
+            },
+            {
+              "title": "Partner Check 1: Arithmetic & Geometric Sequences",
+              "path": "artifacts/algebra2-sequences-series-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-sequences-series-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Arithmetic & Geometric Sequences"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Series, Binomials & Applications",
+              "path": "artifacts/algebra2-sequences-series-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-sequences-series-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Series, Binomials & Applications"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Sequences & Series Cheat Sheet",
+              "path": "artifacts/sequences-series-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/sequences-series-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: arithmetic and geometric sequences, recursive and explicit formulas. Back: arithmetic and geometric series, sigma notation, infinite geometric series and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Sequences & Series",
+                "Unit 8"
+              ],
+              "added": "2026-10-31"
+            }
+          ]
+        },
+        {
+          "id": "conic-sections",
+          "name": "Conic Sections",
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Circles & Parabolas",
+              "path": "artifacts/algebra2-conic-sections-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-conic-sections-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Circles & Parabolas"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Ellipses & Hyperbolas",
+              "path": "artifacts/algebra2-conic-sections-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-conic-sections-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Ellipses & Hyperbolas"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Conic Sections Cheat Sheet",
+              "path": "artifacts/conic-sections-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/conic-sections-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: circles, parabolas, ellipses and hyperbolas in standard form. Back: identifying conics, converting to standard form, focus and directrix, vertical orientation and applications. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Conic Sections",
+                "Unit 9"
+              ],
+              "added": "2026-10-31"
+            }
+          ]
+        },
+        {
+          "id": "trigonometric-functions",
+          "name": "Trigonometric Functions",
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Radians, Unit Circle & Right-Triangle Trig",
+              "path": "artifacts/algebra2-trigonometric-functions-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Radians, Unit Circle & Right-Triangle Trig"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Graphs of Trig Functions & Trig Equations",
+              "path": "artifacts/algebra2-trigonometric-functions-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-trigonometric-functions-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Graphs of Trig Functions & Trig Equations"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Trigonometric Functions Cheat Sheet",
+              "path": "artifacts/trigonometric-functions-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/trigonometric-functions-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: radians, the unit circle, reference angles and trig values of any angle. Back: sine and cosine graphs, amplitude, period and phase shift, identities, trig equations, inverse trig and modeling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Trigonometric Functions",
+                "Unit 10"
+              ],
+              "added": "2026-10-31"
+            }
+          ]
+        },
+        {
+          "id": "probability-statistics",
+          "name": "Probability & Statistics",
+          "artifacts": [
+            {
+              "title": "Partner Check 1: Counting & Probability",
+              "path": "artifacts/algebra2-probability-statistics-partner-check-1/worksheet.pdf",
+              "thumb": "thumbs/algebra2-probability-statistics-partner-check-1.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Counting & Probability"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Partner Check 2: Statistics & Normal Distributions",
+              "path": "artifacts/algebra2-probability-statistics-partner-check-2/worksheet.pdf",
+              "thumb": "thumbs/algebra2-probability-statistics-partner-check-2.jpg",
+              "description": "Algebra 2 partner check: Partner A and Partner B solve different problems with matching answers. Two student pages; teacher answer key behind code 205.",
+              "type": "Printable",
+              "topics": [
+                "Partner Check",
+                "Statistics & Normal Distributions"
+              ],
+              "added": "2026-10-24"
+            },
+            {
+              "title": "Probability & Statistics Cheat Sheet",
+              "path": "artifacts/probability-statistics-cheat-sheet/worksheet.pdf",
+              "thumb": "thumbs/probability-statistics-cheat-sheet.jpg",
+              "description": "Two-page printable cheat sheet. Front: counting, permutations, combinations, independent and dependent events, and conditional probability. Back: probability distributions, expected value, normal distributions, z-scores and sampling. Key vocabulary, worked examples with every answer checked, and common mistakes.",
+              "type": "Printable",
+              "topics": [
+                "Cheat sheet",
+                "Reference",
+                "Probability & Statistics",
+                "Unit 11"
+              ],
+              "added": "2026-10-31"
+            }
+          ]
+        }
+      ],
+      "comingSoon": false
+    },
+    {
+      "id": "geometry",
+      "name": "Geometry",
+      "color": "orange",
+      "art": "triangle",
+      "blurb": "Reasoning, shapes, measurement, and transformations.",
+      "units": [
+        {
+          "id": "foundations-geometry",
+          "name": "Foundations of Geometry",
+          "artifacts": [
+            {
+              "title": "Shipwreck Salvage",
+              "path": "artifacts/geometry-shipwreck-salvage/index.html",
+              "thumb": "thumbs/geometry-shipwreck-salvage.jpg",
+              "description": "Navigate a coordinate grid to locate shipwrecks, find distances with the Pythagorean Theorem, and calculate midpoints across ten salvage missions.",
+              "type": "Game",
+              "bankFormat": "topic-games",
+              "unitSpecific": true,
+              "topics": [
+                "Coordinate plane",
+                "Distance formula",
+                "Pythagorean Theorem",
+                "Midpoint"
+              ],
+              "added": "2026-10-31"
+            },
+            {
+              "title": "Practice Test",
+              "path": "worksheet-generator/practice-test.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/practice-test.svg",
+              "description": "A Basics & Reasoning readiness check at three levels (CP2, CP1, Honors). Every problem and diagram is generated and independently verified, and the teacher key stays behind the teacher code.",
+              "type": "Study Guide",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Daily Lesson Planner",
+              "path": "worksheet-generator/lesson-planner.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/lesson-planner-geometry.svg",
+              "description": "Day-by-day lesson plans for Geometry, including Basics & Reasoning: do now, notes, examples, practice, exit ticket, handouts and PowerPoint, all with verified problems.",
+              "type": "Planning",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Worksheet Generator",
+              "path": "worksheet-generator/worksheet.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/geometry-worksheet-generator-basics-reasoning.svg",
+              "description": "Differentiated Basics & Reasoning worksheets with accurate diagrams and a verified answer key. Choose skills, level and how many problems.",
+              "type": "Practice",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Assessment Generator",
+              "path": "worksheet-generator/menu-assessment.html#unit=geometry-basics-reasoning",
+              "thumb": "thumbs/menu-assessment-generator-geometry.svg",
+              "description": "Build Basics & Reasoning quizzes and tests, versions A to C, with diagrams, open response and a verified teacher key.",
+              "type": "Printable",
+              "added": "2026-10-27"
+            },
+            {
+              "title": "Reasoning Four",
+              "path": "artifacts/basics-reasoning-connect-four/index.html",
+              "description": "Connect Four for two teams on Basics & Reasoning. A correct multiple-choice answer drops a disc; a miss shows the worked solution and passes the turn. Verified problems with diagrams, three levels and an optional timer.",
+              "type": "Game",
+              "topics": [
+                "Segments, midpoints and distance",
+                "Angle addition and bisectors",
+                "Converse, inverse, contrapositive",
+                "Reasoning and proof properties",
+                "Team game"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/basics-reasoning-connect-four.jpg"
+            },
+            {
+              "title": "Basics & Reasoning Flashcards",
+              "path": "artifacts/basics-reasoning-flashcards/index.html",
+              "thumb": "thumbs/basics-reasoning-flashcards.jpg",
+              "description": "25 flashcards with worked solutions for points, lines and planes, segment and angle addition, midpoints and distance, conditional statements, inductive and deductive reasoning, and the properties used in proofs. Mark cards you need to practice and review them again.",
+              "type": "Practice",
+              "topics": [
+                "Segments, midpoints and distance",
+                "Angle addition and bisectors",
+                "Converse, inverse, contrapositive",
+                "Reasoning and proof properties"
+              ],
+              "added": "2026-10-18"
+            },
+            {
+              "title": "Basics & Reasoning Picture Reveal",
+              "path": "artifacts/basics-reasoning-picture-reveal/index.html",
+              "description": "Ten typed problems on Basics & Reasoning. Each correct answer, checked by the independent verifier, uncovers a piece of a hidden picture. Worked solutions after each answer.",
+              "type": "Game",
+              "topics": [
+                "Segments, midpoints and distance",
+                "Angle addition and bisectors",
+                "Converse, inverse, contrapositive",
+                "Reasoning and proof properties"
+              ],
+              "added": "2026-10-18",
+              "thumb": "thumbs/basics-reasoning-picture-reveal.jpg"
+            },
+            {
+              "title": "Reasoning Showdown",
+              "path": "artifacts/basics-reasoning-showdown/index.html",
+              "description": "A game board for Basics & Reasoning: six skill categories, 100 to 500 points, CP2/CP1/Honors or mixed boards. Add up to eight teams, open a problem with its diagram, show choices if you want them, then reveal the worked solution. A new board every time.",
+              "type": "Game",
+              "topics": [
+                "Segments, midpoints and distance",
+                "Angle addition and bisectors",
+                "Converse, inverse, contrapositive",
                 "Reasoning and proof properties",
                 "Team game"
               ],
@@ -6912,7 +7533,6 @@ window.LIBRARY = {
 })(window);
 
 
-
 /* Input-Output Grid: Individual Review, placed by function-table skills. */
 (function(G){
 var placements={"prealgebra7": ["linear-functions-graphing"], "prealgebra": ["linear-functional-relationships"], "algebra": ["relations-functions", "linear-equations-slope"], "algebra2": ["functions-transformations"], "precalculus": ["functions"]};
@@ -6927,3 +7547,4 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
 });
 });
 })(window);
+
