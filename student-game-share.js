@@ -11,6 +11,8 @@
     return !!interactiveMath[path];
   }
   function supports(path) {
+    // Standalone review games run their own controls and have no shared skill picker.
+    if (/^artifacts\/(?:input-output-grid|multiple-drop|times-table-sorter)\/index\.html(?:[?#]|$)/.test(path)) return false;
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(path)) return false;
     if (isInteractiveMath(path)) return false;
     // This fixed ten-level game starts immediately and has no skill picker.

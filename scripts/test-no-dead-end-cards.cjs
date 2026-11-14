@@ -14,6 +14,22 @@ const server=http.createServer((req,res)=>{
  res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream'});fs.createReadStream(file).pipe(res);
 });
 function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):[path.join(dir,e.name)]);}
+async function continueSkillSetup(page){
+ let continued=false;
+ for(const frame of page.frames()){
+  const go=frame.locator('dialog.teacher-skills[open]').getByRole('button',{name:'Continue',exact:true});
+  if(await go.isVisible()&&await go.isEnabled()){await go.click({timeout:3000});continued=true;}
+ }
+ return continued;
+}
+async function visibleResourceText(page,base){
+ const text=[];
+ for(const frame of page.frames())if(frame.url().startsWith(base)&&!/\.pdf(?:[?#]|$)/i.test(frame.url())){
+  const body=frame.locator('body');if(await body.count())text.push(await body.innerText());
+ }
+ return text.join('\n');
+}
+
 (async()=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base='http://127.0.0.1:'+server.address().port+'/';
@@ -61,9 +77,14 @@ function walk(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.
       const response=await p.goto(current,{waitUntil:'load',timeout:30000});if(response&&response.status()>=400)throw Error('HTTP '+response.status());
       await p.waitForTimeout(150);
       const loading=/\bLoading[^\n]{0,80}(?:…|\.\.\.)/i;
-      const deadline=Date.now()+10000;
-      let text=await p.locator('body').innerText();
-      while(loading.test(text)&&Date.now()<deadline){await p.waitForTimeout(200);text=await p.locator('body').innerText();}
+      let deadline=Date.now()+10000;
+      await continueSkillSetup(p);
+      let text=await visibleResourceText(p,base);
+      while(loading.test(text)&&Date.now()<deadline){
+       await p.waitForTimeout(200);
+       if(await continueSkillSetup(p))deadline=Date.now()+10000;
+       text=await visibleResourceText(p,base);
+      }
       if(loading.test(text))failures.push('loading for more than 10 seconds: '+text.slice(0,700).replace(/\n/g,' | '));
       if(/\bnot available\b|unable to load|course outline unavailable|select a valid course and unit/i.test(text))failures.push('unavailable resource: '+text.slice(0,700).replace(/\n/g,' | '));
      }
