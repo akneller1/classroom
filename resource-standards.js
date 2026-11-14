@@ -13,7 +13,7 @@ const types={
 };
 function kind(a){
  const p=a.path||'';
- if(/\.pdf(?:$|\?)/.test(p))return null;
+ if(/\.pdf(?:$|\?)/.test(p)||/-project-/.test(p)||/^project$/i.test(a.type||''))return null;
  const query=/[?&]game=([a-z-]+)/.exec(p);if(query&&types[query[1]])return query[1];
  if(a.bankFormat){const entry=Object.keys(types).find(k=>types[k].format===a.bankFormat);if(entry)return entry;}
  if(/flashcards/i.test(p))return 'flashcards';if(/connect-four|inequality-four/i.test(p))return 'connect-four';if(/tic-tac-toe/i.test(p))return 'tic-tac-toe';if(/picture-reveal/i.test(p))return 'picture-reveal';if(/showdown|jeopardy/i.test(p))return 'showdown';if(/escape-room/i.test(p))return 'escape-room';
@@ -22,7 +22,7 @@ function kind(a){
 function apply(library){
  library.courses.forEach(c=>c.units.forEach(u=>{
   const seen=new Set(),original=u.artifacts.slice();u.legacyArtifacts=original;
-  u.artifacts=original.flatMap(a=>{const k=kind(a);if(!k)return [a];if(seen.has(k))return [];seen.add(k);const t=types[k],preview=G.MK_RESOURCE_PREVIEWS?.[c.id+'/'+u.id+'/'+k];
+  u.artifacts=original.flatMap(a=>{const k=kind(a);if(!k)return [a];if(!['algebra','geometry','algebra2','math6','prealgebra7','prealgebra','precalculus','calculus','statistics','discrete'].includes(c.id))return [{...a,path:a.originalPath||a.path}];if(seen.has(k))return [];seen.add(k);const t=types[k],preview=G.MK_RESOURCE_PREVIEWS?.[c.id+'/'+u.id+'/'+k];
    // Prefer an activity-specific legacy image over an unverified captured preview.
    // Captures can contain the setup dialog rather than the playing surface.
    const specific='thumbs/'+u.id+'-'+(k==='detective'?'whodunnit':k)+'.jpg';
