@@ -394,7 +394,7 @@
   };
   STD.framework = function (code) {
     var c = norm(code);
-    if (/^DM\\./.test(c)) return 'Discrete Mathematics';
+    if (/^DM\./.test(c)) return 'Discrete Mathematics';
     if (/^APSTATS/.test(c)) return 'AP Statistics';
     if (/^AP /.test(c)) return 'AP Calculus';
     if (STD.isPractice(c)) return 'CCSS Practice';
