@@ -147,6 +147,7 @@
     '7.SP.A.1': 'Understand that random samples support valid inferences about a population.',
     '7.SP.A.2': 'Use data from a random sample to draw inferences; gauge variation across samples.',
     '7.SP.B.3': 'Informally compare two data distributions with similar variability.',
+    '7.SP.B.4': 'Use measures of center and variability from random samples to compare two populations.',
     '7.SP.C.5': 'Probability is a number from 0 to 1 that expresses the likelihood of an event.',
     '7.SP.C.6': 'Approximate a probability by collecting data and observing long-run relative frequency.',
     '7.SP.C.7a': 'Develop a uniform probability model and use it to find probabilities.',

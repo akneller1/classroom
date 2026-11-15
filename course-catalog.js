@@ -904,7 +904,8 @@
       "Independent and Dependent Events",
       "Permutations and Combinations",
       "Experimental Probability",
-      "Random Samples and Surveys"
+      "Random Samples and Surveys",
+      "Comparing Two Populations"
     ],
     "nonlinear-functions-polynomials": [
       "Patterns and Sequences",

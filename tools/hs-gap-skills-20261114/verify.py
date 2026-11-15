@@ -252,10 +252,43 @@ def judge(c, ans):
             return ans == "The limit does not exist." if dne else (isnum(ans) and close(val(ans), right, 1e-5))
     except Exception as e:
         return f"ERROR {e}"
+    # ---- Pre-Algebra: comparing two populations (data printed in the prompt; plain statistics)
+    if k in ("meandiff", "mad", "mediandiff", "ratio", "ratio_data"):
+        try:
+            a = float(ans)
+        except ValueError:
+            return False
+        A = np.array(c.get("A", []), float)
+        B = np.array(c.get("B", []), float)
+        if k == "meandiff":
+            want = abs(A.mean() - B.mean())
+        elif k == "mad":
+            want = np.abs(A - A.mean()).mean()
+        elif k == "mediandiff":
+            want = abs(np.median(A) - np.median(B))
+        elif k == "ratio":
+            want = (c["hi"] - c["lo"]) / c["mad"]
+        else:
+            ma, mb = np.abs(A - A.mean()).mean(), np.abs(B - B.mean()).mean()
+            if abs(ma - mb) > 1e-9:
+                return False
+            want = abs(A.mean() - B.mean()) / ma
+        return bool(abs(a - want) < 0.05 + 1e-9)
+    if k == "claim":
+        ratio = (c["hi"] - c["lo"]) / c["mad"]
+        return ans == (c["big"] if ratio >= 2 else c["small"])
     return f"UNKNOWN CHECK {k}"
 
 
+def numtxt(v):
+    return str(int(v)) if float(v) == int(v) else str(v)
+
+
 def printed(c, prompt):
+    if c.get("k") in ("meandiff", "mad", "mediandiff", "ratio", "ratio_data", "claim"):
+        need_ = [", ".join(str(x) for x in c[kk]) for kk in ("A", "B") if kk in c]
+        need_ += [numtxt(c[kk]) for kk in ("hi", "lo", "mad") if kk in c]
+        return all(v in prompt for v in need_)
     keys = [v for kk, v in c.items() if kk in ("f", "eq", "e", "g")]
     keys += [str(c[kk]) for kk in ("b", "a", "fpa", "fpga", "gpa", "ga", "x", "y", "v", "t", "lo", "hi", "n") if kk in c]
     keys += [t.lstrip("-") for t in c.get("terms", [])]

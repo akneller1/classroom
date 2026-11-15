@@ -10355,6 +10355,1245 @@
     "7.SP.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_predict_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-001",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Wait times (minutes) at two coffee shops:\nShop A: 49, 53, 53, 53, 52, 53, 51\nShop B: 44, 49, 44, 48, 44, 47\nWhat is the difference between the two means?",
+   "answer": "6",
+   "solutionSteps": [
+    "Mean of Shop A: 364 ÷ 7 = 52.",
+    "Mean of Shop B: 276 ÷ 6 = 46.",
+    "Difference: 52 − 46 = 6 minutes."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-002",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 42, 50, 50, 48, 46, 42, 44\nClass B: 56, 59, 48, 50, 58, 48, 52\nWhat is the difference between the two medians?",
+   "answer": "6",
+   "options": [
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": true
+    },
+    {
+     "text": "3",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Class A in order: 42, 42, 44, 46, 48, 50, 50; median 46.",
+    "Class B in order: 48, 48, 50, 52, 56, 58, 59; median 52.",
+    "Difference: 6 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-003",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 30, 36, 29, 38, 31, 34\nClass B: 29, 29, 31, 33, 32, 26\nWhat is the difference between the two means?",
+   "answer": "3",
+   "solutionSteps": [
+    "Mean of Class A: 198 ÷ 6 = 33.",
+    "Mean of Class B: 180 ÷ 6 = 30.",
+    "Difference: 33 − 30 = 3 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-004",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Daily high temperatures (°F) in two towns. The mean for Town A is 73 °F and the mean for Town B is 58 °F. Both groups have a mean absolute deviation (MAD) of 5.\nThe difference between the means is how many times the MAD?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "15",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "0.3",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 73 − 58 = 15.",
+    "Divide by the MAD: 15 ÷ 5 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-005",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes. The mean for Class A is 71 push-ups and the mean for Class B is 59 push-ups. Both groups have a mean absolute deviation (MAD) of 3.\nThe difference between the means is how many times the MAD?",
+   "answer": "4",
+   "solutionSteps": [
+    "Difference of means: 71 − 59 = 12.",
+    "Divide by the MAD: 12 ÷ 3 = 4."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-006",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Number of push-ups done by students in two gym classes.\nClass B: 18, 19, 13, 15, 14, 11, 15\nThe mean is 15. Find the mean absolute deviation (MAD) of Class B.",
+   "answer": "2",
+   "options": [
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "2",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Distance of each value from the mean 15: 3, 4, 2, 0, 1, 4, 0.",
+    "Sum of the distances: 14.",
+    "MAD = 14 ÷ 7 = 2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mad). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-007",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Daily high temperatures (°F) in two towns. The mean for Town A is 74 °F and the mean for Town B is 66 °F. Both groups have a mean absolute deviation (MAD) of 4.\nThe difference between the means is how many times the MAD?",
+   "answer": "2",
+   "solutionSteps": [
+    "Difference of means: 74 − 66 = 8.",
+    "Divide by the MAD: 8 ÷ 4 = 2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-008",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 30 were taken from two populations. Minutes two groups of students spent reading each night: the mean for Group A is 29 and the mean for Group B is 25. Each sample has a mean absolute deviation of about 4.\nWhich statement is best supported?",
+   "answer": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+   "options": [
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": true
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    },
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 4, which is 1 times the MAD of 4.",
+    "A difference of less than 2 MADs means the distributions overlap a lot."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-009",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes. The mean for Class A is 55 push-ups and the mean for Class B is 53 push-ups. Both groups have a mean absolute deviation (MAD) of 2.\nThe difference between the means is how many times the MAD?",
+   "answer": "1",
+   "solutionSteps": [
+    "Difference of means: 55 − 53 = 2.",
+    "Divide by the MAD: 2 ÷ 2 = 1."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-010",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 40 were taken from two populations. Daily high temperatures (°F) in two towns: the mean for Town A is 34 and the mean for Town B is 25. Each sample has a mean absolute deviation of about 3.\nWhich statement is best supported?",
+   "answer": "The difference is large compared with the variability, so the populations likely differ.",
+   "options": [
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": true
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    },
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 9, which is 3 times the MAD of 3.",
+    "A difference of about 2 or more MADs means the distributions overlap very little."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-011",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 64, 70, 74, 74, 67, 65\nClass B: 56, 50, 48, 46, 50, 53, 54\nWhat is the difference between the two medians?",
+   "answer": "18.5",
+   "solutionSteps": [
+    "Class A in order: 64, 65, 67, 70, 74, 74; median 68.5.",
+    "Class B in order: 46, 48, 50, 50, 53, 54, 56; median 50.",
+    "Difference: 18.5 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-012",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Minutes two groups of students spent reading each night:\nGroup A: 56, 56, 51, 55, 47, 47\nGroup B: 41, 35, 40, 40, 33, 39\nWhat is the difference between the two medians?",
+   "answer": "13.5",
+   "options": [
+    {
+     "text": "14",
+     "correct": false
+    },
+    {
+     "text": "13.5",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "15",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Group A in order: 47, 47, 51, 55, 56, 56; median 53.",
+    "Group B in order: 33, 35, 39, 40, 40, 41; median 39.5.",
+    "Difference: 13.5 minutes."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-013",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two classes took the same quiz (points):\nClass A: 33, 33, 41, 40, 37, 38\nClass B: 49, 41, 48, 49, 42, 49, 44\nWhat is the difference between the two medians?",
+   "answer": "10.5",
+   "solutionSteps": [
+    "Class A in order: 33, 33, 37, 38, 40, 41; median 37.5.",
+    "Class B in order: 41, 42, 44, 48, 49, 49, 49; median 48.",
+    "Difference: 10.5 points."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-014",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Kenji answered this problem incorrectly.\nDaily high temperatures (°F) in two towns. The mean for Town A is 52 °F and the mean for Town B is 44 °F. Both groups have a mean absolute deviation (MAD) of 4.\nThe difference between the means is how many times the MAD?\nKenji's answer: 8\nIdentify the mistake and give the correct answer.",
+   "answer": "2",
+   "solutionSteps": [
+    "Mistake: They gave the difference of the means but did not divide by the MAD.",
+    "Difference of means: 52 − 44 = 8.",
+    "Divide by the MAD: 8 ÷ 4 = 2.",
+    "The correct answer is 2, not 8."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-015",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Wait times (minutes) at two coffee shops.\nShop B: 69, 69, 69, 76, 77, 78\nThe mean is 73. Find the mean absolute deviation (MAD) of Shop B.",
+     "answer": "4"
+    },
+    {
+     "prompt": "Two classes took the same quiz (points). The mean for Class A is 72 points and the mean for Class B is 64 points. Both groups have a mean absolute deviation (MAD) of 2.\nThe difference between the means is how many times the MAD?",
+     "answer": "4"
+    },
+    {
+     "prompt": "Heights (cm) of plants given two different fertilizers:\nFertilizer A: 37, 38, 38, 43, 42, 41, 41\nFertilizer B: 49, 47, 43, 48, 46, 43, 46\nWhat is the difference between the two medians?",
+     "answer": "5"
+    },
+    {
+     "prompt": "Daily high temperatures (°F) in two towns. The mean for Town A is 38 °F and the mean for Town B is 26 °F. Both groups have a mean absolute deviation (MAD) of 4.\nThe difference between the means is how many times the MAD?",
+     "answer": "3"
+    }
+   ],
+   "answer": "(a) 4; (b) 4; (c) 5; (d) 3",
+   "solutionSteps": [
+    "(a) Distance of each value from the mean 73: 4, 4, 4, 3, 4, 5. Sum of the distances: 24. MAD = 24 ÷ 6 = 4.",
+    "(b) Difference of means: 72 − 64 = 8. Divide by the MAD: 8 ÷ 2 = 4.",
+    "(c) Fertilizer A in order: 37, 38, 38, 41, 41, 42, 43; median 41. Fertilizer B in order: 43, 43, 46, 46, 47, 48, 49; median 46. Difference: 5 cm.",
+    "(d) Difference of means: 38 − 26 = 12. Divide by the MAD: 12 ÷ 4 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mad_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp2-016",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Sam answered this problem incorrectly.\nTwo classes took the same quiz (points). The mean for Class A is 51 points and the mean for Class B is 36 points. Both groups have a mean absolute deviation (MAD) of 5.\nThe difference between the means is how many times the MAD?\nSam's answer: 15\nIdentify the mistake and give the correct answer.",
+   "answer": "3",
+   "solutionSteps": [
+    "Mistake: They gave the difference of the means but did not divide by the MAD.",
+    "Difference of means: 51 − 36 = 15.",
+    "Divide by the MAD: 15 ÷ 5 = 3.",
+    "The correct answer is 3, not 15."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-001",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Minutes two groups of students spent reading each night:\nGroup A: 43, 55, 54, 44, 52, 46, 54, 44\nGroup B: 61, 63, 71, 60, 76, 75, 69, 69\nWhat is the difference between the two means?",
+   "answer": "19",
+   "solutionSteps": [
+    "Mean of Group A: 392 ÷ 8 = 49.",
+    "Mean of Group B: 544 ÷ 8 = 68.",
+    "Difference: 68 − 49 = 19 minutes."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-002",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two classes took the same quiz (points):\nClass A: 69, 70, 60, 64, 64, 60, 67, 69, 62\nClass B: 64, 56, 59, 61, 56, 54, 60, 62\nWhat is the difference between the two medians?",
+   "answer": "4.5",
+   "options": [
+    {
+     "text": "8",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    },
+    {
+     "text": "4.5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Class A in order: 60, 60, 62, 64, 64, 67, 69, 69, 70; median 64.",
+    "Class B in order: 54, 56, 56, 59, 60, 61, 62, 64; median 59.5.",
+    "Difference: 4.5 points."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-003",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Wait times (minutes) at two coffee shops:\nShop A: 47, 46, 47, 54, 47, 53, 49, 53, 45\nShop B: 52, 50, 56, 54, 58, 54, 55, 53\nWhat is the difference between the two means?",
+   "answer": "5",
+   "solutionSteps": [
+    "Mean of Shop A: 441 ÷ 9 = 49.",
+    "Mean of Shop B: 432 ÷ 8 = 54.",
+    "Difference: 54 − 49 = 5 minutes."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-004",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Number of push-ups done by students in two gym classes. The mean for Class A is 44 push-ups and the mean for Class B is 20 push-ups. Both groups have a mean absolute deviation (MAD) of 8.\nThe difference between the means is how many times the MAD?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "24",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "0.3",
+     "correct": false
+    },
+    {
+     "text": "4",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 44 − 20 = 24.",
+    "Divide by the MAD: 24 ÷ 8 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-005",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Minutes two groups of students spent reading each night:\nGroup A: 53, 52, 50, 54, 52, 51, 48, 48\nGroup B: 62, 54, 54, 56, 60, 60, 58, 60\nWhat is the difference between the two means?",
+   "answer": "7",
+   "solutionSteps": [
+    "Mean of Group A: 408 ÷ 8 = 51.",
+    "Mean of Group B: 464 ÷ 8 = 58.",
+    "Difference: 58 − 51 = 7 minutes."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-006",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 25 were taken from two populations. Wait times (minutes) at two coffee shops: the mean for Shop A is 36 and the mean for Shop B is 27. Each sample has a mean absolute deviation of about 6.\nWhich statement is best supported?",
+   "answer": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+   "options": [
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": true
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    },
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 9, which is 1.5 times the MAD of 6.",
+    "A difference of less than 2 MADs means the distributions overlap a lot."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-007",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Heights (cm) of plants given two different fertilizers. The mean for Fertilizer A is 68 cm and the mean for Fertilizer B is 60 cm. Both groups have a mean absolute deviation (MAD) of 8.\nThe difference between the means is how many times the MAD?",
+   "answer": "1",
+   "solutionSteps": [
+    "Difference of means: 68 − 60 = 8.",
+    "Divide by the MAD: 8 ÷ 8 = 1."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-008",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 40 were taken from two populations. Heights (cm) of plants given two different fertilizers: the mean for Fertilizer A is 42 and the mean for Fertilizer B is 22. Each sample has a mean absolute deviation of about 4.\nWhich statement is best supported?",
+   "answer": "The difference is large compared with the variability, so the populations likely differ.",
+   "options": [
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": true
+    },
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": false
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 20, which is 5 times the MAD of 4.",
+    "A difference of about 2 or more MADs means the distributions overlap very little."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-009",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Daily high temperatures (°F) in two towns. The mean for Town A is 54 °F and the mean for Town B is 30 °F. Both groups have a mean absolute deviation (MAD) of 8.\nThe difference between the means is how many times the MAD?",
+   "answer": "3",
+   "solutionSteps": [
+    "Difference of means: 54 − 30 = 24.",
+    "Divide by the MAD: 24 ÷ 8 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-010",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 40 were taken from two populations. Two basketball players' points over several games: the mean for Player A is 47 and the mean for Player B is 42. Each sample has a mean absolute deviation of about 5.\nWhich statement is best supported?",
+   "answer": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+   "options": [
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 5, which is 1 times the MAD of 5.",
+    "A difference of less than 2 MADs means the distributions overlap a lot."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-011",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 65, 63, 68, 65, 62, 67, 66, 64\nClass B: 54, 59, 59, 53, 53, 58, 55, 55, 58\nWhat is the difference between the two means?",
+   "answer": "9",
+   "solutionSteps": [
+    "Mean of Class A: 520 ÷ 8 = 65.",
+    "Mean of Class B: 504 ÷ 9 = 56.",
+    "Difference: 65 − 56 = 9 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-012",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Two basketball players' points over several games. The mean for Player A is 49 points and the mean for Player B is 31 points. Both groups have a mean absolute deviation (MAD) of 6.\nThe difference between the means is how many times the MAD?",
+   "answer": "3",
+   "options": [
+    {
+     "text": "4",
+     "correct": false
+    },
+    {
+     "text": "18",
+     "correct": false
+    },
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "0.3",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 49 − 31 = 18.",
+    "Divide by the MAD: 18 ÷ 6 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-013",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes. The mean for Class A is 59 push-ups and the mean for Class B is 38 push-ups. Both groups have a mean absolute deviation (MAD) of 6.\nThe difference between the means is how many times the MAD?",
+   "answer": "3.5",
+   "solutionSteps": [
+    "Difference of means: 59 − 38 = 21.",
+    "Divide by the MAD: 21 ÷ 6 = 3.5."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mads_apart). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-014",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rosa answered this problem incorrectly.\nNumber of push-ups done by students in two gym classes:\nClass A: 51, 50, 42, 53, 42, 49, 50, 47\nClass B: 65, 78, 70, 64, 73, 75, 76, 67\nWhat is the difference between the two medians?\nRosa's answer: 31\nIdentify the mistake and give the correct answer.",
+   "answer": "22",
+   "solutionSteps": [
+    "Mistake: They took the middle value of each list without putting the data in order first.",
+    "Class A in order: 42, 42, 47, 49, 50, 50, 51, 53; median 49.5.",
+    "Class B in order: 64, 65, 67, 70, 73, 75, 76, 78; median 71.5.",
+    "Difference: 22 push-ups.",
+    "The correct answer is 22, not 31."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-015",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Heights (cm) of plants given two different fertilizers:\nFertilizer A: 36, 30, 37, 32, 36, 39, 40, 31, 34\nFertilizer B: 23, 21, 18, 26, 26, 20, 24, 18\nWhat is the difference between the two medians?",
+     "answer": "14"
+    },
+    {
+     "prompt": "Daily high temperatures (°F) in two towns. The mean for Town A is 77 °F and the mean for Town B is 63 °F. Both groups have a mean absolute deviation (MAD) of 4.\nThe difference between the means is how many times the MAD?",
+     "answer": "3.5"
+    },
+    {
+     "prompt": "Two basketball players' points over several games. The mean for Player A is 40 points and the mean for Player B is 26 points. Both groups have a mean absolute deviation (MAD) of 7.\nThe difference between the means is how many times the MAD?",
+     "answer": "2"
+    },
+    {
+     "prompt": "Wait times (minutes) at two coffee shops. The mean for Shop A is 76 minutes and the mean for Shop B is 66 minutes. Both groups have a mean absolute deviation (MAD) of 5.\nThe difference between the means is how many times the MAD?",
+     "answer": "2"
+    }
+   ],
+   "answer": "(a) 14; (b) 3.5; (c) 2; (d) 2",
+   "solutionSteps": [
+    "(a) Fertilizer A in order: 30, 31, 32, 34, 36, 36, 37, 39, 40; median 36. Fertilizer B in order: 18, 18, 20, 21, 23, 24, 26, 26; median 22. Difference: 14 cm.",
+    "(b) Difference of means: 77 − 63 = 14. Divide by the MAD: 14 ÷ 4 = 3.5.",
+    "(c) Difference of means: 40 − 26 = 14. Divide by the MAD: 14 ÷ 7 = 2.",
+    "(d) Difference of means: 76 − 66 = 10. Divide by the MAD: 10 ÷ 5 = 2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-cp1-016",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Ava answered this problem incorrectly.\nNumber of push-ups done by students in two gym classes:\nClass A: 55, 56, 59, 54, 53, 56, 54, 53\nClass B: 42, 41, 44, 45, 47, 45, 47, 46, 39\nWhat is the difference between the two medians?\nAva's answer: 6\nIdentify the mistake and give the correct answer.",
+   "answer": "9.5",
+   "solutionSteps": [
+    "Mistake: They took the middle value of each list without putting the data in order first.",
+    "Class A in order: 53, 53, 54, 54, 55, 56, 56, 59; median 54.5.",
+    "Class B in order: 39, 41, 42, 44, 45, 45, 46, 47, 47; median 45.",
+    "Difference: 9.5 push-ups.",
+    "The correct answer is 9.5, not 6."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-001",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two basketball players' points over several games.\nPlayer A: 26, 28, 22, 21, 25, 28, 20, 24, 24, 22\nThe mean is 24. Find the mean absolute deviation (MAD) of Player A.",
+   "answer": "2.2",
+   "solutionSteps": [
+    "Distance of each value from the mean 24: 2, 4, 2, 3, 1, 4, 4, 0, 0, 2.",
+    "Sum of the distances: 22.",
+    "MAD = 22 ÷ 10 = 2.2."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mad). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-002",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 25 were taken from two populations. Two classes took the same quiz (points): the mean for Class A is 79 and the mean for Class B is 59. Each sample has a mean absolute deviation of about 5.\nWhich statement is best supported?",
+   "answer": "The difference is large compared with the variability, so the populations likely differ.",
+   "options": [
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    },
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": true
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 20, which is 4 times the MAD of 5.",
+    "A difference of about 2 or more MADs means the distributions overlap very little."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-003",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 49, 54, 56, 55, 55, 51, 51, 61, 56, 52\nClass B: 57, 56, 46, 48, 50, 46, 52, 47, 47, 51\nWhat is the difference between the two medians?",
+   "answer": "5.5",
+   "solutionSteps": [
+    "Class A in order: 49, 51, 51, 52, 54, 55, 55, 56, 56, 61; median 54.5.",
+    "Class B in order: 46, 46, 47, 47, 48, 50, 51, 52, 56, 57; median 49.",
+    "Difference: 5.5 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-004",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Two classes took the same quiz (points).\nClass A: 58, 56, 60, 61, 50, 55, 54, 53, 54, 49\nThe mean is 55. Find the mean absolute deviation (MAD) of Class A.",
+   "answer": "3",
+   "options": [
+    {
+     "text": "3",
+     "correct": true
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "30",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Distance of each value from the mean 55: 3, 1, 5, 6, 5, 0, 1, 2, 1, 6.",
+    "Sum of the distances: 30.",
+    "MAD = 30 ÷ 10 = 3."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mad). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-005",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two basketball players' points over several games.\nPlayer B: 30, 33, 28, 28, 26, 31, 32, 33, 29, 30\nThe mean is 30. Find the mean absolute deviation (MAD) of Player B.",
+   "answer": "1.8",
+   "solutionSteps": [
+    "Distance of each value from the mean 30: 0, 3, 2, 2, 4, 1, 2, 3, 1, 0.",
+    "Sum of the distances: 18.",
+    "MAD = 18 ÷ 10 = 1.8."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mad). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-006",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 47, 38, 43, 40, 42, 34, 41, 48, 39, 38\nClass B: 50, 48, 41, 48, 49, 54, 45, 48, 54, 50, 41\nWhat is the difference between the two means?",
+   "answer": "7",
+   "options": [
+    {
+     "text": "7.5",
+     "correct": false
+    },
+    {
+     "text": "7",
+     "correct": true
+    },
+    {
+     "text": "118",
+     "correct": false
+    },
+    {
+     "text": "6",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Mean of Class A: 410 ÷ 10 = 41.",
+    "Mean of Class B: 528 ÷ 11 = 48.",
+    "Difference: 48 − 41 = 7 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-007",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 51, 55, 55, 52, 49, 50, 43, 49, 59, 43, 44\nClass B: 63, 47, 52, 54, 64, 55, 54, 50, 60, 61, 56\nWhat is the difference between the two means?",
+   "answer": "6",
+   "solutionSteps": [
+    "Mean of Class A: 550 ÷ 11 = 50.",
+    "Mean of Class B: 616 ÷ 11 = 56.",
+    "Difference: 56 − 50 = 6 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-008",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 32, 28, 20, 20, 25, 18, 31, 20, 29, 27\nClass B: 35, 38, 37, 38, 30, 43, 33, 31, 40, 35\nWhat is the difference between the two medians?",
+   "answer": "10",
+   "options": [
+    {
+     "text": "10",
+     "correct": true
+    },
+    {
+     "text": "1",
+     "correct": false
+    },
+    {
+     "text": "25",
+     "correct": false
+    },
+    {
+     "text": "11",
+     "correct": false
+    }
+   ],
+   "solutionSteps": [
+    "Class A in order: 18, 20, 20, 20, 25, 27, 28, 29, 31, 32; median 26.",
+    "Class B in order: 30, 31, 33, 35, 35, 37, 38, 38, 40, 43; median 36.",
+    "Difference: 10 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-009",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Daily high temperatures (°F) in two towns:\nTown A: 56, 57, 49, 54, 58, 51, 47, 59, 48, 51\nTown B: 50, 49, 52, 43, 50, 53, 41, 42, 45, 45\nWhat is the difference between the two medians?",
+   "answer": "5.5",
+   "solutionSteps": [
+    "Town A in order: 47, 48, 49, 51, 51, 54, 56, 57, 58, 59; median 52.5.",
+    "Town B in order: 41, 42, 43, 45, 45, 49, 50, 50, 52, 53; median 47.",
+    "Difference: 5.5 °F."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-010",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Random samples of 20 were taken from two populations. Number of push-ups done by students in two gym classes: the mean for Class A is 47 and the mean for Class B is 42. Each sample has a mean absolute deviation of about 5.\nWhich statement is best supported?",
+   "answer": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+   "options": [
+    {
+     "text": "The difference is large compared with the variability, so the populations likely differ.",
+     "correct": false
+    },
+    {
+     "text": "Any difference in the means proves every member of one group scores higher.",
+     "correct": false
+    },
+    {
+     "text": "No conclusion is possible, because the samples have different means.",
+     "correct": false
+    },
+    {
+     "text": "The difference is small compared with the variability, so the samples overlap a lot and the populations may not differ.",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Difference of means: 5, which is 1 times the MAD of 5.",
+    "A difference of less than 2 MADs means the distributions overlap a lot."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_infer). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-011",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 18, 30, 17, 23, 27, 30, 18, 17, 28, 20, 14\nClass B: 10, 19, 24, 24, 23, 18, 16, 18, 15, 13\nWhat is the difference between the two medians?",
+   "answer": "2",
+   "solutionSteps": [
+    "Class A in order: 14, 17, 17, 18, 18, 20, 23, 27, 28, 30, 30; median 20.",
+    "Class B in order: 10, 13, 15, 16, 18, 18, 19, 23, 24, 24; median 18.",
+    "Difference: 2 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-012",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Wait times (minutes) at two coffee shops:\nShop A: 51, 43, 42, 42, 51, 44, 45, 49, 47, 46\nShop B: 49, 56, 52, 49, 49, 57, 54, 57, 58, 49\nWhat is the difference between the two medians?",
+   "answer": "7.5",
+   "options": [
+    {
+     "text": "7",
+     "correct": false
+    },
+    {
+     "text": "0",
+     "correct": false
+    },
+    {
+     "text": "13",
+     "correct": false
+    },
+    {
+     "text": "7.5",
+     "correct": true
+    }
+   ],
+   "solutionSteps": [
+    "Shop A in order: 42, 42, 43, 44, 45, 46, 47, 49, 51, 51; median 45.5.",
+    "Shop B in order: 49, 49, 49, 49, 52, 54, 56, 57, 57, 58; median 53.",
+    "Difference: 7.5 minutes."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-013",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Number of push-ups done by students in two gym classes:\nClass A: 71, 64, 60, 71, 65, 55, 64, 67, 65, 61, 72\nClass B: 47, 55, 54, 52, 62, 52, 55, 50, 50, 53\nWhat is the difference between the two medians?",
+   "answer": "12.5",
+   "solutionSteps": [
+    "Class A in order: 55, 60, 61, 64, 64, 65, 65, 67, 71, 71, 72; median 65.",
+    "Class B in order: 47, 50, 50, 52, 52, 53, 54, 55, 55, 62; median 52.5.",
+    "Difference: 12.5 push-ups."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-014",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Chloe answered this problem incorrectly.\nTwo classes took the same quiz (points):\nClass A: 45, 47, 50, 46, 49, 52, 53, 54, 45, 42, 56\nClass B: 63, 66, 69, 59, 60, 73, 68, 69, 64, 69\nWhat is the difference between the two means?\nChloe's answer: 18\nIdentify the mistake and give the correct answer.",
+   "answer": "17",
+   "solutionSteps": [
+    "Mistake: They found the difference of the medians, not the means.",
+    "Mean of Class A: 539 ÷ 11 = 49.",
+    "Mean of Class B: 660 ÷ 10 = 66.",
+    "Difference: 66 − 49 = 17 points.",
+    "The correct answer is 17, not 18."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-015",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Answer each part. Show your work.",
+   "parts": [
+    {
+     "prompt": "Daily high temperatures (°F) in two towns:\nTown A: 37, 42, 40, 41, 34, 37, 43, 44, 36, 40, 46\nTown B: 30, 25, 28, 27, 33, 24, 26, 22, 31, 24\nWhat is the difference between the two means?",
+     "answer": "13"
+    },
+    {
+     "prompt": "Heights (cm) of plants given two different fertilizers.\nFertilizer A: 76, 76, 80, 79, 86, 84, 89, 86, 88, 76\nThe mean is 82. Find the mean absolute deviation (MAD) of Fertilizer A.",
+     "answer": "4.6"
+    },
+    {
+     "prompt": "Two basketball players' points over several games:\nPlayer A: 48, 40, 41, 47, 48, 45, 40, 39, 37, 40, 48\nPlayer B: 46, 44, 47, 45, 48, 48, 51, 43, 53, 41, 51\nWhat is the difference between the two means?",
+     "answer": "4"
+    },
+    {
+     "prompt": "Two classes took the same quiz (points):\nClass A: 33, 25, 23, 25, 34, 34, 23, 34, 32, 27\nClass B: 46, 49, 48, 47, 47, 54, 54, 46, 54, 45\nWhat is the difference between the two medians?",
+     "answer": "18"
+    }
+   ],
+   "answer": "(a) 13; (b) 4.6; (c) 4; (d) 18",
+   "solutionSteps": [
+    "(a) Mean of Town A: 440 ÷ 11 = 40. Mean of Town B: 270 ÷ 10 = 27. Difference: 40 − 27 = 13 °F.",
+    "(b) Distance of each value from the mean 82: 6, 6, 2, 3, 4, 2, 7, 4, 6, 6. Sum of the distances: 46. MAD = 46 ÷ 10 = 4.6.",
+    "(c) Mean of Player A: 473 ÷ 11 = 43. Mean of Player B: 517 ÷ 11 = 47. Difference: 47 − 43 = 4 points.",
+    "(d) Class A in order: 23, 23, 25, 25, 27, 32, 33, 34, 34, 34; median 29.5. Class B in order: 45, 46, 46, 47, 47, 48, 49, 54, 54, 54; median 47.5. Difference: 18 points."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_mean_diff_open). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pa7-dap-s09-honors-016",
+   "skillId": "data-analysis-probability-skill-09",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Omar answered this problem incorrectly.\nWait times (minutes) at two coffee shops:\nShop A: 66, 58, 59, 65, 62, 66, 63, 57, 61, 58, 67\nShop B: 58, 52, 54, 59, 56, 52, 51, 57, 58, 58, 61\nWhat is the difference between the two medians?\nOmar's answer: 14\nIdentify the mistake and give the correct answer.",
+   "answer": "5",
+   "solutionSteps": [
+    "Mistake: They took the middle value of each list without putting the data in order first.",
+    "Shop A in order: 57, 58, 58, 59, 61, 62, 63, 65, 66, 66, 67; median 62.",
+    "Shop B in order: 51, 52, 52, 54, 56, 57, 58, 58, 58, 59, 61; median 57.",
+    "Difference: 5 minutes.",
+    "The correct answer is 5, not 14."
+   ],
+   "standards": [
+    "7.SP.B.3",
+    "7.SP.B.4"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: cmp_median_diff_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
   }
  ]
 }

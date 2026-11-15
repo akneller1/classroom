@@ -5,7 +5,7 @@ module.exports = {
  "unitNo": 12,
  "unitName": "Data Analysis and Probability",
  "focus": "frequency tables, histograms, box plots and stem-and-leaf plots",
- "morefocus": "probability, independent and dependent events, counting and sampling",
+ "morefocus": "probability, counting, sampling and comparing two populations",
  "front": [
   {
    "title": "Choosing a Display",
@@ -253,15 +253,27 @@ module.exports = {
    "color": "pink"
   },
   {
-   "title": "Check Yourself",
-   "kind": "list",
-   "items": [
-    "Did the first event change the second?",
-    "Does order matter?",
-    "Is my probability between 0 and 1?",
-    "Is my sample random and representative?"
+   "title": "Comparing Two Populations",
+   "kind": "example",
+   "text": "Divide the difference in means by the MAD.",
+   "example": "Means 52 and 46, MAD 2 each: overlap?",
+   "steps": [
+    [
+     "Difference:",
+     "52 − 46 = 6"
+    ],
+    [
+     "In MADs:",
+     "6 ÷ 2 = 3"
+    ]
    ],
-   "color": "teal"
+   "answer": "3 MADs apart: little overlap",
+   "check": {
+    "num": "(52-46)/2",
+    "is": 3
+   },
+   "color": "purple"
   }
+
  ]
 };
