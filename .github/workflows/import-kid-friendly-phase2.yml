@@ -32,9 +32,8 @@ jobs:
           echo 'cde4192d7ddeac39a4db4610441e6e558958351fff0b03e85c7dc70d3174a249  kid-friendly-phase2-ready-to-deploy.zip' | sha256sum --check
           mkdir -p "$RUNNER_TEMP/kidphase2"
           unzip -q kid-friendly-phase2-ready-to-deploy.zip -d "$RUNNER_TEMP/kidphase2"
-      - name: Install 54 original SVGs, primary layouts and exact Grade 1 pin
+      - name: Install 54 original SVGs and illustrated primary layouts
         run: |
-          node "$RUNNER_TEMP/kidphase2/pin-grade1.mjs" _phase2_source .
           node "$RUNNER_TEMP/kidphase2/install-phase2.mjs" _phase2_source .
           node "$RUNNER_TEMP/kidphase2/verify-phase2.mjs" _phase2_source .
       - name: Keep the deployment archive out of the published website
@@ -53,8 +52,7 @@ jobs:
         run: |
           git config user.name "mrks-classroom-automation"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .github/workflows/deploy-site.yml \
-            worksheet-generator/core/elementary/elementary-print.css \
+          git add worksheet-generator/core/elementary/elementary-print.css \
             worksheet-generator/core/elementary/art \
             worksheet-generator/menu/elementary-print.js \
             scripts/test-elementary-print-browser.cjs \
