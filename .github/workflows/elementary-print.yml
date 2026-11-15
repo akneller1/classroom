@@ -21,6 +21,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Build base Classroom site
+        run: node scripts/build-site.mjs
       - uses: actions/checkout@v4
         with:
           repository: akneller1/FinancialAlgebra
@@ -35,7 +37,6 @@ jobs:
           persist-credentials: false
       - name: Assemble released elementary courses
         run: |
-          node scripts/build-site.mjs
           GRADE5_SOURCE_DIR=_course_sources/current node scripts/integrate-approved-courses.mjs
           GRADE4_SOURCE_DIR=_course_sources/grade4 node scripts/integrate-grade4.mjs
           GRADE3_SOURCE_DIR=_course_sources/current node scripts/integrate-grade3.mjs

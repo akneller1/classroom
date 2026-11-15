@@ -28,7 +28,7 @@ E.question=function(p,cfg,si,n){
  if(f==='multiple-choice')h+=p.mc.graphs?'<div class="el-choices long">'+p.mc.opts.map((o,i)=>'<div class="el-choice"><span class="el-bubble">'+String.fromCharCode(65+i)+'</span>'+NS.figHtml(p.mc.graphs[i])+'</div>').join('')+'</div>':choices(p.mc.opts);
  else if(f==='select-all')h+=choices(p.multi.opts);
  else if(f==='open-response')h+='<div class="el-parts" style="--el-part-count:'+p.parts.filter(pt=>pt.prompt).length+'">'+p.parts.filter(pt=>pt.prompt).map((pt,i)=>'<div><b>('+esc(pt.label||String.fromCharCode(97+i))+')</b> '+math(pt.prompt)+work()+'</div>').join('')+'</div>';
- else if(f!=='plot')h+='<div class="el-workrow">'+work()+(singleBlank(p)?'':answer(cfg))+'</div>';
+ else if(f!=='plot'&&!singleBlank(p))h+='<div class="el-workrow">'+(p.fig&&/count|how many (?:in all|are there)/i.test(p.prompt)?'':work())+answer(cfg)+'</div>';
  return h+'</div></article>';
 };
 E.renderPages=async function(state,vIdx){
