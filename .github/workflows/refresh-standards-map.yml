@@ -4,6 +4,10 @@ on:
   push:
     paths:
       - .github/workflows/refresh-standards-map.yml
+      - worksheet-generator/menu/standards.js
+      - worksheet-generator/planner/scope-*.js
+      - worksheet-generator/planner/lesson-skills*.js
+      - question-banks/**
   workflow_dispatch:
 
 permissions:
