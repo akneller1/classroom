@@ -64,7 +64,16 @@ const ctx={window:{}};vm.runInNewContext(fs.readFileSync('data.js','utf8'),ctx);
   await page.locator('[data-opt="'+correct+'"]').click();await page.locator('#c4Lock').click();await page.locator('.c4-hole[data-col="1"]').first().click();
   s=await page.evaluate(()=>window.MKGAMES._state());assert.equal(s.board[5][1],'R');await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'L');
   s=await page.evaluate(()=>window.MKGAMES._state());await page.locator('[data-opt="'+s.it.options.findIndex(o=>!o.ok)+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Pass').click();await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'R');
-  s=await page.evaluate(()=>window.MKGAMES._state());const wrongs=s.it.options.map((o,i)=>o.ok?-1:i).filter(i=>i>=0);await page.locator('[data-opt="'+wrongs[0]+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Steal').click();await page.locator('[data-opt="'+wrongs[1]+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'L');cases.push(course+'/'+unit+'/steal-pass-miss');
+  s=await page.evaluate(()=>window.MKGAMES._state());
+  // A true/false question has only one wrong choice. Use a question with two
+  // distractors to exercise two misses without clicking an eliminated answer.
+  for(let attempt=0;attempt<30&&s.it.options.filter(o=>!o.ok).length<2;attempt++){
+   const previous=s.it.id;await page.locator('#c4Skip').click();
+   await page.waitForFunction(id=>window.MKGAMES._state().it.id!==id,previous);
+   s=await page.evaluate(()=>window.MKGAMES._state());
+  }
+  assert(s.it.options.filter(o=>!o.ok).length>=2,'Double-miss scenario needs two distractors');
+  const wrongs=s.it.options.map((o,i)=>o.ok?-1:i).filter(i=>i>=0);await page.locator('[data-opt="'+wrongs[0]+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Steal').click();await page.locator('[data-opt="'+wrongs[1]+'"]').click();await page.locator('#c4Lock').click();await page.locator('#c4Next').click();assert.equal(await page.evaluate(()=>window.MKGAMES._state().turn),'L');cases.push(course+'/'+unit+'/steal-pass-miss');
  }
  try{
  for(const u of library.courses.find(c=>c.id==='algebra2').units){await mystery('algebra2',u.id);await escape('algebra2',u.id);}
