@@ -204,3 +204,72 @@ body.mg-modal-open{overflow:hidden}
   .mg-slots{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* kinds with three or five card types */
+.mg-slots.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mg-slots.n5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:560px){.mg-slots.n3,.mg-slots.n5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mg-legend{padding:8px 14px;margin:-4px 0 12px;font-size:.95rem}
+.mg-legend p{margin:2px 0}
+/* number lines, data displays and models are wide: let them fill the card */
+.mg-face .mk-wide svg,.mg-face .mk-stat,.mg-face .mk-nl,.mg-face .mk-model{display:block;width:100%;height:auto}
+.mg-big .mk-wide,.mg-big .mk-stat,.mg-big .mk-nl,.mg-big .mk-model{width:min(100%,640px)}
+.mg-big .mk-model{max-width:520px}
+.mg-card.mini .mk-txt{font-size:.78rem}
+.mk-txt{font-size:.98rem;line-height:1.35;text-align:center;display:flex;align-items:center;justify-content:center;min-height:60px;flex-direction:column;gap:3px}
+.mk-txt.left{text-align:left;align-items:flex-start}
+.mk-txt p{margin:0}
+.mg-big .mk-txt{font-size:1.5rem}
+.mk-big{font-size:1.25rem}
+.mg-big .mk-big{font-size:2.2rem}
+.mg-card.mini .mk-big{font-size:1rem}
+.mk-tt{border-collapse:collapse;margin:0 auto;font-size:.9rem}
+.mk-tt th,.mk-tt td{border:1.5px solid #16202e;padding:2px 9px;text-align:center}
+.mk-tt th{background:#eef2f8}
+.mg-card.mini .mk-tt{font-size:.68rem}.mg-card.mini .mk-tt td,.mg-card.mini .mk-tt th{padding:0 4px}
+.mg-big .mk-tt{font-size:1.3rem}.mg-big .mk-tt td,.mg-big .mk-tt th{padding:5px 20px}
+
+/* printing a card sort */
+#mgPrint{display:none}
+@media print{
+  body.mg-printing>*:not(#mgPrint){display:none!important}
+  body.mg-printing #mgPrint{display:block}
+  body.mg-printing{background:#fff}
+  @page{size:letter;margin:0.45in}
+  .mp-page{break-after:page;color:#16202e;font-family:Arial,sans-serif}
+  .mp-page:last-child{break-after:auto}
+  .mp-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #16202e;padding-bottom:4px;margin-bottom:8px}
+  .mp-title{font-size:18pt;font-weight:700}
+  .mp-key{font-size:10pt;color:#b91c1c;border:1.5px solid #b91c1c;border-radius:4px;padding:0 5px;vertical-align:middle}
+  .mp-sub{font-size:10pt;color:#46536a}
+  .mp-name{font-size:10pt;line-height:2}
+  .mp-name i{display:inline-block;width:2.2in;border-bottom:1px solid #16202e}.mp-name i.s{width:0.9in}
+  .mp-dirs{font-size:10.5pt;border:1.5px solid #16202e;border-radius:6px;padding:6px 9px}
+  .mp-legend{font-size:10.5pt;margin:6px 0}
+  .mp-rec{width:100%;border-collapse:collapse;font-size:11pt;margin-top:8px}
+  .mp-rec th,.mp-rec td{border:1.3px solid #16202e;padding:4px 6px;text-align:left;height:0.42in}
+  .mp-rec th{background:#eef2f8;height:auto}
+  .mp-l{color:#94a3b8}
+  .mp-note{font-size:9.5pt;color:#46536a}
+  .mp-cards{display:grid;gap:0}
+  .mp-card{position:relative;border:1.3px dashed #64748b;padding:18px 8px 8px;break-inside:avoid;min-height:2.1in;display:flex;flex-direction:column;justify-content:center}
+  .mp-id{position:absolute;left:6px;top:3px;font-weight:700;font-size:10pt}
+  .mp-card svg{width:100%;height:auto;max-height:2.6in}
+  .mp-set{display:grid;gap:6px;margin-bottom:12px;border:1.5px solid #16202e;border-radius:6px;padding:6px}
+  .mp-set .mp-card{min-height:0;border-style:solid;border-color:#cbd5e1}
+}
+.mk-stem td.lf{text-align:left;letter-spacing:.35em;min-width:8em}
+.mk-key{font-size:.75rem;color:#46536a;text-align:center;margin-top:3px}
+.mg-big .mk-key{font-size:1rem}
+.mg-grid.wide{grid-template-columns:repeat(auto-fill,minmax(min(100%,calc(var(--mg-cw) * 1.7)),1fr))}
+.mk-big .katex{white-space:nowrap}
+.mk-big.m{font-size:1.05rem}.mk-big.l{font-size:.9rem}.mk-big.xl{font-size:.75rem}
+.mg-big .mk-big.m{font-size:1.9rem}.mg-big .mk-big.l{font-size:1.6rem}.mg-big .mk-big.xl{font-size:1.3rem}
+.mg-card.mini .mk-big.m{font-size:.85rem}.mg-card.mini .mk-big.l{font-size:.72rem}.mg-card.mini .mk-big.xl{font-size:.6rem}
+.mg-face{overflow:hidden}
+.mk-txt{align-items:safe center}
+.mg-card.mini .mk-big.l{font-size:.62rem}.mg-card.mini .mk-big.xl{font-size:.52rem}
+
+.mg-card .mk-txt.mk-money{font-size:1.9rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+.mg-card.mini .mk-txt.mk-money{font-size:1.15rem}
+.mg-big .mk-txt.mk-money{font-size:3rem}

@@ -12,15 +12,25 @@
      • Check locks every complete, correct set (and collapses it); Hint points out a misplaced card or
        lights up a card that belongs to a set;
      • progress is saved in this browser; "Copy student link" shares the same cards with a class.
-   Hash: #unit=<id>&level=cp2|cp1|honors&sets=4..10&fams=a,b&seed=<n>&v=0..2&eq=1|0&hints=1|0
-   Needs: KaTeX, core/rng.js, menu/engine.js, menu/printables-match.js. */
+   Other matching activities (data displays, inequalities, systems, conics, logic, …) are "kinds" registered by
+   menu/match-kinds*.js; the same player runs them all. "Print card sort" prints any kind's cards, recording sheet and key.
+   Hash: #unit=<id>[&kind=<kind>]&level=cp2|cp1|honors&sets=4..10&fams=a,b&seed=<n>&v=0..2&eq=1|0&hints=1|0
+   Needs: KaTeX, core/rng.js, menu/engine.js, menu/printables-match.js, menu/match-kinds.js (+ kind files). */
 (function (G) {
   'use strict';
   var doc = G.document, NS = G.MKMENU, PR = NS.printables, M = PR.MATCH;
   var $ = function (s, r) { return (r || doc).querySelector(s); }, $$ = function (s, r) { return [].slice.call((r || doc).querySelectorAll(s)); };
-  var TYPES = M.TYPES;   // graph G, eq E, table T, desc D
-  var TNAME = { graph: 'Graph', eq: 'Equation', table: 'Table', desc: 'Description' }, TPLUR = { graph: 'Graphs', eq: 'Equations', table: 'Tables', desc: 'Descriptions' };
-  var SLOT_ORDER = ['graph', 'eq', 'table', 'desc'];
+  var MK = G.MKMATCH || { kinds: {} };
+  /* the original activity: functions (graph, equation, table, description), built by PR.buildMatch */
+  var FUNC = { id: 'function', name: 'Function Matching Game', noun: 'function', anchor: 'eq', fams: M.FAMILIES, famLabel: 'Function types', units: M.UNITS,
+    types: [{ id: 'graph', L: 'G', name: 'Graph', plural: 'Graphs' }, { id: 'eq', L: 'E', name: 'Equation', plural: 'Equations' }, { id: 'table', L: 'T', name: 'Table', plural: 'Tables' }, { id: 'desc', L: 'D', name: 'Description', plural: 'Descriptions' }],
+    anchorText: 'Start with each equation already in its set', anchorHint: 'Recommended: students find the graph, table and description for each equation.',
+    blurb: 'Match each function’s <b>graph</b>, <b>equation</b>, <b>table</b> and <b>description</b>. Every card fits exactly one set. These are the same verified cards as the printable Matching Card Sort.',
+    tip: 'Start with one card and look for a feature you can see on every card: the <i>y</i>-intercept, a point the function passes through, the slope or rate of change, a vertex, or an asymptote.' };
+  function kindOf(id) { return id && id !== 'function' && MK.kinds[id] ? MK.kinds[id] : FUNC; }
+  var NUMW = ['no', 'one', 'two', 'three', 'four', 'five', 'six'];
+  function tn(t) { return S.tinfo[t].name; }
+  function tp(t) { return S.tinfo[t].plural; }
   function esc(s) { return String(s === undefined || s === null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function lsGet(k) { try { return G.localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { G.localStorage.setItem(k, v); } catch (e) { /* storage off */ } }
@@ -39,7 +49,7 @@
   function graphGeom(g) { var sx = (VB - 2 * PAD) / (g.xmax - g.xmin), sy = (VB - 2 * PAD) / (g.ymax - g.ymin); return { sx: sx, sy: sy, X: function (x) { return PAD + (x - g.xmin) * sx; }, Y: function (y) { return PAD + (g.ymax - y) * sy; } }; }
   function svgGraph(g, big) {
     var q = graphGeom(g), X = function (x) { return q.X(x).toFixed(1); }, Y = function (y) { return q.Y(y).toFixed(1); };
-    var h = '<svg class="mg-svg" viewBox="0 0 ' + VB + ' ' + VB + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="graph">';
+    var h = '<svg class="mg-svg" viewBox="0 0 ' + VB + ' ' + VB + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="graph" data-plane=\'' + JSON.stringify({ xmin: g.xmin, xmax: g.xmax, ymin: g.ymin, ymax: g.ymax, xstep: g.xstep, ystep: g.ystep, pad: PAD, w: VB, h: VB }) + '\'>';
     h += '<rect x="0" y="0" width="' + VB + '" height="' + VB + '" fill="#fff"/>';
     for (var gx = g.xmin; gx <= g.xmax + 1e-9; gx += g.xstep) h += '<path d="M' + X(gx) + ' ' + Y(g.ymin) + 'V' + Y(g.ymax) + '" stroke="#c7cfdb" stroke-width="1"/>';
     for (var gy = g.ymin; gy <= g.ymax + 1e-9; gy += g.ystep) h += '<path d="M' + X(g.xmin) + ' ' + Y(gy) + 'H' + X(g.xmax) + '" stroke="#c7cfdb" stroke-width="1"/>';
@@ -65,7 +75,8 @@
   var faceCache = {};
   function face(card, mode) {   // mode: 'full' (tray), 'mini' (in a set), 'big' (zoom)
     var k = card.key + '|' + mode; if (faceCache[k]) return faceCache[k];
-    var fn = S.B.fns[card.si], h;
+    if (S.K !== FUNC) return (faceCache[k] = S.K.face(S.B.sets[card.si], card.type, mode, S.B));
+    var fn = S.B.sets[card.si], h;
     if (card.type === 'graph') h = '<div class="mg-gbox">' + svgGraph(fn.graph, mode === 'big') + '</div>';
     else if (card.type === 'eq') h = '<div class="mg-eq">' + tex('\\displaystyle ' + fn.eq) + '</div>';
     else if (card.type === 'table') h = '<div class="mg-tbox">' + tableHtml(fn.table, false) + '</div>';
@@ -74,43 +85,58 @@
   }
 
   /* ---------------- configuration ---------------- */
-  function supportedUnits() {
-    var out = [];
-    NS.CATALOG.forEach(function (g) { g.units.forEach(function (u) { if (M.supported(u[0])) out.push({ id: u[0], name: u[1], course: g.course }); }); });
+  function supportedUnits(K) {
+    var out = []; K = K || FUNC;
+    NS.CATALOG.forEach(function (g) { g.units.forEach(function (u) { if (K.units[u[0]]) out.push({ id: u[0], name: u[1], course: g.course }); }); });
+    Object.keys(K.units).forEach(function (id) {   // elementary units before their course is assembled into the catalog
+      var m = /^grade([1-5])-/.exec(id);
+      if (m && !out.some(function (x) { return x.id === id; }) && K.units[id].name) out.push({ id: id, name: K.units[id].name, course: ['', '1st', '2nd', '3rd', '4th', '5th'][m[1]] + ' Grade Math' });
+    });
     return out;
   }
-  function levelName(unit,id){return /^(prealgebra7?|math6)-/.test(unit)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[id]:NS.LEVELS[id].name;}
-  function unitName(id) { var u = supportedUnits().filter(function (x) { return x.id === id; })[0]; return u ? u.name : id; }
+  function levelName(unit,id){return /^(prealgebra7?|math6|grade[1-5])-/.test(unit)?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[id]:NS.LEVELS[id].name;}
+  function unitName(id) { var u = null; NS.CATALOG.forEach(function (g) { g.units.forEach(function (x) { if (x[0] === id) u = x[1]; }); }); if (!u) Object.keys(MK.kinds).forEach(function (kk) { var un = MK.kinds[kk].units[id]; if (un && un.name) u = un.name; }); return u || id; }
   function parseHash() {
     var o = {}; String(G.location.hash || '').replace(/^#/, '').split('&').forEach(function (kv) { var i = kv.indexOf('='); if (i > 0) o[decodeURIComponent(kv.slice(0, i))] = decodeURIComponent(kv.slice(i + 1)); });
-    var units = supportedUnits(), unit = o.unit && M.supported(o.unit) ? o.unit : (units[0] && units[0].id);
-    var U = M.UNITS[unit], fams = (o.fams ? o.fams.split(',') : U.def).filter(function (f) { return U.fams.indexOf(f) >= 0; });
-    if (!fams.length) fams = U.def.slice();
+    var K = kindOf(o.kind), units = supportedUnits(K), unit = o.unit && K.units[o.unit] ? o.unit : (units[0] && units[0].id);
+    var U = K.units[unit] || {}, fams = U.fams ? (o.fams ? o.fams.split(',') : U.def).filter(function (f) { return U.fams.indexOf(f) >= 0; }) : [];
+    if (U.fams && !fams.length) fams = U.def.slice();
+    var maxSets = U.maxSets || K.maxSets || 10;
     return {
-      unit: unit, level: NS.LEVELS[o.level] ? o.level : 'cp1', sets: Math.max(4, Math.min(10, (+o.sets) || 6)), fams: fams,
+      kind: K.id, unit: unit, level: NS.LEVELS[o.level] ? o.level : 'cp1', sets: Math.max(4, Math.min(maxSets, (+o.sets) || 6)), fams: fams,
       seed: o.seed !== undefined && o.seed !== '' && isFinite(+o.seed) ? +o.seed : null, v: Math.max(0, Math.min(2, (+o.v) || 0)),
-      eq: o.eq === '0' ? 0 : 1, hints: o.hints === '0' ? 0 : 1
+      eq: !K.anchor ? 0 : o.eq === '0' ? 0 : o.eq === '1' ? 1 : K.anchorDefault === false ? 0 : 1, hints: o.hints === '0' ? 0 : 1
     };
   }
-  function hashOf(c) { return 'unit=' + c.unit + '&level=' + c.level + '&sets=' + c.sets + '&fams=' + c.fams.join(',') + (c.seed !== null ? '&seed=' + c.seed : '') + (c.v ? '&v=' + c.v : '') + '&eq=' + c.eq + '&hints=' + c.hints; }
+  function hashOf(c) { return 'unit=' + c.unit + (c.kind && c.kind !== 'function' ? '&kind=' + c.kind : '') + '&level=' + c.level + '&sets=' + c.sets + (c.fams.length ? '&fams=' + c.fams.join(',') : '') + (c.seed !== null ? '&seed=' + c.seed : '') + (c.v ? '&v=' + c.v : '') + '&eq=' + c.eq + '&hints=' + c.hints; }
   function linkOf(c) { return G.location.href.split('#')[0] + '#' + hashOf(c); }
   function builderCfg(c) { var fam = {}; M.UNITS[c.unit].fams.forEach(function (f) { fam[f] = c.fams.indexOf(f) >= 0; }); return { unitId: c.unit, kind: 'match', level: c.level, sets: c.sets, seed: c.seed, blanks: 'none', families: fam }; }
-  function storeKey(c) { return 'mkmatch:' + [c.unit, c.level, c.sets, c.fams.join('+'), c.seed, c.v, c.eq].join(':'); }
+  function storeKey(c) { return 'mkmatch:' + (c.kind && c.kind !== 'function' ? c.kind + ':' : '') + [c.unit, c.level, c.sets, c.fams.join('+'), c.seed, c.v, c.eq].join(':'); }
+  function buildFor(cfg, v) {
+    var K = kindOf(cfg.kind);
+    if (K !== FUNC) return MK.build(K.id, { unit: cfg.unit, level: cfg.level, sets: cfg.sets, seed: cfg.seed, fams: cfg.fams }, v);
+    var B = PR.buildMatch(builderCfg(cfg), v);
+    if (!B.error) { B.sets = B.fns; B.types = ['graph', 'eq', 'table', 'desc']; }
+    return B;
+  }
 
   /* ---------------- state ---------------- */
   var S = null;   // { cfg, B, cards{}, order{type:[keys]}, eqOrder, place{key:row|-1}, ok{row}, bad{row}, checks, hints, wrongChecks, elapsed, t0, done, tab, sel, active, size, compare }
   function newState(cfg) {
-    var B = PR.buildMatch(builderCfg(cfg), cfg.v);
+    var K = kindOf(cfg.kind), B = buildFor(cfg, cfg.v);
     if (B.error) return { error: B.error };
     faceCache = {};
-    var cards = {}, order = {};
-    TYPES.forEach(function (ty) {
-      order[ty.id] = [];
-      B.fns.forEach(function (fn, si) { var n = B.ids[ty.id][si], key = ty.id + n; cards[key] = { key: key, type: ty.id, si: si, n: n, label: ty.L + n }; order[ty.id][n - 1] = key; });
+    var cards = {}, order = {}, tinfo = {}, types = B.types, A0 = ((K.units || {})[cfg.unit] || {}).anchor || K.anchor, anchor = A0 && types.indexOf(A0) >= 0 ? A0 : null;
+    K.types.forEach(function (ty) { if (types.indexOf(ty.id) >= 0) tinfo[ty.id] = ty; });
+    types.forEach(function (t) {
+      var ty = tinfo[t]; order[t] = [];
+      B.sets.forEach(function (fn, si) { var n = B.ids[t][si], key = t + n; cards[key] = { key: key, type: t, si: si, n: n, label: ty.L + n }; order[t][n - 1] = key; });
     });
-    var st = { cfg: cfg, B: B, N: B.N, cards: cards, order: order, place: {}, ok: {}, bad: {}, checks: 0, hints: 0, wrongChecks: 0, elapsed: 0, t0: Date.now(), done: false, sel: null, active: 0, compare: 0, tab: cfg.eq ? 'graph' : 'eq', fixed: {} };
+    if (!anchor) cfg.eq = 0;
+    var first = types.filter(function (t) { return !(cfg.eq && t === anchor); })[0];
+    var st = { K: K, types: types, tinfo: tinfo, anchor: anchor, cfg: cfg, B: B, N: B.N, cards: cards, order: order, place: {}, ok: {}, bad: {}, checks: 0, hints: 0, wrongChecks: 0, elapsed: 0, t0: Date.now(), done: false, sel: null, active: 0, compare: 0, tab: anchor && !cfg.eq ? anchor : first, fixed: {} };
     Object.keys(cards).forEach(function (k) { st.place[k] = -1; });
-    if (cfg.eq) order.eq.forEach(function (k, r) { st.place[k] = r; st.fixed[k] = true; });   // E1 in Set 1, E2 in Set 2, …
+    if (cfg.eq && anchor) order[anchor].forEach(function (k, r) { st.place[k] = r; st.fixed[k] = true; });   // E1 in Set 1, E2 in Set 2, …
     var saved = null; try { saved = JSON.parse(lsGet(storeKey(cfg)) || 'null'); } catch (e) { saved = null; }
     if (saved && saved.place) {
       Object.keys(saved.place).forEach(function (k) { if (k in st.place && !st.fixed[k]) st.place[k] = saved.place[k]; });
@@ -118,14 +144,14 @@
       ['checks', 'hints', 'wrongChecks', 'elapsed', 'done', 'tab'].forEach(function (f) { if (saved[f] !== undefined) st[f] = saved[f]; });
       st.resumed = Object.keys(st.place).some(function (k) { return !st.fixed[k] && st.place[k] >= 0; });
     }
-    if (cfg.eq && st.tab === 'eq') st.tab = 'graph';
+    if ((types.indexOf(st.tab) < 0 && st.tab !== 'all') || (cfg.eq && st.tab === anchor)) st.tab = first;
     return st;
   }
   function save() { if (!S || S.error) return; lsSet(storeKey(S.cfg), JSON.stringify({ place: S.place, ok: S.ok, bad: S.bad, checks: S.checks, hints: S.hints, wrongChecks: S.wrongChecks, elapsed: elapsedNow(), done: S.done, tab: S.tab })); }
   function elapsedNow() { return S.done ? S.elapsed : S.elapsed + (Date.now() - S.t0); }
   function rowCards(r) { var o = {}; Object.keys(S.place).forEach(function (k) { if (S.place[k] === r) o[S.cards[k].type] = k; }); return o; }
-  function rowFull(r) { var o = rowCards(r); return SLOT_ORDER.every(function (t) { return o[t]; }); }
-  function rowRight(r) { var o = rowCards(r); return rowFull(r) && SLOT_ORDER.every(function (t) { return S.cards[o[t]].si === S.cards[o.eq].si; }); }
+  function rowFull(r) { var o = rowCards(r); return S.types.every(function (t) { return o[t]; }); }
+  function rowRight(r) { var o = rowCards(r); return rowFull(r) && S.types.every(function (t) { return S.cards[o[t]].si === S.cards[o[S.types[0]]].si; }); }
   function unplaced(type) { return S.order[type].filter(function (k) { return S.place[k] < 0; }); }
   function nOk() { return Object.keys(S.ok).filter(function (r) { return S.ok[r]; }).length; }
 
@@ -133,7 +159,7 @@
   function say(msg, kind) { var t = $('#mgToast'); if (t) { t.innerHTML = msg; t.className = 'mg-toast show' + (kind ? ' ' + kind : ''); clearTimeout(say.t); say.t = setTimeout(function () { t.className = 'mg-toast'; }, kind === 'long' ? 7000 : 3800); } $('#mgLive').textContent = String(msg).replace(/<[^>]+>/g, ''); }
   function place(key, r, quiet) {
     var c = S.cards[key]; if (!c) return false;
-    if (S.fixed[key]) { if (!quiet) say('The equation cards stay in their sets. Move the other cards to them.'); return false; }
+    if (S.fixed[key]) { if (!quiet) say('The ' + tn(S.anchor).toLowerCase() + ' cards stay in their sets. Move the other cards to them.'); return false; }
     if (r >= 0 && S.ok[r]) { if (!quiet) say('Set ' + (r + 1) + ' is already matched.'); return false; }
     var from = S.place[key];
     if (from >= 0 && S.ok[from]) { if (!quiet) say('That set is already matched.'); return false; }
@@ -151,7 +177,7 @@
     S.sel = null; save(); draw();
     if (!quiet) {
       var tt = $('#mgToast'); if (tt) tt.className = 'mg-toast';
-      if (r >= 0 && rowFull(r)) say('Set ' + (r + 1) + ' has all four cards. Press <b>Check</b> when you are ready.');
+      if (r >= 0 && rowFull(r)) say('Set ' + (r + 1) + ' has all ' + NUMW[S.types.length] + ' cards. Press <b>Check</b> when you are ready.');
       if (Object.keys(S.place).every(function (k) { return S.place[k] >= 0; })) pulseCheck();
     }
     return true;
@@ -169,14 +195,14 @@
     if (right.length) parts.push('<b>' + (right.length === 1 ? 'Set ' + right[0] + ' matches!' : 'Sets ' + right.join(', ') + ' match!') + '</b>');
     if (wrong.length) parts.push((wrong.length === 1 ? 'Set ' + wrong[0] + ' has' : 'Sets ' + wrong.join(', ') + ' have') + ' a card that belongs somewhere else.');
     if (open.length) parts.push((open.length === 1 ? 'Set ' + open[0] + ' is' : 'Sets ' + open.join(', ') + ' are') + ' not complete yet.');
-    if (!right.length && !wrong.length) parts.push(open.length ? 'Fill a set with all four cards, then check it.' : 'Put four cards in a set, then check it.');
+    if (!right.length && !wrong.length) parts.push(open.length ? 'Fill a set with all ' + NUMW[S.types.length] + ' cards, then check it.' : 'Put ' + NUMW[S.types.length] + ' cards in a set, then check it.');
     if (nOk() === S.N) { S.elapsed = elapsedNow(); S.done = true; }
     save(); draw(); say(parts.join(' '), wrong.length ? 'warn' : right.length ? 'good' : '');
     if (S.done) setTimeout(finish, 450);
   }
   function anchorOf(r) {   // the function a set is "about": its equation, else the most common card
-    var o = rowCards(r); if (o.eq) return S.cards[o.eq].si;
-    var cnt = {}, best = null; SLOT_ORDER.forEach(function (t) { if (o[t]) { var si = S.cards[o[t]].si; cnt[si] = (cnt[si] || 0) + 1; if (best === null || cnt[si] > cnt[best]) best = si; } });
+    var o = rowCards(r); if (S.anchor && o[S.anchor]) return S.cards[o[S.anchor]].si;
+    var cnt = {}, best = null; S.types.forEach(function (t) { if (o[t]) { var si = S.cards[o[t]].si; cnt[si] = (cnt[si] || 0) + 1; if (best === null || cnt[si] > cnt[best]) best = si; } });
     return best;
   }
   function flash(sel, cls) { $$(sel).forEach(function (el) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }); }
@@ -184,30 +210,30 @@
     if (!S.cfg.hints) return;
     for (var r = 0; r < S.N; r++) {   // 1. a misplaced card
       if (S.ok[r]) continue;
-      var o = rowCards(r), keys = SLOT_ORDER.map(function (t) { return o[t]; }).filter(Boolean);
+      var o = rowCards(r), keys = S.types.map(function (t) { return o[t]; }).filter(Boolean);
       if (keys.length < 2) continue;
       var a = anchorOf(r), off = keys.filter(function (k) { return S.cards[k].si !== a && !S.fixed[k]; });
       if (!off.length) continue;
-      var tie = !o.eq && keys.length - off.length === off.length;
+      var tie = !(S.anchor && o[S.anchor]) && keys.length - off.length === off.length;
       S.hints++; save(); S.active = r; draw();
       flash('.mg-row[data-row="' + r + '"] .mg-card[data-key="' + off[0] + '"]', 'hinted');
-      say(tie ? 'In Set ' + (r + 1) + ', <b>' + S.cards[off[0]].label + '</b> and <b>' + S.cards[keys.filter(function (k) { return off.indexOf(k) < 0; })[0]].label + '</b> are not the same function.' : '<b>' + S.cards[off[0]].label + '</b> does not belong in Set ' + (r + 1) + '. Drag it back to the tray or to another set.', 'long');
+      say(tie ? 'In Set ' + (r + 1) + ', <b>' + S.cards[off[0]].label + '</b> and <b>' + S.cards[keys.filter(function (k) { return off.indexOf(k) < 0; })[0]].label + '</b> are not the same ' + (S.K.noun || 'set') + '.' : '<b>' + S.cards[off[0]].label + '</b> does not belong in Set ' + (r + 1) + '. Drag it back to the tray or to another set.', 'long');
       return;
     }
     var order = [S.active].concat(Array.apply(null, Array(S.N)).map(function (_, i) { return i; }));
     for (var i = 0; i < order.length; i++) {   // 2. a card that belongs in a started set
       var rr = order[i]; if (S.ok[rr]) continue;
       var oo = rowCards(rr), si = anchorOf(rr); if (si === null) continue;
-      var miss = SLOT_ORDER.filter(function (t) { return !oo[t]; })[0]; if (!miss) continue;
+      var miss = S.types.filter(function (t) { return !oo[t]; })[0]; if (!miss) continue;
       var want = S.order[miss].filter(function (k) { return S.cards[k].si === si; })[0];
       S.hints++; S.tab = miss; S.active = rr; save(); draw();
       var el = $('.mg-tray .mg-card[data-key="' + want + '"]');
       if (el) { el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); flash('.mg-tray .mg-card[data-key="' + want + '"]', 'glow'); }
-      say('The ' + TNAME[miss].toLowerCase() + ' for Set ' + (rr + 1) + ' is glowing in the tray: <b>' + S.cards[want].label + '</b>.', 'long');
+      say('The ' + tn(miss).toLowerCase() + ' card for Set ' + (rr + 1) + ' is glowing in the tray: <b>' + S.cards[want].label + '</b>.', 'long');
       return;
     }
     S.hints++; save();
-    say('Start with one card and look for a feature you can see on every card: the <i>y</i>-intercept, a point the function passes through, the slope or rate of change, a vertex, or an asymptote.', 'long');
+    say(S.K.tip || 'Start with one card and look for something you can see on every card.', 'long');
   }
   function restart() {
     Object.keys(S.place).forEach(function (k) { if (!S.fixed[k]) S.place[k] = -1; });
@@ -218,7 +244,7 @@
   /* ---------------- views ---------------- */
   function cardHtml(key, mode, r) {
     var c = S.cards[key], fixed = S.fixed[key], locked = r >= 0 && S.ok[r];
-    return '<div class="mg-card t-' + c.type + (mode === 'mini' ? ' mini' : '') + (S.sel === key ? ' sel' : '') + (fixed ? ' fixed' : '') + '" data-key="' + key + '" tabindex="0" role="button" aria-pressed="' + (S.sel === key) + '" aria-label="' + TNAME[c.type] + ' card ' + c.label + (r >= 0 ? ', in Set ' + (r + 1) : '') + '">' +
+    return '<div class="mg-card t-' + c.type + (mode === 'mini' ? ' mini' : '') + (S.sel === key ? ' sel' : '') + (fixed ? ' fixed' : '') + '" data-key="' + key + '" tabindex="0" role="button" aria-pressed="' + (S.sel === key) + '" aria-label="' + tn(c.type) + ' card ' + c.label + (r >= 0 ? ', in Set ' + (r + 1) : '') + '">' +
       '<span class="mg-id">' + c.label + '</span>' +
       '<span class="mg-tools"><button type="button" class="mg-zoom" data-zoom="' + key + '" title="Zoom in" aria-label="Zoom in on ' + c.label + '">' + ICON_ZOOM + '</button>' +
       (mode === 'mini' && !fixed && !locked ? '<button type="button" class="mg-out" data-out="' + key + '" title="Back to the tray" aria-label="Move ' + c.label + ' back to the tray">×</button>' : '') + '</span>' +
@@ -226,46 +252,47 @@
   }
   var ICON_ZOOM = '<svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="5.6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12.2 12.2 17.5 17.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M5.4 8h5.2M8 5.4v5.2" stroke="currentColor" stroke-width="1.8"/></svg>';
   function tabsHtml() {
-    var types = SLOT_ORDER.slice().sort(function (a, b) { return (a === 'eq' ? -1 : 0) - (b === 'eq' ? -1 : 0); }).filter(function (t) { return !(S.cfg.eq && t === 'eq'); });
+    var types = S.types.slice().sort(function (a, b) { return (a === S.anchor ? -1 : 0) - (b === S.anchor ? -1 : 0); }).filter(function (t) { return !(S.cfg.eq && t === S.anchor); });
     return '<div class="mg-tabs" role="tablist" aria-label="Card type">' + types.map(function (t) {
       var n = unplaced(t).length;
-      return '<button type="button" role="tab" class="mg-tab t-' + t + '" data-tab="' + t + '" aria-selected="' + (S.tab === t) + '"><span class="mg-tl">' + TPLUR[t] + '</span><span class="mg-cnt' + (n ? '' : ' none') + '">' + (n ? n : '✓') + '</span></button>';
+      return '<button type="button" role="tab" class="mg-tab t-' + t + '" data-tab="' + t + '" aria-selected="' + (S.tab === t) + '"><span class="mg-tl">' + tp(t) + '</span><span class="mg-cnt' + (n ? '' : ' none') + '">' + (n ? n : '✓') + '</span></button>';
     }).join('') + '<button type="button" role="tab" class="mg-tab" data-tab="all" aria-selected="' + (S.tab === 'all') + '"><span class="mg-tl">All</span><span class="mg-cnt">' + Object.keys(S.place).filter(function (k) { return S.place[k] < 0; }).length + '</span></button></div>';
   }
   function trayHtml() {
-    var types = S.tab === 'all' ? SLOT_ORDER : [S.tab], h = '';
+    var types = S.tab === 'all' ? S.types : [S.tab], h = '';
     types.forEach(function (t) {
       var ks = unplaced(t);
-      if (S.tab === 'all') { if (!ks.length) return; h += '<h3 class="mg-th">' + TPLUR[t] + '</h3>'; }
-      h += '<div class="mg-grid t-' + t + '">' + ks.map(function (k) { return cardHtml(k, 'full', -1); }).join('') + '</div>';
+      if (S.tab === 'all') { if (!ks.length) return; h += '<h3 class="mg-th">' + tp(t) + '</h3>'; }
+      h += '<div class="mg-grid t-' + t + (S.K.wide && S.K.wide.indexOf(t) >= 0 ? ' wide' : '') + '">' + ks.map(function (k) { return cardHtml(k, 'full', -1); }).join('') + '</div>';
     });
     if (!h || (S.tab !== 'all' && !unplaced(S.tab).length)) {
-      var left = SLOT_ORDER.filter(function (t) { return unplaced(t).length; });
-      h = '<div class="mg-empty">' + (S.done ? 'All ' + S.N + ' sets are matched. Nice work!' : left.length ? 'Every ' + TNAME[S.tab === 'all' ? 'graph' : S.tab].toLowerCase() + ' card is in a set. <button type="button" class="link" data-tab="' + left[0] + '">Show the ' + TPLUR[left[0]].toLowerCase() + '</button>' : 'Every card is in a set. Press <b>Check</b> to see which sets match.') + '</div>';
+      var left = S.types.filter(function (t) { return unplaced(t).length; });
+      h = '<div class="mg-empty">' + (S.done ? 'All ' + S.N + ' sets are matched. Nice work!' : left.length ? 'Every ' + tn(S.tab === 'all' ? S.types[0] : S.tab).toLowerCase() + ' card is in a set. <button type="button" class="link" data-tab="' + left[0] + '">Show the ' + tp(left[0]).toLowerCase() + '</button>' : 'Every card is in a set. Press <b>Check</b> to see which sets match.') + '</div>';
     }
     return h;
   }
   function rowHtml(r) {
-    var o = rowCards(r), ok = S.ok[r], bad = S.bad[r], cnt = SLOT_ORDER.filter(function (t) { return o[t]; }).length;
-    var st = ok ? '<span class="mg-st ok">✓ Matched</span>' : bad ? '<span class="mg-st bad">Not quite: one card belongs somewhere else</span>' : '<span class="mg-st">' + cnt + ' of 4 cards</span>';
+    var o = rowCards(r), ok = S.ok[r], bad = S.bad[r], cnt = S.types.filter(function (t) { return o[t]; }).length;
+    var st = ok ? '<span class="mg-st ok">✓ Matched</span>' : bad ? '<span class="mg-st bad">Not quite: one card belongs somewhere else</span>' : '<span class="mg-st">' + cnt + ' of ' + S.types.length + ' cards</span>';
     if (ok && !S.expand[r]) {
       return '<section class="mg-row ok collapsed" data-row="' + r + '" aria-label="Set ' + (r + 1) + ', matched"><header><b>Set ' + (r + 1) + '</b>' + st +
-        '<span class="mg-sum">' + tex(S.B.fns[S.cards[o.eq].si].eq) + '</span><button type="button" class="link" data-expand="' + r + '">Show cards</button></header></section>';
+        '<span class="mg-sum">' + summary(S.cards[o[S.types[0]]].si) + '</span><button type="button" class="link" data-expand="' + r + '">Show cards</button></header></section>';
     }
     return '<section class="mg-row' + (ok ? ' ok' : '') + (bad ? ' bad' : '') + (S.active === r && !ok ? ' active' : '') + '" data-row="' + r + '" tabindex="0" aria-label="Set ' + (r + 1) + '"><header><b>Set ' + (r + 1) + '</b>' + st +
       (ok ? '<button type="button" class="link" data-expand="' + r + '">Hide cards</button>' : '<span class="mg-kbd" aria-hidden="true">' + (r < 9 ? 'key ' + (r + 1) : '') + '</span>') + '</header>' +
-      '<div class="mg-slots">' + SLOT_ORDER.map(function (t) {
-        return '<div class="mg-slot t-' + t + (o[t] ? ' full' : '') + '" data-row="' + r + '" data-type="' + t + '">' + (o[t] ? cardHtml(o[t], 'mini', r) : '<span class="mg-ph">' + TNAME[t] + '</span>') + '</div>';
+      '<div class="mg-slots n' + S.types.length + '">' + S.types.map(function (t) {
+        return '<div class="mg-slot t-' + t + (o[t] ? ' full' : '') + '" data-row="' + r + '" data-type="' + t + '">' + (o[t] ? cardHtml(o[t], 'mini', r) : '<span class="mg-ph">' + tn(t) + '</span>') + '</div>';
       }).join('') + '</div></section>';
   }
+  function summary(si) { var set = S.B.sets[si]; return S.K === FUNC ? tex(set.eq) : S.K.summary ? S.K.summary(set, S.B) : ''; }
   function fmtTime(ms) { var s = Math.floor(ms / 1000); return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
   function shell() {
     var c = S.cfg, L = NS.LEVELS[c.level];
     if (/^prealgebra-/.test(c.unit)) { const back=$('#backBtn'),brand=$('.brand');if(back)back.hidden=true;if(brand)brand.hidden=true; }
     $('#mgApp').innerHTML =
       '<div class="mg-bar card">' +
-        '<div class="mg-title"><h1>' + esc(unitName(c.unit).replace(/^Unit \d+ · /, '')) + ' <span>Matching</span></h1>' +
-          '<div class="mg-meta">' + esc(levelName(c.unit,c.level)) + ' · ' + S.N + ' sets · ' + c.fams.map(function (f) { return esc(M.FAMILIES[f]); }).join(', ') + (c.v ? ' · Version ' + 'ABC'[c.v] : '') + '</div></div>' +
+        '<div class="mg-title"><h1>' + esc(S.K === FUNC ? unitName(c.unit).replace(/^Unit \d+ · /, '') : ((S.K.units[c.unit] || {}).short || S.K.short)) + ' <span>Matching</span></h1>' +
+          '<div class="mg-meta">' + (S.K === FUNC ? '' : esc(unitName(c.unit).replace(/^Unit \d+ · /, '')) + ' · ') + esc(levelName(c.unit,c.level)) + ' · ' + S.N + ' sets' + (c.fams.length && S.K.fams ? ' · ' + c.fams.map(function (f) { return esc(S.K.fams[f]); }).join(', ') : '') + (c.v ? ' · Version ' + 'ABC'[c.v] : '') + '</div></div>' +
         '<div class="mg-prog" aria-label="Progress"><div class="mg-pt"><b id="mgOk">0</b> of ' + S.N + ' sets matched</div><div class="mg-pbar"><i id="mgPbar"></i></div><div class="mg-time" id="mgTime" aria-hidden="true"></div></div>' +
         '<div class="mg-acts">' +
           '<button type="button" class="btn" id="mgCheck">✔ Check sets</button>' +
@@ -273,9 +300,10 @@
           '<details class="mg-more"><summary class="btn ghost">More ▾</summary><div class="mg-menu">' +
             '<button type="button" id="mgHelp">How to play</button><button type="button" id="mgRestart">Start over (same cards)</button>' +
             '<button type="button" id="mgNew">New cards (same settings)</button><button type="button" id="mgSettings">Change settings</button>' +
-            '<button type="button" id="mgShare">Copy student link</button><a href="printables.html#unit=' + c.unit + '&kind=match">Print these as a card sort</a></div></details>' +
+            '<button type="button" id="mgShare">Copy student link</button>' +
+            (S.K === FUNC && !/^prealgebra-/.test(c.unit) ? '<a href="printables.html#unit=' + c.unit + '&kind=match">Print these as a card sort</a>' : '<button type="button" id="mgPrintS">Print card sort (cards + recording sheet)</button><button type="button" id="mgPrintK">Print answer key</button>') + '</div></details>' +
         '</div>' +
-      '</div>' +
+      '</div>' + (S.K.legend ? '<div class="mg-legend card">' + S.K.legend(S.B) + '</div>' : '') +
       '<div class="mg-main">' +
         '<section class="mg-pane mg-tray" aria-label="Card tray">' +
           '<div class="mg-trayhead">' + '<div id="mgTabs"></div>' +
@@ -293,7 +321,7 @@
     $('#mgRestart').onclick = function () { closeMenu(); if (G.confirm('Put every card back in the tray and start over?')) restart(); };
     $('#mgNew').onclick = function () { closeMenu(); var n = Object.assign({}, S.cfg, { seed: Math.floor(Math.random() * 1e9), v: 0 }); go(n); };
     $('#mgSettings').onclick = function () { closeMenu(); setup(S.cfg); };
-    if (/^prealgebra-/.test(c.unit)) { const print=$('a[href^="printables.html"]');if(print)print.remove(); }
+    if ($('#mgPrintS')) { $('#mgPrintS').onclick = function () { closeMenu(); printDeck(false); }; $('#mgPrintK').onclick = function () { closeMenu(); printDeck(true); }; }
     $('#mgShare').onclick = function () { closeMenu(); copy(linkOf(S.cfg), 'Link copied. Students who open it get these same cards.'); };
     $('#mgSize').oninput = function (e) { lsSet('mkmatch-size', e.target.value); applySize(); };
     showHow(!lsGet('mkmatch-how'));
@@ -307,13 +335,14 @@
   function showHow(on) {
     var box = $('#mgHow'); if (!box) return;
     box.innerHTML = on ? '<div class="mg-how"><b>How to play</b><ol>' +
-      '<li>Each set is one function: its <b>graph</b>, <b>equation</b>, <b>table</b> and <b>description</b>.' + (S.cfg.eq ? ' Each set already has its equation.' : '') + '</li>' +
+      '<li>Each set is one ' + esc((S.K.units[S.cfg.unit] || {}).noun || S.K.noun) + ': ' + andList(S.types.map(function (t) { return '<b>' + esc(tn(t).toLowerCase()) + '</b>'; })) + '.' + (S.cfg.eq && S.anchor ? ' Each set already has its ' + esc(tn(S.anchor).toLowerCase()) + '.' : '') + '</li>' +
       '<li>Pick a card type above. <b>Drag</b> a card onto a set, or <b>tap</b> a card and then tap a set (or press its number key). On a tablet, press and hold to drag.</li>' +
-      '<li>Press ' + ICON_ZOOM + ' to see a card up close. On a big graph, point at the grid to read coordinates.</li>' +
-      '<li>When a set has four cards, press <b>Check sets</b>. Matched sets fold away so you can focus on the rest.</li></ol>' +
+      '<li>Press ' + ICON_ZOOM + ' to see a card up close.' + (S.K.noGrid ? '' : ' On a big graph, point at the grid to read coordinates.') + '</li>' +
+      '<li>When a set has ' + NUMW[S.types.length] + ' cards, press <b>Check sets</b>. Matched sets fold away so you can focus on the rest.</li></ol>' +
       '<button type="button" class="btn sm" id="mgHowOk">Got it</button></div>' : '';
     if (on) $('#mgHowOk').onclick = function () { lsSet('mkmatch-how', '1'); showHow(false); };
   }
+  function andList(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]; }
   function draw() {
     if (!$('#mgBoard')) return;
     $('#mgTabs').innerHTML = tabsHtml();
@@ -448,13 +477,13 @@
     var c = S.cards[key], list = S.order[c.type], i = list.indexOf(key), here = S.place[key];
     if (here >= 0) S.compare = here; else if (S.ok[S.compare] || S.compare >= S.N) S.compare = firstOpen();
     var canMove = !S.fixed[key] && !(here >= 0 && S.ok[here]);
-    var m = doc.createElement('div'); m.className = 'mg-modal'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-label', TNAME[c.type] + ' card ' + c.label);
+    var m = doc.createElement('div'); m.className = 'mg-modal'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-label', tn(c.type) + ' card ' + c.label);
     m.innerHTML = '<div class="mg-mbox t-' + c.type + '"><header class="mg-mhead">' +
-      '<button type="button" class="btn ghost sm" data-step="-1" aria-label="Previous ' + TNAME[c.type].toLowerCase() + '">←</button>' +
-      '<b>' + TNAME[c.type] + ' ' + c.label + '</b><span class="mg-mwhere">' + (here >= 0 ? 'in Set ' + (here + 1) + (S.ok[here] ? ' ✓' : '') : 'in the tray') + ' · ' + (i + 1) + ' of ' + list.length + '</span>' +
-      '<button type="button" class="btn ghost sm" data-step="1" aria-label="Next ' + TNAME[c.type].toLowerCase() + '">→</button><span class="sp"></span>' +
+      '<button type="button" class="btn ghost sm" data-step="-1" aria-label="Previous ' + tn(c.type).toLowerCase() + '">←</button>' +
+      '<b>' + tn(c.type) + ' ' + c.label + '</b><span class="mg-mwhere">' + (here >= 0 ? 'in Set ' + (here + 1) + (S.ok[here] ? ' ✓' : '') : 'in the tray') + ' · ' + (i + 1) + ' of ' + list.length + '</span>' +
+      '<button type="button" class="btn ghost sm" data-step="1" aria-label="Next ' + tn(c.type).toLowerCase() + '">→</button><span class="sp"></span>' +
       '<button type="button" class="btn ghost sm mg-x" aria-label="Close">✕ Close</button></header>' +
-      '<div class="mg-mbody"><div class="mg-big">' + face(c, 'big') + (c.type === 'graph' ? '<p class="mg-cap">Point at the grid to read coordinates.</p>' : '') + '</div>' +
+      '<div class="mg-mbody"><div class="mg-big">' + face(c, 'big') + (/data-plane=/.test(face(c, 'big')) ? '<p class="mg-cap">Point at the grid to read coordinates.</p>' : '') + '</div>' +
       (canMove ? '<aside class="mg-cmp"><div class="mg-cmph">Compare with a set</div><div class="mg-setbtns">' + Array.apply(null, Array(S.N)).map(function (_, r) { return '<button type="button" class="mg-sb' + (S.ok[r] ? ' ok' : '') + '" data-cmp="' + r + '" aria-pressed="' + (S.compare === r) + '"' + (S.ok[r] ? ' disabled title="Matched"' : '') + '>' + (r + 1) + '</button>'; }).join('') + '</div><div class="mg-pl"></div><div class="mg-cset"></div></aside>' : '') +
       '</div></div>';
     doc.body.appendChild(m); doc.body.classList.add('mg-modal-open');
@@ -477,33 +506,67 @@
     function fillCompare() {
       if (!canMove) return;
       var r = S.compare, o = rowCards(r), occ = o[c.type];
-      $('.mg-cset', m).innerHTML = '<div class="mg-cseth">Set ' + (r + 1) + '</div>' + SLOT_ORDER.filter(function (t) { return o[t] && o[t] !== key; }).map(function (t) { return '<div class="mg-cc' + (t === c.type ? ' swap' : '') + '">' + (t === c.type ? '<div class="mg-swap">Now in this spot (would swap):</div>' : '') + cardHtml(o[t], 'full', r) + '</div>'; }).join('') +
-        (SLOT_ORDER.filter(function (t) { return o[t] && o[t] !== key; }).length ? '' : '<p class="hint">This set is empty.</p>');
+      $('.mg-cset', m).innerHTML = '<div class="mg-cseth">Set ' + (r + 1) + '</div>' + S.types.filter(function (t) { return o[t] && o[t] !== key; }).map(function (t) { return '<div class="mg-cc' + (t === c.type ? ' swap' : '') + '">' + (t === c.type ? '<div class="mg-swap">Now in this spot (would swap):</div>' : '') + cardHtml(o[t], 'full', r) + '</div>'; }).join('') +
+        (S.types.filter(function (t) { return o[t] && o[t] !== key; }).length ? '' : '<p class="hint">This set is empty.</p>');
       $('.mg-pl', m).innerHTML = (here === r ? '<p class="hint">' + c.label + ' is in this set.</p>' : '<button type="button" class="btn" data-put="1">Put ' + c.label + ' in Set ' + (r + 1) + (occ && occ !== key ? ' (swap with ' + S.cards[occ].label + ')' : '') + '</button>') +
         (here >= 0 ? ' <button type="button" class="btn ghost" data-back="1">Back to the tray</button>' : '');
     }
     fillCompare();
-    var svg = $('.mg-big svg', m); if (svg) readout(svg, S.B.fns[c.si].graph);
+    var svg = $('.mg-big svg[data-plane]', m); if (svg && $('.mg-cross', svg)) readout(svg);
     $('.mg-x', m).focus();
   }
   function firstOpen() { for (var r = 0; r < S.N; r++) if (!S.ok[r]) return r; return 0; }
-  function readout(svg, g) {
-    var q = graphGeom(g), cross = $('.mg-cross', svg), txt = $('.mg-ctx', svg), bg = $('.mg-cbg', svg);
+  /* coordinate read-out on any big plane (svg[data-plane]), snapped to the grid; π multiples when the x-axis is in radians */
+  function readout(svg) {
+    var g = JSON.parse(svg.getAttribute('data-plane')), P = g.pad, sx = (g.w - 2 * P) / (g.xmax - g.xmin), sy = (g.h - 2 * P) / (g.ymax - g.ymin);
+    var cross = $('.mg-cross', svg), txt = $('.mg-ctx', svg), bg = $('.mg-cbg', svg);
+    var fmt = function (v) { var r = Math.round(v * 1000) / 1000; return String(r).replace(/-/g, '−'); };
+    var xfmt = function (v) { if (!g.xpi) return fmt(v); var k = Math.round(v / Math.PI * g.xpi); if (!k) return '0'; var a = Math.abs(k), b = g.xpi; while (b) { var t0 = a % b; a = b; b = t0; } var n = k / a, d = g.xpi / a; return (n < 0 ? '−' : '') + (Math.abs(n) === 1 ? '' : Math.abs(n)) + 'π' + (d > 1 ? '/' + d : ''); };
     var show = function (e) {
       var pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
       var p = pt.matrixTransform(svg.getScreenCTM().inverse());
-      var gx = g.xmin + (p.x - PAD) / q.sx, gy = g.ymax - (p.y - PAD) / q.sy;
-      if (gx < g.xmin - 0.3 || gx > g.xmax + 0.3 || gy < g.ymin - 0.3 || gy > g.ymax + 0.3) { cross.setAttribute('visibility', 'hidden'); return; }
+      var gx = g.xmin + (p.x - P) / sx, gy = g.ymax - (p.y - P) / sy;
+      if (gx < g.xmin - 0.3 * g.xstep || gx > g.xmax + 0.3 * g.xstep || gy < g.ymin - 0.3 * g.ystep || gy > g.ymax + 0.3 * g.ystep) { cross.setAttribute('visibility', 'hidden'); return; }
       gx = Math.round(gx / g.xstep) * g.xstep; gy = Math.round(gy / g.ystep) * g.ystep;
       gx = Math.max(g.xmin, Math.min(g.xmax, gx)); gy = Math.max(g.ymin, Math.min(g.ymax, gy));
-      var cx = q.X(gx), cy = q.Y(gy), s = '(' + gx + ', ' + gy + ')';
+      var cx = P + (gx - g.xmin) * sx, cy = P + (g.ymax - gy) * sy, s = '(' + xfmt(gx) + ', ' + fmt(gy) + ')';
       $('circle', cross).setAttribute('cx', cx); $('circle', cross).setAttribute('cy', cy);
-      var w = s.length * 8 + 10, tx = cx + 10 + w > VB ? cx - 10 - w : cx + 10, ty = cy - 30 < 0 ? cy + 10 : cy - 30;
-      bg.setAttribute('x', tx); bg.setAttribute('y', ty); bg.setAttribute('width', w); txt.setAttribute('x', tx + 5); txt.setAttribute('y', ty + 16); txt.textContent = s.replace(/-/g, '−');
+      var w = s.length * 8 + 10, tx = cx + 10 + w > g.w ? cx - 10 - w : cx + 10, ty = cy - 30 < 0 ? cy + 10 : cy - 30;
+      bg.setAttribute('x', tx); bg.setAttribute('y', ty); bg.setAttribute('width', w); txt.setAttribute('x', tx + 5); txt.setAttribute('y', ty + 16); txt.textContent = s;
       cross.setAttribute('visibility', 'visible');
     };
     svg.addEventListener('pointermove', show); svg.addEventListener('pointerdown', show);
     svg.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') cross.setAttribute('visibility', 'hidden'); });
+  }
+
+  /* ---------------- print: cut-apart cards + recording sheet, or the answer key ---------------- */
+  function printDeck(key) {
+    var root = $('#mgPrint'); if (!root) { root = doc.createElement('div'); root.id = 'mgPrint'; root.setAttribute('aria-hidden', 'true'); doc.body.appendChild(root); }
+    var c = S.cfg, A = S.anchor || S.types[0], pages = [];
+    var title = esc(S.K === FUNC ? unitName(c.unit).replace(/^Unit \d+ · /, '') : ((S.K.units[c.unit] || {}).short || S.K.short)) + ' Matching';
+    var sub = esc(unitName(c.unit).replace(/^Unit \d+ · /, '')) + ' · ' + esc(levelName(c.unit, c.level)) + ' · ' + S.N + ' sets of ' + S.types.length + ' cards' + (c.v ? ' · Version ' + 'ABC'[c.v] : '');
+    var hd = function (t2, name) { return '<div class="mp-head"><div><div class="mp-title">' + title + (key ? ' <span class="mp-key">ANSWER KEY</span>' : '') + '</div><div class="mp-sub">' + t2 + '</div></div>' + (name ? '<div class="mp-name">Name <i></i><br>Period <i class="s"></i></div>' : '') + '</div>'; };
+    var legend = S.K.legend ? '<div class="mp-legend">' + S.K.legend(S.B) + '</div>' : '';
+    var keyOf = function (t, si) { return S.order[t].filter(function (kk) { return S.cards[kk].si === si; })[0]; };
+    var cardBox = function (k) { return '<div class="mp-card t-' + S.cards[k].type + '"><span class="mp-id">' + S.cards[k].label + '</span><div class="mg-face">' + face(S.cards[k], 'print') + '</div></div>'; };
+    var th = '<thead><tr>' + S.types.map(function (t) { return '<th>' + esc(tn(t)) + '</th>'; }).join('');
+    if (!key) {
+      pages.push('<section class="mp-page">' + hd(sub, true) + '<p class="mp-dirs"><b>Directions:</b> Cut out the cards. Each set is one ' + esc(S.K.noun) + ': ' + andList(S.types.map(function (t) { return '<b>' + esc(tn(t).toLowerCase()) + '</b>'; })) + '. Every card belongs to exactly one set. Start with each ' + esc(tn(A).toLowerCase()) + ' card, find the cards that match it and record their numbers.</p>' + legend +
+        '<table class="mp-rec">' + th + '<th>How do you know they match?</th></tr></thead><tbody>' + S.order[A].map(function (k) { return '<tr>' + S.types.map(function (t) { return '<td>' + (t === A ? '<b>' + S.cards[k].label + '</b>' : '<span class="mp-l">' + S.tinfo[t].L + '</span>') + '</td>'; }).join('') + '<td></td></tr>'; }).join('') + '</tbody></table></section>');
+      S.types.forEach(function (t) {
+        var cols = (S.K.printCols && S.K.printCols[t]) || 3, per = cols * ((S.K.printRows && S.K.printRows[t]) || 4), list = S.order[t];
+        for (var i = 0; i < list.length; i += per) pages.push('<section class="mp-page">' + hd(esc(tp(t)) + (i ? ' (continued)' : '') + ' · cut along the dashed lines', false) + '<div class="mp-cards" style="grid-template-columns:repeat(' + cols + ',1fr)">' + list.slice(i, i + per).map(cardBox).join('') + '</div></section>');
+      });
+    } else {
+      pages.push('<section class="mp-page">' + hd(sub, false) + legend + '<table class="mp-rec mp-k">' + th + '</tr></thead><tbody>' + S.order[A].map(function (k) { var si = S.cards[k].si; return '<tr>' + S.types.map(function (t) { return '<td><b>' + S.cards[keyOf(t, si)].label + '</b></td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table>' +
+        '<p class="mp-note">Every card was checked against every other set in this activity: each card fits only its own set.</p></section>');
+      for (var s0 = 0; s0 < S.N; s0 += 3) pages.push('<section class="mp-page">' + hd('Sets at a glance' + (s0 ? ' (continued)' : ''), false) + S.order[A].slice(s0, s0 + 3).map(function (k) { var si = S.cards[k].si; return '<div class="mp-set" style="grid-template-columns:repeat(' + S.types.length + ',1fr)">' + S.types.map(function (t) { return cardBox(keyOf(t, si)); }).join('') + '</div>'; }).join('') + '</section>');
+    }
+    root.innerHTML = pages.join('');
+    doc.body.classList.add('mg-printing');
+    var done = function () { doc.body.classList.remove('mg-printing'); root.innerHTML = ''; G.removeEventListener('afterprint', done); };
+    G.addEventListener('afterprint', done);
+    setTimeout(function () { G.print(); setTimeout(function () { if (!G.matchMedia || !G.matchMedia('print').matches) { /* some browsers return before printing ends */ } }, 500); }, 80);
   }
 
   /* ---------------- finish ---------------- */
@@ -527,29 +590,30 @@
   /* ---------------- setup ---------------- */
   function setup(c) {
     S = null; $$('.mg-modal').forEach(function (m) { m.remove(); }); doc.body.classList.remove('mg-modal-open', 'mg-selecting');
-    var units = supportedUnits(), U = M.UNITS[c.unit];
-    var famBox = function (unit, chosen) { var u = M.UNITS[unit]; return u.fams.length > 1 ? u.fams.map(function (f) { return '<label class="chk"><input type="checkbox" class="mgFam" value="' + f + '"' + (chosen.indexOf(f) >= 0 ? ' checked' : '') + '><span>' + esc(M.FAMILIES[f]) + '</span></label>'; }).join('') : '<p class="hint">Function type: ' + esc(M.FAMILIES[u.fams[0]]) + '.</p>'; };
-    $('#mgApp').innerHTML = '<div class="mg-setup card"><h1>Function Matching Game</h1>' +
-      '<p class="hint">Match each function’s <b>graph</b>, <b>equation</b>, <b>table</b> and <b>description</b>. Every card fits exactly one set. These are the same verified cards as the printable Matching Card Sort.</p>' +
+    var K = kindOf(c.kind), units = supportedUnits(K);
+    var famBox = function (unit, chosen) { var u = K.units[unit] || {}; if (!u.fams) return ''; return u.fams.length > 1 ? u.fams.map(function (f) { return '<label class="chk"><input type="checkbox" class="mgFam" value="' + f + '"' + (chosen.indexOf(f) >= 0 ? ' checked' : '') + '><span>' + esc(K.fams[f]) + '</span></label>'; }).join('') : '<p class="hint">' + esc(K.famLabel || 'Type') + ': ' + esc(K.fams[u.fams[0]]) + '.</p>'; };
+    var nTypes = function (unit) { return K === FUNC ? 4 : MK.typesOf(K, unit).length; };
+    $('#mgApp').innerHTML = '<div class="mg-setup card"><h1>' + esc(K.name) + '</h1>' +
+      '<p class="hint">' + K.blurb + '</p>' +
       '<label class="field"><span class="lbl">Unit</span><select id="suUnit">' + Array.from(new Set(units.map(function(u){return u.course;}))).map(function (course) { var us = units.filter(function (u) { return u.course === course; }); return us.length ? '<optgroup label="' + course + '">' + us.map(function (u) { return '<option value="' + u.id + '"' + (u.id === c.unit ? ' selected' : '') + '>' + esc(u.name) + '</option>'; }).join('') + '</optgroup>' : ''; }).join('') + '</select></label>' +
-      '<fieldset class="field"><legend class="lbl">Level</legend><div class="mg-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="suLevel" value="' + id + '"' + (c.level === id ? ' checked' : '') + '><span>' + esc(/^(prealgebra7?|math6)-/.test(c.unit)?levelName(c.unit,id):NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div></fieldset>' +
-      '<fieldset class="field"><legend class="lbl">Function types</legend><div id="suFams">' + famBox(c.unit, c.fams) + '</div></fieldset>' +
-      '<label class="field"><span class="lbl">Number of sets</span><select id="suSets">' + [4, 6, 8, 10].map(function (n) { return '<option value="' + n + '"' + (c.sets === n ? ' selected' : '') + '>' + n + ' sets (' + 4 * n + ' cards)</option>'; }).join('') + '</select></label>' +
-      '<label class="chk"><input type="checkbox" id="suEq"' + (c.eq ? ' checked' : '') + '><span>Start with each equation already in its set <small>Recommended: students find the graph, table and description for each equation.</small></span></label>' +
+      '<fieldset class="field"><legend class="lbl">Level</legend><div class="mg-levels">' + Object.keys(NS.LEVELS).map(function (id) { return '<label class="chk"><input type="radio" name="suLevel" value="' + id + '"' + (c.level === id ? ' checked' : '') + '><span>' + esc(/^(prealgebra7?|math6|grade[1-5])-/.test(c.unit)?levelName(c.unit,id):NS.LEVELS[id].long) + '</span></label>'; }).join('') + '</div></fieldset>' +
+      '<fieldset class="field" id="suFamBox"' + ((K.units[c.unit] || {}).fams ? '' : ' hidden') + '><legend class="lbl">' + esc(K.famLabel || 'Types') + '</legend><div id="suFams">' + famBox(c.unit, c.fams) + '</div></fieldset>' +
+      '<label class="field"><span class="lbl">Number of sets</span><select id="suSets">' + ((K.units[c.unit] || {}).setOptions || K.setOptions || [4, 6, 8, 10]).map(function (n) { return '<option value="' + n + '"' + (c.sets === n ? ' selected' : '') + '>' + n + ' sets (' + nTypes(c.unit) * n + ' cards)</option>'; }).join('') + '</select></label>' +
+      (K.anchor ? '<label class="chk"><input type="checkbox" id="suEq"' + (c.eq ? ' checked' : '') + '><span>' + esc(K.anchorText) + ' <small>' + esc(K.anchorHint || '') + '</small></span></label>' : '') +
       '<label class="chk"><input type="checkbox" id="suHints"' + (c.hints ? ' checked' : '') + '><span>Allow hints</span></label>' +
       '<div class="mg-sbtn"><button type="button" class="btn" id="suGo">Start matching</button><button type="button" class="btn ghost" id="suLink">Copy student link</button></div>' +
       '<p class="hint">“Copy student link” makes one set of cards for the whole class. To play the cards you printed, use <b>Play online</b> in the printable generator.</p><p class="hint" id="suErr"></p></div>';
     var read = function () {
-      var unit = $('#suUnit').value, u = M.UNITS[unit];
-      var fams = u.fams.length > 1 ? $$('.mgFam').filter(function (b) { return b.checked; }).map(function (b) { return b.value; }) : u.fams.slice();
-      return { unit: unit, level: ($$('input[name=suLevel]').filter(function (r) { return r.checked; })[0] || {}).value || 'cp1', sets: +$('#suSets').value, fams: fams, seed: c.unit === unit && c.seed !== null ? c.seed : null, v: 0, eq: $('#suEq').checked ? 1 : 0, hints: $('#suHints').checked ? 1 : 0 };
+      var unit = $('#suUnit').value, u = K.units[unit] || {};
+      var fams = !u.fams ? [] : u.fams.length > 1 ? $$('.mgFam').filter(function (b) { return b.checked; }).map(function (b) { return b.value; }) : u.fams.slice();
+      return { kind: K.id, unit: unit, level: ($$('input[name=suLevel]').filter(function (r) { return r.checked; })[0] || {}).value || 'cp1', sets: +$('#suSets').value, fams: fams, seed: c.unit === unit && c.seed !== null ? c.seed : null, v: 0, eq: $('#suEq') && $('#suEq').checked ? 1 : 0, hints: $('#suHints').checked ? 1 : 0 };
     };
-    $('#suUnit').onchange = function () { var u = M.UNITS[$('#suUnit').value]; $('#suFams').innerHTML = famBox($('#suUnit').value, u.def); };
+    $('#suUnit').onchange = function () { var un = $('#suUnit').value, u = K.units[un] || {}; $('#suFams').innerHTML = famBox(un, u.def || []); $('#suFamBox').hidden = !u.fams; $$('#suSets option').forEach(function (o) { o.textContent = o.value + ' sets (' + nTypes(un) * o.value + ' cards)'; }); };
     var start = function (link) {
       var n = read();
-      if (!n.fams.length) { $('#suErr').textContent = 'Choose at least one function type.'; return; }
+      if ((K.units[n.unit] || {}).fams && !n.fams.length) { $('#suErr').textContent = 'Choose at least one type.'; return; }
       n.seed = Math.floor(Math.random() * 1e9);
-      var test = PR.buildMatch(builderCfg(n), 0);
+      var test = buildFor(n, 0);
       if (test.error) { $('#suErr').textContent = test.error; return; }
       if (link) { copy(linkOf(n), 'Student link copied.'); $('#suErr').innerHTML = 'Link copied: <a href="' + esc(linkOf(n)) + '">' + esc(linkOf(n)) + '</a>'; return; }
       go(n);
@@ -557,7 +621,7 @@
     $('#suGo').onclick = function () { start(false); };
     $('#suLink').onclick = function () { start(true); };
     if (!$('#mgToast')) { var t = doc.createElement('div'); t.id = 'mgToast'; t.className = 'mg-toast'; $('#mgApp').appendChild(t); }
-    $('#mgCrumb').textContent = 'Function Matching Game';
+    $('#mgCrumb').textContent = K.name;
   }
   function go(cfg) {
     try { G.history.replaceState(null, '', '#' + hashOf(cfg)); } catch (e) { G.location.hash = hashOf(cfg); }
@@ -568,8 +632,8 @@
     if (st.error) { setup(cfg); $('#suErr').textContent = st.error; return; }
     $$('.mg-modal').forEach(function (m) { m.remove(); }); doc.body.classList.remove('mg-modal-open', 'mg-selecting', 'mg-dragging');
     S = st; S.expand = {};
-    $('#mgCrumb').textContent = 'Function Matching · ' + unitName(cfg.unit);
-    doc.title = 'Function Matching Game · ' + unitName(cfg.unit).replace(/^Unit \d+ · /, '') + (/^prealgebra-/.test(cfg.unit) ? '' : ' · Mr. K\'s Classroom');
+    $('#mgCrumb').textContent = S.K.name.replace(/ Game$/, '') + ' · ' + unitName(cfg.unit);
+    doc.title = S.K.name + ' · ' + unitName(cfg.unit).replace(/^Unit \d+ · /, '') + (/^prealgebra-/.test(cfg.unit) ? '' : ' · Mr. K\'s Classroom');
     shell(); draw(); tick();
     if (S.done) say('You matched every set. Press <b>More ▸ Start over</b> to play again.', 'good');
     else if (S.resumed) say('Welcome back! Your cards are where you left them.');
@@ -581,5 +645,5 @@
   (function () { var t = lsGet('mkws-theme'); if (t) doc.documentElement.setAttribute('data-theme', t); })();
   var c0 = parseHash();
   if (c0.seed === null) setup(c0); else start(c0);
-  G.MKMATCHGAME = { state: function () { return S; }, place: function (k, r) { return place(k, r, true); }, check: check, hint: hint, restart: restart, link: function () { return S && linkOf(S.cfg); } };   // for tests
+  G.MKMATCHGAME = { printDeck: printDeck, state: function () { return S; }, place: function (k, r) { return place(k, r, true); }, check: check, hint: hint, restart: restart, link: function () { return S && linkOf(S.cfg); } };   // for tests
 })(window);

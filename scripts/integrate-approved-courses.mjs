@@ -1,5 +1,6 @@
 import { addAsteroidBlaster } from './asteroid-resources.mjs';
 import { addMultipleDrop } from './multiple-drop-resources.mjs';
+import { addMatchingGames } from './matching-resources.mjs';
 // Assemble the approved Grade 5 source into the public Classroom artifact.
 // Source files stay in FinancialAlgebra; only the assembled _site/site directory changes.
 // This is the ONLY Grade 5 assembler used by either public workflow.
@@ -149,6 +150,7 @@ const classroomResources=resources.units.map(function(unit){
 });
 addMultipleDrop({id:"grade5",units:classroomResources});
 addAsteroidBlaster({id:"grade5",units:classroomResources});
+addMatchingGames({id:"grade5",units:classroomResources});
 const classroomSkills=Object.create(null),classroomStandards=Object.create(null);
 for(const unit of resources.units){
   const records=context.window.MK_COURSE_CATALOG.getSkillRecords('math5',unit.id);
