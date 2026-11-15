@@ -11,7 +11,10 @@ E.className=cfg=>{const g=E.grade(cfg);return g?'el-g'+(g<3?g:'35'):'';};
 E.icon=(id,cls='')=>'<img class="'+esc(cls)+'" src="'+esc(base+'icons/'+id+'.svg')+'" alt="" aria-hidden="true">';
 E.direction=function(cfg,key,activity){const entry=(activity?directions.activities:directions.formats)[key];return entry?'<div class="el-dir">'+E.icon(entry.icon)+'<span>'+esc(entry[E.grade(cfg)<3?'g12':'g35'])+'</span></div>':'';};
 E.name=function(cfg){const young=E.grade(cfg)<3;return '<div class="el-name">'+E.icon('name')+'<span>'+(young?'My name':'Name')+'</span><span class="el-lines"></span>'+(young?'':'<span>Date</span><span class="el-lines el-date"></span>')+'</div>';};
-E.header=function(cfg,title,version){const set=NS.skillSets[cfg.unitId];return '<div class="el-band">'+E.icon('count','el-mascot')+'<div><div class="el-unit">'+esc('GRADE '+E.grade(cfg)+' · '+(NS.isWorksheet(cfg)?'PRACTICE':(set?.unitName||cfg.unitId)))+(version?' · '+esc(version):'')+'</div><h1>'+esc(title)+'</h1></div></div>'+((cfg.subtitle&&!/^(?:Practice worksheet|Unit test ·|Assessment Menu ·)/.test(cfg.subtitle))?'<div class="el-custom-note">'+math(cfg.subtitle)+'</div>':'')+E.name(cfg);};
+// Original grade mascots and unit artwork from the reviewed Phase 2 handoff.
+E.mascot=function(cfg,cls='el-mascot'){const g=E.grade(cfg),a={1:['grade1-dot','Dot'],2:['grade2-cubie','Cubie'],3:['grade3-hexie','Hexie'],4:['grade4-zoom','Zoom'],5:['grade5-bit','Bit']}[g];return a?'<img class="'+esc(cls)+'" src="'+esc(base+'art/mascots/'+a[0]+'.svg')+'" alt="'+esc('Grade '+g+' mascot '+a[1])+'">':'';};
+E.unitBadge=function(cfg){const g=E.grade(cfg),unit=String(cfg?.unitId||'').replace(/^grade[1-5]-/,'');if(g!==1)return E.mascot(cfg,'el-mascot el-badge');if(!/^[a-z0-9-]+$/.test(unit))return '';return '<img class="el-mascot el-badge" src="'+esc(base+'art/unit-badges/grade1/'+unit+'.svg')+'" alt="" aria-hidden="true">';};
+E.header=function(cfg,title,version){const set=NS.skillSets[cfg.unitId];return '<div class="el-band">'+E.unitBadge(cfg)+'<div class="el-titlewrap"><div class="el-unit">'+esc('GRADE '+E.grade(cfg)+' · '+(NS.isWorksheet(cfg)?'PRACTICE':(set?.unitName||cfg.unitId)))+(version?' · '+esc(version):'')+'</div><h1>'+esc(title)+'</h1></div>'+E.mascot(cfg,'el-mascot el-grade-mascot')+'</div>'+((cfg.subtitle&&!/^(?:Practice worksheet|Unit test ·|Assessment Menu ·)/.test(cfg.subtitle))?'<div class="el-custom-note">'+math(cfg.subtitle)+'</div>':'')+E.name(cfg);};
 function singleBlank(p){return !p.mc&&!p.multi&&p.authoredFormat!=='plot'&&(String(p.prompt).match(/_{2,}/g)||[]).length===1&&!(p.parts||[]).some(pt=>pt.prompt)&&p.parts?.length===1;}
 E.singleBlank=singleBlank;
 E.prompt=function(p,key){let out=math(p.prompt);if(singleBlank(p))out=out.replace(/<span class="ans-box"[^>]*><\/span>/,()=>key?'<span class="ans-box key" aria-label="Answer: '+esc(p.parts[0].answer)+'">'+math(p.parts[0].answer)+'</span>':'<span class="ans-box answer" role="img" aria-label="blank"></span>');return out;};
@@ -21,14 +24,14 @@ function choices(opts){const short=opts.every(o=>String(o).replace(/⟨|⟩/g,''
 function format(cfg,si,p){const f=NS.sectionFormat(cfg,si);return f==='mc'&&p.mc?'multiple-choice':f==='multi'&&p.multi?'select-all':p.authoredFormat==='plot'?'plot':(p.parts||[]).some(pt=>pt.prompt)?'open-response':singleBlank(p)?'short-answer':p.fig&&/count|how many (?:in all|are there)/i.test(p.prompt)?'count-picture':'short-answer-work';}
 E.question=function(p,cfg,si,n){
  if(p.failed)return '<article class="mm-dish el-q mm-missing" data-uid="'+esc(p.uid)+'"><span class="el-num">'+n+'</span><div>No verified question. Choose another question before printing.</div></article>';
- const f=format(cfg,si,p),g=E.grade(cfg),points=!NS.isWorksheet(cfg)&&g>2?'<span class="el-points">'+esc(cfg.sections[si].points)+' pts</span>':'';
+ const f=format(cfg,si,p),g=E.grade(cfg),sidePicture=g>0&&g<3&&p.fig&&NS.figHtml&&!singleBlank(p)&&!p.work?.length&&(f==='short-answer-work'||f==='count-picture'),points=!NS.isWorksheet(cfg)&&g>2?'<span class="el-points">'+esc(cfg.sections[si].points)+' pts</span>':'';
  let h='<article class="mm-dish el-q" data-uid="'+esc(p.uid)+'"><span class="el-num">'+n+'</span><div class="el-content">'+points+'<div class="mm-q el-prompt">'+E.prompt(p.mc?.prompt?Object.assign({},p,{prompt:p.mc.prompt}):p,false)+'</div>';
  if(p.work?.length)h+='<ol class="el-student-work">'+p.work.map(w=>'<li>'+math(w)+'</li>').join('')+'</ol>';
- if(p.fig&&NS.figHtml)h+='<div class="el-figure">'+NS.figHtml(p.fig)+'</div>';
+ if(p.fig&&NS.figHtml&&!sidePicture)h+='<div class="el-figure">'+NS.figHtml(p.fig)+'</div>';
  if(f==='multiple-choice')h+=p.mc.graphs?'<div class="el-choices long">'+p.mc.opts.map((o,i)=>'<div class="el-choice"><span class="el-bubble">'+String.fromCharCode(65+i)+'</span>'+NS.figHtml(p.mc.graphs[i])+'</div>').join('')+'</div>':choices(p.mc.opts);
  else if(f==='select-all')h+=choices(p.multi.opts);
  else if(f==='open-response')h+='<div class="el-parts" style="--el-part-count:'+p.parts.filter(pt=>pt.prompt).length+'">'+p.parts.filter(pt=>pt.prompt).map((pt,i)=>'<div><b>('+esc(pt.label||String.fromCharCode(97+i))+')</b> '+math(pt.prompt)+(cfg.layout.grid==='coordinate'?'':work(cfg))+'</div>').join('')+'</div>'+(cfg.layout.grid==='coordinate'?work(cfg):'');
- else if(f!=='plot'&&!singleBlank(p))h+='<div class="el-workrow">'+(p.fig&&/count|how many (?:in all|are there)/i.test(p.prompt)?'':work(cfg))+answer(cfg)+'</div>';
+ else if(f!=='plot'&&!singleBlank(p))h+=sidePicture?'<div class="el-figrow"><div class="el-figure">'+NS.figHtml(p.fig)+'</div>'+answer(cfg)+'</div>':'<div class="el-workrow">'+(p.fig&&/count|how many (?:in all|are there)/i.test(p.prompt)?'':work(cfg))+answer(cfg)+'</div>';
  return h+'</div></article>';
 };
 E.renderPages=async function(state,vIdx){

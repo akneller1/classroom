@@ -29,6 +29,7 @@ const EXCLUDE_DIRS = new Set([
   "cleanup", "cleanup-20261105d", "audits", "incoming", "scripts", "shots", "docs", "tools", "patches",
 ]);
 const EXCLUDE_FILES = new Set([
+  "kid-friendly-phase2-ready-to-deploy.zip",
   "INSTALL.txt", "README.md", "README-UPLOAD.txt", "teacher-key-audit.txt",
   "ALGEBRA2_PUBLISH_README.md", "INTEGRATION_AUDIT.json", "INTEGRATION_README.txt",
   ".git", ".gitignore", ".DS_Store",

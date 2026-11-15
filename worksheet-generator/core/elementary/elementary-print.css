@@ -125,7 +125,7 @@
 .el-g1 .el-band h1, .el-g2 .el-band h1 { font-size: 1.1em; }
 .el-g1 .el-band, .el-g2 .el-band { padding: .08in .18in; }
 .el-g1 .el-q, .el-g2 .el-q { padding: .1in .14in; }
-.el-g1 .el-fig, .el-g2 .el-fig { max-height: 1.25in; }
+.el-g1 .el-fig, .el-g2 .el-fig { max-height: 2.1in; }
 .el-g1 .el-dir, .el-g2 .el-dir { margin: .06in 0 .1in; }
 
 /* Integrate with the shared Letter-page renderer without changing other courses. */
@@ -147,7 +147,7 @@
 .el-paper .el-figure{margin:.06in 0;max-width:100%}
 .el-paper .el-figure img,.el-paper .el-figure svg{max-width:100%;object-fit:contain}
 .el-paper .el-figure:not(:has(.mk-plot)) img,.el-paper .el-figure:not(:has(.mk-plot)) svg{max-height:1.7in!important;width:auto}
-.el-paper.el-g1 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g2 .el-figure:not(:has(.mk-plot)) img{max-height:1.25in!important}
+.el-paper.el-g1 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g2 .el-figure:not(:has(.mk-plot)) img{max-height:2.1in!important}
 .el-paper .el-choice>span:last-child{min-width:0;overflow-wrap:break-word}
 .el-paper .el-student-work{padding-left:.3in;margin:.08in 0}
 .el-paper .el-custom-note{font-size:.7em;line-height:1.35;margin:.05in 0}
@@ -175,3 +175,15 @@
 .el-activity-foot img{height:.3in;width:.3in}
 
 .el-paper.el-g35 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g35 .el-figure:not(:has(.mk-plot)) svg{max-height:1.1in!important}
+
+/* Phase 2: original grade mascots and unit badge framing. */
+.el-band .el-titlewrap{flex:1;min-width:0}
+.el-band .el-grade-mascot{width:.8in;height:.8in;object-fit:contain;margin-left:auto}
+.el-band .el-badge{object-fit:contain}
+.el-paper.el-g35 .el-band .el-grade-mascot{width:.55in;height:.55in}
+/* Grade 1–2: illustrated story model replaces an empty work grid. */
+.el-paper .el-figrow{display:flex;gap:.14in;align-items:flex-end;justify-content:space-between;margin-top:.06in;break-inside:avoid}
+.el-paper .el-figrow .el-figure{flex:1;min-width:0;margin:0}
+.el-paper .el-figrow .el-figure img,.el-paper .el-figrow .el-figure svg{max-width:100%;width:auto;object-fit:contain}
+.el-paper.el-g1 .el-figrow .el-figure img,.el-paper.el-g2 .el-figrow .el-figure img{max-height:1.8in!important}
+.el-paper .el-figrow .el-answer{flex:none;flex-direction:column;align-items:flex-end;gap:.02in;margin:0}
