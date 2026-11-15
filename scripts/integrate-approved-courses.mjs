@@ -263,3 +263,6 @@ for(const page of fs.readdirSync(path.join(out,'worksheet-generator')).filter(na
  fs.writeFileSync(file,html);
 }
 
+
+// Attach Classroom-owned content to this newly assembled course.
+{const f=path.join(out,"grade5-main-catalog.js");fs.appendFileSync(f,"\nif(window.MK_CONTENT_UPDATES)window.MK_CONTENT_UPDATES.attach();\n");}

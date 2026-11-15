@@ -9618,6 +9618,317 @@
     "AP CHA-4.E"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_model_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "cal-aoi-s02-cp2-v001",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Sand enters a pile at E(t) = 11 − 3t tons per hour, for 0 ≤ t ≤ 10 (negative values mean sand is removed). At what time is the amount of sand greatest?",
+   "answer": "t = 11/3 hours",
+   "solutionSteps": [
+    "The amount increases while E(t) > 0 and decreases after.",
+    "E(t) = 0 at t = 11/3.",
+    "Greatest at t = 11/3."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-max). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp2-v002",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Water enters a pool at (6t + 9) gal/min and drains at a constant 10 gal/min. What is the net change in the water over 0 ≤ t ≤ 6 minutes?",
+   "answer": "102 gal",
+   "solutionSteps": [
+    "Net change = ∫₀^6 [(6t + 9) − 10] dt.",
+    "= [3t² + -1t]₀^6 = 102 gal."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-net). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp2-v003",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "r(t) is the rate (liters per minute) at which water flows into a tank. In context, what does ∫₀⁶ r(t) dt represent?",
+   "answer": "the total change in the amount of water, in liters, from t = 0 to t = 6 minutes",
+   "solutionSteps": [
+    "Integrating a rate gives a total change (net accumulation)."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-interp). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "the total change in the amount of water, in liters, from t = 0 to t = 6 minutes",
+     "correct": true
+    },
+    {
+     "text": "the average rate of flow over the first 6 minutes",
+     "correct": false
+    },
+    {
+     "text": "the rate of flow at t = 6 minutes",
+     "correct": false
+    },
+    {
+     "text": "the amount of water in the tank at t = 6 minutes",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-aoi-s02-cp2-v004",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Water flows into a tank at rate r(t) liters per minute. r(0) = 8, r(2) = 3, r(4) = 6, r(6) = 9, r(8) = 7. The tank holds 200 L at t = 0. Use a trapezoidal sum to estimate the amount at t = 8.",
+   "answer": "251 L",
+   "solutionSteps": [
+    "∫₀⁸ r(t) dt ≈ Σ ½(rᵢ + rᵢ₊₁)·2 = 51.",
+    "Amount ≈ 200 + 51 = 251 L."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-table). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp2-v005",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Sand enters a pile at E(t) = 19 − 3t tons per hour, for 0 ≤ t ≤ 10 (negative values mean sand is removed). At what time is the amount of sand greatest?",
+   "answer": "t = 19/3 hours",
+   "solutionSteps": [
+    "The amount increases while E(t) > 0 and decreases after.",
+    "E(t) = 0 at t = 19/3.",
+    "Greatest at t = 19/3."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-max). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp2-v006",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Water enters a pool at (2t + 3) gal/min and drains at a constant 4 gal/min. What is the net change in the water over 0 ≤ t ≤ 4 minutes?",
+   "answer": "12 gal",
+   "solutionSteps": [
+    "Net change = ∫₀^4 [(2t + 3) − 4] dt.",
+    "= [1t² + -1t]₀^4 = 12 gal."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-net). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp1-v001",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Water enters a pool at (5t + 8) gal/min and drains at a constant 7 gal/min. What is the net change in the water over 0 ≤ t ≤ 3 minutes?",
+   "answer": "25.5 gal",
+   "solutionSteps": [
+    "Net change = ∫₀^3 [(5t + 8) − 7] dt.",
+    "= [5/2t² + 1t]₀^3 = 25.5 gal."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-net). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp1-v002",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Water flows into a tank at rate r(t) liters per minute. r(0) = 5, r(2) = 10, r(4) = 8, r(6) = 13, r(8) = 4. The tank holds 187 L at t = 0. Use a trapezoidal sum to estimate the amount at t = 8.",
+   "answer": "258 L",
+   "solutionSteps": [
+    "∫₀⁸ r(t) dt ≈ Σ ½(rᵢ + rᵢ₊₁)·2 = 71.",
+    "Amount ≈ 187 + 71 = 258 L."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-table). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp1-v003",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sand enters a pile at E(t) = 20 − 6t tons per hour, for 0 ≤ t ≤ 10 (negative values mean sand is removed). At what time is the amount of sand greatest?",
+   "answer": "t = 10/3 hours",
+   "solutionSteps": [
+    "The amount increases while E(t) > 0 and decreases after.",
+    "E(t) = 0 at t = 10/3.",
+    "Greatest at t = 10/3."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-max). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp1-v004",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Water enters a pool at (1t + 7) gal/min and drains at a constant 2 gal/min. What is the net change in the water over 0 ≤ t ≤ 7 minutes?",
+   "answer": "59.5 gal",
+   "solutionSteps": [
+    "Net change = ∫₀^7 [(1t + 7) − 2] dt.",
+    "= [1/2t² + 5t]₀^7 = 59.5 gal."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-net). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp1-v005",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Water flows into a tank at rate r(t) liters per minute. r(0) = 4, r(2) = 11, r(4) = 9, r(6) = 5, r(8) = 5. The tank holds 84 L at t = 0. Use a trapezoidal sum to estimate the amount at t = 8.",
+   "answer": "143 L",
+   "solutionSteps": [
+    "∫₀⁸ r(t) dt ≈ Σ ½(rᵢ + rᵢ₊₁)·2 = 59.",
+    "Amount ≈ 84 + 59 = 143 L."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-table). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-cp1-v006",
+   "skillId": "applications-integrals-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Sand enters a pile at E(t) = 30 − 2t tons per hour, for 0 ≤ t ≤ 10 (negative values mean sand is removed). At what time is the amount of sand greatest?",
+   "answer": "t = 10 hours",
+   "solutionSteps": [
+    "The amount increases while E(t) > 0 and decreases after.",
+    "E(t) > 0 on the whole interval, so the maximum is at the end.",
+    "Greatest at t = 10."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-max). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-honors-v001",
+   "skillId": "applications-integrals-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Water flows into a tank at rate r(t) liters per minute. r(0) = 7, r(2) = 15, r(4) = 8, r(6) = 7, r(8) = 6. The tank holds 107 L at t = 0. Use a trapezoidal sum to estimate the amount at t = 8.",
+   "answer": "180 L",
+   "solutionSteps": [
+    "∫₀⁸ r(t) dt ≈ Σ ½(rᵢ + rᵢ₊₁)·2 = 73.",
+    "Amount ≈ 107 + 73 = 180 L."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-table). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-honors-v002",
+   "skillId": "applications-integrals-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Sand enters a pile at E(t) = 17 − 3t tons per hour, for 0 ≤ t ≤ 10 (negative values mean sand is removed). At what time is the amount of sand greatest?",
+   "answer": "t = 17/3 hours",
+   "solutionSteps": [
+    "The amount increases while E(t) > 0 and decreases after.",
+    "E(t) = 0 at t = 17/3.",
+    "Greatest at t = 17/3."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-max). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-honors-v003",
+   "skillId": "applications-integrals-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Water enters a pool at (1t + 8) gal/min and drains at a constant 5 gal/min. What is the net change in the water over 0 ≤ t ≤ 5 minutes?",
+   "answer": "27.5 gal",
+   "solutionSteps": [
+    "Net change = ∫₀^5 [(1t + 8) − 5] dt.",
+    "= [1/2t² + 3t]₀^5 = 27.5 gal."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-net). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-honors-v004",
+   "skillId": "applications-integrals-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Water flows into a tank at rate r(t) liters per minute. r(0) = 2, r(2) = 11, r(4) = 4, r(6) = 5, r(8) = 4. The tank holds 193 L at t = 0. Use a trapezoidal sum to estimate the amount at t = 8.",
+   "answer": "239 L",
+   "solutionSteps": [
+    "∫₀⁸ r(t) dt ≈ Σ ½(rᵢ + rᵢ₊₁)·2 = 46.",
+    "Amount ≈ 193 + 46 = 239 L."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-table). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-honors-v005",
+   "skillId": "applications-integrals-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Sand enters a pile at E(t) = 31 − 3t tons per hour, for 0 ≤ t ≤ 10 (negative values mean sand is removed). At what time is the amount of sand greatest?",
+   "answer": "t = 10 hours",
+   "solutionSteps": [
+    "The amount increases while E(t) > 0 and decreases after.",
+    "E(t) > 0 on the whole interval, so the maximum is at the end.",
+    "Greatest at t = 10."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-max). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-aoi-s02-honors-v006",
+   "skillId": "applications-integrals-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Water enters a pool at (4t + 5) gal/min and drains at a constant 6 gal/min. What is the net change in the water over 0 ≤ t ≤ 7 minutes?",
+   "answer": "91 gal",
+   "solutionSteps": [
+    "Net change = ∫₀^7 [(4t + 5) − 6] dt.",
+    "= [2t² + -1t]₀^7 = 91 gal."
+   ],
+   "standards": [
+    "AP CHA-4.E"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: acc-net). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

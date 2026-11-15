@@ -87,3 +87,6 @@ for(const unit of course.units){
 fs.writeFileSync(manifestFile,JSON.stringify(native,null,2)+'\n');
 console.log('Grade 3 assembled: 11 units from FinancialAlgebra, using existing Classroom generators and Grade 3 players.');
 
+
+// Attach Classroom-owned content to this newly assembled course.
+{const f=path.join(out,"grade3-main-catalog.js");fs.appendFileSync(f,"\nif(window.MK_CONTENT_UPDATES)window.MK_CONTENT_UPDATES.attach();\n");}

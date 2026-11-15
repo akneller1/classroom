@@ -8598,6 +8598,312 @@
     "AP LIM-5.B"
    ],
    "sourceNotes": "Partner-check companion to cal-int-s03-honors-007 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "cal-int-s05-cp2-v001",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 7; f(2) = 6; f(4) = 3; f(6) = 9; f(8) = 12.",
+   "answer": "60",
+   "solutionSteps": [
+    "Right endpoints: 6·2 + 3·2 + 9·2 + 12·2 = 60."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp2-v002",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is decreasing on [0, 8]. A left Riemann sum is used to approximate ∫₀⁸ f(x) dx. Which is true?",
+   "answer": "The left sum is an overestimate, because f is decreasing.",
+   "solutionSteps": [
+    "For an increasing f, left endpoints are the lowest values on each subinterval (and highest for a decreasing f)."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-over-under). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "The left sum is an overestimate, because f is decreasing.",
+     "correct": true
+    },
+    {
+     "text": "You cannot tell without the values of f.",
+     "correct": false
+    },
+    {
+     "text": "The left sum is an underestimate, because f is decreasing.",
+     "correct": false
+    },
+    {
+     "text": "The left sum is exact, because the subintervals are equal.",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-int-s05-cp2-v003",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 8; f(2) = 1; f(4) = 11; f(6) = 4; f(8) = 12.",
+   "answer": "48",
+   "solutionSteps": [
+    "Left endpoints: 8·2 + 1·2 + 11·2 + 4·2 = 48."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp2-v004",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 9; f(2) = 5; f(4) = 3; f(6) = 7; f(8) = 3.",
+   "answer": "36",
+   "solutionSteps": [
+    "Right endpoints: 5·2 + 3·2 + 7·2 + 3·2 = 36."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp2-v005",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is increasing on [0, 8]. A left Riemann sum is used to approximate ∫₀⁸ f(x) dx. Which is true?",
+   "answer": "The left sum is an underestimate, because f is increasing.",
+   "solutionSteps": [
+    "For an increasing f, left endpoints are the lowest values on each subinterval (and highest for a decreasing f)."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-over-under). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "The left sum is exact, because the subintervals are equal.",
+     "correct": false
+    },
+    {
+     "text": "The left sum is an overestimate, because f is increasing.",
+     "correct": false
+    },
+    {
+     "text": "The left sum is an underestimate, because f is increasing.",
+     "correct": true
+    },
+    {
+     "text": "You cannot tell without the values of f.",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-int-s05-cp2-v006",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 2; f(2) = 11; f(4) = 8; f(6) = 1; f(8) = 11.",
+   "answer": "44",
+   "solutionSteps": [
+    "Left endpoints: 2·2 + 11·2 + 8·2 + 1·2 = 44."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp1-v001",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 10; f(2) = 10; f(4) = 2; f(6) = 2; f(8) = 6.",
+   "answer": "48",
+   "solutionSteps": [
+    "Left endpoints: 10·2 + 10·2 + 2·2 + 2·2 = 48."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp1-v002",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 10; f(2) = 9; f(4) = 5; f(6) = 3; f(8) = 11.",
+   "answer": "56",
+   "solutionSteps": [
+    "Right endpoints: 9·2 + 5·2 + 3·2 + 11·2 = 56."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp1-v003",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 11; f(2) = 4; f(4) = 8; f(6) = 5; f(8) = 7.",
+   "answer": "56",
+   "solutionSteps": [
+    "Left endpoints: 11·2 + 4·2 + 8·2 + 5·2 = 56."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp1-v004",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 5; f(2) = 3; f(4) = 9; f(6) = 8; f(8) = 12.",
+   "answer": "64",
+   "solutionSteps": [
+    "Right endpoints: 3·2 + 9·2 + 8·2 + 12·2 = 64."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp1-v005",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 5; f(2) = 12; f(4) = 10; f(6) = 6; f(8) = 5.",
+   "answer": "66",
+   "solutionSteps": [
+    "Left endpoints: 5·2 + 12·2 + 10·2 + 6·2 = 66."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-cp1-v006",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 8 f(x) dx. f(0) = 9; f(2) = 7; f(4) = 10; f(6) = 7; f(8) = 2.",
+   "answer": "52",
+   "solutionSteps": [
+    "Right endpoints: 7·2 + 10·2 + 7·2 + 2·2 = 52."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-honors-v001",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 6; f(1) = 5; f(3) = 3; f(4) = 2; f(6) = 6.",
+   "answer": "23",
+   "solutionSteps": [
+    "Left endpoints: 6·1 + 5·2 + 3·1 + 2·2 = 23."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-honors-v002",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 6; f(1) = 4; f(3) = 1; f(4) = 6; f(6) = 2.",
+   "answer": "16",
+   "solutionSteps": [
+    "Right endpoints: 4·1 + 1·2 + 6·1 + 2·2 = 16."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-honors-v003",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 7; f(1) = 12; f(3) = 8; f(4) = 5; f(6) = 10.",
+   "answer": "49",
+   "solutionSteps": [
+    "Left endpoints: 7·1 + 12·2 + 8·1 + 5·2 = 49."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-honors-v004",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 9; f(1) = 2; f(3) = 8; f(4) = 2; f(6) = 9.",
+   "answer": "38",
+   "solutionSteps": [
+    "Right endpoints: 2·1 + 8·2 + 2·1 + 9·2 = 38."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-honors-v005",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use a left Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 1; f(1) = 10; f(3) = 2; f(4) = 2; f(6) = 11.",
+   "answer": "27",
+   "solutionSteps": [
+    "Left endpoints: 1·1 + 10·2 + 2·1 + 2·2 = 27."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-left). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-int-s05-honors-v006",
+   "skillId": "antiderivatives-definite-integrals-skill-05",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use a right Riemann sum with the subintervals in the table to approximate ∫ from 0 to 6 f(x) dx. f(0) = 3; f(1) = 3; f(3) = 12; f(4) = 1; f(6) = 9.",
+   "answer": "46",
+   "solutionSteps": [
+    "Right endpoints: 3·1 + 12·2 + 1·1 + 9·2 = 46."
+   ],
+   "standards": [
+    "AP LIM-5.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: riemann-right). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

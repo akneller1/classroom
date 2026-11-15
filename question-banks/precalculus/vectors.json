@@ -13475,6 +13475,348 @@
     "A-CED.A.2"
    ],
    "sourceNotes": "Original Claude-authored item (family: par_point_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pc-vec-s07-cp2-v001",
+   "skillId": "vectors-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A = [-1, -2; 0, -3] and Av = ⟨-5, -6⟩. Find v.",
+   "answer": "⟨1, 2⟩",
+   "solutionSteps": [
+    "Let v = ⟨x, y⟩: -1x + -2y = -5 and 0x + -3y = -6.",
+    "Solve: x = 1, y = 2."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp2-v002",
+   "skillId": "vectors-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A = [2, 0; -2, 3] is applied to every point of a square with area 4. What is the area of the image?",
+   "answer": "24",
+   "solutionSteps": [
+    "det A = 2·3 − 0·-2 = 6.",
+    "Areas are multiplied by |det A|: 6·4 = 24."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp2-v003",
+   "skillId": "vectors-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "What transformation does A = [2, 0; 0, 2] perform on a vector v (by computing Av)?",
+   "answer": "dilation by a factor of 2",
+   "solutionSteps": [
+    "Apply A to ⟨1, 0⟩ and ⟨0, 1⟩ and see where they go.",
+    "A is a dilation by a factor of 2."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "rotation 90° counterclockwise",
+     "correct": false
+    },
+    {
+     "text": "rotation 180°",
+     "correct": false
+    },
+    {
+     "text": "reflection across the x-axis",
+     "correct": false
+    },
+    {
+     "text": "dilation by a factor of 2",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-vec-s07-cp2-v004",
+   "skillId": "vectors-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A = [-3, -1; 2, -3] and Av = ⟨9, -17⟩. Find v.",
+   "answer": "⟨-4, 3⟩",
+   "solutionSteps": [
+    "Let v = ⟨x, y⟩: -3x + -1y = 9 and 2x + -3y = -17.",
+    "Solve: x = -4, y = 3."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp2-v005",
+   "skillId": "vectors-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A = [2, 1; 3, 3] is applied to every point of a square with area 3. What is the area of the image?",
+   "answer": "9",
+   "solutionSteps": [
+    "det A = 2·3 − 1·3 = 3.",
+    "Areas are multiplied by |det A|: 3·3 = 9."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp2-v006",
+   "skillId": "vectors-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "What transformation does A = [0, -1; 1, 0] perform on a vector v (by computing Av)?",
+   "answer": "rotation 90° counterclockwise",
+   "solutionSteps": [
+    "Apply A to ⟨1, 0⟩ and ⟨0, 1⟩ and see where they go.",
+    "A is a rotation 90° counterclockwise."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "rotation 90° counterclockwise",
+     "correct": true
+    },
+    {
+     "text": "rotation 180°",
+     "correct": false
+    },
+    {
+     "text": "reflection across the y-axis",
+     "correct": false
+    },
+    {
+     "text": "reflection across the x-axis",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-vec-s07-cp1-v001",
+   "skillId": "vectors-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rotate v = ⟨-4, -1⟩ by 90° counterclockwise using R = [0, −1; 1, 0], then reflect the result across the x-axis using F = [1, 0; 0, −1]. Find FRv.",
+   "answer": "⟨1, 4⟩",
+   "solutionSteps": [
+    "Rv = ⟨1, -4⟩.",
+    "F(Rv) = ⟨1, 4⟩."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp1-v002",
+   "skillId": "vectors-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A = [4, 3; 2, 2] is applied to every point of a square with area 2. What is the area of the image?",
+   "answer": "4",
+   "solutionSteps": [
+    "det A = 4·2 − 3·2 = 2.",
+    "Areas are multiplied by |det A|: 2·2 = 4."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp1-v003",
+   "skillId": "vectors-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What transformation does A = [-1, 0; 0, 1] perform on a vector v (by computing Av)?",
+   "answer": "reflection across the y-axis",
+   "solutionSteps": [
+    "Apply A to ⟨1, 0⟩ and ⟨0, 1⟩ and see where they go.",
+    "A is a reflection across the y-axis."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-identify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "rotation 90° counterclockwise",
+     "correct": false
+    },
+    {
+     "text": "reflection across the y-axis",
+     "correct": true
+    },
+    {
+     "text": "rotation 180°",
+     "correct": false
+    },
+    {
+     "text": "reflection across the x-axis",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-vec-s07-cp1-v004",
+   "skillId": "vectors-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A = [0, 4; -2, 4] and Av = ⟨12, 16⟩. Find v.",
+   "answer": "⟨-2, 3⟩",
+   "solutionSteps": [
+    "Let v = ⟨x, y⟩: 0x + 4y = 12 and -2x + 4y = 16.",
+    "Solve: x = -2, y = 3."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp1-v005",
+   "skillId": "vectors-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Rotate v = ⟨0, 3⟩ by 90° counterclockwise using R = [0, −1; 1, 0], then reflect the result across the x-axis using F = [1, 0; 0, −1]. Find FRv.",
+   "answer": "⟨-3, 0⟩",
+   "solutionSteps": [
+    "Rv = ⟨-3, 0⟩.",
+    "F(Rv) = ⟨-3, 0⟩."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-cp1-v006",
+   "skillId": "vectors-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A = [3, 0; -1, 4] is applied to every point of a square with area 5. What is the area of the image?",
+   "answer": "60",
+   "solutionSteps": [
+    "det A = 3·4 − 0·-1 = 12.",
+    "Areas are multiplied by |det A|: 12·5 = 60."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-honors-v001",
+   "skillId": "vectors-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A = [4, 2; 1, 2] is applied to every point of a square with area 5. What is the area of the image?",
+   "answer": "30",
+   "solutionSteps": [
+    "det A = 4·2 − 2·1 = 6.",
+    "Areas are multiplied by |det A|: 6·5 = 30."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-honors-v002",
+   "skillId": "vectors-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A = [4, 2; 0, 1] and Av = ⟨8, -2⟩. Find v.",
+   "answer": "⟨3, -2⟩",
+   "solutionSteps": [
+    "Let v = ⟨x, y⟩: 4x + 2y = 8 and 0x + 1y = -2.",
+    "Solve: x = 3, y = -2."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-honors-v003",
+   "skillId": "vectors-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Rotate v = ⟨2, 4⟩ by 90° counterclockwise using R = [0, −1; 1, 0], then reflect the result across the x-axis using F = [1, 0; 0, −1]. Find FRv.",
+   "answer": "⟨-4, -2⟩",
+   "solutionSteps": [
+    "Rv = ⟨-4, 2⟩.",
+    "F(Rv) = ⟨-4, -2⟩."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-honors-v004",
+   "skillId": "vectors-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A = [3, 2; 3, 1] is applied to every point of a square with area 2. What is the area of the image?",
+   "answer": "6",
+   "solutionSteps": [
+    "det A = 3·1 − 2·3 = -3.",
+    "Areas are multiplied by |det A|: 3·2 = 6."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-honors-v005",
+   "skillId": "vectors-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Rotate v = ⟨2, -3⟩ by 90° counterclockwise using R = [0, −1; 1, 0], then reflect the result across the x-axis using F = [1, 0; 0, −1]. Find FRv.",
+   "answer": "⟨3, -2⟩",
+   "solutionSteps": [
+    "Rv = ⟨3, 2⟩.",
+    "F(Rv) = ⟨3, -2⟩."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-vec-s07-honors-v006",
+   "skillId": "vectors-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A = [1, -1; 3, 2] is applied to every point of a square with area 2. What is the area of the image?",
+   "answer": "10",
+   "solutionSteps": [
+    "det A = 1·2 − -1·3 = 5.",
+    "Areas are multiplied by |det A|: 5·2 = 10."
+   ],
+   "standards": [
+    "N-VM.C.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mv-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

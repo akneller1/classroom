@@ -1149,5 +1149,9 @@
       })};
     });
   }
+  // Reviewed content additions, November 15, 2026. Existing skill IDs stay stable.
+  skills["algebra"]["relations-functions"].push("Square-Root and Cube-Root Functions", "Piecewise, Step, and Absolute Value Functions");
+  skills["geometry"]["foundations-geometry"].push("Compass-and-Straightedge Constructions");
+  skills["geometry"]["area-surface-area-volume"].push("Cross-Sections and Solids of Rotation", "Modeling with Density and Design");
   root.MK_COURSE_CATALOG = {skills:skills,getSkills:get,getSkillRecords:getSkillRecords,listCourses:listCourses,version:1};
 })(typeof window !== 'undefined' ? window : globalThis);

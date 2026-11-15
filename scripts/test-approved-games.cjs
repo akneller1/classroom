@@ -31,7 +31,7 @@ let c=Array(42).fill(null);[35,36,37,38].forEach(i=>c[i]=2);assert.equal(resolve
 assert.equal(resolve(Array(16).fill('-'),'picture-reveal').type,'complete');
 assert.equal(resolve(Array(16).fill(null),'picture-reveal'),null);
 assert.ok(html.includes("['math6','prealgebra7','prealgebra']"),'Middle-school course detection required');
-for(const label of ['Remedial','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
+for(const label of ['Support','Standard','Advanced'])assert.ok(html.includes("text='"+label+"'"),'Missing middle-school label '+label);
 assert.ok(html.includes('id="agInstructions"'), 'Student instructions must be visible');
 assert.ok(html.includes('role="status" aria-live="polite"'), 'Question and game feedback should be announced');
 assert.ok(html.includes('button[aria-pressed="true"]'), 'Selected answer needs a visible state');

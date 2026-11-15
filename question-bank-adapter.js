@@ -6,7 +6,7 @@
   'use strict';
   var catalog = root.MK_COURSE_CATALOG;
   var banks = Object.create(null);
-  var FORMATS = ['short-answer', 'multiple-choice', 'select-all', 'open-response'];
+  var FORMATS = ['short-answer', 'multiple-choice', 'select-all', 'open-response', 'plot'];
   var LEVELS = ['cp2', 'cp1', 'honors'];
   function copy(value) { return JSON.parse(JSON.stringify(value)); }
   function key(courseId, unitId) { return courseId + '/' + unitId; }
@@ -69,6 +69,10 @@
         if (choices.length < 2 || (q.format === 'multiple-choice' && n !== 1) || (q.format === 'select-all' && n < 2)) errors.push(where + ' invalid choices');
       }
       if (q.format === 'open-response' && (!Array.isArray(q.parts) || q.parts.length < 4)) errors.push(where + ' needs four parts');
+      if (q.format === 'plot') {
+        var plot=q.plot, axis=plot&&(plot.grid||plot.numberLine), tools=['number-line-point','points','number-line-inequality','line','system','region','abs','parabola','sqrt','cbrt','exponential'];
+        if(!plot||tools.indexOf(plot.tool)<0||!plot.target||!axis||!plot.feedback||!plot.answerKey||typeof plot.answerKey.alt!=='string'||!plot.answerKey.alt.trim()||typeof plot.answerKey.src!=='string'||!/^question-banks\/assets\/[a-zA-Z0-9_/-]+\.png$/.test(plot.answerKey.src)||plot.answerKey.src.includes('..'))errors.push(where+' invalid plot specification');
+      }
       if (q.diagram) {
         var d=q.diagram, spec=d.spec||{};
         if (d.type==='image') {

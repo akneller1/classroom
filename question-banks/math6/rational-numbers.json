@@ -11356,6 +11356,2182 @@
     "6.NS.C.8"
    ],
    "sourceNotes": "Original Claude-authored item (family: g6_s12_distancee_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-rn-s07-cp2-p001",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(-6, 5), Q(-5, 6).",
+   "answer": "P(-6, 5); Q(-5, 6)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -6,
+       5
+      ],
+      [
+       -5,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -6,
+        5
+       ],
+       [
+        -5,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          -6
+         ],
+         [
+          6,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-091.png",
+     "alt": "Coordinate grid with points P(-6, 5), Q(-5, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p002",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(1, -7), Q(-4, -3).",
+   "answer": "P(1, -7); Q(-4, -3)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       1,
+       -7
+      ],
+      [
+       -4,
+       -3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        -7
+       ],
+       [
+        -4,
+        -3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -7,
+          1
+         ],
+         [
+          -3,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-092.png",
+     "alt": "Coordinate grid with points P(1, -7), Q(-4, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p003",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(3, -6), Q(4, 5).",
+   "answer": "P(3, -6); Q(4, 5)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       3,
+       -6
+      ],
+      [
+       4,
+       5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        3,
+        -6
+       ],
+       [
+        4,
+        5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -6,
+          3
+         ],
+         [
+          5,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-093.png",
+     "alt": "Coordinate grid with points P(3, -6), Q(4, 5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p004",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(-2, 4), Q(-5, 6).",
+   "answer": "P(-2, 4); Q(-5, 6)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -2,
+       4
+      ],
+      [
+       -5,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        4
+       ],
+       [
+        -5,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          -2
+         ],
+         [
+          6,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-094.png",
+     "alt": "Coordinate grid with points P(-2, 4), Q(-5, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p005",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(4, -3), Q(-2, -6).",
+   "answer": "P(4, -3); Q(-2, -6)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       4,
+       -3
+      ],
+      [
+       -2,
+       -6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        4,
+        -3
+       ],
+       [
+        -2,
+        -6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -3,
+          4
+         ],
+         [
+          -6,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-095.png",
+     "alt": "Coordinate grid with points P(4, -3), Q(-2, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p006",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(5, 4), Q(-7, -3).",
+   "answer": "P(5, 4); Q(-7, -3)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       5,
+       4
+      ],
+      [
+       -7,
+       -3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        5,
+        4
+       ],
+       [
+        -7,
+        -3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          5
+         ],
+         [
+          -3,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-096.png",
+     "alt": "Coordinate grid with points P(5, 4), Q(-7, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p007",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(-7, 1), Q(-3, -5).",
+   "answer": "P(-7, 1); Q(-3, -5)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -7,
+       1
+      ],
+      [
+       -3,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -7,
+        1
+       ],
+       [
+        -3,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          1,
+          -7
+         ],
+         [
+          -5,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-097.png",
+     "alt": "Coordinate grid with points P(-7, 1), Q(-3, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp2-p008",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Plot P(-1, -2), Q(5, 6).",
+   "answer": "P(-1, -2); Q(5, 6)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -1,
+       -2
+      ],
+      [
+       5,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        -2
+       ],
+       [
+        5,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          -1
+         ],
+         [
+          6,
+          5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-098.png",
+     "alt": "Coordinate grid with points P(-1, -2), Q(5, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p001",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(-6, -5), Q(4, -7).",
+   "answer": "P(-6, -5); Q(4, -7)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -6,
+       -5
+      ],
+      [
+       4,
+       -7
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -6,
+        -5
+       ],
+       [
+        4,
+        -7
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          -6
+         ],
+         [
+          -7,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-099.png",
+     "alt": "Coordinate grid with points P(-6, -5), Q(4, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p002",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(-2, -4), Q(4, 6).",
+   "answer": "P(-2, -4); Q(4, 6)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -2,
+       -4
+      ],
+      [
+       4,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        -4
+       ],
+       [
+        4,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          -2
+         ],
+         [
+          6,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-100.png",
+     "alt": "Coordinate grid with points P(-2, -4), Q(4, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p003",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(-6, 2), Q(3, -5).",
+   "answer": "P(-6, 2); Q(3, -5)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -6,
+       2
+      ],
+      [
+       3,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -6,
+        2
+       ],
+       [
+        3,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          -6
+         ],
+         [
+          -5,
+          3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-101.png",
+     "alt": "Coordinate grid with points P(-6, 2), Q(3, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p004",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(2, -4), Q(6, -3).",
+   "answer": "P(2, -4); Q(6, -3)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       2,
+       -4
+      ],
+      [
+       6,
+       -3
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        2,
+        -4
+       ],
+       [
+        6,
+        -3
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          2
+         ],
+         [
+          -3,
+          6
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-102.png",
+     "alt": "Coordinate grid with points P(2, -4), Q(6, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p005",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(1, -5), Q(-1, 4).",
+   "answer": "P(1, -5); Q(-1, 4)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       1,
+       -5
+      ],
+      [
+       -1,
+       4
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        -5
+       ],
+       [
+        -1,
+        4
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -5,
+          1
+         ],
+         [
+          4,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-103.png",
+     "alt": "Coordinate grid with points P(1, -5), Q(-1, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p006",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(5, -4), Q(-3, 7).",
+   "answer": "P(5, -4); Q(-3, 7)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       5,
+       -4
+      ],
+      [
+       -3,
+       7
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        5,
+        -4
+       ],
+       [
+        -3,
+        7
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -4,
+          5
+         ],
+         [
+          7,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-104.png",
+     "alt": "Coordinate grid with points P(5, -4), Q(-3, 7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p007",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(6, 7), Q(-4, -5).",
+   "answer": "P(6, 7); Q(-4, -5)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       6,
+       7
+      ],
+      [
+       -4,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        6,
+        7
+       ],
+       [
+        -4,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          7,
+          6
+         ],
+         [
+          -5,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-105.png",
+     "alt": "Coordinate grid with points P(6, 7), Q(-4, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-cp1-p008",
+   "skillId": "rational-numbers-skill-07",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Plot P(-3, 4), Q(7, 6).",
+   "answer": "P(-3, 4); Q(7, 6)",
+   "solutionSteps": [
+    "Start at the origin. Move left or right for x (negative is left).",
+    "Then move up or down for y (negative is down)."
+   ],
+   "standards": [
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q"
+    ],
+    "target": {
+     "points": [
+      [
+       -3,
+       4
+      ],
+      [
+       7,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        4
+       ],
+       [
+        7,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          4,
+          -3
+         ],
+         [
+          6,
+          7
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-106.png",
+     "alt": "Coordinate grid with points P(-3, 4), Q(7, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p001",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(4, -6). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(4, -6); Q(-4, -6); R(4, 6)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(-4, -6).",
+    "Reflecting across the x-axis changes the sign of y: R(4, 6)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       4,
+       -6
+      ],
+      [
+       -4,
+       -6
+      ],
+      [
+       4,
+       6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        4,
+        -6
+       ],
+       [
+        -4,
+        -6
+       ],
+       [
+        4,
+        6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -6,
+          4
+         ],
+         [
+          -6,
+          -4
+         ],
+         [
+          6,
+          4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-107.png",
+     "alt": "Coordinate grid with points P(4, -6), Q(-4, -6), R(4, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p002",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(-2, 7). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(-2, 7); Q(2, 7); R(-2, -7)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(2, 7).",
+    "Reflecting across the x-axis changes the sign of y: R(-2, -7)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       -2,
+       7
+      ],
+      [
+       2,
+       7
+      ],
+      [
+       -2,
+       -7
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -2,
+        7
+       ],
+       [
+        2,
+        7
+       ],
+       [
+        -2,
+        -7
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          7,
+          -2
+         ],
+         [
+          7,
+          2
+         ],
+         [
+          -7,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-108.png",
+     "alt": "Coordinate grid with points P(-2, 7), Q(2, 7), R(-2, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p003",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(1, 5). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(1, 5); Q(-1, 5); R(1, -5)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(-1, 5).",
+    "Reflecting across the x-axis changes the sign of y: R(1, -5)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       1,
+       5
+      ],
+      [
+       -1,
+       5
+      ],
+      [
+       1,
+       -5
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        1,
+        5
+       ],
+       [
+        -1,
+        5
+       ],
+       [
+        1,
+        -5
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          5,
+          1
+         ],
+         [
+          5,
+          -1
+         ],
+         [
+          -5,
+          1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-109.png",
+     "alt": "Coordinate grid with points P(1, 5), Q(-1, 5), R(1, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p004",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(-6, 7). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(-6, 7); Q(6, 7); R(-6, -7)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(6, 7).",
+    "Reflecting across the x-axis changes the sign of y: R(-6, -7)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       -6,
+       7
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       -6,
+       -7
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -6,
+        7
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        -6,
+        -7
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          7,
+          -6
+         ],
+         [
+          7,
+          6
+         ],
+         [
+          -7,
+          -6
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-110.png",
+     "alt": "Coordinate grid with points P(-6, 7), Q(6, 7), R(-6, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p005",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(-3, -2). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(-3, -2); Q(3, -2); R(-3, 2)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(3, -2).",
+    "Reflecting across the x-axis changes the sign of y: R(-3, 2)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       -3,
+       -2
+      ],
+      [
+       3,
+       -2
+      ],
+      [
+       -3,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -3,
+        -2
+       ],
+       [
+        3,
+        -2
+       ],
+       [
+        -3,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          -3
+         ],
+         [
+          -2,
+          3
+         ],
+         [
+          2,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-111.png",
+     "alt": "Coordinate grid with points P(-3, -2), Q(3, -2), R(-3, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p006",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(5, 6). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(5, 6); Q(-5, 6); R(5, -6)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(-5, 6).",
+    "Reflecting across the x-axis changes the sign of y: R(5, -6)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       5,
+       6
+      ],
+      [
+       -5,
+       6
+      ],
+      [
+       5,
+       -6
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        5,
+        6
+       ],
+       [
+        -5,
+        6
+       ],
+       [
+        5,
+        -6
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          6,
+          5
+         ],
+         [
+          6,
+          -5
+         ],
+         [
+          -6,
+          5
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-112.png",
+     "alt": "Coordinate grid with points P(5, 6), Q(-5, 6), R(5, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p007",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(-1, 2). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(-1, 2); Q(1, 2); R(-1, -2)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(1, 2).",
+    "Reflecting across the x-axis changes the sign of y: R(-1, -2)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       -1,
+       2
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       -1,
+       -2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -1,
+        2
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        -1,
+        -2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          2,
+          -1
+         ],
+         [
+          2,
+          1
+         ],
+         [
+          -2,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-113.png",
+     "alt": "Coordinate grid with points P(-1, 2), Q(1, 2), R(-1, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "m6-rn-s07-honors-p008",
+   "skillId": "rational-numbers-skill-07",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Plot P(-4, -2). Then plot Q, its reflection across the y-axis, and R, its reflection across the x-axis.",
+   "answer": "P(-4, -2); Q(4, -2); R(-4, 2)",
+   "solutionSteps": [
+    "Reflecting across the y-axis changes the sign of x: Q(4, -2).",
+    "Reflecting across the x-axis changes the sign of y: R(-4, 2)."
+   ],
+   "standards": [
+    "6.NS.C.6b",
+    "6.NS.C.6c"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-points-4q). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "points",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "labels": [
+     "P",
+     "Q",
+     "R"
+    ],
+    "target": {
+     "points": [
+      [
+       -4,
+       -2
+      ],
+      [
+       4,
+       -2
+      ],
+      [
+       -4,
+       2
+      ]
+     ]
+    },
+    "feedback": {
+     "position": "Not quite. Check where each point should go and try again.",
+     "swapped-coordinates": "Your point is at (y, x). Move across the x-axis first, then up or down.",
+     "count": "Check how many points you need to place."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        -4,
+        -2
+       ],
+       [
+        4,
+        -2
+       ],
+       [
+        -4,
+        2
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          -2,
+          -4
+         ],
+         [
+          -2,
+          4
+         ],
+         [
+          2,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "swapped-coordinates"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/m6-pts-114.png",
+     "alt": "Coordinate grid with points P(-4, -2), Q(4, -2), R(-4, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }

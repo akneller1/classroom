@@ -67,7 +67,7 @@
   NS.policyOf = policyOf;
   function policyFor(cfg, si) {
     var policy = policyOf(cfg), set = sets[cfg.unitId];
-    if (set && set.authoredBank && NS.authoredFormatForMenu)
+    if (set && (set.authoredBank||set.supplementalBank) && NS.authoredFormatForMenu)
       policy.authoredFormats = NS.authoredFormatForMenu(cfg.unitId, NS.sectionFormat(cfg, si));
     if(NS.sectionFormat(cfg,si)==='diagram')policy.authoredDiagrams=true;
     return policy;

@@ -8028,3 +8028,10 @@ u.artifacts.push({title:"Input-Output Grid",path:path,thumb:"thumbs/input-output
   });
  });
 })(window);
+
+/* Reviewed graphing practice, available only where a plotted question bank exists. */
+(function(G){var units={"grade5": ["coordinate-plane-graphing"], "math6": ["inequalities", "rational-numbers"], "grade3": ["understanding-fractions"], "algebra": ["exponential-functions", "inequalities", "quadratics", "linear-equations-slope", "systems-of-equations", "relations-functions"], "prealgebra7": ["solving-equations-inequalities", "linear-functions-graphing"], "grade2": ["length-number-line"], "algebra2": ["functions-transformations", "quadratic-functions-complex-numbers", "radicals-rational-exponents"], "prealgebra": ["linear-functional-relationships", "systems-linear-equations"]};function attach(){G.LIBRARY.courses.forEach(function(c){c.units.forEach(function(u){if(!(units[c.id]||[]).includes(u.id)||u.artifacts.some(function(a){return a.bankFormat==='plot';}))return;u.artifacts.push({title:'Graphing Practice',type:'Study Guide',path:'worksheet-generator/plot-practice.html?course='+c.id+'&unit='+u.id,bankFormat:'plot',thumb:'thumbs/practice-test.svg',description:'Build graphs with draggable points; get feedback and worked solutions.',level:['CP2','CP1','Honors'],topics:[u.name],added:'2026-11-15'});});});}G.MK_CONTENT_UPDATES={attach:attach};attach();})(window);
+
+(function(G){var c=G.LIBRARY.courses.find(c=>c.id==="algebra"),u=c.units.find(u=>u.id==="relations-functions");u.artifacts.push({title:"Function Families Teaching Notes and Card Sort",type:"Teacher Guide",path:"artifacts/content-algebra1-teaching-notes/index.html",level:["CP2","CP1","Honors"],added:"2026-11-15"});})(window);
+
+(function(G){var c=G.LIBRARY.courses.find(c=>c.id==="geometry"),u=c.units.find(u=>u.id==="foundations-geometry");u.artifacts.push({title:"Constructions and Solids Teaching Notes",type:"Teacher Guide",path:"artifacts/content-geometry-teaching-notes/index.html",level:["CP2","CP1","Honors"],added:"2026-11-15"});})(window);

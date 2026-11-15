@@ -1,0 +1,4682 @@
+{
+ "schemaVersion": 1,
+ "courseId": "algebra",
+ "unitId": "linear-equations-slope",
+ "questions": [
+  {
+   "id": "alg1-les-s04-cp2-p001",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −x − 4. Drag two points on the line.",
+   "answer": "y = −x − 4, through (0, -4) and (-6, 2)",
+   "solutionSteps": [
+    "Slope m = -1 and y-intercept b = -4.",
+    "Plot (0, -4), then move down 1 and right 1 to (1, -5)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "-4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-4"
+       ],
+       [
+        "-6",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          1,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-209.png",
+     "alt": "Coordinate grid with the line y = −x − 4 through (0, -4) and (-6, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp2-p002",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −2x + 3. Drag two points on the line.",
+   "answer": "y = −2x + 3, through (0, 3) and (-2, 7)",
+   "solutionSteps": [
+    "Slope m = -2 and y-intercept b = 3.",
+    "Plot (0, 3), then move down 2 and right 1 to (1, 1)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-2",
+        "7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          5
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-210.png",
+     "alt": "Coordinate grid with the line y = −2x + 3 through (0, 3) and (-2, 7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp2-p003",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −2x + 2. Drag two points on the line.",
+   "answer": "y = −2x + 2, through (0, 2) and (-3, 8)",
+   "solutionSteps": [
+    "Slope m = -2 and y-intercept b = 2.",
+    "Plot (0, 2), then move down 2 and right 1 to (1, 0)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-3",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          1
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          1,
+          4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-211.png",
+     "alt": "Coordinate grid with the line y = −2x + 2 through (0, 2) and (-3, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp2-p004",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = x + 4. Drag two points on the line.",
+   "answer": "y = x + 4, through (0, 4) and (-6, -2)",
+   "solutionSteps": [
+    "Slope m = 1 and y-intercept b = 4.",
+    "Plot (0, 4), then move up 1 and right 1 to (1, 5)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "-6",
+        "-2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-212.png",
+     "alt": "Coordinate grid with the line y = x + 4 through (0, 4) and (-6, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp2-p005",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −x + 3. Drag two points on the line.",
+   "answer": "y = −x + 3, through (0, 3) and (-5, 8)",
+   "solutionSteps": [
+    "Slope m = -1 and y-intercept b = 3.",
+    "Plot (0, 3), then move down 1 and right 1 to (1, 2)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-5",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-213.png",
+     "alt": "Coordinate grid with the line y = −x + 3 through (0, 3) and (-5, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp2-p006",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = −3x + 3. Drag two points on the line.",
+   "answer": "y = −3x + 3, through (0, 3) and (-1, 6)",
+   "solutionSteps": [
+    "Slope m = -3 and y-intercept b = 3.",
+    "Plot (0, 3), then move down 3 and right 1 to (1, 0)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-3",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-1",
+        "6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          1
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-215.png",
+     "alt": "Coordinate grid with the line y = −3x + 3 through (0, 3) and (-1, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp2-p001",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x + y = -3. Drag two points on the line.",
+   "answer": "y = −x − 3, through (0, -3) and (-6, 3)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope -1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-6",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-217.png",
+     "alt": "Coordinate grid with the line y = −x − 3 through (0, -3) and (-6, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp2-p002",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph 3x + y = 5. Drag two points on the line.",
+   "answer": "y = −3x + 5, through (0, 5) and (-1, 8)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −3x + 5.",
+    "Plot the y-intercept (0, 5) and use the slope -3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-3",
+     "b": "5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "5"
+       ],
+       [
+        "-1",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          6
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          8
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-218.png",
+     "alt": "Coordinate grid with the line y = −3x + 5 through (0, 5) and (-1, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp2-p003",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph 2x − y = 5. Drag two points on the line.",
+   "answer": "y = 2x − 5, through (0, -5) and (-1, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 2x − 5.",
+    "Plot the y-intercept (0, -5) and use the slope 2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "-5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-5"
+       ],
+       [
+        "-1",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -5
+         ],
+         [
+          1,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-219.png",
+     "alt": "Coordinate grid with the line y = 2x − 5 through (0, -5) and (-1, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp2-p004",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph 2x + y = -3. Drag two points on the line.",
+   "answer": "y = −2x − 3, through (0, -3) and (-5, 7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −2x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope -2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-5",
+        "7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-220.png",
+     "alt": "Coordinate grid with the line y = −2x − 3 through (0, -3) and (-5, 7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp2-p005",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph 2x + y = 4. Drag two points on the line.",
+   "answer": "y = −2x + 4, through (0, 4) and (-2, 8)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −2x + 4.",
+    "Plot the y-intercept (0, 4) and use the slope -2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "-2",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-221.png",
+     "alt": "Coordinate grid with the line y = −2x + 4 through (0, 4) and (-2, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp2-p001",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the line through (3, 1) with slope 2. Drag two points on the line.",
+   "answer": "y = 2x − 5, through (0, -5) and (-1, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 2x − 5.",
+    "Plot the y-intercept (0, -5) and use the slope 2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "-5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-5"
+       ],
+       [
+        "-1",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -5
+         ],
+         [
+          1,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-223.png",
+     "alt": "Coordinate grid with the line y = 2x − 5 through (0, -5) and (-1, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp2-p002",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the line through (2, -1) with slope 1. Drag two points on the line.",
+   "answer": "y = x − 3, through (0, -3) and (-5, -8)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope 1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-5",
+        "-8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-224.png",
+     "alt": "Coordinate grid with the line y = x − 3 through (0, -3) and (-5, -8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp2-p003",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the line through (-2, 2) with slope 1. Drag two points on the line.",
+   "answer": "y = x + 4, through (0, 4) and (-6, -2)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = x + 4.",
+    "Plot the y-intercept (0, 4) and use the slope 1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "-6",
+        "-2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-225.png",
+     "alt": "Coordinate grid with the line y = x + 4 through (0, 4) and (-6, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp2-p004",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the line through (-1, -2) with slope -1. Drag two points on the line.",
+   "answer": "y = −x − 3, through (0, -3) and (-6, 3)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope -1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-6",
+        "3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-226.png",
+     "alt": "Coordinate grid with the line y = −x − 3 through (0, -3) and (-6, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp2-p005",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the line through (0, 2) with slope 3. Drag two points on the line.",
+   "answer": "y = 3x + 2, through (0, 2) and (-3, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3x + 2.",
+    "Plot the y-intercept (0, 2) and use the slope 3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-3",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-227.png",
+     "alt": "Coordinate grid with the line y = 3x + 2 through (0, 2) and (-3, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp2-p006",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph the line through (-1, 0) with slope 3. Drag two points on the line.",
+   "answer": "y = 3x + 3, through (0, 3) and (-3, -6)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3x + 3.",
+    "Plot the y-intercept (0, 3) and use the slope 3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-3",
+        "-6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          7
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-228.png",
+     "alt": "Coordinate grid with the line y = 3x + 3 through (0, 3) and (-3, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp1-p001",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 2/3x + 3. Drag two points on the line.",
+   "answer": "y = 2/3x + 3, through (0, 3) and (-6, -1)",
+   "solutionSteps": [
+    "Slope m = 2/3 and y-intercept b = 3.",
+    "Plot (0, 3), then move up 2 and right 3 to (3, 5)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2/3",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-6",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          3,
+          6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          3,
+          1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-245.png",
+     "alt": "Coordinate grid with the line y = 2/3x + 3 through (0, 3) and (-6, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp1-p002",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −1/2x + 4. Drag two points on the line.",
+   "answer": "y = −1/2x + 4, through (0, 4) and (-6, 7)",
+   "solutionSteps": [
+    "Slope m = -1/2 and y-intercept b = 4.",
+    "Plot (0, 4), then move down 1 and right 2 to (2, 3)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/2",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "-6",
+        "7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          2,
+          4
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          2,
+          5
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-246.png",
+     "alt": "Coordinate grid with the line y = −1/2x + 4 through (0, 4) and (-6, 7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp1-p003",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −1/2x + 3. Drag two points on the line.",
+   "answer": "y = −1/2x + 3, through (0, 3) and (-6, 6)",
+   "solutionSteps": [
+    "Slope m = -1/2 and y-intercept b = 3.",
+    "Plot (0, 3), then move down 1 and right 2 to (2, 2)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/2",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-6",
+        "6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          2,
+          3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          2,
+          4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-249.png",
+     "alt": "Coordinate grid with the line y = −1/2x + 3 through (0, 3) and (-6, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp1-p004",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −2/3x + 2. Drag two points on the line.",
+   "answer": "y = −2/3x + 2, through (0, 2) and (-6, 6)",
+   "solutionSteps": [
+    "Slope m = -2/3 and y-intercept b = 2.",
+    "Plot (0, 2), then move down 2 and right 3 to (3, 0)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2/3",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-6",
+        "6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          3,
+          1
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          3,
+          4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-250.png",
+     "alt": "Coordinate grid with the line y = −2/3x + 2 through (0, 2) and (-6, 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp1-p005",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 3x + 1. Drag two points on the line.",
+   "answer": "y = 3x + 1, through (0, 1) and (-3, -8)",
+   "solutionSteps": [
+    "Slope m = 3 and y-intercept b = 1.",
+    "Plot (0, 1), then move up 3 and right 1 to (1, 4)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "1"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "1"
+       ],
+       [
+        "-3",
+        "-8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          1,
+          5
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          1
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-251.png",
+     "alt": "Coordinate grid with the line y = 3x + 1 through (0, 1) and (-3, -8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-cp1-p006",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = 3x − 4. Drag two points on the line.",
+   "answer": "y = 3x − 4, through (0, -4) and (-1, -7)",
+   "solutionSteps": [
+    "Slope m = 3 and y-intercept b = -4.",
+    "Plot (0, -4), then move up 3 and right 1 to (1, -1)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "-4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-4"
+       ],
+       [
+        "-1",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          1,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-252.png",
+     "alt": "Coordinate grid with the line y = 3x − 4 through (0, -4) and (-1, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp1-p001",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph 3x − 2y = -8. Drag two points on the line.",
+   "answer": "y = 3/2x + 4, through (0, 4) and (-6, -5)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3/2x + 4.",
+    "Plot the y-intercept (0, 4) and use the slope 3/2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3/2",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "-6",
+        "-5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          2,
+          8
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          2,
+          1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-253.png",
+     "alt": "Coordinate grid with the line y = 3/2x + 4 through (0, 4) and (-6, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp1-p002",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x + 3y = -9. Drag two points on the line.",
+   "answer": "y = −1/3x − 3, through (0, -3) and (-6, -1)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −1/3x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope -1/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/3",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-6",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          3,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          3,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-254.png",
+     "alt": "Coordinate grid with the line y = −1/3x − 3 through (0, -3) and (-6, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp1-p003",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x + 3y = 6. Drag two points on the line.",
+   "answer": "y = −1/3x + 2, through (0, 2) and (-6, 4)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −1/3x + 2.",
+    "Plot the y-intercept (0, 2) and use the slope -1/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/3",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-6",
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          3,
+          2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          3,
+          3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-255.png",
+     "alt": "Coordinate grid with the line y = −1/3x + 2 through (0, 2) and (-6, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp1-p004",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph 3x − 2y = 8. Drag two points on the line.",
+   "answer": "y = 3/2x − 4, through (0, -4) and (-2, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3/2x − 4.",
+    "Plot the y-intercept (0, -4) and use the slope 3/2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3/2",
+     "b": "-4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-4"
+       ],
+       [
+        "-2",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          2,
+          0
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          2,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-256.png",
+     "alt": "Coordinate grid with the line y = 3/2x − 4 through (0, -4) and (-2, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp1-p005",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph 3x − y = 1. Drag two points on the line.",
+   "answer": "y = 3x − 1, through (0, -1) and (-2, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3x − 1.",
+    "Plot the y-intercept (0, -1) and use the slope 3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "-1"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-1"
+       ],
+       [
+        "-2",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          0
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          1,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-257.png",
+     "alt": "Coordinate grid with the line y = 3x − 1 through (0, -1) and (-2, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-cp1-p006",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x + y = 4. Drag two points on the line.",
+   "answer": "y = −x + 4, through (0, 4) and (-4, 8)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −x + 4.",
+    "Plot the y-intercept (0, 4) and use the slope -1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "4"
+       ],
+       [
+        "-4",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          4
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          5
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-258.png",
+     "alt": "Coordinate grid with the line y = −x + 4 through (0, 4) and (-4, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp1-p001",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the line through (2, 1) with slope 2. Drag two points on the line.",
+   "answer": "y = 2x − 3, through (0, -3) and (-2, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 2x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope 2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-2",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-259.png",
+     "alt": "Coordinate grid with the line y = 2x − 3 through (0, -3) and (-2, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp1-p002",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the line through (2, 2) with slope 3. Drag two points on the line.",
+   "answer": "y = 3x − 4, through (0, -4) and (-1, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3x − 4.",
+    "Plot the y-intercept (0, -4) and use the slope 3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "-4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-4"
+       ],
+       [
+        "-1",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          1,
+          -7
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-260.png",
+     "alt": "Coordinate grid with the line y = 3x − 4 through (0, -4) and (-1, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp1-p003",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the line through (0, -5) with slope -1/2. Drag two points on the line.",
+   "answer": "y = −1/2x − 5, through (0, -5) and (-6, -2)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −1/2x − 5.",
+    "Plot the y-intercept (0, -5) and use the slope -1/2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/2",
+     "b": "-5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-5"
+       ],
+       [
+        "-6",
+        "-2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          2,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -5
+         ],
+         [
+          2,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-261.png",
+     "alt": "Coordinate grid with the line y = −1/2x − 5 through (0, -5) and (-6, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp1-p004",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the line through (3, 2) with slope -1. Drag two points on the line.",
+   "answer": "y = −x + 5, through (0, 5) and (-3, 8)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −x + 5.",
+    "Plot the y-intercept (0, 5) and use the slope -1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "5"
+       ],
+       [
+        "-3",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          6
+         ],
+         [
+          1,
+          5
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-262.png",
+     "alt": "Coordinate grid with the line y = −x + 5 through (0, 5) and (-3, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp1-p005",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the line through (0, -1) with slope -1/3. Drag two points on the line.",
+   "answer": "y = −1/3x − 1, through (0, -1) and (-6, 1)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −1/3x − 1.",
+    "Plot the y-intercept (0, -1) and use the slope -1/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/3",
+     "b": "-1"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-1"
+       ],
+       [
+        "-6",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          0
+         ],
+         [
+          3,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          3,
+          0
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-263.png",
+     "alt": "Coordinate grid with the line y = −1/3x − 1 through (0, -1) and (-6, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-cp1-p006",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph the line through (0, 2) with slope -1/3. Drag two points on the line.",
+   "answer": "y = −1/3x + 2, through (0, 2) and (-6, 4)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −1/3x + 2.",
+    "Plot the y-intercept (0, 2) and use the slope -1/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/3",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-6",
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          3,
+          2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          3,
+          3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-264.png",
+     "alt": "Coordinate grid with the line y = −1/3x + 2 through (0, 2) and (-6, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-honors-p001",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 1/3x + 2. Drag two points on the line.",
+   "answer": "y = 1/3x + 2, through (0, 2) and (-6, 0)",
+   "solutionSteps": [
+    "Slope m = 1/3 and y-intercept b = 2.",
+    "Plot (0, 2), then move up 1 and right 3 to (3, 3)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1/3",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-6",
+        "0"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          3,
+          4
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          3,
+          1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-281.png",
+     "alt": "Coordinate grid with the line y = 1/3x + 2 through (0, 2) and (-6, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-honors-p002",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = x + 1. Drag two points on the line.",
+   "answer": "y = x + 1, through (0, 1) and (-6, -5)",
+   "solutionSteps": [
+    "Slope m = 1 and y-intercept b = 1.",
+    "Plot (0, 1), then move up 1 and right 1 to (1, 2)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "1"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "1"
+       ],
+       [
+        "-6",
+        "-5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          1,
+          3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          1
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-282.png",
+     "alt": "Coordinate grid with the line y = x + 1 through (0, 1) and (-6, -5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-honors-p003",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −2x − 2. Drag two points on the line.",
+   "answer": "y = −2x − 2, through (0, -2) and (-5, 8)",
+   "solutionSteps": [
+    "Slope m = -2 and y-intercept b = -2.",
+    "Plot (0, -2), then move down 2 and right 1 to (1, -4)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2",
+     "b": "-2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-2"
+       ],
+       [
+        "-5",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          1,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          0
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-285.png",
+     "alt": "Coordinate grid with the line y = −2x − 2 through (0, -2) and (-5, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-honors-p004",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −x + 5. Drag two points on the line.",
+   "answer": "y = −x + 5, through (0, 5) and (-3, 8)",
+   "solutionSteps": [
+    "Slope m = -1 and y-intercept b = 5.",
+    "Plot (0, 5), then move down 1 and right 1 to (1, 4)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "5"
+       ],
+       [
+        "-3",
+        "8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          6
+         ],
+         [
+          1,
+          5
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-286.png",
+     "alt": "Coordinate grid with the line y = −x + 5 through (0, 5) and (-3, 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s04-honors-p005",
+   "skillId": "linear-equations-slope-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3/2x + 2. Drag two points on the line.",
+   "answer": "y = 3/2x + 2, through (0, 2) and (-6, -7)",
+   "solutionSteps": [
+    "Slope m = 3/2 and y-intercept b = 2.",
+    "Plot (0, 2), then move up 3 and right 2 to (2, 5)."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-si). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3/2",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-6",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          2,
+          6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          2,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-287.png",
+     "alt": "Coordinate grid with the line y = 3/2x + 2 through (0, 2) and (-6, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-honors-p001",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x − 3y = 12. Drag two points on the line.",
+   "answer": "y = 1/3x − 4, through (0, -4) and (-6, -6)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 1/3x − 4.",
+    "Plot the y-intercept (0, -4) and use the slope 1/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1/3",
+     "b": "-4"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-4"
+       ],
+       [
+        "-6",
+        "-6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          3,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          3,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-289.png",
+     "alt": "Coordinate grid with the line y = 1/3x − 4 through (0, -4) and (-6, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-honors-p002",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph 2x − y = -1. Drag two points on the line.",
+   "answer": "y = 2x + 1, through (0, 1) and (-4, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 2x + 1.",
+    "Plot the y-intercept (0, 1) and use the slope 2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "1"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "1"
+       ],
+       [
+        "-4",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          1,
+          4
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          1
+         ],
+         [
+          1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-290.png",
+     "alt": "Coordinate grid with the line y = 2x + 1 through (0, 1) and (-4, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-honors-p003",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x − 2y = 6. Drag two points on the line.",
+   "answer": "y = 1/2x − 3, through (0, -3) and (-6, -6)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 1/2x − 3.",
+    "Plot the y-intercept (0, -3) and use the slope 1/2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1/2",
+     "b": "-3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-3"
+       ],
+       [
+        "-6",
+        "-6"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          2,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -3
+         ],
+         [
+          2,
+          -4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-291.png",
+     "alt": "Coordinate grid with the line y = 1/2x − 3 through (0, -3) and (-6, -6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-honors-p004",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x + 2y = 4. Drag two points on the line.",
+   "answer": "y = −1/2x + 2, through (0, 2) and (-6, 5)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −1/2x + 2.",
+    "Plot the y-intercept (0, 2) and use the slope -1/2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1/2",
+     "b": "2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "2"
+       ],
+       [
+        "-6",
+        "5"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          2,
+          2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          2
+         ],
+         [
+          2,
+          3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-292.png",
+     "alt": "Coordinate grid with the line y = −1/2x + 2 through (0, 2) and (-6, 5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s05-honors-p005",
+   "skillId": "linear-equations-slope-skill-05",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph 3x − y = 2. Drag two points on the line.",
+   "answer": "y = 3x − 2, through (0, -2) and (-2, -8)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 3x − 2.",
+    "Plot the y-intercept (0, -2) and use the slope 3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-std). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "3",
+     "b": "-2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-2"
+       ],
+       [
+        "-2",
+        "-8"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          1,
+          2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          -5
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-293.png",
+     "alt": "Coordinate grid with the line y = 3x − 2 through (0, -2) and (-2, -8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-honors-p001",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the line through (-1, 2) with slope 1. Drag two points on the line.",
+   "answer": "y = x + 3, through (0, 3) and (-6, -3)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = x + 3.",
+    "Plot the y-intercept (0, 3) and use the slope 1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-6",
+        "-3"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          5
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          2
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-295.png",
+     "alt": "Coordinate grid with the line y = x + 3 through (0, 3) and (-6, -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-honors-p002",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the line through (0, -5) with slope -2/3. Drag two points on the line.",
+   "answer": "y = −2/3x − 5, through (0, -5) and (-6, -1)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −2/3x − 5.",
+    "Plot the y-intercept (0, -5) and use the slope -2/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-2/3",
+     "b": "-5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-5"
+       ],
+       [
+        "-6",
+        "-1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -4
+         ],
+         [
+          3,
+          -6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -5
+         ],
+         [
+          3,
+          -3
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-296.png",
+     "alt": "Coordinate grid with the line y = −2/3x − 5 through (0, -5) and (-6, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-honors-p003",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the line through (-1, -1) with slope -1. Drag two points on the line.",
+   "answer": "y = −x − 2, through (0, -2) and (-6, 4)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = −x − 2.",
+    "Plot the y-intercept (0, -2) and use the slope -1."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "-1",
+     "b": "-2"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "-2"
+       ],
+       [
+        "-6",
+        "4"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -1
+         ],
+         [
+          1,
+          -2
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          -2
+         ],
+         [
+          1,
+          -1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-297.png",
+     "alt": "Coordinate grid with the line y = −x − 2 through (0, -2) and (-6, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-honors-p004",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the line through (0, 3) with slope 1/3. Drag two points on the line.",
+   "answer": "y = 1/3x + 3, through (0, 3) and (-6, 1)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 1/3x + 3.",
+    "Plot the y-intercept (0, 3) and use the slope 1/3."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1/3",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-6",
+        "1"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          3,
+          5
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          3,
+          2
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-298.png",
+     "alt": "Coordinate grid with the line y = 1/3x + 3 through (0, 3) and (-6, 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-honors-p005",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the line through (0, 5) with slope 1/2. Drag two points on the line.",
+   "answer": "y = 1/2x + 5, through (0, 5) and (-6, 2)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 1/2x + 5.",
+    "Plot the y-intercept (0, 5) and use the slope 1/2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "1/2",
+     "b": "5"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "5"
+       ],
+       [
+        "-6",
+        "2"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          6
+         ],
+         [
+          2,
+          7
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          5
+         ],
+         [
+          2,
+          4
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-299.png",
+     "alt": "Coordinate grid with the line y = 1/2x + 5 through (0, 5) and (-6, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-les-s06-honors-p006",
+   "skillId": "linear-equations-slope-skill-06",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph the line through (-1, 1) with slope 2. Drag two points on the line.",
+   "answer": "y = 2x + 3, through (0, 3) and (-5, -7)",
+   "solutionSteps": [
+    "Rewrite in slope-intercept form: y = 2x + 3.",
+    "Plot the y-intercept (0, 3) and use the slope 2."
+   ],
+   "standards": [
+    "F-IF.C.7a",
+    "A-CED.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-line-ps). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "line",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "m": "2",
+     "b": "3"
+    },
+    "feedback": {
+     "same-point": "Place two different points.",
+     "intercept": "Your slope is right. Check the y-intercept: where should the line cross the y-axis?",
+     "slope-sign": "Your line slants the wrong way. A negative slope goes down from left to right.",
+     "slope-reciprocal": "You used run over rise. Slope is rise over run.",
+     "slope": "Start at the y-intercept, then use rise over run to find a second point."
+    },
+    "testVectors": {
+     "correct": {
+      "points": [
+       [
+        "0",
+        "3"
+       ],
+       [
+        "-5",
+        "-7"
+       ]
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          4
+         ],
+         [
+          1,
+          6
+         ]
+        ]
+       },
+       "expectCode": "intercept"
+      },
+      {
+       "response": {
+        "points": [
+         [
+          0,
+          3
+         ],
+         [
+          1,
+          1
+         ]
+        ]
+       },
+       "expectCode": "slope-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/line-300.png",
+     "alt": "Coordinate grid with the line y = 2x + 3 through (0, 3) and (-5, -7)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  }
+ ]
+}

@@ -9990,6 +9990,502 @@
     "AP FUN-1.A"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_ivt_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "cal-lim-s08-cp2-v001",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = 1, f(1) = -7, f(2) = 8, f(3) = 7, f(4) = -7. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "3",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 3."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-lim-s08-cp2-v002",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is continuous on [1, 5] with f(1) = -2 and f(5) = 8. Must there be a c in (1, 5) with f(c) = -1?",
+   "answer": "Yes; f is continuous on [1, 5] and -1 is between f(1) = -2 and f(5) = 8.",
+   "solutionSteps": [
+    "IVT: a continuous f takes every value between f(a) and f(b).",
+    "Yes; f is continuous on [1, 5] and -1 is between f(1) = -2 and f(5) = 8."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-guarantee). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "No; IVT only guarantees zeros.",
+     "correct": false
+    },
+    {
+     "text": "Only if f is differentiable.",
+     "correct": false
+    },
+    {
+     "text": "No; -1 must equal f(a) or f(b).",
+     "correct": false
+    },
+    {
+     "text": "Yes; f is continuous on [1, 5] and -1 is between f(1) = -2 and f(5) = 8.",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp2-v003",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 1/(x − 2). f(1) < 0 and f(3) > 0. Does IVT guarantee a zero on [1, 3]?",
+   "answer": "No; f is not continuous at x = 2, which is in the interval.",
+   "solutionSteps": [
+    "IVT requires continuity on the whole closed interval.",
+    "f is undefined at x = 2, and in fact f is never 0."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-fails). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "No; f(1) and f(3) have the same sign.",
+     "correct": false
+    },
+    {
+     "text": "Yes; f changes sign, so it has a zero.",
+     "correct": false
+    },
+    {
+     "text": "No; f is not continuous at x = 2, which is in the interval.",
+     "correct": true
+    },
+    {
+     "text": "Yes; IVT applies to every rational function.",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp2-v004",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = 5, f(1) = -8, f(2) = -6, f(3) = -9, f(4) = 6. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "2",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 2."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-lim-s08-cp2-v005",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f is continuous on [1, 2] with f(1) = -6 and f(2) = 11. Must there be a c in (1, 2) with f(c) = -1?",
+   "answer": "Yes; f is continuous on [1, 2] and -1 is between f(1) = -6 and f(2) = 11.",
+   "solutionSteps": [
+    "IVT: a continuous f takes every value between f(a) and f(b).",
+    "Yes; f is continuous on [1, 2] and -1 is between f(1) = -6 and f(2) = 11."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-guarantee). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "Yes; f is continuous on [1, 2] and -1 is between f(1) = -6 and f(2) = 11.",
+     "correct": true
+    },
+    {
+     "text": "Only if f is differentiable.",
+     "correct": false
+    },
+    {
+     "text": "No; IVT only guarantees zeros.",
+     "correct": false
+    },
+    {
+     "text": "No; -1 must equal f(a) or f(b).",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp2-v006",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 1/(x − 1). f(0) < 0 and f(2) > 0. Does IVT guarantee a zero on [0, 2]?",
+   "answer": "No; f is not continuous at x = 1, which is in the interval.",
+   "solutionSteps": [
+    "IVT requires continuity on the whole closed interval.",
+    "f is undefined at x = 1, and in fact f is never 0."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-fails). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "Yes; f changes sign, so it has a zero.",
+     "correct": false
+    },
+    {
+     "text": "No; f(0) and f(2) have the same sign.",
+     "correct": false
+    },
+    {
+     "text": "Yes; IVT applies to every rational function.",
+     "correct": false
+    },
+    {
+     "text": "No; f is not continuous at x = 1, which is in the interval.",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp1-v001",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = 3, f(1) = -9, f(2) = -3, f(3) = 2, f(4) = -9. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "3",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 3."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-lim-s08-cp1-v002",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f is continuous on [-3, 4] with f(-3) = -5 and f(4) = 15. Must there be a c in (-3, 4) with f(c) = 3?",
+   "answer": "Yes; f is continuous on [-3, 4] and 3 is between f(-3) = -5 and f(4) = 15.",
+   "solutionSteps": [
+    "IVT: a continuous f takes every value between f(a) and f(b).",
+    "Yes; f is continuous on [-3, 4] and 3 is between f(-3) = -5 and f(4) = 15."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-guarantee). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "No; IVT only guarantees zeros.",
+     "correct": false
+    },
+    {
+     "text": "Only if f is differentiable.",
+     "correct": false
+    },
+    {
+     "text": "Yes; f is continuous on [-3, 4] and 3 is between f(-3) = -5 and f(4) = 15.",
+     "correct": true
+    },
+    {
+     "text": "No; 3 must equal f(a) or f(b).",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp1-v003",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f(x) = 1/(x − 3). f(2) < 0 and f(4) > 0. Does IVT guarantee a zero on [2, 4]?",
+   "answer": "No; f is not continuous at x = 3, which is in the interval.",
+   "solutionSteps": [
+    "IVT requires continuity on the whole closed interval.",
+    "f is undefined at x = 3, and in fact f is never 0."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-fails). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "No; f is not continuous at x = 3, which is in the interval.",
+     "correct": true
+    },
+    {
+     "text": "Yes; IVT applies to every rational function.",
+     "correct": false
+    },
+    {
+     "text": "Yes; f changes sign, so it has a zero.",
+     "correct": false
+    },
+    {
+     "text": "No; f(2) and f(4) have the same sign.",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp1-v004",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp1",
+   "format": "open-response",
+   "prompt": "Use the Intermediate Value Theorem. The temperature T(t), with T(0) = 58°F and T(5) = 71°F, is continuous. Answer each part.",
+   "answer": "(a) continuity; (b) 65°F is between the endpoint values; (c) there is a time c with T(c) = 65°F; (d) IVT does not tell how many times or exactly when",
+   "solutionSteps": [
+    "State the hypothesis (continuous on the closed interval).",
+    "Check that the target value lies between the endpoint values.",
+    "Conclude the existence of c."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-justify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "parts": [
+    {
+     "label": "a",
+     "prompt": "Which hypothesis must be true to use IVT?",
+     "answer": "T is continuous on the closed interval"
+    },
+    {
+     "label": "b",
+     "prompt": "Explain why 65°F is a valid target value.",
+     "answer": "65°F lies between the two endpoint values"
+    },
+    {
+     "label": "c",
+     "prompt": "State the conclusion in context.",
+     "answer": "At some time c in the interval, T(c) = 65°F"
+    },
+    {
+     "label": "d",
+     "prompt": "What does IVT NOT tell you?",
+     "answer": "How many such times there are or the exact time"
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp1-v005",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "f is continuous on [-3, 2] with f(-3) = 1 and f(2) = 9. Must there be a c in (-3, 2) with f(c) = 3?",
+   "answer": "Yes; f is continuous on [-3, 2] and 3 is between f(-3) = 1 and f(2) = 9.",
+   "solutionSteps": [
+    "IVT: a continuous f takes every value between f(a) and f(b).",
+    "Yes; f is continuous on [-3, 2] and 3 is between f(-3) = 1 and f(2) = 9."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-guarantee). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "Only if f is differentiable.",
+     "correct": false
+    },
+    {
+     "text": "Yes; f is continuous on [-3, 2] and 3 is between f(-3) = 1 and f(2) = 9.",
+     "correct": true
+    },
+    {
+     "text": "No; IVT only guarantees zeros.",
+     "correct": false
+    },
+    {
+     "text": "No; 3 must equal f(a) or f(b).",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-cp1-v006",
+   "skillId": "limits-continuity-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = 2, f(1) = 5, f(2) = -7, f(3) = -9, f(4) = -3. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "1",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 1."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-lim-s08-honors-v001",
+   "skillId": "limits-continuity-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = -2, f(1) = 6, f(2) = -5, f(3) = 7, f(4) = 6. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "3",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 3."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-lim-s08-honors-v002",
+   "skillId": "limits-continuity-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f is continuous on [-1, 2] with f(-1) = 2 and f(2) = 15. Must there be a c in (-1, 2) with f(c) = 10?",
+   "answer": "Yes; f is continuous on [-1, 2] and 10 is between f(-1) = 2 and f(2) = 15.",
+   "solutionSteps": [
+    "IVT: a continuous f takes every value between f(a) and f(b).",
+    "Yes; f is continuous on [-1, 2] and 10 is between f(-1) = 2 and f(2) = 15."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-guarantee). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "No; IVT only guarantees zeros.",
+     "correct": false
+    },
+    {
+     "text": "Yes; f is continuous on [-1, 2] and 10 is between f(-1) = 2 and f(2) = 15.",
+     "correct": true
+    },
+    {
+     "text": "Only if f is differentiable.",
+     "correct": false
+    },
+    {
+     "text": "No; 10 must equal f(a) or f(b).",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-honors-v003",
+   "skillId": "limits-continuity-skill-08",
+   "level": "honors",
+   "format": "open-response",
+   "prompt": "Use the Intermediate Value Theorem. A ball's height h(t), with h(0) = 2 m and h(3) = 12 m, is continuous. Answer each part.",
+   "answer": "(a) continuity; (b) 6 m is between the endpoint values; (c) there is a time c with h(c) = 6 m; (d) IVT does not tell how many times or exactly when",
+   "solutionSteps": [
+    "State the hypothesis (continuous on the closed interval).",
+    "Check that the target value lies between the endpoint values.",
+    "Conclude the existence of c."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-justify). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "parts": [
+    {
+     "label": "a",
+     "prompt": "Which hypothesis must be true to use IVT?",
+     "answer": "h is continuous on the closed interval"
+    },
+    {
+     "label": "b",
+     "prompt": "Explain why 6 m is a valid target value.",
+     "answer": "6 m lies between the two endpoint values"
+    },
+    {
+     "label": "c",
+     "prompt": "State the conclusion in context.",
+     "answer": "At some time c in the interval, h(c) = 6 m"
+    },
+    {
+     "label": "d",
+     "prompt": "What does IVT NOT tell you?",
+     "answer": "How many such times there are or the exact time"
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-honors-v004",
+   "skillId": "limits-continuity-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "f is continuous on [-3, 4] with f(-3) = -1 and f(4) = 11. Must there be a c in (-3, 4) with f(c) = 1?",
+   "answer": "Yes; f is continuous on [-3, 4] and 1 is between f(-3) = -1 and f(4) = 11.",
+   "solutionSteps": [
+    "IVT: a continuous f takes every value between f(a) and f(b).",
+    "Yes; f is continuous on [-3, 4] and 1 is between f(-3) = -1 and f(4) = 11."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-guarantee). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "No; IVT only guarantees zeros.",
+     "correct": false
+    },
+    {
+     "text": "Only if f is differentiable.",
+     "correct": false
+    },
+    {
+     "text": "Yes; f is continuous on [-3, 4] and 1 is between f(-3) = -1 and f(4) = 11.",
+     "correct": true
+    },
+    {
+     "text": "No; 1 must equal f(a) or f(b).",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "cal-lim-s08-honors-v005",
+   "skillId": "limits-continuity-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = 2, f(1) = -9, f(2) = -3, f(3) = -3, f(4) = 9. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "2",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 2."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "cal-lim-s08-honors-v006",
+   "skillId": "limits-continuity-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "f is continuous on [0, 4]. f(0) = -3, f(1) = 5, f(2) = -7, f(3) = -7, f(4) = 6. What is the least number of zeros f must have on [0, 4]?",
+   "answer": "3",
+   "solutionSteps": [
+    "Each sign change between consecutive values forces a zero (IVT).",
+    "Sign changes: 3."
+   ],
+   "standards": [
+    "AP FUN-1.A"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: ivt-min-zeros). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

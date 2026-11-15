@@ -35,7 +35,7 @@ function open(resource){
  if(/^grade[1-5]$/.test(resource.courseId)){
   const label=doc.createElement('label');label.textContent='Student level ';label.style.cssText='display:block;font-weight:700;margin:14px 0';
   level=doc.createElement('select');level.style.cssText='display:block;padding:9px;margin:5px 0;width:100%;max-width:260px';
-  [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function(pair){const o=doc.createElement('option');o.value=pair[0];o.textContent=pair[1];o.selected=pair[0]==='cp1';level.appendChild(o);});
+  [['cp2','Support'],['cp1','Standard'],['honors','Advanced']].forEach(function(pair){const o=doc.createElement('option');o.value=pair[0];o.textContent=pair[1];o.selected=pair[0]==='cp1';level.appendChild(o);});
   label.appendChild(level);dialog.appendChild(label);
  }
  const status=doc.createElement('p');status.setAttribute('role','status');dialog.appendChild(status);

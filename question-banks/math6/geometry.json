@@ -10515,6 +10515,393 @@
     "6.G.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_cube_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "m6-geo-s03-cp2-v001",
+   "skillId": "geometry-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the area of the triangle with vertices (-3, -3), (5, -3), and (-3, 4).",
+   "answer": "28 square units",
+   "solutionSteps": [
+    "The base lies on y = -3 and is 8 units long.",
+    "The height is the vertical distance from y = -3 to y = 4: 7.",
+    "Area = ½·8·7 = 28."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-coords). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp2-v002",
+   "skillId": "geometry-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A house shape is a 7 ft by 5 ft rectangle with a triangular roof on top. The roof's base is the 7 ft side and its height is 5 ft. Find the total area.",
+   "answer": "52.5 ft²",
+   "solutionSteps": [
+    "Rectangle: 7·5 = 35.",
+    "Triangle: ½·7·5 = 17.5.",
+    "Total = 52.5 ft²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-composite). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp2-v003",
+   "skillId": "geometry-skill-03",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "Leo says a triangle with base 6 m and height 11 m has area 66 m². What is the correct area, and what did Leo forget?",
+   "answer": "33 m²; he forgot to multiply by ½",
+   "solutionSteps": [
+    "A triangle is half of a rectangle with the same base and height.",
+    "½·6·11 = 33 m²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "16.5 m²; he forgot to divide by 4",
+     "correct": false
+    },
+    {
+     "text": "17 m²; he should add base and height",
+     "correct": false
+    },
+    {
+     "text": "66 m²; Leo is correct",
+     "correct": false
+    },
+    {
+     "text": "33 m²; he forgot to multiply by ½",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "m6-geo-s03-cp2-v004",
+   "skillId": "geometry-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A triangle has an area of 36 cm² and a height of 4 cm. Find its base.",
+   "answer": "18 cm",
+   "solutionSteps": [
+    "A = ½bh, so 36 = ½·b·4.",
+    "b = 2·36 ÷ 4 = 18 cm."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-base). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp2-v005",
+   "skillId": "geometry-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find the area of the triangle with vertices (1, -2), (5, -2), and (3, 3).",
+   "answer": "10 square units",
+   "solutionSteps": [
+    "The base lies on y = -2 and is 4 units long.",
+    "The height is the vertical distance from y = -2 to y = 3: 5.",
+    "Area = ½·4·5 = 10."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-coords). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp2-v006",
+   "skillId": "geometry-skill-03",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A house shape is a 7 ft by 4 ft rectangle with a triangular roof on top. The roof's base is the 7 ft side and its height is 5 ft. Find the total area.",
+   "answer": "45.5 ft²",
+   "solutionSteps": [
+    "Rectangle: 7·4 = 28.",
+    "Triangle: ½·7·5 = 17.5.",
+    "Total = 45.5 ft²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-composite). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp1-v001",
+   "skillId": "geometry-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A house shape is a 12 ft by 6 ft rectangle with a triangular roof on top. The roof's base is the 12 ft side and its height is 5 ft. Find the total area.",
+   "answer": "102 ft²",
+   "solutionSteps": [
+    "Rectangle: 12·6 = 72.",
+    "Triangle: ½·12·5 = 30.",
+    "Total = 102 ft²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-composite). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp1-v002",
+   "skillId": "geometry-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Leo says a triangle with base 10 m and height 3 m has area 30 m². What is the correct area, and what did Leo forget?",
+   "answer": "15 m²; he forgot to multiply by ½",
+   "solutionSteps": [
+    "A triangle is half of a rectangle with the same base and height.",
+    "½·10·3 = 15 m²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "15 m²; he forgot to multiply by ½",
+     "correct": true
+    },
+    {
+     "text": "30 m²; Leo is correct",
+     "correct": false
+    },
+    {
+     "text": "7.5 m²; he forgot to divide by 4",
+     "correct": false
+    },
+    {
+     "text": "13 m²; he should add base and height",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "m6-geo-s03-cp1-v003",
+   "skillId": "geometry-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A triangle has an area of 24 cm² and a height of 8 cm. Find its base.",
+   "answer": "6 cm",
+   "solutionSteps": [
+    "A = ½bh, so 24 = ½·b·8.",
+    "b = 2·24 ÷ 8 = 6 cm."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-base). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp1-v004",
+   "skillId": "geometry-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find the area of the triangle with vertices (-4, 0), (-1, 0), and (-1, 5).",
+   "answer": "7.5 square units",
+   "solutionSteps": [
+    "The base lies on y = 0 and is 3 units long.",
+    "The height is the vertical distance from y = 0 to y = 5: 5.",
+    "Area = ½·3·5 = 7.5."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-coords). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp1-v005",
+   "skillId": "geometry-skill-03",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A house shape is a 7 ft by 9 ft rectangle with a triangular roof on top. The roof's base is the 7 ft side and its height is 5 ft. Find the total area.",
+   "answer": "80.5 ft²",
+   "solutionSteps": [
+    "Rectangle: 7·9 = 63.",
+    "Triangle: ½·7·5 = 17.5.",
+    "Total = 80.5 ft²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-composite). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-cp1-v006",
+   "skillId": "geometry-skill-03",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "Leo says a triangle with base 12 m and height 3 m has area 36 m². What is the correct area, and what did Leo forget?",
+   "answer": "18 m²; he forgot to multiply by ½",
+   "solutionSteps": [
+    "A triangle is half of a rectangle with the same base and height.",
+    "½·12·3 = 18 m²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "15 m²; he should add base and height",
+     "correct": false
+    },
+    {
+     "text": "18 m²; he forgot to multiply by ½",
+     "correct": true
+    },
+    {
+     "text": "36 m²; Leo is correct",
+     "correct": false
+    },
+    {
+     "text": "9 m²; he forgot to divide by 4",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "m6-geo-s03-honors-v001",
+   "skillId": "geometry-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Leo says a triangle with base 16 m and height 11 m has area 176 m². What is the correct area, and what did Leo forget?",
+   "answer": "88 m²; he forgot to multiply by ½",
+   "solutionSteps": [
+    "A triangle is half of a rectangle with the same base and height.",
+    "½·16·11 = 88 m²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "44 m²; he forgot to divide by 4",
+     "correct": false
+    },
+    {
+     "text": "88 m²; he forgot to multiply by ½",
+     "correct": true
+    },
+    {
+     "text": "27 m²; he should add base and height",
+     "correct": false
+    },
+    {
+     "text": "176 m²; Leo is correct",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "m6-geo-s03-honors-v002",
+   "skillId": "geometry-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A triangle has an area of 24 cm² and a height of 3 cm. Find its base.",
+   "answer": "16 cm",
+   "solutionSteps": [
+    "A = ½bh, so 24 = ½·b·3.",
+    "b = 2·24 ÷ 3 = 16 cm."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-base). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-honors-v003",
+   "skillId": "geometry-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find the area of the triangle with vertices (-2, -5), (4, -5), and (1, 2).",
+   "answer": "21 square units",
+   "solutionSteps": [
+    "The base lies on y = -5 and is 6 units long.",
+    "The height is the vertical distance from y = -5 to y = 2: 7.",
+    "Area = ½·6·7 = 21."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-coords). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-honors-v004",
+   "skillId": "geometry-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A house shape is a 11 ft by 8 ft rectangle with a triangular roof on top. The roof's base is the 11 ft side and its height is 5 ft. Find the total area.",
+   "answer": "115.5 ft²",
+   "solutionSteps": [
+    "Rectangle: 11·8 = 88.",
+    "Triangle: ½·11·5 = 27.5.",
+    "Total = 115.5 ft²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-composite). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "m6-geo-s03-honors-v005",
+   "skillId": "geometry-skill-03",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "Leo says a triangle with base 7 m and height 3 m has area 21 m². What is the correct area, and what did Leo forget?",
+   "answer": "10.5 m²; he forgot to multiply by ½",
+   "solutionSteps": [
+    "A triangle is half of a rectangle with the same base and height.",
+    "½·7·3 = 10.5 m²."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "21 m²; Leo is correct",
+     "correct": false
+    },
+    {
+     "text": "5.25 m²; he forgot to divide by 4",
+     "correct": false
+    },
+    {
+     "text": "10 m²; he should add base and height",
+     "correct": false
+    },
+    {
+     "text": "10.5 m²; he forgot to multiply by ½",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "m6-geo-s03-honors-v006",
+   "skillId": "geometry-skill-03",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A triangle has an area of 90 cm² and a height of 9 cm. Find its base.",
+   "answer": "20 cm",
+   "solutionSteps": [
+    "A = ½bh, so 90 = ½·b·9.",
+    "b = 2·90 ÷ 9 = 20 cm."
+   ],
+   "standards": [
+    "6.G.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: tri-base). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

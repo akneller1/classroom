@@ -18,7 +18,7 @@ for(const [i,q] of (bank.questions||[]).entries()){
  if(!q.id||ids.has(q.id))fail(x+' missing or duplicate id');ids.add(q.id);
  if(!known.has(q.skillId))fail(x+' unknown skillId '+q.skillId+' (see handoff docs)');
  if(!['cp2','cp1','honors'].includes(q.level))fail(x+' unknown level');
- if(!['short-answer','multiple-choice','select-all','open-response'].includes(q.format))fail(x+' unknown format');
+ if(!['short-answer','multiple-choice','select-all','open-response','plot'].includes(q.format))fail(x+' unknown format');
  if(typeof q.prompt!=='string'||!q.prompt.trim())fail(x+' missing prompt');
  if(q.answer==null)fail(x+' missing answer');
  if(!Array.isArray(q.solutionSteps)||!q.solutionSteps.length)fail(x+' missing solution steps');

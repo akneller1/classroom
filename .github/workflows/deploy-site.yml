@@ -115,6 +115,11 @@ jobs:
         run: |
           node scripts/test-grade1-release.cjs _site
           node scripts/test-grade1-projects.cjs _site
+      - name: Apply reviewed Classroom content updates
+        run: |
+          node scripts/apply-content-updates.mjs
+          node --test tests/plot-content.test.cjs tests/content-hybrid.test.cjs
+          node scripts/test-content-release.cjs _site
       - name: Audit curated elementary Asteroid Blaster units and playable question pools
         run: node scripts/test-elementary-asteroid.cjs _site
       - name: Verify course catalogs in every shared game and study tool

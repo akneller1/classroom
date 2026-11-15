@@ -9749,6 +9749,1714 @@
     "8.EE.C.8c"
    ],
    "sourceNotes": "Original Claude-authored item (family: s6_select). Answer computed in the authoring script and re-checked by the independent verifier (tools/prealgebra-authoring/verify.py). Awaiting human review."
+  },
+  {
+   "id": "pa8-sle-s02-cp2-p001",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 3x − 2 and y = 2x. Graph both lines, then mark the intersection point.",
+   "answer": "(2, 4)",
+   "solutionSteps": [
+    "Graph y = 3x − 2 and y = 2x.",
+    "They cross at (2, 4).",
+    "Check: 4 = 3·2 − 2 and 4 = 2·2 + 0 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "3",
+       "b": "-2"
+      },
+      {
+       "m": "2",
+       "b": "0"
+      }
+     ],
+     "solution": [
+      2,
+      4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-2",
+         "-8"
+        ],
+        [
+         "3",
+         "7"
+        ]
+       ],
+       [
+        [
+         "-4",
+         "-8"
+        ],
+        [
+         "4",
+         "8"
+        ]
+       ]
+      ],
+      "solution": [
+       2,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-2",
+           "-8"
+          ],
+          [
+           "3",
+           "7"
+          ]
+         ],
+         [
+          [
+           "-4",
+           "-8"
+          ],
+          [
+           "4",
+           "8"
+          ]
+         ]
+        ],
+        "solution": [
+         4,
+         2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-301.png",
+     "alt": "Two lines y = 3x − 2 and y = 2x crossing at (2, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp2-p002",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 1/2x + 4 and y = −2x + 4. Graph both lines, then mark the intersection point.",
+   "answer": "(0, 4)",
+   "solutionSteps": [
+    "Graph y = 1/2x + 4 and y = −2x + 4.",
+    "They cross at (0, 4).",
+    "Check: 4 = 1/2·0 + 4 and 4 = -2·0 + 4 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "1/2",
+       "b": "4"
+      },
+      {
+       "m": "-2",
+       "b": "4"
+      }
+     ],
+     "solution": [
+      0,
+      4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-8",
+         "0"
+        ],
+        [
+         "8",
+         "8"
+        ]
+       ],
+       [
+        [
+         "-2",
+         "8"
+        ],
+        [
+         "6",
+         "-8"
+        ]
+       ]
+      ],
+      "solution": [
+       0,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-8",
+           "0"
+          ],
+          [
+           "8",
+           "8"
+          ]
+         ],
+         [
+          [
+           "-2",
+           "8"
+          ],
+          [
+           "6",
+           "-8"
+          ]
+         ]
+        ],
+        "solution": [
+         4,
+         0
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-303.png",
+     "alt": "Two lines y = 1/2x + 4 and y = −2x + 4 crossing at (0, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp2-p003",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 2x and y = −x + 6. Graph both lines, then mark the intersection point.",
+   "answer": "(2, 4)",
+   "solutionSteps": [
+    "Graph y = 2x and y = −x + 6.",
+    "They cross at (2, 4).",
+    "Check: 4 = 2·2 + 0 and 4 = -1·2 + 6 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "2",
+       "b": "0"
+      },
+      {
+       "m": "-1",
+       "b": "6"
+      }
+     ],
+     "solution": [
+      2,
+      4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-4",
+         "-8"
+        ],
+        [
+         "4",
+         "8"
+        ]
+       ],
+       [
+        [
+         "-2",
+         "8"
+        ],
+        [
+         "8",
+         "-2"
+        ]
+       ]
+      ],
+      "solution": [
+       2,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-4",
+           "-8"
+          ],
+          [
+           "4",
+           "8"
+          ]
+         ],
+         [
+          [
+           "-2",
+           "8"
+          ],
+          [
+           "8",
+           "-2"
+          ]
+         ]
+        ],
+        "solution": [
+         4,
+         2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-305.png",
+     "alt": "Two lines y = 2x and y = −x + 6 crossing at (2, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp2-p004",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 1/2x + 3 and y = x + 3. Graph both lines, then mark the intersection point.",
+   "answer": "(0, 3)",
+   "solutionSteps": [
+    "Graph y = 1/2x + 3 and y = x + 3.",
+    "They cross at (0, 3).",
+    "Check: 3 = 1/2·0 + 3 and 3 = 1·0 + 3 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "1/2",
+       "b": "3"
+      },
+      {
+       "m": "1",
+       "b": "3"
+      }
+     ],
+     "solution": [
+      0,
+      3
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-8",
+         "-1"
+        ],
+        [
+         "8",
+         "7"
+        ]
+       ],
+       [
+        [
+         "-8",
+         "-5"
+        ],
+        [
+         "5",
+         "8"
+        ]
+       ]
+      ],
+      "solution": [
+       0,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-8",
+           "-1"
+          ],
+          [
+           "8",
+           "7"
+          ]
+         ],
+         [
+          [
+           "-8",
+           "-5"
+          ],
+          [
+           "5",
+           "8"
+          ]
+         ]
+        ],
+        "solution": [
+         3,
+         0
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-307.png",
+     "alt": "Two lines y = 1/2x + 3 and y = x + 3 crossing at (0, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp2-p005",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −x + 4 and y = 2x − 2. Graph both lines, then mark the intersection point.",
+   "answer": "(2, 2)",
+   "solutionSteps": [
+    "Graph y = −x + 4 and y = 2x − 2.",
+    "They cross at (2, 2).",
+    "Check: 2 = -1·2 + 4 and 2 = 2·2 − 2 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1",
+       "b": "4"
+      },
+      {
+       "m": "2",
+       "b": "-2"
+      }
+     ],
+     "solution": [
+      2,
+      2
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-4",
+         "8"
+        ],
+        [
+         "8",
+         "-4"
+        ]
+       ],
+       [
+        [
+         "-3",
+         "-8"
+        ],
+        [
+         "5",
+         "8"
+        ]
+       ]
+      ],
+      "solution": [
+       2,
+       2
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-4",
+           "8"
+          ],
+          [
+           "8",
+           "-4"
+          ]
+         ],
+         [
+          [
+           "-3",
+           "-8"
+          ],
+          [
+           "5",
+           "8"
+          ]
+         ]
+        ],
+        "solution": [
+         3,
+         2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-309.png",
+     "alt": "Two lines y = −x + 4 and y = 2x − 2 crossing at (2, 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp1-p001",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −x − 1 and y = −2x + 2. Graph both lines, then mark the intersection point.",
+   "answer": "(3, -4)",
+   "solutionSteps": [
+    "Graph y = −x − 1 and y = −2x + 2.",
+    "They cross at (3, -4).",
+    "Check: -4 = -1·3 − 1 and -4 = -2·3 + 2 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1",
+       "b": "-1"
+      },
+      {
+       "m": "-2",
+       "b": "2"
+      }
+     ],
+     "solution": [
+      3,
+      -4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-8",
+         "7"
+        ],
+        [
+         "7",
+         "-8"
+        ]
+       ],
+       [
+        [
+         "-3",
+         "8"
+        ],
+        [
+         "5",
+         "-8"
+        ]
+       ]
+      ],
+      "solution": [
+       3,
+       -4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-8",
+           "7"
+          ],
+          [
+           "7",
+           "-8"
+          ]
+         ],
+         [
+          [
+           "-3",
+           "8"
+          ],
+          [
+           "5",
+           "-8"
+          ]
+         ]
+        ],
+        "solution": [
+         -4,
+         3
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-311.png",
+     "alt": "Two lines y = −x − 1 and y = −2x + 2 crossing at (3, -4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp1-p002",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −x + 6 and y = −1/2x + 5. Graph both lines, then mark the intersection point.",
+   "answer": "(2, 4)",
+   "solutionSteps": [
+    "Graph y = −x + 6 and y = −1/2x + 5.",
+    "They cross at (2, 4).",
+    "Check: 4 = -1·2 + 6 and 4 = -1/2·2 + 5 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1",
+       "b": "6"
+      },
+      {
+       "m": "-1/2",
+       "b": "5"
+      }
+     ],
+     "solution": [
+      2,
+      4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-2",
+         "8"
+        ],
+        [
+         "8",
+         "-2"
+        ]
+       ],
+       [
+        [
+         "-6",
+         "8"
+        ],
+        [
+         "8",
+         "1"
+        ]
+       ]
+      ],
+      "solution": [
+       2,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-2",
+           "8"
+          ],
+          [
+           "8",
+           "-2"
+          ]
+         ],
+         [
+          [
+           "-6",
+           "8"
+          ],
+          [
+           "8",
+           "1"
+          ]
+         ]
+        ],
+        "solution": [
+         4,
+         2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-315.png",
+     "alt": "Two lines y = −x + 6 and y = −1/2x + 5 crossing at (2, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp1-p003",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −x + 1 and y = 1/2x + 4. Graph both lines, then mark the intersection point.",
+   "answer": "(-2, 3)",
+   "solutionSteps": [
+    "Graph y = −x + 1 and y = 1/2x + 4.",
+    "They cross at (-2, 3).",
+    "Check: 3 = -1·-2 + 1 and 3 = 1/2·-2 + 4 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1",
+       "b": "1"
+      },
+      {
+       "m": "1/2",
+       "b": "4"
+      }
+     ],
+     "solution": [
+      -2,
+      3
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-7",
+         "8"
+        ],
+        [
+         "8",
+         "-7"
+        ]
+       ],
+       [
+        [
+         "-8",
+         "0"
+        ],
+        [
+         "8",
+         "8"
+        ]
+       ]
+      ],
+      "solution": [
+       -2,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-7",
+           "8"
+          ],
+          [
+           "8",
+           "-7"
+          ]
+         ],
+         [
+          [
+           "-8",
+           "0"
+          ],
+          [
+           "8",
+           "8"
+          ]
+         ]
+        ],
+        "solution": [
+         3,
+         -2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-317.png",
+     "alt": "Two lines y = −x + 1 and y = 1/2x + 4 crossing at (-2, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-cp1-p004",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −x − 4 and y = 1/2x − 1. Graph both lines, then mark the intersection point.",
+   "answer": "(-2, -2)",
+   "solutionSteps": [
+    "Graph y = −x − 4 and y = 1/2x − 1.",
+    "They cross at (-2, -2).",
+    "Check: -2 = -1·-2 − 4 and -2 = 1/2·-2 − 1 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1",
+       "b": "-4"
+      },
+      {
+       "m": "1/2",
+       "b": "-1"
+      }
+     ],
+     "solution": [
+      -2,
+      -2
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-8",
+         "4"
+        ],
+        [
+         "4",
+         "-8"
+        ]
+       ],
+       [
+        [
+         "-8",
+         "-5"
+        ],
+        [
+         "8",
+         "3"
+        ]
+       ]
+      ],
+      "solution": [
+       -2,
+       -2
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-8",
+           "4"
+          ],
+          [
+           "4",
+           "-8"
+          ]
+         ],
+         [
+          [
+           "-8",
+           "-5"
+          ],
+          [
+           "8",
+           "3"
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         -2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-319.png",
+     "alt": "Two lines y = −x − 4 and y = 1/2x − 1 crossing at (-2, -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-honors-p001",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −2x − 2 and y = x + 1. Graph both lines, then mark the intersection point.",
+   "answer": "(-1, 0)",
+   "solutionSteps": [
+    "Graph y = −2x − 2 and y = x + 1.",
+    "They cross at (-1, 0).",
+    "Check: 0 = -2·-1 − 2 and 0 = 1·-1 + 1 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-2",
+       "b": "-2"
+      },
+      {
+       "m": "1",
+       "b": "1"
+      }
+     ],
+     "solution": [
+      -1,
+      0
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-5",
+         "8"
+        ],
+        [
+         "3",
+         "-8"
+        ]
+       ],
+       [
+        [
+         "-8",
+         "-7"
+        ],
+        [
+         "7",
+         "8"
+        ]
+       ]
+      ],
+      "solution": [
+       -1,
+       0
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-5",
+           "8"
+          ],
+          [
+           "3",
+           "-8"
+          ]
+         ],
+         [
+          [
+           "-8",
+           "-7"
+          ],
+          [
+           "7",
+           "8"
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         -1
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-321.png",
+     "alt": "Two lines y = −2x − 2 and y = x + 1 crossing at (-1, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-honors-p002",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −x − 5 and y = 2x + 7. Graph both lines, then mark the intersection point.",
+   "answer": "(-4, -1)",
+   "solutionSteps": [
+    "Graph y = −x − 5 and y = 2x + 7.",
+    "They cross at (-4, -1).",
+    "Check: -1 = -1·-4 − 5 and -1 = 2·-4 + 7 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1",
+       "b": "-5"
+      },
+      {
+       "m": "2",
+       "b": "7"
+      }
+     ],
+     "solution": [
+      -4,
+      -1
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-8",
+         "3"
+        ],
+        [
+         "3",
+         "-8"
+        ]
+       ],
+       [
+        [
+         "-7",
+         "-7"
+        ],
+        [
+         "0",
+         "7"
+        ]
+       ]
+      ],
+      "solution": [
+       -4,
+       -1
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-8",
+           "3"
+          ],
+          [
+           "3",
+           "-8"
+          ]
+         ],
+         [
+          [
+           "-7",
+           "-7"
+          ],
+          [
+           "0",
+           "7"
+          ]
+         ]
+        ],
+        "solution": [
+         -1,
+         -4
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-323.png",
+     "alt": "Two lines y = −x − 5 and y = 2x + 7 crossing at (-4, -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-honors-p003",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 2x − 4 and y = −1/2x + 6. Graph both lines, then mark the intersection point.",
+   "answer": "(4, 4)",
+   "solutionSteps": [
+    "Graph y = 2x − 4 and y = −1/2x + 6.",
+    "They cross at (4, 4).",
+    "Check: 4 = 2·4 − 4 and 4 = -1/2·4 + 6 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "2",
+       "b": "-4"
+      },
+      {
+       "m": "-1/2",
+       "b": "6"
+      }
+     ],
+     "solution": [
+      4,
+      4
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-2",
+         "-8"
+        ],
+        [
+         "6",
+         "8"
+        ]
+       ],
+       [
+        [
+         "-4",
+         "8"
+        ],
+        [
+         "8",
+         "2"
+        ]
+       ]
+      ],
+      "solution": [
+       4,
+       4
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-2",
+           "-8"
+          ],
+          [
+           "6",
+           "8"
+          ]
+         ],
+         [
+          [
+           "-4",
+           "8"
+          ],
+          [
+           "8",
+           "2"
+          ]
+         ]
+        ],
+        "solution": [
+         5,
+         4
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-325.png",
+     "alt": "Two lines y = 2x − 4 and y = −1/2x + 6 crossing at (4, 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-honors-p004",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = −1/2x − 1 and y = −2x − 4. Graph both lines, then mark the intersection point.",
+   "answer": "(-2, 0)",
+   "solutionSteps": [
+    "Graph y = −1/2x − 1 and y = −2x − 4.",
+    "They cross at (-2, 0).",
+    "Check: 0 = -1/2·-2 − 1 and 0 = -2·-2 − 4 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "-1/2",
+       "b": "-1"
+      },
+      {
+       "m": "-2",
+       "b": "-4"
+      }
+     ],
+     "solution": [
+      -2,
+      0
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-8",
+         "3"
+        ],
+        [
+         "8",
+         "-5"
+        ]
+       ],
+       [
+        [
+         "-6",
+         "8"
+        ],
+        [
+         "2",
+         "-8"
+        ]
+       ]
+      ],
+      "solution": [
+       -2,
+       0
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-8",
+           "3"
+          ],
+          [
+           "8",
+           "-5"
+          ]
+         ],
+         [
+          [
+           "-6",
+           "8"
+          ],
+          [
+           "2",
+           "-8"
+          ]
+         ]
+        ],
+        "solution": [
+         0,
+         -2
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-327.png",
+     "alt": "Two lines y = −1/2x − 1 and y = −2x − 4 crossing at (-2, 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "pa8-sle-s02-honors-p005",
+   "skillId": "systems-linear-equations-skill-02",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve the system by graphing: y = 3x + 6 and y = 2x + 5. Graph both lines, then mark the intersection point.",
+   "answer": "(-1, 3)",
+   "solutionSteps": [
+    "Graph y = 3x + 6 and y = 2x + 5.",
+    "They cross at (-1, 3).",
+    "Check: 3 = 3·-1 + 6 and 3 = 2·-1 + 5 ✓."
+   ],
+   "standards": [
+    "8.EE.C.8a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-system). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "system",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "lines": [
+      {
+       "m": "3",
+       "b": "6"
+      },
+      {
+       "m": "2",
+       "b": "5"
+      }
+     ],
+     "solution": [
+      -1,
+      3
+     ]
+    },
+    "feedback": {
+     "solution": "Your lines are right. Check where they cross and enter that point.",
+     "line-intercept": "Check the y-intercept of one of your lines.",
+     "line-slope-sign": "One line slants the wrong way.",
+     "line-slope-reciprocal": "One line uses run over rise.",
+     "line-slope": "One of your lines has the wrong slope.",
+     "line-same-point": "Place two different points on each line."
+    },
+    "testVectors": {
+     "correct": {
+      "lines": [
+       [
+        [
+         "-4",
+         "-6"
+        ],
+        [
+         "0",
+         "6"
+        ]
+       ],
+       [
+        [
+         "-6",
+         "-7"
+        ],
+        [
+         "1",
+         "7"
+        ]
+       ]
+      ],
+      "solution": [
+       -1,
+       3
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "lines": [
+         [
+          [
+           "-4",
+           "-6"
+          ],
+          [
+           "0",
+           "6"
+          ]
+         ],
+         [
+          [
+           "-6",
+           "-7"
+          ],
+          [
+           "1",
+           "7"
+          ]
+         ]
+        ],
+        "solution": [
+         3,
+         -1
+        ]
+       },
+       "expectCode": "solution"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/system-329.png",
+     "alt": "Two lines y = 3x + 6 and y = 2x + 5 crossing at (-1, 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }

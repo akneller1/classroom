@@ -1,0 +1,2653 @@
+{
+ "schemaVersion": 1,
+ "courseId": "algebra",
+ "unitId": "inequalities",
+ "questions": [
+  {
+   "id": "alg1-ineq-s01-cp2-p001",
+   "skillId": "inequalities-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x < -3 on the number line.",
+   "answer": "Open dot at -3, arrow left",
+   "solutionSteps": [
+    "Put an open dot at -3.",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -3,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -3,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -3,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-130.png",
+     "alt": "Number line from −10 to 10 with an open dot at -3 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p001",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x > 4 on the number line.",
+   "answer": "Open dot at 4, arrow right",
+   "solutionSteps": [
+    "Put an open dot at 4.",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 4,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 4,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 4,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-132.png",
+     "alt": "Number line from −10 to 10 with an open dot at 4 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p002",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x < 5 on the number line.",
+   "answer": "Open dot at 5, arrow left",
+   "solutionSteps": [
+    "Put an open dot at 5.",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 5,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 5,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 5,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 5,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-133.png",
+     "alt": "Number line from −10 to 10 with an open dot at 5 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp2-p003",
+   "skillId": "inequalities-skill-03",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph x > -2 on the number line.",
+   "answer": "Open dot at -2, arrow right",
+   "solutionSteps": [
+    "Put an open dot at -2.",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -2,
+     "closed": false,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -2,
+      "closed": false,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -2,
+        "closed": false,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -2,
+        "closed": true,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-134.png",
+     "alt": "Number line from −10 to 10 with an open dot at -2 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p001",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x ≥ 8 on the number line.",
+   "answer": "Closed dot at 8, arrow right",
+   "solutionSteps": [
+    "Put a closed dot at 8.",
+    "Draw the arrow to the right: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 8,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 8,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 8,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 8,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-149.png",
+     "alt": "Number line from −10 to 10 with a closed dot at 8 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-cp1-p002",
+   "skillId": "inequalities-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x < 7 on the number line.",
+   "answer": "Open dot at 7, arrow left",
+   "solutionSteps": [
+    "Put an open dot at 7.",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 7,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 7,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 7,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 7,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-150.png",
+     "alt": "Number line from −10 to 10 with an open dot at 7 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p001",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 2x − 9 < 5. Then graph the solution on the number line.",
+   "answer": "x < 7: open dot at 7, arrow left",
+   "solutionSteps": [
+    "Subtract -9: 2x < 14.",
+    "Divide by 2: x < 7.",
+    "Open dot at 7, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 7,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 7,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 7,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 7,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-152.png",
+     "alt": "Number line from −10 to 10 with an open dot at 7 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p002",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 4x + 9 < -3. Then graph the solution on the number line.",
+   "answer": "x < -3: open dot at -3, arrow left",
+   "solutionSteps": [
+    "Subtract 9: 4x < -12.",
+    "Divide by 4: x < -3.",
+    "Open dot at -3, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -3,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -3,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -3,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -3,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-153.png",
+     "alt": "Number line from −10 to 10 with an open dot at -3 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-cp1-p003",
+   "skillId": "inequalities-skill-03",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Solve 2x − 8 < -4. Then graph the solution on the number line.",
+   "answer": "x < 2: open dot at 2, arrow left",
+   "solutionSteps": [
+    "Subtract -8: 2x < 4.",
+    "Divide by 2: x < 2.",
+    "Open dot at 2, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 2,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 2,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 2,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 2,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-154.png",
+     "alt": "Number line from −10 to 10 with an open dot at 2 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p001",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x < -6 on the number line.",
+   "answer": "Open dot at -6, arrow left",
+   "solutionSteps": [
+    "Put an open dot at -6.",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -6,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -6,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -6,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -6,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-169.png",
+     "alt": "Number line from −10 to 10 with an open dot at -6 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s01-honors-p002",
+   "skillId": "inequalities-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x < 8 on the number line.",
+   "answer": "Open dot at 8, arrow left",
+   "solutionSteps": [
+    "Put an open dot at 8.",
+    "Draw the arrow to the left: those numbers make the inequality true."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-graph). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 8,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 8,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 8,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 8,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-171.png",
+     "alt": "Number line from −10 to 10 with an open dot at 8 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p001",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve 2x + 7 < 15. Then graph the solution on the number line.",
+   "answer": "x < 4: open dot at 4, arrow left",
+   "solutionSteps": [
+    "Subtract 7: 2x < 8.",
+    "Divide by 2: x < 4.",
+    "Open dot at 4, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": 4,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": 4,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": 4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": 4,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-172.png",
+     "alt": "Number line from −10 to 10 with an open dot at 4 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p002",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve −2x − 5 ≤ 11. Then graph the solution on the number line.",
+   "answer": "x ≥ -8: closed dot at -8, arrow right",
+   "solutionSteps": [
+    "Subtract -5: −2x ≤ 16.",
+    "Divide by −2 and FLIP the sign: x ≥ -8.",
+    "Closed dot at -8, arrow right."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -8,
+     "closed": true,
+     "direction": "right"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -8,
+      "closed": true,
+      "direction": "right"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -8,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -8,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-173.png",
+     "alt": "Number line from −10 to 10 with a closed dot at -8 and an arrow to the right."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s03-honors-p003",
+   "skillId": "inequalities-skill-03",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Solve −3x > 12. Then graph the solution on the number line.",
+   "answer": "x < -4: open dot at -4, arrow left",
+   "solutionSteps": [
+    "Subtract 0: −3x > 12.",
+    "Divide by −3 and FLIP the sign: x < -4.",
+    "Open dot at -4, arrow left."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-ineq-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "boundary": -4,
+     "closed": false,
+     "direction": "left"
+    },
+    "feedback": {
+     "boundary": "Check the number where your boundary point sits.",
+     "direction": "Your arrow points the wrong way. Test a number on your arrow in the inequality.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "boundary": -4,
+      "closed": false,
+      "direction": "left"
+     },
+     "wrong": [
+      {
+       "response": {
+        "boundary": -4,
+        "closed": false,
+        "direction": "right"
+       },
+       "expectCode": "direction"
+      },
+      {
+       "response": {
+        "boundary": -4,
+        "closed": true,
+        "direction": "left"
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/ineq-nl-174.png",
+     "alt": "Number line from −10 to 10 with an open dot at -4 and an arrow to the left."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp2-p001",
+   "skillId": "inequalities-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph -8 ≤ x ≤ -2 on the number line.",
+   "answer": "Between -8 and -2 (closed at -8, closed at -2)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -8,
+      "closed": true
+     },
+     "right": {
+      "value": -2,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -8,
+       "closed": true
+      },
+      "right": {
+       "value": -2,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -8,
+         "closed": true
+        },
+        "right": {
+         "value": -2,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -8,
+         "closed": false
+        },
+        "right": {
+         "value": -2,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-175.png",
+     "alt": "Number line showing between -8 and -2 (closed at -8, closed at -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp2-p002",
+   "skillId": "inequalities-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph -2 < x < 3 on the number line.",
+   "answer": "Between -2 and 3 (open at -2, open at 3)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -2,
+      "closed": false
+     },
+     "right": {
+      "value": 3,
+      "closed": false
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -2,
+       "closed": false
+      },
+      "right": {
+       "value": 3,
+       "closed": false
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -2,
+         "closed": false
+        },
+        "right": {
+         "value": 3,
+         "closed": false
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -2,
+         "closed": true
+        },
+        "right": {
+         "value": 3,
+         "closed": false
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-176.png",
+     "alt": "Number line showing between -2 and 3 (open at -2, open at 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp2-p003",
+   "skillId": "inequalities-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph -4 < x < 1 on the number line.",
+   "answer": "Between -4 and 1 (open at -4, open at 1)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -4,
+      "closed": false
+     },
+     "right": {
+      "value": 1,
+      "closed": false
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -4,
+       "closed": false
+      },
+      "right": {
+       "value": 1,
+       "closed": false
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -4,
+         "closed": false
+        },
+        "right": {
+         "value": 1,
+         "closed": false
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -4,
+         "closed": true
+        },
+        "right": {
+         "value": 1,
+         "closed": false
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-177.png",
+     "alt": "Number line showing between -4 and 1 (open at -4, open at 1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp2-p004",
+   "skillId": "inequalities-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph 1 ≤ x ≤ 9 on the number line.",
+   "answer": "Between 1 and 9 (closed at 1, closed at 9)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": 1,
+      "closed": true
+     },
+     "right": {
+      "value": 9,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": 1,
+       "closed": true
+      },
+      "right": {
+       "value": 9,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": 1,
+         "closed": true
+        },
+        "right": {
+         "value": 9,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": 1,
+         "closed": false
+        },
+        "right": {
+         "value": 9,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-178.png",
+     "alt": "Number line showing between 1 and 9 (closed at 1, closed at 9)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp2-p005",
+   "skillId": "inequalities-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph -5 < x ≤ 2 on the number line.",
+   "answer": "Between -5 and 2 (open at -5, closed at 2)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -5,
+      "closed": false
+     },
+     "right": {
+      "value": 2,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -5,
+       "closed": false
+      },
+      "right": {
+       "value": 2,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -5,
+         "closed": false
+        },
+        "right": {
+         "value": 2,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -5,
+         "closed": true
+        },
+        "right": {
+         "value": 2,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-179.png",
+     "alt": "Number line showing between -5 and 2 (open at -5, closed at 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp2-p006",
+   "skillId": "inequalities-skill-04",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph -2 ≤ x ≤ 4 on the number line.",
+   "answer": "Between -2 and 4 (closed at -2, closed at 4)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -2,
+      "closed": true
+     },
+     "right": {
+      "value": 4,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -2,
+       "closed": true
+      },
+      "right": {
+       "value": 4,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -2,
+         "closed": true
+        },
+        "right": {
+         "value": 4,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -2,
+         "closed": false
+        },
+        "right": {
+         "value": 4,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-180.png",
+     "alt": "Number line showing between -2 and 4 (closed at -2, closed at 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp1-p001",
+   "skillId": "inequalities-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph -1 < x ≤ 2 on the number line.",
+   "answer": "Between -1 and 2 (open at -1, closed at 2)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -1,
+      "closed": false
+     },
+     "right": {
+      "value": 2,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -1,
+       "closed": false
+      },
+      "right": {
+       "value": 2,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -1,
+         "closed": false
+        },
+        "right": {
+         "value": 2,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -1,
+         "closed": true
+        },
+        "right": {
+         "value": 2,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-181.png",
+     "alt": "Number line showing between -1 and 2 (open at -1, closed at 2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp1-p002",
+   "skillId": "inequalities-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x ≤ 0 or x ≥ 8 on the number line.",
+   "answer": "Left of 0 and right of 8 (closed at 0, closed at 8)",
+   "solutionSteps": [
+    "'or' means the numbers outside the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": false,
+     "left": {
+      "value": 0,
+      "closed": true
+     },
+     "right": {
+      "value": 8,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": false,
+      "left": {
+       "value": 0,
+       "closed": true
+      },
+      "right": {
+       "value": 8,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": 0,
+         "closed": true
+        },
+        "right": {
+         "value": 8,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": 0,
+         "closed": false
+        },
+        "right": {
+         "value": 8,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-182.png",
+     "alt": "Number line showing left of 0 and right of 8 (closed at 0, closed at 8)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp1-p003",
+   "skillId": "inequalities-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph -6 ≤ x ≤ -1 on the number line.",
+   "answer": "Between -6 and -1 (closed at -6, closed at -1)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -6,
+      "closed": true
+     },
+     "right": {
+      "value": -1,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -6,
+       "closed": true
+      },
+      "right": {
+       "value": -1,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -6,
+         "closed": true
+        },
+        "right": {
+         "value": -1,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -6,
+         "closed": false
+        },
+        "right": {
+         "value": -1,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-183.png",
+     "alt": "Number line showing between -6 and -1 (closed at -6, closed at -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp1-p004",
+   "skillId": "inequalities-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x ≤ 0 or x > 4 on the number line.",
+   "answer": "Left of 0 and right of 4 (closed at 0, open at 4)",
+   "solutionSteps": [
+    "'or' means the numbers outside the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": false,
+     "left": {
+      "value": 0,
+      "closed": true
+     },
+     "right": {
+      "value": 4,
+      "closed": false
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": false,
+      "left": {
+       "value": 0,
+       "closed": true
+      },
+      "right": {
+       "value": 4,
+       "closed": false
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": 0,
+         "closed": true
+        },
+        "right": {
+         "value": 4,
+         "closed": false
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": 0,
+         "closed": false
+        },
+        "right": {
+         "value": 4,
+         "closed": false
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-184.png",
+     "alt": "Number line showing left of 0 and right of 4 (closed at 0, open at 4)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp1-p005",
+   "skillId": "inequalities-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph 1 < x ≤ 6 on the number line.",
+   "answer": "Between 1 and 6 (open at 1, closed at 6)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": 1,
+      "closed": false
+     },
+     "right": {
+      "value": 6,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": 1,
+       "closed": false
+      },
+      "right": {
+       "value": 6,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": 1,
+         "closed": false
+        },
+        "right": {
+         "value": 6,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": 1,
+         "closed": true
+        },
+        "right": {
+         "value": 6,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-185.png",
+     "alt": "Number line showing between 1 and 6 (open at 1, closed at 6)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-cp1-p006",
+   "skillId": "inequalities-skill-04",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph x ≤ -5 or x ≥ -2 on the number line.",
+   "answer": "Left of -5 and right of -2 (closed at -5, closed at -2)",
+   "solutionSteps": [
+    "'or' means the numbers outside the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": false,
+     "left": {
+      "value": -5,
+      "closed": true
+     },
+     "right": {
+      "value": -2,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": false,
+      "left": {
+       "value": -5,
+       "closed": true
+      },
+      "right": {
+       "value": -2,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -5,
+         "closed": true
+        },
+        "right": {
+         "value": -2,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -5,
+         "closed": false
+        },
+        "right": {
+         "value": -2,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-186.png",
+     "alt": "Number line showing left of -5 and right of -2 (closed at -5, closed at -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-honors-p001",
+   "skillId": "inequalities-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph 1 ≤ x < 5 on the number line.",
+   "answer": "Between 1 and 5 (closed at 1, open at 5)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": 1,
+      "closed": true
+     },
+     "right": {
+      "value": 5,
+      "closed": false
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": 1,
+       "closed": true
+      },
+      "right": {
+       "value": 5,
+       "closed": false
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": 1,
+         "closed": true
+        },
+        "right": {
+         "value": 5,
+         "closed": false
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": 1,
+         "closed": false
+        },
+        "right": {
+         "value": 5,
+         "closed": false
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-187.png",
+     "alt": "Number line showing between 1 and 5 (closed at 1, open at 5)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-honors-p002",
+   "skillId": "inequalities-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x ≤ -7 or x ≥ -2 on the number line.",
+   "answer": "Left of -7 and right of -2 (closed at -7, closed at -2)",
+   "solutionSteps": [
+    "'or' means the numbers outside the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": false,
+     "left": {
+      "value": -7,
+      "closed": true
+     },
+     "right": {
+      "value": -2,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": false,
+      "left": {
+       "value": -7,
+       "closed": true
+      },
+      "right": {
+       "value": -2,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -7,
+         "closed": true
+        },
+        "right": {
+         "value": -2,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -7,
+         "closed": false
+        },
+        "right": {
+         "value": -2,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-188.png",
+     "alt": "Number line showing left of -7 and right of -2 (closed at -7, closed at -2)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-honors-p003",
+   "skillId": "inequalities-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph -3 ≤ x ≤ 0 on the number line.",
+   "answer": "Between -3 and 0 (closed at -3, closed at 0)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -3,
+      "closed": true
+     },
+     "right": {
+      "value": 0,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -3,
+       "closed": true
+      },
+      "right": {
+       "value": 0,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -3,
+         "closed": true
+        },
+        "right": {
+         "value": 0,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -3,
+         "closed": false
+        },
+        "right": {
+         "value": 0,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-189.png",
+     "alt": "Number line showing between -3 and 0 (closed at -3, closed at 0)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-honors-p004",
+   "skillId": "inequalities-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x ≤ -2 or x ≥ 3 on the number line.",
+   "answer": "Left of -2 and right of 3 (closed at -2, closed at 3)",
+   "solutionSteps": [
+    "'or' means the numbers outside the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": false,
+     "left": {
+      "value": -2,
+      "closed": true
+     },
+     "right": {
+      "value": 3,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": false,
+      "left": {
+       "value": -2,
+       "closed": true
+      },
+      "right": {
+       "value": 3,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -2,
+         "closed": true
+        },
+        "right": {
+         "value": 3,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -2,
+         "closed": false
+        },
+        "right": {
+         "value": 3,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-190.png",
+     "alt": "Number line showing left of -2 and right of 3 (closed at -2, closed at 3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-honors-p005",
+   "skillId": "inequalities-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph -8 < x ≤ -1 on the number line.",
+   "answer": "Between -8 and -1 (open at -8, closed at -1)",
+   "solutionSteps": [
+    "A compound 'and' means the numbers between the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": true,
+     "left": {
+      "value": -8,
+      "closed": false
+     },
+     "right": {
+      "value": -1,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": true,
+      "left": {
+       "value": -8,
+       "closed": false
+      },
+      "right": {
+       "value": -1,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -8,
+         "closed": false
+        },
+        "right": {
+         "value": -1,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -8,
+         "closed": true
+        },
+        "right": {
+         "value": -1,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-191.png",
+     "alt": "Number line showing between -8 and -1 (open at -8, closed at -1)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "alg1-ineq-s04-honors-p006",
+   "skillId": "inequalities-skill-04",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph x < -7 or x ≥ -3 on the number line.",
+   "answer": "Left of -7 and right of -3 (open at -7, closed at -3)",
+   "solutionSteps": [
+    "'or' means the numbers outside the two boundaries.",
+    "Closed dots for ≤/≥, open dots for </>."
+   ],
+   "standards": [
+    "A-REI.B.3",
+    "A-CED.A.1"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: nl-compound). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "number-line-inequality",
+    "numberLine": {
+     "min": -10,
+     "max": 10,
+     "tick": 1,
+     "labelEvery": 2,
+     "snap": 1
+    },
+    "target": {
+     "between": false,
+     "left": {
+      "value": -7,
+      "closed": false
+     },
+     "right": {
+      "value": -3,
+      "closed": true
+     }
+    },
+    "feedback": {
+     "and-or": "\"and\" means the part between the points; \"or\" means the two outside parts.",
+     "boundary": "Check the number where your boundary point sits.",
+     "closed-open": "Check the dot: use a closed dot for ≤ or ≥ and an open dot for < or >."
+    },
+    "testVectors": {
+     "correct": {
+      "between": false,
+      "left": {
+       "value": -7,
+       "closed": false
+      },
+      "right": {
+       "value": -3,
+       "closed": true
+      }
+     },
+     "wrong": [
+      {
+       "response": {
+        "between": true,
+        "left": {
+         "value": -7,
+         "closed": false
+        },
+        "right": {
+         "value": -3,
+         "closed": true
+        }
+       },
+       "expectCode": "and-or"
+      },
+      {
+       "response": {
+        "between": false,
+        "left": {
+         "value": -7,
+         "closed": true
+        },
+        "right": {
+         "value": -3,
+         "closed": true
+        }
+       },
+       "expectCode": "closed-open"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/compound-192.png",
+     "alt": "Number line showing left of -7 and right of -3 (open at -7, closed at -3)."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  }
+ ]
+}

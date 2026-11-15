@@ -21179,6 +21179,624 @@
     "F-LE.A.4"
    ],
    "sourceNotes": "Original Claude-authored item (family: s17_log_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v001",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 80(0.6)ˣ, which describes the rate of change?",
+   "answer": "decays by 40% per unit of x",
+   "solutionSteps": [
+    "b = 0.6 is less than 1.",
+    "Percent rate = |b − 1| = 40%."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-rate). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "increases by 0.6 each unit (linear)",
+     "correct": false
+    },
+    {
+     "text": "decays by 60% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "decays by 40% per unit of x",
+     "correct": true
+    },
+    {
+     "text": "grows by 40% per unit of x",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-fun-s15-cp2-v002",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Solve 5·3ˣ = 405.",
+   "answer": "x = 4",
+   "solutionSteps": [
+    "Divide by 5: 3ˣ = 81.",
+    "81 = 3^4, so x = 4."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v003",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A town of 500 people grows 3% per year. Write a model and find the population after 10 years (nearest whole person).",
+   "answer": "P(t) = 500(1.03)^t; about 672 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.03 = 1.03.",
+    "P(10) = 500(1.03)^10 ≈ 672."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v004",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 3/2) and (3, 3/8). Find a and b.",
+   "answer": "a = 3, b = 1/2",
+   "solutionSteps": [
+    "b² = 3/8 ÷ 3/2 = 1/4, so b = 1/2 (b > 0).",
+    "a = 3/2 ÷ 1/2 = 3."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v005",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 1500(0.6)ˣ, which describes the rate of change?",
+   "answer": "decays by 40% per unit of x",
+   "solutionSteps": [
+    "b = 0.6 is less than 1.",
+    "Percent rate = |b − 1| = 40%."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-rate). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "grows by 40% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "decays by 60% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "decays by 40% per unit of x",
+     "correct": true
+    },
+    {
+     "text": "increases by 0.6 each unit (linear)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-fun-s15-cp2-v006",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Solve 2·3ˣ = 486.",
+   "answer": "x = 5",
+   "solutionSteps": [
+    "Divide by 2: 3ˣ = 243.",
+    "243 = 3^5, so x = 5."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v007",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A town of 2500 people grows 6% per year. Write a model and find the population after 10 years (nearest whole person).",
+   "answer": "P(t) = 2500(1.06)^t; about 4477 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.06 = 1.06.",
+    "P(10) = 2500(1.06)^10 ≈ 4477."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v008",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 5/2) and (3, 5/32). Find a and b.",
+   "answer": "a = 10, b = 1/4",
+   "solutionSteps": [
+    "b² = 5/32 ÷ 5/2 = 1/16, so b = 1/4 (b > 0).",
+    "a = 5/2 ÷ 1/4 = 10."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp2-v009",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 200(0.97)ˣ, which describes the rate of change?",
+   "answer": "decays by 3% per unit of x",
+   "solutionSteps": [
+    "b = 0.97 is less than 1.",
+    "Percent rate = |b − 1| = 3%."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-rate). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "grows by 3% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "increases by 0.97 each unit (linear)",
+     "correct": false
+    },
+    {
+     "text": "decays by 3% per unit of x",
+     "correct": true
+    },
+    {
+     "text": "decays by 97% per unit of x",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-fun-s15-cp2-v010",
+   "skillId": "functions-skill-15",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Solve 2·3ˣ = 54.",
+   "answer": "x = 3",
+   "solutionSteps": [
+    "Divide by 2: 3ˣ = 27.",
+    "27 = 3^3, so x = 3."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v001",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A town of 1200 people grows 6% per year. Write a model and find the population after 8 years (nearest whole person).",
+   "answer": "P(t) = 1200(1.06)^t; about 1913 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.06 = 1.06.",
+    "P(8) = 1200(1.06)^8 ≈ 1913."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v002",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 32) and (3, 8). Find a and b.",
+   "answer": "a = 64, b = 1/2",
+   "solutionSteps": [
+    "b² = 8 ÷ 32 = 1/4, so b = 1/2 (b > 0).",
+    "a = 32 ÷ 1/2 = 64."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v003",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 200(1.12)ˣ, which describes the rate of change?",
+   "answer": "grows by 12% per unit of x",
+   "solutionSteps": [
+    "b = 1.12 is greater than 1.",
+    "Percent rate = |b − 1| = 12%."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-rate). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "decays by 12% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "grows by 112% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "increases by 1.12 each unit (linear)",
+     "correct": false
+    },
+    {
+     "text": "grows by 12% per unit of x",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-fun-s15-cp1-v004",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve 2·2ˣ = 64.",
+   "answer": "x = 5",
+   "solutionSteps": [
+    "Divide by 2: 2ˣ = 32.",
+    "32 = 2^5, so x = 5."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v005",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A town of 500 people grows 4% per year. Write a model and find the population after 10 years (nearest whole person).",
+   "answer": "P(t) = 500(1.04)^t; about 740 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.04 = 1.04.",
+    "P(10) = 500(1.04)^10 ≈ 740."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v006",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 96) and (3, 216). Find a and b.",
+   "answer": "a = 64, b = 3/2",
+   "solutionSteps": [
+    "b² = 216 ÷ 96 = 9/4, so b = 3/2 (b > 0).",
+    "a = 96 ÷ 3/2 = 64."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v007",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 80(1.12)ˣ, which describes the rate of change?",
+   "answer": "grows by 12% per unit of x",
+   "solutionSteps": [
+    "b = 1.12 is greater than 1.",
+    "Percent rate = |b − 1| = 12%."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-rate). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "decays by 12% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "grows by 12% per unit of x",
+     "correct": true
+    },
+    {
+     "text": "grows by 112% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "increases by 1.12 each unit (linear)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-fun-s15-cp1-v008",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Solve 5·3ˣ = 135.",
+   "answer": "x = 3",
+   "solutionSteps": [
+    "Divide by 5: 3ˣ = 27.",
+    "27 = 3^3, so x = 3."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v009",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A town of 500 people grows 5% per year. Write a model and find the population after 8 years (nearest whole person).",
+   "answer": "P(t) = 500(1.05)^t; about 739 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.05 = 1.05.",
+    "P(8) = 500(1.05)^8 ≈ 739."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-cp1-v010",
+   "skillId": "functions-skill-15",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 10) and (3, 5/8). Find a and b.",
+   "answer": "a = 40, b = 1/4",
+   "solutionSteps": [
+    "b² = 5/8 ÷ 10 = 1/16, so b = 1/4 (b > 0).",
+    "a = 10 ÷ 1/4 = 40."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v001",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A town of 1200 people grows 4% per year. Write a model and find the population after 8 years (nearest whole person).",
+   "answer": "P(t) = 1200(1.04)^t; about 1642 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.04 = 1.04.",
+    "P(8) = 1200(1.04)^8 ≈ 1642."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v002",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 15) and (3, 135/4). Find a and b.",
+   "answer": "a = 10, b = 3/2",
+   "solutionSteps": [
+    "b² = 135/4 ÷ 15 = 9/4, so b = 3/2 (b > 0).",
+    "a = 15 ÷ 3/2 = 10."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v003",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve 3·2ˣ = 48.",
+   "answer": "x = 4",
+   "solutionSteps": [
+    "Divide by 3: 2ˣ = 16.",
+    "16 = 2^4, so x = 4."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v004",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A town of 1200 people grows 5% per year. Write a model and find the population after 10 years (nearest whole person).",
+   "answer": "P(t) = 1200(1.05)^t; about 1955 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.05 = 1.05.",
+    "P(10) = 1200(1.05)^10 ≈ 1955."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v005",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "For f(x) = 1500(1.04)ˣ, which describes the rate of change?",
+   "answer": "grows by 4% per unit of x",
+   "solutionSteps": [
+    "b = 1.04 is greater than 1.",
+    "Percent rate = |b − 1| = 4%."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-rate). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "decays by 4% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "grows by 4% per unit of x",
+     "correct": true
+    },
+    {
+     "text": "grows by 104% per unit of x",
+     "correct": false
+    },
+    {
+     "text": "increases by 1.04 each unit (linear)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-fun-s15-honors-v006",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve 2·3ˣ = 18.",
+   "answer": "x = 2",
+   "solutionSteps": [
+    "Divide by 2: 3ˣ = 9.",
+    "9 = 3^2, so x = 2."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v007",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 6) and (3, 24). Find a and b.",
+   "answer": "a = 3, b = 2",
+   "solutionSteps": [
+    "b² = 24 ÷ 6 = 4, so b = 2 (b > 0).",
+    "a = 6 ÷ 2 = 3."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v008",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Solve 2·3ˣ = 162.",
+   "answer": "x = 4",
+   "solutionSteps": [
+    "Divide by 2: 3ˣ = 81.",
+    "81 = 3^4, so x = 4."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v009",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A town of 500 people grows 4% per year. Write a model and find the population after 8 years (nearest whole person).",
+   "answer": "P(t) = 500(1.04)^t; about 684 people",
+   "solutionSteps": [
+    "Growth factor b = 1 + 0.04 = 1.04.",
+    "P(8) = 500(1.04)^8 ≈ 684."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-fun-s15-honors-v010",
+   "skillId": "functions-skill-15",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (1, 15/2) and (3, 135/8). Find a and b.",
+   "answer": "a = 5, b = 3/2",
+   "solutionSteps": [
+    "b² = 135/8 ÷ 15/2 = 9/4, so b = 3/2 (b > 0).",
+    "a = 15/2 ÷ 3/2 = 5."
+   ],
+   "standards": [
+    "F-LE.A.2",
+    "F-IF.C.8b"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: exp-two-points). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

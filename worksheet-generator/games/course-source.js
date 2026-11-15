@@ -3,11 +3,12 @@
 const p=new URLSearchParams(location.search),courseId=p.get('course')||'algebra2';
 const course=G.LIBRARY.courses.find(c=>c.id===courseId),requestedUnit=p.get('unit'),unit=course?.units.find(u=>u.id===requestedUnit)||(!requestedUnit?course?.units[0]:null);
 const aliases={algebra:{'foundations-algebra':'foundations','exponents-exponential-functions':'exponents-scientific-notation','polynomials-factoring':'polynomials'},geometry:{'foundations-geometry':'basics-reasoning','triangle-congruence':'triangles-congruence'}};
+const procedural=['algebra','geometry'].includes(courseId);
 const setId=(courseId==='algebra'?'algebra1-':courseId+'-')+(aliases[courseId]?.[unit?.id]||unit?.id),set=G.MKMENU.skillSets[setId];
-function records(){if(courseId==='grade5'&&G.MK_ASTEROID_GRADE5&&unit)return G.MK_ASTEROID_GRADE5.records(unit.id);return G.MK_QUESTION_BANKS.available(courseId,unit?.id)?G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit.id):(set?set.skills.map(s=>({id:s.id,name:s.name})):G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit?.id))}
+function records(){if(courseId==='grade5'&&G.MK_ASTEROID_GRADE5&&unit)return G.MK_ASTEROID_GRADE5.records(unit.id);return !procedural&&G.MK_QUESTION_BANKS.available(courseId,unit?.id)?G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit.id):(set?set.skills.map(s=>({id:s.id,name:s.name})):G.MK_COURSE_CATALOG.getSkillRecords(courseId,unit?.id))}
 function select(level,ids,n){
  if(courseId==='grade5'&&G.MK_ASTEROID_GRADE5&&unit)return G.MK_ASTEROID_GRADE5.select(unit.id,level,ids,n);
- if(G.MK_QUESTION_BANKS.available(courseId,unit?.id)){
+ if(!procedural&&G.MK_QUESTION_BANKS.available(courseId,unit?.id)){
   const groups=ids.map(id=>G.MK_QUESTION_BANKS.select({courseId,unitId:unit.id,skillIds:[id],level,formats:['multiple-choice','short-answer']}));
   const rng=G.MKWS.rng.make(G.MKWS.rng.hash(String(Date.now())));groups.forEach((g,i)=>groups[i]=rng.shuffle(g));const out=[];
   while(out.length<n&&groups.some(g=>g.length))for(const g of groups)if(g.length&&out.length<n)out.push(g.pop());return out;
@@ -31,5 +32,5 @@ function select(level,ids,n){
 }
 function html(t){return G.MK_MATH_DISPLAY.html(t)}
 function question(q){let h='<div class="prompt">'+html(q.prompt)+'</div>';if(q.diagram?.type==='image')h+='<img style="max-width:100%;max-height:280px" src="../'+q.diagram.spec.src+'" alt="'+String(q.diagram.spec.alt).replace(/"/g,'&quot;')+'">';else if(q._figure)h+=G.MKMENU.figHtml(q._figure);return h}
-G.MK_COURSE_ACTIVITY_SOURCE={course,unit,courseId,get setId(){return G.MK_QUESTION_BANKS.available(courseId,unit?.id)?(courseId==='algebra'?'algebra1-':courseId+'-')+unit.id:setId},records,select,html,question};
+G.MK_COURSE_ACTIVITY_SOURCE={course,unit,courseId,get setId(){return !procedural&&G.MK_QUESTION_BANKS.available(courseId,unit?.id)?(courseId==='algebra'?'algebra1-':courseId+'-')+unit.id:setId},records,select,html,question};
 })(window);

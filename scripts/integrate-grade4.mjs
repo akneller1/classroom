@@ -73,3 +73,6 @@ for(const unit of course.units){
 fs.writeFileSync(manifestFile,JSON.stringify(manifest,null,2)+'\n');
 console.log('Grade 4 release assembled: '+course.units.length+' units from separate source repository.');
 
+
+// Attach Classroom-owned content to this newly assembled course.
+{const f=path.join(out,"grade4-main-catalog.js");fs.appendFileSync(f,"\nif(window.MK_CONTENT_UPDATES)window.MK_CONTENT_UPDATES.attach();\n");}

@@ -1,0 +1,5 @@
+/* Display labels never change saved level codes or student link parameters. */
+(function(G){'use strict';const doc=G.document;if(!doc)return;const labels={cp2:'Level 1 · Warm-Up',cp1:'Level 2 · Core',honors:'Level 3 · Challenge'};G.MK_LEVEL_LABELS=labels;
+function apply(){doc.querySelectorAll('select').forEach(sel=>{if(!Array.from(sel.options).some(o=>o.value==='cp2'))return;const student=new URLSearchParams(location.search).get('student')==='1'||/game|practice|flashcard|understanding|asteroid|millionaire/.test(location.pathname);Array.from(sel.options).forEach(o=>{if(labels[o.value]){const text=student?labels[o.value]:({cp2:'Support',cp1:'On Level',honors:'Challenge'}[o.value]);if(student&&o.textContent!==text)o.textContent=text}})});doc.querySelectorAll('[data-level]').forEach(e=>{if(e.tagName==='BUTTON'&&labels[e.dataset.level]&&e.textContent!==labels[e.dataset.level])e.textContent=labels[e.dataset.level]})}
+apply();let scheduled=false;new MutationObserver(()=>{if(!scheduled){scheduled=true;queueMicrotask(()=>{scheduled=false;apply()})}}).observe(doc.body,{childList:true,subtree:true});
+})(window);

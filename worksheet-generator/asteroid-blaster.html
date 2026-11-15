@@ -151,7 +151,7 @@ ol.steps{margin:0;padding-left:22px;display:grid;gap:6px;color:#dbe4ff;line-heig
 }
 @media (prefers-reduced-motion:reduce){.rock .shape{animation:none}.field-wrap.shake{animation:none}}
 </style><script src="../analytics.js?v=analytics-20261108" defer></script>
-</head><body>
+<link rel="stylesheet" href="core/plot.css"></head><body>
 <div class="sky" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <radialGradient id="rockFill" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#5b6690"/><stop offset=".55" stop-color="#36406a"/><stop offset="1" stop-color="#1c2347"/></radialGradient>
@@ -283,7 +283,7 @@ ol.steps{margin:0;padding-left:22px;display:grid;gap:6px;color:#dbe4ff;line-heig
 <script src="menu/skills/geometry-area-surface-area-volume.js?v=coverage-20261111d"></script>
 <script src="menu/mcas-context-bank.js?v=reasoning-20261027"></script>
 <script src="games/bank.js?v=coverage-proof-cards-20261111d"></script>
-<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script src="core/math-display.js?v=worksheet-layout-20261111"></script><script src="vocabulary-data.js?v=elementary-catalog-20261114"></script><script src="vocabulary-data-middle-grades.js?v=pa7-compare-20261114"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/asteroid-grade5-bank.js?v=elementary-pools-20261114"></script>
+<script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="core/plot.js?v=content-20261115"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script src="core/math-display.js?v=worksheet-layout-20261111"></script><script src="vocabulary-data.js?v=elementary-catalog-20261114"></script><script src="vocabulary-data-middle-grades.js?v=pa7-compare-20261114"></script><script src="games/vocabulary-flashcards.js?v=prealgebra-vocab"></script><script src="games/asteroid-grade5-bank.js?v=elementary-pools-20261114"></script>
 <script src="games/course-source.js?v=bounded-launch-20261114"></script>
 <script>
 (function(){
@@ -301,7 +301,7 @@ const plain=s=>String(s||'').replace(/<[^>]*>/g,'').replace(/[⟨⟩\\{}]/g,'');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const H=t=>S.html(t);
 const middle=()=>/^(grade[2-5]|math6|prealgebra7?)$/.test(S.courseId);
-const levelName=l=>middle()?{cp2:'Remedial',cp1:'Standard',honors:'Advanced'}[l]:{cp2:'CP2',cp1:'CP1',honors:'Honors'}[l];
+const levelName=l=>middle()?{cp2:'Support',cp1:'Standard',honors:'Advanced'}[l]:{cp2:'CP2',cp1:'CP1',honors:'Honors'}[l];
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
 /* ---------- sound ---------- */

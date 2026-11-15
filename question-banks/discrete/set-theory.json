@@ -32,6 +32,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -63,6 +67,10 @@
      "text": "No: they are written differently",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -94,6 +102,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -125,6 +137,10 @@
      "text": "No: one set has an element the other does not",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -156,6 +172,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -187,6 +207,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -218,6 +242,10 @@
      "text": "No: one set has an element the other does not",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -249,6 +277,10 @@
      "text": "No: one set has an element the other does not",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -280,6 +312,10 @@
      "text": "No: one set has an element the other does not",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -319,6 +355,10 @@
      "text": "{n ∈ ℕ | n < 1}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -357,6 +397,10 @@
      "text": "D ⊆ A",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -395,6 +439,10 @@
      "text": "|{∅}| = 0",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -407,7 +455,11 @@
    "solutionSteps": [
     "Repeated elements count once: {2, 4, 6}."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: distinct_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: distinct_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s01-cp1-005",
@@ -419,7 +471,11 @@
    "solutionSteps": [
     "Its elements are ∅, {∅} and {∅, {∅}}: three different sets."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: distinct_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: distinct_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s01-honors-005",
@@ -432,7 +488,11 @@
     "A = {−3, −2, −1, 0, 1, 2, 3} because 9 < 10.",
     "B is the same set, so B − A = ∅ and A = B."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: equal_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: equal_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s01-cp2-006",
@@ -465,6 +525,10 @@
      "prompt": "How many elements does P have?",
      "answer": "3"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -498,6 +562,10 @@
      "prompt": "Is ∅ ∈ {0}?",
      "answer": "No"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -531,6 +599,10 @@
      "prompt": "Why does this justify writing \"the\" empty set?",
      "answer": "Any two empty sets are equal, so there is exactly one."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -563,6 +635,10 @@
      "text": "{3, 4, 5, 6, 7, 8}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -576,7 +652,11 @@
     "A ∩ B is the intersection: elements in both A and B.",
     "A ∩ B = {6}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp2-003",
@@ -608,6 +688,10 @@
      "text": "{2, 4, 5}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -640,6 +724,10 @@
      "text": "{5}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -672,6 +760,10 @@
      "text": "{1, 2, 3, 4, 5}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -685,7 +777,11 @@
     "A ∩ B is the intersection: elements in both A and B.",
     "A ∩ B = {5}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp1-001",
@@ -698,7 +794,11 @@
     "A ∪ B is the union: elements in A or B (or both).",
     "A ∪ B = {1, 4, 5, 6, 9, 10, 13, 14, 15}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp1-002",
@@ -729,6 +829,10 @@
      "text": "{4, 9, 10}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -742,7 +846,11 @@
     "A − B is the difference: elements in A but not in B.",
     "A − B = {1, 2, 8, 13}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp1-004",
@@ -773,6 +881,10 @@
      "text": "{2, 4, 13}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -786,7 +898,11 @@
     "A ∪ B is the union: elements in A or B (or both).",
     "A ∪ B = {1, 4, 5, 6, 7, 8, 9, 10, 11, 12}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp1-006",
@@ -817,6 +933,10 @@
      "text": "{9, 13, 14}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -830,7 +950,11 @@
     "A ∪ B is the union: elements in A or B (or both).",
     "A ∪ B = {-5, -4, -3, -1, 3, 5, 6, 7, 10, 11}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-honors-002",
@@ -861,6 +985,10 @@
      "text": "{-5, -3, -1, 6}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -874,7 +1002,11 @@
     "A − B is the difference: elements in A but not in B.",
     "A − B = {-4, -3, 1, 3, 6}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-honors-004",
@@ -905,6 +1037,10 @@
      "text": "{-5, -2, -1, 0, 6}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -918,7 +1054,11 @@
     "A ∪ B is the union: elements in A or B (or both).",
     "A ∪ B = {-3, 0, 1, 2, 6, 7, 8, 10, 11, 12}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp2-007",
@@ -931,7 +1071,11 @@
     "Identify the operation (both → ∩, but not → −).",
     "{Ben, Dee}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp1-007",
@@ -944,7 +1088,11 @@
     "Identify the operation (both → ∩, but not → −).",
     "{Ava, Cam, Dot}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-honors-006",
@@ -957,7 +1105,11 @@
     "Identify the operation (both → ∩, but not → −).",
     "{12, 24}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_context). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp2-008",
@@ -995,6 +1147,10 @@
      "text": "A − B = {1, 2}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1033,6 +1189,10 @@
      "text": "A − B = B − A",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1071,6 +1231,10 @@
      "text": "9 ∈ B − A",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1104,6 +1268,10 @@
      "prompt": "Find B − A.",
      "answer": "{1, 3}"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1137,6 +1305,10 @@
      "prompt": "Check |A ∪ B| = |A| + |B| − |A ∩ B|.",
      "answer": "7 + 6 − 3 = 10"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1170,6 +1342,10 @@
      "prompt": "Find B − A.",
      "answer": "[5, 8]"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1184,7 +1360,11 @@
     "Work inside parentheses first.",
     "A' = {2, 3, 4, 6, 7, 9}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-002",
@@ -1215,6 +1395,10 @@
      "text": "{2, 6, 7, 8, 9, 10}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1229,7 +1413,11 @@
     "Work inside parentheses first.",
     "(A ∪ B)' = {2, 4, 6, 9, 10}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-004",
@@ -1260,6 +1448,10 @@
      "text": "{4, 10}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1274,7 +1466,11 @@
     "Work inside parentheses first.",
     "A ∩ B' = {1, 5, 8}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-001",
@@ -1288,7 +1484,11 @@
     "Work inside parentheses first.",
     "(A ∩ B)' = {1, 2, 4, 5, 6, 8, 9, 10, 11}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-002",
@@ -1319,6 +1519,10 @@
      "text": "{3, 5, 7, 8, 9, 10, 11, 12}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1333,7 +1537,11 @@
     "Work inside parentheses first.",
     "A' ∩ B' = {3, 5, 6, 7, 9, 12}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-004",
@@ -1364,6 +1572,10 @@
      "text": "{1, 2, 3, 4, 6, 7, 8, 9, 10, 11}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1378,7 +1590,11 @@
     "Work inside parentheses first.",
     "A' − B = {2, 4, 5, 8, 12}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-001",
@@ -1392,7 +1608,11 @@
     "Work inside parentheses first.",
     "(A ∪ B)' ∪ (A ∩ B) = {d, e, f}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-002",
@@ -1423,6 +1643,10 @@
      "text": "{a, f, i}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1437,7 +1661,11 @@
     "Work inside parentheses first.",
     "(A' ∪ B)' = {a, e, f, h}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-004",
@@ -1468,6 +1696,10 @@
      "text": "{e, f}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1482,7 +1714,11 @@
     "Work inside parentheses first.",
     "((A ∩ B)' ∩ A)' = {a, b, d, f, h, i, j}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_op). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-006",
@@ -1512,6 +1748,10 @@
      "text": "{1, 2, 3, 4, 5}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1542,6 +1782,10 @@
      "text": "A ∩ B",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1573,6 +1817,10 @@
      "text": "The integers that are not divisible by 4",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1612,6 +1860,10 @@
      "text": "A − B = A ∩ B'",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1650,6 +1902,10 @@
      "text": "b",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1688,6 +1944,10 @@
      "text": "2.5",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1721,6 +1981,10 @@
      "prompt": "Find (A ∪ B)' and compare.",
      "answer": "{4, 6, 8}; it matches (De Morgan)."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1754,6 +2018,10 @@
      "prompt": "Describe (F ∪ H)' in words.",
      "answer": "Students who neither play football nor are on the honor roll."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1787,6 +2055,10 @@
      "prompt": "Is 9 in (A ∩ B)'? Is 9 in A' ∪ B'?",
      "answer": "Yes and yes (De Morgan)."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1807,7 +2079,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_letters.png",
      "alt": "Venn diagram: only A has a, b; both A and B have c, e; only B has f, g; outside both is h."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-002",
@@ -1827,7 +2103,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_letters.png",
      "alt": "Venn diagram: only A has a, b; both A and B have c, e; only B has f, g; outside both is h."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp1-001",
@@ -1847,7 +2127,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_letters.png",
      "alt": "Venn diagram: only A has a, b; both A and B have c, e; only B has f, g; outside both is h."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp1-002",
@@ -1867,7 +2151,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_letters.png",
      "alt": "Venn diagram: only A has a, b; both A and B have c, e; only B has f, g; outside both is h."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-003",
@@ -1906,6 +2194,10 @@
      "text": "19",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1945,6 +2237,10 @@
      "text": "20",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -1984,6 +2280,10 @@
      "text": "8",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2023,6 +2323,10 @@
      "text": "13",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2062,6 +2366,10 @@
      "text": "7",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2082,7 +2390,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn3_counts.png",
      "alt": "Three‑set Venn diagram with region counts: A only 8, B only 6, C only 7, A and B only 5, A and C only 2, B and C only 4, all three 3, outside 5."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-004",
@@ -2120,7 +2432,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_shade_0.png",
      "alt": "Two‑set Venn diagram with shaded regions: A only."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp1-005",
@@ -2158,7 +2474,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_shade_1.png",
      "alt": "Two‑set Venn diagram with shaded regions: A only, B only."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp1-006",
@@ -2196,7 +2516,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_shade_2.png",
      "alt": "Two‑set Venn diagram with shaded regions: outside both circles, both A and B."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-005",
@@ -2234,7 +2558,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn2_shade_3.png",
      "alt": "Two‑set Venn diagram with shaded regions: B only, outside both circles."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-honors-004",
@@ -2272,7 +2600,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn3_shade_0.png",
      "alt": "Three‑set Venn diagram with these regions shaded: A and B only, all three, A and C only."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-honors-005",
@@ -2310,7 +2642,11 @@
      "src": "question-banks/assets/discrete/set-theory/venn3_shade_1.png",
      "alt": "Three‑set Venn diagram with these regions shaded: C only, A and C only, B and C only."
     }
-   }
+   },
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-006",
@@ -2342,6 +2678,10 @@
      "text": "40",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2355,7 +2695,11 @@
     "Use |A ∪ B| = |A| + |B| − |A ∩ B| (and the three‑set version).",
     "Answer: 9"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-honors-006",
@@ -2368,7 +2712,11 @@
     "Use |A ∪ B| = |A| + |B| − |A ∩ B| (and the three‑set version).",
     "Answer: 21"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp1-008",
@@ -2381,7 +2729,11 @@
     "Use |A ∪ B| = |A| + |B| − |A ∩ B| (and the three‑set version).",
     "Answer: 47"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-honors-007",
@@ -2394,7 +2746,11 @@
     "Use |A ∪ B| = |A| + |B| − |A ∩ B| (and the three‑set version).",
     "Answer: 266"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-007",
@@ -2428,6 +2784,10 @@
      "text": "h",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2461,6 +2821,10 @@
      "prompt": "Describe where the 8 go in a Venn diagram.",
      "answer": "In the overlap C ∩ G."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2494,6 +2858,10 @@
      "prompt": "Check that the eight region counts add to 60.",
      "answer": "15 + 12 + 9 + 7 + 5 + 3 + 3 + 6 = 60"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2527,6 +2895,10 @@
      "prompt": "How many elements are in U?",
      "answer": "7"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2540,7 +2912,11 @@
     "P(S) contains every subset of S, including ∅ and S.",
     "P({a, b}) = {∅, {a}, {b}, {a, b}}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp1-001",
@@ -2553,7 +2929,11 @@
     "P(S) contains every subset of S, including ∅ and S.",
     "P({1, 2, 3}) = {∅, {1}, {2}, {3}, {1, 2}, {1, 3}, {2, 3}, {1, 2, 3}}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-honors-001",
@@ -2566,7 +2946,11 @@
     "P(S) contains every subset of S, including ∅ and S.",
     "P({∅, 1}) = {∅, {∅}, {1}, {∅, 1}}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: list_power_set). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp2-002",
@@ -2597,6 +2981,10 @@
      "text": "8",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2628,6 +3016,10 @@
      "text": "9",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2659,6 +3051,10 @@
      "text": "32",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2690,6 +3086,10 @@
      "text": "3",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2721,6 +3121,10 @@
      "text": "1024",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2734,7 +3138,11 @@
     "|P({1, 2})| = 4.",
     "|P(P({1, 2}))| = 2⁴ = 16."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_size). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_size). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp1-004",
@@ -2746,7 +3154,11 @@
    "solutionSteps": [
     "3 is fixed in; the other three elements are free: 2³ = 8."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-honors-004",
@@ -2758,7 +3170,11 @@
    "solutionSteps": [
     "C(6,0) + C(6,2) + C(6,4) + C(6,6) = 1 + 15 + 15 + 1 = 32 (half of 64)."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp2-004",
@@ -2796,6 +3212,10 @@
      "text": "∅",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2835,6 +3255,10 @@
      "text": "1 ∈ P(A)",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2874,6 +3298,10 @@
      "text": "A ⊆ B implies P(A) ⊆ P(B)",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2907,6 +3335,10 @@
      "prompt": "Which subsets are missing from your lists so far?",
      "answer": "∅ and T itself"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2940,6 +3372,10 @@
      "prompt": "Is {1} ∈ P(A) or {1} ⊆ P(A)?",
      "answer": "{1} ∈ P(A); {1} ⊄ P(A) because 1 ∉ P(A)."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -2973,6 +3409,10 @@
      "prompt": "Give the inductive alternative.",
      "answer": "Adding a new element doubles the count: each old subset appears with and without it."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3004,6 +3444,10 @@
      "text": "Let x ∈ A. Then x ∈ A ∩ B.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3035,6 +3479,10 @@
      "text": "Let x ∈ A. Then \"x ∈ A or x ∈ B\" is true, so x ∈ A ∪ B.",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3066,6 +3514,10 @@
      "text": "Let x ∈ A. Then x ∈ B'.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3097,6 +3549,10 @@
      "text": "Let x ∈ B ∩ C. Then x ∈ A ∩ C.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3128,6 +3584,10 @@
      "text": "A ⊆ C because A is smaller than C.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3159,6 +3619,10 @@
      "text": "Let x ∈ A. Then x ∉ B'.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3190,6 +3654,10 @@
      "text": "Let x be any element of Y.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3221,6 +3689,10 @@
      "text": "Case 1: x ∈ A. Case 2: x ∉ A.",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3252,6 +3724,10 @@
      "text": "If n = 6k for an integer k, then n = 3(2k) with 2k an integer.",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3283,6 +3759,10 @@
      "text": "Cannot be determined",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3314,6 +3794,10 @@
      "text": "Cannot be determined",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3345,6 +3829,10 @@
      "text": "Cannot be determined",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3376,6 +3864,10 @@
      "text": "No",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3407,6 +3899,10 @@
      "text": "Cannot be determined",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3438,6 +3934,10 @@
      "text": "Cannot be determined",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3477,6 +3977,10 @@
      "text": "A ∪ B ⊆ A ∩ B",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3515,6 +4019,10 @@
      "text": "{2, 4, 6}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3553,6 +4061,10 @@
      "text": "Then x ∈ A and x ∉ B ∪ C, so x ∉ B and x ∉ C.",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3586,6 +4098,10 @@
      "prompt": "State the conclusion.",
      "answer": "Every element of A ∩ B is in B, so A ∩ B ⊆ B."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3619,6 +4135,10 @@
      "prompt": "Conclusion.",
      "answer": "In every case x ∈ B ∪ C, so A ∪ C ⊆ B ∪ C."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3652,6 +4172,10 @@
      "prompt": "Is the reverse inclusion true? Explain.",
      "answer": "No; 3 is odd but 3 ≡ 3 (mod 4)."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3683,6 +4207,10 @@
      "text": "Yes, because both sides use the same letters",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3714,6 +4242,10 @@
      "text": "No, it fails for some sets",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3745,6 +4277,10 @@
      "text": "Yes, because both sides use the same letters",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3776,6 +4312,10 @@
      "text": "No, it fails for some sets",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3807,6 +4347,10 @@
      "text": "Yes, it is an identity",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3838,6 +4382,10 @@
      "text": "No, it fails for some sets",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3869,6 +4417,10 @@
      "text": "Yes, because both sides use the same letters",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3900,6 +4452,10 @@
      "text": "Yes, because both sides use the same letters",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3931,6 +4487,10 @@
      "text": "No, it fails for some sets",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3962,6 +4522,10 @@
      "text": "Identity law",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -3993,6 +4557,10 @@
      "text": "Absorption law",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4024,6 +4592,10 @@
      "text": "Commutative law",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4055,6 +4627,10 @@
      "text": "Distributive law",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4086,6 +4662,10 @@
      "text": "Absorption law",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4117,6 +4697,10 @@
      "text": "Identity law",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4148,6 +4732,10 @@
      "text": "B",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4179,6 +4767,10 @@
      "text": "A'",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4210,6 +4802,10 @@
      "text": "A − B",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4241,6 +4837,10 @@
      "text": "A ∪ B",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4272,6 +4872,10 @@
      "text": "∅",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4310,6 +4914,10 @@
      "text": "A − A = A",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4348,6 +4956,10 @@
      "text": "A ∩ B and B ∩ A",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4386,6 +4998,10 @@
      "text": "(A − B) ∪ (B − A) = (A ∪ B) − (A ∩ B)",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4419,6 +5035,10 @@
      "prompt": "Find A' ∩ B' and compare.",
      "answer": "{4, 5}; equal, as De Morgan's law says (this is an example, not a proof)."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4452,6 +5072,10 @@
      "prompt": "Finish.",
      "answer": "∅ ∪ (A ∩ B) = A ∩ B"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4485,6 +5109,10 @@
      "prompt": "Which logic law mirrors this identity?",
      "answer": "p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r)"
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4516,6 +5144,10 @@
      "text": "A = ∅, B = ∅",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4547,6 +5179,10 @@
      "text": "A = ∅, B = {1}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4578,6 +5214,10 @@
      "text": "A = {1}, B = {2}, C = ∅",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4609,6 +5249,10 @@
      "text": "A = {1, 2}, B = {3}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4640,6 +5284,10 @@
      "text": "A = {1}, B = ∅, C = ∅",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4671,6 +5319,10 @@
      "text": "A = {1, 2}, B = {2}, C = {2}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4702,6 +5354,10 @@
      "text": "True: it works for A = {1}, B = {1, 2}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4733,6 +5389,10 @@
      "text": "It is neither true nor false",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4764,6 +5424,10 @@
      "text": "True: it can be proved for all sets",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4795,6 +5459,10 @@
      "text": "False: a counterexample exists",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4826,6 +5494,10 @@
      "text": "True: it can be proved for all sets",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4857,6 +5529,10 @@
      "text": "False: a counterexample exists",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4870,7 +5546,11 @@
     "Check that the chosen sets make the two sides different.",
     "{3}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-cp1-005",
@@ -4883,7 +5563,11 @@
     "Check that the chosen sets make the two sides different.",
     "{2}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-honors-005",
@@ -4896,7 +5580,11 @@
     "Check that the chosen sets make the two sides different.",
     "{1}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-cp1-006",
@@ -4933,6 +5621,10 @@
      "text": "A ∪ B = A ∩ B",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -4971,6 +5663,10 @@
      "text": "A = {7}, B = {8}",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5009,6 +5705,10 @@
      "text": "A = {1}, B = {1}, C = {2}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5042,6 +5742,10 @@
      "prompt": "When is A − B = A?",
      "answer": "Exactly when A ∩ B = ∅."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5075,6 +5779,10 @@
      "prompt": "Under what condition does the claim hold?",
      "answer": "When A ⊆ C."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5108,6 +5816,10 @@
      "prompt": "Is P(A − B) ⊆ P(A)? Explain.",
      "answer": "Yes; A − B ⊆ A, so every subset of A − B is a subset of A."
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5139,6 +5851,10 @@
      "text": "No: they are written differently",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5170,6 +5886,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5201,6 +5921,10 @@
      "text": "No: they are written differently",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5232,6 +5956,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5263,6 +5991,10 @@
      "text": "Yes: both are described by a condition on n",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5294,6 +6026,10 @@
      "text": "No: they are written differently",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5325,6 +6061,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5356,6 +6096,10 @@
      "text": "No: one set has an element the other does not",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5387,6 +6131,10 @@
      "text": "Yes: they have exactly the same elements",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5418,6 +6166,10 @@
      "text": "Yes: both are described by a condition on n",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5449,6 +6201,10 @@
      "text": "{4, 5, 6, 9}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5480,6 +6236,10 @@
      "text": "{1, 2, 3, 6, 8, 10, 12}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5511,6 +6271,10 @@
      "text": "{1, 5, 7, 10, 11}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5542,6 +6306,10 @@
      "text": "{8, 11}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5573,6 +6341,10 @@
      "text": "{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5604,6 +6376,10 @@
      "text": "{2, 5, 6, 7, 8, 9, 10, 11, 12}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5617,7 +6393,11 @@
     "Use inclusion‑exclusion on the divisibility sets (or count directly).",
     "Answer: 18"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-honors-009",
@@ -5630,7 +6410,11 @@
     "Use inclusion‑exclusion on the divisibility sets (or count directly).",
     "Answer: 54"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-010",
@@ -5643,7 +6427,11 @@
     "Use inclusion‑exclusion on the divisibility sets (or count directly).",
     "Answer: 13"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: inclusion_exclusion). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp2-006",
@@ -5674,6 +6462,10 @@
      "text": "4",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5705,6 +6497,10 @@
      "text": "9",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5736,6 +6532,10 @@
      "text": "6",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5767,6 +6567,10 @@
      "text": "4",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5798,6 +6602,10 @@
      "text": "10",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5829,6 +6637,10 @@
      "text": "10",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5860,6 +6672,10 @@
      "text": "5",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5891,6 +6707,10 @@
      "text": "194",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5922,6 +6742,10 @@
      "text": "33",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5953,6 +6777,10 @@
      "text": "33",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -5984,6 +6812,10 @@
      "text": "Yes",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6015,6 +6847,10 @@
      "text": "Only if A = B",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6046,6 +6882,10 @@
      "text": "No",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6077,6 +6917,10 @@
      "text": "No",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6108,6 +6952,10 @@
      "text": "Only if A = B",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6139,6 +6987,10 @@
      "text": "Yes",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6170,6 +7022,10 @@
      "text": "No",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6201,6 +7057,10 @@
      "text": "Only when A, B, C are disjoint",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6232,6 +7092,10 @@
      "text": "Yes, it is an identity",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6263,6 +7127,10 @@
      "text": "Only when A, B, C are disjoint",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6294,6 +7162,10 @@
      "text": "Yes, it is an identity",
      "correct": true
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6307,7 +7179,11 @@
     "Check that the sets make the statement false.",
     "{1}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-cp2-009",
@@ -6320,7 +7196,11 @@
     "Check that the sets make the statement false.",
     "{1}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-cp1-008",
@@ -6333,7 +7213,11 @@
     "Check that the sets make the statement false.",
     "{1}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-honors-008",
@@ -6346,7 +7230,11 @@
     "Check that the sets make the statement false.",
     "{2}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: build_counterexample). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-honors-010",
@@ -6359,7 +7247,11 @@
     "Inclusion‑exclusion on power sets: |P(X) ∪ P(Y)| = |P(X)| + |P(Y)| − |P(X ∩ Y)|.",
     "8 + 8 − 2 = 14 (X ∩ Y = {3})."
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_set_count). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-cp2-010",
@@ -6390,6 +7282,10 @@
      "text": "A = ∅, B = {1}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6421,6 +7317,10 @@
      "text": "A = {1, 2}, B = {2}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6452,6 +7352,10 @@
      "text": "A = {1}, B = {2}",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6467,7 +7371,11 @@
     "{1, 2, 3, 4} has 4 elements.",
     "Correct answer: {1, 2, 3, 4}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: union_repeat_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: union_repeat_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-cp2-011",
@@ -6482,7 +7390,11 @@
     "Remove b from A.",
     "Correct answer: {a, c}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: difference_add_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: difference_add_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-010",
@@ -6497,7 +7409,11 @@
     "State U first, then A' = U − A.",
     "Correct answer: Cannot be found until the universe is stated (e.g., in U = {1, ..., 5}, A' = {1, 3, 5})"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: no_universe_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: no_universe_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp2-010",
@@ -6512,7 +7428,11 @@
     "2³ = 8.",
     "Correct answer: 8"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: missing_subsets_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: missing_subsets_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp1-010",
@@ -6527,7 +7447,11 @@
     "25 + 20 − 8 = 37.",
     "Correct answer: 37"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: double_count_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: double_count_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s01-cp2-010",
@@ -6542,7 +7466,11 @@
     "Same elements ⇒ equal.",
     "Correct answer: Yes"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: repeat_equal_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: repeat_equal_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-010",
@@ -6557,7 +7485,11 @@
     "(A ∩ B)' = A' ∪ B'.",
     "Correct answer: A' ∪ B'"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_demorgan_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: set_demorgan_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s06-cp1-010",
@@ -6572,7 +7504,11 @@
     "x ∈ A ∩ B ⇒ x ∈ A ⇒ x ∈ A ∪ B.",
     "Correct answer: Let x ∈ A ∩ B; then x ∈ A, so x ∈ A ∪ B"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: wrong_direction_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: wrong_direction_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s07-cp1-011",
@@ -6587,7 +7523,11 @@
     "x ∉ A ∪ B ⟺ x ∉ A and x ∉ B ⟺ x ∈ A' ∩ B'.",
     "Correct answer: Use an element argument (or a membership table) for arbitrary sets"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: example_identity_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: example_identity_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s05-cp1-010",
@@ -6602,7 +7542,11 @@
     "P({1, 2}) = {∅, {1}, {2}, {1, 2}}.",
     "Correct answer: {1} ∈ P({1, 2}) is true; 1 ∈ P({1, 2}) is false"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_element_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_element_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-cp1-010",
@@ -6617,7 +7561,11 @@
     "Choose B missing an element of A.",
     "Correct answer: A = {1}, B = ∅ gives A ∩ B = ∅ ≠ A"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: non_counterexample_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: non_counterexample_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s04-cp2-011",
@@ -6632,7 +7580,11 @@
     "4 + 3 = 7.",
     "Correct answer: 7"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_region_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: venn_region_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s07-honors-011",
@@ -6647,7 +7599,11 @@
     "A ∪ (B ∩ B') = A ∪ ∅ = A.",
     "Correct answer: A"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_law_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: complement_law_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s08-honors-010",
@@ -6662,7 +7618,11 @@
     "A − (B − C) = A ∩ (B ∩ C')' = A ∩ (B' ∪ C).",
     "Correct answer: True (it is an identity)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: appearance_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: appearance_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s06-honors-010",
@@ -6677,7 +7637,11 @@
     "X ⊆ A and A ⊆ B give X ⊆ B by transitivity.",
     "Correct answer: Let X ∈ P(A), so X ⊆ A ⊆ B; hence X ∈ P(B)"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_proof_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: power_proof_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s02-honors-011",
@@ -6692,7 +7656,11 @@
     "2 ∈ A and 2 ∉ B, so 2 ∈ A − B.",
     "Correct answer: [1, 2]"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: interval_endpoint_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: interval_endpoint_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s01-honors-010",
@@ -6707,7 +7675,11 @@
     "n² = n gives n = 0 or 1.",
     "Correct answer: The first pair is equal; ∅ ≠ {∅}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: empty_brace_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: empty_brace_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-010",
@@ -6722,7 +7694,11 @@
     "E' = ℕ − E.",
     "Correct answer: The positive odd integers {1, 3, 5, ...}"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: wrong_universe_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: wrong_universe_error). Intentional error checked by verify_banks.py: the student's result differs from the computed key.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-011",
@@ -6735,7 +7711,11 @@
     "Inclusion‑exclusion.",
     "Answer: 14"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-012",
@@ -6766,6 +7746,10 @@
      "text": "23",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6779,7 +7763,11 @@
     "2ⁿ.",
     "Answer: 16"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-013",
@@ -6792,7 +7780,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 24"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-014",
@@ -6805,7 +7797,11 @@
     "Inclusion‑exclusion.",
     "Answer: 43"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-015",
@@ -6836,6 +7832,10 @@
      "text": "41",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6849,7 +7849,11 @@
     "2ⁿ.",
     "Answer: 1024"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-016",
@@ -6880,6 +7884,10 @@
      "text": "33",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6893,7 +7901,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 62"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-018",
@@ -6906,7 +7918,11 @@
     "Inclusion‑exclusion.",
     "Answer: 72"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-019",
@@ -6937,6 +7953,10 @@
      "text": "59",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6950,7 +7970,11 @@
     "2ⁿ.",
     "Answer: 128"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp2-020",
@@ -6981,6 +8005,10 @@
      "text": "55",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -6994,7 +8022,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 90"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-011",
@@ -7007,7 +8039,11 @@
     "Inclusion‑exclusion.",
     "Answer: 20"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-012",
@@ -7038,6 +8074,10 @@
      "text": "24",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7069,6 +8109,10 @@
      "text": "21",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7082,7 +8126,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 30"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s06-cp1-011",
@@ -7113,6 +8161,10 @@
      "text": "30",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7126,7 +8178,11 @@
     "Inclusion‑exclusion.",
     "Answer: 49"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-016",
@@ -7157,6 +8213,10 @@
      "text": "42",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7188,6 +8248,10 @@
      "text": "38",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7201,7 +8265,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 68"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-019",
@@ -7214,7 +8282,11 @@
     "Inclusion‑exclusion.",
     "Answer: 78"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-cp1-020",
@@ -7245,6 +8317,10 @@
      "text": "60",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7258,7 +8334,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 96"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-011",
@@ -7271,7 +8351,11 @@
     "Inclusion‑exclusion.",
     "Answer: 26"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-012",
@@ -7302,6 +8386,10 @@
      "text": "25",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7333,6 +8421,10 @@
      "text": "26",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7346,7 +8438,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 36"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s06-honors-011",
@@ -7377,6 +8473,10 @@
      "text": "37",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7390,7 +8490,11 @@
     "Inclusion‑exclusion.",
     "Answer: 55"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-016",
@@ -7421,6 +8525,10 @@
      "text": "43",
      "correct": false
     }
+   ],
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
    ]
   },
   {
@@ -7434,7 +8542,11 @@
     "|A ∪ B| − |A ∩ B|.",
     "Answer: 74"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   },
   {
    "id": "dm-st-s03-honors-018",
@@ -7447,7 +8559,11 @@
     "Inclusion‑exclusion.",
     "Answer: 84"
    ],
-   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py."
+   "sourceNotes": "Original Claude-authored Discrete Math item (family: quick_check). Answer computed by the authoring script (tools/discrete-math/bank) and re-checked by verify_banks.py.",
+   "standards": [
+    "S-CP.A.1",
+    "DM.SETS"
+   ]
   }
  ]
 }

@@ -1,0 +1,69 @@
+{
+ "decision": "One student-facing label set for every course; teacher-facing labels can stay course-specific. No student ever sees 'Remedial'.",
+ "codes": [
+  "cp2",
+  "cp1",
+  "honors"
+ ],
+ "studentFacing": {
+  "all": {
+   "cp2": "Level 1 · Warm-Up",
+   "cp1": "Level 2 · Core",
+   "honors": "Level 3 · Challenge"
+  }
+ },
+ "teacherFacing": {
+  "grades1-8": {
+   "cp2": "Support",
+   "cp1": "On Level",
+   "honors": "Challenge"
+  },
+  "high-school": {
+   "cp2": "CP2",
+   "cp1": "CP1",
+   "honors": "Honors"
+  },
+  "financial-algebra": {
+   "cp1": "Standard"
+  }
+ },
+ "tooltipsTeacher": {
+  "cp2": "More scaffolding: friendlier numbers, one step at a time, visual models.",
+  "cp1": "Grade-level expectations.",
+  "honors": "Extension: multi-step, reasoning and transfer problems."
+ },
+ "studentLinkParam": "Keep level=cp2|cp1|honors in URLs; render the student label from studentFacing.all.",
+ "replaceStrings": [
+  {
+   "file": "src/grade5-student-links.js (FinancialAlgebra)",
+   "from": "{ cp2: 'Remedial', cp1: 'Standard', honors: 'Advanced' }",
+   "to": "{ cp2: 'Level 1 · Warm-Up', cp1: 'Level 2 · Core', honors: 'Level 3 · Challenge' }"
+  },
+  {
+   "file": "src/grade5-site.js (FinancialAlgebra)",
+   "from": "Remedial · Standard · Advanced",
+   "to": "Support · On Level · Challenge"
+  },
+  {
+   "file": "coverage.html (both repos)",
+   "from": "['Remedial','Standard','Advanced']",
+   "to": "['Support','On Level','Challenge']"
+  },
+  {
+   "file": "elementary game shells (grade1-5 *-games.html, el-games.js)",
+   "from": "Remedial / Standard / Advanced level buttons",
+   "to": "Level 1 · Warm-Up / Level 2 · Core / Level 3 · Challenge"
+  }
+ ],
+ "otherTerminology": [
+  {
+   "where": "Practice Test card vs page title",
+   "from": "Assessment Readiness Check (page title)",
+   "to": "Practice Test (match the card); subtitle 'Check readiness before the assessment'"
+  },
+  {
+   "where": "Algebra 1 Relations and Functions game skill picker (15 entries) vs catalog (8, +2 new)",
+   "to": "Group picker entries under catalog skill names; show sub-skills indented. Mapping in labels/skill-picker-mapping.json (Codex to generate from menu engine ids)."
+  }
+ ]
+}

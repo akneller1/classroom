@@ -10106,6 +10106,1538 @@
     "N-VM.C.12"
    ],
    "sourceNotes": "Original Claude-authored item (family: s8_rotate_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v001",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 5 cm long, and A = 50°. Find side b (= AC) to the nearest tenth.",
+   "answer": "6.5 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 5 / sin 50° ≈ 6.5 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v002",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A 114-ft cable runs from the top of a pole to a stake in level ground, making a 50° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "87.3 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 114·sin 50°.",
+    "h ≈ 87.3 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v003",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 23 and A = 65°, Ana wrote h = 23·cos 65° ≈ 9.7. What is the correct altitude?",
+   "answer": "20.8",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 23·sin 65° ≈ 20.8."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "49.3",
+     "correct": false
+    },
+    {
+     "text": "9.7",
+     "correct": false
+    },
+    {
+     "text": "20.8",
+     "correct": true
+    },
+    {
+     "text": "25.4",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v004",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 18, b = 19, and C = 110°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 17.9; area ≈ 160.7",
+   "solutionSteps": [
+    "h = b·sin C = 19·sin 110° ≈ 17.9.",
+    "Area = ½·a·h ≈ ½·18·17.9 ≈ 160.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v005",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 10 cm long, and A = 62°. Find side b (= AC) to the nearest tenth.",
+   "answer": "11.3 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 10 / sin 62° ≈ 11.3 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v006",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A 102-ft cable runs from the top of a pole to a stake in level ground, making a 50° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "78.1 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 102·sin 50°.",
+    "h ≈ 78.1 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v007",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 15 and A = 65°, Ana wrote h = 15·cos 65° ≈ 6.3. What is the correct altitude?",
+   "answer": "13.6",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 15·sin 65° ≈ 13.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "13.6",
+     "correct": true
+    },
+    {
+     "text": "6.3",
+     "correct": false
+    },
+    {
+     "text": "32.2",
+     "correct": false
+    },
+    {
+     "text": "16.6",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v008",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 15, b = 18, and C = 55°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 14.7; area ≈ 110.6",
+   "solutionSteps": [
+    "h = b·sin C = 18·sin 55° ≈ 14.7.",
+    "Area = ½·a·h ≈ ½·15·14.7 ≈ 110.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v009",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 5 cm long, and A = 70°. Find side b (= AC) to the nearest tenth.",
+   "answer": "5.3 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 5 / sin 70° ≈ 5.3 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp2-v010",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A 79-ft cable runs from the top of a pole to a stake in level ground, making a 42° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "52.9 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 79·sin 42°.",
+    "h ≈ 52.9 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v001",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A 96-ft cable runs from the top of a pole to a stake in level ground, making a 50° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "73.5 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 96·sin 50°.",
+    "h ≈ 73.5 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v002",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 28 and A = 20°, Ana wrote h = 28·cos 20° ≈ 26.3. What is the correct altitude?",
+   "answer": "9.6",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 28·sin 20° ≈ 9.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "81.9",
+     "correct": false
+    },
+    {
+     "text": "10.2",
+     "correct": false
+    },
+    {
+     "text": "26.3",
+     "correct": false
+    },
+    {
+     "text": "9.6",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v003",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 20, b = 11, and C = 125°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 9.0; area ≈ 90.1",
+   "solutionSteps": [
+    "h = b·sin C = 11·sin 125° ≈ 9.0.",
+    "Area = ½·a·h ≈ ½·20·9.0 ≈ 90.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v004",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 9 cm long, and A = 70°. Find side b (= AC) to the nearest tenth.",
+   "answer": "9.6 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 9 / sin 70° ≈ 9.6 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v005",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A 54-ft cable runs from the top of a pole to a stake in level ground, making a 42° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "36.1 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 54·sin 42°.",
+    "h ≈ 36.1 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v006",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 21 and A = 35°, Ana wrote h = 21·cos 35° ≈ 17.2. What is the correct altitude?",
+   "answer": "12.0",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 21·sin 35° ≈ 12.0."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "14.7",
+     "correct": false
+    },
+    {
+     "text": "36.6",
+     "correct": false
+    },
+    {
+     "text": "17.2",
+     "correct": false
+    },
+    {
+     "text": "12.0",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v007",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 8, b = 6, and C = 70°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 5.6; area ≈ 22.6",
+   "solutionSteps": [
+    "h = b·sin C = 6·sin 70° ≈ 5.6.",
+    "Area = ½·a·h ≈ ½·8·5.6 ≈ 22.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v008",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 14 cm long, and A = 50°. Find side b (= AC) to the nearest tenth.",
+   "answer": "18.3 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 14 / sin 50° ≈ 18.3 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v009",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A 83-ft cable runs from the top of a pole to a stake in level ground, making a 42° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "55.5 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 83·sin 42°.",
+    "h ≈ 55.5 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-cp1-v010",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 12 and A = 50°, Ana wrote h = 12·cos 50° ≈ 7.7. What is the correct altitude?",
+   "answer": "9.2",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 12·sin 50° ≈ 9.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "14.3",
+     "correct": false
+    },
+    {
+     "text": "15.7",
+     "correct": false
+    },
+    {
+     "text": "9.2",
+     "correct": true
+    },
+    {
+     "text": "7.7",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-honors-v001",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 23 and A = 20°, Ana wrote h = 23·cos 20° ≈ 21.6. What is the correct altitude?",
+   "answer": "7.9",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 23·sin 20° ≈ 7.9."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "21.6",
+     "correct": false
+    },
+    {
+     "text": "7.9",
+     "correct": true
+    },
+    {
+     "text": "8.4",
+     "correct": false
+    },
+    {
+     "text": "67.2",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-honors-v002",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 14, b = 16, and C = 70°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 15.0; area ≈ 105.2",
+   "solutionSteps": [
+    "h = b·sin C = 16·sin 70° ≈ 15.0.",
+    "Area = ½·a·h ≈ ½·14·15.0 ≈ 105.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-honors-v003",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 8 cm long, and A = 35°. Find side b (= AC) to the nearest tenth.",
+   "answer": "13.9 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 8 / sin 35° ≈ 13.9 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-honors-v004",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A 115-ft cable runs from the top of a pole to a stake in level ground, making a 28° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "54.0 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 115·sin 28°.",
+    "h ≈ 54.0 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-honors-v005",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 25 and A = 20°, Ana wrote h = 25·cos 20° ≈ 23.5. What is the correct altitude?",
+   "answer": "8.6",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 25·sin 20° ≈ 8.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "23.5",
+     "correct": false
+    },
+    {
+     "text": "9.1",
+     "correct": false
+    },
+    {
+     "text": "8.6",
+     "correct": true
+    },
+    {
+     "text": "73.1",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-honors-v006",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 6, b = 6, and C = 125°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 4.9; area ≈ 14.7",
+   "solutionSteps": [
+    "h = b·sin C = 6·sin 125° ≈ 4.9.",
+    "Area = ½·a·h ≈ ½·6·4.9 ≈ 14.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-honors-v007",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A 99-ft cable runs from the top of a pole to a stake in level ground, making a 42° angle with the ground. How far above the ground is the top of the pole? Round to the nearest tenth.",
+   "answer": "66.2 ft",
+   "solutionSteps": [
+    "The height is the altitude: h = 99·sin 42°.",
+    "h ≈ 66.2 ft."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-context). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-honors-v008",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "To find the altitude from C in triangle ABC with b = 22 and A = 20°, Ana wrote h = 22·cos 20° ≈ 20.7. What is the correct altitude?",
+   "answer": "7.5",
+   "solutionSteps": [
+    "The altitude is opposite angle A in the right triangle with hypotenuse b, so use sine.",
+    "h = 22·sin 20° ≈ 7.5."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "7.5",
+     "correct": true
+    },
+    {
+     "text": "64.3",
+     "correct": false
+    },
+    {
+     "text": "8.0",
+     "correct": false
+    },
+    {
+     "text": "20.7",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s06-honors-v009",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, a = 14, b = 9, and C = 110°. Find the altitude from A to side BC (side a), then the area. Round to the nearest tenth.",
+   "answer": "altitude ≈ 8.5; area ≈ 59.2",
+   "solutionSteps": [
+    "h = b·sin C = 9·sin 110° ≈ 8.5.",
+    "Area = ½·a·h ≈ ½·14·8.5 ≈ 59.2."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-area). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s06-honors-v010",
+   "skillId": "general-triangle-trigonometry-skill-06",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "The altitude from C to side AB of triangle ABC is 18 cm long, and A = 25°. Find side b (= AC) to the nearest tenth.",
+   "answer": "42.6 cm",
+   "solutionSteps": [
+    "sin A = h/b.",
+    "b = 18 / sin 25° ≈ 42.6 cm."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: alt-reverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-cp2-v001",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R(θ) is the rotation matrix for θ counterclockwise. Which single matrix equals R(60°)·R(45°)?",
+   "answer": "R(105°)",
+   "solutionSteps": [
+    "Rotations about the origin compose by adding angles.",
+    "60° + 45° = 105°."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(105°)",
+     "correct": true
+    },
+    {
+     "text": "R(15°)",
+     "correct": false
+    },
+    {
+     "text": "R(180°)",
+     "correct": false
+    },
+    {
+     "text": "R(195°)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp2-v002",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "What is the inverse of the rotation matrix R(60°)?",
+   "answer": "R(−60°), which is also the transpose of R(60°)",
+   "solutionSteps": [
+    "Undo a counterclockwise rotation by rotating clockwise the same amount.",
+    "For rotation matrices, R(−θ) = R(θ)ᵀ."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-inverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(−60°), which is also the transpose of R(60°)",
+     "correct": true
+    },
+    {
+     "text": "R(60°), because rotations are their own inverses",
+     "correct": false
+    },
+    {
+     "text": "−R(60°)",
+     "correct": false
+    },
+    {
+     "text": "R(120°)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp2-v003",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 90° counterclockwise to rotate (3, 6). Give the image.",
+   "answer": "(-6, 3)",
+   "solutionSteps": [
+    "R(90°) = [0, -1; 1, 0].",
+    "Image = (-6, 3)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-cp2-v004",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "R(θ) is the rotation matrix for θ counterclockwise. Which single matrix equals R(90°)·R(90°)?",
+   "answer": "R(180°)",
+   "solutionSteps": [
+    "Rotations about the origin compose by adding angles.",
+    "90° + 90° = 180°."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(270°)",
+     "correct": false
+    },
+    {
+     "text": "R(181°)",
+     "correct": false
+    },
+    {
+     "text": "R(180°)",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp2-v005",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "What is the inverse of the rotation matrix R(30°)?",
+   "answer": "R(−30°), which is also the transpose of R(30°)",
+   "solutionSteps": [
+    "Undo a counterclockwise rotation by rotating clockwise the same amount.",
+    "For rotation matrices, R(−θ) = R(θ)ᵀ."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-inverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(−30°), which is also the transpose of R(30°)",
+     "correct": true
+    },
+    {
+     "text": "R(60°)",
+     "correct": false
+    },
+    {
+     "text": "−R(30°)",
+     "correct": false
+    },
+    {
+     "text": "R(30°), because rotations are their own inverses",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp2-v006",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 270° counterclockwise to rotate (6, -2). Give the image.",
+   "answer": "(-2, -6)",
+   "solutionSteps": [
+    "R(270°) = [0, 1; -1, 0].",
+    "Image = (-2, -6)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-cp1-v001",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 90° counterclockwise to rotate (-5, -6). Give the image.",
+   "answer": "(6, -5)",
+   "solutionSteps": [
+    "R(90°) = [0, -1; 1, 0].",
+    "Image = (6, -5)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-cp1-v002",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R(θ) is the rotation matrix for θ counterclockwise. Which single matrix equals R(30°)·R(120°)?",
+   "answer": "R(150°)",
+   "solutionSteps": [
+    "Rotations about the origin compose by adding angles.",
+    "30° + 120° = 150°."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(1°)",
+     "correct": false
+    },
+    {
+     "text": "R(90°)",
+     "correct": false
+    },
+    {
+     "text": "R(150°)",
+     "correct": true
+    },
+    {
+     "text": "R(240°)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp1-v003",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "What is the inverse of the rotation matrix R(45°)?",
+   "answer": "R(−45°), which is also the transpose of R(45°)",
+   "solutionSteps": [
+    "Undo a counterclockwise rotation by rotating clockwise the same amount.",
+    "For rotation matrices, R(−θ) = R(θ)ᵀ."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-inverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(45°), because rotations are their own inverses",
+     "correct": false
+    },
+    {
+     "text": "−R(45°)",
+     "correct": false
+    },
+    {
+     "text": "R(90°)",
+     "correct": false
+    },
+    {
+     "text": "R(−45°), which is also the transpose of R(45°)",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp1-v004",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 180° counterclockwise to rotate (-4, -5). Give the image.",
+   "answer": "(4, 5)",
+   "solutionSteps": [
+    "R(180°) = [-1, 0; 0, -1].",
+    "Image = (4, 5)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-cp1-v005",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "R(θ) is the rotation matrix for θ counterclockwise. Which single matrix equals R(90°)·R(30°)?",
+   "answer": "R(120°)",
+   "solutionSteps": [
+    "Rotations about the origin compose by adding angles.",
+    "90° + 30° = 120°."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(120°)",
+     "correct": true
+    },
+    {
+     "text": "R(210°)",
+     "correct": false
+    },
+    {
+     "text": "R(60°)",
+     "correct": false
+    },
+    {
+     "text": "R(180°)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-cp1-v006",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 90° counterclockwise to rotate (0, 2). Give the image.",
+   "answer": "(-2, 0)",
+   "solutionSteps": [
+    "R(90°) = [0, -1; 1, 0].",
+    "Image = (-2, 0)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-honors-v001",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 270° counterclockwise to rotate (3, -1). Give the image.",
+   "answer": "(-1, -3)",
+   "solutionSteps": [
+    "R(270°) = [0, 1; -1, 0].",
+    "Image = (-1, -3)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-honors-v002",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A rotation about the origin sends (2, 0) to (0, -2). What counterclockwise angle (between 0° and 360°) is it?",
+   "answer": "270°",
+   "solutionSteps": [
+    "Compare the directions of the two points.",
+    "It is a 270° counterclockwise rotation."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-find-angle). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-honors-v003",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R(θ) is the rotation matrix for θ counterclockwise. Which single matrix equals R(90°)·R(120°)?",
+   "answer": "R(210°)",
+   "solutionSteps": [
+    "Rotations about the origin compose by adding angles.",
+    "90° + 120° = 210°."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(30°)",
+     "correct": false
+    },
+    {
+     "text": "R(1°)",
+     "correct": false
+    },
+    {
+     "text": "R(210°)",
+     "correct": true
+    },
+    {
+     "text": "R(300°)",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-honors-v004",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "What is the inverse of the rotation matrix R(135°)?",
+   "answer": "R(−135°), which is also the transpose of R(135°)",
+   "solutionSteps": [
+    "Undo a counterclockwise rotation by rotating clockwise the same amount.",
+    "For rotation matrices, R(−θ) = R(θ)ᵀ."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-inverse). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(135°), because rotations are their own inverses",
+     "correct": false
+    },
+    {
+     "text": "R(270°)",
+     "correct": false
+    },
+    {
+     "text": "−R(135°)",
+     "correct": false
+    },
+    {
+     "text": "R(−135°), which is also the transpose of R(135°)",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s08-honors-v005",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Use the rotation matrix for 270° counterclockwise to rotate (2, -2). Give the image.",
+   "answer": "(-2, -2)",
+   "solutionSteps": [
+    "R(270°) = [0, 1; -1, 0].",
+    "Image = (-2, -2)."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-integer). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s08-honors-v006",
+   "skillId": "general-triangle-trigonometry-skill-08",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "R(θ) is the rotation matrix for θ counterclockwise. Which single matrix equals R(30°)·R(60°)?",
+   "answer": "R(90°)",
+   "solutionSteps": [
+    "Rotations about the origin compose by adding angles.",
+    "30° + 60° = 90°."
+   ],
+   "standards": [
+    "F-TF.C.9",
+    "N-VM.C.12"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: rot-compose). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "R(1°)",
+     "correct": false
+    },
+    {
+     "text": "R(30°)",
+     "correct": false
+    },
+    {
+     "text": "R(180°)",
+     "correct": false
+    },
+    {
+     "text": "R(90°)",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s02-cp2-v001",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 102°, a = 13, and b = 7. Find angle B to the nearest tenth of a degree.",
+   "answer": "31.8°",
+   "solutionSteps": [
+    "sin B = b·sin A / a = 7·sin 102°/13 ≈ 0.5267.",
+    "B ≈ 31.8°. (Only one triangle: since a > b, B < A.)"
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-angle). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp2-v002",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two rangers 658 m apart at points P and Q spot a fire F. ∠FPQ = 67° and ∠FQP = 56°. How far is the fire from Q? Round to the nearest meter.",
+   "answer": "722 m",
+   "solutionSteps": [
+    "∠F = 180° − 67° − 56° = 57°.",
+    "QF/sin 67° = 658/sin 57°, so QF ≈ 722 m."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-survey). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp2-v003",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "In triangle ABC, A = 48°, B = 74°, and a = 18. Kai wrote b = a·sin A / sin B ≈ 13.9. What is the correct value of b?",
+   "answer": "23.3",
+   "solutionSteps": [
+    "b/sin B = a/sin A, so b = a·sin B / sin A.",
+    "b ≈ 23.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "17.3",
+     "correct": false
+    },
+    {
+     "text": "13.9",
+     "correct": false
+    },
+    {
+     "text": "23.3",
+     "correct": true
+    },
+    {
+     "text": "24.2",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s02-cp2-v004",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 49°, B = 57°, and c = 18. Find a to the nearest tenth.",
+   "answer": "14.1",
+   "solutionSteps": [
+    "C = 180° − 49° − 57° = 74°.",
+    "a/sin A = c/sin C: a = 18·sin 49°/sin 74° ≈ 14.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-asa). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp2-v005",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 90°, a = 18, and b = 8. Find angle B to the nearest tenth of a degree.",
+   "answer": "26.4°",
+   "solutionSteps": [
+    "sin B = b·sin A / a = 8·sin 90°/18 ≈ 0.4444.",
+    "B ≈ 26.4°. (Only one triangle: since a > b, B < A.)"
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-angle). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp2-v006",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Two rangers 509 m apart at points P and Q spot a fire F. ∠FPQ = 44° and ∠FQP = 43°. How far is the fire from Q? Round to the nearest meter.",
+   "answer": "354 m",
+   "solutionSteps": [
+    "∠F = 180° − 44° − 43° = 93°.",
+    "QF/sin 44° = 509/sin 93°, so QF ≈ 354 m."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-survey). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp1-v001",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two rangers 406 m apart at points P and Q spot a fire F. ∠FPQ = 40° and ∠FQP = 70°. How far is the fire from Q? Round to the nearest meter.",
+   "answer": "278 m",
+   "solutionSteps": [
+    "∠F = 180° − 40° − 70° = 70°.",
+    "QF/sin 40° = 406/sin 70°, so QF ≈ 278 m."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-survey). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp1-v002",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In triangle ABC, A = 49°, B = 65°, and a = 14. Kai wrote b = a·sin A / sin B ≈ 11.7. What is the correct value of b?",
+   "answer": "16.8",
+   "solutionSteps": [
+    "b/sin B = a/sin A, so b = a·sin B / sin A.",
+    "b ≈ 16.8."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "16.8",
+     "correct": true
+    },
+    {
+     "text": "12.7",
+     "correct": false
+    },
+    {
+     "text": "11.7",
+     "correct": false
+    },
+    {
+     "text": "18.6",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s02-cp1-v003",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 53°, B = 64°, and c = 24. Find a to the nearest tenth.",
+   "answer": "21.5",
+   "solutionSteps": [
+    "C = 180° − 53° − 64° = 63°.",
+    "a/sin A = c/sin C: a = 24·sin 53°/sin 63° ≈ 21.5."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-asa). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp1-v004",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 78°, a = 17, and b = 6. Find angle B to the nearest tenth of a degree.",
+   "answer": "20.2°",
+   "solutionSteps": [
+    "sin B = b·sin A / a = 6·sin 78°/17 ≈ 0.3452.",
+    "B ≈ 20.2°. (Only one triangle: since a > b, B < A.)"
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-angle). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp1-v005",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Two rangers 481 m apart at points P and Q spot a fire F. ∠FPQ = 54° and ∠FQP = 53°. How far is the fire from Q? Round to the nearest meter.",
+   "answer": "407 m",
+   "solutionSteps": [
+    "∠F = 180° − 54° − 53° = 73°.",
+    "QF/sin 54° = 481/sin 73°, so QF ≈ 407 m."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-survey). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-cp1-v006",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "In triangle ABC, A = 48°, B = 68°, and a = 15. Kai wrote b = a·sin A / sin B ≈ 12.0. What is the correct value of b?",
+   "answer": "18.7",
+   "solutionSteps": [
+    "b/sin B = a/sin A, so b = a·sin B / sin A.",
+    "b ≈ 18.7."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "18.7",
+     "correct": true
+    },
+    {
+     "text": "13.9",
+     "correct": false
+    },
+    {
+     "text": "20.2",
+     "correct": false
+    },
+    {
+     "text": "12.0",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s02-honors-v001",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In triangle ABC, A = 34°, B = 53°, and a = 20. Kai wrote b = a·sin A / sin B ≈ 14.0. What is the correct value of b?",
+   "answer": "28.6",
+   "solutionSteps": [
+    "b/sin B = a/sin A, so b = a·sin B / sin A.",
+    "b ≈ 28.6."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "28.6",
+     "correct": true
+    },
+    {
+     "text": "14.0",
+     "correct": false
+    },
+    {
+     "text": "35.8",
+     "correct": false
+    },
+    {
+     "text": "16.0",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s02-honors-v002",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 44°, B = 39°, and c = 9. Find a to the nearest tenth.",
+   "answer": "6.3",
+   "solutionSteps": [
+    "C = 180° − 44° − 39° = 97°.",
+    "a/sin A = c/sin C: a = 9·sin 44°/sin 97° ≈ 6.3."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-asa). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-honors-v003",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 80°, a = 15, and b = 6. Find angle B to the nearest tenth of a degree.",
+   "answer": "23.2°",
+   "solutionSteps": [
+    "sin B = b·sin A / a = 6·sin 80°/15 ≈ 0.3939.",
+    "B ≈ 23.2°. (Only one triangle: since a > b, B < A.)"
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-angle). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-honors-v004",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Two rangers 741 m apart at points P and Q spot a fire F. ∠FPQ = 48° and ∠FQP = 40°. How far is the fire from Q? Round to the nearest meter.",
+   "answer": "551 m",
+   "solutionSteps": [
+    "∠F = 180° − 48° − 40° = 92°.",
+    "QF/sin 48° = 741/sin 92°, so QF ≈ 551 m."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-survey). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-gtt-s02-honors-v005",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "honors",
+   "format": "multiple-choice",
+   "prompt": "In triangle ABC, A = 36°, B = 57°, and a = 19. Kai wrote b = a·sin A / sin B ≈ 13.3. What is the correct value of b?",
+   "answer": "27.1",
+   "solutionSteps": [
+    "b/sin B = a/sin A, so b = a·sin B / sin A.",
+    "b ≈ 27.1."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-error). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "27.1",
+     "correct": true
+    },
+    {
+     "text": "13.3",
+     "correct": false
+    },
+    {
+     "text": "32.3",
+     "correct": false
+    },
+    {
+     "text": "15.9",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-gtt-s02-honors-v006",
+   "skillId": "general-triangle-trigonometry-skill-02",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "In triangle ABC, A = 32°, B = 43°, and c = 10. Find a to the nearest tenth.",
+   "answer": "5.5",
+   "solutionSteps": [
+    "C = 180° − 32° − 43° = 105°.",
+    "a/sin A = c/sin C: a = 10·sin 32°/sin 105° ≈ 5.5."
+   ],
+   "standards": [
+    "G-SRT.D.10",
+    "G-SRT.D.11"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: los-asa). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

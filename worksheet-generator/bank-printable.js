@@ -18,6 +18,7 @@ function renderQuestion(q,host,n,answerSide){
    img.onerror=function(){img.replaceWith(doc.createTextNode('[Diagram unavailable — check question asset]'))}
   }
  }
+ if(q.format==='plot'&&root.MK_PLOT){const grid=elt('div',article);grid.className='mk-plot';if(answerSide){const img=elt('img',grid);img.src='../'+q.plot.answerKey.src;img.alt=q.plot.answerKey.alt}else grid.innerHTML=root.MK_PLOT.blank(q.plot);}
  if(!answerSide){
   if(q.options&&q.options.length){
    const options=elt('div',article);options.className='choices';

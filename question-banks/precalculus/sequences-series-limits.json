@@ -5870,6 +5870,529 @@
     "F-IF.C.7d"
    ],
    "sourceNotes": "Original Claude-authored item (family: lim_intro_error). Answer, every option and every student answer re-checked numerically from the printed problem by tools/hs-gap-skills-20261114/verify.py. Awaiting human review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v001",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence -4, -6, -8, … is -28?",
+   "answer": "the 13th term",
+   "solutionSteps": [
+    "a_n = -4 + (n − 1)(-2).",
+    "Set it equal to -28: n − 1 = 12, so n = 13."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v002",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 9 and a_n = a_(n−1) + 2. Write an explicit formula and find a_20.",
+   "answer": "a_n = 9 + (n − 1)(2); a_20 = 47",
+   "solutionSteps": [
+    "Adding 2 each time: arithmetic with d = 2.",
+    "a_20 = 9 + 19(2) = 47."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v003",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_4 = 24 and a_6 = 32. Write an explicit formula for a_n.",
+   "answer": "a_n = 12 + (n − 1)(4)",
+   "solutionSteps": [
+    "d = (32 − 24)/(6 − 4) = 4.",
+    "a_1 = a_4 − (4 − 1)d = 24 − 3·4 = 12.",
+    "a_n = 12 + (n − 1)(4)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v004",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence 0, 6, 12, … is 84?",
+   "answer": "the 15th term",
+   "solutionSteps": [
+    "a_n = 0 + (n − 1)(6).",
+    "Set it equal to 84: n − 1 = 14, so n = 15."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v005",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 6 and a_n = a_(n−1) + 4. Write an explicit formula and find a_20.",
+   "answer": "a_n = 6 + (n − 1)(4); a_20 = 82",
+   "solutionSteps": [
+    "Adding 4 each time: arithmetic with d = 4.",
+    "a_20 = 6 + 19(4) = 82."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v006",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_3 = 2 and a_6 = -13. Write an explicit formula for a_n.",
+   "answer": "a_n = 12 + (n − 1)(-5)",
+   "solutionSteps": [
+    "d = (-13 − 2)/(6 − 3) = -5.",
+    "a_1 = a_3 − (3 − 1)d = 2 − 2·-5 = 12.",
+    "a_n = 12 + (n − 1)(-5)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v007",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence 6, 13, 20, … is 370?",
+   "answer": "the 53rd term",
+   "solutionSteps": [
+    "a_n = 6 + (n − 1)(7).",
+    "Set it equal to 370: n − 1 = 52, so n = 53."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v008",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 5 and a_n = a_(n−1) + 2. Write an explicit formula and find a_20.",
+   "answer": "a_n = 5 + (n − 1)(2); a_20 = 43",
+   "solutionSteps": [
+    "Adding 2 each time: arithmetic with d = 2.",
+    "a_20 = 5 + 19(2) = 43."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v009",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_4 = -11 and a_13 = -56. Write an explicit formula for a_n.",
+   "answer": "a_n = 4 + (n − 1)(-5)",
+   "solutionSteps": [
+    "d = (-56 − -11)/(13 − 4) = -5.",
+    "a_1 = a_4 − (4 − 1)d = -11 − 3·-5 = 4.",
+    "a_n = 4 + (n − 1)(-5)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp2-v010",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence 10, 17, 24, … is 325?",
+   "answer": "the 46th term",
+   "solutionSteps": [
+    "a_n = 10 + (n − 1)(7).",
+    "Set it equal to 325: n − 1 = 45, so n = 46."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v001",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A geometric sequence has a_2 = 8 and a_4 = 32. Find the common ratio r and a_1.",
+   "answer": "r = 2; a_1 = 4",
+   "solutionSteps": [
+    "r^2 = 32 ÷ 8 = 4.",
+    "r = 2 (real square root).",
+    "a_1 = a_2 ÷ r = 4."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-geo-two). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v002",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = -3 and a_n = a_(n−1) + 2. Write an explicit formula and find a_20.",
+   "answer": "a_n = -3 + (n − 1)(2); a_20 = 35",
+   "solutionSteps": [
+    "Adding 2 each time: arithmetic with d = 2.",
+    "a_20 = -3 + 19(2) = 35."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v003",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_2 = -4 and a_12 = 16. Write an explicit formula for a_n.",
+   "answer": "a_n = -6 + (n − 1)(2)",
+   "solutionSteps": [
+    "d = (16 − -4)/(12 − 2) = 2.",
+    "a_1 = a_2 − (2 − 1)d = -4 − 1·2 = -6.",
+    "a_n = -6 + (n − 1)(2)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v004",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence 3, 1, -1, … is -51?",
+   "answer": "the 28th term",
+   "solutionSteps": [
+    "a_n = 3 + (n − 1)(-2).",
+    "Set it equal to -51: n − 1 = 27, so n = 28."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v005",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A geometric sequence has a_2 = 18 and a_4 = 162. Find the common ratio r and a_1.",
+   "answer": "r = 3; a_1 = 6",
+   "solutionSteps": [
+    "r^2 = 162 ÷ 18 = 9.",
+    "r = 3 (real square root).",
+    "a_1 = a_2 ÷ r = 6."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-geo-two). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v006",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_10 = 29 and a_13 = 38. Write an explicit formula for a_n.",
+   "answer": "a_n = 2 + (n − 1)(3)",
+   "solutionSteps": [
+    "d = (38 − 29)/(13 − 10) = 3.",
+    "a_1 = a_10 − (10 − 1)d = 29 − 9·3 = 2.",
+    "a_n = 2 + (n − 1)(3)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v007",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence -3, 1, 5, … is 229?",
+   "answer": "the 59th term",
+   "solutionSteps": [
+    "a_n = -3 + (n − 1)(4).",
+    "Set it equal to 229: n − 1 = 58, so n = 59."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v008",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A geometric sequence has a_2 = 1 and a_5 = 1/8. Find the common ratio r and a_1.",
+   "answer": "r = 1/2; a_1 = 2",
+   "solutionSteps": [
+    "r^3 = 1/8 ÷ 1 = 1/8.",
+    "r = 1/2 (real cube root).",
+    "a_1 = a_2 ÷ r = 2."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-geo-two). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v009",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 1 and a_n = a_(n−1) + 4. Write an explicit formula and find a_20.",
+   "answer": "a_n = 1 + (n − 1)(4); a_20 = 77",
+   "solutionSteps": [
+    "Adding 4 each time: arithmetic with d = 4.",
+    "a_20 = 1 + 19(4) = 77."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-cp1-v010",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_9 = -28 and a_11 = -34. Write an explicit formula for a_n.",
+   "answer": "a_n = -4 + (n − 1)(-3)",
+   "solutionSteps": [
+    "d = (-34 − -28)/(11 − 9) = -3.",
+    "a_1 = a_9 − (9 − 1)d = -28 − 8·-3 = -4.",
+    "a_n = -4 + (n − 1)(-3)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v001",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 2 and a_n = 2·a_(n−1). Write an explicit formula and find a_6.",
+   "answer": "a_n = 2·2^(n − 1); a_6 = 64",
+   "solutionSteps": [
+    "Each term is 2 times the previous one: geometric with r = 2.",
+    "a_n = 2·2^(n−1); a_6 = 2·2⁵ = 64."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v002",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_3 = 16 and a_5 = 20. Write an explicit formula for a_n.",
+   "answer": "a_n = 12 + (n − 1)(2)",
+   "solutionSteps": [
+    "d = (20 − 16)/(5 − 3) = 2.",
+    "a_1 = a_3 − (3 − 1)d = 16 − 2·2 = 12.",
+    "a_n = 12 + (n − 1)(2)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v003",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence 4, 10, 16, … is 196?",
+   "answer": "the 33rd term",
+   "solutionSteps": [
+    "a_n = 4 + (n − 1)(6).",
+    "Set it equal to 196: n − 1 = 32, so n = 33."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v004",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 8 and a_n = 3·a_(n−1). Write an explicit formula and find a_6.",
+   "answer": "a_n = 8·3^(n − 1); a_6 = 1944",
+   "solutionSteps": [
+    "Each term is 3 times the previous one: geometric with r = 3.",
+    "a_n = 8·3^(n−1); a_6 = 8·3⁵ = 1944."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v005",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_4 = -9 and a_7 = -15. Write an explicit formula for a_n.",
+   "answer": "a_n = -3 + (n − 1)(-2)",
+   "solutionSteps": [
+    "d = (-15 − -9)/(7 − 4) = -2.",
+    "a_1 = a_4 − (4 − 1)d = -9 − 3·-2 = -3.",
+    "a_n = -3 + (n − 1)(-2)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v006",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence -1, 5, 11, … is 263?",
+   "answer": "the 45th term",
+   "solutionSteps": [
+    "a_n = -1 + (n − 1)(6).",
+    "Set it equal to 263: n − 1 = 44, so n = 45."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v007",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A geometric sequence has a_2 = 3/2 and a_5 = 3/16. Find the common ratio r and a_1.",
+   "answer": "r = 1/2; a_1 = 3",
+   "solutionSteps": [
+    "r^3 = 3/16 ÷ 3/2 = 1/8.",
+    "r = 1/2 (real cube root).",
+    "a_1 = a_2 ÷ r = 3."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-geo-two). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v008",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "A sequence is defined by a_1 = 3 and a_n = 2·a_(n−1). Write an explicit formula and find a_6.",
+   "answer": "a_n = 3·2^(n − 1); a_6 = 96",
+   "solutionSteps": [
+    "Each term is 2 times the previous one: geometric with r = 2.",
+    "a_n = 3·2^(n−1); a_6 = 3·2⁵ = 96."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-recursive). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v009",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "An arithmetic sequence has a_3 = 12 and a_12 = 30. Write an explicit formula for a_n.",
+   "answer": "a_n = 8 + (n − 1)(2)",
+   "solutionSteps": [
+    "d = (30 − 12)/(12 − 3) = 2.",
+    "a_1 = a_3 − (3 − 1)d = 12 − 2·2 = 8.",
+    "a_n = 8 + (n − 1)(2)."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-two-terms). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-ssl-s01-honors-v010",
+   "skillId": "sequences-series-limits-skill-01",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Which term of the arithmetic sequence 3, 9, 15, … is 135?",
+   "answer": "the 23rd term",
+   "solutionSteps": [
+    "a_n = 3 + (n − 1)(6).",
+    "Set it equal to 135: n − 1 = 22, so n = 23."
+   ],
+   "standards": [
+    "F-BF.A.2",
+    "F-LE.A.2"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: seq-which-term). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

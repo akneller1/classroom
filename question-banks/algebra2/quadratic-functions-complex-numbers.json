@@ -10384,6 +10384,1790 @@
     "A-CED.A.1"
    ],
    "sourceNotes": "Partner-check companion to a2-qc-s08-honors-010 (same answer, different problem). Claude-authored 2026-11-07; answer re-derived independently in tools/partner-check-companions-20261107. Awaiting human review."
+  },
+  {
+   "id": "a2-qfc-s01-cp2-p001",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = (x − 3)² + 1. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x − 3)² + 1; vertex (3, 1); passes through (4, 2)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (3, 1).",
+    "Move 1 unit right: y changes by 1, landing on (4, 2).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": 3,
+     "k": 1
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       3,
+       1
+      ],
+      "point": [
+       4,
+       "2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -3,
+         1
+        ],
+        "point": [
+         4,
+         "2"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         -1
+        ],
+        "point": [
+         4,
+         "2"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         1
+        ],
+        "point": [
+         4,
+         "0"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-354.png",
+     "alt": "Coordinate grid with the graph of y = (x − 3)² + 1; vertex (3, 1) and the point (4, 2) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp2-p002",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = (x + 1)² + 2. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x + 1)² + 2; vertex (-1, 2); passes through (0, 3)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-1, 2).",
+    "Move 1 unit right: y changes by 1, landing on (0, 3).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": -1,
+     "k": 2
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -1,
+       2
+      ],
+      "point": [
+       0,
+       "3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         1,
+         2
+        ],
+        "point": [
+         0,
+         "3"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -2
+        ],
+        "point": [
+         0,
+         "3"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         2
+        ],
+        "point": [
+         0,
+         "1"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-360.png",
+     "alt": "Coordinate grid with the graph of y = (x + 1)² + 2; vertex (-1, 2) and the point (0, 3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp2-p003",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = (x − 1)² − 4. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x − 1)² − 4; vertex (1, -4); passes through (2, -3)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (1, -4).",
+    "Move 1 unit right: y changes by 1, landing on (2, -3).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": 1,
+     "k": -4
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       1,
+       -4
+      ],
+      "point": [
+       2,
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -4
+        ],
+        "point": [
+         2,
+         "-3"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         1,
+         4
+        ],
+        "point": [
+         2,
+         "-3"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         1,
+         -4
+        ],
+        "point": [
+         2,
+         "-5"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-366.png",
+     "alt": "Coordinate grid with the graph of y = (x − 1)² − 4; vertex (1, -4) and the point (2, -3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp2-p004",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = (x)² − 3. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x)² − 3; vertex (0, -3); passes through (1, -2)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (0, -3).",
+    "Move 1 unit right: y changes by 1, landing on (1, -2).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": 0,
+     "k": -3
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       0,
+       -3
+      ],
+      "point": [
+       1,
+       "-2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         0,
+         3
+        ],
+        "point": [
+         1,
+         "-2"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         0,
+         -3
+        ],
+        "point": [
+         1,
+         "-4"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-372.png",
+     "alt": "Coordinate grid with the graph of y = (x)² − 3; vertex (0, -3) and the point (1, -2) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp2-p005",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = (x + 2)² + 2. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x + 2)² + 2; vertex (-2, 2); passes through (-1, 3)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-2, 2).",
+    "Move 1 unit right: y changes by 1, landing on (-1, 3).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": -2,
+     "k": 2
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -2,
+       2
+      ],
+      "point": [
+       -1,
+       "3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         2,
+         2
+        ],
+        "point": [
+         -1,
+         "3"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         -2
+        ],
+        "point": [
+         -1,
+         "3"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         2
+        ],
+        "point": [
+         -1,
+         "1"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-378.png",
+     "alt": "Coordinate grid with the graph of y = (x + 2)² + 2; vertex (-2, 2) and the point (-1, 3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp2-p006",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp2",
+   "format": "plot",
+   "prompt": "Graph y = (x − 3)² − 4. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x − 3)² − 4; vertex (3, -4); passes through (4, -3)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (3, -4).",
+    "Move 1 unit right: y changes by 1, landing on (4, -3).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": 3,
+     "k": -4
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       3,
+       -4
+      ],
+      "point": [
+       4,
+       "-3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -3,
+         -4
+        ],
+        "point": [
+         4,
+         "-3"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         4
+        ],
+        "point": [
+         4,
+         "-3"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         -4
+        ],
+        "point": [
+         4,
+         "-5"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-384.png",
+     "alt": "Coordinate grid with the graph of y = (x − 3)² − 4; vertex (3, -4) and the point (4, -3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp1-p001",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −(x − 3)² + 1. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = −(x − 3)² + 1; vertex (3, 1); passes through (4, 0)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (3, 1).",
+    "Move 1 unit right: y changes by -1, landing on (4, 0).",
+    "a = -1, so the graph is reflected over the x-axis."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": 3,
+     "k": 1
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       3,
+       1
+      ],
+      "point": [
+       4,
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -3,
+         1
+        ],
+        "point": [
+         4,
+         "0"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         -1
+        ],
+        "point": [
+         4,
+         "0"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         1
+        ],
+        "point": [
+         4,
+         "2"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-390.png",
+     "alt": "Coordinate grid with the graph of y = −(x − 3)² + 1; vertex (3, 1) and the point (4, 0) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp1-p002",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (x + 4)² − 2. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x + 4)² − 2; vertex (-4, -2); passes through (-3, -1)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-4, -2).",
+    "Move 1 unit right: y changes by 1, landing on (-3, -1).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": -4,
+     "k": -2
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -4,
+       -2
+      ],
+      "point": [
+       -3,
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         4,
+         -2
+        ],
+        "point": [
+         -3,
+         "-1"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -4,
+         2
+        ],
+        "point": [
+         -3,
+         "-1"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -4,
+         -2
+        ],
+        "point": [
+         -3,
+         "-3"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-396.png",
+     "alt": "Coordinate grid with the graph of y = (x + 4)² − 2; vertex (-4, -2) and the point (-3, -1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp1-p003",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −(x + 2)² + 1. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = −(x + 2)² + 1; vertex (-2, 1); passes through (-1, 0)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-2, 1).",
+    "Move 1 unit right: y changes by -1, landing on (-1, 0).",
+    "a = -1, so the graph is reflected over the x-axis."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": -2,
+     "k": 1
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -2,
+       1
+      ],
+      "point": [
+       -1,
+       "0"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         2,
+         1
+        ],
+        "point": [
+         -1,
+         "0"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         -1
+        ],
+        "point": [
+         -1,
+         "0"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         1
+        ],
+        "point": [
+         -1,
+         "2"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-402.png",
+     "alt": "Coordinate grid with the graph of y = −(x + 2)² + 1; vertex (-2, 1) and the point (-1, 0) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp1-p004",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = −(x)² + 4. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = −(x)² + 4; vertex (0, 4); passes through (1, 3)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (0, 4).",
+    "Move 1 unit right: y changes by -1, landing on (1, 3).",
+    "a = -1, so the graph is reflected over the x-axis."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": 0,
+     "k": 4
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       0,
+       4
+      ],
+      "point": [
+       1,
+       "3"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         0,
+         -4
+        ],
+        "point": [
+         1,
+         "3"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         0,
+         4
+        ],
+        "point": [
+         1,
+         "5"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-408.png",
+     "alt": "Coordinate grid with the graph of y = −(x)² + 4; vertex (0, 4) and the point (1, 3) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp1-p005",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (x + 2)². Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x + 2)²; vertex (-2, 0); passes through (-1, 1)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-2, 0).",
+    "Move 1 unit right: y changes by 1, landing on (-1, 1).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": -2,
+     "k": 0
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -2,
+       0
+      ],
+      "point": [
+       -1,
+       "1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         2,
+         0
+        ],
+        "point": [
+         -1,
+         "1"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         0
+        ],
+        "point": [
+         -1,
+         "-1"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-414.png",
+     "alt": "Coordinate grid with the graph of y = (x + 2)²; vertex (-2, 0) and the point (-1, 1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-cp1-p006",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "cp1",
+   "format": "plot",
+   "prompt": "Graph y = (x + 2)² − 2. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = (x + 2)² − 2; vertex (-2, -2); passes through (-1, -1)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-2, -2).",
+    "Move 1 unit right: y changes by 1, landing on (-1, -1).",
+    "a = 1, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1",
+     "h": -2,
+     "k": -2
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -2,
+       -2
+      ],
+      "point": [
+       -1,
+       "-1"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         2,
+         -2
+        ],
+        "point": [
+         -1,
+         "-1"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         2
+        ],
+        "point": [
+         -1,
+         "-1"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -2,
+         -2
+        ],
+        "point": [
+         -1,
+         "-3"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-420.png",
+     "alt": "Coordinate grid with the graph of y = (x + 2)² − 2; vertex (-2, -2) and the point (-1, -1) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-honors-p001",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 2(x − 4)² + 2. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = 2(x − 4)² + 2; vertex (4, 2); passes through (5, 4)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (4, 2).",
+    "Move 1 unit right: y changes by 2, landing on (5, 4).",
+    "a = 2, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "2",
+     "h": 4,
+     "k": 2
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       4,
+       2
+      ],
+      "point": [
+       5,
+       "4"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -4,
+         2
+        ],
+        "point": [
+         5,
+         "4"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         -2
+        ],
+        "point": [
+         5,
+         "4"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         2
+        ],
+        "point": [
+         5,
+         "0"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-426.png",
+     "alt": "Coordinate grid with the graph of y = 2(x − 4)² + 2; vertex (4, 2) and the point (5, 4) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-honors-p002",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = −(x − 3)² + 3. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = −(x − 3)² + 3; vertex (3, 3); passes through (4, 2)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (3, 3).",
+    "Move 1 unit right: y changes by -1, landing on (4, 2).",
+    "a = -1, so the graph is reflected over the x-axis."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "-1",
+     "h": 3,
+     "k": 3
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       3,
+       3
+      ],
+      "point": [
+       4,
+       "2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -3,
+         3
+        ],
+        "point": [
+         4,
+         "2"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         -3
+        ],
+        "point": [
+         4,
+         "2"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         3,
+         3
+        ],
+        "point": [
+         4,
+         "4"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-432.png",
+     "alt": "Coordinate grid with the graph of y = −(x − 3)² + 3; vertex (3, 3) and the point (4, 2) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-honors-p003",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 1/2(x − 4)². Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = 1/2(x − 4)²; vertex (4, 0); passes through (6, 2)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (4, 0).",
+    "Move 2 units right: y changes by 2, landing on (6, 2).",
+    "a = 1/2, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "1/2",
+     "h": 4,
+     "k": 0
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       4,
+       0
+      ],
+      "point": [
+       6,
+       "2"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -4,
+         0
+        ],
+        "point": [
+         6,
+         "2"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         0
+        ],
+        "point": [
+         6,
+         "-2"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-438.png",
+     "alt": "Coordinate grid with the graph of y = 1/2(x − 4)²; vertex (4, 0) and the point (6, 2) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-honors-p004",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3(x − 4)² + 2. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = 3(x − 4)² + 2; vertex (4, 2); passes through (5, 5)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (4, 2).",
+    "Move 1 unit right: y changes by 3, landing on (5, 5).",
+    "a = 3, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "3",
+     "h": 4,
+     "k": 2
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       4,
+       2
+      ],
+      "point": [
+       5,
+       "5"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         -4,
+         2
+        ],
+        "point": [
+         5,
+         "5"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         -2
+        ],
+        "point": [
+         5,
+         "5"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         4,
+         2
+        ],
+        "point": [
+         5,
+         "-1"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-443.png",
+     "alt": "Coordinate grid with the graph of y = 3(x − 4)² + 2; vertex (4, 2) and the point (5, 5) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-honors-p005",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3(x + 1)² + 4. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = 3(x + 1)² + 4; vertex (-1, 4); passes through (0, 7)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-1, 4).",
+    "Move 1 unit right: y changes by 3, landing on (0, 7).",
+    "a = 3, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "3",
+     "h": -1,
+     "k": 4
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -1,
+       4
+      ],
+      "point": [
+       0,
+       "7"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         1,
+         4
+        ],
+        "point": [
+         0,
+         "7"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -4
+        ],
+        "point": [
+         0,
+         "7"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         4
+        ],
+        "point": [
+         0,
+         "1"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-448.png",
+     "alt": "Coordinate grid with the graph of y = 3(x + 1)² + 4; vertex (-1, 4) and the point (0, 7) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
+  },
+  {
+   "id": "a2-qfc-s01-honors-p006",
+   "skillId": "quadratic-functions-complex-numbers-skill-01",
+   "level": "honors",
+   "format": "plot",
+   "prompt": "Graph y = 3(x + 1)² + 3. Drag the vertex first, then drag a second point on the graph.",
+   "answer": "y = 3(x + 1)² + 3; vertex (-1, 3); passes through (0, 6)",
+   "solutionSteps": [
+    "The vertex is (h, k) = (-1, 3).",
+    "Move 1 unit right: y changes by 3, landing on (0, 6).",
+    "a = 3, so the graph is not reflected."
+   ],
+   "standards": [
+    "F-IF.C.7a"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: plot-parabola). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-plot-items. Awaiting teacher review.",
+   "plot": {
+    "tool": "parabola",
+    "grid": {
+     "xmin": -8,
+     "xmax": 8,
+     "ymin": -8,
+     "ymax": 8,
+     "step": 1,
+     "snap": 1
+    },
+    "target": {
+     "a": "3",
+     "h": -1,
+     "k": 3
+    },
+    "feedback": {
+     "anchor": "Place the vertex or starting point first. It comes from h and k.",
+     "h-sign": "Check the horizontal shift: (x − h) moves the graph h units to the RIGHT.",
+     "k-sign": "Check the vertical shift: + k moves the graph up and − k moves it down.",
+     "swapped-hk": "You switched h and k. The vertex/starting point is (h, k).",
+     "same-x": "Your second point must have a different x-value than the vertex.",
+     "a-sign": "Your graph opens the wrong way. A negative a reflects it over the x-axis.",
+     "stretch": "Check the stretch: one unit right of the vertex, the graph changes by a."
+    },
+    "testVectors": {
+     "correct": {
+      "anchor": [
+       -1,
+       3
+      ],
+      "point": [
+       0,
+       "6"
+      ]
+     },
+     "wrong": [
+      {
+       "response": {
+        "anchor": [
+         1,
+         3
+        ],
+        "point": [
+         0,
+         "6"
+        ]
+       },
+       "expectCode": "h-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         -3
+        ],
+        "point": [
+         0,
+         "6"
+        ]
+       },
+       "expectCode": "k-sign"
+      },
+      {
+       "response": {
+        "anchor": [
+         -1,
+         3
+        ],
+        "point": [
+         0,
+         "0"
+        ]
+       },
+       "expectCode": "a-sign"
+      }
+     ]
+    },
+    "answerKey": {
+     "src": "question-banks/assets/plot-keys/parabola-454.png",
+     "alt": "Coordinate grid with the graph of y = 3(x + 1)² + 3; vertex (-1, 3) and the point (0, 6) marked."
+    },
+    "check": {
+     "type": "exact-after-snap"
+    }
+   }
   }
  ]
 }

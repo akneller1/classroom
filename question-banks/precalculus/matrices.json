@@ -13419,6 +13419,343 @@
     "A-REI.C.9"
    ],
    "sourceNotes": "Original Claude-authored item (family: s11_system_error). Answer computed in the authoring script and re-checked by the independent verifier (tools/middle-grades-authoring/gverify.py). Awaiting human review."
+  },
+  {
+   "id": "pc-mat-s07-cp2-v001",
+   "skillId": "matrices-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [2, 4; k, 3] NOT invertible?",
+   "answer": "k = 3/2",
+   "solutionSteps": [
+    "det = 2·3 − 4·k = 0.",
+    "k = 3/2."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp2-v002",
+   "skillId": "matrices-skill-07",
+   "level": "cp2",
+   "format": "multiple-choice",
+   "prompt": "det A = 1 for A = [5, 2; 2, 1]. Which matrix is A⁻¹?",
+   "answer": "[1, -2; -2, 5]",
+   "solutionSteps": [
+    "For det = 1, A⁻¹ = [d, −b; −c, a]."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-inverse-choice). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "[-1, 2; 2, -5]",
+     "correct": false
+    },
+    {
+     "text": "[1, -2; -2, 5]",
+     "correct": true
+    },
+    {
+     "text": "[1, 2; 2, 5]",
+     "correct": false
+    },
+    {
+     "text": "[5, -2; -2, 1]",
+     "correct": false
+    }
+   ]
+  },
+  {
+   "id": "pc-mat-s07-cp2-v003",
+   "skillId": "matrices-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [-3, 0; -5, -4]. Is A invertible?",
+   "answer": "det A = 12; yes",
+   "solutionSteps": [
+    "det = -3·-4 − (0)(-5) = 12.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp2-v004",
+   "skillId": "matrices-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [4, 1; k, 6] NOT invertible?",
+   "answer": "k = 24",
+   "solutionSteps": [
+    "det = 4·6 − 1·k = 0.",
+    "k = 24."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp2-v005",
+   "skillId": "matrices-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [5, -2; -5, 3]. Is A invertible?",
+   "answer": "det A = 5; yes",
+   "solutionSteps": [
+    "det = 5·3 − (-2)(-5) = 5.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp2-v006",
+   "skillId": "matrices-skill-07",
+   "level": "cp2",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [2, 6; k, 3] NOT invertible?",
+   "answer": "k = 1",
+   "solutionSteps": [
+    "det = 2·3 − 6·k = 0.",
+    "k = 1."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp1-v001",
+   "skillId": "matrices-skill-07",
+   "level": "cp1",
+   "format": "multiple-choice",
+   "prompt": "det A = 1 for A = [3, 2; 4, 3]. Which matrix is A⁻¹?",
+   "answer": "[3, -2; -4, 3]",
+   "solutionSteps": [
+    "For det = 1, A⁻¹ = [d, −b; −c, a]."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-inverse-choice). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review.",
+   "options": [
+    {
+     "text": "[-3, 2; 4, -3]",
+     "correct": false
+    },
+    {
+     "text": "[3, 2; 4, 3]",
+     "correct": false
+    },
+    {
+     "text": "[3, -2; -4, 3]",
+     "correct": true
+    }
+   ]
+  },
+  {
+   "id": "pc-mat-s07-cp1-v002",
+   "skillId": "matrices-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [-1, 4; -5, 3]. Is A invertible?",
+   "answer": "det A = 17; yes",
+   "solutionSteps": [
+    "det = -1·3 − (4)(-5) = 17.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp1-v003",
+   "skillId": "matrices-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [1, 3; k, 1] NOT invertible?",
+   "answer": "k = 1/3",
+   "solutionSteps": [
+    "det = 1·1 − 3·k = 0.",
+    "k = 1/3."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp1-v004",
+   "skillId": "matrices-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [5, -3; 5, 6]. Is A invertible?",
+   "answer": "det A = 45; yes",
+   "solutionSteps": [
+    "det = 5·6 − (-3)(5) = 45.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp1-v005",
+   "skillId": "matrices-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [5, 2; k, 2] NOT invertible?",
+   "answer": "k = 5",
+   "solutionSteps": [
+    "det = 5·2 − 2·k = 0.",
+    "k = 5."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-cp1-v006",
+   "skillId": "matrices-skill-07",
+   "level": "cp1",
+   "format": "short-answer",
+   "prompt": "Use an inverse matrix to solve 1x + 1y = 6 and 2x + 4y = 18.",
+   "answer": "(3, 3)",
+   "solutionSteps": [
+    "A = [1, 1; 2, 4], det = 2.",
+    "A⁻¹ = (1/2)[4, -1; -2, 1].",
+    "X = A⁻¹B = ⟨3, 3⟩."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-solve). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-honors-v001",
+   "skillId": "matrices-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [-2, 4; -5, -1]. Is A invertible?",
+   "answer": "det A = 22; yes",
+   "solutionSteps": [
+    "det = -2·-1 − (4)(-5) = 22.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-honors-v002",
+   "skillId": "matrices-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [5, 2; k, 7] NOT invertible?",
+   "answer": "k = 35/2",
+   "solutionSteps": [
+    "det = 5·7 − 2·k = 0.",
+    "k = 35/2."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-honors-v003",
+   "skillId": "matrices-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [0, -2; 5, 5]. Is A invertible?",
+   "answer": "det A = 10; yes",
+   "solutionSteps": [
+    "det = 0·5 − (-2)(5) = 10.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-honors-v004",
+   "skillId": "matrices-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [1, 5; k, 7] NOT invertible?",
+   "answer": "k = 7/5",
+   "solutionSteps": [
+    "det = 1·7 − 5·k = 0.",
+    "k = 7/5."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-honors-v005",
+   "skillId": "matrices-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "Find det A for A = [6, -2; -5, -3]. Is A invertible?",
+   "answer": "det A = -28; yes",
+   "solutionSteps": [
+    "det = 6·-3 − (-2)(-5) = -28.",
+    "A is invertible exactly when det A ≠ 0."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-det). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
+  },
+  {
+   "id": "pc-mat-s07-honors-v006",
+   "skillId": "matrices-skill-07",
+   "level": "honors",
+   "format": "short-answer",
+   "prompt": "For what value of k is A = [3, 2; k, 4] NOT invertible?",
+   "answer": "k = 6",
+   "solutionSteps": [
+    "det = 3·4 − 2·k = 0.",
+    "k = 6."
+   ],
+   "standards": [
+    "N-VM.C.10",
+    "A-REI.C.9"
+   ],
+   "sourceNotes": "Original Claude-authored item (family: mat-singular). Answer computed in the authoring script and re-checked by an independent check in the package validator. Content package 2026-11-15-template-variety. Awaiting teacher review."
   }
  ]
 }

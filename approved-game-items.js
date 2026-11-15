@@ -9,12 +9,13 @@ function prepare(options){
  var result=eligibility.describe(options.game,options.courseId,options.unitId,options.level,options.skillIds);
  if(!result.ready)return {ready:false,reason:result.reason,items:[]};
  var items=result.questions.filter(function(q){
-   if(q.diagram)return false; // diagrams must be handled by a renderer before gameplay
+   if(q.format==='plot')return options.game==='picture-reveal';
+   if(q.diagram)return options.game==='picture-reveal'&&q.diagram.type==='image'; // diagrams must be handled by a renderer before gameplay
    if(q.format==='multiple-choice')return Array.isArray(q.options)&&q.options.length>=2&&q.options.filter(function(a){return a.correct===true}).length===1;
    return q.format==='short-answer'&&typeof q.answer==='string'&&q.answer.trim().length>0;
  }).map(function(q){
    var options=q.format==='multiple-choice'?q.options.map(function(o){return {text:o.text,correct:o.correct===true}}):[];
-   return {id:q.id,skillId:q.skillId,prompt:q.prompt,answer:q.answer,options:options,solutionSteps:q.solutionSteps.slice()};
+   return {id:q.id,skillId:q.skillId,prompt:q.prompt,answer:q.answer,options:options,solutionSteps:q.solutionSteps.slice(),plot:q.plot||null,diagram:q.diagram||null};
  });
  return {ready:items.length>0,reason:items.length?'':'No compatible approved text-only questions',items:items};
 }

@@ -30,7 +30,7 @@
   }
   var courseSel=select('Course'),unitSel=select('Unit'),levelSel=select('Level');
   courses.forEach(function(c){var o=el('option',courseSel,c.name);o.value=c.id;});
-  [['cp2','Remedial'],['cp1','Standard'],['honors','Advanced']].forEach(function(x){
+  [['cp2','Support'],['cp1','Standard'],['honors','Advanced']].forEach(function(x){
     var o=el('option',levelSel,x[1]);o.value=x[0];
   });levelSel.value='cp1';
   var printBtn=el('button',controls,'Print approved questions');
