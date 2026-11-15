@@ -17,6 +17,12 @@ const M = globalThis.MKSTD_SKILLS;
  ['AP FUN-5.A', 'AP FUN-5.A'], ['APSTATS.I.B.3', 'APSTATS.I.B.3'], ['SMP 1–8', 'SMP 1–8'], ['8.EE.A.1', '8.EE.A.1']]
   .forEach(([a, b]) => ok(STD.norm(a) === b, 'norm ' + a + ' → ' + STD.norm(a) + ' (want ' + b + ')'));
 
+for (const code of ['DM.LOGIC', 'DM.COUNTING', 'DM.ELECTIONS', 'DM.GRAPHS', 'DM.PROOF',
+                    'DM.RELATIONS', 'DM.INDUCTION', 'DM.PATTERNS', 'DM.SETS', 'DM.LANG']) {
+  ok(Boolean(STD.describe(code)), code + ' lacks a teacher-facing description');
+  ok(STD.framework(code) === 'Discrete Mathematics', code + ' is misclassified as Common Core');
+}
+
 let n = 0;
 Object.keys(M).forEach(set => Object.keys(M[set]).forEach(skill => {
   const list = M[set][skill]; n++;
