@@ -71,13 +71,14 @@ async function run(){
   }catch(e){record('Project → Grade 5 unit',false,e.message);}
   // Grade 5 generator and study-guide pages must open with working controls.
   const extras=[
-   ['/grade5/worksheet-generator/grade5-generators.html?unit=multi-digit-multiplication-division&mode=worksheet','#config','Worksheet generator'],
+   ['/grade5/worksheet-generator/grade5-generators.html?unit=multi-digit-multiplication-division&mode=worksheet','#mmUnitSel','Worksheet generator'],
    ['/grade5/worksheet-generator/grade5-flashcards.html?unit=decimal-operations','.fc-card','Flashcards'],
    ['/grade5/worksheet-generator/grade5-understanding-check.html?unit=decimal-operations&student=1&level=cp1','.g5-setup, .g5-q','Understanding Check'],
    ['/grade5/math5-area-model-explorer/index.html','main','Area Model Explorer']
   ];
   for(const [target,selector,label] of extras){
    try{await go(target);await page.locator(selector).first().waitFor({state:'attached',timeout:15000});
+    if(label==='Worksheet generator'){await page.waitForURL(/worksheet-generator\/worksheet\.html#unit=grade5-multi-digit-multiplication-division/);await page.waitForFunction(()=>document.querySelector('#mmUnitSel')?.value==='grade5-multi-digit-multiplication-division');}
     const body=(await page.locator('body').innerText()).slice(0,300);
     if(/Oops!|Unable to load|Page not found|could not be found/i.test(body))throw Error(body);
     record(label,true,'Loaded controls');
