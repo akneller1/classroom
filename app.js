@@ -153,6 +153,7 @@
   /* Teaching mode metadata: derived from game mechanics, not the generic 'Game' type. */
   function gameMode(a) {
     var f = activityFormat(a);
+    if (f === 'projects') return '';
     var players = window.MK_GAME_CAPABILITIES && window.MK_GAME_CAPABILITIES.get(a);
     if (players && players.team) return players.solo ? 'Solo or Team Games' : 'Team Games';
     if (a.unitSpecific === true) return 'Unit-specific';

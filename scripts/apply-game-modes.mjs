@@ -19,8 +19,7 @@ for(let grade=1;grade<=5;grade++){
  });
  const core=path.join(base,elementary?'elementary/el-core.js':'grade5/g5-core.js');
  edit(core,s=>{
-  const prefix=elementary?'el':'g5';
-  // Student assignments always start in an actually supported individual mode.
+    // Student assignments always start in an actually supported individual mode.
   s=s.replace('    host.innerHTML = \'\';\n    var p = el(\'section\', host,',`    if(P.get('student')==='1'&&cfg.modes){cfg=Object.assign({},cfg,{modes:cfg.modes.filter(function(m){return m[0]==='solo';})});if(!cfg.modes.length){errorBox(host,'This game requires teams. Ask your teacher for an individual game.');return;}}
     host.innerHTML = '';
     var p = el('section', host,`);
@@ -40,7 +39,7 @@ for(const folder of ['financial/games/vendor','financial-algebra/financial/games
  for(const file of ['games.js','solo-ai.js'])fs.copyFileSync(path.join(root,'worksheet-generator/games',file),path.join(dir,file));
 }
 // Add the new Tic-Tac-Toe engine to all elementary unit catalogs.
-const catalog=`(function(G){for(const c of G.LIBRARY.courses){if(!/^grade[1-5]$/.test(c.id))continue;for(const u of c.units){if(u.artifacts.some(a=>/game=tic-tac-toe(?:&|$)/.test(a.path)))continue;const a=u.artifacts.find(a=>/game=/.test(a.path)&&a.type==='Game');if(!a)continue;const b=Object.assign({},a,{title:'Tic-Tac-Toe',format:'tic-tac-toe',description:'Play solo against the computer or with two teams. Answer correctly to claim a square.',path:a.path.replace(/([?&]game=)[^&]+/,'$1tic-tac-toe')});u.artifacts.push(b);}}})(window);`;
+const catalog=`(function(G){for(const c of G.LIBRARY.courses){if(!/^grade[1-5]$/.test(c.id))continue;for(const u of c.units){if(u.artifacts.some(a=>/game=tic-tac-toe(?:&|$)/.test(a.path)))continue;const a=u.artifacts.find(a=>/game=/.test(a.path)&&a.type==='Game');if(!a)continue;const b=Object.assign({},a,{title:'Tic-Tac-Toe',format:'tic-tac-toe',bankFormat:'tic-tac-toe',description:'Play solo against the computer or with two teams. Answer correctly to claim a square.',path:a.path.replace(/([?&]game=)[^&]+/,'$1tic-tac-toe')});u.artifacts.push(b);}}})(window);`;
 fs.writeFileSync(path.join(out,'elementary-board-catalog.js'),catalog);
 // Inject capabilities before the app, including independently rendered course pages.
 function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const f=path.join(dir,e.name);if(e.isDirectory()&&!['vendor','node_modules'].includes(e.name))walk(f);else if(e.name.endsWith('.html'))edit(f,s=>{

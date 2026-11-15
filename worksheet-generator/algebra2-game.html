@@ -46,5 +46,6 @@
 <script src="games/bank.js?v=coverage-proof-cards-20261111d"></script>
 <script src="../question-bank-adapter.js"></script><script src="../question-bank-loader.js"></script><script src="core/plot.js?v=content-20261115"></script><script src="algebra2-bank-native.js?v=statistics-expanded-20261107"></script><script>
 var params=new URLSearchParams(location.search),game=params.get('game')||'flashcards';
-location.replace((['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html')+'?course=algebra2&unit='+encodeURIComponent(params.get('unit')||'functions-transformations')+'&game='+encodeURIComponent(game));
+var target=new URL(['detective','escape-room'].includes(game)?'course-activity.html':'course-game.html',location.href);
+params.forEach(function(value,key){target.searchParams.set(key,value);});target.searchParams.set('course','algebra2');target.searchParams.set('unit',params.get('unit')||'functions-transformations');target.searchParams.set('game',game);location.replace(target.href);
 </script><script src="core/math-display.js?v=worksheet-layout-20261111"></script></body></html>
