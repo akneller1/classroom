@@ -11,14 +11,14 @@ E.className=cfg=>{const g=E.grade(cfg);return g?'el-g'+(g<3?g:'35'):'';};
 E.icon=(id,cls='')=>'<img class="'+esc(cls)+'" src="'+esc(base+'icons/'+id+'.svg')+'" alt="" aria-hidden="true">';
 E.direction=function(cfg,key,activity){const entry=(activity?directions.activities:directions.formats)[key];return entry?'<div class="el-dir">'+E.icon(entry.icon)+'<span>'+esc(entry[E.grade(cfg)<3?'g12':'g35'])+'</span></div>':'';};
 E.name=function(cfg){const young=E.grade(cfg)<3;return '<div class="el-name">'+E.icon('name')+'<span>'+(young?'My name':'Name')+'</span><span class="el-lines"></span>'+(young?'':'<span>Date</span><span class="el-lines el-date"></span>')+'</div>';};
-E.header=function(cfg,title,version){const set=NS.skillSets[cfg.unitId];return '<div class="el-band">'+E.icon('count','el-mascot')+'<div><div class="el-unit">'+esc(set?.unitName||cfg.unitId)+(version?' · '+esc(version):'')+'</div><h1>'+esc(title)+'</h1></div></div>'+E.name(cfg);};
+E.header=function(cfg,title,version){const set=NS.skillSets[cfg.unitId];return '<div class="el-band">'+E.icon('count','el-mascot')+'<div><div class="el-unit">'+esc('GRADE '+E.grade(cfg)+' · '+(NS.isWorksheet(cfg)?'PRACTICE':(set?.unitName||cfg.unitId)))+(version?' · '+esc(version):'')+'</div><h1>'+esc(title)+'</h1></div></div>'+E.name(cfg);};
 function singleBlank(p){return !p.mc&&!p.multi&&p.authoredFormat!=='plot'&&(String(p.prompt).match(/_{2,}/g)||[]).length===1&&!(p.parts||[]).some(pt=>pt.prompt)&&p.parts?.length===1;}
 E.singleBlank=singleBlank;
 E.prompt=function(p,key){let out=math(p.prompt);if(singleBlank(p))out=out.replace(/<span class="ans-box"[^>]*><\/span>/,()=>key?'<span class="ans-box key" aria-label="Answer: '+esc(p.parts[0].answer)+'">'+math(p.parts[0].answer)+'</span>':'<span class="ans-box answer" role="img" aria-label="blank"></span>');return out;};
 function answer(cfg){return '<div class="el-answer"><span class="lbl">Answer</span><span class="box">'+(E.grade(cfg)<3?'<span class="el-lines"></span>':'')+'</span></div>';}
 function work(){return '<div class="el-work" aria-label="Work space"></div>';}
 function choices(opts){const short=opts.every(o=>String(o).replace(/⟨|⟩/g,'').length<=12);return '<div class="el-choices '+(short?'short':'long')+'">'+opts.map((o,i)=>'<div class="el-choice"><span class="el-bubble">'+String.fromCharCode(65+i)+'</span><span>'+math(o)+'</span></div>').join('')+'</div>';}
-function format(cfg,si,p){const f=NS.sectionFormat(cfg,si);return f==='mc'&&p.mc?'multiple-choice':f==='multi'&&p.multi?'select-all':p.authoredFormat==='plot'?'plot':(p.parts||[]).some(pt=>pt.prompt)?'open-response':'short-answer-work';}
+function format(cfg,si,p){const f=NS.sectionFormat(cfg,si);return f==='mc'&&p.mc?'multiple-choice':f==='multi'&&p.multi?'select-all':p.authoredFormat==='plot'?'plot':(p.parts||[]).some(pt=>pt.prompt)?'open-response':singleBlank(p)?'short-answer':p.fig&&/count|how many (?:in all|are there)/i.test(p.prompt)?'count-picture':'short-answer-work';}
 E.question=function(p,cfg,si,n){
  if(p.failed)return '<article class="mm-dish el-q mm-missing" data-uid="'+esc(p.uid)+'"><span class="el-num">'+n+'</span><div>No verified question. Choose another question before printing.</div></article>';
  const f=format(cfg,si,p),g=E.grade(cfg),points=!NS.isWorksheet(cfg)&&g>2?'<span class="el-points">'+esc(cfg.sections[si].points)+' pts</span>':'';
@@ -37,9 +37,10 @@ E.renderPages=async function(state,vIdx){
  const stage=doc.createElement('div');stage.className='measure-stage mm-stage';doc.body.appendChild(stage);
  if(doc.fonts?.ready)await doc.fonts.ready;
  const pages=[],overflow=[];let current;
- const title=NS.isWorksheet(cfg)?(cfg.title||'Worksheet'):directions.quiz.title[g<3?'g12':'g35'];
+ const unitName=NS.skillSets[cfg.unitId]?.unitName;
+ const title=NS.isWorksheet(cfg)?(cfg.title===unitName+' Practice'?unitName:(cfg.title||'Worksheet')):directions.quiz.title[g<3?'g12':'g35'];
  function start(){const page=doc.createElement('div');page.className='page mm-page el-paper '+E.className(cfg);page.style.setProperty('--el-work-scale',({compact:.75,standard:1,spacious:1.4})[cfg.layout.density]||1);page.innerHTML='<div class="mm-body">'+E.header(cfg,title,state.versions.length>1?'Version '+version.label:'')+'<div class="el-paper-sections"></div></div><div class="el-foot"><span class="mm-pno"></span><span class="el-sticker"></span></div>';stage.appendChild(page);current={page,body:page.querySelector('.mm-body'),host:page.querySelector('.el-paper-sections'),count:0,section:null};pages.push(page);}
- function append(batch){const si=batch[0].si,f=format(cfg,si,batch[0].p),nodes=[];if(current.section!==si){const d=doc.createElement('div');d.className='el-part-heading';d.innerHTML='<div class="el-part-title">'+esc(cfg.sections[si].name||'')+'</div>'+E.direction(cfg,f);current.host.appendChild(d);nodes.push(d);}const row=doc.createElement('div');row.className='el-qs';if(batch.length===1)row.classList.add('el-single');row.innerHTML=batch.map(x=>E.question(x.p,cfg,x.si,x.n)).join('');current.host.appendChild(row);nodes.push(row);return nodes;}
+ function append(batch){const si=batch[0].si,f=format(cfg,si,batch[0].p),nodes=[];if(current.section!==si){const d=doc.createElement('div');d.className='el-part-heading';const name=cfg.sections[si].name||'';d.innerHTML=(/^(?:short answer|multiple choice|open response|questions|write|choose|part \d+)$/i.test(name)?'':'<div class="el-part-title">'+esc(name)+'</div>')+E.direction(cfg,f);current.host.appendChild(d);nodes.push(d);}const row=doc.createElement('div');row.className='el-qs';if(batch.length===1)row.classList.add('el-single');row.innerHTML=batch.map(x=>E.question(x.p,cfg,x.si,x.n)).join('');current.host.appendChild(row);nodes.push(row);return nodes;}
  async function images(nodes){await Promise.all(nodes.flatMap(n=>[...n.querySelectorAll('img')]).map(img=>img.complete?Promise.resolve():new Promise(resolve=>{img.onload=img.onerror=resolve;})));}
  try{
   start();for(let i=0;i<rows.length;){let batch=[rows[i]];const wide=x=>String(x.p.prompt).length>240||(x.p.parts||[]).some(p=>p.prompt)||x.p.fig?.kind==='authored-plot';if(g>2&&rows[i+1]?.si===rows[i].si&&!wide(rows[i])&&!wide(rows[i+1]))batch.push(rows[i+1]);
@@ -59,7 +60,7 @@ E.activity=function(cfg,html,key){
  if(!E.grade(cfg)||key)return html;
  const kind=({error:'error-analysis',color:'color-by-number',partner:'partner-check',match:'matching',tarsia:'cut-and-paste'})[cfg.kind]||cfg.kind;
  const line=E.direction(cfg,kind,true);if(!line)return html;
- html=html.replace(/<div class="(?:mm-name|pc-name|ps-nm|pe-names)">[\s\S]*?<\/div>/g,E.name(cfg));
+ html=html.replace(/<div class="(?:mm-name|pc-name|pc-nd|ps-nm|pe-names|mt-nm)">[\s\S]*?<\/div>/g,E.name(cfg));
  html=html.replace(/<div class="pp-names">[\s\S]*?<\/div>/g,E.name(cfg)+'<p class="el-partner-name">Partner’s name: __________________</p>');
  html=html.replace(/<div class="(?:mm-box mm-dirs pr-dirs|pp-dirs|ps-note|pe-sub)">[\s\S]*?<\/div>/g,old=>cfg.kind==='match'?line+old:line).replace(/<p class="pc-line">[\s\S]*?<\/p>/g,line);
  if(!html.includes('class="el-dir"'))html=html.replace(/(<div class="mm-body[^"]*">)/,'$1'+line);

@@ -146,8 +146,8 @@
 .el-paper .el-points{float:right;font-size:.55em;margin-left:.1in}
 .el-paper .el-figure{margin:.06in 0;max-width:100%}
 .el-paper .el-figure img,.el-paper .el-figure svg{max-width:100%;object-fit:contain}
-.el-paper .el-figure:not(:has(.mk-plot)) img,.el-paper .el-figure:not(:has(.mk-plot)) svg{max-height:1.7in;width:auto}
-.el-paper.el-g1 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g2 .el-figure:not(:has(.mk-plot)) img{max-height:1.25in}
+.el-paper .el-figure:not(:has(.mk-plot)) img,.el-paper .el-figure:not(:has(.mk-plot)) svg{max-height:1.7in!important;width:auto}
+.el-paper.el-g1 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g2 .el-figure:not(:has(.mk-plot)) img{max-height:1.25in!important}
 .el-paper .el-choice>span:last-child{min-width:0;overflow-wrap:break-word}
 .el-paper .el-student-work{padding-left:.3in;margin:.08in 0}
 .el-paper .el-num{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -167,3 +167,5 @@
 .el-activity .el-partner-name{font-size:11pt;margin:.02in 0}
 .el-activity-foot{position:absolute;bottom:.06in;left:.5in;right:.5in;display:flex;align-items:center;justify-content:space-between;height:.3in;font:9pt "Atkinson Hyperlegible",sans-serif}
 .el-activity-foot img{height:.3in;width:.3in}
+
+.el-paper.el-g35 .el-figure:not(:has(.mk-plot)) img,.el-paper.el-g35 .el-figure:not(:has(.mk-plot)) svg{max-height:1.1in!important}
