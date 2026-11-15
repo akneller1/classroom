@@ -101,6 +101,6 @@
  document.body.setAttribute('data-unit',id);document.body.setAttribute('data-game',game);document.body.setAttribute('data-title',source.unit.name+' '+({'flashcards':'Flashcards','connect-four':'Connect 4','tic-tac-toe':'Tic-Tac-Toe','picture-reveal':'Picture Reveal','showdown':'Showdown'}[game]||''));
  if(MK_QUESTION_BANKS.available(source.courseId,source.unit.id))document.body.setAttribute('data-algebra2-game','');
  if(['math6','prealgebra7','prealgebra'].includes(source.courseId)){window.MK_GRADE_GAME_COURSE=source.courseId;window.MK_GRADE_GAME_LABELS={cp2:'Remedial',cp1:'Standard',honors:'Advanced'};}
- var script=document.createElement('script');script.src='games/games.js?v=solo-20261114
+ var script=document.createElement('script');script.src='games/games.js?v=solo-20261114';document.body.appendChild(script);
 })().catch(function(e){document.getElementById('app').textContent='Unable to load course game: '+e.message;});
 </script></body></html>
