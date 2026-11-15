@@ -18,7 +18,7 @@
     // This fixed ten-level game starts immediately and has no skill picker.
     if (path === 'artifacts/relations-functions-function-machine-factory/index.html' || path === 'artifacts/polynomials-garden-planner/index.html' || path === 'artifacts/exponential-functions-outbreak-simulator/index.html' || path === 'artifacts/geometry-shipwreck-salvage/index.html') return false;
     if (/^artifacts\/math-arcade\/index\.html\?/i.test(path)) return false;
-    if (/^worksheet-generator\/algebra2-game\.html\?/i.test(path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(path);
+    if (/^worksheet-generator\/algebra2-game\.html\?/i.test(path)) return /[?&]game=(flashcards|picture-reveal|detective|escape-room|connect-four|tic-tac-toe)(?:&|$)/i.test(path);
     return /^worksheet-generator\/course-(game|activity)\.html\?/i.test(path) || /^artifacts\/[a-z0-9-]+\/index\.html(?:\?[a-z0-9_=&%+,.~-]*)?$/i.test(path) && !/escape-room/i.test(path);
   }
   function open(path) {
@@ -43,7 +43,7 @@
         var ids = event.data.skills;
         if (!Array.isArray(ids) || !ids.length || !ids.every(function (id) { return catalogue.some(function (s) { return s.id === id; }); })) return;
         G.removeEventListener('message', receive);
-        var url = new URL(path, G.location.href); url.hash = ''; url.searchParams.set('student', '1'); url.searchParams.set('skills', JSON.stringify(ids));
+        var url = new URL(path, G.location.href); url.hash = ''; url.searchParams.set('student', '1'); if(G.MK_GAME_CAPABILITIES)G.MK_GAME_CAPABILITIES.studentUrl(url); url.searchParams.set('skills', JSON.stringify(ids));
         frame.remove();
         var heading = doc.createElement('h2'); heading.textContent = 'Student link ready'; dialog.appendChild(heading);
         var summary = doc.createElement('p'); summary.textContent = 'Selected skills: ' + catalogue.filter(function (s) { return ids.indexOf(s.id) >= 0; }).map(function (s) { return s.name; }).join('; '); dialog.appendChild(summary);

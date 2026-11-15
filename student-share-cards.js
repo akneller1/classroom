@@ -24,9 +24,11 @@
         url.searchParams.set('level', level);
       }
     }
+    if (window.MK_GAME_CAPABILITIES) window.MK_GAME_CAPABILITIES.studentUrl(url);
     return url.href;
   }
   function canShare(activity) {
+    if (window.MK_GAME_CAPABILITIES) return window.MK_GAME_CAPABILITIES.canShare(activity);
     if (!activity || !activity.path) return false;
     var shareTypes = Array.isArray(activity.type) ? activity.type : [activity.type || ''];
     if (!shareTypes.some(function (type) { return /^(game|study guide)$/i.test(type); }) && !/flashcards|cheat.sheet|study.guide/i.test(activity.path+' '+(activity.title||''))) return false;

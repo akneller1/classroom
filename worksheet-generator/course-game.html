@@ -12,7 +12,7 @@
   },
   'grade5': {
    units: ['place-value-number-sense','multi-digit-multiplication-division','decimal-operations','numerical-expressions-patterns','fraction-addition-subtraction','fraction-multiplication-division','measurement-conversions','volume-three-dimensional-figures','coordinate-plane-graphing','classifying-two-dimensional-figures','data-line-plots-problem-solving'],
-   games: ['math-quest','treasure-trail','space-explorer','math-builders','picture-reveal','math-race','math-soccer','connect-four','puzzle-masters','fraction-frenzy'],
+   games: ['math-quest','treasure-trail','space-explorer','math-builders','picture-reveal','math-race','math-soccer','connect-four','tic-tac-toe','puzzle-masters','fraction-frenzy'],
    url: '../grade5/worksheet-generator/grade5-games.html'
   }
  };
@@ -33,7 +33,7 @@
  var target = new URL(route.url, location.href);
  target.searchParams.set('unit', unit);
  target.searchParams.set('game', game);
- ['student','skills'].forEach(function (key) {
+ ['student','skills','mode','level'].forEach(function (key) {
   if (params.has(key)) target.searchParams.set(key, params.get(key));
  });
  location.replace(target.href);

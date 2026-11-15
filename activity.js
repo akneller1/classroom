@@ -16,6 +16,7 @@
   }
   var match = null;
   function shareableActivity(activity) {
+    if (window.MK_GAME_CAPABILITIES) return window.MK_GAME_CAPABILITIES.canShare(activity);
     if (!activity) return false;
     if (/^artifacts\/geometry-congruence-proofs\/index\.html$/.test(activity.path || '')) return true;
     if (/^worksheet-generator\/algebra2-game\.html\?/i.test(activity.path || '')) return /[?&]game=(flashcards|picture-reveal|detective|escape-room)(?:&|$)/i.test(activity.path);
@@ -51,6 +52,7 @@
     var direct = new URL(match.path, window.location.href);
     if (/\.html(?:[?#]|$)/i.test(match.path)) {
       direct.searchParams.set('student', '1');
+      if (window.MK_GAME_CAPABILITIES) window.MK_GAME_CAPABILITIES.studentUrl(direct);
       if (params.has('skills')) direct.searchParams.set('skills', params.get('skills'));
     }
     if (typeof window.location.replace === 'function') window.location.replace(direct.href);
@@ -72,6 +74,7 @@
       if (window.TeacherGameShare && window.TeacherGameShare.supports(match.path)) { window.TeacherGameShare.open(match.path); return; }
       var url = new URL(match.path, window.location.href);
       if (/\.html(?:[?#]|$)/i.test(match.path)) url.searchParams.set('student', '1');
+      if (window.MK_GAME_CAPABILITIES) window.MK_GAME_CAPABILITIES.studentUrl(url);
       var value = url.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(value).then(function () { share.textContent = 'Student link copied!'; }, function () { window.prompt('Copy student link:', value); });

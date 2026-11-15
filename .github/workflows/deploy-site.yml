@@ -161,6 +161,11 @@ jobs:
         run: node scripts/add-site-header.mjs
       - name: Add shared problem reporting to resource and student pages
         run: node scripts/add-feedback.mjs
+      - name: Apply and verify consistent solo game modes
+        run: |
+          node --test tests/game-capabilities.test.cjs
+          node scripts/apply-game-modes.mjs
+          node scripts/test-game-modes.cjs _site
       - name: Browser-check every course and unit resource card
         run: node scripts/test-no-dead-end-cards.cjs _site
       - name: Final site check (catalog files, no off-site links, no stray text)

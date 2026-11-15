@@ -3,6 +3,7 @@
 'use strict';
 const catalog=G.MK_INTEGRATED_STUDENT_SKILLS||{};
 function supports(resource) {
+ if(G.MK_GAME_CAPABILITIES && !G.MK_GAME_CAPABILITIES.canShare(resource))return false;
  if(!resource || !['grade1','grade2','grade3','grade4','grade5','financial-algebra'].includes(resource.courseId))return false;
  const type=String(resource.type||''),path=String(resource.path||'');
  if(/^grade[1-5]$/.test(resource.courseId)){
@@ -50,7 +51,7 @@ function open(resource){
   const ids=inputs.filter(x=>x.checked).map(x=>x.value);if(!ids.length)return;
   const url=new URL(target.href);
   url.searchParams.delete('teacher');url.searchParams.delete('teacherShare');url.searchParams.delete('mode');url.searchParams.delete('present');
-  url.searchParams.set('student','1');url.searchParams.set('skills',JSON.stringify(ids));
+  url.searchParams.set('student','1');if(G.MK_GAME_CAPABILITIES)G.MK_GAME_CAPABILITIES.studentUrl(url);url.searchParams.set('skills',JSON.stringify(ids));
   if(level)url.searchParams.set('level',level.value);
   result.replaceChildren();
   const summary=doc.createElement('p');summary.textContent='Ready: '+ids.length+' selected '+(ids.length===1?'skill':'skills')+(level?' · '+level.options[level.selectedIndex].text:'')+'.';result.appendChild(summary);

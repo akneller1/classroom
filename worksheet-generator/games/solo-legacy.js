@@ -19,7 +19,7 @@
   /* ======================= Connect 4 (G.board, startTurn, dropCol) ======================= */
   if (typeof dropCol === 'function' && typeof startTurn === 'function' && typeof toStealOffer === 'function') {
     var saved = load(), teamName1 = q('#name1') ? q('#name1').value : 'Team 2';
-    G.solo = saved.mode === 'solo'; G.ai = saved.ai || 'medium'; G.cpuNote = ''; G.cpuToken = 0;
+    G.solo = new URLSearchParams(location.search).get('student') === '1' || new URLSearchParams(location.search).get('mode') === 'solo' || saved.mode === 'solo'; G.ai = saved.ai || 'medium'; G.cpuNote = ''; G.cpuToken = 0;
     var ctl = q('.controls');
     if (ctl) {
       var lab = document.createElement('label'); lab.setAttribute('for', 'soloSel');
@@ -84,7 +84,7 @@
   /* ======================= Tic-Tac-Toe (B, turn, quiz, submit, afterQuiz) ======================= */
   if (typeof afterQuiz === 'function' && typeof submit === 'function') {
     var s2 = load();
-    G.solo = false; G.ai = s2.ai || 'medium';
+    G.solo = new URLSearchParams(location.search).get('student') === '1'; G.ai = s2.ai || 'medium';
     var cpuNote = '', cpuTried = -1, cpuTimer = null, origRender2 = render, origSubmit = submit, origPick = pick;
     pick = function (i) { if (G.solo && turn === 'B') return; cpuNote = ''; cpuTried = -1; return origPick(i); };
     submit = function (timeout) {
@@ -118,7 +118,7 @@
     };
     var setupExtras = function () {
       var start = q('#start'); if (!start || q('#soloMode')) return;
-      var solo = s2.mode === 'solo';
+      var solo = new URLSearchParams(location.search).get('student') === '1' || s2.mode === 'solo';
       var box = document.createElement('div');
       box.innerHTML = '<label for="soloMode">Players</label><select id="soloMode"><option value="teams">Two teams</option><option value="solo">Solo vs. computer</option></select>' +
         '<div id="soloOpts"><label for="soloAI">Computer difficulty</label><select id="soloAI">' + levelOpts.map(function (k) { return '<option value="' + k + '">' + AI.levelName(k) + '</option>'; }).join('') + '</select>' +

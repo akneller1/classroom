@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 
-const CATALOG_SCRIPT = /^(postit-games|data|course-integrations|unit-specific-arcade|resource-details|course-catalog|unit-generator-cards|grade\d-main-catalog|grade\d\/grade\d-main-catalog)\.js$/;
+const CATALOG_SCRIPT = /^(elementary-board-catalog|postit-games|data|course-integrations|unit-specific-arcade|resource-details|course-catalog|unit-generator-cards|grade\d-main-catalog|grade\d\/grade\d-main-catalog)\.js$/;
 
 export function loadSiteCatalog(OUT, { siteUrl = "https://mrksclassroom.com/", quiet = false } = {}) {
   const indexHtml = fs.readFileSync(path.join(OUT, "index.html"), "utf8");

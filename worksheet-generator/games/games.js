@@ -250,7 +250,8 @@
   function teamSetup(game, intro, rules, start, soloRules) {
     if (soloRules && !AI && !teamSetup.tried) { teamSetup.tried = true; return withSoloAI(function () { teamSetup(game, intro, rules, start, soloRules); }); }
     var nm = saved.names || ['Left side', 'Right side'];
-    var canSolo = !!(AI && soloRules), mode = canSolo && saved.mode === 'solo' ? 'solo' : 'teams';
+    if(soloRules && !AI && new URLSearchParams(G.location.search).get('student')==='1'){app.innerHTML=head('The computer opponent could not load. Reload to try again.',game);return;}
+    var canSolo = !!(AI && soloRules), mode = canSolo && (new URLSearchParams(G.location.search).get('student') === '1' || new URLSearchParams(G.location.search).get('mode') === 'solo' || saved.mode === 'solo') ? 'solo' : 'teams';
     function rulesHtml(list, id, hidden) { return '<ol class="gm-rules" id="' + id + '"' + (hidden ? ' hidden' : '') + '>' + list.map(function (r) { return '<li>' + r + '</li>'; }).join('') + '</ol>'; }
     app.innerHTML = head(intro, game) + '<div class="gm-panel gm-setup"><h2 style="margin-top:0">Set up the game</h2>' +
       (canSolo ? '<div class="gm-mode" role="group" aria-label="Who is playing?"><button type="button" class="gm-mode-btn" data-mode="teams" aria-pressed="' + (mode === 'teams') + '">Two teams</button><button type="button" class="gm-mode-btn" data-mode="solo" aria-pressed="' + (mode === 'solo') + '">Solo vs. computer</button></div>' : '') +

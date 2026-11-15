@@ -153,13 +153,15 @@
   /* Teaching mode metadata: derived from game mechanics, not the generic 'Game' type. */
   function gameMode(a) {
     var f = activityFormat(a);
+    var players = window.MK_GAME_CAPABILITIES && window.MK_GAME_CAPABILITIES.get(a);
+    if (players && players.team) return players.solo ? 'Solo or Team Games' : 'Team Games';
     if (a.unitSpecific === true) return 'Unit-specific';
-    if (['showdown', 'connect-four', 'tic-tac-toe', 'millionaire'].indexOf(f) >= 0) return 'Team Games';
+    if (['showdown', 'connect-four', 'tic-tac-toe'].indexOf(f) >= 0) return 'Team Games';
     if (f === 'escape-rooms') return 'Collaborative Challenges';
-    if (['picture-reveal', 'detective-games', 'topic-games', 'asteroid-blaster'].indexOf(f) >= 0) return 'Individual Review';
+    if (['millionaire', 'picture-reveal', 'detective-games', 'topic-games', 'asteroid-blaster'].indexOf(f) >= 0) return 'Individual Review';
     return '';
   }
-  var GAME_MODES = ['Individual Review', 'Team Games', 'Collaborative Challenges', 'Unit-specific'];
+  var GAME_MODES = ['Solo or Team Games', 'Individual Review', 'Team Games', 'Collaborative Challenges', 'Unit-specific'];
   function formatItems(format) {
     return everything().filter(function (it) { return activityFormat(it.a) === format.id; });
   }
@@ -864,8 +866,8 @@
         {mode:'showdown',title:'Showdown',thumb:'thumbs/foundations-algebra-showdown.jpg'}
       ].map(function(item){
         var formatDetails = {
-          'tic-tac-toe': 'Tic-Tac-Toe for two teams. Answer a multiple-choice problem to claim a square; a wrong answer lets the other team steal.',
-          'connect-four': 'Teams solve problems to place discs and connect four in a row.',
+          'tic-tac-toe': 'Play solo against the computer or with two teams. Answer correctly to claim a square and make three in a row.',
+          'connect-four': 'Play solo against the computer or with two teams. Solve problems to earn discs and connect four.',
           'picture-reveal': 'Answer questions correctly to uncover a hidden picture.',
           'showdown': 'Choose a category and point value, solve a problem, and reveal the answer.',
           'flashcards': 'Flip cards to reveal answers and worked solutions. Shuffle and review missed problems.'
